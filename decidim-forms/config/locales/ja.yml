@@ -4,8 +4,6 @@ ja:
     attributes:
       answer:
         body: 回答
-        choices: 選択項目
-        selected_choices: 選択した項目
       question:
         max_choices: 選択肢の最大数
         question_type: タイプ
@@ -16,12 +14,7 @@ ja:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: 再添付が必要
-            body:
-              too_long: 長すぎます
             choices:
-              missing: は完全ではありません
               too_many: 多すぎます
         questionnaire:
           request_invalid: リクエストの処理中にエラーが発生しました。もう一度やり直してください。
@@ -38,24 +31,14 @@ ja:
             show: 回答を表示
           answer_option:
             answer_option: 回答オプション
-            free_text: フリーテキスト
             remove: 削除
             statement: ステートメント
           answers:
             actions:
-              back: 返信に戻る
-              export: エクスポート
-              next: 次 &rsaquo;
-              previous: "&lsaquo; 前"
               show: 回答を表示
             empty: まだ回答がありません
-            export:
-              answer:
-                title: '応答 #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "合計%{total} 件の回答"
             show:
               title: '回答 #%{number}'
           display_condition:
@@ -127,9 +110,6 @@ ja:
       admin_log:
         questionnaire:
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
-      errors:
-        answer:
-          body: 本文は空白にできません
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -145,21 +125,15 @@ ja:
         single_option: 単一オプション
         sorting: 並び替え
         title_and_description: タイトルと説明
-      questionnaire_answer_presenter:
-        download_attachment: 添付ファイルをダウンロード
       questionnaires:
         answer:
           invalid: フォームの回答に問題がありました。
-          max_choices_alert: 選択された選択肢が多すぎます
           success: フォームは正常に回答しました。
         question:
           max_choices: '最大選択肢: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: 既にアカウントをお持ちですか？
-            are_you_new?: 新しいユーザーですか？
             sign_in_description: ログインしてアンケートに答える
-            sign_up_description: アンケートに答えるために参加者アカウントを作成します
             title: フォームに回答
           current_step: ステップ %{step}
           empty: このフォームに設定された質問はまだありません。
@@ -187,12 +161,6 @@ ja:
           submit: 送信
       user_answers_serializer:
         body: 回答
-        completion: 完了
         created_at: 回答日時
         id: 回答ID
-        ip_hash: IP ハッシュ
         question: 質問
-        registered: 登録済み
-        session_token: ユーザー識別子
-        unregistered: 未登録
-        user_status: ユーザーの状態
