@@ -59,8 +59,6 @@ fi:
         title: Toiminnot
       admin:
         answers:
-          index:
-            title: "yhteensä %{total} vastausta"
           show:
             title: 'Vastaus #%{number}'
         exports:
@@ -74,9 +72,6 @@ fi:
               Voit julkaista kyselyn vastaukset näkyville kaikille alustan käyttäjille.
               Voit valita julkaistavat vastaukset valitsemalla kunkin kysymyksen vieressä näkyvän valintaruudun.
               Voit julkaista ainoastaan seuraavantyyppisten kysymysten vastaukset: "Yksi vaihtoehto", "Useita vaihtoehtoja", "Kysymysmatriisi (yksi valinta)", "Kysymysmatriisi (useita valintoja)" ja "Järjestäminen".
-            status:
-              not_published: Ei julkaistu
-              published: Julkaistu
             title: Julkaise vastaukset
         surveys:
           create:
@@ -113,7 +108,7 @@ fi:
       models:
         survey:
           fields:
-            answers: Vastaukset
+            answers: Vastausta
             questions: Kysymykset
             status: Tila
             title: Otsikko
