@@ -598,12 +598,7 @@ ca:
             title: Títol
       polls:
         answers:
-          index:
-            administrate: Administrar
-            title: Sondeig/Consulta en directe
           index_admin:
-            back_to_meeting: Tornar a la trobada
-            title: Administrar sondeig/consulta en directe
             view_poll: Veure sondeig/consulta
         questions:
           closed_question:
