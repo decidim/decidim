@@ -1,8 +1,6 @@
 fi-pl:
   activemodel:
     attributes:
-      answer:
-        add_documents: Lisää asiakirjoja
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -308,7 +306,6 @@ fi-pl:
             invalid: Esityslistan päivittäminen epäonnistui.
             success: Esityslistan päivitys onnistui.
         exports:
-          answers: Vastaukset
           meeting_comments: Kommentit
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
@@ -405,7 +402,7 @@ fi-pl:
         poll:
           form:
             announcement_html:
-              - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
+              - 
               - Voit lisätä kysymyksiä milloin tahansa.
               - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
               - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
@@ -635,26 +632,14 @@ fi-pl:
             taxonomies: Luokittelut
             title: Otsikko
       polls:
-        answers:
-          index:
-            administrate: Hallinnoi
-            title: Mielipidetiedustelu
-          index_admin:
-            back_to_meeting: Takaisin tapaamiseen
-            title: Hallinnoi mielipidetiedustelua
-            view_poll: Näytä mielipidetiedustelu
         questions:
           closed_question:
             announcement: Tämä kysymys on suljettu, eikä siihen voi enää vastata.
             question: Kysymys
             question_results: Tulokset
-          index:
-            empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
             edit: Muokkaa hallintapaneelissa
             question: Kysymys
-            received_answer: vastaus
-            received_answers: vastaukset
             results: Tulokset
             send: Lähetä
             sent: Lähetetty
@@ -718,7 +703,6 @@ fi-pl:
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           comments: Tapaamisen kommenttien tiedot
           created_at: Kommentin laatimisaika
-          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
