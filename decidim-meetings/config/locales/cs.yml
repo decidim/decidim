@@ -2,8 +2,6 @@
 cs:
   activemodel:
     attributes:
-      answer:
-        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -655,12 +653,7 @@ cs:
             title: Titul
       polls:
         answers:
-          index:
-            administrate: Spravovat
-            title: Anketa
           index_admin:
-            back_to_meeting: Zpět na schůzku
-            title: Správa ankety
             view_poll: Zobrazit anketu
         questions:
           closed_question:
