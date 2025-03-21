@@ -187,6 +187,12 @@ fr:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
+        completion: Avancement
         created_at: Répondu le
         id: ID de réponse
+        ip_hash: Hachage IP
         question: Question
+        registered: Enregistré
+        session_token: Identifiant de l'utilisateur
+        unregistered: Non enregistré
+        user_status: Etat de l'utilisateur
