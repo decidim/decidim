@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      answer:
-        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -292,7 +290,6 @@ ja:
             invalid: アジェンダの更新に問題がありました。
             success: アジェンダが正常に更新されました。
         exports:
-          answers: 回答
           meeting_comments: コメント
           meetings: ミーティング
           registrations: 登録
@@ -389,7 +386,7 @@ ja:
         poll:
           form:
             announcement_html:
-              - 質問が回答を受信または公開/閉じた場合、編集できなくなります。
+              - 
               - 質問はいつでも追加できます。
               - 作成されたすべての質問の結果が公開されると、投票は終了します。
               - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
@@ -615,26 +612,14 @@ ja:
             taxonomies: タクソノミー
             title: タイトル
       polls:
-        answers:
-          index:
-            administrate: 管理
-            title: 投票
-          index_admin:
-            back_to_meeting: ミーティングに戻る
-            title: 投票を管理
-            view_poll: 投票を表示
         questions:
           closed_question:
             announcement: この質問への回答はクローズされました。
             question: 質問
             question_results: 結果
-          index:
-            empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
             edit: 管理画面で編集
             question: 質問
-            received_answer: 受理した回答
-            received_answers: 受理した回答
             results: 結果
             send: 送信
             sent: 送信済み
@@ -696,7 +681,6 @@ ja:
           commentable_id: コメント対象の固有ID
           commentable_type: コメント対象の種別 (結果、提案など)
           created_at: このコメントが作成された日時
-          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
           id: このコメントのID
           locale: このコメントを残すときに参加者が使っていたロケール（言語）
           root_commentable_url: このコメントに関連するリソースの URL
