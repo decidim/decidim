@@ -25,7 +25,7 @@ module Decidim
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
             have_link("Admin activity log", href: "/admin/logs") &
-            have_link("Insights", href: "/admin/metrics") &
+            have_link("Insights", href: "/admin/statistics") &
             have_link("Templates", href: "/admin/templates/questionnaire_templates")
         end
 
