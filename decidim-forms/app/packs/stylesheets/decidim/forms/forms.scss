@@ -1,4 +1,4 @@
-.answer-questionnaire {
+.response-questionnaire {
   @apply border-t-2 border-background pt-8;
 
   &__step {
@@ -22,7 +22,7 @@
   }
 
   &__question-label {
-    @apply text-black text-xl font-semibold relative before:content-[attr(data-answer-idx)] before:w-6 before:h-6 md:before:absolute md:before:-left-4 md:before:-translate-x-full before:inline-flex before:justify-center before:rounded-full before:bg-background before:text-lg before:text-gray-2 before:font-semibold;
+    @apply text-black text-xl font-semibold relative before:content-[attr(data-response-idx)] before:w-6 before:h-6 md:before:absolute md:before:-left-4 md:before:-translate-x-full before:inline-flex before:justify-center before:rounded-full before:bg-background before:text-lg before:text-gray-2 before:font-semibold;
   }
 
   &__question-description {

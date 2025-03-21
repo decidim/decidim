@@ -75,14 +75,14 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  component.exports :answers do |exports|
+  component.exports :responses do |exports|
     exports.collection do |_component, _user, resource_id|
-      Decidim::Meetings::QuestionnaireUserAnswers.for(resource_id)
+      Decidim::Meetings::QuestionnaireUserResponses.for(resource_id)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Meetings::UserAnswersSerializer
+    exports.serializer Decidim::Meetings::UserResponsesSerializer
   end
 
   component.actions = %w(join comment)

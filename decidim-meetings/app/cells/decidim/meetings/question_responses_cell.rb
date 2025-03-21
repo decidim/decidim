@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This cell renders the percentage of responses which chose
-    # the given answer option in a meeting poll question
+    # the given response option in a meeting poll question
     class QuestionResponsesCell < Decidim::ViewModel
       def show
         render
@@ -12,35 +12,35 @@ module Decidim
       private
 
       # Returns an array of arrays, where the internal array contains
-      #   - the body of the answer option
-      #   - the percentage of answers for that option
+      #   - the body of the response option
+      #   - the percentage of responses for that option
       #
-      def answer_options_with_percentages
-        # This query joins answer options with answer choices and answers
-        # and returns for each answer option the count of times it has been answered
-        # grouping by answer options and answers.
+      def response_options_with_percentages
+        # This query joins response options with response choices and responses
+        # and returns for each response option the count of times it has been responded
+        # grouping by response options and responses.
         #
-        # This calculation is a bit complex because of multiple option answers
-        question_answers_choices = Decidim::Meetings::AnswerOption.where(decidim_question_id: model.id)
-                                                                  .joins([choices: :answer])
-                                                                  .group(Arel.sql("#{answers_table_name}.id, #{answer_options_table_name}.id"))
-                                                                  .select(<<~SELECT
-                                                                    #{answer_options_table_name}.id AS id,
-                                                                    #{answer_options_table_name}.body,
-                                                                    #{answers_table_name}.id AS answer_id,
-                                                                    COUNT(decidim_answer_option_id) AS count
-                                                                  SELECT
-                                                                         )
+        # This calculation is a bit complex because of multiple option responses
+        question_responses_choices = Decidim::Meetings::ResponseOption.where(decidim_question_id: model.id)
+                                                                      .joins([choices: :response])
+                                                                      .group(Arel.sql("#{responses_table_name}.id, #{response_options_table_name}.id"))
+                                                                      .select(<<~SELECT
+                                                                        #{response_options_table_name}.id AS id,
+                                                                        #{response_options_table_name}.body,
+                                                                        #{responses_table_name}.id AS response_id,
+                                                                        COUNT(decidim_response_option_id) AS count
+                                                                      SELECT
+                                                                             )
 
-        # Extract the number of uniq answers by the answer_id attribute
-        total_answers = question_answers_choices.map(&:answer_id).compact.uniq.size
+        # Extract the number of uniq responses by the response_id attribute
+        total_responses = question_responses_choices.map(&:response_id).compact.uniq.size
 
-        # A second grouping is necessary to count the number of answers for each answer_option id
+        # A second grouping is necessary to count the number of responses for each response_option id
         # and calculate the percentages
         options_with_percentages = []
-        question_answers_choices.group_by(&:id).each do |_id, values|
-          answers_count = values.sum(&:count)
-          options_with_percentages << [values.first.body, calculate_and_format_percentage(answers_count, total_answers)]
+        question_responses_choices.group_by(&:id).each do |_id, values|
+          responses_count = values.sum(&:count)
+          options_with_percentages << [values.first.body, calculate_and_format_percentage(responses_count, total_responses)]
         end
 
         options_with_percentages
@@ -58,12 +58,12 @@ module Decidim
         format_percentage(calculate_percentage(part, total))
       end
 
-      def answer_options_table_name
-        @answer_options_table_name ||= Decidim::Meetings::AnswerOption.table_name
+      def response_options_table_name
+        @response_options_table_name ||= Decidim::Meetings::ResponseOption.table_name
       end
 
-      def answers_table_name
-        @answers_table_name ||= Decidim::Meetings::Answer.table_name
+      def responses_table_name
+        @responses_table_name ||= Decidim::Meetings::Response.table_name
       end
     end
   end
