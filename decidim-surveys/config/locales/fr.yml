@@ -8,6 +8,9 @@ fr:
       decidim/surveys/survey:
         one: Enquête
         other: Enquêtes
+      decidim/surveys/survey_response:
+        one: Réponse
+        other: Réponses
   decidim:
     admin:
       admin_log:
@@ -17,9 +20,12 @@ fr:
         surveys_menu:
           main: Principal
           questions: Questions
+          responses: Réponses
           settings: Paramètres
     components:
       surveys:
+        actions:
+          response: Réponse
         name: Enquêtes
         settings:
           announcement: Annonce
@@ -39,6 +45,12 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez la concertation %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    metrics:
+      survey_responses:
+        object: réponses aux enquêtes
+        title: Réponses aux enquêtes
+    statistics:
+      responses_count: Réponses
     surveys:
       actions:
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
@@ -47,12 +59,28 @@ fr:
         manage_questions: Questions
         new_survey: Nouvelle enquête
         preview: Aperçu
+        responses_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement %{responses_count} réponses qui seront supprimées si vous continuez.
         title: Actions
       admin:
+        publish_responses:
+          index:
+            responses:
+              one: "%{count} réponse"
+              other: "%{count} réponses"
+            status:
+              not_published: Non publiées
+              published: Publiées
+            title: Publier les réponses
         questions:
           surveys:
             edit:
               title: Questions
+        responses:
+          index:
+            no_responses: Il n'y a pas encore de réponses
+            title: "%{total} réponses au total"
+          show:
+            title: 'Réponse #%{number}'
         settings:
           surveys:
             edit:
@@ -95,11 +123,14 @@ fr:
         survey:
           fields:
             questions: Questions
+            responses: Réponses
             status: État 
             title: Titre
           status:
             closed: Fermée
             open: Ouverte
+      survey_confirmation_mailer:
+        export_name: Réponses à l'enquête
       surveys:
         filters:
           all: Toutes
