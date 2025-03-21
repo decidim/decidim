@@ -591,12 +591,7 @@ pl:
             title: Tytuł
       polls:
         answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
           index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
             view_poll: Zobacz ankietę
         questions:
           closed_question:
