@@ -254,7 +254,6 @@ lt:
             invalid: Atnaujinant šią darbotvarkę iškilo problema.
             success: Darbotvarkė atnaujinta.
         exports:
-          answers: Atsakymai
           meeting_comments: Komentarai
           meetings: Susirinkimai
           registrations: Registracijos
@@ -549,13 +548,9 @@ lt:
             title: Pavadinimas
       polls:
         questions:
-          index:
-            empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
           index_admin:
             edit: Redaguoti administratoriaus skydelyje
             question: Klausimas
-            received_answer: gautas atsakymas
-            received_answers: gauti atsakymai
             results: Rezultatai
             send: Siųsti
             sent: Išsiųsta
