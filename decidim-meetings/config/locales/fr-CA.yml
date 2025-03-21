@@ -598,12 +598,7 @@ fr-CA:
             title: Titre
       polls:
         answers:
-          index:
-            administrate: Administrer
-            title: Sondage
           index_admin:
-            back_to_meeting: Revenir à la rencontre
-            title: Administrer le sondage
             view_poll: Voir le sondage
         questions:
           closed_question:
