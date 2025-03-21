@@ -1,8 +1,6 @@
 fr-CA:
   activemodel:
     attributes:
-      answer:
-        add_documents: Ajouter des documents
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -289,7 +287,6 @@ fr-CA:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
             success: Ordre du jour mis à jour avec succès.
         exports:
-          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
@@ -384,7 +381,7 @@ fr-CA:
         poll:
           form:
             announcement_html:
-              - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
+              - 
               - Vous pouvez ajouter une question à tout moment.
               - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
               - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
@@ -611,26 +608,14 @@ fr-CA:
             start_time: Date de début
             title: Titre
       polls:
-        answers:
-          index:
-            administrate: Administrer
-            title: Sondage
-          index_admin:
-            back_to_meeting: Revenir à la rencontre
-            title: Administrer le sondage
-            view_poll: Voir le sondage
         questions:
           closed_question:
             announcement: Les réponses à cette question sont closes.
             question: Question
             question_results: Résultats
-          index:
-            empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
             edit: Modifier dans le panneau d'administration
             question: Question
-            received_answer: réponse reçue
-            received_answers: réponses reçues
             results: Résultats
             send: Envoyer
             sent: Envoyée
