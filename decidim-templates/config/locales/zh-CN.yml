@@ -34,11 +34,8 @@ zh-CN:
             save: 保存
         questionnaire_templates:
           choose:
-            create_from_template: 从模板创建
-            description: 您即将创建一个新的问题单。您可以选择一个预定义的模板并在其后进行修改。
             label: 选择模板
             placeholder: 选择模板
-            skip_template: 跳过
           edit:
             edit: 编辑
             questionnaire: Questionnaire

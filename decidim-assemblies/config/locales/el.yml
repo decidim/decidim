@@ -177,7 +177,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-            valuator: Εκτιμητής
       titles:
         assemblies: Συνελεύσεις
         assemblies_types: Τύποι συνέλευσης

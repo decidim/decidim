@@ -13,7 +13,7 @@ module Decidim
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
-      has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
       after_initialize :set_default_salt
 
@@ -22,13 +22,13 @@ module Decidim
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         has_component = questionnaire_for.respond_to? :component
-        (has_component && !questionnaire_for.component.published?) || answers.empty?
+        (has_component && !questionnaire_for.component.published?) || responses.empty?
       end
 
-      # Public: returns whether the questionnaire is answered by the user or not.
-      def answered_by?(user)
+      # Public: returns whether the questionnaire is responded by the user or not.
+      def responded_by?(user)
         query = user.is_a?(String) ? { session_token: user } : { user: }
-        answers.where(query).any? if questions.present?
+        responses.where(query).any? if questions.present?
       end
 
       def pristine?
@@ -45,7 +45,7 @@ module Decidim
 
       private
 
-      # salt is used to generate secure hash in anonymous answers
+      # salt is used to generate secure hash in anonymous responses
       def set_default_salt
         return unless defined?(salt)
 

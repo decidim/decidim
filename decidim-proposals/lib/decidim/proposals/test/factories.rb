@@ -551,15 +551,15 @@ FactoryBot.define do
     component { create(:proposal_component, skip_injection:) }
   end
 
-  factory :valuation_assignment, class: "Decidim::Proposals::ValuationAssignment" do
+  factory :evaluation_assignment, class: "Decidim::Proposals::EvaluationAssignment" do
     transient do
       skip_injection { false }
     end
     proposal
-    valuator_role do
+    evaluator_role do
       space = proposal.component.participatory_space
       organization = space.organization
-      build(:participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:))
+      build(:participatory_process_user_role, role: :evaluator, skip_injection:, user: build(:user, organization:, skip_injection:))
     end
   end
 end

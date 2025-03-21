@@ -25,6 +25,7 @@ module Decidim
     # @return [String, nil] - The resolved image blob or nil if no image is found.
     def resolve
       return unless blob
+      return unless blob.service.exist?(blob.key)
 
       resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
       Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)

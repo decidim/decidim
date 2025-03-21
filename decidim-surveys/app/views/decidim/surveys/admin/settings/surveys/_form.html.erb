@@ -2,10 +2,10 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.check_box :allow_answers, label: t("models.components.allow_answers", scope: "decidim.forms.admin"), aria: { label: :allow_answers } %>
+        <%= form.check_box :allow_responses, label: t("models.components.allow_responses", scope: "decidim.forms.admin"), aria: { label: :allow_responses } %>
       </div>
       <div class="row column">
-        <%= form.check_box :allow_editing_answers, label: t("models.components.allow_editing_answers", scope: "decidim.forms.admin"), aria: { label: :allow_editing_answers } %>
+        <%= form.check_box :allow_editing_responses, label: t("models.components.allow_editing_responses", scope: "decidim.forms.admin"), aria: { label: :allow_editing_responses } %>
       </div>
       <div class="row column">
         <%= form.check_box :allow_unregistered, label: t("models.components.allow_unregistered", scope: "decidim.forms.admin"), aria: { label: :allow_unregistered }, help_text: t("models.components.allow_unregistered_help", scope: "decidim.forms.admin") %>

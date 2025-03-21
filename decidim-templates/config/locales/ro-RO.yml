@@ -25,7 +25,7 @@ ro:
         empty: Nu există încă nici un model.
         update:
           error: A apărut o eroare la actualizarea acestui șablon.
-          success: Șablonul a fost importat cu succes.
+          success: Șablonul a fost actualizat cu succes.
       titles:
         template_types:
           questionnaires: Şabloane chestionar
@@ -54,14 +54,12 @@ ro:
             save: Salvează
         questionnaire_templates:
           choose:
-            create_from_template: Creează după model
-            description: Ești pe cale de a crea un nou chestionar. Poți alege un model predefinit și să-l modifici ulterior.
             label: Alege un model
             placeholder: Alege un model
-            skip_template: Treci peste
           edit:
             edit: Editează
             empty: Nu există încă întrebări.
+            manage_questions: Întrebări
             questionnaire: Chestionar
           form:
             title: Model de chestionar %{questionnaire_for}

@@ -31,7 +31,6 @@ zh-TW:
         questionnaires:
           actions:
             back: 返回問題
-            show: 顯示回應
           answer_option:
             answer_option: 答案選項：
             free_text: 免費文字

@@ -394,6 +394,12 @@ Decidim.configure do |config|
   # config.admin_password_min_length = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
   # config.admin_password_repetition_times = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
 
+  # Delete inactive users configuration
+  # config.delete_inactive_users_after_days = Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+  # config.minimum_inactivity_period = Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD", 30).to_i
+  # config.delete_inactive_users_first_warning_days_before = Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE", 30).to_i
+  # config.delete_inactive_users_last_warning_days_before = Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE", 7).to_i
+
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
   # config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
   # config.cache_expiry_time = Decidim::Env.new("DECIDIM_CACHE_EXPIRATION_TIME", "1440").to_i.minutes

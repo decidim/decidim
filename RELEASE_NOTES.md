@@ -91,7 +91,44 @@ bin/rails decidim:upgrade:user_groups:remove_groups_notifications
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
-### 2.3. [[TITLE OF THE ACTION]]
+### 2.3. Automatic deletion of inactive accounts
+
+To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
+
+Before deletion, the system will send two notification emails:
+
+* The first email is sent **30 days** before the scheduled deletion.
+* The second email is sent **7 days** before the deletion deadline.
+
+Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
+
+To enable automatic deletion, add the following scheduled task to your cron jobs:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+```
+
+By default, the inactivity period is set to 365 days, but it can be customized by passing a parameter to the task. For example:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants[500]
+```
+
+If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
+
+```yaml
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
+:queues:
+  - [default, 2]
+  - [delete_inactive_participants, 2]
+  - [mailers, 4]
+  - [reminders, 2]
+  - [newsletter, 2]
+```
+
+You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
+
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -115,7 +152,23 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-### 3.2. Convert nicknames to lowercase
+### 3.2. Change of Valuator for Evaluator
+
+We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
+
+Implementors must run the following 3 tasks:
+
+```bash
+./bin/rails decidim:upgrade:decidim_update_valuators
+./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
+./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+```
+
+These tasks migrate the old data to the new names.
+
+More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
+
+### 3.3. Convert nicknames to lowercase
 
 As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
 
@@ -127,7 +180,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

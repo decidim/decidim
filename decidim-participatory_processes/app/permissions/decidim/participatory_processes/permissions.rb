@@ -46,7 +46,7 @@ module Decidim
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         process_admin_action?
 
         permission_action
@@ -217,9 +217,9 @@ module Decidim
         allow! if permission_action.action == :preview
       end
 
-      # Valuators can only read the components of a process.
-      def valuator_action?
-        return unless can_manage_process?(role: :valuator)
+      # Evaluators can only read the components of a process.
+      def evaluator_action?
+        return unless can_manage_process?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
