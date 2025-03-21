@@ -203,7 +203,6 @@ hu:
             create: Létrehozás
             title: Új napirend
         exports:
-          answers: Válaszok
           meeting_comments: Hozzászólások
           meetings: Találkozók
           registrations: Regisztrációk
