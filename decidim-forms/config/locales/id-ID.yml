@@ -14,7 +14,6 @@ id:
         answer:
           attributes:
             choices:
-              missing: tidak lengkap
               too_many: terlalu banyak
   decidim:
     forms:
@@ -26,7 +25,6 @@ id:
         questionnaires:
           answer_option:
             answer_option: Opsi jawaban
-            free_text: Teks gratis
             remove: Menghapus
             statement: Pernyataan
           edit:
@@ -78,3 +76,4 @@ id:
       user_answers_serializer:
         created_at: Dijawab pada
         id: ID jawaban
+        question: Pertanyaan
