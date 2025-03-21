@@ -597,12 +597,7 @@ sv:
             title: Titel
       polls:
         answers:
-          index:
-            administrate: Administrera
-            title: Enkät
           index_admin:
-            back_to_meeting: Tillbaka till mötet
-            title: Administrera enkät
             view_poll: Visa enkät
         questions:
           closed_question:
