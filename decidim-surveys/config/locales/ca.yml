@@ -59,8 +59,6 @@ ca:
         title: Accions
       admin:
         answers:
-          index:
-            title: "%{total} respostes totals"
           show:
             title: 'Resposta #%{number}'
         exports:
@@ -74,9 +72,6 @@ ca:
               Publicant les respostes a les preguntes de l'enquesta, aquestes seran visibles per a les visitants.
               Pots seleccionar les preguntes de les que vols publicar les respostes marcant el "checkbox" de cadascuna d'elles.
               Només pots publicar les respostes de les preguntes que són del tipus de resposta: "Opció única", "Opció múltiple", "Matriu (opció única)", "Matriu (opció múltiple), i "Ordenació".
-            status:
-              not_published: No publicades
-              published: Publicades
             title: Publicar respostes
         surveys:
           create:
