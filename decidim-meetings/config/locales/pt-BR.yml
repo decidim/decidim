@@ -266,7 +266,6 @@ pt-BR:
             invalid: Houve um problema ao atualizar esta agenda.
             success: Agenda atualizada com sucesso.
         exports:
-          answers: Respostas
           meeting_comments: Comentários
           meetings: Reuniões
           registrations: Inscrições
@@ -560,13 +559,9 @@ pt-BR:
             title: Título
       polls:
         questions:
-          index:
-            empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             edit: Editar no painel de administração
             question: Pergunta
-            received_answer: resposta recebida
-            received_answers: respostas recebidas
             results: Resultados
             send: Enviar
             sent: Enviado
