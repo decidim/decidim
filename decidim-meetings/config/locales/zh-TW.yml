@@ -240,7 +240,6 @@ zh-TW:
             invalid: 更新議程時發生問題.
             success: 議程已成功更新.
         exports:
-          answers: 回答
           meeting_comments: 評論
           meetings: 會議
           registrations: 註冊
@@ -523,13 +522,9 @@ zh-TW:
             title: 標題
       polls:
         questions:
-          index:
-            empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
           index_admin:
             edit: 在管理面板中編輯
             question: 問題
-            received_answer: 收到回答
-            received_answers: 收到回答
             results: 結果
             send: 發送
             sent: 傳送
