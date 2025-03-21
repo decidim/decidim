@@ -1,8 +1,6 @@
 ca:
   activemodel:
     attributes:
-      answer:
-        add_documents: Afegir documents
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -308,7 +306,6 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia.
             success: L'ordre del dia s'ha actualitzat correctament.
         exports:
-          answers: Respostes
           meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
@@ -405,7 +402,7 @@ ca:
         poll:
           form:
             announcement_html:
-              - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
+              - 
               - Pots afegir una pregunta en qualsevol moment.
               - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
               - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
@@ -635,26 +632,14 @@ ca:
             taxonomies: Taxonomies
             title: Títol
       polls:
-        answers:
-          index:
-            administrate: Administrar
-            title: Sondeig/Consulta en directe
-          index_admin:
-            back_to_meeting: Tornar a la trobada
-            title: Administrar sondeig/consulta en directe
-            view_poll: Veure sondeig/consulta
         questions:
           closed_question:
             announcement: S'han tancat les respostes a aquesta pregunta.
             question: Pregunta
             question_results: Resultats
-          index:
-            empty_questions: Al llarg d'aquesta trobada, s'enviaran algunes preguntes i podràs respondre-les. Es mostraran aquí.
           index_admin:
             edit: Editar al panell d'administració
             question: Pregunta
-            received_answer: resposta rebuda
-            received_answers: respostes rebudes
             results: Resultats
             send: Enviar
             sent: Enviades
@@ -718,7 +703,6 @@ ca:
           commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
           comments: Les dades dels comentaris de la trobada
           created_at: La data en què es va crear aquest comentari
-          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
