@@ -141,7 +141,6 @@ lb:
             create: Erstellen
             title: Neue Agenda
         exports:
-          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
