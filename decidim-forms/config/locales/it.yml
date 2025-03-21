@@ -4,8 +4,6 @@ it:
     attributes:
       answer:
         body: Risposta
-        choices: Scelte
-        selected_choices: Scelte selezionate
       question:
         max_choices: Numero massimo di scelte
         question_type: Tipo
@@ -16,12 +14,7 @@ it:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Deve essere allegato nuovamente
-            body:
-              too_long: è troppo lungo
             choices:
-              missing: non sono completi
               too_many: sono troppi
   decidim:
     forms:
@@ -36,22 +29,14 @@ it:
             show: Mostra risposte
           answer_option:
             answer_option: Opzione di risposta
-            free_text: Testo libero
             remove: Rimuovere
             statement: dichiarazione
           answers:
             actions:
-              back: Torna alle risposte
-              export: Esporta
               show: Mostra risposte
             empty: Ancora nessuna risposta
-            export:
-              answer:
-                title: 'Risposta #%{number}'
             export_response:
               title: risposte_utente_sondaggio_%{token}
-            index:
-              title: "%{total} risposte totali"
             show:
               title: 'Risposta #%{number}'
           display_condition:
@@ -121,7 +106,6 @@ it:
       questionnaires:
         answer:
           invalid: Ci sono stati errori nel rispondere al questionario.
-          max_choices_alert: Sono state selezionate troppe opzioni
           success: Il questionario ha risposto con successo.
         question:
           max_choices: 'Scelte massime: %{n}'
@@ -152,12 +136,6 @@ it:
           submit: Invia
       user_answers_serializer:
         body: Risposta
-        completion: Completamento
         created_at: Risposto
         id: ID risposta
-        ip_hash: Hash Ip
         question: Domanda
-        registered: Registrato
-        session_token: Identificativo dell'utente
-        unregistered: Non registrato
-        user_status: Stato utente
