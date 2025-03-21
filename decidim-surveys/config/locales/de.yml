@@ -8,9 +8,6 @@ de:
       decidim/surveys/survey:
         one: Umfrage
         other: Umfragen
-      decidim/surveys/survey_answer:
-        one: Antworten
-        other: Antworten
   decidim:
     admin:
       admin_log:
@@ -18,8 +15,6 @@ de:
           surveys: Umfragen
     components:
       surveys:
-        actions:
-          answer: Antworten
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -39,16 +34,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
-    metrics:
-      survey_answers:
-        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
-        object: Antworten auf Umfragen
-        title: Antworten zu Umfragen
-    statistics:
-      answers_count: Antworten
     surveys:
       actions:
-        answers_alert: Das Löschen von Antworten bei der Veröffentlichung ist für diese Umfrage aktiv. Derzeit gibt es %{answers_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
         destroy: Löschen
         edit: Bearbeiten
@@ -56,26 +43,6 @@ de:
         preview: Vorschau
         title: Aktionen
       admin:
-        answers:
-          index:
-            title: "%{total} Antworten insgesamt"
-          show:
-            title: 'Antwort #%{number}'
-        exports:
-          survey_user_answers: Umfrage Benutzer Antworten
-        publish_answers:
-          index:
-            answers:
-              one: "%{count} Antwort"
-              other: "%{count} Antworten"
-            description: |-
-              Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
-              Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
-              Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
-            status:
-              not_published: Nicht veröffentlicht
-              published: Veröffentlicht
-            title: Antworten veröffentlichen
         surveys:
           create:
             invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
@@ -109,23 +76,13 @@ de:
       models:
         survey:
           fields:
-            answers: Antworten
             questions: Fragen
             status: Status
             title: Titel
           status:
             closed: Geschlossen
             open: Offen
-      survey_confirmation_mailer:
-        confirmation:
-          body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
-          subject: 'Umfrage "%{questionnaire_title}": Bestätigung Ihrer Antwort'
-        export_name: Umfrageantworten
       surveys:
-        answer:
-          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
-          spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell, können Sie es erneut versuchen?
-          success: Umfrage erfolgreich beantwortet.
         count:
           surveys_count:
             one: "%{count} Umfrage"
