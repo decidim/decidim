@@ -17,7 +17,7 @@ fr:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+              needs_to_be_reattached: Doit être ré-attaché
             body:
               too_long: est trop long
             choices:
@@ -51,11 +51,11 @@ fr:
             empty: Pas encore de réponses
             export:
               answer:
-                title: 'Réponse n°%{number}'
+                title: 'Réponse #%{number}'
             export_response:
               title: réponses_utilisateur_sondage_%{token}
             index:
-              title: "%{total} réponses totales"
+              title: "%{total} réponses au total"
             show:
               title: 'Réponse n°%{number}'
           display_condition:
@@ -129,7 +129,7 @@ fr:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
-          body: ne peut être vide
+          body: Le corps ne peut pas être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -156,10 +156,10 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Vous avez déjà un compte ?
+            already_have_an_account?: Vous avez déjà un compte?
             are_you_new?: Nouvel utilisateur ?
             sign_in_description: Connectez-vous pour répondre à l'enquête
-            sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
+            sign_up_description: Créer un compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.
@@ -187,12 +187,6 @@ fr:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
-        completion: Fin
         created_at: Répondu le
         id: ID de réponse
-        ip_hash: Hachage IP
         question: Question
-        registered: Enregistré
-        session_token: Identifiant de l'utilisateur
-        unregistered: Non enregistré
-        user_status: Statut de l'utilisateur
