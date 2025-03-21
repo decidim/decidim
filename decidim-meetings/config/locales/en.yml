@@ -789,6 +789,7 @@ en:
     statistics:
       attendees_count: Meeting attendees
       meetings_count: Meetings
+      meetings_count_tooltip: Non-moderated or non-withdrawn meetings.
   devise:
     mailer:
       join_meeting:

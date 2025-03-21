@@ -1083,4 +1083,5 @@ en:
     statistics:
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
+      proposals_count_tooltip: Non-moderated or non-withdrawn proposals.
       votes_count: Votes

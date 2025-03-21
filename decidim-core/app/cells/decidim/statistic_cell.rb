@@ -16,5 +16,12 @@ module Decidim
     def stat_title
       t(model[:stat_title], scope: "decidim.statistics")
     end
+
+    def information_tooltip
+      tooltip_key = "#{model[:stat_title]}_tooltip"
+      with_tooltip(t(tooltip_key, scope: "decidim.statistics", default: "")) do
+        icon("information-line")
+      end
+    end
   end
 end

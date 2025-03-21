@@ -1659,6 +1659,7 @@ en:
       participants_count: Participants
       surveys_count: Surveys
       users_count: Participants
+      users_count_tooltip: Registered users who have confirmed their account via the email confirmation link.
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:

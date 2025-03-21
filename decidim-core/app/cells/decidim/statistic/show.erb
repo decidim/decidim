@@ -1,8 +1,12 @@
 <div class="statistic <%= stat_dom_class %>" data-statistic>
-  <span class="statistic__title" title="<%= stat_title %>">
-    <%= stat_title %>
-    <%= icon "information-line" %>
-  </span>
+  <div class="statistic__header">
+    <span class="statistic__title" title="<%= stat_title %>">
+      <%= stat_title %>
+    </span>
+    <span class="statistic__tooltip"  >
+      <%= information_tooltip %>
+    </span>
+  </div>
   <span class="statistic__number">
     <%= stat_number %>
   </span>

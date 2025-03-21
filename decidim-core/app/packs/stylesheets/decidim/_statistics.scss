@@ -5,8 +5,21 @@
     @apply grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(0,120px))] gap-4;
   }
 
+  &__header {
+    @apply flex flex-row justify-start items-center gap-1.5;
+  }
+
   &__title {
-    @apply w-full truncate text-gray-2 font-normal text-sm;
+    @apply w-full max-w-[73px] truncate text-gray-2 font-normal text-sm overflow-hidden whitespace-nowrap;
+  }
+
+  &__tooltip {
+    @apply text-secondary;
+
+    svg {
+      @apply w-4 h-4 fill-current;
+    }
+
   }
 
   &__number {

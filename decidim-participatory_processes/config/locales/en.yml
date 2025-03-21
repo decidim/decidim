@@ -527,6 +527,7 @@ en:
         related_processes: Related processes
     statistics:
       processes_count: Processes
+      processes_count_tooltip: Published, public, and transparent processes.
   layouts:
     decidim:
       participatory_process_groups:
