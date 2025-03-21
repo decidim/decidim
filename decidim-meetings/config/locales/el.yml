@@ -243,7 +243,6 @@ el:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της ατζέντας.
             success: Η ατζέντα ενημερώθηκε επιτυχώς.
         exports:
-          answers: Απαντήσεις
           meeting_comments: Σχόλια
           meetings: Συσκέψεις
           registrations: Εγγραφές
@@ -529,13 +528,9 @@ el:
             title: Τίτλος
       polls:
         questions:
-          index:
-            empty_questions: Κατά τη διάρκεια αυτής της συνάντησης, ορισμένες ερωτήσεις θα σταλούν και θα είστε σε θέση να τις απαντήσετε. Θα εμφανιστούν εδώ.
           index_admin:
             edit: Επεξεργασία στον πίνακα διαχείρισης
             question: Ερώτηση
-            received_answer: έλαβε απάντηση
-            received_answers: έλαβε απαντήσεις
             results: Αποτελέσματα
             send: Αποστολή
             sent: Στάλθηκε
