@@ -4,8 +4,6 @@ pt-BR:
     attributes:
       answer:
         body: Responda
-        choices: Escolhas
-        selected_choices: Escolhas selecionadas
       question:
         max_choices: Número máximo de escolhas
         question_type: Tipo
@@ -16,12 +14,7 @@ pt-BR:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Precisa ser reanexado
-            body:
-              too_long: é longo demais
             choices:
-              missing: não estão completos
               too_many: são muitos
   decidim:
     forms:
@@ -36,22 +29,14 @@ pt-BR:
             show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
-            free_text: Texto livre
             remove: Remover
             statement: Declaração
           answers:
             actions:
-              back: Voltar para respostas
-              export: Exportar
               show: Mostrar respostas
             empty: Ainda não há respostas
-            export:
-              answer:
-                title: 'Resposta #%{number}'
             export_response:
               title: pesquisa_respostas_do_usuário_%{token}
-            index:
-              title: "%{total} respostas totais"
             show:
               title: 'Resposta #%{number}'
           display_condition:
@@ -134,12 +119,9 @@ pt-BR:
         single_option: Opção única
         sorting: Classificação
         title_and_description: Título e descrição
-      questionnaire_answer_presenter:
-        download_attachment: Baixar anexo
       questionnaires:
         answer:
           invalid: Houve erros ao responder a pesquisa.
-          max_choices_alert: Há muitas opções selecionadas
           success: Questionário respondido com sucesso.
         question:
           max_choices: 'Escolhas máximas: %{n}'
@@ -170,12 +152,6 @@ pt-BR:
           submit: Enviar
       user_answers_serializer:
         body: Resposta
-        completion: Conclusão
         created_at: Respondido em
         id: ID da resposta
-        ip_hash: Hash IP
         question: Questão
-        registered: Registrado
-        session_token: Identificador de Usuário
-        unregistered: Não registrado
-        user_status: Status do usuário
