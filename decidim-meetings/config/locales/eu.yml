@@ -2,8 +2,6 @@
 eu:
   activemodel:
     attributes:
-      answer:
-        add_documents: Gehitu dokumentuak
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
@@ -642,12 +640,7 @@ eu:
             title: Titulua
       polls:
         answers:
-          index:
-            administrate: Administratu
-            title: Inkesta
           index_admin:
-            back_to_meeting: Itzuli topaketara
-            title: Administratu inkesta
             view_poll: Ikusi inkesta
         questions:
           closed_question:
