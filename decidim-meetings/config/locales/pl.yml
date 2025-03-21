@@ -442,7 +442,6 @@ pl:
         new_meeting: 'Nowe spotkanie:'
       layouts:
         live_event:
-          administrate: Administruj
           close: zamknij
           questions: Pytania
       mailer:
