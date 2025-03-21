@@ -2,8 +2,6 @@
 fi-pl:
   activemodel:
     attributes:
-      answer:
-        add_documents: Lisää asiakirjoja
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -642,12 +640,7 @@ fi-pl:
             title: Otsikko
       polls:
         answers:
-          index:
-            administrate: Hallinnoi
-            title: Mielipidetiedustelu
           index_admin:
-            back_to_meeting: Takaisin tapaamiseen
-            title: Hallinnoi mielipidetiedustelua
             view_poll: Näytä mielipidetiedustelu
         questions:
           closed_question:
