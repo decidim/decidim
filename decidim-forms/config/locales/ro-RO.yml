@@ -4,8 +4,6 @@ ro:
     attributes:
       answer:
         body: Răspuns
-        choices: Opțiuni
-        selected_choices: Opțiuni selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
@@ -14,14 +12,6 @@ ro:
         max_characters: Limita de caractere (lăsați 0 dacă nu este nicio limită)
     errors:
       models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Trebuie să fie reatașate
-            body:
-              too_long: este prea lung
-            choices:
-              missing: nu sunt complete
         questionnaire:
           request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
@@ -37,24 +27,14 @@ ro:
             show: Afișați răspunsurile
           answer_option:
             answer_option: Opțiune de răspuns
-            free_text: Text liber
             remove: Eliminați
             statement: Declarație
           answers:
             actions:
-              back: Înapoi la răspunsuri
-              export: Exportați
-              next: Următoarea &rsaquo;
-              previous: "&lsaquo; Anterioara"
               show: Afișați răspunsurile
             empty: Niciun răspuns încă
-            export:
-              answer:
-                title: 'Răspuns #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} răspunsuri în total"
             show:
               title: 'Răspuns #%{number}'
           display_condition:
@@ -122,9 +102,6 @@ ro:
       admin_log:
         questionnaire:
           update: "%{user_name} a actualizat chestionarul %{resource_name}"
-      errors:
-        answer:
-          body: Conținutul nu poate fi gol
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -140,20 +117,14 @@ ro:
         single_option: Opțiune unică
         sorting: Sortare
         title_and_description: Titlu și descriere
-      questionnaire_answer_presenter:
-        download_attachment: Descărcare atașament
       questionnaires:
         answer:
           invalid: A apărut o problemă la completarea chestionarului.
-          max_choices_alert: Există prea multe alegeri selectate
           success: Chestionarul a fost completat cu succes.
         question:
           max_choices: 'Număr maxim de alegeri: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Ai deja un cont?
-            are_you_new?: Utilizator nou?
-            sign_up_description: Creați un cont de participant pentru a participa la sondaj
             title: Completați formularul
           current_step: Pasul %{step}
           empty: Nicio întrebare configurată pentru acest formular încă.
@@ -181,12 +152,6 @@ ro:
           submit: Trimite
       user_answers_serializer:
         body: Răspuns
-        completion: Finalizare
         created_at: Răspuns completat la
         id: ID răspuns
-        ip_hash: IP Hash
         question: Întrebare
-        registered: Înregistrat
-        session_token: Identificator utilizator
-        unregistered: Neînregistrat
-        user_status: Stadiul utilizatorului
