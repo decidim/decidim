@@ -4,8 +4,6 @@ nl:
     attributes:
       answer:
         body: Antwoord
-        choices: Keuzes
-        selected_choices: Geselecteerde keuzes
       question:
         max_choices: Maximum aantal keuzes
         question_type: Type
@@ -16,7 +14,6 @@ nl:
         answer:
           attributes:
             choices:
-              missing: zijn niet compleet
               too_many: zijn te veel
   decidim:
     forms:
@@ -31,22 +28,14 @@ nl:
             show: Antwoorden tonen
           answer_option:
             answer_option: Antwoord optie
-            free_text: Vrije tekst
             remove: Verwijderen
             statement: Uitspraak
           answers:
             actions:
-              back: Terug naar antwoorden
-              export: Exporteren
               show: Toon antwoorden
             empty: Nog geen antwoorden
-            export:
-              answer:
-                title: 'Antwoord #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} totale antwoorden"
             show:
               title: 'Antwoord #%{number}'
           display_condition:
@@ -124,7 +113,6 @@ nl:
       questionnaires:
         answer:
           invalid: Er zijn fouten opgetreden bij het beantwoorden van de vragenlijst.
-          max_choices_alert: Er zijn te veel keuzes geselecteerd
           success: Vragenlijst met succes beantwoord.
         question:
           max_choices: 'Max. Keuzes: %{n}'
@@ -155,12 +143,6 @@ nl:
           submit: Verzenden
       user_answers_serializer:
         body: Beantwoorden
-        completion: Voltooiing
         created_at: Beantwoord
         id: Antwoord ID
-        ip_hash: IP Hash
         question: Vraag
-        registered: Geregistreerd
-        session_token: Gebruiker identificatie
-        unregistered: Niet-geregistreerd
-        user_status: Gebruiker-status
