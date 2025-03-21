@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      answer:
-        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -236,7 +234,6 @@ ar:
             create: إنشاء
             title: جدول أعمال جديد
         exports:
-          answers: الأجوبة
           meeting_comments: التعليقات
           meetings: اجتماعات
           registrations: التسجيلات
@@ -524,13 +521,9 @@ ar:
             title: عنوان
       polls:
         questions:
-          index:
-            empty_questions: خلال هذا الاجتماع، سيتم إرسال بعض الأسئلة وسوف تتمكن من الإجابة عليها. سيتم عرضها هنا.
           index_admin:
             edit: تحرير في لوحة المدراء
             question: سؤال
-            received_answer: الإجابة المتلقاة
-            received_answers: الإجابات المتلقاة
             results: النتائج
             send: إرسال
             sent: تم الإرسال
