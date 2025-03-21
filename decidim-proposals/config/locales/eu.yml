@@ -603,7 +603,7 @@ eu:
         withdrawn: Kendu
       application_helper:
         filter_origin_values:
-          all: guztiak
+          all: Guztiak
           meetings: Bilerak
           official: Ofiziala
           participants: Parte-hartzaileak
