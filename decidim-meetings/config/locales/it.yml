@@ -194,7 +194,6 @@ it:
             create: Creare
             title: Nuova agenda
         exports:
-          answers: Risposte
           meeting_comments: Commenti
           meetings: Incontri
           registrations: Iscrizioni
@@ -417,12 +416,8 @@ it:
             title: Titolo
       polls:
         questions:
-          index:
-            empty_questions: Durante questa riunione, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
           index_admin:
             question: Domanda
-            received_answer: risposta ricevuta
-            received_answers: risposte ricevute
             results: Risultati
             send: Invia
             sent: Inviato
