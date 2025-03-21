@@ -4,8 +4,6 @@ lb:
     attributes:
       answer:
         body: Äntwert
-        choices: Choixen
-        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Zort
@@ -16,12 +14,7 @@ lb:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Muss erneut angehängt werden
-            body:
-              too_long: ist zu lang
             choices:
-              missing: sind nicht vollständig
               too_many: sind zu viele
   decidim:
     forms:
@@ -36,22 +29,14 @@ lb:
             show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
-            free_text: Freier Text
             remove: Löschen
             statement: Aussage
           answers:
             actions:
-              back: Zurück zu Antworten
-              export: Exportieren
               show: Antworten anzeigen
             empty: Noch keine Antworten
-            export:
-              answer:
-                title: 'Antwort #%{number}'
             export_response:
               title: Umfrage_Benutzer_Antworten_%{token}
-            index:
-              title: "%{total} Antworten insgesamt"
             show:
               title: 'Antwort #%{number}'
           display_condition:
@@ -121,7 +106,6 @@ lb:
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
-          max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
           success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
@@ -152,12 +136,6 @@ lb:
           submit: einreichen
       user_answers_serializer:
         body: Antwort
-        completion: Abschluss
         created_at: Beantwortet am
         id: ID beantworten
-        ip_hash: IP-Hash
-        question: Frage
-        registered: Registriert
-        session_token: Benutzerkennung
-        unregistered: Nicht registriert
-        user_status: Benutzerstatus
+        question: Fro
