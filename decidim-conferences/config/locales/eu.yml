@@ -350,7 +350,7 @@ eu:
           index:
             filter:
               accepted: Onartua
-              all: guztiak
+              all: Guztiak
               rejected: Baztertua
               sent: Bidalia
             invite_attendee: Gonbidatu parte-hartzailea
