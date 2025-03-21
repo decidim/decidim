@@ -23,5 +23,26 @@ module Decidim
         icon("information-line")
       end
     end
+
+    def stat_icon
+      icon_map = {
+        users_count: "user-line",
+        processes_count: "treasure-map-line",
+        assemblies_count: "government-line",
+        initiatives_count: "lightbulb-flash-line",
+        conferences_count: "user-voice-line",
+        proposals_count: "chat-new-line",
+        meetings_count: "map-pin-line",
+        comments_count: "chat-1-line",
+        debates_count: "discuss-line",
+        results_count: "briefcase-2-line",
+        budgets_count: "git-pull-request-line",
+        posts_count: "pen-nib-line",
+        surveys_count: "survey-line",
+        sortitions_count: "team-line"
+      }
+
+      icon(icon_map[model[:stat_title].to_sym] || "")
+    end
   end
 end

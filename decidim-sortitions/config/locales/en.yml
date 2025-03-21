@@ -143,3 +143,4 @@ en:
             other: "%{count} sortitions"
     statistics:
       sortitions_count: Sortitions
+      sortitions_count_tooltip: The number of random selections carried out for decision-making.

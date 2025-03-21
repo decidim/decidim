@@ -53,6 +53,7 @@ en:
         title: Answers to surveys
     statistics:
       answers_count: Answers
+      surveys_count_statistics: The number of available surveys and responses collected.
     surveys:
       actions:
         answers_alert: Delete answers at publish is active for this survey. There are currently %{answers_count} answers that will be destroyed if you continue.

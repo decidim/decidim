@@ -1,11 +1,21 @@
 .statistic {
-  @apply flex flex-col items-start gap-2 p-4 rounded border-[3px] border-background;
+  @apply flex flex-col items-start gap-2 p-4 rounded border-[3px] border-background bg-background;
 
   &__container {
-    @apply grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(0,120px))] gap-4;
+    @apply grid grid-cols-[repeat(auto-fit,minmax(345px,1fr))] md:grid-cols-4 gap-4;
   }
 
   &__header {
+    @apply w-full flex flex-row justify-between items-center;
+  }
+
+  &__icon {
+    svg {
+      @apply w-[24px] h-[24px];
+    }
+  }
+
+  &__metric {
     @apply flex flex-row justify-start items-center gap-1.5;
   }
 
@@ -19,7 +29,6 @@
     svg {
       @apply w-4 h-4 fill-current;
     }
-
   }
 
   &__number {
