@@ -1,8 +1,6 @@
 cs:
   activemodel:
     attributes:
-      answer:
-        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -316,7 +314,6 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému.
             success: Program schůze byl úspěšně aktualizován.
         exports:
-          answers: Odpovědi
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
@@ -413,7 +410,7 @@ cs:
         poll:
           form:
             announcement_html:
-              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
+              - 
               - Otázku můžete kdykoliv přidat.
               - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
               - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
@@ -648,26 +645,14 @@ cs:
             taxonomies: Taxonomie
             title: Titul
       polls:
-        answers:
-          index:
-            administrate: Spravovat
-            title: Anketa
-          index_admin:
-            back_to_meeting: Zpět na schůzku
-            title: Správa ankety
-            view_poll: Zobrazit anketu
         questions:
           closed_question:
             announcement: Odpovědi na tuto otázku byly uzavřeny.
             question: Otázka
             question_results: Výsledky
-          index:
-            empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
             edit: Upravit v panelu administrace
             question: Otázka
-            received_answer: přijatá odpověď
-            received_answers: přijaté odpovědi
             results: Výsledky
             send: Odeslat
             sent: Odesláno
@@ -733,7 +718,6 @@ cs:
           commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           comments: Data komentářů ke schůzce
           created_at: Datum, kdy byl komentář vytvořen
-          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
