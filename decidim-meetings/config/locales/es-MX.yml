@@ -1,8 +1,6 @@
 es-MX:
   activemodel:
     attributes:
-      answer:
-        add_documents: Añadir documentos
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -308,7 +306,6 @@ es-MX:
             invalid: Se ha producido un error al actualizar este orden del día.
             success: El orden del día se ha actualizado correctamente.
         exports:
-          answers: Respuestas
           meeting_comments: Comentarios
           meetings: Reuniones
           registrations: Inscripciones
@@ -405,7 +402,7 @@ es-MX:
         poll:
           form:
             announcement_html:
-              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+              - 
               - Puedes añadir una pregunta en cualquier momento.
               - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
               - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
@@ -635,26 +632,14 @@ es-MX:
             taxonomies: Taxonomías
             title: Título
       polls:
-        answers:
-          index:
-            administrate: Administrar
-            title: Consulta
-          index_admin:
-            back_to_meeting: Volver al encuentro
-            title: Administrar consulta
-            view_poll: Ver consulta
         questions:
           closed_question:
             announcement: Se han cerrado las respuestas a esta pregunta.
             question: Pregunta
             question_results: Resultados
-          index:
-            empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
           index_admin:
             edit: Editar en el panel de administración
             question: Pregunta
-            received_answer: respuesta recibida
-            received_answers: respuestas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
@@ -718,7 +703,6 @@ es-MX:
           commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
           comments: Los datos de los comentarios del encuentro
           created_at: La fecha en la que se creó este comentario
-          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
