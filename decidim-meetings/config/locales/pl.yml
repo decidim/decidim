@@ -275,7 +275,6 @@ pl:
             invalid: Przy aktualizacji tego porządku obrad pojawił się problem.
             success: Aktualizacja porządku obrad się powiodła.
         exports:
-          answers: Odpowiedzi
           meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
@@ -357,7 +356,7 @@ pl:
         poll:
           form:
             announcement_html:
-              - Gdy pytanie otrzymuje odpowiedzi lub jest opublikowane/zamknięte, nie może być już edytowane.
+              - 
               - Możesz dodać pytanie w dowolnym momencie.
               - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
               - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
@@ -585,26 +584,14 @@ pl:
             start_time: Data rozpoczęcia
             title: Tytuł
       polls:
-        answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
-          index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
-            view_poll: Zobacz ankietę
         questions:
           closed_question:
             announcement: Odpowiedzi na to pytanie zostały zamknięte.
             question: Pytanie
             question_results: Wyniki
-          index:
-            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie
-            received_answer: otrzymana odpowiedź
-            received_answers: otrzymane odpowiedzi
             results: Wyniki
             send: Wyślij
             sent: Wysłano
