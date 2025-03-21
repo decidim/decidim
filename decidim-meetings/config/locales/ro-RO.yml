@@ -247,7 +247,6 @@ ro:
             create: Creează
             title: Agenda nouă
         exports:
-          answers: Răspunsuri
           meeting_comments: Comentarii
           meetings: Întâlniri
           registrations: Înregistrări
@@ -510,13 +509,9 @@ ro:
             title: Titlu
       polls:
         questions:
-          index:
-            empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
             edit: Editează în panoul de administrare
             question: Întrebare
-            received_answer: răspuns primit
-            received_answers: răspunsuri primite
             results: Rezultate
             send: Trimite
             sent: Trimis
