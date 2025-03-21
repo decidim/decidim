@@ -4,8 +4,6 @@ el:
     attributes:
       answer:
         body: Απάντηση
-        choices: Επιλογές
-        selected_choices: Επιλεγμένες επιλογές
       question:
         max_choices: Μέγιστος αριθμός επιλογών
         question_type: Τύπος
@@ -16,12 +14,7 @@ el:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
-            body:
-              too_long: είναι πολύ μεγάλο
             choices:
-              missing: δεν έχουν ολοκληρωθεί
               too_many: είναι πάρα πολλά
         questionnaire:
           request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Παρακαλώ δοκιμάστε ξανά.
@@ -38,24 +31,14 @@ el:
             show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
-            free_text: Ελεύθερο κείμενο
             remove: Κατάργηση
             statement: Δήλωση
           answers:
             actions:
-              back: Επιστροφή στις απαντήσεις
-              export: Εξαγωγή
-              next: Επόμενη &rsaquo;
-              previous: "&lsaquo; Προηγούμενη"
               show: Εμφάνιση απαντήσεων
             empty: Δεν υπάρχουν απαντήσεις ακόμη
-            export:
-              answer:
-                title: 'Απάντηση #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} συνολικές απαντήσεις"
             show:
               title: 'Απάντηση #%{number}'
           display_condition:
@@ -123,9 +106,6 @@ el:
       admin_log:
         questionnaire:
           update: "Ο/Η %{user_name} ενημέρωσε το %{resource_name} ερωτηματολόγιο"
-      errors:
-        answer:
-          body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
         processors:
@@ -141,21 +121,15 @@ el:
         single_option: Μία επιλογή
         sorting: Ταξινόμηση
         title_and_description: Τίτλος και περιγραφή
-      questionnaire_answer_presenter:
-        download_attachment: Λήψη συνημμένου
       questionnaires:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
-          max_choices_alert: Υπάρχουν πάρα πολλές επιλεγμένες επιλογές
           success: Η φόρμα απαντήθηκε με επιτυχία.
         question:
           max_choices: 'Μέγιστες επιλογές: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Έχετε ήδη λογαριασμό;
-            are_you_new?: Νέος χρήστης;
             sign_in_description: Συνδεθείτε για να πραγματοποιήσετε την έρευνα
-            sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
             title: Απαντήστε στη φόρμα
           current_step: Βήμα %{step}
           of_total_steps: από %{total_steps}
@@ -181,12 +155,6 @@ el:
           submit: Υποβολή
       user_answers_serializer:
         body: Απάντηση
-        completion: Ολοκλήρωση
         created_at: Απαντήθηκε στις
         id: Αναγνωριστικό απάντησης
-        ip_hash: IP Hash
         question: Ερώτηση
-        registered: Έχει εγγραφεί
-        session_token: Αναγνωριστικό χρήστη
-        unregistered: Δεν έχει εγγραφεί
-        user_status: Κατάσταση χρήστη
