@@ -29,8 +29,6 @@ module Decidim
       #
       # Returns a Hash.
       def default_url_options
-        return {} if current_locale == default_locale.to_s
-
         { locale: current_locale }
       end
 
