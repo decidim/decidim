@@ -1,5 +1,5 @@
 <div>
-  <%= link_to decidim.pages_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
+  <%= link_to decidim.pages_path(locale: current_locale), class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
     <%= icon "question-line" %><span><%= t("decidim.menu.help") %></span>
   <% end %>
 </div>

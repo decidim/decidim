@@ -22,7 +22,7 @@ module Decidim
           if participatory_space.speakers.published.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_speaker_menu_item"),
-              url: decidim_conferences.conference_conference_speakers_path(participatory_space)
+              url: decidim_conferences.conference_conference_speakers_path(participatory_space, locale: current_locale)
             }
           end
 
@@ -34,21 +34,21 @@ module Decidim
 
             items << {
               name: decidim_escape_translated(component.name),
-              url: decidim_conferences.conference_conference_program_path(participatory_space, id: component.id)
+              url: decidim_conferences.conference_conference_program_path(participatory_space, locale: current_locale, id: component.id)
             }
           end
 
           if participatory_space.partners.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_partners_menu_item"),
-              url: decidim_conferences.conference_path(participatory_space, anchor: "conference-partners-main_promotor")
+              url: decidim_conferences.conference_path(participatory_space, locale: current_locale, anchor: "conference-partners-main_promotor")
             }
           end
 
           if meeting_components.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.venues"),
-              url: decidim_conferences.conference_path(participatory_space, anchor: "venues")
+              url: decidim_conferences.conference_path(participatory_space, locale: current_locale, anchor: "venues")
             }
           end
 
@@ -62,7 +62,7 @@ module Decidim
           if participatory_space.attachments.any? || participatory_space.media_links.any?
             items << {
               name: t("layouts.decidim.conferences_nav.media"),
-              url: decidim_conferences.conference_media_path(participatory_space)
+              url: decidim_conferences.conference_media_path(participatory_space, locale: current_locale)
             }
           end
         end
