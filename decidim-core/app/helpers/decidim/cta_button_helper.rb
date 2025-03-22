@@ -18,7 +18,7 @@ module Decidim
       if current_organization.cta_button_path.present?
         "/#{current_organization.cta_button_path}"
       elsif Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?
-        decidim_participatory_processes.participatory_processes_path
+        decidim_participatory_processes.participatory_processes_path(locale: current_locale)
       elsif current_user
         decidim.account_path
       elsif current_organization.sign_up_enabled?

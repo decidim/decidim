@@ -64,6 +64,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
+        :locale => I18n.locale,
         :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end

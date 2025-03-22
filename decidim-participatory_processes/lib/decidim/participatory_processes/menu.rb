@@ -7,7 +7,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
                         active: %r{^/process(es|_groups)}
@@ -18,7 +18,7 @@ module Decidim
         Decidim.menu :mobile_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 2,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
                         active: %r{^/process(es|_groups)}
@@ -29,7 +29,7 @@ module Decidim
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
+                        decidim_participatory_processes.participatory_processes_path(locale: current_locale),
                         position: 10,
                         if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
                         active: %r{^/process(es|_groups)}
