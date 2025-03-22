@@ -9,9 +9,9 @@ module Decidim
 
       def resource_path
         if resource.state == "created" || resource.state == "validating"
-          Decidim::Initiatives::Engine.routes.url_helpers.load_initiative_draft_create_initiative_index_path(initiative_id: resource.id)
+          Decidim::Initiatives::Engine.routes.url_helpers.load_initiative_draft_create_initiative_index_path(initiative_id: resource.id, locale: current_locale)
         else
-          Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
+          Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model, locale: current_locale)
         end
       end
 
