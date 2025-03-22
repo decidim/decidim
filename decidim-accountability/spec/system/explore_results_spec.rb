@@ -6,7 +6,7 @@ describe "Explore results", :versioning do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
-  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
   let!(:other_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:) }
@@ -148,7 +148,7 @@ describe "Explore results", :versioning do
     end
 
     describe "index" do
-      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
 
       before do
         visit path
@@ -166,7 +166,7 @@ describe "Explore results", :versioning do
     end
 
     describe "show" do
-      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+      let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id, locale: I18n.locale) }
       let(:results_count) { 1 }
       let(:result) { results.first }
 

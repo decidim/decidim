@@ -12,13 +12,14 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
   let(:participatory_space) { resource.participatory_process }
   let(:resource) { create(:participatory_process_step) }
   let(:resource_path) do
-    decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
+    decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale, display_steps: true)
   end
 
   let(:resource_url) do
     decidim_participatory_processes
       .participatory_process_url(
         participatory_process,
+        locale: I18n.locale,
         display_steps: true,
         host: participatory_process.organization.host
       )

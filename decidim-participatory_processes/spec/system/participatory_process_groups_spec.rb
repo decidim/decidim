@@ -34,7 +34,7 @@ describe "Participatory Process Groups" do
     let!(:other_group) { create(:participatory_process_group, organization: other_organization) }
 
     before do
-      visit decidim_participatory_processes.participatory_processes_path
+      visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
     end
 
     it "lists all the groups among the processes" do
@@ -49,19 +49,19 @@ describe "Participatory Process Groups" do
     it "links to the individual group page" do
       first("a.card__grid h3", text: translated(participatory_process_group.title, locale: :en)).click
 
-      expect(page).to have_current_path decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      expect(page).to have_current_path decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
     end
   end
 
   context "when the group does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_participatory_processes.participatory_process_group_path(99_999_999) }
+      let(:target_path) { decidim_participatory_processes.participatory_process_group_path(99_999_999, locale: I18n.locale) }
     end
   end
 
   context "when the group exists" do
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_participatory_processes.participatory_process_group_path(participatory_process_group) }
+      let(:target_path) { decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale) }
     end
   end
 
@@ -75,7 +75,7 @@ describe "Participatory Process Groups" do
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :title
         )
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows the title" do
@@ -105,7 +105,7 @@ describe "Participatory Process Groups" do
       it_behaves_like "has embedded video in description", :description do
         before do
           participatory_process_group.update!(description:)
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
         end
       end
     end
@@ -119,7 +119,7 @@ describe "Participatory Process Groups" do
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :extra_data
         )
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows metadata attributes" do
@@ -142,7 +142,7 @@ describe "Participatory Process Groups" do
           manifest_name: :hero,
           settings: hero_settings
         )
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows the action button" do
@@ -179,7 +179,7 @@ describe "Participatory Process Groups" do
           manifest_name: :highlighted_proposals
         )
 
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows cards of proposals from both processes" do
@@ -223,7 +223,7 @@ describe "Participatory Process Groups" do
           manifest_name: :highlighted_results
         )
 
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows cards of results from both processes" do
@@ -267,7 +267,7 @@ describe "Participatory Process Groups" do
         )
         # rubocop:enable Naming/VariableNumber
 
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "renders the content of content block" do
@@ -296,7 +296,7 @@ describe "Participatory Process Groups" do
         manifest_name: :highlighted_meetings
       )
 
-      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
     end
 
     it "shows cards of meetings from both processes" do
@@ -324,7 +324,7 @@ describe "Participatory Process Groups" do
     end
 
     it "shows no statistics content block if there are no components or followers in depending participatory processes" do
-      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
 
       expect(page).to have_no_css("section[data-statistics]")
     end
@@ -351,7 +351,7 @@ describe "Participatory Process Groups" do
           proposal.coauthorships.clear
           proposal.coauthorships.create(author: user)
         end
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
       end
 
       it "shows the statistics content block" do
@@ -485,7 +485,7 @@ describe "Participatory Process Groups" do
         manifest_name: :participatory_processes,
         settings: participatory_processes_content_block_settings
       )
-      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
     end
 
     shared_examples "shows active processes" do
