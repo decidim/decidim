@@ -19,6 +19,8 @@ module Decidim
         )
       end
 
+      let(:destination_path) { decidim_assemblies.assembly_path(privatable_to, locale: I18n.locale) }
+
       let(:slug_param) { "assembly_slug" }
       let(:slug) { privatable_to.slug }
 

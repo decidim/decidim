@@ -17,7 +17,7 @@ module Decidim
         end
 
         def show_all_path
-          decidim_participatory_processes.all_metrics_participatory_process_path(resource)
+          decidim_participatory_processes.all_metrics_participatory_process_path(resource, locale: I18n.locale)
         end
       end
     end

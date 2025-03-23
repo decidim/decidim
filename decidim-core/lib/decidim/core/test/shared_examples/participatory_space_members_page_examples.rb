@@ -38,7 +38,7 @@ shared_examples "participatory space members page examples" do
         it "redirects to participatory space path" do
           get :index, params: { slug_param => slug, :locale => I18n.locale }
 
-          expect(response).to redirect_to(privatable_to)
+          expect(response).to redirect_to(destination_path)
         end
       end
     end

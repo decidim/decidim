@@ -79,14 +79,14 @@ describe "Social shares" do
   end
 
   context "when listing all processes" do
-    let(:resource) { decidim_participatory_processes.participatory_processes_path }
+    let(:resource) { decidim_participatory_processes.participatory_processes_path(locale: I18n.locale) }
 
     it_behaves_like "a social share meta tag", "icon.png"
   end
 
   context "when listing a process group" do
     let!(:participatory_process_group) { create(:participatory_process_group, organization:, description:, hero_image:) }
-    let(:resource) { decidim_participatory_processes.participatory_process_group_path(participatory_process_group) }
+    let(:resource) { decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
 

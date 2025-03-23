@@ -19,6 +19,11 @@ module Decidim
         )
       end
 
+      def decidim_participatory_processes
+        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
+      end
+
+      let(:destination_path) { decidim_participatory_processes.participatory_process_path(privatable_to, locale: I18n.locale) }
       let(:slug_param) { "participatory_process_slug" }
       let(:slug) { privatable_to.slug }
 

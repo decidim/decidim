@@ -258,7 +258,8 @@ describe "Explore debates" do
       decidim_participatory_process_debates.debate_path(
         id: debate.id,
         participatory_process_slug: participatory_space.slug,
-        component_id: component.id
+        component_id: component.id,
+        locale: I18n.locale
       )
     end
     let!(:debate) do
