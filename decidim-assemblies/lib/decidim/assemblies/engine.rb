@@ -15,7 +15,7 @@ module Decidim
       isolate_namespace Decidim::Assemblies
 
       routes do
-        scope "/:locale" do
+        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
           get "assemblies/:assembly_id", to: redirect { |params, _request|
             assembly = Decidim::Assembly.find(params[:assembly_id])
             assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}" : "/404"

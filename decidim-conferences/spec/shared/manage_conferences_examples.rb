@@ -155,7 +155,7 @@ shared_examples "manage conferences" do
         end
 
         page.within_window(new_window) do
-          expect(page).to have_current_path decidim_conferences.conference_path(conference)
+          expect(page).to have_current_path decidim_conferences.conference_path(conference, locale: I18n.locale)
           expect(page).to have_content(translated(conference.title))
         end
       end

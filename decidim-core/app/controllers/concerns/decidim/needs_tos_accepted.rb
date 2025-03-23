@@ -43,7 +43,7 @@ module Decidim
     end
 
     def tos_path
-      decidim.page_path terms_of_service_page
+      decidim.page_path terms_of_service_page, locale: current_locale
     end
 
     def redirect_to_tos
