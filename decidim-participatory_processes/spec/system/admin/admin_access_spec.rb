@@ -13,7 +13,7 @@ describe "AdminAccess" do
     let(:role) { create(:process_admin, :confirmed, organization:, participatory_process: participatory_space) }
     let(:target_path) { decidim_admin_participatory_processes.edit_participatory_process_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_participatory_processes.edit_participatory_process_path(other_participatory_space) }
-    let(:participatory_space_path) { decidim_participatory_processes.participatory_process_path(participatory_space) }
+    let(:participatory_space_path) { decidim_participatory_processes.participatory_process_path(participatory_space, locale: I18n.locale) }
 
     it_behaves_like "admin participatory space access"
     it_behaves_like "admin participatory space edit button"

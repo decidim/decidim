@@ -27,15 +27,15 @@ describe "Conference registrations" do
   let(:registration_type) { registration_types.first }
 
   def visit_conference
-    visit decidim_conferences.conference_path(conference)
+    visit decidim_conferences.conference_path(conference, locale: I18n.locale)
   end
 
   def visit_conference_registration_types
-    visit decidim_conferences.conference_registration_types_path(conference)
+    visit decidim_conferences.conference_registration_types_path(conference, locale: I18n.locale)
   end
 
   def visit_conference_registration_type
-    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
+    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type, locale: I18n.locale)
   end
 
   before do

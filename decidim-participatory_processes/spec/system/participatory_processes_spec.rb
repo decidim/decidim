@@ -288,7 +288,7 @@ describe "Participatory Processes" do
           it "has a link to the group the process belongs to" do
             visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
 
-            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group,locale: I18n.locale))
+            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group, locale: I18n.locale))
           end
         end
 

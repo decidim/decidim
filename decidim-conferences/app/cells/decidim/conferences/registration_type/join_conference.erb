@@ -1,7 +1,7 @@
 <% if conference.registrations_enabled? %>
   <% if conference.has_registration_for_user_and_registration_type?(current_user, model) %>
     <% if allowed? %>
-      <%= button_to conference_registration_type_conference_registration_path(conference, model),
+      <%= button_to conference_registration_type_conference_registration_path(conference, model, locale: current_locale),
                     method: :delete,
                     class: "#{button_classes} bg-success text-white border-transparent conference__registration-button",
                     data: { disable: true } do %>

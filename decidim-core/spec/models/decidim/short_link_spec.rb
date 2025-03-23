@@ -126,7 +126,7 @@ module Decidim
         let(:route_name) { "participatory_process" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/processes/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{target.slug}")
         end
       end
 
@@ -136,7 +136,7 @@ module Decidim
         let(:route_name) { "pages" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.host}:#{Capybara.server_port}/pages")
+          expect(subject.target_url).to eq("http://#{target.host}:#{Capybara.server_port}/#{I18n.locale}/pages")
         end
       end
 
@@ -146,7 +146,7 @@ module Decidim
         let(:route_name) { "page" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/pages/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/#{I18n.locale}/pages/#{target.slug}")
         end
       end
     end

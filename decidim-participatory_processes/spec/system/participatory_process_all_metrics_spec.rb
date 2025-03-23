@@ -27,7 +27,7 @@ describe "Participatory Processes", download: true do
     before do
       switch_to_host(organization.host)
       metrics
-      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process, locale: I18n.locale)
     end
 
     it "renders the metric charts" do
@@ -76,7 +76,7 @@ describe "Participatory Processes", download: true do
   context "when show metrics are disabled" do
     before do
       switch_to_host(organization.host)
-      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process, locale: I18n.locale)
     end
 
     it "does not render any metric chart" do

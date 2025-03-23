@@ -29,12 +29,12 @@ describe "Participatory Process Steps" do
 
     it_behaves_like "accessible page" do
       before do
-        visit decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale, display_steps: true)
       end
     end
 
     it "lists all the steps" do
-      visit decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
+      visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale, display_steps: true)
 
       expect(page).to have_css(".participatory-space__metadata-modal__step", count: 3)
       steps.each do |step|

@@ -8,6 +8,10 @@ module Decidim
     describe ParticipatorySpacePrivateUsersController do
       routes { Decidim::Assemblies::Engine.routes }
 
+      def decidim_assemblies
+        Decidim::Assemblies::Engine.routes.url_helpers
+      end
+
       let(:organization) { create(:organization) }
 
       let!(:privatable_to) do

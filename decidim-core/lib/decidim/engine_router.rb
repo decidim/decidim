@@ -56,11 +56,12 @@ module Decidim
 
     attr_reader :engine, :target, :skip_locale
 
-    def filter_language_params!(method_name)
+    def filter_language_params!(_method_name)
       return if target.nil?
       return unless target.respond_to?(:mounted_params)
+      return unless skip_locale
 
-      @default_url_options.except!(:locale) if skip_locale == true
+      @default_url_options.except!(:locale)
     end
 
     def filter_slug_params!(method_name)
