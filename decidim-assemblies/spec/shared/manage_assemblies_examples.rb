@@ -120,7 +120,7 @@ shared_examples "manage assemblies" do
         end
 
         page.within_window(new_window) do
-          expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+          expect(page).to have_current_path decidim_assemblies.assembly_path(assembly, locale: I18n.locale)
           expect(page).to have_content(translated(assembly.title))
         end
       end

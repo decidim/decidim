@@ -78,7 +78,7 @@
       <% end %>
 
       <% if allowed_to? :preview, :assembly, assembly: assembly %>
-        <%= icon_link_to "eye-line", decidim_assemblies.assembly_path(assembly), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
+        <%= icon_link_to "eye-line", decidim_assemblies.assembly_path(assembly, locale: current_locale), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>

@@ -38,6 +38,10 @@ module Decidim
       end
     end
 
+    def current_locale
+      I18n.locale
+    end
+
     # Rails cells is delegating those methods to some internal view layer which messes up with shakapacker asset loading strategy
     # generating 2 or more queues for the javascript to be loading, resulting in the fact that no js / style pack appended or
     # prepended is added to main view rendering queue.

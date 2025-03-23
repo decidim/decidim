@@ -69,7 +69,7 @@ shared_examples "manage processes examples" do
         new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
-          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
+          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
           expect(page).to have_content(translated(participatory_process.title))
         end
       end

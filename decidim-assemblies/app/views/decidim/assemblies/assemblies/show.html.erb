@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags(
   title: translated_attribute(current_participatory_space.title),
   description: translated_attribute(current_participatory_space.short_description),
-  url: assembly_url(current_participatory_space),
+  url: assembly_url(current_participatory_space, locale: I18n.locale),
   resource: current_participatory_space) %>
 
 <%
