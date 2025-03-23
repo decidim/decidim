@@ -122,7 +122,7 @@ describe "Homepage" do
               click_on "Participate"
             end
 
-            expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
+            expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
           end
         end
       end
@@ -238,11 +238,11 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic1_page1.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
             end
           end
@@ -266,19 +266,19 @@ describe "Homepage" do
 
               expect(page).to have_link(
                 static_page_topic1_page2.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_link(
                 static_page_topic1_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic1_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
                 static_page_topic2_page1.topic.title["en"],
-                href: "/pages/#{static_page_topic2_page1.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page1.slug}"
               )
               expect(page).to have_no_link(
                 static_page_topic2_page2.title["en"],
-                href: "/pages/#{static_page_topic2_page2.slug}"
+                href: "/#{I18n.locale}/pages/#{static_page_topic2_page2.slug}"
               )
             end
           end

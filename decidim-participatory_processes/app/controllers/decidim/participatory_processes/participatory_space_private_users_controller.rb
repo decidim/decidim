@@ -10,7 +10,7 @@ module Decidim
         raise ActionController::RoutingError, "No members for this participatory process" if members.none?
 
         enforce_permission_to :list, :members
-        redirect_to decidim_participatory_processes.participatory_process_path(current_participatory_space) unless can_visit_index?
+        redirect_to decidim_participatory_processes.participatory_process_path(current_participatory_space, locale: current_locale) unless can_visit_index?
       end
 
       private

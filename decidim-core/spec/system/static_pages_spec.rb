@@ -17,11 +17,11 @@ describe "Static pages" do
 
   context "with standalone pages" do
     it_behaves_like "accessible page" do
-      before { visit decidim.pages_path }
+      before { visit decidim.pages_path(locale: I18n.locale) }
     end
 
     it "lists all the standalone pages" do
-      visit decidim.pages_path
+      visit decidim.pages_path(locale: I18n.locale)
 
       within pages_selector, text: "Pages" do
         expect(page).to have_content translated(page3.title)
@@ -30,7 +30,7 @@ describe "Static pages" do
 
     context "when visiting a single page without topic" do
       it_behaves_like "accessible page" do
-        before { visit decidim.page_path(page3) }
+        before { visit decidim.page_path(page3, locale: I18n.locale) }
       end
     end
 
@@ -52,7 +52,7 @@ describe "Static pages" do
       before do
         stub_request(:get, iframe_src)
           .to_return(status: 200, body: "foo", headers: { "Content-Type" => "text/plain" })
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
       end
 
       context "when cookies are rejected" do
@@ -64,7 +64,7 @@ describe "Static pages" do
         it_behaves_like "accessible page"
 
         it "disables iframe" do
-          visit decidim.page_path(video_page)
+          visit decidim.page_path(video_page, locale: I18n.locale)
           expect(page).to have_content("You need to enable all cookies in order to see this content")
           expect(page).to have_no_selector("iframe")
         end
@@ -79,7 +79,7 @@ describe "Static pages" do
         it_behaves_like "accessible page"
 
         it "shows iframe" do
-          visit decidim.page_path(video_page)
+          visit decidim.page_path(video_page, locale: I18n.locale)
           expect(page).to have_no_content("You need to enable all cookies in order to see this content")
           expect(page).to have_css("iframe", count: 1)
         end
@@ -106,7 +106,7 @@ describe "Static pages" do
         # Calling any URL in Decidim with long parameters should not store
         # the parameters in the user_return_to cookie in order to avoid
         # ActionDispatch::Cookies::CookieOverflow exception
-        visit "#{decidim.pages_path}?#{long_parameters}"
+        visit "#{decidim.pages_path(locale: I18n.locale)}?#{long_parameters}"
 
         expect(page).to have_content(translated(organization.name))
       end

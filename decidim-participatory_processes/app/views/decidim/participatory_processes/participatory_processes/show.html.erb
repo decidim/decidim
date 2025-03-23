@@ -2,7 +2,7 @@
   title: translated_attribute(current_participatory_space.title),
   image_url: resolve_meta_image_url(current_participatory_space),
   description: translated_attribute(current_participatory_space.short_description),
-  url: participatory_process_url(current_participatory_space),
+  url: participatory_process_url(current_participatory_space, locale: current_locale),
   resource: current_participatory_space) %>
 
 <%

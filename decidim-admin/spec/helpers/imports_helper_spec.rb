@@ -17,7 +17,7 @@ module Decidim
         end
 
         it "creates a link" do
-          import_path = "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies"
+          import_path = "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?locale=#{I18n.locale}&name=dummies"
           link = subject.at_css("a[href='#{import_path}']")
 
           expect(link["href"]).to eq(import_path)
@@ -38,7 +38,7 @@ module Decidim
         let(:component) { create(:dummy_component) }
 
         it "returns the correct link" do
-          expect(helper.admin_imports_path(component, name: "dummies")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies")
+          expect(helper.admin_imports_path(component, name: "dummies")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?locale=#{I18n.locale}&name=dummies")
         end
       end
 
@@ -46,7 +46,7 @@ module Decidim
         let(:component) { create(:dummy_component) }
 
         it "returns the correct link" do
-          expect(helper.admin_imports_example_path(component, name: "dummies", format: "json")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/example.json?name=dummies")
+          expect(helper.admin_imports_example_path(component, name: "dummies", format: "json")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/example.json?locale=#{I18n.locale}&name=dummies")
         end
       end
     end
