@@ -469,9 +469,6 @@ en:
           highlighted_processes:
             active_spaces: Active processes
             see_all_spaces: See all processes
-      participatory_process_steps:
-        index:
-          back_to_process: Back to the process page
       participatory_processes:
         description:
           area_name: Area

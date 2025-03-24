@@ -25,11 +25,6 @@ module Decidim
           process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { process_id: /[0-9]+/ }
 
-        get "processes/:process_id/all-metrics", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/all-metrics" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }, as: :all_metrics
-
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member

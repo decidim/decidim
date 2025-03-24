@@ -30,10 +30,6 @@ module Decidim
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
-      def all_metrics
-        enforce_permission_to :read, :process, process: current_participatory_space
-      end
-
       private
 
       def search_collection
