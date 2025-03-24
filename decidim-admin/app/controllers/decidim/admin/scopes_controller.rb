@@ -6,6 +6,7 @@ module Decidim
     #
     class ScopesController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Concerns::HasTabbedMenu
+      helper Decidim::Admin::ScopesHelper
 
       layout "decidim/admin/settings"
 

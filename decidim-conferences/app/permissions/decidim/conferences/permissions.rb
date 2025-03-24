@@ -45,13 +45,12 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        conference_filters_action?
 
         return permission_action unless conference
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         conference_admin_action?
 
         permission_action
@@ -106,12 +105,6 @@ module Decidim
         return unless user
 
         conferences_with_role_privileges(role).include? conference
-      end
-
-      def conference_filters_action?
-        return unless permission_action.subject == :taxonomy_filter
-
-        toggle_allow(user.admin?)
       end
 
       # Returns a collection of conferences where the given user has the
@@ -254,9 +247,9 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Valuators can only read components
-      def valuator_action?
-        return unless can_manage_conference?(role: :valuator)
+      # Evaluators can only read components
+      def evaluator_action?
+        return unless can_manage_conference?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -274,7 +267,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
@@ -296,7 +288,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,

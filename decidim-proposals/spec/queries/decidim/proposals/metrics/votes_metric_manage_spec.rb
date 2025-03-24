@@ -6,7 +6,8 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
   let(:component) { create(:proposal_component, :published, participatory_space:) }
-  let(:proposal) { create(:proposal, component:) }
+  let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+  let(:proposal) { create(:proposal, component:, taxonomies:) }
   let(:day) { Time.zone.yesterday }
   let!(:votes) { create_list(:proposal_vote, 5, proposal:, created_at: day) }
 
@@ -16,9 +17,9 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     it "creates new metric records" do
       registry = generate_metric_registry
 
-      expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(registry.collect(&:day)).to eq([day, day])
+      expect(registry.collect(&:cumulative)).to eq([5, 5])
+      expect(registry.collect(&:quantity)).to eq([5, 5])
     end
 
     it "does not create any record if there is no data" do
@@ -29,12 +30,12 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "votes", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object: proposal)
+      create(:metric, metric_type: "votes", day:, cumulative: 1, quantity: 1, organization:, taxonomy: taxonomies.first, participatory_space:, related_object: proposal)
       registry = generate_metric_registry
 
-      expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(Decidim::Metric.count).to eq(2)
+      expect(registry.collect(&:cumulative)).to eq([5, 5])
+      expect(registry.collect(&:quantity)).to eq([5, 5])
     end
 
     context "when calculating the metrics" do

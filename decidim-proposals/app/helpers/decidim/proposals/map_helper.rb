@@ -5,24 +5,6 @@ module Decidim
     # This helper include some methods for rendering proposals dynamic maps.
     module MapHelper
       include Decidim::ApplicationHelper
-      # Serialize a collection of geocoded proposals to be used by the dynamic map component
-      #
-      # geocoded_proposals - A collection of geocoded proposals
-      def proposals_data_for_map(geocoded_proposals)
-        geocoded_proposals.map do |proposal|
-          proposal_data_for_map(proposal)
-        end
-      end
-
-      def proposal_data_for_map(proposal)
-        proposal
-          .slice(:latitude, :longitude, :address)
-          .merge(
-            title: decidim_html_escape(present(proposal).title),
-            link: proposal_path(proposal),
-            items: cell("decidim/proposals/proposal_metadata", proposal).send(:proposal_items_for_map).to_json
-          )
-      end
 
       def proposal_preview_data_for_map(proposal)
         {

@@ -11,12 +11,7 @@ Decidim::Admin::Engine.routes.draw do
 
       member do
         get :users
-        get :user_entities
       end
-    end
-
-    Decidim.participatory_space_manifests.each do |manifest|
-      mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
     end
 
     resources :static_pages do
@@ -34,12 +29,6 @@ Decidim::Admin::Engine.routes.draw do
     resources :areas, except: [:show]
 
     resources :authorization_workflows, only: :index
-
-    Decidim.authorization_admin_engines.each do |manifest|
-      mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
-    end
-
-    mount Decidim::Templates::AdminEngine, at: "/templates", as: "decidim_admin_templates" if Decidim.module_installed?(:templates)
 
     resources :users, except: [:edit, :update], controller: "users" do
       member do
@@ -61,6 +50,10 @@ Decidim::Admin::Engine.routes.draw do
         scope "/:user_id" do
           resource :user_block, only: [:new, :create, :destroy], controller: :block_user
         end
+        post :bulk_new, controller: :block_user
+        post :bulk_create, controller: :block_user
+        delete :bulk_destroy, controller: :block_user
+        patch :bulk_unreport, controller: :moderated_users
       end
     end
 
@@ -93,16 +86,6 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :user_groups, only: [:index] do
-      member do
-        put :verify
-        put :reject
-      end
-      collection do
-        resource :user_groups_csv_verification, only: [:new, :create], path: "csv_verification"
-      end
-    end
-
     resource :help_sections, only: [:show, :update]
 
     namespace :admin_terms do
@@ -116,6 +99,7 @@ Decidim::Admin::Engine.routes.draw do
         put :hide
         put :unhide
       end
+      patch :bulk_action, on: :collection
       resources :reports, controller: "global_moderations/reports", only: [:index, :show]
     end
 
@@ -124,7 +108,9 @@ Decidim::Admin::Engine.routes.draw do
     resources :taxonomies, except: [:show] do
       patch :reorder, on: :collection
       resources :items, only: [:new, :create, :edit, :update], controller: "taxonomy_items"
+      resources :filters, except: [:show], controller: "taxonomy_filters"
     end
+    resources :taxonomy_filters_selector, param: :taxonomy_filter_id, except: [:edit, :update]
 
     root to: "dashboard#show"
   end

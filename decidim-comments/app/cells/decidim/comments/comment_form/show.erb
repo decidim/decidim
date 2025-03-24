@@ -9,7 +9,7 @@
   <% end %>
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
-  <%= comment_as_for(form) %>
+  <%= comment_as %>
 
   <div class="px-4 md:p-0">
     <%= form.text_area(
@@ -26,6 +26,9 @@
   <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
   <div class="comment__form-submit">
+    <% if two_columns_layout? && alignment_enabled? %>
+      <%= render :opinion %>
+    <% end %>
     <div class="<%= reply? ? "" : "publish-comment-button" %>">
       <button type="submit"
               class="button button__sm button__secondary <%= reply? ? "w-full" : "h-9 close-comment-fullscreen" %>"

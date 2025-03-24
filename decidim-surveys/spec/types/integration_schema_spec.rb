@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
+require "decidim/api/test"
 require "decidim/surveys/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -20,7 +20,7 @@ describe "Decidim::Api::QueryType" do
             forType
             id
             questions {
-              answerOptions {
+              responseOptions {
                 id
                 body { translation(locale:"#{locale}") }
                 freeText
@@ -58,16 +58,16 @@ describe "Decidim::Api::QueryType" do
   let(:survey_single_result) do
     survey.reload
     {
-      "createdAt" => survey.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => survey.created_at.to_time.iso8601,
       "id" => survey.id.to_s,
       "questionnaire" => {
-        "createdAt" => survey.questionnaire.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => survey.questionnaire.created_at.to_time.iso8601,
         "description" => { "translation" => survey.questionnaire.description[locale] },
         "forType" => "Decidim::Surveys::Survey",
         "id" => survey.questionnaire.id.to_s,
         "questions" => survey.questionnaire.questions.map do |q|
           {
-            "answerOptions" => q.answer_options.map do |a|
+            "responseOptions" => q.response_options.map do |a|
               {
                 "body" => { "translation" => a.body[locale] },
                 "freeText" => a.free_text?,
@@ -75,21 +75,21 @@ describe "Decidim::Api::QueryType" do
               }
             end,
             "body" => { "translation" => q.body[locale] },
-            "createdAt" => q.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+            "createdAt" => q.created_at.to_time.iso8601,
             "description" => { "translation" => q.description[locale] },
             "id" => q.id.to_s,
             "mandatory" => q.mandatory?,
             "maxChoices" => q.max_choices,
             "position" => q.position,
             "questionType" => q.question_type,
-            "updatedAt" => q.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+            "updatedAt" => q.updated_at.to_time.iso8601
           }
         end,
         "title" => { "translation" => survey.questionnaire.title[locale] },
         "tos" => { "translation" => survey.questionnaire.tos[locale] },
-        "updatedAt" => survey.questionnaire.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+        "updatedAt" => survey.questionnaire.updated_at.to_time.iso8601
       },
-      "updatedAt" => survey.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+      "updatedAt" => survey.updated_at.to_time.iso8601
     }
   end
 
@@ -130,7 +130,7 @@ describe "Decidim::Api::QueryType" do
                 forType
                 id
                 questions {
-                  answerOptions {
+                  responseOptions {
                     id
                     body { translation(locale:"#{locale}") }
                     freeText
@@ -185,7 +185,7 @@ describe "Decidim::Api::QueryType" do
         if current_component.participatory_space.respond_to?(:active_step)
           step_settings = {
             current_component.participatory_space.active_step.id => {
-              allow_answers: true,
+              allow_responses: true,
               allow_unregistered: true
             }
           }

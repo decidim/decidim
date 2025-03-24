@@ -2,6 +2,7 @@
   var rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   var commentHtml = '<%== j(render @comment).strip %>';
   var inReplyTo = <%== (reply?(@comment) ? @commentable.id : nil).to_json %>;
+  var alignment = <%= @comment.alignment.nil? ? "null" : @comment.alignment %>;
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
@@ -12,7 +13,7 @@
     hideButton.find("[data-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
 
   } else {
-    component.addThread(commentHtml, true);
+    component.addThread(commentHtml, alignment, true);
   }
 
   Rails.fire(document, "comments:loaded", {

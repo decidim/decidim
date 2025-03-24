@@ -16,4 +16,11 @@ describe "Comments", perform_enqueued: true do
 
     include_examples "comments blocked"
   end
+
+  context "with two columns layout" do
+    let!(:commentable) { create(:debate, :open_ama, component:, comments_layout: :two_columns) }
+    let!(:closed_commentable) { create(:debate, :closed, component:, comments_layout: :two_columns) }
+
+    include_examples "comments with two columns"
+  end
 end

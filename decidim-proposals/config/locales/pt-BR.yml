@@ -9,7 +9,6 @@ pt-BR:
         scope_id: Escopo
         state: Estado
         title: Título
-        user_group_id: Criar rascunho colaborativo como
       proposal:
         address: Endereço
         answer: Responda
@@ -22,7 +21,6 @@ pt-BR:
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
-        user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
         cost: Custo
@@ -34,9 +32,6 @@ pt-BR:
         import_proposals: Importar propostas
         keep_answers: Manter o estado e as respostas
         keep_authors: Mantenha os autores originais
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome do Avaliador
     errors:
       models:
         participatory_text:
@@ -93,8 +88,6 @@ pt-BR:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-          valuator_role_ids_has:
-            label: Atribuído ao avaliador
           with_any_state:
             values:
               state_not_published: Não respondido
@@ -138,8 +131,6 @@ pt-BR:
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
             threshold_per_proposal: Limiar por proposta
           step:
             amendment_creation_enabled: Criação de alteração ativada
@@ -173,7 +164,6 @@ pt-BR:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
@@ -278,7 +268,7 @@ pt-BR:
         title: Votos
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder proposta
@@ -295,22 +285,6 @@ pt-BR:
           proposal_comments: Comentários
           proposals: Propostas
         imports:
-          help:
-            answers: |
-              O documento de importação deve conter os seguintes nomes de coluna, no caso de arquivos CSV ou Excel, ou nomes de chave, no caso de arquivos JSON:
-              <ul>
-              <li><b>id:</b> ID da proposta a ser respondida</li>
-              <li><b>estado:</b> Uma das opções "aceito", "avaliando" ou "rejeitado"</li>
-              <li><b>resposta/en:</b> Resposta no idioma inglês. Isso dependerá da configuração de idioma de sua plataforma.</li>
-              </ul>
-            proposals: |
-              O arquivo deve ter os seguintes nomes de coluna em caso de arquivos CSV ou Excel. ou nomes de chaves no caso dos arquivos JSON:
-              <ul>
-              <li><b>title/en:</b> Título na língua inglesa. Isto dependerá da configuração de idioma da sua plataforma.</li>
-              <li><b>body/en:</b> corpo em inglês. Isto dependerá da configuração de linguagem da sua plataforma.</li>
-              <li><b>scope/id:</b> ID do Escopo</li>
-              <li><b>category/id:</b> ID para a Categoria</li>
-              </ul>
           label:
             answers: Importar respostas de um arquivo
             proposals: Importar propostas de um arquivo
@@ -366,17 +340,12 @@ pt-BR:
             title: Atualizar proposta
             update: Atualizar
           form:
-            attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
-            delete_attachment: Excluir anexo
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
-            assign_to_valuator: Atribuir ao avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
-            merge_button: Combinar
             publish: Publicar
             publish_answers: Publicar respostas
             select_component: Selecionar componente
@@ -384,15 +353,12 @@ pt-BR:
             split: Dividir propostas
             split_button: Dividir
             title: Propostas
-            unassign_from_valuator: Desatribuir do avaliador
-            unassign_from_valuator_button: Desatribuir
             update: Atualizar
           new:
             create: Criar
             title: Criar proposta
           show:
             amendments_count: As alterações contam
-            assigned_valuators: Avaliadores atribuídos
             body: Corpo
             comments_count: Contagem de Comentários
             documents: Documentos
@@ -405,8 +371,6 @@ pt-BR:
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
-            remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
-            valuators: Avaliadores
         proposals_imports:
           new:
             create: Propostas de importação
@@ -422,14 +386,10 @@ pt-BR:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
-          create: "%{user_name} criou a proposta %{resource_name} no espaço %{space_name} como uma proposta oficial"
           publish_answer: "%{user_name} publicou a resposta para a proposta %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} atribuiu a proposta %{resource_name} a um valor"
-          delete: "%{user_name} desatribuiu um valor à proposta %{proposal_title}"
       answers:
         accepted: Aceitaram
         evaluating: Avaliando
@@ -442,7 +402,6 @@ pt-BR:
           meetings: Reuniões
           official: Oficial
           participants: Participantes
-          user_groups: Grupos de usuários
         filter_state_values:
           all: Todos
           not_answered: Não respondido
@@ -470,7 +429,6 @@ pt-BR:
           error: Houve um problema ao criar este rascunho colaborativo.
           success: Rascunho colaborativo criado com sucesso.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Costas
           send: Enviar
           title: Editar rascunho colaborativo
@@ -556,8 +514,6 @@ pt-BR:
             published_at: Publicado em
             state: Estado
             title: Título
-            valuator: Avaliador
-            valuators: Avaliadores
             votes: Votos
       participatory_text_proposal:
         alternative_title: Não há textos participativos no momento
@@ -569,10 +525,7 @@ pt-BR:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
-          add_documents: Adicionar documentos
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          edit_documents: Editar documentos
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -648,10 +601,7 @@ pt-BR:
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto
-          votes_blocked: Votação desativada
         voting_rules:
-          minimum_votes_per_user:
-            description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
           vote_limit:

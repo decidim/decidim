@@ -33,8 +33,6 @@ zh-TW:
       help_section:
         content: 內容
       id: 編號
-      import:
-        user_group_id: 建立匯入成
       newsletter:
         body: 內容
         subject: 主旨
@@ -91,7 +89,6 @@ zh-TW:
         success_color: 成功
         time_zone: 時區
         tos_version: 服務條款版本
-        user_groups_enabled: 啟用群組功能
         users_registration_mode: 使用者註冊模式
         warning_color: 警告
         welcome_notification_body: 歡迎通知內容
@@ -176,8 +173,6 @@ zh-TW:
         attachment_collection:
           new: 新增附件資料夾
         browse: 瀏覽
-        category:
-          new: 新分類
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
@@ -188,11 +183,9 @@ zh-TW:
           new: 新參與空間私有使用者
         per_page: 每頁
         permissions: 權限
-        reject: 拒絕
         share: 分享
         user:
           new: 新增管理員
-        verify: 驗證
       admin_terms_of_service:
         accept:
           success: 太好了，已經同意管理員服務條款！
@@ -284,23 +277,8 @@ zh-TW:
           justification: 理由
           title: 封鎖使用者 %{name}
       categories:
-        create:
-          error: 建立這個分類時發生錯誤
-          success: 分類建立成功
-        destroy:
-          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
-          success: 分類刪除成功
-        edit:
-          title: 編輯分類
-          update: 更新
         index:
           categories_title: 分類
-        new:
-          create: 建立類別
-          title: 新分類
-        update:
-          error: 更新這個分類時發生錯誤
-          success: 更新類別成功。
       component_permissions:
         update:
           error: 更新這個元件的權限時發生錯誤
@@ -538,7 +516,6 @@ zh-TW:
         scopes: 範圍
         settings: 設定
         static_pages: 頁
-        user_groups: 群組
         users: 參與者
       metrics:
         metrics:
@@ -607,16 +584,6 @@ zh-TW:
               admin: 管理員
               user_manager: 參與者管理者
           name: 參與者
-        user_group:
-          fields:
-            actions: 操作
-            created_at: 建立於
-            document_number: 文件編號
-            name: 名稱
-            nickname: 暱稱
-            phone: 電話號碼
-            state: 狀態
-            users_count: 參與者數目
       moderated_users:
         index:
           actions:
@@ -689,7 +656,6 @@ zh-TW:
           confirm_delete: 您確定要刪除這份通訊嗎？
           followers: '追隨者'
           has_been_sent_to: '已發送至： '
-          no_scopes: 無範圍
           not_sent: 未發送
           participants: '參與者 '
           segmented_to: '分段至 %{subject}: '
@@ -704,13 +670,10 @@ zh-TW:
           confirm_deliver: 您確定要發送這封通訊嗎？此操作無法撤銷。
           deliver: 發送通訊
           followers_help: 將通訊發送給清單中所有已確認且關注任何選定參與空間的使用者。
-          none: 無
           participants_help: 發送通訊給所有在列表中任何選定的參與空間中參與過的已確認使用者。
           recipients_count: 此通訊將發送給<strong id='recipients_count'>%{count}</strong>位使用者。
-          scopes_help: 向在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者發送通訊。
-          select_scopes: 篩選條件為在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者。
           select_spaces: 選擇要將通訊進行分割的空間
-          select_users: 選擇您想要發送通訊的使用者
+          send_to_all_users: 傳送給所有使用者
           title: 選擇要傳送的收件人
           warning: "<strong>注意：</strong>此通訊將僅傳送給已在其通知設定中啟用<em>我想收到通訊</em>的使用者。"
         send:
@@ -805,6 +768,8 @@ zh-TW:
           invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
           success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
+          csv_upload:
+            title: 請上傳您的 CSV 檔案。
           destroy:
             button: 刪除所有私人參與者
             confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
@@ -879,7 +844,6 @@ zh-TW:
           title: 編輯主題
           update: 更新主題
         new:
-          create: 建立主題
           title: 新增主題
         update:
           error: 更新主題時發生問題。
@@ -901,7 +865,6 @@ zh-TW:
         index:
           last_notable_change: 最後重要更改
         new:
-          create: 建立頁面
           title: 新頁面
         topic:
           empty: 這個主題下沒有頁面.
@@ -923,34 +886,7 @@ zh-TW:
         scope_types: 範圍類型
         scopes: 範圍
         statistics: 啟動
-        user_groups: 群組
         users: 管理員
-      user_group:
-        csv_verify:
-          invalid: 讀取 CSV 檔案時發生問題。
-          success: CSV檔案上傳成功，我們正在驗證符合條件的群組。這可能需要一些時間。
-        reject:
-          invalid: 拒絕此群組時發生問題。
-          success: 群組已成功拒絕.
-        verify:
-          invalid: 驗證此群組時發生問題。
-          success: 群組驗證成功.
-      user_groups:
-        index:
-          state:
-            pending: 等待中
-            rejected: 已拒絕
-            verified: 已驗證
-          verify_via_csv: 通過 CSV 驗證
-      user_groups_csv_verifications:
-        new:
-          example_file: '示例文件:'
-          explanation: 請上傳您的 CSV 檔案。檔案的第一欄應包含您組織中的群組官方電子郵件，不包含標頭。只有已確認其電子郵件並且在 CSV 檔案中出現的群組將被驗證。
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: 請上傳您的 CSV 檔案。
-          upload: 上傳
       users:
         create:
           error: 邀請此管理員時出現問題。

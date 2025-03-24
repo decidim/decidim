@@ -22,6 +22,7 @@ module Decidim
 
         resources :create_initiative do
           collection do
+            get :load_initiative_draft
             get :select_initiative_type
             put :select_initiative_type, to: "create_initiative#store_initiative_type"
             get :fill_data
@@ -60,6 +61,7 @@ module Decidim
             get :authorization_create_modal, to: "authorization_create_modals#show"
             get :print, to: "initiatives#print", as: "print"
             get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
+            delete :discard, to: "initiatives#discard"
           end
 
           resource :initiative_vote, only: [:create, :destroy]
@@ -83,6 +85,12 @@ module Decidim
               mount manifest.engine, at: "/", as: "decidim_initiative_#{manifest.name}"
             end
           end
+        end
+      end
+
+      initializer "decidim_initiatives.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Initiatives::Engine, at: "/", as: "decidim_initiatives"
         end
       end
 
@@ -112,20 +120,12 @@ module Decidim
         Decidim::Gamification.register_badge(:initiatives) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            case model
-            when User
-              Decidim::Initiative.where(
-                author: model,
-                user_group: nil
-              ).published.count
-            when UserGroup
-              Decidim::Initiative.where(
-                user_group: model
-              ).published.count
-            end
+            Decidim::Initiative.where(
+              author: model
+            ).published.count
           }
         end
       end

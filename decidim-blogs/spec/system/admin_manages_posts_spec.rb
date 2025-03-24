@@ -19,7 +19,7 @@ describe "Admin manages posts" do
   end
 
   context "when author is a user" do
-    let(:author) { create(:user, organization:) }
+    let(:author) { user }
 
     it_behaves_like "manage posts"
   end
@@ -31,7 +31,7 @@ describe "Admin manages posts" do
       end
       within "tr", text: translated(post2.title) do
         expect(page).to have_content(two_days_from_now)
-        expect(find("td:nth-child(4) span")).to have_css("[aria-label='Not published yet.']")
+        expect(find("td:nth-child(5) span")).to have_css("[aria-label='Not published yet.']")
       end
     end
   end

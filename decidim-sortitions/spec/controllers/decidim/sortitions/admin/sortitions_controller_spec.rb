@@ -6,8 +6,6 @@ module Decidim
   module Sortitions
     module Admin
       describe SortitionsController do
-        routes { Decidim::Sortitions::AdminEngine.routes }
-
         let(:component) { sortition.component }
         let(:sortition) { create(:sortition) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }

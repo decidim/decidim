@@ -7,12 +7,6 @@ describe "Admin copies participatory process" do
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
-  let!(:category) do
-    create(
-      :category,
-      participatory_space: participatory_process
-    )
-  end
 
   before do
     switch_to_host(organization.host)
@@ -75,27 +69,6 @@ describe "Admin copies participatory process" do
       within ".table-list" do
         participatory_process.steps.each do |step|
           expect(page).to have_content(translated(step.title))
-        end
-      end
-    end
-
-    it "copies the process with categories" do
-      page.check("participatory_process[copy_categories]")
-      click_on "Copy"
-
-      expect(page).to have_content("successfully")
-
-      within "tr", text: "Copy participatory process" do
-        click_on "Copy participatory process"
-      end
-
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        participatory_process.categories.each do |category|
-          expect(page).to have_content(translated(category.name))
         end
       end
     end

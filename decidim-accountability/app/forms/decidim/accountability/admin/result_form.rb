@@ -55,20 +55,6 @@ module Decidim
                                &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
         end
 
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the result
-        def decidim_scope_id
-          super || scope&.id
-        end
-
         def geocoding_enabled?
           Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
         end

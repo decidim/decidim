@@ -7,8 +7,6 @@ module Decidim
   module Budgets
     module Admin
       describe ProjectsController do
-        routes { Decidim::Budgets::AdminEngine.routes }
-
         let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:budgets_component) }
         let!(:project) { create(:project, component:) }
@@ -28,8 +26,6 @@ module Decidim
               title: project_title,
               description: project.description,
               budget_amount: project.budget_amount,
-              decidim_scope_id: project.scope&.id,
-              decidim_category_id: project.category&.id,
               proposal_ids: project.linked_resources(:proposals, "included_proposals").pluck(:id),
               selected: project.selected?,
               photos: project.photos.map { |a| a.id.to_s }

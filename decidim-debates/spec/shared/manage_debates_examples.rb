@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "manage debates" do
   include_context "with taxonomy filters context"
-  let(:space_manifest) { participatory_process.manifest.name }
+  let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let(:taxonomies) { [taxonomy] }
   let!(:debate) { create(:debate, taxonomies:, component: current_component) }
   let(:attributes) { attributes_for(:debate, :closed, component: current_component) }
@@ -76,6 +76,27 @@ RSpec.shared_examples "manage debates" do
         within "tr", text: translated(debate.title) do
           expect(page).to have_no_selector(".action-icon--edit")
         end
+      end
+    end
+
+    context "when debate has existing comments" do
+      let!(:debate) { create(:debate, component: current_component, comments_layout: "two_columns") }
+      let!(:comment) { create(:comment, commentable: debate, body: { "en" => "This is a test comment" }) }
+
+      it "prevents admin from updating debate layout once comments have been posted" do
+        within "tr", text: translated(debate.title) do
+          page.find(".action-icon--edit").click
+        end
+
+        within ".edit_debate" do
+          choose "Single column"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("You cannot change the comment layout once comments have been posted")
+
+        debate.reload
+        expect(debate.comments_layout).to eq("two_columns")
       end
     end
   end
@@ -162,6 +183,29 @@ RSpec.shared_examples "manage debates" do
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+  end
+
+  it "creates a new debate with two columns layout" do
+    click_on "New debate"
+
+    within ".new_debate" do
+      fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
+
+      choose "Open"
+      choose "Two columns"
+    end
+
+    within ".new_debate" do
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout "Debate successfully created"
+
+    within "table" do
+      expect(page).to have_content(translated(attributes[:title]))
+    end
   end
 
   describe "Attachments in a debate" do

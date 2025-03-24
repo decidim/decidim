@@ -120,7 +120,7 @@ Capybara.register_driver :iphone do |app|
   options.args << "--no-sandbox"
   # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
-  options.add_emulation(device_name: "iPhone 6")
+  options.add_emulation(device_name: "iPhone XR")
 
   Capybara::Selenium::Driver.new(
     app,

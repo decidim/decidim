@@ -42,15 +42,8 @@ kaa:
       autocomplete:
         no_results: Nátiyjeler tabılmadı
       categories:
-        edit:
-          update: Jańalaw
         index:
           categories_title: Kategoriyalar
-        new:
-          create: Kategoriya jaratıw
-          title: Jańa kategoriya
-        update:
-          success: Kategoriya tabıslı jańalandı.
       components:
         edit:
           update: Jańalaw
@@ -121,9 +114,6 @@ kaa:
         user:
           fields:
             email: Elektron pochta
-        user_group:
-          fields:
-            phone: Telefon
       moderated_users:
         index:
           actions:

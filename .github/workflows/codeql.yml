@@ -1,0 +1,68 @@
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: [ "develop", "release/*" ]
+  pull_request:
+    branches: [ "develop", "release/*" ]
+  schedule:
+    - cron: '38 2 * * 2'
+  workflow_call:
+    inputs:
+      ruby_version:
+        description: 'Ruby Version'
+        default: "3.3.4"
+        type: string
+        required: false
+      node_version:
+        description: 'Node version'
+        default: '22.14.0'
+        required: false
+        type: string
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}-${{ matrix.language }}
+      cancel-in-progress: true
+    permissions:
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: actions
+          build-mode: none
+        - language: javascript-typescript
+          build-mode: none
+        - language: ruby
+          build-mode: none
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby_version }}
+        bundler-cache: true
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: 'npm'
+        cache-dependency-path: ./package-lock.json
+    - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
+      name: Tune NPM configuration
+      shell: "bash"
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"

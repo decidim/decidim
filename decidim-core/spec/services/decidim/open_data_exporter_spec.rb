@@ -79,21 +79,6 @@ describe Decidim::OpenDataExporter do
       end
     end
 
-    describe "with user groups" do
-      let(:resource_file_name) { "user_groups" }
-      let(:resource_title) { "### user_groups" }
-      let!(:resource) { create(:user_group, :confirmed, organization:) }
-      let!(:unpublished_resource) { create(:user_group, :confirmed, :blocked, organization:) }
-      let(:help_lines) do
-        [
-          "* id: The unique identifier of the user",
-          "* members_count: The number of the users belonging to the user group"
-        ]
-      end
-
-      it_behaves_like "open users data exporter"
-    end
-
     describe "with metrics" do
       let(:resource_file_name) { "metrics" }
       let(:resource_title) { "### metrics" }
@@ -111,6 +96,25 @@ describe Decidim::OpenDataExporter do
         expect(data).to include(resource.quantity.to_s)
         expect(data).to include(resource.cumulative.to_s)
         expect(data).to include(resource.day.to_s)
+      end
+    end
+
+    describe "with taxonomies" do
+      let(:resource_file_name) { "taxonomies" }
+      let(:resource_title) { "### taxonomies" }
+      let!(:resource) { create(:taxonomy, organization:) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of this taxonomy",
+          "* name: The name of this taxonomy"
+        ]
+      end
+
+      include_examples "default open data exporter"
+
+      it "includes the resource data" do
+        expect(data).to include(resource.id.to_s)
+        expect(data).to include(resource.weight.to_s)
       end
     end
 
@@ -161,7 +165,6 @@ describe Decidim::OpenDataExporter do
     end
 
     describe "with all the components and spaces" do
-      let!(:user_group) { create(:user_group, :confirmed, organization:) }
       let(:proposal_component) do
         create(:proposal_component, organization:, published_at: Time.current)
       end
@@ -201,7 +204,6 @@ describe Decidim::OpenDataExporter do
 
         it "includes the help description for all the entities" do
           expect(file_data).to include("## users (1 resource)")
-          expect(file_data).to include("## user_groups (1 resource)")
           expect(file_data).to include("## proposals (1 resource)")
           expect(file_data).to include("## proposal_comments (1 resource)")
           expect(file_data).to include("## results (1 resource)")

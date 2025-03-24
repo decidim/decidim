@@ -58,7 +58,6 @@ describe "Admin filters meetings" do
   context "when filtering by origin" do
     let!(:official_meeting) { create(:meeting, :official, component:) }
     let!(:participant_meeting) { create(:meeting, :not_official, component:) }
-    let!(:user_group_meeting) { create(:meeting, :user_group_author, component:) }
 
     before { visit_component_admin }
 
@@ -69,13 +68,6 @@ describe "Admin filters meetings" do
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
-
-      context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
-          let(:in_filter) { translated(participant_meeting.title) }
-          let(:not_in_filter) { translated(user_group_meeting.title) }
-        end
-      end
     end
 
     context "when filtering official" do
@@ -83,29 +75,6 @@ describe "Admin filters meetings" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
           let(:not_in_filter) { translated(participant_meeting.title) }
-        end
-      end
-
-      context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
-          let(:in_filter) { translated(official_meeting.title) }
-          let(:not_in_filter) { translated(user_group_meeting.title) }
-        end
-      end
-    end
-
-    context "when filtering user groups" do
-      context "when no participant meeting is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
-          let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(participant_meeting.title) }
-        end
-      end
-
-      context "when no official meeting is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
-          let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
     end

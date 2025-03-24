@@ -27,8 +27,8 @@ module Decidim
         translatable_attribute :location_hints, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
-        validates :title, translatable_presence: true
-        validates :description, translatable_presence: true
+        validates :title, :description, translatable_presence: true
+        validates :title, :description, translated_etiquette: true
         validates :registration_type, presence: true
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true

@@ -46,7 +46,7 @@ module Decidim
           end
 
           it "create a new template for the organization" do
-            expect { subject.call }.to change { Decidim::Templates::Template.all.count }.by(1)
+            expect { subject.call }.to change(Decidim::Templates::Template, :count).by(1)
           end
 
           it "traces the action", versioning: true do

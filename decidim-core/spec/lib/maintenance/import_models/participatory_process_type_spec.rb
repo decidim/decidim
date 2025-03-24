@@ -15,7 +15,7 @@ module Decidim::Maintenance::ImportModels
     let!(:external_participatory_process_type) { described_class.create!(title: { "en" => "External Participatory Process Type" }, decidim_organization_id: external_organization.id) }
     let(:root_taxonomy_name) { "~ Participatory process types" }
     let(:resource) { participatory_process }
-    let(:space_manifest) { "participatory_processes" }
+    let(:participatory_space_manifests) { ["participatory_processes"] }
 
     before do
       described_class.add_resource_class("Decidim::Dev::DummyResource")

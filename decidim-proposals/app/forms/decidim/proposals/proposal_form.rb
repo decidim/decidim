@@ -14,7 +14,6 @@ module Decidim
       attribute :title, String
       attribute :body, Decidim::Attributes::CleanString
       attribute :body_template, String
-      attribute :user_group_id, Integer
       attribute :address, String
       attribute :latitude, Float
       attribute :longitude, Float
@@ -23,7 +22,8 @@ module Decidim
 
       attachments_attribute :documents
 
-      validates :title, :body, presence: true, etiquette: true
+      validates :title, :body, presence: true
+      validates :title, :body, etiquette: true
       validates :title, length: { in: 15..150 }
       validates :body, proposal_length: {
         minimum: 15,
@@ -44,7 +44,6 @@ module Decidim
         presenter = ProposalPresenter.new(model)
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
-        self.user_group_id = model.user_groups.first&.id
         self.documents = model.attachments
       end
 

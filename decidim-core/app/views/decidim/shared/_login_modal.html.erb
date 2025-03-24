@@ -9,25 +9,34 @@
   %>
 
   <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: nil }) do |f| %>
-    <div data-dialog-container>
-      <%= icon "user-line", class: "w-6 h-6 text-gray fill-current" %>
-      <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_log_in") %></h3>
+    <div>
+      <div class="flex flex-row">
+        <%= icon "user-line", class: "w-6 h-6 text-gray fill-current" %>
+        <h3 id="dialog-title-loginModal" class="h3 ml-1"><%= t(".please_log_in") %></h3>
+      </div>
+
       <div>
         <% if current_organization.sign_in_enabled? %>
           <% cache current_organization do %>
             <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
           <% end %>
-
           <div class="form__wrapper">
             <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
+
+          </div>
+          <div class="login__modal-remember">
+              <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
+              <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
+          </div>
+          <div class="login__info flex justify-center font-semibold">
+            <p>
+              <%= t("decidim.devise.sessions.new.are_you_new?") %>
+              <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
+            </p>
           </div>
 
-          <div class="login__modal-links">
-            <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
-            <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
-          </div>
         <% else %>
           <%= cell("decidim/announcement", t("sign_in_disabled", scope: "decidim.devise.sessions.new"), callout_class: "warning" ) %>
 
@@ -35,19 +44,16 @@
             <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
           <% end %>
         <% end %>
+        <% if current_organization.sign_in_enabled? %>
+          <div data-dialog-actions>
+            <div class="form__wrapper-block w-full mb-4">
+              <button type="submit" class="button button__lg button__secondary">
+                <%= t("devise.sessions.new.log_in") %>
+              </button>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-
-    <% if current_organization.sign_in_enabled? %>
-      <div data-dialog-actions>
-        <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
-          <%= t("cancel", scope: "decidim.admin.actions") %>
-        </button>
-        <button type="submit" class="button button__lg button__secondary">
-          <%= t("devise.sessions.new.log_in") %>
-          <%= icon "arrow-right-line", class: "fill-current" %>
-        </button>
-      </div>
-    <% end %>
   <% end %>
 <% end %>

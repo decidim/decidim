@@ -1,5 +1,8 @@
 <tr data-id="<%= result.id %>">
   <td>
+    <%= check_box_tag "result_ids_s[]", result.id, false, data: { result_id: result.id, result_checkbox: true } %><br>
+  </td>
+  <td>
     <%= result.id %><br>
   </td>
   <td class="!text-left">

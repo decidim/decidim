@@ -21,9 +21,9 @@ RSpec.describe "Meeting directory search" do
   let!(:taxonomy1) { create(:taxonomy, :with_parent, organization:) }
   let!(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
   let!(:child_taxonomy) { create(:taxonomy, organization:, parent: taxonomy2) }
-  let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy: taxonomy1.parent, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy: taxonomy1.parent, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter1_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy1, taxonomy_filter: taxonomy_filter1) }
-  let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy: taxonomy2.parent, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy: taxonomy2.parent, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter2_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy2, taxonomy_filter: taxonomy_filter2) }
   let!(:taxonomy_filter_ids) { [taxonomy_filter1.id, taxonomy_filter2.id] }
   let(:meeting1) { create(:meeting, :published, component: components.second) }

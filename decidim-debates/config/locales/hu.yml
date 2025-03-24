@@ -33,8 +33,6 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
-            scope_id: Hatókör
-            scopes_enabled: A hatókör engedélyezett
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva

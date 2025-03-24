@@ -22,22 +22,26 @@ de:
         one: Debatte
         other: Debatten
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debatten
     components:
       debates:
         actions:
           comment: Kommentar
+          create: Debatte erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
           global:
             announcement: Ankündigung
+            attachments_allowed: Anhänge zulassen
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
           step:
@@ -49,9 +53,12 @@ de:
     debates:
       actions:
         close: Schließen
+        confirm_delete_debate: Möchten Sie diese Debatte wirklich löschen?
+        deleted_debate_info: Gelöschte Debatten können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         new: Neue Debatte
         title: Aktionen
+        view_deleted_debates: Gelöschte Debatten anzeigen
       admin:
         debate_closes:
           edit:
@@ -65,11 +72,22 @@ de:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
           form:
+            add_attachments: Anhänge hinzufügen
+            attachment_legend: Dokument oder Bild hinzufügen
+            comments_visualization: Kommentardarstellung
+            comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ
+            edit_attachments: Anhänge bearbeiten
+            errors:
+              comments_layout_locked: Sie können das Kommentaransicht nicht ändern, sobald Kommentare veröffentlicht wurden.
             finite: Zeitlich begrenzt (mit Start- und Endzeit)
             open: Offen (keine Start- und Endzeit)
+            single_column: 'Einzelne Spalte: Kommentare werden in chronologischer Reihenfolge angezeigt und können beantwortet werden.'
+            two_columns: 'Zwei Spalten: Kommentare werden in "Zustimmend"- und "Ablehnend"-Spalten angezeigt und können keine Antworten enthalten.'
           index:
             title: Debatten
+          manage_trash:
+            title: Gelöschte Debatten
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
@@ -83,6 +101,8 @@ de:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
           create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
+          restore: "%{user_name} hat die Debatte %{resource_name} des Bereichs %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat die Debatte %{resource_name} des Bereichs %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
       content_blocks:
         highlighted_debates:
@@ -227,7 +247,7 @@ de:
     open_data:
       help:
         debate_comments:
-          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
           author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
           body: Der Kommentar selbst
           commentable_id: Die eindeutige ID des kommentierten Objekts
@@ -248,8 +268,19 @@ de:
           created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
           description: Die Beschreibung der Debatte
           end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
+          endorsements_count: Die Anzahl Unterstützungen dieser Debatte
+          follows_count: Die Anzahl der Follower, die diese Debatte hat
           id: Die eindeutige Bezeichnung der Debatte
+          information_updates: Die Aktualisierungen, die der Autor zur Debatte gemacht hat
+          instructions: Kommentaranleitungen für diese Debatte
+          last_comment_at: Datum, an dem diese Debatte zuletzt kommentiert wurde
+          last_comment_by: Der Inhalt des letzten Kommentars der Debatte
+          participatory_space: Zu welchem Bereich diese Debatte gehört (z.B. Partizipationsprozesse oder Gremien)
+          reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          start_time: Wann diese Debatte beginnt, ob es sich um eine offene Debatte handelt oder ob sie eine begrenzte Dauer hat
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel der Debatte
+          updated_at: Datum, an dem die Debatte zuletzt aktualisiert wurde
+          url: Die URL, unter der diese Debatte gefunden werden kann
     statistics:
       debates_count: Debatten

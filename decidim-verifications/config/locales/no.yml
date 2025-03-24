@@ -110,11 +110,9 @@
           postal_codes:
             one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
             other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
-          scope: Deltakelse er begrenset til deltakere med tema %{scope_name}.
           user_postal_codes:
             one: Deltagelse er begrenset til deltakere med postnummer %{postal_codes}, og postnummeret ditt er %{user_postal_code}.
             other: 'Deltagelse er begrenset til deltakere med følgende postkoder: %{postal_codes}. Ditt postnummer er %{user_postal_code}.'
-          user_scope: Deltakelse er begrenset til deltakere med tema %{scope_name}, og ditt tema er %{user_scope_name}.
       id_documents:
         admin:
           config:

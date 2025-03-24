@@ -73,12 +73,9 @@ module Decidim
       @utility_modules ||= {}
       @utility_modules[category] = mod
 
-      # Dynamically define the category method.
-      module_eval %{
-        def self.#{category}(options)    # def self.dynamic(options)
-          utility(:#{category}, options) #  utility(:dynamic, options)
-        end                              # end
-      }, __FILE__, __LINE__ - 4
+      define_singleton_method(category) do |options|
+        utility(category, options)
+      end
 
       mod
     end

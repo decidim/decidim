@@ -4,6 +4,7 @@ abans
 abcd
 abcert
 abcloktpes
+acceptada
 accesslist
 Aceasta
 acentos
@@ -124,6 +125,7 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver
@@ -141,6 +143,7 @@ codeclimate
 codecov
 codefor
 CODEOWNERS
+codeql
 coditramuntana
 commentables
 commentaire
@@ -155,7 +158,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -435,6 +438,7 @@ inviteduser
 isbn
 iseq
 isready
+ivan
 Jaskolski
 Jaume
 javascripts
@@ -473,6 +477,7 @@ Lalalilo
 lastcenter
 lastleft
 latlng
+Layouter
 LCell
 legacysupport
 Lesch
@@ -524,6 +529,7 @@ marydoe
 Massot
 matrixmultiple
 matutes
+maxtimeout
 mcdoggo
 mcell
 medios
@@ -548,6 +554,7 @@ Milhouse
 millor
 Millora
 minicard
+mintimeout
 minuscat
 misogi
 mlat
@@ -738,6 +745,7 @@ Pujol
 pwa
 QLiterals
 queda
+qux
 railtie
 railties
 randomable
@@ -747,6 +755,7 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
+rebutjada
 recapitated
 reconfirmable
 redcarpet
@@ -779,6 +788,8 @@ routable
 rowchart
 rowdata
 rowi
+RQR
+rqrcode
 rroe
 rsefa
 rsimplecov
@@ -814,7 +825,6 @@ sgid
 shakapacker
 sharedapp
 shellwords
-shortanswer
 shs
 sidekiq
 signedby
@@ -831,6 +841,7 @@ Smileys
 Snowlvhme
 Snoworg
 softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -988,7 +999,6 @@ Uusimaa
 Valero
 validable
 valids
-valuatable
 valueline
 Valuetypes
 VCALENDAR
@@ -1056,3 +1066,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

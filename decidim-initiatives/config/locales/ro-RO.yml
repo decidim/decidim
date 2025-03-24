@@ -84,7 +84,7 @@ ro:
             label: Județ
             values:
               accepted: Semnături suficiente
-              created: Creat
+              created: Create
               discarded: Respins
               rejected: Semnături insuficiente
               validating: Validarea tehnică
@@ -130,8 +130,6 @@ ro:
             initiative_title: Titlul inițiativei
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
-            scope: Domeniu de interes
-            time_and_date: Ora și data
             timestamp: Ora
       titles:
         initiatives: Inițiative
@@ -293,7 +291,7 @@ ro:
           update: "%{user_name} a actualizat inițiativa %{resource_name}"
       admin_states:
         accepted: Semnături suficiente
-        created: Creat
+        created: Create
         discarded: Respins
         rejected: Semnături insuficiente
         validating: Validarea tehnică
@@ -320,38 +318,53 @@ ro:
         highlighted_initiatives:
           name: Inițiative evidențiate
       create_initiative:
+        committee_member:
+          approve: Aprobați
+          confirm_approve: Sunteți sigur că doriți să aprobați acest membru?
+          confirm_revoke: Sunteți sigur că doriți să revocați acest membru?
+          revoke: Revocați
         fill_data:
-          back: Înapoi
+          confirm_discard: Sigur doriți să renunțați la această inițiativă?
           continue: Continuă
+          discard: Renunțați la inițiativă
           fill_data_help: "<ul> <li>Examinează conținutul inițiativei tale. Este ușor de înțeles titlul pus de tine? E clar obiectivul inițiativei?</li> <li>Trebuie să alegi tipul de semnătură. În persoană, online sau o combinație a ambelor</li> <li>Care este aria geografică a inițiativei?</li> </ul>"
-          more_information: "(Informaţii principale)"
+          more_information: Mai multe informații
           select_area: Selectează o zonă
           select_scope: Selectează un domeniu de interes
         finish:
           back: Înapoi
-          back_to_initiatives: Înapoi la inițiative
-          callout_text: Felicitări! Inițiativa ta a fost creată cu succes.
-          confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Sigur dorești asta?
-          edit_my_initiative: Editează inițiativa mea
-          go_to_my_initiatives: Accesează inițiativele mele
-          more_information: "(Mai multe informații)"
-          send_my_initiative: Trimite inițiativa mea spre validarea tehnică
-        finish_help:
-          publish_helper_text: Reţine faptul că pentru ca iniţiativa ta să fie publicată, trebuie să completezi informaţiile necesare şi <strong>să le trimiți spre validarea tehnică</strong> pentru ca un administrator să le revizuiască.
+          callout_text_created: Felicitări! Inițiativa dvs. a fost creată cu succes.
+          callout_text_validating: Inițiativa dvs. a fost trimisă cu succes pentru validarea tehnică.
+          go_to_initiatives: Mergeți la inițiative
+          publish_helper_text_html: Amintiți-vă că pentru ca inițiativa dumneavoastră să fie publicată, aceasta trebuie validată tehnic de către un administrator.
         previous_form:
           back: Înapoi
-          continue: Continuă
         promotal_committee:
-          individual_help_text: Acest tip de inițiativă necesită o Comisie de promovare formată din cel puțin %{committee_size} de persoane (atestatori). Trebuie să diseminezi următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link vor trebui să urmeze pașii indicați.
-          more_information: "(Mai multe informații)"
+          individual_help_text: Inițiativa dvs. a fost creată și este salvată ca ciornă. Acum trebuie să adăugați oameni la Comitetul pentru promovare.
+          invite_link_title: Link pentru a invita persoane
+          promoters_committee_help_2: Amintiți-vă că pentru ca inițiativa dvs. să fie publicată trebuie să completați informațiile necesare și să le trimiteți la validarea tehnică pentru a fi examinată de către un administrator.
+          promoters_committee_help_html: Înainte de a trimite inițiativa dvs. pentru validare tehnică, trebuie să adăugați încă %{committee_members_left} membri în comitetul de promovare. Acum aveți <strong>%{committee_members_count}/%{committee_size}</strong> membri.
+          promoters_committee_title: Comitet de promovare
+        return_to_initiatives_button:
+          return_initiatives_html: Omiteți pentru moment și <a href="%{initiatives_path}">întoarceți-vă la inițiative</a>
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
+          consult_existing_initiatives: Consultați inițiativele existente
+          continue: Continuați
           more_information: (Mai multe informații)
           select: Doresc să promovez această iniţiativă
-          select_initiative_type_help: Inițiativele reprezintă un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă dorești să lansezi?
+          select_initiative_type_help_html: "<p>Inițiativele sunt un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă doriți să lansați?</p>"
+          show_less: Afișați mai puțin
+          show_more: Afișați mai mult
+          subtitle: Ce inițiativă doriți să promovați?
+        send_to_technical_validation_button:
+          button: Trimiteți pentru validare tehnică
+          confirm: Veți trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicat, nu o veți mai putea edita. Sunteți sigur?
         share_committee_link:
-          invite_to_committee_help: Link pentru a invita persoane care vor face parte din comitetul promotor
+          invite_to_committee_help: Link pentru a invita persoane care vor face parte din Comisia de promovare.
+          invite_to_committee_help_2: Acest tip de inițiativă cetățenească necesită un comitet de promotori compus cel puțin din membri %{committee_size} (certificatori). Trebuie să împărtășiți următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link, acestea vor trebui să urmeze pașii indicați.
+          more_information: Mai multe informații
       edit:
         accept: Acceptă inițiativa
         back: Înapoi
@@ -388,8 +401,6 @@ ro:
           email_outro: 'Ai primit această notificare deoarece ești autorul acestei inițiative: %{resource_title}'
           email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
-      form:
-        attachment_legend: "(Opțional) Adaugă un atașament"
       initiative_signatures:
         fill_personal_data:
           continue: Continuă
@@ -448,6 +459,8 @@ ro:
           random: Aleator
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
+        pending_initiatives:
+          title: Inițiative create și în așteptare
         print:
           address: Adresă
           author_title: Autorul inițiativei
@@ -505,7 +518,7 @@ ro:
       show:
         badge_name:
           accepted: Semnături suficiente
-          created: Creat
+          created: Create
           discarded: Respins
           rejected: Semnături insuficiente
           validating: Validarea tehnică
@@ -527,8 +540,8 @@ ro:
     decidim:
       initiative_creation_header:
         fill_data: Creează
-        finish: Finalizare
-        promotal_committee: Comitet de promovare
+        finish: Validarea tehnică
+        promotal_committee: Căutați promotori
         select_initiative_type: Alege
       initiative_signature_creation_header:
         fill_personal_data: Completează datele tale

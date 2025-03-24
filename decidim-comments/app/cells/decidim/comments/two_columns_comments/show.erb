@@ -1,0 +1,11 @@
+<div id="desktopContainer" class="comments-two-columns card__grid-grid hidden md:grid">
+  <%= render_column(@top_comment_in_favor, @sorted_comments_in_favor, "thumb-up-line", t("decidim.components.comments.in_favor")) %>
+  <%= render_column(@top_comment_against, @sorted_comments_against, "thumb-down-line", t("decidim.components.comments.against")) %>
+</div>
+
+<div id="mobileContainer" class="comment-threads block md:hidden" aria-live="polite">
+  <%= comments_loading %>
+  <% @interleaved_comments.each do |comment| %>
+    <%= cell("decidim/comments/comment_thread", comment, order:, top_comment: (comment == @top_comment_in_favor || comment == @top_comment_against)) %>
+  <% end %>
+</div>

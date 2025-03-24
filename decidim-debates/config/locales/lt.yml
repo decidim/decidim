@@ -35,8 +35,6 @@ lt:
             announcement: Pranešimas
             comments_enabled: Komentarai įjungti
             comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
-            scope_id: Apimtis
-            scopes_enabled: Sritys įjungtos
           step:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti

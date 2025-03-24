@@ -154,8 +154,6 @@ pt-BR:
             maps_enabled: Mapas ativados
             registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
@@ -358,6 +356,7 @@ pt-BR:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            manage_questions: Perguntas
             recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
             registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_form: Formulário de registro

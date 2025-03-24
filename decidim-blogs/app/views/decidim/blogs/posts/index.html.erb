@@ -1,6 +1,9 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_component.participatory_space.try(:description)),
-  title: component_name,
+  title: t("decidim.components.pagination.page_title",
+           component_name: component_name,
+           current_page: paginate_posts.current_page,
+           total_pages: paginate_posts.total_pages ),
   url: posts_url,
   resource: current_component) %>
 
@@ -9,6 +12,13 @@
 
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
+
+  <% if allowed_to?(:create, :blogpost) %>
+      <%= action_authorized_link_to :create, new_post_path, permissions_holder: current_component, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_post_path } do %>
+        <span><%= t("new_post", scope: "decidim.blogs.posts.index") %></span>
+        <%= icon "add-line" %>
+      <% end %>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

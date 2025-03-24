@@ -41,7 +41,6 @@ module Decidim
           allow! if user_action?
           allow! if admin_user_action?
 
-          allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image
@@ -50,7 +49,6 @@ module Decidim
           allow! if permission_action.subject == :scope_type
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
-          allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
@@ -59,10 +57,6 @@ module Decidim
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
-
-          if permission_action.subject == :taxonomy
-            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
-          end
 
           if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
             if permission_action.action == :soft_delete
@@ -74,6 +68,10 @@ module Decidim
             end
           end
 
+          if permission_action.subject == :taxonomy
+            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
+          end
+          allow! if permission_action.subject == :taxonomy_filter
           allow! if permission_action.subject == :taxonomy_item
         end
 

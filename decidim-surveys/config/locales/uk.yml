@@ -20,12 +20,10 @@ uk:
       surveys:
         actions:
           answer: Відповідь
-        name: Опитування
         settings:
           global:
             announcement: Оголошення
           step:
-            allow_answers: Дозволити відповіді
             announcement: Оголошення
     events:
       surveys:

@@ -191,32 +191,4 @@ shared_examples "manage processes examples" do
       end
     end
   end
-
-  context "when the process has a scope" do
-    let(:scope) { create(:scope, organization:) }
-
-    before do
-      participatory_process.update!(scopes_enabled: true, scope:)
-    end
-
-    it "disables the scope for a participatory process" do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
-
-      uncheck :participatory_process_scopes_enabled
-
-      expect(page).to have_css("#participatory_process_scope_id[disabled]")
-
-      within ".edit_participatory_process" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-    end
-  end
 end

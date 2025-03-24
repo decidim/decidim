@@ -9,47 +9,24 @@
   </h1>
 </div>
 
-<div class="card">
-  <div class="card-section p-4">
-    <div class="item__edit-form">
-      <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :new), method: :get, html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
-        <div class="form__wrapper">
-          <div class="row column">
-            <%= f.select :root_taxonomy_id, options_for_select(root_taxonomies.map { |t| [translated_attribute(t.name), t.id.to_s] }, selected: @form&.root_taxonomy&.id&.to_s), { include_blank: "-- #{t(".select_taxonomy")} --" }, name: :root_taxonomy_id %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: taxonomy_filters_path(root_taxonomy), html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
+    <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
 
-  <% if @form.root_taxonomy %>
-    <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :create), html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
-      <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
-
-      <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
-          <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
-        </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var form = document.querySelector(".new_taxonomy_filter_");
-    var checkBoxes = document.querySelectorAll(".new_taxonomy_filter_ [type='checkbox']");
-    var rootTaxonomySelect = document.getElementById("taxonomy_filter_root_taxonomy_id");
-
-    // reload the page if the select exists
-    rootTaxonomySelect.addEventListener("change", function() {
-      form.submit();
-    });
+    var selectAll = document.querySelector("[name='selectAll']");
 
     // check all checkboxes on load
-    checkBoxes.forEach(function(checkbox) {
-      checkbox.checked = true;
-      checkbox.dispatchEvent(new Event("change"));
-    });
+    selectAll.checked = true;
+    selectAll.dispatchEvent(new Event("change"));
   });
 </script>

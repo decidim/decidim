@@ -28,6 +28,8 @@ module Decidim
       @user = user
     end
 
+    delegate :ephemeral?, to: :user
+
     # Checks if the onboarding data has an action and a model.
     #
     # Returns a boolean
@@ -157,6 +159,40 @@ module Decidim
     # Returns a String
     def finished_redirect_path
       @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
+    end
+
+    def root_path
+      component_path || Decidim::Core::Engine.routes.url_helpers.root_path
+    end
+
+    def component_path
+      return if component.blank?
+
+      EngineRouter.main_proxy(component).root_path
+    end
+
+    def expired?
+      return unless ephemeral?
+
+      session_duration > Decidim.config.expire_session_after.to_i
+    end
+
+    # Time in seconds since the last login or creation of the user
+    #
+    # Returns an Integer
+    def session_duration
+      Time.current.to_i - (user.last_sign_in_at || user.created_at).to_i
+    end
+
+    # This method is used to determine if an ephemeral user has an onboarding
+    # page to be redirected or only an authorization is required to complete the
+    # verification
+    #
+    # Returns a Boolean
+    def available_authorization_selection_page?
+      return true unless valid? && ephemeral?
+
+      authorization_handlers.count > 1
     end
 
     private

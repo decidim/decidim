@@ -1,7 +1,7 @@
 <div role="complementary">
   <%= yield :item_header %>
 </div>
-<div class="layout-item">
+<div class="<%= layout_item_classes %>">
   <main class="layout-item__main">
     <% if params[:included_in] %>
       <%= render partial: "layouts/decidim/shared/linked_resource" %>

@@ -36,21 +36,13 @@ module Decidim::ParticipatoryProcesses
           "end_date" => "2023-08-01",
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
-          "scopes_enabled" => false,
-          "participatory_process_group" => group_data,
-          "participatory_process_type" => type_data
+          "participatory_process_group" => group_data
         }
       end
       let(:group_data) do
         {
           "title" => generate_localized_title,
           "description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title }
-        }
-      end
-
-      let(:type_data) do
-        {
-          "title" => generate_localized_title
         }
       end
 
@@ -112,41 +104,6 @@ module Decidim::ParticipatoryProcesses
 
         it "does not create a process group" do
           expect { subject }.not_to change(Decidim::ParticipatoryProcessGroup, :count)
-        end
-      end
-
-      it "imports the process type correctly" do
-        expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
-
-        participatory_process_type = subject.participatory_process_type
-        expect(participatory_process_type.organization).to eq(subject.organization)
-        expect(participatory_process_type.title).to eq(type_data["title"])
-      end
-
-      context "when the process type title is defined with the name key" do
-        let(:type_data) do
-          {
-            "title" => generate_localized_title
-          }
-        end
-
-        it "imports the process type correctly" do
-          expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
-
-          participatory_process_type = subject.participatory_process_type
-          expect(participatory_process_type.title).to eq(type_data["title"])
-        end
-      end
-
-      context "when the process type is empty" do
-        let(:type_data) do
-          {
-            "title" => Decidim::Faker::Localized.localized { "" }
-          }
-        end
-
-        it "does not create a process type" do
-          expect { subject }.not_to change(Decidim::ParticipatoryProcessType, :count)
         end
       end
     end

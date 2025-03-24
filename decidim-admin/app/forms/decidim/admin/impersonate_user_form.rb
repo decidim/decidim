@@ -14,12 +14,17 @@ module Decidim
       attribute :handler_name, String
 
       validates :user, presence: true
+      validates :name, presence: true, unless: :persisted_user?
       validates :reason, presence: true, unless: :managed_user?
 
       private
 
       def managed_user?
         user && user.managed?
+      end
+
+      def persisted_user?
+        user&.persisted?
       end
     end
   end

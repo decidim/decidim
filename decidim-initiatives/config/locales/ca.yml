@@ -89,7 +89,7 @@ ca:
             label: Estat
             values:
               accepted: Ha aconseguit les signatures
-              created: Creada
+              created: Esborrany creat
               discarded: Descartada
               open: Oberta
               rejected: No ha aconseguit les signatures
@@ -136,19 +136,24 @@ ca:
           name: Tipus d'iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Data i hora
             date_of_birth: Data de naixement
             document_number: Número de document
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: ID de la iniciativa
+            initiative_scope: Àmbit
             initiative_signatures_count: Nombre de signatures digitals
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognoms
+            nickname: Àlies
             postal_code: Codi postal
-            scope: Àmbit
-            time_and_date: Data i hora
+            signature_count: Recompte de signatures
             timestamp: Marca de temps
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Totes les iniciatives
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -340,7 +345,7 @@ ca:
           update: "%{user_name} ha actualitzat el tipus d'iniciativa %{resource_name}"
       admin_states:
         accepted: Ha aconseguit les signatures necessàries
-        created: Creada
+        created: Esborrany creat
         discarded: Rebutjada
         open: Oberta
         rejected: No ha aconseguit les signatures necessàries
@@ -369,40 +374,55 @@ ca:
         highlighted_initiatives:
           name: Iniciatives destacades
       create_initiative:
+        committee_member:
+          approve: Aprovar
+          confirm_approve: Segur que vols aprovar aquest membre?
+          confirm_revoke: Segur que vols revocar aquest membre?
+          revoke: Revocar
         fill_data:
-          back: Torna
+          confirm_discard: Segur que vols descartar aquesta iniciativa?
           continue: Continua
+          discard: Descartar la iniciativa
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          more_information: "(Més informació)"
+          more_information: Més informació
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Torna
-          back_to_initiatives: Torna a iniciatives
-          callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
-          edit_my_initiative: Editar la meva iniciativa
-          go_to_my_initiatives: Ves a les meves iniciatives
-          more_information: "(Més informació)"
-          send_my_initiative: Enviar la meva iniciativa a validació tècnica
-        finish_help:
-          publish_helper_text: Recorda que per publicar la teva iniciativa has de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
+          callout_text_created: Enhorabona! La teva iniciativa s'ha creat correctament.
+          callout_text_validating: La iniciativa s'ha enviat correctament a validació tècnica.
+          go_to_initiatives: Ves a iniciatives
+          publish_helper_text_html: Recorda que perquè la teva iniciativa sigui publicada aquesta ha de ser enviada a validació tècnica per revisar-la una administradora.
         previous_form:
           back: Torna
-          continue: Continua
         promotal_committee:
-          individual_help_text: Aquest tipus d'iniciativa requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els teus contactes rebin aquest enllaç, hauran de seguir els passos indicats.
-          more_information: "(Més informació)"
+          individual_help_text: La teva iniciativa ha estat creada i guardada com a esborrany. Ara cal afegir gent a la Comissió Promotora.
+          invite_link_title: Enllaç per convidar gent a formar part de la Comissió Promotora
+          promoters_committee_help_2: Recorda que per poder publicar la teva iniciativa cal completar la informació requerida i enviar-la a validació tècnica perquè sigui revisada per una administradora.
+          promoters_committee_help_html: Abans d'enviar la teva iniciativa de validació tècnica, necessites afegir al Comissió Promotora a %{committee_members_left} persones més. Actualment hi ha <strong>%{committee_members_count}/%{committee_size}</strong> a la comissió.
+          promoters_committee_title: Comissió Promotora
+        return_to_initiatives_button:
+          return_initiatives_html: Ometre ara i <a href="%{initiatives path}">tornar a les iniciatives</a>
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
+          consult_existing_initiatives: Consultar les iniciatives existents
+          continue: Continuar
           more_information: (Més informació)
           new: Crea una nova iniciativa
           select: Vull promoure aquesta iniciativa
-          select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
+          select_initiative_type_help_html: "<p>Les iniciatives ciutadanes són un mitjà a través del qual les participants poden sol·licitar que l'organització, dins de les seves competències, adopti mesures en defensa de l'interès general. Quina iniciativa vols engegar?</p>"
+          show_less: Mostra menys
+          show_more: Mostra'n més
+          subtitle: Quin tipus d'iniciativa vols promoure?
           verification_required: Verifica el teu compte per a impulsar la iniciativa
+        send_to_technical_validation_button:
+          button: Enviar a validació tècnica
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui si s'escau. Un cop publicada no la podràs editar. N'estàs segura?
         share_committee_link:
-          invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
+          invite_to_committee_help: Enllaç per convidar altres persones perquè formin part de la Comissió Promotora.
+          invite_to_committee_help_2: Aquest tipus d'iniciativa ciutadana requereix una Comissió Promotora formada per com a mínim %{committee_size} persones. Comparteix el següent enllaç amb altres persones perquè formin part de la comissió. Quan aquestes persones rebin aquest enllaç, hauran de seguir els passos indicats.
+          more_information: Més informació
       edit:
         accept: Accepta la iniciativa
         back: Tornar
@@ -440,10 +460,10 @@ ca:
           email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_documents: Afegir documents
+        add_attachments: Afegir fitxer(s) adjunt(s)
         add_image: Afegir imatge
-        attachment_legend: "(Opcional) Afegir un fitxer adjunt"
-        edit_documents: Editar documents
+        attachment_legend: Afegir un document o una imatge
+        edit_attachments: Edita els fitxers adjunts
         edit_image: Editar imatge
         image_legend: "(Opcional) Afegeix una imatge"
       index:
@@ -514,6 +534,8 @@ ca:
           random: Aleatori
           recent: Més recents
           recently_published: Publicada més recentment
+        pending_initiatives:
+          title: Esborranys i iniciatives pendents
         print:
           address: Adreça
           author_title: Autora de la iniciativa
@@ -535,7 +557,7 @@ ca:
           province: Província
           signature: Signatura
         result:
-          answer_title: S'ha respost aquesta iniciativa.
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           area: Àrea
@@ -586,7 +608,7 @@ ca:
       show:
         badge_name:
           accepted: Amb les signatures necessàries
-          created: Creada
+          created: Esborrany creat
           discarded: Descartada
           open: Obertes
           rejected: No ha aconseguit les signatures
@@ -642,8 +664,8 @@ ca:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Acabar
-        promotal_committee: Comissió Promotora
+        finish: Validació tècnica
+        promotal_committee: Buscar promotores
         select_initiative_type: Tria
       initiative_signature_creation_header:
         fill_personal_data: Completa les teves dades

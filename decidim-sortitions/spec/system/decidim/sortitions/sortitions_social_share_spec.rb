@@ -31,6 +31,8 @@ describe "Social shares" do
   end
 
   it_behaves_like "a social share meta tag", "description_image.jpg"
+  it_behaves_like "a social share widget"
+  it_behaves_like "a social share via QR code"
 
   context "when no description image" do
     let(:additional_info) { nil }

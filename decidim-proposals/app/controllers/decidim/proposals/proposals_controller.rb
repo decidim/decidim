@@ -6,7 +6,6 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
-      helper UserGroupHelper
       helper Decidim::Admin::IconLinkHelper
       include Decidim::ApplicationHelper
       include Flaggable
@@ -44,8 +43,6 @@ module Decidim
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search.result
-
-          @all_geocoded_proposals = @proposals.geocoded if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled?
 
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)

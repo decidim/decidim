@@ -22,7 +22,7 @@ module Decidim
 
     default_scope { registered_component_manifests.registered_space_manifests.order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
-    delegate :organization, :categories, to: :participatory_space
+    delegate :organization, to: :participatory_space
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter

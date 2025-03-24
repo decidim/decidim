@@ -20,6 +20,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_comments.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
+        end
+      end
+
       initializer "decidim_comments.query_extensions" do
         Decidim::Api::QueryType.include QueryExtensions
       end
@@ -41,6 +47,7 @@ module Decidim
 
         Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
         Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
+        Decidim.icons.register(name: "star-s-line", icon: "star-s-line", description: "Most upvoted comment", category: "activity", engine: :comments)
 
         Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", description: "Upvote comment button", **common_parameters)
         Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", description: "User upvoted comment", **common_parameters)

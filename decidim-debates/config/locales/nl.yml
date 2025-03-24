@@ -32,8 +32,6 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd

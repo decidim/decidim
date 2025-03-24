@@ -33,8 +33,6 @@ pl:
       help_section:
         content: Zawartość
       id: ID
-      import:
-        user_group_id: Utwórz import jako
       newsletter:
         body: Treść
         send_to_all_users: Wyślij do wszystkich użytkowników
@@ -96,7 +94,6 @@ pl:
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
         twitter_handler: X handler
-        user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
         welcome_notification_body: Treść komunikatu powitalnego
@@ -182,8 +179,6 @@ pl:
         attachment_collection:
           new: Nowy folder załącznika
         browse: Przeglądaj
-        category:
-          new: Nowa kategoria
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
@@ -194,12 +189,10 @@ pl:
           new: Nowy użytkownik prywatny
         per_page: Na stronę
         permissions: Uprawnienia
-        reject: Odrzuć
         send_me_a_test_email: Wyślij mi testowego e-maila
         share: Udostępnij
         user:
           new: Nowy administrator
-        verify: Zweryfikuj
       admin_terms_of_service:
         accept:
           success: Świetnie! Zaakceptowano warunki użytkowania administratora.
@@ -292,23 +285,8 @@ pl:
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
-        create:
-          error: Podczas tworzenia tej kategorii wystąpił błąd.
-          success: Utworzono kategorię.
-        destroy:
-          error: Podczas usuwania tej kategorii wystąpił błąd. Usuń najpierw podkategorię, upewnij się, że żaden element nie należy do tej kategorii i spróbuj ponownie.
-          success: Kategoria została usunięta.
-        edit:
-          title: Edytuj kategorię
-          update: Aktualizuj
         index:
           categories_title: Kategorie
-        new:
-          create: Utwórz kategorię
-          title: Nowa kategoria
-        update:
-          error: Podczas aktualizowania tej kategorii wystąpił błąd.
-          success: Kategoria została zaktualizowana.
       component_permissions:
         update:
           error: Wystąpił błąd podczas aktualizowania uprawnień dla tego komponentu.
@@ -584,7 +562,6 @@ pl:
         settings: Ustawienia
         static_page_topics: Tematy
         static_pages: Strony
-        user_groups: Grupy użytkowników
         users: Użytkownicy
       metrics:
         metrics:
@@ -654,16 +631,6 @@ pl:
               admin: Admin
               user_manager: Menedżer użytkowników
           name: Użytkownik
-        user_group:
-          fields:
-            actions: Działania
-            created_at: Utworzono
-            document_number: Numer dokumentu
-            name: Nazwa
-            nickname: Pseudonim
-            phone: Telefon
-            state: Stan
-            users_count: Liczba użytkowników
       moderated_users:
         index:
           actions:
@@ -736,7 +703,6 @@ pl:
           confirm_delete: Czy na pewno chcesz usunąć ten newsletter?
           followers: 'obserwujący '
           has_been_sent_to: 'Wysłano do: '
-          no_scopes: Brak zakresów
           not_sent: Nie wysłano
           participants: 'użytkownicy '
           segmented_to: 'Podzielone na %{subject}: '
@@ -751,13 +717,10 @@ pl:
           confirm_deliver: Czy na pewno chcesz dostarczyć ten newsletter? Nie można cofnąć tej czynności.
           deliver: Dostarcz newsletter
           followers_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy obserwują dowolne przestrzenie partycypacyjne z tej listy.
-          none: Żaden
           participants_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z przestrzeni partycypacyjnych z tej listy.
           recipients_count: Ten newsletter zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
-          scopes_help: Wysyła newsletter do użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
-          select_scopes: Filtruj według użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
           select_spaces: Wybierz przestrzenie, aby podzielić newsletter
-          select_users: Wybierz użytkowników, do których chcesz wysyłać newsletter
+          send_to_all_users: Wyślij do wszystkich użytkowników
           title: Wybierz odbiorców
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
@@ -906,6 +869,8 @@ pl:
         edit:
           submit: Zatwierdź
           title: Edytuj uprawnienia
+        options_form:
+          ephemeral_warning: Aby włączyć tę metodę autoryzacji, należy <a href="%{path}">odwołać</a> wszystkie istniejące uprawnienia. Minimalizuje to ryzyko konfliktów weryfikacji. Wszystkie autoryzacje tego typu zostaną automatycznie cofnięte w organizacji w przypadku wprowadzenia zmian dodających tę metodę lub modyfikujących jej konfigurację po dodaniu.
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       scope_types:
@@ -962,7 +927,6 @@ pl:
           title: Edytuj temat
           update: Zaktualizuj temat
         new:
-          create: Utwórz temat
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
@@ -986,7 +950,6 @@ pl:
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
-          create: Utwórz stronę
           title: Nowa strona
         topic:
           empty: Nie ma żadnych stron w tym wątku.
@@ -1014,34 +977,7 @@ pl:
         scope_types: Typy zakresów
         scopes: Zakresy
         statistics: Aktywność
-        user_groups: Grupy użytkowników
         users: Administratorzy
-      user_group:
-        csv_verify:
-          invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV został załadowany pomyślnie. Weryfikujemy grupy odpowiadające kryteriom. To może chwilę potrwać.
-        reject:
-          invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została odrzucona.
-        verify:
-          invalid: Podczas weryfikacji tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została zweryfikowana.
-      user_groups:
-        index:
-          state:
-            pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
-          verify_via_csv: Zweryfikuj za pomocą CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Przykładowy plik:'
-          explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
-          explanation_example: |
-            acme@przyklad.org
-            bubba.gump@przyklad.org
-          title: Prześlij swój plik CSV
-          upload: Prześlij
       users:
         create:
           error: Podczas zapraszania administratora wystąpił błąd.

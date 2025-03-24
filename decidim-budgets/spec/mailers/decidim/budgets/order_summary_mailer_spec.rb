@@ -38,22 +38,6 @@ module Decidim::Budgets
       end
 
       it_behaves_like "working order summary mail"
-
-      context "when scopes are enabled and the component has a scope defined" do
-        let(:scope) { create(:scope, organization:) }
-        let(:component) { budget.component }
-
-        before do
-          component.update(settings: { scopes_enabled: true, scope_id: scope.id })
-        end
-
-        it_behaves_like "working order summary mail"
-
-        it "includes the scope name and scope type name" do
-          expect(mail.body.encoded).to include(translated(scope.name))
-          expect(mail.body.encoded).to include(decidim_escape_translated(scope.scope_type.name))
-        end
-      end
     end
   end
 end

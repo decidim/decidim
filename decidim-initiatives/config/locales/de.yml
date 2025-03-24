@@ -89,7 +89,7 @@ de:
             label: Status
             values:
               accepted: Ausreichend Unterschriften
-              created: Erstellt
+              created: Entworfen
               discarded: Verworfen
               open: Offen
               rejected: Zu wenige Unterschriften
@@ -136,22 +136,30 @@ de:
           name: Art der Initiative
         initiatives_votes:
           fields:
+            date_and_time: Datum und Uhrzeit
             date_of_birth: Geburtsdatum
             document_number: Dokumentnummer
             hash: Hash
             initiative_end_date: Enddatum
             initiative_id: Initiativ-ID
+            initiative_scope: Bereich
             initiative_signatures_count: Anzahl der Unterschriften
             initiative_start_date: Startdatum
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
+            nickname: Spitzname
             postal_code: Postleitzahl
-            scope: Umfang
-            time_and_date: Zeit und Datum
+            signature_count: Anzahl Unterschriften
             timestamp: Zeitstempel
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Alle Initiativen
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
+    download_your_data:
+      show:
+        initiatives: Initiativen exportieren
     events:
       initiatives:
         admin:
@@ -337,7 +345,7 @@ de:
           update: "%{user_name} hat den Initiativentyp %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
-        created: Erstellt
+        created: Entworfen
         discarded: Verworfen
         open: Offen
         rejected: Ungenügend Unterschriften
@@ -366,40 +374,33 @@ de:
         highlighted_initiatives:
           name: Hervorgehobene Initiativen
       create_initiative:
+        committee_member:
+          approve: Genehmigen
+          confirm_approve: Sind Sie sicher, dass Sie dieses Mitglied genehmigen möchten?
+          confirm_revoke: Sind Sie sicher, dass Sie dieses Mitglied widerrufen möchten?
+          revoke: Widerrufen
         fill_data:
-          back: Zurück
+          confirm_discard: Sind Sie sicher, dass Sie diese Initiative verwerfen möchten?
           continue: Fortsetzen
+          discard: Initiative verwerfen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          more_information: "(Weitere Informationen)"
+          more_information: Weitere Informationen
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
         finish:
           back: Zurück
-          back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
-          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
-          edit_my_initiative: Meine Initiativen bearbeiten
-          go_to_my_initiatives: Geh zu meinen Initiativen
-          more_information: "(Weitere Informationen)"
-          send_my_initiative: Meine Initiative zur technischen Validierung senden
-        finish_help:
-          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
+          callout_text_created: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
+          callout_text_validating: Ihre Initiative wurde erfolgreich an die technische Validierung gesendet.
+          go_to_initiatives: Zu Initiativen gehen
         previous_form:
           back: Zurück
-          continue: Fortsetzen
-        promotal_committee:
-          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
-          more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: (Weitere Informationen)
           new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
-          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
-        share_committee_link:
-          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
       edit:
         accept: Initiative akzeptieren
         back: Zurück
@@ -437,10 +438,10 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
-        add_documents: Dokumente hinzufügen
+        add_attachments: Anhänge hinzufügen
         add_image: Bild hinzufügen
-        attachment_legend: "(Optional) Anhang hinzufügen"
-        edit_documents: Dokumente bearbeiten
+        attachment_legend: Dokument oder Bild hinzufügen
+        edit_attachments: Anhänge bearbeiten
         edit_image: Bild bearbeiten
         image_legend: "(Optional) Bild hinzufügen"
       index:
@@ -583,7 +584,6 @@ de:
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
-          created: Erstellt
           discarded: Verworfen
           open: Offen
           rejected: Ungenügend Unterschriften
@@ -597,20 +597,48 @@ de:
         success: Die Initiative wurde erfolgreich aktualisiert.
     menu:
       initiatives: Initiativen
+    open_data:
+      help:
+        initiatives:
+          answer: Die Antwort, die diese Initiative erhalten hat (falls vorhanden)
+          answer_url: Die URL der Antwort (falls vorhanden)
+          answered_at: Das Datum der Antwort (falls vorhanden)
+          area: Der Bereich dieser Initiative
+          authors: Personen, die diese Initiative verfasst haben
+          comments_count: Die Anzahl der Kommentare zu dieser Initiative
+          created_at: Erstellungsdatum dieses Bereichs
+          description: Die Beschreibung der Initiative
+          first_progress_notification_at: Das Datum, an dem die erste Fortschrittsbenachrichtigung gesendet wurde
+          follows_count: Die Anzahl Nutzende, die diesem Raum folgen
+          hashtag: Der Hashtag der Initiative, verwendet für Twitter/X
+          offline_votes: Die Anzahl der Unterschriften, die diese Initiative von ausserhalb dieser Plattform erhalten hat
+          online_votes: Die Anzahl der Unterschriften, die diese Initiative online erhalten hat (direkt über die Plattform)
+          published_at: Veröffentlichungsdatum des Bereichs
+          reference: Die eindeutige Referenz des Bereichs
+          scope: Der Bereich der Initiative
+          second_progress_notification_at: Das Datum, an dem die zweite Fortschrittsbenachrichtigung gesendet wurde
+          signature_end_date: Das Datum, an dem die Unterschriftensammlung endet
+          signature_start_date: Das Datum, an dem die Unterschriftensammlung begonnen hat
+          signature_type: Die Art der Unterschriftensammlung (online oder vor Ort)
+          signatures: Die Anzahl der Unterschriften dieser Initiative
+          state: Der Status, den diese Initiative in diesem Moment hat
+          title: Der Titel der Initiative
+          type: Die Art der Initiative
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
     resources:
       initiative:
         actions:
           comment: Kommentar
       initiatives_type:
         actions:
+          create: Initiative erstellen
           title: Aktionen
           vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
-        finish: Fertig
-        promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
       initiative_signature_creation_header:
         fill_personal_data: Ergänzen Sie Ihre Daten

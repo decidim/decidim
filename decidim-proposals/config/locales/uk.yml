@@ -9,7 +9,6 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -121,8 +120,6 @@ uk:
             submit: Надіслати
           title: Приватні примітки
         proposals:
-          form:
-            attachment_legend: "(Необов'язково) Додати вкладений файл"
           index:
             actions: Дії
             cancel: Скасувати
@@ -141,7 +138,6 @@ uk:
       admin_log:
         proposal:
           answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
-          create: "%{user_name} вніс пропозицію %{resource_name} у просторі %{space_name} як службову"
         proposal_note:
           create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:
@@ -174,7 +170,6 @@ uk:
             votes: Голоси
       proposals:
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
           send: Надіслати
           title: Редагувати пропозицію
@@ -218,7 +213,6 @@ uk:
           maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
-          votes_blocked: Голосування вимкнене
         voting_rules:
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.

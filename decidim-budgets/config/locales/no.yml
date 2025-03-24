@@ -112,12 +112,14 @@
           fields:
             id: ID
             title: Tittel
+      order:
+        status:
+          title: Stemmen din ble godtatt
       order_summary_mailer:
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'
           subject: Du har stemt på %{space_name} i deltakelsesrommet
           voted_on_space: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrom.
-          voted_on_space_with_scope: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrommet på %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Hvis du ombestemmer deg, kan du endre stemmen din senere.
@@ -194,8 +196,6 @@
             more_information_modal: Mer informasjon
             projects_per_page: Prosjekter per side
             resources_permissions_enabled: Handlingstillatelser kan settes for hvert prosjekt
-            scope_id: Tema
-            scopes_enabled: Temaer aktivert
             title: Tittel
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på

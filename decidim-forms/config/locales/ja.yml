@@ -25,16 +25,37 @@ ja:
         questionnaire:
           request_invalid: リクエストの処理中に問題が発生しました。もう一度やり直してください。
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: 質問への回答
+          id: 回答の固有ID
+          question: 回答された質問
+          questionnaire: 回答されたアンケート
+          user: アンケートに回答したユーザー
+      show:
+        answers: 回答のエクスポート
+        survey_user_answers: アンケートユーザーの回答
     forms:
       admin:
         models:
           components:
+            allow_answers: 回答を許可
+            allow_editing_answers: 登録ユーザーが自分のアンケート回答を編集できるようにする
+            allow_unregistered: 未登録ユーザーがアンケートに回答できるようにする
+            allow_unregistered_help: 有効な場合、ログインしていなくてもアンケートに回答できるようになります。 これは、収集されるデータが貧弱または信頼性が低下するおそれがあり、自動化された攻撃に対してより脆弱になります。 注意して使用してください。また、 異なるブラウザを使ったりまたはWebブラウザの「プライベートブラウジング」機能を使うことで、参加者が同じアンケートに複数回答えられることに注意してください。
+            announcement: お知らせ
+            clean_after_publish: アンケートを公開するときに回答を削除する
             description: 説明
+            ends_at: 回答受付の終了日時
+            ends_at_help: 特定の日付がない場合は空白のままにしてください
+            starts_at: 回答受付の開始日時
+            starts_at_help: 特定の日付がない場合は空白のままにしてください
             tos: 利用規約
         questionnaires:
           actions:
             back: 質問に戻る
-            show: 回答を表示
+            publish_answers: 回答を公開
           answer_option:
             answer_option: 回答オプション
             free_text: フリーテキスト
@@ -78,16 +99,18 @@ ja:
           edit:
             save: 保存
             title: アンケートを編集
-          form:
+          edit_questions:
             add_question: 質問を追加
             add_separator: 区切り文字を追加
             add_title_and_description: タイトルと説明を追加
-            already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
+            save: 保存
+            title: 質問
+          form:
+            add_question: 質問を追加
             collapse: すべての質問を閉じる
             expand: すべての質問を展開
             preview: プレビュー
             title: '%{questionnaire_for} のフォームを編集'
-            unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
           matrix_row:
             matrix_row: 行
             remove: 削除
@@ -106,6 +129,13 @@ ja:
             remove: 削除
             statement: ステートメント
             up: 上へ
+          questions_form:
+            already_answered_warning: このフォームはすでに回答しているユーザーがいるため、質問を修正することはできません。
+            collapse: すべての質問を閉じる
+            expand: すべての質問を展開
+            unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
+            update:
+              success: アンケートの質問を保存しました。
           separator:
             down: 下
             remove: 削除
@@ -124,6 +154,9 @@ ja:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。
       admin_log:
+        question:
+          publish_answers: "%{user_name} が %{resource_name} の質問の回答を %{space_name} スペースに公開しました"
+          unpublish_answers: "%{user_name} は %{resource_name} の質問の回答を %{space_name} スペースで非公開にしました"
         questionnaire:
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
       errors:
@@ -166,6 +199,9 @@ ja:
           questionnaire_answered:
             body: このフォームには既に回答済みです。
             title: すでに回答済み
+          questionnaire_answered_edit:
+            body: すでにこのフォームに回答しています。 %{link}
+            edit: 回答を編集する
           questionnaire_closed:
             body: フォームが閉じられているため、回答できません。
             title: フォームを閉じました
@@ -180,9 +216,11 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
-          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
+          are_you_sure_edit_guest: 回答を後で編集できるようにしたい場合は、ログインまたはアカウントを作成する必要があります。
+          are_you_sure_no_edit: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る
           continue: 続ける
+          disallowed: 回答を編集する権限がありません。
           submit: 送信
       user_answers_serializer:
         body: 回答

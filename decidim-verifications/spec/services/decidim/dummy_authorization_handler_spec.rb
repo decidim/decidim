@@ -9,14 +9,11 @@ module Decidim
 
     let(:user) { create(:user, :confirmed) }
     let(:document_number) { "123456X" }
-    let(:scope) { create(:scope, organization: user.organization) }
-    let(:scope_id) { scope.id }
     let(:params) do
       {
         user:,
         document_number:,
-        postal_code: "123456",
-        scope_id:
+        postal_code: "123456"
       }
     end
 
@@ -36,22 +33,10 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
-    context "when scope id is invalid" do
-      let(:scope_id) { scope.id + 1 }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when scope is from other organization" do
-      let(:scope) { create(:scope) }
-
-      it { is_expected.to be_invalid }
-    end
-
     describe "metadata" do
       subject { handler.metadata }
 
-      it { is_expected.to eq(document_number: "123456X", postal_code: "123456", scope_id:) }
+      it { is_expected.to eq(document_number: "123456X", postal_code: "123456") }
     end
   end
 end

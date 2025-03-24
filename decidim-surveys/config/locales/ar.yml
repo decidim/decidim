@@ -24,13 +24,10 @@ ar:
       surveys:
         actions:
           answer: إجابة
-        name: الدراسة الاستقصائية
         settings:
           global:
             announcement: إعلان
           step:
-            allow_answers: السماح بالإجابات
-            allow_unregistered: السماح للمستخدمين غير المسجَّلِين بالإجابة على استطلاع الرأي
             announcement: إعلان
     events:
       surveys:
@@ -50,6 +47,10 @@ ar:
         object: إجابات على الدراسات الاستقصائية
         title: إجابات للمسوحات
     surveys:
+      actions:
+        edit: تعديل
+        preview: معاينة
+        title: الإجراءات
       admin:
         exports:
           survey_user_answers: إجابات المشاركين في الاستطلاع

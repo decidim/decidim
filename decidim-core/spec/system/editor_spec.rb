@@ -34,7 +34,6 @@ describe "Editor" do
       }
     }
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
-    content_wrapper = ""
     content_wrapper = <<~HTML
       <div data-content>
         <main class="layout-1col">

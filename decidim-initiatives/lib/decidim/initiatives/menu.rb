@@ -44,7 +44,6 @@ module Decidim
                         icon_name: "lightbulb-flash-line",
                         position: 2.4,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
-                                is_active_link?(decidim_admin_initiatives.initiative_filters_path, :inclusive) ||
                                 is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||
                                 is_active_link?(
                                   decidim_admin_initiatives.edit_initiatives_setting_path(
@@ -141,14 +140,6 @@ module Decidim
                         icon_name: "lightbulb-flash-line",
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path),
                         if: allowed_to?(:index, :initiative)
-
-          menu.add_item :taxonomy_filters,
-                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
-                        decidim_admin_initiatives.initiative_filters_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :taxonomy_filter),
-                        active: is_active_link?(decidim_admin_initiatives.initiative_filters_path)
 
           menu.add_item :initiatives_types,
                         I18n.t("menu.initiatives_types", scope: "decidim.admin"),

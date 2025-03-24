@@ -176,5 +176,75 @@ describe "Admin manages moderated users" do
 
       it_behaves_like "a paginated collection", url: true
     end
+
+    context "when performing bulk actions" do
+      let!(:first_user) { create(:user, :confirmed, organization:) }
+      let!(:second_user) { create(:user, :confirmed, organization:) }
+      let!(:third_user) { create(:user, :confirmed, organization:) }
+
+      before do
+        visit decidim_admin.moderated_users_path
+      end
+
+      it "blocks reported participants" do
+        expect(page).to have_content("Reported participants")
+        find_by_id("moderated_users_bulk").set(true)
+        expect(page).to have_content("Reported participants 3")
+        click_on "Actions"
+        within "#js-bulk-actions-dropdown" do
+          click_on "Block"
+        end
+        expect(page).to have_content("Block users")
+        within "#js-block-moderated_users-actions" do
+          click_on "Block users"
+        end
+        expect(page).to have_content("Justification")
+        expect(page).to have_content("Block accounts and send justification")
+        fill_in "Justification", with: "Blocking these users for testing purposes."
+        click_on "Block accounts and send justification"
+        expect(page).to have_content("Participants successfully blocked")
+      end
+
+      it "unreports reported participants" do
+        expect(page).to have_content("Reported participants")
+        find_by_id("moderated_users_bulk").set(true)
+        expect(page).to have_content("Reported participants 3")
+        click_on "Actions"
+        within "#js-bulk-actions-dropdown" do
+          click_on "Unreport"
+        end
+        expect(page).to have_content("Unreport users")
+        within "#js-unreport-moderated_users-actions" do
+          click_on "Unreport users"
+        end
+        expect(page).to have_content("Participants successfully unreported")
+      end
+
+      context "when on blocked users path" do
+        let!(:first_user) { create(:user, :confirmed, :blocked, organization:) }
+        let!(:second_user) { create(:user, :confirmed, :blocked, organization:) }
+        let!(:third_user) { create(:user, :confirmed, :blocked, organization:) }
+
+        before do
+          visit decidim_admin.moderated_users_path
+        end
+
+        it "unblocks reported participants" do
+          click_on "Blocked"
+          expect(page).to have_content("Reported participants")
+          find_by_id("moderated_users_bulk").set(true)
+          expect(page).to have_content("Reported participants 3")
+          click_on "Actions"
+          within "#js-bulk-actions-dropdown" do
+            click_on "Unblock"
+          end
+          expect(page).to have_content("Unblock users")
+          within "#js-unblock-moderated_users-actions" do
+            click_on "Unblock users"
+          end
+          expect(page).to have_content("Participants successfully unblocked")
+        end
+      end
+    end
   end
 end

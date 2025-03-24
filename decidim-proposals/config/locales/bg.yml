@@ -9,7 +9,6 @@ bg:
         scope_id: Обхват
         state: Състояние
         title: Заглавие
-        user_group_id: Създай съвместна чернова като
       proposal:
         address: Адрес
         answer: Отговор
@@ -22,7 +21,6 @@ bg:
         state: Състояние
         suggested_hashtags: Предложени хаштагове
         title: Заглавие
-        user_group_id: Създай предложение като
       proposal_answer:
         answer: Отговор
         cost: Разход
@@ -48,9 +46,6 @@ bg:
         import_proposals: Копиране на предложения
         keep_answers: Запазете състоянието и отговорите
         keep_authors: Запази автора на оригинала
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Име на проверяващ
     errors:
       models:
         participatory_text:
@@ -119,8 +114,6 @@ bg:
               rejected: Отхвърлено
               validating: Техническа проверка
               withdrawn: Оттеглено
-          valuator_role_ids_has:
-            label: Прикрепено към проверяващ
           with_any_state:
             label: Отговорено
             values:
@@ -178,8 +171,6 @@ bg:
             proposal_wizard_step_1_help_text: Текст на помощника за стъпка "Създай"
             proposal_wizard_step_2_help_text: Помощен текст на стъпка "Публикуване" на съветника за предложения
             resources_permissions_enabled: Позволените действия могат да се задават за всяко предложение
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
             threshold_per_proposal: Праг за предложенията
             vote_limit: Лимит за гласуване на участник
           step:
@@ -224,7 +215,6 @@ bg:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
@@ -374,22 +364,6 @@ bg:
           proposal_comments: Коментари
           proposals: Предложения
         imports:
-          help:
-            answers: |
-              Документът за импортиране трябва да съдържа следните имена на колони в случай на CSV или Excel файлове или имена на ключове в случай на JSON файлове:
-              <ul>
-              <li><b>id:</b> ID на предложението за отговор</li>
-              <li><b>състояние:</b> Едно от „прието“, „оценява“ или „отхвърлено“</li>
-              <li><b>answer/en:</b> Отговор на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
-              </ul>
-            proposals: |
-              Файлът трябва да има следните имена на колони в случай на CSV или Excel файлове или имена на ключове в случай на JSON файлове:
-              <ul>
-              <li><b>title/en:</b> Заглавие на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
-              <li><b>body/en:</b> Основен текст на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
-              <li><b>scope/id:</b> ID за обхвата</li>
-              <li><b>category/id:</b> ID за категорията</li>
-              </ul>
           label:
             answers: Импортиране на отговори от файл
             proposals: Импортиране на предложения от файл
@@ -479,28 +453,20 @@ bg:
             title: Актуализиране на предложението
             update: Актуализация
           form:
-            attachment_legend: "(Незадължително) Добавяне на прикачен файл"
             created_in_meeting: Това предложение е резултат от среща
-            delete_attachment: Изтриване на прикачен файл
             select_a_meeting: Избор на среща
           index:
             actions: Активности
-            assign_to_valuator: Възлагане на оценител
-            assign_to_valuator_button: Възлагане
             cancel: Отказ
             merge: Сливане в едно ново
-            merge_button: Сливане
             publish: Публикувай
             publish_answers: Публикуване на отговори
             select_component: Избери компонент
-            select_valuators: Изберете един или повече оценители
             selected: избрани
             split: Разделяне на предложения
             split_button: Разделяне
             statuses: Статуси
             title: Предложения
-            unassign_from_valuator: Отнемане възложеното на оценителя
-            unassign_from_valuator_button: Отнемане на възложеното
             update: Актуализация
           new:
             create: Създаване
@@ -510,7 +476,6 @@ bg:
             select_a_proposal: Моля, изберете предложение.
           show:
             amendments_count: Брой изменения
-            assigned_valuators: Присъеденени оценители
             body: Основен текст
             comments_count: Брой коментари
             documents: Документи
@@ -524,13 +489,10 @@ bg:
             ranking: "%{ranking} от %{total}"
             related_meetings: Свързани срещи
             remove_assignment: Премахване на възлагане
-            remove_assignment_confirmation: Наистина ли искате да премахнете оценителя от това предложение?
-            valuators: Оценители
             votes_count: Брой гласове
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията.
-            success: "%{number} предложения бяха импортирани успешно."
           new:
             create: Импортиране на предложения
             no_components: Няма други компоненти на предложения в това пространство за участие, от които да се импортират предложенията.
@@ -543,22 +505,13 @@ bg:
         proposals_splits:
           create:
             success: Предложенията бяха разделени успешно в нови предложения.
-        valuation_assignments:
-          create:
-            success: Предложенията бяха възложени успешно на оценител.
-          delete:
-            success: Оценителят бе успешно премахнат от предложенията.
       admin_log:
         proposal:
           answer: "%{user_name} отговори на предложението %{resource_name} в пространството %{space_name}"
-          create: "%{user_name} създаде предложението %{resource_name} в пространството %{space_name} като официално предложение"
           publish_answer: "%{user_name} публикува отговора на предложението %{resource_name} в пространството %{space_name}"
           update: "%{user_name} актуализира официалното предложение %{resource_name} в пространството %{space_name}"
         proposal_note:
           create: "%{user_name} остави частна бележка в предложението %{resource_name} в пространството %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} възложи предложението %{resource_name} на оценител"
-          delete: "%{user_name} премахна възлагането на предложението %{proposal_title} на оценител"
       answers:
         accepted: Прието
         evaluating: Оценяване
@@ -571,7 +524,6 @@ bg:
           meetings: Срещи
           official: Официално
           participants: Участници
-          user_groups: Групи
         filter_state_values:
           all: Всички
           not_answered: Не отговорено
@@ -601,7 +553,6 @@ bg:
           error: Възникна проблем при създаването на тази съвместна чернова.
           success: Съвместната чернова беше създадена успешно.
         edit:
-          attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
           send: Изпрати
           title: Редактиране на съвместната чернова
@@ -698,8 +649,6 @@ bg:
             published_at: Публикувано на
             state: Статус
             title: Заглавие
-            valuator: Оценител
-            valuators: Оценители
             votes: Гласове
         proposal_state:
           css_class: CSS-клас
@@ -719,10 +668,7 @@ bg:
           description: Координатите ще бъдат актуализирани, когато щракнете върху бутона "преглед". Адресът обаче не се променя.
           instructions: Можете да преместите точката на картата.
         edit:
-          add_documents: Добавяне на документи
-          attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
-          edit_documents: Редактиране на документ
           send: Изпрати
           title: Редактиране на предложение
         edit_draft:
@@ -810,7 +756,6 @@ bg:
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове
           vote: Глас
-          votes_blocked: Гласуването е деактивирано
         votes_count:
           count:
             one: Глас
@@ -818,17 +763,12 @@ bg:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Всяко предложение може да събере повече от %{limit} гласа
-          minimum_votes_per_user:
-            description: Трябва да разпределите минимум %{votes} гласа между различните предложения.
-            given_enough_votes: Дадохте достатъчно гласове.
-            votes_remaining: Трябва да гласувате за още %{remaining_votes} предложения, за да бъдат взети под внимание вашите гласове.
           proposal_limit:
             description: Можете да създадете до %{limit} предложения.
           threshold_per_proposal:
             description: За да бъдат валидирани, предложенията трябва да достигнат %{limit} гласа.
-          title: 'За гласуването се прилагат следните правила:'
           vote_limit:
-            description: Можете да гласувате до %{limit} предложения.
+            description: Можете да подкрепите до %{limit} предложения.
             votes: Оставащи %{number} гласа
         wizard_aside:
           back: Назад

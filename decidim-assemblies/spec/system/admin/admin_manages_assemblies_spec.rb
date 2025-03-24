@@ -6,8 +6,8 @@ describe "Admin manages assemblies" do
   include_context "when admin administrating an assembly"
   include_context "with taxonomy filters context"
 
-  let(:space_manifest) { "assemblies" }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
+  let(:participatory_space_manifests) { ["assemblies"] }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, participatory_space_manifests:) }
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
   let(:model_name) { assembly.class.model_name }
 
@@ -157,37 +157,6 @@ describe "Admin manages assemblies" do
     describe "listing parent assemblies" do
       it_behaves_like "filtering collection by published/unpublished"
       it_behaves_like "filtering collection by private/public"
-
-      context "when filtering by assemblies type" do
-        include_context "with filterable context"
-
-        let!(:assemblies_type1) { create(:assemblies_type) }
-        let!(:assemblies_type2) { create(:assemblies_type) }
-
-        Decidim::AssembliesType.all.each do |assemblies_type|
-          i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
-
-          context "when filtering collection by assemblies_type: #{i18n_assemblies_type}" do
-            let!(:assembly1) { create(:assembly, organization:, assemblies_type: assemblies_type1) }
-            let!(:assembly2) { create(:assembly, organization:, assemblies_type: assemblies_type2) }
-
-            it_behaves_like "a filtered collection", options: "Assembly type", filter: i18n_assemblies_type do
-              let(:in_filter) { translated(assembly_with_type(type).title) }
-              let(:not_in_filter) { translated(assembly_without_type(type).title) }
-            end
-          end
-        end
-
-        it_behaves_like "paginating a collection"
-
-        def assembly_with_type(type)
-          Decidim::Assembly.find_by(decidim_assemblies_type_id: type)
-        end
-
-        def assembly_without_type(type)
-          Decidim::Assembly.where.not(decidim_assemblies_type_id: type).sample
-        end
-      end
     end
   end
 

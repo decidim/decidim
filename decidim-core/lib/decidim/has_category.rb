@@ -60,7 +60,11 @@ module Decidim
       def category_belongs_to_organization
         return unless category
 
-        errors.add(:category, :invalid) unless component.categories.exists?(id: category.id)
+        errors.add(:category, :invalid) unless component_categories.exists?(id: category.id)
+      end
+
+      def component_categories
+        Decidim::Category.where(participatory_space: component.participatory_space)
       end
     end
   end

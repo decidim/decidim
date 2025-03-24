@@ -6,8 +6,6 @@ module Decidim
       include NeedsPermission
       include HasAccountBreadcrumb
 
-      helper_method :onboarding_manager
-
       layout "layouts/decidim/authorizations"
 
       before_action :confirmed_user, only: [:new, :create, :renew]
@@ -25,10 +23,6 @@ module Decidim
       end
 
       private
-
-      def onboarding_manager
-        @onboarding_manager ||= Decidim::OnboardingManager.new(current_user)
-      end
 
       def confirmed_user
         return true if !current_user || (current_user && current_user.verifiable?)

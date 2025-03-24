@@ -26,8 +26,6 @@ gl:
         published_at: Publicado en
         weight: Orde de posición
       id: ID
-      import:
-        user_group_id: Importar como
       newsletter:
         body: Corpo
         subject: Asunto
@@ -82,7 +80,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
         welcome_notification_body: Corpo da notificación de benvida
@@ -144,8 +141,6 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        category:
-          new: Nova categoría
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
@@ -156,11 +151,9 @@ gl:
           new: Novo usuario privado do espazo participativo
         per_page: Por páxina
         permissions: Permisos
-        reject: Rexeitar
         share: Compartir
         user:
           new: Novo administrador
-        verify: Verifique
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -230,23 +223,8 @@ gl:
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
-        create:
-          error: Houbo un erro ao crear esta categoría.
-          success: Categoría creada con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar esta categoría. Elimina primeiro calquera subcategoría, asegúrate de que outra entidade non pertence a esta categoría e téntao de novo.
-          success: Categoría eliminada con éxito.
-        edit:
-          title: Editar categoría
-          update: Actualización
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nova categoría
-        update:
-          error: Produciuse un erro ao actualizar esta categoría.
-          success: A categoría actualizouse con éxito.
       component_permissions:
         update:
           error: Produciuse un problema ao actualizar os permisos deste compoñente.
@@ -467,7 +445,6 @@ gl:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páxinas
-        user_groups: Grupos de usuarios
         users: Usuarios
       metrics:
         metrics:
@@ -536,15 +513,6 @@ gl:
               admin: Admin
               user_manager: Xestor de usuarios
           name: Usuario
-        user_group:
-          fields:
-            actions: Accións
-            created_at: Creado en
-            document_number: Número de documento
-            name: Nome
-            phone: Teléfono
-            state: Estado
-            users_count: Usuarios contan
       moderated_users:
         index:
           actions:
@@ -612,7 +580,6 @@ gl:
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado a: '
-          no_scopes: Sen ámbitos
           not_sent: Sen enviar
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -627,13 +594,10 @@ gl:
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
           followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
-          none: Ningún
           participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
           recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
-          scopes_help: Envía o boletín ao usuarios que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
-          select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
-          select_users: Selecciona a que usuarios queres enviar o boletín
+          send_to_all_users: Enviar a todos os usuarios
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:
@@ -713,6 +677,8 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Carga o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -773,7 +739,6 @@ gl:
           title: Editar tema
           update: Actualizar tema
         new:
-          create: Crear tema
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
@@ -794,7 +759,6 @@ gl:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear páxina
           title: Nova páxina
         topic:
           without_topic: Páxinas sen tema
@@ -814,27 +778,7 @@ gl:
         scope_types: Tipos de alcance
         scopes: Ámbitos
         statistics: Actividade
-        user_groups: Grupos de usuarios
         users: Administradores
-      user_group:
-        csv_verify:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
-        reject:
-          invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
-        verify:
-          invalid: Produciuse un erro ao verificar este grupo de usuarios.
-      user_groups:
-        index:
-          state:
-            pending: Pendente
-            rejected: Rexeitado
-            verified: Verificado
-          verify_via_csv: Verifique a través de CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
-          title: Carga o teu ficheiro CSV
-          upload: Cargar
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.

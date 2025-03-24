@@ -15,7 +15,6 @@ is-IS:
     attributes:
       decidim/user:
         current_password: Núverandi lykilorð
-        email: Tölvupóstur
         password: Lykilorð
         password_confirmation: Staðfesta lykilorð
         remember_me: Muna eftir mér
@@ -23,6 +22,8 @@ is-IS:
     'false': 'Nei'
     'true': 'Já'
   date:
+    buttons:
+      select: Veldu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -132,11 +133,7 @@ is-IS:
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
       sessions:
         new:
-          are_you_new?: Nýtt á vettvang?
           register: Búðu til reikning
-      shared:
-        omniauth_buttons:
-          or: Eða
     doorkeeper:
       authorizations:
         new:
@@ -255,12 +252,7 @@ is-IS:
         success: Skýrslan hefur verið búin til með góðum árangri og það verður endurskoðað af stjórnanda.
     scopes:
       global: Global umfang
-      picker:
-        cancel: Hætta við
-        choose: Veldu
-        title: Veldu %{field}
       prompt: Veldu umfang
-      scopes: Scopes
     shared:
       flag_modal:
         already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
@@ -277,9 +269,6 @@ is-IS:
       share_modal:
         share: Deila
         share_link: Deila tengil
-    user_conversations:
-      update:
-        error: Skilaboð ekki send. Reyndu aftur seinna
   devise:
     invitations:
       edit:
@@ -350,6 +339,8 @@ is-IS:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Veldu
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

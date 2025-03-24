@@ -63,14 +63,6 @@
       </div>
 
       <div class="row column">
-        <%= form.check_box :scopes_enabled %>
-      </div>
-
-      <div class="row column">
-        <%= scopes_select_field form, :scope_id, root: nil %>
-      </div>
-
-      <div class="row column">
         <%= form.check_box :show_statistics %>
       </div>
 
@@ -130,13 +122,13 @@
         <div class="row column">
           <p class="text-gray mr-2 mt-4">
             <%= t("no_taxonomy_filters_found", scope: "decidim.conferences.admin.conferences.form") %>
-            <%= link_to(t("define_taxonomy_filters", scope: "decidim.conferences.admin.conferences.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.conferences.admin.conferences.form"), decidim_admin.taxonomies_path, class: "button button__text-secondary") %>
           </p>
         </div>
       <% else %>
         <% @form.taxonomy_filters.each do |filter| %>
           <div class="row column">
-            <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
           </div>
         <% end %>
       <% end %>

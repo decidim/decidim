@@ -45,7 +45,7 @@ end
 shared_examples "a single root taxonomy" do
   let(:generated_taxonomies) { described_class.with(organization).to_taxonomies }
 
-  it "returns the participatory Scopes" do
+  it "returns the taxonomy" do
     expect(generated_taxonomies).to eq(
       root_taxonomy_name => described_class.to_h
     )
@@ -88,8 +88,7 @@ shared_examples "a single root taxonomy with no children" do
         filters: [
           {
             name: root_taxonomy_name,
-            space_filter: true,
-            space_manifest:,
+            participatory_space_manifests:,
             items: [[subject.title[I18n.locale.to_s]]],
             components: []
           }

@@ -45,15 +45,6 @@ module Decidim::Admin
           expect(recipients.count).to eq 5
         end
 
-        context "with the scope_ids array containing an empty value" do
-          let(:scope_ids) { [""] }
-
-          it "returns all users" do
-            expect(subject.query).to match_array recipients
-            expect(recipients.count).to eq 5
-          end
-        end
-
         context "with blocked accounts" do
           let!(:blocked_recipients) { create_list(:user, 5, :confirmed, :blocked, newsletter_notifications_at: Time.current, organization:) }
 

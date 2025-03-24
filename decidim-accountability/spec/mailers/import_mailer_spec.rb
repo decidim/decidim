@@ -12,7 +12,10 @@ module Decidim
       let(:current_user) { create(:user, organization:) }
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:current_component) { create(:accountability_component, participatory_space: participatory_process, id: 16) }
-      let!(:category) { create(:category, id: 16, participatory_space: current_component.participatory_space) }
+      let!(:root_taxonomy) { create(:taxonomy, organization:) }
+      let!(:taxonomy1) { create(:taxonomy, id: 16, parent: root_taxonomy, organization:) }
+      let!(:taxonomy2) { create(:taxonomy, id: 17, parent: root_taxonomy, organization:) }
+      let!(:taxonomy3) { create(:taxonomy, id: 18, parent: root_taxonomy, organization:) }
       let!(:status6) { create(:status, id: 6, component: current_component) }
       let!(:status7) { create(:status, id: 7, component: current_component) }
       let!(:status8) { create(:status, id: 8, component: current_component) }

@@ -33,8 +33,6 @@ hu:
       help_section:
         content: Tartalom
       id: ID
-      import:
-        user_group_id: Az importáltak létrehozása mint
       newsletter:
         body: Szöveg
         send_to_all_users: Küldés az összes felhasználónak
@@ -96,7 +94,6 @@ hu:
         time_zone: Időzóna
         tos_version: Használati feltételek
         twitter_handler: X kezelő
-        user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
@@ -182,8 +179,6 @@ hu:
         attachment_collection:
           new: Új csatolmány mappa
         browse: Böngészés
-        category:
-          new: Új kategória
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
@@ -194,12 +189,10 @@ hu:
           new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
         permissions: Engedélyek
-        reject: Elutasít
         send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
         user:
           new: Új adminisztrátor
-        verify: Ellenőrzés
       admin_terms_of_service:
         accept:
           success: Nagyszerű! Ön elfogadta az adminisztrátori felhasználási feltételeket.
@@ -292,23 +285,8 @@ hu:
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
-        create:
-          error: Hiba történt a kategória létrehozása során.
-          success: Kategória létrehozása sikeres.
-        destroy:
-          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
-          success: Kategória eltávolítása sikeres.
-        edit:
-          title: Kategória szerkesztése
-          update: Frissítés
         index:
           categories_title: Kategóriák
-        new:
-          create: Kategória létrehozása
-          title: Új kategória
-        update:
-          error: Hiba történt a kategória frissítése során.
-          success: Kategória frissítése sikeres.
       component_permissions:
         update:
           error: Probléma merült fel ezen összetevő engedélyeinek frissítésekor.
@@ -573,7 +551,6 @@ hu:
         settings: Beállítások
         static_page_topics: Témák
         static_pages: Oldalak
-        user_groups: Felhasználói csoportok
         users: Résztvevők
       metrics:
         metrics:
@@ -643,16 +620,6 @@ hu:
               admin: Admin
               user_manager: Résztvevők menedzsere
           name: Résztvevő
-        user_group:
-          fields:
-            actions: Műveletek
-            created_at: Létrehozva
-            document_number: Dokumentum száma
-            name: Név
-            nickname: Felhasználónév
-            phone: Telefon
-            state: Állapot
-            users_count: Résztvevők száma
       moderated_users:
         index:
           actions:
@@ -725,7 +692,6 @@ hu:
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
           has_been_sent_to: 'Elküldve ide: '
-          no_scopes: Nincsenek hatókörök
           not_sent: Nem került elküldésre
           participants: 'résztvevők '
           segmented_to: 'Szegmentált %{subject}: '
@@ -740,13 +706,10 @@ hu:
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
           followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
-          none: Egyik sem
           participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
           recipients_count: Ezt a hírlevelet <strong id='recipients_count'>%{count}</strong> felhasználónak küldjük ki.
-          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
-          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
-          select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés mindenkinek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -940,7 +903,6 @@ hu:
           title: Téma szerkesztése
           update: Téma frissítése
         new:
-          create: Téma létrehozása
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
@@ -962,7 +924,6 @@ hu:
         index:
           last_notable_change: Utolsó jelentős változás
         new:
-          create: Oldal létrehozása
           title: Új oldal
         topic:
           empty: Ebben a témakörben nincsenek oldalak.
@@ -990,34 +951,7 @@ hu:
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         statistics: Tevékenység
-        user_groups: Csoportok
         users: Adminisztrátorok
-      user_group:
-        csv_verify:
-          invalid: Hiba történt a CSV fájl olvasásában.
-          success: A CSV fájl feltöltése sikeres volt, most ellenőrizzük a kritériumoknak megfelelő csoportokat. Ez eltarthat egy ideig.
-        reject:
-          invalid: Hiba történt a felhasználói csoport elutasításakor.
-          success: Csoport sikeresen elutasítva.
-        verify:
-          invalid: Hiba történt a felhasználói csoport ellenőrzésekor.
-          success: Csoport sikeresen ellenőrizve.
-      user_groups:
-        index:
-          state:
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
-          verify_via_csv: Ellenőrizze a CSV használatát
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Példa fájl:'
-          explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
-          explanation_example: |
-            naez@azemailcim.hu
-            pelda.janos@peldaul.hu
-          title: Töltse fel a CSV fájlját
-          upload: Feltöltés
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.

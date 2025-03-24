@@ -89,7 +89,6 @@ bg:
             label: Състояние
             values:
               accepted: Достатъчно подписи
-              created: Създаден
               discarded: Отхвърлено
               rejected: Няма достатъчно подписи
               validating: Техническа проверка
@@ -144,8 +143,6 @@ bg:
             initiative_title: Заглавие на инициативата
             name_and_surname: Име и фамилия
             postal_code: Пощенски код
-            scope: Обхват
-            time_and_date: Време и дата
             timestamp: Времево клеймо
       titles:
         initiatives: Инициативи
@@ -314,7 +311,6 @@ bg:
           update: "%{user_name} актуализира типа инициативи %{resource_name}"
       admin_states:
         accepted: Достатъчно подписи
-        created: Създаден
         discarded: Отхвърлено
         rejected: Няма достатъчно подписи
         validating: Техническа проверка
@@ -343,39 +339,21 @@ bg:
           name: Акцентирани инициативи
       create_initiative:
         fill_data:
-          back: Назад
           continue: Продължи
           fill_data_help: "<ul> <li>Прегледайте съдържанието на инициативата си. Заглавието Ви лесно ли е за разбиране? Ясна ли е целта на инициативата Ви?</li> <li>Трябва да изберете типа на подписа. Лично, онлайн или комбинация от двете</li> <li>Какъв е географският обхват на инициативата? Град, област?</li> </ul>"
-          more_information: "(Още информация)"
           select_area: Изберете област
           select_scope: Избор на обхват
         finish:
           back: Назад
-          back_to_initiatives: Назад към инициативите
-          callout_text: Поздравления! Гражданската Ви инициатива беше създадена успешно.
-          confirm: Ще изпратите инициативата на администратор да я прегледа и публикува. След публикуване няма да можете да го редактирате. Сигурен ли си?
-          edit_my_initiative: Редактиране на моята инициатива
-          go_to_my_initiatives: Към моите инициативи
-          more_information: "(Още информация)"
-          send_my_initiative: Изпратете моята инициатива за техническо валидиране
-        finish_help:
-          publish_helper_text: Не забравяйте, че за да бъде публикувана вашата инициатива, трябва да попълните необходимата информация и <strong>да я изпратите на техническо валидиране</strong>, за да може администратор да я прегледа.
         previous_form:
           back: Назад
-          continue: Продължи
-        promotal_committee:
-          individual_help_text: Този вид инициатива изисква комисия за насърчаване, състояща се от поне %{committee_size} души (атестатори). Трябва да споделите следната връзка с другите хора, които са част от тази инициатива. Когато вашите контакти получат тази връзка, те ще трябва да следват посочените стъпки.
-          more_information: "(Още информация)"
         select_initiative_type:
           back: Назад
           choose_html: Искам да създам <strong>%{title}</strong>
           more_information: Още информация
           new: Създаване на нова инициатива
           select: Искам да популяризирам тази инициатива
-          select_initiative_type_help: Гражданските инициативи са средствa, чрез които гражданите могат да се намесят, така че градската управа да предприеме действия в защита на общия интерес, които попадат в юрисдикцията ѝ. Коя инициатива искате да стартирате?
           verification_required: Потвърдете акаунта си, за да промотирате тази инициатива
-        share_committee_link:
-          invite_to_committee_help: Връзка, с която да поканите хора да участват в комисията за популяризиране
       edit:
         accept: Приемане на инициативата
         back: Назад
@@ -413,10 +391,7 @@ bg:
           email_subject: "%{applicant_nickname} иска да се присъедини към вашата инициатива"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> кандидатства за промоторския комитет на вашата инициатива <a href="%{resource_url}">%{resource_title}</a>. За да приемете или отхвърлите, щракнете <a href="%{resource_url}/edit">тук</a>.
       form:
-        add_documents: Добавяне на документи
         add_image: Добавяне на изображение
-        attachment_legend: "(Незадължително) Добавяне на прикачен файл"
-        edit_documents: Редактиране на документ
         edit_image: Редактиране на изображение
         image_legend: "(По избор) Добавяне на изображение"
       index:
@@ -559,7 +534,6 @@ bg:
       show:
         badge_name:
           accepted: Достатъчно подписи
-          created: Създаден
           discarded: Отхвърлено
           rejected: Няма достатъчно подписи
           validating: Техническа проверка
@@ -583,8 +557,6 @@ bg:
     decidim:
       initiative_creation_header:
         fill_data: Създаване
-        finish: Край
-        promotal_committee: Комитет за популяризиране
         select_initiative_type: Изберете
       initiative_signature_creation_header:
         fill_personal_data: Попълнете данните си

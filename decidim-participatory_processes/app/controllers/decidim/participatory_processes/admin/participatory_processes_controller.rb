@@ -15,7 +15,6 @@ module Decidim
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper
-        helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessHelper
 
         helper_method :current_participatory_process, :current_participatory_space, :process_group
 

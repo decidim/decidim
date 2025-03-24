@@ -55,21 +55,18 @@ module Decidim::Maintenance::ImportModels
             resources: {}
           }
         )
-        expect(hash[:filters].count).to eq(3)
+        expect(hash[:filters].count).to eq(1)
       end
 
       it "returns the filters for each space" do
-        %w(assemblies participatory_processes initiatives).each do |space_manifest|
-          expect(hash[:filters]).to include(
-            {
-              space_filter: true,
-              space_manifest:,
-              name: root_taxonomy_name,
-              items: all_items,
-              components: []
-            }
-          )
-        end
+        expect(hash[:filters]).to include(
+          {
+            participatory_space_manifests: %w(assemblies participatory_processes initiatives),
+            name: root_taxonomy_name,
+            items: all_items,
+            components: []
+          }
+        )
       end
     end
   end

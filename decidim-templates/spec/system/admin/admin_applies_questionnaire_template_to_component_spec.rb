@@ -29,11 +29,19 @@ describe "Admin applies questionnaire templates" do
     end
 
     click_on "Add component"
-    click_on "Survey"
+    click_on "Surveys"
+    click_on "New survey"
 
+    fill_in_i18n :survey_title, "#survey-title-tabs", en: "Hello"
+    fill_in_i18n_editor :survey_tos, "#survey-tos-tabs", en: "Hello"
+
+    click_on "Save"
+    click_on "Questions"
+
+    choose("Select template")
     select(translated_attribute(questionnaire_template.name), from: "select-template")
     expect(page).to have_content("If you are human, ignore this field")
-    click_on "Create from template"
+    click_on "Continue"
 
     expect(page).to have_content("Template applied successfully.")
   end

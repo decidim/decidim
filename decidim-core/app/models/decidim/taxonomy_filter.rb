@@ -3,6 +3,11 @@
 module Decidim
   # Represents the association between a taxonomy and a filterable entity within the system.
   class TaxonomyFilter < ApplicationRecord
+    include Decidim::TranslatableResource
+    include Decidim::Traceable
+
+    translatable_fields :name, :internal_name
+
     belongs_to :root_taxonomy,
                class_name: "Decidim::Taxonomy",
                counter_cache: :filters_count,
@@ -16,8 +21,17 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
-    scope :for, ->(space_manifest) { where(space_manifest:) }
-    scope :space_filters, -> { where(space_filter: true) }
+    scope :for_manifest, ->(space_manifest) { where("? = ANY(participatory_space_manifests)", space_manifest) }
+    scope :space_filters, -> { where.not(participatory_space_manifests: []) }
+    # filters for the organization
+    scope :for, ->(organization) { joins(:root_taxonomy).where(decidim_taxonomies: { decidim_organization_id: organization.id }) }
+
+    delegate :organization, to: :root_taxonomy
+    delegate :translated_name, :translated_internal_name, to: :presenter
+
+    def presenter
+      Decidim::TaxonomyFilterPresenter.new(self)
+    end
 
     # Returns the presenter class for this log.
     #
@@ -30,14 +44,14 @@ module Decidim
 
     # Public name for this filter, defaults to the root taxonomy name.
     def name
-      return root_taxonomy.name if super&.compact_blank.blank?
+      return root_taxonomy&.name if super&.compact_blank.blank?
 
       super
     end
 
     # Internal name for this filter, defaults to the root taxonomy name.
     def internal_name
-      return root_taxonomy.name if super&.compact_blank.blank?
+      return root_taxonomy&.name if super&.compact_blank.blank?
 
       super
     end
@@ -47,47 +61,58 @@ module Decidim
       @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
     end
 
+    def filter_taxonomy_ids
+      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    end
+
     # A memoized taxonomy tree hash filtered according to the filter_items
+
     # that respects the order given by the taxonomies table.
     # The returned hash structure is:
     # {
     #  _object_id_ => {
     #    taxonomy: _object_,
-    #    children: [
-    #      {
+    #    children: {
     #        _sub_object_id_: {
     #          taxonomy: _sub_object_,
-    #          children: [
+    #          children: {
     #    ...
     # }
     # @returns [Hash] a hash with the taxonomy tree structure.
     def taxonomies
-      @taxonomies ||= taxonomy_children(root_taxonomy)
-    end
-
-    def taxonomy_children(taxonomy)
-      taxonomy.children.where(id: filter_taxonomy_ids).each_with_object({}) do |child, children|
-        children[child.id] = {
-          taxonomy: child,
-          children: taxonomy_children(child)
-        }
+      @taxonomies ||= root_taxonomy
+                      .all_children
+                      .where(id: filter_taxonomy_ids)
+                      .each_with_object({}) do |taxonomy, tree|
+        insert_child(taxonomy, tree)
       end
     end
 
-    def filter_taxonomy_ids
-      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
-    end
-
-    def update_component_count
+    def update_components_count
       update(components_count: components.count)
     end
 
     def reset_all_counters
       Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
-      update_component_count
+      update_components_count
     end
 
     private
+
+    def insert_child(taxonomy, tree)
+      return if tree[taxonomy.id]
+
+      if (parent = find_parent(taxonomy, tree))
+        insert_child(taxonomy, parent[:children])
+      else
+        tree[taxonomy.id] = { taxonomy:, children: {} }
+      end
+    end
+
+    def find_parent(taxonomy, tree)
+      tree[taxonomy.parent_id].presence ||
+        tree.values.detect { |v| find_parent(taxonomy, v[:children]) }
+    end
 
     def root_taxonomy_is_root
       return if root_taxonomy&.root?
@@ -96,9 +121,10 @@ module Decidim
     end
 
     def space_manifest_is_registered
-      return if Decidim.participatory_space_manifests.find { |manifest| manifest.name == space_manifest&.to_sym }
+      available_manifests = Decidim.participatory_space_manifests.map(&:name)
+      return if (participatory_space_manifests.map(&:to_sym) - available_manifests).empty?
 
-      errors.add(:space_manifest, :invalid)
+      errors.add(:participatory_space_manifests, :invalid)
     end
   end
 end

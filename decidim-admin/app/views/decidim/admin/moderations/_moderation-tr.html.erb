@@ -1,0 +1,50 @@
+<tr data-id="<%= moderation.id %>">
+  <td><%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderations js-moderation-list-check  js-moderation-id-#{moderation.id}" %><br></td>
+  <td><%= moderation.reportable.id %></td>
+  <td>
+    <%= moderation.reportable.class.model_name.human %>
+  </td>
+  <% if !respond_to?(:current_participatory_space) %>
+    <td>
+      <%= participatory_space_title_for(moderation.reportable) %>
+    </td>
+  <% end %>
+  <td>
+    <% if (reportable_url = moderation.reportable.reported_content_url) %>
+      <%=
+      with_tooltip strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250)), class: :top do
+      link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), reportable_url
+      end
+      %>
+    <% else %>
+      <%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %>
+    <% end %>
+  </td>
+  <td>
+    <% reports = moderation.reports.map { |report| render "report", report: } %>
+    <%= safe_join(reports, ",") %>
+  </td>
+  <td>
+    <%= l(moderation.created_at, format: :long) %>
+  </td>
+  <td>
+    <%= moderation.report_count %>
+  </td>
+  <% if params[:hidden] %>
+    <td>
+      <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
+    </td>
+  <% end %>
+  <td>
+    <%= icon_link_to "fullscreen-line", moderation_reports_path(moderation_id: moderation), t("actions.expand", scope: "decidim.moderations"), class: "action-icon--expand" %>
+    <% if !moderation.reportable.hidden? && allowed_to?(:unreport, authorization_scope) %>
+      <%= icon_link_to "arrow-go-back-line", unreport_moderation_path(id: moderation), t("actions.unreport", scope: "decidim.moderations"), class: "action-icon--unreport", method: :put %>
+    <% end %>
+    <% if !moderation.reportable.hidden? && allowed_to?(:hide, authorization_scope) %>
+      <%= icon_link_to "eye-line", hide_moderation_path(id: moderation), t("actions.hide", scope: "decidim.moderations"), class: "action-icon--hide", method: :put %>
+    <% end %>
+    <% if moderation.reportable.hidden? && allowed_to?(:unhide, authorization_scope) %>
+      <%= icon_link_to "eye-line", unhide_moderation_path(id: moderation), t("actions.unhide", scope: "decidim.moderations"), method: :put %>
+    <% end %>
+  </td>
+</tr>

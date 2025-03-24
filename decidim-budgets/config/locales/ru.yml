@@ -50,6 +50,9 @@ ru:
         project:
           fields:
             title: Название
+      order:
+        status:
+          title: Ваш голос был успешно принят
       projects:
         budget_confirm:
           cancel: Отменить

@@ -13,7 +13,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 3.3.4
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:

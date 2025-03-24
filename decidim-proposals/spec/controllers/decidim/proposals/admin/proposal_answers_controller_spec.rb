@@ -7,7 +7,7 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswersController do
-        routes { Decidim::Proposals::AdminEngine.routes }
+        include Decidim::ApplicationHelper
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
@@ -26,6 +26,7 @@ module Decidim
         let(:context) do
           {
             current_organization: component.organization,
+            current_participatory_space: component.participatory_space,
             current_component: component,
             current_user: user
           }
@@ -34,7 +35,39 @@ module Decidim
         before do
           sign_in user
           request.env["decidim.current_organization"] = component.organization
+          request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
+        end
+
+        describe "PUT update" do
+          let(:params) do
+            {
+              id: proposal1.id,
+              internal_state: "accepted",
+              component_id: component.id,
+              participatory_process_slug: component.participatory_space.slug
+            }
+          end
+
+          context "when cost is required" do
+            before do
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    answers_with_costs: true
+                  }
+                }
+              )
+            end
+
+            context "when update fails" do
+              it "renders ProposalsController#show view" do
+                post :update, params: params
+                expect(response).to have_http_status(:ok)
+                expect(subject).to render_template("decidim/proposals/admin/proposals/show")
+              end
+            end
+          end
         end
 
         describe "POST update_multiple_answers" do

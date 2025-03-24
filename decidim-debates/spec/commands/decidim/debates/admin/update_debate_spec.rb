@@ -14,6 +14,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
+  let(:comments_layout) { "two_columns" }
   let(:form) do
     double(
       invalid?: invalid,
@@ -27,6 +28,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       taxonomizations:,
       current_organization: organization,
       comments_enabled: true,
+      comments_layout:,
       attachment: attachment_params,
       add_documents: uploaded_files,
       documents: current_files,
@@ -50,6 +52,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       expect(translated(debate.description)).to eq "description"
       expect(translated(debate.information_updates)).to eq "information_updates"
       expect(translated(debate.instructions)).to eq "instructions"
+      expect(debate.comments_layout).to eq "two_columns"
     end
 
     it "sets the taxonomies" do

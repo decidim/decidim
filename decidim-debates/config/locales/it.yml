@@ -33,8 +33,6 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-            scope_id: Obiettivo
-            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati

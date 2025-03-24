@@ -113,7 +113,7 @@ module Decidim
         }
       end
 
-      def result_items_for_map
+      def items_for_map
         [percentage_item].compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,

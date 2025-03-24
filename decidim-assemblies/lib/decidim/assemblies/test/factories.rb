@@ -57,10 +57,6 @@ FactoryBot.define do
     weight { 1 }
     announcement { generate_localized_title(:assembly_announcement, skip_injection:) }
 
-    trait :with_type do
-      assembly_type { create(:assemblies_type, organization:, skip_injection:) }
-    end
-
     trait :promoted do
       promoted { true }
     end
@@ -178,7 +174,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_valuator, parent: :user, class: "Decidim::User" do
+  factory :assembly_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       assembly { create(:assembly) }
@@ -191,7 +187,7 @@ FactoryBot.define do
       create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :valuator,
+             role: :evaluator,
              skip_injection: evaluator.skip_injection)
     end
   end

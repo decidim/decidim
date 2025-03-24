@@ -1,6 +1,11 @@
+$facebook_background: #0866ff;
+$facebook_background_hover: #155cba; // 30% opacity
+$google_background: #f2f2f2;
+$google_background_hover: #dcdcdc; // 30% opacity
+
 .login {
   &__info {
-    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline;
+    @apply text-gray-2 text-lg space-y-4 mt-10 prose-a:text-secondary prose-a:underline;
   }
 
   &__info-required {
@@ -12,18 +17,54 @@
   }
 
   &__omniauth {
-    @apply flex flex-col items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10;
+    @apply flex flex-row items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10 [&>a]:w-auto;
 
     &-button {
-      @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;
+      @apply button__lg border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full rounded;
 
       svg {
-        @apply w-6 h-6 fill-current flex-none;
+        @apply w-6 h-6 flex-none fill-white;
+      }
+
+      span {
+        @apply hidden 2xl:inline;
+      }
+
+      &--developer {
+        @apply flex;
+
+        svg {
+          @apply fill-current;
+        }
+      }
+
+      &--facebook {
+        @apply flex flex-row text-white border border-background;
+
+        background-color: $facebook_background;
+      }
+
+      &--facebook:hover {
+        background-color: $facebook_background_hover;
+      }
+
+      &--x {
+        @apply flex flex-row text-white bg-black;
+      }
+
+      &--google {
+        @apply flex flex-row text-black border border-background;
+
+        background-color: $google_background;
+      }
+
+      &--google:hover {
+        background-color: $google_background_hover;
       }
     }
 
     &-separator {
-      @apply mt-10 flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
+      @apply mt-10 flex items-center justify-center gap-8 after:content-[''] before:content-[''] after:h-0.5 before:h-0.5 after:bg-background before:bg-background after:grow before:grow;
     }
 
     &__horizontal {
@@ -32,7 +73,7 @@
   }
 
   &__links {
-    @apply flex flex-col gap-4 py-10 border-t-2 border-background;
+    @apply flex flex-col gap-4 pb-10 border-background items-center;
 
     a {
       @apply w-fit text-secondary hover:underline;
@@ -40,8 +81,18 @@
   }
 
   &__modal {
+    @apply p-8;
+
     &-links {
       @apply flex flex-col md:flex-row gap-4 justify-between items-start md:items-center [&>a]:text-secondary;
+    }
+
+    &-remember {
+      @apply flex flex-row justify-between;
+
+      a {
+        @apply underline;
+      }
     }
 
     [data-announcement] {

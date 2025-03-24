@@ -17,9 +17,9 @@
               </div>
               <div class="row column">
                 <%= f.label t(".select_states") %>
-                <%= f.collection_check_boxes :states, @form.states_collection, :value, :name do |b| %>
+                <%= f.collection_check_boxes :states, @form.states_collection, :token, :title do |b| %>
                   <div>
-                    <%= b.label { b.check_box + b.text } %>
+                    <%= b.label { b.check_box + translated_attribute(b.text) } %>
                   </div>
                 <% end %>
               </div>
@@ -28,9 +28,6 @@
               </div>
               <div class="row column">
                 <%= f.check_box :keep_answers %>
-              </div>
-              <div class="row column">
-                <%= scopes_picker_filter f, :scope_ids %>
               </div>
               <div class="row column">
                 <%= f.check_box :import_proposals %>

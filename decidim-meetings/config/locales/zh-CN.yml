@@ -63,8 +63,6 @@ zh-CN:
             default_registration_terms: 默认注册条款
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 每次会议都可以设置动作权限
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止

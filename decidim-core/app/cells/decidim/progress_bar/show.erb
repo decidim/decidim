@@ -5,12 +5,12 @@
   </div>
 
   <div class="proposals__aside-progress">
-    <%= content_tag :div, units_name_text, class: "progress-bar__units" if units_name %>
-
     <% if total != 0 %>
       <div class="progress-bar" role="progressbar" aria-label="<%= units_name.present? ? units_name_text : t("decidim.shared.progress") %>" aria-valuenow="<%= number_with_precision(percentage, separator: ".", precision: 2) %>" aria-valuemin="0" aria-valuemax="100" aria-valuetext="<%= number_to_percentage(percentage, precision: 2) %>">
         <div style="width: <%= percentage %>%"></div>
       </div>
     <% end %>
   </div>
+  <%= content_tag :div, units_name_text, class: "progress-bar__units" if units_name %>
+
 </div>

@@ -13,9 +13,6 @@ ga:
           comment: Tabhair Trácht
           endorse: Formhuinigh
         name: Díospóireachtaí
-        settings:
-          global:
-            scope_id: Scóip
     debates:
       actions:
         close: Dún

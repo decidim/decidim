@@ -82,7 +82,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor_admin(content))
           renderer.render(links:).html_safe
         end
       end
@@ -146,10 +146,6 @@ module Decidim
         return unless meeting
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
-      end
-
-      def sanitized(content)
-        decidim_sanitize_editor(content)
       end
     end
   end

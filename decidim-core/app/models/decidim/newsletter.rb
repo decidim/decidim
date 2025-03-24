@@ -26,14 +26,6 @@ module Decidim
       sent_at.present?
     end
 
-    def sent_scopes_ids
-      extended_data["scope_ids"] || []
-    end
-
-    def sent_scopes
-      @sent_scopes ||= organization.scopes.where(id: sent_scopes_ids)
-    end
-
     def sent_to_all_users?
       extended_data["send_to_all_users"]
     end

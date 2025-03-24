@@ -121,12 +121,14 @@ nl:
           fields:
             id: ID
             title: Titel
+      order:
+        status:
+          title: Uw stem is aanvaard
       order_summary_mailer:
         order_summary:
           selected_projects: 'De projecten die je hebt geselecteerd zijn:'
           subject: Je hebt gestemd in %{space_name}
           voted_on_space: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte.
-          voted_on_space_with_scope: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte op %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Als je van gedachten verandert, kun je later je stem wijzigen.
@@ -204,8 +206,6 @@ nl:
             more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk project worden ingesteld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
             title: Titel
             total_budget: Totale budget
             vote_minimum_budget_projects_number: Minimumaantal projecten waarvoor moet worden gestemd

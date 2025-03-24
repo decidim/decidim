@@ -62,7 +62,6 @@ module Decidim
             proposal = Decidim::Proposals::Proposal.last
 
             expect(proposal.taxonomies).to eq(collaborative_draft.taxonomies)
-            expect(proposal.scope).to eq(collaborative_draft.scope)
             expect(proposal.address).to eq(collaborative_draft.address)
             expect(proposal.attachments).to eq(collaborative_draft.attachments)
           end

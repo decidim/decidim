@@ -80,7 +80,7 @@ module Decidim
         available_locales = component.participatory_space.organization.available_locales
         params["result"].merge!(get_locale_attributes(default_locale, available_locales, :title, row))
         params["result"].merge!(get_locale_attributes(default_locale, available_locales, :description, row))
-        params["result"]["decidim_category_id"] = row["category/id"] if row["category/id"].present?
+        params["result"]["taxonomies"] = row["taxonomies/ids"].split(",") if row["taxonomies/ids"].present?
         params["result"]["decidim_accountability_status_id"] = row["status/id"] if row["status/id"].present?
         params["result"].merge!(get_proposal_ids(row["proposal_urls"]))
         params

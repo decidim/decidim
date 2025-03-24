@@ -96,12 +96,14 @@ tr:
         project:
           fields:
             title: Başlık
+      order:
+        status:
+          title: Oyunuz başarıyla kabul edildi
       order_summary_mailer:
         order_summary:
           selected_projects: 'Seçtiğiniz projeler şunlardır:'
           subject: '%{space_name} katılımcı alanına oy verdiniz'
           voted_on_space: '%{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
-          voted_on_space_with_scope: '%{scope_name} (%{scope_type}) kapsamındaki %{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
       projects:
         budget_confirm:
           are_you_sure: Fikrinizi değiştirirseniz, oyunuzu daha sonra değiştirebilirsiniz.
@@ -163,8 +165,6 @@ tr:
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
             resources_permissions_enabled: Her proje için eylem izinleri ayarlanabilir
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
             title: Başlık
             total_budget: Toplam bütçe
             vote_minimum_budget_projects_number: Oy verilecek minimum proje sayısı

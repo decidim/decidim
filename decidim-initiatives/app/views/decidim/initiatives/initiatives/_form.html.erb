@@ -51,10 +51,10 @@
 <% if current_initiative.type.attachments_enabled? %>
   <%= form.attachment :documents,
                       multiple: true,
-                      label: t("decidim.initiatives.form.add_documents"),
-                      button_label: t("decidim.initiatives.form.add_documents"),
+                      label: t("decidim.initiatives.form.add_attachments"),
+                      button_label: t("decidim.initiatives.form.add_attachments"),
                       button_class: "button button__lg button__transparent-secondary w-full",
-                      button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                      button_edit_label: t("decidim.initiatives.form.edit_attachments"),
                       help_text: t("decidim.initiatives.form.attachment_legend") %>
 
   <%= form.attachment :photos,

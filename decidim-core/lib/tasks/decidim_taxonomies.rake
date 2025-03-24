@@ -40,8 +40,7 @@ namespace :decidim do
           taxonomy["filters"].each do |filter|
             log.info "      - Filter name: #{filter["name"]}"
             log.info "        Internal name: #{filter["internal_name"] || "-"}"
-            log.info "        Manifest: #{filter["space_manifest"]}"
-            log.info "        Space filter: #{filter["space_filter"]}"
+            log.info "        Space manifests: #{filter["participatory_space_manifests"]&.join(", ") || "-"}"
             log.info "        Items: #{filter["items"].count}"
             log.info "        Components: #{filter["components"].count}"
           end
@@ -81,8 +80,9 @@ namespace :decidim do
 
     desc "Imports taxonomies and filters structure from all JSON files inside tmp/taxonomies"
     task :import_all_plans, [] => :environment do |_task, _args|
-      Dir[Rails.root.join("tmp/taxonomies/*_plan.json")].each do |file|
+      Rails.root.glob("tmp/taxonomies/*_plan.json").each do |file|
         log.info "Importing plan from #{file}"
+        Rake::Task["decidim:taxonomies:import_plan"].reenable
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
       end
     end
@@ -94,7 +94,10 @@ namespace :decidim do
 
       data = JSON.parse(File.read(file))
       taxonomies = data["taxonomy_map"]
-      abort "No taxonomies found in the file" unless taxonomies && taxonomies&.any?
+      unless taxonomies && taxonomies&.any?
+        log.warn "No metric (categories) taxonomies found in the file"
+        next
+      end
 
       total = taxonomies.count
       taxonomies.each_with_index do |(id, object_id), index|
@@ -111,8 +114,9 @@ namespace :decidim do
 
     desc "Processes all metrics for result files in tmp/taxonomies"
     task :update_all_metrics, [] => :environment do |_task, _args|
-      Dir[Rails.root.join("tmp/taxonomies/*_result.json")].each do |file|
+      Rails.root.glob("tmp/taxonomies/*_result.json").each do |file|
         log.info "Processing metrics from #{file}"
+        Rake::Task["decidim:taxonomies:update_metrics"].reenable
         Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
       end
     end

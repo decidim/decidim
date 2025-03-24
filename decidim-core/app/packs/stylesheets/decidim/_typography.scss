@@ -30,6 +30,12 @@
   @apply h2 md:h1 decorator;
 }
 
+.text-with-links {
+  a {
+    @apply underline text-secondary font-semibold;
+  }
+}
+
 /* default styles for those dynamic text blocks */
 .editor-content {
   @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-4;

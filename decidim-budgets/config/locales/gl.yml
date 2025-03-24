@@ -103,6 +103,9 @@ gl:
           fields:
             id: ID
             title: Título
+      order:
+        status:
+          title: O teu voto foi aceptado con éxito
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os proxectos que seleccionaches son:'
@@ -169,8 +172,6 @@ gl:
             comments_enabled: Comentarios habilitados
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             title: Título
             total_budget: Orzamento total
             vote_minimum_budget_projects_number: Número mínimo de proxectos a votar

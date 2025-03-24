@@ -5,8 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when a user updates a proposal.
       class UpdateProposal < Decidim::Command
-        include ::Decidim::AttachmentMethods
-        include GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
         include HashtagsMethods
 
         # Public: Initializes the command.
@@ -31,23 +30,15 @@ module Decidim
           delete_attachment(form.attachment) if delete_attachment?
 
           if process_attachments?
-            @proposal.attachments.destroy_all
-
-            build_attachment
-            return broadcast(:invalid) if attachment_invalid?
-          end
-
-          if process_gallery?
-            build_gallery
-            return broadcast(:invalid) if gallery_invalid?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
           end
 
           transaction do
             update_proposal
             update_proposal_author
-            create_gallery if process_gallery?
-            create_attachment(weight: first_attachment_weight) if process_attachments?
-            photo_cleanup!
+            document_cleanup!(include_all_attachments: true)
+            create_attachments(first_weight: first_attachment_weight) if process_attachments?
           end
 
           broadcast(:ok, proposal)
@@ -88,6 +79,10 @@ module Decidim
           return 1 if proposal.photos.count.zero?
 
           proposal.photos.count
+        end
+
+        def delete_attachment?
+          @form.attachment&.delete_file.present?
         end
       end
     end

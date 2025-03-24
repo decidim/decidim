@@ -1,6 +1,8 @@
 ar:
   activemodel:
     attributes:
+      answer:
+        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -130,8 +132,6 @@ ar:
             maps_enabled: تم تمكين الخرائط
             registration_code_enabled: تم تمكين رمز التسجيل
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
             terms_and_conditions_url_for_meeting_creators: أحكام وشروط عناوين URL لمنشئي الاجتماع
           step:
             announcement: إعلان
@@ -320,6 +320,7 @@ ar:
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
+            manage_questions: الأسئلة
             recommendation_message: لأسباب تتعلق بالخصوصية، نوصي بحذف نموذج التسجيل هذا حالما انتهيت منه. ويكون هذا تلقائياً بعد ثلاثة أشهر من انتهاء الاجتماع.
             registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
             registration_form: إستمارة تسجيل

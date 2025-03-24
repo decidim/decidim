@@ -7,68 +7,61 @@ shared_examples_for "update questions" do
     let!(:question) { create(:questionnaire_question, questionnaire:, body:) }
 
     before do
-      visit questionnaire_edit_path
-      expand_all_questions
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     it "modifies the question when the information is valid" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified question"
-          fill_in "questionnaire_questions_#{question.id}_max_characters", with: 30
-          check "Mandatory"
-          select "Long answer", from: "Type"
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        fill_in "questions_questions_#{question.id}_body_en", with: "Modified question"
+        fill_in "questions_questions_#{question.id}_max_characters", with: 30
+        check "Mandatory"
+        select "Long response", from: "Type"
       end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       expect(page).to have_css("input[value='Modified question']")
       expect(page).to have_no_css("input[value='This is the first question']")
-      expect(page).to have_css("input#questionnaire_questions_#{question.id}_mandatory[checked]")
-      expect(page).to have_css("input#questionnaire_questions_#{question.id}_max_characters[value='30']")
-      expect(page).to have_css("select#questionnaire_questions_#{question.id}_question_type option[value='long_answer'][selected]")
+      expect(page).to have_css("input#questions_questions_#{question.id}_mandatory[checked]")
+      expect(page).to have_css("input#questions_questions_#{question.id}_max_characters[value='30']")
+      expect(page).to have_css("select#questions_questions_#{question.id}_question_type option[value='long_response'][selected]")
     end
 
     it "re-renders the form when the information is invalid and displays errors" do
       expand_all_questions
 
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          expect(page).to have_content("Statement*")
-          fill_in "questionnaire_questions_#{question.id}_body_en", with: ""
-          fill_in "questionnaire_questions_#{question.id}_max_characters", with: -3
-          check "Mandatory"
-          select "Matrix (Multiple option)", from: "Type"
-          select "2", from: "Maximum number of choices"
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        expect(page).to have_content("Statement*")
+        fill_in "questions_questions_#{question.id}_body_en", with: ""
+        fill_in "questions_questions_#{question.id}_max_characters", with: -3
+        check "Mandatory"
+        select "Matrix (Multiple option)", from: "Type"
+        select "2", from: "Maximum number of choices"
       end
 
-      expand_all_questions
+      click_on "Save"
+      click_on "Expand all questions"
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("cannot be blank", count: 5) # empty question, 2 empty default answer options, 2 empty default matrix rows
+      expect(page).to have_content("cannot be blank", count: 5)
       expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
       expect(page).to have_css("input[value='']")
       expect(page).to have_no_css("input[value='This is the first question']")
-      expect(page).to have_css("input#questionnaire_questions_#{question.id}_mandatory[checked]")
-      expect(page).to have_css("input#questionnaire_questions_#{question.id}_max_characters[value='-3']")
+      expect(page).to have_css("input#questions_questions_#{question.id}_mandatory[checked]")
+      expect(page).to have_css("input#questions_questions_#{question.id}_max_characters[value='-3']")
+      expect(page).to have_css("select#questions_questions_#{question.id}_question_type option[value='matrix_multiple'][selected]")
       expect(page).to have_select("Maximum number of choices", selected: "2")
-      expect(page).to have_css("select#questionnaire_questions_#{question.id}_question_type option[value='matrix_multiple'][selected]")
     end
 
     it "preserves deleted status across submission failures" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          click_on "Remove"
-        end
+      within ".questionnaire-question" do
+        click_on "Remove"
       end
 
       click_on "Add question"
@@ -84,36 +77,28 @@ shared_examples_for "update questions" do
     end
 
     it "removes the question" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          click_on "Remove"
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        click_on "Remove"
       end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      click_on "Questions"
 
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 0)
-      end
+      expect(page).to have_css(".questionnaire-question", count: 0)
     end
 
     it "cannot be moved up" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          expect(page).to have_no_button("Up")
-        end
+      within ".questionnaire-question" do
+        expect(page).to have_no_button("Up")
       end
     end
 
     it "cannot be moved down" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          expect(page).to have_no_button("Down")
-        end
+      within ".questionnaire-question" do
+        expect(page).to have_no_button("Down")
       end
     end
   end
@@ -122,22 +107,20 @@ shared_examples_for "update questions" do
     let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:, body: title_and_description_body) }
 
     before do
-      visit questionnaire_edit_path
-      expand_all_questions
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     it "modifies the question when the information is valid" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified title and description"
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        fill_in "questions_questions_#{question.id}_body_en", with: "Modified title and description"
       end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       expect(page).to have_css("input[value='Modified title and description']")
       expect(page).to have_no_css("input[value='This is the first title and description']")
@@ -146,13 +129,11 @@ shared_examples_for "update questions" do
     it "re-renders the form when the information is invalid and displays errors" do
       expand_all_questions
 
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          fill_in "questionnaire_questions_#{question.id}_body_en", with: ""
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        fill_in "questions_questions_#{question.id}_body_en", with: ""
       end
+
+      click_on "Save"
 
       expand_all_questions
 
@@ -163,10 +144,8 @@ shared_examples_for "update questions" do
     end
 
     it "preserves deleted status across submission failures" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          click_on "Remove"
-        end
+      within ".questionnaire-question" do
+        click_on "Remove"
       end
 
       click_on "Add question"
@@ -182,41 +161,33 @@ shared_examples_for "update questions" do
     end
 
     it "removes the question" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          click_on "Remove"
-        end
-
-        click_on "Save"
+      within ".questionnaire-question" do
+        click_on "Remove"
       end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit questionnaire_edit_path
+      click_on "Questions"
 
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 0)
-      end
+      expect(page).to have_css(".questionnaire-question", count: 0)
     end
 
     it "cannot be moved up" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          expect(page).to have_no_button("Up")
-        end
+      within ".questionnaire-question" do
+        expect(page).to have_no_button("Up")
       end
     end
 
     it "cannot be moved down" do
-      within "form.edit_questionnaire" do
-        within ".questionnaire-question" do
-          expect(page).to have_no_button("Down")
-        end
+      within ".questionnaire-question" do
+        expect(page).to have_no_button("Down")
       end
     end
   end
 
-  context "when a questionnaire has an existing question with answer options" do
+  context "when a questionnaire has an existing question with response options" do
     let!(:question) do
       create(
         :questionnaire_question,
@@ -233,47 +204,44 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit questionnaire_edit_path
+      click_on "Save"
+      click_on "Questions"
     end
 
-    it "allows deleting answer options" do
+    it "allows deleting response options" do
       expand_all_questions
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         click_on "Remove"
       end
 
       click_on "Save"
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
-      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-response-option", count: 2)
     end
 
     it "still removes the question even if previous editions rendered the options invalid" do
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 1)
+      expect(page).to have_css(".questionnaire-question", count: 1)
 
-        expand_all_questions
+      expand_all_questions
 
-        within ".questionnaire-question-answer-option:first-of-type" do
-          fill_in find_nested_form_field_locator("body_en"), with: ""
-        end
-
-        within ".questionnaire-question" do
-          click_on "Remove", match: :first
-        end
-
-        click_on "Save"
+      within ".questionnaire-question-response-option:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: ""
       end
+
+      within ".questionnaire-question" do
+        click_on "Remove", match: :first
+      end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 0)
-      end
+      expect(page).to have_css(".questionnaire-question", count: 0)
     end
   end
 
@@ -300,7 +268,8 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit_questionnaire_edit_path_and_expand_all
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     it "allows deleting matrix rows" do
@@ -310,36 +279,32 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       within ".questionnaire-question:last-of-type" do
         expect(page).to have_css(".questionnaire-question-matrix-row", count: 2)
-        expect(page).to have_css(".questionnaire-question-answer-option", count: 3)
+        expect(page).to have_css(".questionnaire-question-response-option", count: 3)
       end
     end
 
     it "still removes the question even if previous editions rendered the rows invalid" do
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 2)
+      expect(page).to have_css(".questionnaire-question", count: 2)
 
-        within ".questionnaire-question-matrix-row:first-of-type" do
-          fill_in find_nested_form_field_locator("body_en"), with: ""
-        end
-
-        within ".questionnaire-question:last-of-type" do
-          click_on "Remove", match: :first
-        end
-
-        click_on "Save"
+      within ".questionnaire-question-matrix-row:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: ""
       end
+
+      within ".questionnaire-question:last-of-type" do
+        click_on "Remove", match: :first
+      end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 1)
-      end
+      expect(page).to have_css(".questionnaire-question", count: 1)
     end
   end
 
@@ -361,8 +326,8 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit questionnaire_edit_path
-      expand_all_questions
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     shared_examples_for "switching questions order" do
@@ -513,26 +478,26 @@ shared_examples_for "update questions" do
       end.to change { page.all(".editor-toolbar").size }.by(1)
     end
 
-    it "properly decides which button to show after adding/removing answer options" do
+    it "properly decides which button to show after adding/removing response options" do
       click_on "Add question"
       expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
         select "Single option", from: "Type"
 
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
 
-        click_on "Add answer option"
+        click_on "Add response option"
 
-        expect(page.all(".questionnaire-question-answer-option")).to all(have_button("Remove"))
+        expect(page.all(".questionnaire-question-response-option")).to all(have_button("Remove"))
 
-        within ".questionnaire-question-answer-option:first-of-type" do
+        within ".questionnaire-question-response-option:first-of-type" do
           click_on "Remove"
         end
 
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
       end
@@ -541,7 +506,7 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
       end

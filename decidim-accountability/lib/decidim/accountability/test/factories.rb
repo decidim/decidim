@@ -17,9 +17,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
     settings do
       {
-        intro: generate_localized_description(:accountability_component_intro, skip_injection:),
-        scopes_enabled: true,
-        scope_id: participatory_space.scope&.id
+        intro: generate_localized_description(:accountability_component_intro, skip_injection:)
       }
     end
   end

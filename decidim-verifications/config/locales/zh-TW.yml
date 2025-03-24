@@ -149,10 +149,8 @@ zh-TW:
         extra_explanation:
           postal_codes:
             other: "參與僅限於具有郵政編碼%{postal_codes} 的參與者。\n參與僅限於具有以下任何郵政編碼的參與者：%{postal_codes}。"
-          scope: 參與資格限制於具有 %{scope_name} 范圍的參與者。
           user_postal_codes:
             other: "參與資格限制於具有郵政編碼 %{postal_codes} 的參與者，而您的郵政編碼為 %{user_postal_code}。\n參與資格限制於具有以下任一郵政編碼的參與者：%{postal_codes}。而您的郵政編碼為 %{user_postal_code}。"
-          user_scope: 參與限制僅限於範圍為 %{scope_name} 的參與者，而您的範圍為 %{user_scope_name}。
       id_documents:
         admin:
           config:

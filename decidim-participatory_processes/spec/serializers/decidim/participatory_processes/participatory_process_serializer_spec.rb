@@ -54,6 +54,21 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
+      context "when assembly has taxonomies" do
+        let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: resource.organization) }
+        let(:serialized_taxonomies) do
+          { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+        end
+
+        before do
+          resource.update!(taxonomies:)
+        end
+
+        it "serializes the taxonomies" do
+          expect(subject.serialize[:taxonomies]).to eq(serialized_taxonomies)
+        end
+      end
+
       context "when process has type" do
         let(:participatory_process_type) { create(:participatory_process_type, organization: resource.organization) }
 

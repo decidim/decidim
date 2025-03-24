@@ -13,7 +13,8 @@ module Decidim
     def order_selector(orders, options = {})
       render partial: "decidim/shared/orders", locals: {
         orders:,
-        i18n_scope: options[:i18n_scope]
+        i18n_scope: options[:i18n_scope],
+        css_class: options[:css_class]
       }
     end
 

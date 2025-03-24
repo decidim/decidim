@@ -1,1 +1,7 @@
 he:
+  activemodel:
+    attributes:
+      proposal:
+        has_address: מכיל כתובת
+      proposal_state:
+        announcement_title:

@@ -19,6 +19,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::DownloadYourData
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
@@ -156,13 +157,12 @@ module Decidim
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
 
-      def self.participants_iframe_embed_types
-        iframe_embed_types.except(:open_in_live_event_page)
+      def self.export_serializer
+        Decidim::Meetings::DownloadYourDataMeetingSerializer
       end
 
-      # Return registrations of a particular meeting made by users representing a group
-      def user_group_registrations
-        registrations.where.not(decidim_user_group_id: nil)
+      def self.participants_iframe_embed_types
+        iframe_embed_types.except(:open_in_live_event_page)
       end
 
       # Returns the presenter for this author, to be used in the views.

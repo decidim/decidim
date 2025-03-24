@@ -32,24 +32,15 @@ module Decidim
       private
 
       attr_reader :post
+      alias resource post
 
       def author
         case post.author.class.name
         when "Decidim::Organization"
           author_organization
-        when "Decidim::UserGroup"
-          author_user_group
         when "Decidim::User"
           author_user
         end
-      end
-
-      def author_user_group
-        {
-          "@type": "Organization",
-          name: post.author.name,
-          url: EngineRouter.new("decidim", router_options).profile_url(post.author.nickname)
-        }
       end
 
       def author_organization
@@ -64,7 +55,7 @@ module Decidim
         {
           "@type": "Person",
           name: decidim_escape_translated(post.author.name),
-          url: EngineRouter.new("decidim", router_options).profile_url(post.author.nickname)
+          url: profile_url(post.author)
         }
       end
 

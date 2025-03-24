@@ -18,13 +18,10 @@ lv:
       surveys:
         actions:
           answer: Atbilde
-        name: Aptauja
         settings:
           global:
             announcement: Paziņojums
           step:
-            allow_answers: Atļaut atbildes
-            allow_unregistered: Ļaujiet nereģistrētiem lietotājiem atbildēt uz jautājumiem aptaujā
             announcement: Paziņojums
     events:
       surveys:

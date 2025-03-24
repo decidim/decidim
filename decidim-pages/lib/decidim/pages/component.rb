@@ -49,6 +49,18 @@ Decidim.register_component(:pages) do |component|
     resource.model_class_name = "Decidim::Pages::Page"
   end
 
+  component.exports :pages do |exports|
+    exports.collection do |component_instance|
+      Decidim::Pages::Page
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Pages::PageSerializer
+  end
+
   component.seeds do |participatory_space|
     require "decidim/pages/seeds"
 

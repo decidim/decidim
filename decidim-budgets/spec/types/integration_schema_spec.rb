@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
@@ -57,7 +57,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:budget_single_result) do
     {
-      "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => budget.created_at.to_time.iso8601,
       "description" => { "translation" => budget.description[locale] },
       "id" => budget.id.to_s,
       "projects" => budget.projects.map do |project|
@@ -69,7 +69,7 @@ describe "Decidim::Api::QueryType" do
           "comments" => [],
           "commentsHaveAlignment" => project.comments_have_alignment?,
           "commentsHaveVotes" => project.comments_have_votes?,
-          "createdAt" => project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "createdAt" => project.created_at.to_time.iso8601,
           "description" => { "translation" => project.description[locale] },
           "hasComments" => project.comment_threads.size.positive?,
           "id" => project.id.to_s,
@@ -78,13 +78,13 @@ describe "Decidim::Api::QueryType" do
           "title" => { "translation" => project.title[locale] },
           "totalCommentsCount" => project.comments_count,
           "type" => "Decidim::Budgets::Project",
-          "updatedAt" => project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "updatedAt" => project.updated_at.to_time.iso8601,
           "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
         }
       end,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
-      "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => budget.updated_at.to_time.iso8601,
       "versions" => [],
       "versionsCount" => 0
     }
@@ -129,13 +129,13 @@ describe "Decidim::Api::QueryType" do
   describe "valid connection query" do
     let(:budget_single_result) do
       {
-        "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => budget.created_at.to_time.iso8601,
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
         "projects" => budget.projects.map { |project| { "id" => project.id.to_s } },
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
-        "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "updatedAt" => budget.updated_at.to_time.iso8601,
         "versions" => [],
         "versionsCount" => 0
       }
@@ -195,7 +195,7 @@ describe "Decidim::Api::QueryType" do
     let(:lookout_key) { "budget" }
     let(:query_result) do
       {
-        "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => budget.created_at.to_time.iso8601,
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
         "projects" => budget.projects.map do |project|
@@ -207,7 +207,7 @@ describe "Decidim::Api::QueryType" do
             "comments" => [],
             "commentsHaveAlignment" => project.comments_have_alignment?,
             "commentsHaveVotes" => project.comments_have_votes?,
-            "createdAt" => project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+            "createdAt" => project.created_at.to_time.iso8601,
             "description" => { "translation" => project.description[locale] },
             "hasComments" => project.comment_threads.size.positive?,
             "id" => project.id.to_s,
@@ -216,13 +216,13 @@ describe "Decidim::Api::QueryType" do
             "title" => { "translation" => project.title[locale] },
             "totalCommentsCount" => project.comments_count,
             "type" => "Decidim::Budgets::Project",
-            "updatedAt" => project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+            "updatedAt" => project.updated_at.to_time.iso8601,
             "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
           }
         end,
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
-        "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "updatedAt" => budget.updated_at.to_time.iso8601,
         "versions" => [],
         "versionsCount" => 0
       }
@@ -430,7 +430,7 @@ describe "Decidim::Api::QueryType" do
           end
         end
 
-        %w(admin collaborator valuator).each do |role|
+        %w(admin collaborator evaluator).each do |role|
           context "when the user is space #{role}" do
             let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
             let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }

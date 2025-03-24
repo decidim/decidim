@@ -3,38 +3,60 @@
   <% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
 
   <div class="download-your-data">
-    <table class="w-full">
-      <span class="uppercase font-semibold text-gray-2 mb-4 block">
-        <%= t("download_data", scope:"decidim.download_your_data.show") %>
-      </span>
+    <h2 class="h4 font-bold pb-4">
+      <%= t("download_data", scope:"decidim.download_your_data.show") %>
+    </h2>
 
-      <p class="help-text pb-8">
-        <%= t("download_data_description_1", scope:"decidim.download_your_data.show") %>
-      </p>
-      <p class="help-text pb-8">
-        <%= t("download_data_description_2", scope:"decidim.download_your_data.show") %>
-      </p>
+    <p class="pb-4 editor-content">
+      <%= t("download_data_description_1", scope:"decidim.download_your_data.show") %>
+    </p>
+    <p class="pb-4 editor-content">
+      <%= t("download_data_description_2", scope:"decidim.download_your_data.show") %>
+    </p>
 
-      <thead class="uppercase">
-        <th class="text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
-        <th class="w-[20%]"><%= t("expiration", scope:"decidim.download_your_data.show") %></th>
-        <th class="w-[15%] text-left"><%= t("action", scope:"decidim.download_your_data.show") %></th>
-      </thead>
-      <tbody>
-        <% if @exports.first_page? %>
-          <tr>
-            <td colspan="2" class="font-bold">
-              <%= t("download_your_data", scope:"decidim.download_your_data.show") %>
-            </td>
-            <td class="text-left py-4">
-              <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm button__secondary mr-auto !ml-0", data: { disable: true } %>
-            </td>
-          </tr>
-        <% end %>
-        <%= render partial: "decidim/download_your_data/export", collection: @exports %>
-      </tbody>
-    </table>
-    <%= decidim_paginate(@exports) %>
+    <%= render layout: "decidim/application/accordion_section", locals: { open_accordion: true, panel_id: "explanation", title: t("title", scope: "decidim.download_your_data.show.explanation") } do %>
+      <p> <%= t("body_1", scope: "decidim.download_your_data.show.explanation", organization_name: current_organization_name) %> </p>
+      <p> <%= t("body_2", scope: "decidim.download_your_data.show.explanation") %> </p>
+    <% end %>
+
+    <%= render partial: "decidim/open_data/how_to_open_accordion_section" %>
+
+    <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
+      <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
+      <% help_definitions.each do |export_manifest_name, export_manifest_definitions| %>
+        <% next if export_manifest_definitions.blank? %>
+        <div class="mt-8">
+          <h4><%= export_manifest_name %></h4>
+          <ul>
+            <% export_manifest_definitions.each do |i18n_key, i18n_value| %>
+              <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="py-10 flex flex-col gap-4 only:[&_*]:ml-auto">
+      <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
+    </div>
+
+    <% unless @exports.size.zero? %>
+      <h2 class="h4 font-bold pb-4">
+        <%= t("files_to_download", scope:"decidim.download_your_data.show") %>
+      </h2>
+
+      <table class="w-full">
+        <thead class="bg-gray-5">
+          <th class="font-semibold p-4 text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
+          <th class="w-[20%] sm:w-[25%] font-semibold py-4"><%= t("expiration", scope:"decidim.download_your_data.show") %></th>
+          <th class="w-[20%] sm:w-[25%] font-semibold py-4 text-center"><%= t("action", scope:"decidim.download_your_data.show") %></th>
+        </thead>
+        <tbody>
+          <%= render partial: "decidim/download_your_data/export", collection: @exports %>
+        </tbody>
+      </table>
+      <%= decidim_paginate(@exports) %>
+    <% end %>
   </div>
 
 <% end %>

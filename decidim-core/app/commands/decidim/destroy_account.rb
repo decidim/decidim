@@ -18,7 +18,6 @@ module Decidim
       Decidim::User.transaction do
         destroy_user_account!
         destroy_user_identities
-        destroy_user_group_memberships
         destroy_follows
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
@@ -39,6 +38,7 @@ module Decidim
       current_user.email = ""
       current_user.personal_url = ""
       current_user.about = ""
+      current_user.notifications_sending_frequency = "none"
       current_user.delete_reason = @form.delete_reason
       current_user.admin = false if current_user.admin?
       current_user.deleted_at = Time.current
@@ -49,10 +49,6 @@ module Decidim
 
     def destroy_user_identities
       current_user.identities.destroy_all
-    end
-
-    def destroy_user_group_memberships
-      Decidim::UserGroupMembership.where(user: current_user).destroy_all
     end
 
     def destroy_follows

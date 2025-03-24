@@ -9,7 +9,6 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Заголовок
-        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -121,8 +120,6 @@ ru:
             submit: Отправить
           title: Частные примечания
         proposals:
-          form:
-            attachment_legend: "(Необязательно) Прикрепить файл"
           index:
             actions: Действия
             cancel: Отменить
@@ -141,7 +138,6 @@ ru:
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
-          create: "%{user_name} создал в пространстве %{space_name} предложение %{resource_name} в качестве служебного предложения"
         proposal_note:
           create: "%{user_name} оставил частное примечание по предложению %{resource_name} в пространстве %{space_name}"
       answers:
@@ -174,7 +170,6 @@ ru:
             votes: Голоса
       proposals:
         edit:
-          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           send: Отправить
           title: Редактировать предложение
@@ -218,7 +213,6 @@ ru:
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
-          votes_blocked: Голосование отключено
         voting_rules:
           proposal_limit:
             description: Вы можете создать до %{limit} предложений.

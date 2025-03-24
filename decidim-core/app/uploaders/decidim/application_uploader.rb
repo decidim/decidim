@@ -60,7 +60,7 @@ module Decidim
     end
 
     def variant_path(key, options = {})
-      variant_url(key, **options.merge(only_path: true))
+      variant_url(key, **options, only_path: true)
     end
 
     def remote_url=(url)

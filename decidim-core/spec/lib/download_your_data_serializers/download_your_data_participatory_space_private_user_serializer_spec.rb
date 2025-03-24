@@ -36,6 +36,14 @@ module Decidim
       it "includes the updated at" do
         expect(serialized).to include(updated_at: resource.updated_at)
       end
+
+      it "includes the role" do
+        expect(serialized).to include(role: resource.role)
+      end
+
+      it "includes the published" do
+        expect(serialized).to include(published: resource.published)
+      end
     end
   end
 end

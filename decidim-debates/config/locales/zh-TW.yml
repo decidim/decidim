@@ -32,8 +32,6 @@ zh-TW:
             announcement: 公告
             comments_enabled: 啟用評論功能
             comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
           step:
             announcement: 公告
             comments_blocked: 留言已封鎖

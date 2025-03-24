@@ -30,6 +30,7 @@ module Decidim
 
       def proposal_state_css_style(proposal)
         return "" if proposal.emendation?
+        return "" if proposal.withdrawn?
 
         proposal.proposal_state&.css_style
       end
@@ -144,8 +145,16 @@ module Decidim
         ).count
       end
 
+      def layout_item_classes
+        if show_voting_rules?
+          "layout-item lg:pt-4"
+        else
+          "layout-item"
+        end
+      end
+
       def show_voting_rules?
-        return false if !votes_enabled? || current_settings.votes_blocked?
+        return false if !votes_enabled? || votes_blocked?
 
         return true if vote_limit_enabled?
         return true if threshold_per_proposal_enabled?
@@ -175,7 +184,6 @@ module Decidim
       # Explicitly commenting the used I18n keys so their are not flagged as unused
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.participants')
-      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.user_groups')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
@@ -184,7 +192,6 @@ module Decidim
         origin_values = []
         origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
         origin_values << TreePoint.new("participants", t("participants", scope:))
-        origin_values << TreePoint.new("user_group", t("user_groups", scope:)) if current_organization.user_groups_enabled?
         origin_values << TreePoint.new("meeting", t("meetings", scope:))
 
         TreeNode.new(

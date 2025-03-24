@@ -5,7 +5,7 @@
   <h2 class="title-decorator"><%= t("decidim.components.meetings.name") %></h2>
 <% end %>
 
-<% if try(:component_settings) && component_settings&.creation_enabled_for_participants? && current_component.participatory_space.can_participate?(current_user) %>
+<% if allowed_to?(:create, :meeting) %>
   <%= action_authorized_link_to :create, new_meeting_path, permissions_holder: current_component, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_meeting_path } do %>
     <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
     <%= icon "add-line" %>

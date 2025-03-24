@@ -95,8 +95,6 @@
             maps_enabled: Kart aktivert
             registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
-            scope_id: Tema
-            scopes_enabled: Temaer aktivert
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
           step:
             announcement: Kunngjøring
@@ -268,6 +266,7 @@
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
+            manage_questions: Spørsmål
             registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
             registration_form: Registreingsskjema
             registrations_count:

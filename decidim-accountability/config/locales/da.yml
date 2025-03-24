@@ -131,8 +131,6 @@ da:
             comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
             display_progress_enabled: Vis fremskridt
             intro: Intro
-            scope_id: Omfang
-            scopes_enabled: Omfang aktiveret
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

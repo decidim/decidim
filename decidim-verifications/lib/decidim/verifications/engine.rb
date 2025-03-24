@@ -15,7 +15,6 @@ module Decidim
               get :onboarding_pending
               get :renew_modal
               get :renew
-              post :renew_onboarding_data
               delete :clear_onboarding_data
             end
           end
@@ -25,10 +24,30 @@ module Decidim
           end
         end
 
+        resources :authorizations, only: nil do
+          post :renew_onboarding_data, on: :collection
+        end
+
         namespace :admin do
           # Revocations - Two options: 1) Revoke all (without params) 2) Revoke before date (when date params exist)
           post "verifications_before_date", to: "verifications#destroy_before_date", as: "verifications/destroy_before_date"
           delete "verifications_all", to: "verifications#destroy_all", as: "verifications/destroy_all"
+        end
+      end
+
+      initializer "decidim_verifications.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+        end
+      end
+
+      initializer "decidim_verifications.mount_admin_routes" do
+        Decidim::Core::Engine.routes do
+          constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+            Decidim.authorization_admin_engines.each do |manifest|
+              mount manifest.admin_engine, at: "/admin/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+            end
+          end
         end
       end
 

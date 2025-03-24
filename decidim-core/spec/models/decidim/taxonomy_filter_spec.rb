@@ -9,12 +9,30 @@ module Decidim
 
     context "when everything is ok" do
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
       it { is_expected.to respond_to(:root_taxonomy) }
       it { is_expected.to respond_to(:filter_items) }
 
       it "has the same name as the root taxonomy" do
         expect(taxonomy_filter.name).to eq(root_taxonomy.name)
         expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+      end
+
+      describe "scopes" do
+        let!(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [:assemblies, :participatory_processes]) }
+        let!(:external_taxonomy_filter) { create(:taxonomy_filter, participatory_space_manifests: [:assemblies]) }
+
+        it "returns only the organization taxonomy filters" do
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).count).to eq(1)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).first).to eq(taxonomy_filter)
+        end
+
+        it "returns the filters for space manifests" do
+          expect(Decidim::TaxonomyFilter.for_manifest("assemblies").count).to eq(2)
+          expect(Decidim::TaxonomyFilter.for_manifest("assemblies").all).to include(taxonomy_filter, external_taxonomy_filter)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).for_manifest("assemblies").count).to eq(1)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).for_manifest("assemblies").first).to eq(taxonomy_filter)
+        end
       end
     end
 
@@ -24,6 +42,7 @@ module Decidim
       it "has the custom name" do
         expect(taxonomy_filter.name["en"]).to eq("Custom name")
         expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.translated_name).to eq("Custom name")
       end
     end
 
@@ -42,6 +61,7 @@ module Decidim
       it "has the custom internal name" do
         expect(taxonomy_filter.internal_name["en"]).to eq("Custom internal name")
         expect(taxonomy_filter.name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.translated_internal_name).to eq("Custom internal name")
       end
     end
 
@@ -51,10 +71,10 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when space manifest is missing" do
-      before { taxonomy_filter.space_manifest = nil }
+    context "when participatory space manifests are missing" do
+      before { taxonomy_filter.participatory_space_manifests = [] }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
     end
 
     context "when has associations" do
@@ -70,8 +90,8 @@ module Decidim
       let(:participatory_space) { create(:participatory_process, organization: root_taxonomy.organization) }
       let!(:component1) { create(:component, settings: { taxonomy_filters: ids1 }) }
       let!(:component2) { create(:component, participatory_space:, settings: { taxonomy_filters: ids2 }) }
-      let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
-      let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+      let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
+      let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
       let(:ids1) { [taxonomy_filter1.id.to_s] }
       let(:ids2) { [taxonomy_filter1.id.to_s, taxonomy_filter2.id.to_s] }
 
@@ -92,7 +112,7 @@ module Decidim
     end
 
     context "when space manifest is not registered" do
-      subject(:taxonomy_filter) { build(:taxonomy_filter, space_manifest: "dummy_manifest") }
+      subject(:taxonomy_filter) { build(:taxonomy_filter, participatory_space_manifests: ["dummy_manifest"]) }
 
       it { is_expected.not_to be_valid }
     end
@@ -101,12 +121,12 @@ module Decidim
       subject(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
       let(:organization) { root_taxonomy.organization }
 
-      let!(:first_taxonomy) { create(:taxonomy, weight: 1, parent: root_taxonomy, organization:) }
       let!(:second_taxonomy) { create(:taxonomy, weight: 2, parent: root_taxonomy, organization:) }
+      let!(:first_taxonomy) { create(:taxonomy, weight: 1, parent: root_taxonomy, organization:) }
       let!(:third_taxonomy) { create(:taxonomy, weight: 3, parent: root_taxonomy, organization:) }
       let!(:sub_taxonomy) { create(:taxonomy, parent: second_taxonomy, organization:) }
-      let!(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy, organization:) }
       let!(:second_sub_taxonomy) { create(:taxonomy, parent: second_taxonomy, organization:) }
+      let!(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy, organization:) }
 
       let!(:filter_items) do
         [

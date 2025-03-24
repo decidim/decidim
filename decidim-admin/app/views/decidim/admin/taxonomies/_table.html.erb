@@ -6,8 +6,13 @@
       <th scope="col" role="columnheader">
         <ul class="taxonomy">
           <li><%= t("decidim.admin.taxonomies.name") %></li>
-          <li><%= taxonomy.blank? ? t("decidim.admin.taxonomies.amount") : t("decidim.admin.taxonomies.count") %></li>
-          <li><%= t("decidim.admin.taxonomies.actions") %></li>
+          <% if taxonomy.blank? %>
+            <li><%= t("decidim.admin.taxonomies.total_items") %></li>
+            <li><%= t("decidim.admin.taxonomies.total_filters") %></li>
+          <% else %>
+            <li><%= t("decidim.admin.taxonomies.count") %></li>
+          <% end %>
+          <li><%= t("decidim.admin.taxonomies.actions.actions") %></li>
         </ul>
       </th>
     </tr>
@@ -18,7 +23,7 @@
      In Decidim there are two ways to implement a sortable (but both use the same library html5sortable.es).
 
      The simpler one is just to add the [data-draggable-table] attribute in the parent element, it requires to also add the [data-sort-url] attribute. This URL will be used to send a PUT request and ignore the result.
-      This implementation is used for instance in admin components table.
+    This implementation is used for instance in the admin's components table.
 
      For cases when you need more control you can use the second implementation, which is the one used here.
      It uses the "js-sortable" class to initialize the element and allows you to use all the options documented in https://github.com/lukasoppermann/html5sortable as [data-sortable-OPTION] in the html.
@@ -53,7 +58,6 @@
         sortable.classList.add("spinner-container");
         const itemsId = Array.from(event.target.children).map(item => item.dataset.taxonomyId);
         const parentId = event.target.dataset.parentId || event.target.closest('[data-taxonomy-id]')?.dataset.taxonomyId || null;
-        // console.log('The new ids are:', itemsId);
 
         fetch(sortable.dataset.sortUrl, {
           method: "PATCH",

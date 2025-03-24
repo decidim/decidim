@@ -1,0 +1,18 @@
+<thead>
+  <tr>
+    <th><%= check_box_tag "moderations_bulk", "all", false, class: "js-check-all" %></th>
+    <th><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></th>
+    <th><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></th>
+    <% if !respond_to?(:current_participatory_space) %>
+      <th><%= t("models.moderation.fields.participatory_space", scope: "decidim.moderations") %></th>
+    <% end %>
+    <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
+    <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
+    <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
+    <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
+    <% if params[:hidden] %>
+      <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+    <% end %>
+    <th><%= t("actions.title", scope: "decidim.moderations") %></th>
+  </tr>
+</thead>

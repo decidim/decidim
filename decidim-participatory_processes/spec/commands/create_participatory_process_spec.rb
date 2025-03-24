@@ -8,9 +8,6 @@ module Decidim::ParticipatoryProcesses
 
     let(:organization) { create(:organization) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
-    let(:participatory_process_type) { create(:participatory_process_type, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
     let(:related_process_ids) { [] }
@@ -44,16 +41,11 @@ module Decidim::ParticipatoryProcesses
         current_user:,
         current_organization: organization,
         organization:,
-        scopes_enabled: true,
         private_space: false,
-        scope:,
-        scope_type_max_depth: nil,
-        area:,
         taxonomizations:,
         errors:,
         related_process_ids:,
         participatory_process_group:,
-        participatory_process_type:,
         announcement: { en: "message" }
       )
     end

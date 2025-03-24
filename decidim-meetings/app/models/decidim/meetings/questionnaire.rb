@@ -9,7 +9,7 @@ module Decidim
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
-      has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
       def all_questions_unpublished?
         questions.all?(&:unpublished?)

@@ -7,7 +7,7 @@
 <% end %>
 
 <% if budgets.where.not(id: voted.map(&:id)).exists? %>
-  <div id="budgets" class="card__list-list">
+  <div id="budgets" class="card__list-list !space-y-5 w-full">
     <%= main_list %>
   </div>
 <% end %>

@@ -14,11 +14,9 @@ module Decidim::Admin
     let(:taxonomy_child) { create(:taxonomy, parent: root_taxonomy, organization:) }
     let(:taxonomy_grandchild) { create(:taxonomy, parent: taxonomy_child, organization:) }
     let(:taxonomy_item) { create(:taxonomy, parent: taxonomy_grandchild, organization:) }
-    let(:participatory_space_manifest) { :participatory_processes }
     let(:context) do
       {
-        current_organization: organization,
-        participatory_space_manifest:
+        current_organization: organization
       }
     end
 
@@ -53,8 +51,8 @@ module Decidim::Admin
         )
       end
 
-      it "returns all parent filter items" do
-        expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id, taxonomy_item.id)
+      it "returns the filter items" do
+        expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_item.id)
       end
 
       context "when grandchild is selected" do
@@ -62,8 +60,8 @@ module Decidim::Admin
 
         it { is_expected.to be_valid }
 
-        it "returns all parent filter items" do
-          expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id)
+        it "returns the filter items" do
+          expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_grandchild.id)
         end
       end
     end
@@ -88,11 +86,11 @@ module Decidim::Admin
     end
 
     describe "#from_model" do
-      let(:taxonomy_filter) { create(:taxonomy_filter, name:, internal_name:, space_filter:, root_taxonomy:) }
+      let(:taxonomy_filter) { create(:taxonomy_filter, name:, internal_name:, participatory_space_manifests:, root_taxonomy:) }
       let!(:filter_item) { create(:taxonomy_filter_item, taxonomy_item:, taxonomy_filter:) }
       let(:name) { { "en" => "Public name" } }
       let(:internal_name) { { "en" => "Internal Name" } }
-      let(:space_filter) { true }
+      let(:participatory_space_manifests) { ["participatory_processes"] }
 
       subject { described_class.from_model(taxonomy_filter) }
 
@@ -101,7 +99,7 @@ module Decidim::Admin
         expect(subject.taxonomy_items).to eq([taxonomy_item.id])
         expect(subject.name).to eq(name)
         expect(subject.internal_name).to eq(internal_name)
-        expect(subject.space_filter).to eq(space_filter)
+        expect(subject.participatory_space_manifests).to eq(participatory_space_manifests)
       end
 
       context "when no name is present" do

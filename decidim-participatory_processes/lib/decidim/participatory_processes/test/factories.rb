@@ -85,11 +85,6 @@ FactoryBot.define do
       end_date { 2.weeks.from_now }
     end
 
-    trait :with_scope do
-      scopes_enabled { true }
-      scope { create(:scope, organization:, skip_injection:) }
-    end
-
     trait :with_content_blocks do
       transient { blocks_manifests { [:hero] } }
 
@@ -232,7 +227,7 @@ FactoryBot.define do
     end
   end
 
-  factory :process_valuator, parent: :user, class: "Decidim::User" do
+  factory :process_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       participatory_process { create(:participatory_process, skip_injection:) }
@@ -245,7 +240,7 @@ FactoryBot.define do
       create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :valuator, skip_injection: evaluator.skip_injection)
+             role: :evaluator, skip_injection: evaluator.skip_injection)
     end
   end
 

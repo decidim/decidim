@@ -1,6 +1,9 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_participatory_space.short_description),
-  title: component_name,
+  title: t("decidim.components.pagination.page_title",
+           component_name: component_name,
+           current_page: @proposals.current_page,
+           total_pages: @proposals.total_pages ),
   url: proposals_url,
   resource: current_component) %>
 
@@ -35,22 +38,7 @@
 
   <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="proposal-list__map">
-      <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
-        <template id="marker-popup">
-          <div class="space-y-6">
-            <a href="${link}" class="card__list">
-              <div class="card__list-content">
-                <h3 class="h4 card__list-title">${title}</h3>
-                <div class="card__list-metadata">
-                  {{each JSON.parse(items)}}
-                    <span>{{html icon}}{{html text}}</span>
-                  {{/each}}
-                </div>
-              </div>
-            </a>
-          </div>
-        </template>
-      <% end %>
+      <%= cell "decidim/map", @proposals, metadata_card: "decidim/proposals/proposal_metadata" %>
     </div>
   <% end %>
 

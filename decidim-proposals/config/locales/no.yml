@@ -9,7 +9,6 @@
         scope_id: Tema
         state: Delstat
         title: Tittel
-        user_group_id: Opprett samarbeids utkast som
       proposal:
         address: Adresse
         answer: Svar
@@ -22,7 +21,6 @@
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
         title: Tittel
-        user_group_id: Opprett forslag som
       proposal_answer:
         answer: Svar
         cost: Kostnad
@@ -134,8 +132,6 @@
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
@@ -252,7 +248,7 @@
         title: Forslag
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vis alle (%{count})
+        see_all: Vis alle
     proposals:
       actions:
         answer_proposal: Svar på forslag
@@ -325,16 +321,12 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            delete_attachment: Slett vedlegg
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
-            assign_to_valuator_button: Tildel
             cancel: Avbryt
             merge: Slå sammen til en ny
-            merge_button: Slå sammen
             publish: Publiser
             publish_answers: Publiser svar
             select_component: Velg en komponent
@@ -342,7 +334,6 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
-            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
           new:
             create: Opprett
@@ -375,7 +366,6 @@
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
-          create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
           update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
         proposal_note:
           create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
@@ -390,7 +380,6 @@
           all: Alle
           meetings: Møter
           official: Offisiell
-          user_groups: Grupper
         filter_state_values:
           all: Alle
           not_answered: Ikke besvart
@@ -417,7 +406,6 @@
         create:
           success: Samarbeids utkast opprettet.
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger samarbeids utkastet
@@ -504,7 +492,6 @@
           comment: Kommentar
       proposals:
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger forslaget
@@ -575,6 +562,8 @@
         voting_rules:
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
+          vote_limit:
+            description: Du kan støtte opptil %{limit} forslag.
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag

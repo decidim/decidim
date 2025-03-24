@@ -16,7 +16,7 @@
 </div>
 <% if show_map? %>
   <div class="meeting-list__block-map">
-    <%= cell "decidim/meetings/meetings_map", collection %>
+    <%= cell "decidim/map", collection, metadata_card: "decidim/meetings/meeting_card_metadata" %>
   </div>
 <% end %>
 <div class="meeting-list__block-list">

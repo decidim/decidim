@@ -33,8 +33,6 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

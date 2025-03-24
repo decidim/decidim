@@ -5,7 +5,6 @@ ja:
       decidim/comments/comment_created_event: コメント
       decidim/comments/comment_upvoted_event: 賛成票のあったコメント
       decidim/comments/reply_created_event: コメント返信
-      decidim/comments/user_group_mentioned_event: メンション
       decidim/comments/user_mentioned_event: メンション
   activerecord:
     models:
@@ -14,6 +13,10 @@ ja:
       decidim/comments/comment_vote:
         other: 投票
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: コメント
     comments:
       admin:
         shared:
@@ -37,6 +40,7 @@ ja:
     components:
       add_comment_form:
         account_message: コメントを追加するにはログインするかアカウントを作成してください
+        add_comment: コメントを追加
         form:
           body:
             label: コメント
@@ -44,8 +48,6 @@ ja:
           form_error: テキストは必須で、 %{length} 文字を超えることはできません。
           submit_reply: 返信を公開
           submit_root_comment: コメントを公開
-          user_group_id:
-            label: 'コメント:'
         opinion:
           label: このトピックに関するあなたの意見
           negative: 否定的
@@ -100,15 +102,18 @@ ja:
           recent: 新しい順
         title: '並び順：'
       comments:
+        against: 反対
         blocked_comments_for_unauthorized_user_warning: 現在、コメントできるのは検証済アカウントのみになりますが、以前のコメントを読むことはできます。
         blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
         blocked_comments_warning: コメントは現在無効になっています。管理者のみが新しいコメントを返信または投稿できます。
         comment_details_title: コメントの詳細
+        in_favor: 賛成
         loading: コメントを読み込んでいます...
         single_comment_warning: <a href="%{url}">すべてのコメントを表示</a>
         single_comment_warning_title: コメントを1件のみ表示しています
         title:
           other: "%{count} 件のコメント"
+        top_comment_label: Upvoteの多い順
       down_vote_button:
         text: このコメントに同意しません
       edit_comment_modal_form:
@@ -121,16 +126,30 @@ ja:
         title: コメントを編集
       up_vote_button:
         text: このコメントに同意します
+    download_your_data:
+      help:
+        comment_votes:
+          comment: 投票されたコメントの ID
+          created_at: 投票の作成日時
+          id: 投票のID
+          updated_at: 投票の最終更新日時
+          weight: 投票の重みづけ（upvoteは1、downvoteは-1）
+        comments:
+          alignment: このコメントが好意的、反対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメントそのもの
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
-          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
-        comment_by_followed_user_group:
-          email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
-          email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
@@ -153,11 +172,6 @@ ja:
           email_outro: コメントが返信されたため、この通知を受信しました。
           email_subject: "%{author_name} が %{resource_title} であなたのコメントに返信しました"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> であなたのコメントに返信しました
-        user_group_mentioned:
-          email_intro: あなたが所属しているグループがメンションされました
-          email_outro: あなたは %{group_name} でメンションされたグループ %{resource_title} のメンバーであるため、この通知を受け取りました。
-          email_subject: あなたは %{resource_title} で %{group_name} のメンバーとしてメンションされました
-          notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> に <a href="%{author_path}">%{author_name} %{author_nickname}</a> のメンバとして <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: あなたはメンションされています
           email_outro: あなたが %{resource_title}でメンションされたため、この通知を受け取りました。

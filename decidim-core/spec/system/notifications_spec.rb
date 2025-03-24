@@ -113,25 +113,6 @@ describe "Notifications" do
     end
   end
 
-  context "with user group mentioned notifications" do
-    let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
-    let(:event_name) { "decidim.events.comments.user_group_mentioned" }
-    let(:extra) { { comment_id: create(:comment).id, group_id: create(:user_group).id } }
-    let!(:notification) { create(:notification, user:, event_class:, event_name:, extra:) }
-
-    before do
-      page.visit decidim.notifications_path
-    end
-
-    it "shows the notification with the group mentioned" do
-      group = Decidim::UserGroup.find(notification.extra["group_id"])
-      element = page.find(".notification")
-      notification_text = element.text
-
-      expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")
-    end
-  end
-
   context "when the notification event has an action" do
     let(:url) { "/api?query=%7Bdecidim%20%7B%20version%20%7D%7D" }
     let(:data) do

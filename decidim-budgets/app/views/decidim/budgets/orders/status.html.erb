@@ -1,0 +1,52 @@
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex flex-col gap-4 items-center text-center my-12">
+    <div class="success-image">
+      <svg class="animation-success__checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="animation-success__checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+        <path class="animation-success__checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+      </svg>
+    </div>
+
+    <h1 class="h1 inline-block">
+      <%= t("title", scope: "decidim.budgets.order.status") %>
+    </h1>
+
+    <p>
+      <%= t(
+            "votes_count",
+            scope: "decidim.budgets.order.status",
+            count: current_order.total_projects,
+            budget_name: translated_attribute(current_order.budget.title)
+          ) %>
+    </p>
+
+    <% if pending_to_vote_budgets.present? %>
+      <p class="text-bold">
+        <%= t("pending_to_vote_budgets", scope: "decidim.budgets.order.status", count: pending_to_vote_budgets.count) %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <button class="button button__sm md:button__lg button__text-secondary">
+      <span><%= t("share_vote", scope: "decidim.budgets.order.status") %></span>
+      <%= icon "share-line", class: "fill-current" %>
+    </button>
+
+    <button class="button button__sm md:button__lg button__transparent-secondary">
+      <span><%= t("download_vote", scope: "decidim.budgets.order.status") %></span>
+      <%= icon "download-line", class: "fill-current" %>
+    </button>
+
+    <%= link_to budgets_path, class: "button button__sm md:button__lg button__secondary" do %>
+      <span>
+        <% if pending_to_vote_budgets.present? %>
+          <%= t("continue_voting", scope: "decidim.budgets.order.status") %>
+        <% else %>
+          <%= t("view_votes", scope: "decidim.budgets.order.status", count: current_order.total_projects) %>
+        <% end %>
+      </span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
+  </div>
+<% end %>

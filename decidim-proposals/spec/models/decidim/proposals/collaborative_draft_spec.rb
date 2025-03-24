@@ -13,9 +13,7 @@ module Decidim
       let(:coauthorable) { collaborative_draft }
 
       include_examples "coauthorable"
-      include_examples "has scope"
       include_examples "has taxonomies"
-      include_examples "has category"
       include_examples "resourceable"
 
       it { is_expected.to be_valid }
@@ -42,17 +40,6 @@ module Decidim
           let(:collaborative_draft) do
             cd = create(:collaborative_draft, component:, updated_at: Time.current)
             Decidim::Coauthorship.create(author:, coauthorable: cd)
-            cd
-          end
-
-          it { is_expected.to be_editable_by(author) }
-        end
-
-        context "when created from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
-          let(:collaborative_draft) do
-            cd = create(:collaborative_draft, component:, updated_at: Time.current)
-            Decidim::Coauthorship.create(author:, decidim_user_group_id: user_group.id, coauthorable: cd)
             cd
           end
 

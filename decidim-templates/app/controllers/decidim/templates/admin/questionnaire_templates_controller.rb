@@ -7,8 +7,10 @@ module Decidim
       #
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaire
+        helper Decidim::Forms::Admin::ApplicationHelper
 
-        helper_method :template
+        helper_method :template, :questionnaire
 
         add_breadcrumb_item_from_menu :admin_template_types_menu
 
@@ -135,7 +137,23 @@ module Decidim
           redirect_to URI.parse(params[:url]).path
         end
 
+        def edit_questions_template
+          "decidim/templates/admin/questionnaire_templates/edit_questions"
+        end
+
+        def after_update_url
+          edit_questionnaire_template_path(template)
+        end
+
         private
+
+        def questionnaire
+          template.templatable
+        end
+
+        def i18n_flashes_scope
+          "decidim.forms.admin.questionnaires"
+        end
 
         def collection
           @collection ||= current_organization.templates.where(templatable_type: "Decidim::Forms::Questionnaire")

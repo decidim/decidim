@@ -101,7 +101,6 @@ nl:
             initiative_title: Titel van het initiatief
             name_and_surname: Naam en achternaam
             postal_code: Postcode
-            time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
         initiatives: Initiatieven
@@ -226,7 +225,6 @@ nl:
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
         accepted: Genoeg handtekeningen
-        created: gemaakt
         discarded: Afgedankte
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
@@ -254,31 +252,19 @@ nl:
           name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
-          back: Terug
           continue: Doorgaan met
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is de titel begrijpelijk? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief?</li> </ul>"
-          more_information: "(Meer informatie)"
           select_area: Selecteer een gebied
           select_scope: Selecteer een scope
         finish:
           back: Terug
-          back_to_initiatives: Terug naar initiatieven
-          edit_my_initiative: Mijn initiatieven bewerken
-          go_to_my_initiatives: Ga naar mijn initiatieven
-          more_information: "(Meer informatie)"
-          send_my_initiative: Stuur mijn initiatief naar technische validatie
         previous_form:
           back: Terug
-          continue: Doorgaan met
-        promotal_committee:
-          more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
           choose_html: Ik wil een <strong>%{title}</strong> aanmaken
           more_information: (Meer informatie)
           select: Ik wil dit initiatief promoten
-        share_committee_link:
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van het promotiecomité %{resource_title} aanvaard."
@@ -303,8 +289,6 @@ nl:
           email_outro: 'Je hebt deze melding ontvangen omdat je de auteur bent van het initiatief %{resource_title}'
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
-      form:
-        attachment_legend: "(Optioneel) Voeg een bijlage toe"
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
@@ -389,7 +373,6 @@ nl:
       show:
         badge_name:
           accepted: Genoeg handtekeningen
-          created: Aangemaakt
           discarded: Verwijderd
           rejected: Niet genoeg handtekeningen
           validating: Technische validatie
@@ -411,8 +394,6 @@ nl:
     decidim:
       initiative_creation_header:
         fill_data: creëren
-        finish: Voltooien
-        promotal_committee: Promotieraad
         select_initiative_type: Kiezen
       initiative_signature_creation_header:
         fill_personal_data: Vul uw gegevens in

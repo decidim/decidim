@@ -34,5 +34,14 @@ describe "show" do
         expect(page).to have_content("HST")
       end
     end
+
+    context "when participant is deleted" do
+      let(:user) { create(:user, :deleted, organization:) }
+      let!(:meeting) { create(:meeting, :published, author: user.reload, component:) }
+
+      it "successfully shows the page" do
+        expect(page).to have_content("Deleted participant")
+      end
+    end
   end
 end

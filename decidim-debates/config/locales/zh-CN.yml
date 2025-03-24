@@ -30,8 +30,6 @@ zh-CN:
             announcement: 通 知
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度 (默认值留0)
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止

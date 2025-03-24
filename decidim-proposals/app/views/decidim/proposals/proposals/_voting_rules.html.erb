@@ -1,7 +1,7 @@
 <% if show_voting_rules? %>
   <% announcement_body = capture do %>
     <div class="editor-content">
-      <ul>
+      <ul class="mt-0 mb-2">
         <% if vote_limit_enabled? %>
           <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
         <% end %>
@@ -21,15 +21,9 @@
         <% if minimum_votes_per_user_enabled? %>
           <li>
             <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
-            <% if votes_given >= minimum_votes_per_user %>
-              <%= t(".minimum_votes_per_user.given_enough_votes") %>
-            <% else %>
-              <%= t(".minimum_votes_per_user.votes_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
-            <% end %>
           </li>
         <% end %>
       </ul>
-      <%= render partial: "decidim/proposals/proposals/remaining_votes_count" if current_user_can_vote? %>
     </div>
   <% end %>
 

@@ -6,8 +6,8 @@ module Decidim
       graphql_name "MeetingService"
       description "A meeting service"
 
-      field :title, Decidim::Core::TranslatedFieldType, "The title for the service", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description for the service", null: true
+      field :title, Decidim::Core::TranslatedFieldType, "The title for the service", null: true
     end
   end
 end

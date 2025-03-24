@@ -9,7 +9,6 @@ tr:
         scope_id: Kapsam
         state: Belirtmek, bildirmek
         title: Başlık
-        user_group_id: Ortak çalışma taslağını oluştur
       proposal:
         address: Adres
         answer: Cevap
@@ -22,7 +21,6 @@ tr:
         state: Durum
         suggested_hashtags: Önerilen Etiketler
         title: Başlık
-        user_group_id: Teklif oluştur
       proposal_answer:
         answer: Cevap
         cost: Maliyet
@@ -46,9 +44,6 @@ tr:
       proposals_import:
         import_proposals: Teklifleri içe aktar
         keep_authors: Orijinal yazarları sakla
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Bilirkişi adı
     errors:
       models:
         proposal:
@@ -99,8 +94,6 @@ tr:
               rejected: Reddedildi
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
-          valuator_role_ids_has:
-            label: Bilirkişiye atandı
         search_placeholder:
           id_string_or_title_cont: Başlığa vey ID'ye göre %{collection} ara.
     components:
@@ -132,8 +125,6 @@ tr:
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
             proposal_wizard_step_2_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
           step:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
@@ -160,7 +151,6 @@ tr:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
@@ -257,7 +247,7 @@ tr:
         title: Teklifler
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tüm teklifleri görün (%{count})
+        see_all: Tüm teklifleri görün
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -343,16 +333,12 @@ tr:
             title: Teklifi güncelle
             update: Güncelle
           form:
-            attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
             select_a_meeting: Bir toplantı seç
           index:
             actions: Eylemler
-            assign_to_valuator: Bilirkişiye ata
-            assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
-            merge_button: Birleştir
             publish: Yayınla
             publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
@@ -361,15 +347,12 @@ tr:
             split_button: Böl
             statuses: Durumlar
             title: Teklifler
-            unassign_from_valuator: Bilirkişinin atamasını kaldır
-            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
           new:
             create: Oluştur
             title: Teklif oluştur
           show:
             amendments_count: Değişikliklerin sayısı
-            assigned_valuators: Atanan bilirkişiler
             body: Gövde
             comments_count: Yorum sayısı
             documents: Dokümanlar
@@ -382,8 +365,6 @@ tr:
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
             remove_assignment: Atamayı kaldır
-            remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
-            valuators: Bilirkişiler
         proposals_imports:
           new:
             create: Teklifleri içe aktar
@@ -399,14 +380,10 @@ tr:
       admin_log:
         proposal:
           answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
-          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
           update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
           create: "%{user_name}, %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
-        valuation_assignment:
-          create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
-          delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
         accepted: Kabul Edildi
         evaluating: Değerlendiriliyor
@@ -418,7 +395,6 @@ tr:
           all: Tümü
           meetings: Toplantılar
           official: Resmi
-          user_groups: Gruplar
         filter_state_values:
           all: Tümü
           not_answered: Cevaplanmadı
@@ -445,7 +421,6 @@ tr:
         create:
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Ortak taslak düzenle
@@ -527,8 +502,6 @@ tr:
             published_at: Yayınlandı
             state: Durum
             title: Başlık
-            valuator: Bilirkişi
-            valuators: Bilirkişiler
             votes: Oylar
         proposal_state:
           css_class: CSS Sınıfı 
@@ -540,7 +513,6 @@ tr:
           comment: Yorum Yap
       proposals:
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Teklifi düzenle
@@ -609,6 +581,8 @@ tr:
         voting_rules:
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
+          vote_limit:
+            description: En fazla %{limit} teklife oy verebilirsiniz.
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön

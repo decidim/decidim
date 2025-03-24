@@ -156,13 +156,11 @@ lt:
             few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
             many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
             other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
-          scope: Dalyvauti gali tik tie dalyviai, kurių sritis %{scope_name}.
           user_postal_codes:
             one: Dalyvauti gali tik dalyviai, kurių pašto kodas yra %{postal_codes}, o jūsų pašto kodas yra %{user_postal_code}.
             few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
             many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
             other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
-          user_scope: Dalyvauti gali tik dalyviai, kurių sritis yra %{scope_name}, o jūsų sritis yra %{user_scope_name}.
       id_documents:
         admin:
           config:

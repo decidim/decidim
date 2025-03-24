@@ -28,13 +28,13 @@
                     <%= b.label { b.check_box + b.text } %>
                     <% if permission.authorization_handlers_names.include? b.value %>
                       <div id="authorization-handler-<%= b.value %>" class="authorization-handler">
-                        <%= render "options_form", form: permission_form, handler_name: b.value %>
+                        <%= render "options_form", form: permission_form, handler_name: b.value, ephemeral_warning: b.object.ephemeral? %>
                       </div>
                     <% else %>
                       <% missing_permission = Decidim::Admin::PermissionForm.new(authorization_handlers: { b.value => {} }) %>
                       <%= action_permission_form.fields_for(action, missing_permission) do |missing_permission_form| %>
                         <div id="authorization-handler-<%= b.value %>" class="authorization-handler" style="display:none">
-                          <%= render "options_form", form: missing_permission_form, handler_name: b.value %>
+                          <%= render "options_form", form: missing_permission_form, handler_name: b.value, ephemeral_warning: b.object.ephemeral? %>
                         </div>
                       <% end %>
                     <% end %>

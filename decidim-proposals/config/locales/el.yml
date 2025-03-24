@@ -9,7 +9,6 @@ el:
         scope_id: Πεδίο εφαρμογής
         state: Κατάσταση
         title: Τίτλος
-        user_group_id: Δημιουργία προσχεδίου συνεργασίας ως
       proposal:
         address: Διεύθυνση
         answer: Απάντηση
@@ -22,7 +21,6 @@ el:
         state: Κατάσταση
         suggested_hashtags: Προτεινόμενα hashtag
         title: Τίτλος
-        user_group_id: Δημιουργία πρότασης ως
       proposal_answer:
         answer: Απάντηση
         cost: Κόστος
@@ -35,9 +33,6 @@ el:
         import_proposals: Εισαγωγή προτάσεων
         keep_answers: Διατήρηση κατάστασης και απαντήσεων
         keep_authors: Διατήρηση αρχικών συντακτών
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Όνομα εκτιμητή
     errors:
       models:
         participatory_text:
@@ -99,8 +94,6 @@ el:
               rejected: Απορρίφθηκε
               validating: Τεχνική επικύρωση
               withdrawn: Αποσύρθηκε
-          valuator_role_ids_has:
-            label: Ανατέθηκε στον εκτιμητή
           with_any_state:
             label: Απαντήθηκε
             values:
@@ -150,8 +143,6 @@ el:
             proposal_limit: Όριο πρότασης ανά συμμετέχοντα
             proposal_wizard_step_1_help_text: Κείμενο βοήθειας βήματος «Δημιουργίας» του οδηγού πρότασης
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε πρόταση
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Τα πεδία εφαρμογής ενεργοποιήθηκαν
             threshold_per_proposal: Όριο ανά πρόταση
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
@@ -189,7 +180,6 @@ el:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή μπορείτε να εκτιμήσετε την πρόταση.
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} έχει γίνει δεκτή η πρόσβαση ως συνεισφέρων του <a href="%{resource_url}">%{resource_title}</a> συνεργατικού σχεδίου.'
@@ -292,7 +282,7 @@ el:
         title: Προτάσεις
     participatory_spaces:
       highlighted_proposals:
-        see_all: Δείτε όλες τις προτάσεις (%{count})
+        see_all: Δείτε όλες τις προτάσεις
     proposals:
       actions:
         answer_proposal: Απάντηση σε πρόταση
@@ -309,22 +299,6 @@ el:
           proposal_comments: Σχόλια
           proposals: Προτάσεις
         imports:
-          help:
-            answers: |
-              Το έγγραφο εισαγωγής πρέπει να περιέχει τα ακόλουθα ονόματα στηλών σε περίπτωση αρχείων CSV ή Excel, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
-              <ul>
-              <li><b>id:</b> ID της πρότασης απάντησης</li>
-              <li><b>state:</b> Ένα από τα "accepted", "evaluating", or "rejected"</li>
-              <li><b>answer/en:</b> Απάντηση στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
-              </ul>
-            proposals: |
-              Το αρχείο πρέπει να έχει τα ακόλουθα ονόματα στηλών σε περίπτωση CSV ή Excel αρχεία, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
-              <ul>
-              <li><b>title/en:</b> Τίτλος στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
-              <li><b>body/en:</b> Σώμα στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τη διαμόρφωση της γλώσσας της πλατφόρμας σας.</li>
-              <li><b>scope/id:</b> ID για το πεδίο εφαρμογής</li>
-              <li><b>category/id:</b> ID για την κατηγορία</li>
-              </ul>
           label:
             answers: Εισαγωγή απαντήσεων από ένα αρχείο
             proposals: Εισαγωγή προτάσεων από ένα αρχείο
@@ -391,17 +365,12 @@ el:
             title: Ενημέρωση πρότασης
             update: Ενημέρωση
           form:
-            attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
-            delete_attachment: Διαγραφή συνημμένου
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
             actions: Ενέργειες
-            assign_to_valuator: Εκχώρηση σε εκτιμητή
-            assign_to_valuator_button: Εκχώρηση
             cancel: Ακύρωση
             merge: Συγχώνευση σε νέο
-            merge_button: Συγχώνευση
             publish: Δημοσίευση
             publish_answers: Δημοσίευση απαντήσεων
             select_component: Επιλέξτε στοιχείο
@@ -409,8 +378,6 @@ el:
             split: Διαχωρισμός προτάσεων
             split_button: Διαχωρισμός
             title: Προτάσεις
-            unassign_from_valuator: Κατάργηση εκχώρησης από εκτιμητή
-            unassign_from_valuator_button: Κατάργηση εκχώρησης
             update: Ενημέρωση
           new:
             create: Δημιουργία
@@ -419,7 +386,6 @@ el:
             select_a_proposal: Παρακαλώ επιλέξτε μια πρόταση.
           show:
             amendments_count: Πλήθος τροποποιήσεων
-            assigned_valuators: Εκχωρημένοι εκτιμητές
             body: Σώμα
             comments_count: Πλήθος σχολίων
             documents: Έγγραφα
@@ -432,12 +398,9 @@ el:
             ranking: "%{ranking} από %{total}"
             related_meetings: Σχετικές συσκέψεις
             remove_assignment: Κατάργηση εκχώρησης
-            remove_assignment_confirmation: Είστε βέβαιοι ότι θέλετε να καταργήσετε τον εκτιμητή από αυτήν την πρόταση;
-            valuators: Εκτιμητές
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων.
-            success: "%{number} προτάσεις εισήχθησαν επιτυχώς."
           new:
             create: Εισαγωγή προτάσεων
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων.
@@ -449,22 +412,13 @@ el:
         proposals_splits:
           create:
             success: Επιτυχής διαχωρισμός των προτάσεων σε νέες.
-        valuation_assignments:
-          create:
-            success: Οι προτάσεις ανατέθηκαν σε έναν αποτιμητή επιτυχώς.
-          delete:
-            success: Η ανάθεση του εκτιμητή καταργήθηκε από τις προτάσεις με επιτυχία.
       admin_log:
         proposal:
           answer: "Ο χρήστης %{user_name} ενημέρωσε την πρόταση %{resource_name} στον χώρο %{space_name}"
-          create: "Ο χρήστης %{user_name} δημιούργησε την πρόταση %{resource_name} στον χώρο %{space_name} ως επίσημη πρόταση"
           publish_answer: "Ο χρήστης %{user_name} δημοσίευσε την απάντηση στην πρόταση %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε την επίσημη πρόταση %{resource_name} στον χώρο %{space_name}"
         proposal_note:
           create: "Ο χρήστης %{user_name} άφησε μια ιδιωτική σημείωση στην πρόταση %{resource_name} στον χώρο %{space_name}"
-        valuation_assignment:
-          create: "Ο χρήστης %{user_name} εκχώρησε την πρόταση %{resource_name} σε έναν εκτιμητή"
-          delete: "Ο χρήστης %{user_name} κατάργησε την εκχώρηση ενός εκτιμητή από την πρόταση %{proposal_title}"
       answers:
         accepted: Έγινε αποδοχή
         evaluating: Αξιολόγηση...
@@ -477,7 +431,6 @@ el:
           meetings: Συσκέψεις
           official: Επίσημη
           participants: Συμμετέχοντες
-          user_groups: Ομάδες
         filter_state_values:
           all: Όλα
           not_answered: Δεν απαντήθηκε
@@ -507,7 +460,6 @@ el:
           error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του συνεργατικού προσχεδίου.
           success: Το προσχέδιο συνεργασίας δημιουργήθηκε με επιτυχία.
         edit:
-          attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
           send: Αποστολή
           title: Επεξεργασία προσχεδίου συνεργασίας
@@ -598,8 +550,6 @@ el:
             published_at: Δημοσιεύτηκε στις
             state: Κατάσταση
             title: Τίτλος
-            valuator: Εκτιμητής
-            valuators: Εκτιμητές
             votes: Ψήφοι
       new:
         limit_reached: Δεν μπορείτε να δημιουργήσετε νέες προτάσεις δεδομένου ότι έχετε υπερβεί το όριο.
@@ -613,10 +563,7 @@ el:
           description: Οι συντεταγμένες θα ενημερώνονται όταν κάνετε κλικ στο κουμπί 'προεπισκόπηση'. Ωστόσο, η διεύθυνση δεν αλλάζει.
           instructions: Μπορείτε να μετακινήσετε το σημείο στο χάρτη.
         edit:
-          add_documents: Προσθήκη εγγράφων
-          attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
-          edit_documents: Επεξεργασία εγγράφων
           send: Αποστολή
           title: Επεξεργασία πρότασης
         edit_draft:
@@ -691,6 +638,8 @@ el:
         voting_rules:
           proposal_limit:
             description: Μπορείτε να δημιουργήσετε έως και %{limit} προτάσεις.
+          vote_limit:
+            description: Μπορείτε να υποστηρίξετε έως και %{limit} προτάσεις.
         wizard_aside:
           back: Πίσω
           back_from_step_1: Πίσω στις προτάσεις

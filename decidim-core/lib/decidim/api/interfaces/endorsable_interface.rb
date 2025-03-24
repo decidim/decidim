@@ -9,11 +9,11 @@ module Decidim
 
       field :endorsements, [Decidim::Core::AuthorInterface, { null: true }], "The endorsements of this object.", null: false
 
-      def endorsements
-        object.endorsements.map(&:normalized_author)
-      end
-
       field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
+
+      def endorsements
+        object.endorsements.map(&:author)
+      end
     end
   end
 end

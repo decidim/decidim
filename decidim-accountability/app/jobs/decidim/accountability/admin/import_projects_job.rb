@@ -29,7 +29,6 @@ module Decidim
             title: project.title,
             description: project.description,
             taxonomies: project.taxonomies,
-            scope: project.scope || project.budget.scope,
             component:,
             status:,
             progress: status&.progress || 0,

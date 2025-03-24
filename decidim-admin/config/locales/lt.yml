@@ -33,8 +33,6 @@ lt:
       help_section:
         content: Turinys
       id: ID
-      import:
-        user_group_id: Sukurti importus kaip
       newsletter:
         body: Pagrindinė dalis
         subject: Tema
@@ -92,7 +90,6 @@ lt:
         tertiary_color: Tretinis
         time_zone: Laiko zona
         tos_version: Paslaugų teikimo sąlygų versija
-        user_groups_enabled: Įjungti grupes
         users_registration_mode: Vartotojo registracijos tipas
         warning_color: Perspėjimas
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
@@ -177,8 +174,6 @@ lt:
         attachment_collection:
           new: Naujas priedų aplankas
         browse: Naršyti
-        category:
-          new: Nauja kategorija
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
@@ -189,12 +184,10 @@ lt:
           new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
         permissions: Leidimai
-        reject: Atmesti
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
         user:
           new: Naujas administratorius
-        verify: Patikrinti
       admin_terms_of_service:
         accept:
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
@@ -286,23 +279,8 @@ lt:
           justification: Paaiškinimas
           title: Blokuoti naudotoją %{name}
       categories:
-        create:
-          error: Kuriant šią kategoriją iškilo problema.
-          success: Kategorija sėkmingai sukurta.
-        destroy:
-          error: Šalinant šią kategoriją iškilo problema. Pirmiausia pašalinkite bet kurią pakategorę, įsitikinkite, kad joks kitas subjektas nesusietas su šia kategorija, ir bandykite dar kartą.
-          success: Kategorija sėkmingai pašalinta.
-        edit:
-          title: Redaguoti kategoriją
-          update: Atnaujinti
         index:
           categories_title: Kategorijos
-        new:
-          create: Sukurti kategoriją
-          title: Nauja kategorija
-        update:
-          error: Atnaujinant šią kategoriją iškilo problema.
-          success: Kategorija sėkmingai atnaujinta.
       component_permissions:
         update:
           error: Atnaujinant šio komponento leidimus iškilo problema.
@@ -553,7 +531,6 @@ lt:
         scopes: Apimtys
         settings: Nustatymai
         static_pages: Puslapiai
-        user_groups: Grupės
         users: Dalyviai
       metrics:
         metrics:
@@ -622,16 +599,6 @@ lt:
               admin: Administratorius
               user_manager: Dalyvių tvarkytojas
           name: Dalyvis
-        user_group:
-          fields:
-            actions: Veiksmai
-            created_at: Sukurta
-            document_number: Dokumento numeris
-            name: Vardas
-            nickname: Slapyvardis
-            phone: Telefonas
-            state: Būsena
-            users_count: Dalyvių skaičius
       moderated_users:
         index:
           actions:
@@ -704,7 +671,6 @@ lt:
           confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
           followers: 'sekėjai '
           has_been_sent_to: 'Buvo išsiųsta: '
-          no_scopes: Sričių nėra
           not_sent: Neišsiųstas
           participants: 'dalyviai '
           segmented_to: 'Išskaidyta į %{subject}: '
@@ -719,13 +685,10 @@ lt:
           confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
           deliver: Pristatyti naujienlaiškį
           followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
-          none: Nėra
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
-          scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
-          select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
-          select_users: Pasirinkite, kuriems naudotojams norite siųsti naujienlaiškį
+          send_to_all_users: Siųsti visiems naudotojams
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:
@@ -829,6 +792,8 @@ lt:
           invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
           success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
           destroy:
             button: Ištrinti visus privačius dalyvius
             confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
@@ -906,7 +871,6 @@ lt:
           title: Redaguoti temą
           update: Atnaujinti temą
         new:
-          create: Sukurti temą
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
@@ -928,7 +892,6 @@ lt:
         index:
           last_notable_change: Paskutinis pastebimas pakeitimas
         new:
-          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           empty: Šioje temoje puslapių nėra.
@@ -953,34 +916,7 @@ lt:
         scope_types: Apimties tipai
         scopes: Apimtys
         statistics: Veikla
-        user_groups: Grupės
         users: Administratoriai
-      user_group:
-        csv_verify:
-          invalid: Skaitant CSV rinkmeną iškilo problema.
-          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
-        reject:
-          invalid: Atmetant šią grupę iškilo problema.
-          success: Grupė atmesta.
-        verify:
-          invalid: Verifikuojant šią grupę iškilo problema.
-          success: Grupė patikrinta.
-      user_groups:
-        index:
-          state:
-            pending: Laukiama
-            rejected: Atmesta
-            verified: Patvirtinta
-          verify_via_csv: Patvirtinti naudojant CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Pavyzdinė rinkmena:'
-          explanation: Įkelkite savo CSV rinkmeną. Pirmoje rinkmenos skiltyje turi būti pateikti oficialūs jūsų organizacijos grupių el. pašto adresai, be antraščių. Bus patvirtintos tik tos grupės, kurios patvirtino savo el. pašto adresą ir kurių el. pašto adresai yra matomi CSV rinkmenoje.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Įkelkite savo CSV rinkmeną
-          upload: Įkelti
       users:
         create:
           error: Kviečiant šį administratorių iškilo problema.

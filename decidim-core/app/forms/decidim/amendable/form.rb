@@ -94,7 +94,8 @@ module Decidim
                            .from_model(@i18n_amendable)
                            .with_context(
                              current_component: @i18n_amendable.component,
-                             current_participatory_space: @i18n_amendable.participatory_space
+                             current_participatory_space: @i18n_amendable.participatory_space,
+                             current_organization: @i18n_amendable.organization
                            )
       end
 
@@ -114,7 +115,8 @@ module Decidim
       def form_context
         context.to_h.merge(
           current_component: amendable.component,
-          current_participatory_space: amendable.participatory_space
+          current_participatory_space: amendable.participatory_space,
+          current_organization: amendable.organization
         )
       end
     end

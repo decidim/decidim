@@ -102,7 +102,6 @@ tr:
           postal_codes:
             one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
             other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
-          scope: Katılım, %{scope_name} kapsamına sahip katılımcılarla sınırlıdır.
       id_documents:
         admin:
           config:

@@ -15,7 +15,6 @@ describe "Assemblies" do
   let(:base_assembly) do
     create(
       :assembly,
-      :with_type,
       :with_content_blocks,
       organization:,
       description:,

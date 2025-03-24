@@ -41,6 +41,9 @@ ar:
           create: "%{user_name} أنشأ منشور المدونة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف منشور المدونة%{resource_name} من %{space_name}"
           update: "%{user_name} حدث منشور المدونة %{resource_name} في %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          name: المنشورات
       last_activity:
         new_post: 'منشور جديد:'
       models:

@@ -17,18 +17,13 @@ module Decidim::Meetings
         expect(subject.serialize).to include(code: resource.code)
       end
 
-      it "includes the user" do
-        expect(subject.serialize[:user]).to(
-          include(name: resource.user.name)
-        )
-        expect(subject.serialize[:user]).to(
-          include(email: resource.user.email)
-        )
-      end
-
       it "includes the meeting" do
         expect(subject.serialize[:meeting]).to(
           include(title: resource.meeting.title)
+        )
+
+        expect(subject.serialize[:meeting]).to(
+          include(url: Decidim::ResourceLocatorPresenter.new(resource.meeting).url)
         )
 
         expect(subject.serialize[:meeting]).to(

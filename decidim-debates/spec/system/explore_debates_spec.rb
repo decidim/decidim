@@ -6,7 +6,7 @@ describe "Explore debates" do
   include_context "with a component"
   include_context "with taxonomy filters context"
   let(:manifest_name) { "debates" }
-  let(:space_manifest) { participatory_process.manifest.name }
+  let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let(:taxonomies) { [taxonomy] }
 
   before do

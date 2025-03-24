@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::RegistrationsController do
-  routes { Decidim::Meetings::AdminEngine.routes }
-
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }

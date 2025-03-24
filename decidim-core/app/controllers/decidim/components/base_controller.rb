@@ -20,7 +20,6 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
       helper Decidim::TaxonomiesHelper
-      helper Decidim::ScopesHelper
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper
@@ -70,7 +69,7 @@ module Decidim
       def set_component_breadcrumb_item
         context_breadcrumb_items << {
           label: current_component.name,
-          url: root_path,
+          url: Decidim::EngineRouter.main_proxy(current_component).root_path,
           active: false,
           resource: current_component
         }

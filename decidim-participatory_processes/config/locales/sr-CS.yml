@@ -1,14 +1,6 @@
 sr:
-  activemodel:
-    attributes:
-      participatory_process:
-        scope_type_max_depth_id: Obim dubine filtera
   decidim:
     admin:
-      models:
-        participatory_process_user_role:
-          roles:
-            valuator: Procenjivač
       participatory_process_user_roles:
         edit:
           title: Ažuriraj administratora participatornog procesa
@@ -25,8 +17,3 @@ sr:
       content_blocks:
         stats:
           name: Statistika
-    participatory_processes:
-      admin:
-        participatory_processes:
-          form:
-            scope_type_max_depth_help: Ograniči obim dubine filtera; Filter će pokazivati od opšteg ka odabranom tipu obima.
