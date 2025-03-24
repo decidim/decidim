@@ -120,7 +120,7 @@ describe "explore api credentials" do
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")
         within new_tr do
           expect(page).to have_content(dummy_token)
-          expect(page).to have_css("button", text: "Copy token")
+          expect(page).to have_button("Copy token")
         end
       end
       click_link_or_button "Copy token"
