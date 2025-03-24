@@ -54,7 +54,7 @@ module Decidim
         end
 
         context "with a publicly accessible page" do
-          let(:page) { create(:static_page, organization:, allow_public_access: true) }
+          let!(:page) { create(:static_page, organization:, allow_public_access: true) }
 
           it_behaves_like "accessible static page"
         end

@@ -38,7 +38,7 @@ module Decidim
       default_unauthorized_paths + Decidim::StaticPage.where(
         organization: current_organization,
         allow_public_access: true
-      ).pluck(Arel.sql("CONCAT('/pages/', slug)"))
+      ).pluck(Arel.sql("CONCAT('/#{current_locale}/pages/', slug)"))
     end
 
     def default_unauthorized_paths

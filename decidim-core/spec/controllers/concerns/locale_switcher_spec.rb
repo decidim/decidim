@@ -174,7 +174,7 @@ module Decidim
         expect(controller.canonical_url("https://example.com/ca/foo/bar?locale=ca", "ca")).to eq("https://example.com/ca/foo/bar")
       end
 
-      it "requesting multiple langguages at once" do
+      it "requesting multiple languages at once" do
         expect(controller.canonical_url("https://example.com/en/foo/bar?locale=es", "ca")).to eq("https://example.com/ca/foo/bar")
       end
 
