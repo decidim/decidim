@@ -8,8 +8,8 @@ require "decidim/forms/admin_engine"
 module Decidim
   # This namespace holds the logic of the `Forms`.
   module Forms
-    autoload :UserAnswersSerializer, "decidim/forms/user_answers_serializer"
-    autoload :DownloadYourDataUserAnswersSerializer, "decidim/forms/download_your_data_user_answers_serializer"
+    autoload :UserResponsesSerializer, "decidim/forms/user_responses_serializer"
+    autoload :DownloadYourDataUserResponsesSerializer, "decidim/forms/download_your_data_user_responses_serializer"
   end
 
   module Exporters

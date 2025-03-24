@@ -21,7 +21,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless can_join_meeting?
         return broadcast(:invalid_form) unless form.valid?
-        return broadcast(:invalid) if answer_questionnaire == :invalid
+        return broadcast(:invalid) if response_questionnaire == :invalid
 
         meeting.with_lock do
           create_registration
@@ -43,10 +43,10 @@ module Decidim
         meeting.invites.find_by(user: current_user)&.accept!
       end
 
-      def answer_questionnaire
+      def response_questionnaire
         return unless questionnaire?
 
-        Decidim::Forms::AnswerQuestionnaire.call(form, meeting.questionnaire) do
+        Decidim::Forms::ResponseQuestionnaire.call(form, meeting.questionnaire) do
           on(:ok) do
             return :valid
           end

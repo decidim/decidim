@@ -20,7 +20,7 @@ describe "Decidim::Api::QueryType" do
             forType
             id
             questions {
-              answerOptions {
+              responseOptions {
                 id
                 body { translation(locale:"#{locale}") }
                 freeText
@@ -67,7 +67,7 @@ describe "Decidim::Api::QueryType" do
         "id" => survey.questionnaire.id.to_s,
         "questions" => survey.questionnaire.questions.map do |q|
           {
-            "answerOptions" => q.answer_options.map do |a|
+            "responseOptions" => q.response_options.map do |a|
               {
                 "body" => { "translation" => a.body[locale] },
                 "freeText" => a.free_text?,
@@ -130,7 +130,7 @@ describe "Decidim::Api::QueryType" do
                 forType
                 id
                 questions {
-                  answerOptions {
+                  responseOptions {
                     id
                     body { translation(locale:"#{locale}") }
                     freeText
@@ -185,7 +185,7 @@ describe "Decidim::Api::QueryType" do
         if current_component.participatory_space.respond_to?(:active_step)
           step_settings = {
             current_component.participatory_space.active_step.id => {
-              allow_answers: true,
+              allow_responses: true,
               allow_unregistered: true
             }
           }
