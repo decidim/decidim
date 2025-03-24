@@ -153,19 +153,19 @@ module Decidim
       attr_reader :wizard_steps
 
       def fill_personal_data_path
-        fill_personal_data_initiative_signatures_path(current_initiative)
+        fill_personal_data_initiative_signatures_path(current_initiative, locale: current_locale)
       end
 
       def sms_code_path
-        sms_code_initiative_signatures_path(current_initiative)
+        sms_code_initiative_signatures_path(current_initiative, locale: current_locale)
       end
 
       def finish_path
-        finish_initiative_signatures_path(current_initiative)
+        finish_initiative_signatures_path(current_initiative, locale: current_locale)
       end
 
       def sms_phone_number_path
-        sms_phone_number_initiative_signatures_path(current_initiative)
+        sms_phone_number_initiative_signatures_path(current_initiative, locale: current_locale)
       end
 
       def build_vote_form(parameters)

@@ -2,12 +2,12 @@
 <% announcement_body = capture do %>
   <div class="max-w-full prose">
     <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
-    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives", locale: current_locale), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
   </div>
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
-<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path, method: :put, html: { class: "form-defaults new_initiative_form", novalidate: false }) do |f| %>
+<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path(locale: current_locale), method: :put, html: { class: "form-defaults new_initiative_form", novalidate: false }) do |f| %>
   <div class="form__wrapper">
     <%= form_required_explanation %>
 
@@ -63,7 +63,7 @@
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <% if current_initiative %>
-        <%= link_to discard_initiative_path(current_initiative), class: "button button__sm md:button__lg button__text-secondary", method: :delete, data: { confirm: t(".confirm_discard") } do %>
+        <%= link_to discard_initiative_path(current_initiative, locale: current_locale), class: "button button__sm md:button__lg button__text-secondary", method: :delete, data: { confirm: t(".confirm_discard") } do %>
           <%= icon "delete-bin-line", class: "fill-current" %>
           <%= t(".discard") %>
         <% end %>

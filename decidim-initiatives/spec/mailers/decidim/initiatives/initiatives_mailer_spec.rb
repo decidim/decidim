@@ -51,7 +51,7 @@ module Decidim
         end
 
         it "renders the correct link" do
-          expect(mail).to have_link(router.initiative_url(initiative, host: initiative.organization.host))
+          expect(mail).to have_link(router.initiative_url(initiative, locale: I18n.locale, host: initiative.organization.host))
           expect(mail).to have_no_link(admin_router.initiative_url(initiative, host: initiative.organization.host))
         end
       end

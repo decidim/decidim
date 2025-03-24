@@ -3,7 +3,7 @@
 <% announcement_body = capture do %>
   <%= t("select_initiative_type_help_html", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   <br>
-  <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives", locale: current_locale), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
@@ -11,7 +11,7 @@
 <h3 class="title-decorator text-2xl mt-8"><%= t(".subtitle") %></h3>
 
 <div class="initiatives__selection" id="select-initiative-type">
-  <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
+  <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path(locale: current_locale), method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
     <% initiative_types_each do |type| %>
       <% is_allowed = allowed_to?(:create, :initiative, { initiative_type: type }) %>
 
@@ -33,8 +33,8 @@
           <p>
             <%= action_authorized_link_to(
                 :create,
-                fill_data_create_initiative_index_path(initiative: { type_id: type.id }),
-                authorizations_modal_path: authorization_create_modal_initiative_path(type),
+                fill_data_create_initiative_index_path(initiative: { type_id: type.id }, locale: current_locale),
+                authorizations_modal_path: authorization_create_modal_initiative_path(type, locale: current_locale),
                 permissions_holder: type,
                 class: "button button__sm button__transparent-secondary",
                 "data-dialog-open": "not-authorized-modal",
@@ -47,7 +47,7 @@
 
         <p>
           <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
-                      initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
+                      initiatives_path(filter: { with_any_type: type.id },locale: current_locale), target: "_blank" %>
         </p>
       <% end %>
     <% end %>

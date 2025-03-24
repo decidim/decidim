@@ -56,10 +56,10 @@
                             disabled: !@form.signature_type_updatable?,
                             "data-scope-selector": "initiative_decidim_scope_id",
                             "data-scope-id": form.object.decidim_scope_id.to_s,
-                            "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                            "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url(locale: I18n.locale),
                             "data-signature-types-selector": "initiative_signature_type",
                             "data-signature-type": current_initiative.signature_type,
-                            "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                            "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url(locale: I18n.locale)
                           } %>
         </div>
         <% end %>

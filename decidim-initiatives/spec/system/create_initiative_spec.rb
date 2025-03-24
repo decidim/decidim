@@ -31,14 +31,14 @@ describe "Initiative" do
         click_on("Send to technical validation")
       end
 
-      expect(page).to have_current_path("/initiatives")
+      expect(page).to have_current_path("/#{I18n.locale}/initiatives")
     end
   end
 
   before do
     switch_to_host(organization.host)
     login_as(authorized_user, scope: :user) if authorized_user && login
-    visit decidim_initiatives.initiatives_path
+    visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(do_not_require_authorization)
   end
 
@@ -59,7 +59,7 @@ describe "Initiative" do
       ].each do |step|
         it "redirects to the login page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(1)
-          visit decidim_initiatives.create_initiative_path(step)
+          visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
           expect(page).to have_current_path("/users/sign_in")
         end
       end
@@ -74,7 +74,7 @@ describe "Initiative" do
       ].each do |step|
         it "redirects to the login page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(2)
-          visit decidim_initiatives.create_initiative_path(step)
+          visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
           expect(page).to have_current_path("/users/sign_in")
         end
       end
@@ -97,8 +97,8 @@ describe "Initiative" do
       ].each do |step|
         it "redirects to the previous_form page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(1)
-          visit decidim_initiatives.create_initiative_path(step)
-          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:fill_data))
+          visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
+          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:fill_data, locale: I18n.locale))
         end
       end
     end
@@ -111,8 +111,8 @@ describe "Initiative" do
       ].each do |step|
         it "redirects to the select_initiative_type page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(2)
-          visit decidim_initiatives.create_initiative_path(step)
-          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:select_initiative_type))
+          visit decidim_initiatives.create_initiative_path(step, locale: I18n.locale)
+          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:select_initiative_type, locale: I18n.locale))
         end
       end
     end
@@ -134,7 +134,7 @@ describe "Initiative" do
         context "and creation require a verification" do
           before do
             allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           context "and they are verified" do
@@ -174,7 +174,7 @@ describe "Initiative" do
                 }
               }
             )
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           let(:authorization) { nil }
@@ -259,7 +259,7 @@ describe "Initiative" do
                 }
               }
             )
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           let(:authorization) { nil }
@@ -289,7 +289,7 @@ describe "Initiative" do
                 }
               }
             )
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           let(:authorization) { nil }
@@ -364,7 +364,7 @@ describe "Initiative" do
                 }
               }
             )
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           let(:authorization) { nil }
@@ -457,7 +457,7 @@ describe "Initiative" do
                 }
               }
             )
-            visit decidim_initiatives.initiatives_path
+            visit decidim_initiatives.initiatives_path(locale: I18n.locale)
           end
 
           let(:authorization) { nil }
@@ -557,7 +557,7 @@ describe "Initiative" do
         let!(:other_initiative_type_scope) { nil }
 
         it "does not displays initiative types" do
-          expect(page).to have_no_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
+          expect(page).to have_no_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type, locale: I18n.locale))
         end
 
         it "does not display the 'choose' step" do

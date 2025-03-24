@@ -30,7 +30,7 @@ RSpec.describe "Initiative search" do
   let!(:user1_created_initiative) { create(:initiative, :created, organization:, author: user1, signature_start_date: Date.current + 2.days, signature_end_date: Date.current + 22.days) }
 
   let(:filter_params) { {} }
-  let(:request_path) { decidim_initiatives.initiatives_path }
+  let(:request_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
 
   before do
     stub_const("Decidim::Paginable::OPTIONS", [100])
