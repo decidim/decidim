@@ -14,6 +14,8 @@ en:
         other: Responses
   decidim:
     admin:
+      actions:
+        see_survey: See survey
       admin_log:
         changeset:
           surveys: surveys
