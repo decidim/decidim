@@ -3,8 +3,8 @@
 module Decidim
   module Surveys
     # This class serializes the specific data in each Survey.
-    # This is `Questionnaire->questions->answer_options` but not `answers`
-    # and `answer_choices`.
+    # This is `Questionnaire->questions->response_options` but not `responses`
+    # and `response_choices`.
     class DataSerializer < Decidim::Exporters::Serializer
       # Returns: Array of Decidim::Forms::Questionnaire as a json hash,
       #     or nil if none exists.
@@ -31,13 +31,13 @@ module Decidim
       def serialize_questions(questions)
         questions.collect do |question|
           json = question.attributes.as_json
-          json[:answer_options] = serialize_answer_options(question.answer_options)
+          json[:response_options] = serialize_response_options(question.response_options)
           json
         end
       end
 
-      def serialize_answer_options(answer_options)
-        answer_options.collect do |option|
+      def serialize_response_options(response_options)
+        response_options.collect do |option|
           option.attributes.as_json
         end
       end

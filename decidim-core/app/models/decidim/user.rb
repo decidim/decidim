@@ -59,6 +59,13 @@ module Decidim
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
 
+    scope :with_inactivity_notification, lambda {
+      where("extended_data ? 'inactivity_notification'")
+    }
+
+    scope :active_after_notification, lambda {
+      where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+    }
     scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
     scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
 
@@ -94,6 +101,21 @@ module Decidim
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
       invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
+    end
+
+    # Returns users eligible for receiving the first inactivity warning email.
+    def self.first_warning_inactive_users
+      InactiveUsersQuery.new(self).for_first_warning(Decidim.first_warning_inactive_users_after_days.days.ago)
+    end
+
+    # Returns users eligible for receiving the final inactivity warning email.
+    def self.last_warning_inactive_users
+      InactiveUsersQuery.new(self).for_last_warning(Decidim.last_warning_inactive_users_after_days.days.ago)
+    end
+
+    # Returns users eligible for account removal due to prolonged inactivity.
+    def self.removable_users
+      InactiveUsersQuery.new(self).for_removal(Decidim.delete_inactive_users_last_warning_days_before.days.ago)
     end
 
     # Returns the presenter for this author, to be used in the views.
