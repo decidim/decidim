@@ -41,7 +41,7 @@ describe "Decidim::Api::QueryType" do
       accepted_proposals
       votes
       endorsements
-      survey_answers
+      survey_responses
       results
       debates
     ).each do |stat|
