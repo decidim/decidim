@@ -39,7 +39,7 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Budgets::Budget.where(component: components).count
   end
 
-  component.register_stat :projects_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :projects_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     Decidim::Budgets::FilteredProjects.for(components, start_at, end_at).count
   end
 

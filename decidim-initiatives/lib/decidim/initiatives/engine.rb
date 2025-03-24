@@ -101,6 +101,12 @@ module Decidim
         Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
       end
 
+      # initializer "decidim_initiatives.stats" do
+      #   Decidim.stats.register :initiatives_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+      #     Decidim::Initiatives.where(organization:).public_spaces.count
+      #   end
+      # end
+
       initializer "decidim_initiatives.content_blocks" do
         Decidim::Initiatives::ContentBlocks::RegistryManager.register!
       end

@@ -64,7 +64,7 @@ module Decidim
 
     def component_stats(conditions)
       Decidim.component_manifests.map do |component_manifest|
-        component_manifest.stats.except([:proposals_accepted])
+        component_manifest.stats.except([:proposals_accepted, :endorsements_count, :collaborative_texts_count, :responses_count])
                           .filter(conditions)
                           .with_context(published_components)
                           .map { |stat_title, stat_number| [component_manifest.name, stat_title, stat_number] }.flatten

@@ -1469,7 +1469,7 @@ en:
           participate_title: Participate in the platform's processes
           welcome: Welcome to %{organization}!
         statistics:
-          headline: Current state of %{organization}
+          headline: Statistics
         sub_hero:
           register: Register
           register_title: Create an account
@@ -1672,12 +1672,25 @@ en:
         share_to: Share to %{service}
     statistics:
       comments_count: Comments
+      comments_count_tooltip: Non-moderated or non-deleted comments on any published component.
       endorsements_count: Endorsements
       followers_count: Followers
+      followers_count_tooltip: Unique users who follow any component.
       headline: Statistics
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
+      participants_count_tooltip: |
+        Unique users who have performed at least one of the following actions:
+        - Created a proposal.
+        - Created a meeting.
+        - Attended a meeting.
+        - Created a post.
+        - Created a debate.
+        - Voted on a proposal.
+        - Voted on a participatory budgeting project.
+        - Left a comment.
+        - Answered a survey.
       surveys_count: Surveys
       users_count: Participants
       users_count_tooltip: Registered users who have confirmed their account via the email confirmation link.

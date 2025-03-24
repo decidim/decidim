@@ -34,9 +34,10 @@ module Decidim
         proposals_count: "chat-new-line",
         meetings_count: "map-pin-line",
         comments_count: "chat-1-line",
+        followers_count: "user-follow-line",
         debates_count: "discuss-line",
         results_count: "briefcase-2-line",
-        budgets_count: "git-pull-request-line",
+        projects_count: "git-pull-request-line",
         posts_count: "pen-nib-line",
         surveys_count: "survey-line",
         sortitions_count: "team-line"
