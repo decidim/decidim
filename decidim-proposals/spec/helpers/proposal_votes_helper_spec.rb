@@ -56,6 +56,10 @@ module Decidim
         context "when the vote limit is not enabled" do
           let(:vote_limit_enabled) { false }
 
+          before do
+            allow(helper).to receive(:minimum_votes_per_user_enabled?).and_return(false)
+          end
+
           it "returns 0" do
             expect(subject).to eq(0)
           end

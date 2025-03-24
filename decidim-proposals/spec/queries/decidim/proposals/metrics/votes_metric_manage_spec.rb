@@ -45,7 +45,7 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
       let!(:report) { create(:report, moderation:) }
 
       it "filters the data correctly" do
-        proposal.moderation.update!(hidden_at: Time.current)
+        proposal.reload.moderation.update!(hidden_at: Time.current)
 
         registry = generate_metric_registry
 
