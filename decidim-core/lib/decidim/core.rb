@@ -591,12 +591,6 @@ module Decidim
     {}
   end
 
-  # The expiration time of the jwt tokens, after which issued token to the
-  # user will expired.
-  config_accessor :jwt_expiration_time do
-    10.minutes.to_i
-  end
-
   CoreDataManifest = Data.define(:name, :collection, :serializer, :include_in_open_data)
 
   def self.open_data_manifests

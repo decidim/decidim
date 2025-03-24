@@ -36,6 +36,12 @@ module Decidim
       %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
     end
 
+    # The expiration time of the jwt tokens, after which issued token to the
+    # user will expired.
+    config_accessor :jwt_expiration_time do
+      ENV.fetch("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes.to_i)
+    end
+
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with

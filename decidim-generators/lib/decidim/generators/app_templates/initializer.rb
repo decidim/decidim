@@ -415,6 +415,7 @@ if Decidim.module_installed? :api
     config.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
     config.disclose_system_version = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
     config.force_api_authentication = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
+    config.jwt_expiration_time = ENV.fetch("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes.to_i)
   end
 end
 
