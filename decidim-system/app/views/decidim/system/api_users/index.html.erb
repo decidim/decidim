@@ -4,7 +4,7 @@
   <h1 class="h1"><%= t ".manage" %></h1>
 <% end %>
 
-<p><%= simple_format(t ".explanation") %></p>
+<%= t ".explanation_html" %>
 
 <%= link_to t("new", scope:"decidim.system.actions.api_users"), [:new, :api_user], class: "button button__sm md:button__lg button__primary" %>
 
