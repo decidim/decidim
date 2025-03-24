@@ -106,12 +106,19 @@ module Decidim
 
         path_segments = uri.path.split("/").compact_blank
         locale_segment = path_segments.first
-        if current_organization.available_locales.include?(locale_segment)
+
+        query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
+
+        if available_locales.include?(locale_segment)
           # Replace the locale segment with current_locale
-          path_segments[0] = target_locale
+          path_segments[0] = if available_locales.include?(target_locale)
+                               target_locale
+                             else
+                               default_locale
+                             end
+
           uri.path = "/#{path_segments.join("/")}"
 
-          query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
           if query.present?
             params = URI.decode_www_form(query)
             uri.query = URI.encode_www_form(params)
@@ -119,8 +126,7 @@ module Decidim
             uri.query = nil
           end
         else
-          query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
-          params = URI.decode_www_form(query) << ["locale", current_locale]
+          params = URI.decode_www_form(query) << ["locale", target_locale]
           uri.query = URI.encode_www_form(params)
         end
 
