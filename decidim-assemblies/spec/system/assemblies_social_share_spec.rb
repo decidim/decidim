@@ -90,7 +90,7 @@ describe "Social shares" do
   end
 
   context "when listing all assemblies" do
-    let(:resource) { decidim_assemblies.assemblies_path }
+    let(:resource) { decidim_assemblies.assemblies_path(locale: I18n.locale) }
 
     it_behaves_like "a social share meta tag", "icon.png"
   end

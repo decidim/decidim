@@ -34,12 +34,8 @@ module Decidim
     # component - the Component we want to find the root path for.
     #
     # Returns a relative url.
-    def manage_component_path(component, desired_params = {})
-      current_params = try(:params) || {}
-      current_params = current_params.merge(locale: I18n.locale)
-                                     .merge(desired_params)
-
-      EngineRouter.admin_proxy(component).root_path(locale: current_params[:locale])
+    def manage_component_path(component)
+      EngineRouter.admin_proxy(component).root_path
     end
 
     # Returns whether the component can be managed or not by checking if it has
