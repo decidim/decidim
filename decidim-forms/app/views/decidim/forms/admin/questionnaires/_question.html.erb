@@ -42,7 +42,7 @@
       </h2>
     </div>
 
-    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
+    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>" aria-hidden="<%= is_expanded ? "false" : "true" %>">
       <div class="row column">
         <%=
           form.translated(
