@@ -1672,28 +1672,18 @@ en:
         share_to: Share to %{service}
     statistics:
       comments_count: Comments
-      comments_count_tooltip: Non-moderated or non-deleted comments on any published component.
+      comments_count_tooltip: The total number of comments posted in this space.
       endorsements_count: Endorsements
       followers_count: Followers
-      followers_count_tooltip: Unique users who follow any component.
+      followers_count_tooltip: The number of users following any part of this space to stay updated.
       headline: Statistics
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
-      participants_count_tooltip: |
-        Unique users who have performed at least one of the following actions:
-        - Created a proposal.
-        - Created a meeting.
-        - Attended a meeting.
-        - Created a post.
-        - Created a debate.
-        - Voted on a proposal.
-        - Voted on a participatory budgeting project.
-        - Left a comment.
-        - Answered a survey.
+      participants_count_tooltip: The number of unique users who have interacted in this space by submitting proposals, attending meetings, voting, or joining discussions.
       surveys_count: Surveys
       users_count: Participants
-      users_count_tooltip: Registered users who have confirmed their account via the email confirmation link.
+      users_count_tooltip: The total number of users who have signed up and confirmed their account via email.
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:

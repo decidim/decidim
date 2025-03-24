@@ -662,7 +662,7 @@ en:
           vote: Sign
     statistics:
       initiatives_count: Initiatives
-      initiatives_count_tooltip: Published initiatives.
+      initiatives_count_tooltip: The number of published citizen initiatives.
   layouts:
     decidim:
       initiative_creation_header:
