@@ -128,7 +128,15 @@ If you want to enable this, make sure your `sidekiq.yml` includes the `delete_in
 
 You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
 
-### 2.4. [[TITLE OF THE ACTION]]
+### 2.5. Removal of Metrics
+
+The Metrics has been completely removed.
+
+Use the Statistics subsystem instead.
+
+You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
+
+### 2.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
