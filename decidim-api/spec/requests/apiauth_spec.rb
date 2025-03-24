@@ -75,7 +75,7 @@ RSpec.describe "Api authentication" do
     end
 
     context "when not signed in" do
-      it "does not connect to the api" do
+      it "does not return session details" do
         post "/api", params: { query: query }
         parsed_response = response.body
         expect(parsed_response).to eq("{\"data\":{\"session\":null}}")

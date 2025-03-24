@@ -84,8 +84,8 @@ en:
         index:
           manage: Manage API users
           explanation_html: |
-            <p>API users allow integration developers to add administrative user accounts to the system. These users can act as an administrator on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where users would perform administrative tasks with the platform without having to authenticate to the system. For example, a user might want to send answers to proposals through an external system in which case we need an integration user to perform this task within this platform.<br>
-            The main difference between these accounts and normal administrator accounts is that these users are meant to be used by machines and therefore their password requirements are different. These users do not need to regularly update their password and changing the account password can happen in a managed way when needed.</p>
+            <p>API users allow integration developers to add administrative user accounts to the system. These users can act as an administrator on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where users would perform administrative tasks with the platform without having to authenticate to the system. For example, a user might want to send answers to proposals through an external system in which case we need an integration user to perform this task within this platform.</p>
+            <p>The main difference between these accounts and normal administrator accounts is that these users are meant to be used by machines and therefore their password requirements are different. These users do not need to regularly update their password and changing the account password can happen in a managed way when needed.</p>
         new:
           select_organization: Select your organization
           title: Create new API user

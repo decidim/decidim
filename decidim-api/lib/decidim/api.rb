@@ -3,7 +3,7 @@
 require "devise/jwt"
 require "decidim/api/engine"
 require "decidim/api/types"
-require_relative "api/devise"
+require "decidim/api/devise"
 
 module Decidim
   # This module holds all business logic related to exposing a Public API for
