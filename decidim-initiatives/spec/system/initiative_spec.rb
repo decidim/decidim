@@ -154,7 +154,7 @@ describe "Initiative" do
     context "when I am the author of the initiative" do
       before do
         sign_in initiative.author
-        visit decidim_initiatives.initiative_path(initiative,  locale: I18n.locale)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
       end
 
       shared_examples_for "initiative does not show send to technical validation" do
@@ -225,7 +225,7 @@ describe "Initiative" do
     let(:initiative) { base_initiative }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { initiative }
-    let(:followable_path) { decidim_initiatives.initiative_path(initiative,  locale: I18n.locale) }
+    let(:followable_path) { decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
   end
 
   describe "initiative components" do
@@ -240,7 +240,7 @@ describe "Initiative" do
     end
 
     context "when requesting the initiative path" do
-      before { visit decidim_initiatives.initiative_path(initiative,  locale: I18n.locale) }
+      before { visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
 
       it "shows the components" do
         within ".participatory-space__nav-container" do
@@ -262,7 +262,7 @@ describe "Initiative" do
     context "when signed in as the author of the initiative" do
       before do
         sign_in initiative.author
-        visit decidim_initiatives.initiative_path(initiative,  locale: I18n.locale)
+        visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
       end
 
       it "has special permissions to create posts" do

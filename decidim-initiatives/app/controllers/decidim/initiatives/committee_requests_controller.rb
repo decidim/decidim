@@ -70,7 +70,7 @@ module Decidim
 
       def redirect_page
         if request.referer&.include?("create_initiative")
-          promotal_committee_create_initiative_index_path( locale: I18n.locale)
+          promotal_committee_create_initiative_index_path(locale: I18n.locale)
         else
           edit_initiative_path(current_initiative, locale: I18n.locale)
         end

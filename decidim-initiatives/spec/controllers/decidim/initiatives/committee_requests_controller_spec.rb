@@ -43,7 +43,7 @@ module Decidim
             end.to change(InitiativesCommitteeMember, :count).by(1)
 
             expect do
-              get :spawn, params: { initiative_slug: initiative.slug ,  locale: I18n.locale}
+              get :spawn, params: { initiative_slug: initiative.slug, locale: I18n.locale }
             end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
@@ -95,7 +95,7 @@ module Decidim
           end
 
           it "request gets approved" do
-            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param , locale: I18n.locale}
+            get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param, locale: I18n.locale }
             membership_request.reload
             expect(membership_request).to be_accepted
           end

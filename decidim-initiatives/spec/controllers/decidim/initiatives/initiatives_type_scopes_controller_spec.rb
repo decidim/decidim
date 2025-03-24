@@ -44,7 +44,7 @@ module Decidim
         it "Returns only scoped types for the given type" do
           expect(other_initiative_type.scopes).not_to be_empty
 
-          get :search, params: { type_id: initiative_type.id }
+          get :search, params: { type_id: initiative_type.id, locale: I18n.locale }
 
           expect(subject.helpers.scoped_types).to include(*initiative_type.scopes)
           expect(subject.helpers.scoped_types).not_to include(*other_initiative_type.scopes)

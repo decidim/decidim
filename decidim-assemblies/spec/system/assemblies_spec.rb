@@ -162,7 +162,7 @@ describe "Assemblies" do
     end
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim_assemblies.assembly_path(assembly,locale: I18n.locale) }
+      let(:target_path) { decidim_assemblies.assembly_path(assembly, locale: I18n.locale) }
     end
 
     context "and requesting the assembly path with main data and type and duration blocks active" do
@@ -332,7 +332,7 @@ describe "Assemblies" do
     let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      visit decidim_assemblies.assembly_path(child_assembly,  locale: I18n.locale)
+      visit decidim_assemblies.assembly_path(child_assembly, locale: I18n.locale)
     end
 
     it "have a link to the parent assembly" do

@@ -24,7 +24,7 @@ describe "Initiative signing" do
         let(:initiative) { create(:initiative, organization:, signature_type: "offline") }
 
         it "voting disabled message is shown" do
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           expect(page).to have_content("Signing disabled")
         end
@@ -32,7 +32,7 @@ describe "Initiative signing" do
         it "shows the offline supports received" do
           initiative.update(offline_votes: { initiative.scoped_type.scope.id.to_s => 1357, "total" => 1357 })
 
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           expect(page).to have_content("1357 1000\nSignatures")
         end
@@ -86,7 +86,7 @@ describe "Initiative signing" do
     context "and has not signed the initiative yet" do
       context "and is not verified" do
         it "signin initiative is disabled", :slow do
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           within ".initiative__aside" do
             expect(page).to have_content("Sign")
@@ -117,7 +117,7 @@ describe "Initiative signing" do
 
       context "and is not verified" do
         it "unsigning initiative is disabled" do
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
@@ -155,7 +155,7 @@ describe "Initiative signing" do
 
       context "when the personal data is not filled" do
         it "does not allow voting" do
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           within ".initiative__aside" do
             expect(page).to have_content(signature_text(0))
@@ -165,7 +165,7 @@ describe "Initiative signing" do
 
           expect(page).to have_content "error"
 
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
           within ".initiative__aside" do
             expect(page).to have_content(signature_text(0))
@@ -177,7 +177,7 @@ describe "Initiative signing" do
   end
 
   def vote_initiative
-    visit decidim_initiatives.initiative_path(initiative)
+    visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
 
     within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))

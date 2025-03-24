@@ -56,7 +56,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:old_initiative) { create(:initiative, organization:, published_at: initiative.published_at - 12.months) }
 
       it "most recent appears first" do
-        get :index, params: { order: "recently_published" , locale: I18n.locale}
+        get :index, params: { order: "recently_published", locale: I18n.locale }
         expect(subject.helpers.initiatives.first).to eq(initiative)
       end
     end
