@@ -314,19 +314,20 @@ Devise.setup do |config|
   # configurations.
   # JWT secret is being used by the devise-jwt to generate the tokens, once the
   # user authenticated.
-  config.jwt do |jwt|
-    jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
-    next unless jwt.secret
-    next unless Decidim.module_installed?(:api)
+  if Decidim.module_installed?(:api)
+    config.jwt do |jwt|
+      jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
+      next unless jwt.secret
 
-    jwt.dispatch_requests = [
-      ["POST", %r{^/sign_in$}]
-    ]
-    jwt.revocation_requests = [
-      ["DELETE", %r{^/sign_out$}]
-    ]
-    jwt.expiration_time = Decidim::Api.jwt_expiration_time
-    jwt.aud_header = "JWT_AUD"
+      jwt.dispatch_requests = [
+        ["POST", %r{^/sign_in$}]
+      ]
+      jwt.revocation_requests = [
+        ["DELETE", %r{^/sign_out$}]
+      ]
+      jwt.expiration_time = Decidim::Api.jwt_expiration_time
+      jwt.aud_header = "JWT_AUD"
+    end
   end
 
   # ==> Mountable engine configurations
