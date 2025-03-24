@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Answer a survey" do
+describe "Respond a survey" do
   InvisibleCaptcha.honeypots = [:honeypot_id]
   InvisibleCaptcha.visual_honeypots = true
 
@@ -29,8 +29,8 @@ describe "Answer a survey" do
 
   include_context "with a component"
 
-  context "when the survey does not allow answers" do
-    it "does not allow answering the survey" do
+  context "when the survey does not allow responses" do
+    it "does not allow responding the survey" do
       visit_component
       choose "All"
       click_on translated_attribute(questionnaire.title)
@@ -40,22 +40,22 @@ describe "Answer a survey" do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The form is closed and cannot be answered.")
+      expect(page).to have_content("The form is closed and cannot be responded.")
     end
   end
 
-  context "when the survey allow answers" do
+  context "when the survey allow responses" do
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
-    let!(:survey) { create(:survey, :published, :allow_answers, allow_unregistered: false, component:, questionnaire:) }
+    let!(:survey) { create(:survey, :published, :allow_responses, allow_unregistered: false, component:, questionnaire:) }
 
     before do
       login_as user, scope: :user
     end
 
-    it_behaves_like "editable survey answers"
+    it_behaves_like "editable survey responses"
 
-    it "allows answering the questionnaire" do
+    it "allows responding the questionnaire" do
       allow(Decidim::Surveys::SurveyConfirmationMailer).to receive(:confirmation).and_return(mailer)
 
       visit_component
@@ -64,7 +64,7 @@ describe "Answer a survey" do
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
-      fill_in question.body["en"], with: "My first answer"
+      fill_in question.body["en"], with: "My first response"
 
       check "questionnaire_tos_agreement"
 
@@ -74,13 +74,13 @@ describe "Answer a survey" do
         expect(page).to have_content("successfully")
       end
 
-      expect(page).to have_content("You have already answered this form.")
+      expect(page).to have_content("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(questionnaire.answers.last.session_token).not_to be_empty
-      expect(questionnaire.answers.last.ip_hash).not_to be_empty
+      expect(questionnaire.responses.last.session_token).not_to be_empty
+      expect(questionnaire.responses.last.ip_hash).not_to be_empty
 
-      expect(Decidim::Surveys::SurveyConfirmationMailer).to have_received(:confirmation).with(user, questionnaire, [[questionnaire.answers.last]])
+      expect(Decidim::Surveys::SurveyConfirmationMailer).to have_received(:confirmation).with(user, questionnaire, [[questionnaire.responses.last]])
       expect(mailer).to have_received(:deliver_later)
     end
 
