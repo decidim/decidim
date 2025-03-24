@@ -29,17 +29,17 @@
   <% end %>
 
   <section>
-    <% if allow_answers? %>
-      <% if visitor_can_answer? %>
-        <% if visitor_already_answered? %>
-          <% if visitor_can_edit_answers? && current_component.manifest_name == "surveys" %>
-            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered_edit.body",
-                        link: link_to(t("decidim.forms.questionnaires.show.questionnaire_answered_edit.edit"), edit_survey_path(questionnaire_for))
+    <% if allow_responses? %>
+      <% if visitor_can_respond? %>
+        <% if visitor_already_responded? %>
+          <% if visitor_can_edit_responses? && current_component.manifest_name == "surveys" %>
+            <% body = t("decidim.forms.questionnaires.show.questionnaire_responded_edit.body",
+                        link: link_to(t("decidim.forms.questionnaires.show.questionnaire_responded_edit.edit"), edit_survey_path(questionnaire_for))
             ) %>
           <% else %>
-            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered.body") %>
+            <% body = t("decidim.forms.questionnaires.show.questionnaire_responded.body") %>
           <% end %>
-          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: body }) %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_responded.title"), body: body }) %>
         <% else %>
           <% if @form.responses_by_step.flatten.empty? %>
             <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
@@ -51,8 +51,8 @@
         <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
       <% end %>
     <% else %>
-      <% if questionnaire_for.class.name == "Decidim::Surveys::Survey" && show_published_questions_answers? %>
-        <%= render partial: "decidim/surveys/surveys/published_questions_answers" %>
+      <% if questionnaire_for.class.name == "Decidim::Surveys::Survey" && show_published_questions_responses? %>
+        <%= render partial: "decidim/surveys/surveys/published_questions_responses" %>
       <% else %>
         <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
       <% end %>

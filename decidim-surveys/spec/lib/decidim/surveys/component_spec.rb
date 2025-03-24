@@ -9,7 +9,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
   let(:new_component) { create(:surveys_component) }
 
   describe "before_destroy hooks" do
-    context "when there are no answers" do
+    context "when there are no responses" do
       before do
         create(:survey, component:)
       end
@@ -19,16 +19,16 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    context "with answers" do
+    context "with responses" do
       before do
         survey = create(:survey, component:)
-        create(:answer, questionnaire: survey.questionnaire)
+        create(:response, questionnaire: survey.questionnaire)
       end
 
       it "raises an error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.to raise_error(
           RuntimeError,
-          "Cannot destroy this component when there are survey answers"
+          "Cannot destroy this component when there are survey responses"
         )
       end
     end
