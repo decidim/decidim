@@ -1171,6 +1171,8 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant does not want to receive private messages.
+          participants:
+            title: Participants
         create:
           error: Conversation not started. Try again later.
         error_modal:
