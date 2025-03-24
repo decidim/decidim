@@ -606,10 +606,6 @@ en:
         name: Main data
       metadata:
         name: Metadata
-      metrics:
-        name: Organization metrics
-      participatory_space_metrics:
-        name: Metrics
       participatory_space_stats:
         name: Statistics
       social_networks_metadata:
@@ -1207,27 +1203,6 @@ en:
         finished: 'Finished: %{end_date}'
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
-    metrics:
-      blocked_users:
-        description: Number of blocked participants
-      download:
-        csv: Download data (CSV)
-      followers:
-        description: Number of participants that follow this participation space
-        object: followers
-        title: Followers
-      participants:
-        description: Number of active participants in organization
-        object: participants
-        title: Participants
-      reported_users:
-        description: Number of reported participants
-      user_reports:
-        description: Number of reports done by participants
-      users:
-        description: Number of participants in organization
-        object: participants
-        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
@@ -1351,11 +1326,6 @@ en:
           main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
-        metrics:
-          cumulative: The total number of the metric at this day
-          day: The day this metric was created
-          metric_type: The type of the metric
-          quantity: The number of the metrics for this day
         moderated_users:
           about: The about field of the user
           block_reasons: The reason why the admin user blocked the user
@@ -1478,10 +1448,6 @@ en:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
-      participatory_space:
-        metrics:
-          headline: Metrics
-          link: Show all
       terms_of_service:
         accept:
           error: There was a problem accepting the terms of service.

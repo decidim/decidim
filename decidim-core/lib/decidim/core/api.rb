@@ -25,8 +25,6 @@ module Decidim
     autoload :FingerprintType, "decidim/api/types/fingerprint_type"
     autoload :HashtagType, "decidim/api/types/hashtag_type"
     autoload :LocalizedStringType, "decidim/api/types/localized_string_type"
-    autoload :MetricHistoryType, "decidim/api/types/metric_history_type"
-    autoload :MetricType, "decidim/api/types/metric_type"
     autoload :OrganizationType, "decidim/api/types/organization_type"
     autoload :ParticipatorySpaceType, "decidim/api/types/participatory_space_type"
     autoload :ParticipatorySpaceLinkType, "decidim/api/types/participatory_space_link_type"
