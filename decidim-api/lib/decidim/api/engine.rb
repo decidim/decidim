@@ -23,12 +23,6 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Api
 
-      initializer "decidim_api.configure" do |app|
-        # Remove the default middleware as we configure Warden::JWTAuth manually
-        # below, see `after_initialize`.
-        app.initializers.find { |a| a.name == "devise-jwt-middleware" }.context_class.instance.initializers.reject! { |a| a.name == "devise-jwt-middleware" }
-      end
-
       initializer "decidim_api.middleware" do |app|
         app.config.middleware.insert_before 0, Rack::Cors do
           allow do

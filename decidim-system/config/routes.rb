@@ -17,7 +17,7 @@ Decidim::System::Engine.routes.draw do
     end
     resources :admins, except: [:show]
     resources :oauth_applications
-    defined?(Decidim::Api) && resources(:api_users, except: [:show])
+    resources :api_users, except: [:show] if Decidim.module_installed?(:api)
     root to: "dashboard#show"
   end
 end

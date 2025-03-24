@@ -46,6 +46,8 @@ en:
         confirm_destroy: Are you sure you want to delete this?
         confirm_revoke_api_user: Are you sure you want to revoke this API user?
         copy_token: Copy token
+        copy_token_clarification: Copy token to the clipboard
+        copied: Copied
         destroy: Delete
         edit: Edit
         new_admin: New admin

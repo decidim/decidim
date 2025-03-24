@@ -317,7 +317,7 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
     next unless jwt.secret
-    next unless defined?(Decidim::Api)
+    next unless Decidim.module_installed?(:api)
 
     jwt.dispatch_requests = [
       ["POST", %r{^/sign_in$}]

@@ -47,11 +47,18 @@ module Decidim
       end
 
       def key_token
-        @key_token ||= generate_token
+        @key_token ||= generate_unique_token
       end
 
       def password_token
         @password_token ||= generate_token
+      end
+
+      def generate_unique_token
+        loop do
+          token = generate_token
+          return token unless Decidim::Api::ApiUser.exists?(api_key: token)
+        end
       end
     end
   end

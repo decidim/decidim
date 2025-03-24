@@ -24,13 +24,23 @@
         </td>
         <td>
         <% if fresh_token?(api_user) %>
-          <%= link_to t("copy_token", scope: "decidim.system.actions"), "#", id: "api-user-token" %>
-            <%= hidden_field_tag :token, params[:token] %>
+
+          <button type="button"
+                  class="button button__sm button__text-primary"
+                  data-clipboard-copy="<%= "#token_#{api_user.id}" %>"
+                  data-clipboard-content="<%= params[:token] %>"
+                  data-clipboard-copy-label="<%= t("copied", scope: "decidim.system.actions") %>"
+                  data-clipboard-copy-message="<%= t("copied", scope: "decidim.system.actions") %>"
+                  title="<%= t("copy_token_clarification", scope: "decidim.system.actions") %>">
+            <span><%= t("copy_token", scope: "decidim.system.actions") %></span>
+            <%= icon "file-copy-line" %>
+          </button>
+          <%= hidden_field_tag :token, params[:token], id: "token_#{api_user.id}" %>
           <br>
         <% end %>
-          <%= link_to t("actions.api_users.revoke", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :delete, data: { confirm: t("actions.confirm_revoke_api_user", scope: "decidim.system") } %>
+          <%= link_to t("actions.api_users.revoke", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :delete, data: { confirm: t("actions.confirm_revoke_api_user", scope: "decidim.system") } %>
           <br>
-        <%= link_to t("actions.refresh_token", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :patch %>
+        <%= link_to t("actions.refresh_token", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :patch %>
         </td>
       </tr>
     <% end %>
