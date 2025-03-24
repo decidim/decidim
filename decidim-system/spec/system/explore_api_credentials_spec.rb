@@ -90,7 +90,7 @@ describe "explore api credentials" do
       expect(page).to have_current_path("/system/api_users?api_user=#{refreshing_user.id}&token=#{dummy_token}")
       expect(Decidim::Api::ApiUser.count).to eq(7)
       within refreshing_tr do
-        expect(page).to have_link("Copy token")
+        expect(page).to have_button("Copy token")
       end
       click_link_or_button("Copy token")
       expect(page).to have_content("Copied")
@@ -120,7 +120,7 @@ describe "explore api credentials" do
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")
         within new_tr do
           expect(page).to have_content(dummy_token)
-          expect(page).to have_css("a#api-user-token", text: "Copy token")
+          expect(page).to have_css("button", text: "Copy token")
         end
       end
       click_link_or_button "Copy token"
