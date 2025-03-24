@@ -98,7 +98,8 @@ module Decidim
 
             collection.push(filename)
 
-            get_help_definition(:components, exporter, export_manifest, collection.count) unless collection.empty?
+            collection_count = exported.read.split("\n").count - 1
+            get_help_definition(:components, exporter, export_manifest, collection_count) unless collection.empty?
           end
         end
       end
@@ -133,7 +134,8 @@ module Decidim
       exporter.headers_without_locales.each do |header|
         help_definition[manifest_type][export_manifest.name][:headers][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
       end
-      help_definition[manifest_type][export_manifest.name][:collection_count] = collection_count
+      help_definition[manifest_type][export_manifest.name][:collection_count] = 0 if help_definition[manifest_type][export_manifest.name][:collection_count].nil?
+      help_definition[manifest_type][export_manifest.name][:collection_count] += collection_count
     end
 
     def readme
