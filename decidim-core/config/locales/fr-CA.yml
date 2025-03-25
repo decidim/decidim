@@ -1239,6 +1239,10 @@ fr-CA:
       help:
         core:
           components: Fonctionnalités
+          generated_on_date: Généré le %{date}
+          resources:
+            one: "%{count} ressource"
+            other: "%{count} ressources"
           spaces: Espaces
         metrics:
           day: Le jour de la création de cette métrique
