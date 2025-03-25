@@ -134,6 +134,8 @@ The **Metrics** feature has been completely removed
 
 Use the **Statistics** feature instead.
 
+If your application includes the `metrics` queue in `config/sidekiq.yml` or scheduled tasks in `config/schedule.yml`, make sure to remove them.
+
 You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
 
 ### 2.5. [[TITLE OF THE ACTION]]
