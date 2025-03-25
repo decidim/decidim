@@ -7,23 +7,55 @@ eu:
       questionnaire_question:
         mandatory: Nahitaezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
+      response:
+        body: Erantzuna
+        choices: Aukerak
+        selected_choices: Hautatutako aukerak
     errors:
       models:
         questionnaire:
           request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Berriro erantsi behar da
+            body:
+              too_long: luzeegia da
+            choices:
+              missing: ez dira osatu
+              too_many: Gehienez, %{count} aukeratu ahal duzu.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: Erantzunaren identifikatzaile bakarra
+          question: Erantzun zen galdera
+          questionnaire: Erantzun zen galdetegia
+          response: Galderaren erantzuna
+          user: Inkesta erantzun duen parte-hartzailea
+      show:
+        responses: Esportatu erantzunak
+        survey_user_responses: Aztertu parte-hartzaileen erantzunak
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
+            allow_responses: Baimendu erantzunak
+            allow_unregistered: Baimendu erregistratu gabe dauden parte-hartzailei galdetegia erantzutea
+            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
             announcement: Oharra
+            clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
+            ends_at: Erantzunak noiz arte onartuta
             ends_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at: Erantzunak noiztik onartuta
             starts_at_help: Utzi zuriz data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
             back: Itzuli galderetara
+            publish_responses: Argitaratu erantzunak
             show: Erantzunak
           display_condition:
             condition_question: Galdera
@@ -32,13 +64,17 @@ eu:
               equal: Honen berdina
               match: Testua barne
               not_equal: Ez da berdina
+              not_responded: Erantzun gabe
+              responded: Erantzunda
             condition_value: Testua barne
             display_condition: Bistaratzeko baldintza
             mandatory: Baldintza hau beti bete behar da, beste baldintza batzuen egoera edozein dela ere
             remove: Kendu
+            response_option: Erantzuteko aukera
             save_warning: Gogoratu formularioa gorde behar duzula, bistaratze-baldintzak konfiguratu aurretik
             select_condition_question: Hautatu galdera bat
             select_condition_type: Hautatu baldintza mota bat
+            select_response_option: Hautatu erantzuteko aukera
           edit:
             save: Gorde
             title: Editatu galdetegia
@@ -62,6 +98,7 @@ eu:
             add_display_condition: Gehitu bistaratzeko baldintza
             add_display_condition_info: Gorde galdetegia bistaratzeko baldintzak konfiguratzeko
             add_matrix_row: Gehitu errenkada
+            add_response_option: Erantsi erantzuteko aukera
             any: Edozein
             collapse: Bildu
             description: Deskribapena
@@ -72,13 +109,34 @@ eu:
             statement: Adierazpena
             up: Gora
           questions_form:
+            already_responded_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Kolapsatu galdera guztiak
             expand: Zabaldu galdera guztiak
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
             update:
               success: Inkestaren galderak zuzen gordeta.
+          response_option:
+            free_text: Testu librea
+            remove: Kendu
+            response_option: Erantzuteko aukera
+            statement: Adierazpena
           responses:
             actions:
+              back: Itzuli erantzunetara
+              export: Esportatu
+              next: Hurrengoa &rsaquo;
+              previous: "&lsaquo; Aurrekoa"
               show: Erakutsi erantzunak
+            empty: Oraindik erantzunik ez
+            export:
+              response:
+                title: '#%{number} erantzun'
+            export_response:
+              title: galdetegia_parte-hartzailea_erantzunak_%{token}
+            index:
+              title: "Guztira, %{guztira} erantzun"
+            show:
+              title: '#%{number} erantzun'
           separator:
             down: Behera
             remove: Kendu
@@ -97,8 +155,14 @@ eu:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
       admin_log:
+        question:
+          publish_responses: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkestaren galdera %{space_name} espazioan"
+          unpublish_responses: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} inkestaren galdera %{space_name} espazioan"
         questionnaire:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
+      errors:
+        response:
+          body: Gorputza ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -106,20 +170,29 @@ eu:
           resize_to_fit: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} neurrira.
       question_types:
         files: Fitxategiak
+        long_response: Erantzun luzea
         matrix_multiple: Matrizea (aukera anitzekoa)
         matrix_single: Matrizea (aukera bakarrekoa)
         multiple_option: Hainbat aukera
+        short_response: Erantzun laburra
         single_option: Aukera bakarra
         sorting: Sailkaketa
         title_and_description: Izenburua eta deskribapena
+      questionnaire_response_presenter:
+        download_attachment: Deskargatu eranskina
       questionnaires:
         question:
           max_choices: 'Gehieneko aukerak: %{n}'
+        response:
+          invalid: Arazo bat egon da galdetegia erantzutean.
+          max_choices_alert: Aukera gehiegi hautatuta da
+          success: Galdetegia zuzen erantzun da.
         show:
           current_step: '%{step} urratsa'
           empty: Oraindik ez dago galderarik konfiguratuta galdetegi honetan.
           of_total_steps: '%{total_steps} etik'
           questionnaire_closed:
+            body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
           questionnaire_for_private_users:
             body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
@@ -129,9 +202,35 @@ eu:
             title: Javascript desaktibatuta dago
           questionnaire_not_published:
             body: Argitalpen hau oraindik ez da argitaratu.
+          questionnaire_responded:
+            body: Dagoeneko inkesta hau erantzun duzu.
+            title: Dagoeneko erantzunda
+          questionnaire_responded_edit:
+            body: Dagoeneko galdetegi hau erantzun duzu.%{link}
+            edit: Editatu zure erantzunak
+          response_questionnaire:
+            already_have_an_account?: Baduzu kontu bat?
+            are_you_new?: Parte-hartzaile berria?
+            sign_in_description: Hasi saioa inkesta egiteko
+            sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
+            title: Erantzun galdetegia
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
+          are_you_sure_edit_guest: Erantzunak editatu nahi badituzu, orduan sartu behar zara edo kontu bat sortu behar duzu.
+          are_you_sure_no_edit: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           back: Atzera
           continue: Jarraitu
+          disallowed: Ezin dituzu zure erantzunak editatu.
           submit: Bidali
+      user_responses_serializer:
+        body: Erantzuna
+        completion: Amaiera
+        created_at: Noiz erantzunda
+        id: Erantzunaren IDa
+        ip_hash: IP Helbidearen traola
+        question: Galdera
+        registered: Erregistratuta
+        session_token: Parte-hartzailearen identifikatzailea
+        unregistered: Erregistratu gabe
+        user_status: Parte-hartzailearen egoera
