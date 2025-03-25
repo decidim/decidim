@@ -49,6 +49,8 @@ ca:
       meeting_registration_invite:
         email: Correu electrònic
         name: Nom
+      response:
+        add_documents: Afegir documents
       validate_registration_code:
         code: Codi
     errors:
@@ -309,6 +311,7 @@ ca:
           meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
+          responses: Respostes
         invite_join_meeting_mailer:
           invite:
             decline: Declinar invitació
@@ -402,7 +405,7 @@ ca:
         poll:
           form:
             announcement_html:
-              - 
+              - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
               - Pots afegir una pregunta en qualsevol moment.
               - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
               - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
@@ -637,9 +640,13 @@ ca:
             announcement: S'han tancat les respostes a aquesta pregunta.
             question: Pregunta
             question_results: Resultats
+          index:
+            empty_questions: Al llarg d'aquesta trobada, s'enviaran algunes preguntes i podràs respondre-les. Es mostraran aquí.
           index_admin:
             edit: Editar al panell d'administració
             question: Pregunta
+            received_response: resposta rebuda
+            received_responses: respostes rebudes
             results: Resultats
             send: Enviar
             sent: Enviades
@@ -652,6 +659,14 @@ ca:
             question: Pregunta
             question_replied: Pregunta contestada
             reply_question: Contestar a la pregunta
+        responses:
+          index:
+            administrate: Administrar
+            title: Consulta/Sondeig en directe
+          index_admin:
+            back_to_meeting: Tornar a la trobada
+            title: Administrar consulta/sondeo en directe
+            view_poll: Veure consulta/sondeig
       public_participants_list:
         attending_participants: Participants assistents
         hidden_participants_count:
@@ -703,6 +718,7 @@ ca:
           commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
           comments: Les dades dels comentaris de la trobada
           created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és una resposta, o la resposta d'una resposta)
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
