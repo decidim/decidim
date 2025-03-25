@@ -130,9 +130,9 @@ You can read more about this change on PR [#13816](https://github.com/decidim/de
 
 ### 2.5. Removal of Metrics
 
-The Metrics has been completely removed.
+The **Metrics** feature has been completely removed
 
-Use the Statistics subsystem instead.
+Use the **Statistics** feature instead.
 
 You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
 
