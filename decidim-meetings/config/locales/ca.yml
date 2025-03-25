@@ -437,6 +437,7 @@ ca:
         new_meeting: 'Nova trobada:'
       layouts:
         live_event:
+          administrate: Administrar
           close: tancar
           questions: Preguntes
       mailer:
