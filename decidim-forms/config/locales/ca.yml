@@ -4,6 +4,8 @@ ca:
     attributes:
       answer:
         body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -12,6 +14,15 @@ ca:
         max_characters: Límit de caràcters (deixa-ho a 0 si no hi ha límit)
     errors:
       models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
+            body:
+              too_long: és massa llarg
+            choices:
+              missing: no estan completes
+              too_many: Pots triar un màxim de %{count} opcions.
         questionnaire:
           request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau, torna-ho a provar.
   decidim:
@@ -27,14 +38,24 @@ ca:
             show: Mostrar les respostes
           answer_option:
             answer_option: Opció de resposta
+            free_text: Text lliure
             remove: Eliminar
             statement: Declaració
           answers:
             actions:
+              back: Tornar a les respostes
+              export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
+            export:
+              answer:
+                title: 'Resposta #%{number}'
             export_response:
               title: survey_user_answers_%{token}
+            index:
+              title: "%{total} respostes en total"
             show:
               title: 'Resposta #%{number}'
           display_condition:
@@ -106,6 +127,9 @@ ca:
       admin_log:
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
+      errors:
+        answer:
+          body: El camp no pot estar en blanc
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -121,14 +145,21 @@ ca:
         single_option: Opció única
         sorting: Ordenació
         title_and_description: Títol i descripció
+      questionnaire_answer_presenter:
+        download_attachment: Descarregar l'arxiu adjunt
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
+          max_choices_alert: Has seleccionat massa opcions
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Ja tens un compte?
+            are_you_new?: Ets una nova usuària?
+            sign_in_description: Inicia la teva sessió per respondre l'enquesta
+            sign_up_description: Crea un compte de participant per a respondre l'enquesta
             title: Respon el formulari
           current_step: Pas %{step}
           empty: No s'ha configurat cap pregunta encara en aquest formulari.
@@ -158,4 +189,9 @@ ca:
         body: Resposta
         created_at: Respost el
         id: Identificador de resposta
+        ip_hash: Hash de l'adreça IP
         question: Pregunta
+        registered: Registrada
+        session_token: Identificador d'usuària
+        unregistered: No registrada
+        user_status: Estat de la usuària
