@@ -179,6 +179,7 @@ es-MX:
         leaving_authorizations_behind: Algunos datos vinculados a tu autorización serán guardados por seguridad. Si creas otra cuenta y autoriza de nuevo, estos datos serán recuperados en tu nueva cuenta.
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
+        inactive_account_removal_reason: Cuenta eliminada después de %{inactivity_period} días de inactividad
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
@@ -1342,7 +1343,11 @@ es-MX:
         core:
           components: Componentes
           description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          generated_on_date: Generado el %{date}
           main: Núcleo
+          resources:
+            one: "%{count} recurso"
+            other: "%{count} recursos"
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
         metrics:
@@ -1493,6 +1498,26 @@ es-MX:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
           body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
           title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection</strong></p>}.
+          <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+        greetings_html: |
+          Atentamente,<br>
+          %{organization_name}
+        hello_html: Estimado/a <strong>%{username}</strong>,
+        log_in: entra
+        never_logged_in: nunca ha iniciado sesión
+        subject: Aviso de cuenta inactiva
+      removal_notification:
+        body: Tu cuenta en %{organization_name} ha sido eliminada por inactividad.
+        greetings_html: |
+          Atentamente,<br>
+          %{organization_name}
+        hello: Estimado/a %{username},
+        subject: Aviso de cuenta inactiva
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
