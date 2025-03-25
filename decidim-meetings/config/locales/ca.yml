@@ -2,6 +2,8 @@
 ca:
   activemodel:
     attributes:
+      answer:
+        add_documents: Afegir documents
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -640,7 +642,12 @@ ca:
             title: Títol
       polls:
         answers:
+          index:
+            administrate: Administrar
+            title: Consulta/Sondeig en directe
           index_admin:
+            back_to_meeting: Tornar a la trobada
+            title: Administrar consulta/sondeo en directe
             view_poll: Veure sondeig/consulta
         questions:
           closed_question:
