@@ -59,6 +59,8 @@ es-MX:
         title: Acciones
       admin:
         answers:
+          index:
+            title: "%{total} respuestas en total"
           show:
             title: 'Respuesta #%{number}'
         exports:
@@ -72,6 +74,9 @@ es-MX:
               Publicando las respuestas a las preguntas de la encuesta, estas serán visibles para las visitantes.
               Puedes seleccionar las preguntas de las que quieres publicar las respuestas marcancndo el "checkbox" de cada una de ellas.
               Solo puedes publicar las respuestas de las preguntas que son del tipo de respuesta: "Opción única", "Opción múltiple", "Matriz (opción única)", "Matriz (opción múltiple), y "Ordenación".
+            status:
+              not_published: No publicadas
+              published: Publicadas
             title: Publicar respuestas
         surveys:
           create:
