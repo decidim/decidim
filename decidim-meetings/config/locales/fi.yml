@@ -49,6 +49,8 @@ fi:
       meeting_registration_invite:
         email: Sähköpostiosoite
         name: Nimi
+      response:
+        add_documents: Lisää asiakirjoja
       validate_registration_code:
         code: Koodi
     errors:
@@ -309,6 +311,7 @@ fi:
           meeting_comments: Kommentit
           meetings: Tapaamiset
           registrations: Ilmoittautumiset
+          responses: Vastaukset
         invite_join_meeting_mailer:
           invite:
             decline: Hylkää kutsu
@@ -402,7 +405,7 @@ fi:
         poll:
           form:
             announcement_html:
-              - 
+              - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
               - Voit lisätä kysymyksiä milloin tahansa.
               - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
               - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
@@ -637,9 +640,13 @@ fi:
             announcement: Tämä kysymys on suljettu, eikä siihen voi enää vastata.
             question: Kysymys
             question_results: Tulokset
+          index:
+            empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
             edit: Muokkaa hallintapaneelissa
             question: Kysymys
+            received_response: vastaus
+            received_responses: vastaukset
             results: Tulokset
             send: Lähetä
             sent: Lähetetty
@@ -652,6 +659,14 @@ fi:
             question: Kysymys
             question_replied: Kysymykseen on vastattu
             reply_question: Vastaa kysymykseen
+        responses:
+          index:
+            administrate: Hallinnoi
+            title: Mielipidetiedustelu
+          index_admin:
+            back_to_meeting: Takaisin tapaamiseen
+            title: Hallinnoi mielipidetiedustelua
+            view_poll: Näytä mielipidetiedustelu
       public_participants_list:
         attending_participants: Osallistujat
         hidden_participants_count:
@@ -703,6 +718,7 @@ fi:
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           comments: Tapaamisen kommenttien tiedot
           created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
