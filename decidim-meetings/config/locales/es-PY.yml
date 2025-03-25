@@ -437,6 +437,7 @@ es-PY:
         new_meeting: 'Nuevo encuentro:'
       layouts:
         live_event:
+          administrate: Administrar
           close: cerrar
           questions: Preguntas
       mailer:
