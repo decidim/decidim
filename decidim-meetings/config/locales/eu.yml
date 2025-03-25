@@ -49,6 +49,8 @@ eu:
       meeting_registration_invite:
         email: Helbide elektronikoa
         name: Izena
+      response:
+        add_documents: Gehitu dokumentuak
       validate_registration_code:
         code: Kodea
     errors:
@@ -309,6 +311,7 @@ eu:
           meeting_comments: Iruzkinak
           meetings: Topaketak
           registrations: Izen-emateak
+          responses: Erantzunak
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
@@ -402,7 +405,7 @@ eu:
         poll:
           form:
             announcement_html:
-              - 
+              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
               - Edozein unetan gehitu ahal duzu galdera bat.
               - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
               - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
@@ -637,9 +640,13 @@ eu:
             announcement: Galdera honetarako erantzunak itxi egin dira.
             question: Galdera
             question_results: Emaitzak
+          index:
+            empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
             edit: Editatu administrazio-panelean
             question: Galdera
+            received_response: erantzuna jasota
+            received_responses: erantzunak jasota
             results: Emaitzak
             send: Bidali
             sent: Bidalita
@@ -652,6 +659,14 @@ eu:
             question: Galdera
             question_replied: Galdera erantzunda
             reply_question: Erantzun galdera
+        responses:
+          index:
+            administrate: Administratu
+            title: Inkesta
+          index_admin:
+            back_to_meeting: Itzuli topaketara
+            title: Administratu inkesta
+            view_poll: Ikusi inkesta
       public_participants_list:
         attending_participants: Parte-hartzaileak
         hidden_participants_count:
@@ -703,6 +718,7 @@ eu:
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
           comments: Topaketaren iruzkinen datua
           created_at: Zein datatan sortu zen iruzkin hau
+          depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
