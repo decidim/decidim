@@ -10,7 +10,7 @@
   </h1>
 </div>
 
-<div class="item__edit item__edit-1col">
+<div class="grid-cols-1">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { id: "survey-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
       <%= render "decidim/forms/admin/questionnaires/form", form: %>

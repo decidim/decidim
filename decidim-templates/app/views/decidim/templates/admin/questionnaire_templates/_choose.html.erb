@@ -10,7 +10,7 @@
   <% end %>
 </div>
 
-<div class="item__edit item__edit-1col">
+<div class="grid-cols-1">
   <div class="item__edit-form questionnaire-template__form">
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url),
                                           method: :post,

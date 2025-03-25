@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="item__edit item__edit-1col">
+  <div class="grid-cols-1">
     <div class="item__edit-form">
       <%= decidim_form_for(@form, url: update_questions_questions_survey_path(@survey), method: :patch, html: { id: "survey-form", class: "form-defaults form edit_questions_survey" }) do |form| %>
         <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
