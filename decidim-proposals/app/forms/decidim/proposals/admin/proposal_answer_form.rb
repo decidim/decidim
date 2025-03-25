@@ -16,7 +16,6 @@ module Decidim
         attribute :internal_state, String
 
         validates :internal_state, presence: true, inclusion: { in: :proposal_states }
-        validates :answer, translatable_presence: true, if: ->(form) { form.state == "rejected" }
 
         alias state internal_state
 
