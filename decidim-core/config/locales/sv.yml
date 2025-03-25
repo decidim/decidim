@@ -1227,6 +1227,12 @@ sv:
         message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
+      help:
+        core:
+          generated_on_date: Skapad den %{date}
+          resources:
+            one: "%{count} Resurs"
+            other: "%{count} Resurser"
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
