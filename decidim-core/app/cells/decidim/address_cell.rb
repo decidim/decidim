@@ -24,11 +24,29 @@ module Decidim
     end
 
     def location
+      return pending_location_text if pending_location?
+
       decidim_sanitize_translated(model.location)
     end
 
     def address
-      decidim_sanitize_translated(model.address)
+      decidim_sanitize_translated(model.address) if model.respond_to?(:address) && model.address.present?
+    end
+
+    def pending_location?
+      (in_person_meeting? || hybrid_meeting?) && model.location.values.all?(&:blank?) && model.address.blank?
+    end
+
+    def pending_location_text
+      t("show.pending_address", scope: "decidim.meetings.meetings")
+    end
+
+    def in_person_meeting?
+      model.try(:type_of_meeting) == "in_person"
+    end
+
+    def hybrid_meeting?
+      model.try(:type_of_meeting) == "hybrid"
     end
 
     def display_start_and_end_time?

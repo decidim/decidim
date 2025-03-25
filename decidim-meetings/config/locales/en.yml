@@ -599,6 +599,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          pending_address: The location will be announced soon.
           redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Your registration code
           registration_state:
