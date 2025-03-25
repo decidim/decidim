@@ -12,6 +12,7 @@ it:
         project_ids: Progetti inclusi
         proposals: Proposte incluse
         start_date: Data di inizio
+        subresults: Sottorisultati
         title: Nome
         updated_at: Aggiornato al
       status:
@@ -43,6 +44,7 @@ it:
         import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
         new_status: Nuovo stato
+        new_timeline_entry: Voce della cronologia
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
