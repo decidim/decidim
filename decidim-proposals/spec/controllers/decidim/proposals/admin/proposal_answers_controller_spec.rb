@@ -50,7 +50,7 @@ module Decidim
             }
           end
 
-          context "when cost is required" do
+          context "when costs are enabled" do
             before do
               component.update!(
                 step_settings: {
@@ -59,13 +59,14 @@ module Decidim
                   }
                 }
               )
+              allow(controller).to receive(:proposals_path).and_return(proposals_path)
             end
 
-            context "when update fails" do
-              it "renders ProposalsController#show view" do
+            context "when the update is successful." do
+              it "renders ProposalsAdmin#index view" do
                 post :update, params: params
-                expect(response).to have_http_status(:ok)
-                expect(subject).to render_template("decidim/proposals/admin/proposals/show")
+                expect(response).to have_http_status(:found)
+                expect(subject).to redirect_to(proposals_path)
               end
             end
           end
