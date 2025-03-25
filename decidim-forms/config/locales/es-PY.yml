@@ -7,23 +7,55 @@ es-PY:
       questionnaire_question:
         mandatory: Obligatorio
         max_characters: Límite de caracteres (dejar a 0 si no hay límite)
+      response:
+        body: Respuesta
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
     errors:
       models:
         questionnaire:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            body:
+              too_long: es demasiado largo
+            choices:
+              missing: no están completas
+              too_many: Puedes elegir un máximo de %{count} opciones.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: El identificador único del resultado
+          question: La pregunta que se respondió
+          questionnaire: La encuesta que fue respondida
+          response: La respuesta a la pregunta
+          user: La usuaria que respondió al cuestionario
+      show:
+        responses: Exportar respuestas
+        survey_user_responses: Respuestas de las usuarias a la encuesta
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Permitir a las usuarias registradas editar sus respuestas en la encuesta
+            allow_responses: Permitir respuestas
+            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
+            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Aviso
+            clean_after_publish: Borrar las respuestas al publicar la encuesta
             description: Descripción
+            ends_at: Respuestas aceptadas hasta
             ends_at_help: Dejar en blanco si no hay ninguna fecha específica
+            starts_at: Respuestas aceptadas hasta
             starts_at_help: Dejar en blanco si no hay ninguna fecha específica
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
             back: Volver a las preguntas
+            publish_responses: Publicar las respuestas
             show: Respuestas
           display_condition:
             condition_question: Pregunta
@@ -32,13 +64,17 @@ es-PY:
               equal: Igual a
               match: Incluye texto
               not_equal: No es igual
+              not_responded: Sin respuesta
+              responded: Respondida
             condition_value: Texto incluido
             display_condition: Condiciones de visualización
             mandatory: Esta condición debe cumplirse siempre independientemente del estado de otras condiciones
             remove: Eliminar
+            response_option: Opción de respuesta
             save_warning: Recuerda guardar la encuesta antes de configurar las condiciones de visualización
             select_condition_question: Seleccionar una pregunta
             select_condition_type: Seleccionar un tipo de confirmación
+            select_response_option: Seleccionar opción de respuesta
           edit:
             save: Guardar
             title: Editar el cuestionario
@@ -62,6 +98,7 @@ es-PY:
             add_display_condition: Agregar condición de visualización
             add_display_condition_info: Guardar la encuesta para configurar las condiciones de visualización
             add_matrix_row: Añadir fila
+            add_response_option: Añadir opción de respuesta
             any: Alguna
             collapse: Contraer
             description: Descripción
@@ -72,13 +109,34 @@ es-PY:
             statement: Declaración
             up: Arriba
           questions_form:
+            already_responded_warning: La encuesta ya está contestada por algunas usuarias, así que no puedes modificar sus preguntas.
             collapse: Contraer todas las preguntas
             expand: Desplegar todas las preguntas
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo se borrarán las respuestas actuales.
             update:
               success: Pregunta/s añadida/s correctamente a la encuesta.
+          response_option:
+            free_text: Texto libre
+            remove: Eliminar
+            response_option: Opción de respuesta
+            statement: Enunciado
           responses:
             actions:
+              back: Volver a las respuestas
+              export: Exportar
+              next: Siguiente &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar las respuestas
+            empty: Aún no hay respuestas
+            export:
+              response:
+                title: 'Respuesta #%{number}'
+            export_response:
+              title: repuestas_usuaria_encuesta_%{token}
+            index:
+              title: "%{total} respuestas en total"
+            show:
+              title: 'Respuesta #%{number}'
           separator:
             down: Bajar
             remove: Eliminar
@@ -97,8 +155,14 @@ es-PY:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
       admin_log:
+        question:
+          publish_responses: "%{user_name} publicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish_responses: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
+      errors:
+        response:
+          body: El campo no puede estar en blanco
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -106,20 +170,29 @@ es-PY:
           resize_to_fit: Esta imagen será redimensionada para ajustarse a %{dimensions}.
       question_types:
         files: Archivos
+        long_response: Respuesta larga
         matrix_multiple: Matriz (opción múltiple)
         matrix_single: Matriz (opción única)
         multiple_option: Opción múltiple
+        short_response: Respuesta larga
         single_option: Opción única
         sorting: Ordenación
         title_and_description: Titulo y descripción
+      questionnaire_response_presenter:
+        download_attachment: Descargar el archivo adjunto
       questionnaires:
         question:
           max_choices: 'Opciones máximas: %{n}'
+        response:
+          invalid: Se ha producido un error al responder el formulario.
+          max_choices_alert: Has seleccionado demasiadas opciones
+          success: El formulario se ha respondido correctamente.
         show:
           current_step: Paso %{step}
           empty: Aún no hay preguntas configuradas para este formulario.
           of_total_steps: de %{total_steps}
           questionnaire_closed:
+            body: El formulario está cerrado y no puedes responder.
             title: Cuestionario cerrado
           questionnaire_for_private_users:
             body: El cuestionario está disponible solo para usuarios privados
@@ -129,9 +202,34 @@ es-PY:
             title: Javascript está desactivado
           questionnaire_not_published:
             body: Este formulario no se ha publicado todavía.
+          questionnaire_responded:
+            body: Ya has respondido a este formulario.
+            title: Ya has respondido
+          questionnaire_responded_edit:
+            body: 'Ya has respondido a este formulario: %{link}'
+            edit: Edita tus respuestas
+          response_questionnaire:
+            already_have_an_account?: '¿Ya tienes una cuenta?'
+            are_you_new?: '¿Eres una nueva usuaria?'
+            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_up_description: Crea una cuenta de participante para responder la encuesta
+            title: Responder al formulario
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
       step_navigation:
         show:
+          are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, es necesario que inicies tu sesión o te crees una cuenta.
+          are_you_sure_no_edit: Esta acción es irreversible y no podrás editar tus respuestas posteriormente. ¿Seguro que quieres continuar?
           back: Atrás
           continue: Continuar
+          disallowed: No puedes editar tus respuestas.
           submit: Enviar
+      user_responses_serializer:
+        body: Respuesta
+        created_at: Respondido el
+        id: ID de la repuesta
+        ip_hash: Hash de la dirección IP
+        question: Pregunta
+        registered: Registrada
+        session_token: Identificador de usuaria
+        unregistered: No registrada
+        user_status: Estado de la usuaria
