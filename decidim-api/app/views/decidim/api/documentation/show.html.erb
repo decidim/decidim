@@ -1,7 +1,7 @@
 <div class="content">
   <% if Decidim::Api.disclose_system_version %>
     <div class="version">Decidim <%= Decidim.version %></div>
-  <% end  %>
+  <% end %>
 
   <h1><%= current_organization_name %> API documentation</h1>
   <% if defined?(graphiql_path) %>
