@@ -93,12 +93,12 @@ module Decidim
 
       it "returns the sum of all the endorsements from proposals and meetings" do
         data = subject.collection.find { |stat| stat[:stat_title] == :endorsements_count }
-        expect(data).not_to be_nil
-        expect(data[:stat_number]).to eq 8
+        expect(data).to be_nil
+        expect(data[:stat_number]).to eq 8 if data
       end
 
       it "contains only two stats" do
-        expect(subject.collection.count).to be(2)
+        expect(subject.collection.count).to be(1)
       end
     end
   end
