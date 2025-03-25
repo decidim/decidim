@@ -179,6 +179,7 @@ ca:
         leaving_authorizations_behind: Algunes dades vinculades a la teva autorització es guardaran per motius de seguretat. Si crees un altre compte i l'autoritzes de nou, aquestes dades es recuperaran al teu nou compte.
       destroy:
         error: S'ha produït un error en eliminar el teu compte.
+        inactive_account_removal_reason: Compte eliminat després de %{inactivity_period} dies d'inactivitat
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         export_expired: L'exportació ha caducat. Intenta generar una nova exportació.
@@ -1339,7 +1340,11 @@ ca:
         core:
           components: Components
           description: Aquest fitxer ZIP conté fitxers per l'estudi i la recerca sobre aquesta plataforma de participació.
+          generated_on_date: Generat el %{date}
           main: Nucli
+          resources:
+            one: "%{count} recurs"
+            other: "%{count} recursos"
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
         metrics:
@@ -1490,6 +1495,26 @@ ca:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes i Condicions d'ús. En cas contrari, no podràs participar en la plataforma.
           title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Els nostres registres indiquen que vas creas un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat activa des de <strong>%{date_last_connection</strong></p>}.
+          <p>Per protegir la teva privacitat, l'eliminació automàtica d'aquest compte s'ha programat en <strong>%{days} dies</strong>.</p>
+          <p>Si vols conservar el teu compte %{organization_name}, simplement %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
+        greetings_html: |
+          Atentament,<br>
+          %{organization_name}
+        hello_html: Benvolgut/da <strong>%{username}</strong>,
+        log_in: entra
+        never_logged_in: mai ha iniciat sessió
+        subject: Avís de compte inactiu
+      removal_notification:
+        body: El teu compte a %{organization_name} s'ha eliminat per inactivitat.
+        greetings_html: |
+          Atentament,<br>
+          %{organization_name}
+        hello: Benvolgut/da %{username},
+        subject: Avís de compte inactiu
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
