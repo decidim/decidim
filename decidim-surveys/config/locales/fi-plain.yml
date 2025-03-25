@@ -8,6 +8,9 @@ fi-pl:
       decidim/surveys/survey:
         one: Kysely
         other: Kyselyt
+      decidim/surveys/survey_response:
+        one: Vastaus
+        other: Vastaukset
   decidim:
     admin:
       admin_log:
@@ -17,9 +20,12 @@ fi-pl:
         surveys_menu:
           main: Kysely
           questions: Kysymykset
+          responses: Vastaukset
           settings: Asetukset
     components:
       surveys:
+        actions:
+          response: Vastaus
         name: Kyselyt
         settings:
           announcement: Ilmoitus
@@ -39,6 +45,13 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    metrics:
+      survey_responses:
+        description: Vastattujen kyselyiden määrä
+        object: vastausta kyselyihin
+        title: Vastauksia kyselyihin
+    statistics:
+      responses_count: Vastauksia
     surveys:
       actions:
         confirm_destroy: Haluatko varmasti poistaa tämän?
@@ -47,12 +60,34 @@ fi-pl:
         manage_questions: Kysymykset
         new_survey: Uusi kysely
         preview: Esikatsele
+        responses_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{responses_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         title: Toiminnot
       admin:
+        exports:
+          survey_user_responses: Kyselyiden vastaukset
+        publish_responses:
+          index:
+            description: |-
+              Voit julkaista kyselyn vastaukset näkyville kaikille alustan käyttäjille.
+              Voit valita julkaistavat vastaukset valitsemalla kunkin kysymyksen vieressä näkyvän valintaruudun.
+              Voit julkaista ainoastaan seuraavantyyppisten kysymysten vastaukset: "Yksi vaihtoehto", "Useita vaihtoehtoja", "Kysymysmatriisi (yksi valinta)", "Kysymysmatriisi (useita valintoja)" ja "Järjestäminen".
+            responses:
+              one: "%{count} vastaus"
+              other: "%{count} vastausta"
+            status:
+              not_published: Ei julkaistu
+              published: Julkaistu
+            title: Julkaise vastaukset
         questions:
           surveys:
             edit:
               title: Kysymykset
+        responses:
+          index:
+            no_responses: Yhtään vastausta ei ole vielä annettu
+            title: "yhteensä %{total} vastausta"
+          show:
+            title: 'Vastaus #%{number}'
         settings:
           surveys:
             edit:
@@ -95,11 +130,17 @@ fi-pl:
         survey:
           fields:
             questions: Kysymykset
+            responses: Vastaukset
             status: Tila
             title: Otsikko
           status:
             closed: Suljettu
             open: Avoin
+      survey_confirmation_mailer:
+        confirmation:
+          body: Vastauksesi kyselyyn "%{questionnaire_title}" onnistui osallistumistilassa "%{participatory_space}"
+          subject: Kyselyn "%{questionnaire_title}" vastaamisen vahvistus
+        export_name: Kyselyn vastaukset
       surveys:
         count:
           surveys_count:
@@ -111,6 +152,10 @@ fi-pl:
             closed: Suljetut
             open: Avoimet
         no_surveys_warning: Hakuehtosi eivät vastaa yhtään kyselyä tai yhtään kyselyä ei vielä ole julkaistu.
+        response:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
+          success: Kyselyyn vastaaminen onnistui.
         show:
           closed: Suljettu
           open: Avoin
