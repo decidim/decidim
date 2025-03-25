@@ -324,6 +324,32 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
   end
 
+  context "when the venue has not been decided yet" do
+    it "creates a new meeting without an address" do
+      click_on "New meeting"
+
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
+      select "In person", from: :meeting_type_of_meeting
+      select "Registration disabled", from: :meeting_registration_type
+      fill_in_datepicker :meeting_start_time_date, with: meeting_start_date
+      fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
+      fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
+      fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
+
+      within ".new_meeting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      new_meeting = Decidim::Meetings::Meeting.last
+      puts "Meeting location: #{new_meeting.location}"
+      expect(new_meeting.location.values).to all(be_blank)
+      expect(new_meeting.address).to be_empty
+    end
+  end
+
   context "when no taxonomy filter is selected" do
     let(:taxonomy_filter_ids) { [] }
 

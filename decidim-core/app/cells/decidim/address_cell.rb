@@ -42,11 +42,11 @@ module Decidim
     end
 
     def in_person_meeting?
-      model.try(:type_of_meeting) == "in_person"
+      model.try(:type_of_meeting).to_s == "in_person"
     end
 
     def hybrid_meeting?
-      model.try(:type_of_meeting) == "hybrid"
+      model.try(:type_of_meeting).to_s == "hybrid"
     end
 
     def display_start_and_end_time?

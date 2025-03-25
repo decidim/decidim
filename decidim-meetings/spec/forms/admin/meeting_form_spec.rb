@@ -115,7 +115,7 @@ module Decidim::Meetings
     describe "when address is missing" do
       let(:address) { nil }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
     end
 
     describe "when start_time is missing" do
