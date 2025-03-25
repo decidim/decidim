@@ -1,6 +1,5 @@
 .editor-props {
   --editor-active-color: #487bda;
-  --editor-border-color: #ccc;
   --editor-disabled-color: #eee;
   --editor-bubble-border-color: #ccc;
   --editor-bubble-shadow-color: #333;
@@ -16,12 +15,8 @@
   @apply outline outline-4 outline-[var(--editor-active-color)];
 }
 
-.editor-border {
-  @apply border-solid border-[#ccc];
-}
-
 .editor-container {
-  @apply editor-props editor-suggestions-props flex flex-col mt-4 border editor-border;
+  @apply editor-props editor-suggestions-props flex flex-col border border-neutral-200 rounded mt-2;
 
   &.editor-disabled {
     .editor-input .ProseMirror {
@@ -30,7 +25,7 @@
   }
 
   .editor-toolbar {
-    @apply py-1.5 px-2.5 border-0 border-b editor-border;
+    @apply py-1.5 px-2.5 border-b border-b-neutral-200;
 
     .editor-toolbar-group {
       @apply inline-block mx-2.5;

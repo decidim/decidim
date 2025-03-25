@@ -23,7 +23,7 @@
   select,
   textarea {
     &:not(.reset-defaults) {
-      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
+      @apply inline-block px-4 py-2 border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
 
       &.sm {
         @apply px-1 py-0.5 text-sm;
@@ -79,7 +79,7 @@
 }
 
 .form__wrapper {
-  @apply flex flex-col pt-10 pb-4 gap-10 last:pb-0;
+  @apply flex flex-col pt-10 pb-4 gap-5 last:pb-0;
 
   &-block {
     @apply py-10 last:pb-0 border-background flex flex-col gap-4 [&_p]:text-gray-2;
@@ -96,10 +96,6 @@
   & label:not(&-checkbox-label),
   &-block label:not(&-checkbox-label) {
     @apply font-semibold text-lg;
-  }
-
-  .help-text {
-    @apply mt-4;
   }
 
   input[type="date"],
