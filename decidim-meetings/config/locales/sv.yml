@@ -572,7 +572,7 @@ sv:
         show:
           attendees: Antal deltagare
           contributions: Antal bidrag
-          join: Registrera dig
+          join: Anmäl dig
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
           link_available_soon: Länk kommer snart
