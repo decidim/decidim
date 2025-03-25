@@ -49,6 +49,8 @@ es:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
+      response:
+        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
@@ -309,6 +311,7 @@ es:
           meeting_comments: Comentarios
           meetings: Encuentros
           registrations: Inscripciones
+          responses: Respuestas
         invite_join_meeting_mailer:
           invite:
             decline: Rechazar invitación
@@ -402,7 +405,7 @@ es:
         poll:
           form:
             announcement_html:
-              - 
+              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
               - Puedes añadir una pregunta en cualquier momento.
               - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
               - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
@@ -637,9 +640,13 @@ es:
             announcement: Se han cerrado las respuestas a esta pregunta.
             question: Pregunta
             question_results: Resultados
+          index:
+            empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
           index_admin:
             edit: Editar en el panel de administración
             question: Pregunta
+            received_response: respuesta recibida
+            received_responses: respuestas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
@@ -652,6 +659,14 @@ es:
             question: Pregunta
             question_replied: Pregunta respondida
             reply_question: Responder pregunta
+        responses:
+          index:
+            administrate: Administrar
+            title: Consulta/Sondeo en directo
+          index_admin:
+            back_to_meeting: Volver al encuentro
+            title: Administrar consulta/sondeo en directo
+            view_poll: Ver consulta/sondeo
       public_participants_list:
         attending_participants: Participantes asistentes
         hidden_participants_count:
@@ -703,6 +718,7 @@ es:
           commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
           comments: Los datos de los comentarios del encuentro
           created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es una respuesta, o la respuesta de una respuesta)
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
