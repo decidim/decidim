@@ -73,12 +73,34 @@ module Decidim
       # user - A User object
       #
       # Returns a number with the remaining votes for that user
+      def given_votes_count_for(user)
+        return 0 if user.blank?
+
+        all_voted_proposals_by_user(user).length
+      end
+
+      def voted_proposal_by_user?(proposal, user)
+        return false if user.blank? || proposal.blank?
+
+        all_voted_proposals_by_user(user).include?(proposal.id)
+      end
+
+      def all_voted_proposals_by_user(user)
+        return [] if user.blank?
+
+        @all_voted_proposals ||= []
+        @all_voted_proposals[user.id] ||= Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).pluck(:decidim_proposal_id)
+      end
+
+      # Return the remaining votes for a user if the current component has a vote limit
+      #
+      # user - A User object
+      #
+      # Returns a number with the remaining votes for that user
       def remaining_votes_count_for(user)
         return 0 unless vote_limit_enabled?
 
-        proposals = Proposal.where(component: current_component)
-        votes_count = ProposalVote.where(author: user, proposal: proposals).size
-        component_settings.vote_limit - votes_count
+        component_settings.vote_limit - given_votes_count_for(user)
       end
 
       # Return the remaining minimum votes for a user if the current component has a vote limit
@@ -89,9 +111,7 @@ module Decidim
       def remaining_minimum_votes_count_for(user)
         return 0 unless minimum_votes_per_user_enabled?
 
-        votes_count = Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).count
-
-        component_settings.minimum_votes_per_user - votes_count
+        component_settings.minimum_votes_per_user - given_votes_count_for(user)
       end
     end
   end

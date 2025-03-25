@@ -17,7 +17,7 @@
           <% end %>
         <% end %>
       <% else %>
-        <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+        <% if voted_proposal_by_user?(proposal, current_user) %>
           <%= action_authorized_button_to(
             :vote,
             proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:),

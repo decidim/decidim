@@ -12,7 +12,7 @@
       </button>
     <% end %>
   <% else %>
-    <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+    <% if voted_proposal_by_user?(proposal, current_user) %>
       <button type="button" name="button" class="column button success button--sc" id="proposal-<%= proposal.id %>-votes-count">
         <%= proposal.proposal_votes_count || 0 %>
       </button>
