@@ -39,7 +39,10 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Budgets::Budget.where(component: components).count
   end
 
-  component.register_stat :projects_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :projects_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "git-pull-request-line",
+                          tooltip_key: "projects_count_tooltip" do |components, start_at, end_at|
     Decidim::Budgets::FilteredProjects.for(components, start_at, end_at).count
   end
 
@@ -51,7 +54,11 @@ Decidim.register_component(:budgets) do |component|
     orders.count
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
     projects.sum(:comments_count)
   end

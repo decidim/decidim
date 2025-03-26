@@ -2,6 +2,5 @@
   <h2 class="home__section-title mb-8">
     <%= t("decidim.pages.home.statistics.headline") %>
   </h2>
-
-  <%= cell("decidim/statistics", stats.highlighted + stats.not_highlighted) %>
+  <%= cell("decidim/statistics", stats.aggregated_stats) %>
 </section>

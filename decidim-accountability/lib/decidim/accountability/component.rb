@@ -36,7 +36,10 @@ Decidim.register_component(:accountability) do |component|
     }
   end
 
-  component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :results_count,
+                          primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "briefcase-2-line",
+                          tooltip_key: "results_count_tooltip" do |components, _start_at, _end_at|
     Decidim::Accountability::Result.where(component: components).count
   end
 

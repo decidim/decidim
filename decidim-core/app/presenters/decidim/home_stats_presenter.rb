@@ -8,54 +8,46 @@ module Decidim
     end
 
     # Public: Render a collection of primary stats.
-    def highlighted
-      highlighted_stats = Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map { |name, data| [name, data] }
-      highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
-      highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
-      highlighted_stats = highlighted_stats.reject(&:empty?)
-      highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
-
-      highlighted_stats.map do |name, data|
-        { stat_title: name, stat_number: data }
-      end
+    def aggregated_stats(priority: StatsRegistry::HIGH_PRIORITY)
+      stats = all_stats(priority:).reject(&:empty?)
+      stats = stats.reject { |stat| stat[:data].blank? || stat[:data][0].zero? }
+      stats.each_with_object({}) do |stat, hash|
+        name = stat[:name]
+        if hash[name]
+          stat[:data].each_with_index do |value, idx|
+            hash[name][:data][idx] ||= 0
+            hash[name][:data][idx] += value
+          end
+        else
+          hash[name] = stat
+        end
+      end.values
     end
 
-    # Public: Render a collection of stats that are not primary.
-    def not_highlighted
-      not_highlighted_stats = global_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
-      not_highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
-      not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
-      not_highlighted_stats = not_highlighted_stats.reject { |_name, data| data.zero? }
-
-      not_highlighted_stats.map do |name, data|
-        { stat_title: name, stat_number: data }
-      end
+    def all_stats(conditions)
+      @global_stats ||= global_stats(**conditions).concat(component_stats(**conditions))
     end
 
     private
 
     def global_stats(conditions)
-      Decidim.stats.except([:users_count, :processes_count, :followers_count])
-             .filter(conditions)
-             .with_context(organization)
-             .map { |name, data| [name, data] }
+      Decidim.stats.filter(**conditions).with_context(organization).map do |stat|
+        stat[:data] = [stat[:data]] unless stat[:data].is_a?(Array)
+        stat
+      end
     end
 
     def component_stats(conditions)
-      stats = {}
       Decidim.component_manifests.flat_map do |component|
         component
-          .stats.except([:votes_count, :surveys_count, :results_count, :posts_count, :debates_count, :collaborative_texts_count, :endorsements_count, :responses_count,
-                         :proposals_accepted, :projects_count, :sortitions_count])
+          .stats.except([:proposals_accepted])
           .filter(conditions)
           .with_context(published_components)
-          .each do |name, data|
-            stats[name] ||= 0
-            stats[name] += data
+          .map do |stat|
+            stat[:data] = [stat[:data]] unless stat[:data].is_a?(Array)
+            stat
           end
       end
-
-      stats.to_a
     end
 
     def published_components

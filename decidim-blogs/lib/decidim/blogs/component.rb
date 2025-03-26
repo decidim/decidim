@@ -13,7 +13,11 @@ Decidim.register_component(:blogs) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Blogs::Post.where(component: instance).any?
   end
 
-  component.register_stat :posts_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :posts_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "pen-nib-line",
+                          tooltip_key: "posts_count_tooltip" do |components, _start_at, _end_at|
     Decidim::Blogs::Post.where(component: components).count
   end
 

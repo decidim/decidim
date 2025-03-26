@@ -32,7 +32,11 @@ Decidim.register_component(:debates) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :debates_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "discuss-line",
+                          tooltip_key: "debates_count_tooltip" do |components, _start_at, _end_at|
     Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 

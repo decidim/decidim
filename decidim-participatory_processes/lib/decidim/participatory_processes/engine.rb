@@ -81,12 +81,18 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+        Decidim.stats.register :followers_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-follow-line",
+                               tooltip_key: "followers_count_tooltip" do |participatory_space|
           Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
+        Decidim.stats.register :participants_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-line",
+                               tooltip_key: "participants_count_tooltip" do |participatory_space|
+          [Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space), 1234]
         end
       end
 

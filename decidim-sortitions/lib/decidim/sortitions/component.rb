@@ -30,7 +30,11 @@ Decidim.register_component(:sortitions) do |component|
     resource.actions = %w(comment)
   end
 
-  component.register_stat :sortitions_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :sortitions_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "team-line",
+                          tooltip_key: "sortitions_count_tooltip" do |components, start_at, end_at|
     Decidim::Sortitions::FilteredSortitions.for(components, start_at, end_at).count
   end
 

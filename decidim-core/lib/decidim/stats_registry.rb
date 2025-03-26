@@ -34,6 +34,8 @@ module Decidim
                   primary: options[:primary],
                   priority: options[:priority],
                   tag: options[:tag],
+                  icon_name: options[:icon_name],
+                  tooltip_key: options[:tooltip_key],
                   block:)
     end
 
@@ -62,7 +64,12 @@ module Decidim
     def with_context(context, start_at = nil, end_at = nil)
       Enumerator.new do |yielder|
         @stats.each do |stat|
-          yielder << [stat[:name], resolve(stat[:name], context, start_at, end_at)]
+          yielder << {
+            name: stat[:name],
+            data: resolve(stat[:name], context, start_at, end_at),
+            icon_name: stat[:icon_name],
+            tooltip_key: stat[:tooltip_key]
+          }
         end
       end
     end

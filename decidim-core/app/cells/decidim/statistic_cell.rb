@@ -6,44 +6,30 @@ module Decidim
     private
 
     def stat_number
-      number_with_delimiter(model[:stat_number])
+      number_with_delimiter(model[:data][0])
+    end
+
+    def second_stat_number
+      number_with_delimiter(model[:data][1]) if model[:data].size > 1
     end
 
     def stat_dom_class
-      model[:stat_title]
+      model[:name]
     end
 
     def stat_title
-      t(model[:stat_title], scope: "decidim.statistics")
+      t(model[:name], scope: "decidim.statistics")
     end
 
     def information_tooltip
-      tooltip_key = "#{model[:stat_title]}_tooltip"
+      tooltip_key = model[:tooltip_key].to_s
       with_tooltip(t(tooltip_key, scope: "decidim.statistics", default: "")) do
         icon("information-line")
       end
     end
 
     def stat_icon
-      icon_map = {
-        users_count: "user-line",
-        processes_count: "treasure-map-line",
-        assemblies_count: "government-line",
-        initiatives_count: "lightbulb-flash-line",
-        conferences_count: "user-voice-line",
-        proposals_count: "chat-new-line",
-        meetings_count: "map-pin-line",
-        comments_count: "chat-1-line",
-        followers_count: "user-follow-line",
-        debates_count: "discuss-line",
-        results_count: "briefcase-2-line",
-        projects_count: "git-pull-request-line",
-        posts_count: "pen-nib-line",
-        surveys_count: "survey-line",
-        sortitions_count: "team-line"
-      }
-
-      icon(icon_map[model[:stat_title].to_sym] || "")
+      icon(model[:icon_name].to_sym) || ""
     end
   end
 end

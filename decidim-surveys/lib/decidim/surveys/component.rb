@@ -29,11 +29,19 @@ Decidim.register_component(:surveys) do |component|
     resource.actions = %w(response)
   end
 
-  component.register_stat :surveys_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :surveys_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "survey-line",
+                          tooltip_key: "surveys_count_tooltip" do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)
     surveys = surveys.where(created_at: start_at..) if start_at.present?
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
-    surveys.count
+    first = surveys.count
+    [
+      first,
+      Decidim::Surveys::Survey.includes(:questionnaire).where(component: components).responses.count
+    ]
   end
 
   component.register_stat :responses_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|

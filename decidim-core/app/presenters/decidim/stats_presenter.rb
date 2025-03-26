@@ -25,7 +25,7 @@ module Decidim
           statistics[component_manifest] += count
         end
       end
-      statistics.map { |key, number| { stat_title: key, stat_number: number } }
+      statistics.map { |key, number| { stat_title: key, stat_number: number, second_stat_number: } }
     end
 
     # Public: returns a collection of stats (Hash) for the Participatory Space Home.
@@ -37,6 +37,7 @@ module Decidim
       highlighted_stats.concat(comments_stats(participatory_space_sym))
       highlighted_stats = highlighted_stats.reject(&:empty?)
       highlighted_stats = highlighted_stats.reject { |_stat_manifest, _stat_title, stat_number| stat_number.zero? }
+
       grouped_highlighted_stats = highlighted_stats.group_by(&:first)
 
       statistics(grouped_highlighted_stats)
