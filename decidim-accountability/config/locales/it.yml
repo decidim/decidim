@@ -12,6 +12,7 @@ it:
         project_ids: Progetti inclusi
         proposals: Proposte incluse
         start_date: Data di inizio
+        subresults: Sottorisultati
         title: Nome
         updated_at: Aggiornato al
       status:
@@ -43,6 +44,7 @@ it:
         import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
         new_status: Nuovo stato
+        new_timeline_entry: Voce della cronologia
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -58,6 +60,7 @@ it:
         imports:
           create:
             invalid: Si è verificato un problema durante l'importazione dei risultati.
+            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito.
         models:
           result:
             name: Risultato
@@ -72,6 +75,9 @@ it:
             origin_component_id: Componente d'origine
             select_component: Seleziona un componente
         results:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo risultato.
+            success: Risultato creato con successo.
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
@@ -81,6 +87,7 @@ it:
             create: Crea un risultato
             title: Nuovo risultato
           update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato.
             success: Risultati aggiornati con successo
         shared:
           subnav:
@@ -100,9 +107,11 @@ it:
             create: Crea stato
             title: Nuovo stato
           update:
+            invalid: C'è stato un problema nel aggiornamento di questo stato.
             success: Stato aggiornato con successo.
         timeline_entries:
           create:
+            invalid: C'è stato un problema nella creazione di questa voce.
             success: Voce creata con successo.
           destroy:
             success: La voce è stata eliminata con successo.
@@ -126,6 +135,10 @@ it:
           create: "%{user_name} ha creato lo stato %{resource_name}"
           delete: "%{user_name} ha eliminato lo stato %{resource_name}"
           update: "%{user_name} ha aggiornato lo stato %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creato la voce della cronologia %{resource_name}"
+          delete: "%{user_name} ha cancellato la voce della cronologia %{resource_name}"
+          update: "%{user_name} ha aggiornato la voce della cronologia %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
@@ -139,6 +152,13 @@ it:
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Un risultato è stato importato dai progetti.
+            other: "%{count} risultati sono stati importati dai progetti."
+          subject: Importazione riuscita dei progetti
+          success: Progetti importati con successo per ottenere risultati nel componente %{component_name}. È possibile rivedere i risultati nell'interfaccia di amministrazione.
       last_activity:
         new_result: 'Nuovo risultato:'
       models:
