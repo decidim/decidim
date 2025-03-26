@@ -89,7 +89,10 @@ module Decidim
         return [] if user.blank?
 
         @all_voted_proposals ||= []
-        @all_voted_proposals[user.id] ||= Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).pluck(:decidim_proposal_id)
+        @all_voted_proposals[user.id] ||= Decidim::Proposals::ProposalVote
+                                          .joins(:proposal)
+                                          .where(decidim_proposals_proposals: { decidim_component_id: current_component.id }, author: user)
+                                          .pluck(:decidim_proposal_id)
       end
 
       # Return the remaining votes for a user if the current component has a vote limit
