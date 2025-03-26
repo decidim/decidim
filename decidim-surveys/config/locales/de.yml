@@ -77,11 +77,15 @@ de:
         survey:
           fields:
             questions: Fragen
+            responses: Antworten
             status: Status
             title: Titel
           status:
             closed: Geschlossen
             open: Offen
+      survey_confirmation_mailer:
+        confirmation:
+          body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
       surveys:
         count:
           surveys_count:
