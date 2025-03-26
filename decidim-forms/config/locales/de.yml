@@ -4,6 +4,8 @@ de:
     attributes:
       answer:
         body: Antworten
+        choices: Optionen
+        selected_choices: Ausgewählte Optionen
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
@@ -14,7 +16,12 @@ de:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Muss erneut angehängt werden
+            body:
+              too_long: ist zu lang
             choices:
+              missing: sind nicht vollständig
               too_many: sind zu viele
         questionnaire:
           request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
