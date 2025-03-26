@@ -74,17 +74,17 @@
       <%= form.hidden_field :position, value: question.position || 0 %>
       <%= form.hidden_field :deleted, disabled: !editable %>
 
-      <div class="questionnaire-question-answer-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= answer_option_template_selector %>">
-        <div class="questionnaire-question-answer-options-list">
-          <% question.answer_options.each do |answer_option| %>
-            <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
-              <%= render "decidim/meetings/admin/poll/answer_option", form: answer_option_form, question:, editable: question.editable? %>
+      <div class="questionnaire-question-response-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= response_option_template_selector %>">
+        <div class="questionnaire-question-response-options-list">
+          <% question.response_options.each do |response_option| %>
+            <%= fields_for "questionnaire[questions][#{question.to_param}][response_options][]", response_option do |response_option_form| %>
+              <%= render "decidim/meetings/admin/poll/response_option", form: response_option_form, question:, editable: question.editable? %>
             <% end %>
           <% end %>
         </div>
         <% if editable %>
           <div class="row column">
-            <button type="button" class="button button__sm button__secondary mt-4 add-answer-option"><%= t("add_answer_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
+            <button type="button" class="button button__sm button__secondary mt-4 add-response-option"><%= t("add_response_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
           </div>
         <% end %>
       </div>

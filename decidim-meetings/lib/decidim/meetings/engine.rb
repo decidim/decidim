@@ -25,14 +25,14 @@ module Decidim
               get :create
               get :decline_invitation
               get :join, action: :show
-              post :answer
+              post :respond
             end
           end
           resources :versions, only: [:show]
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]
-            resources :answers, only: [:index, :create] do
+            resources :responses, only: [:index, :create] do
               collection do
                 get :admin
               end
@@ -81,7 +81,12 @@ module Decidim
 
       initializer "decidim_meetings.content_security_handlers" do |_app|
         Decidim.configure do |config|
-          config.content_security_policies_extra.deep_merge!({ "frame-src" => %w(player.twitch.tv meet.jit.si) })
+          if config.content_security_policies_extra["frame-src"].respond_to?(:<<)
+            config.content_security_policies_extra["frame-src"] << "player.twitch.tv"
+            config.content_security_policies_extra["frame-src"] << "meet.jit.si"
+          else
+            config.content_security_policies_extra["frame-src"] = %w(player.twitch.tv meet.jit.si)
+          end
         end
       end
 
@@ -163,7 +168,7 @@ module Decidim
           Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
             transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
             transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
-            transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+            transfer.move_records(Decidim::Meetings::Response, :decidim_user_id)
           end
         end
       end

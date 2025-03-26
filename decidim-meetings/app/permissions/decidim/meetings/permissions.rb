@@ -16,10 +16,10 @@ module Decidim
         return permission_action unless user
 
         case permission_action.subject
-        when :answer
+        when :response
           case permission_action.action
           when :create
-            toggle_allow(can_answer_question?)
+            toggle_allow(can_respond_question?)
           end
         when :question
           case permission_action.action
@@ -141,8 +141,8 @@ module Decidim
           meeting.poll.present?
       end
 
-      def can_answer_question?
-        question.present? && user.present? && !question.answered_by?(user)
+      def can_respond_question?
+        question.present? && user.present? && !question.responded_by?(user)
       end
 
       def can_update_question?
