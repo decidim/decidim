@@ -7,6 +7,9 @@ de:
       questionnaire_question:
         mandatory: Verpflichtend
         max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
+      response:
+        body: Antwort
+        choices: Auswahl
     errors:
       models:
         questionnaire:
