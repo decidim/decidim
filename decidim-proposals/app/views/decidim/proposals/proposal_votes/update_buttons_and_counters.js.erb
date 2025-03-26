@@ -25,10 +25,8 @@
 
     <% if remaining_votes_count_for(current_user) == 0 %>
       $notVotedButtons.attr('disabled', true);
-      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
     <% else %>
       $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
   }());
 <% end %>
