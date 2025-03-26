@@ -1341,7 +1341,11 @@ eu:
         core:
           components: Osagaiak
           description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
+          generated_on_date: 'Noiz sortua: %{date}'
           main: Mamia
+          resources:
+            one: "%{count} emaitza"
+            other: "%{count} emaitza"
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
         metrics:
