@@ -134,6 +134,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
+          title: Debatte erstellen
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
