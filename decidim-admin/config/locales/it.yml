@@ -15,24 +15,35 @@ it:
         description: Descrizione
         file: File
         title: Nome dell'allegato o immagine
+        weight: Posizione nell'ordine
       attachment_collection:
         description: Descrizione
         name: Nome
+        weight: Posizione nell'ordine
       category:
         description: Descrizione
         name: Nome
         parent_id: Su
+        weight: Posizione nell'ordine
       component:
         name: Nome
         published_at: Pubblicato il
         weight: Posizionamento
+      external_domain:
+        value: Valore
+      help_section:
+        content: Contenuto
       id: ID
       import:
         user_group_id: Importa come
       newsletter:
         body: Testo
+        send_to_all_users: Invia a tutti gli utenti
+        send_to_followers: Invia ai follower
+        send_to_participants: Invia ai partecipanti
         subject: Oggetto
       organization:
+        admin_terms_of_service_body: Testo dei termini di utilizzo per l'amministratore
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
@@ -82,14 +93,19 @@ it:
         secondary_hosts: Host secondari
         send_welcome_notification: Invia notifica di benvenuto
         success_color: Successo
+        tertiary_color: Terziario
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
+        twitter_handler: X handler
         user_groups_enabled: Abilita gruppi
         users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
         youtube_handler: Gestore di YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nome
       scope:
         code: Codice
         name: Nome
@@ -111,9 +127,11 @@ it:
         show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
+        topic_id: Argomento
         weight: Ordine di posizionamento
       static_page_topic:
         description: Descrizione
+        name: Nome dell’argomento
         show_in_footer: Mostra nel footer
         title: Titolo
         weight: Ordine di posizionamento
@@ -121,10 +139,27 @@ it:
         file: File
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selezionare almeno uno spazio partecipativo.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: File immagine non valido
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: File di importazione malformato, leggere attentamente le istruzioni e assicurarsi che il file sia codificato UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: File di importazione malformato, leggere attentamente le istruzioni e assicurarsi che il file sia codificato UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: File fornito non valido, verificare che il file sia formattato correttamente.
+            invalid_mime_type: Tipo MIME non valido.
   activerecord:
     attributes:
       decidim/static_page:
@@ -145,6 +180,8 @@ it:
         add: Aggiungi
         attachment:
           new: Nuovo allegato
+        attachment_collection:
+          new: Nuova cartella allegati
         browse: Naviga
         category:
           new: Nuova categoria
@@ -159,12 +196,30 @@ it:
         per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
+        send_me_a_test_email: Inviami una email di prova
         share: Condividi
+        user:
+          new: Nuovo Amministratore
         verify: Verifica
+      admin_terms_of_service:
+        accept:
+          success: Ottimo! Hai accettato i termini d'uso per l'amministratrice/tore.
+        actions:
+          accept: Sono d'accordo con i termini
+          are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo per l'amministratore?
+          refuse: Rifiuta i termini di utilizzo per l'amministratore
+          title: Accetta i termini di servizio
+        required_review:
+          alert: 'Richiesto: rivedi i nostri termini di utilizzo per l''amministratrice/tore'
+          callout: Prenditi un momento per leggere i Termini di utilizzo per l'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
+        title: Termini di servizio amministrativi
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
           success: Tipo di area creato con successo.
+        destroy:
+          success: Tipo di area eliminato con successo.
         edit:
           title: Modifica il tipo di area
           update: Aggiorna
@@ -173,12 +228,14 @@ it:
           title: Nuovo tipo di area
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo tipo di area.
+          success: Tipo di area aggiornato con successo.
       areas:
         create:
           error: Si è verificato un errore durante la creazione di una nuova area.
           success: Area creata con successo.
         destroy:
           has_spaces: Questa area ha spazi correlati. Assicurati che nessuno spazio partecipativo faccia riferimento a questa area prima di eliminarla.
+          success: Area eliminata con successo.
         edit:
           title: Modifica area
           update: Aggiorna
@@ -188,6 +245,7 @@ it:
         no_areas: Nessuna area
         update:
           error: Si è verificato un errore durante l'aggiornamento di quest'area.
+          success: Area aggiornata con successo.
       attachment_collections:
         create:
           error: Si è verificato un errore durante la creazione di una nuova cartella.
@@ -222,11 +280,15 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
+      attachments_privacy_warning:
+        message: Fai attenzione quando lavori con gli allegati in uno spazio privato. Ogni utente potrebbe condividere questo documento con gli altri.
       autocomplete:
         no_results: Nessun risultato trovato
+        search_prompt: Digitare almeno tre caratteri da cercare.
       block_user:
         new:
           action: Blocca account e invia la motivazione
+          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Il blocco di un utente renderà quell'account inutilizzabile. È possibile fornire nella propria giustificazione tutte le linee guida su come prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utente %{name}
@@ -256,6 +318,7 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
+          success_landing_page: Componente creato con successo. È possibile aggiungere un blocco di contenuto per questo componente nella home dello spazio. Vai alla <a href="%{landing_page_path}">Landing page</a> per configurarla.
         destroy:
           error: C'è stato un errore nell'eliminare questo componente.
           success: Componente cancellato con successo.
@@ -287,20 +350,46 @@ it:
       conflicts:
         attempts: Tentativi
         'false': 'No'
+        index:
+          text: Cerca per email utente, nome o nickname.
         managed_user_name: Gestione utente
         solved: Risolto
         title: Verifica dei conflitti
         transfer:
           email: Email
+          error: Si è verificato un problema durante il trasferimento dell'utente corrente al partecipante gestito.
           name: Nome
           reason: Motivazione
           success: Il trasferimento è stato completato con successo.
           title: Trasferimento
         'true': 'Si'
         user_name: Utente
+      content_blocks:
+        create:
+          success: Blocco contenuto creato correttamente.
+        destroy:
+          error: Si è verificato un problema cercando di eliminare questo blocco di contenuti.
+          success: Blocco contenuto cancellato con successo.
+        edit:
+          active_content_blocks: Blocchi di contenuti attivi
+          add: Aggiungi blocco di contenuto
+          destroy_confirmation: Sei sicuro di voler eliminare questo blocco di contenuti?
+          inactive_content_blocks: Blocchi di contenuti inattivi
+          title: Contenuti della pagina
+          update: Aggiorna
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: C'è %{count} moderazione in sospeso
+            other: Ci sono %{count} moderazioni in sospeso
+          goto_moderation: Vai alle moderazioni globali
+          title: Moderazioni in sospeso
         show:
+          dropdown: Menu a tendina
           view_more_logs: Visualizza più registri
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio troppo corto
       exports:
         export_as: "%{name} esporta come %{export_format}"
         formats:
@@ -308,6 +397,7 @@ it:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: L'esportazione è attualmente in corso. Riceverai un'e-mail al termine dell'operazione.
       filters:
         category_id_eq:
           label: Categorie
@@ -324,8 +414,11 @@ it:
             'true': 'Sì'
         moderated_users:
           reports_reason_eq:
+            label: Motivo della segnalazione
             values:
               does_not_belong:
+              offensive: Offensivo
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -360,9 +453,11 @@ it:
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          report_count_eq: Conteggio report eq
           reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
           user_name_or_user_email_cont: Cerca %{collection} per nome o email.
+          user_name_or_user_nickname_or_user_email_cont: Ricerca %{collection} per email, nome o nickname.
         state_eq:
           label: Stato
           values:
@@ -377,8 +472,10 @@ it:
             message_1: Sono supportati i formsti CSV, JSON e Excel (.xlsx)
             message_2: I separatori delle colonne per il formato CSV devono essere punto e virgola (";")
       help_sections:
+        error: Si è verificato un errore durante l'aggiornamento delle sezioni dell'Aiuto.
         form:
           save: Salva
+        success: Sezioni di Aiuto aggiornate con successo.
       impersonatable_users:
         index:
           filter:
@@ -412,6 +509,30 @@ it:
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
+        and: e
+        data_errors:
+          duplicate_headers:
+            detail: Controllare che il file contenga colonne o intestazioni richieste una sola volta.
+            message:
+              one: Colonna duplicata %{columns}.
+              other: Colonne duplicate %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Si prega di controllare che queste righe siano formattate correttamente e contengano record validi.
+              message:
+                one: Trovato un errore nel file di importazione sulla riga %{indexes}.
+                other: Trovati errori nel file di importazione sulle righe %{indexes}.
+            records:
+              detail: Si prega di controllare che questi record siano formattati correttamente e contengano record validi.
+              message:
+                one: Trovato un errore nel file di importazione per i record con i numeri di ordine %{indexes}.
+                other: Trovati errori nel file di importazione per i record con numeri di ordine %{indexes}.
+          missing_headers:
+            detail: Controllare che il file contenga le colonne richieste.
+            message:
+              one: Colonna mancante %{columns}.
+              other: Colonne mancanti %{columns}.
+        error: Si è verificato un errore durante l'importazione.
         new:
           accepted_mime_types:
             csv: csv
@@ -625,14 +746,25 @@ it:
           select_users: Seleziona gli utenti a cui desideri inviare la newsletter
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
+        send:
+          no_recipients: Nessun destinatario per questa selezione.
+        send_to_user:
+          sent_successfully: Newsletter inviata con successo a %{email}
         show:
           preview: Anteprima
           select_recipients_to_deliver: Seleziona destinatari a cui inviare
+          send_me_a_test_email: Inviami una email di prova
           subject: Oggetto
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       officializations:
+        block:
+          success: Partecipante bloccato con successo.
+        create:
+          success: Partecipante ufficializzato con successo.
+        destroy:
+          success: Partecipante non ufficializzato con successo.
         index:
           actions: Azioni
           badge: Distintivo
@@ -660,6 +792,8 @@ it:
           hidden: nascosto
           show: Mostra
           title: Mostra l'indirizzo email del partecipante
+        unblock:
+          success: Partecipante sbloccato con successo.
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -670,6 +804,7 @@ it:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -680,8 +815,19 @@ it:
           update: Modifica
         form:
           colors:
+            choose_color: Scegli un colore primario
             colors_title: Colori dell'organizzazione
+            colors_warning_html: Attenzione! Cambiare questi colori può violare l'accessibilità dei contrasti dei colori. Puoi controllare il contrasto della tua scelta dei colori con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o altri strumenti simili.
+            explanation: Questo strumento ti aiuta a scegliere uno schema di colori, composto da tonalità ugualmente distanziate intorno alla gamma dei colori, che saranno utilizzate nel sito web dell'organizzazione.
+            legend_html: I principali colori dell'applicazione, basati sull'algoritmo <a href="https://www.color-meanings.com/triadic-colors/">Triadic</a>. Il colore <i>secondario</i> è calcolato a partire dal colore primario e dalla saturazione che hai scelto.
+            saturation: Saturazione
+            title: Selettore colore
+            update_suggested_colors: Aggiorna i colori suggeriti
+          cta_button_path_help_html: 'È possibile modificare la posizione in cui il pulsante "Chiamata all''Azione" nella home page viene mostrato. Per farlo utilizzare URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''Azione" è mostrato nella home page tra il testo di benvenuto e la descrizione. Ad esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
+          header_snippets:
+            header_snippets_help_html: Usa questo campo per aggiungere funzionalità all head HTML. L'uso più comune è quello di integrare servizi di terze parti che richiedono alcuni JavaScript o CSS aggiuntivi. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra per l'HTML. Nota che questo sarà reso solo nelle pagine pubbliche, non nella sezione amministrazione. Se il codice interagisce con API esterne o non è conforme alle linee guida di sicurezza dell’applicazione, sarà necessario modificare la Content Security Policy. Per saperne di più su <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">nella documentazione di Decidim</a>.
+            title: Frammenti di intestazione HTML
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           images:
@@ -691,6 +837,11 @@ it:
       organization_external_domain_whitelist:
         edit:
           update: Aggiorna
+        external_domain:
+          down: Giù
+          external_domain: Dominio esterno
+          remove: Rimuovi
+          up: Su
         form:
           add: Aggiungi alla whitelist
           title: Whitelist di domini esterni
