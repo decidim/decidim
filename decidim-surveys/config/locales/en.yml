@@ -53,9 +53,9 @@ en:
         title: Responses to surveys
     statistics:
       answers_count: Answers
+      responses: 'Responses:'
       responses_count: Responses
       surveys_count_tooltip: The number of available surveys and responses collected.
-      responses: 'Responses:'
     surveys:
       actions:
         confirm_destroy: Are you sure you want to delete this?

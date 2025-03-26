@@ -1085,5 +1085,5 @@ en:
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
       proposals_count_tooltip: The total number of submitted proposals and votes cast on them.
-      votes_count: Votes
       votes: 'Votes:'
+      votes_count: Votes

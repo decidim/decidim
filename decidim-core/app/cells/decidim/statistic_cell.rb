@@ -31,7 +31,7 @@ module Decidim
       return if model[:tooltip_key].blank?
 
       tooltip_key = model[:tooltip_key].to_s
-      with_tooltip(t(tooltip_key, scope: "decidim.statistics")) do
+      with_tooltip(t(tooltip_key, scope: "decidim.statistics"), class: "top") do
         icon("information-line")
       end
     end
