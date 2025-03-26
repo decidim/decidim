@@ -111,6 +111,7 @@ Decidim.register_component(:proposals) do |component|
   component.register_stat :participatory_space_proposals_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "votes",
                           icon_name: "chat-new-line",
                           tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden

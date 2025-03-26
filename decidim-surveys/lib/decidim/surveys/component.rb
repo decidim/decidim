@@ -32,6 +32,7 @@ Decidim.register_component(:surveys) do |component|
   component.register_stat :surveys_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "responses",
                           icon_name: "survey-line",
                           tooltip_key: "surveys_count_tooltip" do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)

@@ -14,11 +14,7 @@
   </div>
   <% if second_stat_number %>
     <span class="statistic__second-number">
-      <% if stat_title=="Proposals" || "Budgets" %>
-        <%= t("votes", scope: "decidim.statistics") %>
-      <% else %>
-        <%= t("responses", scope: "decidim.statistics") %>
-      <% end %>
+      <%= stat_sub_title %>
       <span class="font-semibold"><%= second_stat_number %></span>
     </span>
   <% end %>

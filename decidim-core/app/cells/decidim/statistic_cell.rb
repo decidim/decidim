@@ -21,6 +21,12 @@ module Decidim
       t(model[:name], scope: "decidim.statistics")
     end
 
+    def stat_sub_title
+      return if model[:sub_title].blank?
+
+      t(model[:sub_title], scope: "decidim.statistics")
+    end
+
     def information_tooltip
       return if model[:tooltip_key].blank?
 

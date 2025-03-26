@@ -55,6 +55,7 @@ en:
       answers_count: Answers
       responses_count: Responses
       surveys_count_tooltip: The number of available surveys and responses collected.
+      responses: 'Responses:'
     surveys:
       actions:
         confirm_destroy: Are you sure you want to delete this?

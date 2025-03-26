@@ -36,6 +36,7 @@ module Decidim
                   tag: options[:tag],
                   icon_name: options[:icon_name],
                   tooltip_key: options[:tooltip_key],
+                  sub_title: options[:sub_title],
                   block:)
     end
 
@@ -68,7 +69,8 @@ module Decidim
             name: stat[:name],
             data: resolve(stat[:name], context, start_at, end_at),
             icon_name: stat[:icon_name],
-            tooltip_key: stat[:tooltip_key]
+            tooltip_key: stat[:tooltip_key],
+            sub_title: stat[:sub_title]
           }
         end
       end

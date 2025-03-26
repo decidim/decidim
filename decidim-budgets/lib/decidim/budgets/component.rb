@@ -41,6 +41,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_stat :projects_count,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "votes",
                           icon_name: "git-pull-request-line",
                           tooltip_key: "projects_count_tooltip" do |components, start_at, end_at|
     budgets = Decidim::Budgets::Budget.where(component: components)

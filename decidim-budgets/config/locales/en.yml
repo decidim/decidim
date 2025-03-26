@@ -438,5 +438,6 @@ en:
       orders_count: Supports
       projects_count: Budgets
       projects_count_tooltip: The number of participatory budgeting projects and the total votes cast on them.
+      votes: 'Votes:'
   index:
     confirmed_orders_count: Votes count

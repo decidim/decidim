@@ -1681,11 +1681,9 @@ en:
       pages_count: Pages
       participants_count: Participants
       participants_count_tooltip: The number of unique users who have interacted in this space by submitting proposals, attending meetings, voting, or joining discussions.
-      responses: 'Responses:'
       surveys_count: Surveys
       users_count: Participants
       users_count_tooltip: The total number of users who have signed up and confirmed their account via email.
-      votes: 'Votes:'
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
