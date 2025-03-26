@@ -4,6 +4,7 @@ de:
     attributes:
       answer:
         body: Antworten
+        choices: Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
