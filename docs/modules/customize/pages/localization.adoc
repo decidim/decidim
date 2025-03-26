@@ -9,7 +9,7 @@ If the changes that you need are only for your country or your installation, the
 
 These are defined in the YAML. You can read more about this in the link:https://guides.rubyonrails.org/i18n.html[Rails Internationalization (i18n) API] and also in the xref:customize:texts.adoc[Texts] page.
 
-You are most interested in the following keys:
+The following keys are relevant to time and date format:
 
 ```yaml
   date:
@@ -26,9 +26,9 @@ You are most interested in the following keys:
       separator: "/"
 ```
 
-So, as an example, if you want to change this values because you are in the United States of America, then you need to:
+If you need to change the format to comply with the United States of America standard, you must do the following:
 
-1. Create or update the file `config/locales/en.yml` in your generated application
+1. Create or update the file `config/locales/en.yml` in your generated application.
 2. Add the following snippet:
 ```yaml
 en:
@@ -45,7 +45,7 @@ en:
       order: m-d-y
       separator: "/"
 ```
-3. Restart your application server
+3. Restart your application server.
 
 Note that in the case of the `order` value, currently it only supports two values:
 
@@ -54,4 +54,4 @@ Note that in the case of the `order` value, currently it only supports two value
 
 == Currency unit
 
-In case that you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to another currency that is not the Euro (€), the default value. Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
+If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
