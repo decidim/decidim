@@ -108,18 +108,19 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden.count
   end
 
-  component.register_stat :component_proposals_count,
+  component.register_stat :participatory_space_proposals_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
                           icon_name: "chat-new-line",
                           tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden
     [
-      Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden.count,
-      Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).votes.count
+      proposals.count,
+      Decidim::Proposals::ProposalVote.where(proposal: proposals).count
     ]
   end
 
-  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
@@ -142,7 +143,11 @@ Decidim.register_component(:proposals) do |component|
     proposals.sum(:comments_count)
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals_ids = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
   end

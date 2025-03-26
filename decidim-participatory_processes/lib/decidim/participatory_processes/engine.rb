@@ -92,7 +92,7 @@ module Decidim
                                priority: StatsRegistry::MEDIUM_PRIORITY,
                                icon_name: "user-line",
                                tooltip_key: "participants_count_tooltip" do |participatory_space|
-          [Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space), 1234]
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
         end
       end
 

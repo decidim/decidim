@@ -38,18 +38,14 @@ Decidim.register_component(:surveys) do |component|
     surveys = surveys.where(created_at: start_at..) if start_at.present?
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
     first = surveys.count
-    [
-      first,
-      Decidim::Surveys::Survey.includes(:questionnaire).where(component: components).responses.count
-    ]
-  end
-
-  component.register_stat :responses_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    responses = Decidim::Forms::Response.where(questionnaire: surveys.map(&:questionnaire))
+    participatory_space_surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
+    responses = Decidim::Forms::Response.where(questionnaire: participatory_space_surveys.map(&:questionnaire))
     responses = responses.where(created_at: start_at..) if start_at.present?
     responses = responses.where(created_at: ..end_at) if end_at.present?
-    responses.group(:session_token).count.size
+    [
+      first,
+      responses.group(:session_token).count.size
+    ]
   end
 
   # These actions permissions can be configured in the admin panel

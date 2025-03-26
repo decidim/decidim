@@ -22,14 +22,18 @@ module Decidim
     end
 
     def information_tooltip
+      return if model[:tooltip_key].blank?
+
       tooltip_key = model[:tooltip_key].to_s
-      with_tooltip(t(tooltip_key, scope: "decidim.statistics", default: "")) do
+      with_tooltip(t(tooltip_key, scope: "decidim.statistics")) do
         icon("information-line")
       end
     end
 
     def stat_icon
-      icon(model[:icon_name].to_sym) || ""
+      return if model[:icon_name].blank?
+
+      icon(model[:icon_name].to_sym)
     end
   end
 end

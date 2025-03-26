@@ -36,7 +36,7 @@ Decidim.register_component(:meetings) do |component|
     meetings.count
   end
 
-  component.register_stat :component_meetings_count,
+  component.register_stat :participatory_space_meetings_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
                           icon_name: "map-pin-line",
@@ -45,7 +45,11 @@ Decidim.register_component(:meetings) do |component|
     meetings.count
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end

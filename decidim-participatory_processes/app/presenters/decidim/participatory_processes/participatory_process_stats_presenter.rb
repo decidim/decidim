@@ -8,7 +8,7 @@ module Decidim
 
       private
 
-      def participatory_space = __getobj__.fetch(:participatory_process)
+      def scope_entity = __getobj__.fetch(:participatory_process)
 
       def participatory_space_sym = :participatory_processes
     end

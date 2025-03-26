@@ -13,8 +13,13 @@
     </span>
   </div>
   <% if second_stat_number %>
-    <span class="second-statistic__number">
-      <%= second_stat_number %>
+    <span class="statistic__second-number">
+      <% if stat_title=="Proposals" || "Budgets" %>
+        <%= t("votes", scope: "decidim.statistics") %>
+      <% else %>
+        <%= t("responses", scope: "decidim.statistics") %>
+      <% end %>
+      <span class="font-semibold"><%= second_stat_number %></span>
     </span>
   <% end %>
   <span class="statistic__number">

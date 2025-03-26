@@ -1,5 +1,5 @@
 .statistic {
-  @apply flex flex-col items-start gap-2 p-4 rounded border-[3px] border-background bg-background;
+  @apply flex flex-col items-start gap-1.5 p-4 rounded border-[3px] border-background bg-background;
 
   &__container {
     @apply grid grid-cols-[repeat(auto-fit,minmax(345px,1fr))] md:grid-cols-4 gap-4;
@@ -10,8 +10,10 @@
   }
 
   &__icon {
+    @apply text-gray-2;
+
     svg {
-      @apply w-[24px] h-[24px];
+      @apply w-[24px] h-[24px] fill-current;
     }
   }
 
@@ -29,6 +31,10 @@
     svg {
       @apply w-4 h-4 fill-current;
     }
+  }
+
+  &__second-number {
+    @apply text-[16px]/[22px] text-gray-2;
   }
 
   &__number {

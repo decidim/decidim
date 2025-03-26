@@ -8,9 +8,7 @@ module Decidim
 
       private
 
-      def participatory_space = __getobj__.fetch(:assembly)
-
-      def participatory_space_sym = :assemblies
+      def scope_entity = __getobj__.fetch(:assembly)
     end
   end
 end
