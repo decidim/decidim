@@ -18,6 +18,7 @@ it:
         title: Titolo
       voting:
         end_time: La votazione termina il
+        scope_id: Ambito
         start_time: La votazione inizia il
         voting_type: Tipo di votazione
     errors:
