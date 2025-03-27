@@ -191,6 +191,7 @@ it:
         filters:
           all: Tutti
         home:
+          categories_label: Categorie
           subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
