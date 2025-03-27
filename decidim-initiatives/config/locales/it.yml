@@ -54,6 +54,9 @@ it:
               needs_to_be_reattached: Necessita di essere riallegato
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
