@@ -33,7 +33,7 @@ end
 # Expected values: "", "2", "3", etc. (see parallel_tests documentation)
 parallel_run_idx = ENV.fetch("TEST_ENV_NUMBER", "").to_i
 parallel_run_idx -= 1 if parallel_run_idx.positive?
-1.step do |num|
+Capybara.server_port = 1.step do |num|
   port = 4999 + num + (100 * parallel_run_idx)
   next if port == 5432 # Reserved for PostgreSQL
   next if port == 6379 # Reserved for Redis
@@ -43,10 +43,8 @@ parallel_run_idx -= 1 if parallel_run_idx.positive?
     Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
     warn "Port #{port} is already in use, trying another one."
   rescue Errno::ECONNREFUSED
-    break
+    break port
   end
-ensure
-  Capybara.server_port = port
 end
 
 Capybara.register_driver :headless_chrome do |app|
