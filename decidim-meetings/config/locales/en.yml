@@ -229,6 +229,7 @@ en:
           email_subject: The "%{resource_title}" meeting was updated
           field_names:
             address: the address
+            end_time: the end time
             location: the location
             start_time: the start time
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
