@@ -49,13 +49,6 @@ module Decidim
                           position: 1.2
           end
 
-          if current_organization.user_groups_enabled? && user_groups.any?
-            menu.add_item :own_user_groups,
-                          t("user_groups", scope: "layouts.decidim.user_profile"),
-                          decidim.own_user_groups_path,
-                          position: 1.3
-          end
-
           menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
                         decidim.download_your_data_path,

@@ -118,10 +118,6 @@ module Decidim
         end
       end
 
-      def current_user_groups?
-        current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
-      end
-
       # Public: URL to create an event in Google Calendars based on meeting
       # data.
       #

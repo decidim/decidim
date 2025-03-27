@@ -1,40 +1,59 @@
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= form_title %>
-    <div class="ml-auto">
-      <%= link_to t(".skip_template"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "button button__sm button__secondary", method: :post %>
-    </div>
   </h1>
+
+  <% if show_buttons %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs button__secondary h-8 disabled", data: { disabled_button: true } %>
+    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "button button__sm button__secondary h-8 hidden", data: { create_new_form_button: true }, method: :post %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs button__secondary h-8 hidden", data: { with_template_button: true }, form: "choose-template-form" %>
+  <% end %>
 </div>
+
 <div class="item__edit item__edit-1col">
-  <div class="item__edit-form">
-    <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form form-defaults choose_questionnaire_templates" }) do |form| %>
+  <div class="item__edit-form questionnaire-template__form">
+    <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url),
+                                          method: :post,
+                                          html: { id: "choose-template-form", class: "form form-defaults choose_questionnaire_templates", "data-choose-questionnaire-templates": true }) do |form| %>
       <div class="form__wrapper">
-        <div class="card p-4">
+        <div class="p-4 ">
           <%= t(".description") %>
+
+          <div class="grid grid-cols-2 gap-4 my-4">
+            <%= label_tag :template_create_new_form, class: "questionnaire-template__form-card" do %>
+              <%= radio_button_tag :template, :create_new_form, false, class: "hidden peer" %>
+              <span class="text-lg font-normal">
+                <%= t(".options.create_new_form") %>
+              </span>
+            <% end %>
+
+            <%= label_tag :template_select_template, class: "questionnaire-template__form-card" do %>
+              <%= radio_button_tag :template, :select_template, false, class: "hidden peer" %>
+              <span class="text-lg font-normal">
+                <%= t(".options.select_template") %>
+              </span>
+            <% end %>
+          </div>
+
           <%= datalist_select(templates,
                               {
                                 id: "choose-template",
                                 list: "template-list",
                                 label: t(".label"),
                                 name: "select-template",
+                                class: "hidden",
                                 placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
                                 data: {
                                   previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
                                 }
                               }
           ) { form.hidden_field :questionnaire_template_id } %>
-          <div class="card-section questionnaire-template-preview pt-4 hide">
+
+          <div class="card-section questionnaire-template-preview pt-4 hide" data-questionnaire-template-preview="true">
             <h2 class="item_show__header-title" data-template-name></h2>
             <p class="py-4" data-template-description></p>
             <div class="row column" data-choose-template-preview></div>
           </div>
-        </div>
-      </div>
-
-      <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
-          <%= form.submit t(".create_from_template"), class: "button button__sm button__secondary" %>
         </div>
       </div>
     <% end %>

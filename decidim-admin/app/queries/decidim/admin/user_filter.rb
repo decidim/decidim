@@ -15,7 +15,7 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # scope - the ActiveRecord::Relation of users to be filtered
-      # name_query - query to filter user group names
+      # name_query - query to filter user names
       # state - evaluation state to be used as a filter
       def self.for(scope, name_query = nil, state = nil)
         new(scope, name_query, state).query
@@ -24,7 +24,7 @@ module Decidim
       # Initializes the class.
       #
       # scope - the ActiveRecord::Relation of users to be filtered
-      # name_query - query to filter user group names
+      # name_query - query to filter user names
       # state - users state, must be defined as a scope in the user model
       def initialize(scope, name_query = nil, state = nil)
         @scope = scope
@@ -32,7 +32,7 @@ module Decidim
         @state = state
       end
 
-      # List the User groups by the different filters.
+      # List the Users by the different filters.
       def query
         users = scope
         users = filter_by_search(users)

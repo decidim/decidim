@@ -16,6 +16,12 @@ eu:
       admin_log:
         changeset:
           surveys: inkestak
+      menu:
+        surveys_menu:
+          answers: Erantzunak
+          main: Nagusia
+          questions: Galderak
+          settings: Ezarpenak
     components:
       surveys:
         actions:
@@ -52,13 +58,14 @@ eu:
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         destroy: Suntsitu
         edit: Editatu
-        manage_questions: Kudeatu galderak
+        manage_questions: Galderak
         new_survey: Beste inkesta bat
         preview: Aurreikusi
         title: Ekintzak
       admin:
         answers:
           index:
+            no_answers: Oraindik ez dago erantzunik
             title: "Guztira %{guztira} erantzun"
           show:
             title: '#%{number} erantzun'
@@ -77,6 +84,14 @@ eu:
               not_published: Argitaratu gabe
               published: Argitaratua
             title: Argitaratu erantzunak
+        questions:
+          surveys:
+            edit:
+              title: Galderak
+        settings:
+          surveys:
+            edit:
+              title: Ezarpenak
         surveys:
           create:
             invalid: Arazo bat egon da inkesta sortzean.
@@ -84,9 +99,11 @@ eu:
           destroy:
             success: Inkesta behar bezala ezabatua.
           edit:
-            title: Editatu inkesta
+            title: Nagusia
           index:
             title: Inkestak
+          new:
+            title: Nagusia
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.

@@ -201,7 +201,6 @@ fi-pl:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
-            valuator: Arvioija
       taxonomy_filters:
         space_filter_for:
           assemblies: Kaikki ryhmät

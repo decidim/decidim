@@ -3,7 +3,6 @@
 module Decidim
   module DownloadYourDataSerializers
     autoload :DownloadYourDataUserSerializer, "decidim/download_your_data_serializers/download_your_data_user_serializer"
-    autoload :DownloadYourDataUserGroupSerializer, "decidim/download_your_data_serializers/download_your_data_user_group_serializer"
     autoload :DownloadYourDataConversationSerializer, "decidim/download_your_data_serializers/download_your_data_conversation_serializer"
     autoload :DownloadYourDataReportSerializer, "decidim/download_your_data_serializers/download_your_data_report_serializer"
     autoload :DownloadYourDataFollowSerializer, "decidim/download_your_data_serializers/download_your_data_follow_serializer"
@@ -14,7 +13,7 @@ module Decidim
     def self.data_entities
       ["Decidim::Follow", "Decidim::Identity",
        "Decidim::Messaging::Conversation", "Decidim::Notification",
-       "Decidim::ParticipatorySpacePrivateUser", "Decidim::Report", "Decidim::User", "Decidim::UserGroup"] |
+       "Decidim::ParticipatorySpacePrivateUser", "Decidim::Report", "Decidim::User"] |
         Decidim.component_manifests.map(&:data_portable_entities).flatten |
         Decidim.participatory_space_manifests.map(&:data_portable_entities).flatten |
         (Decidim::Comments.data_portable_entities.flatten if defined?(Decidim::Comments))

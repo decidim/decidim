@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("decidim.forms.admin.questionnaires.edit_questions.title")) %>
 
 <% if templates_defined? && choose_template? %>
-  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
+  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title"), show_buttons: true } %>
 <% else %>
 
   <div class="questionnaire-questions">
@@ -16,13 +16,13 @@
           <% if allowed_to? :preview, :questionnaire %>
             <%= link_to t("preview", scope: "decidim.forms.admin.questionnaires.form"), public_url, class: "button button__sm button__transparent-secondary", target: :_blank, data: { "external-link": false } %>
           <% end %>
-          <% if questionnaire.answers.any? %>
-            <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
-            <% if allowed_to? :show, :questionnaire_answers %>
+          <% if questionnaire.responses.any? %>
+            <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_responses, :questionnaire %>
+            <% if allowed_to? :show, :questionnaire_responses %>
               <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), questionnaire_participants_url, class: "button button__sm button__secondary new whitespace-nowrap" %>
             <% end %>
           <% else %>
-            <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
+            <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.responses") %></button>
           <% end %>
       </h1>
     </div>

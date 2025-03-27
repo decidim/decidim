@@ -2,12 +2,12 @@
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= edit_questionnaire_title %>
-    <% if questionnaire.answers.any? %>
+    <% if questionnaire.responses.any? %>
       <div class="button--title">
-        <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
+        <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_responses, :questionnaire) %>
       </div>
     <% else %>
-      <button class="button button__sm button__secondary" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
+      <button class="button button__sm button__secondary" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.responses") %></button>
     <% end %>
   </h1>
 </div>

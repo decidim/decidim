@@ -29,8 +29,8 @@
   <% end %>
 
   <section>
-    <% if allow_answers? %>
-      <% if visitor_can_answer? %>
+    <% if allow_responses? %>
+      <% if visitor_can_respond? %>
         <% if @form.responses_by_step.flatten.empty? %>
           <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
         <% else %>

@@ -215,7 +215,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-            valuator: Оценител
         media_link:
           fields:
             date: Дата

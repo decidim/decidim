@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "traceable interface" do
   describe "traceable", versioning: true do
-    let(:version_author) { try(:author) || model.try(:creator_identity) || model.try(:normalized_author) }
+    let(:version_author) { try(:author) || model.try(:creator_identity) }
 
     before { Decidim.traceability.update!(model, version_author, title: { en: "test" }) }
 
