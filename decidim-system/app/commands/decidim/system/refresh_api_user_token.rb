@@ -32,7 +32,8 @@ module Decidim
       end
 
       def password_token
-        @password_token ||= generate_token
+        secret_key_length = Decidim::System.api_users_secret_length
+        @password_token ||= generate_token(secret_key_length)
       end
     end
   end

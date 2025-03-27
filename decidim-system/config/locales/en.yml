@@ -39,21 +39,27 @@ en:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Secret is hidden
+          hide_secret: Hide Secret
+          show_secret: Show secret
+          shown_secret: Secret is shown
+          secret_can_not_be_shown: the API secret can be only seen or copied after creation
         api_users:
           create: Create
           new: New API user
-          revoke: Revoke token
+          remove: Remove user
         confirm_destroy: Are you sure you want to delete this?
-        confirm_revoke_api_user: Are you sure you want to revoke this API user?
+        confirm_remove_api_user: Are you sure you want to remove this API user?
         copied: Copied
-        copy_token: Copy token
-        copy_token_clarification: Copy token to the clipboard
+        copy_secret: Copy secret
+        copy_secret_clarification: Copy secret to the clipboard
         destroy: Delete
         edit: Edit
         new_admin: New admin
         new_oauth_application: New OAUTH application
         new_organization: New organization
-        refresh_token: Refresh token
+        refresh_secret: Refresh secret
         save: Save
         title: Actions
       admins:
@@ -76,12 +82,12 @@ en:
       api_user:
         create:
           error: API user creation failed.
-          success: API user created successfully.
+          success: API user created successfully. The secret for the user is only visible after creation. Please copy it and store it safely before leaving this page!
         destroy:
           success: API user successfully deleted.
         refresh:
           error: Something went wrong! Please try again later.
-          success: Token refreshed successfully.
+          success: Secret refreshed successfully. The secret for the user is only visible after creation. Please copy it and store it safely before leaving this page!
       api_users:
         index:
           explanation_html: |
@@ -136,6 +142,7 @@ en:
             key: Key
             name: Name
             organization: Organization
+            secret: Secret
           validations:
             name_uniqueness: An API user with this name already exists.
         oauth_application:

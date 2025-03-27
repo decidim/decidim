@@ -518,6 +518,11 @@ You may specify multiple ip in an array, separating by commas, such as `1.2.3.4,
 |
 |No
 
+|DECIDIM_SYSTEM_API_USERS_SECRET_LENGTH
+|The length of secret tokens generated for api users.
+|32
+|No
+
 |DECIDIM_BASE_UPLOADS_PATH
 |A base path for the uploads. If set, make sure it ends in a slash.
 Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -706,7 +711,7 @@ user will expired.
 |15
 |No
 
-|API_SECRET_KEY_JWT
+|DECIDIM_API_JWT_SECRET
 |This secret is being used by the devise-jwt to sign the tokens being generated for the api users.
 |
 |Yes

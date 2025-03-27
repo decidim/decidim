@@ -40,7 +40,7 @@ module Decidim
           nickname: ::Decidim::UserBaseEntity.nicknamize(form.name, organization: form.organization),
           admin: true,
           admin_terms_accepted_at: Time.current,
-          api_secret: password_token
+          api_secret: secret_token
         }.tap do |attrs|
           attrs[:published_at] = Time.current if ::Decidim::Api::ApiUser.column_names.include?("published_at")
         end
@@ -50,8 +50,9 @@ module Decidim
         @key_token ||= generate_unique_token
       end
 
-      def password_token
-        @password_token ||= generate_token
+      def secret_token
+        secret_key_length = Decidim::System.api_users_secret_length
+        @password_token ||= generate_token(secret_key_length)
       end
 
       def generate_unique_token

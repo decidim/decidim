@@ -10,5 +10,12 @@ module Decidim
   #
   module System
     autoload :TokenGenerator, "decidim/system/token_generator"
+
+    include ActiveSupport::Configurable
+
+    # The length of secret tokens generated for api users.
+    config_accessor :api_users_secret_length do
+      ENV.fetch("DECIDIM_SYSTEM_API_USERS_SECRET_LENGTH", 32)
+    end
   end
 end
