@@ -27,6 +27,7 @@ describe "Documentation" do
     it "does not disclose system version by default" do
       visit decidim_api.documentation_path
       expect(page).to have_no_css(".content .version")
+      expect(page).to have_no_content("Decidim #{Decidim.version}")
     end
 
     context "when version disclosure is enabled" do
