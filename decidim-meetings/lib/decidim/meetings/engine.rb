@@ -81,7 +81,12 @@ module Decidim
 
       initializer "decidim_meetings.content_security_handlers" do |_app|
         Decidim.configure do |config|
-          config.content_security_policies_extra.deep_merge!({ "frame-src" => %w(player.twitch.tv meet.jit.si) })
+          if config.content_security_policies_extra["frame-src"].respond_to?(:<<)
+            config.content_security_policies_extra["frame-src"] << "player.twitch.tv"
+            config.content_security_policies_extra["frame-src"] << "meet.jit.si"
+          else
+            config.content_security_policies_extra["frame-src"] = %w(player.twitch.tv meet.jit.si)
+          end
         end
       end
 
