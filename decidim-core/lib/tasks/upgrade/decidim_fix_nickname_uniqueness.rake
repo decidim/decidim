@@ -15,11 +15,11 @@ namespace :decidim do
             user.save!
             has_changed << user.id
           end
-        rescue ActiveRecord::RecordInvalid
+        rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
           update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, organization: user.organization))
           has_changed << user.id
         rescue ActiveRecord::RecordInvalid # rubocop:disable Lint/DuplicateRescueException
-          logger.warn("User ID (#{similar_user.id}) : #{e}")
+          logger.warn("User ID (#{user.id}) : #{e}")
         end
       end
       logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
