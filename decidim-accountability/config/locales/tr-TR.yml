@@ -170,9 +170,6 @@ tr:
           results_count:
             one: 1 sonuç
             other: "%{count} sonuç"
-        home:
-          empty: Henüz sonuç yok.
-          empty_filters: Bu kriterlere uyan sonuç bulunamamıştır.
         home_header:
           global_status: Genel yürütme durumu
         no_results: Proje Bulunamadı

@@ -8,7 +8,6 @@ is-IS:
         has_address: Hefur heimilisfang
         state: Ríki
         title: Titill
-        user_group_id: Búðu til tillögu sem
       proposal_answer:
         answer: Svara
       proposals_copy:
@@ -96,7 +95,6 @@ is-IS:
       admin_log:
         proposal:
           answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
-          create: "%{user_name} skapaði %{resource_name} tillöguna á %{space_name} plássinu sem opinbera tillögu"
         proposal_note:
           create: "%{user_name} fór með einkapóst á %{resource_name} tillögunni á %{space_name} plássinu"
       answers:

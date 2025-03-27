@@ -1,0 +1,30 @@
+<div class="accountability__grid accountability__grid--two-levels">
+  <% selected_taxonomy_children.each do |taxonomy| %>
+    <% subelements = cell(
+      "decidim/accountability/status",
+      taxonomy,
+      extra_classes: "accountability__status__background",
+      url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
+      render_blank: true
+    ) %>
+
+    <% if subelements.has_results? %>
+      <div>
+        <%= subelements.call %>
+      </div>
+
+      <div>
+        <div class="accountability__subgrid">
+          <% taxonomy.children.where(id: current_component.available_taxonomy_ids).each do |sub_taxonomy| %>
+            <%= cell(
+                  "decidim/accountability/status",
+                  sub_taxonomy,
+                  extra_classes: "accountability__status__border",
+                  url: results_path(filter: { taxonomies_part_of_contains: sub_taxonomy })
+                ) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

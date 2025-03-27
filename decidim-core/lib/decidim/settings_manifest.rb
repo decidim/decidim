@@ -129,6 +129,7 @@ module Decidim
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
       attribute :choices
+      attribute :raw_choices, Boolean, default: false
       attribute :units
       attribute :include_blank, Boolean, default: false
 
@@ -154,8 +155,8 @@ module Decidim
         default || TYPES[type][:default]
       end
 
-      def build_choices
-        choices.try(:call) || choices
+      def build_choices(context = nil)
+        choices.try(:call, context) || choices
       end
 
       def build_units

@@ -32,6 +32,8 @@ sv:
           create:
             invalid: Det gick inte att skapa inlägget.
             success: Inlägget har skapats.
+          destroy:
+            success: Inlägget raderades.
           edit:
             save: Uppdatera
             title: Redigera inlägg
@@ -69,11 +71,28 @@ sv:
             published_at: Publicerad
             title: Titel
       posts:
+        edit:
+          back: Tillbaka till inlägget
+          button: Uppdatera
+          title: Redigera inlägg
+        form:
+          author_id: Författare
+          body: Text
+          title: Titel
         index:
           count:
             one: "%{count} inlägg"
             other: "%{count} inlägg"
           empty: Det finns inga inlägg ännu.
+          new_post: Nytt inlägg
+        menu_actions:
+          button_destroy: Ta bort inlägg
+          button_destroy_confirm: Är du säker på att du vill radera inlägget?
+          button_edit: Redigera inlägg
+        new:
+          back: Tillbaka till inlägg
+          button: Skapa
+          title: Skapa nytt inlägg
     components:
       blogs:
         actions:
@@ -88,6 +107,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            creation_enabled_for_participants: Deltagarna kan skapa inlägg
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
@@ -113,7 +133,6 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
         posts:
           author: Uppgifter om författaren
           body: Inläggets text

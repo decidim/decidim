@@ -36,6 +36,10 @@ describe "Social shares" do
   end
 
   it_behaves_like "a social share meta tag", "city3.jpeg"
+  it_behaves_like "a social share widget"
+  it_behaves_like "a social share via QR code" do
+    let(:card_image) { "city3.jpeg" }
+  end
 
   context "when no attachment images" do
     let!(:attachment) { nil }
@@ -60,7 +64,7 @@ describe "Social shares" do
     let!(:poll) { create(:poll, meeting:) }
     let!(:meetings_poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
     let!(:meeting_polls_question) { create(:meetings_poll_question, :published, questionnaire: meetings_poll_questionnaire) }
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_polls_answers_path(meeting) }
+    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_polls_responses_path(meeting) }
 
     it_behaves_like "a social share meta tag", "city3.jpeg"
   end

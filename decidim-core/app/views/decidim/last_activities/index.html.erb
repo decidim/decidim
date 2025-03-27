@@ -5,7 +5,7 @@
   <h1 class="title-decorator my-12"><%= t("last_activity", scope: "decidim.last_activities.index") %></h1>
 
   <div class="profile__activity pb-16">
-    <%= cell "decidim/resource_types_filter", resource_types, form_path: last_activities_path, filter_param_key: :with_resource_type, filter: %>
+    <%= cell "decidim/resource_types_filter", resource_types, source: :last_activities, filter_param_key: :with_resource_type %>
     <div id="activities">
       <%= render partial: "activities" %>
     </div>

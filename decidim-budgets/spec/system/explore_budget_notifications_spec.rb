@@ -25,7 +25,7 @@ describe "Explore budget notifications", :slow do
         create(:follow, followable: component.participatory_space, user:)
         comment = create(:comment, commentable: project, author: other_user)
         perform_enqueued_jobs do
-          Decidim::Comments::NewCommentNotificationCreator.new(comment, [], []).create
+          Decidim::Comments::NewCommentNotificationCreator.new(comment, []).create
         end
       end
 

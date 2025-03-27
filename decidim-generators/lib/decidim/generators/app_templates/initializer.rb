@@ -54,7 +54,7 @@ Decidim.configure do |config|
   # config.maps = {
   #   provider: :here,
   #   api_key: Rails.application.secrets.maps[:api_key],
-  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  #   static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   # }
   #
   # == OpenStreetMap (OSM) services ==
@@ -119,7 +119,7 @@ Decidim.configure do |config|
     dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
     dynamic_url = Rails.application.secrets.maps[:dynamic_url]
     static_url = Rails.application.secrets.maps[:static_url]
-    static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+    static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
     config.maps = {
       provider: static_provider,
       api_key: Rails.application.secrets.maps[:static_api_key],
@@ -387,6 +387,13 @@ Decidim.configure do |config|
     # When the strong password is not configured, default to true
     config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
   end
+
+  # Delete inactive users configuration
+  config.delete_inactive_users_after_days = Rails.application.secrets.dig(:decidim, :inactive_users, :after_days).presence || 365
+  config.minimum_inactivity_period = Rails.application.secrets.dig(:decidim, :inactive_users, :minimum_period).presence || 30
+  config.delete_inactive_users_first_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :first_warning_days_before).presence || 30
+  config.delete_inactive_users_last_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :last_warning_days_before).presence || 7
+
   config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
   config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
   config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times).presence || 5
@@ -413,6 +420,8 @@ if Decidim.module_installed? :api
     config.schema_max_per_page = Rails.application.secrets.dig(:decidim, :api, :schema_max_per_page).presence || 50
     config.schema_max_complexity = Rails.application.secrets.dig(:decidim, :api, :schema_max_complexity).presence || 5000
     config.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
+    config.disclose_system_version = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
+    config.force_api_authentication = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
   end
 end
 

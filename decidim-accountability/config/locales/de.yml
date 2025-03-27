@@ -271,12 +271,11 @@ de:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        home:
-          empty: Es liegen noch keine Ergebnisse vor.
-          empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
         home_header:
           global_status: Globaler Umsetzungsstatus
         no_results: Es gibt keine Projekte
+        root_taxonomies:
+          title: 'Anzeigen nach:'
         search:
           search: Suche nach Aktionen
         show:
@@ -301,6 +300,8 @@ de:
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            default_taxonomy: Standard Klassifizierung
+            default_taxonomy_help: Wählen Sie, welche Klassifizierung standardmäßig angezeigt werden soll. Wenn keine Taxonomie ausgewählt ist, werden die Ergebnisse in einem Listenformat angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             display_progress_enabled: Fortschritt anzeigen
             geocoding_enabled: Karten aktiviert
@@ -310,6 +311,7 @@ de:
             taxonomy_filters_add: Filter hinzufügen
           step:
             comments_blocked: Kommentare blockiert
+          visualization: Visualisierung
     download_your_data:
       show:
         result_comments: Kommentare zu Ergebnissen exportieren
@@ -344,7 +346,6 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         results:
           address: Projektadresse (falls vorhanden)
           children_count: Die Anzahl der Teilergebnisse

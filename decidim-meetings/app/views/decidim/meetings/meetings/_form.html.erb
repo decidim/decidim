@@ -79,13 +79,4 @@
   <label><%= t(".disclaimer", organization: organization_name(current_component.organization)) %></label><br>
 </div>
 
-<div>
-  <%= form.select(
-    :user_group_id,
-    Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
-    prompt: current_user.name,
-    label: t(".create_as")
-  ) %>
-</div>
-
 <%= append_javascript_pack_tag "decidim_meetings" %>

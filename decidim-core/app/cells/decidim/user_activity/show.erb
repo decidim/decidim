@@ -1,5 +1,5 @@
 <div class="profile__activity">
-  <%= cell "decidim/resource_types_filter", resource_types, form_path: url_for, filter: %>
+  <%= cell "decidim/resource_types_filter", resource_types, source: :profile_activity %>
   <div class="profile__activity__container" id="activities-container">
     <% if activities.length == 0 %>
       <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>

@@ -47,7 +47,7 @@ $(() => {
           {
             users(filter:{wildcard:"${query}",excludeIds:[]})
               {
-                id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{
+                id,nickname,name,avatarUrl,__typename,...on User {
                   directMessagesEnabled
                 }
               }
@@ -70,9 +70,6 @@ $(() => {
       if (value.directMessagesEnabled === "false") {
         $(element).addClass("disabled");
         $(element).append(`<small>${$searchInput.data().directMessagesDisabled}</small>`);
-      }
-      if (value.membersCount) {
-        $(element).append(`<small class="is-group">${value.membersCount}x ${icon("group-2-fill")}</small>`);
       }
     }
   });

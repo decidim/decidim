@@ -9,12 +9,11 @@ es:
         scope_id: Ámbito
         state: Estado
         title: Título
-        user_group_id: Crear borrador colaborativo como
       import_participatory_text:
         document: Documento
       proposal:
         address: Dirección
-        answer: Respuesta
+        answer: Responder
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
@@ -27,9 +26,8 @@ es:
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
-        user_group_id: Crear propuesta como
       proposal_answer:
-        answer: Responder
+        answer: Respuesta
         cost: Coste
         cost_report: Informe de coste
         execution_period: Período de ejecución
@@ -55,9 +53,6 @@ es:
         import_proposals: Importar propuestas
         keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autoría original
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nombre de la evaluadora
     errors:
       models:
         participatory_text:
@@ -142,8 +137,6 @@ es:
               withdrawn: Retirada
           taxonomies_part_of_contains:
             label: Taxonomía
-          valuator_role_ids_has:
-            label: Asignada a evaluadora
           with_any_state:
             label: Respondidas
             values:
@@ -269,14 +262,8 @@ es:
         accepted_coauthorship:
           notification_title: Se te ha añadido como coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se  ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
-            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
-            email_subject: Has sido asignada como evaluadora de la propuesta "%{resource_title}".
-            notification_title: Se te ha asignado como evaluadora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>". Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_created:
             email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
-            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_mentioned:
@@ -346,6 +333,11 @@ es:
           email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
+        proposal_merged:
+          email_intro: 'Una administradora ha fusionado tu propuesta "%{resource_title}" con otra, puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
+          email_subject: La propuesta "%{resource_title}" se ha fusionado con otra
+          notification_title: Una administradora ha fusionado la propouesta "<a href="%{resource_path}">%{resource_title}</a>" con otra.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, a quien sigues, ha publicado una nueva propuesta llamada "%{resource_title}". Échale un vistazo y contribuye:'
           email_outro: Recibiste esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -445,7 +437,6 @@ es:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         proposals:
           address: La dirección de la propuesta en caso de que esta tenga una ubicación física
           answer: La respuesta a la propuesta en el caso de que se haya respondido
@@ -512,6 +503,16 @@ es:
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
+        import_proposals_mailer:
+          notify_failure:
+            body: Ha habido un problema al importar propuestas del componente %{origin_component_name} al componente %{target_component_name}.
+            subject: Se ha producido un error al importar las propuestas
+          notify_success:
+            added_proposals:
+              one: Se ha importado una propuesta.
+              other: "Se han importado %{count} propuestas."
+            body: Se han importado con éxito las propuestas desde el componente %{origin_component_name} al componente %{target_component_name}. Puedes revisar los resultados en el tablero de administración.
+            subject: Las propuestas se han importado correctamente
         imports:
           help:
             answers: |
@@ -629,24 +630,19 @@ es:
           index:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
-            assign_to_valuator: Asignar a evaluadora
-            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
-            merge_button: Fusionar
+            merge_button: Crear
             no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Selecciona un componente
-            select_valuators: Selecciona una o más evaluadoras
             selected: seleccionado
             split: Dividir propuestas
             split_button: Dividir
             statuses: Estados
             title: Propuestas
-            unassign_from_valuator: Desasignar de evaluadora
-            unassign_from_valuator_button: Desasignar
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas
@@ -658,7 +654,6 @@ es:
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
-            assigned_valuators: Evaluadoras asignadas
             body: Cuerpo
             comments_count: Número de comentarios
             documents: Documentos
@@ -672,8 +667,6 @@ es:
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
-            remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
-            valuators: Evaluadoras
             votes_count: Número de apoyos
           update_taxonomies:
             invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
@@ -683,7 +676,7 @@ es:
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
-            success: "%{number} propuestas importadas correctamente."
+            success: El proceso de importación ha comenzado. Te avisaremos cuando haya terminado.
           new:
             create: Importar propuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
@@ -694,30 +687,25 @@ es:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Se han convinado con éxito las propuestas en una de nueva.
+          form:
+            created_in_meeting: Esta propuesta proviene de una reunión
+            select_a_meeting: Selecciona un encuentro
+          new:
+            title: Fusionar en una nueva propuesta
         proposals_splits:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Las propuestas se han dividido en otras nuevas con éxito.
-        valuation_assignments:
-          create:
-            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
-            success: Propuestas asignadas correctamente a una evaluadora.
-          delete:
-            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
-            success: Evaluadora desasignada correctamente.
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
-          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          create: "%{user_name} creó la propuesta %{resource_name} a partir de la fusión de %{merged_count} propuestas en %{space_name}"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
           soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada en la propuesta %{resource_name} en el espacio %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
-          delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
         accepted: Aceptada
         evaluating: En evaluación
@@ -730,7 +718,6 @@ es:
           meetings: Encuentros
           official: Oficial
           participants: Participantes
-          user_groups: Grupos
         filter_state_values:
           all: Todos
           not_answered: No contestada
@@ -865,7 +852,7 @@ es:
           success: Invitación de coautoría cancelada con éxito.
         create:
           error: Se ha producido un error al invitar a la coautora.
-          success: "%{author_name} ha sido invitada como coautora con éxito."
+          success: "Se ha invitado con éxito a %{author_name} para ser coautor/a de la propuesta."
         destroy:
           error: Se ha producido un error al rechazar la invitación.
           success: Se ha rechazado su invitación.
@@ -887,8 +874,6 @@ es:
             state: Estado
             taxonomies: Taxonomías
             title: Título
-            valuator: Evaluadora
-            valuators: Evaluadoras
             votes: Apoyos
         proposal_state:
           css_class: Clase CSS

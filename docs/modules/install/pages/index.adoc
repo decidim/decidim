@@ -127,6 +127,29 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 # Change active step in participatory processes
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+
+# Delete inactive participants accounts
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+----
+
+=== Scheduled tasks from modules
+
+Additional cron jobs may be available depending on the modules you have installed.
+
+==== Initiatives module
+
+If you have installed the `decidim-initiatives` module, you may want to add to your crontab the following
+
+[source,console]
+----
+# Checks published initiatives and moves to accepted/rejected state depending on the votes collected when the signing period has finished
+30 7 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:check_published
+
+# Checks validating initiatives and moves all without changes for a configured time to discarded state
+0 7 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:check_validating
+
+# Notifies progress on published initiatives
+0 8 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:notify_progress
 ----
 
 === Further configuration

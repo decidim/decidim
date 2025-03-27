@@ -21,17 +21,10 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Адреса електронної пошти
         name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
-    models:
-      decidim/user_group:
-        one: Гурт учасників
-        few: Гурти учасників
-        many: Гуртів учасників
-        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -209,15 +202,12 @@ uk:
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Ви вперше на цьому майданчику?
           register: Створити обліковий запис
       shared:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
           title: Сповіщення про новини
-        omniauth_buttons:
-          or: Або
     doorkeeper:
       authorizations:
         new:
@@ -388,7 +378,8 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
-        edit_profile: Редагувати профіль
+        actions:
+          edit_profile: Редагувати профіль
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -432,9 +423,6 @@ uk:
         share_link: Поділитись посиланням
     statistics:
       comments_count: Коментарів
-    user_conversations:
-      update:
-        error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:
     invitations:
       edit:

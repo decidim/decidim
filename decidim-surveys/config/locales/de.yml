@@ -52,7 +52,6 @@ de:
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
         destroy: Löschen
         edit: Bearbeiten
-        manage_questions: Fragen verwalten
         new_survey: Neue Umfrage
         preview: Vorschau
         title: Aktionen
@@ -83,8 +82,6 @@ de:
             success: Umfrage erfolgreich erstellt.
           destroy:
             success: Umfrage erfolgreich gelöscht.
-          edit:
-            title: Umfrage bearbeiten
           index:
             title: Umfragen
           publish:

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Accountability

@@ -15,7 +15,6 @@ is-IS:
     attributes:
       decidim/user:
         current_password: Núverandi lykilorð
-        email: Tölvupóstur
         password: Lykilorð
         password_confirmation: Staðfesta lykilorð
         remember_me: Muna eftir mér
@@ -134,11 +133,7 @@ is-IS:
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
       sessions:
         new:
-          are_you_new?: Nýtt á vettvang?
           register: Búðu til reikning
-      shared:
-        omniauth_buttons:
-          or: Eða
     doorkeeper:
       authorizations:
         new:
@@ -274,9 +269,6 @@ is-IS:
       share_modal:
         share: Deila
         share_link: Deila tengil
-    user_conversations:
-      update:
-        error: Skilaboð ekki send. Reyndu aftur seinna
   devise:
     invitations:
       edit:

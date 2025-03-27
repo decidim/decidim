@@ -271,12 +271,11 @@ fi:
           results_count:
             one: 1 tulos
             other: "%{count} tulosta"
-        home:
-          empty: Ei yhtään tulosta.
-          empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
         home_header:
           global_status: Yleisen toteutuksen tila
         no_results: Projekteja ei ole saatavilla
+        root_taxonomies:
+          title: 'Näytä luokittelun mukaan:'
         search:
           search: Hae toimintoja
         show:
@@ -301,6 +300,8 @@ fi:
             clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            default_taxonomy: Oletusluokittelu
+            default_taxonomy_help: Valitse, minkä luokittelun haluat näyttää oletusarvoisesti. Mikäli luokittelua ei ole valittu, tulokset näytetään listamuodossa.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             display_progress_enabled: Näytä edistyminen
             geocoding_enabled: Karttatoiminnot käytössä
@@ -310,6 +311,7 @@ fi:
             taxonomy_filters_add: Lisää suodatin
           step:
             comments_blocked: Kommentointi estetty
+          visualization: Visualisointi
     download_your_data:
       show:
         result_comments: Tulosten kommenttien vienti
@@ -344,7 +346,6 @@ fi:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         results:
           address: Tuloksen osoite (jos määritetty)
           children_count: Alatulosten määrä

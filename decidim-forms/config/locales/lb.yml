@@ -31,7 +31,6 @@ lb:
         questionnaires:
           actions:
             back: Zurück zu Fragen
-            show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
             free_text: Freier Text

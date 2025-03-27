@@ -20,7 +20,7 @@ module Decidim
         if model.official?
           Decidim::Core::OfficialAuthorPresenter.new
         else
-          model.normalized_author.presenter
+          model.author.presenter
         end
       end
 

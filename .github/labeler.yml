@@ -52,6 +52,9 @@ javascript:
 "module: budgets":
   - changed-files:
       - any-glob-to-any-file: decidim-budgets/**/*
+"module: collaborative_texts":
+  - changed-files:
+      - any-glob-to-any-file: decidim-collaborative_texts/**/*
 "module: comments":
   - changed-files:
       - any-glob-to-any-file: decidim-comments/**/*

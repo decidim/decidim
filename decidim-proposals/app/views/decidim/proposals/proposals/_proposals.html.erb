@@ -8,7 +8,7 @@
   <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
 <% else %>
   <div class="flex items-center justify-between">
-    <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.proposals.proposals.index", count: @proposals.total_count) %></h2>
+    <h2 class="h5 md:h3 decorator" aria-live="polite" aria-atomic="true"><%= t("count", scope: "decidim.proposals.proposals.index", count: @proposals.total_count) %></h2>
     <div class="view-layout__links flex view_mode__links">
       <%= toggle_view_mode_link(@view_mode, "list", t("list_mode", scope: "decidim.proposals.proposals.index"), params) %>
       <%= toggle_view_mode_link(@view_mode, "grid", t("grid_mode", scope: "decidim.proposals.proposals.index"), params) %>
@@ -18,7 +18,7 @@
   <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
 
   <div class="<%= proposals_container_class(@view_mode) %>">
-    <%= render partial: "proposal", collection: @proposals, as: :proposal, locals: { card_size: card_size_for_view_mode(@view_mode) } %>
+    <%= render partial: "proposal", collection: @proposals, as: :proposal, locals: { card_size: card_size_for_view_mode(@view_mode), show_voting: true } %>
   </div>
 
   <%= decidim_paginate @proposals %>

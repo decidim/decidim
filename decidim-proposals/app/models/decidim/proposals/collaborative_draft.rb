@@ -46,6 +46,10 @@ module Decidim
         authored_by?(user)
       end
 
+      def presenter
+        Decidim::Proposals::CollaborativeDraftPresenter.new(self)
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url

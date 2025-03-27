@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      answer:
-        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -19,7 +17,6 @@ en:
         customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
-        decidim_user_group_id: User group
         description: Description
         end_time: End time
         id: ID
@@ -53,6 +50,8 @@ en:
       meeting_registration_invite:
         email: Email
         name: Name
+      response:
+        add_documents: Add documents
       validate_registration_code:
         code: Code
     errors:
@@ -123,7 +122,6 @@ en:
             values:
               official: Official
               participants: Participant
-              user_group: User Groups
           with_any_type:
             label: Type of meeting
             values:
@@ -177,7 +175,6 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
-            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
       help:
         invites:
@@ -312,10 +309,10 @@ en:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
         exports:
-          answers: Answers
           meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations
+          responses: Responses
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
@@ -409,7 +406,7 @@ en:
         poll:
           form:
             announcement_html:
-            - When a question receives answers or is published/closed, it can no longer be edited.
+            - When a question receives responses or is published/closed, it can no longer be edited.
             - You can add a question at any time.
             - The poll will be closed when the results of all created questions have been published.
             - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
@@ -421,7 +418,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
-            manage_questions: Manage questions
+            manage_questions: Questions
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
@@ -547,7 +544,6 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -558,7 +554,6 @@ en:
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
-          create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
@@ -587,7 +582,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create Your Meeting
+          title: Create new meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -641,26 +636,18 @@ en:
             taxonomies: Taxonomies
             title: Title
       polls:
-        answers:
-          index:
-            administrate: Administrate
-            title: Poll
-          index_admin:
-            back_to_meeting: Back to meeting
-            title: Administrate poll
-            view_poll: View poll
         questions:
           closed_question:
             announcement: The replies for this question have been closed.
             question: Question
             question_results: Results
           index:
-            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to respond them. They will be displayed here.
           index_admin:
             edit: Edit in the admin panel
             question: Question
-            received_answer: received answer
-            received_answers: received answers
+            received_response: received response
+            received_responses: received responses
             results: Results
             send: Send
             sent: Sent
@@ -673,8 +660,15 @@ en:
             question: Question
             question_replied: Question replied
             reply_question: Reply question
+        responses:
+          index:
+            administrate: Administrate
+            title: Poll
+          index_admin:
+            back_to_meeting: Back to meeting
+            title: Administrate poll
+            view_poll: View poll
       public_participants_list:
-        attending_organizations: Organizations
         attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
@@ -725,11 +719,10 @@ en:
           commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
           comments: The comments data of the meeting
           created_at: The date when this comment was created
-          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          depth: The place where this comment is in the three of comments (if it is a response or a response of a response)
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         meetings:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
@@ -747,7 +740,6 @@ en:
           created_at: The date at which the meeting was created
           customize_registration_email: The ability to allow a custom email at registration
           decidim_author_type: Author type of the meeting's author
-          decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
           follows_count: The number of follows the meeting has

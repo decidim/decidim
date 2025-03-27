@@ -47,7 +47,7 @@ module Decidim
     # @return [Boolean] A boolean indicating whether the authorization can be
     #   transferred.
     def transferrable?
-      duplicate.present? && duplicate.user.deleted?
+      duplicate.present? && (duplicate.user.deleted? || duplicate.user.ephemeral?)
     end
 
     # Defines whether the identity of an ephemeral user with the same authorization

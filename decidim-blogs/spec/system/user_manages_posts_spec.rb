@@ -9,7 +9,7 @@ describe "User manages posts" do
   let(:post) { create(:post, component:) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
-  let!(:component) { create(:post_component, :with_creation_enabled, manifest:, participatory_space: participatory_process) }
+  let!(:component) { create(:post_component, :with_attachments_allowed_and_creation_enabled, manifest:, participatory_space: participatory_process) }
 
   before do
     switch_to_host(organization.host)
@@ -39,20 +39,24 @@ describe "User manages posts" do
       login_as user, scope: :user
     end
 
-    it "can create a post" do
-      visit_component
+    context "when creating a post" do
+      it "saves the data" do
+        visit_component
 
-      click_on "New post"
-      expect(page).to have_content "Create new post"
+        click_on "New post"
+        expect(page).to have_content "Create new post"
 
-      fill_in "post_title", with: "My post"
-      fill_in "post_body", with: "This is my post"
-      click_on "Create"
+        fill_in "post_title", with: "My post"
+        fill_in "post_body", with: "This is my post"
+        dynamically_attach_file(:post_documents, Decidim::Dev.asset("city.jpeg"))
+        click_on "Create"
 
-      expect(page).to have_content "My post"
+        expect(page).to have_content "My post"
+        expect(page).to have_css("img[src*=\"city.jpeg\"]")
+      end
     end
 
-    context "when user authored a post" do
+    context "when editing an authored a post" do
       let!(:post) { create(:post, component:, author: user) }
 
       it "can edit the post" do

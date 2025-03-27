@@ -10,7 +10,7 @@ module Decidim
             :state_eq,
             :with_any_state,
             :taxonomies_part_of_contains,
-            :valuator_role_ids_has
+            :evaluator_role_ids_has
           )
 
           configuration.add_filters_with_values(
@@ -18,11 +18,11 @@ module Decidim
             state_eq: state_eq_values,
             with_any_state: %w(state_published state_not_published),
             taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
-            valuator_role_ids_has: valuator_role_ids
+            evaluator_role_ids_has: evaluator_role_ids
           )
 
           configuration.add_dynamically_translated_filters(
-            :valuator_role_ids_has,
+            :evaluator_role_ids_has,
             :proposal_state_id_eq,
             :taxonomies_part_of_contains,
             :state_eq

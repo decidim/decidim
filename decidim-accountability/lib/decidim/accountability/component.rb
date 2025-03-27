@@ -31,6 +31,9 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :display_progress_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
+    settings.attribute :default_taxonomy, type: :select, include_blank: true, raw_choices: true, choices: lambda { |context|
+      context[:component].available_root_taxonomies.map { |taxonomy| [taxonomy.name["en"], taxonomy.id] }
+    }
   end
 
   component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|

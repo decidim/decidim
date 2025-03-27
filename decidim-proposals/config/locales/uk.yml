@@ -9,7 +9,6 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -139,7 +138,6 @@ uk:
       admin_log:
         proposal:
           answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
-          create: "%{user_name} вніс пропозицію %{resource_name} у просторі %{space_name} як службову"
         proposal_note:
           create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:

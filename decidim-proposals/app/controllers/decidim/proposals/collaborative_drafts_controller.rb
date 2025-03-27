@@ -6,7 +6,6 @@ module Decidim
     class CollaborativeDraftsController < Decidim::Proposals::ApplicationController
       helper ProposalWizardHelper
       helper TooltipHelper
-      helper UserGroupHelper
 
       include Decidim::ApplicationHelper
       include Decidim::IconHelper

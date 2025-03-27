@@ -1,23 +1,19 @@
 <% add_decidim_page_title(t(".title")) %>
 
-<% if templates_defined? && choose_template? %>
-  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
-<% else %>
-  <div class="item_show__header">
-    <h1 class="item_show__header-title">
-      <%= t(".title") %>
-    </h1>
-  </div>
-  <div class="item__edit item__edit-1col">
-    <div class="item__edit-form">
-      <%= decidim_form_for(@form, url: survey_path(@survey), html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
-        <%= render partial: "form", object: form %>
-        <div class="item__edit-sticky">
-          <div class="item__edit-sticky-container">
-            <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__sm button__secondary" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
+  <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
 <% end %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: survey_path(@survey), html: { id: "survey-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
+      <%= render "decidim/forms/admin/questionnaires/form", form: %>
+    <% end %>
+  </div>
+</div>

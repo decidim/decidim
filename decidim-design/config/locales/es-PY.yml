@@ -294,6 +294,7 @@ es-PY:
         usage_typography_2: Texto en línea
         usage_typography_3: Texto sobre fondo oscuro
         usage_typography_4: Enlaces y botones
+        usage_typography_5: Pestaña desactivada
         value: Valor
         variations: Variaciones
         variations_cards_description: Cada tarjeta se verá diferente en función a las propiedades del recurso mostrado. Puedes anular este comportamiento en la celda específica.

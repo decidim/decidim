@@ -2,10 +2,10 @@
 
 module Decidim
   module Forms
-    # This cell renders a possible matrix answer of a question (readonly)
+    # This cell renders a possible matrix response of a question (readonly)
     class MatrixReadonlyCell < Decidim::ViewModel
-      def answer_options
-        model.question.answer_options.map { |option| translated_attribute(option.body) }.join(" / ")
+      def response_options
+        model.question.response_options.map { |option| translated_attribute(option.body) }.join(" / ")
       end
     end
   end

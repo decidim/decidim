@@ -221,7 +221,6 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Weryfikator
         media_link:
           fields:
             date: Data

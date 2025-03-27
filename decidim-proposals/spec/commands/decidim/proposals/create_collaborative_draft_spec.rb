@@ -22,10 +22,6 @@ module Decidim
 
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :verified, organization:, users: [author])
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
@@ -43,7 +39,6 @@ module Decidim
             latitude:,
             longitude:,
             add_documents: attachment_params,
-            user_group_id: user_group.try(:id),
             suggested_hashtags:
           }
         end
@@ -83,8 +78,6 @@ module Decidim
           end
 
           context "with an author" do
-            let(:user_group) { nil }
-
             it "sets the author" do
               command.call
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
@@ -103,17 +96,6 @@ module Decidim
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
               expect(collaborative_draft.body).to include("_Hashtag1")
               expect(collaborative_draft.body).to include("_Hashtag2")
-            end
-          end
-
-          context "with a user group" do
-            it "sets the user group" do
-              command.call
-              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
-
-              expect(collaborative_draft.coauthorships.count).to eq(1)
-              expect(collaborative_draft.user_groups.count).to eq(1)
-              expect(collaborative_draft.user_groups.first).to eq(user_group)
             end
           end
 
