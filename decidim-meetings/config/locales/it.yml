@@ -314,12 +314,17 @@ it:
       calendar_modal:
         calendar_url: URL del calendario
         export_calendar: Esporta il calendario
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          subject: Ora puoi chiudere il tuo incontro con un report sulla organizzazione %{organization_name}
       conference_venues: Sale per conferenze
       directory:
         meetings:
           index:
             meetings: Incontri
             space_type: Spazio partecipativo
+      iframe_embed_type:
+        open_in_live_event_page: Apri nella pagina dell'evento in diretta (con sondaggi opzionali)
       layouts:
         live_event:
           close: chiudi
@@ -369,6 +374,7 @@ it:
             all: Tutte
             official: Ufficiale
             participants: Utenti
+            user_group: Gruppi
           search: Cerca
           type: Tipo
           type_values:
@@ -420,6 +426,7 @@ it:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           visit_finished: Visualizza la riunione passata
+          withdraw_meeting: Ritira meeting
         update:
           invalid: Si è verificato un errore durante l'aggiornamento della riunione.
           success: Hai aggiornato la riunione con successo.
