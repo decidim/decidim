@@ -28,6 +28,7 @@ module Decidim
       end
 
       # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def cache_hash
         @cache_hash ||= begin
           hash = []
@@ -49,6 +50,7 @@ module Decidim
 
           hash.join(Decidim.cache_key_separator)
         end
+        # rubocop:enable Metrics/PerceivedComplexity
         # rubocop:enable Metrics/CyclomaticComplexity
       end
     end
