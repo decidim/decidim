@@ -409,7 +409,7 @@ it:
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
         omniauth_buttons:
-          or: O
+          or: oppure
     doorkeeper:
       authorizations:
         new:
