@@ -31,6 +31,7 @@ it:
           step:
             allow_answers: Consenti risposte
             allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
+            allow_unregistered_help: Se attivo, non sarà richiesto alcun login per rispondere al sondaggio. Ciò può portare a dati scarsi o inaffidabili e sarà più vulnerabile agli attacchi automatici. Usa questa opzione con cautela! Ricordati che un partecipante potrebbe rispondere più volte allo stesso sondaggio, utilizzando diversi browser o la funzione "navigazione privata" del suo browser web.
             announcement: Annuncio
     events:
       surveys:
@@ -53,6 +54,9 @@ it:
       answers_count: Risposte
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Se pubblichi il componente, tutti i risultati saranno rimossi.
         exports:
           survey_user_answers: Risposte dei partecipanti al sondaggio
         surveys:
