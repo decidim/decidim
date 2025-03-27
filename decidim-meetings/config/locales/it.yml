@@ -364,6 +364,7 @@ it:
             all: Tutte
             official: Ufficiale
             participants: Utenti
+            user_group: Gruppi
           search: Cerca
           type: Tipo
           type_values:
@@ -415,6 +416,7 @@ it:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           visit_finished: Visualizza la riunione passata
+          withdraw_meeting: Ritira meeting
         update:
           invalid: Si è verificato un errore durante l'aggiornamento della riunione.
           success: Hai aggiornato la riunione con successo.
