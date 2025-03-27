@@ -56,10 +56,12 @@ it:
             title: Modifica questionario
           form:
             add_question: Aggiungi domanda
+            already_answered_warning: Alcuni utenti hanno già risposto al modulo, per cui non è possibile modificarne i quesiti.
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
             preview: Anteprima
             title: Modifica formulario per %{questionnaire_for}
+            unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga
             remove: Rimuovere
@@ -125,6 +127,7 @@ it:
           tos_agreement: Partecipando accetti i suoi Termini di servizio
       step_navigation:
         show:
+          are_you_sure: Questa azione non può essere annullata e non potrai modificare le tue risposte. Sei sicuro?
           back: Indietro
           continue: Continua
           submit: Invia
