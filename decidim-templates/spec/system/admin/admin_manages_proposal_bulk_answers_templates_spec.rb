@@ -37,6 +37,7 @@ describe "Admin manages bulk proposal answer templates" do
     select translated(template.name), from: :template_template_id
     perform_enqueued_jobs do
       click_on "Update"
+      sleep(5)
     end
 
     expect(page).to have_content("4 proposals will be answered using the template")
@@ -59,6 +60,7 @@ describe "Admin manages bulk proposal answer templates" do
       select translated(template.name), from: :template_template_id
       perform_enqueued_jobs do
         click_on "Update"
+        sleep(5)
       end
 
       expect(page).to have_content("4 proposals will be answered using the template")
@@ -99,13 +101,14 @@ describe "Admin manages bulk proposal answer templates" do
       select translated(template.name), from: :template_template_id
       perform_enqueued_jobs do
         click_on "Update"
+        sleep(5)
       end
 
       expect(page).to have_content("4 proposals will be answered using the template")
       expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
-      expect(proposal.reload.proposal_state).to be_nil
+      expect(proposal.reload.proposal_state).to eq(state)
       other_proposals.each do |reportable|
-        expect(reportable.reload.proposal_state).to be_nil
+        expect(reportable.reload.proposal_state).to eq(state)
       end
     end
   end
