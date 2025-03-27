@@ -287,6 +287,23 @@ it:
         exports:
           proposal_comments: Commenti
           proposals: Proposte
+        imports:
+          help:
+            answers: |
+              Il documento di importazione deve contenere i seguenti nomi di colonne in caso di file CSV o Excel, o nomi di chiavi in caso di file JSON:
+              <ul>
+              <li><b>id:</b> ID della proposta di risposta</li>
+              <li><b>stato:</b> Uno dei "accettati", "evaluating", or "rejected"</li>
+              <li><b>answer/en:</b> Risposta sulla lingua inglese. Questo dipenderà dalla configurazione della tua lingua sulla piattaforma.</li>
+              </ul>
+            proposals: |
+              Il file deve avere i seguenti nomi di colonne in caso di file CSV o Excel, o nomi di chiavi in caso di file JSON:
+              <ul>
+              <li><b>title/en:</b> Titolo in lingua inglese. Questo dipenderà dalla configurazione della lingua della tua piattaforma.</li>
+              <li><b>body/en:</b> Body in lingua inglese. Questo dipenderà dalla configurazione della lingua della piattaforma.</li>
+              <li><b>scope/id:</b> ID per l'ambito</li>
+              <li><b>categoria/id:</b> ID per la categoria</li>
+              </ul>
         models:
           proposal:
             name: Proposta
@@ -391,9 +408,11 @@ it:
             select_states: Controlla gli stati delle proposte da importare
         proposals_merges:
           create:
+            invalid: 'Si è verificato un problema di fusione delle proposte selezionate perché alcune di esse:'
             success: Fuse con successo le proposte in una nuova.
         proposals_splits:
           create:
+            invalid: 'Si è verificato un problema dividendo le proposte selezionate perché alcune di esse:'
             success: Suddiviso con successo le proposte in nuove.
       admin_log:
         proposal:
@@ -546,8 +565,10 @@ it:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
+          add_documents: Aggiungi documenti
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
+          edit_documents: Modifica documenti
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
