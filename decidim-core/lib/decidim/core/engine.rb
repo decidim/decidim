@@ -191,7 +191,6 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
-        Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
         Decidim.icons.register(name: "unfollow", icon: "notification-3-fill", description: "Unfollow", category: "action", engine: :core)
         Decidim.icons.register(name: "share", icon: "share-line", description: "Share", category: "action", engine: :core)
@@ -353,7 +352,6 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
-        Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
       initializer "decidim_core.ransack" do
@@ -480,7 +478,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :user_group, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob]
         end
       end
 
@@ -558,12 +556,6 @@ module Decidim
       initializer "decidim_core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
-          resource.card = "decidim/user_profile"
-          resource.searchable = true
-        end
-
-        Decidim.register_resource(:user_group) do |resource|
-          resource.model_class_name = "Decidim::UserGroup"
           resource.card = "decidim/user_profile"
           resource.searchable = true
         end

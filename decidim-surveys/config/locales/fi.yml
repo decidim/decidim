@@ -16,6 +16,12 @@ fi:
       admin_log:
         changeset:
           surveys: kyselyt
+      menu:
+        surveys_menu:
+          answers: Vastaukset
+          main: Kysely
+          questions: Kysymykset
+          settings: Asetukset
     components:
       surveys:
         actions:
@@ -52,13 +58,14 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
         edit: Muokkaa
-        manage_questions: Hallinnoi kysymyksiä
+        manage_questions: Kysymykset
         new_survey: Uusi kysely
         preview: Esikatsele
         title: Toiminnot
       admin:
         answers:
           index:
+            no_answers: Vastauksia ei ole vielä annettu
             title: "yhteensä %{total} vastausta"
           show:
             title: 'Vastaus #%{number}'
@@ -77,6 +84,14 @@ fi:
               not_published: Ei julkaistu
               published: Julkaistu
             title: Julkaise vastaukset
+        questions:
+          surveys:
+            edit:
+              title: Kysymykset
+        settings:
+          surveys:
+            edit:
+              title: Asetukset
         surveys:
           create:
             invalid: Kyselyn luonti epäonnistui.
@@ -84,9 +99,11 @@ fi:
           destroy:
             success: Kyselyn poisto onnistui.
           edit:
-            title: Muokkaa kyselyä
+            title: Kysely
           index:
             title: Kyselyt
+          new:
+            title: Kysely
           publish:
             invalid: Kyselyn julkaisu epäonnistui.
             success: Kyselyn julkaisu onnistui.

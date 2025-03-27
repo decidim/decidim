@@ -198,7 +198,6 @@ ja:
             admin: 管理者
             collaborator: コラボレーター
             moderator: モデレーター
-            valuator: 評価者
       taxonomy_filters:
         space_filter_for:
           assemblies: すべての参加スペース

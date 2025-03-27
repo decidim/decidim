@@ -360,7 +360,6 @@ cs:
           id: Id pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         results:
           address: Adresa výsledku (pokud existuje)
           children_count: Počet výsledků

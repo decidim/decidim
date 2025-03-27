@@ -40,11 +40,13 @@ module Decidim
         "step-#{current_step_index}"
       end
 
-      def allow_editing_answers?
-        options[:allow_editing_answers]
+      def allow_editing_responses?
+        options[:allow_editing_responses]
       end
 
       def confirm_data
+        return {} if allow_editing_responses? && current_user
+
         {
           data: {
             confirm:,
@@ -55,10 +57,9 @@ module Decidim
       end
 
       def confirm
-        return t("decidim.forms.step_navigation.show.are_you_sure_no_edit") unless allow_editing_answers?
         return t("decidim.forms.step_navigation.show.are_you_sure_edit_guest") unless current_user
 
-        t("decidim.forms.step_navigation.show.are_you_sure_edit")
+        t("decidim.forms.step_navigation.show.are_you_sure_no_edit")
       end
     end
   end

@@ -11,14 +11,14 @@ describe Decidim::Forms::Engine do
     let(:questionnaire_for) { create(:participatory_process, organization:) }
     let(:questionnaire) { create(:questionnaire, questionnaire_for:) }
     let(:original_records) do
-      { answers: create_list(:answer, 3, questionnaire:, user: original_user) }
+      { responses: create_list(:response, 3, questionnaire:, user: original_user) }
     end
-    let(:transferred_answers) { Decidim::Forms::Answer.where(user: target_user).order(:id) }
+    let(:transferred_responses) { Decidim::Forms::Response.where(user: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
-      expect(transferred_answers.count).to eq(3)
+      expect(transferred_responses.count).to eq(3)
       expect(transfer.records.count).to eq(3)
-      expect(transferred_resources).to eq(transferred_answers)
+      expect(transferred_resources).to eq(transferred_responses)
     end
   end
 end

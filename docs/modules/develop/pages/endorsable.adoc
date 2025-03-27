@@ -6,7 +6,7 @@
 
 When endorsing an element the endorsements counter for this element is increased and a notification to all the followers of the participant is sent.
 
-Participants can endorse with their own identity or with the identify of the `user_groups` they belong to. Each endorsing identity on its own will increment the endorsements counter by one.
+Participants can endorse with their own identity. Each endorsing identity on its own will increment the endorsements counter by one.
 
 == Data model
 
@@ -17,16 +17,12 @@ For performance, an endorsable has a counter cache of endorsements.
 ----
 +----------------------+
 |  Decidim::Endorsable |
-|   ((Proposal,...))   |                                   +-------------+
-+----------------------+  0..N +--------------------+   +--+Decidim::User|
-|-has_many endorsements|-------+Decidim::Endorsement|   |  +-------------+
-|#counter cache column |       +--------------------+   |
-|-endorsements_counter |       |-author: may be a   |<--+
-+----------------------+       |         user or a  |   |
-                               |         user_group |   |  +------------------+
-                               +--------------------+   +--+Decidim::UserGroup|
-                                                           +------------------+
-----
+|   ((Proposal,...))   |
++----------------------+  0..N +--------------------+
+|-has_many endorsements|-------+Decidim::Endorsement|
+|#counter cache column |       +--------------------+   +-------------+
+|-endorsements_counter |       |-author: a user     |<--+Decidim::User|
++----------------------+       +--------------------+   +-------------+
 
 Thus, each endorsable must have the endorsements counter cache column.
 This is an example migration to add the endorsements counter cache column to a resource:
@@ -71,7 +67,7 @@ Given that some settings have been defined in the Administration Panel, for the 
 === The "Endorse" buttons cell
 
 It normally appears in the resource detail view (show), at the bottom of the resource content, but above the comments when comments are enabled.
-It allows users to endorse with any of their identities, the personal one, and/or their user_groups', if any.
+It allows users to endorse with any of their personal identity.
 It also shows the current number of endorsements for this resource.
 
 To render this button, `decidim-core` offers the `decidim/endorsement_buttons` cell. It is strongly recommended to use this cell to make new resources endorsable.
@@ -91,7 +87,6 @@ This cell will render the endorsement buttons depending on whether user endorsed
 # It takes into account:
 # - if endorsements are enabled
 # - if users are logged in
-# - if users can endorse with many identities (of their user_groups)
 # - if users require verification
  #
 cell("decidim/endorsement_buttons", resource)

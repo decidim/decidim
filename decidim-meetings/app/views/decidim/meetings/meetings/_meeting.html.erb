@@ -34,7 +34,7 @@
     <div class="layout-author <%= "has_status" if meeting.private_meeting? || meeting.withdrawn? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
-          <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+          <%= cell "decidim/author", author_presenter_for(meeting.author), from: meeting, context_actions: nil, layout: :compact %>
         </div>
         <%= render "decidim/shared/resource_actions", resource: meeting do %>
           <%= render "decidim/meetings/meetings/meeting_actions" %>

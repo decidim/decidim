@@ -108,39 +108,5 @@ describe "User edits a debate" do
         end
       end
     end
-
-    context "when editing as a user group" do
-      let(:author) { user }
-      let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
-      let!(:debate) do
-        create(
-          :debate,
-          author:,
-          user_group:,
-          component:
-        )
-      end
-
-      it "edits their debate", :slow do
-        visit_component
-        click_on debate.title.values.first
-        find("#dropdown-trigger-resource-#{debate.id}").click
-        click_on "Edit"
-
-        within ".edit_debate" do
-          fill_in :debate_title, with: "Should every organization use Decidim?"
-          fill_in :debate_description, with: "Add your comment on whether Decidim is useful for every organization."
-          select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_content("successfully")
-        expect(page).to have_content("Should every organization use Decidim?")
-        expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
-        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-        expect(page).to have_css("[data-author]", text: user_group.name)
-      end
-    end
   end
 end

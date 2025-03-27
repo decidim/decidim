@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:fix_nickname_casing
 ```
 
 ### 1.4. Follow the steps and commands detailed in these notes
@@ -46,9 +47,88 @@ We have noticed that when a resource (ex: Proposal, Meeting) is being moderated,
 bin/rails decidim:upgrade:clean:hidden_resources
 ```
 
-You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+### 2.2. User Groups removal
 
-### 2.2. [[TITLE OF THE ACTION]]
+As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
+
+There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove
+```
+
+The tasks can also be executed one by one:
+
+* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
+```
+
+* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
+```
+
+* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
+
+```bash
+bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
+```
+
+* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
+
+```bash
+bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
+```
+
+* To avoid exceptions trying to display notifications associated with deprecated groups events:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove_groups_notifications
+```
+
+You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
+
+### 2.3. Automatic deletion of inactive accounts
+
+To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
+
+Before deletion, the system will send two notification emails:
+
+* The first email is sent **30 days** before the scheduled deletion.
+* The second email is sent **7 days** before the deletion deadline.
+
+Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
+
+To enable automatic deletion, add the following scheduled task to your cron jobs:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+```
+
+By default, the inactivity period is set to 365 days, but it can be customized by passing a parameter to the task. For example:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants[500]
+```
+
+If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
+
+```yaml
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
+:queues:
+  - [default, 2]
+  - [delete_inactive_participants, 2]
+  - [mailers, 4]
+  - [reminders, 2]
+  - [newsletter, 2]
+```
+
+You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
+
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -72,7 +152,35 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.2. Change of Valuator for Evaluator
+
+We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
+
+Implementors must run the following 3 tasks:
+
+```bash
+./bin/rails decidim:upgrade:decidim_update_valuators
+./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
+./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+```
+
+These tasks migrate the old data to the new names.
+
+More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
+
+### 3.3. Convert nicknames to lowercase
+
+As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
+
+To apply the fix on your application, you need to run the below command.
+
+```bash
+bin/rails decidim:upgrade:fix_nickname_casing
+```
+
+You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
+
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -102,9 +210,11 @@ If you have used code as such:
 result = 1 + 1 if before
 ```
 
-You need to change it to:
-
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
-        ```
+```
+
+### 5.2. Add force_api_authentication configuration options
+
+There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.

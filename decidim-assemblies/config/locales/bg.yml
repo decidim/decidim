@@ -194,7 +194,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-            valuator: Оценител
       titles:
         assemblies: Събрания
         assemblies_types: Типове събрания

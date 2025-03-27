@@ -16,6 +16,12 @@ es-MX:
       admin_log:
         changeset:
           surveys: Encuestas
+      menu:
+        surveys_menu:
+          answers: Respuestas
+          main: Principal
+          questions: Preguntas
+          settings: Configuración
     components:
       surveys:
         actions:
@@ -52,13 +58,14 @@ es-MX:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
         edit: Editar
-        manage_questions: Gestionar las preguntas
+        manage_questions: Preguntas
         new_survey: Nueva encuesta
         preview: Previsualizar
         title: Acciones
       admin:
         answers:
           index:
+            no_answers: No hay respuestas aún
             title: "%{total} respuestas totales"
           show:
             title: 'Respuesta #%{number}'
@@ -77,6 +84,14 @@ es-MX:
               not_published: No publicadas
               published: Publicadas
             title: Publicar respuestas
+        questions:
+          surveys:
+            edit:
+              title: Preguntas
+        settings:
+          surveys:
+            edit:
+              title: Configuración
         surveys:
           create:
             invalid: Se ha producido un error creando la encuesta.
@@ -84,9 +99,11 @@ es-MX:
           destroy:
             success: Encuesta eliminada correctamente.
           edit:
-            title: Editar la encuesta
+            title: Principal
           index:
             title: Encuestas
+          new:
+            title: Principal
           publish:
             invalid: Se ha producido un error al publicar esta encuesta.
             success: Encuesta publicada correctamente.

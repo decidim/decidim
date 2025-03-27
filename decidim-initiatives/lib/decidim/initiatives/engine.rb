@@ -120,20 +120,12 @@ module Decidim
         Decidim::Gamification.register_badge(:initiatives) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            case model
-            when User
-              Decidim::Initiative.where(
-                author: model,
-                user_group: nil
-              ).published.count
-            when UserGroup
-              Decidim::Initiative.where(
-                user_group: model
-              ).published.count
-            end
+            Decidim::Initiative.where(
+              author: model
+            ).published.count
           }
         end
       end

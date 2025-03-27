@@ -18,8 +18,6 @@ module Decidim
       def author
         @author ||= if official?
                       Decidim::Debates::OfficialAuthorPresenter.new
-                    elsif user_group
-                      Decidim::UserGroupPresenter.new(user_group)
                     else
                       Decidim::UserPresenter.new(super)
                     end
@@ -49,20 +47,14 @@ module Decidim
 
       def participants_count
         comments_authors.count do |author|
-          author.is_a?(Decidim::User)
-        end
-      end
-
-      def groups_count
-        comments_authors.count do |author|
-          author.is_a?(Decidim::UserGroup)
+          author.is_a?(Decidim::User) && !author.group?
         end
       end
 
       private
 
       def comments_authors
-        @comments_authors ||= debate.comments.includes(:author, :user_group).map(&:normalized_author).uniq
+        @comments_authors ||= debate.comments.includes(:author).map(&:author).uniq
       end
     end
   end

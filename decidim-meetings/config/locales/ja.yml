@@ -404,7 +404,7 @@ ja:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
-            manage_questions: 質問の管理
+            manage_questions: 質問
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム

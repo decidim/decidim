@@ -8,14 +8,18 @@
       </div>
       <div class="flex items-center gap-x-4">
         <%= render partial: "bulk-actions" %>
-        <%= link_to t(".statuses"), proposal_states_path, class: "button button__sm button__secondary" %>
+        <%= link_to t(".statuses"), proposal_states_path, class: "button button__sm button__transparent-secondary" %>
+
+        <% if allowed_to? :create, :proposal %>
+          <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button button__sm button__secondary" %>
+        <% end %>
         <%= render partial: "decidim/admin/components/resource_action" %>
       </div>
     </h1>
 
     <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/taxonomy_change" %>
-    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/assign_to_valuator" %>
-    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_valuator" %>
+    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/assign_to_evaluator" %>
+    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_evaluator" %>
   </div>
   <%= admin_filter_selector(filter_prefix_key) %>
   <div class="table-scroll mt-8">

@@ -40,10 +40,6 @@
       <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
     <% end %>
 
-    <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-      <%= f.select :decidim_user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, include_blank: current_user.name %>
-    <% end %>
-
     <% if initiative_type.attachments_enabled? %>
       <%= f.attachment :documents,
                        multiple: true,
