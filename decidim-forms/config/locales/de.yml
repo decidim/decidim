@@ -9,16 +9,40 @@ de:
         max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
       response:
         body: Antwort
-        choices: Auswahl
+        choices: Optionen
+        selected_choices: Ausgewählte Optionen
     errors:
       models:
         questionnaire:
           request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Muss erneut angehängt werden
+            body:
+              too_long: ist zu lang
+            choices:
+              missing: sind nicht vollständig
+              too_many: Sie können maximal %{count} auswählen.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: Die eindeutige Bezeichnung der Antwort
+          question: Die Frage, die beantwortet wurde
+          questionnaire: Der Fragebogen, der beantwortet wurde
+          response: Die Antwort auf die Frage
+          user: Der Benutzer, der den Fragebogen beantwortet hat
+      show:
+        responses: Antworten exportieren
+        survey_user_responses: Umfrageantworten
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
+            allow_responses: Antworten erlauben
+            allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
             announcement: Ankündigung
             description: Beschreibung
             ends_at_help: Leer lassen für unbestimmtes Datum
