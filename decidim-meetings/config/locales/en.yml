@@ -224,10 +224,14 @@ en:
           email_subject: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%
           notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> meeting are over %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_intro: 'The "%{resource_title}" meeting has been updated with changes to %{changed_fields}. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          field_names:
+            address: the address
+            location: the location
+            start_time: the start time
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
