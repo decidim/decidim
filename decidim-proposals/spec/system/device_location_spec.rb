@@ -42,7 +42,7 @@ describe "User location button" do
     end
   end
 
-  describe "when public", :serves_geocoding_autocomplete do
+  describe "when public" do
     before do
       visit_component
       click_link_or_button "New proposal"
@@ -51,7 +51,7 @@ describe "User location button" do
     it_behaves_like "uses device location"
   end
 
-  context "when admin", :serves_geocoding_autocomplete do
+  context "when admin" do
     before do
       visit manage_component_path(component)
       click_link_or_button "New proposal"

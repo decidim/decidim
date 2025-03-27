@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings other features", serves_geocoding_autocomplete: true, serves_map: true do
+describe "Admin manages meetings other features" do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
 
