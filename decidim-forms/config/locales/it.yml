@@ -78,6 +78,9 @@ it:
             remove: Rimuovere
             statement: dichiarazione
             up: Su
+          questions_form:
+            already_answered_warning: Alcuni utenti hanno già risposto al modulo, per cui non è possibile modificarne i quesiti.
+            unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           separator:
             down: Giù
             remove: Elimina
@@ -125,6 +128,7 @@ it:
           tos_agreement: Partecipando accetti i suoi Termini di servizio
       step_navigation:
         show:
+          are_you_sure_no_edit: Questa azione non può essere annullata e non potrai modificare le tue risposte. Sei sicuro?
           back: Indietro
           continue: Continua
           submit: Invia
