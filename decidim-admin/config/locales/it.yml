@@ -963,6 +963,7 @@ it:
         areas: Ambiti territoriali
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
+        edit_external_domains: Whitelist di domini esterni
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
         metrics: Partecipazione in cifre
