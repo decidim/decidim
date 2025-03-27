@@ -112,6 +112,553 @@ describe "Vote Proposal", slow: true do
         login_as user, scope: :user
       end
 
+      context "when voting exclusively from index page" do
+        let(:threshold_per_proposal) { 0 }
+        let(:minimum_votes_per_user) { 0 }
+        let(:vote_limit) { 0 }
+
+        let(:settings) do
+          {
+            threshold_per_proposal:,
+            vote_limit:,
+            minimum_votes_per_user:
+          }
+        end
+
+        let!(:component) do
+          create(:proposal_component,
+                 :with_votes_enabled,
+                 :with_vote_limit,
+                 :with_threshold_per_proposal,
+                 :with_minimum_votes_per_user,
+                 settings:,
+                 participatory_space: participatory_process)
+        end
+        let(:proposals) { create_list(:proposal, 4, component:) }
+        let!(:first_proposal) { proposals.first }
+        let!(:second_proposal) { proposals.second }
+        let!(:unvoted_proposal_ids) { proposals.map(&:id).excluding(first_proposal.id, second_proposal.id) }
+
+        let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
+
+        before do
+          allow(Rails).to receive(:cache).and_return(memory_store)
+          Rails.cache.clear
+        end
+
+        # scenario 1
+        context "when there is no limit, no threshold nor a minimum" do
+          it "it updates the number of votes" do
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+          end
+        end
+
+        # scenario 2
+        context "when there is no limit, no minimum but there is a threshold" do
+          let(:threshold_per_proposal) { 2 }
+
+          it "it updates the number of votes" do
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+          end
+        end
+
+        # scenario 3
+        context "when there is no threshold, no limit but there is a minimum" do
+          let(:minimum_votes_per_user) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            expect(page).to have_content("You have 2 supports left")
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("0\nVotes")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            expect(page).to have_content("You have 1 supports left")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            expect(page).to have_content("You have 2 supports left")
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+          end
+        end
+
+        # scenario 4
+        context "when there is no limit but there is a minimum and a threshold" do
+          let(:minimum_votes_per_user) { 2 }
+          let(:threshold_per_proposal) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            expect(page).to have_content("You have 2 supports left")
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("0 2\nVotes")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            expect(page).to have_content("You have 1 supports left")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            expect(page).to have_content("You have 2 supports left")
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+          end
+        end
+
+        # scenario 5
+        context "when there is no minimum, threshold but there is a limit" do
+          let(:vote_limit) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+          end
+        end
+
+        # scenario 6
+        context "when there is no minimum but there is a threshold and a limit" do
+          let(:threshold_per_proposal) { 2 }
+          let(:vote_limit) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1 2\nVote")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+          end
+        end
+
+        # scenario 7
+        context "when there is no threshold but there is a minimum and a limit" do
+          let(:minimum_votes_per_user) { 2 }
+          let(:vote_limit) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("0\nVotes")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            expect(page).to have_content("You have 2 supports left")
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            expect(page).to have_content("You have 1 supports left")
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+          end
+        end
+
+        # scenario 8
+        context "when there is a threshold, a minimum and a limit" do
+          let(:minimum_votes_per_user) { 2 }
+          let(:threshold_per_proposal) { 2 }
+          let(:vote_limit) { 2 }
+
+          it "displays single page" do
+            visit_component
+            click_on translated(first_proposal.title), match: :first
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("0 2\nVotes")
+            end
+
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+          end
+
+          it "it updates the number of votes" do
+            visit_component
+
+            expect(page).to have_content("You have 2 supports left")
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+            expect(page).to have_no_content("Your votes have been successfully accepted")
+
+            expect(page).to have_content("You have 1 supports left")
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+
+            expect(page).to have_content("Your votes have been successfully accepted")
+            visit_component
+
+            within "#proposal-#{first_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{second_proposal.id}-vote-button" do
+              expect(page).to have_button("Voted")
+            end
+
+            within "#proposal-#{first_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            within "#proposal-#{second_proposal.id}-votes-count" do
+              expect(page).to have_content("1\n2\nVote")
+            end
+
+            unvoted_proposal_ids.each do |proposal_id|
+              within "#proposal-#{proposal_id}-vote-button" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+          end
+        end
+      end
+
       context "when the proposal is not voted yet" do
         context "when on proposal page" do
           before do
@@ -122,7 +669,7 @@ describe "Vote Proposal", slow: true do
           it "is able to vote the proposal" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_on "Vote"
-              expect(page).to have_button("Already voted")
+              expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
@@ -139,7 +686,7 @@ describe "Vote Proposal", slow: true do
           it "is able to vote the proposal" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_on "Vote"
-              expect(page).to have_button("Already voted")
+              expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
@@ -149,7 +696,7 @@ describe "Vote Proposal", slow: true do
         end
       end
 
-      context "when the proposal is already voted" do
+      context "when the proposal is Voted" do
         context "when on proposal page" do
           before do
             create(:proposal_vote, proposal:, author: user)
@@ -159,8 +706,7 @@ describe "Vote Proposal", slow: true do
 
           it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_button("Already voted")
-              expect(page).to have_no_button("Vote")
+              expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
@@ -170,7 +716,7 @@ describe "Vote Proposal", slow: true do
 
           it "is able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_on "Already voted"
+              click_on "Voted"
               expect(page).to have_button("Vote")
             end
 
@@ -188,8 +734,7 @@ describe "Vote Proposal", slow: true do
 
           it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_button("Already voted")
-              expect(page).to have_no_button("Vote")
+              expect(page).to have_button("Voted")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
@@ -199,7 +744,7 @@ describe "Vote Proposal", slow: true do
 
           it "is able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_on "Already voted"
+              click_on "Voted"
               expect(page).to have_button("Vote")
             end
 
@@ -304,7 +849,7 @@ describe "Vote Proposal", slow: true do
             it "updates the remaining votes counter" do
               within ".proposal__aside-vote" do
                 click_on "Vote"
-                expect(page).to have_button("Already voted")
+                expect(page).to have_button("Voted")
               end
             end
           end
@@ -317,7 +862,7 @@ describe "Vote Proposal", slow: true do
             it "updates the remaining votes counter" do
               within "#proposal-#{proposal.id}-vote-button" do
                 click_on "Vote"
-                expect(page).to have_button("Already voted")
+                expect(page).to have_button("Voted")
               end
             end
           end
@@ -376,7 +921,7 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        context "when the proposal is already voted" do
+        context "when the proposal is Voted" do
           context "when on proposal page" do
             before do
               create(:proposal_vote, proposal:, author: user)
@@ -386,14 +931,13 @@ describe "Vote Proposal", slow: true do
 
             it "is not able to vote it again" do
               within "#proposal-#{proposal.id}-vote-button" do
-                expect(page).to have_button("Already voted")
-                expect(page).to have_no_button("Vote")
+                expect(page).to have_button("Voted")
               end
             end
 
             it "is able to undo the vote" do
               within ".proposal__aside-vote" do
-                click_on "Already voted"
+                click_on "Voted"
                 expect(page).to have_button("Vote")
               end
 
@@ -411,14 +955,13 @@ describe "Vote Proposal", slow: true do
 
             it "is not able to vote it again" do
               within "#proposal-#{proposal.id}-vote-button" do
-                expect(page).to have_button("Already voted")
-                expect(page).to have_no_button("Vote")
+                expect(page).to have_button("Voted")
               end
             end
 
             it "is able to undo the vote" do
               within "#proposal-#{proposal.id}-vote-button" do
-                click_on "Already voted"
+                click_on "Voted"
                 expect(page).to have_button("Vote")
               end
 
@@ -483,7 +1026,7 @@ describe "Vote Proposal", slow: true do
           context "when on proposals listing page" do
             it "is not able to vote other proposals" do
               within "#proposal-#{proposal.id}-vote-button" do
-                expect(page).to have_button("Already voted")
+                expect(page).to have_button("Voted")
               end
 
               within "#proposal-#{proposal.id}-votes-count" do
@@ -492,7 +1035,7 @@ describe "Vote Proposal", slow: true do
 
               2.times do |index|
                 within "#proposal-#{proposals[1 + index].id}-vote-button" do
-                  expect(page).to have_button("No votes remaining", disabled: true)
+                  expect(page).to have_button("Vote", disabled: true)
                 end
               end
             end
@@ -507,7 +1050,7 @@ describe "Vote Proposal", slow: true do
 
               it "shows the vote count but not the vote button" do
                 within "#proposal-#{proposal.id}-vote-button" do
-                  expect(page).to have_button("Already voted", disabled: true)
+                  expect(page).to have_button("Voted", disabled: true)
                 end
 
                 within "#proposal-#{proposal.id}-votes-count" do
@@ -559,7 +1102,7 @@ describe "Vote Proposal", slow: true do
           click_on proposal_title, match: :first
           expect(page).to have_content("Vote")
           click_on "Vote"
-          expect(page).to have_content("Already voted")
+          expect(page).to have_content("Voted")
           first("a", text: "Proposals").click
 
           expect(page).to have_content("Remember you have 4 votes left")
@@ -587,7 +1130,7 @@ describe "Vote Proposal", slow: true do
               expect(page).to have_content("You have 1 supports left")
               expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
 
-              click_on "Already vote"
+              click_on "Voted"
               expect(page).to have_content("You have 2 supports left")
             end
           end
@@ -613,7 +1156,7 @@ describe "Vote Proposal", slow: true do
               let!(:minimum_votes_per_user) { 2 }
 
               it "shows the exit modal" do
-                expect(page).to have_content("Already voted")
+                expect(page).to have_content("Voted")
 
                 expect(page).to have_content("Proposals")
                 first("a", text: "Proposals").click
@@ -631,10 +1174,10 @@ describe "Vote Proposal", slow: true do
             end
 
             it "does not show the exit modal" do
-              expect(page).to have_content("Already voted")
+              expect(page).to have_content("Voted")
               expect(page).to have_content("Your votes have been successfully accepted")
 
-              click_on "Already voted"
+              click_on "Voted"
               expect(page).to have_content("See other proposals")
               expect(page).to have_content("You have 1 supports left", wait: 10)
 
@@ -647,7 +1190,7 @@ describe "Vote Proposal", slow: true do
               expect(page).to have_content("Your votes have been successfully accepted")
 
               page.find(".main-bar__logo a").click
-              expect(page).to have_no_content("Already voted", wait: 10)
+              expect(page).to have_no_content("Voted", wait: 10)
             end
           end
         end
@@ -708,7 +1251,7 @@ describe "Vote Proposal", slow: true do
 
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_button("Voted")
           end
         end
       end
@@ -728,7 +1271,7 @@ describe "Vote Proposal", slow: true do
 
           within "#proposal-#{proposal.id}-vote-button" do
             click_on "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
@@ -772,7 +1315,7 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal.id}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
           end
           within "#proposal-#{proposal.id}-votes-count" do
             expect(page).to have_content("1\nVote")
@@ -805,7 +1348,7 @@ describe "Vote Proposal", slow: true do
 
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
             expect(page).to have_content("0\nVotes")
           end
 
@@ -813,7 +1356,7 @@ describe "Vote Proposal", slow: true do
           find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
             expect(page).to have_content("0\nVotes")
           end
 
@@ -821,7 +1364,7 @@ describe "Vote Proposal", slow: true do
           find(".card__list#proposals__proposal_#{proposal_ids[2]}").click
           within ".proposal__aside-vote" do
             click_on "Vote"
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
             expect(page).to have_content("1\nVote")
           end
 
@@ -848,7 +1391,7 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal_ids[0]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
           end
           within "#proposal-#{proposal_ids[0]}-votes-count" do
             expect(page).to have_content("0\nVotes")
@@ -857,7 +1400,7 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal_ids[1]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
           end
           within "#proposal-#{proposal_ids[1]}-votes-count" do
             expect(page).to have_content("0\nVotes")
@@ -866,7 +1409,7 @@ describe "Vote Proposal", slow: true do
           within "#proposal-#{proposal_ids[2]}-vote-button" do
             click_on "Vote"
             sleep(1)
-            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Voted")
           end
 
           3.times do |index|
