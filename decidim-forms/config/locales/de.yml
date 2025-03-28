@@ -60,14 +60,24 @@ de:
             show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
+            free_text: Freier Text
             remove: Löschen
             statement: Aussage
           answers:
             actions:
+              back: Zurück zu den Antworten
+              export: Exportieren
+              next: Nächste &rsaquo;
+              previous: "&lsaquo; Vorherige"
               show: Antworten anzeigen
             empty: Noch keine Antworten
+            export:
+              answer:
+                title: 'Antwort #%{number}'
             export_response:
               title: Umfrage_Benutzer_Antworten_%{token}
+            index:
+              title: "%{total} Antworten insgesamt"
             show:
               title: 'Antwort #%{number}'
           display_condition:
