@@ -38,7 +38,7 @@
     <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
       <%= render partial: "registration_code_modal" %>
       <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "coupon-line" } do %>
-        <a href="#" class="meeting__aside-block__title underline" data-dialog-open="RegistrationQRCodeDialog">
+        <a href="#" class="text-secondary underline" data-dialog-open="RegistrationQRCodeDialog">
           <%= registration_code_help_text %>
         </a>
       <% end %>
