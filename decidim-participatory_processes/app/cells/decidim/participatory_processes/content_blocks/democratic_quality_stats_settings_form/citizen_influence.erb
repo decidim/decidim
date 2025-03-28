@@ -1,0 +1,22 @@
+<div class="row column mt-10">
+  <h2 class="text-xl font-semibold">
+    <%= t("citizen_influence.name", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </h2>
+</div>
+
+<div class="row column">
+  <fieldset class="mt-4">
+    <legend class="font-semibold"><%= t("citizen_influence.citizen_influence_level.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:citizen_influence_level].each do |label, value, description| %>
+      <div class="form__wrapper-radio-label mb-2">
+        <label>
+          <input type="radio" name="<%= input_name("citizen_influence_level") %>" value="<%= value %>">
+          <%= label %>
+          <div class="text-sm text-gray mt-1 font-normal">
+            <%= description %>
+          </div>
+        </label>
+      </div>
+    <% end %>
+  </fieldset>
+</div>
