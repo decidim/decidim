@@ -59,11 +59,11 @@ module Decidim
     end
 
     def maximum_upload_size
-      Decidim.organization_settings(organization).upload_maximum_file_size.megabytes
+      Decidim.organization_settings(organization).upload_maximum_file_size
     end
 
     def maximum_avatar_size
-      Decidim.organization_settings(organization).upload_maximum_file_size_avatar.megabytes
+      Decidim.organization_settings(organization).upload_maximum_file_size_avatar
     end
   end
 end

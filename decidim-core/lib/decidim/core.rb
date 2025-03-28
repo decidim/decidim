@@ -233,11 +233,15 @@ module Decidim
   end
 
   # Exposes a configuration option: The application name String.
-  config_accessor :application_name
+  config_accessor :application_name do
+    config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
+  end
 
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
-  config_accessor :mailer_sender
+  config_accessor :mailer_sender do
+    Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
+  end
 
   # Whether SSL should be forced or not.
   config_accessor :force_ssl do
