@@ -1,0 +1,29 @@
+<div class="row column mt-10">
+  <h2 class="text-xl font-semibold">
+    <%= t("accessibility.name", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </h2>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("accessibility.languages_count.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:languages_count].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("languages_count"), value, form.object.settings.languages_count == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("accessibility.venue_accessibility.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:venue_accessibility].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("venue_accessibility"), value, form.object.settings.venue_accessibility == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>
