@@ -8,14 +8,9 @@ gl:
       decidim/surveys/survey:
         one: Enquisa
         other: Enquisas
-      decidim/surveys/survey_answer:
-        one: Resposta
-        other: Respostas
   decidim:
     components:
       surveys:
-        actions:
-          answer: Resposta
         settings:
           global:
             announcement: Anuncio
@@ -33,22 +28,9 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
-    metrics:
-      survey_answers:
-        description: Número de enquisas respondidas polos usuarios
-        object: respostas a enquisas
-        title: Respostas a enquisas
-    statistics:
-      answers_count: Respostas
     surveys:
       admin:
-        exports:
-          survey_user_answers: Enquisas respostas dos usuarios
         surveys:
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.
-      surveys:
-        answer:
-          invalid: Houbo erros ao responder a enquisa.
-          success: A enquisa respondeu con éxito.
