@@ -9,6 +9,7 @@ describe "explore api credentials" do
   let(:dummy_token) { "token1234567890" }
 
   before do
+    allow(Rails.application.secrets).to receive(:dig).with(:decidim, :api, :jwt_secret).and_return("mocked_secret")
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(Decidim::System::TokenGenerator).to receive(:generate_token).and_return(dummy_token)
     # rubocop:enable RSpec/AnyInstance
@@ -31,8 +32,9 @@ describe "explore api credentials" do
       expect(header_cells[0]).to have_content("Organization")
       expect(header_cells[1]).to have_content("Name")
       expect(header_cells[2]).to have_content("Key")
-      expect(header_cells[3]).to have_content("Created at")
-      expect(header_cells[4]).to have_content("Actions")
+      expect(header_cells[3]).to have_content("Secret")
+      expect(header_cells[4]).to have_content("Created at")
+      expect(header_cells[5]).to have_content("Actions")
     end
   end
 
@@ -54,23 +56,23 @@ describe "explore api credentials" do
           expect(row_cells.first).to have_content(user.organization.host)
           expect(row_cells[1]).to have_content(user.name)
           expect(row_cells[2]).to have_content(user.api_key)
-          expect(row_cells.last).to have_link("Revoke token")
-          expect(row_cells.last).to have_link("Refresh token")
+          expect(row_cells.last).to have_link("Remove user")
+          expect(row_cells.last).to have_link("Refresh secret")
         end
       end
       expect(page).to have_link("New API user")
     end
 
-    it "revokes the token" do
+    it "removes the api user" do
       deleting_user = set.last
       expect(page).to have_content(deleting_user.api_key)
       within "table.stack" do
         delete_tr = find("td", text: deleting_user.api_key).find(:xpath, "..")
         within delete_tr do
-          click_link_or_button "Revoke token"
+          click_link_or_button "Remove user"
         end
       end
-      expect(page).to have_content("Are you sure you want to revoke this API user?")
+      expect(page).to have_content("Are you sure you want to remove this API user?")
       click_link_or_button "OK"
       expect(page).to have_content("API user successfully deleted.")
       expect(page).to have_current_path("/system/api_users")
@@ -78,21 +80,22 @@ describe "explore api credentials" do
       expect(page).to have_no_content(deleting_user.api_key)
     end
 
-    it "refreshes the token" do
+    it "refreshes the secret" do
       refreshing_user = set.last
       refreshing_tr = find("td", text: refreshing_user.api_key).find(:xpath, "..")
 
       within refreshing_tr do
-        click_link_or_button "Refresh token"
+        click_link_or_button "Refresh secret"
       end
-
-      expect(page).to have_content("Token refreshed successfully.")
+      expect(page).to have_content("Are you sure you want to refresh the secret for this API user?")
+      click_link_or_button "OK"
+      expect(page).to have_content("Secret refreshed successfully.")
       expect(page).to have_current_path("/system/api_users?api_user=#{refreshing_user.id}&token=#{dummy_token}")
       expect(Decidim::Api::ApiUser.count).to eq(7)
       within refreshing_tr do
-        expect(page).to have_button("Copy token")
+        expect(page).to have_button("Copy secret")
       end
-      click_link_or_button("Copy token")
+      click_link_or_button("Copy secret")
       expect(page).to have_content("Copied")
     end
 
@@ -120,12 +123,23 @@ describe "explore api credentials" do
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")
         within new_tr do
           expect(page).to have_content(dummy_token)
-          expect(page).to have_button("Copy token")
+          expect(page).to have_button("Copy secret")
         end
       end
-      click_link_or_button "Copy token"
-      expect(page).to have_no_link("Copy token")
+      click_link_or_button "Copy secret"
+      expect(page).to have_no_link("Copy secret")
       expect(page).to have_content("Copied")
+    end
+
+    it "toggles musked secret by clicking 'show password' toggler" do
+      masked_user = set.last
+      visit "#{decidim_system.api_users_path}?api_user=#{masked_user.id}&token=dummy-secret"
+      secret_input = find("input#token_#{masked_user.id}")
+      expect(secret_input[:type]).to eq("password")
+      expect(secret_input.value).to eq("dummy-secret")
+      expect(page).to have_css('button[aria-label="Show password"]', count: 1)
+      find('button[aria-label="Show password"]').click
+      expect(secret_input[:type]).to eq("text")
     end
   end
 end
