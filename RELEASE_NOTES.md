@@ -21,7 +21,12 @@ If not, you need to adapt it to your environment, for instance by changing the d
 
 ### 1.2. Update your application configuration
 
-In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (section 3.5 )
+In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (read more about it at "3.4 Deprecation of `Rails.application.secrets`").
+
+```bash
+git rm config/secrets.yml
+git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
 
 ### 1.3. Update your Gemfile
 
@@ -184,7 +189,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.4. Removal of secrets system
+### 3.4. Deprecation of `Rails.application.secrets`
 
 If you were already using the Environment Variables for the configuration of your application, then you can remove both the config/secrets.yml and also the decidim initializer:
 If you are not using the ENV system, you will need to adjust your application settings to use it.
