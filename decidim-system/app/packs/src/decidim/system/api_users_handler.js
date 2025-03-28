@@ -8,5 +8,5 @@ const initializeApiSecretToggler = () => {
 }
 
 $(() => {
-    initializeApiSecretToggler();
-  });
+  initializeApiSecretToggler();
+});
