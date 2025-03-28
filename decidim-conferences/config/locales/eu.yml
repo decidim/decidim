@@ -350,7 +350,7 @@ eu:
           index:
             filter:
               accepted: Onartua
-              all: guztiak
+              all: Guztiak
               rejected: Baztertua
               sent: Bidalia
             invite_attendee: Gonbidatu parte-hartzailea
@@ -373,7 +373,7 @@ eu:
             search: Bilatu
         conferences:
           form:
-            available_slots_help: Utzi 0 mugak mugagabea badaude.
+            available_slots_help: Utzi 0 plaza kopurua mugatua ez bada.
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.

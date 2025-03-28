@@ -526,7 +526,7 @@ ca:
         new:
           back: Enrere
           create: Crear
-          title: Crea la teva trobada
+          title: Crear una nova trobada
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar

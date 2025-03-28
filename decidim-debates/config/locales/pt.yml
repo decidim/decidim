@@ -116,6 +116,7 @@ pt:
           state_values:
             closed: Fechar
             open: Abertas
+          user_group: Grupos
         form:
           select_a_category: Por favor, selecione uma categoria
         index:
@@ -123,7 +124,6 @@ pt:
         new:
           back: Retroceder
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por

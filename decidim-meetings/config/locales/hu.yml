@@ -422,7 +422,6 @@ hu:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         new:
           create: Létrehoz
-          title: Találkozó létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés

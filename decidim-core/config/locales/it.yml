@@ -40,6 +40,7 @@ it:
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
       decidim/resource_endorsed_event: Risorsa approvata
+      decidim/user_group_created_event: Gruppo utenti creato
   activerecord:
     attributes:
       decidim/user:
@@ -65,6 +66,9 @@ it:
   booleans:
     'false': 'No'
     'true': 'Si'
+  carrierwave:
+    errors:
+      file_size_too_large: La dimensione del file è troppo grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -417,7 +421,7 @@ it:
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
         omniauth_buttons:
-          or: O
+          or: oppure
     doorkeeper:
       authorizations:
         new:
@@ -526,7 +530,7 @@ it:
           email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
       groups:
         demoted_membership:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i diritti di amministratore per quel gruppo.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i tuoi diritti di amministratore per quel gruppo.
           email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
           email_subject: Non sei più un amministratore del gruppo %{user_group_name}!
           notification_title: Non sei più un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -537,7 +541,7 @@ it:
           notification_title: Sei stato invitato a far parte del gruppo <a href="%{resource_path}">%{user_group_name}</a> . Controlla la pagina <a href="%{groups_profile_tab_path}">Gruppi</a> nel tuo profilo per approvarla!
         join_request_accepted:
           email_intro: Congratulazioni! Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
-          email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
+          email_outro: Hai ricevuto questa notifica perché la tua richiesta di adesione è stata aggiornata.
           email_subject: Sei stato accettato nel gruppo %{user_group_name}!
           notification_title: Sei stato accettato nel gruppo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
@@ -551,7 +555,7 @@ it:
           email_subject: La tua richiesta di aderire al gruppo %{user_group_name} è stata respinta!
           notification_title: La tua richiesta di aderire al gruppo <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
         promoted_to_admin:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore per quel gruppo.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore quel gruppo.
           email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
           email_subject: Ora sei un amministratore del gruppo %{user_group_name}!
           notification_title: Ora sei un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -564,7 +568,7 @@ it:
           email_intro: Un nuovo gruppo di utenti è stato creato con il nome %{user_group_name}. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
           email_subject: È stato creato un nuovo gruppo di utenti
-          notification_title: Il gruppo utente %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
+          notification_title: Il gruppo di utenti %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
         user_group_updated:
           email_intro: Un gruppo di utenti con il nome %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
@@ -1096,6 +1100,9 @@ it:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
       show_translated: Mostra testo tradotto automaticamente
+    user_activity:
+      index:
+        no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       create:
@@ -1227,7 +1234,7 @@ it:
     registrations:
       destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
       new:
-        sign_up: Iscriviti
+        sign_up: Registrati
       signed_up: Benvenuto! Ti sei registrato con successo.
       signed_up_but_inactive: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account non è ancora attivo.
       signed_up_but_locked: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account è bloccato.
@@ -1242,7 +1249,7 @@ it:
         back: Indietro
         forgot_your_password: Hai dimenticato la password?
         log_in: Accedi
-        sign_up: Iscriviti
+        sign_up: Registrati
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
         other: "(Minimo%{count} caratteri)"

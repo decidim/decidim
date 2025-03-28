@@ -54,6 +54,9 @@ it:
               needs_to_be_reattached: Necessita di essere riallegato
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
@@ -349,6 +352,8 @@ it:
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}'
           email_subject: "%{applicant_nickname} vuole unirsi alla tua iniziativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
+      form:
+        attachment_legend: "(Facoltativo) Aggiungi un allegato"
       initiative_signatures:
         fill_personal_data:
           continue: Continua

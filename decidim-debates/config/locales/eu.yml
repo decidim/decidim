@@ -113,7 +113,7 @@ eu:
           title: Editatu eztabaida
         filters:
           activity: Nire jarduera
-          all: guztiak
+          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           commented: Iruzkina eginda
@@ -134,7 +134,7 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Beste eztabaida bat
+          title: Sortu eztabaida berri bat
         orders:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera

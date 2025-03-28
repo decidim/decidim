@@ -14,7 +14,6 @@ gl:
         answer:
           attributes:
             choices:
-              missing: non están completos
               too_many: son demasiados
   decidim:
     forms:
@@ -26,7 +25,6 @@ gl:
         questionnaires:
           answer_option:
             answer_option: Opción de resposta
-            free_text: Texto libre
             remove: Quitar
             statement: Declaración
           edit:
@@ -92,3 +90,4 @@ gl:
       user_answers_serializer:
         created_at: Respondeu
         id: ID de resposta
+        question: Pregunta

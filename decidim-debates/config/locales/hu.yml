@@ -119,6 +119,7 @@ hu:
           state_values:
             closed: Lezárva
             open: Nyitva
+          user_group: Csoportok
         form:
           select_a_category: Válassz kategóriát
         index:
@@ -126,7 +127,6 @@ hu:
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése

@@ -14,7 +14,6 @@ hu:
         answer:
           attributes:
             choices:
-              missing: nem teljesek
               too_many: túl sok
   decidim:
     forms:
@@ -26,7 +25,6 @@ hu:
         questionnaires:
           answer_option:
             answer_option: Válasz opció
-            free_text: Szabadszöveg
             remove: Eltávolít
             statement: Állítás
           edit:
@@ -96,6 +94,4 @@ hu:
       user_answers_serializer:
         created_at: Válaszolt
         id: Válasz azonosító
-        registered: Regisztrált
-        unregistered: Nem regisztrált
-        user_status: Felhasználó státusza
+        question: Kérdés

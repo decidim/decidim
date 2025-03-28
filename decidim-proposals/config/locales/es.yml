@@ -278,7 +278,7 @@ es:
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-            email_subject: Se ha aceptado una propesta que estás siguiendo
+            email_subject: Se ha aceptado una propuesta que estás siguiendo
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
         proposal_evaluating:
           affected_user:
@@ -490,7 +490,7 @@ es:
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta.
-            success: Propuesta respuesta con éxito.
+            success: Propuesta respondida con éxito.
           create:
             invalid: Ha habido un problema al crear esta propuesta.
             success: Propuesta creada correctamente.
@@ -506,6 +506,7 @@ es:
           index:
             actions: Acciones
             assign_to_valuator: Asignar a evaluadora
+            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
@@ -519,6 +520,7 @@ es:
             split_button: Dividir
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
+            unassign_from_valuator_button: Deshacer la asignación
             update: Actualizar
             update_scope_button: Actualizar ámbito
           new:
@@ -565,7 +567,7 @@ es:
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Comprueba los estados de las propuestas a importar
-            title: Importar proyectos desde otro componente
+            title: Importar propuestas desde otro componente
         proposals_merges:
           create:
             invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -643,7 +645,7 @@ es:
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay un borrador de colaboración con este criterio
+        empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
@@ -802,7 +804,7 @@ es:
           text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
         new:
           send: Continuar
-          title: Crea tu propuesta
+          title: Crear una nueva propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas

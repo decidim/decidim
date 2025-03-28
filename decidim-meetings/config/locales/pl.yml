@@ -442,7 +442,6 @@ pl:
         new_meeting: 'Nowe spotkanie:'
       layouts:
         live_event:
-          administrate: Administruj
           close: zamknij
           questions: Pytania
       mailer:
@@ -533,7 +532,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź

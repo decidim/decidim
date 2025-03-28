@@ -69,7 +69,6 @@ lv:
         new:
           back: Atpakaļ
           create: Izveidot
-          title: Jaunas debates
         show:
           edit_debate: Rediģēt debates
       models:

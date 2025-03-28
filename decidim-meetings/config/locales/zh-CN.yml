@@ -314,7 +314,6 @@ zh-CN:
         new:
           back: 后退
           create: 创建
-          title: 创建您的会议
         registration_confirm:
           cancel: 取消
           confirm: 确认

@@ -60,6 +60,10 @@ it:
         placeholders:
           content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} il pannello di amministrazione.
           title: Titolo predefinito per %{page}
+      devise:
+        shared:
+          links:
+            sign_up: Registrati
       menu:
         admins: Amministratori
         dashboard: Cruscotto

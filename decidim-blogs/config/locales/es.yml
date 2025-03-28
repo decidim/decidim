@@ -67,7 +67,7 @@ es:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
-          empty: Aún no hay ninguna publicación.
+          empty: Aún no hay publicaciones.
     components:
       blogs:
         actions:

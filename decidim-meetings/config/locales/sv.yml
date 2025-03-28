@@ -436,7 +436,6 @@ sv:
         new_meeting: 'Nytt möte:'
       layouts:
         live_event:
-          administrate: Administrera
           close: stäng
           questions: Frågor
       mailer:
@@ -525,14 +524,13 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          title: Skapa ditt möte
         registration_confirm:
           cancel: Avbryt
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
           contributions: Antal bidrag
-          join: Registrera dig
+          join: Anmäl dig
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
           link_available_soon: Länk kommer snart

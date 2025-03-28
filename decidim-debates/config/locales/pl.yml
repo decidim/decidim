@@ -136,7 +136,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Nowa debata
         orders:
           commented: Najczęściej komentowane
           label: Sortuj debaty według

@@ -19,6 +19,7 @@ it:
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
+        participatory_process_type_id: Tipo di processo
         participatory_scope: Cosa è deciso
         participatory_structure: Come è deciso?
         promoted: Promossa
@@ -90,6 +91,7 @@ it:
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
         new_process_step: Nuova fase
+        new_process_type: Nuovo tipo di processo
         new_process_user_role: Nuovo utente del processo
         preview: Anteprima
         publish: Pubblica
@@ -100,6 +102,7 @@ it:
         participatory_process_groups_submenu:
           info: Informazioni
           landing_page: Pagina di destinazione
+        participatory_process_types: Tipi di processo
         participatory_processes: Processi
         participatory_processes_submenu:
           attachment_collections: Cartelle
@@ -133,6 +136,7 @@ it:
           fields:
             created_at: Data/ora di creazione
             title: Titolo
+          name: Tipo di processo
         participatory_process_user_role:
           fields:
             email: Email
@@ -206,10 +210,20 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
           success: Questa fase del processo partecipativo è stata aggiornata.
       participatory_process_types:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di processo.
+          success: Tipo di processo creato correttamente.
+        destroy:
+          success: Tipo di processo eliminato con successo.
         edit:
+          title: Modifica tipo di processo
           update: Modifica
         new:
           create: Crea
+          title: Nuovo tipo di processo
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di processo.
+          success: Tipo di processo aggiornato correttamente.
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
@@ -357,6 +371,7 @@ it:
             related_processes: Processi correlati
             scope_type_max_depth_help: Limita la profondità del filtro; il filtro verrà mostrato da generale al tipo di ambito selezionato.
             select_an_area: Seleziona un'area
+            select_participatory_process_type: Seleziona un tipo di processo
             select_process_group: Seleziona un gruppo di processi
             title: Informazioni generali
             visbility: Visibilità
