@@ -194,6 +194,7 @@ Before actually removing the initializer, just make sure you do not have any cus
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
 ```
 
 ### 3.5. [[TITLE OF THE ACTION]]
