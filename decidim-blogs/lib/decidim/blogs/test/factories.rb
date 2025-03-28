@@ -42,6 +42,10 @@ FactoryBot.define do
     component { build(:post_component, skip_injection:) }
     author { build(:user, :confirmed, skip_injection:, organization: component.organization) }
 
+    trait :published do
+      published_at { 2.minutes.ago }
+    end
+
     trait :with_endorsements do
       after :create do |post, evaluator|
         5.times.collect do
