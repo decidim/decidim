@@ -16,6 +16,8 @@ module Decidim
       field :title, TranslatedFieldType, "The graphql_name of this participatory space.", null: false
       field :type, String, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess", null: false
       field :manifest, Decidim::Core::ParticipatorySpaceManifestType, description: "The manifest information for the participatory space.", null: false
+      field :allows_steps, Boolean, description: "The participatory space allows steps", null: false, method: :allows_steps?
+      field :has_steps, Boolean, description: "The participatory space allows steps", null: false, method: :has_steps?
 
       def type
         object.class.name

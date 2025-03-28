@@ -60,11 +60,6 @@ module Decidim
             content_block.default!
           end
 
-          Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-            content_block.cell = "decidim/content_blocks/organization_metrics"
-            content_block.public_name_key = "decidim.content_blocks.metrics.name"
-          end
-
           Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
             content_block.cell = "decidim/content_blocks/footer_sub_hero"
             content_block.public_name_key = "decidim.content_blocks.footer_sub_hero.name"
