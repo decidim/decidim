@@ -4,6 +4,8 @@ ro:
     attributes:
       answer:
         body: Răspuns
+        choices: Opțiuni
+        selected_choices: Opțiuni selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
@@ -14,6 +16,8 @@ ro:
       models:
         answer:
           attributes:
+            body:
+              too_long: este prea lung
             choices:
               too_many: sunt prea multe
         questionnaire:
@@ -31,10 +35,15 @@ ro:
             show: Afișați răspunsurile
           answer_option:
             answer_option: Opțiune de răspuns
+            free_text: Text liber
             remove: Eliminați
             statement: Declarație
           answers:
             actions:
+              back: Înapoi la răspunsuri
+              export: Exportați
+              next: Următoarea &rsaquo;
+              previous: "&lsaquo; Anterioara"
               show: Afișați răspunsurile
             empty: Niciun răspuns încă
             export_response:
