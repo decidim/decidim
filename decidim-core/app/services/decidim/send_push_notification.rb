@@ -19,7 +19,7 @@ module Decidim
     #
     # @return [Array<Net::HTTPCreated>, nil] the result of the dispatch or nil if user or subscription are empty
     def perform(notification, title = nil)
-      return unless Decidim.vapid_public_key.present?
+      return if Decidim.vapid_public_key.blank?
 
       raise ArgumentError, "Need to provide a title if the notification is a PushNotificationMessage" if notification.is_a?(Decidim::PushNotificationMessage) && title.nil?
 

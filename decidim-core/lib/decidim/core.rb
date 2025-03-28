@@ -285,7 +285,7 @@ module Decidim
 
   # Users that have not logged in for this period of time will be deleted
   config_accessor :delete_inactive_users_after_days do
-    ENV.fetch("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+    Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
   # The minimum allowed inactivity period for deleting participants.
@@ -673,21 +673,21 @@ module Decidim
       },
       facebook: {
         enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
-        app_id: ENV.fetch("OMNIAUTH_FACEBOOK_APP_ID", nil),
-        app_secret: ENV.fetch("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+        app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil),
+        app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
         icon_path: "media/images/facebook.svg"
       },
       twitter: {
         enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
-        api_key: ENV.fetch("OMNIAUTH_TWITTER_API_KEY", nil),
-        api_secret: ENV.fetch("OMNIAUTH_TWITTER_API_SECRET", nil),
+        api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil),
+        api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil),
         icon_path: "media/images/twitter-x.svg"
       },
       google_oauth2: {
         enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
         icon_path: "media/images/google.svg",
-        client_id: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
-        client_secret: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
+        client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
+        client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
       }
     }
   end

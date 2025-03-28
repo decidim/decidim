@@ -32,7 +32,7 @@ module Decidim
     # Public Setting that can make the API authentication necessary in order to
     # access it.
     config_accessor :force_api_authentication do
-      %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
+      Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION", nil).present?
     end
 
     # This declares all the types an interface or union can resolve to. This needs
