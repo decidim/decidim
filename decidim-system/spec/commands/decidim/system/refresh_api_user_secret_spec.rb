@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe RefreshApiUserToken do
+    describe RefreshApiUserSecret do
       subject { described_class.new(api_user, admin) }
 
       let(:command) { subject.call }

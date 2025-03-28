@@ -55,9 +55,13 @@
           <%= l api_user.created_at, format: :short %>
         </td>
         <td>
-          <%= link_to t("actions.refresh_secret", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :patch %>
+          <%= link_to t("actions.refresh_secret", scope: "decidim.system"), api_user_path(id: api_user.id), 
+            class: "button button__sm button__text-primary", method: :patch,
+            data: { confirm: t("actions.confirm_refresh_api_secret", scope: "decidim.system") } %>
           <br>
-          <%= link_to t("actions.api_users.remove", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :delete, data: { confirm: t("actions.confirm_remove_api_user", scope: "decidim.system") } %>
+          <%= link_to t("actions.api_users.remove", scope: "decidim.system"), api_user_path(id: api_user.id), 
+            class: "button button__sm button__text-primary", method: :delete,
+            data: { confirm: t("actions.confirm_remove_api_user", scope: "decidim.system") } %>
         </td>
       </tr>
     <% end %>

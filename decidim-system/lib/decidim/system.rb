@@ -13,7 +13,7 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # The length of secret tokens generated for api users.
+    # The length of API secrets generated for API users.
     config_accessor :api_users_secret_length do
       ENV.fetch("DECIDIM_SYSTEM_API_USERS_SECRET_LENGTH", 32)
     end

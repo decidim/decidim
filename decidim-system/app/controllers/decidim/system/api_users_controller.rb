@@ -25,7 +25,7 @@ module Decidim
       end
 
       def update
-        RefreshApiUserToken.call(api_user, current_admin) do
+        RefreshApiUserSecret.call(api_user, current_admin) do
           on(:ok) do |token|
             flash[:notice] = I18n.t("api_user.refresh.success", scope: "decidim.system", user: api_user.api_key)
             redirect_to action: :index, token: token, api_user: api_user

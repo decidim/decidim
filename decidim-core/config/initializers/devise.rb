@@ -316,7 +316,7 @@ Devise.setup do |config|
   # user authenticated.
   if Decidim.module_installed?(:api)
     config.jwt do |jwt|
-      jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
+      jwt.secret = Rails.application.secrets.dig(:decidim, :api, :jwt_secret)
       next unless jwt.secret
 
       jwt.dispatch_requests = [

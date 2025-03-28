@@ -8,7 +8,7 @@ module Decidim
       respond_to :json
 
       def failure
-        render json: anonymous_user.serializable_hash.slice("id", "name", "nickname").merge(
+        render json: anonymous_user.attributes.slice("id", "name", "nickname").merge(
           "jwt_token" => nil,
           "avatar" => nil
         ), status: :unauthorized
@@ -25,6 +25,8 @@ module Decidim
       end
 
       def respond_with(resource, _opts = {})
+        serialized_user = resource.attributes.slice("id", "name", "nickname")
+
         if request.env[::Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY]
           jwt_token = request.env[::Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
           return failure if jwt_token.blank?
@@ -33,14 +35,14 @@ module Decidim
           # parsing off the headers which makes it difficult for the API users
           # to get the bearer token. This allows them to get it from the request
           # body instead.
-          return render json: resource.serializable_hash.slice("id", "name", "nickname").merge(
+          return render json: serialized_user.merge(
             "jwt_token" => jwt_token,
             "avatar" => nil
           ), status: :ok
         end
 
         # Since avatar can be ActiveStorage object now, it can cause infinite loops
-        render json: resource.serializable_hash.slice("id", "name", "nickname").merge("avatar" => nil)
+        render json: serialized_user.merge("avatar" => nil)
       end
 
       def respond_to_on_destroy

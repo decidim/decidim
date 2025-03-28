@@ -519,7 +519,7 @@ You may specify multiple ip in an array, separating by commas, such as `1.2.3.4,
 |No
 
 |DECIDIM_SYSTEM_API_USERS_SECRET_LENGTH
-|The length of secret tokens generated for api users.
+|The length of API secrets generated for API users.
 |32
 |No
 

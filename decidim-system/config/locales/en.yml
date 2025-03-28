@@ -50,6 +50,7 @@ en:
           new: New API user
           remove: Remove user
         confirm_destroy: Are you sure you want to delete this?
+        confirm_refresh_api_secret: Are you sure you want to refresh the secret for this API user? After the refres, the old secret will be invalid and can no longer be used.
         confirm_remove_api_user: Are you sure you want to remove this API user?
         copied: Copied
         copy_secret: Copy secret

@@ -17,7 +17,7 @@ module Decidim
           create_api_user
         end
 
-        broadcast(:ok, @api_user, password_token)
+        broadcast(:ok, @api_user, @api_secret)
       end
 
       private
@@ -35,24 +35,24 @@ module Decidim
       def api_user_attributes
         {
           decidim_organization_id: form.organization,
-          api_key: key_token,
+          api_key:,
           name: form.name,
           nickname: ::Decidim::UserBaseEntity.nicknamize(form.name, organization: form.organization),
           admin: true,
           admin_terms_accepted_at: Time.current,
-          api_secret: secret_token
+          api_secret:
         }.tap do |attrs|
           attrs[:published_at] = Time.current if ::Decidim::Api::ApiUser.column_names.include?("published_at")
         end
       end
 
-      def key_token
-        @key_token ||= generate_unique_token
+      def api_key
+        @api_key ||= generate_unique_token
       end
 
-      def secret_token
+      def api_secret
         secret_key_length = Decidim::System.api_users_secret_length
-        @password_token ||= generate_token(secret_key_length)
+        @api_secret ||= generate_token(secret_key_length)
       end
 
       def generate_unique_token
