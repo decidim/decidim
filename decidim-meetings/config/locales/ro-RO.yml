@@ -471,6 +471,7 @@ ro:
         new:
           back: Înapoi
           create: Creează
+          title: Creați întâlnire
         registration_confirm:
           cancel: Anulează
           confirm: Confirmare
