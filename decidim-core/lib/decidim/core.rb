@@ -248,6 +248,26 @@ module Decidim
     end
   end
 
+  # CDN host configuration
+  config_accessor :storage_cdn_host do
+    Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+  end
+
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  config_accessor :storage_provider do
+    Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+  end
+
+  # VAPID public key that will be used to sign the Push API requests.
+  config_accessor :vapid_public_key do
+    Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+  end
+
+  # VAPID private key that will be used to sign the Push API requests.
+  config_accessor :vapid_private_key do
+    Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
+  end
+
   # Having this on true will change the way the svg assets are being served.
   config_accessor :cors_enabled do
     Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?

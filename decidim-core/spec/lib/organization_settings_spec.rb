@@ -39,8 +39,8 @@ module Decidim
           )
         },
         "maximum_file_size" => {
-          "default" => 10,
-          "avatar" => 5
+          "default" => 10.megabytes,
+          "avatar" => 5.megabytes
         }
       }
     end
@@ -152,7 +152,7 @@ module Decidim
 
         before do
           allow(ENV).to receive(:fetch).and_call_original
-          allow(ENV).to receive(:fetch).with("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", nil).and_return(maximum_attachment_size.to_s)
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(maximum_attachment_size.to_s)
 
           # defaults method is memoized, we need to reset it to make sure it uses the stubbed values
           described_class.instance_variable_set(:@defaults, nil)

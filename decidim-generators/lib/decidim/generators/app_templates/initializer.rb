@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# most of this configurations can be handled through the environment variables.
+# Please refer to: https://docs.decidim.org/en/develop/configure/environment_variables
+
 Decidim.configure do |config|
   # The name of the application
   config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
@@ -47,6 +50,19 @@ Decidim.configure do |config|
   # By default is only enabled in the terms-of-service static page to allow a summary to be added and include
   # sections with a two-pane view
   # config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
+
+
+  # CDN host configuration
+  # config.storage_cdn_host = Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+  #
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  # config.storage_provider = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+
+  # VAPID public key that will be used to sign the Push API requests.
+  # config.vapid_public_key = Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+  #
+  # VAPID private key that will be used to sign the Push API requests.
+  # config.vapid_private_key = Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
 
   # Map and Geocoder configuration
   #
