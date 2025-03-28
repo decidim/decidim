@@ -51,7 +51,6 @@ Decidim.configure do |config|
   # sections with a two-pane view
   # config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
 
-
   # CDN host configuration
   # config.storage_cdn_host = Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
   #
