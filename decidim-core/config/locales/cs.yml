@@ -99,7 +99,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formát: dd/mm/rrrr'
-      order: d-m-r
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:

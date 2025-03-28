@@ -132,7 +132,6 @@ lt:
         new:
           back: Atgal
           create: Sukurti
-          title: Nauja diskusija
         orders:
           commented: Labiausiai komentuota
           label: Rikiuoti debatus pagal

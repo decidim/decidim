@@ -119,6 +119,7 @@
           state_values:
             closed: Lukket
             open: Åpen
+          user_group: Grupper
         form:
           select_a_category: Velg en kategori
         index:
@@ -126,7 +127,6 @@
         new:
           back: Tilbake
           create: Opprett
-          title: Ny innspillstråd
         orders:
           commented: Mest kommentert
           label: Ranger debatter etter

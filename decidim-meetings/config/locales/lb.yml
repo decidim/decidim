@@ -283,7 +283,6 @@ lb:
         new:
           back: Zréck
           create: Erstellen
-          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätegen

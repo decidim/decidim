@@ -23,7 +23,7 @@ es:
         id: ID
         iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
-        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Ten en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Detalles de ubicación
         online_meeting_url: URL del encuentro online
@@ -432,7 +432,7 @@ es:
           body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ahora puede cerrar la reunión "%{meeting_title}" con un informe
+          subject: Ahora puedes cerrar la reunión "%{meeting_title}" con un informe
       conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_meetings:
@@ -536,7 +536,7 @@ es:
           close_meeting: Cerrar encuentro
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar encuentro
-          join_meeting: Unirse al encuentro
+          join_meeting: Inscríbete
           reply_poll: Responder consulta
           view_poll: Ver consulta
         meetings:
@@ -545,7 +545,7 @@ es:
         new:
           back: Atrás
           create: Crear
-          title: Crea tu encuentro
+          title: Crear un nuevo encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -600,10 +600,10 @@ es:
         answers:
           index:
             administrate: Administrar
-            title: Consulta
+            title: Consulta/Sondeo en directo
           index_admin:
             back_to_meeting: Volver al encuentro
-            title: Administrar consulta
+            title: Administrar consulta/sondeo en directo
             view_poll: Ver consulta
         questions:
           closed_question:
@@ -648,7 +648,7 @@ es:
       registrations:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
-          success: Te has inscrito al encuentro con éxito. Por estar inscrita recibirás una notificación si se producen actualizaciones.
+          success: Te has inscrito al encuentro con éxito. Por ese motivo recibirás una notificación si se producen actualizaciones.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.

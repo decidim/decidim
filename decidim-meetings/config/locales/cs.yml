@@ -559,7 +559,6 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Vytvořte si schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -614,12 +613,7 @@ cs:
             title: Titul
       polls:
         answers:
-          index:
-            administrate: Spravovat
-            title: Anketa
           index_admin:
-            back_to_meeting: Zpět na schůzku
-            title: Správa ankety
             view_poll: Zobrazit anketu
         questions:
           closed_question:

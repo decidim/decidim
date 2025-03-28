@@ -119,6 +119,7 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
+          user_group: Ομάδες
         form:
           select_a_category: Please select a category
         index:
@@ -126,7 +127,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Νέα συζήτηση
         orders:
           commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά

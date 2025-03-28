@@ -112,7 +112,6 @@ nl:
         new:
           back: Terug
           create: Aanmaken
-          title: Nieuw debat
         orders:
           commented: Meeste reacties
           label: Sorteer debatten op

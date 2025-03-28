@@ -126,7 +126,7 @@ fi-pl:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_group: Ryhmät
+          user_group: Ryhmiä
         form:
           select_a_category: Valitse aihepiiri
         index:
@@ -134,7 +134,7 @@ fi-pl:
         new:
           back: Takaisin
           create: Luo
-          title: Uusi keskustelu
+          title: Luo uusi keskustelu
         orders:
           commented: Eniten kommentoidut
           label: Järjestä keskustelut

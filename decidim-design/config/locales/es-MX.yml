@@ -7,7 +7,7 @@ es-MX:
           content_panel: Contenido del panel
           demo: Demo
           demo_description: A lo largo de la aplicación los acordeones se utilizan, principalmente, para mostrar/ocultar contenido en pestañas o plegar/desplegar textos visibles.
-          description_accordions_html: Los accordiones son una característica de JavaScript disponible gracias a una biblioteca externa llamada %{link_code} a11y-accordion-component.
+          description_accordions_html: Los acordeones son una característica de JavaScript disponible gracias a una biblioteca externa llamada %{link_code} a11y-accordion-component.
           github_source_html: Código fuente en GitHub %{github_link}
           panel: Panel
           title: Acordeones
@@ -35,7 +35,7 @@ es-MX:
           title: Tarjetas
         dialogs:
           dialog_demo_description_html: Los cuadros de diálogo, o elementos modales, se implementan a través del ayudante de <i>rails</i><code>decidim_modal</code>.
-          dialogs_description_html: Los cuadros de diálogo son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada <a href="https://github.com/jonathanlevaillant/a11y-dialogo-component" target="_blank" rel="noopener noreferrer">a11y-dialogo-component</a>.
+          dialogs_description_html: Los cuadros de diálogo son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
           tips_description: 'Para mostrar una modal compleja, que coincida con los estilos, añade el siguiente marcador:'
           tips_description_html: Presta atención a los <i>data-attributes</i> y a los <i>Ids</i>. Por ejemplo, el <code>[data-dialog-title]</code> de los <i>Ids</i> empieza con <i>dialog-title</i> más el <i>modal id</i>.
           title: Cuadros de diálogo
@@ -50,13 +50,13 @@ es-MX:
           emojis_description: Solo funciona en áreas de texto
           errors: Errores
           errors_description: No se puede seleccionar
-          header_alert: Se muestra esta página a partir de una vista antigua. El contenido está desactualizado.
+          header_alert: Esta página se muestra a partir de una vista antigua. El contenido está desactualizado.
           help_texts: Texto de ayuda
           html_regular_inputs: Entradas HTML habituales
           min_max_length: Longitud Mín/Máx
           min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
           multiselect: Selección múltiple
-          multiselect_description_html: Les selecciones múltiples son una característica JavaScript disponibles gracias a una librería externa llamada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</ a>.
+          multiselect_description_html: Les selecciones múltiples son una característica JavaScript disponible gracias a una librería externa llamada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</ a>.
           regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: área de texto requerida
           title: Formularios
@@ -80,25 +80,25 @@ es-MX:
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
-          accessibility_labels_paragraph: Al definir los elementos, siempre asegúrese de que tienen sentido para los lectores de pantalla.
+          accessibility_labels_paragraph: Al definir los elementos, siempre asegúrate de que tienen sentido para los lectores de pantalla.
           accessibility_title: Accesibilidad
           adjacent_links: Enlaces adyacentes
           adjacent_links_header: Enlaces adyacentes para el mismo recurso
           adjacent_links_paragraph: Si el mismo recurso tiene múltiples enlaces adyacentes apuntando a él, hace difícil que las usuarias puedan mirar a través de la página porque tal vez necesiten pasar por varios enlaces para llegar al siguiente recurso.
           color_contrast: Contraste de color
-          color_contrast_paragraph: Al crear interfaces de usuaria o modificar los colores, asegúrate siempre que no se está rompiendo la accesibilidad con estos cambios. Puede utilizar el comprobador de contraste de color para asegurarse estos colores tienen suficiente contraste contra el color de fondo en el que se muestran.
+          color_contrast_paragraph: Al crear interfaces de usuaria o modificar los colores, asegúrate siempre de que no se está rompiendo la accesibilidad con estos cambios. Puedes utilizar el comprobador de contraste de color para asegurarte de que estos colores tienen suficiente contraste contra el color de fondo en el que se muestran.
           decidim_follows_html: Decidim sigue las directrices <u>de Accesibilidad al Contenido Web (WCAG) 2.1</u>
           dynamic_changes_header: 'Función dinámica: cambia el contexto de la página de forma poco intuitiva'
           dynamic_changes_paragraph: Los cambios en las entradas del formulario no deberían cambiar el contexto de la página automáticamente.
-          elements_hidden: Elementos escondidos
-          elements_hidden_header: Elementos escondidos de la API de accesibilidad
+          elements_hidden: Elementos ocultos
+          elements_hidden_header: Elementos ocultos de la API de accesibilidad
           elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
           heading_on: Encabezado en secciones importantes
           here_link: aquí
-          illogical_heading_order: Orden de encabezado ilógica
+          illogical_heading_order: Orden de encabezado ilógico
           illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
           important_sections_heading: Encabezado en secciones importantes
-          important_sections_paragraph: Es muy importante que cada sección importante de la página tenga un título para facilitar la comprensión de las secciones importantes de la página simplemente navegando por sus encabezados.
+          important_sections_paragraph: Es muy importante que cada sección relevante de la página tenga un título para facilitar la comprensión de las secciones de la página simplemente navegando por sus encabezados.
           links_and_buttons: Enlaces y botones
           links_and_buttons_paragraph: Los elementos de anclaje (es decir, enlaces) están destinados a enlazar a diferentes páginas o a posiciones de anclaje dentro de la página. Si queremos que el elemento abra, por ejemplo, algún elemento oculto en esa página, deberías utilizar el elemento <button> en su lugar.
           see_further_info_html: Ver más información %{link}
@@ -132,7 +132,7 @@ es-MX:
           layout_list_3: 'Objeto individual (propuesta, entrada de blog): centrado, opcionalmente con en el lado derecho'
           left_aside: En el lado izquierdo
           mobile: Móvil
-          not_required: No es requisito
+          not_required: No es obligatorio
           properties: Propiedades
           right_aside: En el lado derecho
           section_p_breakpoints: 'Para gestionar el ancho máximo de los elementos al diseño web adaptativo dependemos de la clase Tailwind predeterminada ''container'', que indica los siguientes puntos de interrupción:'
@@ -150,11 +150,11 @@ es-MX:
             layout: Diseño de columnas
             size: Tamaño
           title: Tipografía
-          typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible de todas las variantes de caracteres en 310 lenguas
+          typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible para 310 idiomas
           typefaces_description_2: Estas tipografías están bajo la licencia Open Font
       helpers:
         accountability: Seguimiento
-        accountability_cards_html: Utilizado por tarjetas de proyectos de <i>Rendición de cuentas</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        accountability_cards_html: Utilizado por tarjetas de proyectos de <i>Seguimiento</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Actividad
         address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
         address_description_2: Dependiendo del tipo de contenido, la dirección puede ser una dirección web. Para estos casos, la información mostrada es bastante igual, pero está moldeada para adecuarla.
@@ -181,9 +181,9 @@ es-MX:
         colors: Colores
         compact: Compacto
         compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
-        conference_g: Jornada G
-        conference_s: Jornada S
-        conferences: Jornadas
+        conference_g: Conferencia G
+        conference_s: Conferencia S
+        conferences: Conferencia
         context: Contexto
         context_description: Esta celda muestra información acerca de un usuario. Es una ayuda visual para identificar la creadora del recurso/contenido. Al pasar por encima el cursor, se muestra una descripción con más información y enlaces a su perfil.
         context_description_2: Para los recursos, esta célula aparece debajo del encabezado principal. Para otros contenidos, aparece al lado del contenido mismo.
@@ -236,12 +236,12 @@ es-MX:
         participatory_process_group_s: Grupo de procesos participativos S
         participatory_process_s: Proceso Participativo S
         participatory_processes: Procesos participativos
-        plain_text: Soy un texto pla/simple
-        plain_text_description: Puede proporcionar como primer argumento tanto un texto plano como un objeto hash
-        plain_text_vs_hash: Texto simple vs Hash
-        post_g: Artículo del blog G
-        post_l: Artículo del blog L
-        post_s: Artículo del blog S
+        plain_text: Soy un texto plano
+        plain_text_description: Puedes proporcionar como primer argumento tanto un texto plano como un objeto hash
+        plain_text_vs_hash: Texto plano vs Hash
+        post_g: Publicación del blog G
+        post_l: Publicación del blog L
+        post_s: Publicación del blog S
         project_l: Proyecto L
         project_s: Proyecto S
         proposal_l: Propuesta L
@@ -253,7 +253,7 @@ es-MX:
         rgba_code: Código RGBA
         search: Buscar
         send: Enviar
-        share_button: Botón de "Compartir"
+        share_button: Botón "Compartir"
         share_usage_description_html: Asegúrate de que el <code>decidim/shared/share_modal</code> parcial esté presente en el DOM. Este parcial se coloca en el diseño de la aplicación.
         sizes: Tamaños
         sortition_l: Sorteo L
@@ -278,7 +278,7 @@ es-MX:
         usage: Uso
         usage_background_1: Fondo lateral
         usage_background_2: Fondo de filtro de barra lateral seleccionado
-        usage_background_3: Colo de icono predeterminado
+        usage_background_3: Color de icono predeterminado
         usage_background_4: Líneas y separadores
         usage_background_5: Fondo del pie de página
         usage_background_6: Fondo del tablero de administración
@@ -306,4 +306,4 @@ es-MX:
           different_ui_components: Al mismo tiempo, documentamos las interfaces de usuaria de los diferentes componentes y patrones en uso, que deben ser reutilizados o ampliados.
           github_source: Código fuente en GitHub
           home_header: Guía de diseño de Decidim
-          welcome_sentence: Bienvenida a la Guía de Diseño de Decidim (GDD). Esta guía es el recurso para diseñadoras y desarrolladoras que necesitan personalizar, desarrollar nuevos módulos e integrar nuevas características.
+          welcome_sentence: Bienvenida a la Guía de Diseño de Decidim (GDD). Esta guía es el recurso para diseñadoras y desarrolladoras que necesitan personalizar, desarrollar nuevos módulos e integrar nuevas funcionalidades.

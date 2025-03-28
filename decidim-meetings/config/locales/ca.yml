@@ -545,7 +545,7 @@ ca:
         new:
           back: Enrere
           create: Crear
-          title: Crea la teva trobada
+          title: Crear una nova trobada
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -600,10 +600,10 @@ ca:
         answers:
           index:
             administrate: Administrar
-            title: Sondeig/Consulta en directe
+            title: Consulta/Sondeig en directe
           index_admin:
             back_to_meeting: Tornar a la trobada
-            title: Administrar sondeig/consulta en directe
+            title: Administrar consulta/sondeo en directe
             view_poll: Veure sondeig/consulta
         questions:
           closed_question:

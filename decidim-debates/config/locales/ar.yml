@@ -88,6 +88,7 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
+          user_group: الفِرَق
         form:
           select_a_category: الرجاء تحديد الفئة
         index:
@@ -95,7 +96,6 @@ ar:
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
           edit_debate: تحرير النقاش
           groups_count: الفِرَق

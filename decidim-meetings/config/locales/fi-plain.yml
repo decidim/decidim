@@ -545,7 +545,7 @@ fi-pl:
         new:
           back: Takaisin
           create: Luo
-          title: Luo tapahtuma
+          title: Luo uusi tapaaminen
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista

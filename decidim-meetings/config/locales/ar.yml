@@ -472,7 +472,6 @@ ar:
         new:
           back: العودة
           create: إنشاء
-          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد

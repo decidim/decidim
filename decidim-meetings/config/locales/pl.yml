@@ -552,7 +552,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -607,12 +606,7 @@ pl:
             title: Tytuł
       polls:
         answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
           index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
             view_poll: Zobacz ankietę
         questions:
           closed_question:

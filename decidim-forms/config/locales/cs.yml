@@ -4,8 +4,6 @@ cs:
     attributes:
       answer:
         body: Odpovědět
-        choices: Možnosti
-        selected_choices: Vyberte možnosti
       question:
         max_choices: Maximální počet možností
         question_type: Typ
@@ -14,15 +12,6 @@ cs:
         max_characters: Limit znaků (ponechte na 0, pokud není limit)
     errors:
       models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Potřebuje být znovu připojen
-            body:
-              too_long: je příliš dlouhý
-            choices:
-              missing: nejsou úplné
-              too_many: Můžete si vybrat maximálně %{count}.
         questionnaire:
           request_invalid: Při zpracování požadavku došlo k chybě. Zkuste to prosím znovu.
   decidim:
@@ -38,24 +27,14 @@ cs:
             show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
-            free_text: Volný text
             remove: Odstranit
             statement: Prohlášení
           answers:
             actions:
-              back: Zpět na odpovědi
-              export: Export
-              next: Další &rsaquo;
-              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
-            export:
-              answer:
-                title: 'Odpověď č.%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} odpovědí celkem"
             show:
               title: 'Odpověď č.%{number}'
           display_condition:
@@ -127,9 +106,6 @@ cs:
       admin_log:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
-      errors:
-        answer:
-          body: Tělo textu nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -145,21 +121,14 @@ cs:
         single_option: Jedna možnost
         sorting: Třídění
         title_and_description: Název a popis
-      questionnaire_answer_presenter:
-        download_attachment: Stáhnout přílohu
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.
-          max_choices_alert: Je vybráno příliš mnoho možností
           success: Dotazník úspěšně odpověděl.
         question:
           max_choices: 'Max možnosti: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Již máte účet?
-            are_you_new?: Nový uživatel?
-            sign_in_description: Přihlaste se k provedení průzkumu
-            sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
             title: Odpovězte na dotazník
           current_step: Krok %{step}
           empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
@@ -187,12 +156,6 @@ cs:
           submit: Odeslat
       user_answers_serializer:
         body: Odpověď
-        completion: Ukončení
         created_at: Zodpovězeno
         id: ID odpovědi
-        ip_hash: IP Hash
         question: Otázka
-        registered: Registrován
-        session_token: Identifikátor uživatele
-        unregistered: Neregistrovaný
-        user_status: Stav uživatele

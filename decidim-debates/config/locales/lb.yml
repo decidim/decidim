@@ -54,6 +54,7 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
+          user_group: Gruppen
         form:
           select_a_category: Bitte wählen sie eine Kategorie
         index:
@@ -61,7 +62,6 @@ lb:
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach

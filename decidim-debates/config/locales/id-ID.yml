@@ -81,7 +81,6 @@ id:
         new:
           back: Kembali
           create: Membuat
-          title: Debat baru
         show:
           edit_debate: Edit debat
       models:
