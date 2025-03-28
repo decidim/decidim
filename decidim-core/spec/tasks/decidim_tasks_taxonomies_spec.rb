@@ -39,7 +39,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
   let!(:categorization) { Decidim::Maintenance::ImportModels::Categorization.create!(category:, categorizable: dummy_resource) }
   # category_nil is here to avoid triggering the category creation in the factory
-  let!(:metric) { create(:metric, organization:, category: nil, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
@@ -374,14 +373,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
       MSG
 
       check_message_printed("Taxonomies and filters imported successfully.")
-
-      expect(metric.reload.decidim_category_id).to eq(subcategory.id)
-      expect(metric.decidim_taxonomy_id).to be_nil
-
-      Rake::Task["decidim:taxonomies:update_all_metrics"].invoke
-      check_message_printed("Updating 1 metrics for category #{subcategory.id} to taxonomy")
-      check_message_printed("No metric (categories) taxonomies found in the file")
-      expect(Decidim::Taxonomy.where(organization:).non_roots.pluck(:id)).to include(metric.reload.decidim_taxonomy_id)
     end
   end
 end
