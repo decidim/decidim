@@ -87,40 +87,6 @@ namespace :decidim do
       end
     end
 
-    desc "Adds taxonomies to metrics from old categories"
-    task :update_metrics, [:file] => :environment do |_task, args|
-      file = args[:file].to_s
-      abort "File not found! [#{file}]" unless File.exist?(file)
-
-      data = JSON.parse(File.read(file))
-      taxonomies = data["taxonomy_map"]
-      unless taxonomies && taxonomies&.any?
-        log.warn "No metric (categories) taxonomies found in the file"
-        next
-      end
-
-      total = taxonomies.count
-      taxonomies.each_with_index do |(id, object_id), index|
-        next unless object_id.include?("ImportModels::Category")
-
-        category_id = object_id.split("/").last
-        percent = ((index + 1) * 100 / total).to_i
-
-        count = Decidim::Metric.where(decidim_category_id: category_id).count
-        log.info "...#{percent}% Updating #{count} metrics for category #{category_id} to taxonomy #{id}"
-        Decidim::Metric.where(decidim_category_id: category_id).update_all(decidim_taxonomy_id: id) # rubocop:disable Rails/SkipsModelValidations
-      end
-    end
-
-    desc "Processes all metrics for result files in tmp/taxonomies"
-    task :update_all_metrics, [] => :environment do |_task, _args|
-      Rails.root.glob("tmp/taxonomies/*_result.json").each do |file|
-        log.info "Processing metrics from #{file}"
-        Rake::Task["decidim:taxonomies:update_metrics"].reenable
-        Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
-      end
-    end
-
     desc "Reset counters for taxonomies and taxonomy filters"
     task :reset_counters, [] => :environment do |_task, _args|
       Decidim::Taxonomy.find_each do |taxonomy|
