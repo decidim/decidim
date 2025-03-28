@@ -4,6 +4,8 @@ ro:
     attributes:
       answer:
         body: Răspuns
+        choices: Opțiuni
+        selected_choices: Opțiuni selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
@@ -12,6 +14,12 @@ ro:
         max_characters: Limita de caractere (lăsați 0 dacă nu este nicio limită)
     errors:
       models:
+        answer:
+          attributes:
+            body:
+              too_long: este prea lung
+            choices:
+              too_many: Puteți alege un maxim de %{count}.
         questionnaire:
           request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
@@ -27,10 +35,15 @@ ro:
             show: Afișați răspunsurile
           answer_option:
             answer_option: Opțiune de răspuns
+            free_text: Text liber
             remove: Eliminați
             statement: Declarație
           answers:
             actions:
+              back: Înapoi la răspunsuri
+              export: Exportați
+              next: Următoarea &rsaquo;
+              previous: "&lsaquo; Anterioara"
               show: Afișați răspunsurile
             empty: Niciun răspuns încă
             export_response:
