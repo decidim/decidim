@@ -39,8 +39,8 @@ module Decidim
           )
         },
         "maximum_file_size" => {
-          "default" => 10.megabytes,
-          "avatar" => 5.megabytes
+          "default" => 10,
+          "avatar" => 5
         }
       }
     end
