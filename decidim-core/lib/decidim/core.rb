@@ -505,11 +505,11 @@ module Decidim
   end
 
   config_accessor :maximum_attachment_size do
-    Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
+    Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
   end
 
   config_accessor :maximum_avatar_size do
-    Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
+    Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
   end
 
   # Social Networking services used for social sharing

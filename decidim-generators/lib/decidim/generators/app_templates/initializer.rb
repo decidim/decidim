@@ -183,8 +183,8 @@ Decidim.configure do |config|
   # processed by Decidim, this value helps reduce the size of the files.
   # config.image_uploader_quality = Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
 
-  # config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
-  # config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
+  # config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
+  # config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
 
   # The number of reports which a resource can receive before hiding it
   # config.max_reports_before_hiding = Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
