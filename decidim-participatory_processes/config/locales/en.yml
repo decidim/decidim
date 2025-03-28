@@ -412,6 +412,78 @@ en:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            accessibility:
+              languages_count:
+                legend: In how many languages has the process been communicated?
+                options:
+                  five: More than half of the languages spoken in the community = 5
+                  one: One language = 1
+                  two_five: Less than half of the languages spoken in the community = 2.5
+              name: Accessibility
+              venue_accessibility:
+                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                options:
+                  five: Yes = 5
+                  two_five: Partially = 2.5
+                  zero: No = 0
+            citizen_influence:
+              citizen_influence_level:
+                legend: Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
+                options:
+                  five: Citizen control = 5
+                  five_description: A highest level of participation where citizens fully govern a program or institution, managing policies, resources, and decision-making without external interference.
+                  four: Delegated power = 4
+                  four_description: A participatory process where citizens gain authority, control, or funding to influence and manage an organization.
+                  one: Consultation = 1
+                  one_description: A participatory process where citizens are asked for their opinions, typically through surveys or meetings, but without assurance that their input will influence decisions.
+                  three: Partnership = 3
+                  three_description: A participatory process where citizens and organizations share decision-making power, allowing participants to negotiate, allocate resources, and influence planning, with rules that cannot be changed unilaterally. It often emerges from citizen mobilization and collective action.
+                  two: Placation = 2
+                  two_description: A participatory process where citizens are given limited influence, often in a tokenistic manner, such as inclusion in boards or committees, but without real power, as decision-making remains controlled by the traditional power elite.
+                  zero: Informative = 0
+                  zero_description: One-way flow of information—from officials to citizens—with no channel provided for feedback and no power for negotiation.
+              name: Citizen influence
+            inclusiveness:
+              cultural_origins_participation:
+                legend: How many people from diverse cultural origins have participated out of the invited?
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              description: Inclusivity according to cultural origin and functional diversity.
+              functional_diversity_invited:
+                legend: Have groups of people with functional diversity been invited to participate?
+                options:
+                  five: Yes = 5
+                  zero: No = 0
+              functional_diversity_participation:
+                legend: How many people with functional diversity have participated out of the invited?
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              migrant_groups_invited:
+                legend: Have migrant groups been invited to participate?
+                options:
+                  five: Yes = 5
+                  zero: No = 0
+              name: Inclusiveness
+            relevance:
+              description: Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.
+              name: Relevance
+              relevance_percentage:
+                legend: Percentage of organisation's budget, workforce or of the total population affected by the process' result.
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
           highlighted_processes:
             active: Active
             all: All
@@ -452,6 +524,36 @@ en:
             title: General Information
             visibility: Visibility
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            indicators:
+              accountability: Accountability
+              accountability_tooltip: Accountability tooltip
+              hybridization: Hybridization
+              hybridization_tooltip: Hybridization tooltip
+              influence: Influence
+              influence_tooltip: Influence tooltip
+              traceability: Traceability
+              traceability_tooltip: Traceability tooltip
+            name: Automatic metrics
+          global_score:
+            description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            name: Global score
+            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest participation quality."
+          name: Participation quality
+          qualitative_metrics:
+            description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            indicators:
+              accessibility: Accessibility
+              accessibility_tooltip: Accessibility tooltip
+              citizen_influence: Citizen influence
+              citizen_influence_tooltip: Citizen influence tooltip
+              inclusiveness: Inclusiveness
+              inclusiveness_tooltip: Inclusiveness tooltip
+              relevance: Relevance
+              relevance_tooltip: Relevance tooltip
+            name: Qualitative metrics
         extra_data:
           name: Phase & duration
         hero:

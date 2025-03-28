@@ -1,0 +1,11 @@
+<div class="flex gap-2 p-4 rounded-lg justify-between items-center text-gray-2" style="background-color: #F3F8FC;">
+  <div class="text-lg font-semibold flex items-center gap-2">
+    <span><%= metric_name %></span>
+    <%= with_tooltip(metric_tooltip, class: "top") do %>
+      <%= icon("information-line", aria_label: metric_tooltip, role: "img", class: "fill-secondary h-4 w-4") %>
+    <% end %>
+  </div>
+  <div class="text-lg font-semibold flex items-center gap-2">
+    <span class="font-bold text-5xl"><%= metric_value %></span><span class=""> /5*</span>
+  </div>
+</div>
