@@ -7,12 +7,27 @@ ro:
       questionnaire_question:
         mandatory: Obligatoriu
         max_characters: Limita de caractere (lăsați 0 dacă nu este nicio limită)
+      response:
+        body: Răspuns
+        choices: Opțiuni
+        selected_choices: Opțiuni selectate
+    errors:
+      models:
+        response:
+          attributes:
+            body:
+              too_long: este prea lung
+            choices:
+              too_many: Puteți alege un maxim de %{count}.
   decidim:
     forms:
       admin:
         models:
           components:
+            allow_responses: Permiteți răspunsurile
             description: Descriere
+            ends_at: Răspunsuri acceptate până la
+            starts_at: Răspunsuri acceptate de la
             tos: Termenii serviciului
         questionnaires:
           actions:
@@ -58,9 +73,19 @@ ro:
             remove: Eliminați
             statement: Declarație
             up: Mergi în sus
+          response_option:
+            free_text: Text liber
+            remove: Eliminați
+            response_option: Opțiune de răspuns
+            statement: Declarație
           responses:
             actions:
+              back: Înapoi la răspunsuri
+              export: Exportați
+              next: Următoarea &rsaquo;
+              previous: "&lsaquo; Anterioara"
               show: Afișați răspunsurile
+            empty: Nu există răspunsuri încă
           separator:
             down: Mergi în jos
             remove: Elimină
