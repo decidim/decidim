@@ -43,14 +43,19 @@ de:
             allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
             allow_responses: Antworten erlauben
             allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
+            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
+            clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
             description: Beschreibung
+            ends_at: Beantwortung geöffnet bis
             ends_at_help: Leer lassen für unbestimmtes Datum
+            starts_at: Beantwortung geöffnet von
             starts_at_help: Leer lassen für unbestimmtes Datum
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
             back: Zurück zu Fragen
+            publish_responses: Antworten veröffentlichen
             show: Antworten
           display_condition:
             condition_question: Frage
@@ -59,13 +64,17 @@ de:
               equal: Gleich
               match: Beinhaltet Text
               not_equal: Nicht gleich
+              not_responded: Nicht beantwortet
+              responded: Beantwortet
             condition_value: Enthaltener Text
             display_condition: Bedingung anzeigen
             mandatory: Diese Bedingung muss immer erfüllt werden, unabhängig vom Status anderer Bedingungen
             remove: Löschen
+            response_option: Antwort-Option
             save_warning: Vergessen Sie nicht, das Formular zu speichern, bevor Sie die Anzeigebedingungen konfigurieren
             select_condition_question: Eine Frage
             select_condition_type: Wählen Sie einen Bedingungstyp
+            select_response_option: Antwort-Option auswählen
           edit:
             save: Speichern
             title: Fragebogen bearbeiten
@@ -89,6 +98,7 @@ de:
             add_display_condition: Anzeigebedingung hinzufügen
             add_display_condition_info: Speichern Sie das Formular, um die Anzeigebedingungen zu konfigurieren
             add_matrix_row: Zeile hinzufügen
+            add_response_option: Antwort-Option hinzufügen
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
@@ -99,13 +109,30 @@ de:
             statement: Aussage
             up: Oben
           questions_form:
+            already_responded_warning: Das Formular wird von einigen Benutzern bereits beantwortet, weshalb Sie die Fragen nicht mehr ändern können.
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
+            unpublished_warning: Das Formular ist nicht veröffentlicht. Sie können die Fragen ändern, aber dadurch werden die aktuellen Antworten gelöscht.
             update:
               success: Umfrage erfolgreich gespeichert.
+          response_option:
+            free_text: Freier Text
+            remove: Entfernen
+            response_option: Antwort-Option
+            statement: Aussage
           responses:
             actions:
+              back: Zurück zu den Antworten
+              export: Exportieren
+              next: Nächste &rsaquo;
+              previous: "&lsaquo; Vorherige"
               show: Antworten anzeigen
+            empty: Noch keine Antworten
+            export:
+              response:
+                title: 'Antwort #%{number}'
+            index:
+              title: "%{total} Antworten insgesamt"
           separator:
             down: Runter
             remove: Löschen
