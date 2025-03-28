@@ -5,6 +5,7 @@ module Decidim
     # A cell to display a single comment.
     class CommentCell < Decidim::ViewModel
       include Decidim::ResourceHelper
+      include Decidim::UserRoleChecker
       include Cell::ViewModel::Partial
 
       delegate :current_user, :user_signed_in?, to: :controller
@@ -208,6 +209,10 @@ module Decidim
       # action_authorization_button expects current_component to be available
       def current_component
         root_commentable.try(:component)
+      end
+
+      def current_participatory_space
+        current_component&.participatory_space
       end
 
       def vote_button_to(path, params, &)
