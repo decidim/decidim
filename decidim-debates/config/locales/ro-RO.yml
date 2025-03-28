@@ -114,6 +114,7 @@ ro:
         new:
           back: Înapoi
           create: Creează
+          title: Creați o dezbatere
         orders:
           commented: Cele mai comentate
           label: Ordonează dezbaterile după
