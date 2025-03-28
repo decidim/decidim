@@ -1487,6 +1487,7 @@ fi-pl:
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
+        valuators: Arvioijat
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.

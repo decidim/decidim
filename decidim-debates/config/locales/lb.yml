@@ -50,12 +50,12 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
+          user_group: Gruppen
         index:
           new_debate: Neue Debatte
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach

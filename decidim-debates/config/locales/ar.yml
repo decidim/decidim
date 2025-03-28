@@ -88,12 +88,12 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
+          user_group: الفِرَق
         index:
           new_debate: نقاش جديد
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
           groups_count: الفِرَق
           participants_count: المشاركون

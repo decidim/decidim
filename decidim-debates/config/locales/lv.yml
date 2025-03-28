@@ -61,7 +61,6 @@ lv:
         new:
           back: Atpakaļ
           create: Izveidot
-          title: Jaunas debates
       models:
         debate:
           fields:

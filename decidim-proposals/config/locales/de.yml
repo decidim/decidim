@@ -641,6 +641,7 @@ de:
             actions: Aktionen
             apply_answer_template: Antwortvorlage anwenden
             assign_to_valuator: Zuweisen zur Bewertung
+            assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
@@ -656,6 +657,7 @@ de:
             statuses: Status
             title: Vorschläge
             unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
+            unassign_from_valuator_button:
             update: Aktualisieren
           manage_trash:
             title: Gelöschte Vorschläge
@@ -956,7 +958,6 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
-          title: Ihren Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert

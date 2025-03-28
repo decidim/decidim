@@ -2,8 +2,6 @@
 ja:
   activemodel:
     attributes:
-      answer:
-        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -569,7 +567,6 @@ ja:
         new:
           back: 戻る
           create: 作成
-          title: ミーティングを作成
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -623,12 +620,7 @@ ja:
             title: タイトル
       polls:
         answers:
-          index:
-            administrate: 管理
-            title: 投票
           index_admin:
-            back_to_meeting: ミーティングに戻る
-            title: 投票を管理
             view_poll: 投票を表示
         questions:
           closed_question:

@@ -111,12 +111,13 @@ ro:
           state_values:
             closed: Închisă
             open: Deschisă
+          user_group: Grupuri
         index:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
           create: Creează
-          title: Dezbatere nouă
+          title: Creați o dezbatere
         orders:
           commented: Cele mai comentate
           label: Ordonează dezbaterile după

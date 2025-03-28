@@ -99,12 +99,12 @@ zh-CN:
           state_values:
             closed: 已关闭
             open: 打开
+          user_group: 群組
         index:
           new_debate: 新的辩论
         new:
           back: 后退
           create: 创建
-          title: 新的辩论
         orders:
           commented: 最多评论
           label: 排序由

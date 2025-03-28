@@ -57,8 +57,6 @@ ja:
         title: アクション
       admin:
         answers:
-          index:
-            title: "総回答数 %{total} 件"
           show:
             title: '回答 #%{number}'
         exports:
@@ -71,9 +69,6 @@ ja:
               質問の回答を公開すると、それらが一般に表示されるようになります。
               各質問の横にあるチェックボックスをクリックして、公開したい回答を選択できます。
               公開可能な質問のタイプは次の通りです：「単一選択」、「複数選択」、「マトリックス（単一選択）」、「マトリックス（複数選択）」、「並べ替え」です。
-            status:
-              not_published: 未公開
-              published: 公開済み
             title: 回答を公開
         surveys:
           create:

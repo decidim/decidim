@@ -109,12 +109,12 @@ it:
           state_values:
             closed: Chiuso
             open: Apri
+          user_group: Gruppi
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
           create: Crea
-          title: Nuovo dibattito
         orders:
           commented: I più commentati
           label: Ordina i dibattiti per

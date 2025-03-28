@@ -60,7 +60,7 @@ ca:
       admin:
         answers:
           index:
-            title: "%{total} respostes totals"
+            title: "%{total} respostes en total"
           show:
             title: 'Resposta #%{number}'
         exports:

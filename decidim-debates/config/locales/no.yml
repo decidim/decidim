@@ -109,12 +109,12 @@
           state_values:
             closed: Lukket
             open: Åpen
+          user_group: Grupper
         index:
           new_debate: Ny innspillstråd
         new:
           back: Tilbake
           create: Opprett
-          title: Ny innspillstråd
         orders:
           commented: Mest kommentert
           label: Ranger debatter etter

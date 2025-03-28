@@ -106,12 +106,12 @@ pt:
           state_values:
             closed: Fechar
             open: Abertas
+          user_group: Grupos
         index:
           new_debate: Novo debate
         new:
           back: Retroceder
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por

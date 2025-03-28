@@ -477,7 +477,6 @@ zh-TW:
         new:
           back: 返回
           create: 建立
-          title: 新增您的會議
         registration_confirm:
           cancel: 取消
           confirm: 確認

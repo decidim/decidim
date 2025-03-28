@@ -109,12 +109,12 @@ hu:
           state_values:
             closed: Lezárva
             open: Nyitva
+          user_group: Csoportok
         index:
           new_debate: Új vita
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése

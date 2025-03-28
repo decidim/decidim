@@ -587,7 +587,7 @@ es-MX:
         new:
           back: Atrás
           create: Crear
-          title: Crea tu encuentro
+          title: Crear un nuevo encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -644,10 +644,10 @@ es-MX:
         answers:
           index:
             administrate: Administrar
-            title: Consulta
+            title: Consulta/Sondeo en directo
           index_admin:
             back_to_meeting: Volver al encuentro
-            title: Administrar consulta
+            title: Administrar consulta/sondeo en directo
             view_poll: Ver consulta
         questions:
           closed_question:

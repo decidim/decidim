@@ -109,12 +109,12 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
+          user_group: Gruplar
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
           create: Oluştur
-          title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü

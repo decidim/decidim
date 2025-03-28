@@ -77,7 +77,6 @@ ru:
         new:
           back: Вернуться
           create: Создать
-          title: Начать новое обсуждение
       models:
         debate:
           fields:

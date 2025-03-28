@@ -526,7 +526,6 @@ bg:
         new:
           back: Назад
           create: Създаване
-          title: Създайте среща
         registration_confirm:
           cancel: Отказ
           confirm: Потвърждаване
@@ -578,12 +577,7 @@ bg:
             title: Заглавие
       polls:
         answers:
-          index:
-            administrate: Администриране
-            title: Анкета
           index_admin:
-            back_to_meeting: Назад към срещата
-            title: Администриране на анкета
             view_poll: Вижте анкетата
         questions:
           closed_question:

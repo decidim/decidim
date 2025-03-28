@@ -71,7 +71,6 @@ id:
         new:
           back: Kembali
           create: Membuat
-          title: Debat baru
       models:
         debate:
           fields:

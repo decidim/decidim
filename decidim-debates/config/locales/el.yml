@@ -109,12 +109,12 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
+          user_group: Ομάδες
         index:
           new_debate: Νέα συζήτηση
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Νέα συζήτηση
         orders:
           commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά

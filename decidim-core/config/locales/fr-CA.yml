@@ -106,7 +106,7 @@ fr-CA:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: j-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:

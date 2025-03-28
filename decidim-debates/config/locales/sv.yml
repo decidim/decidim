@@ -120,7 +120,6 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          title: Ny debatt
         orders:
           commented: Mest kommenterade
           label: Sortera debater efter

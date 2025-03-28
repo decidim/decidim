@@ -2,8 +2,6 @@
 ar:
   activemodel:
     attributes:
-      answer:
-        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -472,7 +470,6 @@ ar:
         new:
           back: العودة
           create: إنشاء
-          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد

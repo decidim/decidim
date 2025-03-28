@@ -120,7 +120,6 @@ pt-BR:
         new:
           back: Voltar
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por
