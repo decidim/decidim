@@ -7,7 +7,7 @@ namespace :decidim do
       logger.info("Fixing user nicknames case...")
 
       has_changed = []
-      Decidim::User.not_deleted.find_each do |user|
+      Decidim::UserBaseEntity.not_deleted.find_each do |user|
         user.nickname.downcase!
 
         begin
