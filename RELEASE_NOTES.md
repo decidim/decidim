@@ -21,7 +21,7 @@ If not, you need to adapt it to your environment, for instance by changing the d
 
 ### 1.2. Update your application configuration
 
-In this version we are changing Decidim's underlaying confuguration engine, so, in order to update your application, make sure you read changes about the environment variables (section 3.5 )
+In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (section 3.5 )
 
 ### 1.3. Update your Gemfile
 
