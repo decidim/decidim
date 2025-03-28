@@ -37,7 +37,7 @@ describe "Admin manages bulk proposal answer templates" do
     select translated(template.name), from: :template_template_id
     perform_enqueued_jobs do
       click_on "Update"
-      sleep(5)
+      sleep(1)
     end
 
     expect(page).to have_content("4 proposals will be answered using the template")
@@ -60,7 +60,7 @@ describe "Admin manages bulk proposal answer templates" do
       select translated(template.name), from: :template_template_id
       perform_enqueued_jobs do
         click_on "Update"
-        sleep(5)
+        sleep(1)
       end
 
       expect(page).to have_content("4 proposals will be answered using the template")
@@ -101,7 +101,7 @@ describe "Admin manages bulk proposal answer templates" do
       select translated(template.name), from: :template_template_id
       perform_enqueued_jobs do
         click_on "Update"
-        sleep(5)
+        sleep(1)
       end
 
       expect(page).to have_content("4 proposals will be answered using the template")
