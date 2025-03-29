@@ -432,7 +432,7 @@ de:
       votes:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
-        title: Abstimmungen
+        title: Stimmen
     open_data:
       help:
         proposal_comments:
