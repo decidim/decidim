@@ -58,6 +58,11 @@ is:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+    metrics:
+      proposals:
+        title: Tillögur
+      votes:
+        title: Atkvæði
     proposals:
       actions:
         import: Flytja frá öðrum hlutum
