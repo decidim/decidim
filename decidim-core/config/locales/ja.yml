@@ -587,10 +587,6 @@ ja:
         name: メインデータ
       metadata:
         name: メタデータ
-      metrics:
-        name: 組織の指標
-      participatory_space_metrics:
-        name: メトリクス
       participatory_space_stats:
         name: 統計情報
       social_networks_metadata:
@@ -1145,27 +1141,6 @@ ja:
         finished: '完了: %{end_date}'
         not_started: まだ開始していません
         remaining: "残り %{time_distance}"
-    metrics:
-      blocked_users:
-        description: ブロックされた参加者数
-      download:
-        csv: ダウンロードデータ(CSV)
-      followers:
-        description: この参加スペースに従う参加者数
-        object: フォロワー
-        title: フォロワー
-      participants:
-        description: 組織内のアクティブな参加者数
-        object: 参加者
-        title: 参加者
-      reported_users:
-        description: 報告された参加者数
-      user_reports:
-        description: 参加者によって行われた報告数
-      users:
-        description: 組織の参加者数
-        object: 参加者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
@@ -1288,11 +1263,6 @@ ja:
           main: コア
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
-        metrics:
-          cumulative: この日のメトリックの合計数
-          day: このメトリックの作成日時
-          metric_type: メトリックの種類
-          quantity: この日のメトリック数
         moderated_users:
           about: 利用者の紹介フィールド
           block_reasons: 管理者ユーザーがユーザーをブロックした理由
@@ -1415,10 +1385,6 @@ ja:
         subheading: '%{name} のヘルプページをナビゲートします'
         title: ヘルプ
         topics: トピック
-      participatory_space:
-        metrics:
-          headline: 指標
-          link: すべての指標を表示
       terms_of_service:
         accept:
           error: 利用規約に同意する際に問題が発生しました。
