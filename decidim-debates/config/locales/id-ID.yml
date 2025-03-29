@@ -106,8 +106,3 @@ id:
           name: Debat
           next_level_in: Berpartisipasi dalam %{score} debat lagi untuk mencapai level selanjutnya!
           unearned_another: Peserta ini belum ikut serta dalam debat apa pun.
-    metrics:
-      debates:
-        description: Jumlah perdebatan dibuat
-        object: debat
-        title: Debat
