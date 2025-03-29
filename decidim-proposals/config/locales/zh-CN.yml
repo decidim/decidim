@@ -219,6 +219,8 @@ zh-CN:
         description: 建议数
         object: 提议
         title: 建议
+      votes:
+        title: 所得票数
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议
