@@ -714,7 +714,7 @@ es-PY:
       meetings:
         description: Número de reuniones creadas
         object: reuniones
-        title: Reuniones
+        title: Encuentros
     open_data:
       help:
         meeting_comments:
