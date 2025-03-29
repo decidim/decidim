@@ -33,8 +33,8 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
       expect(subject.call).to have_content(translated_question_type)
     end
 
-    it "does not render the element with the answer idx attribute" do
-      expect(subject.call).to have_no_css("[data-answer-idx]")
+    it "does not render the element with the response idx attribute" do
+      expect(subject.call).to have_no_css("[data-response-idx]")
     end
   end
 
@@ -48,8 +48,8 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
       expect(subject.call).to have_content(translated_question_type)
     end
 
-    it "renders the element with the answer idx attribute with the correct position" do
-      expect(subject.call).to have_css("[data-answer-idx='3']")
+    it "renders the element with the response idx attribute with the correct position" do
+      expect(subject.call).to have_css("[data-response-idx='3']")
     end
   end
 end

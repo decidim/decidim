@@ -9,15 +9,9 @@ lv:
         zero: Aptaujas
         one: Aptauja
         other: Aptaujas
-      decidim/surveys/survey_answer:
-        zero: Atbildes
-        one: Atbilde
-        other: Atbildes
   decidim:
     components:
       surveys:
-        actions:
-          answer: Atbilde
         settings:
           global:
             announcement: Paziņojums
@@ -35,20 +29,9 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Jauna aptauja telpā %{participatory_space_title}
           notification_title: Aptauja <a href="%{resource_path}">%{resource_title}</a> sadaļā <a href="%{participatory_space_url}">%{activatory_space_title}</a> tagad ir atvērta
-    metrics:
-      survey_answers:
-        description: Dalībnieka atbildēto aptaujas jautājumu skaits
-        object: atbildes uz aptaujas jautājumiem
-        title: Atbildes uz aptaujas jautājumiem
     surveys:
       admin:
-        exports:
-          survey_user_answers: Aptaujas dalībnieka atbildes
         surveys:
           update:
             invalid: Saglabājot aptauju, radās problēma.
             success: Aptauja ir veiksmīgi saglabāta
-      surveys:
-        answer:
-          invalid: Atbildot uz aptauju, radās problēma.
-          success: Uz aptaujas jautājumiem ir veiksmīgi atbildēts.

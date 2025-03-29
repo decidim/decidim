@@ -2,8 +2,6 @@ is-IS:
   decidim:
     components:
       surveys:
-        actions:
-          answer: Svara
         settings:
           global:
             announcement: Tilkynning

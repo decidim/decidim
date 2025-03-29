@@ -9,7 +9,6 @@ ja:
         scope_id: 対象範囲
         state: 状態
         title: タイトル
-        user_group_id: 共同草案として作成します
       import_participatory_text:
         document: ドキュメント
       proposal:
@@ -27,7 +26,6 @@ ja:
         state: 状態
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
-        user_group_id: 次のように提案を作成
       proposal_answer:
         answer: 回答
         cost: コスト
@@ -55,9 +53,6 @@ ja:
         import_proposals: 提案をインポート
         keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: 評価者名
     errors:
       models:
         participatory_text:
@@ -138,8 +133,6 @@ ja:
               withdrawn: 撤回
           taxonomies_part_of_contains:
             label: タクソノミー
-          valuator_role_ids_has:
-            label: 評価者にアサインされました
           with_any_state:
             label: 回答済み
             values:
@@ -265,14 +258,8 @@ ja:
         accepted_coauthorship:
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の共著者として追加されました。
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: 提案「%{resource_title}」の評価者として割り当てられました。これは、今後数日以内にフィードバックや適切な対応を行うために信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。
-            email_outro: 提案の評価者のため、この通知を受け取りました。
-            email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
-            notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
-            email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>にプライベートノートを作成しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
           proposal_note_mentioned:
@@ -446,7 +433,6 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         proposals:
           address: 提案に物理的な場所がある場合の提案の所在地
           answer: 回答済みの提案に対する回答
@@ -637,8 +623,6 @@ ja:
           index:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
-            assign_to_valuator: 評価者に割り当てる
-            assign_to_valuator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
@@ -647,14 +631,11 @@ ja:
             publish: 公開
             publish_answers: 回答を公開
             select_component: コンポーネントを選択
-            select_valuators: 1人以上の評価者を選択してください
             selected: 選択済み
             split: 提案を分割
             split_button: 分割
             statuses: ステータス
             title: 提案
-            unassign_from_valuator: 評価者からの割り当てを解除
-            unassign_from_valuator_button: 割り当ての解除
             update: 更新
           manage_trash:
             title: 削除された提案
@@ -666,7 +647,6 @@ ja:
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
-            assigned_valuators: 割り当てられた評価者
             body: 本文
             comments_count: コメント数
             documents: ドキュメント
@@ -679,8 +659,6 @@ ja:
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
-            remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
-            valuators: 評価者
             votes_count: 投票数
           update_taxonomies:
             invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
@@ -710,13 +688,6 @@ ja:
           create:
             invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
-        valuation_assignments:
-          create:
-            invalid: 評価者に提案を割り当てる際に問題が発生しました。
-            success: 評価者に提案を割り当てました。
-          delete:
-            invalid: 評価者からの提案の割り当てを解除する際に問題が発生しました。
-            success: 評価者への提案の割り当てを解除しました。
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
@@ -727,9 +698,6 @@ ja:
           update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
         proposal_note:
           create: "%{user_name} が %{resource_name} スペースに %{space_name} 提案にプライベートノートを残しました"
-        valuation_assignment:
-          create: "%{user_name} は、評価者に %{resource_name} の提案を割り当てました"
-          delete: "%{user_name} が %{proposal_title} の提案から評価者を解除しました"
       answers:
         accepted: 承認済み
         evaluating: 評価
@@ -742,7 +710,6 @@ ja:
           meetings: ミーティング
           official: 事務局
           participants: 参加者
-          user_groups: グループ
         filter_state_values:
           all: すべて
           not_answered: 応答がありません
@@ -896,8 +863,6 @@ ja:
             state: ステータス
             taxonomies: タクソノミー
             title: タイトル
-            valuator: 評価者
-            valuators: 評価者
             votes: 投票
         proposal_state:
           css_class: CSS クラス
@@ -956,7 +921,6 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
-          title: 提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順

@@ -1200,6 +1200,7 @@ sv:
         assigned_to_proposal: Jag vill få ett e-postmeddelande när någon tilldelar mig ett förslag att utvärdera
         direct_messages: Ta emot direktmeddelanden från alla
         email_on_moderations: Jag vill få ett e-postmeddelande varje gång något eller någon rapporteras för moderering.
+        evaluators: Utvärderare
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
@@ -1216,7 +1217,6 @@ sv:
         push_notifications_reminder: För att få aviseringar från plattformen måste du först tillåta dem i webbläsarens inställningar.
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
-        valuators: Utvärderare
       update:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
         success: Dina meddelandeinställningar har uppdaterats.
@@ -1227,6 +1227,12 @@ sv:
         message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
+      help:
+        core:
+          generated_on_date: Skapad den %{date}
+          resources:
+            one: "%{count} Resurs"
+            other: "%{count} Resurser"
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -1282,6 +1288,9 @@ sv:
           alert: Vi har uppdaterat våra användarvillkor, vänligen granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
+    participants_account_mailer:
+      removal_notification:
+        subject: Inaktivt konto raderat
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.

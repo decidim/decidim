@@ -179,6 +179,7 @@ fi:
         leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
         error: Tilisi poisto epäonnistui.
+        inactive_account_removal_reason: Tili on poistettu %{inactivity_period} päivän käyttämättömyyden jälkeen
         success: Tilisi poisto onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
@@ -1300,6 +1301,7 @@ fi:
         assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
+        evaluators: Arvioijat
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
@@ -1316,7 +1318,6 @@ fi:
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
-        valuators: Arvioijat
       update:
         error: Ilmoitusasetustesi päivitys epäonnistui.
         success: Ilmoitusasetuksesi päivitys onnistui.
@@ -1341,7 +1342,11 @@ fi:
         core:
           components: Komponentit
           description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          generated_on_date: Luontipäivä %{date}
           main: Ydin
+          resources:
+            one: "%{count} asia"
+            other: "%{count} asiaa"
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
         metrics:
@@ -1492,6 +1497,26 @@ fi:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Tietojemme mukaan olet luonut tilin <strong>%{date_account_creation}</strong> palveluun %{organization_name}, eikä kyseistä tiliä ole käytetty <strong>%{date_last_connection}</strong> jälkeen.</p>
+          <p>Suojellaksemme yksityisyyttäsi, tämä tili poistetaan automaattisesti <strong>%{days} päivän</strong> päästä.</p>
+          <p>Mikäli haluat säilyttää tilisi palvelussa %{organization_name}, %{login_url} ennen kyseistä hetkeä, jotta tilisi säilytetään.<p>
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello_html: Hei <strong>%{username}</strong>,
+        log_in: kirjaudu sisään
+        never_logged_in: et ole koskaan kirjautunut palveluun
+        subject: Varoitus passiivisesta käyttäjätilistä
+      removal_notification:
+        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello: Hei %{username},
+        subject: Käyttämättä ollut tili on poistettu
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.

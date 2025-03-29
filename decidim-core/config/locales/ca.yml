@@ -110,7 +110,7 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -179,6 +179,7 @@ ca:
         leaving_authorizations_behind: Algunes dades vinculades a la teva autorització es guardaran per motius de seguretat. Si crees un altre compte i l'autoritzes de nou, aquestes dades es recuperaran al teu nou compte.
       destroy:
         error: S'ha produït un error en eliminar el teu compte.
+        inactive_account_removal_reason: Compte eliminat després de %{inactivity_period} dies d'inactivitat
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         export_expired: L'exportació ha caducat. Intenta generar una nova exportació.
@@ -298,7 +299,7 @@ ca:
         create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
-        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update: "%{user_name} ha actualitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
         create: "%{user_name} va crear el filtre %{resource_name}"
@@ -1298,6 +1299,7 @@ ca:
         assigned_to_proposal: Vull rebre un correu electrònic quan algú m'assigni una proposta a avaluar
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
+        evaluators: Avaluadores
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
         newsletters: Butlletins informatius
@@ -1314,7 +1316,6 @@ ca:
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
-        valuators: Avaluadores
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
@@ -1327,7 +1328,7 @@ ca:
     onboarding_action_message:
       click_link: Fes clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
-      ephemeral_authorized_message: Ha estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
+      ephemeral_authorized_message: Has estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
       expired_authorization_active_title: La teva autorització ha caducat.
       finish_authorization_process: Pots finalitzar el procés de verificació
       incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
@@ -1339,7 +1340,11 @@ ca:
         core:
           components: Components
           description: Aquest fitxer ZIP conté fitxers per l'estudi i la recerca sobre aquesta plataforma de participació.
+          generated_on_date: Generat el %{date}
           main: Nucli
+          resources:
+            one: "%{count} recurs"
+            other: "%{count} recursos"
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
         metrics:
@@ -1490,6 +1495,26 @@ ca:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes i Condicions d'ús. En cas contrari, no podràs participar en la plataforma.
           title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Els nostres registres indiquen que vas creas un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat activa des de <strong>%{date_last_connection</strong></p>}.
+          <p>Per protegir la teva privacitat, l'eliminació automàtica d'aquest compte s'ha programat en <strong>%{days} dies</strong>.</p>
+          <p>Si vols conservar el teu compte %{organization_name}, simplement %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
+        greetings_html: |
+          Atentament,<br>
+          %{organization_name}
+        hello_html: Benvolgut/da <strong>%{username}</strong>,
+        log_in: entra
+        never_logged_in: mai ha iniciat sessió
+        subject: Avís de compte inactiu
+      removal_notification:
+        body: El teu compte a %{organization_name} s'ha eliminat per inactivitat.
+        greetings_html: |
+          Atentament,<br>
+          %{organization_name}
+        hello: Benvolgut/da %{username},
+        subject: Avís de compte inactiu
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
