@@ -568,11 +568,6 @@ ar:
         private_meeting: اجتماع خاص
         transparent: شفاف
         withdraw: تم السحب
-    metrics:
-      meetings:
-        description: عدد الاجتماعات التي تم إنشاؤها
-        object: اجتماعات
-        title: اجتماعات
     participatory_spaces:
       highlighted_meetings:
         past_meetings: الاجتماعات السابقة
