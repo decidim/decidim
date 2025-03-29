@@ -670,7 +670,7 @@ es-PY:
       meetings:
         description: Número de reuniones creadas
         object: reuniones
-        title: Reuniones
+        title: Encuentros
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
