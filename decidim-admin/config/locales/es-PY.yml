@@ -599,9 +599,6 @@ es-PY:
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía
         users: Usuarios
-      metrics:
-        metrics:
-          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -1236,7 +1233,6 @@ es-PY:
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
         menu: Menú
-        metrics: Métricas
         page_topics: Temas
         pages: Páginas
         panel: Administradora
@@ -1282,16 +1278,6 @@ es-PY:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada.
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuarias reportadas
-        title: Usuarias reportadas
-      user_reports:
-        object: reportes de usuaria
-        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
