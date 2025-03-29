@@ -183,6 +183,6 @@ it:
       debates:
         description: Numero di dibattiti creati
         object: dibattiti
-        title: dibattiti
+        title: Dibattiti
     statistics:
       debates_count: Dibattiti
