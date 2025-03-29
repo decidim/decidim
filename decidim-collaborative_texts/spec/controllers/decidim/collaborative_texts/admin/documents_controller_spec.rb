@@ -7,8 +7,6 @@ module Decidim
   module CollaborativeTexts
     module Admin
       describe DocumentsController do
-        routes { Decidim::CollaborativeTexts::AdminEngine.routes }
-
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:organization) { create(:organization) }
         let(:participatory_space) { create(:participatory_process, organization:) }
