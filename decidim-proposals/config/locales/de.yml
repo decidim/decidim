@@ -374,7 +374,7 @@ de:
       votes:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
-        title: Abstimmungen
+        title: Stimmen
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
