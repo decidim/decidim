@@ -64,7 +64,6 @@ ga:
           new:
             create: Cruthaigh
         exports:
-          answers: Freagraí
           meeting_comments: Tráchtanna
           meetings: Cruinnithe
         invites:
@@ -95,6 +94,7 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+            manage_questions: Ceisteanna
       directory:
         meetings:
           index:

@@ -8,14 +8,9 @@ lb:
       decidim/surveys/survey:
         one: Emfro
         other: Emfroen
-      decidim/surveys/survey_answer:
-        one: Äntwerten
-        other: Äntwerten
   decidim:
     components:
       surveys:
-        actions:
-          answer: Äntwert
         settings:
           global:
             announcement: Ukënnegung
@@ -33,22 +28,9 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
-    metrics:
-      survey_answers:
-        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
-        object: Antworten auf Umfragen
-        title: Antworten zu Umfragen
-    statistics:
-      answers_count: Äntwerten
     surveys:
       admin:
-        exports:
-          survey_user_answers: Umfrage Benutzer Antworten
         surveys:
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
-      surveys:
-        answer:
-          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
-          success: Umfrage erfolgreich beantwortet.

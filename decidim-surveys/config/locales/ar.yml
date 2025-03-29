@@ -12,18 +12,9 @@ ar:
         few: الدراسات الاستقصائية
         many: الدراسات الاستقصائية
         other: الدراسات الاستقصائية
-      decidim/surveys/survey_answer:
-        zero: الأجوبة
-        one: إجابة
-        two: الأجوبة
-        few: الأجوبة
-        many: الأجوبة
-        other: الأجوبة
   decidim:
     components:
       surveys:
-        actions:
-          answer: إجابة
         settings:
           global:
             announcement: إعلان
@@ -41,24 +32,13 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: استطلاع جديد في %{participatory_space_title}
           notification_title: المسح <a href="%{resource_path}">%{resource_title}</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a> مفتوح الآن.
-    metrics:
-      survey_answers:
-        description: عدد الاستطلاعات التي أجاب عليها المشاركون
-        object: إجابات على الدراسات الاستقصائية
-        title: إجابات للمسوحات
     surveys:
       actions:
         edit: تعديل
         preview: معاينة
         title: الإجراءات
       admin:
-        exports:
-          survey_user_answers: إجابات المشاركين في الاستطلاع
         surveys:
           update:
             invalid: كانت هناك مشكلة في إنقاذ المسح.
             success: تم حفظ الاستطلاع بنجاح.
-      surveys:
-        answer:
-          invalid: كانت هناك مشكلة في الإجابة على الاستبيان.
-          success: مسح أجاب بنجاح.

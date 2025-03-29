@@ -1,8 +1,6 @@
 cs:
   activemodel:
     attributes:
-      answer:
-        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -18,7 +16,6 @@ cs:
         customize_registration_email: Přizpůsobit registrační e-mail
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
-        decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
         id: ID
@@ -128,7 +125,6 @@ cs:
             values:
               official: Úředník
               participants: Účastník
-              user_group: Skupiny uživatelů
           with_any_type:
             label: Typ schůzky
             values:
@@ -182,7 +178,6 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
-            creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
       help:
         invites:
@@ -319,7 +314,6 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému.
             success: Program schůze byl úspěšně aktualizován.
         exports:
-          answers: Odpovědi
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
@@ -416,7 +410,7 @@ cs:
         poll:
           form:
             announcement_html:
-              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
+              - 
               - Otázku můžete kdykoliv přidat.
               - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
               - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
@@ -428,7 +422,7 @@ cs:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
-            manage_questions: Spravovat otázky
+            manage_questions: Otázky
             recommendation_message: Z důvodu ochrany osobních údajů doporučujeme odstranit tento nadepsaný formulář, když jej již nepotřebujete. Ve výchozím nastavení je to 3 měsíce po ukončení schůzky.
             registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_form: Registrační formulář
@@ -558,7 +552,6 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
-            user_group: Skupiny
           search: Vyhledávání
           type: Typ
           type_values:
@@ -569,7 +562,6 @@ cs:
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
-          create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
@@ -598,7 +590,6 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Vytvořte si schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -654,26 +645,14 @@ cs:
             taxonomies: Taxonomie
             title: Titul
       polls:
-        answers:
-          index:
-            administrate: Spravovat
-            title: Anketa
-          index_admin:
-            back_to_meeting: Zpět na schůzku
-            title: Správa ankety
-            view_poll: Zobrazit anketu
         questions:
           closed_question:
             announcement: Odpovědi na tuto otázku byly uzavřeny.
             question: Otázka
             question_results: Výsledky
-          index:
-            empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
             edit: Upravit v panelu administrace
             question: Otázka
-            received_answer: přijatá odpověď
-            received_answers: přijaté odpovědi
             results: Výsledky
             send: Odeslat
             sent: Odesláno
@@ -687,7 +666,6 @@ cs:
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
       public_participants_list:
-        attending_organizations: Organizace
         attending_participants: Účast účastníků
         hidden_participants_count:
           one: a %{count} další osoba
@@ -740,11 +718,9 @@ cs:
           commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           comments: Data komentářů ke schůzce
           created_at: Datum, kdy byl komentář vytvořen
-          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         meetings:
           address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
           attachments: Počet příloh v této schůzce
@@ -762,7 +738,6 @@ cs:
           created_at: Datum, kdy byla schůzka vytvořena
           customize_registration_email: Možnost povolit vlastní e-mail při registraci
           decidim_author_type: Typ autora schůzky
-          decidim_user_group_id: ID uživatelské skupiny osob zapojených do schůzky
           description: Popis schůzky
           end_time: Datum a čas ukončení této schůzky
           follows_count: Počet sledujících které schůzka má

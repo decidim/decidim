@@ -24,7 +24,7 @@ module Decidim
         decidim-meetings-meetings-
         decidim-proposals-proposals-
         decidim-budgets-orders-
-        decidim-forms-answers-
+        decidim-forms-responses-
         decidim-debates-debates-
         decidim-conferences-conferenceregistrations-
         decidim-conferences-conferenceinvites-

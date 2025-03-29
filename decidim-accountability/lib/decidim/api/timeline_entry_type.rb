@@ -4,6 +4,7 @@ module Decidim
   module Accountability
     class TimelineEntryType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::TraceableInterface
 
       description "A Timeline Entry"
 

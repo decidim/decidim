@@ -1,26 +1,12 @@
 el:
   activemodel:
     attributes:
-      answer:
-        body: Απάντηση
-        choices: Επιλογές
-        selected_choices: Επιλεγμένες επιλογές
       question:
         max_choices: Μέγιστος αριθμός επιλογών
         question_type: Τύπος
       questionnaire_question:
         mandatory: Υποχρεωτικό
         max_characters: Όριο χαρακτήρων (αφήστε στο 0 αν δεν υπάρχει όριο)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
-            body:
-              too_long: είναι πολύ μεγάλο
-            choices:
-              missing: δεν έχουν ολοκληρωθεί
   decidim:
     forms:
       admin:
@@ -31,45 +17,18 @@ el:
         questionnaires:
           actions:
             back: Επιστροφή στις ερωτήσεις
-            show: Εμφάνιση απαντήσεων
-          answer_option:
-            answer_option: Επιλογή απάντησης
-            free_text: Ελεύθερο κείμενο
-            remove: Κατάργηση
-            statement: Δήλωση
-          answers:
-            actions:
-              back: Επιστροφή στις απαντήσεις
-              export: Εξαγωγή
-              next: Επόμενη &rsaquo;
-              previous: "&lsaquo; Προηγούμενη"
-              show: Εμφάνιση απαντήσεων
-            empty: Δεν υπάρχουν απαντήσεις ακόμη
-            export:
-              answer:
-                title: 'Απάντηση #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} συνολικές απαντήσεις"
-            show:
-              title: 'Απάντηση #%{number}'
           display_condition:
-            answer_option: Επιλογή απάντησης
             condition_question: Ερώτηση
             condition_type: Συνθήκη
             condition_types:
-              answered: Απαντήθηκε
               equal: Ίσο
               match: Περιλαμβάνει κείμενο
-              not_answered: Δεν απαντήθηκε
               not_equal: Όχι ίσο
             condition_value: Περιλαμβανόμενο κείμενο
             display_condition: Συνθήκη εμφάνισης
             mandatory: Αυτή η συνθήκη πρέπει να ικανοποιείται πάντα ανεξάρτητα από την κατάσταση άλλων συνθηκών
             remove: Αφαίρεση
             save_warning: Θυμηθείτε να αποθηκεύσετε τη φόρμα πριν διαμορφώσετε τις συνθήκες εμφάνισης
-            select_answer_option: Επιλέξτε επιλογή απάντησης
             select_condition_question: Επιλέξτε μια ερώτηση
             select_condition_type: Επιλέξτε έναν τύπο συνθήκης
           edit:
@@ -86,7 +45,6 @@ el:
             remove: Κατάργηση
             statement: Δήλωση
           question:
-            add_answer_option: Προσθήκη επιλογής απάντησης
             add_display_condition: Προσθήκη συνθήκης εμφάνισης
             add_display_condition_info: Αποθηκεύστε τη φόρμα για να ρυθμίσετε τις συνθήκες εμφάνισης
             add_matrix_row: Προσθήκη γραμμής
@@ -99,6 +57,9 @@ el:
             remove: Κατάργηση
             statement: Δήλωση
             up: Επάνω
+          responses:
+            actions:
+              show: Εμφάνιση απαντήσεων
           separator:
             down: Κάτω
             remove: Κατάργηση
@@ -119,9 +80,6 @@ el:
       admin_log:
         questionnaire:
           update: "Ο/Η %{user_name} ενημέρωσε το %{resource_name} ερωτηματολόγιο"
-      errors:
-        answer:
-          body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
         processors:
@@ -129,36 +87,19 @@ el:
           resize_to_fit: Αυτή η εικόνα θα αλλάξει μέγεθος για να χωρέσει σε %{dimensions}.
       question_types:
         files: Αρχεία
-        long_answer: Μεγάλη απάντηση
         matrix_multiple: Πίνακας (πολλαπλή επιλογή)
         matrix_single: Πίνακας (μία επιλογή)
         multiple_option: Πολλαπλή επιλογή
-        short_answer: Σύντομη απάντηση
         single_option: Μία επιλογή
         sorting: Ταξινόμηση
         title_and_description: Τίτλος και περιγραφή
-      questionnaire_answer_presenter:
-        download_attachment: Λήψη συνημμένου
       questionnaires:
-        answer:
-          invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
-          max_choices_alert: Υπάρχουν πάρα πολλές επιλεγμένες επιλογές
-          success: Η φόρμα απαντήθηκε με επιτυχία.
         question:
           max_choices: 'Μέγιστες επιλογές: %{n}'
         show:
-          answer_questionnaire:
-            already_have_an_account?: Έχετε ήδη λογαριασμό;
-            are_you_new?: Νέος χρήστης;
-            sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
-            title: Απαντήστε στη φόρμα
           current_step: Βήμα %{step}
           of_total_steps: από %{total_steps}
-          questionnaire_answered:
-            body: Έχετε ήδη απαντήσει σε αυτήν τη φόρμα.
-            title: Έχει ήδη απαντηθεί
           questionnaire_closed:
-            body: Η φόρμα είναι κλειστή και δεν μπορεί να απαντηθεί.
             title: Η φόρμα έκλεισε
           questionnaire_for_private_users:
             body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
@@ -174,14 +115,3 @@ el:
           back: Πίσω
           continue: Συνέχεια
           submit: Υποβολή
-      user_answers_serializer:
-        body: Απάντηση
-        completion: Ολοκλήρωση
-        created_at: Απαντήθηκε στις
-        id: Αναγνωριστικό απάντησης
-        ip_hash: IP Hash
-        question: Ερώτηση
-        registered: Έχει εγγραφεί
-        session_token: Αναγνωριστικό χρήστη
-        unregistered: Δεν έχει εγγραφεί
-        user_status: Κατάσταση χρήστη

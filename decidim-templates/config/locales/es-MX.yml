@@ -62,7 +62,7 @@ es-MX:
           edit:
             title: Editar la plantilla de respuesta a la propuesta
           form:
-            component_constraint_help: Tenga en cuenta que solo se listarán los espacios de participación que tengan componentes del tipo "propuestas".
+            component_constraint_help: Ten en cuenta que solo se listarán los espacios de participación que tengan componentes del tipo "propuestas".
             hint1_html: "<strong>%{organization}</strong> será reemplazado por el nombre de la organización"
             hint2_html: "<strong>%{name}</strong> será reemplazado por el nombre de la autora"
             hint3_html: "<strong>%{admin}</strong> será reemplazado por el nombre de la administradora (la que responde a la propuesta)"
@@ -75,20 +75,22 @@ es-MX:
             proposal_state_id: Estado interno
             title: Respuestas a propuestas
           new:
-            title: Nueva la plantilla de respuesta a propuesta
+            title: Nueva plantilla de respuesta a propuesta
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
           choose:
-            create_from_template: Crear desde plantilla
-            description: Estás a punto de crear un nuevo cuestionario. Puedes elegir una plantilla predefinida y modificarla después.
+            continue: Continuar
+            description: Puedes crear un nuevo cuestionario o puedes elegir una plantilla predefinida y modificarla más tarde. Selecciona una opción.
             label: Elegir una plantilla
+            options:
+              create_new_form: Crear un nuevo formulario
+              select_template: Seleccionar plantilla
             placeholder: Elegir una plantilla
-            skip_template: Omitir
           edit:
             edit: Editar
             empty: Aún no hay preguntas.
-            manage_questions: Gestionar las preguntas
+            manage_questions: Preguntas
             questionnaire: Cuestionario
             title: Editar plantilla del cuestionario
           edit_questions:

@@ -141,7 +141,6 @@ hu:
             admin: Admin
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
         user:
           fields:
             invitation_accepted_at: Meghívó elfogadva

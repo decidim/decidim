@@ -158,7 +158,6 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotitel
         user:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na

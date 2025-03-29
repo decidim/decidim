@@ -9,7 +9,6 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Заголовок
-        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
