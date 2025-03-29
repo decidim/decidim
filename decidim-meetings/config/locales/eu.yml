@@ -703,11 +703,6 @@ eu:
       withdraw:
         error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
-    metrics:
-      meetings:
-        description: Sortutako topaketa kopurua
-        object: topaketak
-        title: Topaketak
     open_data:
       help:
         meeting_comments:
