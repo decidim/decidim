@@ -348,7 +348,7 @@ eu:
       participatory_processes:
         description: Erakundeko partaidetza-prozesu kopurua
         object: partaidetza-prozesuak
-        title: Partaidetza-prozesuak
+        title: Prozesu pare-hartzaileak
     open_data:
       help:
         participatory_processes:
