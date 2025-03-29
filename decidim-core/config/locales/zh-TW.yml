@@ -481,6 +481,8 @@ zh-TW:
         view_all: 檢視全部
       metrics:
         name: 組織指標
+      participatory_space_metrics:
+        name: 指標
       static_page:
         section:
           name: 節
