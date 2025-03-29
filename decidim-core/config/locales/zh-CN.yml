@@ -320,6 +320,8 @@ zh-CN:
         view_all: 查看全部
       metrics:
         name: 组织指标
+      participatory_space_metrics:
+        name: 指标
       stats:
         name: 组织统计
       sub_hero:
@@ -728,11 +730,9 @@ zh-CN:
       participants:
         description: 组织中的活跃参与者人数
         object: 参与者
-        title: 参加者
       users:
         description: 参加组织的人数
         object: 参与者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
