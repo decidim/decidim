@@ -256,6 +256,8 @@ tr:
         description: Teklif sayısı
         object: teklifler
         title: Teklifler
+      votes:
+        title: Oylar
     participatory_spaces:
       highlighted_proposals:
         see_all: Tüm teklifleri görün
