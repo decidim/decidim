@@ -541,7 +541,7 @@ nl:
       meetings:
         description: Aantal gemaakte vergaderingen
         object: vergaderingen
-        title: vergaderingen
+        title: event
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
