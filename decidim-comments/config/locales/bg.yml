@@ -17,6 +17,10 @@ bg:
         one: Глас
         other: Гласове
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Коментари
     comments:
       admin:
         shared:
