@@ -343,7 +343,7 @@ sk:
       meetings:
         description: Počet vytvorených stretnutí
         object: stretnutia
-        title: Stretnutia
+        title: Stretnutie
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze
