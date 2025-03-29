@@ -703,11 +703,6 @@ fi:
       withdraw:
         error: Tapaamisen peruminen epäonnistui.
         success: Tapaaminen on peruttu.
-    metrics:
-      meetings:
-        description: Tapaamisten määrä
-        object: tapaamiset
-        title: Tapaamiset
     open_data:
       help:
         meeting_comments:
