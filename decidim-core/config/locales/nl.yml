@@ -374,6 +374,8 @@ nl:
         view_all: Bekijk alles
       metrics:
         name: Organisatie statistieken
+      participatory_space_metrics:
+        name: Deelname in cijfers
       stats:
         name: Organisatie statistieken
       sub_hero:
