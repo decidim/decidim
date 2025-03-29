@@ -9,16 +9,15 @@ describe Decidim::SendPushNotification do
   let(:user) { create(:user, notification_settings: { subscriptions: }) }
 
   before do
-    ENV["VAPID_PUBLIC_KEY"] = "public_key"
-    ENV["VAPID_PRIVATE_KEY"] = "private_key"
+    allow(Decidim).to receive(:vapid_public_key).and_return("public_key")
+    allow(Decidim).to receive(:vapid_private_key).and_return("private_key")
   end
 
   shared_examples "send a push notification" do
     context "without vapid settings config" do
       before do
-        allow(ENV).to receive(:fetch).and_call_original
-        allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return("")
-        allow(ENV).to receive(:fetch).with("VAPID_PRIVATE_KEY", nil).and_return("")
+        allow(Decidim).to receive(:vapid_public_key).and_return("")
+        allow(Decidim).to receive(:vapid_private_key).and_return("")
       end
 
       describe "#perform" do
@@ -30,8 +29,7 @@ describe Decidim::SendPushNotification do
 
     context "without vapid enabled" do
       before do
-        allow(ENV).to receive(:fetch).and_call_original
-        allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return("")
+        allow(Decidim).to receive(:vapid_public_key).and_return("")
       end
 
       describe "#perform" do

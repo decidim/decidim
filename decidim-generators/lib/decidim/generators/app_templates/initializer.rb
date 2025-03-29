@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+# most of this configurations can be handled through the environment variables.
+# Please refer to: https://docs.decidim.org/en/develop/configure/environment_variables
+
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
+  # config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
+  # config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
 
   # Sets the list of available locales for the whole application.
   #
@@ -47,6 +50,18 @@ Decidim.configure do |config|
   # By default is only enabled in the terms-of-service static page to allow a summary to be added and include
   # sections with a two-pane view
   # config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
+
+  # CDN host configuration
+  # config.storage_cdn_host = Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+  #
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  # config.storage_provider = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+
+  # VAPID public key that will be used to sign the Push API requests.
+  # config.vapid_public_key = Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+  #
+  # VAPID private key that will be used to sign the Push API requests.
+  # config.vapid_private_key = Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
 
   # Map and Geocoder configuration
   #
@@ -168,8 +183,8 @@ Decidim.configure do |config|
   # processed by Decidim, this value helps reduce the size of the files.
   # config.image_uploader_quality = Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
 
-  # config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
-  # config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
+  # config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
+  # config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
 
   # The number of reports which a resource can receive before hiding it
   # config.max_reports_before_hiding = Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
