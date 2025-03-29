@@ -415,23 +415,6 @@ cs:
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
-    metrics:
-      accepted_proposals:
-        description: Počet návrhů přijatých uživateli
-        object: návrhy
-        title: Přijaté návrhy
-      endorsements:
-        description: Počet schvalování k návrhům
-        object: schvalování
-        title: Schvalování
-      proposals:
-        description: Počet vytvořených návrhů
-        object: návrhy
-        title: Návrhy
-      votes:
-        description: Počet hlasů pro návrhy
-        object: hlasy
-        title: Hlasy
     open_data:
       help:
         proposal_comments:
