@@ -687,11 +687,6 @@ de:
       withdraw:
         error: Bei der Zurückziehen der Veranstaltung ist ein Problem aufgetreten.
         success: Die Verantstaltung wurde erfolgreich zurückgezogen.
-    metrics:
-      meetings:
-        description: Anzahl der erstellten Veranstaltungen
-        object: Treffen
-        title: Veranstaltungen
     open_data:
       help:
         meeting_comments:
