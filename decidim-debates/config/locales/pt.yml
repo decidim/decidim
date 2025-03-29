@@ -172,10 +172,5 @@ pt:
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este participante ainda não fez parte de nenhum debate.
-    metrics:
-      debates:
-        description: Número de debates criados
-        object: debates
-        title: Debates
     statistics:
       debates_count: Debates
