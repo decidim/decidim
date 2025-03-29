@@ -128,23 +128,6 @@ module Decidim
               expect(serialized[:author]).to include(url: urls)
             end
           end
-
-          context "when it is a user group" do
-            let!(:proposal) { create(:proposal, :user_group_author) }
-
-            before do
-              proposal.coauthorships.first.user_group.update!(name: "ACME", nickname: "acme")
-              proposal.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: ["ACME"])
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: [profile_url("acme")])
-            end
-          end
         end
 
         it "serializes the title" do
@@ -239,7 +222,7 @@ module Decidim
 
         it "serializes the endorsements" do
           expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
-          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
+          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.author&.name })
         end
 
         it "serializes related proposals" do
@@ -284,9 +267,9 @@ module Decidim
         end
 
         # This is an internal field for admins which should not be published
-        context "when valuation assignments are hidden" do
+        context "when evaluation assignments are hidden" do
           it "does not publish them" do
-            expect(serialized).not_to include(valuation_assignments_count: proposal.valuation_assignments_count)
+            expect(serialized).not_to include(evaluation_assignments_count: proposal.evaluation_assignments_count)
           end
         end
 

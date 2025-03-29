@@ -236,8 +236,8 @@ es:
           roles:
             admin: Administradora
             collaborator: Colaboradora
+            evaluator: Evaluadora
             moderator: Moderadora
-            valuator: Evaluadora
         media_link:
           fields:
             date: Fecha

@@ -32,6 +32,10 @@ $google_background_hover: #dcdcdc; // 30% opacity
 
       &--developer {
         @apply flex;
+
+        svg {
+          @apply fill-current;
+        }
       }
 
       &--facebook {

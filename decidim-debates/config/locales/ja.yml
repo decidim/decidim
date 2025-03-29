@@ -10,7 +10,6 @@ ja:
         instructions: 参加方法
         start_time: 開始
         title: タイトル
-        user_group_id: ディベートを作成
     models:
       decidim/debates/close_debate_event: ディベートが終了しました
       decidim/debates/create_debate_event: ディベート
@@ -72,11 +71,21 @@ ja:
             update: ディベートを更新
           form:
             add_attachments: 添付ファイルを追加
+            attachment_legend: ドキュメントまたは画像を追加
+            comments_visualization: コメントの視覚化
+            comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
+            edit_attachments: 添付ファイルを編集
+            errors:
+              comments_layout_locked: コメントが投稿されると、コメントレイアウトを変更することはできません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
+            single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'
+            two_columns: '2カラム: コメントは「賛成」と「反対」の列の下に表示され、返信を持つことはできません。'
           index:
             title: ディベート
+          manage_trash:
+            title: ディベートを削除しました
           new:
             create: ディベートを作成
             title: 新しいディベート
@@ -90,6 +99,8 @@ ja:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
+          restore: "%{user_name} は %{space_name} スペースでの議論 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} スペースでのディベート %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
       content_blocks:
         highlighted_debates:
@@ -133,13 +144,11 @@ ja:
           state_values:
             closed: 終了
             open: 公開
-          user_group: グループ
         index:
           new_debate: 新しいディベート
         new:
           back: 戻る
           create: 作成
-          title: 新しいディベート
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'
@@ -152,7 +161,6 @@ ja:
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
           edit_debate: 編集
-          groups_count: グループ
           open: 公開ディベート
           participants_count: 参加者
         update:
@@ -171,6 +179,10 @@ ja:
             start_time: 開始日
             taxonomies: タクソノミー
             title: タイトル
+    download_your_data:
+      show:
+        debate_comments: ディベートのコメントのエクスポート
+        debates: ディベートのエクスポート
     events:
       debates:
         create_debate_event:
@@ -239,7 +251,6 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         debates:
           author: ディベートの作者に関するデータ
           closed_at: ディベートの終了日時
@@ -250,15 +261,19 @@ ja:
           created_at: ディベートの作成日時
           description: ディベートの説明
           end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
+          endorsements_count: ディベートのオススメ数
+          follows_count: この議論のフォロワー数
           id: ディベートの固有ID
           information_updates: 作者がディベートに加えた更新
           instructions: ディベートにコメントするための指示
           last_comment_at: ディベートが最後にコメントされた日時
+          last_comment_by: ディベート内コメントの最終作成日時
           participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
           reference: このプラットフォームでのリソースの固有ID
           start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）
           taxonomies: このプロジェクトのタクソノミー
           title: ディベートのタイトル
+          updated_at: ディベートの最終更新日時
           url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート

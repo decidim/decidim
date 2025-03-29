@@ -8,14 +8,9 @@ bg:
       decidim/surveys/survey:
         one: Анкета
         other: Анкети
-      decidim/surveys/survey_answer:
-        one: Отговор
-        other: Отговори
   decidim:
     components:
       surveys:
-        actions:
-          answer: Отговор
         settings:
           global:
             announcement: Съобщение
@@ -33,30 +28,11 @@ bg:
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
           email_subject: Нова анкета в(ъв) %{participatory_space_title}
           notification_title: Анкетата <a href="%{resource_path}">%{resource_title}</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a> вече е отворена.
-    metrics:
-      survey_answers:
-        description: Брой на анкетите с отговори от участници
-        object: отговори на анкети
-        title: Отговори на анкети
-    statistics:
-      answers_count: Отговори
     surveys:
       admin:
-        exports:
-          survey_user_answers: Отговори на участник в анкети
         surveys:
           update:
             invalid: Възникна проблем при запазването на анкетата.
             success: Анкетата беше запазена успешно.
       last_activity:
         new_survey: 'Нова анкета:'
-      survey_confirmation_mailer:
-        confirmation:
-          body: Вие успешно отговорихте на анкетата %{questionnaire_title} в %{participatory_space}
-          subject: Въпросникът %{questionnaire_title} се нуждае от потвърждение
-        export_name: Анкетни отговори
-      surveys:
-        answer:
-          invalid: Възникна проблем при попълването на отговорите на анкетата.
-          spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
-          success: Отговорите на анкетата са попълнени успешно.

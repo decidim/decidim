@@ -1,9 +1,5 @@
 bs:
   activemodel:
-    attributes:
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Ime procenjivača
     errors:
       models:
         proposal:
@@ -13,9 +9,6 @@ bs:
   decidim:
     admin:
       filters:
-        proposals:
-          valuator_role_ids_has:
-            label: Dodeljeno procenjivaču
         search_placeholder:
           id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
     components:
@@ -35,7 +28,6 @@ bs:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Dobili ste ovo obaveštenje jer možete da procenite predlog.
             email_subject: Neko je ostavio poruku na predlogu %{resource_title}.
     proposals:
       actions:
@@ -44,14 +36,9 @@ bs:
       admin:
         proposals:
           index:
-            assign_to_valuator: Dodeli procenjivaču
-            assign_to_valuator_button: Dodeli
             publish_answers: Objavi odgovore
-            unassign_from_valuator: Oduzmi od procenjivača
-            unassign_from_valuator_button: Od dodeli
           show:
             amendments_count: Broj izmena
-            assigned_valuators: Dodeljeni procenjivači
             comments_count: Broj komentara
             documents: Dokumenti
             endorsements_count: Broj podržavanja
@@ -64,19 +51,13 @@ bs:
             ranking: "%{ranking} od %{total}"
             related_meetings: Slični sastanci
             remove_assignment: Ukloni zadatak
-            remove_assignment_confirmation: Da li ste sigurni da želite da uklonite procenjivača sa ovog predloga?
-            valuators: Procenjivači
       admin_log:
         proposal:
           publish_answer: "%{user_name} je objavio odgovor na predlog %{resource_name} u prostoru %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} je dodao predlog %{resource_name} procenjivaču"
       models:
         proposal:
           fields:
             published_answer: Objavljeni odgovor
-            valuator: Procenjivač
-            valuators: Procenjivači
       proposals:
         show:
           estimated_cost: Procenjen trošak

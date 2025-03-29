@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/traceable_interface_examples"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Budgets
@@ -20,6 +18,14 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model.component).budget_url(model))
         end
       end
 
@@ -44,6 +50,14 @@ module Decidim
 
         it "returns the total budget" do
           expect(response["total_budget"]).to eq(model.total_budget)
+        end
+      end
+
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the total budget" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 

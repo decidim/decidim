@@ -18,10 +18,10 @@ module Decidim
         expect(subject.questions.count).to eq(2)
       end
 
-      it "has an association of answers" do
-        create(:meetings_poll_answer, questionnaire: subject, user: create(:user, organization: questionable.organization))
-        create(:meetings_poll_answer, questionnaire: subject, user: create(:user, organization: questionable.organization))
-        expect(subject.reload.answers.count).to eq(2)
+      it "has an association of responses" do
+        create(:meetings_poll_response, questionnaire: subject, user: create(:user, organization: questionable.organization))
+        create(:meetings_poll_response, questionnaire: subject, user: create(:user, organization: questionable.organization))
+        expect(subject.reload.responses.count).to eq(2)
       end
 
       context "without a questionable" do

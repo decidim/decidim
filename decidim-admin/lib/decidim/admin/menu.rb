@@ -81,11 +81,6 @@ module Decidim
                         icon_name: "user-line",
                         active: is_active_link?(decidim_admin.users_path),
                         if: allowed_to?(:read, :admin_user)
-          menu.add_item :user_groups,
-                        I18n.t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path,
-                        icon_name: "group-line",
-                        active: is_active_link?(decidim_admin.user_groups_path),
-                        if: current_organization.user_groups_enabled? && allowed_to?(:index, :user_group)
           menu.add_item :officializations,
                         I18n.t("menu.participants", scope: "decidim.admin"), decidim_admin.officializations_path,
                         icon_name: "service-line",
@@ -237,8 +232,6 @@ module Decidim
                         position: 5,
                         active: [%w(
                           decidim/admin/users
-                          decidim/admin/user_groups
-                          decidim/admin/user_groups_csv_verifications
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
                           decidim/admin/conflicts

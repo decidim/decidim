@@ -33,8 +33,6 @@ ja:
       help_section:
         content: 内容
       id: ID
-      import:
-        user_group_id: インポートを作成
       newsletter:
         body: 本文
         send_to_all_users: すべてのユーザーに送信
@@ -96,7 +94,6 @@ ja:
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
         twitter_handler: X ハンドラー
-        user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: ウェルカム通知本文
@@ -201,7 +198,6 @@ ja:
           new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
-        reject: 拒否
         restore: 復元
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
@@ -209,7 +205,6 @@ ja:
         soft_delete: 論理削除
         user:
           new: 新しい管理者
-        verify: 確認する
         view_deleted_components: 削除されたコンポーネントを表示
       admin_terms_of_service:
         accept:
@@ -598,7 +593,6 @@ ja:
         static_pages: ページ
         taxonomies: タクソノミー
         taxonomy_filters: タクソノミーフィルター
-        user_groups: グループ
         users: 参加者
       metrics:
         metrics:
@@ -671,16 +665,6 @@ ja:
               admin: 管理者
               user_manager: 参加者マネージャー
           name: 参加者
-        user_group:
-          fields:
-            actions: アクション
-            created_at: 作成日時
-            document_number: ドキュメント番号
-            name: 名前
-            nickname: ニックネーム
-            phone: 電話番号
-            state: 都道府県：
-            users_count: 参加者数
       moderated_users:
         index:
           actions:
@@ -736,6 +720,7 @@ ja:
             does_not_belong: 属していません
             hidden_during_block: ユーザーのブロック中は非表示
             offensive: 攻撃的
+            parent_hidden: 親コンテンツが非表示になりました
             spam: スパム
         reports:
           index:
@@ -1090,7 +1075,6 @@ ja:
           title: トピックを編集
           update: トピックを更新
         new:
-          create: トピックを作成
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
@@ -1114,7 +1098,6 @@ ja:
         index:
           last_notable_change: 前回の注目すべき変更
         new:
-          create: ページを作成
           title: 新しいページ
         topic:
           empty: このトピックのページはありません。
@@ -1253,7 +1236,6 @@ ja:
         statistics: アクティビティ
         taxonomies: タクソノミー
         taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
-        user_groups: グループ
         users: 管理者
       tooltips:
         deleted_component_info: このコンポーネントは、ステータスが '未公開' の場合にのみ削除できます。
@@ -1264,32 +1246,6 @@ ja:
         soft_delete:
           invalid: '%{resource_name} の削除中に問題が発生しました。'
           success: "%{resource_name} を削除しました。"
-      user_group:
-        csv_verify:
-          invalid: CSVファイルの読み込みに問題が発生しました。
-          success: CSVファイルは正常にアップロードされました。条件に一致するグループを確認しています。しばらくお待ちください。
-        reject:
-          invalid: このグループを拒否する際に問題が発生しました。
-          success: グループを却下しました。
-        verify:
-          invalid: このグループを確認する際に問題が発生しました。
-          success: グループを確認しました。
-      user_groups:
-        index:
-          state:
-            pending: 保留中
-            rejected: 拒否
-            verified: 確認済み
-          verify_via_csv: CSVで確認する
-      user_groups_csv_verifications:
-        new:
-          example_file: 'サンプルファイル:'
-          explanation: CSVファイルをアップロードします。ファイルの最初のカラムにある組織内のグループの公式メールをヘッダーなしで送信する必要があります。 メールが確認され、CSVファイルにメールが表示されているグループのみが検証されます。
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: CSVファイルをアップロード
-          upload: アップロード
       users:
         create:
           error: 管理者の招待に問題が発生しました。

@@ -122,7 +122,8 @@
         }
       }
 
-      .card__proposals-votes {
+      .card__proposals-votes,
+      .card__proposals-votes-hidden {
         @apply flex md:flex-col lg:flex-row bg-[#F5F5F5] justify-around md:flex-[0.6] lg:flex-[0.8] items-center md:items-stretch lg:items-center lg:min-w-[196px] h-[68px] md:h-auto lg:h-[68px];
 
         button {
@@ -138,6 +139,14 @@
 
           .proposals__aside-progress {
             @apply flex flex-col w-[80%] items-center md:order-1 lg:order-none md:flex-[1_1_100%] lg:flex-none;
+
+            .progress-bar {
+              @apply bg-[#D3D5D9] border-white border border-solid;
+
+              > :first-child {
+                @apply outline outline-white;
+              }
+            }
           }
 
           .progress-bar {
@@ -148,6 +157,10 @@
             &__number {
               span {
                 @apply text-sm;
+              }
+
+              > :last-child::before {
+                @apply content-['/'] mx-1;
               }
             }
           }
@@ -228,7 +241,8 @@
         }
       }
 
-      .card__proposals-votes {
+      .card__proposals-votes,
+      .card__proposals-votes-hidden {
         @apply flex bg-[#F5F5F5EE] justify-around items-center px-4 h-[68px];
 
         button {
@@ -244,6 +258,14 @@
 
           .proposals__aside-progress {
             @apply flex flex-col-reverse w-[80%] items-center;
+
+            .progress-bar {
+              @apply bg-[#D3D5D9] border-white border border-solid;
+
+              > :first-child {
+                @apply outline outline-white;
+              }
+            }
           }
 
           .progress-bar {
@@ -252,6 +274,10 @@
 
               span {
                 @apply text-sm;
+              }
+
+              > :last-child::before {
+                @apply content-['/'] mx-1;
               }
             }
 
@@ -372,5 +398,33 @@
 
   .item_voting_rules {
     @apply lg:col-start-2 lg:col-span-10;
+  }
+}
+
+#form-merge-proposals {
+  .custom-inputs {
+    input {
+      @apply mt-0;
+    }
+  }
+
+  .upload-modal__files-container {
+    label {
+      @apply mb-0;
+    }
+
+    button {
+      @apply mt-0;
+    }
+  }
+}
+
+.form__wrapper,
+.form-proposals-merge-styles {
+  .proposal-field-custom-style {
+    & label:not(&-checkbox-label),
+    &-block label:not(&-checkbox-label) {
+      @apply font-normal text-sm;
+    }
   }
 }

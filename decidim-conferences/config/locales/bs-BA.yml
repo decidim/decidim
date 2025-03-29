@@ -1,10 +1,5 @@
 bs:
   decidim:
-    admin:
-      models:
-        conference_user_role:
-          roles:
-            valuator: Procenjivač
     events:
       conferences:
         role_assigned:

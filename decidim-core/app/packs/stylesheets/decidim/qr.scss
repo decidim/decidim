@@ -1,0 +1,64 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  @import "stylesheets/decidim/_fonts.scss";
+  @import "stylesheets/decidim/_typography.scss";
+  // Keep this in separate file as long as we are maintaining Foundation compatibility
+  @import "stylesheets/decidim/_rich_text.scss";
+}
+
+body {
+  @apply text-center mt-16 px-8;
+
+  > * {
+    @apply mx-auto w-full;
+  }
+
+  h1 {
+    @apply text-2xl text-black mb-6;
+  }
+
+  h3 {
+    @apply text-lg text-black mt-4;
+  }
+
+  .code-qr {
+    @apply mx-auto w-[80%] md:w-[40%] lg:w-[20%];
+  }
+
+  .card__grid-img {
+    @apply aspect-[21/9] rounded-t overflow-hidden mx-auto w-full lg:w-96 mb-12;
+
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .logo {
+    @apply mt-10;
+
+    a {
+      @apply inline-block;
+
+      img {
+        @apply h-20 w-full;
+      }
+    }
+  }
+}
+
+@media print {
+  body {
+    zoom: 0.75;
+
+    h1 {
+      @apply text-2xl text-black mb-12;
+    }
+
+    .card__grid-img {
+      @apply w-[80%];
+    }
+  }
+}

@@ -42,6 +42,10 @@ module Decidim
 
       component_manifest_name "dummy"
 
+      def presenter
+        Decidim::Dev::DummyResourcePresenter.new(self)
+      end
+
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
       end
@@ -51,7 +55,7 @@ module Decidim
       end
 
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
 
       def allow_resource_permissions?

@@ -46,6 +46,7 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
+      .and match(/^# gem "decidim-collaborative_texts"/)
   end
 end
 
@@ -57,6 +58,7 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
+      .and match(/^gem "decidim-collaborative_texts"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -120,6 +122,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
@@ -209,6 +215,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "365",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "7",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -535,7 +545,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -576,7 +586,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
@@ -951,7 +961,7 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to contain (#{queues})"
   end

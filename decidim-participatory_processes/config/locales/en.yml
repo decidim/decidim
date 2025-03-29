@@ -152,8 +152,8 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Valuator
         user:
           fields:
             invitation_accepted_at: Invitation accepted at
@@ -344,11 +344,6 @@ en:
           not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
-    metrics:
-      participatory_processes:
-        description: Number of participatory processes in this organization
-        object: participatory processes
-        title: Participatory processes
     open_data:
       help:
         participatory_processes:
@@ -474,9 +469,6 @@ en:
           highlighted_processes:
             active_spaces: Active processes
             see_all_spaces: See all processes
-      participatory_process_steps:
-        index:
-          back_to_process: Back to the process page
       participatory_processes:
         description:
           area_name: Area

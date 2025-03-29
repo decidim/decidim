@@ -25,7 +25,7 @@ module Decidim
           project_votes_query,
           proposals_query,
           proposal_votes_query,
-          survey_answer_query
+          survey_response_query
         ].flatten.uniq.count
       end
 
@@ -116,8 +116,8 @@ module Decidim
                                .uniq
       end
 
-      def survey_answer_query
-        Decidim::Forms::Answer.newsletter_participant_ids(space_components)
+      def survey_response_query
+        Decidim::Forms::Response.newsletter_participant_ids(space_components)
       end
 
       def space_components

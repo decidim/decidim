@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      answer:
-        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -18,7 +16,6 @@ ar:
         customize_registration_email: تخصيص بريد التسجيل الإلكتروني
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
-        decidim_user_group_id: مجموعة مستخدم
         description: وصف
         end_time: وقت الانتهاء
         id: المعرف ID
@@ -101,7 +98,6 @@ ar:
             values:
               official: الرسمي
               participants: المشارك
-              user_group: مجموعات المستخدمين
           with_any_type:
             label: نوع الاجتماع
             values:
@@ -137,7 +133,6 @@ ar:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
             creation_enabled_for_participants: تم تمكين إنشاء الاجتماع بواسطة المشاركين
-            creation_enabled_for_user_groups: تم تمكين إنشاء الاجتماع بواسطة مجموعات المستخدم
     events:
       meetings:
         meeting_closed:
@@ -239,7 +234,6 @@ ar:
             create: إنشاء
             title: جدول أعمال جديد
         exports:
-          answers: الأجوبة
           meeting_comments: التعليقات
           meetings: اجتماعات
           registrations: التسجيلات
@@ -320,6 +314,7 @@ ar:
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
+            manage_questions: الأسئلة
             recommendation_message: لأسباب تتعلق بالخصوصية، نوصي بحذف نموذج التسجيل هذا حالما انتهيت منه. ويكون هذا تلقائياً بعد ثلاثة أشهر من انتهاء الاجتماع.
             registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
             registration_form: إستمارة تسجيل
@@ -452,7 +447,6 @@ ar:
         form:
           address_help: 'العنوان: مستخدم من قبل Geocoder للعثور على الموقع'
           available_slots_help: تركه على 0 إذا كان لديك أعدد غير محدود من الأماكن الشاغرة
-          create_as: إنشاء الاجتماع ك
           location_help: 'الموقع: رسالة موجهة إلى المستخدمين تعني مكان للالتقاء به في'
           location_hints_help: 'توضيح حول الموقع: معلومات إضافية. على سبيل المثال: إدراج طابق المبنى في حال كان الاجتماع شخصيا، أو كلمة مرور الاجتماع إذا كان اجتماعا على الإنترنت يحتوي على تقييد الدخول.'
           online_meeting_url_help: 'الرابط: السماح للمشاركين بالاتصال مباشرة باجتماعك'
@@ -471,7 +465,6 @@ ar:
         new:
           back: العودة
           create: إنشاء
-          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد
@@ -528,13 +521,9 @@ ar:
             title: عنوان
       polls:
         questions:
-          index:
-            empty_questions: خلال هذا الاجتماع، سيتم إرسال بعض الأسئلة وسوف تتمكن من الإجابة عليها. سيتم عرضها هنا.
           index_admin:
             edit: تحرير في لوحة المدراء
             question: سؤال
-            received_answer: الإجابة المتلقاة
-            received_answers: الإجابات المتلقاة
             results: النتائج
             send: إرسال
             sent: تم الإرسال

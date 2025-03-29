@@ -13,12 +13,10 @@ module Decidim::Maintenance::ImportModels
     # avoid using factories for this test in case old models are removed
     let!(:category) { described_class.create!(name: { "en" => "Category 1", "ca" => "Categoria 1" }, participatory_space: assembly) }
     let!(:subcategory) { described_class.create!(name: { "en" => "Sub Category 1", "ca" => "Subcategoria 1" }, parent: category, participatory_space: assembly) }
+    let!(:sub_subcategory) { described_class.create!(name: { "en" => "Category too deep", "ca" => "Sub Subcategoria 1" }, parent: subcategory, participatory_space: assembly) }
     let!(:another_category) { described_class.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
 
     let!(:categorizable) { Categorization.create!(categorizable: dummy_resource, category:) }
-    let!(:metric) { create(:metric, participatory_space: assembly, related_object: nil, decidim_category_id: subcategory.id) }
-    # a wrongly categorized metric
-    let!(:another_metric) { create(:metric, participatory_space: participatory_process, related_object: nil, decidim_category_id: subcategory.id) }
     # a wrongly categorized resource
     let(:another_component) { create(:dummy_component, name: { "en" => "Another Dummy Component" }, participatory_space: participatory_process) }
     let!(:another_resource) { create(:dummy_resource, title: { "en" => "Another Dummy Resource" }, component: another_component, scope: nil) }
@@ -27,10 +25,28 @@ module Decidim::Maintenance::ImportModels
     let!(:external_category) { described_class.create!(name: { "en" => "External Category" }, participatory_space: external_participatory_process) }
     let!(:external_categorizable) { Categorization.create!(categorizable: external_resource, category: external_category) }
     let(:root_taxonomy_name) { "~ Categories" }
+    let(:common_children) do
+      {
+        "Sub Category 1" => {
+          name: subcategory.name,
+          origin: subcategory.to_global_id.to_s,
+          children: {},
+          resources: subcategory.resources
+        },
+        "Sub Category 1 > Category too deep" => {
+          name: {
+            "en" => "Sub Category 1 > Category too deep",
+            "ca" => "Sub Subcategoria 1"
+          },
+          origin: sub_subcategory.to_global_id.to_s,
+          children: {},
+          resources: sub_subcategory.resources
+        }
+      }
+    end
 
     before do
       described_class.add_resource_class("Decidim::Dev::DummyResource")
-      allow_any_instance_of(Decidim::Metric).to receive(:to_s).and_return("Metric") # rubocop:disable RSpec/AnyInstance
     end
 
     describe "#name" do
@@ -54,14 +70,7 @@ module Decidim::Maintenance::ImportModels
         expect(subject.taxonomies).to eq(
           name: category.name,
           origin: category.to_global_id.to_s,
-          children: {
-            "Sub Category 1" => {
-              name: subcategory.name,
-              origin: subcategory.to_global_id.to_s,
-              children: {},
-              resources: subcategory.resources
-            }
-          },
+          children: common_children,
           resources: subject.resources
         )
       end
@@ -85,14 +94,7 @@ module Decidim::Maintenance::ImportModels
                                                                   "Category 1" => {
                                                                     name: category.name,
                                                                     origin: category.to_global_id.to_s,
-                                                                    children: {
-                                                                      "Sub Category 1" => {
-                                                                        name: subcategory.name,
-                                                                        origin: subcategory.to_global_id.to_s,
-                                                                        children: {},
-                                                                        resources: {}
-                                                                      }
-                                                                    },
+                                                                    children: common_children,
                                                                     resources: {
                                                                       dummy_resource.to_global_id.to_s => dummy_resource.title[I18n.locale.to_s]
                                                                     }
@@ -124,7 +126,8 @@ module Decidim::Maintenance::ImportModels
           internal_name: "Assembly: Assembly",
           items: [
             ["Assembly: Assembly", "Category 1"],
-            ["Assembly: Assembly", "Category 1", "Sub Category 1"]
+            ["Assembly: Assembly", "Category 1", "Sub Category 1"],
+            ["Assembly: Assembly", "Category 1", "Sub Category 1 > Category too deep"]
           ],
           components: [
             dummy_component.to_global_id.to_s
@@ -155,14 +158,7 @@ module Decidim::Maintenance::ImportModels
                                                                     "Category 1" => {
                                                                       name: category.name,
                                                                       origin: category.to_global_id.to_s,
-                                                                      children: {
-                                                                        "Sub Category 1" => {
-                                                                          name: subcategory.name,
-                                                                          origin: subcategory.to_global_id.to_s,
-                                                                          children: {},
-                                                                          resources: {}
-                                                                        }
-                                                                      },
+                                                                      children: common_children,
                                                                       resources: {
                                                                         dummy_resource.to_global_id.to_s => dummy_resource.title[I18n.locale.to_s]
                                                                       }
@@ -180,7 +176,7 @@ module Decidim::Maintenance::ImportModels
       end
 
       context "and a component has no taxonomy filters" do
-        let!(:dummy_component) { create(:post_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
+        let!(:dummy_component) { create(:surveys_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
         let(:dummy_resource) { nil }
         let(:categorizable) { nil }
 

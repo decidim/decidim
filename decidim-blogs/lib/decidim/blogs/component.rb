@@ -20,10 +20,12 @@ Decidim.register_component(:blogs) do |component|
   component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
+    settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -58,7 +60,7 @@ Decidim.register_component(:blogs) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Blogs::Post, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true

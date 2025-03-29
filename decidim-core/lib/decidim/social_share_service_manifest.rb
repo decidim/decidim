@@ -10,12 +10,12 @@ module Decidim
     attribute :name, String
     attribute :icon, String
     attribute :share_uri, String
-    attribute :icon_color, String
+    attribute :type, Symbol, default: :link
     attribute :optional_params, Array
+    attribute :optional_args, Hash, default: {}
 
     validates :name, presence: true
     validates :icon, presence: true
-    validates :icon_color, presence: false
     validates :share_uri, presence: true, format: { with: /%{url}/ }
 
     # Format a given URL to be shareable
@@ -27,6 +27,8 @@ module Decidim
     # @return [String, nil] The formatted URL or nil when some or one of the
     #   required parameters is missing
     def formatted_share_uri(title, args)
+      return "#" unless link?
+
       formatted_args = escape_args(args.compact)
       format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
     rescue KeyError
@@ -46,6 +48,10 @@ module Decidim
     end
 
     private
+
+    def link?
+      type == :link
+    end
 
     # Add optional parameters to a share_uri
     # This is initially developed for Twitter, as they allow sending a Hashtag and Via as parameters

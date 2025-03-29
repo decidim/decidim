@@ -9,7 +9,6 @@ gl:
         scope_id: Ámbito
         state: Estado
         title: Título
-        user_group_id: Crear un borrador colaborativo como
       proposal:
         address: Enderezo
         answer: Resposta
@@ -22,7 +21,6 @@ gl:
         state: Estado
         suggested_hashtags: Hashtags suxeridos
         title: Título
-        user_group_id: Crear proposta como
       proposal_answer:
         answer: Resposta
         cost: Custo
@@ -34,9 +32,6 @@ gl:
         import_proposals: Propostas de importación
         keep_answers: Manter o estado e as respostas
         keep_authors: Mantén os autores orixinais
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome do avaliador/a
     errors:
       models:
         proposal:
@@ -307,7 +302,6 @@ gl:
             actions: Accións
             cancel: Cancelar
             merge: Unirse a un novo
-            merge_button: Fusionar
             publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
@@ -327,8 +321,6 @@ gl:
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas
-            remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
-            valuators: Avaliadores/as
         proposals_imports:
           new:
             create: Propostas de importación
@@ -344,7 +336,6 @@ gl:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
-          create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
           update: "%{user_name} actualizou a %{resource_name} proposta oficial sobre o espazo %{space_name}"
         proposal_note:
           create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"
@@ -360,7 +351,6 @@ gl:
           meetings: Reunións
           official: Oficial
           participants: Participantes
-          user_groups: Grupos de usuarios
         filter_state_values:
           all: Todo
           not_answered: Non respondeu
@@ -468,8 +458,6 @@ gl:
             published_at: Publicado en
             state: Estado
             title: Título
-            valuator: Avaliador/a
-            valuators: Avaliadores/as
             votes: Votos
       participatory_text_proposal:
         alternative_title: Non hai ningún texto participativo neste momento

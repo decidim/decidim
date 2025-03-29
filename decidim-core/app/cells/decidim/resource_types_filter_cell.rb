@@ -27,8 +27,12 @@ module Decidim
       options[:id] || "filters"
     end
 
-    def form_path
-      options[:form_path]
+    def filter_url(resource_type)
+      if options[:source] == :last_activities
+        last_activities_path(filter: { with_resource_type: resource_type })
+      else
+        profile_activity_path(nickname: params[:nickname], filter: { resource_type: })
+      end
     end
 
     def filter_param_key
@@ -37,10 +41,6 @@ module Decidim
 
     def filter_param
       @filter_param ||= params.dig(:filter, filter_param_key) || all_types_key
-    end
-
-    def filter
-      options[:filter]
     end
 
     def all_resource_types_option

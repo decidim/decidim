@@ -236,9 +236,6 @@ ar:
             few: "%{count} النتائج"
             many: "%{count} النتائج"
             other: "%{count} النتائج"
-        home:
-          empty: لا توجد نتائج بعد.
-          empty_filters: لا توجد نتائج تطابق هذه المعايير.
         home_header:
           global_status: حالة التنفيذ العالمي
         no_results: لا يوجد مشاريع
@@ -309,7 +306,6 @@ ar:
           id: معرف هذا التعليق
           locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
           root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
-          user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
         results:
           address: عنوان النتيجة (إن وجد)
           children_count: عدد النتائج الفرعية

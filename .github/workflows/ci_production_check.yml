@@ -13,7 +13,7 @@ env:
   CI: "false"
   SIMPLECOV: "false"
   RUBY_VERSION: 3.3.4
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   NODE_ENV: "production"
   RAILS_ENV: production
   BUNDLE_WITHOUT: "development:test"

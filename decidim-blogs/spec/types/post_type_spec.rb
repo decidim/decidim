@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/authorable_interface_examples"
-require "decidim/core/test/shared_examples/traceable_interface_examples"
-require "decidim/core/test/shared_examples/timestamps_interface_examples"
-require "decidim/core/test/shared_examples/endorsable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Blogs
@@ -20,12 +15,21 @@ module Decidim
       include_examples "traceable interface"
       include_examples "timestamps interface"
       include_examples "endorsable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns all the required fields" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
         end
       end
 

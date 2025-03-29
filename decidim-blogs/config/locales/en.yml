@@ -70,11 +70,15 @@ en:
             body: Body
             official_blog_post: Official post
             published_at: Publish time
+            taxonomies: Taxonomies
             title: Title
       posts:
         edit:
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back to post
           button: Update
+          edit_attachments: Edit attachments
           title: Edit post
         form:
           author_id: Author
@@ -106,9 +110,14 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create posts
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -134,7 +143,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         posts:
           author: The information of the author
           body: The body of the post

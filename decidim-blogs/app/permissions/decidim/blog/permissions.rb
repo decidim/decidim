@@ -49,7 +49,7 @@ module Decidim
       def can_manage_post
         return false unless post&.author
 
-        can_create_post && post&.author == user
+        can_create_post && admin_can_manage_post
       end
 
       def admin_can_manage_post
@@ -58,8 +58,6 @@ module Decidim
         case post.author
         when Decidim::User
           post.author == user
-        when Decidim::UserGroup
-          post.author.users.include?(user)
         when Decidim::Organization
           space_admin?
         else

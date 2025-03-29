@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/authorable_interface_examples"
-require "decidim/core/test/shared_examples/coauthorable_interface_examples"
-require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
-require "decidim/core/test/shared_examples/amendable_interface_examples"
-require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
-require "decidim/core/test/shared_examples/traceable_interface_examples"
-require "decidim/core/test/shared_examples/timestamps_interface_examples"
-require "decidim/core/test/shared_examples/endorsable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Proposals

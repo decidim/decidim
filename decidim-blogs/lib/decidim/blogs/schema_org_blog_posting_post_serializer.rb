@@ -38,19 +38,9 @@ module Decidim
         case post.author.class.name
         when "Decidim::Organization"
           author_organization
-        when "Decidim::UserGroup"
-          author_user_group
         when "Decidim::User"
           author_user
         end
-      end
-
-      def author_user_group
-        {
-          "@type": "Organization",
-          name: post.author.name,
-          url: profile_url(post.author)
-        }
       end
 
       def author_organization

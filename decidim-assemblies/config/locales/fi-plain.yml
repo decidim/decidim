@@ -200,8 +200,8 @@ fi-pl:
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
-            valuator: Arvioija
       taxonomy_filters:
         space_filter_for:
           assemblies: Kaikki ryhmät

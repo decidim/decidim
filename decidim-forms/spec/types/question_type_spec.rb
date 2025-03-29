@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Forms
@@ -60,13 +59,13 @@ module Decidim
         end
       end
 
-      describe "answerOptions" do
-        let(:query) { "{ answerOptions { id } }" }
-        let(:model) { create(:questionnaire_question, :with_answer_options, question_type: :single_option) }
+      describe "responseOptions" do
+        let(:query) { "{ responseOptions { id } }" }
+        let(:model) { create(:questionnaire_question, :with_response_options, question_type: :single_option) }
 
-        it "returns the question's answer options corresponding to question_for_id" do
-          ids = response["answerOptions"].map { |item| item["id"] }
-          expect(ids).to include(*model.answer_options.map(&:id).map(&:to_s))
+        it "returns the question's response options corresponding to question_for_id" do
+          ids = response["responseOptions"].map { |item| item["id"] }
+          expect(ids).to include(*model.response_options.map(&:id).map(&:to_s))
         end
       end
     end

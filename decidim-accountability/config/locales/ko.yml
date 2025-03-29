@@ -144,9 +144,6 @@ ko:
         count:
           results_count:
             other: "%{count} 개의 결과"
-        home:
-          empty: 결과가 없습니다
-          empty_filters: 이 기준에는 결과가 없습니다.
         no_results: 프로젝트가 없습니다.
         search:
           search: 작업 검색

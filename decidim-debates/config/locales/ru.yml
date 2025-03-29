@@ -8,7 +8,6 @@ ru:
         instructions: Указания для участия
         start_time: 'Начинается:'
         title: Название
-        user_group_id: Начать обсуждение в качестве
     models:
       decidim/debates/create_debate_event: Обсуждение
       decidim/debates/creation_disabled_event: Обсуждения отключены
@@ -76,7 +75,6 @@ ru:
         new:
           back: Вернуться
           create: Создать
-          title: Начать новое обсуждение
       models:
         debate:
           fields:

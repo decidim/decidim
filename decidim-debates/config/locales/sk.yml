@@ -8,7 +8,6 @@ sk:
         instructions: Inštrukcie ku zapojeniu
         start_time: Začiatok
         title: Názov
-        user_group_id: Vytvoriť debatu ako
     models:
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázané
@@ -76,7 +75,6 @@ sk:
         new:
           back: Späť
           create: Vytvoriť
-          title: Nová debata
       models:
         debate:
           fields:

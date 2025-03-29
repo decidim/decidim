@@ -225,7 +225,6 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
   describe "results" do
     let!(:official_resource) { create(factory_name, :official, { component: }.merge(factory_params)) }
-    let!(:user_group_resource) { create(factory_name, :user_group_author, { component: }.merge(factory_params)) }
     let!(:participant_resource) { create(factory_name, :participant_author, { component: }.merge(factory_params)) }
 
     if FactoryBot.factories[factory_name].defined_traits.map(&:name).include?(:meeting_resource)
@@ -246,7 +245,6 @@ shared_examples_for "a resource search with origin" do |factory_name|
       it "returns only official resources" do
         expect(subject).to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
         expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
-        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -256,17 +254,6 @@ shared_examples_for "a resource search with origin" do |factory_name|
       it "returns only citizen resources" do
         expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
         expect(subject).to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
-        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
-      end
-    end
-
-    context "when filtering user groups resources" do
-      let(:origins) { %w(user_group) }
-
-      it "returns only user groups resources" do
-        expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
-        expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
-        expect(subject).to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -277,7 +264,6 @@ shared_examples_for "a resource search with origin" do |factory_name|
         it "returns only meeting resources" do
           expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
           expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
-          expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
           expect(subject).to have_escaped_html(translated(meeting_resource.try(:title) || meeting_resource.try(:name)))
         end
       end

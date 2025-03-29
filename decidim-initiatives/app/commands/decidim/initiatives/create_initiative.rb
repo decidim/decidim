@@ -88,10 +88,10 @@ module Decidim
           organization: form.current_organization,
           title: { current_locale => form.title },
           description: { current_locale => form.description },
+          hashtag: form.hashtag,
           author: current_user,
           scoped_type:,
           signature_type: form.type.signature_type,
-          decidim_user_group_id: form.decidim_user_group_id,
           decidim_area_id: form.area_id,
           state: "created"
         )

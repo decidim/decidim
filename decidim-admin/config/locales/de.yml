@@ -33,8 +33,6 @@ de:
       help_section:
         content: Inhalt
       id: ID
-      import:
-        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         send_to_all_users: An alle Benutzenden senden
@@ -96,7 +94,6 @@ de:
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: X-Handler
-        user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
@@ -201,7 +198,6 @@ de:
           new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
-        reject: Ablehnen
         restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
@@ -209,7 +205,6 @@ de:
         soft_delete: Vorläufiges Löschen
         user:
           new: Neuer Administrator
-        verify: Überprüfen
         view_deleted_components: Gelöschte Komponenten ansehen
       admin_terms_of_service:
         accept:
@@ -603,7 +598,6 @@ de:
         static_pages: Seiten
         taxonomies: Taxonomien
         taxonomy_filters: Taxonomie-Filter
-        user_groups: Benutzergruppen
         users: Benutzer
       metrics:
         metrics:
@@ -676,16 +670,6 @@ de:
               admin: Administrator
               user_manager: Benutzer Manager
           name: Benutzer
-        user_group:
-          fields:
-            actions: Aktionen
-            created_at: Erstellt am
-            document_number: Dokumentnummer
-            name: Name
-            nickname: Spitzname
-            phone: Telefon
-            state: Status
-            users_count: Benutzer zählen
       moderated_users:
         index:
           actions:
@@ -741,6 +725,7 @@ de:
             does_not_belong: Gehört nicht
             hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
+            parent_hidden: Übergeordneter Inhalt wurde ausgeblendet
             spam: Spam
         reports:
           index:
@@ -932,7 +917,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Hoch
+          up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
@@ -1097,7 +1082,7 @@ de:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
-          create: Thema erstellen
+          create: Neues Thema
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -1121,7 +1106,7 @@ de:
         index:
           last_notable_change: Letzte signifikante Änderung
         new:
-          create: Seite erstellen
+          create: Neue Seite
           title: Neue Seite
         topic:
           empty: Es gibt keine Seite zu diesem Thema.
@@ -1261,7 +1246,6 @@ de:
         statistics: Aktivität
         taxonomies: Klassifizierungen
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
-        user_groups: Benutzergruppen
         users: Administratoren
       tooltips:
         deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
@@ -1272,32 +1256,6 @@ de:
         soft_delete:
           invalid: Es gab ein Problem beim Löschen von %{resource_name}.
           success: "%{resource_name} erfolgreich gelöscht."
-      user_group:
-        csv_verify:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, welche Gruppen den Kriterien entsprechen. Das kann eine Weile dauern.
-        reject:
-          invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Gruppe erfolgreich abgelehnt.
-        verify:
-          invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Gruppe erfolgreich verifiziert.
-      user_groups:
-        index:
-          state:
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
-          verify_via_csv: Überprüfen Sie über CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Beispieldatei:'
-          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
