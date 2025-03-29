@@ -312,6 +312,8 @@ el:
         description: Αριθμός προτάσεων
         object: προτάσεις
         title: Προτάσεις
+      votes:
+        title: Ψήφοι
     participatory_spaces:
       highlighted_proposals:
         see_all: Δείτε όλες τις προτάσεις
