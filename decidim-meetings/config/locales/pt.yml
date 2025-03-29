@@ -455,11 +455,6 @@ pt:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
-    metrics:
-      meetings:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões passadas
