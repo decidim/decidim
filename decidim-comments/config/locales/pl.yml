@@ -21,6 +21,10 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarze
     comments:
       admin:
         shared:
