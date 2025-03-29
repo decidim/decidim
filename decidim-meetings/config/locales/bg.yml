@@ -625,11 +625,6 @@ bg:
         withdraw: Оттеглено
       withdraw:
         success: Срещата е оттеглена успешно.
-    metrics:
-      meetings:
-        description: Брой създадени срещи
-        object: срещи
-        title: Срещи
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минали срещи
