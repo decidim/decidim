@@ -338,11 +338,6 @@ ja:
           not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})。'
     menu:
       processes: 参加型プロセス
-    metrics:
-      participatory_processes:
-        description: この組織の参加型プロセス数
-        object: 参加型プロセス
-        title: 参加型プロセス
     open_data:
       help:
         participatory_processes:
@@ -467,9 +462,6 @@ ja:
           highlighted_processes:
             active_spaces: アクティブなプロセス
             see_all_spaces: すべてのプロセスを見る
-      participatory_process_steps:
-        index:
-          back_to_process: 参加型プロセスのページに戻る
       participatory_processes:
         description:
           area_name: エリア
