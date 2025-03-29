@@ -20,6 +20,10 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Комментарии
     comments:
       votes:
         create:
