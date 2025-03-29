@@ -602,10 +602,6 @@ es:
         name: Datos principales
       metadata:
         name: Metadatos
-      metrics:
-        name: Métricas de la organización
-      participatory_space_metrics:
-        name: Métricas
       participatory_space_stats:
         name: Estadísticas
       social_networks_metadata:
@@ -1167,6 +1163,8 @@ es:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante no quiere recibir mensajes privados.
+          participants:
+            title: Participantes
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
@@ -1199,27 +1197,6 @@ es:
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Número de participantes bloqueadas
-      download:
-        csv: Descargar datos (CSV)
-      followers:
-        description: Número de participantes que siguen este espacio de participación
-        object: seguidoras
-        title: Seguidores
-      participants:
-        description: Número de participantes activas en la organización
-        object: participantes
-        title: Participantes
-      reported_users:
-        description: Número de participantes reportadas
-      user_reports:
-        description: Número de denuncias realizadas por participantes
-      users:
-        description: Número de participantes en la organización
-        object: participantes
-        title: Participantes
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
@@ -1347,11 +1324,6 @@ es:
             other: "%{count} recursos"
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
-        metrics:
-          cumulative: El número total de métricas en este día
-          day: La fecha en la que se creó esta métrica
-          metric_type: El tipo de métrica
-          quantity: El número de métricas en este día
         moderated_users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           block_reasons: La razón por la que administradora bloqueó a la usuaria
@@ -1474,10 +1446,6 @@ es:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Métricas
-          link: Mostrar todas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
