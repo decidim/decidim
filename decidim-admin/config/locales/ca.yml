@@ -599,9 +599,6 @@ ca:
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomia
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: Veure més mètriques
       models:
         area:
           fields:
@@ -1236,7 +1233,6 @@ ca:
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         menu: Menú
-        metrics: Mètriques
         page_topics: Temes
         pages: Pàgines
         panel: Administradora
@@ -1282,16 +1278,6 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
-    metrics:
-      blocked_users:
-        object: usuàries bloquejades
-        title: Usuàries bloquejades
-      reported_users:
-        object: usuàries reportades
-        title: Usuàries reportades
-      user_reports:
-        object: informes d'usuari
-        title: Informes d'usuari
     moderations:
       actions:
         expand: Expandir
