@@ -322,7 +322,7 @@ it:
       proposals:
         description: Numero di proposte generate
         object: proposte
-        title: proposte
+        title: Proposte
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
