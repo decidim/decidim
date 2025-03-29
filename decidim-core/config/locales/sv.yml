@@ -548,7 +548,7 @@ sv:
       metrics:
         name: Organisationsdata
       participatory_space_metrics:
-        name: Mätvärden
+        name: Deltagande i siffror
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
