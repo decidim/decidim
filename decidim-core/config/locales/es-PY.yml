@@ -615,7 +615,7 @@ es-PY:
       metrics:
         name: Métricas de la organización
       participatory_space_metrics:
-        name: Métricas
+        name: Participación en cifras.
       participatory_space_stats:
         name: Estadísticas
       social_networks_metadata:
@@ -1392,7 +1392,7 @@ es-PY:
       users:
         description: Número de usuarios en la organización.
         object: usuarios
-        title: Usuarios
+        title: Participantes
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
