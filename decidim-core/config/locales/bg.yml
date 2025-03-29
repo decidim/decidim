@@ -547,7 +547,7 @@ bg:
       metrics:
         name: Показатели за организацията
       participatory_space_metrics:
-        name: Метрики
+        name: Индикатори
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
