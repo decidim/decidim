@@ -443,11 +443,6 @@
       types:
         private_meeting: Privat møte
         transparent: Privat
-    metrics:
-      meetings:
-        description: Antall møter opprettet
-        object: møter
-        title: Møter
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidligere møter
