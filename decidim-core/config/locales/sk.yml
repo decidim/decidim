@@ -334,6 +334,8 @@ sk:
         view_all: Zobraziť všetko
       metrics:
         name: Štatistika organizácie
+      participatory_space_metrics:
+        name: Metriky
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -690,11 +692,9 @@ sk:
       participants:
         description: Počet aktívnych účastníkov v organizácii
         object: účastníci
-        title: Účastníci
       users:
         description: Počet účastníkov v organizácii
         object: účastníci
-        title: Účastníci
     newsletter_mailer:
       newsletter:
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
