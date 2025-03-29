@@ -70,11 +70,15 @@ ro:
             body: Conținut
             official_blog_post: Postare oficială
             published_at: Dată publicare
+            taxonomies: Taxonomii
             title: Titlu
       posts:
         edit:
+          add_attachments: Adaugați atașamente
+          attachment_legend: Adăugați un document sau o imagine
           back: Înapoi la postare
           button: Actualizați
+          edit_attachments: Actualizați atașamente
           title: Modificați postarea
         form:
           author_id: Autor
@@ -107,9 +111,14 @@ ro:
         settings:
           global:
             announcement: Anunț
+            attachments_allowed: Permiteți atașamente
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
             creation_enabled_for_participants: Participanții pot crea postări
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
           step:
             announcement: Anunț
             comments_blocked: Comentarii blocate
@@ -135,7 +144,6 @@ ro:
           id: Id-ul unic al comentariului
           locale: Localizarea (limba) pe care participantul a folosit-o atunci când a lăsat acest comentariu
           root_commentable_url: URL-ul resursei care se leagă de acest comentariu
-          user_group: Numele grupului de utilizatori care a făcut acest comentariu (dacă există)
         posts:
           author: Informațiile autorului
           body: Conținutul postării

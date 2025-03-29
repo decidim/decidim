@@ -214,7 +214,6 @@ el:
           update: "Ο χρήστης %{user_name} ενημέρωσε την πρωτοβουλία %{resource_name}"
       admin_states:
         accepted: Αρκετές υπογραφές
-        created: Δημιουργήθηκε
         discarded: Απορρίφθηκε
         rejected: Δεν υπάρχουν αρκετές υπογραφές
         validating: Τεχνική επικύρωση
@@ -238,28 +237,18 @@ el:
           name: Επισημασμένες πρωτοβουλίες
       create_initiative:
         fill_data:
-          back: Πίσω
           continue: Συνέχεια
-          more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής
         finish:
           back: Πίσω
-          back_to_initiatives: Επιστροφή στις πρωτοβουλίες
-          go_to_my_initiatives: Μετάβαση στις πρωτοβουλίες μου
-          more_information: "(Περισσότερες πληροφορίες)"
         previous_form:
           back: Πίσω
-          continue: Συνέχεια
-        promotal_committee:
-          more_information: "(Περισσότερες πληροφορίες)"
         select_initiative_type:
           back: Πίσω
           choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
           more_information: (Περισσότερες πληροφορίες)
           select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
-        share_committee_link:
-          invite_to_committee_help: Σύνδεσμος για να προσκαλέσετε άτομα που θα είναι μέλη της επιτροπής προώθησης
       events:
         create_initiative_event:
           email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα πρωτοβουλία. Δείτε την και συνεισφέρετε:"
@@ -348,7 +337,6 @@ el:
       show:
         badge_name:
           accepted: Αρκετές υπογραφές
-          created: Δημιουργήθηκε
           discarded: Απορρίφθηκε
           rejected: Δεν υπάρχουν αρκετές υπογραφές
           validating: Τεχνική επικύρωση
@@ -367,8 +355,6 @@ el:
     decidim:
       initiative_creation_header:
         fill_data: Δημιουργία
-        finish: Τέλος
-        promotal_committee: Επιτροπή προώθησης
         select_initiative_type: Επιλέξτε
       initiative_signature_creation_header:
         fill_personal_data: Συμπληρώστε τα στοιχεία σας

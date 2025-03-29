@@ -16,7 +16,6 @@
         customize_registration_email: Tilpass registrerings-e-post
         decidim_category_id: Kategori
         decidim_scope_id: Tema
-        decidim_user_group_id: Brukergruppe
         description: Beskrivelse
         id: ID
         location: Plassering
@@ -64,9 +63,6 @@
             values:
               'false': Tidligere
               'true': Kommende
-          with_any_origin:
-            values:
-              user_group: Brukergrupper
           with_any_type:
             label: Type møte
             values:
@@ -100,7 +96,6 @@
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
             creation_enabled_for_participants: Deltakere kan nå opprette møter
-            creation_enabled_for_user_groups: Brukergrupper kan nå opprette møter
     events:
       meetings:
         meeting_closed:
@@ -198,7 +193,6 @@
             create: Opprett
             title: Ny agenda
         exports:
-          answers: Svar
           meeting_comments: Kommentarer
           meetings: Møter
           registrations: Registreringer
@@ -266,6 +260,7 @@
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
+            manage_questions: Spørsmål
             registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
             registration_form: Registreingsskjema
             registrations_count:
@@ -372,7 +367,6 @@
         form:
           address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
-          create_as: Opprett møte som
           select_a_meeting_type: Velg en møtetype
           select_a_registration_type: Velg en registreringstype
           select_an_iframe_access_level: Velg et tilgangsnivå for iframe
@@ -421,12 +415,8 @@
             title: Tittel
       polls:
         questions:
-          index:
-            empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
           index_admin:
             question: Spørsmål
-            received_answer: mottatt svar
-            received_answers: mottatt svar
             results: Resultater
             send: Send
             sent: Sendt

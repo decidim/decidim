@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Followable
       include Decidim::Reportable
+      include Decidim::Publicable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
@@ -60,7 +61,7 @@ module Decidim
       end
 
       def published?
-        published_at <= Time.current
+        super && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -80,10 +81,6 @@ module Decidim
 
       def official?
         author.is_a?(Decidim::Organization)
-      end
-
-      def user_group?
-        author.is_a?(Decidim::UserGroup)
       end
 
       def users_to_notify_on_comment_created
@@ -106,7 +103,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
     end
   end

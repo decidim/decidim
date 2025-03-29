@@ -37,6 +37,7 @@ describe "Decidim::Api::QueryType" do
             __typename
           }
           endorsementsCount
+          followsCount
           hasComments
           id
           title {
@@ -45,6 +46,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           versions {
             id
@@ -63,6 +65,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Blogs" }
   let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
   let!(:post) { create(:post, :with_endorsements, component: current_component, published_at: 2.days.ago) }
+  let!(:follows) { create_list(:follow, 3, followable: post) }
 
   let(:post_single_result) do
     {
@@ -88,12 +91,14 @@ describe "Decidim::Api::QueryType" do
         }
       end,
       "endorsementsCount" => 5,
+      "followsCount" => 3,
       "hasComments" => false,
       "id" => post.id.to_s,
       "title" => { "translation" => post.title[locale] },
       "totalCommentsCount" => 0,
       "type" => "Decidim::Blogs::Post",
       "updatedAt" => post.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(post).url,
       "userAllowedToComment" => post.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0
@@ -177,6 +182,7 @@ describe "Decidim::Api::QueryType" do
                 __typename
               }
               endorsementsCount
+              followsCount
               hasComments
               id
               title {
@@ -185,6 +191,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               versions {
                 id

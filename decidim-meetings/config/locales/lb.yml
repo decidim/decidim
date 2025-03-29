@@ -16,7 +16,6 @@ lb:
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Ëmfang
-        decidim_user_group_id: Benutzergruppe
         description: Beschreiwung
         id: ID
         location: Standuert
@@ -65,9 +64,6 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          with_any_origin:
-            values:
-              user_group: Benotzergruppen
           with_any_type:
             label: Typ vu Versammlung
       meeting_copies:
@@ -98,7 +94,6 @@ lb:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
-            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     events:
       meetings:
         meeting_closed:
@@ -146,7 +141,6 @@ lb:
             create: Erstellen
             title: Neue Agenda
         exports:
-          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -210,6 +204,7 @@ lb:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Aluedungen
+            manage_questions: Fragen
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
@@ -271,7 +266,6 @@ lb:
         new:
           back: Zréck
           create: Erstellen
-          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätegen

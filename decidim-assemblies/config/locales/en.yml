@@ -201,8 +201,8 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Valuator
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies
@@ -377,11 +377,6 @@ en:
           not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
-    metrics:
-      assemblies:
-        description: Number of assemblies created
-        object: assemblies
-        title: Assemblies
     open_data:
       help:
         assemblies:

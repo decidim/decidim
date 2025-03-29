@@ -58,8 +58,6 @@ module Decidim
         case post.author
         when Decidim::User
           post.author == user
-        when Decidim::UserGroup
-          post.author.users.include?(user)
         when Decidim::Organization
           space_admin?
         else

@@ -10,7 +10,6 @@ nl:
         instructions: Instructies om deel te nemen
         start_time: Begint om
         title: Titel
-        user_group_id: Maak een debat als
     models:
       decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
@@ -99,7 +98,6 @@ nl:
         new:
           back: Terug
           create: Aanmaken
-          title: Nieuw debat
         orders:
           commented: Meeste reacties
           label: Sorteer debatten op

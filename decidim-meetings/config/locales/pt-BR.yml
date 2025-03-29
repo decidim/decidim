@@ -16,7 +16,6 @@ pt-BR:
         customize_registration_email: Personalizar e-mail de registro
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
-        decidim_user_group_id: Grupo de usuários
         description: Descrição
         end_time: Data Final
         id: ID
@@ -111,7 +110,6 @@ pt-BR:
             values:
               official: Oficial
               participants: Participante
-              user_group: Grupo de Usuários
           with_any_type:
             label: Tipo de reunião
             values:
@@ -159,7 +157,6 @@ pt-BR:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
-            creation_enabled_for_user_groups: Criação de reunião por grupos de usuários habilitados
     events:
       meetings:
         meeting_closed:
@@ -269,7 +266,6 @@ pt-BR:
             invalid: Houve um problema ao atualizar esta agenda.
             success: Agenda atualizada com sucesso.
         exports:
-          answers: Respostas
           meeting_comments: Comentários
           meetings: Reuniões
           registrations: Inscrições
@@ -356,6 +352,7 @@ pt-BR:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            manage_questions: Perguntas
             recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
             registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_form: Formulário de registro
@@ -477,7 +474,6 @@ pt-BR:
             all: Tudo
             official: Oficial
             participants: Participantes
-            user_group: Grupos
           search: Pesquisa
           type: Tipo
           type_values:
@@ -488,7 +484,6 @@ pt-BR:
         form:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
-          create_as: Criar reunião como
           disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
           iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
@@ -513,7 +508,6 @@ pt-BR:
         new:
           back: Voltar
           create: Criar
-          title: Criar uma reunião
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -565,13 +559,9 @@ pt-BR:
             title: Título
       polls:
         questions:
-          index:
-            empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             edit: Editar no painel de administração
             question: Pergunta
-            received_answer: resposta recebida
-            received_answers: respostas recebidas
             results: Resultados
             send: Enviar
             sent: Enviado
@@ -581,7 +571,6 @@ pt-BR:
             question_replied: Pergunta respondida
             reply_question: Responder pergunta
       public_participants_list:
-        attending_organizations: Organizações
         attending_participants: Participantes presentes
         hidden_participants_count:
           one: e mais %{count} pessoa

@@ -18,7 +18,7 @@ describe "Admin language selector" do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_on "Pages"
-    click_on "Create page"
+    click_on "New page"
   end
 
   after do

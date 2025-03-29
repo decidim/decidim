@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class serves as a base class for `Decidim::User` and `Decidim::UserGroup`
+  # This class serves as a base class for `Decidim::User`
   # so that we can set some shared logic.
   # This class is not supposed to be used directly.
   class UserBaseEntity < ApplicationRecord
@@ -21,11 +21,13 @@ module Decidim
 
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
+    REGEXP_NICKNAME = /\A[a-z0-9_-]+\z/
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
+    validates :nickname, format: { with: REGEXP_NICKNAME }, unless: -> { deleted? || managed? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
@@ -33,6 +35,8 @@ module Decidim
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
+
+    scope :not_deleted, -> { where(deleted_at: nil) }
 
     # Public: Returns a collection with all the public entities this user is following.
     #
@@ -52,7 +56,7 @@ module Decidim
     end
 
     def public_users_followings
-      # To include users and groups self.class is not valid because for a user
+      # To include any base entity self.class is not valid because for a user
       # self.class.joins(:follows)... only return users
       @public_users_followings ||= users_followings.not_blocked
     end

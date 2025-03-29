@@ -200,8 +200,8 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medverkande
+            evaluator: Utvärderare
             moderator: Moderator
-            valuator: Handläggare
       taxonomy_filters:
         space_filter_for:
           assemblies: Alla samråd

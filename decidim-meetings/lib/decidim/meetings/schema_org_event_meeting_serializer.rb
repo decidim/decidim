@@ -40,22 +40,12 @@ module Decidim
       alias resource meeting
 
       def organizer
-        return organizer_user_group if meeting.decidim_user_group_id?
-
         case meeting.author.class.name
         when "Decidim::Organization"
           organizer_organization
         when "Decidim::User"
           organizer_user
         end
-      end
-
-      def organizer_user_group
-        {
-          "@type": "Organization",
-          name: meeting.author.name,
-          url: profile_url(meeting.user_group)
-        }
       end
 
       def organizer_organization

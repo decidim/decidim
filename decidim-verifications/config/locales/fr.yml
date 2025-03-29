@@ -81,7 +81,7 @@ fr:
             - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
             - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
             - Il s'agit d'une copie d'un exemple d'autorisation.
-            - 
+            - Soyez vérifié en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -145,6 +145,9 @@ fr:
           authorize_with: Vérifier votre identité avec %{authorizer}
           tos_agreement: En vérifiant votre identité, vous acceptez %{link}.
         onboarding_pending:
+          completed_verifications: Vous avez été autorisé avec succès, maintenant vous pouvez %{action} dans la %{resource_name}
+          granted_verifications: Vérifications accordées
+          onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
         renew_modal:

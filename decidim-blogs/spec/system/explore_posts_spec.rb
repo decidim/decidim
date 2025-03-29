@@ -89,16 +89,6 @@ describe "Explore posts" do
         end
       end
 
-      context "when author is a user_group" do
-        let(:author) { create(:user_group, :verified, organization:) }
-
-        it "shows user group as the author" do
-          within ".author__name" do
-            expect(page).to have_content(author.name)
-          end
-        end
-      end
-
       context "when author is a user" do
         let(:author) { user }
 

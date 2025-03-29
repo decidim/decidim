@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      answer:
-        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -18,7 +16,6 @@ ja:
         customize_registration_email: 登録メールのカスタマイズ
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
-        decidim_user_group_id: ユーザーグループ
         description: 説明
         end_time: 終了時間
         id: ID
@@ -119,7 +116,6 @@ ja:
             values:
               official: 公式
               participants: 参加者
-              user_group: ユーザーグループ
           with_any_type:
             label: ミーティングの種類
             values:
@@ -173,7 +169,6 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
-            creation_enabled_for_user_groups: ユーザーグループによるミーティングの作成が有効です
     download_your_data:
       help:
         registrations:
@@ -295,7 +290,6 @@ ja:
             invalid: アジェンダの更新に問題がありました。
             success: アジェンダが正常に更新されました。
         exports:
-          answers: 回答
           meeting_comments: コメント
           meetings: ミーティング
           registrations: 登録
@@ -392,7 +386,7 @@ ja:
         poll:
           form:
             announcement_html:
-              - 質問が回答を受信または公開/閉じた場合、編集できなくなります。
+              - 
               - 質問はいつでも追加できます。
               - 作成されたすべての質問の結果が公開されると、投票は終了します。
               - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
@@ -404,7 +398,7 @@ ja:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
-            manage_questions: 質問の管理
+            manage_questions: 質問
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
@@ -528,7 +522,6 @@ ja:
             all: すべて
             official: 事務局
             participants: 参加者
-            user_group: グループ
           search: 検索
           type: 種別
           type_values:
@@ -539,7 +532,6 @@ ja:
         form:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           available_slots_help: 無制限の場合は0のままにしてください
-          create_as: 次のユーザとしてミーティングを作成：
           disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
           iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           location_help: '場所: ユーザーにメッセージが表示されます。'
@@ -568,7 +560,6 @@ ja:
         new:
           back: 戻る
           create: 作成
-          title: ミーティングを作成
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -621,26 +612,14 @@ ja:
             taxonomies: タクソノミー
             title: タイトル
       polls:
-        answers:
-          index:
-            administrate: 管理
-            title: 投票
-          index_admin:
-            back_to_meeting: ミーティングに戻る
-            title: 投票を管理
-            view_poll: 投票を表示
         questions:
           closed_question:
             announcement: この質問への回答はクローズされました。
             question: 質問
             question_results: 結果
-          index:
-            empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
             edit: 管理画面で編集
             question: 質問
-            received_answer: 受理した回答
-            received_answers: 受理した回答
             results: 結果
             send: 送信
             sent: 送信済み
@@ -654,7 +633,6 @@ ja:
             question_replied: 質問に回答しました
             reply_question: 質問に返信する
       public_participants_list:
-        attending_organizations: 組織
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
@@ -703,11 +681,9 @@ ja:
           commentable_id: コメント対象の固有ID
           commentable_type: コメント対象の種別 (結果、提案など)
           created_at: このコメントが作成された日時
-          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
           id: このコメントのID
           locale: このコメントを残すときに参加者が使っていたロケール（言語）
           root_commentable_url: このコメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         meetings:
           address: ミーティングの場所、対面で行われ物理的な場所がある場合の所在地
           attachments: このミーティングの添付ファイル数
