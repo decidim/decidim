@@ -279,7 +279,7 @@ fr-CA:
       results:
         description: Nombre de résultats générés
         object: résultats
-        title: Résultats
+        title: Réalisations
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})
