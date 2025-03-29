@@ -882,6 +882,9 @@ it:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
       show_translated: Mostra testo tradotto automaticamente
+    user_activity:
+      index:
+        no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       index:

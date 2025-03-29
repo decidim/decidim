@@ -8,14 +8,9 @@ el:
       decidim/surveys/survey:
         one: Έρευνα
         other: Έρευνες
-      decidim/surveys/survey_answer:
-        one: Απάντηση
-        other: Απαντήσεις
   decidim:
     components:
       surveys:
-        actions:
-          answer: Απάντηση
         settings:
           global:
             announcement: Ανακοίνωση
@@ -33,25 +28,11 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Μια νέα έρευνα στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Η έρευνα <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> είναι τώρα ανοιχτή.
-    metrics:
-      survey_answers:
-        description: Αριθμός ερευνών που απαντήθηκαν από συμμετέχοντες
-        object: απαντήσεις σε έρευνες
-        title: Απαντήσεις σε έρευνες
-    statistics:
-      answers_count: Απαντήσεις
     surveys:
       admin:
-        exports:
-          survey_user_answers: Απαντήσεις συμμετεχόντων στην έρευνα
         surveys:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της έρευνας.
             success: Η έρευνα αποθηκεύτηκε με επιτυχία.
       last_activity:
         new_survey: 'Νέα έρευνα:'
-      surveys:
-        answer:
-          invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση στην έρευνα.
-          spam_detected: Υπήρχε ένα πρόβλημα στην απάντηση της φόρμας. Ίσως είστε πολύ γρήγοροι, μπορείτε να δοκιμάσετε ξανά;
-          success: Η έρευνα απαντήθηκε με επιτυχία.

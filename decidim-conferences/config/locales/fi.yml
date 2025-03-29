@@ -236,6 +236,7 @@ fi:
           roles:
             admin: Hallintakäyttäjä
             collaborator: Työryhmän jäsen
+            evaluator: Arvioija
             moderator: Moderoija
         media_link:
           fields:

@@ -123,18 +123,18 @@
         </div>
       </div>
 
-      <div class="questionnaire-question-answer-options" data-template="<%= answer_option_template_selector %>">
-        <div class="questionnaire-question-answer-options-list">
-          <% question.answer_options.each do |answer_option| %>
-            <%= fields_for "questions[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
-              <%= render "decidim/forms/admin/questionnaires/answer_option", form: answer_option_form, question:, editable: %>
+      <div class="questionnaire-question-response-options" data-template="<%= response_option_template_selector %>">
+        <div class="questionnaire-question-response-options-list">
+          <% question.response_options.each do |response_option| %>
+            <%= fields_for "questions[questions][#{question.to_param}][response_options][]", response_option do |response_option_form| %>
+              <%= render "decidim/forms/admin/questionnaires/response_option", form: response_option_form, question:, editable: %>
             <% end %>
           <% end %>
         </div>
 
         <% if editable %>
           <div class="row column">
-            <button type="button" class="button button__sm button__secondary mt-4 add-answer-option"><%= t(".add_answer_option") %></button>
+            <button type="button" class="button button__sm button__secondary mt-4 add-response-option"><%= t(".add_response_option") %></button>
           </div>
         <% end %>
       </div>
