@@ -393,11 +393,6 @@ tr:
       types:
         private_meeting: Özel toplantı
         transparent: Şeffaf
-    metrics:
-      meetings:
-        description: Oluşturulan toplantı sayısı
-        object: toplantılar
-        title: Toplantılar
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar
