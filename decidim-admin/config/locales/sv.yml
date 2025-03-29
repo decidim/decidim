@@ -599,9 +599,6 @@ sv:
         taxonomies: Kategorisering
         taxonomy_filters: Kategorifilter
         users: Deltagare
-      metrics:
-        metrics:
-          see_more_metrics: Se fler mätvärden
       models:
         area:
           fields:
@@ -1233,7 +1230,6 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         menu: Meny
-        metrics: Deltagande i siffror
         page_topics: Ämnesområden
         pages: Sidor
         panel: Administratör
@@ -1279,16 +1275,6 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
-    metrics:
-      blocked_users:
-        object: blockerade användare
-        title: Blockerade användare
-      reported_users:
-        object: rapporterade användare
-        title: Rapporterade användare
-      user_reports:
-        object: användarrapporter
-        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
