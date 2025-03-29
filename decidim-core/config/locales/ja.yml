@@ -533,7 +533,7 @@ ja:
       metrics:
         name: 組織の指標
       participatory_space_metrics:
-        name: メトリクス
+        name: 指標
       participatory_space_stats:
         name: 統計情報
       social_networks_metadata:
