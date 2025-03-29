@@ -324,6 +324,9 @@ lb:
             official_meeting: Offizielle Besprechung
             start_time: Ufanksdatum
             title: Titel
+    metrics:
+      meetings:
+        title: Meetings
     resource_links:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'
