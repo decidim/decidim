@@ -380,6 +380,8 @@
         view_all: Vis alle
       metrics:
         name: Organisasjonens målinger
+      participatory_space_metrics:
+        name: Deltakelse i tall
       stats:
         name: Organisasjonsstatistikk
       sub_hero:
