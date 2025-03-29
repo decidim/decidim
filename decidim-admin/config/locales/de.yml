@@ -599,9 +599,6 @@ de:
         taxonomies: Taxonomien
         taxonomy_filters: Taxonomie-Filter
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -1236,7 +1233,6 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         menu: Menü
-        metrics: Kriterien
         page_topics: Themen
         pages: Seiten
         panel: Admin
@@ -1282,16 +1278,6 @@ de:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
