@@ -169,6 +169,9 @@ is:
       types:
         private_meeting: Einkafundur
         transparent: Gegnsætt
+    metrics:
+      meetings:
+        title: Fundir
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Fyrri fundi
