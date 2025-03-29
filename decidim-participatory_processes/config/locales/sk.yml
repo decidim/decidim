@@ -271,7 +271,7 @@ sk:
       participatory_processes:
         description: Počet participatívnych procesov v tejto organizácii
         object: participatívne procesy
-        title: Participatívne procesy
+        title: Participatívna procesy
     participatory_process_groups:
       content_blocks:
         stats:
