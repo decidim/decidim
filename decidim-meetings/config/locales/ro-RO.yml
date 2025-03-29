@@ -554,11 +554,6 @@ ro:
         private_meeting: Întâlnire privată
         transparent: Transparent
         withdraw: Retrasă
-    metrics:
-      meetings:
-        description: Numărul de întâlniri create
-        object: ședințe
-        title: Întâlniri
     open_data:
       help:
         meeting_comments:
