@@ -279,11 +279,6 @@ it:
           not_found: 'Il tipo di assemblea non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: Assemblee
-    metrics:
-      assemblies:
-        description: Numero di assemblee create
-        object: assemblee
-        title: Assemblee
     participatory_processes:
       show:
         related_assemblies: Assemblee collegate
