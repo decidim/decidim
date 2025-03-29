@@ -605,10 +605,6 @@ fi-pl:
         name: Olennaisimmat tiedot
       metadata:
         name: Metatiedot
-      metrics:
-        name: Organisaation mittarit
-      participatory_space_metrics:
-        name: Tilastomittarit
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -1201,27 +1197,6 @@ fi-pl:
         finished: 'Päättynyt: %{end_date}'
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
-    metrics:
-      blocked_users:
-        description: Estettyjen osallistujien määrä
-      download:
-        csv: Lataa tiedot (CSV)
-      followers:
-        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
-        object: seuraajat
-        title: Seuraajat
-      participants:
-        description: Organisaation aktiivisten käyttäjien määrä
-        object: osallistujat
-        title: Osallistujat
-      reported_users:
-        description: Ilmoitettujen osallistujien määrä
-      user_reports:
-        description: Osallistujien lähettämien ilmoitusten määrä
-      users:
-        description: Organisaation käyttäjien määrä
-        object: käyttäjät
-        title: Käyttäjät
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
@@ -1349,11 +1324,6 @@ fi-pl:
             other: "%{count} asiaa"
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
-        metrics:
-          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
-          day: Tilastomittarin luontipäivä
-          metric_type: Tilastomittarin tyyppi
-          quantity: Tilastomittarien määrä tälle päivälle
         moderated_users:
           about: Käyttäjän henkilökohtainen kuvaus
           block_reasons: Syy, miksi käyttäjä estettiin
@@ -1476,10 +1446,6 @@ fi-pl:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
-      participatory_space:
-        metrics:
-          headline: Osallistuminen lukuina
-          link: Näytä kaikki tilastot
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
