@@ -675,11 +675,6 @@ sv:
       withdraw:
         error: Det gick inte att ställa in mötet.
         success: Mötet har ställts in.
-    metrics:
-      meetings:
-        description: Antal skapade möten
-        object: möten
-        title: Möten
     open_data:
       help:
         meeting_comments:
