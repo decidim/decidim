@@ -235,22 +235,6 @@ hu:
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
           unearned_another: A résztvevő még nem hozott létre egy javaslatot sem.
           unearned_own: Még nem hoztál létre javaslatokat.
-    metrics:
-      accepted_proposals:
-        description: Az elfogadott javaslatok száma
-        object: javaslatok
-        title: Elfogadott javaslatok
-      endorsements:
-        description: A javaslatokhoz kapcsolódó támogatások száma
-        object: támogatások
-        title: Támogatások
-      proposals:
-        description: A létrehozott javaslatok száma
-        object: javaslatok
-        title: javaslatok
-      votes:
-        object: szavazat
-        title: szavazatok
     participatory_spaces:
       highlighted_proposals:
         last: Legutóbbi javaslatok
