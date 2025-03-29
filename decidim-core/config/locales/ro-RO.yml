@@ -243,6 +243,7 @@ ro:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
         bulk_hide: "%{user_name} a ascuns %{reported_count} resurse"
+        bulk_unhide: "%{user_name} a ascuns %{reported_count} resurse"
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
@@ -294,7 +295,9 @@ ro:
         create: "%{user_name} a creat filtrul %{resource_name}"
         create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
         delete: "%{user_name} a șters filtrul %{resource_name}"
+        delete_with_filter_info: '%{user_name} a șters filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
         update: "%{user_name} a actualizat filtrul %{resource_name}"
+        update_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
       user:
         block: "%{user_name} a blocat accesul participantului %{resource_name}"
         bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
@@ -567,10 +570,6 @@ ro:
         view_all: Vedeți tot
       metadata:
         name: Metadate
-      metrics:
-        name: Indicatori ai organizației
-      participatory_space_metrics:
-        name: Indicatori
       participatory_space_stats:
         name: Statistici
       social_networks_metadata:
@@ -967,27 +966,6 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
-    metrics:
-      blocked_users:
-        description: Număr de participanți blocați
-      download:
-        csv: Descărcare date (CSV)
-      followers:
-        description: Numărul de participanți care urmăresc acest spațiu de participare
-        object: urmăritori
-        title: Urmăritori
-      participants:
-        description: Numărul de participanți activi în organizație
-        object: participanți
-        title: Participanți
-      reported_users:
-        description: Numărul de participanți raportați
-      user_reports:
-        description: Numărul de raportări întocmite de participanți
-      users:
-        description: Numărul de participanți în organizație
-        object: participanți
-        title: Participanți
     newsletter_mailer:
       newsletter:
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
@@ -1075,11 +1053,6 @@ ro:
             one: "%{count} rezultat"
             few: "%{count} rezultate"
             other: "%{count} rezultate"
-        metrics:
-          cumulative: Numărul total al indicatorului din această zi
-          day: Ziua în care acest indicator a fost creat
-          metric_type: Tipul indicatorului
-          quantity: Numărul total al indicatorului din această zi
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
@@ -1112,10 +1085,6 @@ ro:
         subheading: Navigați prin paginile de ajutor ale %{name}
         title: Ajutor
         topics: Subiecte
-      participatory_space:
-        metrics:
-          headline: Indicatori
-          link: Afișați tot
     participants_account_mailer:
       inactivity_notification:
         body_html: |
