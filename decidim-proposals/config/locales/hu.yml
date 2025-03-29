@@ -278,10 +278,10 @@ hu:
       proposals:
         description: A létrehozott javaslatok száma
         object: javaslatok
-        title: javaslatok
+        title: Javaslatok
       votes:
         object: szavazat
-        title: szavazatok
+        title: Szavazatok
     participatory_spaces:
       highlighted_proposals:
         last: Legutóbbi javaslatok
