@@ -609,9 +609,6 @@ cs:
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobrazit více metrik
       models:
         area:
           fields:
@@ -1094,6 +1091,7 @@ cs:
           title: Upravit téma
           update: Aktualizovat téma
         new:
+          create: Nové téma
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
@@ -1117,6 +1115,7 @@ cs:
         index:
           last_notable_change: Poslední významná změna
         new:
+          create: Nová stránka
           title: Nová stránka
         topic:
           empty: V tomto tématu nejsou žádné stránky.
@@ -1248,7 +1247,6 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
-        metrics: Metriky
         page_topics: Témata
         pages: Stránky
         panel: Admin
@@ -1294,16 +1292,6 @@ cs:
       errors:
         impersonate_user:
           reason: Musíte uvést důvod pro správu neřízeného účastníka.
-    metrics:
-      blocked_users:
-        object: blokovaní uživatelé
-        title: Blokovaní uživatelé
-      reported_users:
-        object: nahlášení uživatelé
-        title: Nahlášení uživatelé
-      user_reports:
-        object: uživatelská hlášení
-        title: Uživatelská hlášení
     moderations:
       actions:
         expand: Rozbalit
