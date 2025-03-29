@@ -605,11 +605,6 @@ pt-BR:
         withdraw: Retirado
       withdraw:
         success: A reunião foi retirada com sucesso.
-    metrics:
-      meetings:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores
