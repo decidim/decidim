@@ -581,7 +581,7 @@ fr:
       metrics:
         name: Historique des statistiques de participation
       participatory_space_metrics:
-        name: Métriques
+        name: Participation en chiffres
       participatory_space_stats:
         name: Statistiques
       social_networks_metadata:
@@ -1290,7 +1290,7 @@ fr:
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
-        title: Utilisateurs
+        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
