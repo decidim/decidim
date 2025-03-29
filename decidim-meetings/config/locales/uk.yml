@@ -275,6 +275,9 @@ uk:
       types:
         private_meeting: Приватна зустріч
         transparent: Прозора
+    metrics:
+      meetings:
+        title: Зустрічі
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
