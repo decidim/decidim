@@ -305,11 +305,6 @@ ru:
       types:
         private_meeting: Частная встреча
         transparent: Прозрачная
-    metrics:
-      meetings:
-        description: Количество созданных встреч
-        object: встречи
-        title: Встречи
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи
