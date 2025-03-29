@@ -667,11 +667,6 @@ ja:
       withdraw:
         error: ミーティングを取り消す際に問題がありました。
         success: ミーティングは正常に取り下げられました。
-    metrics:
-      meetings:
-        description: 作成されたミーティング数
-        object: ミーティング
-        title: ミーティング
     open_data:
       help:
         meeting_comments:
