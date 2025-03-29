@@ -432,6 +432,8 @@ el:
         view_all: Προβολή όλων
       metrics:
         name: Μετρικά οργανισμού
+      participatory_space_metrics:
+        name: Μετρικά
       static_page:
         section:
           name: Ενότητα
@@ -910,11 +912,9 @@ el:
       participants:
         description: Αριθμός ενεργών συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
-        title: Συμμετέχοντες
       users:
         description: Αριθμός συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
-        title: Συμμετέχοντες
     newsletter_mailer:
       newsletter:
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
