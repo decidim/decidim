@@ -85,7 +85,7 @@ module Decidim
 
         context "when salt is undefined" do
           it "returns unsecure hash" do
-            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0,50))
+            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0, 50))
           end
         end
 
@@ -95,7 +95,7 @@ module Decidim
           end
 
           it "returns unsecure hash" do
-            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0,50))
+            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0, 50))
           end
         end
 
