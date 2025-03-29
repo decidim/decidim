@@ -567,11 +567,6 @@ zh-TW:
         withdraw: 撤回
       withdraw:
         success: 會議已成功撤回.
-    metrics:
-      meetings:
-        description: 建立的會議次數
-        object: 會議
-        title: 會議
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去的會議
