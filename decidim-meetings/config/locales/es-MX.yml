@@ -703,11 +703,6 @@ es-MX:
       withdraw:
         error: Se ha producido un error al retirar el encuentro.
         success: El encuentro se ha retirado con éxito.
-    metrics:
-      meetings:
-        description: Número de encuentros creados
-        object: encuentros
-        title: Encuentros
     open_data:
       help:
         meeting_comments:
