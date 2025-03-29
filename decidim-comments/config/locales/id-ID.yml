@@ -14,6 +14,10 @@ id:
       decidim/comments/comment_vote:
         other: Voting
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentar
     comments:
       votes:
         create:
