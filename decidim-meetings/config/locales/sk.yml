@@ -323,11 +323,6 @@ sk:
       types:
         private_meeting: Privátne stretnutie
         transparent: Priehľadný
-    metrics:
-      meetings:
-        description: Počet vytvorených stretnutí
-        object: stretnutia
-        title: Stretnutia
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze
