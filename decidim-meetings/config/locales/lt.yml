@@ -596,11 +596,6 @@ lt:
         withdraw: Atsiimta
       withdraw:
         success: Susirinkimas sėkmingai išimtas.
-    metrics:
-      meetings:
-        description: Sukurtų susirinkimų skaičius
-        object: susirinkimai
-        title: Susirinkimai
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Įvykę susirinkimai
