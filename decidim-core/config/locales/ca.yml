@@ -1183,7 +1183,7 @@ ca:
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
         object: seguidores
-        title: Seguidores
+        title: Seguidors
       participants:
         description: Nombre de participants actives a l'organització
         object: participants
