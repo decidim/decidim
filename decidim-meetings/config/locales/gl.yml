@@ -374,11 +374,6 @@ gl:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
-    metrics:
-      meetings:
-        description: Número de reunións creadas
-        object: reunións
-        title: Reunións
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reunións pasadas
