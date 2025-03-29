@@ -318,11 +318,6 @@ lv:
       types:
         private_meeting: Privāta sanāksme
         transparent: Caurskatāms
-    metrics:
-      meetings:
-        description: Izveidoto sanāksmju skaits
-        object: sanāksmes
-        title: Sanāksmes
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Iepriekšējās sanāksmes
