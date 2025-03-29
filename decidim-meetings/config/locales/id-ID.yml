@@ -303,11 +303,6 @@ id:
       types:
         private_meeting: Pertemuan pribadi
         transparent: Transparan
-    metrics:
-      meetings:
-        description: Jumlah pertemuan yang dibuat
-        object: pertemuan
-        title: Rapat
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Pertemuan sebelumnya
