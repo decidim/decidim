@@ -1166,11 +1166,11 @@ pl:
       participants:
         description: Liczba aktywnych użytkowników w organizacji
         object: użytkownicy
-        title: Użytkownicy
+        title: Użytkowników
       users:
         description: Liczba użytkowników w organizacji
         object: użytkownicy
-        title: Użytkownicy
+        title: Użytkowników
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
