@@ -703,11 +703,6 @@ ca:
       withdraw:
         error: S'ha produït un error en retirar la trobada.
         success: La trobada s'ha retirat amb èxit.
-    metrics:
-      meetings:
-        description: Nombre de trobades creades
-        object: trobades
-        title: Trobades
     open_data:
       help:
         meeting_comments:
