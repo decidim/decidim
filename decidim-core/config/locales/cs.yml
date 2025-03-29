@@ -1234,7 +1234,7 @@ cs:
       users:
         description: Počet uživatelů v organizaci
         object: uživatelů
-        title: Uživatelé
+        title: Účastníci
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
