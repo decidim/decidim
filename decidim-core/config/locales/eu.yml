@@ -604,10 +604,6 @@ eu:
         name: Datu nagusiak
       metadata:
         name: Metadatuak
-      metrics:
-        name: Erakundearen metrika
-      participatory_space_metrics:
-        name: Metrikak
       participatory_space_stats:
         name: Estatistikak
       social_networks_metadata:
@@ -1168,6 +1164,8 @@ eu:
           modal_title: Beste elkarrizketa bat
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Parte-hartzaile honek ez du mezu pribaturik jaso nahi.
+          participants:
+            title: Parte-hartzaileak
         create:
           error: Elkarrizketa ez da hasi. Saiatu berriro geroago.
         error_modal:
@@ -1200,27 +1198,6 @@ eu:
         finished: 'Noiz amaitua: %{end_date}'
         not_started: Oraindik ez da hasi
         remaining: "%{time_distance} falta da"
-    metrics:
-      blocked_users:
-        description: Blokeatutako parte-hartzaile kopurua
-      download:
-        csv: Deskargatu datuak (CSV)
-      followers:
-        description: Partaidetza-espazio hau jarraitzen duten parte-hartzaile kopurua
-        object: jarraitzaileak
-        title: Jarraitzaileak
-      participants:
-        description: Erakundekoparte-hartzaile aktiboen kopurua
-        object: parte-hartzaileak
-        title: Parte-hartzaileak
-      reported_users:
-        description: Erreportatuko parte-hartzaile kopurua
-      user_reports:
-        description: Parte-hartzaileek egindako txosten kopurua
-      users:
-        description: Parte-hartzaile kopurua erakundean
-        object: parte-hartzaileak
-        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali da, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
@@ -1348,11 +1325,6 @@ eu:
             other: "%{count} emaitza"
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
-        metrics:
-          cumulative: Metrikaren kopuru osoa gaur egun
-          day: Metrika hau sortu zen eguna
-          metric_type: Metrika mota
-          quantity: Metriken kopurua egun honetarako
         moderated_users:
           about: Parte-hartzailearen eremua
           block_reasons: Administratzaileak zergatik blokeatu du parte-hartzailea
@@ -1475,10 +1447,6 @@ eu:
         subheading: Nabigatu %{name} gunearen laguntza-orrietan
         title: Laguntza
         topics: Gaiak
-      participatory_space:
-        metrics:
-          headline: Metrikak
-          link: Erakutsi guztia
       terms_of_service:
         accept:
           error: Arazo bat egon da zerbitzuaren baldintzak onartzean.
