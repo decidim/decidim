@@ -418,23 +418,6 @@ eu:
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du proposamenik sortu.
           unearned_own: Oraindik ez duzu proposamenik sortu.
-    metrics:
-      accepted_proposals:
-        description: Onartutako proposamen kopurua
-        object: proposamenak
-        title: Onartutako proposamenak
-      endorsements:
-        description: Proposamenen atxikimendu kopurua
-        object: atxikimenduak
-        title: Atxikimenduak
-      proposals:
-        description: Proposamen kopurua
-        object: proposamenak
-        title: Proposamenak
-      votes:
-        description: Zenbat babes proposamenei
-        object: babesak
-        title: Babesak
     open_data:
       help:
         proposal_comments:
