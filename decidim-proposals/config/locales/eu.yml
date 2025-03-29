@@ -420,7 +420,7 @@ eu:
       accepted_proposals:
         description: Onartutako proposamen kopurua
         object: proposamenak
-        title: Onartutako proposamenak
+        title: Proposamen onartuak
       endorsements:
         description: Proposamenen atxikimendu kopurua
         object: atxikimenduak
