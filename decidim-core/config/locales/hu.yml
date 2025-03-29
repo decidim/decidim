@@ -500,7 +500,7 @@ hu:
       metrics:
         name: Szervezeti mutatók
       participatory_space_metrics:
-        name: Mérőszámok
+        name: Részvétel számokban
       participatory_space_stats:
         name: Statisztikák
       social_networks_metadata:
@@ -1076,7 +1076,7 @@ hu:
       followers:
         description: A résztvevők száma, akik ezt a részvételi teret követik
         object: követők
-        title: Követők
+        title: Követő
       participants:
         description: Az aktív felhasználók száma a szervezetben
         object: résztvevők
