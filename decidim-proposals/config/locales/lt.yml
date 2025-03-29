@@ -297,6 +297,8 @@ lt:
         description: Pasiūlymų skaičius
         object: pasiūlymai
         title: Pasiūlymai
+      votes:
+        title: Balsai
     participatory_spaces:
       highlighted_proposals:
         last: Paskutiniai pasiūlymai
