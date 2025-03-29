@@ -343,11 +343,6 @@ eu:
           not_found: 'Prozesu mota ez da (ID: %{id}) datu-basean aurkitu.'
     menu:
       processes: Prozesuak
-    metrics:
-      participatory_processes:
-        description: Erakundeko partaidetza-prozesu kopurua
-        object: partaidetza-prozesuak
-        title: Partaidetza-prozesuak
     open_data:
       help:
         participatory_processes:
@@ -473,9 +468,6 @@ eu:
           highlighted_processes:
             active_spaces: Prozesu aktiboak
             see_all_spaces: Ikusi prozesu guztiak
-      participatory_process_steps:
-        index:
-          back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
         description:
           area_name: Arloa
