@@ -25,6 +25,10 @@ ar:
         many: الأصوات
         other: الأصوات
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: تعليقات
     comments:
       admin:
         shared:
