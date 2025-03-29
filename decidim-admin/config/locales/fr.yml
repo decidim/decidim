@@ -598,9 +598,6 @@ fr:
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
         users: Utilisateurs
-      metrics:
-        metrics:
-          see_more_metrics: Voir plus d'indicateurs
       models:
         area:
           fields:
@@ -1171,7 +1168,6 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
-        metrics: Indicateurs
         page_topics: Sujets
         pages: Page(s)
         panel: Administrateur
@@ -1215,16 +1211,6 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
-    metrics:
-      blocked_users:
-        object: utilisateurs bloqués
-        title: Utilisateurs bloqués
-      reported_users:
-        object: utilisateurs signalés
-        title: Utilisateurs signalés
-      user_reports:
-        object: signalements d'utilisateurs
-        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir
