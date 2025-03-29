@@ -407,7 +407,7 @@ fr:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
         object: propositions
-        title: Propositions Acceptées
+        title: Propositions acceptées
       endorsements:
         description: Nombre d'avenants générés dans les propositions
         object: soutiens
