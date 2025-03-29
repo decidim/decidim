@@ -456,11 +456,6 @@ it:
       types:
         private_meeting: Incontro privato
         transparent: Trasparente
-    metrics:
-      meetings:
-        description: Numero di riunioni create
-        object: incontri
-        title: Incontri
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Incontri passati
