@@ -549,7 +549,7 @@ de:
       metrics:
         name: Organisationsmetriken
       participatory_space_metrics:
-        name: Metriken
+        name: Teilnahme an Zahlen
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -1188,7 +1188,7 @@ de:
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
-        title: Anhänger
+        title: Follower
       participants:
         description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
@@ -1196,7 +1196,7 @@ de:
       users:
         description: Anzahl der Benutzer in der Organisation
         object: Benutzer
-        title: Benutzer
+        title: Teilnehmer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
