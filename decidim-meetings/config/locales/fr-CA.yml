@@ -679,11 +679,6 @@ fr-CA:
       withdraw:
         error: Une erreur s'est produite lors du retrait de la rencontre.
         success: La rencontre a été annulée avec succès.
-    metrics:
-      meetings:
-        description: Nombre de rencontres créées
-        object: rencontres
-        title: Rencontres
     open_data:
       help:
         meeting_comments:
