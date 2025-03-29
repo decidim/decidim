@@ -249,7 +249,9 @@ it:
       proposals:
         description: Numero di proposte generate
         object: proposte
-        title: proposte
+        title: Proposte
+      votes:
+        title: Voti
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto
