@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Followable
       include Decidim::Reportable
+      include Decidim::Publicable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
@@ -26,7 +27,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
-      scope :published, -> { where("published_at <= ?", Time.current) }
+      scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },
@@ -52,7 +53,7 @@ module Decidim
       end
 
       def published?
-        published_at <= Time.current
+        super && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
