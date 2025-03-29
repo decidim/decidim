@@ -573,11 +573,6 @@ el:
         withdraw: Αποσύρθηκε
       withdraw:
         success: Η συνάντηση αποσύρθηκε με επιτυχία.
-    metrics:
-      meetings:
-        description: Αριθμός συσκέψεων που δημιουργήθηκαν
-        object: συσκέψεις
-        title: Συσκέψεις
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Προηγούμενες συσκέψεις
