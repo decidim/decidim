@@ -9,7 +9,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path(locale: current_locale),
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
@@ -20,7 +20,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path(locale: current_locale),
                         position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
+                        active: %r{^/#{current_locale}/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
