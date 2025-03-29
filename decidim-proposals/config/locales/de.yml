@@ -407,23 +407,6 @@ de:
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Teilnehmer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
-    metrics:
-      accepted_proposals:
-        description: Anzahl der von den Benutzern akzeptierten Vorschläge
-        object: Vorschläge
-        title: Akzeptierte Vorschläge
-      endorsements:
-        description: Anzahl der in Vorschlägen generierten Vermerke
-        object: Änderungsvorschläge
-        title: Änderungsvorschläge
-      proposals:
-        description: Anzahl der Vorschläge
-        object: Vorschläge
-        title: Vorschläge
-      votes:
-        description: Anzahl Stimmen über Vorschläge
-        object: Stimmen
-        title: Abstimmungen
     open_data:
       help:
         proposal_comments:
