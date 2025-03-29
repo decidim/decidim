@@ -262,3 +262,6 @@ he:
             title: עריכת סוג אסיפה
       show:
         assembly_type: סוג אסיפה
+    metrics:
+      assemblies:
+        title: אסיפות
