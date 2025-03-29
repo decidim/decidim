@@ -151,8 +151,8 @@ es-PY:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día
@@ -210,7 +210,7 @@ es-PY:
             body_html: |-
               La configuración del CTA a través de la Fase del proceso participativo está obsoleta con el nuevo diseño.
               Ahora esto se hace en la <b>Página de Inicio</b>, usando el bloque de contenido <b>Imagen principal y botón de acción</b> .
-              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del acción</i> y
+              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
           title: Editar fase de proceso participativo
@@ -397,7 +397,7 @@ es-PY:
         html_3:
           name: Tercer bloque HTML
         main_data:
-          name: Titulo y descripción
+          name: Título y descripción
         participatory_processes:
           active: Procesos participativos activos
           name: Procesos participativos

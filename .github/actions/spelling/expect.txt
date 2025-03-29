@@ -143,6 +143,7 @@ codeclimate
 codecov
 codefor
 CODEOWNERS
+codeql
 coditramuntana
 commentables
 commentaire
@@ -824,7 +825,6 @@ sgid
 shakapacker
 sharedapp
 shellwords
-shortanswer
 shs
 sidekiq
 signedby

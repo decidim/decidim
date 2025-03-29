@@ -73,27 +73,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_debates.register_metrics" do
-        Decidim.metrics_registry.register(:debates) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Debates::Metrics::DebatesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :debates) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Debates::Metrics::DebateParticipantsMetricMeasure"
-        end
-
-        Decidim.metrics_operation.register(:followers, :debates) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Debates::Metrics::DebateFollowersMetricMeasure"
-        end
-      end
-
       initializer "decidim_debates.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end

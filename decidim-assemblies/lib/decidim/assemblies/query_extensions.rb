@@ -11,11 +11,6 @@ module Decidim
       #
       # Returns nothing.
       def self.included(type)
-        type.field :assemblies_types, [AssembliesTypeType], null: false, description: "Lists all assemblies types"
-
-        type.field :assemblies_type, AssembliesTypeType, null: true, description: "Finds an assemblies type group" do
-          argument :id, GraphQL::Types::ID, description: "The ID of the Assemblies type", required: true
-        end
         type.field :assemblies,
                    [Decidim::Assemblies::AssemblyType],
                    null: true,
@@ -30,19 +25,6 @@ module Decidim
                    description: "Finds an assembly" do
           argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
         end
-      end
-
-      def assemblies_types(*)
-        Decidim::AssembliesType.where(
-          organization: context[:current_organization]
-        )
-      end
-
-      def assemblies_type(id:)
-        Decidim::AssembliesType.find_by(
-          organization: context[:current_organization],
-          id:
-        )
       end
 
       def assemblies(filter: {}, order: {})

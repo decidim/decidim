@@ -91,7 +91,54 @@ bin/rails decidim:upgrade:user_groups:remove_groups_notifications
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
-### 2.3. [[TITLE OF THE ACTION]]
+### 2.3. Automatic deletion of inactive accounts
+
+To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
+
+Before deletion, the system will send two notification emails:
+
+* The first email is sent **30 days** before the scheduled deletion.
+* The second email is sent **7 days** before the deletion deadline.
+
+Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
+
+To enable automatic deletion, add the following scheduled task to your cron jobs:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+```
+
+By default, the inactivity period is set to 365 days, but it can be customized by passing a parameter to the task. For example:
+
+```bash
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants[500]
+```
+
+If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
+
+```yaml
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
+:queues:
+  - [default, 2]
+  - [delete_inactive_participants, 2]
+  - [mailers, 4]
+  - [reminders, 2]
+  - [newsletter, 2]
+```
+
+You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
+
+### 2.5. Removal of Metrics
+
+The **Metrics** feature has been completely removed
+
+Use the **Statistics** feature instead.
+
+If your application includes the `metrics` queue in `config/sidekiq.yml` or scheduled tasks in `config/schedule.yml`, make sure to remove them. Additionally make sure you remove the metrics crons from your crontab.
+
+You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
+
+### 2.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 

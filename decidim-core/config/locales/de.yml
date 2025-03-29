@@ -179,6 +179,7 @@ de:
         leaving_authorizations_behind: Einige Daten, die an Ihre Autorisierung gebunden sind, werden aus Sicherheitsgründen gespeichert. Wenn Sie ein anderes Konto erstellen und erneut autorisieren, werden diese Daten auf Ihr neues Konto wiederhergestellt.
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
+        inactive_account_removal_reason: Konto nach %{inactivity_period} Tagen Inaktivität entfernt
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
@@ -1305,6 +1306,7 @@ de:
         assigned_to_proposal: Ich möchte eine E-Mail erhalten, wenn mir jemand einen Vorschlag zur Bewertung zuweist
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
+        evaluators: Bewertende Personen
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
@@ -1321,7 +1323,6 @@ de:
         push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
-        valuators: Bewertende
       update:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
@@ -1346,7 +1347,11 @@ de:
         core:
           components: Komponenten
           description: Diese ZIP-Datei enthält Dateien zum Studium und Recherchen über diese Mitwirkungsplattform.
+          generated_on_date: Generiert am %{date}
           main: Kern
+          resources:
+            one: "%{count} Ressource"
+            other: "%{count} Ressourcen"
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
         metrics:
@@ -1497,6 +1502,26 @@ de:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Unsere Datensätze zeigen, dass Sie ein %{organization_name} Konto am <strong>%{date_account_creation}</strong> erstellt haben und seit <strong>%{date_last_connection}</strong> nicht mehr aktiv waren.</p>
+          <p>Zum Schutz Ihrer Privatsphäre, werden wir dieses Konto in <strong>%{days} Tagen</strong> automatisch löschen geplant.</p>
+          <p>Wenn Sie Ihr %{organization_name} Konto behalten möchten, dann %{login_url} vor Ablauf der Frist, und Ihr Konto bleibt erhalten.<p>
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello_html: Hallo <strong>%{username}</strong>,
+        log_in: anmelden
+        never_logged_in: Nie angemeldet
+        subject: Inaktive Kontowarnung
+      removal_notification:
+        body: Ihr %{organization_name} Konto wurde aufgrund von Inaktivität gelöscht.
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello: Hallo %{username},
+        subject: Inaktives Konto gelöscht
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1673,6 +1698,16 @@ de:
     user_conversations:
       index:
         time_ago: "Vor %{time}"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update für folgende Gruppe, bei der Sie Mitglied sind, informieren: <strong>%{group_name}</strong>.'
+        body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
+        greeting: Hallo %{name},
+        instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
+        instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
+        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an <strong>%{group_email}</strong> gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was bedeutet das für Sie?</strong>"
+        subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -1794,6 +1829,16 @@ de:
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Anweisungen zur Entsperrung
+      user_group_reset_password_instructions:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
+        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3: Um weiterhin auf Ihr Konto zuzugreifen und den Zugriff freizugeben, müssen Sie ein Passwort festlegen. Sobald gesetzt, können Sie die Anmeldedaten (E-Mail und Passwort) an jeden weitergeben.
+        greeting: Hallo %{name},
+        instructions_1: 'Klicke auf den untenstehenden Link, um das Passwort zurückzusetzen:'
+        instructions_2: 'Teilen Sie die Anmeldedaten (E-Mail: %{email} und das neue Passwort) mit Ihren Kollegen.'
+        instructions_title: "<strong>Was sie tun müssen?</strong>"
+        set_password: Setzen Sie ein Passwort
+        subject: Wichtiges Update zur Gruppenfunktion
     omniauth_callbacks:
       add_tos_errors: Die Nutzungsbedingungen müssen akzeptiert werden, um ein Konto zu erstellen.
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'

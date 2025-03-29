@@ -22,7 +22,7 @@ $(() => {
     });
   });
 
-  $.unique($(".js-check-box-collection").parents(".answer")).each((idx, el) => {
+  $.unique($(".js-check-box-collection").parents(".response")).each((idx, el) => {
     const maxChoices = $(el).data("max-choices");
     if (maxChoices) {
       createMaxChoicesAlertComponent({
@@ -40,13 +40,13 @@ $(() => {
     item: ".js-collection-input"
   }));
 
-  $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
+  $(".response-questionnaire .question[data-conditioned='true']").each((idx, el) => {
     createDisplayConditions({
       wrapperField: $(el)
     });
   });
 
-  const form = document.querySelector("form.answer-questionnaire");
+  const form = document.querySelector("form.response-questionnaire");
   if (form) {
     const safePath = form.dataset.safePath.split("?")[0];
     let exitUrl = "";

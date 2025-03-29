@@ -1,26 +1,12 @@
 lb:
   activemodel:
     attributes:
-      answer:
-        body: Äntwert
-        choices: Choixen
-        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Zort
       questionnaire_question:
         mandatory: Verpflichtend
         max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Muss erneut angehängt werden
-            body:
-              too_long: ist zu lang
-            choices:
-              missing: sind nicht vollständig
   decidim:
     forms:
       admin:
@@ -31,42 +17,18 @@ lb:
         questionnaires:
           actions:
             back: Zurück zu Fragen
-          answer_option:
-            answer_option: Antwortoption
-            free_text: Freier Text
-            remove: Löschen
-            statement: Aussage
-          answers:
-            actions:
-              back: Zurück zu Antworten
-              export: Exportieren
-              show: Antworten anzeigen
-            empty: Noch keine Antworten
-            export:
-              answer:
-                title: 'Antwort #%{number}'
-            export_response:
-              title: Umfrage_Benutzer_Antworten_%{token}
-            index:
-              title: "%{total} Antworten insgesamt"
-            show:
-              title: 'Antwort #%{number}'
           display_condition:
-            answer_option: Antwortoption
             condition_question: Frage
             condition_type: Bedingung
             condition_types:
-              answered: Beantwortet
               equal: Gleich
               match: Beinhaltet Text
-              not_answered: Unbeantwortet
               not_equal: Nicht gleich
             condition_value: Enthaltener Text
             display_condition: Bedingung anzeigen
             mandatory: Diese Bedingung muss immer erfüllt werden, unabhängig vom Status anderer Bedingungen
             remove: Löschen
             save_warning: Vergessen Sie nicht, das Formular zu speichern, bevor Sie die Anzeigebedingungen konfigurieren
-            select_answer_option: Antwortoption auswählen
             select_condition_question: Eine Frage
             select_condition_type: Wählen Sie einen Bedingungstyp
           edit:
@@ -83,7 +45,6 @@ lb:
             remove: Löschen
             statement: Aussage
           question:
-            add_answer_option: Antwortoption hinzufügen
             add_display_condition: Anzeigebedingung hinzufügen
             add_display_condition_info: Speichern Sie das Formular, um die Anzeigebedingungen zu konfigurieren
             add_matrix_row: Zeile hinzufügen
@@ -96,6 +57,9 @@ lb:
             remove: Löschen
             statement: Aussage
             up: Hoch
+          responses:
+            actions:
+              show: Antworten anzeigen
           separator:
             down: Runter
             remove: Löschen
@@ -108,30 +72,18 @@ lb:
         dimensions: "%{width} x %{height} px"
       question_types:
         files: Dateien
-        long_answer: Lange Antwort
         matrix_multiple: Matrix (Mehrfachoption)
         matrix_single: Matrix (Einzelne Option)
         multiple_option: Mehrfachoption
-        short_answer: Kurze Antwort
         single_option: Einzelne Option
         sorting: Sortierung
       questionnaires:
-        answer:
-          invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
-          max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
-          success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
         show:
-          answer_questionnaire:
-            title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           of_total_steps: von %{total_steps}
-          questionnaire_answered:
-            body: Sie haben diesen Fragebogen bereits beantwortet.
-            title: Schon beantwortet
           questionnaire_closed:
-            body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
           questionnaire_for_private_users:
             body: Der Fragebogen ist nur für Privatanwender verfügbar
@@ -147,14 +99,3 @@ lb:
           back: Zurück
           continue: Weiter
           submit: einreichen
-      user_answers_serializer:
-        body: Antwort
-        completion: Abschluss
-        created_at: Beantwortet am
-        id: ID beantworten
-        ip_hash: IP-Hash
-        question: Frage
-        registered: Registriert
-        session_token: Benutzerkennung
-        unregistered: Nicht registriert
-        user_status: Benutzerstatus

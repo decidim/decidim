@@ -9,9 +9,9 @@ en:
       decidim/surveys/survey:
         one: Survey
         other: Surveys
-      decidim/surveys/survey_answer:
-        one: Answer
-        other: Answers
+      decidim/surveys/survey_response:
+        one: Response
+        other: Responses
   decidim:
     admin:
       admin_log:
@@ -19,14 +19,14 @@ en:
           surveys: surveys
       menu:
         surveys_menu:
-          answers: Responses
           main: Main
           questions: Questions
+          responses: Responses
           settings: Settings
     components:
       surveys:
         actions:
-          answer: Answer
+          response: Response
         name: Surveys
         settings:
           announcement: Announcement
@@ -46,49 +46,44 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
-    metrics:
-      survey_answers:
-        description: Number of surveys answered by participants
-        object: answers to surveys
-        title: Answers to surveys
     statistics:
-      answers_count: Answers
+      responses_count: Responses
     surveys:
       actions:
-        answers_alert: Delete answers at publish is active for this survey. There are currently %{answers_count} answers that will be destroyed if you continue.
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
         edit: Edit
         manage_questions: Questions
         new_survey: New survey
         preview: Preview
+        responses_alert: Delete responses at publish is active for this survey. There are currently %{responses_count} responses that will be destroyed if you continue.
         title: Actions
       admin:
-        answers:
-          index:
-            no_answers: There are no answers yet
-            title: "%{total} total responses"
-          show:
-            title: 'Answer #%{number}'
         exports:
-          survey_user_answers: Survey participant answers
-        publish_answers:
+          survey_user_responses: Survey participant responses
+        publish_responses:
           index:
-            answers:
-              one: "%{count} answer"
-              other: "%{count} answers"
             description: |-
-              By publishing the questions' answers, you will make them visible to the public.
-              You can select the answers you want to publish by clicking on the checkbox next to each question.
+              By publishing the questions' responses, you will make them visible to the public.
+              You can select the responses you want to publish by clicking on the checkbox next to each question.
               You can only publish the following question types: "Single option", "Multiple option", "Matrix (single option)", "Matrix (multiple option)", and "Sorting".
+            responses:
+              one: "%{count} response"
+              other: "%{count} responses"
             status:
               not_published: Not published
               published: Published
-            title: Publish answers
+            title: Publish responses
         questions:
           surveys:
             edit:
               title: Questions
+        responses:
+          index:
+            no_responses: There are no responses yet
+            title: "%{total} total responses"
+          show:
+            title: 'Response #%{number}'
         settings:
           surveys:
             edit:
@@ -130,8 +125,8 @@ en:
       models:
         survey:
           fields:
-            answers: Answers
             questions: Questions
+            responses: Responses
             status: Status
             title: Title
           status:
@@ -139,14 +134,10 @@ en:
             open: Open
       survey_confirmation_mailer:
         confirmation:
-          body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
-          subject: Questionnaire %{questionnaire_title} answering confirmation
-        export_name: Survey answers
+          body: You have successfully responded the %{questionnaire_title} survey within %{participatory_space}
+          subject: Questionnaire %{questionnaire_title} responding confirmation
+        export_name: Survey responses
       surveys:
-        answer:
-          invalid: There was a problem answering the survey.
-          spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
-          success: Survey successfully answered.
         count:
           surveys_count:
             one: "%{count} survey"
@@ -157,6 +148,10 @@ en:
             closed: Closed
             open: Open
         no_surveys_warning: No surveys match your search criteria or there is not any survey open.
+        response:
+          invalid: There was a problem responding the survey.
+          spam_detected: There was a problem responding the form. Maybe you have been too quick, can you try again?
+          success: Survey successfully responded.
         show:
           closed: Closed
           open: Open

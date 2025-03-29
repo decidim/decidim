@@ -99,7 +99,7 @@ fr:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: j-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -168,6 +168,7 @@ fr:
         leaving_authorizations_behind: Certaines données liées à votre autorisation seront enregistrées pour des raisons de sécurité. Si vous créez un autre compte et que vous l'autorisez à nouveau, ces données seront récupérées sur votre nouveau compte.
       destroy:
         error: Une erreur s'est produite lors de la suppression de votre compte.
+        inactive_account_removal_reason: Compte supprimé après %{inactivity_period} jours d'inactivité
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
@@ -1199,6 +1200,7 @@ fr:
         assigned_to_proposal: Je veux recevoir un email quand quelqu'un m'assigne une proposition à évaluer
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
+        evaluators: Évaluateurs
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         newsletters: Newsletters
@@ -1215,7 +1217,6 @@ fr:
         push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
         receive_notifications_about: Je veux recevoir des notifications sur
         update_notifications_settings: Enregistrer les modifications
-        valuators: Évaluateurs
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
@@ -1238,6 +1239,10 @@ fr:
       help:
         core:
           components: Fonctionnalités
+          generated_on_date: Généré le %{date}
+          resources:
+            one: "%{count} ressource"
+            other: "%{count} ressources"
           spaces: Espaces
         metrics:
           day: Le jour de la création de cette métrique
@@ -1363,6 +1368,26 @@ fr:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en mesure d'utiliser la plateforme.
           title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Nos journaux indiquent que vous avez créé un compte %{organization_name} en date du <strong>%{date_account_creation}</strong> et que vous n'avez pas été actif depuis le <strong>%{date_last_connection}</strong>.</p>
+          <p>Pour protéger votre vie privée, ce compte a été programmé pour être automatiquement supprimé dans <strong>%{days} jours</strong>.</p>
+          <p>Si vous souhaitez conserver votre compte %{organization_name}, connectez-vous sur %{login_url} avant ce délai, et votre compte sera préservée.</p>
+        greetings_html: |
+          Cordialement,<br>
+          %{organization_name}
+        hello_html: Cher(ère) <strong>%{username}</strong>,
+        log_in: se connecter
+        never_logged_in: jamais connecté
+        subject: Avertissement de compte inactif
+      removal_notification:
+        body: Votre compte %{organization_name} a été supprimé en raison de son inactivité.
+        greetings_html: |
+          Cordialement,<br>
+          %{organization_name}
+        hello: Cher(ère) %{username},
+        subject: Compte inactif supprimé
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.

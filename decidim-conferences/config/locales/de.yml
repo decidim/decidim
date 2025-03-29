@@ -236,8 +236,8 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
-            valuator: Bewertende
         media_link:
           fields:
             date: Datum

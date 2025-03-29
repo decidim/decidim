@@ -8,14 +8,9 @@ it:
       decidim/surveys/survey:
         one: Questionario
         other: indagini
-      decidim/surveys/survey_answer:
-        one: Risposta
-        other: risposte
   decidim:
     components:
       surveys:
-        actions:
-          answer: Risposta
         settings:
           global:
             announcement: Annuncio
@@ -33,17 +28,8 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Un nuovo questionario su %{participatory_space_title}
           notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
-    metrics:
-      survey_answers:
-        description: Numero di sondaggi rispondenti dagli utenti
-        object: risposte ai sondaggi
-        title: Risposte ai sondaggi
-    statistics:
-      answers_count: Risposte
     surveys:
       admin:
-        exports:
-          survey_user_answers: Risposte dei partecipanti al sondaggio
         surveys:
           update:
             invalid: Ci sono stati degli errori durante il salvataggio del sondaggio.
@@ -51,7 +37,3 @@ it:
       admin_log:
         survey:
           unpublish: "%{user_name} ha aggiornato il budget %{resource_name} nello spazio %{space_name}"
-      surveys:
-        answer:
-          invalid: Ci sono stati errori nel rispondere al sondaggio.
-          success: Le risposte sono state registrate correttamente.
