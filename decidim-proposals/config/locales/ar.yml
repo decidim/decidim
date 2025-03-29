@@ -299,6 +299,7 @@ ar:
         title: اقتراحات
       votes:
         object: أصوات
+        title: الأصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل
