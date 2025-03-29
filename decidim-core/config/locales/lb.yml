@@ -374,6 +374,8 @@ lb:
         view_all: Alles gesinn
       metrics:
         name: Organisations-Metriken
+      participatory_space_metrics:
+        name: Statistiken
       stats:
         name: Organisations-Statistiken
       sub_hero:
@@ -801,15 +803,15 @@ lb:
       followers:
         description: Zuel vun den Teilnehmer, déi dësem Konversatiouns-Espace nofollegen
         object: Follower
-        title: Follower
+        title: Unhänger
       participants:
         description: Zuel vun den aktiven Teilnehmer an dëser Organisatioun
         object: Teilnehmer
-        title: Teilnehmer
+        title: Benotzer
       users:
         description: Zuel vun den Teilnehmer an dëser Organisatioun
         object: Teilnehmer
-        title: Teilnehmer
+        title: Benotzer
     newsletter_mailer:
       newsletter:
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
