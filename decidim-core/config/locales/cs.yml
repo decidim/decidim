@@ -638,10 +638,6 @@ cs:
         name: Hlavní údaje
       metadata:
         name: Metadata
-      metrics:
-        name: Organizační metriky
-      participatory_space_metrics:
-        name: Metriky
       participatory_space_stats:
         name: Statistiky
       social_networks_metadata:
@@ -1215,6 +1211,8 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel nechce přijímat soukromé zprávy.
+          participants:
+            title: Účastníci
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
@@ -1247,27 +1245,6 @@ cs:
         finished: 'Dokončeno: %{end_date}'
         not_started: Ještě nezačalo
         remaining: "Zbývá %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Počet blokovaných účastníků
-      download:
-        csv: Stáhnout data (CSV)
-      followers:
-        description: Počet uživatelů, kteří následují v tomto prostoru účasti
-        object: následovníků
-        title: Sledující
-      participants:
-        description: Počet aktivních uživatelů v organizaci
-        object: účastníků
-        title: Účastníci
-      reported_users:
-        description: Počet nahlášených účastníků
-      user_reports:
-        description: Počet zpráv vypracovaných účastníky
-      users:
-        description: Počet uživatelů v organizaci
-        object: uživatelů
-        title: Uživatelé
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
@@ -1347,6 +1324,7 @@ cs:
         assigned_to_proposal: Chci dostávat e-mail, když mi někdo přiřadí návrh na vyhodnocení
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
+        evaluators: Hodnotitelé
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
         newsletters: Zpravodaje
@@ -1387,14 +1365,10 @@ cs:
         core:
           components: Komponenty
           description: Tento ZIP soubor obsahuje soubory pro studium a výzkum této participační platformy.
+          generated_on_date: Vygenerováno v %{date}
           main: Jádro
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
-        metrics:
-          cumulative: Celkový počet metrik v tento den
-          day: Den, kdy byla tato metrika vytvořena
-          metric_type: Typ metriky
-          quantity: Počet metrik za tento den
         moderated_users:
           about: Informační pole uživatele
           block_reasons: Důvod, proč administrátor zablokoval uživatele
@@ -1517,10 +1491,6 @@ cs:
         subheading: Procházejte stránky nápovědy %{name}
         title: Pomoc
         topics: Témata
-      participatory_space:
-        metrics:
-          headline: Metriky
-          link: Zobrazit všechny metriky
       terms_of_service:
         accept:
           error: Při přijímání podmínek služby došlo k chybě.
@@ -1538,6 +1508,12 @@ cs:
           alert: Aktualizovali jsme Podmínky služeb, přečtěte si je, prosím.
           body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
+    participants_account_mailer:
+      inactivity_notification:
+        subject: Upozornění na neaktivní účet
+      removal_notification:
+        hello: Dobrý den %{username},
+        subject: Neaktivní účet byl smazán
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
@@ -1835,6 +1811,8 @@ cs:
         instruction: 'Kliknutím na odkaz níže odemknete svůj účet:'
         message: Váš účet byl uzamčen kvůli nadměrnému množství neúspěšných pokusů o přihlášení.
         subject: Odemkněte pokyny
+      user_group_reset_password_instructions:
+        body_3: Abychom mohli pokračovat v přístupu k vašemu účtu a sdílet přístup, potřebujeme nastavit heslo. Po nastavení můžete sdílet přihlašovací údaje (e-mail a heslo) s kýmkoliv.
     omniauth_callbacks:
       add_tos_errors: Pro vytvoření účtu je nutné přijmout podmínky služby.
       failure: Nelze vás autentizovat z %{kind} protože "%{reason}".
