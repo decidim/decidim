@@ -599,9 +599,6 @@ eu:
         taxonomies: Taxonomiak
         taxonomy_filters: Taxonomia-iragazkiak
         users: Parte-hartzaileak 
-      metrics:
-        metrics:
-          see_more_metrics: Ikusi metrika gehiago
       models:
         area:
           fields:
@@ -1236,7 +1233,6 @@ eu:
         impersonatable_users: Parte-hartzaile erabilgarriak
         impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
-        metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
@@ -1282,16 +1278,6 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
-    metrics:
-      blocked_users:
-        object: parte-hartzaile blokeatuak
-        title: Parte-hartzaile blokeatuak
-      reported_users:
-        object: parte-hartzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
-      user_reports:
-        object: parte-hartzaileak erreportatzen du
-        title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
         expand: Zabaldu
