@@ -276,11 +276,6 @@ pt:
           not_found: 'O tipo de reunião não foi encontrado na base de dados (ID: %{id})'
     menu:
       assemblies: Reuniões
-    metrics:
-      assemblies:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
     participatory_processes:
       show:
         related_assemblies: Reuniões relacionadas
