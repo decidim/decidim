@@ -703,11 +703,6 @@ cs:
       withdraw:
         error: Při stahování schůzky došlo k chybě.
         success: Schůzka byla úspěšně stažena.
-    metrics:
-      meetings:
-        description: Počet vytvořených schůzek
-        object: setkání
-        title: Setkání
     open_data:
       help:
         meeting_comments:
