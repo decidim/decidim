@@ -345,11 +345,6 @@ zh-CN:
       types:
         private_meeting: 非公开会议
         transparent: 透明的
-    metrics:
-      meetings:
-        description: 创建的会议数
-        object: 会议
-        title: 会议
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 过去的会议
