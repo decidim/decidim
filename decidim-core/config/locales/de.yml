@@ -605,10 +605,6 @@ de:
         name: Hauptdaten
       metadata:
         name: Metadaten
-      metrics:
-        name: Organisationsmetriken
-      participatory_space_metrics:
-        name: Metriken
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -1206,27 +1202,6 @@ de:
         finished: 'Beendet am: %{end_date}'
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
-    metrics:
-      blocked_users:
-        description: Anzahl der blockierten Teilnehmenden
-      download:
-        csv: Daten herunterladen (CSV)
-      followers:
-        description: Anzahl der Benutzer, die dieser Teilnahme folgen
-        object: Anhänger
-        title: Anhänger
-      participants:
-        description: Anzahl der aktiven Benutzer in der Organisation
-        object: Teilnehmer
-        title: Teilnehmer
-      reported_users:
-        description: Anzahl der gemeldeten Teilnehmenden
-      user_reports:
-        description: Anzahl der von Teilnehmenden getätigten Meldungen
-      users:
-        description: Anzahl der Benutzer in der Organisation
-        object: Benutzer
-        title: Benutzer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
@@ -1354,11 +1329,6 @@ de:
             other: "%{count} Ressourcen"
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
-        metrics:
-          cumulative: Die Gesamtzahl der Metrik an diesem Tag
-          day: Erstellungsdatum dieser Metrik
-          metric_type: Typ der Metrik
-          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1481,10 +1451,6 @@ de:
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
