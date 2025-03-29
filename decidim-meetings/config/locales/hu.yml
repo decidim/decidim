@@ -489,7 +489,7 @@ hu:
       meetings:
         description: A létrehozott találkozók száma
         object: ülések
-        title: találkozók
+        title: Találkozók
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók
