@@ -1390,7 +1390,7 @@ eu:
       users:
         description: Parte-hartzaile kopurua erakundean
         object: parte-hartzaileak
-        title: erabiltzaileak
+        title: Parte-hartzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali da, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
