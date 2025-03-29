@@ -63,14 +63,6 @@ module Decidim
       end
     end
 
-    describe "with metrics related methods" do
-      [:highlighted, :not_highlighted, :highlighted_metrics, :not_highlighted_metrics].each do |method|
-        let(:method) { method }
-
-        it { is_expected.to eq("") }
-      end
-    end
-
     describe "with hashtag related methods" do
       [:name, :hashtag_path, :display_hashtag, :display_hashtag_name].each do |method|
         let(:method) { method }

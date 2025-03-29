@@ -713,7 +713,6 @@ pl:
           text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane

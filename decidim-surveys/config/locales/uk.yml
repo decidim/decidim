@@ -10,16 +10,9 @@ uk:
         few: Опитування
         many: Опитувань
         other: Опитувань
-      decidim/surveys/survey_answer:
-        one: Відповідь
-        few: Відповіді
-        many: Відповідей
-        other: Відповідей
   decidim:
     components:
       surveys:
-        actions:
-          answer: Відповідь
         settings:
           global:
             announcement: Оголошення
@@ -39,13 +32,7 @@ uk:
           notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
     surveys:
       admin:
-        exports:
-          survey_user_answers: Відповіді учасників на опитування
         surveys:
           update:
             invalid: При спробі збереження цього опитування сталися помилки.
             success: Опитування успішно збережено.
-      surveys:
-        answer:
-          invalid: При відповідях на опитування сталися помилки.
-          success: Опитування успішно пройдено.

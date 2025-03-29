@@ -67,10 +67,6 @@ module Decidim
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
   autoload :ContentBlocks, "decidim/content_blocks"
-  autoload :MetricRegistry, "decidim/metric_registry"
-  autoload :MetricManifest, "decidim/metric_manifest"
-  autoload :MetricOperation, "decidim/metric_operation"
-  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :NewsletterParticipant, "decidim/newsletter_participant"
@@ -646,12 +642,6 @@ module Decidim
         include_in_open_data: true
       ),
       CoreDataManifest.new(
-        name: :metrics,
-        collection: ->(organization) { Decidim::Metric.where(organization:) },
-        serializer: Decidim::Exporters::OpenDataMetricSerializer,
-        include_in_open_data: true
-      ),
-      CoreDataManifest.new(
         name: :taxonomies,
         collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
         serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
@@ -875,16 +865,6 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
-  end
-
-  # Public: Stores an instance of MetricRegistry
-  def self.metrics_registry
-    @metrics_registry ||= MetricRegistry.new
-  end
-
-  # Public: Stores an instance of MetricOperation
-  def self.metrics_operation
-    @metrics_operation ||= MetricOperation.new
   end
 
   # Public: Returns the correct settings object for the given organization or

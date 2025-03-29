@@ -64,7 +64,6 @@ ga:
           new:
             create: Cruthaigh
         exports:
-          answers: Freagraí
           meeting_comments: Tráchtanna
           meetings: Cruinnithe
         invites:
