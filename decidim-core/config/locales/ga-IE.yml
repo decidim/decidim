@@ -100,6 +100,8 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
+      participatory_space_metrics:
+        name: Méadrachtaí
     core:
       application_helper:
         filter_category_values:
