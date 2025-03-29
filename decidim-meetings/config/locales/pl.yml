@@ -636,11 +636,6 @@ pl:
         withdraw: Wycofany
       withdraw:
         success: Spotkanie zostało pomyślnie wycofane.
-    metrics:
-      meetings:
-        description: Liczba utworzonych spotkań
-        object: spotkania
-        title: Spotkania
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Przeszłe spotkania
