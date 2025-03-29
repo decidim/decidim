@@ -250,6 +250,7 @@ ro:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
         bulk_hide: "%{user_name} a ascuns %{reported_count} resurse"
+        bulk_unhide: "%{user_name} a ascuns %{reported_count} resurse"
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
@@ -301,7 +302,9 @@ ro:
         create: "%{user_name} a creat filtrul %{resource_name}"
         create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
         delete: "%{user_name} a șters filtrul %{resource_name}"
+        delete_with_filter_info: '%{user_name} a șters filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
         update: "%{user_name} a actualizat filtrul %{resource_name}"
+        update_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
       user:
         block: "%{user_name} a blocat accesul participantului %{resource_name}"
         bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
