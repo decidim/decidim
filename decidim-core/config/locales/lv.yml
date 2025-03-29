@@ -317,6 +317,8 @@ lv:
         view_all: Skatīt visu
       metrics:
         name: Organizācijas rādītāji
+      participatory_space_metrics:
+        name: Rādītāji
       stats:
         name: Organizācijas statistika
       sub_hero:
@@ -682,11 +684,9 @@ lv:
       participants:
         description: Aktīvo dalībnieku skaits organizācijā
         object: dalībnieki
-        title: Dalībnieki
       users:
         description: Dalībnieku skaits organizācijā
         object: dalībnieki
-        title: Dalībnieki
     newsletter_mailer:
       newsletter:
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
