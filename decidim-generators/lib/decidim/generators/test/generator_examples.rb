@@ -473,8 +473,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => false,
       "currency_unit" => "€",
       "image_uploader_quality" => 80,
-      "maximum_attachment_size" => 10_485_760, # 10 megabytes
-      "maximum_avatar_size" => 5_242_880, # 5 megabytes
+      "maximum_attachment_size" => 10, # 10 megabytes
+      "maximum_avatar_size" => 5, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
       "download_your_data_expiry_time" => 604_800, # 7 days
@@ -512,8 +512,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => true,
       "currency_unit" => "$",
       "image_uploader_quality" => 91,
-      "maximum_attachment_size" => 26_214_400, # 25 megabytes
-      "maximum_avatar_size" => 11_534_336, # 11 megabytes
+      "maximum_attachment_size" => 25, # 25 megabytes
+      "maximum_avatar_size" => 11, # 11 megabytes
       "max_reports_before_hiding" => 4,
       "track_newsletter_links" => false,
       "download_your_data_expiry_time" => 172_800, # 2 days

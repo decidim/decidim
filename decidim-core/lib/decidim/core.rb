@@ -235,11 +235,15 @@ module Decidim
   end
 
   # Exposes a configuration option: The application name String.
-  config_accessor :application_name
+  config_accessor :application_name do
+    config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
+  end
 
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
-  config_accessor :mailer_sender
+  config_accessor :mailer_sender do
+    Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
+  end
 
   # Whether SSL should be forced or not.
   config_accessor :force_ssl do
@@ -248,6 +252,26 @@ module Decidim
     else
       Decidim::Env.new("DECIDIM_FORCE_SSL").present?
     end
+  end
+
+  # CDN host configuration
+  config_accessor :storage_cdn_host do
+    Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+  end
+
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  config_accessor :storage_provider do
+    Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+  end
+
+  # VAPID public key that will be used to sign the Push API requests.
+  config_accessor :vapid_public_key do
+    Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+  end
+
+  # VAPID private key that will be used to sign the Push API requests.
+  config_accessor :vapid_private_key do
+    Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
   end
 
   # Having this on true will change the way the svg assets are being served.
@@ -267,7 +291,7 @@ module Decidim
 
   # Users that have not logged in for this period of time will be deleted
   config_accessor :delete_inactive_users_after_days do
-    ENV.fetch("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+    Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
   # The minimum allowed inactivity period for deleting participants.
@@ -487,11 +511,11 @@ module Decidim
   end
 
   config_accessor :maximum_attachment_size do
-    Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
+    Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
   end
 
   config_accessor :maximum_avatar_size do
-    Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
+    Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
   end
 
   # Social Networking services used for social sharing
@@ -655,21 +679,21 @@ module Decidim
       },
       facebook: {
         enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
-        app_id: ENV.fetch("OMNIAUTH_FACEBOOK_APP_ID", nil),
-        app_secret: ENV.fetch("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+        app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil),
+        app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
         icon_path: "media/images/facebook.svg"
       },
       twitter: {
         enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
-        api_key: ENV.fetch("OMNIAUTH_TWITTER_API_KEY", nil),
-        api_secret: ENV.fetch("OMNIAUTH_TWITTER_API_SECRET", nil),
+        api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil),
+        api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil),
         icon_path: "media/images/twitter-x.svg"
       },
       google_oauth2: {
         enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
         icon_path: "media/images/google.svg",
-        client_id: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
-        client_secret: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
+        client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
+        client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
       }
     }
   end

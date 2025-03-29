@@ -8,22 +8,22 @@ local:
 
 s3:
   service: S3
-  access_key_id: <%%= ENV["AWS_ACCESS_KEY_ID"] %>
-  secret_access_key: <%%= ENV["AWS_SECRET_ACCESS_KEY"] %>
-  bucket: <%%= ENV["AWS_BUCKET"] %>
-  <%%= "region: #{ENV["AWS_REGION"]}" if ENV["AWS_REGION"] %>
-  <%%= "endpoint: #{ ENV["AWS_ENDPOINT"]}" if ENV["AWS_ENDPOINT"] %>
+  access_key_id: <%%= Decidim::Env.new("AWS_ACCESS_KEY_ID").to_s %>
+  secret_access_key: <%%= Decidim::Env.new("AWS_SECRET_ACCESS_KEY").to_s %>
+  bucket: <%%= Decidim::Env.new("AWS_BUCKET").to_s %>
+  <%%= "region: #{Decidim::Env.new("AWS_REGION").to_s}" if Decidim::Env.new("AWS_REGION").present? %>
+  <%%= "endpoint: #{ Decidim::Env.new("AWS_ENDPOINT").to_s}" if Decidim::Env.new("AWS_ENDPOINT").present? %>
 
 azure:
   service: AzureStorage
-  storage_account_name: <%%= ENV["AZURE_STORAGE_ACCOUNT_NAME"] %>
-  storage_access_key: <%%= ENV["AZURE_STORAGE_ACCESS_KEY"] %>
-  container: <%%= ENV["AZURE_CONTAINER"] %>
+  storage_account_name: <%%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
+  storage_access_key: <%%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
+  container: <%%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
 
 gcs:
   service: GCS
-  project: <%%= ENV["GCS_PROJECT"] %>
-  bucket: <%%= ENV["GCS_BUCKET"] %>
+  project: <%%= Decidim::Env.new("GCS_PROJECT").to_s %>
+  bucket: <%%= Decidim::Env.new("GCS_BUCKET").to_s %>
   credentials:
     type: <%%= Decidim::Env.new("GCS_TYPE", "service_account").to_s %>
     project_id: <%%= Decidim::Env.new("GCS_PROJECT_ID").to_s %>
