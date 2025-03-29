@@ -318,9 +318,6 @@ zh-CN:
         settings: 设置
         static_pages: 页 次
         users: 参加者
-      metrics:
-        metrics:
-          see_more_metrics: 查看更多指标
       models:
         area:
           fields:
@@ -594,7 +591,6 @@ zh-CN:
         dashboard: 仪表板
         impersonatable_users: 可管理的参与者
         impersonations: 参与者管理
-        metrics: 指标
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
