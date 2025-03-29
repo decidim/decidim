@@ -502,11 +502,6 @@ nl:
         private_meeting: Privé vergadering
         transparent: Transparant
         withdraw: Afgelasten
-    metrics:
-      meetings:
-        description: Aantal gemaakte vergaderingen
-        object: vergaderingen
-        title: vergaderingen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
