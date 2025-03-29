@@ -284,6 +284,8 @@ ro:
         no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta.
       block_user:
+        bulk_new:
+          justification: Justificare
         new:
           action: Blochează contul și trimite justificarea
           already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
