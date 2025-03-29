@@ -406,23 +406,6 @@ fr:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
-    metrics:
-      accepted_proposals:
-        description: Nombre de propositions acceptées par les utilisateurs
-        object: propositions
-        title: Propositions Acceptées
-      endorsements:
-        description: Nombre d'avenants générés dans les propositions
-        object: soutiens
-        title: Soutiens
-      proposals:
-        description: Nombre de propositions générées
-        object: propositions
-        title: Propositions
-      votes:
-        description: Nombre de votes sur des propositions
-        object: votes
-        title: Votes
     open_data:
       help:
         proposals:
