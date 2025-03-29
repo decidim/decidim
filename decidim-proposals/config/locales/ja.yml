@@ -403,23 +403,6 @@ ja:
           next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
           unearned_another: この参加者はまだ提案を作成していません．
           unearned_own: 提案はまだ作成されていません。
-    metrics:
-      accepted_proposals:
-        description: 提案数が承認されました
-        object: 提案
-        title: 承認された提案
-      endorsements:
-        description: 提案へのオススメ数
-        object: オススメ
-        title: オススメ
-      proposals:
-        description: 提案数
-        object: 提案
-        title: 提案
-      votes:
-        description: 提案への投票数
-        object: 投票
-        title: 投票
     open_data:
       help:
         proposal_comments:
