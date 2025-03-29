@@ -602,10 +602,6 @@ ca:
         name: Dades principals
       metadata:
         name: Metadades
-      metrics:
-        name: Mètriques de l'organització
-      participatory_space_metrics:
-        name: Mètriques
       participatory_space_stats:
         name: Estadístiques
       social_networks_metadata:
@@ -1167,6 +1163,8 @@ ca:
           modal_title: Nova conversa
           no_results: No hi ha resultats
           participant_with_disabled_message_reception: Aquesta participant no vol rebre missatges privats.
+          participants:
+            title: Participants
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
@@ -1199,27 +1197,6 @@ ca:
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Número de participants bloquejades
-      download:
-        csv: Descarregar les dades (csv)
-      followers:
-        description: Nombre de participants que segueixen aquest espai de participació
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Nombre de participants actives a l'organització
-        object: participants
-        title: Participants
-      reported_users:
-        description: Número de participants reportades
-      user_reports:
-        description: Número de denúncies realitzades per participants
-      users:
-        description: Nombre de participants a l'organització
-        object: participants
-        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
@@ -1347,11 +1324,6 @@ ca:
             other: "%{count} recursos"
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
-        metrics:
-          cumulative: El número total de mètriques en aquest dia
-          day: La data en què es va crear aquesta mètrica
-          metric_type: El tipus de mètrica
-          quantity: El número de mètriques en aquest dia
         moderated_users:
           about: El text "Quant a" inclòs al perfil d'usuària
           block_reasons: El motiu pel qual l'administradora va bloquejar a la usuària
@@ -1474,10 +1446,6 @@ ca:
         subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
         topics: Temes
-      participatory_space:
-        metrics:
-          headline: Mètriques
-          link: Mostra totes les mètriques
       terms_of_service:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions d'ús.
