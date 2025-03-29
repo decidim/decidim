@@ -282,6 +282,8 @@ zh-TW:
         description: 提案總數
         object: 提案
         title: 提案
+      votes:
+        title: 投票
     participatory_spaces:
       highlighted_proposals:
         see_all: 檢視所有提案
