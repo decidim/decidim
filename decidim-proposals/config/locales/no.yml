@@ -266,6 +266,8 @@
         description: Antall forslag
         object: forslag
         title: Forslag
+      votes:
+        title: Stemmer
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle
