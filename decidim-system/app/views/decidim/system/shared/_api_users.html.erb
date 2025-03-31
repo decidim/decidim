@@ -22,7 +22,7 @@
         </td>
         <td>
           <% if fresh_token?(api_user) %>
-            <div class="api-user-secret  flex flewx-row items-center gap-x-2">
+            <div class="api-user-secret flex flex-row items-center gap-x-2">
               <div class="input-group__password">
                 <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= @secret_user[:secret] %>" class="w-full" autocomplete="off">
               </div>
