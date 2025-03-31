@@ -905,20 +905,6 @@ FactoryBot.define do
     organization
   end
 
-  factory :metric, class: "Decidim::Metric" do
-    transient do
-      skip_injection { false }
-    end
-    organization
-    day { Time.zone.today }
-    metric_type { "random_metric" }
-    cumulative { 2 }
-    quantity { 1 }
-    category { create(:category) }
-    participatory_space { create(:participatory_process, organization:, skip_injection:) }
-    related_object { create(:component, participatory_space:, skip_injection:) }
-  end
-
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
