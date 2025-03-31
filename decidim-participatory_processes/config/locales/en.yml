@@ -377,6 +377,8 @@ en:
           updated_at: The last date this space was updated
           url: The URL of the space
     participatory_process_groups:
+      related_processes:
+        help: All the selected processes will be assigned to this group, including the ones that are already assigned to other groups.
       content_blocks:
         extra_data:
           developer_group: Promoted by
