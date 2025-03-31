@@ -5,7 +5,7 @@ namespace :decidim do
     namespace :clean do
       desc "Removes all the invalid records from search, notifications, follows and action_logs"
       task invalid_records: [
-        :"decidim:upgrade:clean:searchable_resources",
+        :"decidim:upgrade:clean:invalidate_sms_authorizations",
         :"decidim:upgrade:clean:notifications",
         :"decidim:upgrade:clean:follows",
         :"decidim:upgrade:clean:categories",
@@ -13,6 +13,13 @@ namespace :decidim do
         :"decidim:upgrade:clean:clean_deleted_users",
         :"decidim:upgrade:clean:fix_blocked_user_notification"
       ]
+
+      desc "Invalidate all sms authorizations"
+      task invalidate_sms_authorizations: :environment do
+        logger.info("=== Deleting Action logs")
+        Decidim::Authorization.where(name: "sms").destroy_all
+        logger.info("===== Done")
+      end
 
       desc "Remove data from deleted users"
       task clean_deleted_users: :environment do
