@@ -49,7 +49,9 @@ module Decidim
         consolidated_version&.body
       end
 
-      # paranoia removes the versions but does not recursively restore by default
+      # The paranoia gem (used in soft-delete) applies the removed status to the "document_versions" association
+      # but it does not recursively restore them by default.
+      # This model needs to have the document_versions synchronized always
       def restore
         super(recursive: true)
       end

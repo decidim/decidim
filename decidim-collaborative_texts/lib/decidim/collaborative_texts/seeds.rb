@@ -51,12 +51,29 @@ module Decidim
           accepting_suggestions: [true, false].sample
         }
 
-        Decidim.traceability.create!(
+        document = Decidim.traceability.create!(
           Decidim::CollaborativeTexts::Document,
           admin_user,
           params,
           visibility: "all"
         )
+
+        # Create some versions
+        rand(1..3).times do |num|
+          params = {
+            document:,
+            body: create_body,
+            created_at: num.seconds.from_now
+          }
+          Decidim.traceability.create!(
+            Decidim::CollaborativeTexts::Version,
+            admin_user,
+            params,
+            visibility: "all"
+          )
+        end
+
+        document
       end
 
       def create_body
