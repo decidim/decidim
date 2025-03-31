@@ -34,7 +34,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
-bin/rails decidim:upgrade:clean:invalidate_sms_authorizations
+bin/rails decidim:verifications:revoke:sms
 ```
 
 ### 1.4. Follow the steps and commands detailed in these notes
@@ -147,7 +147,7 @@ As we have changed the authorization signature method for SMS, you will need to 
 To remove it, you just need to run the below task.
 
 ```bash
-bin/rails decidim:upgrade:clean:invalidate_sms_authorizations
+bin/rails decidim:verifications:revoke:sms
 ```
 
 You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)

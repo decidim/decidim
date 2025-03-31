@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-describe "rake decidim:upgrade:clean:invalidate_sms_authorizations", type: :task do
+describe "rake decidim:verifications:revoke:sms", type: :task do
   context "when executing task" do
     it "does not throw exceptions" do
       expect do
-        Rake::Task[:"decidim:upgrade:clean:invalidate_sms_authorizations"].invoke
+        Rake::Task[:"decidim:verifications:revoke:sms"].invoke
       end.not_to raise_exception
     end
   end
