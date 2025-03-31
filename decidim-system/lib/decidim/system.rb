@@ -9,8 +9,6 @@ module Decidim
   # eye view of the whole system.
   #
   module System
-    autoload :TokenGenerator, "decidim/system/token_generator"
-
     include ActiveSupport::Configurable
 
     # The length of API secrets generated for API users.

@@ -23,7 +23,7 @@ module Decidim
       end
 
       before do
-        allow(TokenGenerator).to receive(:generate_token).twice.and_return(dummy_token)
+        allow(SecureRandom).to receive(:alphanumeric).and_return(dummy_token)
       end
 
       it "creates the API user" do

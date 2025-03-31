@@ -16,7 +16,7 @@ module Decidim
       let(:dummy_token) { "Dummy token" }
 
       before do
-        allow(TokenGenerator).to receive(:generate_token).twice.and_return(dummy_token)
+        allow(SecureRandom).to receive(:alphanumeric).and_return(dummy_token)
       end
 
       context "when no admin" do

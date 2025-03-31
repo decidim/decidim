@@ -3,8 +3,6 @@
 module Decidim
   module System
     class RefreshApiUserSecret < Decidim::Command
-      include Decidim::System::TokenGenerator
-
       def initialize(api_user, current_admin)
         @api_user = api_user
         @current_admin = current_admin
@@ -32,8 +30,7 @@ module Decidim
       end
 
       def api_secret
-        secret_key_length = Decidim::System.api_users_secret_length
-        @api_secret ||= generate_token(secret_key_length)
+        @api_secret ||= SecureRandom.alphanumeric(Decidim::System.api_users_secret_length)
       end
     end
   end

@@ -3,8 +3,6 @@
 module Decidim
   module System
     class CreateApiUser < Decidim::Command
-      include ::Decidim::System::TokenGenerator
-
       def initialize(form, current_admin)
         @form = form
         @current_admin = current_admin
@@ -35,29 +33,28 @@ module Decidim
       def api_user_attributes
         {
           decidim_organization_id: form.organization,
-          api_key:,
           name: form.name,
           nickname: ::Decidim::UserBaseEntity.nicknamize(form.name, organization: form.organization),
+          api_key:,
+          api_secret:,
           admin: true,
-          admin_terms_accepted_at: Time.current,
-          api_secret:
+          admin_terms_accepted_at: Time.current
         }.tap do |attrs|
           attrs[:published_at] = Time.current if ::Decidim::Api::ApiUser.column_names.include?("published_at")
         end
       end
 
       def api_key
-        @api_key ||= generate_unique_token
+        @api_key ||= generate_unique_key
       end
 
       def api_secret
-        secret_key_length = Decidim::System.api_users_secret_length
-        @api_secret ||= generate_token(secret_key_length)
+        @api_secret ||= SecureRandom.alphanumeric(Decidim::System.api_users_secret_length)
       end
 
-      def generate_unique_token
+      def generate_unique_key
         loop do
-          token = generate_token
+          token = SecureRandom.alphanumeric(32)
           return token unless Decidim::Api::ApiUser.exists?(api_key: token)
         end
       end
