@@ -49,6 +49,12 @@
       <%= cell "decidim/coauthorships", document, context_actions: [:date] %>
     </div>
   </section>
+
+  <section class="layout-main__section">
+    <div class="editor-content">
+      <%= decidim_sanitize_editor_admin document.body %>
+    </div>
+  </section>
 <% end %>
 
 <% append_javascript_pack_tag("decidim_collaborative_texts") %>

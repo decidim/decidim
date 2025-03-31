@@ -1,76 +1,50 @@
 ro:
   activemodel:
     attributes:
-      answer:
-        body: Răspuns
-        choices: Opțiuni
-        selected_choices: Opțiuni selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
       questionnaire_question:
         mandatory: Obligatoriu
         max_characters: Limita de caractere (lăsați 0 dacă nu este nicio limită)
+      response:
+        body: Răspuns
+        choices: Opțiuni
+        selected_choices: Opțiuni selectate
     errors:
       models:
-        answer:
+        response:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Trebuie să fie reatașate
             body:
               too_long: este prea lung
             choices:
-              missing: nu sunt complete
+              too_many: Puteți alege un maxim de %{count}.
   decidim:
     forms:
       admin:
         models:
           components:
-            allow_editing_answers: Permiteți utilizatorilor înregistrați să modifice propriile răspunsuri la sondaj
+            allow_responses: Permiteți răspunsurile
             description: Descriere
+            ends_at: Răspunsuri acceptate până la
+            starts_at: Răspunsuri acceptate de la
             tos: Termenii serviciului
         questionnaires:
           actions:
             back: Înapoi la întrebări
-            show: Afișați răspunsurile
-          answer_option:
-            answer_option: Opțiune de răspuns
-            free_text: Text liber
-            remove: Eliminați
-            statement: Declarație
-          answers:
-            actions:
-              back: Înapoi la răspunsuri
-              export: Exportați
-              next: Următoarea &rsaquo;
-              previous: "&lsaquo; Anterioara"
-              show: Afișați răspunsurile
-            empty: Niciun răspuns încă
-            export:
-              answer:
-                title: 'Răspuns #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} răspunsuri în total"
-            show:
-              title: 'Răspuns #%{number}'
+            show: Răspunsuri
           display_condition:
-            answer_option: Opțiune de răspuns
             condition_question: Întrebare
             condition_type: Condiție
             condition_types:
-              answered: Răspunse
               equal: Egal
               match: Include textul
-              not_answered: Fără răspuns
               not_equal: Nu este egal cu
             condition_value: Text inclus
             display_condition: Afișează condiția
             mandatory: Această condiție trebuie îndeplinită întotdeauna indiferent de stadiul altor condiții
             remove: Elimină
             save_warning: Ține minte să salvezi chestionarul înainte de configurarea condiţiilor de afişare
-            select_answer_option: Selectați opțiunea de răspuns
             select_condition_question: Selectează o întrebare
             select_condition_type: Selectați un tip de condiție
           edit:
@@ -87,7 +61,6 @@ ro:
             remove: Eliminați
             statement: Declarație
           question:
-            add_answer_option: Adaugă opțiune de răspuns
             add_display_condition: Adaugă condiție de afișare
             add_display_condition_info: Salvează formularul pentru a configura condițiile de afișare
             add_matrix_row: Adaugați rând
@@ -100,6 +73,19 @@ ro:
             remove: Eliminați
             statement: Declarație
             up: Mergi în sus
+          response_option:
+            free_text: Text liber
+            remove: Eliminați
+            response_option: Opțiune de răspuns
+            statement: Declarație
+          responses:
+            actions:
+              back: Înapoi la răspunsuri
+              export: Exportați
+              next: Următoarea &rsaquo;
+              previous: "&lsaquo; Anterioara"
+              show: Afișați răspunsurile
+            empty: Nu există răspunsuri încă
           separator:
             down: Mergi în jos
             remove: Elimină
@@ -120,9 +106,6 @@ ro:
       admin_log:
         questionnaire:
           update: "%{user_name} a actualizat chestionarul %{resource_name}"
-      errors:
-        answer:
-          body: Conținutul nu poate fi gol
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -130,40 +113,20 @@ ro:
           resize_to_fit: Această imagine va fi redimensionată pentru a se potrivi cu %{dimensions}.
       question_types:
         files: Fișiere
-        long_answer: Răspuns lung
         matrix_multiple: Matrice (mai multe opțiuni)
         matrix_single: Matrice (opțiune unică)
         multiple_option: Mai multe opțiuni
-        short_answer: Răspuns scurt
         single_option: Opțiune unică
         sorting: Sortare
         title_and_description: Titlu și descriere
-      questionnaire_answer_presenter:
-        download_attachment: Descărcare atașament
       questionnaires:
-        answer:
-          invalid: A apărut o problemă la completarea chestionarului.
-          max_choices_alert: Există prea multe alegeri selectate
-          success: Chestionarul a fost completat cu succes.
         question:
           max_choices: 'Număr maxim de alegeri: %{n}'
         show:
-          answer_questionnaire:
-            already_have_an_account?: Ai deja un cont?
-            are_you_new?: Utilizator nou?
-            sign_up_description: Creați un cont de participant pentru a participa la sondaj
-            title: Completați formularul
           current_step: Pasul %{step}
           empty: Nicio întrebare configurată pentru acest formular încă.
           of_total_steps: din %{total_steps}
-          questionnaire_answered:
-            body: Ai completat deja la acest chestionar.
-            title: Un răspuns a fost deja trimis
-          questionnaire_answered_edit:
-            body: Ați răspuns deja la acest sondaj. %{link}
-            edit: Modificați răspunsurile
           questionnaire_closed:
-            body: Chestionarul este închis și nu mai poate fi completat.
             title: Formular închis
           questionnaire_for_private_users:
             body: Chestionarul este disponibil doar pentru utilizatorii privați
@@ -176,21 +139,6 @@ ro:
           tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
       step_navigation:
         show:
-          are_you_sure_edit: Veți putea să modificați răspunsurile. Sunteți sigur?
-          are_you_sure_edit_guest: Dacă doriți să modificați răspunsurile după ce veți răspunde, atunci trebuie să vă autentificați sau să creați un cont.
-          are_you_sure_no_edit: Această acțiune nu poate fi anulată și nu veți putea să vă modificați răspunsurile. Sunteți sigur?
           back: Înapoi
           continue: Continuă
-          disallowed: Nu aveți permisiunea să vă modificați răspunsurile.
           submit: Trimite
-      user_answers_serializer:
-        body: Răspuns
-        completion: Finalizare
-        created_at: Răspuns completat la
-        id: ID răspuns
-        ip_hash: IP Hash
-        question: Întrebare
-        registered: Înregistrat
-        session_token: Identificator utilizator
-        unregistered: Neînregistrat
-        user_status: Stadiul utilizatorului

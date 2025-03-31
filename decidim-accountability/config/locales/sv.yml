@@ -342,7 +342,6 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
         results:
           address: Adress till resultatet (om tillämpbart)
           children_count: Antal underliggande resultat
@@ -366,7 +365,7 @@ sv:
           url: URL för resultatet
     participatory_spaces:
       highlighted_results:
-        see_all: Se alla resultat (%{count})
+        see_all: Visa alla resultat
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat

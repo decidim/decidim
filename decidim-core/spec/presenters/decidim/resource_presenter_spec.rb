@@ -14,22 +14,18 @@ module Decidim
       let(:hashtag2) { create(:hashtag, organization:) }
       let(:user) { create(:user, :confirmed, organization:) }
       let(:user2) { create(:user, :confirmed, organization:) }
-      let(:user_group) { create(:user_group, :confirmed, organization:) }
-      let(:user_group2) { create(:user_group, :confirmed, organization:) }
 
       let(:data) { html }
       let(:html) do
         <<~HTML
           <p>Paragraph with a hashtag #{hashtag.to_global_id} and another hashtag #{hashtag2.to_global_id}</p>
           <p>Paragraph with a user mention #{user.to_global_id} and another user mention #{user2.to_global_id}</p>
-          <p>Paragraph with a user group mention #{user_group.to_global_id} and another user group mention #{user_group2.to_global_id}</p>
         HTML
       end
       let(:editor_html) do
         <<~HTML
           <p>Paragraph with a hashtag #{html_hashtag(hashtag)} and another hashtag #{html_hashtag(hashtag2)}</p>
           <p>Paragraph with a user mention #{html_mention(user)} and another user mention #{html_mention(user2)}</p>
-          <p>Paragraph with a user group mention #{html_mention(user_group)} and another user group mention #{html_mention(user_group2)}</p>
         HTML
       end
 

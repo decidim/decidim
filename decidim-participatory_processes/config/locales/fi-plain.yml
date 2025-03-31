@@ -151,8 +151,8 @@ fi-pl:
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
-            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty

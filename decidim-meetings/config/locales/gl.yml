@@ -172,7 +172,6 @@ gl:
             create: Crear
             title: Nova axenda
         exports:
-          answers: Respostas
           meetings: Reunións
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -224,6 +223,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            manage_questions: Preguntas
             registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
             registration_form: Formulario de inscrición
             registrations_count:
@@ -344,8 +344,6 @@ gl:
         questions:
           index_admin:
             question: Pregunta
-            received_answer: resposta recibida
-            received_answers: respostas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada

@@ -6,7 +6,7 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
-      def answer
+      def respond
         enforce_permission_to(:join, :meeting, meeting:)
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
@@ -14,7 +14,7 @@ module Decidim
         JoinMeeting.call(meeting, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
-            redirect_to after_answer_path
+            redirect_to after_response_path
           end
 
           on(:invalid) do
@@ -23,7 +23,7 @@ module Decidim
           end
 
           on(:invalid_form) do
-            flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
+            flash.now[:alert] = I18n.t("response.invalid", scope: i18n_flashes_scope)
             render template: "decidim/forms/questionnaires/show"
           end
         end
@@ -79,18 +79,18 @@ module Decidim
         end
       end
 
-      def allow_answers?
+      def allow_responses?
         meeting.registrations_enabled? && meeting.registration_form_enabled? && meeting.has_available_slots?
       end
 
-      def after_answer_path
+      def after_response_path
         meeting_path(meeting)
       end
 
       # You can implement this method in your controller to change the URL
       # where the questionnaire will be submitted.
       def update_url
-        answer_meeting_registration_path(meeting_id: meeting.id)
+        respond_meeting_registration_path(meeting_id: meeting.id)
       end
 
       def questionnaire_for

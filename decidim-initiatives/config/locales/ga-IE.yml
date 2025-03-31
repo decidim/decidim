@@ -31,8 +31,6 @@ ga:
             label: Ceantar
           state_eq:
             label: Staid
-            values:
-              created: Cruthaithe
           type_id_eq:
             label: Cineál
       menu:
@@ -88,8 +86,6 @@ ga:
             options: Roghanna
           new:
             create: Cruthaigh
-      admin_states:
-        created: Cruthaithe
       application_helper:
         filter_state_values:
           all: Uile
@@ -102,13 +98,11 @@ ga:
           continue: Lean ar aghaidh
       create_initiative:
         fill_data:
-          back: Ar Ais
           continue: Lean ar aghaidh
         finish:
           back: Ar Ais
         previous_form:
           back: Ar Ais
-          continue: Lean ar aghaidh
         select_initiative_type:
           back: Ar Ais
       edit:
@@ -144,9 +138,6 @@ ga:
       initiatives_mailer:
         initiative_link:
           here: anseo
-      show:
-        badge_name:
-          created: Cruthaithe
       states:
         accepted: Glactha
         expired: Éagtha
@@ -162,7 +153,6 @@ ga:
     decidim:
       initiative_creation_header:
         fill_data: Cruthaigh
-        finish: Críochnaigh
         select_initiative_type: Roghnaigh
       initiative_signature_creation_header:
         finish: Críochnaigh

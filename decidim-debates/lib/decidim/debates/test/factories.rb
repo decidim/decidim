@@ -21,6 +21,17 @@ FactoryBot.define do
     comments_layout { "single_column" }
     deleted_at { nil }
 
+    trait :with_endorsements do
+      after :create do |post, evaluator|
+        5.times.collect do
+          create(:endorsement,
+                 resource: post,
+                 skip_injection: evaluator.skip_injection,
+                 author: build(:user, :confirmed, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
+        end
+      end
+    end
+
     trait :open_ama do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
@@ -36,16 +47,6 @@ FactoryBot.define do
 
     trait :official do
       author { component.try(:organization) }
-    end
-
-    trait :user_group_author do
-      author do
-        create(:user, organization: component.organization, skip_injection:) if component
-      end
-
-      user_group do
-        create(:user_group, :verified, organization: component.organization, users: [author], skip_injection:) if component
-      end
     end
 
     trait :hidden do

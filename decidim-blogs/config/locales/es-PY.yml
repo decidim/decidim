@@ -69,11 +69,15 @@ es-PY:
             body: Cuerpo
             official_blog_post: Post oficial
             published_at: Hora de publicación
+            taxonomies: Taxonomías
             title: Título
       posts:
         edit:
+          add_attachments: Agregar archivo(s) adjunto(s)
+          attachment_legend: Añadir un documento o una imagen
           back: Volver a la publicación
           button: Actualizar
+          edit_attachments: Editar los archivos adjuntos
           title: Editar la publicación
         form:
           author_id: Autoría
@@ -83,7 +87,7 @@ es-PY:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
-          empty: Aún no hay ninguna publicación.
+          empty: Aún no hay publicaciones.
           new_post: Nueva publicación
         menu_actions:
           button_destroy: Eliminar la publicación
@@ -105,9 +109,14 @@ es-PY:
         settings:
           global:
             announcement: Anuncio
+            attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             creation_enabled_for_participants: Las participantes pueden crear nuevas entradas en el blog
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -133,7 +142,6 @@ es-PY:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         posts:
           author: La información de la autoría
           body: El contenido de la publicación

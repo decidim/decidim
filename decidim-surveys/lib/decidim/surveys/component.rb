@@ -12,21 +12,21 @@ Decidim.register_component(:surveys) do |component|
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
   component.query_type = "Decidim::Surveys::SurveysType"
 
-  component.data_portable_entities = ["Decidim::Forms::Answer"]
+  component.data_portable_entities = ["Decidim::Forms::Response"]
 
-  component.newsletter_participant_entities = ["Decidim::Forms::Answer"]
+  component.newsletter_participant_entities = ["Decidim::Forms::Response"]
 
   component.on(:before_destroy) do |instance|
     survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
-    survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)
+    survey_responses_for_component = Decidim::Forms::Response.where(questionnaire: survey.questionnaire)
 
-    raise "Cannot destroy this component when there are survey answers" if survey_answers_for_component.any?
+    raise "Cannot destroy this component when there are survey responses" if survey_responses_for_component.any?
   end
 
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"
-    resource.actions = %w(answer)
+    resource.actions = %w(response)
   end
 
   component.register_stat :surveys_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
@@ -36,16 +36,16 @@ Decidim.register_component(:surveys) do |component|
     surveys.count
   end
 
-  component.register_stat :answers_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :responses_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    answers = Decidim::Forms::Answer.where(questionnaire: surveys.map(&:questionnaire))
-    answers = answers.where(created_at: start_at..) if start_at.present?
-    answers = answers.where(created_at: ..end_at) if end_at.present?
-    answers.group(:session_token).count.size
+    responses = Decidim::Forms::Response.where(questionnaire: surveys.map(&:questionnaire))
+    responses = responses.where(created_at: start_at..) if start_at.present?
+    responses = responses.where(created_at: ..end_at) if end_at.present?
+    responses.group(:session_token).count.size
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(answer)
+  component.actions = %w(respond)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -55,15 +55,15 @@ Decidim.register_component(:surveys) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.exports :survey_user_answers do |exports|
+  component.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
+      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Forms::UserAnswersSerializer
+    exports.serializer Decidim::Forms::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

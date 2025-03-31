@@ -9,7 +9,6 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:

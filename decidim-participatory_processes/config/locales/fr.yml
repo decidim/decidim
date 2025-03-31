@@ -151,8 +151,8 @@ fr:
           roles:
             admin: Administrateur
             collaborator: Relecteur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
@@ -345,6 +345,11 @@ fr:
         description: Nombre de concertations dans cette organisation
         object: concertations
         title: Concertations
+    open_data:
+      help:
+        participatory_processes:
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -408,9 +413,11 @@ fr:
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             images: Images
             metadata: Métadonnées
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             private_notice: Vous serez en mesure de gérer les membres après l'avoir défini comme privé
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
