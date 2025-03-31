@@ -188,6 +188,7 @@ describe "Explore Collaborative Drafts", versioning: true do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as author, scope: :user
+          sleep(1)
           visit current_path
           within ".main-bar__links-desktop" do
             expect(page).to have_css("#trigger-dropdown-account")
@@ -228,6 +229,7 @@ describe "Explore Collaborative Drafts", versioning: true do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as user, scope: :user
+          sleep(1)
           visit current_path
           within ".main-bar__links-desktop" do
             expect(page).to have_css("#trigger-dropdown-account")
@@ -334,6 +336,7 @@ describe "Explore Collaborative Drafts", versioning: true do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as author, scope: :user
+          sleep(1)
           visit current_path
           within ".main-bar__links-desktop" do
             expect(page).to have_css("#trigger-dropdown-account")
