@@ -34,7 +34,7 @@ export default Extension.create({
       },
       hashtag: false,
       mention: false,
-      mentionResource: true,
+      mentionResource: false,
       emoji: false
     };
   },
