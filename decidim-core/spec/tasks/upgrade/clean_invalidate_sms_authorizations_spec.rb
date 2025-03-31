@@ -14,7 +14,7 @@ describe "rake decidim:upgrade:clean:invalidate_sms_authorizations", type: :task
   context "when there are no sms authorizations" do
     let!(:other_authorizations) { create_list(:authorization, 8, name: "other_authorization") }
 
-    it "it does not  remove the authorizations" do
+    it "it does not remove the authorizations" do
       expect { task.execute }.not_to change(Decidim::Authorization, :count)
     end
   end
@@ -22,7 +22,6 @@ describe "rake decidim:upgrade:clean:invalidate_sms_authorizations", type: :task
   context "when there are authorizations" do
     let!(:sms_authorizations) { create_list(:authorization, 8, name: "sms") }
     let!(:other_authorizations) { create_list(:authorization, 3, name: "other_authorization") }
-
 
     it "it removes the authorization" do
       expect { task.execute }.to change(Decidim::Authorization, :count).by(-8)
