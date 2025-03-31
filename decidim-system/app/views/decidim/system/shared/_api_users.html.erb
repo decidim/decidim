@@ -24,7 +24,7 @@
           <% if fresh_token?(api_user) %>
             <div class="api-user-secret  flex flewx-row items-center gap-x-2">
               <div class="input-group__password">
-                <input type="password" id="<%= "token_#{api_user.id}"%>" value="<%= params[:token] %>" class="w-full">
+                <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= params[:token] %>" class="w-full" autocomplete="off">
               </div>
               <div class="basis-1/4"
                 data-show-password="<%= t "api_user.show_secret", scope: "decidim.system.actions" %>"
@@ -55,11 +55,11 @@
           <%= l api_user.created_at, format: :short %>
         </td>
         <td>
-          <%= link_to t("actions.refresh_secret", scope: "decidim.system"), api_user_path(id: api_user.id), 
+          <%= link_to t("actions.refresh_secret", scope: "decidim.system"), api_user_path(id: api_user.id),
             class: "button button__sm button__text-primary", method: :patch,
             data: { confirm: t("actions.confirm_refresh_api_secret", scope: "decidim.system") } %>
           <br>
-          <%= link_to t("actions.api_users.remove", scope: "decidim.system"), api_user_path(id: api_user.id), 
+          <%= link_to t("actions.api_users.remove", scope: "decidim.system"), api_user_path(id: api_user.id),
             class: "button button__sm button__text-primary", method: :delete,
             data: { confirm: t("actions.confirm_remove_api_user", scope: "decidim.system") } %>
         </td>
