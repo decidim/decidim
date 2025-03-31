@@ -166,9 +166,13 @@ dl {
 }
 
 .input-group__password {
+  @apply w-full relative;
+
+  input {
+    @apply w-full;
+  }
+
   button {
-    position: absolute !important;
-    right: 0.5rem !important;
-    top: 1em !important;
+    @apply absolute ltr:right-2 rtl:left-2 top-4;
   }
 }
