@@ -42,9 +42,9 @@ en:
         api_user:
           hidden_secret: Secret is hidden
           hide_secret: Hide Secret
+          secret_can_not_be_shown: the API secret can be only seen or copied after creation
           show_secret: Show secret
           shown_secret: Secret is shown
-          secret_can_not_be_shown: the API secret can be only seen or copied after creation
         api_users:
           create: Create
           new: New API user
