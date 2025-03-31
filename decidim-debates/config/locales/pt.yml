@@ -10,7 +10,6 @@ pt:
         instructions: Instruções para participar
         start_time: Começa em
         title: Título
-        user_group_id: Criar debate como
     models:
       decidim/debates/close_debate_event: Debate fechado
       decidim/debates/create_debate_event: Debate
@@ -110,7 +109,6 @@ pt:
         new:
           back: Retroceder
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por
@@ -121,7 +119,6 @@ pt:
           debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
-          groups_count: Grupos
           open: Abrir debate
           participants_count: Participantes
         update:

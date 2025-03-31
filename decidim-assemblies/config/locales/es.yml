@@ -200,6 +200,7 @@ es:
           roles:
             admin: Administradora
             collaborator: Colaboradora
+            evaluator: Evaluadora
             moderator: Moderadora
       taxonomy_filters:
         space_filter_for:

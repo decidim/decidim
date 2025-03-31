@@ -179,6 +179,7 @@ eu:
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
         error: Arazo bat egon da zure kontua ezabatzean.
+        inactive_account_removal_reason: Kontua ezabatuta % {inactivity_period} egunen ondoren jarduerarik ez egiteagatik
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
@@ -1340,7 +1341,11 @@ eu:
         core:
           components: Osagaiak
           description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
+          generated_on_date: 'Noiz sortua: %{date}'
           main: Mamia
+          resources:
+            one: "%{count} emaitza"
+            other: "%{count} emaitza"
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
         metrics:
@@ -1491,6 +1496,26 @@ eu:
           alert: "Gure zerbitzu baldintzak eguneratu ditugu., berrikusi, mesedez.\n"
           body: Mesedez, hartu tarte bat erabilerarako gure baldintzak eta irizpideak berrikusteko. Bestela, ezin izango duzu plataforman parte hartu.
           title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Gure erregistroen arabera, sortu zenuen % {akusazioa_nombre} kontua hemen: <strong>% {date_contacto_creación}</strong> eta ez zara aktibo egon data honetatik: <strong>% {date_last_connection}</strong>-tik.</p>
+          <p>Zure pribatutasuna babesteko, kontu hau automatikoki ezabatzeko programatu da <strong>% {days} egunetan</strong>.</p>
+          <p>zure kontua %{organization_name} mantendu nahi baduzu, %{login_url} baino lehen, eta zure kontua gorde egingo da.<p>
+        greetings_html: |
+          Adeitasunez,<br>
+          %{organization_name}
+        hello_html: '%{username}, agurgarria:'
+        log_in: hasi saioa
+        never_logged_in: inoiz ez konektatua
+        subject: Kontu inaktiboaren abisua
+      removal_notification:
+        body: Zure %{organization_name} kontua ezabatu egin da inaktibitateagatik.
+        greetings_html: |
+          Adeitasunez,<br>
+          %{organization_name}
+        hello: "%{username}, agurgarria:\n"
+        subject: Kontu inaktiboa ezabatua
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.

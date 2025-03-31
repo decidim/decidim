@@ -236,6 +236,7 @@ es:
           roles:
             admin: Administradora
             collaborator: Colaboradora
+            evaluator: Evaluadora
             moderator: Moderadora
         media_link:
           fields:
