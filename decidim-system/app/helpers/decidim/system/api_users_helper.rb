@@ -4,9 +4,9 @@ module Decidim
   module System
     module ApiUsersHelper
       def fresh_token?(api_user)
-        params[:token].present? &&
-          params[:api_user].present? &&
-          params[:api_user] == api_user.id.to_s
+        @secret_user.present? &&
+          @secret_user[:id].present? &&
+          @secret_user[:id] == api_user.id
       end
 
       def organizations

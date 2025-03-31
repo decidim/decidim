@@ -10,9 +10,7 @@ describe "explore api credentials" do
 
   before do
     allow(Rails.application.secrets).to receive(:dig).with(:decidim, :api, :jwt_secret).and_return("mocked_secret")
-    # rubocop:disable RSpec/AnyInstance
-    allow_any_instance_of(Decidim::System::TokenGenerator).to receive(:generate_token).and_return(dummy_token)
-    # rubocop:enable RSpec/AnyInstance
+    allow(SecureRandom).to receive(:alphanumeric).and_return(dummy_token)
     login_as admin, scope: :admin
     visit decidim_system.admins_path
   end
@@ -90,7 +88,7 @@ describe "explore api credentials" do
       expect(page).to have_content("Are you sure you want to refresh the secret for this API user?")
       click_link_or_button "OK"
       expect(page).to have_content("Secret refreshed successfully.")
-      expect(page).to have_current_path("/system/api_users?api_user=#{refreshing_user.id}&token=#{dummy_token}")
+      expect(page).to have_current_path("/system/api_users")
       expect(Decidim::Api::ApiUser.count).to eq(7)
       within refreshing_tr do
         expect(page).to have_button("Copy secret")
@@ -106,13 +104,12 @@ describe "explore api credentials" do
       expect(page).to have_content("Select your organization")
       click_link_or_button "Create"
       expect(page).to have_current_path("/system/api_users/new")
-      select organization.host, from: "admin_organization"
+      select "#{translated(organization.name)} (#{organization.host})", from: "admin_organization"
       click_link_or_button "Create"
       expect(page).to have_current_path("/system/api_users/new")
       fill_in "Name", with: "Dummy name"
       within "select#admin_organization" do
-        expect(page).to have_css("option", text: organization.host)
-        expect(page).to have_css("option", text: organization.host)
+        expect(page).to have_css("option", text: "#{translated(organization.name)} (#{organization.host})")
       end
       click_link_or_button "Create"
       expect(page).to have_content("API user created successfully.")
@@ -131,12 +128,17 @@ describe "explore api credentials" do
       expect(page).to have_content("Copied")
     end
 
-    it "toggles musked secret by clicking 'show password' toggler" do
-      masked_user = set.last
-      visit "#{decidim_system.api_users_path}?api_user=#{masked_user.id}&token=dummy-secret"
+    it "toggles masked secret by clicking 'show password' toggler" do
+      click_link_or_button "New API user"
+      select "#{translated(organization.name)} (#{organization.host})", from: "admin_organization"
+      fill_in "Name", with: "Dummy name"
+      click_link_or_button "Create"
+      expect(page).to have_content("API user created successfully.")
+
+      masked_user = Decidim::Api::ApiUser.order(:id).last
       secret_input = find("input#token_#{masked_user.id}")
       expect(secret_input[:type]).to eq("password")
-      expect(secret_input.value).to eq("dummy-secret")
+      expect(secret_input.value).to eq(dummy_token)
       expect(page).to have_css('button[aria-label="Show password"]', count: 1)
       find('button[aria-label="Show password"]').click
       expect(secret_input[:type]).to eq("text")
