@@ -10,7 +10,6 @@ ro:
         instructions: Instrucţiuni de participare
         start_time: Începe la
         title: Titlu
-        user_group_id: Creați dezbaterea ca
     models:
       decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
@@ -115,7 +114,7 @@ ro:
         new:
           back: Înapoi
           create: Creează
-          title: Dezbatere nouă
+          title: Creați o dezbatere
         orders:
           commented: Cele mai comentate
           label: Ordonează dezbaterile după
@@ -126,7 +125,6 @@ ro:
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Modificați concluziile
-          groups_count: Grupuri
           open: Dezbatere deschisă
           participants_count: Participanți
         update:

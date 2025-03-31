@@ -1082,7 +1082,7 @@ eu:
           title: Editatu gaia
           update: Eguneratu gaia
         new:
-          create: Beste gai bat
+          create: Gai berria
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.

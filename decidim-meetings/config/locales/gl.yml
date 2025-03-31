@@ -172,7 +172,6 @@ gl:
             create: Crear
             title: Nova axenda
         exports:
-          answers: Respostas
           meetings: Reunións
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -345,8 +344,6 @@ gl:
         questions:
           index_admin:
             question: Pregunta
-            received_answer: resposta recibida
-            received_answers: respostas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
