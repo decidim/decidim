@@ -46,8 +46,7 @@ RSpec.describe "Api authentication" do
       post sign_in_path, params: invalid_params
 
       parsed_response = JSON.parse(response.body)
-      anonymized_key = parsed_response["api_key"]
-      expect(anonymized_key).to eq(hacker_key)
+      expect(parsed_response["id"]).not_to be_present
       expect(parsed_response["jwt_token"]).not_to be_present
     end
 
