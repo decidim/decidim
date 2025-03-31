@@ -217,7 +217,6 @@ en:
           email_subject: New meeting added to %{participatory_space_title}
           notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          email_intro: Meeting registration confirmed
           notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%.

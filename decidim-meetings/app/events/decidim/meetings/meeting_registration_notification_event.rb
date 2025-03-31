@@ -4,7 +4,6 @@ module Decidim
   module Meetings
     class MeetingRegistrationNotificationEvent < Decidim::Events::BaseEvent
       include Decidim::Events::NotificationEvent
-      include Decidim::Events::EmailEvent
 
       def notification_title
         I18n.t("notification_title", **i18n_options).html_safe
