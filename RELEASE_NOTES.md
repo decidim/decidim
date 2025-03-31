@@ -47,6 +47,8 @@ We have noticed that when a resource (ex: Proposal, Meeting) is being moderated,
 bin/rails decidim:upgrade:clean:hidden_resources
 ```
 
+You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+
 ### 2.2. User Groups removal
 
 As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
