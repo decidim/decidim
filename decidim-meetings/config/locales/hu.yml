@@ -16,7 +16,6 @@ hu:
         customize_registration_email: Regisztrációs email beállítása
         decidim_category_id: Kategória
         decidim_scope_id: Hatáskör
-        decidim_user_group_id: Felhasználói csoport
         description: Leírás
         id: ID
         location: Helye
@@ -70,7 +69,6 @@ hu:
             values:
               official: Hivatalos
               participants: Résztvevő
-              user_group: Felhasználói csoportok
           with_any_type:
             label: Értekezlet típusa
             values:
@@ -106,7 +104,6 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled_for_participants: Résztvevők általi találkozók engedélyezve
-            creation_enabled_for_user_groups: Felhasználói csoportok általi találkozó szervezése engedélyezve
     events:
       meetings:
         meeting_closed:
@@ -206,7 +203,6 @@ hu:
             create: Létrehozás
             title: Új napirend
         exports:
-          answers: Válaszok
           meeting_comments: Hozzászólások
           meetings: Találkozók
           registrations: Regisztrációk
@@ -392,12 +388,10 @@ hu:
         form:
           address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
           available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
-          create_as: Ülés létrehozása mint
         meetings:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         new:
           create: Létrehoz
-          title: Találkozó létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés
