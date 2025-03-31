@@ -1,8 +1,6 @@
 ca:
   activemodel:
     attributes:
-      answer:
-        add_documents: Afegir documents
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -18,7 +16,6 @@ ca:
         customize_registration_email: Personalitzar el correu d'inscripció
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
-        decidim_user_group_id: Grup d'usuàries
         description: Descripció
         end_time: Dia i hora de finalització
         id: ID
@@ -52,6 +49,8 @@ ca:
       meeting_registration_invite:
         email: Correu electrònic
         name: Nom
+      response:
+        add_documents: Afegir documents
       validate_registration_code:
         code: Codi
     errors:
@@ -122,7 +121,6 @@ ca:
             values:
               official: Oficial
               participants: Participant
-              user_group: Grups
           with_any_type:
             label: Tipus de trobada
             values:
@@ -176,7 +174,6 @@ ca:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
-            creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     download_your_data:
       help:
         invites:
@@ -311,10 +308,10 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia.
             success: L'ordre del dia s'ha actualitzat correctament.
         exports:
-          answers: Respostes
           meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
+          responses: Respostes
         invite_join_meeting_mailer:
           invite:
             decline: Declinar invitació
@@ -546,7 +543,6 @@ ca:
             all: Tots
             official: Oficial
             participants: Participants
-            user_group: Grups
           search: Cerca
           type: Tipus
           type_values:
@@ -557,7 +553,6 @@ ca:
         form:
           address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
           available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
-          create_as: Crear trobada com a
           disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que les organitzadores de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
           iframe_embed_type_html: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
@@ -586,7 +581,7 @@ ca:
         new:
           back: Enrere
           create: Crear
-          title: Crea la teva trobada
+          title: Crear una nova trobada
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -640,14 +635,6 @@ ca:
             taxonomies: Taxonomies
             title: Títol
       polls:
-        answers:
-          index:
-            administrate: Administrar
-            title: Sondeig/Consulta en directe
-          index_admin:
-            back_to_meeting: Tornar a la trobada
-            title: Administrar sondeig/consulta en directe
-            view_poll: Veure sondeig/consulta
         questions:
           closed_question:
             announcement: S'han tancat les respostes a aquesta pregunta.
@@ -658,8 +645,8 @@ ca:
           index_admin:
             edit: Editar al panell d'administració
             question: Pregunta
-            received_answer: resposta rebuda
-            received_answers: respostes rebudes
+            received_response: resposta rebuda
+            received_responses: respostes rebudes
             results: Resultats
             send: Enviar
             sent: Enviades
@@ -672,8 +659,15 @@ ca:
             question: Pregunta
             question_replied: Pregunta contestada
             reply_question: Contestar a la pregunta
+        responses:
+          index:
+            administrate: Administrar
+            title: Consulta/Sondeig en directe
+          index_admin:
+            back_to_meeting: Tornar a la trobada
+            title: Administrar consulta/sondeo en directe
+            view_poll: Veure consulta/sondeig
       public_participants_list:
-        attending_organizations: Organitzacions
         attending_participants: Participants assistents
         hidden_participants_count:
           one: i %{count} persona més
@@ -724,11 +718,10 @@ ca:
           commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
           comments: Les dades dels comentaris de la trobada
           created_at: La data en què es va crear aquest comentari
-          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és una resposta, o la resposta d'una resposta)
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         meetings:
           address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
           attachments: El nombre de fitxers adjunts en aquesta reunió
@@ -746,7 +739,6 @@ ca:
           created_at: La data en què es va crear aquesta trobada
           customize_registration_email: Possibilitat d'introduir un correu electrònic personalitzat en registrar-se a la trobada
           decidim_author_type: Tipus d'autoria (origen) de la trobada
-          decidim_user_group_id: ID del grup d'usuàries involucrat a la trobada
           description: La descripció de la trobada
           end_time: La data i l'hora en què va finalitzar aquesta trobada
           follows_count: El número de seguidores que té la trobada
