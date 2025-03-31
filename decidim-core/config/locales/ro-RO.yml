@@ -170,6 +170,7 @@ ro:
         leaving_authorizations_behind: Unele date asociate autorizării dumneavoastră vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
       destroy:
         error: A apărut o problemă la ștergerea contului dumneavoastră.
+        inactive_account_removal_reason: Cont șters după %{inactivity_period} zile de inactivitate
         success: Contul dumneavoastră a fost șters cu succes.
       download_your_data_export:
         export_expired: Exportul a expirat. Încercați să generați un nou export.
@@ -1068,6 +1069,12 @@ ro:
         retry: Încearcă din nou
     open_data:
       help:
+        core:
+          generated_on_date: Generat la %{date}
+          resources:
+            one: "%{count} rezultat"
+            few: "%{count} rezultate"
+            other: "%{count} rezultate"
         metrics:
           cumulative: Numărul total al indicatorului din această zi
           day: Ziua în care acest indicator a fost creat
@@ -1109,6 +1116,26 @@ ro:
         metrics:
           headline: Indicatori
           link: Afișați tot
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Înregistrările noastre indică faptul că ați creat un cont pe %{organization_name} pe <strong>%{date_account_creation}</strong> și că nu ați fost activ de la <strong>%{date_last_connection}</strong>.</p>
+          <p>Pentru a-ți proteja confidențialitatea, acest cont a fost programat pentru ștergere automată în <strong>%{days} zile</strong>.</p>
+          <p>Dacă doriţi să vă păstraţi contul %{organization_name}, pur și simplu %{login_url} înainte de această dată, iar contul dvs. va fi păstrat.<p>
+        greetings_html: |
+          Cu stimă,<br>
+          %{organization_name}
+        hello_html: Dragă <strong>%{username}</strong>,
+        log_in: autentificare
+        never_logged_in: niciodată autentificat
+        subject: Avertizare cont inactiv
+      removal_notification:
+        body: Contul dumneavoastră din %{organization_name} a fost șters din cauza inactivității.
+        greetings_html: |
+          Cu stimă,<br>
+          %{organization_name}
+        hello: Dragă %{username},
+        subject: Cont inactiv șters
     profile:
       deleted: Participant șters
     profiles:
@@ -1255,6 +1282,14 @@ ro:
     user_conversations:
       index:
         time_ago: "%{time} în urmă"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Vă contactăm pentru a vă informa cu privire la o actualizare importantă a grupului de utilizatori la care sunteți membru <strong>%{group_name}</strong>.'
+        greeting: Dragă %{name},
+        instructions_1: Dacă aveți acces la acest cont de e-mail, vă rugăm să verificați căsuța poștală pentru instrucțiuni.
+        instructions_2: În caz contrar, unul dintre colegii dvs. care are acces va trebui să seteze parola și să partajeze credențialele de conectare cu dvs.
+        instructions_intro: Membrii grupului vor partaja acum accesul la acest profil folosind credențiale de conectare partajate (e-mail și parolă). Am trimis instrucțiuni către <strong>%{group_email}</strong> pentru a seta o nouă parolă pentru profil.
+        instructions_title: "<strong>Ce înseamnă asta pentru dumneavoastră?</strong>"
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
@@ -1348,6 +1383,10 @@ ro:
         greeting: Bună ziua %{recipient}!
         instruction: 'Faceți clic pe link-ul de mai jos pentru a vă debloca contul:'
         subject: Instrucțiuni de deblocare
+      user_group_reset_password_instructions:
+        greeting: Dragă %{name},
+        instructions_1: 'Faceți click pe link-ul de mai jos pentru a vă seta parola:'
+        subject: Actualizare importantă pentru grupul de utilizatori
     omniauth_callbacks:
       failure: Nu ați putut fi autentificat din %{kind} deoarece "%{reason}".
       success: Autentificat cu succes din contul %{kind}.
