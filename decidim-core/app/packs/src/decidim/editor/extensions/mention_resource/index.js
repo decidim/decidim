@@ -44,7 +44,7 @@ export default Mention.extend({
         ...suggestion,
         char: "/",
         pluginKey: MentionResourcePluginKey,
-        allowSpaces: true,
+        allowSpaces: false,
         items: async ({ query }) => {
           const data = await searchResources(query);
 
