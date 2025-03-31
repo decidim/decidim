@@ -15,7 +15,6 @@ module Decidim::Admin
             time_zone: "Hawaii",
             default_locale: "en",
             badges_enabled: true,
-            user_groups_enabled: true,
             send_welcome_notification: false,
             admin_terms_of_service_body: { en: Faker::Lorem.paragraph },
             rich_text_editor_in_public_views: true,

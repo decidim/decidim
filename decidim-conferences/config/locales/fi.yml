@@ -236,8 +236,8 @@ fi:
           roles:
             admin: Hallintakäyttäjä
             collaborator: Työryhmän jäsen
+            evaluator: Arvioija
             moderator: Moderoija
-            valuator: Arvioija
         media_link:
           fields:
             date: Päivämäärä

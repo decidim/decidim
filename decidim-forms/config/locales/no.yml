@@ -1,26 +1,12 @@
 "no":
   activemodel:
     attributes:
-      answer:
-        body: Svar
-        choices: Valg
-        selected_choices: Valgte valg
       question:
         max_choices: Maksimalt antall valg
         question_type: Type
       questionnaire_question:
         mandatory: Obligatorisk
         max_characters: Tegngrense (la være 0 hvis ingen begrensning)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Må legges til på nytt
-            body:
-              too_long: er for lang
-            choices:
-              missing: er ikke fullstendig
   decidim:
     forms:
       admin:
@@ -31,43 +17,18 @@
         questionnaires:
           actions:
             back: Tilbake til spørsmål
-            show: Vis svar
-          answer_option:
-            answer_option: Svaralternativ
-            free_text: Fri tekst
-            remove: Fjern
-            statement: Uttalelse
-          answers:
-            actions:
-              back: Tilbake til svar
-              export: Eksporter
-              show: Vis svar
-            empty: Ingen svar enda
-            export:
-              answer:
-                title: 'Svar #%{number}'
-            export_response:
-              title: undersøkelse_bruker_svar_%{token}
-            index:
-              title: "%{total} svar totalt"
-            show:
-              title: 'Svar #%{number}'
           display_condition:
-            answer_option: Svaralternativ
             condition_question: Spørsmål
             condition_type: Betingelse
             condition_types:
-              answered: Besvart
               equal: Lik
               match: Inkluder tekst
-              not_answered: Ikke besvart
               not_equal: Ikke lik
             condition_value: Inkludert tekst
             display_condition: Vis betingelse
             mandatory: Denne betingelsen må alltid oppfylles uavhengig av status for andre betingelser
             remove: Fjern
             save_warning: Husk å lagre skjemaet før du konfigurerer visningsbetingelser
-            select_answer_option: Velg svaralternativ
             select_condition_question: Velg et spørsmål
             select_condition_type: Velg en betingelsestype
           edit:
@@ -84,7 +45,6 @@
             remove: Fjern
             statement: Uttalelse
           question:
-            add_answer_option: Legg til svaralternativ
             add_display_condition: Legg til visningsbetingelse
             add_display_condition_info: Lagre skjemaet for å konfigurere visningsbetingelser
             add_matrix_row: Legg til rad
@@ -97,6 +57,9 @@
             remove: Fjern
             statement: Uttalelse
             up: Opp
+          responses:
+            actions:
+              show: Vis svar
           separator:
             down: Ned
             remove: Fjern
@@ -118,31 +81,19 @@
         dimensions: "%{width} x %{height} px"
       question_types:
         files: Filer
-        long_answer: Langt svar
         matrix_multiple: Matrise (Flervalg)
         matrix_single: Matrise (Enkeltvalg)
         multiple_option: Flere alternativer
-        short_answer: Kort svar
         single_option: Enkelt alternativ
         sorting: Sortering
         title_and_description: Tittel og beskrivelse
       questionnaires:
-        answer:
-          invalid: Det oppstod et problem med å svare på skjemaet.
-          max_choices_alert: For mange valg er merket
-          success: Skjema ble besvart.
         question:
           max_choices: 'Maksimum valg: %{n}'
         show:
-          answer_questionnaire:
-            title: Svar på skjemaet
           current_step: Trinn %{step}
           of_total_steps: av %{total_steps}
-          questionnaire_answered:
-            body: Dy har allerede svart på dette skjemaet.
-            title: Allerede besvart
           questionnaire_closed:
-            body: Skjemaet er lukket og kan ikke besvares.
             title: Skjema lukket
           questionnaire_for_private_users:
             body: Skjemaet er bare tilgjengelig for private brukere
@@ -158,14 +109,3 @@
           back: Tilbake
           continue: Fortsett
           submit: Send inn
-      user_answers_serializer:
-        body: Svar
-        completion: Fullføring
-        created_at: Besvart på
-        id: Svar ID
-        ip_hash: IP Hash
-        question: Spørsmål
-        registered: Registrert
-        session_token: Brukeridentifikator
-        unregistered: Uregistrert
-        user_status: Brukerstatus

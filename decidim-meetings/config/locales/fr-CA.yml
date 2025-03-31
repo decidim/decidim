@@ -1,8 +1,6 @@
 fr-CA:
   activemodel:
     attributes:
-      answer:
-        add_documents: Ajouter des documents
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -18,7 +16,6 @@ fr-CA:
         customize_registration_email: Personnaliser l'email d'inscription
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
-        decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Heure de fin
         id: ID
@@ -52,6 +49,8 @@ fr-CA:
       meeting_registration_invite:
         email: Email
         name: Nom
+      response:
+        add_documents: Ajouter des documents
       validate_registration_code:
         code: Code
     errors:
@@ -113,7 +112,6 @@ fr-CA:
             values:
               official: Officiel
               participants: Participants
-              user_group: Groupes d’utilisateurs
           with_any_type:
             label: Type de rencontre
             values:
@@ -162,7 +160,6 @@ fr-CA:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de réunions par les participants est activée
-            creation_enabled_for_user_groups: La création de réunions par des groupes d'utilisateurs est activée
     download_your_data:
       help:
         invites:
@@ -292,10 +289,10 @@ fr-CA:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
             success: Ordre du jour mis à jour avec succès.
         exports:
-          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
+          responses: Réponses
         invite_join_meeting_mailer:
           invite:
             decline: Refuser l'invitation
@@ -399,7 +396,7 @@ fr-CA:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
-            manage_questions: Gérer les questions
+            manage_questions: Questions
             recommendation_message: Pour des raisons de confidentialité, nous vous recommandons de supprimer ce formulaire d'inscription lorsque vous n'en avez plus besoin. Par défaut, il le sera 3 mois après la fin de la réunion.
             registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_form: Formulaire d'inscription
@@ -523,7 +520,6 @@ fr-CA:
             all: Toutes
             official: Officiel
             participants: Participants
-            user_group: Groupes
           search: Rechercher
           type: Type
           type_values:
@@ -534,7 +530,6 @@ fr-CA:
         form:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
-          create_as: Créer une réunion en tant que
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
@@ -563,7 +558,7 @@ fr-CA:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre réunion
+          title: Créer une nouvelle réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -616,14 +611,6 @@ fr-CA:
             start_time: Date de début
             title: Titre
       polls:
-        answers:
-          index:
-            administrate: Administrer
-            title: Sondage
-          index_admin:
-            back_to_meeting: Revenir à la rencontre
-            title: Administrer le sondage
-            view_poll: Voir le sondage
         questions:
           closed_question:
             announcement: Les réponses à cette question sont closes.
@@ -634,8 +621,8 @@ fr-CA:
           index_admin:
             edit: Modifier dans le panneau d'administration
             question: Question
-            received_answer: réponse reçue
-            received_answers: réponses reçues
+            received_response: réponse reçue
+            received_responses: réponses reçues
             results: Résultats
             send: Envoyer
             sent: Envoyée
@@ -648,8 +635,15 @@ fr-CA:
             question: Question
             question_replied: Réponse envoyée
             reply_question: Répondre
+        responses:
+          index:
+            administrate: Administrer
+            title: Sondage
+          index_admin:
+            back_to_meeting: Revenir à la rencontre
+            title: Administrer le sondage
+            view_poll: Voir le sondage
       public_participants_list:
-        attending_organizations: Organisations
         attending_participants: Participants présents
         hidden_participants_count:
           one: et %{count} personne de plus
@@ -694,6 +688,7 @@ fr-CA:
       help:
         meeting_comments:
           comments: Les données des commentaires de la réunion
+          depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse à une réponse)
         meetings:
           attending_organizations: Les organisations participant à la réunion
           audio_url: Enregistrement audio de la réunion

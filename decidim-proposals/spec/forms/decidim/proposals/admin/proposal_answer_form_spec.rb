@@ -54,7 +54,7 @@ module Decidim
           context "and there is no answer" do
             let(:answer) { nil }
 
-            it { is_expected.to be_invalid }
+            it { is_expected.to be_valid }
           end
         end
 
@@ -72,7 +72,7 @@ module Decidim
               )
             end
 
-            it { is_expected.to be_invalid }
+            it { is_expected.to be_valid }
 
             context "and cost data is filled" do
               let(:cost) { 20_000 }

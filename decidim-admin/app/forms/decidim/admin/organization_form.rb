@@ -20,7 +20,6 @@ module Decidim
       attribute :github_handler, String
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
-      attribute :user_groups_enabled, Boolean
       attribute :comments_max_length, Integer, default: 0
       attribute :rich_text_editor_in_public_views, Boolean
       attribute :enable_machine_translations, Boolean

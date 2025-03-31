@@ -16,7 +16,6 @@ pl:
         customize_registration_email: Dostosuj maila rejestracji
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
-        decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
         id: Numer ID
@@ -117,7 +116,6 @@ pl:
             values:
               official: Oficjalny
               participants: Uczestnik
-              user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
@@ -166,7 +164,6 @@ pl:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             creation_enabled_for_participants: Możliwe tworzenie spotkań przez uczestników
-            creation_enabled_for_user_groups: Możliwe tworzenie spotkań przez grupy użytkowników
     events:
       meetings:
         meeting_closed:
@@ -278,7 +275,6 @@ pl:
             invalid: Przy aktualizacji tego porządku obrad pojawił się problem.
             success: Aktualizacja porządku obrad się powiodła.
         exports:
-          answers: Odpowiedzi
           meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
@@ -360,7 +356,7 @@ pl:
         poll:
           form:
             announcement_html:
-              - Gdy pytanie otrzymuje odpowiedzi lub jest opublikowane/zamknięte, nie może być już edytowane.
+              - 
               - Możesz dodać pytanie w dowolnym momencie.
               - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
               - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
@@ -372,6 +368,7 @@ pl:
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
+            manage_questions: Pytania
             recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego podpisu, gdy nie będzie już wymagany. Standardowo są to 3 miesiące od zakończenia spotkania.
             registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_form: Formularz rejestracyjny
@@ -499,7 +496,6 @@ pl:
             all: Wszystkie
             official: Oficjalny
             participants: Uczestnicy
-            user_group: Grupy
           search: Szukaj
           type: Typ
           type_values:
@@ -510,7 +506,6 @@ pl:
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
-          create_as: Utwórz spotkanie jako
           disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy(a), że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
           iframe_embed_type_html: 'Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo z następujących domen: %{domains}'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
@@ -537,7 +532,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -590,26 +584,14 @@ pl:
             start_time: Data rozpoczęcia
             title: Tytuł
       polls:
-        answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
-          index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
-            view_poll: Zobacz ankietę
         questions:
           closed_question:
             announcement: Odpowiedzi na to pytanie zostały zamknięte.
             question: Pytanie
             question_results: Wyniki
-          index:
-            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie
-            received_answer: otrzymana odpowiedź
-            received_answers: otrzymane odpowiedzi
             results: Wyniki
             send: Wyślij
             sent: Wysłano
@@ -623,7 +605,6 @@ pl:
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
       public_participants_list:
-        attending_organizations: Organizacje
         attending_participants: Uczestnicy
       read_more: "(zobacz więcej)"
       registration_mailer:

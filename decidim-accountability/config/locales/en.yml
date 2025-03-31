@@ -331,11 +331,6 @@ en:
           email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title} progress
           notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
-    metrics:
-      results:
-        description: Number of results generated
-        object: results
-        title: Results
     open_data:
       help:
         result_comments:
@@ -349,7 +344,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         results:
           address: The address of the result (if any)
           children_count: The number of child results

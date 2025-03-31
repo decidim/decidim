@@ -87,16 +87,6 @@ module Decidim::Meetings
             end
           end
         end
-
-        context "with user group author" do
-          let!(:meeting) { create(:meeting, :user_group_author, :published, latitude:, longitude:) }
-
-          it "serializes the organizer" do
-            expect(serialized[:organizer][:@type]).to eq("Organization")
-            expect(serialized[:organizer][:name]).to eq(meeting.author.name)
-            expect(serialized[:organizer][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/profiles/#{meeting.user_group.nickname}")
-          end
-        end
       end
 
       describe "types of meetings" do

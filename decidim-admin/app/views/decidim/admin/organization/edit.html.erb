@@ -8,11 +8,7 @@
 
 <div class="item__edit-form">
   <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization" }, url: organization_path) do |f| %>
-    <div class="card">
-      <div class="card-section">
-        <%= render partial: "form", object: f %>
-      </div>
-    </div>
+    <%= render partial: "form", object: f %>
     <div class="item__edit-sticky">
       <div class="item__edit-sticky-container">
         <%= f.submit t(".update"), class: "button button__sm button__secondary" %>

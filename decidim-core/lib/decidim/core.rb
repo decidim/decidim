@@ -67,10 +67,6 @@ module Decidim
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
   autoload :ContentBlocks, "decidim/content_blocks"
-  autoload :MetricRegistry, "decidim/metric_registry"
-  autoload :MetricManifest, "decidim/metric_manifest"
-  autoload :MetricOperation, "decidim/metric_operation"
-  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :NewsletterParticipant, "decidim/newsletter_participant"
@@ -257,6 +253,36 @@ module Decidim
   # Exposes a configuration option: The application default locale.
   config_accessor :default_locale do
     :en
+  end
+
+  # Users that have not logged in for this period of time will be deleted
+  config_accessor :delete_inactive_users_after_days do
+    ENV.fetch("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+  end
+
+  # The minimum allowed inactivity period for deleting participants.
+  config_accessor :minimum_inactivity_period do
+    30
+  end
+
+  # Users will be warned for the first time this amount of days before the final removal
+  config_accessor :delete_inactive_users_first_warning_days_before do
+    30
+  end
+
+  # Users will be warned for the last time this amount of days before the final removal
+  config_accessor :delete_inactive_users_last_warning_days_before do
+    7
+  end
+
+  # Returns the inactivity threshold (in days) to trigger the first warning email.
+  def self.first_warning_inactive_users_after_days
+    delete_inactive_users_after_days - delete_inactive_users_first_warning_days_before
+  end
+
+  # Returns the inactivity threshold (in days) to trigger the final warning email.
+  def self.last_warning_inactive_users_after_days
+    delete_inactive_users_first_warning_days_before - delete_inactive_users_last_warning_days_before
   end
 
   # Disable the redirection to the external host when performing redirect back
@@ -616,18 +642,6 @@ module Decidim
         include_in_open_data: true
       ),
       CoreDataManifest.new(
-        name: :user_groups,
-        collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
-        serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
-        include_in_open_data: true
-      ),
-      CoreDataManifest.new(
-        name: :metrics,
-        collection: ->(organization) { Decidim::Metric.where(organization:) },
-        serializer: Decidim::Exporters::OpenDataMetricSerializer,
-        include_in_open_data: true
-      ),
-      CoreDataManifest.new(
         name: :taxonomies,
         collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
         serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
@@ -851,16 +865,6 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
-  end
-
-  # Public: Stores an instance of MetricRegistry
-  def self.metrics_registry
-    @metrics_registry ||= MetricRegistry.new
-  end
-
-  # Public: Stores an instance of MetricOperation
-  def self.metrics_operation
-    @metrics_operation ||= MetricOperation.new
   end
 
   # Public: Returns the correct settings object for the given organization or

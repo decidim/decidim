@@ -776,31 +776,6 @@ describe "Initiative" do
         end
       end
 
-      context "when the initiative is created by an user group" do
-        let(:organization) { create(:organization, available_authorizations: authorizations, user_groups_enabled: true) }
-        let(:initiative) { build(:initiative) }
-        let!(:user_group) { create(:user_group, :verified, organization:, users: [authorized_user]) }
-
-        before do
-          authorized_user.reload
-
-          first("input.radio-accordion-radio").click
-          click_on "Continue"
-
-          fill_in "Title", with: translated(initiative.title, locale: :en)
-          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          select("Online", from: "Signature collection type")
-          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
-        end
-
-        it "shows the user group as author" do
-          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
-          select(user_group.name, from: "Author")
-          find_button("Continue").click
-          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
-        end
-      end
-
       context "when finish" do
         let(:initiative) { build(:initiative) }
         let(:initiative_type_minimum_committee_members) { 0 }

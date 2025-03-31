@@ -80,11 +80,8 @@ sv:
             select_template: Välj ett mallsvar
         questionnaire_templates:
           choose:
-            create_from_template: Skapa från mall
-            description: Du håller på att skapa en ny enkät. Du kan välja en fördefinierad mall och ändra den efteråt.
             label: Välj mall
             placeholder: Välj mall
-            skip_template: Hoppa över
           edit:
             edit: Redigera
             empty: Det finns inga frågor ännu.

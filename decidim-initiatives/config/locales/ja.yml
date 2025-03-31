@@ -86,7 +86,7 @@ ja:
             label: 州(県)
             values:
               accepted: 十分な署名
-              created: 作成日
+              created: 下書き
               discarded: 削除済み
               open: 公開
               rejected: 十分な署名がありません
@@ -342,7 +342,7 @@ ja:
           update: "%{user_name} は %{resource_name} イニシアチブ種別を更新しました"
       admin_states:
         accepted: 十分な署名
-        created: 作成済み
+        created: 下書き
         discarded: 破棄しました
         open: 公開
         rejected: 十分な署名がありません
@@ -371,40 +371,33 @@ ja:
         highlighted_initiatives:
           name: イニシアチブを強調しました
       create_initiative:
+        committee_member:
+          approve: 承認
+          revoke: 取り消し
         fill_data:
-          back: 戻る
           continue: 続ける
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
-          more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
         finish:
           back: 戻る
-          back_to_initiatives: イニシアチブに戻る
-          callout_text: おめでとうございます！あなたのイニシアチブが問題なく作成されました。
-          confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
-          edit_my_initiative: 自分のイニシアチブを編集
-          go_to_my_initiatives: 私のイニシアチブに移動
-          more_information: "(詳細)"
-          send_my_initiative: 自分のイニシアチブを技術検証に提出
-        finish_help:
-          publish_helper_text: イニシアチブを公開するためには、必要な情報を記入し、<strong>技術検証に提出</strong>して管理者に確認してもらう必要があることを覚えておいてください。
         previous_form:
           back: 戻る
-          continue: 続ける
         promotal_committee:
-          individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
-          more_information: "(詳細)"
+          individual_help_text: イニシアチブが作成され、下書きとして保存されました。今度は推進委員会に人を追加する必要があります。
+          promoters_committee_help_2: イニシアチブを公開するためには、必要な情報を記入し、技術検証に提出して管理者に確認してもらう必要があることを覚えておいてください。
+          promoters_committee_help_html: イニシアチブを技術審査に送る前に、推進委員会にあと %{committee_members_left} 名のメンバーを追加する必要があります。現在のメンバー数は <strong>%{committee_members_count}/%{committee_size}</strong> です。
+          promoters_committee_title: 推進委員会
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
           more_information: (詳細)
           new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
-          select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
         share_committee_link:
-          invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
+          invite_to_committee_help_2: この種類のイニシアチブでは、少なくとも%{committee_size} 名のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
+          more_information: 詳しい情報
       edit:
         accept: イニシアチブを承認する
         back: 戻る
@@ -513,6 +506,8 @@ ja:
           random: ランダム
           recent: 直近のもの
           recently_published: 直近に公開
+        pending_initiatives:
+          title: 下書きと保留中のイニシアチブ
         print:
           address: 住所
           author_title: イニシアチブの作成者
@@ -583,7 +578,7 @@ ja:
       show:
         badge_name:
           accepted: 十分な署名
-          created: 作成済み
+          created: 下書き
           discarded: 破棄しました
           open: 公開
           rejected: 十分な署名がありません
@@ -639,8 +634,8 @@ ja:
     decidim:
       initiative_creation_header:
         fill_data: 作成
-        finish: 完了
-        promotal_committee: 推進委員会
+        finish: 技術的検証
+        promotal_committee: プロモーターを探す
         select_initiative_type: 選択
       initiative_signature_creation_header:
         fill_personal_data: データを完成させましょう

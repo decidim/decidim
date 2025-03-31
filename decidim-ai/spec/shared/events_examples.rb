@@ -163,7 +163,6 @@ end
 
 shared_examples "proposal spam analysis" do
   let(:manifest_name) { "proposals" }
-  let(:user_group) { nil }
 
   context "when spam content is added" do
     let(:body) { "Claim your prize today so you can win." }
@@ -191,8 +190,6 @@ shared_examples "proposal spam analysis" do
 end
 
 shared_examples "Collaborative draft spam analysis" do
-  let(:user_group) { nil }
-
   context "when spam content is added" do
     let(:body) { "Claim your prize today so you can win." }
     let(:title) { "You are the Lucky winner" }

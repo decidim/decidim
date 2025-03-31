@@ -67,7 +67,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -75,14 +75,14 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  component.exports :answers do |exports|
+  component.exports :responses do |exports|
     exports.collection do |_component, _user, resource_id|
-      Decidim::Meetings::QuestionnaireUserAnswers.for(resource_id)
+      Decidim::Meetings::QuestionnaireUserResponses.for(resource_id)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Meetings::UserAnswersSerializer
+    exports.serializer Decidim::Meetings::UserResponsesSerializer
   end
 
   component.actions = %w(join comment)

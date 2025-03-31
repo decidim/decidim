@@ -24,10 +24,6 @@ module Decidim
       field :up_votes, GraphQL::Types::Int, "The number of comment's upVotes", null: false, method: :up_votes_count
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
 
-      def author
-        object.user_group || object.author
-      end
-
       def sgid
         object.to_sgid.to_s
       end

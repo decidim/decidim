@@ -97,7 +97,7 @@ module Decidim
 
       def self.ransackable_associations(_auth_object = nil)
         %w(author cancelled_by_user taxonomies comment_threads comments component decidim_proposals_component resource_links_from
-           resource_links_to resource_permission user_group versions)
+           resource_links_to resource_permission versions)
       end
     end
   end

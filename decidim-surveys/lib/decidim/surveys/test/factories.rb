@@ -27,11 +27,11 @@ FactoryBot.define do
     end
 
     trait :allow_edit do
-      allow_editing_answers { true }
+      allow_editing_responses { true }
     end
 
-    trait :allow_answers do
-      allow_answers { true }
+    trait :allow_responses do
+      allow_responses { true }
     end
 
     trait :allow_unregistered do
