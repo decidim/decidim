@@ -9,6 +9,7 @@ Decidim::System::Engine.routes.draw do
                sessions: "decidim/system/devise/sessions",
                passwords: "decidim/system/devise/passwords"
              }
+
   authenticate(:admin) do
     resources :organizations, except: [:show, :destroy] do
       member do
@@ -18,6 +19,7 @@ Decidim::System::Engine.routes.draw do
     resources :admins, except: [:show]
     resources :oauth_applications
     resources :api_users, except: [:show] if Decidim.module_installed?(:api)
+
     root to: "dashboard#show"
   end
 end
