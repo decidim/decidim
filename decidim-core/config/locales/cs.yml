@@ -1811,8 +1811,6 @@ cs:
         instruction: 'Kliknutím na odkaz níže odemknete svůj účet:'
         message: Váš účet byl uzamčen kvůli nadměrnému množství neúspěšných pokusů o přihlášení.
         subject: Odemkněte pokyny
-      user_group_reset_password_instructions:
-        body_3: Abychom mohli pokračovat v přístupu k vašemu účtu a sdílet přístup, potřebujeme nastavit heslo. Po nastavení můžete sdílet přihlašovací údaje (e-mail a heslo) s kýmkoliv.
     omniauth_callbacks:
       add_tos_errors: Pro vytvoření účtu je nutné přijmout podmínky služby.
       failure: Nelze vás autentizovat z %{kind} protože "%{reason}".
