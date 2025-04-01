@@ -49,6 +49,8 @@ de:
       meeting_registration_invite:
         email: E-Mail
         name: Name
+      response:
+        add_documents: Dokumente hinzufügen
       validate_registration_code:
         code: Code
     errors:
@@ -309,6 +311,7 @@ de:
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
+          responses: Antworten
         invite_join_meeting_mailer:
           invite:
             decline: Einladung ablehnen
@@ -402,7 +405,7 @@ de:
         poll:
           form:
             announcement_html:
-              - 
+              - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
               - Sie können jederzeit eine neue Frage hinzufügen.
               - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
               - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
@@ -578,6 +581,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
+          title: Neue Veranstaltung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
@@ -636,9 +640,13 @@ de:
             announcement: Die Beantwortung dieser Frage wurde beendet.
             question: Frage
             question_results: Resultate
+          index:
+            empty_questions: Während dieser Veranstaltung werden einige Fragen eingeblendet, die Sie werden beantworten können. Sie werden hier angezeigt.
           index_admin:
             edit: Im Adminbereich bearbeiten
             question: Frage
+            received_response: empfangene Antwort
+            received_responses: empfangene Antworten
             results: Ergebnisse
             send: Senden
             sent: Gesendet
@@ -651,6 +659,14 @@ de:
             question: Frage
             question_replied: Frage beantwortet
             reply_question: Frage beantworten
+        responses:
+          index:
+            administrate: Verwalten
+            title: Umfrage
+          index_admin:
+            back_to_meeting: Zurück zur Veranstaltung
+            title: Umfrage verwalten
+            view_poll: Umfrage ansehen
       public_participants_list:
         attending_participants: Teilnehmende
         hidden_participants_count:
@@ -697,6 +713,7 @@ de:
           commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
           comments: Die Daten der Kommentare der Veranstaltung
           created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
