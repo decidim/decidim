@@ -1668,9 +1668,6 @@ es-PY:
         body_2: Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones, la función "Grupos de usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo de Usuarias se ha convertido en un perfil de participante al uso.
         greeting: Estimado/a %{name},
         instructions_1: Si tienes acceso a esa cuenta de correo electrónico, por favor, revisa tu bandeja de entrada para ver las instrucciones.
-        instructions_2: Si no, algún miembro del grupo con acceso al correo tendrá que establecer la contraseña y compartir las credenciales de inicio de sesión contigo.
-        instructions_intro: Los miembros del grupo ahora compartirán el acceso a este perfil usando credenciales de acceso compartidas (email y contraseña). Hemos enviado instrucciones a <strong>%{group_email}</strong> para establecer una nueva contraseña para el perfil.
-        instructions_title: "<strong>¿Qué significa esto para ti?</strong>"
         subject: Notificación importante sobre un grupo de usuarias del que formas parte
     user_report_mailer:
       notify:
@@ -1792,16 +1789,6 @@ es-PY:
         instruction: 'Haga clic en el siguiente enlace para desbloquear su cuenta:'
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
-      user_group_reset_password_instructions:
-        body_1: Nos ponemos en contacto contigo para informarte sobre una importante actualización respecto al Grupo de usuarias %{organization_name} del que formas parte.
-        body_2: 'Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones como la tuya, la función "Grupos de Usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo: <strong>%{name}</strong>, se ha convertido en un perfil de participante al uso.'
-        body_3: Para continuar accediendo al grupo y compartir el acceso, es necesario que definas una contraseña. Una vez configurada, puedes compartir las credenciales de inicio de sesión (email y contraseña) con quien consideres oportuno. Esta/s persona/s podrá realizar diferentes acciones en la plataforma con el nombre de la organización.
-        greeting: Estimado/a %{name},
-        instructions_1: 'Haz clic en el enlace de abajo para restablecer una contraseña:'
-        instructions_2: 'Comparte las credenciales de inicio de sesión (correo electrónico: %{email} i la nueva contraseña) con quien consideres oportuno. Recuerda: esta/s persona/s podrá realizar diferentes acciones en la plataforma con el perfil de la organización.'
-        instructions_title: "<strong>¿Qué necesitas hacer?</strong>"
-        set_password: Establece tu contraseña
-        subject: Actualización importante del grupo de usuarias
     omniauth_callbacks:
       add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
