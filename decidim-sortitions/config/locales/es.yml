@@ -106,8 +106,8 @@ es:
           recent: Reciente
         results_count:
           count:
-            one: propuesta seleccionada
-            other: propuestas seleccionadas
+            one: Propuesta seleccionada
+            other: Propuestas seleccionadas
         show:
           algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías

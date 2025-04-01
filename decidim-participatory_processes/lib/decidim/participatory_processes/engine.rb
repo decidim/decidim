@@ -25,14 +25,8 @@ module Decidim
           process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { process_id: /[0-9]+/ }
 
-        get "processes/:process_id/all-metrics", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/all-metrics" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }, as: :all_metrics
-
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
-          get "all-metrics", on: :member
           resources :participatory_space_private_users, only: :index, path: "members"
         end
 
@@ -93,22 +87,6 @@ module Decidim
                                icon_name: "user-line",
                                tooltip_key: "participants_count_tooltip" do |participatory_space|
           Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
-        end
-      end
-
-      initializer "decidim_participatory_processes.register_metrics" do
-        Decidim.metrics_registry.register(:participatory_processes) do |metric_registry|
-          metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 2
-          end
-        end
-
-        Decidim.metrics_operation.register(:followers, :participatory_process) do |metric_operation|
-          metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
         end
       end
 

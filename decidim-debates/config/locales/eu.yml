@@ -10,7 +10,6 @@ eu:
         instructions: Parte hartzeko argibideak
         start_time: Hasi da
         title: Izenburua
-        user_group_id: Sortu eztabaida honela
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
       decidim/debates/create_debate_event: Eztabaida
@@ -134,7 +133,7 @@ eu:
           title: Editatu eztabaida
         filters:
           activity: Nire jarduera
-          all: guztiak
+          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           commented: Iruzkina eginda
@@ -147,13 +146,12 @@ eu:
           state_values:
             closed: Itxita
             open: Ireki
-          user_group: Taldeak
         index:
           new_debate: Beste eztabaida bat
         new:
           back: Atzera
           create: Sortu
-          title: Beste eztabaida bat
+          title: Sortu eztabaida berri bat
         orders:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
@@ -166,7 +164,6 @@ eu:
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
-          groups_count: Taldeak
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
         update:
@@ -257,7 +254,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         debates:
           author: Eztabaida honen egilearen data
           closed_at: Zein datatan itxi zen eztabaida hau

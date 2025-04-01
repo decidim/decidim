@@ -419,23 +419,6 @@ en:
           next_level_in: Create %{score} more proposals to reach the next level!
           unearned_another: This participant has not created any proposals yet.
           unearned_own: You have created no proposals yet.
-    metrics:
-      accepted_proposals:
-        description: Number of proposals accepted
-        object: proposals
-        title: Accepted proposals
-      endorsements:
-        description: Number of endorsements to proposals
-        object: endorsements
-        title: Endorsements
-      proposals:
-        description: Number of proposals
-        object: proposals
-        title: Proposals
-      votes:
-        description: Number of votes to proposals
-        object: votes
-        title: Votes
     open_data:
       help:
         proposal_comments:

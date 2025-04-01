@@ -60,6 +60,10 @@ FactoryBot.define do
     author { build(:user, :confirmed, skip_injection:, organization: component.organization) }
     deleted_at { nil }
 
+    trait :published do
+      published_at { 2.minutes.ago }
+    end
+
     trait :with_endorsements do
       after :create do |post, evaluator|
         5.times.collect do

@@ -9,7 +9,7 @@ describe Decidim::OpenDataExporter do
 
   let(:resource_file_name) { "assemblies" }
   let!(:resource) { create(:assembly, organization:) }
-  let(:resource_title) { "## assemblies" }
+  let(:resource_title) { "## assemblies (1 resource)" }
   let(:help_lines) do
     [
       "* id: The unique identifier of this assembly"
