@@ -1170,6 +1170,8 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer möchte keine privaten Nachrichten empfangen.
+          participants:
+            title: Teilnehmende
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
@@ -1670,9 +1672,6 @@ de:
         body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
-        instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
-        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an <strong>%{group_email}</strong> gesendet, um ein neues Passwort für das Profil festzulegen.
-        instructions_title: "<strong>Was bedeutet das für Sie?</strong>"
         subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
     user_report_mailer:
       notify:
@@ -1795,16 +1794,6 @@ de:
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Anweisungen zur Entsperrung
-      user_group_reset_password_instructions:
-        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
-        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
-        body_3: Um weiterhin auf Ihr Konto zuzugreifen und den Zugriff freizugeben, müssen Sie ein Passwort festlegen. Sobald gesetzt, können Sie die Anmeldedaten (E-Mail und Passwort) an jeden weitergeben.
-        greeting: Hallo %{name},
-        instructions_1: 'Klicke auf den untenstehenden Link, um das Passwort zurückzusetzen:'
-        instructions_2: 'Teilen Sie die Anmeldedaten (E-Mail: %{email} und das neue Passwort) mit Ihren Kollegen.'
-        instructions_title: "<strong>Was sie tun müssen?</strong>"
-        set_password: Setzen Sie ein Passwort
-        subject: Wichtiges Update zur Gruppenfunktion
     omniauth_callbacks:
       add_tos_errors: Die Nutzungsbedingungen müssen akzeptiert werden, um ein Konto zu erstellen.
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
