@@ -41,7 +41,9 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
+bin/rails decidim:verifications:revoke:sms
 ```
 
 ### 1.5. Follow the steps and commands detailed in these notes
@@ -55,6 +57,8 @@ We have noticed that when a resource (ex: Proposal, Meeting) is being moderated,
 ```bash
 bin/rails decidim:upgrade:clean:hidden_resources
 ```
+
+You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
 
 ### 2.2. User Groups removal
 
@@ -137,7 +141,29 @@ If you want to enable this, make sure your `sidekiq.yml` includes the `delete_in
 
 You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
 
-### 2.4. [[TITLE OF THE ACTION]]
+### 2.5. Removal of Metrics
+
+The **Metrics** feature has been completely removed
+
+Use the **Statistics** feature instead.
+
+If your application includes the `metrics` queue in `config/sidekiq.yml` or scheduled tasks in `config/schedule.yml`, make sure to remove them. Additionally make sure you remove the metrics crons from your crontab.
+
+You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
+
+### 2.6. SMS authorization changes
+
+As we have changed the authorization signature method for SMS, you will need to remove any authorizations that you may have. We are asking you to do this, in order to force your user base to reauthorize.
+
+To remove it, you just need to run the below task.
+
+```bash
+bin/rails decidim:verifications:revoke:sms
+```
+
+You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 

@@ -54,7 +54,12 @@ ro:
             save: Salvează
         questionnaire_templates:
           choose:
+            continue: Continuați
+            description: Puteți crea un nou chestionar sau puteți alege un șablon predefinit și să îl modificați mai târziu. Selectați o opțiune.
             label: Alege un model
+            options:
+              create_new_form: Creați un formular nou
+              select_template: Selectați șablonul
             placeholder: Alege un model
           edit:
             edit: Editează

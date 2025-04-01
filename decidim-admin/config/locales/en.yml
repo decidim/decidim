@@ -600,9 +600,6 @@ en:
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -1237,7 +1234,6 @@ en:
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu
-        metrics: Metrics
         page_topics: Topics
         pages: Pages
         panel: Admin
@@ -1283,16 +1279,6 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non-managed participant.
-    metrics:
-      blocked_users:
-        object: blocked users
-        title: Blocked users
-      reported_users:
-        object: reported users
-        title: Reported users
-      user_reports:
-        object: user reports
-        title: User reports
     moderations:
       actions:
         expand: Expand
