@@ -5,12 +5,15 @@
     </h2>
   </div>
 
-  <div class="metric__container">
-    <%#= statistics_presenter.highlighted %>
-    <%#= statistics_presenter.not_highlighted %>
+  <div class="statistic__container">
+    <% if statistics_presenter.highlighted.present? %>
+      <%= cell("decidim/statistic", collection: statistics_presenter.highlighted) %>
+    <% end %>
   </div>
 </div>
 
 <% if show_link_to_more %>
-  <div class="text-center"><%= link_to t(".see_more_statistics"), statistics_path %></div>
+  <div class="text-center">
+    <%= link_to t(".see_more_statistics"), statistics_path %>
+  </div>
 <% end %>

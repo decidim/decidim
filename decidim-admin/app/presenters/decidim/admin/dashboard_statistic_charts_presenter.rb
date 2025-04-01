@@ -7,9 +7,22 @@ module Decidim
         __getobj__.fetch(:summary)
       end
 
-      def highlighted_statistics; end
+      def scope_entity
+        __getobj__.fetch(:organization)
+      end
 
-      def not_highlighted_statistics; end
+      def highlighted
+        high_priority_stats = collection(priority: StatsRegistry::HIGH_PRIORITY)
+        medium_priority_stats = collection(priority: StatsRegistry::MEDIUM_PRIORITY)
+
+        (high_priority_stats + medium_priority_stats).uniq
+      end
+
+      private
+
+      def published_components
+        @published_components ||= scope_entity.published_components
+      end
     end
   end
 end
