@@ -1,6 +1,66 @@
 ---
 ja:
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: このドキュメントを削除してもよろしいですか？
+        deleted_document_info: 削除されたドキュメントはゴミ箱から復元できます。
+        edit: 編集
+        manage: 管理
+        new: 新しいテキスト
+        title: アクション
+        view_deleted_documents: 削除されたドキュメントを表示
+      admin:
+        documents:
+          create:
+            invalid: ドキュメント作成中に問題が発生しました。
+            success: ドキュメントを作成しました。
+          edit:
+            title: コラボレーションテキストを編集
+            update: 更新
+          edit_settings:
+            title: コラボレーションテキストを設定する
+            update: 更新
+          index:
+            title: コラボレーションテキスト
+          manage_trash:
+            title: 削除されたドキュメント
+          new:
+            create: 作成
+            title: コラボレーションテキストを作成
+          publish:
+            invalid: このドキュメントの公開中に問題が発生しました。
+            success: ドキュメントを公開しました。
+          unpublish:
+            invalid: この文書を非公開にする際に問題が発生しました。
+            success: ドキュメントを非公開にしました。
+          update:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+          update_settings:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+        settings:
+          form:
+            allow_suggestions: 参加者に提案を許可する
+      documents:
+        index:
+          count:
+            other: "%{count} 件のコラボレーションテキスト"
+          empty: コラボレーションテキストはまだありません。
+      models:
+        collaborative_text:
+          fields:
+            suggestions: 提案を承認する
+            title: タイトル
     components:
       collaborative_texts:
         name: 共同テキスト
+        settings:
+          global:
+            announcement: お知らせ
+            comments_blocked: コメントをブロック
+          step:
+            announcement: お知らせ
+    statistics:
+      collaborative_texts_count: コラボレーションテキスト
