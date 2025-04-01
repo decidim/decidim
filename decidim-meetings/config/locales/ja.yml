@@ -431,6 +431,7 @@ ja:
         new_meeting: '新しいミーティング:'
       layouts:
         live_event:
+          administrate: 管理
           close: 閉じる
           questions: 質問
       mailer:
@@ -518,6 +519,7 @@ ja:
         new:
           back: 戻る
           create: 作成
+          title: 新しいミーティングを作成
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
