@@ -161,6 +161,9 @@ de:
           unpublish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} verborgen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
+      errors:
+        answer:
+          body: Textkörper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -176,14 +179,21 @@ de:
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_answer_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
+          max_choices_alert: Es sind zu viele Optionen ausgewählt
           success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Haben Sie bereits ein Konto?
+            are_you_new?: Neue Teilnehmer*in?
+            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
+            sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           empty: Für dieses Formular wurden noch keine Fragen eingestellt.
@@ -216,6 +226,12 @@ de:
           submit: einreichen
       user_answers_serializer:
         body: Antwort
+        completion: Abschluss
         created_at: Beantwortet am
         id: ID beantworten
+        ip_hash: IP-Hash
         question: Frage
+        registered: Registriert
+        session_token: Benutzerkennung
+        unregistered: Nicht registriert
+        user_status: Benutzerstatus
