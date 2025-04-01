@@ -1256,9 +1256,6 @@ ro:
         body_1: 'Vă contactăm pentru a vă informa cu privire la o actualizare importantă a grupului de utilizatori la care sunteți membru <strong>%{group_name}</strong>.'
         greeting: Dragă %{name},
         instructions_1: Dacă aveți acces la acest cont de e-mail, vă rugăm să verificați căsuța poștală pentru instrucțiuni.
-        instructions_2: În caz contrar, unul dintre colegii dvs. care are acces va trebui să seteze parola și să partajeze credențialele de conectare cu dvs.
-        instructions_intro: Membrii grupului vor partaja acum accesul la acest profil folosind credențiale de conectare partajate (e-mail și parolă). Am trimis instrucțiuni către <strong>%{group_email}</strong> pentru a seta o nouă parolă pentru profil.
-        instructions_title: "<strong>Ce înseamnă asta pentru dumneavoastră?</strong>"
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
@@ -1352,10 +1349,6 @@ ro:
         greeting: Bună ziua %{recipient}!
         instruction: 'Faceți clic pe link-ul de mai jos pentru a vă debloca contul:'
         subject: Instrucțiuni de deblocare
-      user_group_reset_password_instructions:
-        greeting: Dragă %{name},
-        instructions_1: 'Faceți click pe link-ul de mai jos pentru a vă seta parola:'
-        subject: Actualizare importantă pentru grupul de utilizatori
     omniauth_callbacks:
       failure: Nu ați putut fi autentificat din %{kind} deoarece "%{reason}".
       success: Autentificat cu succes din contul %{kind}.
