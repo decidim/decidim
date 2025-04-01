@@ -373,29 +373,51 @@ ja:
       create_initiative:
         committee_member:
           approve: 承認
+          confirm_approve: このメンバーを承認してもよろしいですか？
+          confirm_revoke: このメンバーを取り消してもよろしいですか？
           revoke: 取り消し
         fill_data:
+          confirm_discard: このイニシアチブを破棄してもよろしいですか？
           continue: 続ける
+          discard: イニシアチブを破棄
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
+          more_information: 詳しい情報
           select_area: エリアを選択
           select_scope: スコープを選択
         finish:
           back: 戻る
+          callout_text_created: おめでとうございます！あなたのイニシアチブが作成されました。
+          callout_text_validating: あなたのイニシアチブは技術的な検証に送信されました。
+          go_to_initiatives: イニシアチブへ移動
+          publish_helper_text_html: あなたのイニシアチブが公開されるためには、管理者によるレビューにより技術的に検証されなければならないことを忘れないでください。
         previous_form:
           back: 戻る
         promotal_committee:
           individual_help_text: イニシアチブが作成され、下書きとして保存されました。今度は推進委員会に人を追加する必要があります。
+          invite_link_title: 人を招待するためのリンク
           promoters_committee_help_2: イニシアチブを公開するためには、必要な情報を記入し、技術検証に提出して管理者に確認してもらう必要があることを覚えておいてください。
           promoters_committee_help_html: イニシアチブを技術審査に送る前に、推進委員会にあと %{committee_members_left} 名のメンバーを追加する必要があります。現在のメンバー数は <strong>%{committee_members_count}/%{committee_size}</strong> です。
           promoters_committee_title: 推進委員会
+        return_to_initiatives_button:
+          return_initiatives_html: スキップして、<a href=「%{initiatives_path}」>イニシアチブに戻る</a>
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
+          consult_existing_initiatives: 既存のイニシアチブを参照
+          continue: 続ける
           more_information: (詳細)
           new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
+          select_initiative_type_help_html: "<p>イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？</p>"
+          show_less: 一部のみ表示
+          show_more: もっと見る
+          subtitle: どのような取り組みを推進したいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
+        send_to_technical_validation_button:
+          button: 技術検証に提出する
+          confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
         share_committee_link:
+          invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
           invite_to_committee_help_2: この種類のイニシアチブでは、少なくとも%{committee_size} 名のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
           more_information: 詳しい情報
       edit:
