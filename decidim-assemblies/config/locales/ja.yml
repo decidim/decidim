@@ -197,6 +197,7 @@ ja:
           roles:
             admin: 管理者
             collaborator: コラボレーター
+            evaluator: 評価者
             moderator: モデレーター
       taxonomy_filters:
         space_filter_for:
