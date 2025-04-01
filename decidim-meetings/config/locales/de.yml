@@ -437,6 +437,7 @@ de:
         new_meeting: 'Neue Veranstaltung:'
       layouts:
         live_event:
+          administrate: Verwalten
           close: Schließen
           questions: Fragen
       mailer:
@@ -525,6 +526,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
+          title: Neue Veranstaltung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
