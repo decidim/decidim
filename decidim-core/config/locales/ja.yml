@@ -166,6 +166,7 @@ ja:
         leaving_authorizations_behind: 認証に紐付けられたデータがセキュリティのために保存されます。 別のアカウントを作成して再度認証すると、このデータは新しいアカウントで復元されます。
       destroy:
         error: アカウントの削除中に問題が発生しました。
+        inactive_account_removal_reason: '%{inactivity_period} 日後にアカウントが削除されました'
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
@@ -723,7 +724,19 @@ ja:
           id: この通知の固有ID
           resource_type: 通知に関連するリソースの種類
           updated_at: 通知の最終更新日時
+        participatory_space_private_users:
+          created_at: プライベートユーザーの作成日時
+          id: このプライベートユーザーの固有ID
+          privatable_to: このプライベートユーザーが所属する領域：
+          published: このプライベートユーザーが公開されているか否か
+          role: このプライベートユーザーが持つ役割
+          updated_at: プライベートユーザーの最終更新日時
         reports:
+          created_at: レポートの作成日時
+          details: レポートの詳細
+          id: レポートの固有ID
+          locale: レポートの言語
+          moderation: レポートのモデレーション
           reason: レポートの理由
           updated_at: レポートの最終更新日時
         users:
@@ -738,6 +751,12 @@ ja:
           delete_reason: このユーザーの削除理由
           deleted_at: このユーザーの削除日時
           email: このユーザーのメールアドレス
+          followers_count: このユーザーをフォローしている参加者の数
+          following_count: このユーザーがフォローしている参加者数
+          id: ユーザーの固有ID
+          invitation_accepted_at: 招待の承認日時
+          invitation_created_at: このユーザーの招待日時
+          invitation_sent_at: 招待の送信日時
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
           last_sign_in_at: 最終ログイン日時
@@ -745,13 +764,21 @@ ja:
           locale: このユーザーが選択したロケール（言語）
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
+          newsletter_notifications_at: このユーザーが最後にニュースレターを受信した日時
+          nickname: ユーザーのニックネーム
           notification_settings: このユーザーが選択した通知設定
+          notifications_sending_frequency: このユーザーが受け取る通知の頻度
+          officialized_as: 正式名称（参事官、市長等）
+          officialized_at: このユーザーの公式化日時
+          organization: このユーザーが所属する組織
+          password_updated_at: パスワードの最終更新日時
           personal_url: このユーザーの個人URL
           remember_created_at: ユーザーが記憶するように選択した日時
           reset_password_sent_at: パスワードリセットの送信日時
           roles: このユーザーが持っている役割
           sign_in_count: このユーザーがログインした回数
           type: このユーザーが持っているタイプ
+          unconfirmed_email: このユーザーのまだ確認されていないメールアドレス
       show:
         action: アクション
         download: ダウンロードファイル
