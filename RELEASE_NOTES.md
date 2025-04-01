@@ -26,7 +26,7 @@ In this version we are changing Decidim's underlaying configuration engine, so, 
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
 ```
 
 ### 1.3. Update your Gemfile
@@ -226,7 +226,7 @@ Before actually removing the initializer, just make sure you do not have any cus
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
 ```
 
 ### 3.5. [[TITLE OF THE ACTION]]
