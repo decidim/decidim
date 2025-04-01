@@ -1,1 +1,30 @@
+---
 sv:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Brödtext
+          title: Titel
+          version_number: Version nummer
+        version:
+          body: Text
+          version_number: Version
+  decidim:
+    collaborative_texts:
+      admin_log:
+        document:
+          create: "%{user_name} Skapade samarbetsprojektet %{resource_name} i %{space_name}"
+          delete: "%{user_name} Raderade samarbetsprojektet %{resource_name} i %{space_name}"
+          publish: "%{user_name} Publicerade samarbetsprojektet %{resource_name} i %{space_name}"
+          restore: "%{user_name} Återställde samarbetsprojektet %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} Flyttade samarbetsprojektet %{resource_name} i %{space_name} till papperskorgen"
+          unpublish: "%{user_name} Tog bort samarbetsprojektet %{resource_name} i %{space_name}"
+          update: "%{user_name} Uppdaterade samarbetsprojektet %{resource_name} i %{space_name}"
+        version:
+          delete: "%{user_name} Raderade samarbetsprojektets version %{resource_name} i %{space_name}"
+          update: "%{user_name} Uppdaterade samarbetsprojektets version %{resource_name} i %{space_name}"
+      document:
+        cancel: Avbryt
+        save: Lämna förslag
+        suggest: Föreslå ändringar
