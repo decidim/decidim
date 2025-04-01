@@ -24,7 +24,7 @@
 
         &:first-child {
           img {
-            @apply inline-block;
+            @apply block;
           }
 
           h2 {
