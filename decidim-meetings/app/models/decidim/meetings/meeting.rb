@@ -214,6 +214,10 @@ module Decidim
         registrations.where(user:).any?
       end
 
+      def pending_location?
+        %w(in_person hybrid).include?(type_of_meeting.to_s) && location.values.all?(&:blank?) && address.blank?
+      end
+
       def maps_enabled?
         component.settings.maps_enabled?
       end
