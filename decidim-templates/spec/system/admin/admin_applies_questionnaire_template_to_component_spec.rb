@@ -29,7 +29,9 @@ describe "Admin applies questionnaire templates" do
     end
 
     click_on "Add component"
-    click_on "Surveys"
+    within ".table-scroll" do
+      click_on "Surveys"
+    end
     click_on "New survey"
 
     fill_in_i18n :survey_title, "#survey-title-tabs", en: "Hello"

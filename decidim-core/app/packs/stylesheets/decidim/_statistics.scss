@@ -5,6 +5,10 @@
     @apply grid grid-cols-[repeat(auto-fit,minmax(345px,1fr))] md:grid-cols-4 gap-4;
   }
 
+  &__dashboard-container {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] md:grid-cols-3 gap-4;
+  }
+
   &__header {
     @apply w-full flex flex-row justify-between items-center;
   }
