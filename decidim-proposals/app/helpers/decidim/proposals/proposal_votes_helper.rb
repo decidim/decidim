@@ -7,12 +7,9 @@ module Decidim
       delegate :minimum_votes_per_user, to: :component_settings
 
       def votes_given
-        @votes_given ||= ProposalVote.where(
-          proposal: Proposal.where(component: current_component),
-          author: current_user
-        ).count
+        @votes_given ||= all_voted_proposals_by_user.length
       end
-      
+
       # Public: Gets the vote limit for each user, if set.
       #
       # Returns an Integer if set, nil otherwise.
@@ -77,10 +74,10 @@ module Decidim
         current_user && votes_enabled? && vote_limit_enabled? && !votes_blocked?
       end
 
-      def proposal_voted_by_user?(proposal, user)
-        return false if user.blank? || proposal.blank?
+      def proposal_voted_by_user?(proposal)
+        return false if current_user.blank? || proposal.blank?
 
-        all_voted_proposals_by_user(user).include?(proposal.id)
+        all_voted_proposals_by_user.include?(proposal.id)
       end
 
       # Return the remaining votes for a user if the current component has a vote limit
@@ -107,14 +104,13 @@ module Decidim
 
       private
 
-      def all_voted_proposals_by_user(user)
-        return [] if user.blank?
+      def all_voted_proposals_by_user
+        return [] if current_user.blank?
 
-        @all_voted_proposals ||= []
-        @all_voted_proposals[user.id] ||= Decidim::Proposals::ProposalVote
-                                          .joins(:proposal)
-                                          .where(decidim_proposals_proposals: { decidim_component_id: current_component.id }, author: user)
-                                          .pluck(:decidim_proposal_id)
+        @all_voted_proposals ||= ProposalVote.where(
+          proposal: Proposal.where(component: current_component),
+          author: current_user
+        ).pluck(:decidim_proposal_id)
       end
     end
   end
