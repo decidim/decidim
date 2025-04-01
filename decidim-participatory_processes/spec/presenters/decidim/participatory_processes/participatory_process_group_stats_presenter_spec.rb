@@ -18,8 +18,8 @@ module Decidim
       end
 
       before do
-        manifest.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
-        manifest.stats.register :bar, priority: StatsRegistry::HIGH_PRIORITY, &proc { 0 }
+        manifest.stats.register :foo, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 10 }
+        manifest.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 0 }
 
         I18n.backend.store_translations(
           :en,
@@ -39,10 +39,10 @@ module Decidim
       it "return a collection of stats including stats title and value" do
         data = subject.collection.first
         expect(data).not_to be_nil
-        expect(data).to have_key(:stat_title)
-        expect(data).to have_key(:stat_number)
-        expect(data[:stat_title]).to eq :foo
-        expect(data[:stat_number]).to eq 10
+        expect(data).to have_key(:name)
+        expect(data).to have_key(:data)
+        expect(data[:name]).to eq :foo
+        expect(data[:data][0]).to eq 10
       end
 
       it "does not return 0 values" do
@@ -65,9 +65,9 @@ module Decidim
       end
 
       before do
-        manifest_meetings.stats.register :comments_count, tag: :comments, &proc { 10 }
+        manifest_meetings.stats.register :comments_count, tag: :comments, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 10 }
         manifest_meetings.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
-        manifest_proposals.stats.register :comments_count, tag: :comments, &proc { 5 }
+        manifest_proposals.stats.register :comments_count, tag: :comments, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
         manifest_proposals.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 3 }
 
         I18n.backend.store_translations(
@@ -86,15 +86,15 @@ module Decidim
       end
 
       it "returns the sum of all the comments from proposals and meetings" do
-        data = subject.collection.find { |stat| stat[:stat_title] == :comments_count }
+        data = subject.collection.find { |stat| stat[:name] == :comments_count }
         expect(data).not_to be_nil
-        expect(data[:stat_number]).to eq 15
+        expect(data[:data][0]).to eq 15
       end
 
       it "returns the sum of all the endorsements from proposals and meetings" do
-        data = subject.collection.find { |stat| stat[:stat_title] == :endorsements_count }
+        data = subject.collection.find { |stat| stat[:name] == :endorsements_count }
         expect(data).to be_nil
-        expect(data[:stat_number]).to eq 8 if data
+        expect(data[:data][0]).to eq 8 if data
       end
 
       it "contains only two stats" do

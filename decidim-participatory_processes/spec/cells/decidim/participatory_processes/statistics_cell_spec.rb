@@ -14,10 +14,6 @@ module Decidim::ParticipatoryProcesses
           { stat_title: :comments_count, data: [50] }
         ]
       end
-
-      before do
-        puts "Model: #{model.inspect}" # Esto imprime el valor de model antes de pasar al cell
-      end
     end
   end
 end
