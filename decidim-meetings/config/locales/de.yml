@@ -545,6 +545,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
+          title: Neue Veranstaltung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
@@ -597,7 +598,12 @@ de:
             title: Titel
       polls:
         answers:
+          index:
+            administrate: Verwalten
+            title: Umfrage
           index_admin:
+            back_to_meeting: Zurück zur Veranstaltung
+            title: Umfrage verwalten
             view_poll: Umfrage ansehen
         questions:
           closed_question:
