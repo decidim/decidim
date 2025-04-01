@@ -41,7 +41,9 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
+bin/rails decidim:verifications:revoke:sms
 ```
 
 ### 1.5. Follow the steps and commands detailed in these notes
@@ -149,7 +151,19 @@ If your application includes the `metrics` queue in `config/sidekiq.yml` or sche
 
 You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. SMS authorization changes
+
+As we have changed the authorization signature method for SMS, you will need to remove any authorizations that you may have. We are asking you to do this, in order to force your user base to reauthorize.
+
+To remove it, you just need to run the below task.
+
+```bash
+bin/rails decidim:verifications:revoke:sms
+```
+
+You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
