@@ -876,6 +876,7 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.
@@ -958,6 +959,7 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
