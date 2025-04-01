@@ -1,49 +1,49 @@
 fi-pl:
   activemodel:
     attributes:
-      answer:
-        body: Vastaus
-        choices: Vastausvaihtoehdot
-        selected_choices: Valitut vastausvaihtoehdot
       question:
         max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
       questionnaire_question:
         mandatory: Pakollinen
         max_characters: Merkkimäärärajoitus (jätä arvoksi 0, jos merkkimäärää ei ole rajoitettu)
+      response:
+        body: Vastaus
+        choices: Vastausvaihtoehdot
+        selected_choices: Valitut vastausvaihtoehdot
     errors:
       models:
-        answer:
+        questionnaire:
+          request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
+        response:
           attributes:
             add_documents:
-              needs_to_be_reattached: Liitettävä uudelleen
+              needs_to_be_reattached: Liitettävä uudestaan
             body:
               too_long: liian pitkä
             choices:
               missing: ovat puutteellisia
               too_many: Voit valita enintään %{count} vaihtoehtoa.
-        questionnaire:
-          request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
     download_your_data:
       help:
-        answers:
-          answer: Kysymyksen vastaus
+        responses:
           id: Vastauksen yksilöivä tunniste
           question: Kysymys, johon vastattiin
           questionnaire: Kysely, johon vastattiin
+          response: Kysymyksen vastaus
           user: Käyttäjä, joka vastasi kyselyyn
       show:
-        answers: Vastausten vienti
-        survey_user_answers: Käyttäjän luomat kyselyjen vastaukset
+        responses: Vastausten vienti
+        survey_user_responses: Käyttäjien vastaukset kyselyyn
     forms:
       admin:
         models:
           components:
-            allow_answers: Salli vastaukset
-            allow_editing_answers: Salli rekisteröityneiden käyttäjien muokata omia kyselyvastauksiaan
+            allow_editing_responses: Salli rekisteröityneiden käyttäjien muokata omia kyselyvastauksiaan
+            allow_responses: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
+            allow_unregistered_help: Jos asetus on käytössä, sisäänkirjautumista ei vaadita kyselyyn vastaamista varten. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
             announcement: Ilmoitus
             clean_after_publish: Poista vastaukset kyselyn julkaisun yhteydessä
             description: Kuvaus
@@ -55,48 +55,26 @@ fi-pl:
         questionnaires:
           actions:
             back: Takaisin kysymyksiin
-            publish_answers: Julkaise vastaukset
+            publish_responses: Julkaise vastaukset
             show: Vastaukset
-          answer_option:
-            answer_option: Vastausvaihtoehto
-            free_text: Vapaa teksti
-            remove: Poista
-            statement: Selite
-          answers:
-            actions:
-              back: Takaisin vastauksiin
-              export: Vie
-              next: Seuraava &rsaquo;
-              previous: "&lsaquo; Edellinen"
-              show: Näytä vastaukset
-            empty: Ei vielä yhtään vastausta
-            export:
-              answer:
-                title: 'Vastaus #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} vastausta yhteensä"
-            show:
-              title: 'Vastaus #%{number}'
           display_condition:
-            answer_option: Vastausvaihtoehto
             condition_question: Kysymys
             condition_type: Ehto
             condition_types:
-              answered: Vastattu
               equal: Yhtä suuri kuin
               match: Sisältää tekstin
-              not_answered: Vastaamaton
               not_equal: Erisuuri
+              not_responded: Ei vastattu
+              responded: Vastattu
             condition_value: Sisällytetty teksti
             display_condition: Näytä ehto
             mandatory: Tämän ehdon on täytyttävä aina riippumatta muiden ehtojen tilasta
             remove: Poista
+            response_option: Vastausvaihtoehto
             save_warning: Muista tallentaa lomake ennen kuin muutat sen näyttämisen ehtoja
-            select_answer_option: Valitse vastausvaihtoehto
             select_condition_question: Valitse kysymys
             select_condition_type: Valitse ehdon tyyppi
+            select_response_option: Valitse vastausvaihtoehto
           edit:
             save: Tallenna
             title: Muokkaa kyselyä
@@ -117,10 +95,10 @@ fi-pl:
             remove: Poista
             statement: Selite
           question:
-            add_answer_option: Lisää vastausvaihtoehto
             add_display_condition: Lisää ehto
             add_display_condition_info: Tallenna lomake muokataksesi sen näyttämisen ehtoja
             add_matrix_row: Lisää rivi
+            add_response_option: Lisää vastausvaihtoehto
             any: Minkä tahansa
             collapse: Sulje
             description: Kuvaus
@@ -131,12 +109,34 @@ fi-pl:
             statement: Selite
             up: Ylös
           questions_form:
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
+            already_responded_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
             collapse: Supista kaikki kysymykset
             expand: Laajenna kaikki kysymykset
             unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta tällöin aikaisemmat vastaukset poistetaan.
             update:
               success: Kyselyn kysymysten tallentaminen onnistui.
+          response_option:
+            free_text: Vapaa teksti
+            remove: Poista
+            response_option: Vastausvaihtoehto
+            statement: Selite
+          responses:
+            actions:
+              back: Takaisin vastauksiin
+              export: Vie
+              next: Seuraava &rsaquo;
+              previous: "&lsaquo; Edellinen"
+              show: Näytä vastaukset
+            empty: Ei vielä vastauksia
+            export:
+              response:
+                title: 'Vastaus #%{number}'
+            export_response:
+              title: kyselyn_vastaukset_%{token}
+            index:
+              title: "yhteensä %{total} vastausta"
+            show:
+              title: 'Vastaus #%{number}'
           separator:
             down: Alas
             remove: Poista
@@ -156,12 +156,12 @@ fi-pl:
             success: Lomake tallennettu onnistuneesti.
       admin_log:
         question:
-          publish_answers: "%{user_name} julkaisi kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
-          unpublish_answers: "%{user_name} perui kyselyn %{resource_name} vastausten julkaisun osallistumistilassa %{space_name}"
+          publish_responses: "%{user_name} julkaisi kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
+          unpublish_responses: "%{user_name} perui kyselyn %{resource_name} vastausten julkaisun osallistumistilassa %{space_name}"
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"
       errors:
-        answer:
+        response:
           body: Runkoteksti ei voi olla tyhjä
       images:
         dimensions: "%{width} x %{height} pikseliä"
@@ -170,39 +170,27 @@ fi-pl:
           resize_to_fit: Tämä kuva muutetaan kokoon %{dimensions} sopivaksi.
       question_types:
         files: Tiedostot
-        long_answer: Pitkä vastaus
+        long_response: Pitkä vastaus
         matrix_multiple: Matriisi (useat valinnat)
         matrix_single: Matriisi (yksi valinta)
         multiple_option: Useita vaihtoehtoja
-        short_answer: Lyhyt vastaus
+        short_response: Lyhyt vastaus
         single_option: Yksi vaihtoehto
         sorting: Järjestäminen
         title_and_description: Otsikko ja kuvaus
-      questionnaire_answer_presenter:
+      questionnaire_response_presenter:
         download_attachment: Lataa liite
       questionnaires:
-        answer:
-          invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
-          max_choices_alert: Liian monta vaihtoehtoa on valittu
-          success: Kyselyyn vastattu onnistuneesti.
         question:
           max_choices: 'Valintojen maksimimäärä: %{n}'
+        response:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          max_choices_alert: Valittuja vaihtoehtoja on liikaa
+          success: Lomakkeeseen vastaaminen onnistui.
         show:
-          answer_questionnaire:
-            already_have_an_account?: Onko sinulla jo käyttäjätili?
-            are_you_new?: Oletko uusi käyttäjä?
-            sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
-            sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
-            title: Vastaa kyselyyn
           current_step: Vaihe %{step}
           empty: Tälle lomakkeelle ei ole vielä määritetty kysymyksiä.
           of_total_steps: / %{total_steps}
-          questionnaire_answered:
-            body: Olet jo vastannut tähän kyselyyn.
-            title: Olet jo vastannut
-          questionnaire_answered_edit:
-            body: Olet jo vastannut tähän kyselylomakkeeseen. %{link}
-            edit: Muokkaa vastauksiasi
           questionnaire_closed:
             body: Kyselylomake on suljettu, eikä siihen voi vastata.
             title: Kysely on suljettu
@@ -214,20 +202,32 @@ fi-pl:
             title: JavaScript ei ole käytössä
           questionnaire_not_published:
             body: Tätä lomaketta ei ole vielä julkaistu.
+          questionnaire_responded:
+            body: Olet jo vastannut tähän kyselylomakkeeseen.
+            title: Vastattu aikaisemmin
+          questionnaire_responded_edit:
+            body: Olet jo vastannut tähän kyselylomakkeeseen. %{link}
+            edit: Muokkaa vastauksiasi
+          response_questionnaire:
+            already_have_an_account?: Onko sinulla jo käyttäjätili?
+            are_you_new?: Uusi käyttäjä?
+            sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
+            sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
+            title: Vastaa lomakkeeseen
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
           are_you_sure_edit_guest: Mikäli haluat muokata vastauksiasi jälkikäteen, sinun tulee luoda alustalle oma tili ja kirjautua sisään.
-          are_you_sure_no_edit: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
+          are_you_sure_no_edit: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Haluatko varmasti jatkaa?
           back: Takaisin
           continue: Jatka
           disallowed: Et voi muokata vastauksiasi.
           submit: Lähetä
-      user_answers_serializer:
-        body: Vastaa
-        completion: Viimeistele
-        created_at: Vastattu
-        id: Vastaa tunnus
+      user_responses_serializer:
+        body: Vastaus
+        completion: Viimeistely
+        created_at: Vastauksen ajankohta
+        id: Vastauksen ID
         ip_hash: IP-tarkistesumma
         question: Kysymys
         registered: Rekisteröitynyt

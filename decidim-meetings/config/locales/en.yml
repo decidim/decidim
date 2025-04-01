@@ -710,11 +710,6 @@ en:
       withdraw:
         error: There was a problem withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
-    metrics:
-      meetings:
-        description: Number of meetings created
-        object: meetings
-        title: Meetings
     open_data:
       help:
         meeting_comments:

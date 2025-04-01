@@ -383,9 +383,9 @@ eu:
             search: Bilatu
         conferences:
           form:
-            available_slots_help: Utzi 0 mugak mugagabea badaude.
+            available_slots_help: Utzi 0 plaza kopurua mugatua ez bada.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
-            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            no_taxonomy_filters_found: Ez da taxonomia filtrorik aurkitu.
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.

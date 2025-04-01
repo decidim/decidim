@@ -10,7 +10,6 @@ hu:
         instructions: Útmutató a részvételhez
         start_time: Kezdődik
         title: Cím
-        user_group_id: Vita létrehozása
     models:
       decidim/debates/close_debate_event: Vita lezárva
       decidim/debates/create_debate_event: Vita
@@ -113,7 +112,6 @@ hu:
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése
@@ -124,7 +122,6 @@ hu:
           debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
-          groups_count: Csoportok
           open: Nyitott vita
           participants_count: Résztvevők
         update:

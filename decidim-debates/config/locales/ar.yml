@@ -9,7 +9,6 @@ ar:
         instructions: تعليمات للمشاركة
         start_time: يبدأ عند
         title: عنوان
-        user_group_id: إنشاء النقاش كما
     models:
       decidim/debates/create_debate_event: النقاش
       decidim/debates/creation_disabled_event: تم تعطيل المناقشات
@@ -92,9 +91,7 @@ ar:
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
-          groups_count: الفِرَق
           participants_count: المشاركون
       models:
         debate:

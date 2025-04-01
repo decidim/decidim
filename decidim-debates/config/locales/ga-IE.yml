@@ -44,7 +44,6 @@ ga:
           create: Cruthaigh
         show:
           debate_closed: Dúnta
-          groups_count: Grúpaí
       models:
         debate:
           fields:

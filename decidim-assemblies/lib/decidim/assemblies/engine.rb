@@ -96,18 +96,6 @@ module Decidim
         Decidim::Assemblies::ContentBlocks::RegistryManager.register!
       end
 
-      initializer "decidim_assemblies.register_metrics" do
-        Decidim.metrics_registry.register(:assemblies) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Assemblies::Metrics::AssembliesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-      end
-
       initializer "decidim_assemblies.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Assemblies::QueryExtensions
       end
