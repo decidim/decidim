@@ -26,7 +26,6 @@ In this version we are changing Decidim's underlaying configuration engine, so, 
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
-git rm config/storage.yml
 ```
 
 ### 1.3. Update your Gemfile
