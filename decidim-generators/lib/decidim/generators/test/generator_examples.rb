@@ -239,7 +239,6 @@ shared_context "with application env vars" do
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
-      "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
