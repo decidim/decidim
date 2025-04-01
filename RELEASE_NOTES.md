@@ -19,14 +19,23 @@ You may need to change your `.ruby-version` file too.
 
 If not, you need to adapt it to your environment, for instance by changing the decidim docker image to use ruby:3.x.x.
 
-### 1.2. Update your Gemfile
+### 1.2. Update your application configuration
+
+In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (read more about it at "3.4 Deprecation of `Rails.application.secrets`").
+
+```bash
+git rm config/secrets.yml
+git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+
+### 1.3. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.3. Run these commands
+### 1.4. Run these commands
 
 ```console
 bundle update decidim
@@ -35,7 +44,7 @@ bin/rails db:migrate
 bin/rails decidim:upgrade:fix_nickname_casing
 ```
 
-### 1.4. Follow the steps and commands detailed in these notes
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -192,7 +201,20 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. Deprecation of `Rails.application.secrets`
+
+If you were already using the Environment Variables for the configuration of your application, then you can remove both the config/secrets.yml and also the decidim initializer:
+If you are not using the ENV system, you will need to adjust your application settings to use it.
+
+Before actually removing the initializer, just make sure you do not have any custom configuration.
+
+```bash
+git rm config/secrets.yml
+git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+```
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
