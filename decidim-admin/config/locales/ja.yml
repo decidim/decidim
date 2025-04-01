@@ -1072,6 +1072,7 @@ ja:
           title: トピックを編集
           update: トピックを更新
         new:
+          create: 新しいトピック
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
@@ -1095,6 +1096,7 @@ ja:
         index:
           last_notable_change: 前回の注目すべき変更
         new:
+          create: 新しいページ
           title: 新しいページ
         topic:
           empty: このトピックのページはありません。
