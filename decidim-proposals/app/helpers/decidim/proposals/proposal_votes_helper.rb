@@ -4,6 +4,15 @@ module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposal votes partials
     module ProposalVotesHelper
+      delegate :minimum_votes_per_user, to: :component_settings
+
+      def votes_given
+        @votes_given ||= ProposalVote.where(
+          proposal: Proposal.where(component: current_component),
+          author: current_user
+        ).count
+      end
+      
       # Public: Gets the vote limit for each user, if set.
       #
       # Returns an Integer if set, nil otherwise.
@@ -20,15 +29,15 @@ module Decidim
         vote_limit.present?
       end
 
+      def minimum_votes_per_user_enabled?
+        minimum_votes_per_user.positive?
+      end
+
       # Public: Checks if threshold per proposal are set.
       #
       # Returns true if set, false otherwise.
       def threshold_per_proposal_enabled?
         threshold_per_proposal.present?
-      end
-
-      def minimum_votes_per_user_enabled?
-        component_settings.minimum_votes_per_user&.positive?
       end
 
       # Public: Fetches the maximum amount of votes per proposal.
@@ -68,22 +77,35 @@ module Decidim
         current_user && votes_enabled? && vote_limit_enabled? && !votes_blocked?
       end
 
-      # Return the remaining votes for a user if the current component has a vote limit
-      #
-      # user - A User object
-      #
-      # Returns a number with the remaining votes for that user
-      def given_votes_count_for(user)
-        return 0 if user.blank?
-
-        all_voted_proposals_by_user(user).length
-      end
-
       def proposal_voted_by_user?(proposal, user)
         return false if user.blank? || proposal.blank?
 
         all_voted_proposals_by_user(user).include?(proposal.id)
       end
+
+      # Return the remaining votes for a user if the current component has a vote limit
+      #
+      # user - A User object
+      #
+      # Returns a number with the remaining votes for that user
+      def remaining_votes_count_for_user
+        return 0 unless vote_limit_enabled?
+
+        component_settings.vote_limit - votes_given
+      end
+
+      # Return the remaining minimum votes for a user if the current component has a vote limit
+      #
+      # user - A User object
+      #
+      # Returns a number with the remaining minimum votes for that user
+      def remaining_minimum_votes_count_for_user
+        return 0 unless minimum_votes_per_user_enabled?
+
+        component_settings.minimum_votes_per_user - votes_given
+      end
+
+      private
 
       def all_voted_proposals_by_user(user)
         return [] if user.blank?
@@ -93,28 +115,6 @@ module Decidim
                                           .joins(:proposal)
                                           .where(decidim_proposals_proposals: { decidim_component_id: current_component.id }, author: user)
                                           .pluck(:decidim_proposal_id)
-      end
-
-      # Return the remaining votes for a user if the current component has a vote limit
-      #
-      # user - A User object
-      #
-      # Returns a number with the remaining votes for that user
-      def remaining_votes_count_for(user)
-        return 0 unless vote_limit_enabled?
-
-        component_settings.vote_limit - given_votes_count_for(user)
-      end
-
-      # Return the remaining minimum votes for a user if the current component has a vote limit
-      #
-      # user - A User object
-      #
-      # Returns a number with the remaining minimum votes for that user
-      def remaining_minimum_votes_count_for(user)
-        return 0 unless minimum_votes_per_user_enabled?
-
-        component_settings.minimum_votes_per_user - given_votes_count_for(user)
       end
     end
   end

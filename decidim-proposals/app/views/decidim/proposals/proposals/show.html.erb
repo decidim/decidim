@@ -41,7 +41,7 @@ extra_admin_link(
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
 
   <section class="layout-main__section layout-main__heading">
-    <% if show_voting_rules? && remaining_minimum_votes_count_for(current_user).positive? && current_component.participatory_space.can_participate?(current_user) %>
+    <% if show_voting_rules? && remaining_minimum_votes_count_for_user.positive? && current_component.participatory_space.can_participate?(current_user) %>
       <%= render partial: "exit_modal" %>
     <% end %>
 
