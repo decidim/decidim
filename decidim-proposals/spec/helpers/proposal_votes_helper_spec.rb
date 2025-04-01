@@ -34,21 +34,19 @@ module Decidim
         end
       end
 
-
       describe "#proposal_voted_by_user?" do
-
         it "returns false if the user has not voted on the proposal" do
           proposal = create(:proposal, component: proposal_component)
-          create(:proposal_vote, proposal: )
+          create(:proposal_vote, proposal:)
 
-          expect(helper.proposal_voted_by_user?(proposal)).to be_falsey
+          expect(helper).not_to be_proposal_voted_by_user(proposal)
         end
 
         it "returns true if the user has voted on the proposal" do
           proposal = create(:proposal, component: proposal_component)
           create(:proposal_vote, author: user, proposal:)
 
-          expect(helper.proposal_voted_by_user?(proposal)).to be_truthy
+          expect(helper).to be_proposal_voted_by_user(proposal)
         end
       end
 

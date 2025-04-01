@@ -17,7 +17,6 @@ module Decidim
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
 
-
       # Public: The state of a proposal in a way a human can understand.
       #
       # state - The String state of the proposal.
