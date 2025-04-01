@@ -215,7 +215,7 @@ module Decidim
       end
 
       def pending_location?
-        %w(in_person hybrid).include?(type_of_meeting.to_s) && location.values.all?(&:blank?) && address.blank?
+        !online? && location.except("machine_translations").values.all?(&:blank?)
       end
 
       def maps_enabled?

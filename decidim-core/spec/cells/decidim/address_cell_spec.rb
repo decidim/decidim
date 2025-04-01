@@ -38,13 +38,11 @@ describe Decidim::AddressCell, type: :cell do
   end
 
   context "when address is pending" do
-    let(:location) { { "en" => "" } }
-    let(:address) { "" }
+    let(:location) { { "ca" => "", "en" => "", "es" => "", "machine_translations" => { "es" => "Location" } } }
 
     before do
       allow(model).to receive(:location).and_return location
-      allow(model).to receive(:address).and_return address
-      allow(model).to receive(:type_of_meeting).and_return :in_person
+      allow(model).to receive(:pending_location?).and_return(true)
     end
 
     it "renders pending address text" do
