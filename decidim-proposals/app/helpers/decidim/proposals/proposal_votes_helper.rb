@@ -79,7 +79,7 @@ module Decidim
         all_voted_proposals_by_user(user).length
       end
 
-      def voted_proposal_by_user?(proposal, user)
+      def proposal_voted_by_user?(proposal, user)
         return false if user.blank? || proposal.blank?
 
         all_voted_proposals_by_user(user).include?(proposal.id)
