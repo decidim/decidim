@@ -1535,9 +1535,6 @@ fr:
         body_2: Dans le cadre de nos efforts pour simplifier l'expérience des organisations, la fonctionnalité "Groupes d'utilisateurs" est dépréciée. Votre profil de groupe d'utilisateurs a maintenant été converti en un profil de simple participant.
         greeting: Cher(ère) %{name},
         instructions_1: Si vous avez accès à ce compte de messagerie, veuillez vérifier votre boîte de réception pour les instructions.
-        instructions_2: Sinon, l'un de vos collègues qui a accès devra définir le mot de passe et partager les identifiants de connexion avec vous.
-        instructions_intro: Les membres du groupe partageront désormais l'accès à ce profil en utilisant les identifiants de connexion partagés (courriel et mot de passe). Nous avons envoyé des instructions à <strong>%{group_email}</strong> pour définir un nouveau mot de passe pour le profil.
-        instructions_title: "<strong>Qu'est-ce que ça signifie pour vous ?</strong>"
         subject: Mise à jour importante à propos du groupe d'utilisateurs dont vous êtes membre
     user_report_mailer:
       notify:
@@ -1659,16 +1656,6 @@ fr:
         instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte :'
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
-      user_group_reset_password_instructions:
-        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
-        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
-        body_3: .
-        greeting: Cher(ère) %{name},
-        instructions_1: 'Cliquez sur le lien ci-dessous pour réinitialiser votre mot de passe :'
-        instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
-        instructions_title: "<strong>Ce que vous devez faire</strong>"
-        set_password: Définir votre mot de passe
-        subject: Mise à jour importante à propos du groupe d'utilisateurs
     omniauth_callbacks:
       add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
