@@ -1666,9 +1666,6 @@ eu:
         body_2: Erakundeentzako esperientzia sinplifikatzeko egiten ari garen ahaleginen artean, "Erabiltzaile-taldeak" ezaugarria kentzen ari gara. Zure Erabiltzaile Taldearen profila ohiko parte-hartzaile profil bihurtu da.
         greeting: "%{name}, agurgarria:\n"
         instructions_1: Sarbidea baduzu posta elektronikoko kontu horretarako, mesedez, kontsultatu zure sarrera-erretilua argibideetarako.
-        instructions_2: Horrela ez bada, zure lankideetako batek, pasahitza duenak, jarri beharko du eta kredentzialak zurekin partekatu.
-        instructions_intro: Taldekideek orain profil honetarako sarbidea partekatuko dute login kredentzial partekatuak erabiliz (posta elektronikoa eta pasahitza). Jarraibideak bidali dizkiegu <strong>%{group_email}</strong> -ri profilerako pasahitz berri bat ezartzeko.
-        instructions_title: "<strong>Zer esan nahi du zuretzat?</strong>"
         subject: Eguneratze garrantzitsuko kide zaren erabiltzaile-taldea
     user_report_mailer:
       notify:
@@ -1790,16 +1787,6 @@ eu:
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
         message: Kontua blokeatu zaizu gehiegitan saitu zarelako, lortu gabe, saioa hasten.
         subject: Desblokeatu argibideak
-      user_group_reset_password_instructions:
-        body_1: 'Zure taldearen profilari buruzko eguneratze garrantzitsu baten berri emango dizugu hemen: %{organization_name}.'
-        body_2: Zurea bezalako erakundeentzako esperientzia sinplifikatzeko eta hobetzeko ahaleginen barruan, "Erabiltzaile-taldeak" ezaugarria depredikatzen ari gara. Zure taldea, <strong>% {name}</strong>, kontu arrunt bihurtu da.
-        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezarri behar dizugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edonorekin parteka ditzakezu.
-        greeting: "%{name}, agurgarria:\n"
-        instructions_1: 'Egin klik beheko estekan zure pasahitza ezartzeko:'
-        instructions_2: 'Partekatu zure lankideekin hastapeneko kredentzialak (posta elektronikoa: %{email} eta pasahitz berria).'
-        instructions_title: "<strong>Hori egiteko behar duzuna</strong>"
-        set_password: Idatzi zure pasahitza
-        subject: Erabiltzaile-taldearen eguneratze garrantzitsua
     omniauth_callbacks:
       add_tos_errors: Zerbitzuaren baldintzak onartu behar dira kontu bat sortzeko.
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
