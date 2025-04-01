@@ -392,15 +392,37 @@ de:
           callout_text_created: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
           callout_text_validating: Ihre Initiative wurde erfolgreich an die technische Validierung gesendet.
           go_to_initiatives: Zu Initiativen gehen
+          publish_helper_text_html: Denken Sie daran, dass für die Veröffentlichung Ihrer Initiative eine technische Validierung durch einen Admin erforderlich ist.
         previous_form:
           back: Zurück
+        promotal_committee:
+          individual_help_text: Ihre Initiative wurde erstellt und als Entwurf gespeichert. Jetzt müssen Sie Personen dem zum Unterstützungskommittee hinzufügen.
+          invite_link_title: Link, um Leute einzuladen
+          promoters_committee_help_2: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und diese an die technische Validierung senden müssen, damit ein Admin sie prüfen kann.
+          promoters_committee_help_html: Bevor Sie Ihre Initiative zur technischen Validierung senden, müssen Sie %{committee_members_left} weitere Mitglieder dem Unterstützungskommittee hinzufügen. Sie haben derzeit <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_title: Unterstützungskommittee
+        return_to_initiatives_button:
+          return_initiatives_html: Jetzt überspringen und <a href="%{initiatives_path}">zu den Initiativen zurückkehren</a>
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
+          consult_existing_initiatives: Bestehende Initiativen konsultieren
+          continue: Fortsetzen
           more_information: (Weitere Informationen)
           new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
+          select_initiative_type_help_html: "<p>Initiativen sind Instrumente, mit dem die Personen eingreifen können, damit die Organisation Aktionen im Namen des Allgemeininteresses durchführen kann. Welche Initiative möchten Sie starten?</p>"
+          show_less: Weniger anzeigen
+          show_more: Mehr anzeigen
+          subtitle: Welche Initiative wollen Sie bewerben?
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
+        send_to_technical_validation_button:
+          button: Zur technischen Prüfung senden
+          confirm: Sie werden die Initiative an einen Admin senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
+        share_committee_link:
+          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Unterstützungskommittees sein werden.
+          invite_to_committee_help_2: Diese Art der Bürgerinitiative erfordert ein Unterstützungskommittee, welches aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          more_information: Weitere Informationen
       edit:
         accept: Initiative akzeptieren
         back: Zurück
@@ -512,6 +534,8 @@ de:
           random: Zufällig
           recent: Neueste zuerst
           recently_published: Zuletzt veröffentlicht
+        pending_initiatives:
+          title: Entwürfe & ausstehende Initiativen
         print:
           address: Adresse
           author_title: Autor der Initiative
@@ -584,6 +608,7 @@ de:
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
+          created: Entworfen
           discarded: Verworfen
           open: Offen
           rejected: Ungenügend Unterschriften
@@ -639,6 +664,8 @@ de:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
+        finish: Technische Prüfung
+        promotal_committee: Suche nach Unterstützenden
         select_initiative_type: Wählen
       initiative_signature_creation_header:
         fill_personal_data: Ergänzen Sie Ihre Daten
