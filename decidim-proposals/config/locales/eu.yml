@@ -743,7 +743,7 @@ eu:
         withdrawn: Kendu
       application_helper:
         filter_origin_values:
-          all: guztiak
+          all: Guztiak
           meetings: Bilerak
           official: Ofiziala
           participants: Parte-hartzaileak
@@ -964,7 +964,7 @@ eu:
           text_banner: Ikusten ari zara egileek bertan behera utzitako proposamenak %{go_back_link}.
         new:
           send: Jarraitu
-          title: Sortu zure proposamena
+          title: Sortu beste proposamen bat
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak

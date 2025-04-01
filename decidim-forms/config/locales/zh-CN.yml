@@ -1,21 +1,11 @@
 zh-CN:
   activemodel:
     attributes:
-      answer:
-        body: 答案
-        choices: 选择
-        selected_choices: 选定的选择
       question:
         max_choices: 选择的最大数量
         question_type: 类型
       questionnaire_question:
         mandatory: Mandatory
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: 不完成
   decidim:
     forms:
       admin:
@@ -26,42 +16,18 @@ zh-CN:
         questionnaires:
           actions:
             back: 返回问题
-          answer_option:
-            answer_option: 答案选项
-            free_text: 免费文本
-            remove: 删除
-            statement: 声明
-          answers:
-            actions:
-              back: 回到回应
-              export: 导出
-              show: 显示答案
-            empty: 尚无答案
-            export:
-              answer:
-                title: '回复 #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} 个回复总数"
-            show:
-              title: '答案 #%{number}'
           display_condition:
-            answer_option: 答案选项
             condition_question: 问
             condition_type: 条件
             condition_types:
-              answered: 已回答
               equal: 等于
               match: 包含文本
-              not_answered: 未回答
               not_equal: 不等于
             condition_value: 包含文本
             display_condition: 显示条件
             mandatory: 无论其他条件的状况如何，总是需要满足这个条件
             remove: 删除
             save_warning: 在配置显示条件之前记住保存表单
-            select_answer_option: 选择答案选项
             select_condition_question: 选择一个问题
             select_condition_type: 选择一个条件类型
           edit:
@@ -77,7 +43,6 @@ zh-CN:
             remove: 删除
             statement: 声明
           question:
-            add_answer_option: 添加答案选项
             add_display_condition: 添加显示条件
             add_display_condition_info: 保存表单以配置显示条件
             add_matrix_row: 添加行
@@ -90,6 +55,9 @@ zh-CN:
             remove: 删除
             statement: 声明
             up: 上移
+          responses:
+            actions:
+              show: 显示回复
           separator:
             down: 向下
             remove: 删除
@@ -101,30 +69,18 @@ zh-CN:
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
-        long_answer: 长答案
         matrix_multiple: 矩阵(多选项)
         matrix_single: 矩阵(单选项)
         multiple_option: 多选项
-        short_answer: 简短答案
         single_option: 单个选项
         sorting: 排序中
       questionnaires:
-        answer:
-          invalid: 回答表单时出现问题。
-          max_choices_alert: 选择了太多选项
-          success: 表单回答成功。
         question:
           max_choices: '最大选择数: %{n}'
         show:
-          answer_questionnaire:
-            title: 回答表单
           current_step: 步骤 %{step}
           of_total_steps: '%{total_steps}'
-          questionnaire_answered:
-            body: 您已经回答过这个表单。
-            title: 已经回答
           questionnaire_closed:
-            body: 表格已关闭，无法解答。
             title: 表单已关闭
           questionnaire_for_private_users:
             body: 表单仅供私人用户使用
@@ -140,14 +96,3 @@ zh-CN:
           back: 后退
           continue: 继续
           submit: 提交
-      user_answers_serializer:
-        body: 答案
-        completion: 完成
-        created_at: 回答于
-        id: 答案 ID
-        ip_hash: IP哈希
-        question: 问
-        registered: 已注册
-        session_token: 用户标识符
-        unregistered: 未注册
-        user_status: 用户状态

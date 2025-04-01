@@ -8,7 +8,6 @@ is-IS:
         instructions: Leiðbeiningar um þátttöku
         start_time: Byrjar á
         title: Titill
-        user_group_id: Búðu til umræðu sem
   decidim:
     components:
       debates:
@@ -55,7 +54,6 @@ is-IS:
         new:
           back: Til baka
           create: Búa til
-          title: Ný umræða
       models:
         debate:
           fields:

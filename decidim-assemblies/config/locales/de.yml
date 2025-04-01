@@ -200,6 +200,7 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
       taxonomy_filters:
         space_filter_for:

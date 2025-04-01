@@ -1,6 +1,33 @@
 ---
 de:
   decidim:
+    collaborative_texts:
+      admin:
+        documents:
+          update_settings:
+            success: Dokument erfolgreich aktualisiert.
+        settings:
+          form:
+            allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
+      documents:
+        index:
+          count:
+            one: "%{count} kollaborativer Text"
+            other: "%{count} kollaborative Texte"
+          empty: Es gibt noch keine kollaborative Texte.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Anregung akzeptieren
+            title: Titel
     components:
       collaborative_texts:
         name: Kollaborative Texte
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+          step:
+            announcement: Ankündigung
+    statistics:
+      collaborative_texts_count: Kollaborative Texte
