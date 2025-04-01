@@ -34,6 +34,24 @@ module Decidim
         end
       end
 
+
+      describe "#proposal_voted_by_user?" do
+
+        it "returns false if the user has not voted on the proposal" do
+          proposal = create(:proposal, component: proposal_component)
+          create(:proposal_vote, proposal: )
+
+          expect(helper.proposal_voted_by_user?(proposal)).to be_falsey
+        end
+
+        it "returns true if the user has voted on the proposal" do
+          proposal = create(:proposal, component: proposal_component)
+          create(:proposal_vote, author: user, proposal:)
+
+          expect(helper.proposal_voted_by_user?(proposal)).to be_truthy
+        end
+      end
+
       describe "#remaining_votes_count_for" do
         it "returns the remaining votes for a user based on the component votes limit" do
           proposal = create(:proposal, component: proposal_component)
