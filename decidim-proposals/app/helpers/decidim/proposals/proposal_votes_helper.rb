@@ -104,7 +104,6 @@ module Decidim
         component_settings.vote_limit
       end
 
-
       def all_voted_proposals_by_user
         return [] if current_user.blank?
 
