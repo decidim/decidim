@@ -493,7 +493,7 @@ en:
           invalid_data: Some of the personal data provided to verify your identity is not valid.
         finish:
           back_to_initiative: Back to initiative
-          title: Initiative signature accepted
+          title: You have signed the initiative
         sms_phone_number:
           confirmed_data: You have confirmed your data.
           continue: Sign initiative
@@ -505,6 +505,7 @@ en:
           your_confirmation_code: Your confirmation code
       initiative_votes:
         create:
+          already_voted: Your signature had already been registered with your data.
           error: There was a problem signing the initiative.
           invalid: The data provided to sign the initiative is not valid.
           success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed.
@@ -645,6 +646,9 @@ en:
           dummy_signature_with_sms_handler:
             description: Signature which only validates phone number looking for an existing authorization associated and checks SMS code
             name: Dummy Signature Handler With Only SMS
+          ephemeral_dummy_signature_handler:
+            description: Ephemeral signature which takes personal information from user, validates authorization and checks SMS code
+            name: Ephemeral Dummy Signature Handler
           legacy_signature_handler:
             description: Signature handler based on the old signature feature including the collection of personal data, the SMS step and validating the authorization with dummy_authorization_handler. Modify any parameter to adapt to the configuration used
             name: Legacy Signature Handler
@@ -694,7 +698,6 @@ en:
         actions:
           create: Create an initiative
           title: Actions
-          vote: Sign
   layouts:
     decidim:
       initiative_creation_header:

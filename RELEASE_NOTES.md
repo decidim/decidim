@@ -204,6 +204,8 @@ end
 
 All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
 
+Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
+
 To migrate old signature configurations review the One time actions section.
 
 In the process to extract the old initiatives vote form to a base handler a new secret has been added to extract the key used to encrypt the user metadata in the vote. This secret is available in the application calling `Decidim::Initiatives.signature_handler_encryption_secret` and is used in the base class `Decidim::Initiatives::SignatureHandler`.

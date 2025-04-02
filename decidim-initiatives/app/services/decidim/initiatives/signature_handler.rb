@@ -24,12 +24,18 @@ module Decidim
       # The initiative to be signed
       attribute :initiative, Decidim::Initiative
 
+      attribute :tos_agreement, if: :ephemeral_tos_pending?
+      validates :tos_agreement, presence: true, if: :ephemeral_tos_pending?
+      validate :tos_agreement_acceptance, if: :ephemeral_tos_pending?
+
+      attribute :transfer_status
+
       validates :initiative, :user, presence: true
       validate :uniqueness
       validate :valid_metadata
       validate :valid_authorized_scopes
 
-      delegate :promote_authorization_validation_errors, :authorization_handler_form_class, to: :workflow_manifest
+      delegate :promote_authorization_validation_errors, :authorization_handler_form_class, :ephemeral?, to: :workflow_manifest
       delegate :scope, to: :initiative
 
       # A unique ID to be implemented by the signature handler that ensures
@@ -108,7 +114,9 @@ module Decidim
       # Params to be sent to the authorization handler. By default consists on
       # the metadata hash including the signer user
       def authorization_handler_params
-        metadata.merge(user:)
+        params = metadata.merge(user:)
+        params = params.merge(tos_agreement:) if ephemeral_tos_pending?
+        params
       end
 
       # The signature_scope_id can be defined in the signature workflow to be
@@ -144,7 +152,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def form_attributes
-        attributes.except("id", "user", "initiative").keys
+        attributes.except("id", "user", "initiative", "tos_agreement", "transfer_status").keys
       end
 
       # The String partial path so Rails can render the handler as a form. This
@@ -165,6 +173,10 @@ module Decidim
         new.form_attributes.present?
       end
 
+      def already_voted?
+        Decidim::InitiativesVote.exists?(author: user, initiative:)
+      end
+
       private
 
       # It is expected to validate that no other user has voted with the same
@@ -176,21 +188,26 @@ module Decidim
       end
 
       def valid_metadata
-        return if authorization_handler.blank?
-        return if authorization_handler.valid?
+        return if authorization_handler_errors.blank?
+
+        keys = attributes.except("tos_agreement").keys.map(&:to_sym) & authorization_handler_errors.attribute_names
+
+        return if keys.blank? && authorization_handler_errors[:base].blank?
 
         # Promote errors
         if promote_authorization_validation_errors
-          keys = attributes.keys.map(&:to_sym)
-
-          authorization_handler.errors.each do |error|
-            next unless keys.include?(error.attribute.to_sym)
-
-            errors.add(error.attribute, error.type)
+          keys.each do |attribute|
+            errors.add(attribute, authorization_handler_errors[attribute])
           end
         end
 
         add_invalid_base_error
+      end
+
+      def tos_agreement_acceptance
+        return if (error_message = authorization_handler_errors[:tos_agreement]).blank?
+
+        errors.add(:tos_agreement, error_message)
       end
 
       def valid_authorized_scopes
@@ -210,6 +227,21 @@ module Decidim
 
       def workflow_manifest
         @workflow_manifest ||= Decidim::Initiatives::Signatures.find_workflow_manifest(signature_workflow_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
+      end
+
+      def ephemeral_tos_pending?
+        return unless ephemeral? && user.ephemeral?
+
+        !user.tos_accepted?
+      end
+
+      def authorization_handler_errors
+        @authorization_handler_errors ||= if authorization_handler.blank?
+                                            ActiveModel::Errors.new(nil)
+                                          else
+                                            authorization_handler.validate
+                                            authorization_handler.errors
+                                          end
       end
     end
   end

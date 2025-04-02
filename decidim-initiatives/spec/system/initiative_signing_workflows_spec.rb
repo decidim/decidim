@@ -99,13 +99,13 @@ describe "Initiative signing with workflows" do
         expect do
           click_on "Validate your data"
 
-          expect(page).to have_content "Initiative signature accepted"
+          expect(page).to have_content "You have signed the initiative"
         end.to change(Decidim::InitiativesVote, :count).by(1)
       end
 
       it "the vote created stores the provided data in metadata" do
         click_on "Validate your data"
-        expect(page).to have_content "Initiative signature accepted"
+        expect(page).to have_content "You have signed the initiative"
 
         vote = Decidim::InitiativesVote.last
 
@@ -141,7 +141,7 @@ describe "Initiative signing with workflows" do
         expect do
           click_on "Validate your data"
 
-          expect(page).to have_content "Initiative signature accepted"
+          expect(page).to have_content "You have signed the initiative"
         end.not_to change(Decidim::Authorization, :count)
       end
     end
@@ -196,7 +196,7 @@ describe "Initiative signing with workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "Initiative signature accepted"
+            expect(page).to have_content "You have signed the initiative"
           end.to change(Decidim::Authorization, :count).by(1)
 
           authorization = Decidim::Authorization.last
@@ -243,7 +243,7 @@ describe "Initiative signing with workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "Initiative signature accepted"
+            expect(page).to have_content "You have signed the initiative"
           end.not_to change(Decidim::Authorization, :count)
         end
       end
@@ -273,7 +273,7 @@ describe "Initiative signing with workflows" do
 
           context "when the authorization status is :ok" do
             it "checks the authorization status and creates the vote" do
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
               expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
             end
           end
@@ -315,7 +315,7 @@ describe "Initiative signing with workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
             end.not_to change(Decidim::Authorization, :count)
 
             expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
@@ -331,7 +331,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "Initiative signature accepted"
+                expect(page).to have_content "You have signed the initiative"
               end.not_to change(Decidim::Authorization, :count)
 
               authorization = Decidim::Authorization.where(user: confirmed_user).last
@@ -388,7 +388,7 @@ describe "Initiative signing with workflows" do
               expect do
                 click_on "Validate your data"
 
-                expect(page).to have_content "Initiative signature accepted"
+                expect(page).to have_content "You have signed the initiative"
               end.not_to change(Decidim::Authorization, :count)
 
               expect(Decidim::InitiativesVote.where(author: confirmed_user)).to be_present
@@ -423,7 +423,7 @@ describe "Initiative signing with workflows" do
           fill_personal_data
           click_on "Validate your data"
 
-          expect(page).to have_content "Initiative signature accepted"
+          expect(page).to have_content "You have signed the initiative"
         end
       end
 
@@ -437,7 +437,7 @@ describe "Initiative signing with workflows" do
         end
 
         it "votes directly without additional steps" do
-          expect(page).to have_content "Initiative signature accepted"
+          expect(page).to have_content "You have signed the initiative"
         end
       end
     end
@@ -486,7 +486,7 @@ describe "Initiative signing with workflows" do
           expect(page).to have_content "Your code is correct"
           click_on "Sign initiative"
 
-          expect(page).to have_content "Initiative signature accepted"
+          expect(page).to have_content "You have signed the initiative"
         end
       end
 
@@ -526,7 +526,7 @@ describe "Initiative signing with workflows" do
               expect(page).to have_content "Your code is correct"
               click_on "Sign initiative"
 
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
             end
           end
 

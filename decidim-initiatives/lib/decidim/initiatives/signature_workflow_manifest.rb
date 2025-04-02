@@ -47,6 +47,14 @@ module Decidim
     #     class Decidim::Initiatives::DefaultSignatureAuthorizer is used,
     #     which inherits from Decidim::Verifications::DefaultActionAuthorizer
     #     and checks the authorization status. (default: true)
+    # - :ephemeral (Boolean) (optional) This option enables the possibility for
+    #     users to sign without prior registration through an ephemeral session.
+    #     To allow ephemeral sessions to be recovered o transferred to regular
+    #     users authorizations must be stored in the process so an
+    #     authorization_handler_form must be defined and the save_authorizations
+    #     option must not be set to false. If those settings are not properly
+    #     configured this option will be ignored and the workflow will not
+    #     allow ephemeral sessions. (default: false)
     # - :promote_authorization_validation_errors (Boolean) (optional) If set
     #     to true, errors in the personal data passed to the authorization
     #     handler form will be displayed next to the corresponding fields
@@ -107,6 +115,7 @@ module Decidim
       attribute :sms_code_validator, String, default: nil
 
       validates :name, presence: true
+      validate :ephemeral_configuration
 
       alias key name
 
@@ -128,6 +137,16 @@ module Decidim
         authorization_handler_form&.safe_constantize
       end
 
+      # If no authorization handler is set or the save_authorizations option
+      # is disabled the workflow will not be able to save the user verification
+      # attributes necessary to recover the user session or transfer their
+      # activities
+      def ephemeral?
+        return if authorization_handler_form_class.blank? || !save_authorizations
+
+        ephemeral
+      end
+
       def sms_mobile_phone_form_class
         return unless sms_verification
 
@@ -144,6 +163,13 @@ module Decidim
         return unless sms_verification
 
         sms_code_validator&.safe_constantize || Decidim::Initiatives::ValidateSmsCode
+      end
+
+      def ephemeral_configuration
+        return unless Rails.env.development?
+        return unless ephemeral
+
+        raise StandardError, "Wrong configuration of ephemeral signature workflow #{fullname}" if !save_authorizations || authorization_handler_form.blank?
       end
     end
   end
