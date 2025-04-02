@@ -155,6 +155,7 @@ fr:
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
       skip_button: Passer au contenu principal
+      secondary_menu: Menu secondaire
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
       delete:
