@@ -46,6 +46,7 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
+      .and match(/^# gem "decidim-collaborative_texts"/)
   end
 end
 
@@ -57,6 +58,7 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
+      .and match(/^gem "decidim-collaborative_texts"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -120,6 +122,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
@@ -209,6 +215,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "365",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "7",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -463,8 +473,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => false,
       "currency_unit" => "€",
       "image_uploader_quality" => 80,
-      "maximum_attachment_size" => 10_485_760, # 10 megabytes
-      "maximum_avatar_size" => 5_242_880, # 5 megabytes
+      "maximum_attachment_size" => 10, # 10 megabytes
+      "maximum_avatar_size" => 5, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
       "download_your_data_expiry_time" => 604_800, # 7 days
@@ -502,8 +512,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => true,
       "currency_unit" => "$",
       "image_uploader_quality" => 91,
-      "maximum_attachment_size" => 26_214_400, # 25 megabytes
-      "maximum_avatar_size" => 11_534_336, # 11 megabytes
+      "maximum_attachment_size" => 25, # 25 megabytes
+      "maximum_avatar_size" => 11, # 11 megabytes
       "max_reports_before_hiding" => 4,
       "track_newsletter_links" => false,
       "download_your_data_expiry_time" => 172_800, # 2 days
@@ -535,7 +545,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -576,7 +586,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
@@ -695,19 +705,6 @@ shared_examples_for "an application with configurable env vars" do
   # This is using a big example to avoid recreating the application every time
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
-    # Test onto the secret generated when ENV vars are empty strings or undefined
-    json_off = json_secrets_for(test_app, env_off)
-    secrets_off.each do |keys, value|
-      current = json_off.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:OFF (#{value})"
-    end
-
-    # Test onto the secret generated when ENV vars are set
-    json_on = json_secrets_for(test_app, env_on)
-    secrets_on.each do |keys, value|
-      current = json_on.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:ON (#{value})"
-    end
 
     # Test onto the initializer when ENV vars are empty strings or undefined
     json_off = initializer_config_for(test_app, env_off)
@@ -951,14 +948,10 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to contain (#{queues})"
   end
-end
-
-def json_secrets_for(path, env)
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
 end
 
 def initializer_config_for(path, env, mod = "Decidim")

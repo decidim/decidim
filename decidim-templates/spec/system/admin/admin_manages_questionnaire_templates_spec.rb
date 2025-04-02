@@ -92,7 +92,7 @@ describe "Admin manages questionnaire templates" do
       expect(page).to have_admin_callout("successfully")
     end
 
-    context "when the questionnaire is not already answered" do
+    context "when the questionnaire is not already responded" do
       let!(:template) { create(:questionnaire_template, organization:) }
       let(:questionnaire) { template.templatable }
 
@@ -342,7 +342,7 @@ describe "Admin manages questionnaire templates" do
   end
 
   def visit_manage_questions_and_expand_all
-    click_on "Manage questions"
+    click_on "Questions"
     expand_all_questions
   end
 

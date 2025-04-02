@@ -125,6 +125,7 @@ module Decidim
 
       def can_reply?
         return false if two_columns_layout?
+        return false if model.depth >= Comment::MAX_DEPTH
         return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
 
         user_signed_in? && accepts_new_comments? &&
@@ -138,8 +139,6 @@ module Decidim
       def author_presenter
         if model.author.respond_to?(:official?) && model.author.official?
           Decidim::Core::OfficialAuthorPresenter.new
-        elsif model.user_group
-          model.user_group.presenter
         else
           model.author.presenter
         end

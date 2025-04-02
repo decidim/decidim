@@ -15,7 +15,6 @@ tr:
         available_slots: Bu toplantı için mevcut yuvalar
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
-        decidim_user_group_id: Kullanıcı grubu
         description: Açıklama
         location: yer
         location_hints: Yer ipuçları
@@ -77,7 +76,6 @@ tr:
             announcement: Duyuru
             comments_blocked: Yorumlar engellendi
             creation_enabled_for_participants: Katılımcılar tarafından toplantı oluşturma etkinleştirildi
-            creation_enabled_for_user_groups: Kullanıcı grupları tarafından toplantı oluşturma etkinleştirildi
     events:
       meetings:
         meeting_closed:
@@ -318,7 +316,6 @@ tr:
         form:
           address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
           available_slots_help: Sınırsız alanınız varsa bunu 0 olarak bırakın
-          create_as: Toplantı oluştur
           location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
           location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
           online_meeting_url_help: 'Bağlantı: katılımcıların toplantınıza doğrudan bağlanmasına izin verin'
@@ -332,7 +329,6 @@ tr:
         new:
           back: Geri
           create: Oluştur
-          title: Bir Toplantı Oluştur
         registration_confirm:
           cancel: İptal Et
           confirm: Onayla

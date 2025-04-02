@@ -1,20 +1,24 @@
 # frozen_string_literal: true
 
+require "rqrcode"
+
 module Decidim
   class ShareWidgetCell < Decidim::ViewModel
-    include Decidim::ShortLinkHelper
+    include Decidim::QrCodeHelper
     include Decidim::SocialShareButtonHelper
+
+    alias resource model
 
     def show
       render
     end
 
-    private
+    def processed_params
+      params.permit(:participatory_process_slug, :component_id, :id).to_h
+    end
 
-    def resource_name
-      return "budget_project" if model.is_a?(Decidim::Budgets::Project)
-
-      model.class.name.demodulize.underscore
+    def title
+      model.presenter.title(html_escape: true)
     end
   end
 end

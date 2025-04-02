@@ -102,9 +102,6 @@ th:
           destroy:
             success: ลบรายการเรียบร้อยแล้ว
       results:
-        home:
-          empty: ยังไม่มีผลลัพธ์
-          empty_filters: ไม่มีผลลัพธ์ตามเกณฑ์นี้
         home_header:
           global_status: สถานะการดำเนินการทั่วโลก
         no_results: ไม่มีโครงการ

@@ -236,8 +236,8 @@ eu:
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
+            evaluator: Ebaluatzailea
             moderator: Moderatzailea
-            valuator: Ebaluatzailea
         media_link:
           fields:
             date: Data
@@ -383,9 +383,9 @@ eu:
             search: Bilatu
         conferences:
           form:
-            available_slots_help: Utzi 0 mugak mugagabea badaude.
+            available_slots_help: Utzi 0 plaza kopurua mugatua ez bada.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
-            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            no_taxonomy_filters_found: Ez da taxonomia filtrorik aurkitu.
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.
@@ -418,7 +418,7 @@ eu:
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
             certificate_of_attendance: Parte-hartze ziurtagiria
-            certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta parte hartu duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta hartu parte duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Arazo bat egon da jardunaldiaren bertaratze-agiriak bidaltzean.
           success: Jardunaldirako ziurtagiriak zuzen bidali behar dira
@@ -427,12 +427,12 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
-          going: joatean
+          going: Joango naiz
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea
       conference_program:
         show:
-          program: Programa
+          program: Egitaraua
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
@@ -512,10 +512,10 @@ eu:
           status:
             accepted: Onartuta (%{at})
             rejected: Ukatua (%{at})
-            sent: bidalia
+            sent: Bidalia
         conference_registration:
           fields:
-            email: Emaila
+            email: Helbide elektronikoa
             name: izena
             registration_type: Izen-emate mota
             state: Estatu
@@ -646,7 +646,7 @@ eu:
       conferences:
         conference:
           more_info: Informazio gehiago
-          take_part: Parte hartu
+          take_part: Hartu parte
         index:
           promoted_conferences: Sustatutako jardunaldiak
         order_by_conferences:

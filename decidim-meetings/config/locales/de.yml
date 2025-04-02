@@ -1,8 +1,6 @@
 de:
   activemodel:
     attributes:
-      answer:
-        add_documents: Dokumente hinzufügen
       close_meeting:
         attendees_count: Anzahl Teilnehmende
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -18,7 +16,6 @@ de:
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
-        decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
         id: ID
@@ -122,7 +119,6 @@ de:
             values:
               official: Offiziell
               participants: Teilnehmer
-              user_group: Benutzergruppen
           with_any_type:
             label: Art der Veranstaltung
             values:
@@ -176,7 +172,6 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
-            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     download_your_data:
       help:
         invites:
@@ -189,9 +184,13 @@ de:
           updated_at: Datum und Uhrzeit, an dem diese Einladung zuletzt aktualisiert wurde
         registrations:
           code: Der Registrierungscode
+          created_at: Datum und Uhrzeit, an dem diese Registrierung erstellt wurde
           id: Die eindeutige Bezeichnung der Registrierung
           meeting: Die Veranstaltung, für die der Benutzer sich registriert hat
+          public_participation: Ob die Teilnahme öffentlich angezeigt wurde
+          updated_at: Datum und Uhrzeit, an dem diese Registrierung zuletzt aktualisiert wurde
           user: Der Benutzer, der die Registrierung durchgeführt hat
+          validated_at: Datum und Uhrzeit, an dem diese Registrierung validiert wurde
       show:
         meeting_comments: Kommentare zu Veranstaltungen exportieren
         meetings: Export für Veranstaltungen
@@ -281,12 +280,12 @@ de:
             add_agenda_item_child: Fügen Sie den Tagesordnungspunkt child hinzu
             agenda_item: Tagesordnungspunkt
             agenda_item_children: Tagesordnungspunkt Childs
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           agenda_item_child:
             agenda_item_child: Tagesordnungspunkt Kind
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           create:
@@ -307,7 +306,6 @@ de:
             invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
             success: Traktandum erfolgreich aktualisiert.
         exports:
-          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -381,7 +379,7 @@ de:
             success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             service: Bedienung
             title: Titel
@@ -404,7 +402,7 @@ de:
         poll:
           form:
             announcement_html:
-              - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
+              - 
               - Sie können jederzeit eine neue Frage hinzufügen.
               - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
               - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
@@ -416,7 +414,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
-            manage_questions: Fragen verwalten
+            manage_questions: Fragen
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
@@ -542,7 +540,6 @@ de:
             all: Alle
             official: Offiziell
             participants: Teilnehmer
-            user_group: Gruppen
           search: Suche
           type: Art
           type_values:
@@ -553,7 +550,6 @@ de:
         form:
           address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
-          create_as: Besprechung erstellen als
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
           iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
@@ -582,7 +578,6 @@ de:
         new:
           back: Zurück
           create: Erstellen
-          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
@@ -636,26 +631,14 @@ de:
             taxonomies: Klassifizierungen
             title: Titel
       polls:
-        answers:
-          index:
-            administrate: Bearbeiten
-            title: Umfrage
-          index_admin:
-            back_to_meeting: Zurück zur Veranstaltung
-            title: Umfrage bearbeiten
-            view_poll: Umfrage ansehen
         questions:
           closed_question:
             announcement: Die Beantwortung dieser Frage wurde beendet.
             question: Frage
             question_results: Resultate
-          index:
-            empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
             edit: Im Adminbereich bearbeiten
             question: Frage
-            received_answer: Antwort erhalten
-            received_answers: erhaltene Antworten
             results: Ergebnisse
             send: Senden
             sent: Gesendet
@@ -669,7 +652,6 @@ de:
             question_replied: Frage beantwortet
             reply_question: Frage beantworten
       public_participants_list:
-        attending_organizations: Organisationen
         attending_participants: Teilnehmende
         hidden_participants_count:
           one: und %{count} weitere Person
@@ -720,11 +702,9 @@ de:
           commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
           comments: Die Daten der Kommentare der Veranstaltung
           created_at: Das Erstellungsdatum des Kommentars
-          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         meetings:
           address: Die Adresse der Veranstaltung, falls sie an einem Standort stattfindet
           attachments: Die Anzahl der Anhänge in dieser Veranstaltung
@@ -744,18 +724,37 @@ de:
           decidim_author_type: Autorentyp des Veranstaltungsautors
           description: Die Beschreibung der Sitzung
           end_time: Das Datum und die Uhrzeit dieses Abschlusses der Sitzung
+          follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Sitzung
+          iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
+          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
+          location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet
+          longitude: Der Längengrad des Veranstaltungsorts
+          online_meeting_url: Die URL der Online-Veranstaltung
           organizations: Die Organisationen, die an diesem Treffen teilnehmen
           participatory_space: Zu welchem Bereich diese Sitzung gehört (z.B. Partizipationsprozesse oder Gremien)
+          private_meeting: Um anzugeben, ob die Veranstaltung privat ist oder nicht
           published: Wann die Sitzung veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          registration_form_enabled: Ob das Anmeldeformular aktiviert wurde oder nicht
+          registration_terms: Die Teilnahmebedingungen, die vor der Veranstaltung angenommen wurden
+          registration_type: Die Art der Registrierung der Veranstaltung
+          registration_url: URL der Veranstaltungsregistrierung
+          registrations_enabled: Ob Registrierungen erlaubt waren
           related_proposals: Mit dieser Sitzung verknüpfte Vorschläge
           related_results: Die mit dieser Sitzung verknüpfte Ergebnisse
+          reserved_slots: Die Anzahl der reservierten Plätze für die Veranstaltung
           start_time: Datum und Uhrzeit des Beginns dieser Sitzung
           taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
           title: Der Titel der Sitzung
+          transparent: Die Sichtbarkeit der Veranstaltung für Nicht-Teilnehmende
+          type_of_meeting: Der Veranstaltungstyp
+          updated_at: Das Datum, an dem die Veranstaltung zuletzt aktualisiert wurde
           url: Die URL der Sitzung
+          video_url: Videoaufzeichnung der Veranstaltung
+          withdrawn: Ob diese Veranstaltung zurückgezogen wurde
           withdrawn_at: Wann diese Sitzung zurückgezogen wurde
     participatory_spaces:
       highlighted_meetings:

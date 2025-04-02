@@ -17,12 +17,12 @@ FactoryBot.define do
     trait :with_questions do
       questions do
         position = 0
-        qs = %w(short_answer long_answer).collect do |text_question_type|
+        qs = %w(short_response long_response).collect do |text_question_type|
           q = build(:questionnaire_question, question_type: text_question_type, position:, skip_injection:)
           position += 1
           q
         end
-        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position:, skip_injection:)
+        qs << build(:questionnaire_question, :with_response_options, question_type: :single_option, position:, skip_injection:)
         qs
       end
     end
@@ -30,7 +30,7 @@ FactoryBot.define do
     trait :with_all_questions do
       after(:build) do |questionnaire, evaluator|
         position = 0
-        %w(short_answer long_answer).collect do |text_question_type|
+        %w(short_response long_response).collect do |text_question_type|
           q = create(:questionnaire_question,
                      question_type: text_question_type,
                      position:,
@@ -41,7 +41,7 @@ FactoryBot.define do
         end
 
         %w(single_option multiple_option).each do |option_question_type|
-          q = create(:questionnaire_question, :with_answer_options,
+          q = create(:questionnaire_question, :with_response_options,
                      question_type: option_question_type,
                      position:,
                      questionnaire:,
@@ -49,7 +49,7 @@ FactoryBot.define do
           q.display_conditions.build(
             condition_question: questionnaire.questions[q.position - 1],
             question: q,
-            condition_type: :answered,
+            condition_type: :responded,
             mandatory: true
           )
           questionnaire.questions << q
@@ -57,7 +57,7 @@ FactoryBot.define do
         end
 
         %w(matrix_single matrix_multiple).collect do |matrix_question_type|
-          q = build(:questionnaire_question, :with_answer_options,
+          q = build(:questionnaire_question, :with_response_options,
                     question_type: matrix_question_type,
                     position:,
                     body: generate_localized_title,
@@ -66,7 +66,7 @@ FactoryBot.define do
           q.display_conditions.build(
             condition_question: questionnaire.questions[q.position - 1],
             question: q,
-            condition_type: :answered,
+            condition_type: :responded,
             mandatory: true
           )
           questionnaire.questions << q
@@ -97,9 +97,9 @@ FactoryBot.define do
     questionnaire
 
     before(:create) do |question, evaluator|
-      if question.answer_options.empty?
+      if question.response_options.empty?
         evaluator.options.each do |option|
-          question.answer_options.build(
+          question.response_options.build(
             body: option["body"],
             free_text: option["free_text"]
           )
@@ -116,9 +116,9 @@ FactoryBot.define do
       end
     end
 
-    trait :with_answer_options do
-      answer_options do
-        Array.new(3).collect { build(:answer_option, skip_injection:) }
+    trait :with_response_options do
+      response_options do
+        Array.new(3).collect { build(:response_option, skip_injection:) }
       end
     end
 
@@ -137,7 +137,7 @@ FactoryBot.define do
     end
   end
 
-  factory :answer, class: "Decidim::Forms::Answer" do
+  factory :response, class: "Decidim::Forms::Response" do
     transient do
       skip_injection { false }
     end
@@ -145,17 +145,17 @@ FactoryBot.define do
     questionnaire
     question { create(:questionnaire_question, questionnaire:, skip_injection:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
-    session_token { Digest::MD5.hexdigest(user.id.to_s) }
+    session_token { Digest::SHA256.hexdigest(user.id.to_s) }
 
     trait :with_attachments do
-      after(:create) do |answer, evaluator|
-        create(:attachment, :with_image, attached_to: answer, skip_injection: evaluator.skip_injection)
-        create(:attachment, :with_pdf, attached_to: answer, skip_injection: evaluator.skip_injection)
+      after(:create) do |response, evaluator|
+        create(:attachment, :with_image, attached_to: response, skip_injection: evaluator.skip_injection)
+        create(:attachment, :with_pdf, attached_to: response, skip_injection: evaluator.skip_injection)
       end
     end
   end
 
-  factory :answer_option, class: "Decidim::Forms::AnswerOption" do
+  factory :response_option, class: "Decidim::Forms::ResponseOption" do
     transient do
       skip_injection { false }
     end
@@ -172,13 +172,13 @@ FactoryBot.define do
     end
   end
 
-  factory :answer_choice, class: "Decidim::Forms::AnswerChoice" do
+  factory :response_choice, class: "Decidim::Forms::ResponseChoice" do
     transient do
       skip_injection { false }
     end
-    answer
-    answer_option { create(:answer_option, question: answer.question, skip_injection:) }
-    matrix_row { create(:question_matrix_row, question: answer.question, skip_injection:) }
+    response
+    response_option { create(:response_option, question: response.question, skip_injection:) }
+    matrix_row { create(:question_matrix_row, question: response.question, skip_injection:) }
   end
 
   factory :question_matrix_row, class: "Decidim::Forms::QuestionMatrixRow" do
@@ -196,12 +196,12 @@ FactoryBot.define do
     end
     condition_question { create(:questionnaire_question, skip_injection:) }
     question { create(:questionnaire_question, position: 1, skip_injection:) }
-    condition_type { :answered }
+    condition_type { :responded }
     mandatory { true }
 
     trait :equal do
       condition_type { :equal }
-      answer_option { create(:answer_option, question: condition_question, skip_injection:) }
+      response_option { create(:response_option, question: condition_question, skip_injection:) }
     end
 
     trait :match do

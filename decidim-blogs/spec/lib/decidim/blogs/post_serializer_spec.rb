@@ -51,24 +51,6 @@ module Decidim
               end
             end
           end
-
-          context "when it is a user group" do
-            let!(:post) { create(:post, author:, component:) }
-            let(:author) { create(:user_group, :verified, organization:) }
-
-            before do
-              post.author.update!(name: "ACME", nickname: "acme")
-              post.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: "ACME")
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: profile_url("acme"))
-            end
-          end
         end
 
         it "serializes the title" do

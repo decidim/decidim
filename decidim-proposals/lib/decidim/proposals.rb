@@ -22,20 +22,20 @@ module Decidim
     autoload :ParticipatoryTextSection, "decidim/proposals/participatory_text_section"
     autoload :DocToMarkdown, "decidim/proposals/doc_to_markdown"
     autoload :OdtToMarkdown, "decidim/proposals/odt_to_markdown"
-    autoload :Valuatable, "decidim/proposals/valuatable"
+    autoload :Evaluable, "decidim/proposals/evaluable"
 
     include ActiveSupport::Configurable
 
     # Public Setting that defines how many proposals will be shown in the
     # participatory_space_highlighted_elements view hook
     config_accessor :participatory_space_highlighted_proposals_limit do
-      4
+      Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
     end
 
     # Public Setting that defines how many proposals will be shown in the
     # process_group_highlighted_elements view hook
     config_accessor :process_group_highlighted_proposals_limit do
-      3
+      Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
     end
 
     def self.proposal_states_colors

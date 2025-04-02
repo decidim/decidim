@@ -11,8 +11,6 @@ module Decidim
     end
 
     def frontend_administrable?
-      return true if user_reportable? && current_user&.admin?
-
       user_entity? &&
         model.can_be_administered_by?(current_user) &&
         (model.respond_to?(:official?) && !model.official?)
@@ -26,7 +24,7 @@ module Decidim
     end
 
     def hide_checkbox_id
-      @hide_checkbox_id ||= Digest::MD5.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
+      @hide_checkbox_id ||= Digest::SHA256.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
     end
 
     def cache_hash
@@ -48,16 +46,12 @@ module Decidim
       options[:modal_id] || "flagModal"
     end
 
-    def user_reportable?
-      model.is_a?(Decidim::UserReportable)
-    end
-
     def report_form
-      @report_form ||= user_reportable? ? Decidim::ReportForm.from_params(reason: "spam") : Decidim::ReportForm.new(reason: "spam")
+      @report_form ||= Decidim::ReportForm.new(reason: "spam")
     end
 
     def report_path
-      @report_path ||= user_reportable? ? decidim.report_user_path(sgid: model.to_sgid.to_s) : decidim.report_path(sgid: model.to_sgid.to_s)
+      @report_path ||= decidim.report_path(sgid: model.to_sgid.to_s)
     end
 
     def builder

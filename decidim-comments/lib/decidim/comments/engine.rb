@@ -56,23 +56,6 @@ module Decidim
         Decidim.icons.register(name: "edit-line", icon: "edit-line", description: "Edit comment button", **common_parameters)
       end
 
-      initializer "decidim_comments.register_metrics" do
-        Decidim.metrics_registry.register(:comments) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 6
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :comments) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
-        end
-      end
-
       initializer "decidim_comments.register_resources" do
         Decidim.register_resource(:comment) do |resource|
           resource.model_class_name = "Decidim::Comments::Comment"

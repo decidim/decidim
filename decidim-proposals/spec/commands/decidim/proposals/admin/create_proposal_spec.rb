@@ -44,8 +44,7 @@ module Decidim
               documents: current_files,
               add_documents: uploaded_files,
               created_in_meeting:,
-              meeting_id:,
-              user_group_id: nil
+              meeting_id:
             }
           end
 

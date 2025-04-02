@@ -16,7 +16,6 @@ zh-TW:
         customize_registration_email: 自定訂登記電子郵件
         decidim_category_id: 分類
         decidim_scope_id: 範圍
-        decidim_user_group_id: 用戶群組
         description: 說明
         end_time: 結束時間
         id: ID
@@ -99,7 +98,6 @@ zh-TW:
             values:
               official: 官方
               participants: 參與者
-              user_group: 使用者群組
           with_any_type:
             label: 會議類型
             values:
@@ -135,7 +133,6 @@ zh-TW:
             announcement: 公告
             comments_blocked: 留言已封鎖
             creation_enabled_for_participants: 參與者可以創建會議
-            creation_enabled_for_user_groups: 使用者群組可以創建會議
     events:
       meetings:
         meeting_closed:
@@ -243,7 +240,6 @@ zh-TW:
             invalid: 更新議程時發生問題.
             success: 議程已成功更新.
         exports:
-          answers: 回答
           meeting_comments: 評論
           meetings: 會議
           registrations: 註冊
@@ -329,6 +325,7 @@ zh-TW:
           form:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             invites: 邀請
+            manage_questions: 問題
             recommendation_message: 出於隱私考量，建議您在不需要此報名表時刪除它。默認情況下，在會議結束後3個月會自動刪除。
             registration_email_help: 這段文字會出現在註冊確認電子郵件中，位於註冊代碼之後。
             registration_form: 註冊表單
@@ -455,7 +452,6 @@ zh-TW:
         form:
           address_help: '地址：用於地理編碼器找到位置'
           available_slots_help: 如果您有無限的可用名額，請將其設置為0。
-          create_as: 創建會議
           disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
           location_help: '地點：針對使用者的消息，指示會議地點'
           location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
@@ -476,7 +472,6 @@ zh-TW:
         new:
           back: 返回
           create: 建立
-          title: 新增您的會議
         registration_confirm:
           cancel: 取消
           confirm: 確認
@@ -527,13 +522,9 @@ zh-TW:
             title: 標題
       polls:
         questions:
-          index:
-            empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
           index_admin:
             edit: 在管理面板中編輯
             question: 問題
-            received_answer: 收到回答
-            received_answers: 收到回答
             results: 結果
             send: 發送
             sent: 傳送

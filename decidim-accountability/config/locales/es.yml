@@ -272,12 +272,11 @@ es:
           results_count:
             one: Un resultado
             other: "%{count} resultados"
-        home:
-          empty: Aún no hay ningún resultado.
-          empty_filters: No hay resultados con estos criterios.
         home_header:
           global_status: Estado de ejecución global
         no_results: No hay proyectos
+        root_taxonomies:
+          title: 'Visualizar por:'
         search:
           search: Buscar actuaciones
         show:
@@ -302,6 +301,8 @@ es:
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            default_taxonomy: Taxonomía predeterminada
+            default_taxonomy_help: Selecciona qué taxonomía quieres mostrar por defecto. Si no se selecciona alguna taxonomía, los resultados se mostrarán en un formato de lista.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             display_progress_enabled: Mostrar progreso
             geocoding_enabled: Mapas habilitados
@@ -311,6 +312,7 @@ es:
             taxonomy_filters_add: Añadir un filtro
           step:
             comments_blocked: Comentarios bloqueados
+          visualization: Visualización
     download_your_data:
       show:
         result_comments: Exportar los comentarios a los resultados
@@ -345,7 +347,6 @@ es:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         results:
           address: La dirección del resultado (si existe)
           children_count: El número de resultados hijos (anidados)

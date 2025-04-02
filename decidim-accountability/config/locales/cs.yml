@@ -285,12 +285,11 @@ cs:
             few: "%{count} výsledků"
             many: "%{count} výsledků"
             other: "%{count} výsledků"
-        home:
-          empty: Zatím nejsou žádné výsledky.
-          empty_filters: S těmito kritérii nejsou žádné výsledky.
         home_header:
           global_status: Globální stav provedení
         no_results: Nebyly nalezeny žádné projekty
+        root_taxonomies:
+          title: 'Zobrazit podle:'
         search:
           search: Hledat akce
         show:
@@ -315,6 +314,8 @@ cs:
             clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            default_taxonomy: Výchozí taxonomie
+            default_taxonomy_help: Vyberte taxonomii, která se má zobrazovat jako výchozí. Pokud není vybrána žádná taxonomie, výsledky se zobrazí ve formátu seznamu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             display_progress_enabled: Zobrazit průběh
             geocoding_enabled: Mapy povoleny
@@ -324,6 +325,7 @@ cs:
             taxonomy_filters_add: Přidat filtr
           step:
             comments_blocked: Komentáře blokovány
+          visualization: Vizualizace
     download_your_data:
       show:
         result_comments: Export výsledků komentářů
@@ -358,7 +360,6 @@ cs:
           id: Id pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         results:
           address: Adresa výsledku (pokud existuje)
           children_count: Počet výsledků

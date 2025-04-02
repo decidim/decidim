@@ -6,11 +6,11 @@
 </div>
 
 <div class="row columns">
-  <%= decidim_form_for(@preview_form, url: "", method: :post, authenticity_token: !defined?(skip_authenticity_token), html: { class: "form form-defaults answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
+  <%= decidim_form_for(@preview_form, url: "", method: :post, authenticity_token: !defined?(skip_authenticity_token), html: { class: "form form-defaults response-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
     <%= invisible_captcha %>
-    <% answer_idx = 0 %>
-    <% cleaned_answer_idx = 0 %>
-    <% @preview_form.responses_by_step.each_with_index do |step_answers, step_index| %>
+    <% response_idx = 0 %>
+    <% cleaned_response_idx = 0 %>
+    <% @preview_form.responses_by_step.each_with_index do |step_responses, step_index| %>
       <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
         <div class="form__wrapper">
           <% if @preview_form.total_steps > 1 %>
@@ -19,23 +19,23 @@
             </h4>
           <% end %>
 
-          <% step_answers.each do |answer| %>
-            <div class="mb-4 answer" data-max-choices="<%= answer.question.max_choices %>">
-              <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
+          <% step_responses.each do |response| %>
+            <div class="mb-4 response" data-max-choices="<%= response.question.max_choices %>">
+              <%= fields_for "questionnaire[responses][#{response_idx}]", response do |response_form| %>
                 <%= render(
-                  "decidim/forms/questionnaires/answer",
-                  answer_form:,
-                  answer:,
-                  answer_idx:,
-                  cleaned_answer_idx:,
+                  "decidim/forms/questionnaires/response",
+                  response_form:,
+                  response:,
+                  response_idx:,
+                  cleaned_response_idx:,
                   disabled: false
                 ) %>
               <% end %>
             </div>
-            <% if !answer.question.separator? %>
-              <% cleaned_answer_idx += 1 %>
+            <% if !response.question.separator? %>
+              <% cleaned_response_idx += 1 %>
             <% end %>
-            <% answer_idx += 1 %>
+            <% response_idx += 1 %>
           <% end %>
 
           <% if step_index + 1 == @preview_form.total_steps %>

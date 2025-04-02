@@ -197,7 +197,7 @@ module Decidim::Maintenance::ImportModels
       end
 
       context "and a component has no taxonomy filters" do
-        let!(:dummy_component) { create(:post_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
+        let!(:dummy_component) { create(:surveys_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
         let(:dummy_resource) { nil }
 
         it "Skips the component" do

@@ -16,7 +16,6 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
@@ -39,7 +38,6 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        user_group_id:,
         current_user:,
         current_organization: organization,
         registration_type:,
@@ -90,22 +88,10 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
-      context "when the author is a user_group" do
-        let(:user_group) { create(:user_group, :verified, users: [current_user], organization:) }
-        let(:user_group_id) { user_group.id }
-
-        it "sets the user_group as the author" do
-          subject.call
-          expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq user_group
-        end
-      end
-
       context "when the author is a user" do
         it "sets the user as the author" do
           subject.call
           expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq current_user
         end
       end
 
@@ -140,7 +126,6 @@ module Decidim::Meetings
             address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            user_group_id:,
             services_to_persist: [],
             current_user:,
             current_organization: organization,

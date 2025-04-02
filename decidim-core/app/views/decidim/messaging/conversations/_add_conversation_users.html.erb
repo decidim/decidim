@@ -4,7 +4,7 @@
   <div>
     <div class="form__wrapper gap-1 js-multiple-mentions" data-name="recipient_id[]" data-multiple="true">
       <label for="add_conversation_users">
-        <%= t("decidim.metrics.participants.title") %>
+        <%= t("participants.title", scope: "decidim.messaging.conversations.add_conversation_users") %>
       </label>
       <span id="dialog-desc-conversation" class="help-text"><%= t("add_max_users", scope: "decidim.messaging.conversations.add_conversation_users") %></span>
       <input id="add_conversation_users" type="text"

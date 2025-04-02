@@ -60,11 +60,20 @@ sv:
         personal_url: Personlig hemsida
         position: Befattning
         short_bio: Kort beskrivning
+        twitter_handle: Användarnamn till X
         user_id: Användare
       conference_user_role:
         email: E-post
         name: Namn
         role: Roll
+      partner:
+        logo: Logotyp
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Det här e-postadressen har redan blivit inbjuden.
   activerecord:
     models:
       decidim/conference:
@@ -80,7 +89,15 @@ sv:
     admin:
       actions:
         confirm: Bekräfta
+        confirm_delete_conference: Är du säker på att du vill ta bort den här konferensen? Om du ändrar dig kan du återställa den senare.
+        new_conference: Ny konferens
+        new_conference_user_role: Ny konferensadministratör
+        new_media_link: Ny medialänk
+        new_partner: Ny partner
+        new_registration_type: Ny registreringstyp
+        new_speaker: Ny talare
         send_diplomas: Skicka deltagarbevis
+        view_deleted_conferences: Visa raderade konferenser
       conference_copies:
         new:
           copy: Kopiera
@@ -104,12 +121,15 @@ sv:
         destroy:
           success: Talaren har tagits bort.
         edit:
+          title: Uppdatera konferenstalare
           update: Uppdatera
         index:
           conference_speakers_title: Talare
         new:
           create: Skapa
+          title: Ny konferenstalare
         publish:
+          invalid: Det gick inte att publicera talaren.
           success: Konferensens talare har publicerats.
         unpublish:
           invalid: Det gick inte att avpublicera talaren.
@@ -124,9 +144,13 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
+          title: Uppdatera konferensadministratör
           update: Uppdatera
+        index:
+          conference_admins_title: Konferensadministratörer
         new:
           create: Skapa
+          title: Ny konferensadministratör
         update:
           error: Det gick inte att uppdatera konferensadministratören.
           success: Konferensadministratören har uppdaterats.
@@ -142,6 +166,9 @@ sv:
           title: Allmän information
         index:
           published: Publicerad
+          unpublished: Ej publicerad
+        manage_trash:
+          title: Borttagna konferenser
         new:
           create: Skapa
           title: Konferens
@@ -155,6 +182,9 @@ sv:
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
+          success: Medielänken har skapats.
+        destroy:
+          success: Medielänken har raderats.
         edit:
           title: Uppdatera medialänk
           update: Uppdatera
@@ -206,8 +236,8 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
+            evaluator: Utvärderare
             moderator: Moderator
-            valuator: Handläggare
         media_link:
           fields:
             date: Datum
@@ -521,6 +551,13 @@ sv:
           rejected_at: Datum då inbjudan till konferensen avvisades
           sent_at: Datum då inbjudan till konferensen skickades
           updated_at: Datum då inbjudan senast uppdaterades
+        conference_registrations:
+          conference: Konferensen som detta tillhör
+          confirmed_at: Datum då anmälan bekräftades
+          created_at: Datum då anmälan skapades
+          id: Unikt id för konferensanmälan
+          registration_type: Den typ av registrering som detta tillhör
+          updated_at: Datum då anmälan senast uppdaterades
     events:
       conferences:
         conference_registration_confirmed:
@@ -558,12 +595,26 @@ sv:
           contextual: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           page: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           title: Vad är konferenser?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferensen hittades inte i databasen (ID: %{id}).'
     media:
       index:
         description: Länkar om konferensen
         title: Media och länkar
     menu:
       conferences: Konferenser
+    open_data:
+      help:
+        conferences:
+          created_at: Datum när utrymmet skapades
+          decidim_scope_id: Omfattningen av konferensen
+          description: Längre beskrivning av konferensen
+          end_date: Det datum då konferens avslutas.
+          follows_count: Antal följare
+          hashtag: Konferensens hashtag, används för Twitter/X
+          id: Unikt id för konferensen
     statistics:
       conferences_count: Konferenser
   devise:

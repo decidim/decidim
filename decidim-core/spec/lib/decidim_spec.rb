@@ -41,9 +41,10 @@ describe Decidim do
   describe ".force_ssl" do
     let!(:orig_force_ssl) { described_class.force_ssl }
     let(:rails_env) { "test" }
+    let(:env) { ActiveSupport::EnvironmentInquirer.new(rails_env) }
 
     before do
-      allow(Rails).to receive(:env).and_return(rails_env)
+      allow(Rails).to receive(:env).and_return(env)
       load "#{Decidim::Core::Engine.root}/lib/decidim/core.rb"
     end
 

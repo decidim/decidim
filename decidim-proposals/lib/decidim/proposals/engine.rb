@@ -103,7 +103,7 @@ module Decidim
 
       initializer "decidim_proposals.remove_space_admins" do
         ActiveSupport::Notifications.subscribe("decidim.admin.participatory_space.destroy_admin:after") do |_event_name, data|
-          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: data.fetch(:class_name), valuator_role_id: data.fetch(:role)).destroy_all
+          Decidim::Proposals::EvaluationAssignment.where(evaluator_role_type: data.fetch(:class_name), evaluator_role_id: data.fetch(:role)).destroy_all
         end
       end
 
@@ -111,44 +111,26 @@ module Decidim
         Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            case model
-            when User
-              Decidim::Coauthorship.where(
-                coauthorable_type: "Decidim::Proposals::Proposal",
-                author: model,
-                user_group: nil
-              ).count
-            when UserGroup
-              Decidim::Coauthorship.where(
-                coauthorable_type: "Decidim::Proposals::Proposal",
-                user_group: model
-              ).count
-            end
+            Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: model
+            ).count
           }
         end
 
         Decidim::Gamification.register_badge(:accepted_proposals) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda { |model|
-            proposal_ids = case model
-                           when User
-                             Decidim::Coauthorship.where(
-                               coauthorable_type: "Decidim::Proposals::Proposal",
-                               author: model,
-                               user_group: nil
-                             ).select(:coauthorable_id)
-                           when UserGroup
-                             Decidim::Coauthorship.where(
-                               coauthorable_type: "Decidim::Proposals::Proposal",
-                               user_group: model
-                             ).select(:coauthorable_id)
-                           end
+            proposal_ids = Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: model
+            ).select(:coauthorable_id)
 
             Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
           }
@@ -160,59 +142,6 @@ module Decidim
           badge.reset = lambda { |user|
             Decidim::Proposals::ProposalVote.where(author: user).select(:decidim_proposal_id).distinct.count
           }
-        end
-      end
-
-      initializer "decidim_proposals.register_metrics" do
-        Decidim.metrics_registry.register(:proposals) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::ProposalsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 2
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_registry.register(:accepted_proposals) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_registry.register(:votes) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::VotesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 3
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_registry.register(:endorsements) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Proposals::Metrics::EndorsementsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 4
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :proposals) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure"
-        end
-        Decidim.metrics_operation.register(:followers, :proposals) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure"
         end
       end
 

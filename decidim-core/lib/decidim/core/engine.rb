@@ -55,6 +55,7 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
+        Decidim.icons.register(name: "qr-code-line", icon: "qr-code-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "more-2-fill", icon: "more-2-fill", category: "system", description: "Resource Action button", engine: :core)
         Decidim.icons.register(name: "more-fill", icon: "more-fill", category: "system", description: "Resource Action button", engine: :core)
@@ -190,7 +191,6 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
-        Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
         Decidim.icons.register(name: "unfollow", icon: "notification-3-fill", description: "Unfollow", category: "action", engine: :core)
         Decidim.icons.register(name: "share", icon: "share-line", description: "Share", category: "action", engine: :core)
@@ -327,7 +327,6 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
-        Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
       initializer "decidim_core.ransack" do
@@ -402,7 +401,7 @@ module Decidim
               Decidim.configure do |config|
                 config.maps = {
                   provider: :here,
-                  api_key: Rails.application.secrets.maps[:api_key],
+                  api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", Decidim::Env.new("MAPS_API_KEY", nil)).to_s,
                   static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
                 }
               end
@@ -454,7 +453,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :user_group, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob]
         end
       end
 
@@ -535,76 +534,6 @@ module Decidim
           resource.card = "decidim/user_profile"
           resource.searchable = true
         end
-
-        Decidim.register_resource(:user_group) do |resource|
-          resource.model_class_name = "Decidim::UserGroup"
-          resource.card = "decidim/user_profile"
-          resource.searchable = true
-        end
-      end
-
-      initializer "decidim_core.register_metrics" do
-        Decidim.metrics_registry.register(:users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:user_reports) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UserReportsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:reported_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ReportedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:participants) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 1
-            settings.attribute :stat_block, type: :string, default: "big"
-          end
-        end
-
-        Decidim.metrics_registry.register(:followers) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::FollowersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 10
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
-        end
       end
 
       initializer "decidim_core.homepage_content_blocks" do
@@ -630,9 +559,17 @@ module Decidim
       # Just provide the respective icon name (unprefixed) and the brand color,
       # if a social-network icon is missing there, you can provide as well a SVG file as used to
       initializer "decidim_core.add_social_share_services" do
+        Decidim.register_social_share_service("QR") do |service|
+          service.type = :popup
+          service.icon = "qr-code-line"
+          service.share_uri = "/qr-code?external_url=%{url}&name=%{title}"
+          service.optional_args = {
+            "dialog-open": "QRCodeDialog"
+          }
+        end
+
         Decidim.register_social_share_service("Douban") do |service|
           service.icon = "douban-line"
-          service.icon_color = "#2496cd"
           service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
         end
 
@@ -643,13 +580,11 @@ module Decidim
 
         Decidim.register_social_share_service("Facebook") do |service|
           service.icon = "facebook-circle-line"
-          service.icon_color = "#1877f2"
           service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
         end
 
         Decidim.register_social_share_service("Google Bookmark") do |service|
           service.icon = "google-line"
-          service.icon_color = "#4285f4"
           service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
         end
 
@@ -660,7 +595,6 @@ module Decidim
 
         Decidim.register_social_share_service("LinkedIn") do |service|
           service.icon = "linkedin-box-fill"
-          service.icon_color = "#0a66c2"
           service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
         end
 
@@ -671,32 +605,27 @@ module Decidim
 
         Decidim.register_social_share_service("Pinterest") do |service|
           service.icon = "pinterest-line"
-          service.icon_color = "#bd081c"
           service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
         end
 
         Decidim.register_social_share_service("Reddit") do |service|
           service.icon = "reddit-line"
-          service.icon_color = "#ff4500"
           service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
         end
 
         Decidim.register_social_share_service("Telegram") do |service|
           service.icon = "telegram-line"
-          service.icon_color = "#0088cc"
           service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
         end
 
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
-          service.icon_color = "#1da1f2"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("X") do |service|
           service.icon = "twitter-x-line"
-          service.icon_color = "#000000"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end
@@ -708,13 +637,11 @@ module Decidim
 
         Decidim.register_social_share_service("WhatsApp") do |service|
           service.icon = "whatsapp-line"
-          service.icon_color = "#25d366"
           service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
         end
 
         Decidim.register_social_share_service("Xing") do |service|
           service.icon = "xing-line"
-          service.icon_color = "#cfdc00"
           service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
         end
       end

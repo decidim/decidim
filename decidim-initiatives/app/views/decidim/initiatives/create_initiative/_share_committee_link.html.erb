@@ -2,6 +2,10 @@
   <span class="help-text mb-2">
     <%= t ".invite_to_committee_help" %>
   </span>
+  <span class="help-text mb-2">
+    <%= t ".invite_to_committee_help_2", committee_size: current_initiative.minimum_committee_members %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>
+  </span>
   <div class="initiative__form__committee">
     <span>
       <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
