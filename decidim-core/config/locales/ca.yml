@@ -1665,7 +1665,20 @@ ca:
         body_2: Com a part dels nostres esforços per simplificar l'experiència de les organitzacions, la funció "Grups d'usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup d'Usuàries ha esdevingut un perfil de participant en ús.
         greeting: Benvolgut/da %{name},
         instructions_1: Si tens accés a aquest compte de correu electrònic, si us plau, revisa la safata d'entrada per veure les instruccions.
+        instructions_intro: Hem enviat instruccions per establir una nova contrasenya pel perfil, al correu electrònic associat al compte.
+        instructions_title: "<strong>Què vol dir això per a tu?</strong>"
         subject: Actualització important sobre un grup d'usuaris del que formeu part
+      notify_deprecation_to_owner:
+        body_1: Ens posem en contacte amb tu per informar-te sobre una important actualització respecte al Grup d'usuaris %{organization_name} del qual formes part.
+        body_2: 'Com a part dels nostres esforços per simplificar l''experiència de les organitzacions com la vostra, la funció "Grups d''Usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup: <strong>%{name}</strong> s''ha convertit en un perfil de participant a l''ús.'
+        body_3: Per poder seguir accedint al teu compte, necessitem que estableixis una contrasenya.
+        greeting: Benvolgut/da %{name},
+        instructions_1: 'Clica a l''enllaç que trobaràs a continuació per iniciar el procés per configurar la contrasenya:'
+        instructions_2: Al formulari, introdueix l'adreça de correu electrònic on vas rebre aquest missatge i envia la sol·licitud.
+        instructions_3: Revisa la teva safata d'entrada a la recerca d'un correu electrònic amb més instruccions per establir la contrasenya nova.
+        instructions_title: "<strong>Què cal que facis?</strong>"
+        set_password: Iniciar el procés de configuració de la contrasenya
+        subject: Actualització important del grup d'usuàries
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
