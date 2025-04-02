@@ -20,4 +20,10 @@
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
   </section>
+
+  <section class="layout-main__section">
+    <div class="editor-content">
+      <%= decidim_sanitize_editor_admin document.body %>
+    </div>
+  </section>
 <% end %>

@@ -19,23 +19,34 @@ You may need to change your `.ruby-version` file too.
 
 If not, you need to adapt it to your environment, for instance by changing the decidim docker image to use ruby:3.x.x.
 
-### 1.2. Update your Gemfile
+### 1.2. Update your application configuration
+
+In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (read more about it at "3.4 Deprecation of `Rails.application.secrets`").
+
+```bash
+git rm config/secrets.yml
+git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+
+### 1.3. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.3. Run these commands
+### 1.4. Run these commands
 
 ```console
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
+bin/rails decidim:verifications:revoke:sms
 ```
 
-### 1.4. Follow the steps and commands detailed in these notes
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -189,7 +200,68 @@ If your application includes the `metrics` queue in `config/sidekiq.yml` or sche
 
 You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. SMS authorization changes
+
+As we have changed the authorization signature method for SMS, you will need to remove any authorizations that you may have. We are asking you to do this, in order to force your user base to reauthorize.
+
+To remove it, you just need to run the below task.
+
+```bash
+bin/rails decidim:verifications:revoke:sms
+```
+
+You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)
+
+### 2.7. Initiatives digital signature process change
+
+The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
+
+To define a signature workflow create an initializer in your application and register it:
+
+For example, in `config/initializers/decidim_initiatives.rb`:
+
+```ruby
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = true
+  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_sms_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::SignatureHandler"
+  workflow.sms_verification = true
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_personal_data_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.save_authorizations = false
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.save_authorizations = false
+  workflow.sms_verification = true
+end
+```
+
+All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
+
+Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
+
+To migrate old signature configurations review the One time actions section.
+
+In the process to extract the old initiatives vote form to a base handler a new secret has been added to extract the key used to encrypt the user metadata in the vote. This secret is available in the application calling `Decidim::Initiatives.signature_handler_encryption_secret` and is used in the base class `Decidim::Initiatives::SignatureHandler`.
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -241,7 +313,20 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.4. Migrate signature configuration of initiatives types
+### 3.4. Deprecation of `Rails.application.secrets`
+
+If you were already using the Environment Variables for the configuration of your application, then you can remove both the config/secrets.yml and also the decidim initializer:
+If you are not using the ENV system, you will need to adjust your application settings to use it.
+
+Before actually removing the initializer, just make sure you do not have any custom configuration.
+
+```bash
+git rm config/secrets.yml
+git rm config/initializers/decidim.rb
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+```
+
+### 3.5. Migrate signature configuration of initiatives types
 
 If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
 
@@ -272,7 +357,7 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
