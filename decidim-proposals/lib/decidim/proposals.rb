@@ -39,15 +39,15 @@ module Decidim
     end
 
     config_accessor :default_content_suggestions_limit do
-      3
+      Decidim::Env.new("DEFAULT_CONTENT_SUGGESTIONS_LIMIT", 3).to_i
     end
 
     config_accessor :default_content_suggestions_criteria do
-      "random" # possible values: location, random, most_recent
+      Decidim::Env.new("DEFAULT_CONTENT_SUGGESTIONS_CRITERIA", "random").value # possible values: location, random, most_recent
     end
 
     config_accessor :suggestions_by_location_distance do
-      100 # Units depending on geocoder config km or miles
+      Decidim::Env.new("SUGGESTIONS_BY_LOCATION_DISTANCE", 100).to_i # Units depending on geocoder config km or miles
     end
 
     def self.proposal_states_colors
