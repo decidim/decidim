@@ -146,7 +146,6 @@ describe "Vote Proposal", slow: true do
           Rails.cache.clear
         end
 
-        # scenario 1
         context "when there is no limit, no threshold nor a minimum" do
           it "it updates the number of votes" do
             visit_component
@@ -172,7 +171,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 2
         context "when there is no limit, no minimum but there is a threshold" do
           let(:threshold_per_proposal) { 2 }
 
@@ -209,7 +207,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 3
         context "when there is no threshold, no limit but there is a minimum" do
           let(:minimum_votes_per_user) { 2 }
 
@@ -279,7 +276,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 4
         context "when there is no limit but there is a minimum and a threshold" do
           let(:minimum_votes_per_user) { 2 }
           let(:threshold_per_proposal) { 2 }
@@ -351,7 +347,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 5
         context "when there is no minimum, threshold but there is a limit" do
           let(:vote_limit) { 2 }
 
@@ -426,7 +421,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 6
         context "when there is no minimum but there is a threshold and a limit" do
           let(:threshold_per_proposal) { 2 }
           let(:vote_limit) { 2 }
@@ -500,7 +494,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 7
         context "when there is no threshold but there is a minimum and a limit" do
           let(:minimum_votes_per_user) { 2 }
           let(:vote_limit) { 2 }
@@ -578,7 +571,6 @@ describe "Vote Proposal", slow: true do
           end
         end
 
-        # scenario 8
         context "when there is a threshold, a minimum and a limit" do
           let(:minimum_votes_per_user) { 2 }
           let(:threshold_per_proposal) { 2 }
