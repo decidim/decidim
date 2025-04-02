@@ -408,6 +408,8 @@ ca:
           participatory_processes:
             one: Un procés
             other: "%{count} processos"
+      related_processes:
+        help: Tots els processos seleccionats seran assignats a aquest grup, incloent-hi els que ja estan assignats a altres grups.
       show:
         title: Grups de processos participatius
     participatory_process_steps:
