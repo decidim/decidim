@@ -22,7 +22,7 @@ module Decidim
         # Group 1: Host part
         (?<host_part>
           # Group 2: Domain and subpath part
-          #{URI::DEFAULT_PARSER.make_regexp}
+          #{URI::DEFAULT_PARSER.make_regexp(%w(https http))}
         )?
         /rails/active_storage
         # Group 3: Blob path, representation path or disk service path
