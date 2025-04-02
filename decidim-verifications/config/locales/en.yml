@@ -180,6 +180,9 @@ en:
               no_sign_in: Never signed in
               no_user: No user
             new_import:
+              errors:
+                email_exists: The email address %{email} already exists in organization %{organization}.
+                email_not_found: The email address %{email} was not found in organization %{organization}.
               example: |
                 john.doe@example.org
                 jane.doe@example.org
@@ -187,9 +190,6 @@ en:
               submit: Upload file
               title: Import census data
               upload_new_census: Upload a new census
-              errors:
-                email_not_found: The email address %{email} was not found in organization %{organization}.
-                email_exists: The email address %{email} already exists in organization %{organization}.
           census_records:
             create_record:
               error: There was a problem adding the census data record.
