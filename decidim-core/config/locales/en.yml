@@ -167,6 +167,7 @@ en:
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
       skip_button: Skip to main content
+      secondary_menu: Secondary menu
     account:
       blocked: This account has been blocked due to terms of service violation
       delete:
