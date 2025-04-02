@@ -47,6 +47,13 @@ module Decidim
       it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
     end
 
+    describe "#avatar_url" do
+      subject { described_class.new(user).avatar_url }
+
+      it { is_expected.to start_with("http://#{user.organization.host}:#{Capybara.server_port}/rails/active_storage/disk/") }
+      it { is_expected.to end_with("avatar.jpg") }
+    end
+
     describe "#default_avatar_url" do
       subject { described_class.new(user).default_avatar_url }
 
