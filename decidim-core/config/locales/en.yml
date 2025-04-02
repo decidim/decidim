@@ -205,7 +205,6 @@ en:
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform.
         change_password: Change password
-        nickname_helper: Set a nickname that does not have any capital or uppercase letters.
         update_account: Update account
       update:
         error: There was a problem updating your account.
