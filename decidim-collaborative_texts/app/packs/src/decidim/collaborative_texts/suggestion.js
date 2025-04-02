@@ -95,8 +95,8 @@ export default class Suggestion {
         offsetTop = node.previousSibling.getBoundingClientRect().top;
         node = node.previousSibling;
       }
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
 
     this.menuWrapper.style.top = `${offsetTop - docTop - 10}px`;

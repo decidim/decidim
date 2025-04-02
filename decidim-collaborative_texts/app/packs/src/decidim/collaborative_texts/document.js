@@ -9,6 +9,9 @@ export default class Document {
     this.applying = false;
     this.active = false;
     this.suggestions = [];
+    this.templates = {
+      suggestionsEditor: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsEditorTemplate)
+    }
     try  {
       this.active = JSON.parse(this.doc.dataset.collaborativeTextsDocument);
     } catch (_e) {

@@ -1,6 +1,10 @@
 .collaborative-texts {
   &-container {
     @apply relative mb-8;
+
+    h2 {
+      @apply text-secondary mt-8;
+    }
   }
 
   &-hidden {
@@ -36,20 +40,38 @@
   }
 
   &-editor {
-    @apply bg-gray-5 outline outline-2 outline-offset-2 mb-4;
+    @apply bg-gray-5 mb-4 p-2 pt-1 rounded;
 
-    outline: var(--primary) 2px solid;
+    &-header {
+      @apply flex gap-2 border-b border-gray-6 justify-between items-baseline;
 
-    &-menu {
-      @apply flex gap-2;
+      > svg {
+        @apply fill-secondary text-md;
+      }
+    }
+
+    &-profile {
+      @apply mt-4;
+
+      a {
+        @apply text-black;
+      }
+
+      img {
+        @apply my-0;
+      }
     }
 
     &-container {
-      @apply p-1.5 mb-4;
+      @apply px-2 pt-2 pb-4 my-4 bg-white rounded border border-gray-2 text-md;
 
       &:focus-visible {
         @apply outline-none;
       }
+    }
+
+    &-menu {
+      @apply flex justify-end;
     }
   }
 
@@ -73,29 +95,36 @@
     }
   }
 
+  &-button-cancel,
   &-button-save,
   &-button-apply,
   &-button-suggest,
-  &-button-cancel,
   &-button-restore {
-    // .button
-    @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words focus:outline focus:outline-2 focus:outline-offset-2;
-    // .button__xs
-    @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
+    @apply text-sm;
 
     &.hidden {
       display: none;
     }
   }
 
+  &-button-cancel {
+    @apply text-xl;
+  }
+
   &-button-save,
   &-button-apply,
   &-button-suggest {
+    @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words focus:outline focus:outline-2 focus:outline-offset-2;
+    // .button__xs
+    @apply [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
     // .button__primary
     @apply bg-primary text-white focus:outline-primary;
   }
 
-  &-button-cancel,
+  &-button-save {
+    @apply bg-secondary;
+  }
+
   &-button-restore {
     // .button__transparent && .button__transparent-primary
     @apply border bg-white border-primary text-primary focus:outline-primary;
