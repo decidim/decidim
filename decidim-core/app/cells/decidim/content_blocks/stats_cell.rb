@@ -9,6 +9,7 @@ module Decidim
 
       private
 
+      # TODO: fix this cache
       def cache_hash
         hash = []
         hash.push(I18n.locale)

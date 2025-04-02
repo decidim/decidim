@@ -54,6 +54,8 @@ module Decidim
     def published_components
       @published_components ||= if scope_entity.is_a?(Decidim::Organization)
                                   scope_entity.published_components
+                                elsif scope_entity.is_a?(Decidim::ParticipatoryProcessGroup)
+                                  Component.where(participatory_space: scope_entity.participatory_processes).published
                                 else
                                   Component.where(participatory_space: scope_entity).published
                                 end

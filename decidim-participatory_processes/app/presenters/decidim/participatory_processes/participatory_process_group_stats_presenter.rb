@@ -9,10 +9,6 @@ module Decidim
       private
 
       def scope_entity = __getobj__.fetch(:participatory_process_group)
-
-      def participatory_processes
-        @participatory_processes ||= scope_entity.participatory_processes
-      end
     end
   end
 end
