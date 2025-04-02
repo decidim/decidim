@@ -226,6 +226,7 @@ es:
           submit: Enviar respuestas
       user_answers_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido el
         id: Identificador de respuesta
         ip_hash: Hash de la dirección IP
