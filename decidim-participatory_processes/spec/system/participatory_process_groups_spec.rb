@@ -365,17 +365,17 @@ describe "Participatory Process Groups" do
         end
       end
 
-      # it "shows accumulated resources from components of both participatory processes" do
-      #   within("[data-statistic][class*=proposals]") do
-      #     expect(page).to have_css(".statistic__title", text: "Proposals")
-      #     expect(page).to have_css(".statistic__number", text: "10")
-      #   end
+      it "shows accumulated resources from components of both participatory processes" do
+        within("[data-statistic][class*=proposals]") do
+          expect(page).to have_css(".statistic__title", text: "Proposals")
+          expect(page).to have_css(".statistic__number", text: "10")
+        end
 
-      #   within("[data-statistic][class*=meetings]") do
-      #     expect(page).to have_css(".statistic__title", text: "Meetings")
-      #     expect(page).to have_css(".statistic__number", text: "4")
-      #   end
-      # end
+        within("[data-statistic][class*=meetings]") do
+          expect(page).to have_css(".statistic__title", text: "Meetings")
+          expect(page).to have_css(".statistic__number", text: "4")
+        end
+      end
     end
   end
 

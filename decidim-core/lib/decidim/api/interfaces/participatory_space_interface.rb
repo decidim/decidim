@@ -40,7 +40,7 @@ module Decidim
           component_manifest.stats.with_context(published_components).map { |name, data| [name, data] }.flatten
         end
 
-        stats.reject(&:empty?)
+        [object.organization, stats.reject(&:empty?)]
       end
 
       def self.resolve_type(obj, _ctx)
