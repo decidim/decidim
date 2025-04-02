@@ -14,7 +14,9 @@ namespace :decidim do
 
       desc "Send reset password instructions to groups"
       task send_reset_password_instructions: :environment do
-        Decidim::User.user_group.where(encrypted_password: "").find_each(&:send_reset_password_instructions)
+        Decidim::User.user_group.where(encrypted_password: "").find_each do |group|
+          Decidim::UserGroupMailer.notify_deprecation_to_owner(group).deliver_later
+        end
       end
 
       desc "Notify user group changes to members"

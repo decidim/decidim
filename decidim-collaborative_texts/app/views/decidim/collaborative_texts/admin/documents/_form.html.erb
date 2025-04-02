@@ -4,6 +4,10 @@
       <div class="row column">
         <%= form.text_field :title, autofocus: true, aria: { label: :title } %>
       </div>
+
+      <div class="row column">
+        <%= form.editor :body, lines: 40, aria: { label: :body } %>
+      </div>
     </div>
   </div>
 </div>
