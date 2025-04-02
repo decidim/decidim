@@ -10,11 +10,5 @@ module Decidim
     def collection(priority: StatsRegistry::HIGH_PRIORITY)
       super
     end
-
-    private
-
-    def published_components
-      @published_components ||= scope_entity.published_components
-    end
   end
 end

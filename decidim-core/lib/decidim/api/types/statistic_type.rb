@@ -5,16 +5,10 @@ module Decidim
     class StatisticType < Decidim::Api::Types::BaseObject
       description "Represents a single statistic"
 
+      field :icon_name, GraphQL::Types::String, "The name of the statistic icon", null: false
       field :name, GraphQL::Types::String, "The name of the statistic", null: false
-      field :value, GraphQL::Types::Int, "The actual value of the statistic", null: false
-
-      def name
-        object[0]
-      end
-
-      def value
-        object[1]
-      end
+      field :tooltip_key, GraphQL::Types::String, "The description of the statistic calculation", null: false
+      field :value, GraphQL::Types::Int, "The actual value of the statistic", null: false, hash_key: :data
     end
   end
 end

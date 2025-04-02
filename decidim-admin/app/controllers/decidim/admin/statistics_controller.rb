@@ -17,7 +17,6 @@ module Decidim
 
       def statistics_presenter
         @statistics_presenter ||= Decidim::Admin::DashboardStatisticChartsPresenter.new(
-          summary: false,
           organization: current_organization,
           view_context:
         )

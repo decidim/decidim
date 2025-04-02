@@ -125,12 +125,12 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :votes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
     proposals.sum(:endorsements_count)
   end

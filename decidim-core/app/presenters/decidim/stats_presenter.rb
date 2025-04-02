@@ -21,14 +21,15 @@ module Decidim
     end
 
     def all_stats(conditions)
-      @global_stats ||= global_stats(**conditions).concat(component_stats(**conditions))
+      @global_stats ||= {}
+      @global_stats[conditions] ||= global_stats(**conditions).concat(component_stats(**conditions))
     end
 
+    # Public: returns the entity where to limit the stats on.
+    # Usually, this is a Participatory Space or an Organization.
     def scope_entity = raise NotImplementedError
 
     private
-
-    def participatory_space_sym = raise NotImplementedError
 
     def global_stats(conditions)
       Decidim.stats.filter(**conditions).with_context(scope_entity).map do |stat|
@@ -39,7 +40,7 @@ module Decidim
 
     def component_stats(conditions)
       Decidim.component_manifests.map do |component_manifest|
-        component_manifest.stats.except([:votes_count, :endorsements_count, :collaborative_texts_count])
+        component_manifest.stats
                           .filter(conditions)
                           .with_context(published_components)
                           .map do |stat|
@@ -49,8 +50,13 @@ module Decidim
       end.flatten
     end
 
+    # Override if the scope_entity is not a Participatory Space or an Organization.
     def published_components
-      @published_components ||= Component.where(participatory_space: scope_entity).published
+      @published_components ||= if scope_entity.is_a?(Decidim::Organization)
+                                  scope_entity.published_components
+                                else
+                                  Component.where(participatory_space: scope_entity).published
+                                end
     end
   end
 end

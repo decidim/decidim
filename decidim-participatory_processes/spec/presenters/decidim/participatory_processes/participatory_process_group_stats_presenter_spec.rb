@@ -66,9 +66,9 @@ module Decidim
 
       before do
         manifest_meetings.stats.register :comments_count, tag: :comments, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 10 }
-        manifest_meetings.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
+        manifest_meetings.stats.register :followers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
         manifest_proposals.stats.register :comments_count, tag: :comments, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
-        manifest_proposals.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 3 }
+        manifest_proposals.stats.register :followers_count, tag: :followers, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 3 }
 
         I18n.backend.store_translations(
           :en,
@@ -76,7 +76,7 @@ module Decidim
             participatory_processes: {
               statistics: {
                 comments_count: "Comments",
-                endorsements_count: "Endorsements"
+                followers_count: "Followers"
               }
             }
           }
@@ -91,14 +91,14 @@ module Decidim
         expect(data[:data][0]).to eq 15
       end
 
-      it "returns the sum of all the endorsements from proposals and meetings" do
-        data = subject.collection.find { |stat| stat[:name] == :endorsements_count }
-        expect(data).to be_nil
+      it "returns the sum of all the followers from proposals and meetings" do
+        data = subject.collection.find { |stat| stat[:name] == :followers_count }
+        expect(data).not_to be_nil
         expect(data[:data][0]).to eq 8 if data
       end
 
       it "contains only two stats" do
-        expect(subject.collection.count).to be(1)
+        expect(subject.collection.count).to be(2)
       end
     end
   end

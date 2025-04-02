@@ -9,8 +9,6 @@ module Decidim
       private
 
       def scope_entity = __getobj__.fetch(:conference)
-
-      def participatory_space_sym = :conferences
     end
   end
 end
