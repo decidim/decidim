@@ -21,7 +21,17 @@ If not, you need to adapt it to your environment, for instance by changing the d
 
 ### 1.2. Update your application configuration
 
-In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (read more about it at "3.4 Deprecation of `Rails.application.secrets`").
+In this version, we are changing Decidim’s underlying configuration engine. To update your application, make sure to review the changes related to environment variables. (See section 3.4: "Deprecation of Rails.application.secrets" for details.)
+
+Your code and configuration must be updated to remove all references to the `Rails.application.secrets` object.
+
+⚠ **Important**: If you have customized any of the following files:
+
+- config/secrets.yml
+- config/initializers/decidim.rb
+- config/storage.yml
+
+You will need to adjust your environment to provide the necessary configurations through environment variables.
 
 ```bash
 git rm config/secrets.yml
