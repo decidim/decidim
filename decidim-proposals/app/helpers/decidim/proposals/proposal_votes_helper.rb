@@ -6,10 +6,6 @@ module Decidim
     module ProposalVotesHelper
       delegate :minimum_votes_per_user, to: :component_settings
 
-      def votes_given
-        @votes_given ||= all_voted_proposals_by_user.length
-      end
-
       # Public: Gets the vote limit for each user, if set.
       #
       # Returns an Integer if set, nil otherwise.
@@ -103,6 +99,10 @@ module Decidim
       end
 
       private
+
+      def votes_given
+        @votes_given ||= all_voted_proposals_by_user.length
+      end
 
       def all_voted_proposals_by_user
         return [] if current_user.blank?
