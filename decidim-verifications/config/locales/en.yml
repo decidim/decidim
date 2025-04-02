@@ -169,7 +169,7 @@ en:
             create_import:
               error: There was a problem importing census.
               no_user: No user found
-              success: Successfully imported %{count} items.
+              success: Successfully imported %{count} items. We are processing the data. Refresh the page in a few minutes to see the changes.
             destroy:
               success: Census data record have been deleted.
             index:
@@ -187,10 +187,13 @@ en:
               submit: Upload file
               title: Import census data
               upload_new_census: Upload a new census
+              errors:
+                email_not_found: The email address %{email} was not found in organization %{organization}.
+                email_exists: The email address %{email} already exists in organization %{organization}.
           census_records:
             create_record:
               error: There was a problem adding the census data record.
-              success: Successfully added census data record.
+              success: Successfully added census data record. We are processing the data. Refresh the page in a few minutes to see the changes.
             edit_record:
               save: Save
               title: Edit census record

@@ -6,15 +6,16 @@ module Decidim
       module Admin
         # A command with the business logic to create census data for a
         # organization.
-        class CreateCensusRecord < Decidim::Commands::CreateResource
-          fetch_form_attributes :email, :organization
+        class CreateCensusRecord < Decidim::Command
+          def initialize(form)
+            @form = form
+          end
 
-          private
+          def call
+            return broadcast(:invalid) if @form.invalid?
 
-          def resource_class = Decidim::Verifications::CsvDatum
-
-          def run_after_hooks
-            AuthorizeExistingUsersJob.perform_later([resource.email], resource.organization)
+            ProcessCensusDataJob.perform_now([@form.email], @form.current_organization)
+            broadcast(:ok)
           end
         end
       end

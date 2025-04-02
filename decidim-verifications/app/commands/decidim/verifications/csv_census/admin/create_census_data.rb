@@ -27,8 +27,8 @@ module Decidim
             CsvDatum.insert_all(@organization, data.values)
             # rubocop:enable Rails/SkipsModelValidations
 
-            RemoveDuplicatesJob.perform_later(@organization)
-            AuthorizeExistingUsersJob.perform_later(data.values, @organization)
+            ProcessCensusDataJob.perform_later(data.values, @organization)
+
             broadcast(:ok)
           end
         end

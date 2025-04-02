@@ -19,8 +19,7 @@ module Decidim::Verifications::CsvCensus::Admin
     before do
       allow(form).to receive(:data).and_return(data)
       allow(Decidim::Verifications::CsvDatum).to receive(:insert_all)
-      allow(Decidim::Verifications::CsvCensus::RemoveDuplicatesJob).to receive(:perform_later)
-      allow(Decidim::Verifications::CsvCensus::AuthorizeExistingUsersJob).to receive(:perform_later)
+      allow(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to receive(:perform_later)
     end
 
     context "when the file is in invalid format" do
@@ -43,14 +42,9 @@ module Decidim::Verifications::CsvCensus::Admin
         expect(Decidim::Verifications::CsvDatum).to have_received(:insert_all).with(organization, ["valid_email@example.com", "another_valid_email@example.com"])
       end
 
-      it "enqueues the RemoveDuplicatesJob" do
+      it "enqueues the ProcessCensusDataJob" do
         subject.call
-        expect(Decidim::Verifications::CsvCensus::RemoveDuplicatesJob).to have_received(:perform_later).with(organization)
-      end
-
-      it "enqueues the AuthorizeExistingUsersJob" do
-        subject.call
-        expect(Decidim::Verifications::CsvCensus::AuthorizeExistingUsersJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], organization)
+        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], organization)
       end
 
       it "broadcasts :ok" do
