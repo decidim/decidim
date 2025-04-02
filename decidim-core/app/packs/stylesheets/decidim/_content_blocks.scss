@@ -27,6 +27,10 @@
         @apply block;
       }
     }
+
+    > h3:not([class~="not-prose"]) {
+      @apply mb-[-0.4rem] pt-4 pb-2;
+    }
   }
 
   &__span {
