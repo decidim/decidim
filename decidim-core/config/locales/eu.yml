@@ -1666,7 +1666,20 @@ eu:
         body_2: Erakundeentzako esperientzia sinplifikatzeko egiten ari garen ahaleginen artean, "Erabiltzaile-taldeak" ezaugarria kentzen ari gara. Zure Erabiltzaile Taldearen profila ohiko parte-hartzaile profil bihurtu da.
         greeting: "%{name}, agurgarria:\n"
         instructions_1: Sarbidea baduzu posta elektronikoko kontu horretarako, mesedez, kontsultatu zure sarrera-erretilua argibideetarako.
+        instructions_intro: Jarraibideak bidali ditugu profilerako beste pasahitz bat ezartzeko, kontuari lotutako posta elektronikoan.
+        instructions_title: "<strong>Zer esan nahi du honek zuretzat?</strong>"
         subject: Eguneratze garrantzitsuko kide zaren erabiltzaile-taldea
+      notify_deprecation_to_owner:
+        body_1: Zurekin harremanetan jartzen gara eguneratze garrantzitsu bati buruz informatzeko, parte zaren %{organization_name} erabiltzaile-taldeari dagokionez.
+        body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>% {name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_3: Zure kontuan sartzen jarraitzeko, pasahitz bat jartzea behar dugu.
+        greeting: '%{name}, agurgarria:'
+        instructions_1: 'Egin klik beheko estekan pasahitzak konfiguratzeko prozesuari ekiteko:'
+        instructions_2: Formularioan, idatzi helbide elektronikoa non mezu hau jaso zenuen, eta bidali eskaera.
+        instructions_3: Kontsultatu zure sarrera-erretiluan bilatzeko zure pasahitz berria ezartzeko jarraibideak dituen mezu elektroniko bat.
+        instructions_title: "<strong>Zer egin behar duzu?</strong>"
+        set_password: Hasi pasahitza konfiguratzeko prozesua
+        subject: Erabiltzaile-taldearen eguneratze garrantzitsua
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
