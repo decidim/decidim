@@ -28,7 +28,7 @@
       }
     }
 
-    > h3:not(:where([class~="not-prose"] *)) {
+    > h3:not([class~="not-prose"]) {
       @apply mb-[-0.4rem] pt-4 pb-2;
     }
   }
