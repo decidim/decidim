@@ -151,6 +151,7 @@ fi-pl:
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
         user:
           fields:

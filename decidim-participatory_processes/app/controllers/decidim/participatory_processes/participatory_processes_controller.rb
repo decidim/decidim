@@ -14,7 +14,6 @@ module Decidim
                     :promoted_collection,
                     :participatory_processes,
                     :stats,
-                    :metrics,
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
@@ -28,10 +27,6 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :process, process: current_participatory_space
-      end
-
-      def all_metrics
         enforce_permission_to :read, :process, process: current_participatory_space
       end
 
@@ -108,10 +103,6 @@ module Decidim
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
-      end
-
-      def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context:)
       end
 
       def participatory_process_group

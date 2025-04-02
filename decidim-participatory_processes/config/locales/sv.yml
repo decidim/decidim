@@ -151,6 +151,7 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
+            evaluator: Utvärderare
             moderator: Moderator
         user:
           fields:
