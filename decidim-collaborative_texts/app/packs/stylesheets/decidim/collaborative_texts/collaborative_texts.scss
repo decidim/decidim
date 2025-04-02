@@ -23,7 +23,10 @@
     }
   }
 
-  &-selection,
+  &-selection {
+    @apply hidden;
+  }
+
   &-highlight {
     @apply relative outline-dashed outline-2 outline-offset-2 outline-primary my-4;
 

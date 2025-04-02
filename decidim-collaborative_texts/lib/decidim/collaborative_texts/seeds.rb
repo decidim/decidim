@@ -49,7 +49,8 @@ module Decidim
           title: ::Faker::Lorem.paragraph,
           body: body_blocks.join("\n"),
           published_at:,
-          accepting_suggestions: [true, false].sample
+          accepting_suggestions: [true, false].sample,
+          coauthorships: [Decidim::Coauthorship.new(author: organization)]
         }
 
         document = Decidim.traceability.create!(

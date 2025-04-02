@@ -38,6 +38,7 @@ export default class Editor {
     this.container = window.document.createElement("div");
     this.container.classList.add("collaborative-texts-editor-container");
     this.container.innerHTML = this.nodes.map((node) => node.outerHTML).join("");
+    // This in the future should be the tiptap editor
     this.container.contentEditable = true;
     this.editor.appendChild(this.container);
   }
