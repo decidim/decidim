@@ -177,6 +177,13 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            content_suggestions_criteria: Criteria for suggested content
+            content_suggestions_criteria_choices:
+              location: Location
+              most_recent: Most recent
+              random: Random
+            content_suggestions_enabled: Suggested content enabled
+            content_suggestions_limit: Number of proposal to be displayed (max 10)
             default_sort_order: Default proposal sorting
             default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
@@ -221,13 +228,6 @@ en:
             taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per participant
-            content_suggestions_criteria: Criteria for suggested content
-            content_suggestions_criteria_choices:
-              location: Location
-              most_recent: Most recent
-              random: Random
-            content_suggestions_enabled: Suggested content enabled
-            content_suggestions_limit: Number of proposal to be displayed (max 10)
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_creation_enabled_help: Participant can amend proposals.
@@ -999,10 +999,10 @@ en:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
+          title: Other Proposals
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_proposal: Withdraw
-          title: Other Contributions
         update:
           title: Update proposal
         vote_button:

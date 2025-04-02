@@ -6,7 +6,7 @@
     <% proposal_items.each do |item| %>
       <%= content_tag :div, data: item[:data_attributes] do %>
         <%= icon item[:icon] if item[:icon].present? %>
-        <%= item[:text] if item[:text].present? %>
+        <%= item[:text] if item[:text].presence %>
       <% end %>
     <% end %>
   </div>
