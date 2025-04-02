@@ -1,0 +1,13 @@
+<%= link_to resource_path, class: "card__list-content" do %>
+  <%= content_tag title_tag, class: "h4 card__list-title" do %>
+    <%= title %>
+  <% end %>
+  <div class="card__list-metadata">
+    <% proposal_items.each do |item| %>
+      <%= content_tag :div, data: item[:data_attributes] do %>
+        <%= icon item[:icon] if item[:icon].present? %>
+        <%= item[:text] if item[:text].present? %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

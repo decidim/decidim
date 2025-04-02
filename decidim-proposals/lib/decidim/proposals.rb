@@ -38,6 +38,18 @@ module Decidim
       Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
     end
 
+    config_accessor :default_content_suggestions_limit do
+      3
+    end
+
+    config_accessor :default_content_suggestions_criteria do
+      "random" # possible values: location, random, most_recent
+    end
+
+    config_accessor :suggestions_by_location_distance do
+      100 # Units depending on geocoder config km or miles
+    end
+
     def self.proposal_states_colors
       {
         gray: {

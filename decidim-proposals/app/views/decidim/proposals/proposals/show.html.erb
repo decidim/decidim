@@ -36,6 +36,9 @@ extra_admin_link(
 
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
+  <div class="suggested-content mt-10 hidden md:block">
+    <%= cell "decidim/proposals/content_suggestion_section", @proposal %>
+  </div>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
@@ -112,6 +115,9 @@ extra_admin_link(
 
   <% content_for :item_footer do %>
     <%= comments_for @proposal %>
+    <div class="suggested-content mt-10 block md:hidden">
+      <%= cell "decidim/proposals/content_suggestion_section", @proposal %>
+    </div>
 
      <ul class="metadata__container layout-main__section" data-metadata-footer>
        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
