@@ -89,7 +89,6 @@ describe "Account" do
     describe "when updating the user's nickname" do
       it "changes the user's nickname - 'nickname'" do
         within "form.edit_user" do
-          expect(page).to have_content("Set a nickname that does not have any capital or uppercase letters.")
           fill_in "Nickname", with: "nickname"
           find("*[type=submit]").click
         end
@@ -115,6 +114,7 @@ describe "Account" do
         end
 
         expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_content("The nickname must be lowercase and contain no spaces")
         expect(page).to have_field("user[nickname]", with: "nickName", type: "text")
       end
 

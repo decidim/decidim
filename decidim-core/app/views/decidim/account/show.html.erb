@@ -29,7 +29,7 @@
       <%= form_required_explanation %>
 
       <%= f.text_field :name, autocomplete: "name" %>
-      <%= f.text_field :nickname, autocomplete: "nickname", help_text: t("nickname_helper", scope:"decidim.account.show") %>
+      <%= f.text_field :nickname, autocomplete: "nickname" %>
       <%= f.email_field :email, disabled: current_user.unconfirmed_email.present?, autocomplete: "email", data: { original: current_user.email } %>
       <%= f.url_field :personal_url, autocomplete: "url" %>
       <%= f.text_area :about, rows: 5 %>
