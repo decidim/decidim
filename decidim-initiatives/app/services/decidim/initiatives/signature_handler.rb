@@ -138,7 +138,7 @@ module Decidim
       def hash_id
         return unless initiative && (unique_id || user)
 
-        @hash_id ||= Digest::MD5.hexdigest(
+        @hash_id ||= Digest::SHA256.hexdigest(
           [
             initiative.id,
             unique_id || user.id,
