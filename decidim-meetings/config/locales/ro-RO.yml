@@ -176,10 +176,8 @@ ro:
           email_subject: Sloturile alocate pentru întâlnirea "%{resource_title}" sunt de peste %{percentage}%
           notification_title: Sloturile alocate pentru ședința de <a href="%{resource_path}">%{resource_title}</a> sunt de peste %{percentage}%.
         meeting_updated:
-          email_intro: 'Întâlnirea "%{resource_title}" a fost actualizată. Poți citi noua versiune din pagina sa:'
           email_outro: Ai primit această notificare deoarece urmărești întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” a fost actualizată
-          notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> a fost actualizată.
         registration_code_validated:
           email_intro: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
           email_outro: Ai primit această notificare deoarece codul tău de înregistrare pentru întâlnirea „%{resource_title}” a fost validat.
