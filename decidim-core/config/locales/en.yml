@@ -2060,7 +2060,8 @@ en:
         terms_of_service: Terms of Service
       header:
         close: Close
-        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
+        confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
+        confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
