@@ -124,10 +124,8 @@ it:
           email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
           notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
         meeting_updated:
-          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata aggiornata
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
           email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
           email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
