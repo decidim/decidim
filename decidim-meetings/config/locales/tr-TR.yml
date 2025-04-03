@@ -102,10 +102,8 @@ tr:
           email_subject: '"%{resource_title}" toplantısı için ayrılan zaman aralıkları % %{percentage}''nin üzerinde'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> toplantısı için ayrılan zaman aralıkları % %{percentage}'nin üzerinde.
         meeting_updated:
-          email_intro: '"%{resource_title}" toplantısı güncellendi. Yeni sürümü kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
           email_subject: '"%{resource_title}" toplantısı güncellendi'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı güncellendi.
         registration_code_validated:
           email_intro: '"%{resource_title}" toplantısı için "%{registration_code}" kayıt kodunuz onaylandı.'
           email_outro: '"%{resource_title}" toplantısı için kayıt kodunuz onaylandığından bu bildirimi aldınız.'
