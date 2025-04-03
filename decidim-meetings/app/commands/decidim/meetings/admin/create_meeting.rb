@@ -23,11 +23,7 @@ module Decidim
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
-          parsed_reminder_message = if form.reminder_enabled
-                                      Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
-                                    else
-                                      ""
-                                    end
+
           super.merge({
                         title: parsed_title,
                         description: parsed_description,
@@ -35,8 +31,8 @@ module Decidim
                         author: form.current_organization,
                         registration_terms: form.current_component.settings.default_registration_terms,
                         questionnaire: Decidim::Forms::Questionnaire.new,
-                        reminder_message_custom_content: parsed_reminder_message,
-                        send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil
+                        send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
+                        reminder_message_custom_content: form.reminder_enabled ? form.reminder_message_custom_content : ""
                       })
         end
 
