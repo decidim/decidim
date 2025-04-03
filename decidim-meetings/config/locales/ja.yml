@@ -220,10 +220,8 @@ ja:
           email_subject: '「%{resource_title}」ミーティングに割り当てられたスロットは %{percentage} %を超えています'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングに割り当てられたスロットは %{percentage}%を超えています。
         meeting_updated:
-          email_intro: '"%{resource_title}" ミーティングが更新されました．新しいバージョンはそのページから読むことができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングが更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングを更新しました。
         registration_code_validated:
           email_intro: '「%{registration_code}」ミーティングの登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" ミーティングの登録コードが検証されたため、この通知を受け取りました。'
