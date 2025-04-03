@@ -66,11 +66,17 @@ module Decidim
               [t("relevance.relevance_percentage.options.five", scope: i18n_scope), 5]
             ],
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.zero')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.zero_description')
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.one')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.one_description')
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.two')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.two_description')
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.three')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.three_description')
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.four')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.four_description')
             # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.five')
+            # i18n-tasks-use t('decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.five_description')
             citizen_influence_level: [
               [t("citizen_influence.citizen_influence_level.options.zero", scope: i18n_scope), 0,
                t("citizen_influence.citizen_influence_level.options.zero_description", scope: i18n_scope)],

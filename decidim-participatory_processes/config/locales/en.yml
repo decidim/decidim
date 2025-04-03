@@ -427,6 +427,13 @@ en:
                   five: Yes = 5
                   two_five: Partially = 2.5
                   zero: No = 0
+            announcement:
+              body_html: |-
+                <ul>
+                  <li>These are calculated automatically from Decidim data. They will become visible once you publish the content block.</li>
+                  <li>These are based on your responses in the following form. They will be visible once you have answered all the questions.</li>
+                </ul>
+              title: 'This content block includes two types of metrics:'
             citizen_influence:
               citizen_influence_level:
                 legend: Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).

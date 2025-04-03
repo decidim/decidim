@@ -44,3 +44,7 @@ Style/SafeNavigationChainLength:
     - decidim-proposals/spec/types/integration_schema_spec.rb
     - decidim-admin/app/views/decidim/admin/taxonomy_filters/new.html.erb
 
+Layout/LineLength:
+  Exclude:
+    - decidim-participatory_processes/app/cells/decidim/participatory_processes/content_blocks/democratic_quality_stats_settings_form_cell.rb
+
