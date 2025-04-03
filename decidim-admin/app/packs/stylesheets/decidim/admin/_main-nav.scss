@@ -87,14 +87,14 @@
     }
 
     .sidebar-menu__item-disabled {
-      @apply text-neutral-400 border-none;
+      @apply w-full flex gap-2 justify-center items-center text-md text-neutral-400 leading-10 border-none pb-0 rounded-t cursor-not-allowed;
 
       & .component-counter {
         @apply hidden;
       }
 
       svg {
-        @apply fill-neutral-400;
+        @apply fill-neutral-400 w-4 h-4 mb-0;
       }
     }
 
