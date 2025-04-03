@@ -160,10 +160,8 @@ zh-TW:
           email_subject: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
           notification_title: 該會議的可用預約時段已滿 %{percentage}%。
         meeting_updated:
-          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '%{resource_title}" 會議已更新。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議的可用名額已滿 %{percentage}%。
         registration_code_validated:
           email_intro: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
           email_outro: 您已收到此通知，因為您的註冊碼已驗證成功，可參加「%{resource_title}」會議。
