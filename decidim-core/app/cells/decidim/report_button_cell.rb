@@ -24,7 +24,7 @@ module Decidim
     end
 
     def hide_checkbox_id
-      @hide_checkbox_id ||= Digest::MD5.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
+      @hide_checkbox_id ||= Digest::SHA256.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
     end
 
     def cache_hash
