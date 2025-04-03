@@ -131,10 +131,8 @@ hu:
           email_subject: 'A(z) "%{resource_title}" találkozó résztvevői helye ilyen arányban telt be: %{percentage}%'
           notification_title: A(z) rendelkezésre álló helyek a <a href="%{resource_path}">%{resource_title}</a> találkozóra több mint %{percentage}% -ban teltek meg.
         meeting_updated:
-          email_intro: 'A(z) "%{resource_title}" találkozót frissítettük. Az új verzióról ezen az oldalon olvashatsz:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozót frissítettük
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
           email_intro: A(z) "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
           email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
