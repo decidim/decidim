@@ -8,15 +8,15 @@ module Decidim
       class RegistrationsAttendeesController < Admin::ApplicationController
         helper_method :registrations
 
-        def index
-          enforce_permission_to(:update, :meeting, meeting:)
+        before_action do
+          enforce_permission_to(:validate_registration_code, :meeting, meeting:)
+        end
 
+        def index
           @validation_form = ValidateRegistrationCodeForm.new
         end
 
         def qr_mark_as_attendee
-          enforce_permission_to(:validate_registration_code, :meeting, meeting:)
-
           registration = registrations.find_by!(code: params[:id])
 
           MarkAsAttendee.call(registration) do
@@ -33,8 +33,6 @@ module Decidim
         end
 
         def validate_registration_code
-          enforce_permission_to(:validate_registration_code, :meeting, meeting:)
-
           @validation_form = ValidateRegistrationCodeForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)
 
           ValidateRegistrationCode.call(@validation_form, meeting) do
@@ -51,8 +49,6 @@ module Decidim
         end
 
         def mark_as_attendee
-          enforce_permission_to(:invite_attendee, :meeting, meeting:)
-
           registration = registrations.find(params[:id])
 
           MarkAsAttendee.call(registration) do
