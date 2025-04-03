@@ -403,6 +403,8 @@ es-MX:
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
+      related_processes:
+        help: Todos los procesos seleccionados serán asignados a este grupo, incluyendo los que ya están asignados a otros grupos.
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
