@@ -227,10 +227,8 @@ cs:
           email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
           notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
         meeting_updated:
-          email_intro: 'Schůzka "%{resource_title}" byla aktualizována. Nová verze si můžete přečíst na stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" byla aktualizována
-          notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
         registration_code_validated:
           email_intro: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen.
           email_outro: Toto oznámení jste obdrželi, protože byl ověřen váš registrační kód pro schůzku "%{resource_title}".
