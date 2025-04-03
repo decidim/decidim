@@ -223,10 +223,8 @@ ca:
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
-          email_intro: 'La trobada "%{resource_title}" s''ha actualitzat. Pots llegir la nova versió a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
-          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
         registration_code_validated:
           email_intro: S'ha validat el teu codi d'inscripció "%{registration_code}" per a la trobada "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
