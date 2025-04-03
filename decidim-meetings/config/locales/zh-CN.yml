@@ -92,10 +92,8 @@ zh-CN:
           email_subject: 分配给"%{resource_title}"会议的时间段超过 %{percentage}%
           notification_title: 分配给 <a href="%{resource_path}">%{resource_title}次</a> 次会议的时间段超过 %{percentage}%。
         meeting_updated:
-          email_intro: '"%{resource_title}"会议已更新。您可以从其页面读取新版本：'
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '“%{resource_title}”会议已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会议已更新。
         registration_code_validated:
           email_intro: 您的注册码%{registration_code}"%{resource_title}"会议的注册码已被验证。
           email_outro: 您收到此通知是因为您的“%{resource_title}”会议的注册码已被验证。
