@@ -4,9 +4,9 @@
   <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
     <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "main-tabs-menu__cta-button disabled", disabled: true, data: { disabled_button: true } %>
 
-    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "main-tabs-menu__cta-button hidden", data: { create_new_form_button: true }, method: :post %>
+    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "main-tabs-menu__cta-button !hidden", data: { create_new_form_button: true }, method: :post %>
 
-    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "main-tabs-menu__cta-button hidden", data: { with_template_button: true }, form: "choose-template-form" %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "main-tabs-menu__cta-button !hidden", data: { with_template_button: true }, form: "choose-template-form" %>
   <% end %>
 
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t(".title"), show_buttons: false } %>
