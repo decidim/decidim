@@ -223,10 +223,8 @@ eu:
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
-          email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
           email_subject: '"%{resource_title}" topaketa eguneratu egin da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu egin da.
         registration_code_validated:
           email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
           email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
