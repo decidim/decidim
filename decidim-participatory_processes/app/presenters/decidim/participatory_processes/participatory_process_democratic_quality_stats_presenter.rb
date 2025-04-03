@@ -2,6 +2,9 @@
 
 module Decidim
   module ParticipatoryProcesses
+    # Presenter class for calculating and displaying democratic quality statistics
+    # for a participatory process. It handles both automatic metrics and manual
+    # auto-evaluation metrics.
     class ParticipatoryProcessDemocraticQualityStatsPresenter
       attr_reader :content_block, :participatory_process
 
@@ -13,19 +16,24 @@ module Decidim
       def stats
         @stats ||= {
           global_score: calculate_global_score, precision: 2,
-          # Automatic metrics
-          influence: calculate_influence,
-          hybridization: calculate_hybridization,
-          accountability: calculate_accountability,
-          traceability: calculate_traceability,
-          # Qualitative metrics
-          inclusiveness: calculate_inclusiveness,
-          relevance: calculate_relevance,
-          citizen_influence: calculate_citizen_influence,
-          accessibility: calculate_accessibility
+          # Automatic metrics based on platform data
+          automatic: {
+            influence: calculate_automatic_influence,
+            hybridization: calculate_automatic_hybridization,
+            transparency: calculate_automatic_transparency,
+            traceability: calculate_automatic_traceability
+          },
+          # Auto-evaluation metrics based on survey responses
+          auto_evaluation: {
+            inclusiveness: calculate_auto_evaluation_inclusiveness,
+            relevance: calculate_auto_evaluation_relevance,
+            citizen_influence: calculate_auto_evaluation_citizen_influence,
+            accessibility: calculate_auto_evaluation_accessibility
+          }
         }
       end
 
+      # @return [Boolean]
       def finished_survey?
         settings.migrant_groups_invited != -1 &&
           settings.cultural_origins_participation != -1 &&
@@ -41,79 +49,140 @@ module Decidim
 
       # Global score
 
+      # @return [Float]
       def calculate_global_score
-        automatic_metrics = (calculate_influence + calculate_hybridization + calculate_accountability + calculate_traceability) / 4.0
+        automatic_metrics = (
+          calculate_automatic_influence +
+          calculate_automatic_hybridization +
+          calculate_automatic_transparency +
+          calculate_automatic_traceability
+        ) / 4.0
 
         if finished_survey?
-          qualitative_metrics = (calculate_inclusiveness + calculate_relevance + calculate_citizen_influence + calculate_accessibility) / 4.0
-          (automatic_metrics + qualitative_metrics) / 2.0
+          auto_evaluation_metrics = (
+            calculate_auto_evaluation_inclusiveness +
+            calculate_auto_evaluation_relevance +
+            calculate_auto_evaluation_citizen_influence +
+            calculate_auto_evaluation_accessibility
+          ) / 4.0
+
+          (automatic_metrics + auto_evaluation_metrics) / 2.0
         else
           automatic_metrics
         end
       end
 
-      # Qualitative metrics
-
-      def calculate_inclusiveness
-        (settings.migrant_groups_invited + settings.cultural_origins_participation + settings.functional_diversity_invited + settings.functional_diversity_participation) / 4.0
-      end
-
-      def calculate_relevance
-        settings.relevance_percentage
-      end
-
-      def calculate_citizen_influence
-        settings.citizen_influence_level
-      end
-
-      def calculate_accessibility
-        (settings.venue_accessibility + settings.languages_count) / 2.0
-      end
-
-      def settings
-        content_block.settings
-      end
-
       # Automatic metrics
 
-      def calculate_accountability
-        (calculate_answered_proposals + calculate_linked_results + calculate_completed_results) / 3.0
-      end
+      # Influence
 
-      def calculate_influence
+      # @return [Float]
+      def calculate_automatic_influence
         percentage_to_scale(all_proposals.accepted.count, all_proposals.count)
       end
 
-      def calculate_hybridization
-        quality_meetings = all_meetings.where.not(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING[:online])
-                                       .where.not(end_time: nil)
+      # Hybridization
 
-        percentage_to_scale(quality_meetings.count, all_meetings.count)
+      # @return [Float]
+      def calculate_automatic_hybridization
+        (meetings_component_score + meetings_score) / 2.0
       end
 
-      def calculate_answered_proposals
+      # @return [Float]
+      def meetings_component_score
+        components.where(manifest_name: "meetings").any? ? 5.0 : 0.0
+      end
+
+      # @return [Float]
+      def meetings_score
+        all_meetings.any? ? 5.0 : 0.0
+      end
+
+      # Transparency
+
+      # @return [Float]
+      def calculate_automatic_transparency
+        [
+          answered_proposals_score,
+          linked_results_score,
+          completed_results_score,
+          quality_meetings_score
+        ].sum / 4.0
+      end
+
+      # @return [Float]
+      def quality_meetings_score
+        meetings = all_meetings
+                   .where.not(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING[:online])
+                   .where.not(end_time: nil)
+
+        percentage_to_scale(meetings.count, all_meetings.count)
+      end
+
+      # @return [Float]
+      def answered_proposals_score
         percentage_to_scale(all_proposals.answered.count, all_proposals.count)
       end
 
-      def calculate_linked_results
-        linked_results = all_proposals.joins(:resource_links_from)
-                                      .where(decidim_resource_links: { name: "linked_results", to_type: "Decidim::Accountability::Result" })
-        percentage_to_scale(linked_results.count, all_proposals.count)
+      # @return [Float]
+      def linked_results_score
+        results = all_proposals
+                  .joins(:resource_links_from)
+                  .where(
+                    decidim_resource_links: {
+                      name: "linked_results",
+                      to_type: "Decidim::Accountability::Result"
+                    }
+                  )
+        percentage_to_scale(results.count, all_proposals.count)
       end
 
-      def calculate_completed_results
-        completed_results = all_accountability_results.where(progress: 100)
-
-        percentage_to_scale(completed_results.count, all_accountability_results.count)
+      # @return [Float]
+      def completed_results_score
+        results = all_accountability_results.where(progress: 100)
+        percentage_to_scale(results.count, all_accountability_results.count)
       end
 
-      def calculate_traceability
-        linked_proposals_ids = (all_proposals.joins(:resource_links_from).pluck(:id) +
-                               all_proposals.joins(:resource_links_to).pluck(:id)).uniq
+      # Traceability
+
+      # @return [Float]
+      def calculate_automatic_traceability
+        linked_proposals_ids = (
+          all_proposals.joins(:resource_links_from).pluck(:id) +
+          all_proposals.joins(:resource_links_to).pluck(:id)
+        ).uniq
 
         percentage_to_scale(linked_proposals_ids.count, all_proposals.count)
       end
 
+      # Auto-evaluation metrics
+
+      # @return [Float]
+      def calculate_auto_evaluation_inclusiveness
+        [
+          settings.migrant_groups_invited,
+          settings.cultural_origins_participation,
+          settings.functional_diversity_invited,
+          settings.functional_diversity_participation
+        ].sum / 4.0
+      end
+
+      # @return [Float]
+      def calculate_auto_evaluation_relevance
+        settings.relevance_percentage
+      end
+
+      # @return [Float]
+      def calculate_auto_evaluation_citizen_influence
+        settings.citizen_influence_level
+      end
+
+      # @return [Float]
+      def calculate_auto_evaluation_accessibility
+        (settings.venue_accessibility + settings.languages_count) / 2.0
+      end
+
+      # @return [Float]
       def percentage_to_scale(value, total)
         return 0 if total.zero?
 
@@ -125,6 +194,10 @@ module Decidim
         when 60.1..80 then 4.0
         else 5.0
         end
+      end
+
+      def settings
+        content_block.settings
       end
 
       def all_proposals

@@ -528,14 +528,14 @@ en:
           automatic_metrics:
             description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             indicators:
-              accountability: Accountability
-              accountability_tooltip: Accountability tooltip
               hybridization: Hybridization
               hybridization_tooltip: Hybridization tooltip
               influence: Influence
               influence_tooltip: Influence tooltip
               traceability: Traceability
               traceability_tooltip: Traceability tooltip
+              transparency: Transparency
+              transparency_tooltip: Transparency tooltip
             name: Automatic metrics
           global_score:
             description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
@@ -553,7 +553,7 @@ en:
               inclusiveness_tooltip: Inclusiveness tooltip
               relevance: Relevance
               relevance_tooltip: Relevance tooltip
-            name: Qualitative metrics
+            name: Auto-evaluation metrics
         extra_data:
           name: Phase & duration
         hero:
