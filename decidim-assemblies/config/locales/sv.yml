@@ -200,6 +200,7 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medverkande
+            evaluator: Utvärderare
             moderator: Moderator
       taxonomy_filters:
         space_filter_for:

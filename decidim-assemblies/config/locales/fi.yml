@@ -200,6 +200,7 @@ fi:
           roles:
             admin: Hallintakäyttäjä
             collaborator: Osallistumiskäyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
       taxonomy_filters:
         space_filter_for:

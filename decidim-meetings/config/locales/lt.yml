@@ -16,7 +16,6 @@ lt:
         customize_registration_email: Redaguoti registracijos laišką
         decidim_category_id: Kategorija
         decidim_scope_id: Apimtis
-        decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
         end_time: Pabaigos laikas
         id: ID
@@ -110,7 +109,6 @@ lt:
             values:
               official: Oficialūs
               participants: Dalyvis
-              user_group: Naudotojų Grupės
           with_any_type:
             label: Susitikimo tipas
             values:
@@ -146,7 +144,6 @@ lt:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             creation_enabled_for_participants: Galimybė dalyviams rengti susirinkimus įjungta
-            creation_enabled_for_user_groups: Galimybė dalyvių grupėms rengti susirinkimus įjungta
     events:
       meetings:
         meeting_closed:
@@ -257,7 +254,6 @@ lt:
             invalid: Atnaujinant šią darbotvarkę iškilo problema.
             success: Darbotvarkė atnaujinta.
         exports:
-          answers: Atsakymai
           meeting_comments: Komentarai
           meetings: Susirinkimai
           registrations: Registracijos
@@ -466,7 +462,6 @@ lt:
             all: Visi
             official: Oficialus
             participants: Dalyviai
-            user_group: Grupės
           search: Ieškoti
           type: Tipas
           type_values:
@@ -477,7 +472,6 @@ lt:
         form:
           address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
           available_slots_help: Jei nėra ribojimų įrašykite 0
-          create_as: Sukurti posėdį kaip
           disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
           location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
@@ -501,7 +495,6 @@ lt:
         new:
           back: Atgal
           create: Sukurti
-          title: Sukurkite savo susitikimą
         registration_confirm:
           cancel: Atšaukti
           confirm: Patvirtinti
@@ -555,13 +548,9 @@ lt:
             title: Pavadinimas
       polls:
         questions:
-          index:
-            empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
           index_admin:
             edit: Redaguoti administratoriaus skydelyje
             question: Klausimas
-            received_answer: gautas atsakymas
-            received_answers: gauti atsakymai
             results: Rezultatai
             send: Siųsti
             sent: Išsiųsta
@@ -571,7 +560,6 @@ lt:
             question_replied: Klausimas atsakytas
             reply_question: Atsakyti į klausimą
       public_participants_list:
-        attending_organizations: Organizacijos
         attending_participants: Dalyviai
         hidden_participants_count:
           one: ir dar %{count} žmogus

@@ -16,7 +16,6 @@ pt:
         customize_registration_email: Personalizar o e-mail de registo
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
-        decidim_user_group_id: Grupo de utilizadores
         description: Descrição
         id: IDENTIFICAÇÃO
         location: Localização
@@ -65,9 +64,6 @@ pt:
             values:
               'false': Passado
               'true': Seguinte
-          with_any_origin:
-            values:
-              user_group: Grupos de utilizadores
           with_any_type:
             label: Tipo de reunião
             values:
@@ -101,7 +97,6 @@ pt:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes ativada
-            creation_enabled_for_user_groups: Criação de reunião por grupo de utilizadores ativada
     events:
       meetings:
         meeting_closed:
@@ -199,7 +194,6 @@ pt:
             create: Criar
             title: Nova agenda
         exports:
-          answers: Respostas
           meeting_comments: Comentários
           meetings: Reuniões
           registrations: Registos
@@ -360,7 +354,6 @@ pt:
         form:
           address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
           available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
-          create_as: Criar reunião como
           location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
           location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
           online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
@@ -374,7 +367,6 @@ pt:
         new:
           back: Retroceder
           create: Criar
-          title: Criar a Sua Reunião
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -423,12 +415,8 @@ pt:
             title: Título
       polls:
         questions:
-          index:
-            empty_questions: Durante esta reunião irão ser-lhe enviadas algumas questões e poderá responder-lhes. Serão exibidas aqui.
           index_admin:
             question: Questão
-            received_answer: resposta recebida
-            received_answers: respostas recebidas
             results: Resultados
             send: Enviar
             sent: Enviado

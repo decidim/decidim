@@ -1,26 +1,12 @@
 it:
   activemodel:
     attributes:
-      answer:
-        body: Risposta
-        choices: Scelte
-        selected_choices: Scelte selezionate
       question:
         max_choices: Numero massimo di scelte
         question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
         max_characters: Limite di caratteri (lasciare a 0 se nessum limite)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Deve essere allegato nuovamente
-            body:
-              too_long: è troppo lungo
-            choices:
-              missing: non sono completi
   decidim:
     forms:
       admin:
@@ -31,42 +17,18 @@ it:
         questionnaires:
           actions:
             back: Torna alle domande
-          answer_option:
-            answer_option: Opzione di risposta
-            free_text: Testo libero
-            remove: Rimuovere
-            statement: dichiarazione
-          answers:
-            actions:
-              back: Torna alle risposte
-              export: Esporta
-              show: Mostra risposte
-            empty: Ancora nessuna risposta
-            export:
-              answer:
-                title: 'Risposta #%{number}'
-            export_response:
-              title: risposte_utente_sondaggio_%{token}
-            index:
-              title: "%{total} risposte totali"
-            show:
-              title: 'Risposta #%{number}'
           display_condition:
-            answer_option: Opzione di risposta
             condition_question: Domanda
             condition_type: Condizione
             condition_types:
-              answered: Chiusa
               equal: Equilibrato
               match: Include testo
-              not_answered: Senza risposta
               not_equal: Non uguale a
             condition_value: Testo incluso
             display_condition: Stato di visualizzazione
             mandatory: Questa condizione deve essere soddisfatta sempre indipendentemente dallo stato di altre condizioni
             remove: Rimuovi
             save_warning: Ricorda di salvare il modulo prima di configurare le condizioni di visualizzazione
-            select_answer_option: Selezionare l'opzione di risposta
             select_condition_question: Seleziona una domanda
             select_condition_type: Seleziona regola
           edit:
@@ -83,7 +45,6 @@ it:
             remove: Rimuovere
             statement: dichiarazione
           question:
-            add_answer_option: Aggiungi l'opzione di risposta
             add_display_condition: Aggiungere condizione di visualizzazione
             add_display_condition_info: Salva il modulo per configurare le condizioni di visualizzazione
             add_matrix_row: Aggiungi riga
@@ -96,6 +57,9 @@ it:
             remove: Rimuovere
             statement: dichiarazione
             up: Su
+          responses:
+            actions:
+              show: Mostra risposte
           separator:
             down: Giù
             remove: Elimina
@@ -108,30 +72,18 @@ it:
         dimensions: "%{width} x %{height} px"
       question_types:
         files: I file
-        long_answer: Risposta lunga
         matrix_multiple: Matrice (opzione multipla)
         matrix_single: Matrice (opzione singola)
         multiple_option: Opzione multipla
-        short_answer: Risposta breve
         single_option: Opzione singola
         sorting: Ordinamento
       questionnaires:
-        answer:
-          invalid: Ci sono stati errori nel rispondere al questionario.
-          max_choices_alert: Sono state selezionate troppe opzioni
-          success: Il questionario ha risposto con successo.
         question:
           max_choices: 'Scelte massime: %{n}'
         show:
-          answer_questionnaire:
-            title: Rispondi al questionario
           current_step: Passo %{step}
           of_total_steps: di %{total_steps}
-          questionnaire_answered:
-            body: Hai già risposto a questo questionario.
-            title: Ho già risposto
           questionnaire_closed:
-            body: Il questionario è chiuso e non è possibile rispondere.
             title: Questionario chiuso
           questionnaire_for_private_users:
             body: Il questionario è disponibile solo per gli utenti privati
@@ -147,14 +99,3 @@ it:
           back: Indietro
           continue: Continua
           submit: Invia
-      user_answers_serializer:
-        body: Risposta
-        completion: Completamento
-        created_at: Risposto
-        id: ID risposta
-        ip_hash: Hash Ip
-        question: Domanda
-        registered: Registrato
-        session_token: Identificativo dell'utente
-        unregistered: Non registrato
-        user_status: Stato utente

@@ -8,14 +8,9 @@ hu:
       decidim/surveys/survey:
         one: Felmérés
         other: Felmérések
-      decidim/surveys/survey_answer:
-        one: Válasz
-        other: Válaszok
   decidim:
     components:
       surveys:
-        actions:
-          answer: Válasz
         settings:
           global:
             announcement: Közlemény
@@ -33,20 +28,9 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Új felmérés itt: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> felmérés elindult itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-    metrics:
-      survey_answers:
-        description: A felhasználók által megválaszolt felmérések száma
-        object: válaszok a felmérésekre
-        title: Válaszok a felmérésekre
     surveys:
       admin:
-        exports:
-          survey_user_answers: Felhasználók válaszai
         surveys:
           update:
             invalid: Hiba történt a felmérés mentése során.
             success: Felmérés mentése sikeres.
-      surveys:
-        answer:
-          invalid: Hiba történt a felmérés megválaszolása során.
-          success: Felmérés kitöltése sikeres.

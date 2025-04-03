@@ -1,19 +1,11 @@
 lv:
   activemodel:
     attributes:
-      answer:
-        body: Atbilde
       question:
         max_choices: 'Maksimālais atbilžu skaits:'
         question_type: Veids
       questionnaire_question:
         mandatory: Obligāti
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: nav pabeigti
   decidim:
     forms:
       admin:
@@ -22,11 +14,6 @@ lv:
             description: Apraksts
             tos: Pakalpojumu sniegšanas noteikumi
         questionnaires:
-          answer_option:
-            answer_option: Atbildes iespēja
-            free_text: Brīva vieta tekstam
-            remove: Noņemt
-            statement: Paziņojums
           edit:
             save: Saglabāt
             title: Rediģēt aptauju
@@ -39,7 +26,6 @@ lv:
             remove: Noņemt
             statement: Paziņojums
           question:
-            add_answer_option: Pievienot atbildes variantu
             add_matrix_row: Pievienot rindu
             any: Jebkura
             collapse: Sakļaut
@@ -60,30 +46,18 @@ lv:
       images:
         dimensions: "%{width} x %{height} pikseļi"
       question_types:
-        long_answer: Garā atbilde
         matrix_multiple: Matrica (vairāki varianti)
         matrix_single: Matrica (viens variants)
         multiple_option: Vairāki varianti
-        short_answer: Īsā atbilde
         single_option: Viens variants
         sorting: Kārtošana
       questionnaires:
-        answer:
-          invalid: Atbildot uz veidlapas jautājumiem, radās problēma.
-          max_choices_alert: Ir izvēlēti pārāk daudzi varianti
-          success: Uz veidlapas jautājumiem ir veiksmīgi atbildēts.
         question:
           max_choices: 'Maksimālais izvēļu skaits: %{n}'
         show:
-          answer_questionnaire:
-            title: Atbildiet uz veidlapas jautājumiem
           current_step: '%{step} solis'
           of_total_steps: no %{total_steps}
-          questionnaire_answered:
-            body: Uz šīs veidlapas jautājumiem jau esat atbildējis.
-            title: Jau atbildēts
           questionnaire_closed:
-            body: Veidlapa ir slēgta, un uz tajā uzdotajiem jautājumiem vairs nevar atbildēt.
             title: Veidlapa slēgta
           questionnaire_for_private_users:
             body: Veidlapa ir pieejama tikai privātiem lietotājiem
@@ -94,9 +68,3 @@ lv:
           back: Atpakaļ
           continue: Turpināt
           submit: Iesniegt
-      user_answers_serializer:
-        created_at: Atbildēts
-        id: Atbildes ID
-        registered: Reģistrēts
-        unregistered: Nereģistrēts
-        user_status: Lietotāja statuss
