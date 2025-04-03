@@ -16,7 +16,7 @@ describe "Decidim::Api::QueryType" do
           name { translation(locale: "#{locale}") }
           stats {
             key
-            name { translation(locale: "#{locale}") }  # Selecciona 'name' correctamente
+            name { translation(locale: "#{locale}") }
             value
             description {
               translations {
