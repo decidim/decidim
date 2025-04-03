@@ -87,7 +87,7 @@
     }
 
     .sidebar-menu__item-disabled {
-      @apply w-full flex gap-2 justify-center items-center text-md text-neutral-400 leading-10 border-none pb-0 rounded-t cursor-not-allowed;
+      @apply w-full flex gap-2 justify-center items-center text-md text-neutral-400 leading-9 border-none pb-0 rounded-t cursor-not-allowed;
 
       & .component-counter {
         @apply hidden;
@@ -144,7 +144,7 @@
       @apply relative inline-block pb-1;
 
       &::after {
-        @apply absolute left-0 -bottom-1 w-full h-[0.20rem] bg-secondary;
+        @apply absolute left-0 -bottom-[0.10rem] h-px w-full bg-secondary;
 
         content: "";
       }
