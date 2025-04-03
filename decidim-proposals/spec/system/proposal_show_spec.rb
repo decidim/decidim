@@ -27,6 +27,7 @@ describe "Show a Proposal" do
       describe "extra admin link" do
         before do
           login_as user, scope: :user
+          sleep 1
           visit current_path
         end
 
@@ -34,6 +35,8 @@ describe "Show a Proposal" do
           let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
+            visit current_path
+
             within "header" do
               expect(page).to have_css("#admin-bar")
               expect(page).to have_link("Answer", href: /.*admin.*proposal-answer.*/)
@@ -45,6 +48,8 @@ describe "Show a Proposal" do
           let!(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
+            visit current_path
+
             within "header" do
               expect(page).to have_no_css("#admin-bar")
               expect(page).to have_no_link("Answer")
