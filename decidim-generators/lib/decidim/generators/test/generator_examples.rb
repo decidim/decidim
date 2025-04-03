@@ -955,13 +955,11 @@ end
 
 def initializer_config_for(path, env, mod = "Decidim")
   command = cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
-  pp command
   JSON.parse command
 end
 
 def rails_value(value, path, env)
   command = cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
-  pp command
   JSON.parse command
 end
 
