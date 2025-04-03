@@ -27,36 +27,17 @@ describe "Admin creates proposals" do
     )
   end
 
-  it "can attach a file" do
-    visit_component_admin
-    click_on("New proposal")
+  it_behaves_like "create proposals"
 
-    fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
-    fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-    dynamically_attach_file(:proposal_documents, image_path)
-    dynamically_attach_file(:proposal_documents, document_path)
+  context "when is a process admin" do
+    let(:user) do
+      create(:process_admin,
+             :confirmed,
+             organization:,
+             participatory_process:)
+    end
 
-    click_on("Create")
-    find("a.action-icon--edit-proposal").click
-
-    expect(page).to have_content(image_filename)
-    expect(page).to have_content(document_filename)
-  end
-
-  it "displays the correct version link", versioning: true do
-    visit_component_admin
-    click_on("New proposal")
-
-    fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
-    fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-    click_on("Create")
-    expect(page).to have_admin_callout("successfully")
-
-    path = resource_locator(Decidim::Proposals::Proposal.last).path
-
-    visit path
-
-    expect(page).to have_link("see other versions", href: "#{path}/versions/1")
+    it_behaves_like "create proposals"
   end
 
   describe "validating the form" do
