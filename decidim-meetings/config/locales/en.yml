@@ -224,10 +224,15 @@ en:
           email_subject: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%
           notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> meeting are over %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_intro: 'The "%{resource_title}" meeting has been updated with changes to %{changed_fields}. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          field_names:
+            address: the address
+            end_time: the end time
+            location: the location
+            start_time: the start time
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
@@ -612,6 +617,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          pending_address: The location will be announced soon.
           redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_and_qr_code: Registration and QR Code
           registration_code: 'Registration code: %{code}'

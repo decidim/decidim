@@ -41,32 +41,6 @@
         @apply md:self-center;
       }
     }
-
-    .content-big {
-      @apply md:grid md:grid-cols-2 gap-5 md:py-4;
-
-      > * {
-        @apply mx-auto w-full mb-8;
-
-        &:first-child {
-          img {
-            @apply h-64;
-          }
-
-          h2 {
-            @apply mb-4 md:text-2xl text-center text-gray-2;
-          }
-        }
-
-        > * {
-          @apply mx-auto;
-        }
-      }
-
-      > :first-child {
-        @apply md:self-center;
-      }
-    }
   }
 
   [data-dialog-actions] {
