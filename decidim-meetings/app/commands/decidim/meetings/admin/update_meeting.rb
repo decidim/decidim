@@ -30,7 +30,7 @@ module Decidim
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
                         send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
-                        reminder_message_custom_content: form.reminder_enabled ? form.reminder_message_custom_content : ""
+                        reminder_message_custom_content: form.reminder_enabled ? form.reminder_message_custom_content : {}
                       })
         end
 
