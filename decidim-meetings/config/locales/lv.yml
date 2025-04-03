@@ -94,10 +94,8 @@ lv:
           email_subject: Piešķirtais laiks runāšanai sanāksmē "%{resource_title}" pārsniedz %{percentage}%.
           notification_title: Piešķirtais laiks runāšanai sanāksmē <a href="%{resource_path}">%{resource_title}</a> pārsniedz %{percentage}%.
         meeting_updated:
-          email_intro: 'Sanāksme "%{resource_title}" tika atjaunināta. Jūs varat lasīt jauno versiju tās lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Sanāksme "%{resource_title}" tika atjaunināta
-          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> tika atjaunināta.
         registration_code_validated:
           email_intro: Jūsu reģistrācijas kods "%{registration_code}" sanāksmei "%{resource_title}" ir validēts.
           email_outro: Jūs saņēmāt šo paziņojumu, jo jūsu reģistrācijas kods sanāksmei "%{resource_title}" ir validēts.
