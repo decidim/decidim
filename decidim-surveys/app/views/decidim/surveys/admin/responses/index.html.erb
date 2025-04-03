@@ -3,9 +3,9 @@
 <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
   <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>
     <% if @participants.count.zero? %>
-      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "button button__xs button__secondary h-8", disabled: true %>
+      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "main-tabs-menu__cta-button", disabled: true %>
     <% else %>
-      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "button button__xs button__secondary h-8" %>
+      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "main-tabs-menu__cta-button" %>
     <% end %>
   <% end %>
 <% end %>
