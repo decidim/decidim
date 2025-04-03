@@ -97,10 +97,8 @@ sk:
           email_subject: Schôdzky obsadené schôdzkou "%{resource_title}" sú nad%{percentage}%
           notification_title: Počet obsadených slotov <a href="%{resource_path}">%{resource_title} </a> je vyššia ako%{percentage}%.
         meeting_updated:
-          email_intro: 'Schôdzka "%{resource_title}" bola aktualizovaná. Nová verzia si môžete prečítať na stránke: '
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" bola aktualizovaná
-          notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná.
         registration_code_validated:
           email_intro: Váš registračný kód "%{registration_code}" pre stretnutie "%{resource_title}" bol overený.
           email_outro: Toto oznámenie ste dostali, pretože bol overený váš registračný kód pre schôdzku "%{resource_title}".
