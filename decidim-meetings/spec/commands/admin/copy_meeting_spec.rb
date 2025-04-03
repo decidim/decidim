@@ -39,6 +39,9 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
+        reminder_enabled: meeting.reminder_enabled,
+        send_reminders_before_hours: meeting.send_reminders_before_hours,
+        reminder_message_custom_content: meeting.reminder_message_custom_content,
         taxonomies: meeting.taxonomies,
         services_to_persist:,
         current_user:,
@@ -79,6 +82,7 @@ module Decidim::Meetings
         expect(new_meeting.taxonomies).to eq(old_meeting.taxonomies)
         expect(new_meeting.component).to eq(old_meeting.component)
         expect(new_meeting.component).not_to eq(be_published)
+        expect(new_meeting.reminder_message_custom_content).to eq(old_meeting.reminder_message_custom_content)
 
         new_meeting.services.each_with_index do |service, index|
           expect(service.title).to eq(services[index]["title"])
