@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'openssl'
 
 module Decidim
   module Initiatives
@@ -26,7 +27,6 @@ module Decidim
 
       attribute :tos_agreement, if: :ephemeral_tos_pending?
       validates :tos_agreement, presence: true, if: :ephemeral_tos_pending?
-      validate :tos_agreement_acceptance, if: :ephemeral_tos_pending?
 
       attribute :transfer_status
 
@@ -138,7 +138,7 @@ module Decidim
       def hash_id
         return unless initiative && (unique_id || user)
 
-        @hash_id ||= Digest::MD5.hexdigest(
+        @hash_id ||= Digest::SHA256.hexdigest(
           [
             initiative.id,
             unique_id || user.id,
