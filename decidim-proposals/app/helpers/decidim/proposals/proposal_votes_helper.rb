@@ -95,7 +95,7 @@ module Decidim
         @votes_given ||= all_voted_proposals_by_user.length
       end
 
-      # Public: Gets the vote limit for each user, if set.
+      # Gets the vote limit for each user, if set.
       #
       # Returns an Integer if set, nil otherwise.
       def vote_limit
