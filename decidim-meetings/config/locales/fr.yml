@@ -204,10 +204,15 @@ fr:
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
-          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder aux modifications sur la page de la rencontre :'
+          email_intro: 'La réunion "%{resource_title}" a été mise à jour avec les modifications apportées à %{changed_fields}. Vous pouvez lire la nouvelle version sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
+          field_names:
+            address: l'adresse
+            end_time: l'heure de fin
+            location: l'emplacement
+            start_time: l'heure de début
+          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été mise à jour avec les modifications apportées à %{changed_fields}.
         registration_code_validated:
           email_intro: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé.
           email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -575,6 +580,7 @@ fr:
           micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          pending_address: L'emplacement sera bientôt annoncé.
           redirect_notice: Cette réunion fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Votre code d'inscription
           registration_state:
