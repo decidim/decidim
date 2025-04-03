@@ -81,7 +81,7 @@ module Decidim::Meetings
         components:,
         reminder_enabled:,
         send_reminders_before_hours:,
-        reminder_message_custom_content:,
+        reminder_message_custom_content:
       )
     end
 
