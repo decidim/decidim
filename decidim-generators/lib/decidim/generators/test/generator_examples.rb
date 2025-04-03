@@ -352,7 +352,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim meetings enable_proposal_linking) => "auto",
       %w(decidim meetings embeddable_services) => [],
       %w(decidim budgets enable_proposal_linking) => "auto",
-      %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
@@ -448,7 +447,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim meetings enable_proposal_linking) => false,
       %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
       %w(decidim budgets enable_proposal_linking) => false,
-      %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim initiatives creation_enabled) => false,
       %w(decidim initiatives minimum_committee_members) => 3,
       %w(decidim initiatives default_signature_time_period_length) => 133,
@@ -664,18 +662,6 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
-  let(:accountability_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:accountability_initializer_on) do
-    {
-      "enable_proposal_linking" => false
-    }
-  end
-
   # The logs settings have changed between Rails 6.0 abd 6.1 and this may be here
   # https://github.com/rails/rails/commit/73079940111e8b85bf87953e5ef9fafeece5b5da
   let(:rails_off) do
@@ -794,20 +780,6 @@ shared_examples_for "an application with configurable env vars" do
     budgets_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Accountability module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
-    accountability_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Accountability module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
-    accountability_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto some extra Rails configs when ENV vars are empty or undefined
