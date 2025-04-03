@@ -90,10 +90,8 @@ uk:
           email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
           notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
         meeting_updated:
-          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Зустріч "%{resource_title}" було оновлено
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
         registration_code_validated:
           email_outro: Ви отримали це повідомлення, оскільки ваш реєстраційний код для зустрічі "%{resource_title}" підтверджено.
           notification_title: Ваш реєстраційний код "%{registration_code}" для зустрічі <a href="%{resource_path}">%{resource_title}</a> підтверджено.
