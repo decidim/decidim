@@ -160,10 +160,8 @@ ar:
           email_subject: الشقوق المخصصة للاجتماع "%{resource_title}" تتجاوز %{percentage}٪
           notification_title: تتجاوز الفواصل المخصصة للاجتماع <a href="%{resource_path}">%{resource_title}</a> ٪ %{percentage}.
         meeting_updated:
-          email_intro: 'تم تحديث الاجتماع "%{resource_title}". يمكنك قراءة الإصدار الجديد من صفحته:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: تم تحديث الاجتماع "%{resource_title}"
-          notification_title: تم تحديث الاجتماع <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}".
           email_outro: لقد تلقيت هذا الإشعار لأنه تم التحقق من صحة رمز التسجيل الخاص بالاجتماع "%{resource_title}".
