@@ -107,10 +107,8 @@ gl:
           email_subject: As xuntas ocupadas con "%{resource_title}" ocuparon máis de %{percentage}%
           notification_title: As xuntas ocupadas por <a href="%{resource_path}">%{resource_title}</a> ocupadas son máis do %{percentage}%.
         meeting_updated:
-          email_intro: 'Realizouse a reunión "%{resource_title}". Podes ler a nova versión da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Realizouse a reunión "%{resource_title}"
-          notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado.
           email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
