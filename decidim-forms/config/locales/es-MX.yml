@@ -187,6 +187,7 @@ es-MX:
           submit: Enviar
       user_answers_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido en
         id: ID de respuesta
         ip_hash: Hash de la dirección IP
