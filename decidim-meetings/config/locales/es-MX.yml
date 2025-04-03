@@ -223,10 +223,8 @@ es-MX:
           email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
           notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
         meeting_updated:
-          email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
         registration_code_validated:
           email_intro: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
