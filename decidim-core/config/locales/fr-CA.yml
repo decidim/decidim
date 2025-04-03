@@ -1535,7 +1535,20 @@ fr-CA:
         body_2: Dans le cadre de nos efforts pour simplifier l'expérience des organisations, la fonctionnalité "Groupes d'utilisateurs" est dépréciée. Votre profil de groupe d'utilisateurs a maintenant été converti en un profil de simple participant.
         greeting: Cher(ère) %{name},
         instructions_1: Si vous avez accès à ce compte de messagerie, veuillez vérifier votre boîte de réception pour les instructions.
+        instructions_intro: Nous avons envoyé des instructions à l'adresse e-mail associée au compte pour définir un nouveau mot de passe pour le profil.
+        instructions_title: "<strong>Cce que ça signifie pour vous</strong>"
         subject: Mise à jour importante à propos du groupe d'utilisateurs dont vous êtes membre
+      notify_deprecation_to_owner:
+        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3: Pour continuer à accéder à votre compte, nous avons besoin que vous définissiez un mot de passe.
+        greeting: Cher(ère) %{name},
+        instructions_1: 'Cliquez sur le lien ci-dessous pour démarrer le processus de définition du mot de passe :'
+        instructions_2: Dans le formulaire, entrez l'adresse e-mail à laquelle vous avez reçu ce message et soumettez la demande.
+        instructions_3: Consultez votre boîte de réception afin d'obtenir des instructions supplémentaires pour définir votre nouveau mot de passe.
+        instructions_title: "<strong>Ce que vous devez faire</strong>"
+        set_password: Démarrer le processus de définition du mot de passe
+        subject: Mise à jour importante à propos du groupe d'utilisateurs
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
