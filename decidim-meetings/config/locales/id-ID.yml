@@ -88,10 +88,8 @@ id:
           email_subject: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%
           notification_title: Slot pertemuan <a href="%{resource_path}">%{resource_title}</a> diduduki lebih dari %{percentage}%.
         meeting_updated:
-          email_intro: 'Rapat "%{resource_title}" telah diperbarui. Anda dapat membaca versi baru dari halamannya:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Rapat "%{resource_title}" telah diperbarui
-          notification_title: Rapat <a href="%{resource_path}">%{resource_title}</a> telah diperbarui.
         registration_code_validated:
           email_intro: Kode registrasi Anda "%{registration_code}" untuk rapat "%{resource_title}" telah divalidasi.
           email_outro: Anda telah menerima pemberitahuan ini karena kode pendaftaran Anda untuk rapat "%{resource_title}" telah divalidasi.
