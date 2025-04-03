@@ -214,6 +214,10 @@ module Decidim
         registrations.where(user:).any?
       end
 
+      def pending_location?
+        !online? && location.except("machine_translations").values.all?(&:blank?)
+      end
+
       def maps_enabled?
         component.settings.maps_enabled?
       end
