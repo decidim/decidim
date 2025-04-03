@@ -186,7 +186,7 @@ describe "Admin manages global moderations" do
           end
           within "tr", text: "Comment" do
             expect(page).to have_no_link("Unhide")
-            expect(page).to have_css("svg[aria-label='You can not unhide this resource because its parent is still hidden.']", visible: :all)
+            expect(page).to have_css("svg[aria-label='You cannot unhide this resource because its parent is still hidden.']", visible: :all)
           end
         end
       end
