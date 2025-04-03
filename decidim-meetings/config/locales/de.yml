@@ -223,10 +223,8 @@ de:
           email_subject: Plätze der Sitzung "%{resource_title}" sind zu %{percentage}% belegt
           notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
-          email_intro: 'Die Veranstaltung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Veranstaltungsseite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Veranstaltung "%{resource_title}" wurde aktualisiert
-          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung "%{resource_title}" wurde bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Registrierungscode für die Veranstaltung "%{resource_title}" validiert wurde.
