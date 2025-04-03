@@ -191,10 +191,8 @@ pl:
           email_subject: Liczba zarezerwowanych miejsc na spotkanie "%{resource_title}" przekroczyła %{percentage}%
           notification_title: Liczba zarezerwowanych miejsc na spotkanie <a href="%{resource_path}">%{resource_title}"</a> przekroczyła %{percentage}%.
         meeting_updated:
-          email_intro: 'Spotkanie "%{resource_title}" zostało zaktualizowane. Możesz sprawdzić aktualną wersję na stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
-          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
         registration_code_validated:
           email_intro: Twój kod rejestracyjny "%{registration_code}" na spotkanie "%{resource_title}" został zatwierdzony.
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny na spotkanie "%{resource_title}" został zatwierdzony.
