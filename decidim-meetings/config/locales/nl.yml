@@ -131,10 +131,8 @@ nl:
           email_subject: Het aantal ingenomen plaatsen voor de vergadering "%{resource_title}" is groter dan %{percentage}%
           notification_title: Het aantal ingenomen plaatsen voor de vergadering <a href="%{resource_path}">%{resource_title}</a> is groter dan %{percentage}%.
         meeting_updated:
-          email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
           email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
           email_subject: De vergadering "%{resource_title}" is bijgewerkt
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registration_code_validated:
           email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" vergadering is gevalideerd.
           email_outro: Je ontvangt deze melding omdat je registratiecode voor de "%{resource_title}" vergadering is gevalideerd.
