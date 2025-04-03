@@ -22,4 +22,22 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
       expect(subject.resource_text).to eq translated(resource.description)
     end
   end
+
+  describe "custom reminder message" do
+    let(:resource) do
+      create(:meeting,
+             title: { en: "Custom Meeting" },
+             reminder_enabled: true,
+             send_reminders_before_hours: 24,
+             reminder_message_custom_content: { en: "Reminder for the {{meeting_title}} meeting" })
+    end
+
+    it "interpolates the meeting title into the custom message" do
+      expect(subject.email_intro).to eq "Reminder for the Custom Meeting meeting"
+    end
+
+    it "generates the email subject with correct hours" do
+      expect(subject.email_subject).to eq("The \"#{resource_title}\" meeting will start in less than 24h.")
+    end
+  end
 end
