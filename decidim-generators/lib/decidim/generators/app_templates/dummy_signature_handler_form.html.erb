@@ -1,0 +1,73 @@
+<%# i18n-tasks-use t("decidim.initiatives.signatures.workflows.dummy_signature_handler.description") %>
+<%# i18n-tasks-use t("decidim.initiatives.signatures.workflows.dummy_signature_with_personal_data_handler.description") %>
+<%# i18n-tasks-use t("decidim.initiatives.signatures.workflows.dummy_signature_with_sms_handler.description") %>
+
+<% content_for :title do %>
+  <%= t(
+        "decidim.verifications.authorizations.new.authorize_with",
+        authorizer: t("#{@form.signature_workflow_name}.name", scope: "decidim.initiatives.signatures.workflows")
+      ) %>
+<% end %>
+
+<% content_for :help do %>
+  <div class="form__wrapper">
+    <p>
+      <%= t("#{@form.signature_workflow_name}.description", scope: "decidim.initiatives.signatures.workflows") %>
+    </p>
+  </div>
+<% end %>
+
+<div class="form__wrapper">
+  <div class="row column">
+    <%= form.text_field :name_and_surname %>
+  </div>
+
+  <div class="row column">
+    <label for="dummy_signature_handler_document_type_and_number">
+      <%= t("document_type_and_number.label", scope: "decidim.initiatives.initiative_signatures.dummy_signature.form.fields") %>
+      <%= form.send(:required_indicator) %>
+    </label>
+    <span class="help-text">
+      <%= t("document_type_and_number.help_text", scope: "decidim.initiatives.initiative_signatures.dummy_signature.form.fields") %>
+    </span>
+    <div class="flex flex-row gap-6">
+      <div class="w-full">
+        <%= form.select(
+          :document_type,
+          handler.document_types_for_select,
+          prompt: t("decidim.initiatives.initiative_signatures.dummy_signature.form.fields.document_type.prompt"),
+          label: false
+        ) %>
+      </div>
+      <div class="w-full">
+        <%= form.text_field :document_number, label: false, placeholder: t("decidim.initiatives.initiative_signatures.dummy_signature.form.fields.document_number.placeholder") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row column">
+    <%= form.select(
+          :gender,
+          handler.genders_for_select,
+          prompt: true
+        ) %>
+  </div>
+
+  <div class="row column">
+    <label for="dummy_signature_handler_date_of_birth">
+      <%= t("date_of_birth.label", scope: "decidim.initiatives.initiative_signatures.dummy_signature.form.fields") %>
+
+      <div class="flex row-col space-x-3 w-full">
+        <%= form.date_select :date_of_birth, prompt: true, start_year: Date.today.year - 100, label: false %>
+      </div>
+    </label>
+  </div>
+
+  <div class="row column">
+    <%= scopes_select_field(form, :scope_id) %>
+  </div>
+
+  <div class="row column">
+    <%= form.text_field :postal_code %>
+  </div>
+</div>
