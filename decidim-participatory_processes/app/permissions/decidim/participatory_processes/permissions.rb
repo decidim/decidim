@@ -38,7 +38,6 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
-        # user_can_upload_images_in_process?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
