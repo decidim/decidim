@@ -223,10 +223,8 @@ fi:
           email_subject: Tapaamisesta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista
           notification_title: Tapaamisesta <a href="%{resource_path}">%{resource_title}</a> on varattu yli %{percentage}% vapaista paikoista.
         meeting_updated:
-          email_intro: 'Tapaaminen "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapaaminen "%{resource_title}" päivitettiin
-          notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
           email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapaamiseen "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapaamiseen "%{resource_title}" on vahvistettu.
