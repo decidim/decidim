@@ -126,7 +126,7 @@ module Decidim
 
       def registration_qr_code_image
         Base64.encode64(
-          RQRCode::QRCode.new(registration.validation_code_short_link.short_url).as_png(size: 175).to_s
+          RQRCode::QRCode.new(registration.validation_code_short_link.short_url).as_png(size: 5000).to_s
         ).gsub("\n", "")
       end
 
