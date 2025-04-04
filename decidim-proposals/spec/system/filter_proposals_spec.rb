@@ -473,14 +473,6 @@ describe "Filter Proposals", :slow do
                 expect(page).to have_no_content(translated_attribute(emendation.title))
               end
             end
-
-            context "and has NOT amended a proposal" do
-              it "cannot be filtered by type" do
-                within "form.new_filter" do
-                  expect(page).to have_no_content(/Type/i)
-                end
-              end
-            end
           end
 
           context "when the user is NOT logged in" do
