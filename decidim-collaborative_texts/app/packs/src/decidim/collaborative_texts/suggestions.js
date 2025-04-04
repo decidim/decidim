@@ -46,7 +46,7 @@ export default class Suggestions {
       then((response) => response.json()).
       then((data) => {
         data.forEach((item) => {
-          let suggestion = new Suggestion(this, item.id, item.changeset)
+          let suggestion = new Suggestion(this, item)
           if (suggestion.valid) {
             this.suggestions.push(suggestion);
           }

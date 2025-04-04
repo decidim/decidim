@@ -79,11 +79,14 @@ en:
           delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
+        apply: Apply
         cancel: Cancel
         consolidate:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
           invalid: There was a problem consolidating the suggestions.
           new: Consolidate accepted suggestions
+        controls_label: Suggestion controls
+        restore: Restore
         rollout:
           confirm: This action will create a new draft version of the document and you will be redirected to the edit page for final refinements. The current version will remain public and suggestions will be disabled.
           invalid: There was a problem creating a new version of the document (%{errors}).
@@ -95,6 +98,8 @@ en:
           not_accepting_suggestions: Suggestions are not allowed at this time.
           selection_active: A selection is active. Please cancel the current selection to make a new one.
         suggest: Suggest changes
+        suggestions_count: "%{count} suggestions"
+        toggle: Show/hide suggestions
       documents:
         index:
           count:

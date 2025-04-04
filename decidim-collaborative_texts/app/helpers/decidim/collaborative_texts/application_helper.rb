@@ -13,7 +13,7 @@ module Decidim
 
       def document_i18n
         {
-          suggest: t("decidim.collaborative_texts.document.suggest"),
+          # suggest: t("decidim.collaborative_texts.document.suggest"),
           # cancel: t("decidim.collaborative_texts.document.cancel"),
           # save: t("decidim.collaborative_texts.document.save"),
           selectionActive: t("decidim.collaborative_texts.document.status.selection_active"),

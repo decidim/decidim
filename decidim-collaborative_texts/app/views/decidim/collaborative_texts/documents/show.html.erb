@@ -14,7 +14,7 @@
   )
 %>
 
-<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10 } do %>
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <section class="layout-main__section">
@@ -37,10 +37,14 @@
     </div>
 
     <script type="text/template" class="decidim-template" id="collaborative-texts-editor-template"><%= render "editor_template" %></script>
+    <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-template"><%= render "suggestions_box_template" %></script>
+    <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-item-template"><%= render "suggestions_box_item_template" %></script>
 
     <div data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-editor-template="#collaborative-texts-editor-template"
+         data-collaborative-texts-suggestions-box-template="#collaborative-texts-suggestions-box-template"
+         data-collaborative-texts-suggestions-box-item-template="#collaborative-texts-suggestions-box-item-template"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
          data-collaborative-texts-rollout-url="<%= document_path(document) if allowed_to?(:rollout, :collaborative_text, document:) %>"
          class="collaborative-texts-container editor-content">

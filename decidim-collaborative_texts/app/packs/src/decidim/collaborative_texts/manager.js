@@ -31,17 +31,11 @@ export default class Manager {
       if (node.nodeType !== Node.ELEMENT_NODE) {
         return;
       }
-      if (node.classList.contains("collaborative-texts-suggestions-menu")) {
-        return;
-      }
-      if (node.classList.contains("collaborative-texts-editor")) {
-        return;
-      }
-      if (node.classList.contains("collaborative-texts-hidden")) {
-        return;
-      }
       if (node.classList.contains("collaborative-texts-changes")) {
         node.childNodes.forEach((child) => this.container.appendChild(child.cloneNode(true)));
+        return;
+      }
+      if (node.classList.values().find((cls) => cls.startsWith("collaborative-texts-"))) {
         return;
       }
       this.container.appendChild(node.cloneNode(true));

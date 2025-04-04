@@ -1,6 +1,6 @@
 .collaborative-texts {
   &-container {
-    @apply relative mb-8;
+    @apply relative mb-8 mr-[18rem] pr-4;
 
     h2 {
       @apply text-secondary mt-8;
@@ -79,54 +79,149 @@
     @apply absolute top-0 right-0 z-[40] flex gap-2;
   }
 
-  &-suggestions-menu {
-    @apply absolute top-0 right-[-180px] z-[40] text-xs w-40;
+  &-suggestions-box {
+    @apply bg-gray-5 shadow outline outline-gray-3 outline-1 absolute top-0 right-[-18rem] text-xs w-[18rem] rounded px-2 pb-2;
+
+    .icon {
+      @apply inline-block text-md mr-2;
+
+      &-hover,
+      &-applied {
+        @apply hidden;
+      }
+    }
+
+    &:has([aria-hidden="false"]) {
+      @apply z-[49] shadow-lg;
+
+      &:has(.collaborative-texts-suggestions-box-item:hover) {
+        .icon-pending {
+          @apply hidden;
+        }
+
+        .icon-hover {
+          @apply inline-block;
+        }
+      }
+
+      &:has(.applied) {
+        .icon-applied {
+          @apply inline-block;
+        }
+
+        .icon-pending {
+          @apply hidden;
+        }
+
+        .icon-hover {
+          @apply hidden;
+        }
+      }
+    }
 
     &:hover {
-      @apply z-[49];
+      @apply z-[50];
+    }
+
+    &-header {
+      @apply flex items-center justify-between text-secondary mb-4 fill-secondary;
     }
 
     &-item {
-      @apply p-2 mb-4 rounded bg-gray-3;
+      @apply p-2 pr-0 mb-4 rounded w-full;
 
       &:hover {
-        @apply bg-background z-[49];
+        @apply bg-white drop-shadow relative z-[50];
+      }
+
+      &.applied {
+        @apply bg-white drop-shadow;
+      }
+
+      img {
+        @apply m-0;
       }
     }
-  }
 
-  &-button-cancel,
-  &-button-save,
-  &-button-apply,
-  &-button-suggest,
-  &-button-restore {
-    @apply text-sm;
-
-    &.hidden {
-      display: none;
+    &-item-header {
+      @apply flex items-center justify-between;
     }
-  }
 
-  &-button-cancel {
-    @apply text-xl;
-  }
+    [data-component="accordion"] {
+      @apply relative bg-gray-5;
 
-  &-button-save,
-  &-button-apply,
-  &-button-suggest {
-    @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words focus:outline focus:outline-2 focus:outline-offset-2;
-    // .button__xs
-    @apply [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
-    // .button__primary
-    @apply bg-primary text-white focus:outline-primary;
-  }
+      > button {
+        @apply flex outline-none w-full justify-between;
 
-  &-button-save {
-    @apply bg-secondary;
-  }
+        svg {
+          @apply fill-secondary;
+        }
+      }
 
-  &-button-restore {
-    // .button__transparent && .button__transparent-primary
-    @apply border bg-white border-primary text-primary focus:outline-primary;
+      [id*="panel"][aria-hidden="false"] {
+        @apply z-[50] relative;
+      }
+
+      [aria-expanded="false"] > svg:last-of-type,
+      [aria-expanded="false"] > span:last-of-type,
+      [aria-expanded="true"] > span:first-of-type,
+      [aria-expanded="true"] > svg:first-of-type {
+        @apply hidden;
+      }
+
+      [aria-expanded="true"] > svg:last-of-type,
+      [aria-expanded="true"] > span:last-of-type,
+      [aria-expanded="false"] > span:first-of-type,
+      [aria-expanded="false"] > svg:first-of-type {
+        @apply block;
+      }
+    }
+
+    /* overwrite default dropdown styles */
+    [id*="dropdown-trigger"] {
+      @apply flex pr-1;
+    }
+
+    [id*="dropdown-menu"] {
+      @apply cursor-auto w-auto;
+
+      &[aria-hidden="true"] {
+        @apply hidden;
+      }
+
+      ul {
+        @apply list-none;
+      }
+
+      &[aria-hidden="false"] {
+        animation-name: fadeIn;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        to {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
   }
 }

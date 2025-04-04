@@ -51,7 +51,7 @@ describe("Suggestions", () => {
   it("fetches suggestions", async () => {
     const suggestion = suggestions.suggestions[0];
     expect(suggestions.nodes).toBe(suggestions.document.nodes);
-    expect(suggestions.doc.innerHTML).toContain("collaborative-texts-suggestions-menu");
+    expect(suggestions.doc.innerHTML).toContain("collaborative-texts-suggestions-box");
     expect(suggestions.doc.innerHTML).toContain("This is a replacement");
     expect(suggestions.suggestions.length).toBe(1);
     expect(suggestion).toBeInstanceOf(Suggestion);

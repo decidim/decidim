@@ -29,9 +29,16 @@ module Decidim
 
       private
 
-      # TODO: sanitize the output for the ajax receiver
       def suggestions_for(version)
-        version.suggestions
+        version.suggestions.map do |suggestion|
+          {
+            id: suggestion.id,
+            changeset: suggestion.changeset,
+            status: suggestion.status,
+            createdAt: suggestion.created_at,
+            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s
+          }
+        end
       end
 
       def document
