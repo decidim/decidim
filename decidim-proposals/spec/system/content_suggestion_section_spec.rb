@@ -22,7 +22,7 @@ describe "ContentSuggestionSection" do
   let!(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let!(:most_recent_proposal) { create(:proposal, :accepted, component:, users: [user], created_at: 1.minute.ago, comments_count: 2, endorsements_count: 2) }
-  let!(:nearest_proposal) { create(:proposal, :accepted, component:,  users: [user], created_at: 2.weeks.ago, latitude:, longitude:) }
+  let!(:nearest_proposal) { create(:proposal, :accepted, component:, users: [user], created_at: 2.weeks.ago, latitude:, longitude:) }
   let!(:taxonomy_proposal) { create(:proposal, :accepted, component:, users: [user], created_at: 2.weeks.ago, taxonomies: [taxonomy, sub_taxonomy]) }
 
   let!(:proposals_list) do
