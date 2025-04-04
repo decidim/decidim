@@ -2047,7 +2047,8 @@ ca:
         terms_of_service: Termes i condicions d'ús
       header:
         close: Tancar
-        confirm_close_ephemeral_session: Si navegues fora d'aquesta pàgina, la teva sessió es tancarà. Segur que vols sortir d'aquesta pàgina?
+        confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
+        confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
