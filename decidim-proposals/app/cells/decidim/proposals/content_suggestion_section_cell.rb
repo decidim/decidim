@@ -31,7 +31,8 @@ module Decidim
       end
 
       def base_query
-        Decidim::Proposals::Proposal.published.except_rejected.not_hidden.not_withdrawn
+        Decidim::Proposals::Proposal.published.left_joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: :rejected })
+                                    .or(Decidim::Proposals::Proposal.state_not_published).not_hidden.not_withdrawn
                                     .where(component: current_participatory_space.components
                                     .where(manifest_name: "proposals").published)
                                     .where.not(id: model.id)
@@ -55,7 +56,8 @@ module Decidim
         return [] unless model.taxonomies.any?
 
         taxonomy_ids = model.taxonomies.pluck(:id)
-        base_query.includes(:taxonomizations).where.not({ taxonomizations: { id: nil } }).where({ taxonomizations: { taxonomy_id: taxonomy_ids } })
+        base_query.includes(:taxonomizations).where({ taxonomizations: { taxonomy_id: taxonomy_ids } })
+                  .order("RANDOM()").limit(suggested_content_limit)
       end
 
       def suggested_content_enabled?
