@@ -6,7 +6,6 @@ eu:
         answer_url: URL erantzuna
         area_id: Arloa
         decidim_scope_id: Esparrua
-        decidim_user_group_id: Egilea
         description: Deskribapena
         hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
@@ -35,7 +34,6 @@ eu:
         comments_enabled: Gaitu iruzkinak
         custom_signature_end_date_enabled: Gaitu egileak sinadurak biltzeko aldiaren amaiera aukeratzeko
         description: Deskribapena
-        document_number_authorization_handler: Sinaduretan dokumentu zenbakia egiaztatzeko baimena
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
@@ -319,7 +317,6 @@ eu:
           edit:
             update: Eguneratu
           form:
-            authorizations: Baimen-doikuntzak
             child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
             only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
@@ -470,23 +467,14 @@ eu:
         uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu.
       initiative_signatures:
         fill_personal_data:
-          continue: Jarraitu
           help: Mesedez, bete hurrengo eremuak zure datu pertsonalekin ekimena sinatzeko.
         finish:
           back_to_initiative: Ekimenera itzuli
-        sms_code:
-          continue: Egiaztatu kodea eta jarraitu
-          help: Egiaztatu telefonoan jasotako SMSa
-        sms_phone_number:
-          continue: Bidali SMS bat
-          help: Bete inprimakia zure telefono zenbakiarekin zure egiaztapen-kodea eskatzeko.
       initiative_votes:
         create:
           error: Arazo bat egon da ekimena sinatzean.
           invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak.
           success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da.
-        personal_data:
-          invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
         sms_code:
           invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun SMSa.
         sms_phone:
@@ -659,7 +647,6 @@ eu:
         actions:
           create: Sortu ekimen bat
           title: Ekintzak
-          vote: Bozkatu
   layouts:
     decidim:
       initiative_creation_header:
@@ -667,12 +654,6 @@ eu:
         finish: Balidazio teknikoa
         promotal_committee: Bilatu sustatzaileak
         select_initiative_type: Aukeratu
-      initiative_signature_creation_header:
-        fill_personal_data: Zure datuak osatzea
-        finish: Amaitu
-        sms_code: SMS kodea egiaztatzea
-        sms_phone_number: Telefono mugikorraren zenbakia
-        title: Sinatu %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ez dago ekimenik oraindik!
