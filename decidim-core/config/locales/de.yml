@@ -2042,7 +2042,6 @@ de:
         terms_of_service: Nutzungsbedingungen
       header:
         close: Schliessen
-        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
