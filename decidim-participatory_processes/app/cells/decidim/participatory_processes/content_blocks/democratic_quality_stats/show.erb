@@ -24,22 +24,22 @@
         <%= cell "decidim/participatory_processes/indicator",
                  nil,
                  metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.influence"),
-                 metric_value: stats[:influence],
+                 metric_value: stats[:automatic][:influence],
                  metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.influence_tooltip") %>
         <%= cell "decidim/participatory_processes/indicator",
                  nil,
                  metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.hybridization"),
-                 metric_value: stats[:hybridization],
+                 metric_value: stats[:automatic][:hybridization],
                  metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.hybridization_tooltip") %>
         <%= cell "decidim/participatory_processes/indicator",
                  nil,
-                 metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.accountability"),
-                 metric_value: stats[:accountability],
-                 metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.accountability_tooltip") %>
+                 metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.transparency"),
+                 metric_value: stats[:automatic][:transparency],
+                 metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.transparency_tooltip") %>
         <%= cell "decidim/participatory_processes/indicator",
                  nil,
                  metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.traceability"),
-                 metric_value: stats[:traceability],
+                 metric_value: stats[:automatic][:traceability],
                  metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.automatic_metrics.indicators.traceability_tooltip") %>
       </div>
     </div>
@@ -55,26 +55,25 @@
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
                    metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.inclusiveness"),
-                   metric_value: stats[:inclusiveness],
+                   metric_value: stats[:auto_evaluation][:inclusiveness],
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.inclusiveness_tooltip") %>
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
                    metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.relevance"),
-                   metric_value: stats[:relevance],
+                   metric_value: stats[:auto_evaluation][:relevance],
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.relevance_tooltip") %>
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
                    metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.citizen_influence"),
-                   metric_value: stats[:citizen_influence],
+                   metric_value: stats[:auto_evaluation][:citizen_influence],
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.citizen_influence_tooltip") %>
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
                    metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.accessibility"),
-                   metric_value: stats[:accessibility],
+                   metric_value: stats[:auto_evaluation][:accessibility],
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.accessibility_tooltip") %>
         </div>
       </div>
     <% end %>
   </div>
 </section>
-

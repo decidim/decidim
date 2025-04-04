@@ -429,6 +429,13 @@ en:
                   five: Yes = 5
                   two_five: Partially = 2.5
                   zero: No = 0
+            announcement:
+              body_html: |-
+                <ul>
+                  <li>These are calculated automatically from Decidim data. They will become visible once you publish the content block.</li>
+                  <li>These are based on your responses in the following form. They will be visible once you have answered all the questions.</li>
+                </ul>
+              title: 'This content block includes two types of metrics:'
             citizen_influence:
               citizen_influence_level:
                 legend: Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
@@ -530,14 +537,14 @@ en:
           automatic_metrics:
             description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             indicators:
-              accountability: Accountability
-              accountability_tooltip: Accountability tooltip
               hybridization: Hybridization
               hybridization_tooltip: Hybridization tooltip
               influence: Influence
               influence_tooltip: Influence tooltip
               traceability: Traceability
               traceability_tooltip: Traceability tooltip
+              transparency: Transparency
+              transparency_tooltip: Transparency tooltip
             name: Automatic metrics
           global_score:
             description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
@@ -555,7 +562,7 @@ en:
               inclusiveness_tooltip: Inclusiveness tooltip
               relevance: Relevance
               relevance_tooltip: Relevance tooltip
-            name: Qualitative metrics
+            name: Auto-evaluation metrics
         extra_data:
           name: Phase & duration
         hero:
@@ -621,6 +628,12 @@ en:
         belongs_to_group: This process belongs to
         private_space: This is a private process
         related_processes: Related processes
+      static_pages:
+        democratic_quality_indicators:
+          title: Democratic quality indicators
+          content: |-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     statistics:
       processes_count: Processes
   layouts:
