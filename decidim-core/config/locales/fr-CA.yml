@@ -1914,7 +1914,7 @@ fr-CA:
         terms_of_service: Conditions d'utilisation
       header:
         close: Fermer
-        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
+        confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur
