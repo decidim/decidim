@@ -84,10 +84,14 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
+      file_cannot_be_processed: Fișierul nu poate fi procesat
+      file_resolution_too_large: Rezoluția fișierului este prea mare
       file_size_too_large: Mărimea fișierului este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -111,6 +115,8 @@ ro:
         one: mai puțin de o secundă
         few: mai puțin de %{count} secunde
         other: mai puțin de %{count} secunde
+      short:
+        about_x_days: "%{count}z"
       x_days:
         one: 1 zi
         few: "%{count} zile"
@@ -587,6 +593,8 @@ ro:
           title: Notificări newsletter
         omniauth_buttons:
           or: Sau
+        password_fields:
+          hide_password: Ascunde parola
     doorkeeper:
       authorizations:
         new:
@@ -608,6 +616,9 @@ ro:
         download_data: Descarcă datele
         request_data: Cere date
     editor_images:
+      create:
+        error: Eroare la încărcarea imaginii.
+        success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
@@ -619,10 +630,16 @@ ro:
     errors:
       internal_server_error:
         copied: Text copiat!
+        copy_error_message_clarification: Copiază mesajul de eroare în clipboard
         copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
+        reference: Referinţa
+        request_method: Metoda de solicitare
         title: A apărut o problemă cu serverul nostru
+        try_later: Te rugăm să încerci mai târziu. Dacă eroarea persistă, vă rugăm să copiați următoarele informații și să le trimiteți către întreținătorii platformei cu orice alte informații pe care poate doriți să le partajați.
         unknown: Necunoscut
+        url: Adresa URL
+        user: ID utilizator
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
@@ -691,7 +708,10 @@ ro:
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
+          email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
+          notification_title: Felicitări! Ați câștigat ecusonul<a href="%{resource_path}">%{badge_name} </a> (level %{current_level}).
         level_up:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
       groups:
@@ -761,6 +781,9 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
+        user_officialized:
+          email_intro: Participantul %{name} (%{nickname}) a fost oficializat.
+          email_outro: Ați primit această notificare deoarece sunteți un administrator al organizației.
     export_mailer:
       download_your_data_export:
         click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
@@ -771,6 +794,7 @@ ro:
     filters:
       linked_classes:
         all: Toate
+        answer: Răspuns
         collaborative_draft: Ciornă colaborativă
         dummy_resource: Resurse-test
         meeting: Întâlniri
@@ -779,6 +803,7 @@ ro:
         result: Rezultate
     fingerprint:
       check: Verificați amprenta
+      explanation: Textul de mai jos reprezintă o reprezentare simplificată, hash a acestui conținut. Este util să se asigure faptul că conținutul nu a fost modificat fraudulos, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -1007,6 +1032,10 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
+    metadata:
+      progress:
+        not_started: Încă nu a început
+        remaining: "%{time_distance} ramas"
     metrics:
       download:
         csv: Descărcare date (CSV)
@@ -1024,6 +1053,8 @@ ro:
         title: Participanți
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Acest e-mail a fost trimis de la o adresă de e-mail de notificare care nu poate accepta e-mailul primit. Nu răspundeți la acest mesaj.
+        see_on_website: Nu se poate vedea corect acest e-mail? Vezi pe site-ul <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1046,9 +1077,14 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
+        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în <a href="%{link}" target="_blank">pagina de configurare</a>.
+        error: A apărut o eroare la dezabonare.
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
         unsubscribe: Dezabonare
+    newsletters_opt_in:
+      update:
+        error: A apărut o eroare la actualizarea acestui buletin informativ.
     newsletters_opt_in_mailer:
       notify:
         body_1: Prelucrarea datelor cu caracter personal şi protecţia acesteia devin din ce în ce mai importante pentru noi toţi. Prin noul Regulament general privind protecția datelor (RGDP) din 25 mai 2018, persoanele fizice dețin un control mai bun asupra datelor lor cu caracter personal. Din acest motiv avem nevoie de "OK-ul tău" pentru a continua să trimiți informații relevante despre activitățile %{organization_name}.
