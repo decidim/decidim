@@ -643,7 +643,7 @@ fi-pl:
         actions:
           create: Luo aloite
           title: Toimet
-          vote: Äänestä
+          vote: Allekirjoita
   layouts:
     decidim:
       initiative_creation_header:
