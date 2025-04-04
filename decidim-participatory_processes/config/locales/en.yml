@@ -626,6 +626,12 @@ en:
         belongs_to_group: This process belongs to
         private_space: This is a private process
         related_processes: Related processes
+      static_pages:
+        democratic_quality_indicators:
+          title: Democratic quality indicators
+          content: |-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     statistics:
       processes_count: Processes
   layouts:
