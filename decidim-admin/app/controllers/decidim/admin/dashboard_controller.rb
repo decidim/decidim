@@ -7,7 +7,6 @@ module Decidim
     class DashboardController < Decidim::Admin::ApplicationController
       helper_method :latest_action_logs
       helper_method :users_counter
-      helper_method :statistics_presenter
       helper_method :count_pending_moderations
 
       def show
@@ -27,13 +26,6 @@ module Decidim
                                 .for_admin
                                 .order(created_at: :desc)
                                 .first(5)
-      end
-
-      def statistics_presenter
-        @statistics_presenter ||= Decidim::Admin::DashboardStatisticChartsPresenter.new(
-          organization: current_organization,
-          view_context:
-        )
       end
 
       def users_counter
