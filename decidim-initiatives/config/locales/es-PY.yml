@@ -643,7 +643,7 @@ es-PY:
         actions:
           create: Crear una iniciativa
           title: Comportamiento
-          vote: Votar
+          vote: Firmar
   layouts:
     decidim:
       initiative_creation_header:
