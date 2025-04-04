@@ -2065,7 +2065,6 @@ cs:
         terms_of_service: Podmínky služby
       header:
         close: Zavřít‏
-        confirm_close_ephemeral_session: Pokud z této stránky odejdete, vaše relace bude ukončena. Jste si jisti?
         log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
