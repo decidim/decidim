@@ -6,13 +6,10 @@
 
 <p class="email-instructions"><%= t(".instructions_title").html_safe %></p>
 
-<p class="email-instructions"><%= t(".instructions_intro", group_email: @group_email).html_safe %></p>
+<p class="email-instructions"><%= t(".instructions_intro") %></p>
 
 <ul class="list-decimal">
   <li>
     <%= t(".instructions_1") %>
-  </li>
-  <li>
-    <%= t(".instructions_2") %>
   </li>
 </ul>

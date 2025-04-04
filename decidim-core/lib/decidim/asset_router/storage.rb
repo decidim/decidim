@@ -103,9 +103,7 @@ module Decidim
       #
       # @return [Hash] The remote storage options hash
       def remote_storage_options
-        @remote_storage_options ||= {
-          host: Rails.application.secrets.dig(:storage, :cdn_host)
-        }.compact
+        @remote_storage_options ||= { host: Decidim.storage_cdn_host }.compact_blank
       end
 
       # Most of the times the current host should be set through the controller

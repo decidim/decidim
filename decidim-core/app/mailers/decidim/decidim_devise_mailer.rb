@@ -31,16 +31,6 @@ module Decidim
       devise_mail(user, opts[:invitation_instructions] || :invitation_instructions, opts)
     end
 
-    def reset_password_instructions(user, token, opts = {})
-      @token = token
-
-      if user.group? && user.encrypted_password.blank?
-        devise_mail(user, "user_group_reset_password_instructions", opts)
-      else
-        devise_mail(user, :reset_password_instructions, opts)
-      end
-    end
-
     private
 
     # Overwrite devise_mail so we can inject the organization from the user.
