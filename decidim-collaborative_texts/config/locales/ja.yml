@@ -1,5 +1,15 @@
 ---
 ja:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: 本文
+          title: タイトル
+          version_number: バージョン番号
+        version:
+          body: 本文
+          version_number: バージョン番号
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ ja:
         settings:
           form:
             allow_suggestions: 参加者に提案を許可する
+      admin_log:
+        document:
+          create: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを作成しました"
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコレボレーションテキストを削除しました"
+          publish: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを公開しました"
+          restore: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを復元しました"
+          soft_delete: "%{user_name}が%{space_name}の%{resource_name}のコレボレーションテキストをゴミ箱に移動しました"
+          unpublish: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを非公開にしました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを更新しました"
+        version:
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコレボレーションテキストバージョンを削除しました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストバージョンを更新しました"
+      document:
+        cancel: キャンセル
+        save: 提案を送信
+        suggest: 変更の提案
       documents:
         index:
           count:
