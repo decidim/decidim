@@ -643,7 +643,7 @@ eu:
         actions:
           create: Sortu ekimen bat
           title: Ekintzak
-          vote: Bozkatu
+          vote: Saioa
   layouts:
     decidim:
       initiative_creation_header:
