@@ -223,8 +223,15 @@ ca:
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
+          email_intro: 'S''ha actualitzat La trobada: "%{resource_title}" amb canvis a %{changed_fields}. Pots llegir la nova versió a:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
+          field_names:
+            address: l'adreça
+            end_time: l'hora de finalització
+            location: la ubicació
+            start_time: l'hora d'inici
+          notification_title: S'ha actualitzat la trobada <a href="%{resource_path}">%{resource_title}</a> amb canvis a %{changed_fields}.
         registration_code_validated:
           email_intro: S'ha validat el teu codi d'inscripció "%{registration_code}" per a la trobada "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
@@ -596,6 +603,7 @@ ca:
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
           no_slots_available: No hi ha places disponible
           organizations: Organitzacions assistents
+          pending_address: La ubicació s'anunciarà aviat.
           redirect_notice: Aquesta trobada pertany a un altre espai de participació, motiu pel qual se t'ha traslladat a %{current_space_name}.<br>Si ho prefereixes, pots tornar a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: El teu codi de registre
           registration_state:
