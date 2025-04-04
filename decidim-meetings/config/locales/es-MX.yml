@@ -223,8 +223,15 @@ es-MX:
           email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
           notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
         meeting_updated:
+          email_intro: 'Se ha actualizado el encuentro: "%{resource_title}" con cambios en %{changed_fields}. Puedes consultar la nueva versión en:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
+          field_names:
+            address: la dirección
+            end_time: la hora de finalización
+            location: la ubicación
+            start_time: la hora de inicio
+          notification_title: Se ha actualizado el encuentro <a href="%{resource_path}">%{resource_title}</a> con cambios en %{changed_fields}.
         registration_code_validated:
           email_intro: Tu código de inscripción "%{registration_code}" en el encuentro "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
@@ -596,6 +603,7 @@ es-MX:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          pending_address: La ubicación se anunciará pronto.
           redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Tu codigo de registro
           registration_state:
