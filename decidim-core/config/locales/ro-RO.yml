@@ -107,10 +107,15 @@ ro:
       select: Selectați
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: zz/ll/aaa'
+      order: z-l-a
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -130,6 +135,8 @@ ro:
         one: mai puțin de o secundă
         few: mai puțin de %{count} secunde
         other: mai puțin de %{count} secunde
+      short:
+        about_x_days: "%{count}z"
       x_days:
         one: 1 zi
         few: "%{count} zile"
@@ -636,6 +643,8 @@ ro:
           title: Notificări newsletter
         omniauth_buttons:
           or: sau
+        password_fields:
+          hide_password: Ascunde parola
     doorkeeper:
       authorizations:
         new:
@@ -685,20 +694,49 @@ ro:
           password_updated_at: Data la care parola a fost schimbată ultima dată
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
           type: Tipul pe care acest utilizator îl are
+          updated_at: Data și ora la care acest raport a fost actualizat ultima dată
       show:
+        download: Descarcă fișier
         download_data: Descărcare date
+        download_data_description_1: Aici puteți găsi toate descărcările disponibile pentru contul dvs. Aceste fișiere .zip vor fi disponibile timp de două săptămâni înainte de a fi șterse.
         download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
+        download_your_data: Date personale
+        expiration: Expirare
+        expired: Deja a expirat
+        explanation:
+          body_2: Aceste fișiere sunt în format CSV (Valori separate prin virgulă), care este un format de fișier utilizat pe scară largă care poate fi deschis și procesat de o varietate de aplicații software, inclusiv programele de foaie de calcul, editorii de text și instrumentele de analiză a datelor.
+          title: Ce sunt aceste fișiere?
+        files_to_download: Fișiere pentru a descărca
+        request_data: Solicitare
+        type: Tip descărcare
     editor_images:
+      create:
+        error: Eroare la încărcarea imaginii.
+        success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       endorse: Îmi place
+    endorsers_list:
+      title: Apreciat de
+      you: tu
+    ephemeral_user: Vizitator
     errors:
+      files:
+        file_cannot_be_processed: Fișierul nu poate fi procesat
+        file_resolution_too_large: Rezoluția fișierului este prea mare
+        not_inside_organization: Fișierul nu este atașat niciunei organizații
       internal_server_error:
         copied: Text copiat!
+        copy_error_message_clarification: Copiază mesajul de eroare în clipboard
         copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
+        reference: Referinţa
+        request_method: Metoda de solicitare
         title: A apărut o problemă cu serverul nostru
+        try_later: Te rugăm să încerci mai târziu. Dacă eroarea persistă, vă rugăm să copiați următoarele informații și să le trimiteți către întreținătorii platformei cu orice alte informații pe care poate doriți să le partajați.
         unknown: Necunoscut
+        url: Adresa URL
+        user: ID utilizator
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
@@ -748,6 +786,9 @@ ro:
             email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{amendable_title}.
       attachments:
         attachment_created:
           email_intro: 'Un nou document a fost adăugat la %{resource_title}. Îl poți vedea de pe această pagină:'
@@ -767,9 +808,14 @@ ro:
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
+          email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
+          notification_title: Felicitări! Ați câștigat ecusonul<a href="%{resource_path}">%{badge_name} </a> (level %{current_level}).
         level_up:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
+      notification_event:
+        notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
@@ -783,19 +829,28 @@ ro:
         email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
         email_subject: "%{endorser_nickname} a susținut un conținut nou"
         notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: Un administrator a șters "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Pagina de profil</a> din %{name} (%{nickname}), pe care o urmăriți, a fost actualizată.
           email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
+        user_officialized:
+          email_intro: Participantul %{name} (%{nickname}) a fost oficializat.
+          email_outro: Ați primit această notificare deoarece sunteți un administrator al organizației.
     export_mailer:
       download_your_data_export:
         download: Descărcare
+      export:
+        download: Descarcă
       subject: Exportul dumneavoastră „%{name}” este gata
     filters:
       linked_classes:
         all: Toate
+        answer: Răspuns
         collaborative_draft: Ciornă colaborativă
         dummy_resource: Resurse-test
         meeting: Întâlniri
@@ -804,6 +859,7 @@ ro:
         result: Rezultate
     fingerprint:
       check: Verificați amprenta
+      explanation: Textul de mai jos reprezintă o reprezentare simplificată, hash a acestui conținut. Este util să se asigure faptul că conținutul nu a fost modificat fraudulos, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -966,8 +1022,14 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
+    metadata:
+      progress:
+        not_started: Încă nu a început
+        remaining: "%{time_distance} ramas"
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Acest e-mail a fost trimis de la o adresă de e-mail de notificare care nu poate accepta e-mailul primit. Nu răspundeți la acest mesaj.
+        see_on_website: Nu se poate vedea corect acest e-mail? Vezi pe site-ul <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -990,9 +1052,14 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
+        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în <a href="%{link}" target="_blank">pagina de configurare</a>.
+        error: A apărut o eroare la dezabonare.
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
         unsubscribe: Dezabonare
+    newsletters_opt_in:
+      update:
+        error: A apărut o eroare la actualizarea acestui buletin informativ.
     newsletters_opt_in_mailer:
       notify:
         body_1: Prelucrarea datelor cu caracter personal şi protecţia acesteia devin din ce în ce mai importante pentru noi toţi. Prin noul Regulament general privind protecția datelor (RGDP) din 25 mai 2018, persoanele fizice dețin un control mai bun asupra datelor lor cu caracter personal. Din acest motiv avem nevoie de "OK-ul tău" pentru a continua să trimiți informații relevante despre activitățile %{organization_name}.
