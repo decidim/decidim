@@ -2034,7 +2034,6 @@ fi-pl:
         terms_of_service: Käyttöehdot
       header:
         close: Sulje
-        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
