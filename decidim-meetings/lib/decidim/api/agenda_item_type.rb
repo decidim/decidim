@@ -16,7 +16,8 @@ module Decidim
       field :parent, Decidim::Meetings::AgendaItemType, "Parent agenda item, if available", null: true
       field :position, GraphQL::Types::Int, "Order position for this agenda item", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item", null: true
-      def self.authorized?(object, context)
+
+      def self.authorized?(object, _context)
         object.agenda.visible?
       end
     end

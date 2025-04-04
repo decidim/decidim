@@ -8,7 +8,7 @@ module Decidim
     describe AgendaType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:agenda, :with_agenda_items ) }
+      let(:model) { create(:agenda, :with_agenda_items) }
 
       include_examples "timestamps interface"
 
@@ -46,7 +46,6 @@ module Decidim
           expect(response).to be_nil
         end
       end
-
     end
   end
 end

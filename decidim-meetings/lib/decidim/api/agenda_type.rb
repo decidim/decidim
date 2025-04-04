@@ -17,7 +17,6 @@ module Decidim
       rescue Decidim::PermissionAction::PermissionNotSetError
         false
       end
-
     end
   end
 end

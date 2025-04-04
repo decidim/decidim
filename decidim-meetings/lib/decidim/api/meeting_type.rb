@@ -9,12 +9,14 @@ module Decidim
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::FollowableInterface
+      implements Decidim::Core::ReferableInterface
+      implements Decidim::Core::LocalizableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface
       implements Decidim::Meetings::LinkedResourcesInterface if Decidim::Meetings.enable_proposal_linking
       implements Decidim::Forms::QuestionnaireEntityInterface
 
-      field :address, GraphQL::Types::String, "The physical address of this meeting (used for geolocation)", null: true
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true
       field :attendee_count, GraphQL::Types::Int, "Amount of attendees to this meeting", method: :attendees_count, null: true
       field :attending_organizations, GraphQL::Types::String, "list of attending organizations", null: true
@@ -22,7 +24,6 @@ module Decidim
       field :closed, GraphQL::Types::Boolean, "Whether this meeting is closed or not.", method: :closed?, null: false
       field :closing_report, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", null: true
       field :contribution_count, GraphQL::Types::Int, "Amount of contributions to this meeting", method: :contributions_count, null: true
-      field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this meeting", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this meeting.", null: true
       field :end_time, Decidim::Core::DateTimeType, "The time this meeting ends", null: false
       field :id, GraphQL::Types::ID, "ID of this meeting", null: false
@@ -32,7 +33,8 @@ module Decidim
       field :location_hints, Decidim::Core::TranslatedFieldType, "The location of this meeting (free format)", null: true
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
       field :private_meeting, GraphQL::Types::Boolean, "Whether the meeting is private or not (it can only be true if transparent)", null: false
-      field :reference, GraphQL::Types::String, "Reference for this meeting", null: false
+      field :public_participants, [Decidim::Core::UserType, { null: true }], "The object's services", null: false
+      field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :registration_form, Decidim::Forms::QuestionnaireType, description: "If registration requires to fill a form, this is the questionnaire", null: true
       field :registration_form_enabled, GraphQL::Types::Boolean, "Whether the registrations have a form or not", null: false
       field :registration_terms, Decidim::Core::TranslatedFieldType, "The registration terms", null: true
@@ -64,10 +66,6 @@ module Decidim
 
       def audio_url
         object.audio_url if object.closing_visible?
-      end
-
-      def coordinates
-        [object.latitude, object.longitude]
       end
 
       def self.authorized?(object, context)
