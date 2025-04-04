@@ -514,7 +514,7 @@ pt-BR:
       initiatives_type:
         actions:
           title: Ações
-          vote: Voto
+          vote: Placa
   layouts:
     decidim:
       initiative_creation_header:
