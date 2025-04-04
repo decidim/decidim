@@ -500,6 +500,7 @@ ja:
           index:
             actions: アクション
             assign_to_valuator: 評価者に割り当てる
+            assign_to_valuator_button: 割り当て
             cancel: キャンセル
             change_category: カテゴリの変更
             change_scope: スコープの変更
@@ -513,6 +514,7 @@ ja:
             split_button: 分割
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
+            unassign_from_valuator_button: 割り当ての解除
             update: 更新
             update_scope_button: スコープの更新
           new:
@@ -792,6 +794,7 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
+          title: 新しい提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
