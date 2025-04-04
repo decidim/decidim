@@ -606,7 +606,7 @@ de:
         actions:
           create: Erstellen
           title: Aktionen
-          vote: Abstimmung
+          vote: Signieren
   layouts:
     decidim:
       initiative_creation_header:
