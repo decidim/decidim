@@ -2048,7 +2048,6 @@ eu:
         terms_of_service: Zerbitzuaren baldintzak
       header:
         close: Itxi
-        confirm_close_ephemeral_session: Orri honetatik kanpo nabigatzen baduzu, saioa itxita egongo da. Ziur zaude?
         log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Parte-hartzailearen menua
