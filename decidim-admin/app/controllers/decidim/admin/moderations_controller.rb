@@ -57,12 +57,17 @@ module Decidim
         Admin::UnhideResource.call(reportable, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.unhide.success", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+            redirect_to moderations_path(hidden: true)
+          end
+
+          on(:parent_invalid) do
+            flash[:alert] = I18n.t("reportable.unhide.parent_invalid", scope: "decidim.moderations.admin")
+            redirect_to moderations_path(hidden: true)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.unhide.invalid", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+            flash[:alert] = I18n.t("reportable.unhide.invalid", scope: "decidim.moderations.admin")
+            redirect_to moderations_path(hidden: true)
           end
         end
       end

@@ -20,6 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:parent_invalid) if @reportable.respond_to?(:commentable) && @reportable.commentable.try(:hidden?)
         return broadcast(:invalid) unless unhideable?
 
         unhide!

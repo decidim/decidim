@@ -114,4 +114,41 @@ describe "Admin manages global moderations" do
       expect(page).to have_css("tbody tr", count: 1)
     end
   end
+
+  context "when performing bulk actions" do
+    let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
+    let!(:moderations) do
+      reportables.first(3).map do |reportable|
+        moderation = create(:moderation, reportable:, report_count: 1, reported_content: reportable.reported_searchable_content_text)
+        create(:report, moderation:)
+        moderation
+      end
+    end
+    let!(:moderation) { moderations.first }
+    let!(:hidden_moderations) do
+      moderation = create(:moderation, reportable: reportables.last, report_count: 3, reported_content: reportables.last.reported_searchable_content_text, hidden_at: Time.current)
+      create_list(:report, 3, moderation:, reason: :spam)
+      [moderation]
+    end
+
+    context "when unhides the moderation" do
+      context "when the resource parent is hidden" do
+        let(:comment) { create(:comment, commentable: hidden_moderations.first.reportable, author: user) }
+        let!(:comment_moderation) { create(:moderation, reportable: comment, report_count: 1, hidden_at: Time.current) }
+
+        it "redirects hidden moderations path with alert" do
+          visit decidim_admin.moderations_path
+          click_on "Hidden"
+
+          within "tr", text: "Dummy resource" do
+            expect(page).to have_link("Unhide")
+          end
+          within "tr", text: "Comment" do
+            expect(page).to have_no_link("Unhide")
+            expect(page).to have_css("svg[aria-label='You cannot unhide this resource because its parent is still hidden.']", visible: :all)
+          end
+        end
+      end
+    end
+  end
 end
