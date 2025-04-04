@@ -606,7 +606,7 @@ es-MX:
         actions:
           create: Crear
           title: Comportamiento
-          vote: Votar
+          vote: Firmar
   layouts:
     decidim:
       initiative_creation_header:
