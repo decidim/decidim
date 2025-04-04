@@ -623,6 +623,26 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+| DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS
+| Defines after how many days inactive users should be deleted.
+| 365
+| No
+
+| DECIDIM_MINIMUM_INACTIVITY_PERIOD
+| Minimum allowed inactivity period before a user can be considered inactive.
+| 30
+| No
+
+| DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE
+| Number of days before deletion when the first warning notification is sent.
+| 30
+| No
+
+| DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE
+| Number of days before deletion when the last warning notification is sent.
+| 7
+| No
+
 |DECIDIM_API_FORCE_API_AUTHENTICATION
 |Enable authentication for using api through setting Api configuration option. This is used to filter out unauthorized users from using api endpoint.
 |false
@@ -786,6 +806,11 @@ After this time the initiative will be moved to discarded state.
 |false
 |No
 
+|INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET
+|Secret used by the base class Decidim::Initiatives::SignatureHandler to encrypt the user personal data that will be stored in the initiatives votes.
+|personal user metadata
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
@@ -835,4 +860,3 @@ Note that this only applies to production environments.
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).
-

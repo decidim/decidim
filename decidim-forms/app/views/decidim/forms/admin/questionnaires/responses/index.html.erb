@@ -1,0 +1,49 @@
+<div class="card" id="responses">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t ".title", total: @total %>
+      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button button__sm button__secondary new" %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= first_table_th(@participants.first) %></th>
+          <th><%= t("user_status", scope: "decidim.forms.user_responses_serializer") %></th>
+          <th><%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %></th>
+          <th><%= t("completion", scope: "decidim.forms.user_responses_serializer") %></th>
+          <th><%= t("created_at", scope: "decidim.forms.user_responses_serializer") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @participants.each_with_index do |participant, idx| %>
+          <tr>
+            <td><%= idx + 1 + page_offset %></td>
+            <td>
+              <% if allowed_to? :show, :questionnaire_responses %>
+                <%= link_to first_table_td(participant), questionnaire_participant_responses_url(participant.session_token) %>
+              <% else %>
+                <%= first_table_td(participant) %></td>
+              <% end %>
+            <td><%= participant.status %></td>
+            <td><%= participant.ip_hash %></td>
+            <td><%= display_percentage(participant.completion) %></td>
+            <td><%= l participant.responded_at, format: :short %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :show, :questionnaire_responses %>
+                <%= icon_link_to "eye-line", questionnaire_participant_responses_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
+              <% end %>
+              <% if allowed_to? :export_response, :questionnaire_responses %>
+                <%= icon_link_to "download-line", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--data-transfer-download" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate @query %>

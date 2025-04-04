@@ -167,7 +167,7 @@ header {
       }
 
       &__item {
-        @apply relative;
+        @apply flex relative;
       }
 
       &__search {

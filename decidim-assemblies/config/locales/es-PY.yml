@@ -200,8 +200,8 @@ es-PY:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
-            valuator: Evaluadora
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas

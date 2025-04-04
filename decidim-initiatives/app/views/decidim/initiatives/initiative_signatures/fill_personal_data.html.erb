@@ -1,32 +1,33 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.fill_personal_data.help"), callout_class: "secondary") %>
+<% custom_partial_path = lookup_context.exists?(@form.to_partial_path, [], true) && @form.to_partial_path %>
+<% unless custom_partial_path %>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.fill_personal_data.help"), callout_class: "secondary") %>
+<% end %>
 
-<%= decidim_form_for(@form, url: fill_personal_data_initiative_signatures_path, method: :put) do |f| %>
+<%= decidim_form_for(@form, url: fill_personal_data_initiative_signatures_path, method: :put, builder: Decidim::AuthorizationFormBuilder) do |f| %>
   <%= form_required_explanation %>
-  <div>
-    <div class="form__wrapper">
-      <%= f.text_field :name_and_surname, autofocus: true, required: true %>
-    </div>
 
+  <% if custom_partial_path %>
+    <%= render partial: custom_partial_path, locals: { handler: @form, form: f } %>
+  <% else %>
     <div class="form__wrapper">
-      <%= f.text_field :document_number, required: true %>
+      <%= f.all_fields %>
     </div>
+  <% end %>
 
-    <div class="form__wrapper">
-      <%= f.date_field :date_of_birth, min: 120.years.ago.to_date, max: 16.years.ago.to_date, value: 35.years.ago.to_date %>
-    </div>
-
-    <div class="form__wrapper">
-      <%= f.text_field :postal_code, required: true %>
-    </div>
-
-    <div>
-      <small>
-        <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
-      </small>
-    </div>
+  <div class="editor-content">
+    <small>
+      <%= decidim_sanitize_admin(translated_attribute(extra_data_legal_information)) %>
+    </small>
   </div>
 
-  <div class="form__wrapper-block">
-    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
+  <% if current_user.ephemeral? && !current_user.tos_accepted? %>
+    <%= render partial: "/decidim/verifications/authorizations/tos_acceptance_field", locals: { form: f } %>
+  <% end %>
+
+  <div class="form__wrapper">
+    <button type="submit" class="button button__lg button__secondary">
+      <span><%= t(".continue") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
   </div>
 <% end %>

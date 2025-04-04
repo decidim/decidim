@@ -8,7 +8,6 @@ uk:
         instructions: Вказівки до участі
         start_time: 'Починається:'
         title: Назва
-        user_group_id: Започаткувати обговорення як
     models:
       decidim/debates/create_debate_event: Обговорення
       decidim/debates/creation_disabled_event: Обговорення вимкнене
@@ -76,7 +75,6 @@ uk:
         new:
           back: Повернутись
           create: Започаткувати
-          title: Додати обговорення
       models:
         debate:
           fields:

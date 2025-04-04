@@ -152,7 +152,7 @@ en:
         new:
           back: Back
           create: Create
-          title: New debate
+          title: Create new debate
         orders:
           commented: Most commented
           label: Order debates by
@@ -237,11 +237,6 @@ en:
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
           unearned_own: You have not participated in any debates yet.
-    metrics:
-      debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:

@@ -107,9 +107,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 # Remove expired download your data files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 
-# Compute metrics
-1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all
-
 # Compute open data
 2 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:open_data:export
 
@@ -127,6 +124,9 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 # Change active step in participatory processes
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+
+# Delete inactive participants accounts
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
 ----
 
 === Scheduled tasks from modules

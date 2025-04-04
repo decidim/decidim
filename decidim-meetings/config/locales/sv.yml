@@ -1,8 +1,6 @@
 sv:
   activemodel:
     attributes:
-      answer:
-        add_documents: Lägg till dokument
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista med organisationer som deltog
@@ -18,7 +16,6 @@ sv:
         customize_registration_email: Anpassa e-postmeddelandet för registrering
         decidim_category_id: Kategori
         decidim_scope_id: Indelning
-        decidim_user_group_id: Användargrupp
         description: Beskrivning
         end_time: Sluttid
         id: ID
@@ -122,7 +119,6 @@ sv:
             values:
               official: Officiella
               participants: Deltagare
-              user_group: Användargrupper
           with_any_type:
             label: Typ av möte
             values:
@@ -176,7 +172,6 @@ sv:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
-            creation_enabled_for_user_groups: Låt användargrupper skapa möten
     download_your_data:
       help:
         registrations:
@@ -299,7 +294,6 @@ sv:
             invalid: Det gick inte att uppdatera dagordningen.
             success: Dagordningen har uppdaterats.
         exports:
-          answers: Svar
           meeting_comments: Kommentarer
           meetings: Möten
           registrations: Registreringar
@@ -396,7 +390,7 @@ sv:
         poll:
           form:
             announcement_html:
-              - Det går inte längre att redigera en fråga som besvarats eller publicerats/stängts.
+              - 
               - Du kan lägga till en fråga när som helst.
               - Enkäten kommer att stängas när resultaten från alla frågor har publicerats.
               - Besök <a href='%{admin_link}'>administrationssidan för enkäten</a> för att skicka frågor och publicera resultat.
@@ -534,7 +528,6 @@ sv:
             all: Alla
             official: Officiella
             participants: Deltagare
-            user_group: Grupper
           search: Sök
           type: Typ
           type_values:
@@ -545,7 +538,6 @@ sv:
         form:
           address_help: 'Adress: ange en plats för visning på karta'
           available_slots_help: Låt det stå 0 om du har obegränsat antal platser
-          create_as: Skapa möte som
           disclaimer: 'Varning: När du använder ett externt anmälningssystem är administratörerna för %{organization} inte ansvariga för hur användardata hanteras av den externa tjänsten.'
           iframe_embed_type_html: 'Endast ett fåtal tjänster tillåter inbäddade möten eller live-event: %{domains}'
           location_help: 'Plats: mötesplats för deltagare'
@@ -574,14 +566,13 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          title: Skapa ditt möte
         registration_confirm:
           cancel: Avbryt
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
           contributions: Antal bidrag
-          join: Registrera dig
+          join: Anmäl dig
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
           link_available_soon: Länk kommer snart
@@ -628,26 +619,14 @@ sv:
             taxonomies: Kategorisering
             title: Titel
       polls:
-        answers:
-          index:
-            administrate: Administrera
-            title: Enkät
-          index_admin:
-            back_to_meeting: Tillbaka till mötet
-            title: Administrera enkät
-            view_poll: Visa enkät
         questions:
           closed_question:
             announcement: Enkätfrågan är stängd.
             question: Fråga
             question_results: Resultat
-          index:
-            empty_questions: Under mötet kommer några frågor att skickas och du kommer kunna svara på dem här.
           index_admin:
             edit: Redigera i admin-panelen
             question: Fråga
-            received_answer: mottaget svar
-            received_answers: mottagna svar
             results: Resultat
             send: Skicka
             sent: Skickat
@@ -661,7 +640,6 @@ sv:
             question_replied: Besvarad fråga
             reply_question: Svara på fråga
       public_participants_list:
-        attending_organizations: Organisationer
         attending_participants: Deltagare
         hidden_participants_count:
           one: och %{count} till person
@@ -712,11 +690,9 @@ sv:
           commentable_type: Vad som kommenterades (resultat, förslag etc)
           comments: Uppgifter om kommentarer från mötet
           created_at: Datum för kommentaren
-          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet för kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten

@@ -141,12 +141,13 @@ ignore_unused:
   - decidim.application.documents.component_documents.*
   - decidim.statistics.*
   - decidim.components.*
+  - decidim.collaborative_texts.admin_log.document.*
+  - decidim.collaborative_texts.admin_log.version.*
   - decidim.filters.linked_classes.*
   - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
-  - decidim.forms.user_answers_serializer.*
   - decidim.forms.admin_log.questionnaire.update
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
@@ -258,7 +259,6 @@ ignore_unused:
   - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
-  - decidim.surveys.surveys.answer.*
   - decidim.surveys.admin.surveys.update.*
   - decidim.groups.roles.*
   - decidim.welcome_notification.*
@@ -331,7 +331,6 @@ ignore_unused:
   - emojis.*
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
-  - decidim.forms.questionnaires.show.answer_questionnaire.*
   - decidim.forms.upload_help.explanation
   - decidim.admin.assembly_user_roles.create.*
   - decidim.admin.assembly_user_roles.update.*
