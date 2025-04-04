@@ -11,10 +11,6 @@ module Decidim
 
       alias resource model
 
-      def show
-        render :proposal_card
-      end
-
       def resource_id
         "#{class_base_name}_#{resource.id}"
       end

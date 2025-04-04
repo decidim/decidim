@@ -36,7 +36,7 @@ extra_admin_link(
 
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
-  <div class="suggested-content mt-10 hidden md:block">
+  <div class="mt-10 hidden md:block">
     <%= cell "decidim/proposals/content_suggestion_section", @proposal %>
   </div>
 <% end %>
@@ -115,7 +115,7 @@ extra_admin_link(
 
   <% content_for :item_footer do %>
     <%= comments_for @proposal %>
-    <div class="suggested-content mt-10 block md:hidden">
+    <div class="mt-10 block md:hidden">
       <%= cell "decidim/proposals/content_suggestion_section", @proposal %>
     </div>
 

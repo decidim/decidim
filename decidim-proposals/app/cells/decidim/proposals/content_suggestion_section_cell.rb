@@ -10,7 +10,7 @@ module Decidim
       include ApplicationHelper
 
       def show
-        render :suggestions_card
+        render if suggested_content_enabled?
       end
 
       def suggested_proposals
@@ -31,7 +31,9 @@ module Decidim
       end
 
       def base_query
-        Decidim::Proposals::Proposal.published.not_hidden.not_withdrawn.where(component: current_participatory_space.components.where(manifest_name: "proposals").published)
+        Decidim::Proposals::Proposal.published.except_rejected.not_hidden.not_withdrawn
+                                    .where(component: current_participatory_space.components
+                                    .where(manifest_name: "proposals").published)
                                     .where.not(id: model.id)
       end
 
@@ -40,7 +42,7 @@ module Decidim
       end
 
       def recent_proposals
-        base_query.order(created_at: :desc).limit(suggested_content_limit)
+        base_query.order_by_most_recent.limit(suggested_content_limit)
       end
 
       def proposals_by_location
