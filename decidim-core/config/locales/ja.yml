@@ -569,7 +569,7 @@ ja:
         create:
           email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
-          complete_profile: プロファイルを完了
+          complete_profile: プロフィールを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
@@ -789,8 +789,8 @@ ja:
         user_group_updated:
           email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: ユーザーグループがプロファイルを更新しました
-          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+          email_subject: ユーザーグループがプロフィールを更新しました
+          notification_title: '%{user_group_name} ユーザーグループがプロフィールを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       nickname_event:
         notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の人と同じだったため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
@@ -1330,7 +1330,7 @@ ja:
         success: パスワードを更新しました。
     profile:
       deleted: 削除された参加者
-      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
+      inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
@@ -1355,7 +1355,7 @@ ja:
           create_user_group: グループを作成
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
-          edit_user_group: グループプロファイルを編集
+          edit_user_group: グループプロフィールを編集
           invite_user: 参加者の招待
           join_user_group: グループに参加するリクエスト
           leave_user_group: グループから退出する
@@ -1367,7 +1367,7 @@ ja:
         confirmation_instructions_sent: メール確認の手順を送信しました。
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
-        edit_user_group: グループプロファイルを編集
+        edit_user_group: グループプロフィールを編集
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
         invite_user: 参加者の招待
         join_user_group: グループに参加するリクエスト
