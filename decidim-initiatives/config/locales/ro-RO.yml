@@ -5,7 +5,6 @@ ro:
         answer: Răspuns
         area_id: Zonă
         decidim_scope_id: Domeniu de interes
-        decidim_user_group_id: Autor
         description: Descriere
         offline_votes: Semnături în persoană
         offline_votes_for_scope: Semnături personale pentru %{scope_name}
@@ -33,7 +32,6 @@ ro:
         comments_enabled: Comentarii activate
         custom_signature_end_date_enabled: Permite autorilor să aleagă sfârșitul perioadei de colectare a semnăturilor
         description: Descriere
-        document_number_authorization_handler: Autorizare pentru verificarea numărului documentului pe semnături
         extra_fields_legal_information: Informații juridice privind colectarea datelor cu caracter personal
         minimum_committee_members: Numărul minim de membri ai comitetului
         online_signature_enabled: Semnătură online activată
@@ -276,7 +274,6 @@ ro:
           edit:
             update: Actualizare
           form:
-            authorizations: Setări de autorizare
             options: Opţiuni
           initiative_type_scopes:
             title: Domeniul de interes al tipului de inițiativă
@@ -402,20 +399,11 @@ ro:
           email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continuă
         finish:
           back_to_initiative: Înapoi la inițiativă
-        sms_code:
-          continue: Verifică codul și continuă
-          help: Verifică SMS-ul primit pe telefonul tău
-        sms_phone_number:
-          continue: Trimite-mi un SMS
       initiative_votes:
         create:
           error: A existat o problemă la semnarea inițiativei.
-        personal_data:
-          invalid: Datele cu caracter personal nu sunt compatibile cu datele furnizate pentru autorizare.
         sms_phone:
           invalid: Numărul de telefon este invalid sau în aşteptarea autorizaţiei. Te rugăm să verific setările tale de autorizare.
       initiatives:
@@ -535,7 +523,6 @@ ro:
       initiatives_type:
         actions:
           title: Acțiuni
-          vote: Semnare
   layouts:
     decidim:
       initiative_creation_header:
@@ -543,12 +530,6 @@ ro:
         finish: Validarea tehnică
         promotal_committee: Căutați promotori
         select_initiative_type: Alege
-      initiative_signature_creation_header:
-        fill_personal_data: Completează datele tale
-        finish: Finalizare
-        sms_code: Verificare cod SMS
-        sms_phone_number: Număr de telefon mobil
-        title: Semnează %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nicio inițiativă încă!
