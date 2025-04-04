@@ -97,7 +97,7 @@ describe "Account" do
         expect(page).to have_field("user[nickname]", with: "nickname", type: "text")
       end
 
-      it "shows error when word is too long - 'nicknamenicknamenickname'" do
+      it "respects the maxlength attribute with a really long word - 'nicknamenicknamenickname'" do
         within "form.edit_user" do
           fill_in "Nickname", with: "nicknamenicknamenickname"
           find("*[type=submit]").click
