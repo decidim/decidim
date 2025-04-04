@@ -48,7 +48,7 @@ module Decidim
     def update_personal_data
       current_user.locale = @form.locale
       current_user.name = @form.name
-      current_user.nickname = @form.nickname&.downcase
+      current_user.nickname = @form.nickname
       current_user.email = @form.email
       current_user.personal_url = @form.personal_url
       current_user.about = @form.about

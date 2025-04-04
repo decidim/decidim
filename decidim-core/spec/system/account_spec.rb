@@ -127,6 +127,16 @@ describe "Account" do
         expect(page).to have_content("There was a problem updating your account.")
         expect(page).to have_field("user[nickname]", with: "Nickname", type: "text")
       end
+
+      it "shows error when string has a space - 'nick name'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nick name"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_field("user[nickname]", with: "nick name", type: "text")
+      end
     end
 
     describe "when update password" do
