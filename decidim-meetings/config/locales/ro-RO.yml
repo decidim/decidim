@@ -176,8 +176,15 @@ ro:
           email_subject: Sloturile alocate pentru întâlnirea "%{resource_title}" sunt de peste %{percentage}%
           notification_title: Sloturile alocate pentru ședința de <a href="%{resource_path}">%{resource_title}</a> sunt de peste %{percentage}%.
         meeting_updated:
+          email_intro: 'Întâlnirea "%{resource_title}" a fost actualizată cu modificări cu privire la %{changed_fields}. Puteți citi noua versiune din pagina sa:'
           email_outro: Ai primit această notificare deoarece urmărești întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” a fost actualizată
+          field_names:
+            address: adresa
+            end_time: ora de sfârșit
+            location: locația
+            start_time: ora de început
+          notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a fost actualizată cu modificări la %{changed_fields}.
         registration_code_validated:
           email_intro: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
           email_outro: Ai primit această notificare deoarece codul tău de înregistrare pentru întâlnirea „%{resource_title}” a fost validat.
@@ -473,6 +480,7 @@ ro:
           micro_camera_permissions_warning: Când dai click pe butonul de mai jos, ți se va cere dreptul de a accesa microfonul și/sau camera, și apoi te vei putea alătura videoconferinței
           no_slots_available: Niciun slot disponibil
           organizations: Organizații participante
+          pending_address: Locația va fi anunțată în curând.
           registration_code_help_text: Codul tău de înregistrare
           registration_state:
             validated: VALIDAT
