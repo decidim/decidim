@@ -2,26 +2,31 @@ import confirmDialog from "src/decidim/confirm";
 export default class Manager {
   constructor(document) {
     this.document = document;
+    this.suggestions = document.suggestionsList.suggestions;
     this.doc = document.doc;
     this.i18n = document.i18n || {};
     this.div = window.document.getElementsByClassName("collaborative-texts-manager")[0];
     this.rolloutButton = this.div.querySelector("[data-collaborative-texts-manager-rollout]");
     this.consolidateButton = this.div.querySelector("[data-collaborative-texts-manager-consolidate]");
+    this.cancelButton = this.div.querySelector("[data-collaborative-texts-manager-cancel]");
     this._bindEvents();
   }
 
   show() {
     if (this.div)  {
       this.div.classList.remove("hidden");
-      console.log("Show manager", this);
     }
   }
 
   hide() {
     this.div.classList.add("hidden");
-    console.log("Hide manager", this);
   }
 
+  cancel() {
+    console.log("Cancel manager", this.document);
+    this.suggestions.forEach((suggestion) => suggestion.restore());
+    this.hide();
+  }
 
   // Duplicates the body of the document, removing non accepted suggestions
   // Accepted suggestions nodes are converted to first level nodes
@@ -60,8 +65,8 @@ export default class Manager {
           },
           body: JSON.stringify({
             body: this.cleanBody(),
-            accepted: this.document.suggestions.getApplied().map((suggestion) => suggestion.id),
-            pending: this.document.suggestions.getPending().map((suggestion) => suggestion.id),
+            accepted: this.document.suggestionsList.getApplied().map((suggestion) => suggestion.id),
+            pending: this.document.suggestionsList.getPending().map((suggestion) => suggestion.id),
             draft: draft
           })
         }).
@@ -87,5 +92,6 @@ export default class Manager {
   _bindEvents() {
     this.rolloutButton.addEventListener("click", this._save.bind(this));
     this.consolidateButton.addEventListener("click", this._save.bind(this));
+    this.cancelButton.addEventListener("click", this.cancel.bind(this));
   }
 }

@@ -1,4 +1,20 @@
 .collaborative-texts {
+  &-toc {
+    @apply w-full py-8 sticky top-0;
+
+    .spinner-container::after {
+      @apply bg-transparent;
+    }
+
+    ul {
+      @apply list-none;
+
+      li {
+        @apply flex items-center gap-2 text-secondary text-lg leading-8 cursor-pointer;
+      }
+    }
+  }
+
   &-container {
     @apply relative mb-8 mr-[18rem] pr-4;
 
@@ -12,7 +28,7 @@
   }
 
   &-manager {
-    @apply sticky top-4 flex justify-center z-[49] p-4 bg-background rounded gap-2;
+    @apply sticky top-4 flex justify-between drop-shadow shadow-primary/50 z-[60] p-4 bg-primary/20 rounded gap-2;
 
     &.hidden {
       display: none;
@@ -32,7 +48,7 @@
   }
 
   &-highlight {
-    @apply relative outline-dashed outline-2 outline-offset-2 outline-primary my-4;
+    @apply relative outline-dashed outline-2 outline-offset-2 outline-primary;
 
     &:not(.applied) .collaborative-texts-hidden {
       @apply block;
@@ -82,6 +98,8 @@
   &-suggestions-box {
     @apply bg-gray-5 shadow outline outline-gray-3 outline-1 absolute top-0 right-[-18rem] text-xs w-[18rem] rounded px-2 pb-2;
 
+    transition: top 0.3s ease 0s;
+
     .icon {
       @apply inline-block text-md mr-2;
 
@@ -99,23 +117,37 @@
           @apply hidden;
         }
 
+        .icon-applied {
+          @apply hidden;
+        }
+
         .icon-hover {
           @apply inline-block;
         }
       }
 
-      &:has(.applied) {
-        .icon-applied {
-          @apply inline-block;
-        }
-
-        .icon-pending {
-          @apply hidden;
-        }
-
+      &:has(.applied.collaborative-texts-suggestions-box-item:hover) {
         .icon-hover {
           @apply hidden;
         }
+
+        .icon-applied {
+          @apply inline-block;
+        }
+      }
+    }
+
+    &:has(.applied) {
+      .icon-applied {
+        @apply inline-block;
+      }
+
+      .icon-pending {
+        @apply hidden;
+      }
+
+      .icon-hover {
+        @apply hidden;
       }
     }
 
@@ -134,8 +166,20 @@
         @apply bg-white drop-shadow relative z-[50];
       }
 
+      .button-restore {
+        @apply hidden;
+      }
+
       &.applied {
         @apply bg-white drop-shadow;
+
+        .button-restore {
+          @apply flex;
+        }
+
+        .button-apply {
+          @apply hidden;
+        }
       }
 
       img {

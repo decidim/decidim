@@ -1,5 +1,5 @@
 import Document from "src/decidim/collaborative_texts/document";
-import Suggestions from "src/decidim/collaborative_texts/suggestions";
+import SuggestionsList from "src/decidim/collaborative_texts/suggestions_list";
 import Suggestion from "src/decidim/collaborative_texts/suggestion";
 
 describe("Suggestions", () => {
@@ -45,7 +45,7 @@ describe("Suggestions", () => {
 
   beforeEach(() => {
     document.body.innerHTML = content;
-    suggestions = new Suggestions(new Document(document.querySelector("[data-collaborative-texts-document]")));
+    suggestions = new SuggestionsList(new Document(document.querySelector("[data-collaborative-texts-document]")));
   });
 
   it("fetches suggestions", async () => {

@@ -1,6 +1,6 @@
 import Suggestion from "src/decidim/collaborative_texts/suggestion";
 
-export default class Suggestions {
+export default class SuggestionsList {
   constructor(document) {
     this.document = document;
     this.nodes = document.nodes;
@@ -12,7 +12,29 @@ export default class Suggestions {
   }
   
   resetPositions() {
-    this.suggestions.forEach((suggestion) => suggestion.resetPosition());
+    if (this.restoreTimeout) {
+      console.log("Clearing restore timeout");
+      clearTimeout(this.restoreTimeout);
+      this.restoreTimeout = null;
+    }
+    // Restore the positions after a timeout to allow the DOM to update
+    // and avoid flickering
+    this.restoreTimeout = setTimeout(() => {
+      const offset = 54;
+      const positions = this.defaultSuggestions().map((suggestion) => [suggestion, suggestion.getPosition()]);
+      positions.sort((one, two) => one[1] - two[1]);
+      for (let i = 0; i < positions.length - 1; i++) { // eslint-disable-line
+        const floor = offset * Math.floor(positions[i][1] / offset);
+        const nextFloor = offset * Math.floor(positions[i + 1][1] / offset);
+        if (floor === nextFloor) {
+          console.log("Adjusting position", positions[i + 1][1], "to avoid overlap with", positions[i][1]);
+          positions[i + 1][1] += offset - (positions[i + 1][1] - positions[i][1]);
+          console.log("Adjusted position", positions[i + 1][1]);
+        }
+      }
+      console.log("Restoring positions", positions);
+      positions.forEach(([suggestion, position]) => suggestion.setPosition(position));
+    }, 100);
     return this;
   }
   
@@ -23,6 +45,19 @@ export default class Suggestions {
         suggestion.restore();
       }
     });
+  }
+
+  // The applied suggestion for each boxWrapper or the first suggestion if none is applied
+  defaultSuggestions() {
+    let suggestions = {};
+    this.suggestions.forEach((suggestion) => {
+      if (suggestion.applied) {
+        suggestions[suggestion.boxWrapper.id] = suggestion;
+      } else if (!suggestions[suggestion.boxWrapper] && suggestion.isFirst) {
+        suggestions[suggestion.boxWrapper.id] = suggestion;
+      }
+    });
+    return Object.values(suggestions);
   }
 
   getApplied() {
@@ -51,6 +86,7 @@ export default class Suggestions {
             this.suggestions.push(suggestion);
           }
         });
+        this.resetPositions();
       });
   }
 
@@ -66,5 +102,4 @@ export default class Suggestions {
   _onSuggestionRestored() {
     this.resetPositions();
   }
-
 }

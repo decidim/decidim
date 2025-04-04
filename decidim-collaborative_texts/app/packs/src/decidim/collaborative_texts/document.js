@@ -1,5 +1,5 @@
 import Selection from "src/decidim/collaborative_texts/selection";
-import Suggestions from "src/decidim/collaborative_texts/suggestions";
+import SuggestionsList from "src/decidim/collaborative_texts/suggestions_list";
 import Manager from "src/decidim/collaborative_texts/manager";
 
 export default class Document {
@@ -8,7 +8,7 @@ export default class Document {
     this.selecting = false;
     this.applying = false;
     this.active = false;
-    this.suggestions = [];
+    this.suggestionsList = [];
     this.templates = {
       suggestionsEditor: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsEditorTemplate),
       suggestionsBox: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsBoxTemplate),
@@ -45,7 +45,7 @@ export default class Document {
 
   // fetches suggestions from the server and updates the UI with the wraps
   fetchSuggestions() {
-    this.suggestions = new Suggestions(this);
+    this.suggestionsList = new SuggestionsList(this);
     return this;
   }
 
@@ -111,7 +111,7 @@ export default class Document {
   }
   
   _onRestore() {
-    if (!this.suggestions.suggestions.find((suggestion) => suggestion.applied)) {
+    if (!this.suggestionsList.suggestions.find((suggestion) => suggestion.applied)) {
       this.applying = false;
       this.manager.hide();
     }
@@ -146,7 +146,7 @@ export default class Document {
         }
 
         console.log("Suggestion sent:", data);
-        this.suggestions.destroy();
+        this.suggestionsList.destroy();
         this.fetchSuggestions();
       }).
       catch((error) => {

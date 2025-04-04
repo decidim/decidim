@@ -86,6 +86,7 @@ en:
           invalid: There was a problem consolidating the suggestions.
           new: Consolidate accepted suggestions
         controls_label: Suggestion controls
+        index: Index
         restore: Restore
         rollout:
           confirm: This action will create a new draft version of the document and you will be redirected to the edit page for final refinements. The current version will remain public and suggestions will be disabled.
