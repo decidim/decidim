@@ -311,7 +311,7 @@ sk:
       initiatives_type:
         actions:
           title: Akcia
-          vote: Hlasovanie
+          vote: Podpísať
   layouts:
     decidim:
       initiative_creation_header:
