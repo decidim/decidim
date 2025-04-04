@@ -595,7 +595,7 @@ fr-CA:
         actions:
           create: Créer
           title: Actions
-          vote: Vote
+          vote: Signer
   layouts:
     decidim:
       initiative_creation_header:
