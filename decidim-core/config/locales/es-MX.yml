@@ -2047,7 +2047,8 @@ es-MX:
         terms_of_service: Términos y condiciones de uso
       header:
         close: Cerrar
-        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
+        confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
+        confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
