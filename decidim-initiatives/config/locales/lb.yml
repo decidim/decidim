@@ -382,7 +382,6 @@ lb:
       initiatives_type:
         actions:
           title: Aktionen
-          vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
