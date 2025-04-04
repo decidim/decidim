@@ -26,7 +26,7 @@ describe Decidim::StatisticCell, type: :cell do
       expect(cell.send(:second_stat_number)).to eq("5,678")
     end
 
-    context "when there's only one data point" do
+    context "when there is only one data point" do
       let(:model) { super().merge(data: [999]) }
 
       it "returns nil" do
