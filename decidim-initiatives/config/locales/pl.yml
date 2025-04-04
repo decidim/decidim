@@ -611,7 +611,7 @@ pl:
         actions:
           create: Utwórz
           title: Działania
-          vote: Wspieranie
+          vote: Podpisz
   layouts:
     decidim:
       initiative_creation_header:
