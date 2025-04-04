@@ -166,7 +166,6 @@ es:
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
-      secondary_menu: Menú secundario
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
       delete:
