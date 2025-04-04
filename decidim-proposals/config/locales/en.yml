@@ -1009,7 +1009,7 @@ en:
         update:
           title: Update proposal
         vote_button:
-          already_voted: Already voted
+          already_voted: Voted
           already_voted_hover: Withdraw vote
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
