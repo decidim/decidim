@@ -209,7 +209,7 @@ describe "Decidim::Api::QueryType" do
         %(
           participatoryProcess{
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }
