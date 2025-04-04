@@ -623,7 +623,7 @@ ja:
         create:
           email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
-          complete_profile: プロファイルを完了
+          complete_profile: プロフィールを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
           subtitle: アカウントの作成を完了するため、次のフォームに記入してください
@@ -779,6 +779,7 @@ ja:
           sign_in_count: このユーザーがログインした回数
           type: このユーザーが持っているタイプ
           unconfirmed_email: このユーザーのまだ確認されていないメールアドレス
+          updated_at: ユーザーの最終更新日時
       show:
         action: アクション
         download: ダウンロードファイル
@@ -789,6 +790,8 @@ ja:
         expiration: 有効期限
         expired: 有効期限が切れています
         explanation:
+          body_1: これらのファイルは、このプラットフォームでのあなたの提案やコメントなどの活動からエクスポートされたデータセットです。分析や研究、他のツールとの連携に活用できる、生の構造化データが含まれています
+          body_2: ファイルはCSV(カンマ区切り) 形式です。これは広く使われているファイル形式で、表計算プログラム、テキストエディタ、データ分析ツールなど、様々なソフトウェア・アプリケーションで開いて処理できます。
           title: これらのファイルは何ですか?
         files_to_download: ダウンロードするファイル
         request_data: リクエスト
@@ -875,6 +878,11 @@ ja:
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正が却下されました'
             notification_title: <a href="%{emendation_path}">修正</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> によって作成された <a href="%{amendable_path}">%{amendable_title}</a> は拒否されました。
+        emendation_promoted:
+          follower:
+            email_intro: '%{amendable_title}に対する修正案が公開されました。このページから確認できます：'
+            email_outro: あなたは %{amendable_title}の作者であるため、この通知を受け取りました。
+            email_subject: '%{emendation_author_nickname}による修正案が新しい%{amendable_type}として公開されました'
       attachments:
         attachment_created:
           email_intro: '%{resource_title}に新しいドキュメントが追加されました。このページから見ることができます：'
@@ -992,6 +1000,7 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、文字の入っていない横長の画像が望ましいです。サービス側で画像をトリミングします。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1136,6 +1145,8 @@ ja:
           modal_title: 新しい会話
           no_results: 結果がありません
           participant_with_disabled_message_reception: この参加者はプライベートメッセージの受信を希望していません．
+          participants:
+            title: 参加者
         create:
           error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
@@ -1247,6 +1258,7 @@ ja:
         assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: モデレーションの報告がなされたたびに毎回メールを受け取りたい
+        evaluators: 評価者
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1287,7 +1299,10 @@ ja:
         core:
           components: コンポーネント
           description: ZIPファイルには、この参加型プラットフォームについての研究や研究のためのファイルが含まれています。
+          generated_on_date: '%{date} に生成'
           main: コア
+          resources:
+            other: "%{count} リソース"
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
         moderated_users:
@@ -1296,7 +1311,7 @@ ja:
           blocked_at: ユーザーがブロックされた日時
           blocking_user: ブロックを実行したユーザーの名前
           details: レポートの詳細
-          reasons: プロファイルが報告された理由のリスト
+          reasons: プロフィールが報告された理由のリスト
           user_id: 報告されたユーザーの固有ID
         moderations:
           hidden_at: コンテンツが非表示になった日時
@@ -1330,7 +1345,7 @@ ja:
           id: ユーザーの固有ID
           name: ユーザーの表示名
           nickname: ユーザーのユーザー名
-          profile_url: プロファイルURL
+          profile_url: プロフィールURL
       index:
         description: '%{organization_name} オープンデータページへようこそ。ここでは、 %{organization_name} 内のさまざまな審議およびガバナンスプロセスから定期的に生成されるデータファイルを提供しています。これらのファイルは、透明性、アクセス性、および協力を促進するために公開されています。以下に、これらのファイルが何であるか、どのように開いて使用するか、各ファイルの内容と構造についての詳細な情報を記載しています。'
         detailed:
@@ -1429,13 +1444,32 @@ ja:
           alert: 利用規約を更新しました。ご確認ください。
           body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
           title: '必須: 利用規約の更新を確認する'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>記録によると、あなたは<strong>%{date_account_creation}</strong>に%{organization_name}のアカウントを作成しましたが、<strong>%{date_last_connection}</strong>以降は利用されていないようです。</p> <p>プライバシー保護のため、このアカウントは<strong>%{days}日後</strong>に自動削除される予定です。</p> 
+          <p>%{organization_name}のアカウントを保持したい場合は、それまでに%{login_url}にアクセスするだけでアカウントは維持されます。</p>
+        greetings_html: |
+          よろしくお願いいたします。<br>
+          %{organization_name}
+        hello_html: こんにちは <strong>%{username}</strong>さん、
+        log_in: ログイン
+        never_logged_in: ログインしたことがない
+        subject: 非アクティブなアカウントの警告
+      removal_notification:
+        body: あなたの %{organization_name} アカウントは非アクティブのため削除されました。
+        greetings_html: |
+          よろしくお願いいたします。<br>
+          %{organization_name}
+        hello: こんにちは %{username} さん、
+        subject: 非アクティブなアカウントが削除されました
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
       deleted: 参加者を削除しました
-      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
+      inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
       show:
@@ -1452,6 +1486,10 @@ ja:
           edit_profile: プロフィールを編集
           message: メッセージ
           resend_email_confirmation_instructions: 確認メールを再送する
+    qr:
+      show:
+        scan: QRコードをスキャン
+        title: '%{resource_title} の QR コード'
     reported_mailer:
       hide:
         hello: こんにちは、 %{name} さん。
@@ -1509,6 +1547,10 @@ ja:
       selfxss_warning:
         description: このブラウザー機能は開発者向けのもので、もし要求されてもこの中身をどこにも公開しないでください。 この中身が漏れると、あなたのプライバシーが侵害され、ハッカーがあなたのアカウントにアクセスできるようになります。
         title: 停止
+    share_widget:
+      download: ダウンロード
+      print: ポスターを印刷
+      qr_code: QR コード
     shared:
       confirm_modal:
         cancel: キャンセル
@@ -1539,11 +1581,13 @@ ja:
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         block: この参加者をブロック
+        description: この参加者の不適切な点は何ですか？
         does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
+        title: 不適切な参加者を報告する
       floating_help:
         help: ヘルプ
       follow_button:
@@ -1565,6 +1609,7 @@ ja:
         copy_share_link: コピー
         copy_share_link_clarification: 共有リンクをクリップボードにコピー
         copy_share_link_copied: コピーしました
+        copy_share_link_cta: またはリンクをコピー
         copy_share_link_message: リンクをクリップボードにコピーしました。
         share: 共有
         share_link: リンクを共有
@@ -1594,6 +1639,26 @@ ja:
     user_conversations:
       index:
         time_ago: "%{time} 前"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'あなたがメンバーになっている<strong>%{group_name}</strong> ユーザーグループへの重要なアップデートについてお知らせいたします。'
+        body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
+        greeting: こんにちは %{name} さん、
+        instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
+        instructions_intro: プロファイルの新しいパスワードを設定するために、アカウントに関連付けられているメールアドレスに指示を送信しました。
+        instructions_title: "<strong>これがあなたにとって何を意味するか</strong>"
+        subject: あなたが所属しているユーザーグループに関する重要な更新
+      notify_deprecation_to_owner:
+        body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
+        body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
+        body_3: アカウントに引き続きアクセスするために、パスワードの設定をお願いします。
+        greeting: こんにちは %{name} さん、
+        instructions_1: '以下のリンクをクリックして、パスワードの設定を開始してください：'
+        instructions_2: フォームに、このメッセージを受け取ったメールアドレスを入力し、リクエストを送信してください。
+        instructions_3: 新しいパスワードを設定するための詳しい手順が記載されたメールが届いているか、受信トレイをご確認ください。
+        instructions_title: "<strong>あなたが行うべきこと</strong>"
+        set_password: パスワード設定を開始
+        subject: ユーザーグループの重要なアップデート
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -1959,7 +2024,8 @@ ja:
         terms_of_service: 利用規約
       header:
         close: 閉じる
-        confirm_close_ephemeral_session: このページから移動すると、セッションは閉じられます。よろしいですか？
+        confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
+        confirm_title_close_ephemeral_session: このページから離れる前に…
         log_in: ログイン
         main_menu: メインメニュー
         user_menu: ユーザーメニュー
