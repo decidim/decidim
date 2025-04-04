@@ -33,6 +33,8 @@ module Decidim
 
         apply_global_moderations_permission_for_admin!
 
+        can_use_image_editor?
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
@@ -75,8 +77,6 @@ module Decidim
           allow! if permission_action.subject == :taxonomy_filter
           allow! if permission_action.subject == :taxonomy_item
         end
-
-        can_use_image_editor?
 
         permission_action
       end
