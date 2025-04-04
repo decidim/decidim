@@ -220,8 +220,15 @@ ja:
           email_subject: '「%{resource_title}」ミーティングに割り当てられたスロットは %{percentage} %を超えています'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングに割り当てられたスロットは %{percentage}%を超えています。
         meeting_updated:
+          email_intro: '"%{resource_title}" ミーティングは %{changed_fields}への変更により更新されました．このページから新しいバージョンを読むことができます：'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングが更新されました'
+          field_names:
+            address: アドレス
+            end_time: 終了時刻
+            location: 場所
+            start_time: 開始時刻
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングは、 %{changed_fields} への変更により更新されました。
         registration_code_validated:
           email_intro: '「%{registration_code}」ミーティングの登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" ミーティングの登録コードが検証されたため、この通知を受け取りました。'
@@ -590,6 +597,7 @@ ja:
           micro_camera_permissions_warning: 下のボタンをクリックすると、マイクおよび/またはカメラの権限を求められ、ビデオ会議に参加できます
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
+          pending_address: 場所はまもなく発表されます。
           redirect_notice: このミーティングは別のスペースの一部であるため、あなたは %{current_space_name} に移動されました。<br> ご希望の場合は、 <a href="%{previous_space_url}">%{previous_space_name}</a> に戻ることができます。
           registration_code_help_text: 登録コード
           registration_state:
