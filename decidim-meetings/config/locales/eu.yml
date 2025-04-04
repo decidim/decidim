@@ -223,8 +223,15 @@ eu:
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
+          email_intro: '"%{resources ce_title}" bilera eguneratu da aldaketa hauekin: %{changed_fields}. Bertsio berria irakur dezakezu bere orrialdetik:'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
           email_subject: '"%{resource_title}" topaketa eguneratu egin da'
+          field_names:
+            address: helbidea
+            end_time: amaiera-ordua
+            location: kokapena
+            start_time: hasiera-ordua
+          notification_title: '%<a href="%{resource_path}">{resources ce_title}</a> bilera eguneratu egin da %aldaketa hauekin: %{changed_fields}.'
         registration_code_validated:
           email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
           email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
@@ -596,6 +603,7 @@ eu:
           micro_camera_permissions_warning: Beheko botoia sakatzen duzunean, mikrofono eta/edo kamerarako baimena eskatuko zaizu eta bideohitzaldian sartuko zara
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          pending_address: Kokapena laster adieraiko da.
           redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
           registration_code_help_text: Zure izena emateko kodea
           registration_state:
