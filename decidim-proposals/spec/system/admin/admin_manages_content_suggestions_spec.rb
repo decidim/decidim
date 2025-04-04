@@ -75,4 +75,22 @@ describe "AdminContentSuggestions" do
       expect(proposal_component.settings["content_suggestions_enabled"]).to be(false)
     end
   end
+
+  context "when accessing a component form" do
+    it "displays the content suggestions fields correctly with default values" do
+      click_link_or_button "Configure"
+
+      within "div#panel-global_settings" do
+        expect(find_by_id("component_settings_content_suggestions_enabled")).not_to be_checked
+        expect(page).to have_field("component_settings_content_suggestions_limit")
+        expect(find_by_id("component_settings_content_suggestions_limit").value).to eq(Decidim::Proposals.default_content_suggestions_limit.to_s)
+        within "div.content_suggestions_criteria_container" do
+          expect(page).to have_css("label[for='component_settings_content_suggestions_criteria_location']")
+          expect(page).to have_css("label[for='component_settings_content_suggestions_criteria_random']")
+          expect(page).to have_css("label[for='component_settings_content_suggestions_criteria_most_recent']")
+          expect(page).to have_css("label[for='component_settings_content_suggestions_criteria_taxonomy']")
+        end
+      end
+    end
+  end
 end

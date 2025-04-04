@@ -13,10 +13,17 @@ describe "ContentSuggestionSection" do
   let(:latitude) { 41.38879 }
   let(:longitude) { 2.15899 }
 
-  let(:proposal) { create(:proposal, component:, users: [user], address:, latitude:, longitude:) }
+  let(:proposal) { create(:proposal, component:, users: [user], address:, latitude:, longitude:, taxonomies: [taxonomy, sub_taxonomy]) }
+
+  let!(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let!(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let!(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let!(:most_recent_proposal) { create(:proposal, component:, users: [user], created_at: 1.minute.ago, comments_count: 2, endorsements_count: 2) }
   let!(:nearest_proposal) { create(:proposal, component:, users: [user], created_at: 2.weeks.ago, latitude:, longitude:) }
+  let!(:taxonomy_proposal) { create(:proposal, component:, users: [user], created_at: 2.weeks.ago, taxonomies: [taxonomy, sub_taxonomy]) }
 
   let!(:proposals_list) do
     create_list(
@@ -118,6 +125,26 @@ describe "ContentSuggestionSection" do
       within ".content-suggestions-list" do
         within first(".card__list") do
           expect(page).to have_css("#proposals__proposal_#{nearest_proposal.id}")
+        end
+      end
+    end
+  end
+
+  context "when content_suggestions_criteria is taxonomy" do
+    let(:component) do
+      create(:component, manifest_name:, participatory_space: participatory_process, settings: {
+               taxonomy_filters: taxonomy_filter_ids,
+               content_suggestions_enabled: true,
+               content_suggestions_limit: 3,
+               content_suggestions_criteria: "taxonomy"
+             })
+    end
+
+    it "has the proposal with the same taxonomy at the top" do
+      visit resource_locator(proposal).path
+      within ".content-suggestions-list" do
+        within first(".card__list") do
+          expect(page).to have_css("#proposals__proposal_#{taxonomy_proposal.id}")
         end
       end
     end

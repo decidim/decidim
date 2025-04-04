@@ -21,6 +21,10 @@ module Decidim
           proposals = proposals_by_location
           proposals += random_proposals(suggested_content_limit - proposals.length) if proposals.length < suggested_content_limit
           proposals
+        when "taxonomy"
+          proposals = proposals_by_taxonomy
+          proposals += random_proposals(suggested_content_limit - proposals.length) if proposals.length < suggested_content_limit
+          proposals
         else
           random_proposals(suggested_content_limit)
         end
@@ -43,6 +47,13 @@ module Decidim
         return [] unless model.geocoded?
 
         base_query.near([model.latitude, model.longitude], Decidim::Proposals.suggestions_by_location_distance).limit(suggested_content_limit)
+      end
+
+      def proposals_by_taxonomy
+        return [] unless model.taxonomies.any?
+
+        taxonomy_ids = model.taxonomies.pluck(:id)
+        base_query.includes(:taxonomizations).where.not({ taxonomizations: { id: nil } }).where({ taxonomizations: { taxonomy_id: taxonomy_ids } })
       end
 
       def suggested_content_enabled?

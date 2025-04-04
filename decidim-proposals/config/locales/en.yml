@@ -182,6 +182,7 @@ en:
               location: Location
               most_recent: Most recent
               random: Random
+              taxonomy: Taxonomy
             content_suggestions_enabled: Suggested content enabled
             content_suggestions_limit: Number of proposal to be displayed (max 10)
             default_sort_order: Default proposal sorting

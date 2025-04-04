@@ -62,7 +62,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
     settings.attribute :content_suggestions_enabled, type: :boolean, default: false
     settings.attribute :content_suggestions_limit, type: :integer, default: 3
-    settings.attribute :content_suggestions_criteria, type: :enum, default: "random", choices: %w(location random most_recent)
+    settings.attribute :content_suggestions_criteria, type: :enum, default: "random", choices: %w(location random most_recent taxonomy)
   end
 
   component.settings(:step) do |settings|
