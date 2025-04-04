@@ -544,7 +544,7 @@ hu:
         actions:
           create: Létrehozás
           title: Hozzászólások
-          vote: Szavazás
+          vote: Aláírás
   layouts:
     decidim:
       initiative_creation_header:
