@@ -606,7 +606,7 @@ eu:
         actions:
           create: Sortu
           title: Ekintzak
-          vote: Bozkatu
+          vote: Saioa
   layouts:
     decidim:
       initiative_creation_header:
