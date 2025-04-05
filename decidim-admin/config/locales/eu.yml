@@ -1284,6 +1284,7 @@ eu:
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
+        parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
         unhide: Erakutsi berriro
         unreport: Ez erreportatu
@@ -1310,6 +1311,7 @@ eu:
             success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
+            parent_invalid: Arazo bat zegoen baliabidea erakustean. Nagusia ez da ikusten.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
