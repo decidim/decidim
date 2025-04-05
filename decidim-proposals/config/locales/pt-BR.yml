@@ -580,7 +580,6 @@ pt-BR:
         update:
           title: Atualizar proposta
         vote_button:
-          already_voted: Já votou
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto
