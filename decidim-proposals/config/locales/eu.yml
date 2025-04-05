@@ -17,14 +17,14 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Gorputza
+        body: Testua
         category_id: Kategoria
         decidim_scope_id: Eremua
         has_address: Helbidea du
         scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
-        title: Titulua
+        title: Izena
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
@@ -32,10 +32,10 @@ eu:
         cost_report: Kostuaren txostena
         execution_period: Gauzatzeko epea
       proposals_copy:
-        copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
+        copy_proposals: Ulertzen dut ekintza honek proposamen guztiak hautatutako osagaira inportatuko dituela eta hori egin ondoren ezin dela atzera egin.
         origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_import:
-        import_proposals: Inportatu proposamenak
+        import_proposals: Proposamenak inportatu
         keep_answers: Mantendu egoera eta erantzunak
         keep_authors: Mantendu jatorrizko egileak
       valuation_assignment:
@@ -50,11 +50,11 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             body:
-              cant_be_equal_to_template: ezin da plantillaren berdina izan
+              cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
             title:
               identical: ETA gorputza ezin da berdina izan
@@ -72,11 +72,11 @@ eu:
       decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
       decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
-      decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
-      decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
+      decidim/proposals/creation_enabled_event: Proposamenak sortzeko aukera gaituta
+      decidim/proposals/endorsing_enabled_event: Proposamenarekiko atxikimendua gaituta
       decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
-      decidim/proposals/proposal_mentioned_event: Proposamena aipatua
-      decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
+      decidim/proposals/proposal_mentioned_event: Proposamena aipatu da
+      decidim/proposals/publish_proposal_event: Proposamena argitaratu da
       decidim/proposals/rejected_proposal_event: Proposamena baztertu da
       decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
   activerecord:
@@ -113,8 +113,8 @@ eu:
               evaluating: Ebaluatzen
               not_answered: Erantzun gabe
               published: Argitaratua
-              rejected: Ukatua
-              validating: Baliozkotze teknikoa
+              rejected: Baztertuta
+              validating: Balioztatze teknikoa
               withdrawn: Kenduta
           valuator_role_ids_has:
             label: Esleituta ebaluatzaileari
@@ -122,14 +122,14 @@ eu:
             label: Erantzunda
             values:
               state_not_published: Erantzun gabe
-              state_published: Erantzunda
+              state_published: Erantzun da
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     components:
       proposals:
         actions:
           amend: Zuzendu
-          comment: Iruzkina
+          comment: Iruzkindu
           create: Sortu
           endorse: Atxikitu
           vote: Babesa
@@ -139,14 +139,14 @@ eu:
         settings:
           global:
             amendments_enabled: Zuzenketak baimenduta
-            amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
-            amendments_wizard_help_text: Zuzenketen testu-laguntzailea
+            amendments_enabled_help: Aktibo badago, zuzenketen aukerak fase bakoitzerako ezartzen ditu.
+            amendments_wizard_help_text: Zuzenketak egiteko laguntza-testua
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
@@ -157,12 +157,12 @@ eu:
               most_voted: Aldeko boto gehien
               random: Ausazkoa
               recent: Azkenak
-              with_more_authors: Egile gehiagorekin
+              with_more_authors: Egile gehien dituztenak
             geocoding_enabled: Geokodifikazioa gaituta dago
             minimum_votes_per_user: Parte-hartzaile bakoitzeko gutxieneko aldeko botoak
-            new_proposal_body_template: Plantilla proposamen berriaren testurako
-            new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
-            new_proposal_help_text: Proposamen berriaren laguntza testua
+            new_proposal_body_template: Proposamen berriaren testurako plantilla
+            new_proposal_body_template_help: Proposamen berriek aurretik izango duten testua zehaztu ahal duzu
+            new_proposal_help_text: Proposamen berria egiteko laguntza-testua
             official_proposals_enabled: Proposamen ofizialak gaituta
             participatory_texts_enabled: Testu parte-hartzaileak gaituta
             participatory_texts_enabled_readonly: Proposamenak badaude, ezin da ezarpen honekin elkarreragin. Mesedez, sor ezazu proposamen-osagai berria, ezaugarri hau aktibatu nahi baduzu edo baztertu `Testu parte hartzaileak` menuan inportatutako proposamen guztiak, desaktibatu nahi baduzu.
@@ -170,23 +170,23 @@ eu:
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_edit_time: Proposamenen edizioa
             proposal_edit_time_choices:
-              infinite: Utzi proposamenak editatzen epe mugagabe batean
-              limited: Utzi proposamenak editatzen epe zehatz baten barruan
+              infinite: Proposamenak editatzeko aukera epe mugarik gabe
+              limited: Proposamenak epe jakin batean editatzen utzi
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga parte-hartzaile bakoitzeko
-            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
+            proposal_wizard_step_1_help_text: Proposamenen laguntzailearen "Sortu" urratserako testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
-            proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
-            resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
+            proposal_wizard_step_4_help_text: Proposamenen laguntzailearen "Argitaratu" urratserako testua
+            resources_permissions_enabled: Proposamen bakoitzerako ekintza-baimenak ezarri ahal dira
             scope_id: Eremua
             scopes_enabled: Eremuak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Parte-hartzaile bakoitzeko aldeko babesen muga
           step:
-            amendment_creation_enabled: Zuzenketa sortzea aktibatuta
+            amendment_creation_enabled: Zuzenketa sortzea aktibatua
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
-            amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
+            amendment_promotion_enabled: Zuzenketa sustatzea aktibatua
             amendment_promotion_enabled_help: Zuzenketaren egileek proposamen berri gisa sustatu ahal izango dute baztertutako zuzenketa.
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendment_reaction_enabled_help: Proposamenen egileek beste parte-hartzaile batzuen zuzenketak onartu edo baztertu ahal izango dituzte.
