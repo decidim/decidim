@@ -5,9 +5,9 @@
     <h2 class="card-title">
     <span><%= t(".response_option") %></span>
     <% if editable %>
-      <button class="button button__sm button__transparent-secondary small alert remove-response-option button--title mb-2">
+      <button class="button button__xs button__transparent-secondary small alert remove-response-option button--title mb-2">
         <%= icon("delete-bin-line") %>
-        <%= t(".remove") %>
+        <span class="hidden md:block"><%= t(".remove") %></span>
       </button>
     <% end %>
     </h2>
