@@ -997,7 +997,7 @@ es-PY:
         update:
           title: Actualizar propuesta
         vote_button:
-          already_voted: Ya votado
+          already_voted: Ya le has dado apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de votos alcanzado
           no_votes_remaining: No hay votos restantes
