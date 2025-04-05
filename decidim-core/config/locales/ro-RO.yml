@@ -1554,6 +1554,8 @@ ro:
         resources: Resurse
         sign_up: Creați un cont
       header:
+        confirm_close_ephemeral_session: Dacă părăsiți pagina, sesiunea temporară va fi închisă. Cu toate acestea, progresul și activitatea dumneavoastră vor fi salvate. Dacă ați terminat activitatea, apăsați Ok.
+        confirm_title_close_ephemeral_session: Înainte de a părăsi această pagină…
         log_in: Autentificare
         main_menu: Meniul principal
         user_menu: Meniu de utilizator
