@@ -32,6 +32,7 @@ ro:
         comments_enabled: Comentarii activate
         custom_signature_end_date_enabled: Permite autorilor să aleagă sfârșitul perioadei de colectare a semnăturilor
         description: Descriere
+        document_number_authorization_handler: Fluxul de lucru al semnăturii
         extra_fields_legal_information: Informații juridice privind colectarea datelor cu caracter personal
         minimum_committee_members: Numărul minim de membri ai comitetului
         online_signature_enabled: Semnătură online activată
@@ -275,6 +276,7 @@ ro:
             update: Actualizare
           form:
             options: Opţiuni
+            signature_workflow_settings: Setări ale fluxului de lucru al semnăturii
           initiative_type_scopes:
             title: Domeniul de interes al tipului de inițiativă
           new:
@@ -399,10 +401,41 @@ ro:
           email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Data naşterii
+              document_number:
+                placeholder: Numărul documentului
+              document_type:
+                prompt: Tipul documentului
+              document_type_and_number:
+                help_text: Numărul documentului corespunde documentului utilizat la verificarea prin recensământ.
+                label: Tipul și numărul documentului
+              gender:
+                options:
+                  man: Bărbat
+                  non_binary: Non binar
+                  woman: Femeie
+        fill_personal_data:
+          continue: Validați datele dumneavoastră
+          invalid_authorization: Datele furnizate pentru a continua acțiunea nu sunt compatibile cu autorizările existente sau trebuie să creați o autorizare noua.
+          invalid_data: Unele dintre datele cu caracter personal furnizate pentru verificarea identității dumneavoastră nu sunt valide.
         finish:
           back_to_initiative: Înapoi la inițiativă
+          title: Ați semnat inițiativa
+        sms_phone_number:
+          confirmed_data: Ați confirmat datele.
+          continue: Semnați inițiativa
+          help_enter_your_number: Vă rugăm să introduceți numărul dumneavoastră de telefon. Apoi veți primi un SMS cu un cod de validare.
+          resend_code_html: Nu ați primit codul? <a href="%{new_code_path}">Încercați din nou</a>
+          your_code_is_correct: Codul dumneavoastră este corect.
+          your_code_is_incorrect: Codul nu este corect. Examinați-l sau <a href="%{new_code_path}">încercați din nou</a>.
+          your_confirmation_code: Codul dumneavoastră de confirmare
       initiative_votes:
         create:
+          already_voted: Semnătura si datele dumneavoastră au fost deja înregistrate.
           error: A existat o problemă la semnarea inițiativei.
         sms_phone:
           invalid: Numărul de telefon este invalid sau în aşteptarea autorizaţiei. Te rugăm să verific setările tale de autorizare.
@@ -530,6 +563,8 @@ ro:
         finish: Validarea tehnică
         promotal_committee: Căutați promotori
         select_initiative_type: Alege
+      initiative_signature_creation_header:
+        verify_your_identity: Verificați identitatea dumneavoastră
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nicio inițiativă încă!
