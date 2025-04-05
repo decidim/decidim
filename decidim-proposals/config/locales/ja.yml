@@ -984,7 +984,6 @@ ja:
         update:
           title: 提案を更新
         vote_button:
-          already_voted: すでに投票済みです
           already_voted_hover: 投票を撤回する
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
