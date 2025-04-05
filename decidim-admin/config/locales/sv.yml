@@ -1307,6 +1307,7 @@ sv:
             success: Innehållet har dolts.
           unhide:
             invalid: Det gick inte att sluta dölja innehållet.
+            parent_invalid: Det gick inte att visa resursen. Föräldern är inte synlig.
             success: Innehållet är inte längre dolt.
           unreport:
             invalid: Det gick inte att ta bort rapporten om innehållet.
