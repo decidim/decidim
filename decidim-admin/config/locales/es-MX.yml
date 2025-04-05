@@ -1284,6 +1284,7 @@ es-MX:
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
+        parent_hidden: No se puede mostrar este recurso porque está incluido dentro de otro recurso ("padre") que sigue oculto.
         title: Acciones
         unhide: Ocultar
         unreport: Cancelar denuncia
@@ -1310,6 +1311,7 @@ es-MX:
             success: Contenido ocultado con éxito.
           unhide:
             invalid: Ha habido un problema al no encontrar el recurso.
+            parent_invalid: Ha habido un problema desocultando el recurso. El recurso en el que este está incluido ("padre") no está visible.
             success: Recurso exitosamente no oculto.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.
