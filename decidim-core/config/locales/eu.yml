@@ -2048,6 +2048,8 @@ eu:
         terms_of_service: Zerbitzuaren baldintzak
       header:
         close: Itxi
+        confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
+        confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
         log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Parte-hartzailearen menua
