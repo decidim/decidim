@@ -733,7 +733,6 @@ bg:
         update:
           title: Актуализиране на предложението
         vote_button:
-          already_voted: Вече гласувано
           already_voted_hover: Оттегляне на гласа
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове
