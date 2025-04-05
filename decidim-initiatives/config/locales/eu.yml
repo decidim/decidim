@@ -34,6 +34,7 @@ eu:
         comments_enabled: Gaitu iruzkinak
         custom_signature_end_date_enabled: Gaitu egileak sinadurak biltzeko aldiaren amaiera aukeratzeko
         description: Deskribapena
+        document_number_authorization_handler: Sinatzeko prozesua
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
@@ -320,6 +321,7 @@ eu:
             child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
             only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
+            signature_workflow_settings: Sinatzeko prozesuaren ezarpena
           initiative_type_scopes:
             title: Ekimen motaren eremuak
           new:
@@ -466,12 +468,43 @@ eu:
       index:
         uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Jaiotze-data
+              document_number:
+                placeholder: Agiri zenbakia
+              document_type:
+                prompt: Dokumentu mota
+              document_type_and_number:
+                help_text: Agiri zenbakia errolda egiaztatzeko erabilitako agiriari dagokio.
+                label: Agiri mota eta zenbakia
+              gender:
+                options:
+                  man: Gizonezkoa
+                  non_binary: Ez-binarioa
+                  woman: Emakumezkoa
         fill_personal_data:
+          continue: Baliozkotu zure datuak
           help: Mesedez, bete hurrengo eremuak zure datu pertsonalekin ekimena sinatzeko.
+          invalid_authorization: Ekintzari ekiteko emandako datuak ez dira bateragarriak zure baimenekin edo baimen berri bat lortu behar duzu.
+          invalid_data: Zure nortasuna egiaztatzeko emandako datu pertsonal batzuk ez dira baliozkoak.
         finish:
           back_to_initiative: Ekimenera itzuli
+          title: Ekimena sinatu duzu
+        sms_phone_number:
+          confirmed_data: Zure datuak baieztatu dituzu.
+          continue: Sinatu ekimena
+          help_enter_your_number: Mesedez, sartu zure telefono zenbakia. Orduan jasoko duzu baliozkotzeko kodea SMS baten bidez.
+          receive_code: Jaso kodea
+          resend_code_html: Ez duzu jaso kodea? <a href="%{new_code_path}">Saiatu berriro</a>
+          your_code_is_correct: Zure kodea ez da zuzena.
+          your_code_is_incorrect: Kodea ez da zuzena. Birpasatu edo <a href="%{new_code_path}">saiatu berriro</a>.
+          your_confirmation_code: Zure baieztatzeko kodea
       initiative_votes:
         create:
+          already_voted: Zure sinadura dagoeneko erregistratu da zure datuekin.
           error: Arazo bat egon da ekimena sinatzean.
           invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak.
           success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da.
@@ -601,6 +634,11 @@ eu:
           open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Sinadurak parte-hartzailearen informazio pertsonala jasotzen du, baimena baliozkotzen du eta SMS kodea egiaztatzen du
+            name: Sinaduren Kudeatzaile Simulatua
       states:
         accepted: Onartua
         expired: iraungi
