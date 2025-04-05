@@ -19,7 +19,7 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Gorputza
+        body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -28,7 +28,7 @@ eu:
         scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
-        title: Titulua
+        title: Izena
       proposal_answer:
         answer: Erantzuna
         cost: Kostua
@@ -36,7 +36,7 @@ eu:
         execution_period: Gauzatzeko epea
       proposal_state:
         announcement_title: Erantzunaren goiburua
-        bg_color: Pantailaren atzeko planoaren kolorea
+        bg_color: Atzealdeko kolorea
         colors:
           blue: Urdina
           gray: Grisa
@@ -48,12 +48,12 @@ eu:
           yellow: Horia
         text_color: Testuaren kolorea
       proposals_copy:
-        copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
+        copy_proposals: Ulertzen dut ekintza honek proposamen guztiak hautatutako osagaira inportatuko dituela eta hori egin ondoren ezin dela atzera egin.
         origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_file_import:
         file: Fitxategia
       proposals_import:
-        import_proposals: Inportatu proposamenak
+        import_proposals: Proposamenak inportatu
         keep_answers: Mantendu egoera eta erantzunak
         keep_authors: Mantendu jatorrizko egileak
     errors:
@@ -65,11 +65,11 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             body:
-              cant_be_equal_to_template: ezin da plantillaren berdina izan
+              cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
             title:
               identical: ETA gorputza ezin da berdina izan
@@ -84,11 +84,11 @@ eu:
               not_official: Ez dira ofizialak
               voted: Babesak edo atxikimenduak jaso izana
     models:
-      decidim/proposals/admin/update_proposal_taxonomies_event: Proposamen taxonomiak aldatuta
-      decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
-      decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
-      decidim/proposals/proposal_mentioned_event: Proposamena aipatua
-      decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
+      decidim/proposals/admin/update_proposal_taxonomies_event: Proposamenaren taxonomiak aldatu dira
+      decidim/proposals/creation_enabled_event: Proposamenak sortzeko aukera gaituta
+      decidim/proposals/endorsing_enabled_event: Proposamenarekiko atxikimendua gaituta
+      decidim/proposals/proposal_mentioned_event: Proposamena aipatu da
+      decidim/proposals/publish_proposal_event: Proposamena argitaratu da
       decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
   activerecord:
     models:
@@ -96,11 +96,11 @@ eu:
         proposals:
           proposal:
             budget_text: '%{link} proposamena sortu da'
-            import_from_proposal_text: '%{link} proposamen bihurtu da'
+            import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             import_to_proposal_text: '%{link} proposamena sortu da'
-            merge_from_proposal_text: '%{link} proposamen bihurtu da'
+            merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
-            split_from_proposal_text: '%{link} proposamen bihurtu da'
+            split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             split_to_proposal_text: '%{link} proposamena sortu da'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
@@ -122,7 +122,7 @@ eu:
       filters:
         proposals:
           evaluator_role_ids_has:
-            label: Ebaluatzaileari esleitua
+            label: Ebaluatzaileari esleitu zaio
           is_emendation_true:
             label: Mota
             values:
@@ -137,8 +137,8 @@ eu:
               evaluating: Ebaluatzen
               not_answered: Erantzun gabe
               published: Argitaratua
-              rejected: Ukatua
-              validating: Baliozkotze teknikoa
+              rejected: Baztertuta
+              validating: Balioztatze teknikoa
               withdrawn: Kenduta
           taxonomies_part_of_contains:
             label: Taxonomia
@@ -146,7 +146,7 @@ eu:
             label: Erantzunda
             values:
               state_not_published: Erantzun gabe
-              state_published: Erantzunda
+              state_published: Erantzun da
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     application:
@@ -156,8 +156,8 @@ eu:
       proposals:
         actions:
           amend: Zuzendu
-          comment: Iruzkina
-          create: Sortu proposamena
+          comment: Iruzkindu
+          create: Proposamena sortu
           endorse: Atxikitu
           vote: Eman babesa
           vote_comment: Bozkatu iruzkina
@@ -166,16 +166,16 @@ eu:
         settings:
           global:
             amendments_enabled: Zuzenketak baimenduta
-            amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
-            amendments_wizard_help_text: Zuzenketen testu-laguntzailea
+            amendments_enabled_help: Aktibo badago, zuzenketen aukerak fase bakoitzerako ezartzen ditu.
+            amendments_wizard_help_text: Zuzenketak egiteko laguntza-testua
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
-            attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
+            attachments_allowed_help: Aukera hau gaitzean, besterik adierazi ezean, proposamenak lauki moduan agertuko dira eta lehen irudia txartelan agertuko da.
             can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
@@ -186,18 +186,18 @@ eu:
               most_voted: Bozkatuenak
               random: Ausazkoa
               recent: Azkenak
-              with_more_authors: Egile gehiagorekin
+              with_more_authors: Egile gehien dituztenak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
-            edit_time: Proposamenak egileek edita ditzakete denbora luzea igaro baino lehen
+            edit_time: Egileek proposamenak edita ditzakete denbora tarte honen barruan
             edit_time_units:
               days: Egunak
               hours: Orduak
               minutes: Minutuak
             geocoding_enabled: Mapak gaituta
             minimum_votes_per_user: Gutxieneko babesak parte-hartzaile bakoitzeko
-            new_proposal_body_template: Plantilla proposamen berriaren testurako
-            new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
-            new_proposal_help_text: Proposamen berriaren laguntza testua
+            new_proposal_body_template: Proposamen berriaren testurako plantilla
+            new_proposal_body_template_help: Proposamen berriek aurretik izango duten testua zehaztu ahal duzu
+            new_proposal_help_text: Proposamen berria egiteko laguntza-testua
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             official_proposals_enabled: Proposamen ofizialak gaituta
             participatory_texts_enabled: Testu parte-hartzaileak gaituta
@@ -205,25 +205,25 @@ eu:
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_time: Proposamenen edizioa
             proposal_edit_time_choices:
-              infinite: Utzi proposamenak editatzen epe mugagabe batean
-              limited: Utzi proposamenak editatzen epe zehatz baten barruan
+              infinite: Proposamenak editatzeko aukera epe mugarik gabe
+              limited: Proposamenak epe jakin batean editatzen utzi
             proposal_edit_time_unit_options:
               days: Egunak
               hours: Orduak
               minutes: Minutuak
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga parte-hartzaile bakoitzeko
-            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
-            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
-            resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
+            proposal_wizard_step_1_help_text: Proposamenen laguntzailearen "Sortu" urratserako testua
+            proposal_wizard_step_2_help_text: Proposamenen laguntzailearen "Argitaratu" urratserako testua
+            resources_permissions_enabled: Proposamen bakoitzerako ekintza-baimenak ezarri ahal dira
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Babesen muga partaide bakoitzeko
           step:
-            amendment_creation_enabled: Zuzenketa sortzea aktibatuta
+            amendment_creation_enabled: Zuzenketa sortzea aktibatua
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
-            amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
+            amendment_promotion_enabled: Zuzenketa sustatzea aktibatua
             amendment_promotion_enabled_help: Zuzenketaren egileek proposamen berri gisa sustatu ahal izango dute baztertutako zuzenketa.
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendment_reaction_enabled_help: Proposamenen egileek beste parte-hartzaile batzuen zuzenketak onartu edo baztertu ahal izango dituzte.
@@ -288,15 +288,15 @@ eu:
             email_subject: "%{author_name} k zure ohar pribatua erantzun du hemen: %{resource_title}."
             notification_title: '<a href="%{author_path}">%{author_name}%{author_nickname} k zure ohar pribatua erantzun du hemen: <a href="%{resource_path}">%{resource_title}. Begiratu <a href="%{admin_proposal_info_path}">admin. panelean.'
         coauthor_accepted_invite:
-          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k onartu du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> parte-hartzaileak onartu egin du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         coauthor_invited:
           actions:
             accept: Onartu
             decline: Baztertu
           email_intro: 'Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera. Gonbidapena onartu edo baztertu ahal duzu orrialde honetan:'
-          email_outro: Jakinarazpen hau jaso duzu proposamenaren egileak balioetsi nahi dituelako zure ekarpenak zu egilekide bihurtuz.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egileak zure ekarpenak balioesteko horren egilekide bihurtu nahi zaituelako.
           email_subject: Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera
-          notification_title: <a href="%{author_path}">%{author_name}</a> k gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa.
+          notification_title: <a href="%{author_path}">%{author_name}</a> parte-hartzaileak gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izatera.
         coauthor_rejected_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k zure gonbidapena baztertu du <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         collaborative_draft_access_accepted:
@@ -997,7 +997,7 @@ eu:
         update:
           title: Eguneratu proposamena
         vote_button:
-          already_voted: Bozkatuta duzu
+          already_voted: Botoa emanda
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
