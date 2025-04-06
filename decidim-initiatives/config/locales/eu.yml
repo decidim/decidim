@@ -240,7 +240,7 @@ eu:
             order:
               default: Lehenetsita (zaharragoak)
               label: 'Ordenatu elementua honen arabera:'
-              most_recent: Azkenak
+              most_recent: Berrienetatik zaharrenetara
         exports:
           initiatives: Ekimenak
         index:
@@ -289,7 +289,7 @@ eu:
             update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
-            date: Azkenak
+            date: Berrienetatik zaharrenetara
             publication_date: Azken argitaratutakoak
             random: Ausaz
             signatures: Sinadura gehiago
@@ -553,7 +553,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienak
+          recent: Berrienetatik zaharrenetara
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
           title: Proiektuak eta egiteke dauden ekimenak
