@@ -103,7 +103,7 @@ eu:
         orders:
           label: 'Zozketak honen arabera ordenatu:'
           random: Ausaz
-          recent: Berrienak
+          recent: Berrienetatik zaharrenetara
         results_count:
           count:
             one: Hautatutako proposamena
