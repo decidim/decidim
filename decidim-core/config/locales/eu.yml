@@ -530,7 +530,7 @@ eu:
         orders:
           label: 'Ordenatu elementuak honen arabera:'
           random: Ausazkoa
-          recent: Azkenak
+          recent: Berrienetatik zaharrenetara
       how_to_participate:
         name: Nola hartu parte
       html:
