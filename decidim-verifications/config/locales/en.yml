@@ -124,8 +124,8 @@ en:
       admin_log:
         csv_datum:
           create: "%{user_name} created a new census data record with email %{resource_email}"
-          destroy: "%{user_name} deleted the census data record with email %{resource_email}"
-          import: "%{user_name} imported a new census data file with %{imported_data_count} emails"
+          delete: "%{user_name} deleted the census data record with email %{resource_email}"
+          import: "%{user_name} imported %{imported_data_count} Census records"
           update: "%{user_name} updated the census data record with email %{resource_email}"
       authorizations:
         authorization_metadata:
