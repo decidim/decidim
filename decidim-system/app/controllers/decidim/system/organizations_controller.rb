@@ -96,7 +96,7 @@ module Decidim
       end
 
       def provider_enabled?(provider)
-        Rails.application.secrets.dig(:omniauth, provider, :enabled)
+        Decidim.omniauth_providers.dig(provider, :enabled)
       end
     end
   end

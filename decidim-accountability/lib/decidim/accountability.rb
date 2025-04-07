@@ -15,7 +15,7 @@ module Decidim
 
     # Public Setting that defines whether proposals can be linked to meetings
     config_accessor :enable_proposal_linking do
-      Decidim.const_defined?("Proposals")
+      Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", Decidim.const_defined?("Proposals")).present?
     end
   end
 end
