@@ -639,6 +639,18 @@ eu:
           dummy_signature_handler:
             description: Sinadurak parte-hartzailearen informazio pertsonala jasotzen du, baimena baliozkotzen du eta SMS kodea egiaztatzen du
             name: Sinaduren Kudeatzaile Simulatua
+          dummy_signature_with_personal_data_handler:
+            description: Sinadurak erabiltzailearen informazio pertsonala baino ez du jasotzen, eta baliozkotu egiten du
+            name: Sinadura-kudeatzaile simulatua datu pertsonalekin
+          dummy_signature_with_sms_handler:
+            description: Sinadura horrek soilik baliozkotzen du telefono-zenbakia, baliozkotuz lehendik dagoen baimena eta egiaztatuz SMS kodea
+            name: Sinaduren kudeatzaile simulatua soilik SMS bidez
+          ephemeral_dummy_signature_handler:
+            description: Sinadurak parte-hartzailearen informazio pertsonala jasotzen du, baimena baliozkotzen du eta SMS kodea egiaztatzen du
+            name: Sinadura-emaile Mugikor Iragankorra
+          legacy_signature_handler:
+            description: Sinadura-kudeatzailea, sinadura-ezaugarri zaharrean oinarritua, datu pertsonalen bilketan jasoa, SMS urratsa eta baimena dummy_autorization_handler bidez baliozkotzea barne. Aldatu edozein parametro, erabilitako konfiguraziora egokitzeko
+            name: Sinaduren Legezko Kudeatzailea
       states:
         accepted: Onartua
         expired: iraungi
@@ -692,6 +704,9 @@ eu:
         finish: Balidazio teknikoa
         promotal_committee: Bilatu sustatzaileak
         select_initiative_type: Aukeratu
+      initiative_signature_creation_header:
+        help_information_html: '%{iniciative_autor}-k sustatzen duen %<strong>{iniciative_title}</strong> ekimena sinatzeko, beharrezkoa da informazio jakin bat ematea, sinatzen duen ekimena legez loteslea izan dadin. Ez da zuri buruzko informaziorik argitaratuko.'
+        verify_your_identity: Egiaztatu zure nortasuna
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ez dago ekimenik oraindik!
