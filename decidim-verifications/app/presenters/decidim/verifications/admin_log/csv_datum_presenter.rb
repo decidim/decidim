@@ -3,6 +3,15 @@
 module Decidim
   module Verifications
     module AdminLog
+      # This class holds the logic to present a `Decidim::Verifications::CsvDatum
+      # for the `AdminLog` log.
+      #
+      # Usage should be automatic and you should not need to call this class
+      # directly, but here is an example:
+      #
+      #    action_log = Decidim::ActionLog.last
+      #    view_helpers # => this comes from the views
+      #    CsvDatumPresenter.new(action_log, view_helpers).present
       class CsvDatumPresenter < Decidim::Log::BasePresenter
         def initialize(action_log, view_helpers)
           super
@@ -21,8 +30,10 @@ module Decidim
         end
 
         def i18n_params
+          extra = @action_log.extra || {}
           super.merge(
-            resource_email: @resource&.email.to_s
+            resource_email: @resource&.email.to_s,
+            imported_data_count: extra[:imported_data_count].to_i
           )
         end
       end

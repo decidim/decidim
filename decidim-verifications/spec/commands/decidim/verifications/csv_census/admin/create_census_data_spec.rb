@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Verifications::CsvCensus::Admin
   describe CreateCensusData do
-    subject { described_class.new(form, organization) }
+    subject { described_class.new(form, organization, current_user) }
 
     let(:organization) { create(:organization) }
     let(:file) do
@@ -13,6 +13,7 @@ module Decidim::Verifications::CsvCensus::Admin
         file.rewind
       end
     end
+    let(:current_user) { create(:user, :confirmed, :admin, organization:) }
     let(:form) { instance_double(CensusDataForm, file:, data:) }
     let(:data) { instance_double(Decidim::Verifications::CsvCensus::Data, values: ["valid_email@example.com", "another_valid_email@example.com"]) }
 
@@ -39,12 +40,12 @@ module Decidim::Verifications::CsvCensus::Admin
     context "when the file is valid" do
       it "inserts all emails into the database" do
         expect { subject.call }.not_to raise_error
-        expect(Decidim::Verifications::CsvDatum).to have_received(:insert_all).with(organization, ["valid_email@example.com", "another_valid_email@example.com"])
+        expect(Decidim::Verifications::CsvDatum).to have_received(:insert_all).with(organization, ["valid_email@example.com", "another_valid_email@example.com"], current_user)
       end
 
       it "enqueues the ProcessCensusDataJob" do
         subject.call
-        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], organization)
+        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], organization, current_user)
       end
 
       it "broadcasts :ok" do

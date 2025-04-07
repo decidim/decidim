@@ -14,7 +14,7 @@ module Decidim
           def resource_class = Decidim::Verifications::CsvDatum
 
           def run_after_hooks
-            ProcessCensusDataJob.perform_now([resource.email], resource.organization)
+            ProcessCensusDataJob.perform_now([resource.email], resource.organization, current_user)
           end
         end
       end

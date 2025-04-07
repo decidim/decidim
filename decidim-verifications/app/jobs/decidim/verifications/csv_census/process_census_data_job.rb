@@ -6,16 +6,22 @@ module Decidim
       class ProcessCensusDataJob < ApplicationJob
         queue_as :default
 
-        def perform(data, organization)
+        def perform(data, organization, user)
+          imported_data = []
+          failed = []
+
           data.each do |email|
             if CsvDatum.exists?(email:, organization:)
               Rails.logger.info(I18n.t("census.new_import.errors.email_exists", scope: "decidim.verifications.csv_census.admin", email:, organization: organization.id))
+              failed << email
             else
               CsvDatum.create!(organization:, email:)
+              imported_data << email
             end
 
             authorize_record(email, organization)
           end
+          log_import_action(user, organization, imported_data)
         end
 
         private
@@ -34,6 +40,20 @@ module Decidim
           )
 
           authorization.grant! unless authorization.granted?
+        end
+
+        def log_import_action(user, _organization, imported_data)
+          return if imported_data.blank?
+
+          Decidim::ActionLogger.log(
+            "import",
+            user,
+            imported_data.first,
+            nil,
+            extra: {
+              imported_data_count: imported_data.count
+            }
+          )
         end
       end
     end
