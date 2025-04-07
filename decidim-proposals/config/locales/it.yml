@@ -578,7 +578,6 @@ it:
         update:
           title: Aggiorna proposta
         vote_button:
-          already_voted: Già votata
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione
