@@ -1,0 +1,661 @@
+---
+ca-IT:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Assemblees relacionades
+        available_slots: Places disponibles
+        banner_image: Imatge de banner
+        copy_categories: Copiar categories
+        copy_components: Copiar components
+        copy_features: Copiar funcionalitats
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_date: Data de fi
+        hashtag: Hashtag
+        hero_image: Imatge de la pàgina d'inici
+        location: Ubicació
+        main_logo: Logo principal
+        objectives: Objectius
+        participatory_processes_ids: Processos participatius relacionats
+        promoted: Destacada
+        published_at: Publicat a
+        registration_terms: Condicions d'inscripció
+        registrations_enabled: Inscripcions habilitades
+        short_description: Breu descripció
+        show_statistics: Mostrar estadístiques
+        sign_date: Data de signatura
+        signature: Signatura
+        signature_name: Nom de la signatura
+        slogan: Eslògan
+        slug: URL amigable
+        start_date: Data d'inici
+        title: Títol
+        weight: Ordre de posició
+      conference_media_link:
+        date: Data
+        link: Enllaç
+        title: Títol
+        weight: Ordre de posició
+      conference_partner:
+        link: Enllaç
+        logo: Logo
+        name: Nom
+        partner_type: Tipus de col·laboració
+        weight: Ordre de posició
+      conference_registration_invite:
+        email: Correu electrònic
+        name: Nom
+        registration_type_id: Tipus d'inscripció
+        user_id: Usuària
+      conference_registration_type:
+        description: Descripció
+        price: Cost
+        title: Títol
+        weight: Ordre de posició
+      conference_speaker:
+        affiliation: Afiliació
+        avatar: Imatge de perfil
+        conference_meeting_ids: Trobades relacionades
+        full_name: Nom complet
+        personal_url: URL personal
+        position: Càrrec
+        short_bio: Breu biografia
+        twitter_handle: Compte a X
+        user_id: Usuària
+      conference_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol
+      partner:
+        logo: Logo
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Ja s'havia convidat a aquest correu electrònic.
+  activerecord:
+    models:
+      decidim/conference:
+        one: Jornada
+        other: Jornades
+      decidim/conference_speaker:
+        one: Ponent de la jornada
+        other: Ponents de la jornada
+      decidim/conference_user_role:
+        one: Rol de participant de la jornada
+        other: Rol de participant de la jornada
+  decidim:
+    admin:
+      actions:
+        confirm: Confirmar
+        confirm_delete_conference: Segur que vols esborrar aquesta jornada? Si canvies d'opinió, la pots restaurar més endavant.
+        new_conference: Afegir jornada
+        new_conference_user_role: Afegir administradora
+        new_media_link: Afegir enllaç multimèdia
+        new_partner: Afegir col·laboradora
+        new_registration_type: Afegir tipus de registre
+        new_speaker: Afegir ponent
+        send_diplomas: Enviar certificats d'assistència
+        view_deleted_conferences: Veure les jornades eliminades
+      conference_copies:
+        new:
+          copy: Copiar
+          select: Selecciona quines dades vols duplicar
+          title: Jornada duplicada
+      conference_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta jornada.
+          success: La jornada s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquesta jornada.
+          success: La jornada s'ha despublicat correctament.
+      conference_registration:
+        confirm:
+          error: S'ha produït un error en confirmar la inscripció a aquesta jornada.
+          success: La inscripció a la jornada s'ha confirmat correctament.
+      conference_speakers:
+        create:
+          error: S'ha produït un error en afegir una ponent a aquesta aquesta jornada.
+          success: Ponent de la jornada creada correctament.
+        destroy:
+          success: Ponent de la jornada eliminada correctament.
+        edit:
+          title: Actualitzar la ponent de la jornada
+          update: Actualitzar
+        index:
+          conference_speakers_title: Ponents de les conferències
+        new:
+          create: Crear
+          title: Nova ponent de la jornada
+        publish:
+          invalid: S'ha produït un error en publicar aquesta ponent.
+          success: Ponent de la jornada actualitzada correctament.
+        unpublish:
+          invalid: S'ha produït un error en despublicar aquesta ponent.
+          success: Ponent de la jornada despublicada correctament.
+        update:
+          error: S'ha produït un error en actualitzar la ponent d'aquesta jornada.
+          success: Ponent de la jornada actualitzada correctament.
+      conference_user_roles:
+        create:
+          error: S'ha produït un error en afegir una administradora a aquesta jornada.
+          success: Administradora de la jornada afegida correctament.
+        destroy:
+          success: Administradora de la jornada eliminada correctament.
+        edit:
+          title: Actualitzar administradora de la jornada
+          update: Actualitzar
+        index:
+          conference_admins_title: Administradores de la jornada
+        new:
+          create: Crear
+          title: Nova administradora de jornada
+        update:
+          error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
+          success: Administradora de la jornada actualitzada correctament.
+      conferences:
+        create:
+          error: S'ha produït un error en crear aquesta jornada.
+          success: La jornada s'ha creat correctament.
+        edit:
+          update: Actualitzar
+        exports:
+          registrations: Inscripcions
+        form:
+          title: Informació general
+        index:
+          published: Publicat
+          unpublished: Despublicada
+        manage_trash:
+          title: Jornades eliminades
+        new:
+          create: Crear
+          title: Jornada
+        update:
+          error: S'ha produït un error en actualitzar aquesta jornada.
+          success: Jornada actualitzada correctament.
+      conferences_copies:
+        create:
+          error: S'ha produït un error en duplicar aquesta jornada.
+          success: La jornada s'ha duplicat correctament.
+      media_links:
+        create:
+          error: S'ha produït un error en crear un nou enllaç multimèdia.
+          success: Enllaç multimèdia creat correctament.
+        destroy:
+          success: S'ha eliminat correctament l'enllaç multimèdia.
+        edit:
+          title: Actualitzar l'enllaç multimèdia
+          update: Actualitzar
+        index:
+          media_links_title: Enllaços multimèdia
+        new:
+          create: Crear
+          title: Crear enllaç multimèdia
+        update:
+          error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
+          success: Enllaç multimèdia actualitzat correctament.
+      menu:
+        conferences: Jornades
+        conferences_submenu:
+          attachment_collections: Carpetes
+          attachment_files: Fitxers
+          attachments: Adjunts
+          components: Components
+          conference_admins: Administradors de conferències
+          conference_invites: Convida
+          conference_speakers: Ponents
+          diploma: Certificat d'assistència
+          info: Quant a aquesta jornada
+          media_links: Enllaços multimèdia
+          moderations: Moderacions
+          partners: Col·laboradores
+          registration_types: Tipus d'inscripció
+          registrations: Inscripcions
+          see_conference: Veure la jornada
+          user_registrations: Inscripcions de participants
+      models:
+        conference:
+          fields:
+            created_at: Creat a
+            published: Publicada
+            title: Títol
+        conference_speaker:
+          fields:
+            affiliation: Afiliació
+            full_name: Nom complet
+            position: Càrrec
+          name: Ponents de la jornada
+        conference_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Administradora de la jornada
+          roles:
+            admin: Administradora
+            collaborator: Col·laboradora
+            moderator: Moderadora
+            valuator: Avaluadora
+        media_link:
+          fields:
+            date: Data
+            link: Enllaç
+            title: Títol
+          name: Enllaç multimèdia
+        partner:
+          fields:
+            link: Enllaç
+            logo: Logotip
+            name: Nom
+            partner_type: Tipus
+          name: Col·laboradora
+          types:
+            collaborator: Col·laboradora
+            main_promotor: Promotora principal
+        registration_type:
+          fields:
+            conference_meetings: Trobades de la jornada
+            price: Preu
+            registrations_count: Nombre d'inscripcions
+            title: Títol
+            weight: Ordre de posició
+          name: Tipus d'inscripció
+      partners:
+        create:
+          error: S'ha produït un error en afegir una col·laboradora a aquesta jornada.
+          success: Col·laboradora de la jornada afegida correctament.
+        destroy:
+          success: Col·laboradora de la jornada eliminada correctament.
+        edit:
+          title: Actualitzar col·laboradora
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nova col·laboradora
+        update:
+          error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
+          success: Col·laboradora de la jornada actualtizada correctament.
+      registration_type_publications:
+        create:
+          error: S'ha produït un error en publicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha despublicat correctament.
+      registration_types:
+        create:
+          error: S'ha produït un error en afegir un tipus d'inscripció per a aquesta jornada.
+          success: El tipus d'inscripció s'ha afegit correctament a aquesta jornada.
+        destroy:
+          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
+        edit:
+          title: Actualitzar el tipus d'inscripció
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou tipus de registre
+        update:
+          error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
+          success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Totes les jornades
+      titles:
+        conferences: Jornades
+        conferences_deleted: Jornades eliminades
+      tooltips:
+        deleted_conferences_info: Les jornades només es poden eliminar si el seu estat és 'Despublicada'.
+    admin_log:
+      conference:
+        create: "%{user_name} ha creat la jornada %{resource_name}"
+        publish: "%{user_name} ha publicat la jornada %{resource_name}"
+        restore: "%{user_name} ha restaurat la jornada %{resource_name}"
+        send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
+        soft_delete: "%{user_name} ha mogut a la paperera la jornada %{resource_name}"
+        unpublish: "%{user_name} no publicada la jornada %{resource_name}"
+        update: "%{user_name} ha actualitzat la jornada %{resource_name}"
+        update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per a la jornada %{resource_name}"
+      conference_speaker:
+        create: "%{user_name} ha creat a la ponent %{resource_name} a la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat a la ponent %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha actualitzat a la ponent %{resource_name} a la jornada %{space_name}"
+      conference_user_role:
+        create: "%{user_name} ha convidat %{resource_name} a la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat l'administradora %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a la jornada %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} ha confirmat la seva inscripció a la jornada %{resource_name}"
+        partner:
+          create: "%{user_name} ha creat la col·laboradora %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat la col·laboradora %{resource_name} a la jornada %{space_name}"
+          update: "%{user_name} ha actualitzat la col·laboradora %{resource_name} a la jornada %{space_name}"
+        registration_type:
+          create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          unpublish: "%{user_name} ha despublicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          update: "%{user_name} ha actualitzat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+      media_link:
+        create: "%{user_name} ha creat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha actualitzat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
+    conference_program:
+      index:
+        title: Programa
+    conference_speakers:
+      index:
+        title: Ponents
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        conference_invites:
+          create:
+            error: S'ha produït un error en convidar la participant a unir-se a la jornada.
+            success: Participant convidada correctament a unir-se a la jornada.
+          form:
+            attendee_type: Tipus d'assistent
+            existing_user: Participant existent
+            invite_explanation: La participant serà convidada a unir-se a la jornada i també a l'organització.
+            non_user: Participant no existent
+            select_user: Seleccionar participant
+          index:
+            invite_attendee: Convidar participant
+            invites: Convida
+          new:
+            explanation: La participant serà convidada a unir-se a una jornada. Si el seu correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
+            invite: Convidar
+            new_invite: Convidar participant
+        conference_registrations:
+          index:
+            registrations: Inscripcions
+        conference_speakers:
+          form:
+            existing_user: Participant existent
+            non_user: No participant
+            select_user: Seleccionar participant
+            user_type: Tipus de participant
+          index:
+            search: Cercar
+        conferences:
+          form:
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            registrations_count:
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
+            slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
+        content_blocks:
+          highlighted_conferences:
+            max_results: Quantitat màxima d'elements a mostrar
+        diplomas:
+          edit:
+            save: Desa
+            title: Certificat d'assistència
+        invite_join_conference_mailer:
+          invite:
+            decline: Rebutjar la invitació a '%{conference_title}'
+            invited_existing_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
+            invited_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a %{application}. Pots acceptar-la a través del següent enllaç."
+            registration: Inscripció a '%{conference_title}'
+        partners:
+          index:
+            title: Col·laboradores
+        registration_types:
+          form:
+            select_conference_meetings: Seleccioneu trobades de la conferència
+          index:
+            title: Tipus d'inscripció
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Trobaràs el certificat d'assistència a la jornada <a href="%{url}">%{title}</a> als adjunts.
+          diploma_user:
+            attendance_verified_by: Assistència verificada per
+            certificate_of_attendance: Certificat d'assistència
+            certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: S'ha produït un error en enviar els certificats d'assistència a la jornada.
+          success: Certificats d'assistència a la jornada enviats correctament
+      conference:
+        registration_confirm:
+          cancel: Cancel·lar
+          confirm: Confirmar
+        show:
+          going: Assistiré
+          no_slots_available: No hi ha places disponibles
+          registration: Inscripció
+      conference_program:
+        show:
+          program: Programa
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> ha estat confirmada.
+          details_1: 'La teva inscripció a la jornada es de tipus %{registration_type} tipus. Té un cost de %{price} i pots assistir als següents esdeveniments:'
+          details_2: Trobareu les dades de la conferència al fitxer adjunt.
+        pending_validation:
+          confirmation_pending: Rebràs la confirmació en breu
+          details: 'La teva inscripció a la jornada és de tipus %{registration_type} amb un cost de %{price} i pots assistir als següents esdeveniments:'
+          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmació.
+      conference_registrations:
+        create:
+          invalid: S'ha produït un error en inscriure't a aquesta jornada.
+          success: T'has inscrit a la jornada correctament.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la jornada.
+        decline_invitation:
+          invalid: S'ha produït un error en rebutjar la invitació.
+          success: Has rebutjat la invitació correctament.
+          unauthorized: Cal que iniciïs la teva sessió abans de rebutjar la invitació.
+        destroy:
+          invalid: S'ha produït un error en abandonar aquesta jornada.
+          success: Has abandonat la jornada correctament.
+      conference_speaker:
+        go_to_twitter: Ves a X
+        more_info: més informació
+        personal_website: Lloc web personal
+        show:
+          more_info: més informació
+          speaking_at: Intervé a
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Lloc web personal
+      conference_speakers:
+        index:
+          speakers:
+            one: Ponent
+            other: Ponents
+      conferences:
+        partners:
+          collaborators: Col·laboradores
+          main_promotors: Organitzadores
+        show:
+          already_have_an_account?: Ja tens un compte?
+          are_you_new?: Encara no ets participant?
+          login_as: Has iniciat la sessió com a %{name} <%{email}>
+          make_conference_registration: Inscriu-te a la jornada
+          manage_registration: Gestionar inscripcions
+          register: Inscripcions
+          sign_in_description: Inicia sessió per inscriure't a la jornada
+          sign_up_description: Crea un compte de participant per inscriure't a la jornada
+      content_blocks:
+        highlighted_conferences:
+          name: Jornades destacades
+      index:
+        title: Jornades
+      last_activity:
+        new_conference: 'Nova jornada:'
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: S'ha confirmat la teva inscripció a la jornada.
+          pending_validation:
+            subject: La teva inscripció a la jornada està pendent de confirmació.
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitació per a unir-se a una jornada
+        send_conference_diploma_mailer:
+          diploma:
+            subject: S'ha enviat el teu certificat d'assistència a la jornada
+      models:
+        conference_invite:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            registration_type: Tipus d'inscripció
+            sent_at: Enviat a
+            status: Estat
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Rebutjat (%{at})
+            sent: Enviat
+        conference_registration:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            registration_type: Tipus d'inscripció
+            state: Estat
+            states:
+              confirmed: Confirmat
+              pending: Pendents
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Jornades actives
+            see_all_spaces: Veure totes les jornades
+      registration_types:
+        index:
+          choose_an_option: 'Tria el teu tipus d''inscripció:'
+          no_registrations: Sense insripcions
+          register: Inscriu-te
+          title: Tipus d'inscripció
+      show:
+        details: Detalls
+        introduction: Introducció
+        objectives: Objectius
+        related_assemblies: Assemblees relacionades
+        related_participatory_processes: Processos participatius relacionats
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La data en què la invitació a la jornada es va acceptar
+          conference: La jornada a la qual correspon aquesta invitació
+          confirmed_at: La data en què es va confirmar la invitació
+          created_at: La data en què va ser crear la invitació
+          id: L'identificador únic de la invitació a la jornada
+          registration_type: El tipus d'inscripció enviada per a aquesta jornada
+          rejected_at: La data en què la invitació a la jornada va ser rebutjada
+          sent_at: La data en què la invitació a la jornada es va enviar
+          updated_at: La data en què aquesta taxonomia es va actualitzar per darrera vegada
+        conference_registrations:
+          conference: La jornada a la qual pertany aquesta inscripció
+          confirmed_at: La data en què es va confirmar la inscripció
+          created_at: La data en què va ser crear la inscripció
+          id: L'identificador únic de la inscripció a la jornada
+          registration_type: El tipus d'inscripció habilitat para aquesta jornada
+          updated_at: La data en què aquesta inscripció es va actualitzar per darrera vegada
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: S'ha confirmat la teva inscripció a la jornada <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registration_validation_pending:
+          notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
+        conference_registrations_over_percentage:
+          email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
+          email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
+          notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
+        conference_updated:
+          email_intro: 'S''ha actualitzat la jornada "%{resource_title}". Pots llegir la nova versió des de la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: S'ha actualitzat la jornada "%{resource_title}"
+          notification_title: S'ha actualitzat la conferència <a href="%{resource_path}">%{resource_title}</a>.
+        registrations_enabled:
+          email_intro: 'La jornada "%{resource_title}" ha habilitat les inscripcions. Ja pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè segueixes la jornada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: S'han activat les inscripcions per a la jornada "%{resource_title}".
+          notification_title: S'han habilitat les inscripcions a la jornada <a href="%{resource_path}">%{resource_title}</a>.
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} a la jornada "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a la jornada "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} a la jornada <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'La jornada "%{resource_title}" es durà a terme en 2 dies. Pots llegir-ne la descripció des de la pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Podeu deixar-la de seguir-a des de l'enllaç anterior.
+          email_subject: La jornada "%{resource_title}" s'apropa!
+          notification_title: La jornada <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
+          page: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
+          title: Què són les conferències?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'La jornada no s''ha trobat a la base de dades (ID: %{id}).'
+    media:
+      index:
+        description: Enllaços sobre aquesta jornada
+        title: Multimedia i enllaços
+    menu:
+      conferences: Jornades
+    open_data:
+      help:
+        conferences:
+          created_at: La data en què es va crear aquesta jornada
+          decidim_scope_id: L'àmbit territorial de la jornada
+          description: Una descripció llarga de la jornada
+          end_date: La data en la qual va finalitzar aquesta jornada.
+          follows_count: El número d'usuàries que segueixen aquesta jornada
+          hashtag: L'etiqueta que fa servir la jornada a Twitter/X
+          id: L'identificador únic de la jornada
+          location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
+          objectives: Els objectius de la jornada. Quina va ser la meta.
+          promoted: Si la jornada està destacada o no
+          published_at: La data en què es va publicar aquesta jornada
+          reference: La referència única de la jornada
+          remote_banner_image_url: L'URL de la imatge de capçalera de la jornada
+          remote_hero_image_url: L'URL de la imatge principal de la jornada
+          scope: L'àmbit territorial de la jornada
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu de la jornada
+          slogan: El lema d'aquesta jornada
+          slug: El nom curt de la jornada (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data en la qual va començar aquesta jornada.
+          taxonomies: Les taxonomies de la jornada
+          title: El títol de la jornada
+          updated_at: La data de la darrera actualització d'aquesta jornada
+          url: L'URL de la jornada
+    statistics:
+      conferences_count: Jornades
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitació a unir-se a una jornada
+  layouts:
+    decidim:
+      conference_hero:
+        manage_registration: Gestionar inscripcions
+        register: Inscripció
+      conferences:
+        conference:
+          more_info: Més informació
+          take_part: Participar
+        index:
+          promoted_conferences: Jornades destacades
+        order_by_conferences:
+          conferences:
+            one: "%{count} jornada"
+            other: "%{count} jornades"
+      conferences_nav:
+        conference_partners_menu_item: Col·laboradores
+        conference_speaker_menu_item: Ponents
+        media: Mèdia
+        venues: Seus
