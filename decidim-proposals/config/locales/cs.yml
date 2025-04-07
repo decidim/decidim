@@ -1025,7 +1025,6 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
-          already_voted: Již hlasovalo
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
