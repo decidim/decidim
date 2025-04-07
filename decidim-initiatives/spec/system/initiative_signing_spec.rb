@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/initiatives/test/initiatives_signatures_test_helpers"
 
 describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
@@ -69,113 +70,6 @@ describe "Initiative signing" do
     end
   end
 
-  context "when the initiative type has permissions to vote" do
-    before do
-      initiative.type.create_resource_permission(
-        permissions: {
-          "vote" => {
-            "authorization_handlers" => {
-              "dummy_authorization_handler" => { "options" => {} },
-              "another_dummy_authorization_handler" => { "options" => {} }
-            }
-          }
-        }
-      )
-    end
-
-    context "and has not signed the initiative yet" do
-      context "and is not verified" do
-        it "signin initiative is disabled", :slow do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content("Sign")
-            click_on "Sign"
-          end
-
-          expect(page).to have_content("You are almost ready to sign on the #{translated_attribute(initiative.title)} initiative")
-          expect(page).to have_css("a[data-verification]", count: 2)
-        end
-      end
-
-      context "and is verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user: confirmed_user, granted_at: 2.seconds.ago)
-          create(:authorization, name: "another_dummy_authorization_handler", user: confirmed_user, granted_at: 2.seconds.ago)
-        end
-
-        it "votes as themselves" do
-          vote_initiative
-        end
-      end
-    end
-
-    context "and has signed the initiative" do
-      before do
-        initiative.votes.create(author: confirmed_user, scope: initiative.scope)
-      end
-
-      context "and is not verified" do
-        it "unsigning initiative is disabled" do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(1))
-            expect(page).to have_button("Already signed", disabled: true)
-            click_on("Already signed", disabled: true)
-            expect(page).to have_content(signature_text(1))
-          end
-        end
-      end
-    end
-  end
-
-  context "when the initiative requires user extra fields collection to be signed" do
-    let(:initiative) do
-      create(:initiative, :with_user_extra_fields_collection, organization:)
-    end
-
-    context "when the user has not signed the initiative yet and signs it" do
-      context "when the personal data is filled" do
-        before do
-          create(
-            :authorization,
-            :granted,
-            name: "dummy_authorization_handler",
-            user: confirmed_user,
-            unique_id: "012345678X",
-            metadata: { document_number: "012345678X", postal_code: "01234", scope_id: initiative.scope.id }
-          )
-        end
-
-        it "adds the signature" do
-          vote_initiative
-        end
-      end
-
-      context "when the personal data is not filled" do
-        it "does not allow voting" do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(0))
-            click_on "Sign"
-          end
-          click_on "Continue"
-
-          expect(page).to have_content "error"
-
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(0))
-            click_on "Sign"
-          end
-        end
-      end
-    end
-  end
-
   def vote_initiative
     visit decidim_initiatives.initiative_path(initiative)
 
@@ -184,13 +78,15 @@ describe "Initiative signing" do
       click_on "Sign"
     end
 
-    if has_content?("Complete your data")
-      fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
-      fill_in :initiatives_vote_document_number, with: "012345678X"
-      fill_in_datepicker :initiatives_vote_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
-      fill_in :initiatives_vote_postal_code, with: "01234"
+    if has_content?("Verify with Dummy Signature Handler")
+      fill_in :dummy_signature_handler_name_and_surname, with: confirmed_user.name
+      select "Identification number", from: :dummy_signature_handler_document_type
+      fill_in :dummy_signature_handler_document_number, with: "012345678X"
+      fill_signature_date 30.years.ago
+      fill_in :dummy_signature_handler_postal_code, with: "01234"
+      select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
 
-      click_on "Continue"
+      click_on "Validate your data"
 
       expect(page).to have_content("initiative has been successfully signed")
       click_on "Back to initiative"
