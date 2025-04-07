@@ -607,7 +607,6 @@ hu:
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
         vote_button:
-          already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás
