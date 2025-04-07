@@ -1276,6 +1276,7 @@ ja:
         hidden: 非表示
         hide: 非表示にする
         not_hidden: 表示
+        parent_hidden: 親がまだ非表示になっているため、このリソースを表示できません。
         title: アクション
         unhide: 非表示解除
         unreport: 報告解除
@@ -1302,6 +1303,7 @@ ja:
             success: リソースを非表示にしました。
           unhide:
             invalid: リソースの非表示解除中に問題が発生しました。
+            parent_invalid: リソースの非表示を解除する際に問題が発生しました。親が表示されません。
             success: リソースの非表示を解除しました。
           unreport:
             invalid: リソースの報告解除中に問題が発生しました。
