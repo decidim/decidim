@@ -301,7 +301,7 @@ eu:
           email_subject: Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera
           notification_title: <a href="%{author_path}">%{author_name}</a> parte-hartzaileak gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izatera.
         coauthor_rejected_invite:
-          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k zure gonbidapena baztertu du <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko egin duzun gonbidapena errefusatu du.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
@@ -390,18 +390,18 @@ eu:
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
-          name: Proposamen onartuak
-          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea, hurrengo mailara iristeko!
+          name: Onartutako proposamenak
+          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea hurrengo mailara igotzeko!
           unearned_another: Parte-hartzaile honek ez du oraindik lortu bere proposamen bat ere onartua izatea.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
           conditions:
           - Nabigatu eta irakurri besteen proposamenak
-          - Bozkatu gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenak
+          - Eman botoa gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenei
           description: Bereizgarri hau ematen da beste pertsona batzuen proposmenak bozkatzen dituzunean.
           description_another: Parte-hartzaile honek %{score} proposamen bozkatu ditu.
           description_own: '%{score} proposamen bozkatu dituzu.'
-          name: Proposamenak bozkatuak
+          name: Proposamenetarako botoak
           next_level_in: Bozkatu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du proposamenik bozkatu.
           unearned_own: Oraindik ez duzu proposamenik bozkatu.
@@ -420,7 +420,7 @@ eu:
       accepted_proposals:
         description: Onartutako proposamen kopurua
         object: proposamenak
-        title: Proposamen onartuak
+        title: Onartutako proposamenak
       endorsements:
         description: Proposamenen atxikimendu kopurua
         object: atxikimenduak
@@ -1009,7 +1009,7 @@ eu:
         update:
           title: Eguneratu proposamena
         vote_button:
-          already_voted: Bozkatuta duzu
+          already_voted: Botoa emanda
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
