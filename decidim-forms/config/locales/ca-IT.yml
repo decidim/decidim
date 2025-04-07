@@ -1,0 +1,198 @@
+---
+ca-IT:
+  activemodel:
+    attributes:
+      answer:
+        body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
+      question:
+        max_choices: Nombre màxim d'opcions
+        question_type: Tipus
+      questionnaire_question:
+        mandatory: Obligatori
+        max_characters: Límit de caràcters (deixa-ho a 0 si no hi ha límit)
+    errors:
+      models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
+            body:
+              too_long: és massa llarg
+            choices:
+              missing: no estan completes
+              too_many: Pots triar un màxim de %{count} opcions.
+        questionnaire:
+          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau, torna-ho a provar.
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descripció
+            tos: Termes del servei
+        questionnaires:
+          actions:
+            back: Tornar a les preguntes
+            show: Mostrar les respostes
+          answer_option:
+            answer_option: Opció de resposta
+            free_text: Text lliure
+            remove: Eliminar
+            statement: Declaració
+          answers:
+            actions:
+              back: Tornar a les respostes
+              export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
+              show: Mostrar les respostes
+            empty: Encara no hi ha respostes
+            export:
+              answer:
+                title: 'Resposta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} respostes en total"
+            show:
+              title: 'Resposta #%{number}'
+          display_condition:
+            answer_option: Opció de resposta
+            condition_question: Pregunta
+            condition_type: Condició
+            condition_types:
+              answered: Amb resposta
+              equal: Igual a
+              match: Inclou text
+              not_answered: No resposta
+              not_equal: No és igual
+            condition_value: Text inclòs
+            display_condition: Condicions de visualització
+            mandatory: Aquesta condició s'ha de complir sempre independentment de l'estat d'altres condicions
+            remove: Eliminar
+            save_warning: Recorda de guardar l'enquesta abans de configurar les condicions de visualitzacióó
+            select_answer_option: Eliminar l'opció de resposta
+            select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccionar un tipus de condició
+          edit:
+            save: Desa
+            title: Editar el qüestionari
+          form:
+            add_question: Afegeix una pregunta
+            add_separator: Afegir separador
+            add_title_and_description: Afegir títol i descripció
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
+            collapse: Redueix totes les preguntes
+            expand: Expandeix totes les preguntes
+            preview: Previsualitzar
+            title: Editar formulari per %{questionnaire_for}
+            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però en fer-ho s'esborraran les respostes actuals.
+          matrix_row:
+            matrix_row: Fila
+            remove: Elimina
+            statement: Declaració
+          question:
+            add_answer_option: Afegeix una opció de resposta
+            add_display_condition: Afegir condició de visualització
+            add_display_condition_info: Guardar l'enquesta per a configurar les condicions de visualització
+            add_matrix_row: Afegir fila
+            any: Cap
+            collapse: Redueix
+            description: Descripció
+            down: Avall
+            expand: Expandeix
+            question: Pregunta
+            remove: Eliminar
+            statement: Declaració
+            up: Amunt
+          separator:
+            down: Baixar
+            remove: Eliminar
+            separator: Separador
+            up: Pujar
+          title_and_description:
+            collapse: Replegar
+            description: Descripció
+            down: Baixar
+            expand: Expandir
+            remove: Esborrar
+            title: Títol
+            title_and_description: Títol i descripció
+            up: Pujar
+          update:
+            invalid: S'ha produït un error en desar el formulari.
+            success: Formulari desat correctament.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
+      errors:
+        answer:
+          body: El camp no pot estar en blanc
+      images:
+        dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Aquesta imatge serà redimensionada i ajustada a %{dimensions}.
+          resize_to_fit: Aquesta imatge serà redimensionada per ajustar-se a %{dimensions}.
+      question_types:
+        files: Arxius
+        long_answer: Resposta llarga
+        matrix_multiple: Matriu (opció multiple)
+        matrix_single: Matriu (opció única)
+        multiple_option: Opció múltiple
+        short_answer: Resposta curta
+        single_option: Opció única
+        sorting: Ordenació
+        title_and_description: Títol i descripció
+      questionnaire_answer_presenter:
+        download_attachment: Descarregar l'arxiu adjunt
+      questionnaires:
+        answer:
+          invalid: S'han produït un error en respondre el formulari.
+          max_choices_alert: Has seleccionat massa opcions
+          success: Has contestat el formulari correctament.
+        question:
+          max_choices: 'Opcions màximes: %{n}'
+        show:
+          answer_questionnaire:
+            already_have_an_account?: Ja tens un compte?
+            are_you_new?: Ets una nova usuària?
+            sign_in_description: Inicia la teva sessió per respondre l'enquesta
+            sign_up_description: Crea un compte de participant per a respondre l'enquesta
+            title: Respon el formulari
+          current_step: Pas %{step}
+          empty: No s'ha configurat cap pregunta encara en aquest formulari.
+          of_total_steps: de %{total_steps}
+          questionnaire_answered:
+            body: Ja has respost a aquest formulari.
+            title: Ja has respost
+          questionnaire_closed:
+            body: El formulari està tancat i no es pot respondre.
+            title: S'ha tancat el formulari
+          questionnaire_for_private_users:
+            body: El formulari només està disponible per a participants privades
+            title: S'ha tancat el formulari
+          questionnaire_js_disabled:
+            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
+            title: JavaScript està desactivat
+          questionnaire_not_published:
+            body: Aquest formulari no s'ha publicat encara.
+          tos_agreement: En participar acceptes els Termes i condicions d'ús
+      step_navigation:
+        show:
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
+          back: Enrere
+          continue: Continuar
+          submit: Enviar respostes
+      user_answers_serializer:
+        body: Resposta
+        completion: Finalització
+        created_at: Respost el
+        id: Identificador de resposta
+        ip_hash: Hash de l'adreça IP
+        question: Pregunta
+        registered: Registrada
+        session_token: Identificador d'usuària
+        unregistered: No registrada
+        user_status: Estat de la usuària
