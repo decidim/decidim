@@ -1009,7 +1009,6 @@ fi-pl:
         update:
           title: Muokkaa ehdotusta
         vote_button:
-          already_voted: Jo äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
