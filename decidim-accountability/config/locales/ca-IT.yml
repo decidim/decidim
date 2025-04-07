@@ -1,0 +1,304 @@
+---
+ca-IT:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Estat
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_date: Data de finalització
+        meetings_ids: Trobades relacionades
+        progress: Progrés
+        project_ids: Projectes inclosos
+        proposals: Propostes incloses
+        start_date: Data d'inici
+        subresults: Subresultats
+        title: Títol
+        updated_at: Actualitzat el
+      status:
+        description: Descripció
+        key: Clau
+        name: Nom
+        progress: Progrés
+      timeline_entry:
+        description: Descripció
+        entry_date: Data
+        title: Títol
+    models:
+      decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
+      decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultats
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Carpetes
+        attachments: Fitxers adjunts
+        confirm_destroy: Segur que vols suprimir aquest %{name}?
+        destroy: Esborrar
+        edit: Editar
+        import: Importar projectes des d'un altre component
+        import_csv: Importar resultats des d'un fitxer CSV
+        new_result: Afegir resultat
+        new_status: Afegir estat
+        new_timeline_entry: Afegir entrada de la cronologia
+        preview: Previsualitzar
+        timeline_entries: Evolució del projecte
+        title: Accions
+      admin:
+        exports:
+          result_comments: Comentaris
+          results: Resultats
+        import_results:
+          new:
+            download_export: Descarregar l'exportació en format CSV
+            import: Importar
+            info: |
+              <p>Et recomanem que segueixis les passes següents:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crea els estats per als resultats</a> que vulguis afegir</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crea com a mínim un resultat manualment</a> a través del taulell d'administració abans d'importar, per a entendre millor el format i com cal omplir-ho.</li>
+              <li>%{link_export_csv}</li>
+              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:
+              <ul>
+              <li><b>id category/id:</b> ID per la categoria</li>
+              <li><b>scope/id:</b> ID per a l'àmbit</li>
+              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li>
+              <li><b>title/I18N:</b> Title en la llengua X</li>
+              <li><b>description/I18N:</b> Descripció en la lleguna X </li>
+              <li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>end_date:</b> data en la que finalitza l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>status/id:</b> ID de l'estat per a aquest resultat</li>
+              <li><b>progress:</b> Tant per cent (de 0 a 100) d'execució</li>
+              <li><b>proposals_ids:</b> ID intern de les propostes relacionades (separades per comes). Es convertirà automàticament en <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
+            title: Importar resultats des d'un fitxer CSV
+        imports:
+          create:
+            invalid: Hi ha hagut un problema important els resultats.
+            success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Estat
+        projects_import:
+          create:
+            invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar tots els projectes seleccionats per a ser implementats
+            new_items:
+              one: S'importarà 1 projecte seleccionat
+              other: "S'importaran %{count} projectes seleccionats"
+            no_components: No hi ha cap component de pressupostos en aquest espai de participació per a poder importar els projectes com a resultats.
+            origin_component_id: Component d'origen
+            select_component: Selecciona un component
+            success:
+              one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
+              other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
+            title: Importar projectes des d'un altre component
+        results:
+          create:
+            invalid: S'ha produït un error en crear aquest resultat.
+            success: Resultat creat correctament.
+          destroy:
+            success: Resultat eliminat correctament.
+          edit:
+            title: Editar resultat
+            update: Actualitzar resultat
+          index:
+            title: Resultats
+          new:
+            create: Crear resultat
+            title: Nou resultat
+          update:
+            invalid: S'ha produït un error en actualitzar aquest resultat.
+            success: Resultat actualitzat correctament.
+        shared:
+          subnav:
+            statuses: Estats
+        statuses:
+          create:
+            invalid: S'ha produït un error en crear aquest estat.
+            success: Estat creat correctament.
+          destroy:
+            success: Estat creat correctament.
+          edit:
+            title: Editar estat
+            update: Actualitzar estat
+          index:
+            title: Estats
+          new:
+            create: Crear estat
+            title: Nou estat
+          update:
+            invalid: S'ha produït un error en actualitzar aquest estat.
+            success: Estat actualitzat correctament.
+        timeline_entries:
+          create:
+            invalid: S'ha produït un error en crear aquesta entrada.
+            success: Entrada creada correctament.
+          destroy:
+            success: Entrada eliminada correctament.
+          edit:
+            title: Editar element
+            update: Actualitzar element
+          index:
+            title: Evolució del projecte
+          new:
+            create: Crear element
+            title: Nou element
+          update:
+            invalid: S'ha produït un error en actualitzar aquesta entrada.
+            success: Entrada actualitzada correctament.
+      admin_log:
+        result:
+          create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
+          delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} ha creat l'estat %{resource_name}"
+          delete: "%{user_name} ha eliminat l'estat %{resource_name}"
+          update: "%{user_name} ha actualitzat l'estat %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
+          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
+          update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
+        value_types:
+          parent_presenter:
+            not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Resultats
+      import_mailer:
+        import:
+          errors: Errors
+          errors_present: Hi ha hagut un problema important els resultats.
+          row_number: Fila
+          subject: Els resultats s'han importat correctament
+          success: Els resultats s'han important correctament. Pots revisar els resultats a través del panell d'administració.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: S'ha importat un resultat des de projectes.
+            other: "S'han importat %{count} resultats des de projectes."
+          subject: Els projectes s'han importat correctament
+          success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
+      last_activity:
+        new_result: 'Nou resultat:'
+      models:
+        result:
+          fields:
+            category: Categoria
+            created_at: Creat
+            end_date: Fi
+            id: ID
+            progress: Progrés
+            scope: Àmbit
+            start_date: Inici
+            status: Estat
+            title: Títol
+        status:
+          fields:
+            description: Descripció
+            key: Clau
+            name: Nom
+            progress: Progrés
+        timeline_entry:
+          fields:
+            entry_date: Data
+            title: Títol
+      results:
+        count:
+          results_count:
+            one: Un resultat
+            other: "%{count} resultats"
+        filters:
+          all: Tots
+        home:
+          categories_label: Categories
+          empty: Encara no hi ha cap resultat.
+          empty_filters: No hi ha cap resultat amb aquest criteri.
+          subcategories_label: Subcategories
+        home_header:
+          global_status: Estat d'execució global
+        nav_breadcrumb:
+          global: Execució global
+        no_results: No hi ha projectes
+        search:
+          search: Cercar actuacions
+        show:
+          stats:
+            attendees: Assistents
+            back_to_resource: Tornar al resultat
+            comments: Comentaris
+            contributions: Aportacions
+            last_edited_by: Editat per última vegada per
+            last_updated_at: Darrera actualització el
+            meetings: Trobades
+            proposals: Propostes
+            votes: Suports
+        timeline:
+          title: Evolució del projecte
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Àmbit
+          status_id_eq:
+            label: Estat
+    components:
+      accountability:
+        actions:
+          comment: Comentar
+        name: Seguiment
+        settings:
+          global:
+            categories_label: Nom per a "Categories"
+            comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            display_progress_enabled: Mostrar el progrés
+            heading_leaf_level_results: Nom per a "Projectes"
+            heading_parent_level_results: Nom per a "Resultats"
+            intro: Introducció
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
+            subcategories_label: Nom per a "Subcategories"
+          step:
+            comments_blocked: Comentaris bloquejats
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'El resultat "%{resource_title}", que inclou la proposta "%{proposal_title}", s''ha completat en un %{progress}%. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització sobre el progrés de %{resource_title}
+          notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
+    metrics:
+      results:
+        description: Nombre de resultats generats
+        object: resultats
+        title: Resultats
+    participatory_spaces:
+      highlighted_results:
+        see_all: Veure tots els resultats
+    resource_links:
+      included_projects:
+        result_project: Projectes inclosos en aquest resultat
+      included_proposals:
+        result_proposal: Propostes incloses en aquest resultat
+    statistics:
+      results_count: Resultats
