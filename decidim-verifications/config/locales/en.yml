@@ -223,6 +223,7 @@ en:
           census_data:
             create: "%{user_name} created a new census data record with email %{resource_email}"
             destroy: "%{user_name} deleted the census data record with email %{resource_email}"
+            import: "%{user_name} imported a new census data file with %{imported_data_count} emails"
             update: "%{user_name} updated the census data record with email %{resource_email}"
         authorizations:
           new:

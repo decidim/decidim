@@ -18,7 +18,7 @@ module Decidim
 
           def action_string
             case action
-            when "delete", "create", "update"
+            when "delete", "create", "update", "create_data"
               "decidim.verifications.csv_census.admin_log.census_data.#{action}"
             else
               super

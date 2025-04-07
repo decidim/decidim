@@ -10,6 +10,7 @@ module Decidim
           def initialize(form, organization)
             @form = form
             @organization = organization
+            @result = { ok: [], ko: [] }
           end
 
           # Executes the command. Broadcast this events:
@@ -28,8 +29,24 @@ module Decidim
             # rubocop:enable Rails/SkipsModelValidations
 
             ProcessCensusDataJob.perform_later(data.values, @organization)
+            create_action_log
+            broadcast(:ok, **result)
+          end
 
-            broadcast(:ok)
+          private
+
+          attr_reader :result
+
+          def create_action_log
+            Decidim::ActionLogger.log(
+              "import",
+              current_user,
+              @form.data.first,
+              nil,
+              extra: {
+                imported_data_count: result[:ok].count
+              }
+            )
           end
         end
       end

@@ -12,7 +12,7 @@ module Decidim::Verifications
     let(:form) do
       double(
         email:,
-        current_organization: organization,
+        organization:,
         current_user:,
         invalid?: invalid
       )
@@ -20,27 +20,34 @@ module Decidim::Verifications
     let(:invalid) { false }
 
     context "when the form is valid" do
-      it "enqueues the job to process census data" do
-        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to receive(:perform_now)
-          .with([email], organization)
+      let(:census_data) { Decidim::Verifications::CsvDatum.last }
 
-        subject.call
+      it "creates a new census record" do
+        expect { subject.call }.to change(Decidim::Verifications::CsvDatum, :count).by(1)
       end
 
-      it "broadcasts :ok" do
-        expect { subject.call }.to broadcast(:ok)
+      it "sets the email" do
+        subject.call
+        expect(census_data.email).to eq email
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::Verifications::CsvDatum, current_user, {})
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("create")
+        expect(action_log.version).to be_present
       end
     end
 
     context "when the form is invalid" do
       let(:invalid) { true }
 
-      it "does not enqueue the job" do
-        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).not_to receive(:perform_now)
-        subject.call
-      end
-
-      it "broadcasts :invalid" do
+      it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end
