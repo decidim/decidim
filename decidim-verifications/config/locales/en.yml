@@ -121,6 +121,12 @@ en:
           email_subject: Failed verification attempt against another participant
           notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify themselves with the data of another participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} created a new census data record with email %{resource_email}"
+          destroy: "%{user_name} deleted the census data record with email %{resource_email}"
+          import: "%{user_name} imported a new census data file with %{imported_data_count} emails"
+          update: "%{user_name} updated the census data record with email %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'This is the data of the current verification:'
@@ -219,12 +225,6 @@ en:
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
-        admin_log:
-          census_data:
-            create: "%{user_name} created a new census data record with email %{resource_email}"
-            destroy: "%{user_name} deleted the census data record with email %{resource_email}"
-            import: "%{user_name} imported a new census data file with %{imported_data_count} emails"
-            update: "%{user_name} updated the census data record with email %{resource_email}"
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.

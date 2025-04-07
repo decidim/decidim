@@ -28,6 +28,10 @@ module Decidim
       def self.clear(organization)
         inside(organization).delete_all
       end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Verifications::AdminLog::CsvDatumPresenter
+      end
     end
   end
 end
