@@ -342,8 +342,8 @@ eu:
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
-          name: Proposamen onartuak
-          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea, hurrengo mailara iristeko!
+          name: Onartutako proposamenak
+          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea hurrengo mailara igotzeko!
           unearned_another: Parte-hartzaile honek ez du oraindik lortu bere proposamen bat ere onartua izatea.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
@@ -372,7 +372,7 @@ eu:
       accepted_proposals:
         description: Onartutako proposamen kopurua
         object: proposamenak
-        title: Proposamen onartuak
+        title: Onartutako proposamenak
       endorsements:
         description: Proposamenen atxikimendu kopurua
         object: atxikimenduak
