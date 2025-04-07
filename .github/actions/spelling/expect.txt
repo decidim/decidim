@@ -584,6 +584,8 @@ newusermanager
 newwindow
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
