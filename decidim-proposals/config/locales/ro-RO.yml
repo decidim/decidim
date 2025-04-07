@@ -636,6 +636,7 @@ ro:
         update:
           title: Actualizează propunerea
         vote_button:
+          already_voted: Votat
           votes_blocked: Votați
         voting_rules:
           proposal_limit:
