@@ -219,6 +219,11 @@ en:
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
+        admin_log:
+          census_data:
+            create: "%{user_name} created a new census data record with email %{resource_email}"
+            destroy: "%{user_name} deleted the census data record with email %{resource_email}"
+            update: "%{user_name} updated the census data record with email %{resource_email}"
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.

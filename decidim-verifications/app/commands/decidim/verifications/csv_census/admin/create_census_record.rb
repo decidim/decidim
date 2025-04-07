@@ -15,7 +15,20 @@ module Decidim
             return broadcast(:invalid) if @form.invalid?
 
             ProcessCensusDataJob.perform_now([@form.email], @form.current_organization)
+            create_action_log
             broadcast(:ok)
+          end
+
+          private
+
+          def create_action_log
+            Decidim::ActionLogger.log(
+              "create",
+              current_user,
+              @form.email,
+              nil,
+              {}
+            )
           end
         end
       end
