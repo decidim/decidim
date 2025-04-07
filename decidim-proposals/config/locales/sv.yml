@@ -907,7 +907,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan röstat
+          already_voted: Röstade
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
