@@ -62,6 +62,15 @@ module Decidim
           self.description = presenter.editor_description(all_locales: true)
         end
 
+        def fill_default_reminder_message_content!
+          return unless reminder_enabled
+          return unless reminder_message_custom_content.values.none?(&:present?)
+
+          self.reminder_message_custom_content = current_organization.available_locales.index_with do |locale|
+            I18n.t("decidim.events.meetings.upcoming_meeting.default_body", locale:)
+          end
+        end
+
         def services_to_persist
           services.reject(&:deleted)
         end
