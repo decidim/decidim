@@ -591,7 +591,6 @@ nl:
         update:
           title: Update voorstel
         vote_button:
-          already_voted: Al gestemd
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem
