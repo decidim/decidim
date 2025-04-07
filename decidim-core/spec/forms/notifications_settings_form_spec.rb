@@ -178,7 +178,7 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: true }
+          allow(Decidim).to receive(:vapid_public_key).and_return("FOO BAR")
         end
 
         it "returns true" do
@@ -188,7 +188,7 @@ module Decidim
 
       context "when vapid secrets are not present" do
         before do
-          Rails.application.secrets.delete(:vapid)
+          allow(Decidim).to receive(:vapid_public_key).and_return("")
         end
 
         it "returns false" do
@@ -198,7 +198,7 @@ module Decidim
 
       context "when the notifications requirements are not met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: false }
+          allow(Decidim).to receive(:vapid_public_key).and_return(nil)
         end
 
         it "returns false" do
