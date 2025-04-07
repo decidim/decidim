@@ -27,9 +27,9 @@ Your code and configuration must be updated to remove all references to the `Rai
 
 ⚠ **Important**: If you have customized any of the following files:
 
-- config/secrets.yml
-- config/initializers/decidim.rb
-- config/storage.yml
+* config/secrets.yml
+* config/initializers/decidim.rb
+* config/storage.yml
 
 You will need to adjust your environment to provide the necessary configurations through environment variables.
 
