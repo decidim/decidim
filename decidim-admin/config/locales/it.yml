@@ -540,6 +540,7 @@ it:
             xlsx: xlsx
           actions:
             back: Indietro
+          download_example: Scarica esempio
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
       managed_users:
