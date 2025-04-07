@@ -1285,6 +1285,7 @@ en:
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
+        parent_hidden: You cannot unhide this resource because its parent is still hidden.
         title: Actions
         unhide: Unhide
         unreport: Unreport
@@ -1311,6 +1312,7 @@ en:
             success: Resource successfully hidden.
           unhide:
             invalid: There was a problem unhiding the resource.
+            parent_invalid: There was a problem unhiding the resource. Parent is not visible.
             success: Resource successfully unhidden.
           unreport:
             invalid: There was a problem unreporting the resource.
