@@ -1,0 +1,224 @@
+---
+ca-IT:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categoria
+        closed_at: Tancat el
+        conclusions: Conclusions
+        decidim_category_id: Categoria
+        description: Descripció
+        end_time: Data de finalització
+        information_updates: Actualitzacions d'informació
+        instructions: Instruccions per participar
+        scope_id: Àmbit
+        start_time: Data d'inici
+        title: Títol
+        user_group_id: Crea un debat com
+    models:
+      decidim/debates/close_debate_event: Debat tancat
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debats deshabilitats
+      decidim/debates/creation_enabled_event: Creació de debats activada
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: Debats
+  decidim:
+    components:
+      debates:
+        actions:
+          comment: Comentar
+          create: Crear
+          endorse: Adherir-se
+        name: Debats
+        settings:
+          global:
+            announcement: Avís
+            comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
+          step:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+            creation_enabled: Les participants poden crear debats
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
+    debates:
+      actions:
+        close: Tanca
+        confirm_destroy: Segur?
+        destroy: Suprimeix
+        edit: Edita
+        new: Afegir debat
+        title: Accions
+      admin:
+        debate_closes:
+          edit:
+            close: Tanca
+            title: Tancar el debat
+        debates:
+          create:
+            invalid: S'ha produït un error en crear el debat.
+            success: Debat creat correctament.
+          destroy:
+            success: Debat eliminat correctament.
+          edit:
+            title: Editar debat
+            update: Actualitzar debat
+          form:
+            debate_type: Tipus de debat
+            finite: Finit (amb moments d'inici i de fi)
+            open: Obert (sense moments d'inici ni de fi)
+          index:
+            title: Debats
+          new:
+            create: Crea un debat
+            title: Nou debat
+          update:
+            invalid: S'ha produït un error en actualitzar aquest debat.
+            success: Debate actualizado correctament.
+        exports:
+          comments: Comentaris
+      admin_log:
+        debate:
+          close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
+          create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
+          update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+      debate_m:
+        commented_time_ago: Comentat fa %{time}
+      debates:
+        close:
+          invalid: S'ha produït un error en tancar el debat.
+          success: Debat tancat correctament.
+        close_debate_modal:
+          cancel: Cancel·lar
+          description: Quin és el resum o conclusions d'aquest debat?
+          send: Tancar el debat
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debats"
+        create:
+          invalid: S'ha produït un error en crear el debat.
+          success: Debat creat correctament.
+        debates:
+          empty: Encara no hi ha cap debat.
+          empty_filters: No hi ha cap debat amb aquest criteri.
+        edit:
+          back: Enrere
+          save: Guardar canvis
+          title: Editar debat
+        filters:
+          activity: La meva activitat
+          all: Tots
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          commented: Comentat
+          my_debates: Els meus debats
+          official: Oficial
+          origin: Origen
+          participants: Participants
+          search: Cerca
+          state: Estat
+          state_values:
+            closed: Tancat
+            open: Obert
+          user_group: Grups
+        form:
+          select_a_category: Si us plau, selecciona una categoria
+        index:
+          new_debate: Nou debat
+        new:
+          back: Torna
+          create: Crear
+          title: Crear un debat
+        orders:
+          commented: Més comentats
+          label: Ordenar debats per
+          random: Ordre aleatori
+          recent: Més recents
+          updated: Recentment actualitzats
+        show:
+          close_debate: Tancar el debat
+          debate_closed: Tancat
+          debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
+          edit_conclusions: Editar conclusions
+          edit_debate: Editar debat
+          groups_count: Grups
+          open: Debat obert
+          participants_count: Participants
+        update:
+          invalid: S'ha produït un error en actualitzar aquest debat.
+          success: Debat actualitzat correctament.
+      last_activity:
+        debate_updated: 'Debat actualitzat:'
+        new_debate: 'Nou debat:'
+      models:
+        debate:
+          fields:
+            end: Finalitza
+            end_time: Data de finalització
+            official_debate: Debat oficial
+            start: Comença
+            start_time: Data d'inici
+            title: Títol
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hola,
+              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{participatory_space_title}, dona-hi una ullada i contribueix-hi:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions des de l'enllaç anterior.
+            email_subject: Nou debat "%{resource_title}" a %{participatory_space_title}
+            notification_title: S'ha creat el debat <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hola,
+              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat "%{resource_title}" de %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
+          notification_title: La creació de debats està deshabilitada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Ja pots crear nous debats a %{participatory_space_title}! Comença a participar en aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Els debats ja estan disponibles a %{participatory_space_title}
+          notification_title: Ara pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        debate_closed:
+          affected_user:
+            email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+            email_subject: El debat "%{resource_title}" s'ha tancat
+            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          follower:
+            email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+            email_subject: El debat "%{resource_title}" s'ha tancat
+            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Tria un debat obert per participar
+          description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
+          description_another: Aquesta participant ha pres part en %{score} debats.
+          description_own: Has participat en %{score} debats.
+          name: Debats
+          next_level_in: Participa en %{score} debats més per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha participat en cap debat.
+          unearned_own: Encara no has participat a cap debat.
+    metrics:
+      debates:
+        description: Nombre de debats creats
+        object: debats
+        title: Debats
+    statistics:
+      debates_count: Debats
