@@ -11,9 +11,9 @@ ro:
         document_type: Tipul documentului
       id_document_upload:
         document_number: Numărul documentului (cu literă)
-        document_type: Tipul documentului tău
+        document_type: Tipul documentului dumneavoastră
         user: Participant
-        verification_attachment: Copie scanată a documentului tău
+        verification_attachment: Copie scanată a documentului dumneavoastră
       offline_confirmation:
         email: E-mail participant
       postal_letter_address:
