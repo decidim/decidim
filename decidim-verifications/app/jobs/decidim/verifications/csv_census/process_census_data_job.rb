@@ -7,8 +7,8 @@ module Decidim
         queue_as :default
 
         def perform(data, organization, user)
-          imported_data = []
-          failed = []
+          @imported_data = []
+          @failed = []
 
           data.each do |email|
             if CsvDatum.exists?(email:, organization:)
@@ -51,7 +51,8 @@ module Decidim
             imported_data.first,
             nil,
             extra: {
-              imported_data_count: imported_data.count
+              imported_count: @imported_data.count,
+              failed_count: @failed.count
             }
           )
         end

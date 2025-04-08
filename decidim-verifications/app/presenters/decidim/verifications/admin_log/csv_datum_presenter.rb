@@ -33,7 +33,7 @@ module Decidim
           extra = @action_log.extra || {}
           super.merge(
             resource_email: @resource&.email.to_s,
-            imported_data_count: extra[:imported_data_count].to_i
+            imported_count: extra[:imported_count].to_i
           )
         end
       end

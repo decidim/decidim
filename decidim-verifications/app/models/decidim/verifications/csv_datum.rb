@@ -32,6 +32,19 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Verifications::AdminLog::CsvDatumPresenter
       end
+
+      def authorize!(user)
+        user_in_organization = organization.users.available.find_by(email:)
+
+        raise StandardError, "User with email #{email} not found in organization" if !user_in_organization && !user
+
+        authorization = Decidim::Authorization.find_or_initialize_by(
+          user: user_in_organization,
+          name: "csv_census"
+        )
+
+        authorization.grant! unless authorization.granted?
+      end
     end
   end
 end

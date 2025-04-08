@@ -40,7 +40,7 @@ module Decidim::Verifications::CsvCensus::Admin
     context "when the file is valid" do
       it "inserts all emails into the database" do
         expect { subject.call }.not_to raise_error
-        expect(Decidim::Verifications::CsvDatum).to have_received(:insert_all).with(organization, ["valid_email@example.com", "another_valid_email@example.com"], current_user)
+        expect(Decidim::Verifications::CsvDatum).to have_received(:insert_all).with(organization, ["valid_email@example.com", "another_valid_email@example.com"])
       end
 
       it "enqueues the ProcessCensusDataJob" do

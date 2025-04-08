@@ -13,8 +13,17 @@ module Decidim
 
           def resource_class = Decidim::Verifications::CsvDatum
 
-          def run_after_hooks
-            ProcessCensusDataJob.perform_now([resource.email], resource.organization, current_user)
+          def run_before_hooks
+            @resource = resource_class.find_by(email: form.email, organization: form.organization)
+
+            if @resource
+              form.errors.add(:email, I18n.t("census.new_import.errors.email_exists", scope: "decidim.verifications.csv_census.admin"))
+              return
+            else
+              @resource = resource_class.create!(email: form.email, organization: form.organization)
+            end
+
+            @resource.authorize!(current_user)
           end
         end
       end
