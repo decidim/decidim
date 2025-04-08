@@ -8,7 +8,6 @@ module Decidim
     class Suggestion < CollaborativeTexts::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Authorable
-      include Decidim::ApplicationHelper
 
       enum status: [:pending, :accepted, :rejected]
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version"
@@ -16,10 +15,8 @@ module Decidim
 
       delegate :organization, to: :document
 
-      # A summary to print in the UI. Without HTML.
-      # todo: add type: edit, removal, addition
-      def summary
-        @summary ||= ActionView::Base.full_sanitizer.sanitize(changeset["replace"]&.join(", ")&.strip).truncate(150)
+      def presenter
+        @presenter ||= Decidim::CollaborativeTexts::SuggestionPresenter.new(self)
       end
     end
   end

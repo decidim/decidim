@@ -109,6 +109,10 @@ en:
           empty: There are no collaborative texts yet.
         show:
           contributors: Contributors
+      suggestion:
+        replace_html: "<span class=\"type\">Replace:</span> <span class=\"text\">%{text}</span>"
+        add_html: "<span class=\"type\">Add:</span> <span class=\"text\">%{text}</span>"
+        remove_html: "<span class=\"type\">Remove:</span> <span class=\"text\">%{text}</span>"
       models:
         collaborative_text:
           fields:

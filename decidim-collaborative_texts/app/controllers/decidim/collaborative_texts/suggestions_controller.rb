@@ -33,14 +33,9 @@ module Decidim
 
       def suggestions_for(version)
         version.suggestions.map do |suggestion|
-          {
-            id: suggestion.id,
-            changeset: suggestion.changeset,
-            summary: suggestion.summary,
-            status: suggestion.status,
-            createdAt: suggestion.created_at,
-            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s
-          }
+          suggestion.presenter.safe_json.merge(
+            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
+          )
         end
       end
 

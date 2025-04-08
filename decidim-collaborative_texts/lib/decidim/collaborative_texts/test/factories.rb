@@ -35,6 +35,11 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    after :build do |document|
+      document.coauthorships.clear
+      document.coauthorships.build(author: document.organization)
+    end
   end
 
   factory :collaborative_text_version, class: "Decidim::CollaborativeTexts::Version" do
@@ -53,6 +58,7 @@ FactoryBot.define do
       {
         firstNode: "1",
         lastNode: "2",
+        original: Faker::HTML.paragraph(sentence_count: rand(1..3)),
         replace: Faker::HTML.paragraph(sentence_count: rand(1..3))
       }
     end

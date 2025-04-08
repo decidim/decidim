@@ -8,6 +8,7 @@ module Decidim
       mimic :document
 
       jsonb_attribute :changeset, [
+        [:original, Array[String]],
         [:replace, Array[String]],
         [:firstNode, Integer],
         [:lastNode, Integer]

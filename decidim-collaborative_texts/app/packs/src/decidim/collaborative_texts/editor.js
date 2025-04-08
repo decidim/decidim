@@ -43,14 +43,14 @@ export default class Editor {
     this.container.focus();
   }
 
-  _change(event) {
+  _change() {
     const newHtml = this.container.innerHTML;
-    if (newHtml !== this.originalHtml) {
-      this.saveButton.classList.remove("disabled");
-      this.saveButton.disabled = false;
-    } else {
+    if (newHtml === this.originalHtml) {
       this.saveButton.classList.add("disabled");
       this.saveButton.disabled = true;
+    } else {
+      this.saveButton.classList.remove("disabled");
+      this.saveButton.disabled = false;
     }
   }
 

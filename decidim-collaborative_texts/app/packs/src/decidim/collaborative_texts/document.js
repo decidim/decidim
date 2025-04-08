@@ -117,13 +117,17 @@ export default class Document {
     }
   }
 
-  _onSuggest(event) {
-    let replace = [...event.detail.replaceNodes].map((node) => (node.nodeType === Node.TEXT_NODE
+  _sanitizeNodes(nodes) {
+    console.log("Sanitizing nodes", nodes);
+    return [...nodes].filter((node) => node).map((node) => (node.nodeType === Node.TEXT_NODE
       ? node.textContent
       : node.outerHTML));
-    console.log("firstNode: ", event.detail.firstNode.id);
-    console.log("lastNode: ", event.detail.lastNode.id);
-    console.log("Replace: ", replace);
+  }
+
+  _onSuggest(event) {
+    let original = this._sanitizeNodes(event.detail.nodes);
+    let replace = this._sanitizeNodes(event.detail.replaceNodes);
+    console.log("Sending suggestion", original, replace, event.detail);
     fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
       method: "POST",
       headers: {
@@ -134,6 +138,7 @@ export default class Document {
       body: JSON.stringify({
         firstNode: event.detail.firstNode.id.replace(/^ct-node-/, ""),
         lastNode: event.detail.lastNode.id.replace(/^ct-node-/, ""),
+        original: original,
         replace: replace
       })
     }).
@@ -145,7 +150,6 @@ export default class Document {
             : data);
         }
 
-        console.log("Suggestion sent:", data);
         this.suggestionsList.destroy();
         this.fetchSuggestions();
       }).

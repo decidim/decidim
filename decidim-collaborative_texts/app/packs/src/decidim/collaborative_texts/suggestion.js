@@ -206,7 +206,7 @@ export default class Suggestion {
     this.item.classList.add("collaborative-texts-suggestions-box-item");
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
-    this.text.htmlContent = this.summary;
+    this.text.innerHTML = this.summary;
     this.boxItems.appendChild(this.item);
     createDropdown(this.item.querySelector('[data-component="dropdown"]'));
     this.itemsCounts.forEach((item) => {

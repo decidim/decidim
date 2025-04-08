@@ -48,7 +48,7 @@
   }
 
   &-highlight {
-    @apply relative outline-dashed outline-2 outline-offset-2 outline-primary;
+    @apply relative outline-dashed outline-1 outline-offset-2 outline-gray;
 
     &:not(.applied) .collaborative-texts-hidden {
       @apply block;
@@ -184,6 +184,10 @@
 
       img {
         @apply m-0;
+      }
+
+      .text {
+        @apply font-semibold;
       }
     }
 
