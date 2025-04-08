@@ -33,6 +33,12 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Le pseudo doit être en minuscules et ne contenir aucun espace
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -145,6 +151,7 @@ fr:
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
+      secondary_menu: Menu secondaire
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
