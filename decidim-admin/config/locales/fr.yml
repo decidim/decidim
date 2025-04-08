@@ -1110,6 +1110,7 @@ fr:
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
+        parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
         unhide: Afficher
         unreport: Annuler le signalement
@@ -1120,6 +1121,7 @@ fr:
             success: Contenu masqué avec succès.
           unhide:
             invalid: Il y a eu un problème pour découvrir la ressource.
+            parent_invalid: Un problème est survenu lors du démasquage de la ressource. Le parent n'est pas visible.
             success: Ressource non cachée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
