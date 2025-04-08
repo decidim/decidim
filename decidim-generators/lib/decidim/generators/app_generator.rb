@@ -191,7 +191,7 @@ module Decidim
       end
 
       def add_storage_provider
-        template "storage.yml.erb", "config/storage.yml", force: true
+        copy_file "storage.yml", "config/storage.yml", force: true
 
         providers = options[:storage].split(",")
 
