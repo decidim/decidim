@@ -52,8 +52,14 @@ eu:
         personal_url: URL pertsonala
         remove_avatar: Kendu abatarra
         tos_agreement: Erabilera-terminoak eta -baldintzak
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Goitizenak minuskulaz egon behar du, eta ez du tarterik izan behar
     models:
-      decidim/attachment_created_event: eranskina
+      decidim/attachment_created_event: Eranskina
       decidim/component_published_event: Osagai erabilgarria
       decidim/demoted_membership: Ez da talde administratzaile gehiagorik
       decidim/gamification/badge_earned_event: Irabazitako dominak
@@ -79,7 +85,7 @@ eu:
         name: Ezizena
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
-        remember_me: Gogoratu
+        remember_me: Gogoratu ni
     models:
       decidim:
         history:
@@ -165,6 +171,7 @@ eu:
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
+      secondary_menu: Bigarren mailako menua
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
