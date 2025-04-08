@@ -595,6 +595,7 @@ en:
           attendees: Attendees count
           contributions: Contributions count
           join: Register
+          join_waitlist: Join waitlist
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon

@@ -47,6 +47,24 @@ module Decidim
         end
       end
 
+      def join_waitlist
+        enforce_permission_to(:join_waitlist, :meeting, meeting:)
+
+        @form = JoinMeetingForm.from_params(params).with_context(current_user:)
+
+        JoinWaitlist.call(meeting, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("registrations.waitlist.success", scope: "decidim.meetings")
+            redirect_after_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("registrations.waitlist.invalid", scope: "decidim.meetings")
+            redirect_after_path
+          end
+        end
+      end
+
       def destroy
         enforce_permission_to(:leave, :meeting, meeting:)
 

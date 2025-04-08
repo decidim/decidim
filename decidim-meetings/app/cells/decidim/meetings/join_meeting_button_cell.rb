@@ -12,6 +12,10 @@ module Decidim
         render
       end
 
+      def render_waitlist_button?
+        model.waitlist_enabled? && !model.has_available_slots? && model.can_be_joined_by?(current_user) && !model.has_registration_for?(current_user)
+      end
+
       private
 
       delegate :current_user, to: :controller, prefix: false
@@ -32,6 +36,10 @@ module Decidim
         return I18n.t("join", scope: "decidim.meetings.meetings.show") if model.has_available_slots?
 
         I18n.t("no_slots_available", scope: "decidim.meetings.meetings.show")
+      end
+
+      def i18n_join_waitlist_text
+        I18n.t("join_waitlist", scope: "decidim.meetings.meetings.show")
       end
 
       def i18n_confirm_text

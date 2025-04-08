@@ -15,6 +15,8 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
+      enum status: { registered: "registered", waiting_list: "waiting_list" }
+
       scope :public_participant, -> { where(public_participation: true) }
 
       def self.user_collection(user)
