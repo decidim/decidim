@@ -143,6 +143,7 @@ ro:
       front_page_link: Mergeți la prima pagină
       logo: "Logo-ul oficial al %{organization}"
       opens_in_new_tab: Deschideți în tab nou
+      secondary_menu: Meniu secundar
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
