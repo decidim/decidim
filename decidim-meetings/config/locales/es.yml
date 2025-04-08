@@ -600,7 +600,7 @@ es:
         answers:
           index:
             administrate: Administrar
-            title: Consulta/Sondeo en directo
+            title: Sondeo
           index_admin:
             back_to_meeting: Volver al encuentro
             title: Administrar consulta/sondeo en directo
