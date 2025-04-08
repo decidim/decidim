@@ -1311,7 +1311,7 @@ eu:
             success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
-            parent_invalid: Arazo bat zegoen baliabidea erakustean. Nagusia ez da ikusten.
+            parent_invalid: Ezin da baliabide hau erakutsi, ezkutuan jarraitzen duen beste baliabide baten ("nagusia") barruan sartuta dagoelako.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
