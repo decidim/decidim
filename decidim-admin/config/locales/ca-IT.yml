@@ -1110,6 +1110,7 @@ ca-IT:
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
+        parent_hidden: No es pot mostrar aquest recurs perquè està inclòs dins un altre recurs ("pare") que segueix ocult.
         title: Accions
         unhide: Tornar a mostrar
         unreport: Desfer denúncia
@@ -1120,6 +1121,7 @@ ca-IT:
             success: Contingut amagat correctament.
           unhide:
             invalid: S'ha produït un error en tornar a mostrar el contingut.
+            parent_invalid: Hi ha hagut un problema en revelar (fer visible) el recurs. El recurs en què aquest està inclòs ("pare") no és visible.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: S'ha produït un error en cancel·lar la denúncia.
