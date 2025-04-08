@@ -27,9 +27,11 @@
         <% end %>
       <% end %>
 
+    <% if Decidim::Budgets.enable_proposal_linking %>
       <div class="row column">
         <%= render partial: "decidim/proposals/proposals/proposals_picker", locals: { form:, field: :proposals } %>
       </div>
+    <% end %>
 
       <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
 
