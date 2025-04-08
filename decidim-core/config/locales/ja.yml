@@ -33,6 +33,12 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: ニックネームは小文字でスペースを含まない必要があります
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
