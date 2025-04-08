@@ -9,5 +9,7 @@
 </div>
 <div class="collaborative-texts-editor-container"></div>
 <div class="collaborative-texts-editor-menu">
-  <button class="collaborative-texts-button-save button button__primary button__sm"><%= t("decidim.collaborative_texts.document.save") %></button>
+  <%= action_authorized_button_to(:suggest, "#suggest", disabled: true, class: "collaborative-texts-button-save button button__primary button__sm") do %>
+    <%= t("decidim.collaborative_texts.document.save") %>
+  <% end %>
 </div>

@@ -118,6 +118,9 @@ en:
         create:
           invalid: There was a problem creating the suggestion.
           success: Suggestion successfully created.
+        errors:
+          blank_changeset: Changeset cannot be blank.
+          invalid_nodes: Invalid selected nodes.
     components:
       collaborative_texts:
         name: Collaborative Texts

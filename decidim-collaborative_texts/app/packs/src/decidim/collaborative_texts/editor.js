@@ -25,8 +25,10 @@ export default class Editor {
     this.editor = window.document.createElement("div");
     this.editor.classList.add("collaborative-texts-editor");
     this.editor.innerHTML = this.templates.suggestionsEditor.innerHTML;
-    this.editor.querySelector(".collaborative-texts-button-save").addEventListener("click", this._save.bind(this));
-    this.editor.querySelector(".collaborative-texts-button-cancel").addEventListener("click", this._cancel.bind(this));
+    this.saveButton = this.editor.querySelector(".collaborative-texts-button-save");
+    this.cancelButton = this.editor.querySelector(".collaborative-texts-button-cancel");
+    this.saveButton.addEventListener("click", this._save.bind(this));
+    this.cancelButton.addEventListener("click", this._cancel.bind(this));
     this.wrapper.after(this.editor);
   }
   
@@ -34,8 +36,22 @@ export default class Editor {
     // This in the future should be the tiptap editor
     this.container = this.editor.querySelector(".collaborative-texts-editor-container");
     this.container.innerHTML = this.nodes.map((node) => node.outerHTML).join("");
+    this.originalHtml = this.container.innerHTML;
     this.container.contentEditable = true;
+    this.container.addEventListener("input", this._change.bind(this));
+    this.container.addEventListener("focusout", this._change.bind(this));
     this.container.focus();
+  }
+
+  _change(event) {
+    const newHtml = this.container.innerHTML;
+    if (newHtml !== this.originalHtml) {
+      this.saveButton.classList.remove("disabled");
+      this.saveButton.disabled = false;
+    } else {
+      this.saveButton.classList.add("disabled");
+      this.saveButton.disabled = true;
+    }
   }
 
   _save() {

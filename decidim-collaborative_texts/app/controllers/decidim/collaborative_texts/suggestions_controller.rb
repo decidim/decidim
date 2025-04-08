@@ -22,7 +22,9 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { message: I18n.t("suggestions.create.invalid", scope: "decidim.collaborative_texts") }, status: :unprocessable_entity
+            message = [I18n.t("suggestions.create.invalid", scope: "decidim.collaborative_texts")]
+            message.push(@form.errors.full_messages.join(", ")) if @form.errors.any?
+            render json: { message: message.join(" ") }, status: :unprocessable_entity
           end
         end
       end
@@ -34,6 +36,7 @@ module Decidim
           {
             id: suggestion.id,
             changeset: suggestion.changeset,
+            summary: suggestion.summary,
             status: suggestion.status,
             createdAt: suggestion.created_at,
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s

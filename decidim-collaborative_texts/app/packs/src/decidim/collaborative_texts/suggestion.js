@@ -23,6 +23,7 @@ export default class Suggestion {
       }
     }
     this.replace = entry.changeset.replace;
+    this.summary = entry.summary;
     this.item = null;
     this.boxWrapper = null;
     this.wrapper = null;
@@ -205,7 +206,7 @@ export default class Suggestion {
     this.item.classList.add("collaborative-texts-suggestions-box-item");
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
-    this._setText();
+    this.text.htmlContent = this.summary;
     this.boxItems.appendChild(this.item);
     createDropdown(this.item.querySelector('[data-component="dropdown"]'));
     this.itemsCounts.forEach((item) => {
@@ -218,12 +219,5 @@ export default class Suggestion {
     this.item.addEventListener("mouseleave", this.blur.bind(this));
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
-  }
-
-  _setText() {
-    const summary = this.replace.map((text) => text.replace(/<[^>]*>?/gm, "")).join(" ");
-    this.text.textContent = summary.length > 300
-      ? `${summary.substring(0, 300)}...`
-      : summary;
   }
 }
