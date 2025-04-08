@@ -3,15 +3,15 @@ en:
   activemodel:
     attributes:
       collaborative_texts:
-        suggestion:
-          original: Original text
-          replace: Replacement
-          nodes: DOM nodes 
         document:
           body: Body
           draft: Draft
           title: Title
           version_number: Version number
+        suggestion:
+          nodes: DOM nodes
+          original: Original text
+          replace: Replacement
         version:
           body: Body
           draft: Draft
@@ -71,8 +71,6 @@ en:
           form:
             allow_suggestions: Allow participants to make suggestions
       admin_log:
-        suggestion:
-          create: "%{user_name} suggested changes to the %{resource_name} collaborative text in %{space_name}"
         document:
           create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} collaborative text from %{space_name}"
@@ -81,17 +79,18 @@ en:
           soft_delete: "%{user_name} moved the %{resource_name} collaborative text in %{space_name} to the trash"
           unpublish: "%{user_name} unpublished the %{resource_name} collaborative text in %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text in %{space_name}"
+        suggestion:
+          create: "%{user_name} suggested changes to the %{resource_name} collaborative text in %{space_name}"
         version:
           delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
+        applied_counter: Draft/consolidate will merge the %{count} applied suggestions
         apply: Apply
         cancel: Cancel
         consolidate:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
-          invalid: There was a problem consolidating the suggestions.
           new: Consolidate accepted suggestions
-        applied_counter: "Draft/consolidate will merge the %{count} applied suggestions"
         controls_label: Suggestion controls
         index: Index
         restore: Restore
@@ -105,7 +104,6 @@ en:
           draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
           not_accepting_suggestions: Suggestions are not allowed at this time.
           selection_active: A selection is active. Please cancel the current selection to make a new one.
-        suggest: Suggest changes
         suggestions_count: "%{count} suggestions"
         toggle: Show/hide suggestions
       documents:
@@ -116,15 +114,15 @@ en:
           empty: There are no collaborative texts yet.
         show:
           contributors: Contributors
-      suggestion:
-        replace_html: "<span class=\"type\">Replace:</span> <span class=\"text\">%{text}</span>"
-        add_html: "<span class=\"type\">Add:</span> <span class=\"text\">%{text}</span>"
-        remove_html: "<span class=\"type\">Remove:</span> <span class=\"text\">%{text}</span>"
       models:
         collaborative_text:
           fields:
             suggestions: Accept suggestions
             title: Title
+      suggestion:
+        add_html: <span class="type">Add:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Remove:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Replace:</span> <span class="text">%{text}</span>
       suggestions:
         create:
           invalid: There was a problem creating the suggestion.
