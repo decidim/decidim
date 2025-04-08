@@ -55,6 +55,12 @@ en:
         tos_agreement: Terms of service agreement
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: The nickname must be lowercase and contain no spaces
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
