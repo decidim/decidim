@@ -37,6 +37,7 @@ export default class Document {
     console.log("Enabling suggestions");
     window.document.addEventListener("selectstart", this._onSelectionStart.bind(this));
     window.document.addEventListener("mouseup", this._onSelectionEnd.bind(this));
+    // TODO: only to admins
     this.doc.addEventListener("collaborative-texts:applied", this._onApply.bind(this));
     this.doc.addEventListener("collaborative-texts:restored", this._onRestore.bind(this));
     this.doc.addEventListener("collaborative-texts:suggest", this._onSuggest.bind(this));

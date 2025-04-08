@@ -23,7 +23,8 @@
     }
   }
 
-  &-hidden {
+  &-hidden:not(&-highlight-shown),
+  &-highlight-hidden {
     @apply hidden;
   }
 

@@ -26,7 +26,7 @@ export default class Suggestion {
     this.summary = entry.summary;
     this.item = null;
     this.boxWrapper = null;
-    this.wrapper = null;
+    this.highlightWrapper = null;
     this.changesWrapper = null;
     this.applied = false;
     this.isFirst = false;
@@ -38,74 +38,56 @@ export default class Suggestion {
     }
   }
 
+  // Get the nodes that are affected by the suggestion
   siblingSuggestions() {
     return this.suggestionsList.suggestions.filter((suggestion) => {
       return suggestion.id !== this.id && suggestion.nodes.some((node) => this.nodes.includes(node));
     });
   }
 
-  // wrap affected nodes by the suggestion in a div
+  // wrap affected nodes by the suggestion in a div to temporarily apply the changes
   // this is used to highlight (or replace) the nodes when hovering the suggestion
   highlight() {
-    if (this.changesWrapper) {
+    // If applied, just add the style to the changesWrapper
+    if (this.applied) {
       this.changesWrapper.classList.add("collaborative-texts-highlight");
       return;
     }
-    this.wrapper = window.document.createElement("div");
-    this.wrapper.classList.add("collaborative-texts-highlight");
-    this.firstNode.before(this.wrapper);
-    this.appliedBackup = this.siblingSuggestions().filter((suggestion) => suggestion.applied);
-    this.appliedBackup.forEach((suggestion) => {
-      suggestion.changesWrapper.classList.add("hidden");
-      suggestion._showOriginalNodes();
-    });
+    this.highlightWrapper = window.document.createElement("div");
+    this.highlightWrapper.classList.add("collaborative-texts-highlight");
+    this.firstNode.before(this.highlightWrapper);
     this._hideOriginalNodes();
-    this._applyTo(this.wrapper);
+    this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
+      suggestion.changesWrapper.classList.add("collaborative-texts-highlight-hidden");
+      suggestion.nodes.forEach(node => node.classList.add("collaborative-texts-highlight-shown"));
+    });
+    this._applyTo(this.highlightWrapper);
   }
 
+  // Restores the highlighted nodes to their original state
+  // this is used to remove the highlight when leaving the suggestion
   blur() {
-    if (this.changesWrapper) {
+    // If applied, just remove the style from the changesWrapper
+    if (this.applied) {
       this.changesWrapper.classList.remove("collaborative-texts-highlight");
     }
-    if (this.wrapper) {
-      this.wrapper.remove();
-      this.wrapper = null;
-      this.appliedBackup.forEach((suggestion) => {
-        if (suggestion.changesWrapper) {
-          suggestion.changesWrapper.classList.remove("hidden");
-        }
+    if (this.highlightWrapper) {
+      this.highlightWrapper.remove();
+      this.highlightWrapper = null;
+      this._showOriginalNodes();
+      this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
+        suggestion.changesWrapper.classList.remove("collaborative-texts-highlight-hidden");
+        suggestion.nodes.forEach(node => node.classList.remove("collaborative-texts-highlight-shown"));
       });
     }
-  }
-
-  // Apply the changes to the wrapper passed as argument
-  // this does not manipulate the DOM, but only the wrapper
-  _applyTo(wrapper) {
-    this.replace.forEach((text) => wrapper.insertAdjacentHTML("beforeend", text));
-    // wrap in <p> any text nodes
-    wrapper.childNodes.forEach((node) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        let paragraph = window.document.createElement("p");
-        paragraph.textContent = node.textContent;
-        node.replaceWith(paragraph);
-      }
-    });
-  }
-
-  _hideOriginalNodes() {
-    this.nodes.forEach((node) => node.classList.add("collaborative-texts-hidden"));
-  }
-
-  _showOriginalNodes() {
-    this.nodes.forEach((node) => node.classList.remove("collaborative-texts-hidden"));
   }
   
   // Apply the suggestion by replacing the nodes with the replace content
   apply() {
     if (!this.applied && !this.selection || !this.selection.blocked) {
       this.applied = true;
-      if (this.wrapper) {
-        this.wrapper.remove();
+      if (this.highlightWrapper) {
+        this.highlightWrapper.remove();
       }
       // restore any other changes affecting the same nodes
       this.suggestionsList.restore(this.nodes, [this]);  
@@ -135,8 +117,32 @@ export default class Suggestion {
     return this;
   }
 
+  // Apply the changes to the wrapper passed as argument
+  // this does not manipulate the DOM, but only the wrapper
+  _applyTo(wrapper) {
+    this.replace.forEach((text) => wrapper.insertAdjacentHTML("beforeend", text));
+    console.log("Applying to wrapper", wrapper, wrapper.innerHTML);
+    // wrap in <p> any text nodes
+    wrapper.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        let paragraph = window.document.createElement("p");
+        paragraph.textContent = node.textContent;
+        node.replaceWith(paragraph);
+      }
+    });
+    console.log("After applying to wrapper", wrapper, wrapper.innerHTML);
+  }
+
+  _hideOriginalNodes() {
+    this.nodes.forEach((node) => node.classList.add("collaborative-texts-hidden"));
+  }
+
+  _showOriginalNodes() {
+    this.nodes.forEach((node) => node.classList.remove("collaborative-texts-hidden"));
+  }
+
   getPosition() {
-    let node = this.changesWrapper || this.wrapper || this.firstNode;
+    let node = this.changesWrapper || this.highlightWrapper || this.firstNode;
 
     while (node.classList.contains("collaborative-texts-hidden") || node.classList.contains("hidden")) {
       node = node.previousSibling;
@@ -163,9 +169,9 @@ export default class Suggestion {
       this.boxWrapper.remove();
       this.boxWrapper = null;
     }
-    if (this.wrapper) {
-      this.wrapper.remove();
-      this.wrapper = null;
+    if (this.highlightWrapper) {
+      this.highlightWrapper.remove();
+      this.highlightWrapper = null;
     }
     if (this.changesWrapper) {
       this.changesWrapper.remove();
