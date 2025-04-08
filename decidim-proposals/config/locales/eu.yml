@@ -781,7 +781,7 @@ eu:
           all: Guztiak
           amendment: Zuzenketak
           open: Zabaldu
-          published: Argitaratuta
+          published: Argitaratua
           related_to: Lotutako gaiak
           search: Bilatu
           state: Egoera
@@ -831,13 +831,13 @@ eu:
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
-          published_proposal: argitaratutako proposamena
+          published_proposal: Argitaratutako proposamena
           request_access: Sarrera beharrezkoa
           requested_access: Sarbidea beharrezkoa
           withdraw: kendu zirriborroa
         states:
           open: Zabaldu
-          published: Argitaratuta
+          published: Argitaratua
           withdrawn: Kendu
         update:
           error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
