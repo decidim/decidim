@@ -649,6 +649,7 @@ cs:
             actions: Akce
             apply_answer_template: Použít šablonu odpovědi
             assign_to_valuator: Přiřadit hodnotiteli
+            assign_to_valuator_button: Přiřadit
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
@@ -664,6 +665,7 @@ cs:
             statuses: Statusy
             title: Návrhy
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
+            unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
           manage_trash:
             title: Smazané návrhy
@@ -972,6 +974,7 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
@@ -1025,6 +1028,7 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
+          already_voted: Hlasováno
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
