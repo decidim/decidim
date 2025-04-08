@@ -55,6 +55,12 @@ ja:
         tos_agreement: 利用規約
       user_group:
         avatar: アバター
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: ニックネームは小文字でスペースを含まない必要があります
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
