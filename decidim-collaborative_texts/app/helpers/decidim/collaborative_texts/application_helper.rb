@@ -10,9 +10,9 @@ module Decidim
 
       def document_i18n
         {
-          # selectionActive: t("decidim.collaborative_texts.document.status.selection_active"),
-          # rolloutConfirm: t("decidim.collaborative_texts.document.rollout.confirm"),
-          # consolidateConfirm: t("decidim.collaborative_texts.document.consolidate.confirm")
+          selectionActive: t("decidim.collaborative_texts.document.status.selection_active"),
+          rolloutConfirm: t("decidim.collaborative_texts.document.rollout.confirm"),
+          consolidateConfirm: t("decidim.collaborative_texts.document.consolidate.confirm")
         }
       end
     end

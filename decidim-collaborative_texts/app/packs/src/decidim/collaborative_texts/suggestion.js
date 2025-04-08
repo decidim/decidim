@@ -214,7 +214,12 @@ export default class Suggestion {
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
     this.boxItems.appendChild(this.item);
-    createDropdown(this.item.querySelector('[data-component="dropdown"]'));
+    this.dropdown = this.item.querySelector('[data-component="dropdown"]');
+    if (this.doc.dataset.collaborativeTextsRolloutUrl) {
+      createDropdown(this.dropdown);
+    } else {
+      this.dropdown.remove();
+    }
     this.itemsCounts.forEach((item) => {
       item.textContent = this.boxItems.childElementCount;
     });
