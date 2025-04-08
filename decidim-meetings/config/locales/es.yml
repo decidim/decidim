@@ -668,11 +668,11 @@ es:
         responses:
           index:
             administrate: Administrar
-            title: Consulta/Sondeo en directo
+            title: Sondeo
           index_admin:
             back_to_meeting: Volver al encuentro
             title: Administrar consulta/sondeo en directo
-            view_poll: Ver consulta/sondeo
+            view_poll: Ver sondeo
       public_participants_list:
         attending_participants: Participantes asistentes
         hidden_participants_count:
