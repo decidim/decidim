@@ -24,6 +24,7 @@ module Decidim
           destroy_registration
           destroy_questionnaire_responses
           decrement_score
+          move_from_waitlist!
         end
         broadcast(:ok)
       end
@@ -49,6 +50,25 @@ module Decidim
 
       def decrement_score
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
+      end
+
+      def move_from_waitlist!
+        return unless @meeting.remaining_slots.positive?
+
+        on_waiting_list_user = @meeting.registrations.on_waiting_list.first
+        return unless on_waiting_list_user
+
+        on_waiting_list_user.update!(status: :registered)
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registration_confirmed",
+          event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
+          resource: @meeting,
+          affected_users: [on_waiting_list_user.user],
+          extra: {
+            registration_code: on_waiting_list_user.code
+          }
+        )
       end
     end
   end

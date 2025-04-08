@@ -598,6 +598,8 @@ en:
           join_waitlist: Join waitlist
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
+          leave_waitlist: Leave waitlist
+          leave_waitlist_confirmation: Are you sure you want to leave the waitlist for this meeting?
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
@@ -615,6 +617,9 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           visit_finished: View past meeting
+          waitlist:
+            description: If a spot becomes available, we well process your registration automatically and notify you via email.
+            status: You are on the waitlist
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_meeting: Withdraw
