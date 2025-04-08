@@ -8,7 +8,6 @@ module Decidim
 
       def initialize(meeting, form)
         @meeting = meeting
-        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
         @form = form
       end
 
@@ -36,9 +35,8 @@ module Decidim
         @registration = Decidim::Meetings::Registration.create!(
           meeting:,
           user: current_user,
-          user_group:,
           public_participation: form.public_participation,
-          status: :on_waiting_list
+          status: :waiting_list
         )
       end
 

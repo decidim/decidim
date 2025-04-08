@@ -700,6 +700,9 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+        waitlist:
+          invalid: There was a problem joining the waitlist.
+          success: You have joined the meeting waitlist successfully. You will be notified if your registration is successfully secured.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In person
