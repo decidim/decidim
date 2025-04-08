@@ -35,26 +35,28 @@
 
   &__aside {
     @apply col-span-4 lg:col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
-  }  
-  
+  }
+
   &__main {
     @apply col-span-8 lg:col-span-9 bg-white md:pl-16 py-6 md:py-12 min-h-[60vh];
   }
-  
+
   &__reverse &__aside {
     @apply order-last pr-0 before:left-full before:-translate-x-full;
   }
-  
+
   &__reverse &__main {
     @apply pl-0 md:pr-16;
   }
-  
+
   &__large {
     @apply md:block lg:grid;
   }
+
   &__large &__aside {
     @apply lg:grid md:pr-0 md:gap-6 lg:col-span-3 lg:pr-16 py-0 md:py-6 lg:py-12 gap-6 lg:gap-12 md:before:bg-transparent lg:before:bg-background;
   }
+
   &__large &__main {
     @apply md:pl-0 lg:pl-16 py-6;
   }

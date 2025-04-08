@@ -59,7 +59,7 @@ export default class Suggestion {
     this._hideOriginalNodes();
     this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
       suggestion.changesWrapper.classList.add("collaborative-texts-highlight-hidden");
-      suggestion.nodes.forEach(node => node.classList.add("collaborative-texts-highlight-shown"));
+      suggestion.nodes.forEach((node) => node.classList.add("collaborative-texts-highlight-shown"));
     });
     this._applyTo(this.highlightWrapper);
   }
@@ -77,7 +77,7 @@ export default class Suggestion {
       this._showOriginalNodes();
       this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
         suggestion.changesWrapper.classList.remove("collaborative-texts-highlight-hidden");
-        suggestion.nodes.forEach(node => node.classList.remove("collaborative-texts-highlight-shown"));
+        suggestion.nodes.forEach((node) => node.classList.remove("collaborative-texts-highlight-shown"));
       });
     }
   }
