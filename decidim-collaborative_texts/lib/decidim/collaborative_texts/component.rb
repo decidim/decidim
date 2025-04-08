@@ -7,7 +7,7 @@ Decidim.register_component(:collaborative_texts) do |component|
   component.icon_key = "draft-line"
   component.permissions_class_name = "Decidim::CollaborativeTexts::Permissions"
 
-  # component.query_type = "Decidim::CollaborativeTexts::CollaborativeTextsType"
+  component.query_type = "Decidim::CollaborativeTexts::DocumentsType"
 
   # component.register_stat ...
   component.register_stat :collaborative_texts_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
