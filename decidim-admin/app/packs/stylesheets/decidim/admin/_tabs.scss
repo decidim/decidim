@@ -51,6 +51,10 @@
   }
 }
 
+.tabs-panel .help-text {
+  @apply mt-1;
+}
+
 .tabs-panel[aria-hidden="true"] {
   @apply hidden;
 }

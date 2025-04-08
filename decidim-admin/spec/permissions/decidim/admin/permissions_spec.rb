@@ -118,16 +118,11 @@ describe Decidim::Admin::Permissions do
     end
   end
 
-  describe "metrics" do
-    let(:action_subject) { :metrics }
+  describe "editor image upload" do
+    let(:action_subject) { :editor_image }
+    let(:action_name) { :create }
 
-    it_behaves_like "permission is not set"
-
-    context "when reading" do
-      let(:action_name) { :read }
-
-      it { is_expected.to be true }
-    end
+    it { is_expected.to be true }
   end
 
   describe "static pages" do

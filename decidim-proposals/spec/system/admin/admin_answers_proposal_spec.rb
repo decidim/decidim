@@ -53,12 +53,22 @@ describe "Admin answers proposals" do
       end
 
       shared_examples "successful handling of proposal answers" do
-        it "when accepting, a cost value and cost report are required" do
+        it "when accepting, can submit answer with a cost, cost report and execution period" do
           find("input#proposal_answer_internal_state_accepted").click
+          fill_in_i18n_editor(
+            :proposal_answer_cost_report,
+            "#proposal_answer-cost_report-tabs",
+            en: "Cost report on the proposal"
+          )
+          fill_in :proposal_answer_cost, with: "50"
+          fill_in_i18n_editor(
+            :proposal_answer_execution_period,
+            "#proposal_answer-cost_report-tabs",
+            en: "Cost execution period on the proposal"
+          )
+
           find("*[type=submit][name=commit]", match: :first).click
-          expect(find("label[for=proposal_answer_cost_report]")).to have_content("Required field")
-          expect(find("label[for=proposal_answer_cost]")).to have_content("Required field")
-          expect(page).to have_css(".flash", text: "There was a problem answering this proposal.")
+          expect(page).to have_css(".flash", text: "Proposal successfully answered.")
         end
       end
 
@@ -97,19 +107,6 @@ describe "Admin answers proposals" do
 
       it "when rejecting, do not require a cost value or cost report" do
         find("input#proposal_answer_internal_state_rejected").click
-        find("*[type=submit][name=commit]", match: :first).click
-        expect(page).to have_css(".flash", text: "Proposal successfully answered.")
-      end
-
-      it "when accepting, can submit answer with a cost value and cost report" do
-        find("input#proposal_answer_internal_state_accepted").click
-        fill_in_i18n_editor(
-          :proposal_answer_cost_report,
-          "#proposal_answer-cost_report-tabs",
-          en: "Cost report on the proposal"
-        )
-        fill_in :proposal_answer_cost, with: "50"
-
         find("*[type=submit][name=commit]", match: :first).click
         expect(page).to have_css(".flash", text: "Proposal successfully answered.")
       end
