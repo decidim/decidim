@@ -21,7 +21,7 @@ module Decidim
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
         attribute :iframe_access_level, String
         attribute :reminder_enabled, Boolean, default: true
-        attribute :send_reminders_before_hours, Integer
+        attribute :send_reminders_before_hours, Integer, default: Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i
 
         translatable_attribute :title, String
         translatable_attribute :description, Decidim::Attributes::RichText
@@ -89,30 +89,24 @@ module Decidim
           type_of_meeting.presence
         end
 
-        # Prepares a default reminder message using the current organization's locales.
-        # This is called after context is applied to ensure current_organization is available,
-        # avoiding errors from accessing it too early.
-        def prepare_default_reminder_message
+        def reminder_message_custom_content
           return unless reminder_enabled
-          return if @default_reminder_message.present?
-          return unless current_organization
 
-          @default_reminder_message = current_organization.available_locales.index_with do |locale|
-            I18n.t("decidim.events.meetings.upcoming_meeting.default_body", locale:)
-          end
+          return super if super.respond_to?(:values) && super.values.any?(&:present?)
+
+          @default_reminder_message ||= if current_organization
+                                          current_organization.available_locales.index_with do |locale|
+                                            I18n.t("decidim.events.meetings.upcoming_meeting.default_body", locale:)
+                                          end
+                                        else
+                                          {}
+                                        end
         end
 
         def send_reminders_before_hours
           return nil unless reminder_enabled
 
-          super.presence&.to_i || Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i
-        end
-
-        def reminder_message_custom_content
-          return unless reminder_enabled
-          return super unless super.values.none?(&:present?)
-
-          @default_reminder_message
+          super.presence&.to_i
         end
 
         def iframe_access_level_select
