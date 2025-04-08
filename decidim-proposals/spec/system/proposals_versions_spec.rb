@@ -59,6 +59,35 @@ describe "Explore versions", versioning: true do
     end
   end
 
+  context "when showing a version of a proposal that is hidden" do
+    let!(:proposal) { create(:proposal, :published, body: { en: "One liner body" }, component:) }
+
+    before do
+      visit proposal_path
+      command.call
+      click_on "see other versions"
+      click_on("Version 2 of 2")
+    end
+
+    around do |example|
+      previous = Capybara.raise_server_errors
+
+      Capybara.raise_server_errors = false
+      example.run
+      Capybara.raise_server_errors = previous
+    end
+
+    it "shows the changed attributes" do
+      expect(page).to have_content("Changes at")
+
+      create(:moderation, reportable: proposal, hidden_at: 1.day.ago)
+
+      visit current_path
+
+      expect(page).to have_content(ActiveRecord::RecordNotFound)
+    end
+  end
+
   context "when showing version" do
     before do
       visit proposal_path
