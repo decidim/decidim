@@ -16,7 +16,7 @@
   }
 
   &-container {
-    @apply relative mb-8 mr-[18rem] pr-4;
+    @apply relative mb-8 md:mr-[18rem] pr-4;
 
     h2 {
       @apply text-secondary mt-8;
@@ -96,9 +96,7 @@
   }
 
   &-suggestions-box {
-    @apply bg-gray-5 shadow outline outline-gray-3 outline-1 absolute top-0 right-[-18rem] text-xs w-[18rem] rounded px-2 pb-2;
-
-    transition: top 0.3s ease 0s;
+    @apply bg-gray-5 shadow outline outline-gray-3 outline-1 text-xs rounded px-2 pb-2 pt-1 md:pt-0 md:absolute md:top-0 md:right-[-18rem] md:w-[18rem] md:transition-all ease-in-out duration-300;
 
     .icon {
       @apply inline-block text-md mr-2;
