@@ -471,6 +471,7 @@ en:
     participatory_spaces:
       highlighted_proposals:
         last: Last proposals
+        random: Random proposals
         see_all: See all proposals
     proposals:
       actions:
