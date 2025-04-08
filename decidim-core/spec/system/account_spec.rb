@@ -86,6 +86,59 @@ describe "Account" do
       end
     end
 
+    describe "when updating the user's nickname" do
+      it "changes the user's nickname - 'nickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_field("user[nickname]", with: "nickname", type: "text")
+      end
+
+      it "respects the maxlength attribute with a really long word - 'nicknamenicknamenickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nicknamenicknamenickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Your account was successfully updated.")
+        expect(page).to have_field("user[nickname]", with: "nicknamenicknamenick", type: "text")
+      end
+
+      it "shows error when word has a capital letter - 'nickName'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nickName"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_content("The nickname must be lowercase and contain no spaces")
+        expect(page).to have_field("user[nickname]", with: "nickName", type: "text")
+      end
+
+      it "shows error when word starts with a capital letter - 'Nickname'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "Nickname"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_field("user[nickname]", with: "Nickname", type: "text")
+      end
+
+      it "shows error when string has a space - 'nick name'" do
+        within "form.edit_user" do
+          fill_in "Nickname", with: "nick name"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There was a problem updating your account.")
+        expect(page).to have_field("user[nickname]", with: "nick name", type: "text")
+      end
+    end
+
     describe "when update password" do
       let!(:encrypted_password) { user.encrypted_password }
       let(:new_password) { "decidim1234567890" }
