@@ -1,6 +1,6 @@
 .collaborative-texts {
   &-toc {
-    @apply w-full py-8 sticky top-0;
+    @apply w-full py-8 lg:sticky top-0;
 
     .spinner-container::after {
       @apply bg-transparent;
@@ -29,7 +29,15 @@
   }
 
   &-manager {
-    @apply sticky top-4 flex justify-between drop-shadow shadow-primary/50 z-[60] p-4 bg-primary/20 rounded gap-2;
+    @apply sticky top-4 drop-shadow z-[60] p-4 bg-background rounded border border-black;
+
+    > div {
+      @apply flex justify-between gap-2 mb-4;
+    }
+
+    > p {
+      @apply text-right;
+    }
 
     &.hidden {
       display: none;

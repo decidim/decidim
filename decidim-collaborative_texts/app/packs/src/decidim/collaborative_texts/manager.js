@@ -9,6 +9,7 @@ export default class Manager {
     this.rolloutButton = this.div.querySelector("[data-collaborative-texts-manager-rollout]");
     this.consolidateButton = this.div.querySelector("[data-collaborative-texts-manager-consolidate]");
     this.cancelButton = this.div.querySelector("[data-collaborative-texts-manager-cancel]");
+    this.counter = this.div.getElementsByClassName("collaborative-texts-manager-count")[0];
     this._bindEvents();
   }
 

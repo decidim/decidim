@@ -15,6 +15,10 @@ module Decidim
 
       delegate :organization, to: :document
 
+      def self.log_presenter_class_for(_log)
+        Decidim::CollaborativeTexts::AdminLog::SuggestionPresenter
+      end
+
       def presenter
         @presenter ||= Decidim::CollaborativeTexts::SuggestionPresenter.new(self)
       end

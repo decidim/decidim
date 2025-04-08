@@ -10,6 +10,17 @@ module Decidim
       private
 
       def resource_class = Decidim::CollaborativeTexts::Suggestion
+
+      def extra_params
+        {
+          participatory_space: {
+            title: document&.participatory_space&.title
+          },
+          resource: {
+            title: document&.title
+          }
+        }
+      end
     end
   end
 end

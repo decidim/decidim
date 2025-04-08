@@ -109,6 +109,7 @@ export default class Document {
     this.applying = true;
     this.manager = this.manager || new Manager(this);
     this.manager.show();
+    this.manager.counter.textContent = this.suggestionsList.getApplied().length
   }
   
   _onRestore() {

@@ -15,13 +15,13 @@
 %>
 
 <% content_for :aside do %>
-  <h3 class="title-decorator h3"><%= document.title %></h3>
   <div class="collaborative-texts-toc" data-collaborative-texts-toc="collaborative-text-<%= document.id %>">
-    <h4 class="h4 mb-8"><%= t("decidim.collaborative_texts.document.index") %></h4>
+    <h3 class="title-decorator h3 mb-8 lg:mb-12"><%= document.title %></h3>
+    <h4 class="h4 mb-4"><%= t("decidim.collaborative_texts.document.index") %></h4>
     <ul class="spinner-container"></ul>
   </div>
 <% end %>
-<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10 } do %>
+<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10, large: true } do %>
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <section class="layout-main__section">
@@ -35,9 +35,12 @@
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless document.suggestions_enabled? || document.draft? %>
 
     <div class="collaborative-texts-manager hidden">
-      <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
-      <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
-      <%= button_tag(t("decidim.collaborative_texts.document.cancel"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_cancel: true }) %>
+      <div>
+        <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
+        <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
+        <%= button_tag(t("decidim.collaborative_texts.document.cancel"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_cancel: true }) %>
+      </div>
+      <p><%= t("decidim.collaborative_texts.document.applied_counter", count: '<span class="collaborative-texts-manager-count"></span>').html_safe %></p>
     </div>
 
     <div class="collaborative-texts-alert hidden">

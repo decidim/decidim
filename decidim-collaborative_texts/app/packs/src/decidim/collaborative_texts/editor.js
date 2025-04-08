@@ -27,6 +27,12 @@ export default class Editor {
     this.editor.innerHTML = this.templates.suggestionsEditor.innerHTML;
     this.saveButton = this.editor.querySelector(".collaborative-texts-button-save");
     this.cancelButton = this.editor.querySelector(".collaborative-texts-button-cancel");
+    this.editor.addEventListener("keydown", (event) => {
+      if (event.ctrlKey && event.key === "Enter") {
+        event.preventDefault();
+        this._save();
+      }
+    });
     this.saveButton.addEventListener("click", this._save.bind(this));
     this.cancelButton.addEventListener("click", this._cancel.bind(this));
     this.wrapper.after(this.editor);
