@@ -57,7 +57,7 @@ es:
         user:
           attributes:
             nickname:
-              format: El alias o apodo debe ser minúsculas y no contener espacios
+              format: El alias o apodo debe estar en minúsculas y no contener espacios
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -1475,7 +1475,7 @@ es:
         body_html: |
           <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection</strong></p>}.
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
