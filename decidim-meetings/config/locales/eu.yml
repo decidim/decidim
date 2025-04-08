@@ -13,7 +13,7 @@ eu:
         video_url: Bideoaren URLa
       meeting:
         address: Helbidea
-        available_slots: Topaketa honetarako toki erabilgarriak
+        available_slots: Libre dauden plazak
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
@@ -36,7 +36,7 @@ eu:
         registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
         registrations_enabled: Izen-emateak gaituta
-        reserved_slots: Topaketa honetarako toki erabilgarriak
+        reserved_slots: Erreserbatuta dauden plazak
         start_time: Hasiera ordua
         title: Titulua
         transparent: Gardena
@@ -497,7 +497,7 @@ eu:
             online: Online
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
-          available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
+          available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
