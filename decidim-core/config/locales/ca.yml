@@ -1473,9 +1473,9 @@ ca:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Els nostres registres indiquen que vas creas un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat activa des de <strong>%{date_last_connection</strong></p>}.
+          <p>Els nostres registres indiquen que vas crear un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat actiu des de <strong>%{date_last_connection</strong></p>}.
           <p>Per protegir la teva privacitat, l'eliminació automàtica d'aquest compte s'ha programat en <strong>%{days} dies</strong>.</p>
-          <p>Si vols conservar el teu compte %{organization_name}, simplement %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
+          <p>Si vols conservar el teu compte %{organization_name}, simplement inicia sessió %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
         greetings_html: |
           Atentament,<br>
           %{organization_name}
