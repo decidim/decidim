@@ -78,6 +78,9 @@ cs:
               Zveřejněním odpovědí na otázky je veřejnosti zviditelníte.
               Můžete vybrat odpovědi, které chcete publikovat, kliknutím na zaškrtávací políčko vedle každé otázky.
               Můžete publikovat pouze následující typy úloh: "Jedna možnost", "Vícenásobná možnost", "Matice (jedna možnost)", "Matice (více možností)" a "Řazení".
+            status:
+              not_published: Nezveřejněno
+              published: Zveřejněno
             title: Zveřejnit odpovědi
         surveys:
           create:
