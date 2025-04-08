@@ -663,6 +663,13 @@ cs:
             question: Otázka
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
+        responses:
+          index:
+            administrate: Spravovat
+          index_admin:
+            back_to_meeting: Zpět na schůzku
+            title: Správa ankety
+            view_poll: Zobrazit anketu
       public_participants_list:
         attending_participants: Účast účastníků
         hidden_participants_count:
