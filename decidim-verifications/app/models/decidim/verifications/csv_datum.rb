@@ -33,13 +33,13 @@ module Decidim
         Decidim::Verifications::AdminLog::CsvDatumPresenter
       end
 
-      def authorize!(user)
-        user_in_organization = organization.users.available.find_by(email:)
+      def authorize!
+        user = organization.users.available.find_by(email:)
 
-        raise StandardError, "User with email #{email} not found in organization" if !user_in_organization && !user
+        raise StandardError, "User with email #{email} not found in organization" unless user
 
         authorization = Decidim::Authorization.find_or_initialize_by(
-          user: user_in_organization,
+          user:,
           name: "csv_census"
         )
 
