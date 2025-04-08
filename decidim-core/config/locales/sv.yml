@@ -37,6 +37,12 @@ sv:
         tos_agreement: Användarvillkor
       user_group:
         avatar: Profilbild
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Smeknamnet ska vara små bokstäver utan mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
