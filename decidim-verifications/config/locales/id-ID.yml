@@ -85,8 +85,6 @@ id:
             body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
           new:
             file: "File .csv dengan data email"
-            submit: Unggah data
-            title: Unggah sensus baru
         authorizations:
           new:
             error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.
