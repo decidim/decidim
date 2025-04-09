@@ -284,7 +284,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      evaluator: true
+      valuator: true
     )
   end
 
