@@ -113,9 +113,6 @@ pt:
             title: Você precisa ativar o recenseamento CSV para esta organização
           new:
             file: "ficheiro .csv com dados de e-mails"
-            info: 'Deverá ser um ficheiro em formato CSV com apenas uma coluna com o endereço de e-mail:'
-            submit: Enviar ficheiro
-            title: Enviar um novo censo
         authorizations:
           new:
             error: Não foi possível verificar a sua conta ou não está no censo da organização.
