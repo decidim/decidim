@@ -18,6 +18,15 @@ module Decidim
 
         validates :title, presence: true, etiquette: true, unless: ->(form) { form.title.nil? }
         validates :body, presence: true, unless: ->(form) { form.body.nil? } # no etiquette validation for body as it might trigger false positives
+
+        def component
+          context[:current_component]
+        end
+
+        def coauthorships
+          # ensures the first author is always the organization in case "official?" is ever used
+          [Decidim::Coauthorship.new(author: context[:current_organization])]
+        end
       end
     end
   end

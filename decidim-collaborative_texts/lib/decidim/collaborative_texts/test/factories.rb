@@ -58,12 +58,22 @@ FactoryBot.define do
   factory :collaborative_text_suggestion, class: "Decidim::CollaborativeTexts::Suggestion" do
     document_version { build(:collaborative_text_version) }
     author { build(:user, organization: document_version.document.organization) }
+    trait :pending do
+      status { :pending }
+    end
+    trait :accepted do
+      status { :accepted }
+    end
+    trait :rejected do
+      status { :rejected }
+    end
+
     changeset do
       {
         firstNode: "1",
         lastNode: "2",
-        original: Faker::HTML.paragraph(sentence_count: rand(1..3)),
-        replace: Faker::HTML.paragraph(sentence_count: rand(1..3))
+        original: [Faker::HTML.paragraph(sentence_count: rand(1..3))],
+        replace: [Faker::HTML.paragraph(sentence_count: rand(1..3))]
       }
     end
   end

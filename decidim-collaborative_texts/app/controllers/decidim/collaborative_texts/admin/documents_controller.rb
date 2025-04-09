@@ -21,7 +21,6 @@ module Decidim
         def create
           enforce_permission_to :create, :collaborative_text
           @form = form(DocumentForm).from_params(params)
-
           CreateDocument.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.create.success", scope: "decidim.collaborative_texts.admin")

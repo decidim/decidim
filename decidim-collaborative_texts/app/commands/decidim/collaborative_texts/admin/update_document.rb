@@ -20,7 +20,7 @@ module Decidim
               },
               **extra_document_params
             )
-          end
+            end
 
           # Admin forcing a draft to discard existing suggestions
           if resource.has_suggestions? && form.draft

@@ -34,7 +34,7 @@ module Decidim
 
       def changes_exists
         errors.add(:base, I18n.t("errors.blank_changeset", scope: "decidim.collaborative_texts.suggestions")) if changeset.blank?
-        if changeset["firstNode"].to_i.blank? || changeset["lastNode"].to_i.blank?
+        if changeset["firstNode"].to_i.zero? || changeset["lastNode"].to_i.zero?
           errors.add(:base,
                      I18n.t("errors.invalid_nodes", scope: "decidim.collaborative_texts.suggestions"))
         end

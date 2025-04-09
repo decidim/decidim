@@ -133,7 +133,7 @@ export default class Document {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest2",
+        "X-Requested-With": "XMLHttpRequest",
         "X-CSRF-Token": this.csrfToken
       },
       body: JSON.stringify({

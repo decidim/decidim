@@ -79,7 +79,12 @@ export default class SuggestionsList {
   
   _fetchSuggestions() {
     console.log("Fetch suggestions", this);
-    fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl).
+    fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    }).
       then((response) => response.json()).
       then((data) => {
         data.forEach((item) => {
