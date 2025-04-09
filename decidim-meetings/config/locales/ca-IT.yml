@@ -668,11 +668,11 @@ ca-IT:
         responses:
           index:
             administrate: Administrar
-            title: Consulta/Sondeig en directe
+            title: Sondeig
           index_admin:
             back_to_meeting: Tornar a la trobada
             title: Administrar consulta/sondeo en directe
-            view_poll: Veure consulta/sondeig
+            view_poll: Veure sondeig
       public_participants_list:
         attending_participants: Participants assistents
         hidden_participants_count:
