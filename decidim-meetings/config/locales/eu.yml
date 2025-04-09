@@ -172,13 +172,13 @@ eu:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
+            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak bere orrian irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa antolatu duzulako.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
+            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak bere orrien irakur ditzakezu:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
@@ -188,7 +188,7 @@ eu:
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
           notification_title: '<a href="%{resource_path}">%{resource_title}</a> topaketa hona gehitu da: %{participatory_space_title}'
         meeting_registration_confirmed:
-          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketan izena eman duzu. Zure erregistroaren kodea %{registration_code} da.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
           email_outro: Topaketako partaidetza-espazioaren administratzaile zarelako jaso duzu jakinarazpen hau.
@@ -196,19 +196,19 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: '"%{resource_title}" topaketa eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu egin da.
         registration_code_validated:
-          email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
-          email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
-          email_subject: Zure "%{registration_code}" izen-emate kodea "%{resource_title}" topaketarako baliozkotu egin da
-          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> topaketarako balioztatu da.
+          email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
+          email_subject: '"%{resource_title}" topaketarako zure "%{registration_code}" erregistro kodea baliozkotu egin da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako zure "%{registration_code}" erregistro kodea balioztatu da.
         registrations_enabled:
-          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure izena eman dezakezu bere orrialdean:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
-          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketaren izen-emateak zabalik.
+          email_intro: '"%{resource_title}" topaketan izena emateko epea ireki da. Izena eman ahal duzu bere orrian:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
+          email_subject: '"%{resource_title}" topaketan izena emateko epea ireki da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketan izena emateko epea ireki da.
         upcoming_meeting:
           email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
