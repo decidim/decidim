@@ -511,7 +511,7 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
-          browse_resource: Aztertu %{resource_name} prozesuen multzoa
+          browse_resource: '%{resource_name} prozesuen multzoa arakatu'
           processes_count: 'Prozesuak:'
       participatory_processes:
         index:
