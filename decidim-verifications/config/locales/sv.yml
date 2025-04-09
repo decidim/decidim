@@ -144,30 +144,11 @@ sv:
         start_exploring: börja utforska
       csv_census:
         admin:
-          census:
-            create:
-              error: Det gick inte att importera folkbokföringen.
-              success: Importerade %{count} objekt (%{errors} fel).
-            destroy_all:
-              success: All folkbokföringsdata har tagits bort.
-          destroy:
-            confirm: Radering av folkbokföringsdata kan inte ångras. Är du säker på att du vill fortsätta?
-            title: Radera alla medlemsuppgifter
           index:
-            data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
-            empty: Det finns inga medlemsuppgifter. Importera dem som en CSV-fil med formuläret nedan.
             title: Aktuella medlemsuppgifter
           instructions:
             body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
             title: Du måste aktivera medlemsregister via CSV för organisationen
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
