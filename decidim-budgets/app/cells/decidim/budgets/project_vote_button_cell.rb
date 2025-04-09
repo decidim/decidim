@@ -16,6 +16,10 @@ module Decidim
         options[:project_item]
       end
 
+      def button_extra_classes
+        options[:button_extra_classes] || []
+      end
+
       def resource_path
         resource_locator([model.budget, model]).path
       end
@@ -56,6 +60,7 @@ module Decidim
                    end
 
         classes << "budget-list__action" unless vote_button_disabled?
+        classes << button_extra_classes
 
         classes.join(" ")
       end
