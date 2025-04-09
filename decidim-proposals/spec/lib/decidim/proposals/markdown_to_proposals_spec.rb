@@ -202,7 +202,7 @@ module Decidim
 
           it "are articles" do
             should_parse_and_produce_proposals(1)
-            proposal_should_conform(:article, "1", list)
+            expect { proposal_should_conform(:article, "1", list) }.not_to raise_error
           end
         end
 
@@ -221,7 +221,7 @@ module Decidim
 
           it "are articles" do
             should_parse_and_produce_proposals(1)
-            proposal_should_conform(:article, "1", list)
+            expect { proposal_should_conform(:article, "1", list) }.not_to raise_error
           end
         end
       end

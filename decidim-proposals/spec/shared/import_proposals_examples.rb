@@ -44,8 +44,8 @@ shared_examples "import proposals" do
       dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect { confirm_flash_message }.not_to raise_error
+      expect { confirm_current_path }.not_to raise_error
     end
 
     it "imports from a json file" do
@@ -53,8 +53,8 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect { confirm_flash_message }.not_to raise_error
+      expect { confirm_current_path }.not_to raise_error
     end
 
     it "imports from a excel file" do
@@ -62,8 +62,8 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect { confirm_flash_message }.not_to raise_error
+      expect { confirm_current_path }.not_to raise_error
     end
   end
 
