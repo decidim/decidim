@@ -8,7 +8,9 @@
         <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
       </div>
     </div>
-    <% if current_user&.ephemeral? %>
+    <% if content_for?(:focus_mode) %>
+      <%= render partial: "layouts/decidim/header/focus_mode_button" %>
+    <% elsif current_user&.ephemeral? %>
       <%= render partial: "layouts/decidim/header/close_ephemeral_session" %>
     <% else %>
       <div class="main-bar__search">

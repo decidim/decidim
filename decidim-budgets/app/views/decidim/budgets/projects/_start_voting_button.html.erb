@@ -1,0 +1,10 @@
+<%= action_authorized_button_to "vote",
+                                budget_focus_projects_path(budget),
+                                resource: budget,
+                                method: :get,
+                                data: {
+                                  "redirect-url": budget_focus_projects_path(budget)
+                                },
+                                class: button_classes do %>
+  <%= t("start_voting", scope: "decidim.budgets.projects") %>
+<% end %>

@@ -21,12 +21,23 @@ If not, you need to adapt it to your environment, for instance by changing the d
 
 ### 1.2. Update your application configuration
 
-In this version we are changing Decidim's underlaying configuration engine, so, in order to update your application, make sure you read changes about the environment variables (read more about it at "3.4 Deprecation of `Rails.application.secrets`").
+In this version, we are changing Decidim’s underlying configuration engine. To update your application, make sure to review the changes related to environment variables. (See section 3.4: "Deprecation of Rails.application.secrets" for details.)
+
+Your code and configuration must be updated to remove all references to the `Rails.application.secrets` object.
+
+⚠ **Important**: If you have customized any of the following files:
+
+* config/secrets.yml
+* config/initializers/decidim.rb
+* config/storage.yml
+
+You will need to adjust your environment to provide the necessary configurations through environment variables.
 
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
+```
 
 ### 1.3. Update your Gemfile
 
@@ -323,7 +334,7 @@ Before actually removing the initializer, just make sure you do not have any cus
 ```bash
 git rm config/secrets.yml
 git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml.erb -O config/storage.yml
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
 ```
 
 ### 3.5. Migrate signature configuration of initiatives types

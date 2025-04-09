@@ -1,0 +1,42 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+s3:
+  service: S3
+  access_key_id: <%= Decidim::Env.new("AWS_ACCESS_KEY_ID").to_s %>
+  secret_access_key: <%= Decidim::Env.new("AWS_SECRET_ACCESS_KEY").to_s %>
+  bucket: <%= Decidim::Env.new("AWS_BUCKET").to_s %>
+  <%= "region: #{Decidim::Env.new("AWS_REGION").to_s}" if Decidim::Env.new("AWS_REGION").present? %>
+  <%= "endpoint: #{ Decidim::Env.new("AWS_ENDPOINT").to_s}" if Decidim::Env.new("AWS_ENDPOINT").present? %>
+
+azure:
+  service: AzureStorage
+  storage_account_name: <%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
+  storage_access_key: <%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
+  container: <%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
+
+gcs:
+  service: GCS
+  project: <%= Decidim::Env.new("GCS_PROJECT").to_s %>
+  bucket: <%= Decidim::Env.new("GCS_BUCKET").to_s %>
+  credentials:
+    type: <%= Decidim::Env.new("GCS_TYPE", "service_account").to_s %>
+    project_id: <%= Decidim::Env.new("GCS_PROJECT_ID").to_s %>
+    private_key_id: <%= Decidim::Env.new("GCS_PRIVATE_KEY_ID").to_s %>
+    private_key: <%= Decidim::Env.new("GCS_PRIVATE_KEY").to_s %>
+    client_email: <%= Decidim::Env.new("GCS_CLIENT_EMAIL").to_s %>
+    client_id: <%= Decidim::Env.new("GCS_CLIENT_ID").to_s %>
+    auth_uri: <%= Decidim::Env.new("GCS_AUTH_URI", "https://accounts.google.com/o/oauth2/auth").to_s %>
+    token_uri:  <%= Decidim::Env.new("GCS_TOKEN_URI", "https://accounts.google.com/o/oauth2/token").to_s %>
+    auth_provider_x509_cert_url: <%= Decidim::Env.new("GCS_AUTH_PROVIDER_X509_CERT_URL", "https://www.googleapis.com/oauth2/v1/certs").to_s %>
+    client_x509_cert_url: <%= Decidim::Env.new("GCS_CLIENT_X509_CERT_URL").to_s %>
+
+# mirror:
+#   service: Mirror
+#   primary: local
+#   mirrors: [ s3, gcs, azure ]

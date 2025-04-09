@@ -258,10 +258,11 @@ en:
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
-          cancel_order: delete your vote
+          cancel_order: Delete your vote
           checked_out:
             description: You have already voted for the budget. If you have changed your mind, you can delete your vote.
             title: Budget vote completed
+          hint: Start adding projects. Assign at least %{minimum_budget_amount} to the projects you want and vote according to your preferences to define the budget.
           vote: Vote budget
         count:
           projects_count:
@@ -280,6 +281,11 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
+        focus_mode:
+          close:
+            confirm_no_vote:
+              message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
+              title: You have not yet voted
         order_progress:
           assigned: Assigned
           budget: Budget
@@ -323,6 +329,7 @@ en:
         select_projects: Select projects
         show:
           budget: Budget
+        start_voting: Start voting
       prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:

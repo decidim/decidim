@@ -128,7 +128,7 @@ module Decidim
       end
 
       describe "#votes_given" do
-        subject { helper.votes_given }
+        subject { helper.send(:votes_given) }
 
         let(:user) { create(:user) }
         let(:component) { create(:component, manifest_name: :proposals) }
@@ -147,9 +147,9 @@ module Decidim
         context "when votes_given is already calculated" do
           it "memoizes the result" do
             allow(ProposalVote).to receive(:where).and_call_original
-            expect(helper.votes_given).to eq(0)
+            expect(helper.send(:votes_given)).to eq(0)
             expect(ProposalVote).not_to receive(:where)
-            expect(helper.votes_given).to eq(0)
+            expect(helper.send(:votes_given)).to eq(0)
           end
         end
       end
