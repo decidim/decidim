@@ -101,6 +101,49 @@ module Decidim
               expect(response).to redirect_to(documents_path)
             end
           end
+
+          describe "GET #edit_settings" do
+            it "renders the edit settings template" do
+              get :edit_settings, params: { id: collaborative_text_document.id }
+              expect(response).to have_http_status(:ok)
+              expect(response).to render_template(:edit_settings)
+            end
+          end
+
+          describe "PATCH #update_settings" do
+            it "updates the document settings and redirects to index" do
+              patch :update_settings, params: { id: collaborative_text_document.id, announcement: { en: "Updated announcement" } }
+              expect(response).to redirect_to(documents_path)
+            end
+
+            context "with invalid params" do
+              let(:title) { "" }
+
+              it "does not update the document settings" do
+                patch :update_settings, params: { id: collaborative_text_document.id, title: "", body: body }
+                expect(response).to render_template(:edit_settings)
+                expect(flash.now[:alert]).to eq("There was a problem updating the document.")
+              end
+            end
+          end
+
+          describe "GET #publish" do
+            it "publishes the document and redirects to index" do
+              get :publish, params: { id: collaborative_text_document.id }
+              expect(response).to redirect_to(documents_path)
+              expect(flash[:notice]).to eq("Document successfully published.")
+            end
+          end
+
+          describe "GET #unpublish" do
+            let!(:collaborative_text_document) { create(:collaborative_text_document, :published, component:, document_versions:) }
+
+            it "unpublishes the document and redirects to index" do
+              get :unpublish, params: { id: collaborative_text_document.id }
+              expect(response).to redirect_to(documents_path)
+              expect(flash[:notice]).to eq("Document successfully unpublished.")
+            end
+          end
         end
       end
     end
