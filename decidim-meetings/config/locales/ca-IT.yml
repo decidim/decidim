@@ -600,7 +600,7 @@ ca-IT:
         answers:
           index:
             administrate: Administrar
-            title: Consulta/Sondeig en directe
+            title: Sondeig
           index_admin:
             back_to_meeting: Tornar a la trobada
             title: Administrar consulta/sondeo en directe
