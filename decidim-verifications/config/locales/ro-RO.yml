@@ -98,19 +98,11 @@ ro:
         start_exploring: să începeți să explorați
       csv_census:
         admin:
-          destroy:
-            title: Ștergeți toate datele recensământului
           index:
-            empty: Nu există date de recensământ. Utilizați formularul de mai jos pentru a-l importa folosind un fișier CSV.
             title: Date de recensământ curente
           instructions:
             body: Pentru a face acest lucru, trebuie să introduci administrarea sistemului şi să adaugi autorizaţiile csv_recensământ în organizaţie
             title: Trebuie să activezi recensământul CSV pentru această organizație
-          new:
-            file: "fișier .csv cu date de e-mail"
-            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresele de e-mail:'
-            submit: Încarcă fișier
-            title: Încarcă un nou recensământ
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
