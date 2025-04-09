@@ -24,7 +24,7 @@ module Decidim
           destroy_registration
           destroy_questionnaire_responses
           decrement_score
-          move_from_waitlist!
+          promote_from_waitlist!
         end
         broadcast(:ok)
       end
@@ -52,23 +52,31 @@ module Decidim
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
       end
 
-      def move_from_waitlist!
-        return unless @meeting.remaining_slots.positive?
+      def send_email_confirmation(registration, user, meeting)
+        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
+      end
 
-        on_waiting_list_user = @meeting.registrations.on_waiting_list.first
-        return unless on_waiting_list_user
-
-        on_waiting_list_user.update!(status: :registered)
-
+      def send_notification(next_in_waitlist)
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          affected_users: [on_waiting_list_user.user],
+          affected_users: [next_in_waitlist.user],
           extra: {
-            registration_code: on_waiting_list_user.code
+            registration_code: next_in_waitlist.code
           }
         )
+      end
+
+      def promote_from_waitlist!
+        return unless @meeting.remaining_slots.positive?
+
+        next_in_waitlist = @meeting.registrations.on_waiting_list.first
+        return unless next_in_waitlist
+
+        next_in_waitlist.update!(status: :registered)
+        send_email_confirmation(next_in_waitlist, next_in_waitlist.user, @meeting)
+        send_notification(next_in_waitlist)
       end
     end
   end

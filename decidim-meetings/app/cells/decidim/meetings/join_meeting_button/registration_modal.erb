@@ -1,9 +1,8 @@
-<% action = model.has_available_slots? ? "registration" : "waitlist" %>
-<%= decidim_modal id: "meeting-#{action}-confirm-#{model.id}", class: "meeting__registration-modal" do %>
-  <%= decidim_form_for(registration_form, url: model.has_available_slots? ? meeting_registration_path(model) : join_waitlist_meeting_registration_path(model), method: :post) do |form| %>
+<%= decidim_modal id: "meeting-#{registration_action}-confirm-#{model.id}", class: "meeting__registration-modal" do %>
+  <%= decidim_form_for(registration_form, url: registration_path, method: :post) do |form| %>
     <div data-dialog-container>
       <%= icon "login-circle-line" %>
-      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t(model.has_available_slots? ? "join" : "join_waitlist", scope: "decidim.meetings.meetings.show") %></h2>
+      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t(registration_translation_key, scope: "decidim.meetings.meetings.show") %></h2>
       <div>
 
         <div class="form__wrapper">
@@ -13,7 +12,7 @@
       </div>
     </div>
     <div data-dialog-actions>
-      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="meeting-<%= action %>-confirm-<%= model.id %>">
+      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="meeting-<%= registration_action %>-confirm-<%= model.id %>">
         <span><%= i18n_cancel_text %></span>
       </button>
       <button type="submit" class="button button__sm md:button__lg button__secondary">

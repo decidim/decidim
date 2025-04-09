@@ -24,6 +24,10 @@ module Decidim
         model.component
       end
 
+      def available_slots?
+        @available_slots ||= model.has_available_slots?
+      end
+
       def button_classes
         "button button__xl button__secondary w-full"
       end
@@ -56,6 +60,18 @@ module Decidim
 
       def registration_form
         @registration_form ||= Decidim::Meetings::JoinMeetingForm.new
+      end
+
+      def registration_action
+        @registration_action ||= model.has_available_slots? ? "registration" : "waitlist"
+      end
+
+      def registration_path
+        model.has_available_slots? ? meeting_registration_path(model) : join_waitlist_meeting_registration_path(model)
+      end
+
+      def registration_translation_key
+        model.has_available_slots? ? :join : :join_waitlist
       end
     end
   end

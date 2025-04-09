@@ -233,6 +233,8 @@ en:
             location: the location
             start_time: the start time
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: You have been added to the waiting list for the <a href="%{resource_url}">%{resource_title}</a> meeting.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
