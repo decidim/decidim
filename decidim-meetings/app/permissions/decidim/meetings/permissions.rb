@@ -15,20 +15,21 @@ module Decidim
 
         return permission_action unless user
 
-        return permission_action if permission_action.subject
+        toggle_allow(can_respond_question?) if permission_action.subject == :response && permission_action.action == :create
 
-        allow! if subject == :response && action == :create && can_respond_question?
-        allow! if subject == :question && action == :update && can_update_question?
-        allow! if subject == :meeting && action == :join && can_join_meeting?
-        allow! if subject == :meeting && action == :leave && can_leave_meeting?
-        allow! if subject == :meeting && action == :decline_invitation && can_decline_invitation?
-        allow! if subject == :meeting && action == :create && can_create_meetings?
-        allow! if subject == :meeting && action == :update && can_update_meeting?
-        allow! if subject == :meeting && action == :withdraw && can_withdraw_meeting?
-        allow! if subject == :meeting && action == :close && can_close_meeting?
-        allow! if subject == :meeting && action == :register && can_register_invitation_meeting?
-        allow! if subject == :meeting && action == :reply_poll && can_reply_poll?
-        allow! if subject == :poll && action == :update && can_update_poll?
+        toggle_allow(can_update_question?) if permission_action.subject == :question && permission_action.action == :update
+
+        toggle_allow(can_join_meeting?) if permission_action.subject == :meeting && permission_action.action == :join
+        toggle_allow(can_leave_meeting?) if permission_action.subject == :meeting && permission_action.action == :leave
+        toggle_allow(can_decline_invitation?) if permission_action.subject == :meeting && permission_action.action == :decline_invitation
+        toggle_allow(can_create_meetings?) if permission_action.subject == :meeting && permission_action.action == :create
+        toggle_allow(can_update_meeting?) if permission_action.subject == :meeting && permission_action.action == :update
+        toggle_allow(can_withdraw_meeting?) if permission_action.subject == :meeting && permission_action.action == :withdraw
+        toggle_allow(can_close_meeting?) if permission_action.subject == :meeting && permission_action.action == :close
+        toggle_allow(can_register_invitation_meeting?) if permission_action.subject == :meeting && permission_action.action == :register
+        toggle_allow(can_reply_poll?) if permission_action.subject == :meeting && permission_action.action == :reply_poll
+
+        toggle_allow(can_update_poll?) if permission_action.subject == :poll && permission_action.action == :update
 
         permission_action
       end
