@@ -207,12 +207,12 @@ de:
             email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
             email_subject: Die Veranstaltung "%{resource_title}" wurde geschlossen
-            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
           follower:
             email_intro: 'Die Veranstaltung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Die Veranstaltung "%{resource_title}" wurde geschlossen
-            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
         meeting_created:
           button_text: Zur Veranstaltung anmelden
           email_intro: Die Veranstaltung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
@@ -655,7 +655,7 @@ de:
             question: Frage
             question_results: Resultate
           index:
-            empty_questions: Während dieser Veranstaltung werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
+            empty_questions: Während dieser Veranstaltung werden einige Fragen gestellt, die Sie beantworten können. Sie werden hier angezeigt.
           index_admin:
             edit: Im Adminbereich bearbeiten
             question: Frage
