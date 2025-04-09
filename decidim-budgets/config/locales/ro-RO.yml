@@ -118,7 +118,10 @@ ro:
             title: Titlu
       order:
         status:
+          share_text: ""
           title: Votul tău a fost acceptat cu succes
+      order_pdf:
+        text:
       order_summary_mailer:
         order_summary:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'
