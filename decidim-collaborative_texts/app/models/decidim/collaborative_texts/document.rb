@@ -19,8 +19,8 @@ module Decidim
 
       after_save :save_version
 
-      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy, counter_cache: true
-      has_many :suggestions, through: :document_versions, counter_cache: true
+      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", inverse_of: :document, dependent: :destroy
+      has_many :suggestions, through: :document_versions
 
       validates :title, presence: true
 

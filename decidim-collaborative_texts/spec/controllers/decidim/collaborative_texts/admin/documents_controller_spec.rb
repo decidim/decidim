@@ -12,7 +12,7 @@ module Decidim
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:organization) { create(:organization) }
         let(:participatory_space) { create(:participatory_process, organization:) }
-        let!(:component) { create(:collaborative_texts_component, participatory_space:) }
+        let!(:component) { create(:collaborative_text_component, participatory_space:) }
         let!(:collaborative_text_document) { create(:collaborative_text_document, component:) }
         let(:params) { { id: collaborative_text_document.id } }
 

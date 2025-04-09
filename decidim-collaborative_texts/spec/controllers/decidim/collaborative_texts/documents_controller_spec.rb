@@ -6,7 +6,7 @@ module Decidim
   module CollaborativeTexts
     describe DocumentsController do
       let(:user) { create(:user, :confirmed, organization: component.organization) }
-      let(:component) { create(:collaborative_texts_component) }
+      let(:component) { create(:collaborative_text_component) }
       let(:published_at) { Time.current }
       let!(:published_document) { create(:collaborative_text_document, component:, published_at:) }
       let!(:unpublished_document) { create(:collaborative_text_document, component:) }

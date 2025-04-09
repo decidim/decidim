@@ -11,8 +11,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
-      belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
-      has_many :suggestions, class_name: "Decidim::CollaborativeTexts::Suggestion", foreign_key: "document_version_id", dependent: :destroy, counter_cache: true
+      belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document", counter_cache: :document_versions_count, inverse_of: :document_versions
+      has_many :suggestions, class_name: "Decidim::CollaborativeTexts::Suggestion", foreign_key: "document_version_id", dependent: :destroy
 
       validates :body, presence: true
       validates :draft, presence: true, uniqueness: { scope: :document_id }, if: :draft

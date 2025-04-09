@@ -8,7 +8,7 @@ describe "Admin edits documents" do
   let(:body) { Faker::HTML.paragraph }
 
   include_context "when managing a component as an admin" do
-    let!(:component) { create(:collaborative_texts_component, participatory_space:) }
+    let!(:component) { create(:collaborative_text_component, participatory_space:) }
   end
 
   before do
