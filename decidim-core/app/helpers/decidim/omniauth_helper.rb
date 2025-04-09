@@ -20,7 +20,7 @@ module Decidim
       name = "#{name}-fill"
 
       if provider_info
-        icon_path = provider_info[:icon_path] || Rails.application.secrets.omniauth[provider][:icon_path].presence
+        icon_path = provider_info[:icon_path] || Decidim.omniauth_providers[provider][:icon_path].presence
         return external_icon(icon_path) if icon_path.present?
 
         name = provider_info[:icon] if provider_info[:icon]
