@@ -173,13 +173,7 @@ sv:
             body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
             title: Du måste aktivera medlemsregister via CSV för organisationen
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
