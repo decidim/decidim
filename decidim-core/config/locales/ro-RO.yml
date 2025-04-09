@@ -33,6 +33,12 @@ ro:
         personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format:
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
@@ -117,6 +123,21 @@ ro:
         other: mai puțin de %{count} secunde
       short:
         about_x_days: "%{count}z"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count} m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count} m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count} m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 zi
         few: "%{count} zile"
@@ -277,6 +298,8 @@ ro:
         verify_via_csv: "%{user_name} a verificat grupul de utilizatori %{resource_name} printr-un upload de fișier CSV"
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la administratorul local de sistem. De obicei se rezumă la aceste trei lucruri: </p><ol><li>Respectați viața privată a celorlalți. </li><li>Gândiți înainte de a face clic.</li><li>Cu o putere mare vine și o mare responsabilitate.</li></ol>"
     alert:
       dismiss: Închideți notificare
     amendments:
@@ -288,6 +311,7 @@ ro:
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+        promote_help_text: Puteți să promovați această ediție și să o publicați ca independent %{model_name}.
       amendments:
         title:
           one: "%{count} amendament"
@@ -346,6 +370,8 @@ ro:
       update_draft:
         error: A apărut o problemă la actualizarea proiectului de amendament.
         success: Proiectului de amendament a fost actualizat cu succes.
+      withdraw:
+        success: Amendamentul a fost retras cu succes.
       wizard_step_form:
         steps:
           '1': Creeați un amendament
@@ -378,11 +404,13 @@ ro:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           passport_number: Număr pașaport
           postal_code: Cod poștal
         name: Un alt exemplu de autorizare
       dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
           allowed_scope_id: Domeniu de interes permis
@@ -414,6 +442,7 @@ ro:
           title: Autorizarea a expirat
         incomplete:
           cancel: Anulați
+          explanation: 'Chiar dacă sunteți autorizat în prezent cu "%{authorization}", trebuie să vă reautorizați deoarece ne lipsesc următoarele date:'
           invalid_field: "%{field}"
           reauthorize: Reautorizați
           title: Vă rugăm să reautorizați
@@ -421,9 +450,15 @@ ro:
           authorize: Autorizați cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}".
           title: Autorizare necesară
+        ok:
+          title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea.
         pending:
+          explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}", dar autorizarea dvs. este în curs.
+          resume: Verificați progresul autorizării "%{authorization}"
           title: În proces de autorizare
         unauthorized:
+          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele tale de autorizare nu se potrivesc.
+          invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
           title: Nu este autorizat
         unconfirmed:
@@ -502,6 +537,8 @@ ro:
         name: Banner suberou suberou
       global_menu:
         name: Meniul global
+      hero:
+        name: Imagine Erou și CTA
       hero_settings_form:
         background_image: Imagine de fundal
         welcome_text: Text de întâmpinare
@@ -524,6 +561,10 @@ ro:
         name: Ultima activitate
         title: Ultima activitate
         view_all: Vedeți tot
+      last_activity_settings_form:
+        max_last_activity_users: Numărul maxim de avatare ale utilizatorului cu activitate recentă de afișat
+      main_data:
+        name: Date principale
       metadata:
         name: Metadate
       metrics:
@@ -561,6 +602,8 @@ ro:
           all: Toate
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Un alt cont folosește aceeași adresă de e-mail.
         new:
           complete_profile: Completați-vă profilul
           nickname_help: Pseudonimul dumneavoastră în %{organization}. Poate conține doar litere, numere, '-' și '_'.
@@ -586,16 +629,32 @@ ro:
           are_you_new?: Nou pe platformă?
           register: Creați un cont
           sign_in_disabled: Puteți accesa printr-un cont extern.
+        user:
+          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
             check: Verificați și continuați
             uncheck: Mențineți nebifat
+          notice: |-
+            <p>Sigur nu doriți să primiți un buletin informativ?<br>
+            Vă rugăm să bifați din nou caseta din buletinul informativ de mai jos.<br>
+            Este foarte important pentru noi să puteți primi e-mailuri ocazionale
+            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe 
+            pagina cu setări pentru notificări. </p>
+            <p>Dacă nu bifați caseta ați putea rata informații importante
+            despre noi oportunități de participare în cadrul platformei.<br>Dacă, totuși, doriți să evitați primirea de buletine informative, înțelegem
+            perfect decizia dumneavoastră.</p>
+            <p>Vă mulțumim că ați citit acest mesaj!</p>
           title: Notificări newsletter
         omniauth_buttons:
           or: Sau
         password_fields:
+          hidden_password: Parola dvs. este ascunsă
           hide_password: Ascunde parola
+          show_password: Afişeaza parola
+          shown_password:
+        placeholder_email: hi@exemplu.org
     doorkeeper:
       authorizations:
         new:
@@ -644,6 +703,7 @@ ro:
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
+        title: Pagina pe care o cauți nu poate fi găsită.
     events:
       amendments:
         amendment_accepted:
