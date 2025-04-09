@@ -120,9 +120,6 @@ pt-BR:
             title: Você precisa ativar o censo CSV para esta organização
           new:
             file: "arquivo .csv com dados de e-mails"
-            info: 'Deve ser um arquivo no formato CSV com apenas uma coluna com o endereço de e-mail:'
-            submit: Subir arquivo
-            title: Carregar um novo censo
         authorizations:
           new:
             error: Não foi possível confirmar sua conta ou você não está no censo da organização.
