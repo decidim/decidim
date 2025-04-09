@@ -466,7 +466,24 @@ de:
       index:
         uninitialized: Initiativen wurden noch nicht von einem Admin konfiguriert.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Geburtsdatum
+              document_number:
+                placeholder: Dokumentnummer
+              document_type:
+                prompt: Dokumenttyp
+              document_type_and_number:
+                label: Dokumenttyp und -nummer
+              gender:
+                options:
+                  man: Mann
+                  non_binary: Nicht-binär
+                  woman: Frau
         fill_personal_data:
+          continue: Daten überprüfen
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen.
         finish:
           back_to_initiative: Zurück zur Initiative
