@@ -19,6 +19,11 @@ module Decidim::Meetings
           .with(format)
           .and_return(class_double)
 
+        expect(Decidim::Exporters)
+            .to receive(:find_exporter)
+                    .with(format)
+                    .and_return(class_double)
+
         subject.call
       end
 

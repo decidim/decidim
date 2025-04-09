@@ -30,6 +30,10 @@ module Decidim
             .to receive(:subscribe)
             .with(described_class::EVENT_NAME, &block)
 
+          expect(ActiveSupport::Notifications)
+            .to receive(:subscribe)
+            .with(described_class::EVENT_NAME)
+
           described_class.subscribe(&block)
         end
       end

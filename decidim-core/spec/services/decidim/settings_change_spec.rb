@@ -46,6 +46,10 @@ module Decidim
           .to receive(:subscribe)
           .with(/^decidim\.settings_change\.dummy/, &block)
 
+        expect(ActiveSupport::Notifications)
+          .to receive(:subscribe)
+          .with(/^decidim\.settings_change\.dummy/, &block)
+
         described_class.subscribe(scope, &block)
       end
     end

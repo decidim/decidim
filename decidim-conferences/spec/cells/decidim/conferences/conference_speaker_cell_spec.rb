@@ -10,8 +10,10 @@ module Decidim::Conferences
       let(:conference_speaker) { create_speaker_with_trait(nil) }
       let(:model) { Decidim::ConferenceSpeakerPresenter.new(conference_speaker) }
 
+      subject { cell("decidim/conferences/conference_speaker", model).call }
+
       it "renders the card" do
-        call_and_expect_speaker_cell(model)
+        expect(subject).to have_css("[data-conference-speaker]")
       end
     end
 
@@ -19,8 +21,10 @@ module Decidim::Conferences
       let(:conference_speaker) { create_speaker_with_trait(:with_avatar) }
       let(:model) { Decidim::ConferenceSpeakerPresenter.new(conference_speaker) }
 
+      subject { cell("decidim/conferences/conference_speaker", model).call }
+
       it "renders the card" do
-        call_and_expect_speaker_cell(model)
+        expect(subject).to have_css("[data-conference-speaker]")
       end
     end
 
@@ -28,8 +32,10 @@ module Decidim::Conferences
       let(:conference_speaker) { create_speaker_with_trait(:with_user) }
       let(:model) { Decidim::ConferenceSpeakerPresenter.new(conference_speaker) }
 
+      subject { cell("decidim/conferences/conference_speaker", model).call }
+
       it "renders the card" do
-        call_and_expect_speaker_cell(model)
+        expect(subject).to have_css("[data-conference-speaker]")
       end
     end
 
@@ -37,11 +43,6 @@ module Decidim::Conferences
 
     def create_speaker_with_trait(trait)
       create(:conference_speaker, trait)
-    end
-
-    def call_and_expect_speaker_cell(model)
-      html = cell("decidim/conferences/conference_speaker", model).call
-      expect(html).to have_css("[data-conference-speaker]")
     end
   end
 end

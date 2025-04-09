@@ -28,7 +28,7 @@ describe "User prints the initiative" do
         within ".edit_initiative" do
           fill_in :initiative_hashtag, with: "#hashtag"
         end
-        submit_and_validate
+        expect { submit_and_validate }.not_to raise_error
       end
 
       it "updates the initiative" do
@@ -62,7 +62,7 @@ describe "User prints the initiative" do
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
-          submit_and_validate
+          expect { submit_and_validate }.not_to raise_error
         end
 
         it "displays initiative attachments" do
@@ -84,7 +84,7 @@ describe "User prints the initiative" do
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
-          submit_and_validate
+          expect { submit_and_validate }.not_to raise_error
         end
 
         it "displays initiative attachments" do

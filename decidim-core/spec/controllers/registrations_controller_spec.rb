@@ -53,7 +53,8 @@ module Decidim
         let(:email) { nil }
 
         it "renders the new template" do
-          send_form_and_expect_rendering_the_new_template_again
+          post(:create, params:)
+          expect(controller).to render_template "new"
         end
 
         it "adds the flash message" do

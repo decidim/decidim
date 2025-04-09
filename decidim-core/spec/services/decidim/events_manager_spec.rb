@@ -85,6 +85,10 @@ describe Decidim::EventsManager do
         .to receive(:subscribe)
         .with(event, &block)
 
+      expect(ActiveSupport::Notifications)
+        .to receive(:subscribe)
+        .with(event)
+
       described_class.subscribe(event, &block)
     end
   end
