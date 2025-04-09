@@ -105,9 +105,6 @@ tr:
             title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
           new:
             file: "e-posta verileri içeren .csv dosyası"
-            info: 'E-posta adresi içeren yalnızca bir sütuna sahip CSV biçiminde bir dosya olmalıdır:'
-            submit: Dosya yükle
-            title: Yeni bir sayım yükleyin
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
