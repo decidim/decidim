@@ -88,19 +88,11 @@ it:
         start_exploring: comincia ad esplorare
       csv_census:
         admin:
-          destroy:
-            title: Elimina tutti i dati del censimento
           index:
-            empty: Non ci sono dati del censimento. Utilizza il modulo sottostante per importarlo utilizzando un file CSV.
             title: Dati di censimento attuali
           instructions:
             body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
             title: È necessario attivare il censimento CVS per questa organizzazione
-          new:
-            file: "file .csv con dati di posta elettronica"
-            info: 'Deve essere un file in formato CSV con una sola colonna con l''indirizzo email:'
-            submit: Caricare un file
-            title: Carica un nuovo censimento
         authorizations:
           new:
             error: Non è stato possibile verificare il tuo account o non ci si trova nel censimento dell'organizzazione.
