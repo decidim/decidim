@@ -160,30 +160,11 @@ eu:
         start_exploring: Hasi esploratzen
       csv_census:
         admin:
-          census:
-            create:
-              error: Arazo bat izan da erroldak inportatzean.
-              success: Zuzen inportatutako %{count} itemak (%{errors} errors).
-            destroy_all:
-              success: Erroldako datu guztiak ezabatu dira.
-          destroy:
-            confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-            title: Ezabatu erroldako datu guztiak
           index:
-            data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
-            empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
             title: Erroldako oraingo datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
             title: CSV errolda aktibatu behar duzu erakunde honetarako
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
-            submit: Igo fitxategia
-            title: Igo beste errolda bat
         authorizations:
           new:
             error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
