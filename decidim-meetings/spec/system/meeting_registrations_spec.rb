@@ -76,10 +76,10 @@ describe "Meeting registrations" do
         create(:registration, meeting:, user:)
       end
 
-      it "the registration button is disabled" do
+      it "shows the waitlist button" do
         visit_meeting
 
-        expect(page).to have_css("button[disabled]", text: "No slots available")
+        expect(page).to have_text("Join waitlist")
         expect(page).to have_text("0 slots remaining")
       end
 
