@@ -38,7 +38,7 @@ module Decidim
             imported_records.first,
             nil,
             extra: {
-              imported_count: imported_records.count,
+              imported_records:,
               failed_count: failed.count
             }
           )

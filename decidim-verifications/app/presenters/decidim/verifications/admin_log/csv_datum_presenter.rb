@@ -30,11 +30,14 @@ module Decidim
         end
 
         def i18n_params
-          extra = @action_log.extra || {}
           super.merge(
             resource_email: @resource&.email.to_s,
-            imported_count: extra[:imported_count].to_i
+            imported_count: imported_records.count
           )
+        end
+
+        def imported_records
+          action_log.extra.dig("extra", "imported_records") || []
         end
       end
     end
