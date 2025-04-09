@@ -17,7 +17,7 @@ module Decidim
 
       enum status: { registered: "registered", waiting_list: "waiting_list" }
 
-      scope :public_participant, -> { where(public_participation: true) }
+      scope :public_participant, -> { registered.where(public_participation: true) }
       scope :on_waiting_list, -> { waiting_list.order(:created_at) }
 
       def self.user_collection(user)
