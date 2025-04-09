@@ -160,30 +160,11 @@ es:
         start_exploring: empezar a explorar
       csv_census:
         admin:
-          census:
-            create:
-              error: Se ha producido un error al importar el censo.
-              success: '%{count} ítems importados correctamente (%{errors} errores).'
-            destroy_all:
-              success: Todos los datos del censo han sido eliminados.
-          destroy:
-            confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
-            title: Borrar todos los datos del censo
           index:
-            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
-            empty: No hay datos del censo. Utiliza el siguiente formulario para importarlo usando un archivo CSV.
             title: Datos censales actuales
           instructions:
             body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "archivo .csv con datos de correos electrónicos"
-            info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
-            submit: Subir archivo
-            title: Subir un nuevo censo
         authorizations:
           new:
             error: No pudimos verificar tu cuenta o no estás en el censo de la organización.
