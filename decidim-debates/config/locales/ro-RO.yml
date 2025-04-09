@@ -53,6 +53,7 @@ ro:
         confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Modificați
+        new: Dezbatere nouă
         title: Acțiuni
       admin:
         debate_closes:
