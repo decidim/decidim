@@ -61,7 +61,7 @@ describe "Admin manages census" do
 
       it "edits the added census record" do
         expect(page).to have_content("Created At")
-        expect(page).to have_content("User verification")
+        expect(page).to have_content("User authorized?")
         expect(page).to have_content("Actions")
         expect(page).to have_content("this_email_does_not_exist@example.org")
 

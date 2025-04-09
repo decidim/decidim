@@ -5,54 +5,41 @@ module Decidim
     module CsvCensus
       class ProcessCensusDataJob < ApplicationJob
         queue_as :default
+        attr_reader :imported_records, :failed, :user
 
-        def perform(data, organization, user)
-          @imported_data = []
+        def perform(data, user)
+          @user = user
+          @imported_records = []
           @failed = []
 
           data.each do |email|
-            if CsvDatum.exists?(email:, organization:)
-              Rails.logger.info(I18n.t("census.new_import.errors.email_exists", scope: "decidim.verifications.csv_census.admin", email:, organization: organization.id))
-              failed << email
+            record = CsvDatum.find_or_create_by(email:, organization: user.organization)
+            if record && record.valid?
+              @imported_records << record
             else
-              CsvDatum.create!(organization:, email:)
-              imported_data << email
+              @failed << email
+              Rails.logger.warn(I18n.t("census.new_import.errors.email_exists", scope: "decidim.verifications.csv_census.admin", email:, organization: user.organization.id))
             end
 
-            authorize_record(email, organization)
+            record.authorize!
           end
-          log_import_action(user, organization, imported_data)
+
+          log_import_action
         end
 
         private
 
-        def authorize_record(email, organization)
-          user = organization.users.available.find_by(email:)
-
-          unless user
-            Rails.logger.info(I18n.t("census.new_import.errors.email_not_found", scope: "decidim.verifications.csv_census.admin", email:, organization: organization.id))
-            return
-          end
-
-          authorization = Decidim::Authorization.find_or_initialize_by(
-            user: user,
-            name: "csv_census"
-          )
-
-          authorization.grant! unless authorization.granted?
-        end
-
-        def log_import_action(user, _organization, imported_data)
-          return if imported_data.blank?
+        def log_import_action
+          return if imported_records.blank?
 
           Decidim::ActionLogger.log(
             "import",
             user,
-            imported_data.first,
+            imported_records.first,
             nil,
             extra: {
-              imported_count: @imported_data.count,
-              failed_count: @failed.count
+              imported_count: imported_records.count,
+              failed_count: failed.count
             }
           )
         end

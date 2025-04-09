@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Verifications::CsvCensus::Admin
   describe CreateCensusData do
-    subject { described_class.new(form, organization, current_user) }
+    subject { described_class.new(form, current_user) }
 
     let(:organization) { create(:organization) }
     let(:file) do
@@ -45,7 +45,7 @@ module Decidim::Verifications::CsvCensus::Admin
 
       it "enqueues the ProcessCensusDataJob" do
         subject.call
-        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], organization, current_user)
+        expect(Decidim::Verifications::CsvCensus::ProcessCensusDataJob).to have_received(:perform_later).with(["valid_email@example.com", "another_valid_email@example.com"], current_user)
       end
 
       it "broadcasts :ok" do

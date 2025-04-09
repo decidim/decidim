@@ -47,7 +47,7 @@ module Decidim
               redirect_to(census_logs_path) && return
             end
 
-            CreateCensusData.call(@form, current_organization, current_user) do
+            CreateCensusData.call(@form, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("census.create_import.success", scope: "decidim.verifications.csv_census.admin", count: @form.data.values.count)
                 redirect_to census_logs_path

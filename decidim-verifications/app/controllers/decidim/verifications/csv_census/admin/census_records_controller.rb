@@ -21,9 +21,8 @@ module Decidim
                 render json: { redirect_url: census_logs_path }, status: :ok
               end
 
-              on(:invalid) do |error_data|
-                flash.now[:alert] = error_data[:error] || I18n.t("census_records.create_record.error", scope: "decidim.verifications.csv_census.admin")
-                render action: "new_record", status: :unprocessable_entity
+              on(:invalid) do
+                render :new_record, status: :unprocessable_entity
               end
             end
           end
