@@ -154,13 +154,7 @@ de:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
             title: Sie müssen die CSV Erhebung für diese Organisation aktivieren
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: "CSV-Datei mit E-Mail-Daten"
-            info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
-            submit: Datei hochladen
-            title: Laden Sie eine neue Erhebung hoch
         authorizations:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.
