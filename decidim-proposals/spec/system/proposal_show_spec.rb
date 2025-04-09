@@ -62,15 +62,6 @@ describe "Show a Proposal" do
           visit current_path
         end
 
-        # context "when author does not restrict messaging" do
-        #   it "includes a link to message the proposal author" do
-        #     within "[data-author]" do
-        #       find(".author__container").hover
-        #     end
-        #     expect(page).to have_link("Send private message")
-        #   end
-        # end
-
         context "when participant is deleted" do
           let!(:author) { create(:user, :deleted, organization: component.organization) }
           let!(:proposal) { create(:proposal, component:, users: [author]) }
