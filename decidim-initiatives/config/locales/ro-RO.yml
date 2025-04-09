@@ -429,6 +429,7 @@ ro:
           confirmed_data: Ați confirmat datele.
           continue: Semnați inițiativa
           help_enter_your_number: Vă rugăm să introduceți numărul dumneavoastră de telefon. Apoi veți primi un SMS cu un cod de validare.
+          receive_code: Codul primit
           resend_code_html: Nu ați primit codul? <a href="%{new_code_path}">Încercați din nou</a>
           your_code_is_correct: Codul dumneavoastră este corect.
           your_code_is_incorrect: Codul nu este corect. Examinați-l sau <a href="%{new_code_path}">încercați din nou</a>.
@@ -543,6 +544,23 @@ ro:
           discarded: Respins
           rejected: Semnături insuficiente
           validating: Validarea tehnică
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description:
+            name: Handler cu semnătură fictivă
+          dummy_signature_with_personal_data_handler:
+            description:
+            name:
+          dummy_signature_with_sms_handler:
+            description:
+            name: Handler semnătură fictiva cu doar SMS
+          ephemeral_dummy_signature_handler:
+            description:
+            name:
+          legacy_signature_handler:
+            description:
+            name: Handler cu semnătură inițială
       states:
         accepted: Acceptat
         expired: Expirat
@@ -564,6 +582,7 @@ ro:
         promotal_committee: Căutați promotori
         select_initiative_type: Alege
       initiative_signature_creation_header:
+        help_information_html: Pentru a semna inițiativa <strong>%{initiative_title}</strong> promovat de %{initiative_author} trebuie să furnizați câteva informații care vor face inițiativa obligatorie din punct de vedere juridic. Nicio informație despre tine nu va fi făcută publică.
         verify_your_identity: Verificați identitatea dumneavoastră
       initiatives:
         no_initiatives_yet:
