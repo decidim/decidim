@@ -160,30 +160,11 @@ ca-IT:
         start_exploring: comença a explorar
       csv_census:
         admin:
-          census:
-            create:
-              error: S'ha produït un error en importar del cens.
-              success: S'han importat correctament %{count} elements (%{errors} errors).
-            destroy_all:
-              success: S'han eliminat totes les dades del cens.
-          destroy:
-            confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
-            title: Eliminar totes les dades del cens
           index:
-            data: Hi ha %{count} registres carregats en total. La darrera data de pujada va ser el dia %{due_date}.
-            empty: No hi ha dades del cens. Utilitza el formulari següent per importar-lo mitjançant un fitxer CSV.
             title: Dades censals actuals
           instructions:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "fitxer .csv amb dades de correus electrònics"
-            info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
-            submit: Puja un document
-            title: Puja un nou cens
         authorizations:
           new:
             error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
