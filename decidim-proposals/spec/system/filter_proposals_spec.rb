@@ -438,14 +438,17 @@ describe "Filter Proposals", :slow do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
+
+              component.update!(settings: { amendments_enabled: true })
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    amendments_visibility: "participants"
+                  }
+                }
+              )
               login_as user, scope: :user
               visit_component
-            end
-
-            it "can be filtered by type" do
-              within "form.new_filter" do
-                expect(page).to have_content(/Type/i)
-              end
             end
 
             context "and has amended a proposal" do
@@ -453,24 +456,28 @@ describe "Filter Proposals", :slow do
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
 
-              before do
-                component.update!(settings: { amendments_enabled: true })
-                component.update!(
-                  step_settings: {
-                    component.participatory_space.active_step.id => {
-                      amendments_visibility: "participants"
-                    }
-                  }
-                )
+              it "can be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_content(/Type/i)
+                end
               end
 
               it "lists only their amendments" do
                 within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
-                expect(page).to have_css("[id^='proposals__proposal']")
-                expect(page).to have_content("Amendment")
-                expect(page).to have_no_content(translated_attribute(emendation.title))
+                expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+                expect(page).to have_content("Amendment", count: 2)
+                expect(page).to have_content(translated(new_emendation.title))
+                expect(page).to have_no_content(translated(emendation.title))
+              end
+            end
+
+            context "and has NOT amended a proposal" do
+              it "cannot be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_no_content(/Type/i)
+                end
               end
             end
           end
