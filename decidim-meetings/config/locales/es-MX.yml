@@ -416,8 +416,6 @@ es-MX:
         registrations:
           edit:
             save: Guardar
-            validate: Validar
-            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
@@ -434,9 +432,6 @@ es-MX:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
-          validate_registration_code:
-            invalid: Este código de registro no es válido.
-            success: Código de registro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
