@@ -151,7 +151,6 @@ bg:
             default_registration_terms: Условия за регистрация по подразбиране
             enable_pads_creation: Активирай създаване на бележки
             maps_enabled: Картите са активирани
-            registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
             terms_and_conditions_url_for_meeting_creators: URL адрес за правила и условия за създатели на срещи
           step:
@@ -353,8 +352,6 @@ bg:
         registrations:
           edit:
             save: Запази
-            validate: Потвърди
-            validate_registration_code: Валидиране на регистрационния код
           form:
             available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
             invites: Покани
@@ -371,9 +368,6 @@ bg:
           update:
             invalid: Възникна проблем при запазването на настройките за регистрация.
             success: Настройките за регистрация бяха запазени успешно.
-          validate_registration_code:
-            invalid: Регистрационният код е невалиден.
-            success: Регистрационният код беше валидиран успешно.
       admin_log:
         invite:
           create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
@@ -534,7 +528,6 @@ bg:
           micro_camera_permissions_warning: Когато щракнете върху бутона по-долу, ще бъдете помолени за разрешения за микрофон и/или камера и ще се присъедините към видеоконференцията
           no_slots_available: Няма свободни места
           organizations: Присъстващи организации
-          registration_code_help_text: Вашият регистрационен код
           registration_state:
             validated: ВАЛИДИРАНО
             validation_pending: ОЧАКВА ВАЛИДИРАНЕ
@@ -598,7 +591,6 @@ bg:
         confirmation:
           confirmed_html: Регистрацията Ви за срещата <a href="%{url}">%{title}</a> беше потвърдена.
           details: Ще намерите подробности за срещата в прикачения файл.
-          registration_code: Вашият регистрационен код е %{code}.
       registration_type:
         on_different_platform: На различна платформа
         on_this_platform: На тази платформа
