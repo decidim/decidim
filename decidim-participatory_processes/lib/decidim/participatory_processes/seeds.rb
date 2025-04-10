@@ -9,8 +9,10 @@ module Decidim
       def call
         create_content_block!
 
+        number_of_records = Decidim::Env.new("CI").present? ? 1 : 2
+
         process_groups = []
-        2.times do
+        number_of_records.times do
           process_groups << create_process_group!
         end
 
@@ -19,7 +21,7 @@ module Decidim
         end
 
         taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
-        2.times do
+        number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for processes only
@@ -27,7 +29,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)

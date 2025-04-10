@@ -8,8 +8,10 @@ module Decidim
       def call
         create_content_block!
 
+        number_of_records = Decidim::Env.new("CI").present? ? 1 : 2
+
         taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
-        2.times do
+        number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for assemblies only
@@ -17,7 +19,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:assemblies])
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           assembly = create_assembly!
 
           create_assembly_user_roles!(assembly:)
