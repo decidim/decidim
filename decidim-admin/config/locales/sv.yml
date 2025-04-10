@@ -477,6 +477,10 @@ sv:
             explanation: 'Instruktioner för fil:'
             message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
             message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
+          import_csv:
+            explanation: 'Instruktioner för fil:'
+            message_1: CSV-filer stöds
+            message_2: ".csv-fil med e-postuppgifter"
       help_sections:
         error: Det gick inte att uppdatera hjälpsidorna.
         form:
