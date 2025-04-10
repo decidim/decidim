@@ -125,6 +125,7 @@ module Decidim
   autoload :HasConversations, "decidim/has_conversations"
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
+  autoload :PdfSignatureExample, "decidim/pdf_signature_example"
   autoload :HasWorkflows, "decidim/has_workflows"
 
   module Commands
