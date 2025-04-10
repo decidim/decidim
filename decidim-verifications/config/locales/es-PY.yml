@@ -173,7 +173,13 @@ es-PY:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "archivo .csv con datos de correos electrónicos"
+            info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
+            submit: Subir archivo
+            title: Subir un nuevo censo
         authorizations:
           new:
             error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
