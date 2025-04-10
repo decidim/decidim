@@ -209,8 +209,6 @@ sk:
         registrations:
           edit:
             save: Uložiť
-            validate: Overiť
-            validate_registration_code: Skontrolujte registračný kód
           form:
             available_slots_help: Nechajte to na 0, ak máte k dispozícii neobmedzené sloty.
             invites: Pozvánky
@@ -226,9 +224,6 @@ sk:
           update:
             invalid: Vyskytol sa problém pri ukladaní nastavení registrácie.
             success: Nastavenie úspešných registráciou bolo úspešne uložené.
-          validate_registration_code:
-            invalid: Tento registračný kód je neplatný.
-            success: Registračný kód bol úspešne overený.
       admin_log:
         invite:
           create: "% {USER_NAME} pozval% {attendee_name} aby sa pripojil ku% {resource_name} schôdzke na% {space_name} priestoru"
@@ -276,7 +271,6 @@ sk:
           meeting_minutes: Zápisnica z porady
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie
-          registration_code_help_text: Váš registračný kód
           registration_state:
             validated: DOKÁZANÝ
             validation_pending: OVERENIE ČAKÁ NA SCHVÁLENIE
@@ -308,7 +302,6 @@ sk:
         confirmation:
           confirmed_html: Vaša registrácia pre stretnutie <a href="%{url}">%{title} </a> bola potvrdená.
           details: Podrobnosti schôdzky nájdete v prílohe.
-          registration_code: Váš registračný kód je %{code}.
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
