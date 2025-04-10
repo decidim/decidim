@@ -165,7 +165,6 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
@@ -410,8 +409,6 @@ de:
         registrations:
           edit:
             save: Speichern
-            validate: Bestätigen
-            validate_registration_code: Validiere den Registrierungscode
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
@@ -428,9 +425,6 @@ de:
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
-          validate_registration_code:
-            invalid: Dieser Registrierungscode ist ungültig.
-            success: Registrierungscode erfolgreich validiert
       admin_log:
         invite:
           create: "%{user_name} hat %{attendee_name} eingeladen, an der Veranstaltung %{resource_name} in %{space_name} teilzunehmen"
@@ -597,7 +591,6 @@ de:
           no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
           redirect_notice: Diese Veranstaltung ist Teil eines anderen Bereichs, daher wurden Sie zu %{current_space_name} weitergeleitet. <br>Wenn Sie es bevorzugen, können Sie zu <a href="%{previous_space_url}">%{previous_space_name}</a> zurückkehren.
-          registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend
@@ -675,7 +668,6 @@ de:
         confirmation:
           confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zur Veranstaltung im Anhang.
-          registration_code: Ihr Registrierungscode ist %{code}.
       registration_type:
         on_different_platform: Auf einer anderen Plattform
         on_this_platform: Auf dieser Plattform
