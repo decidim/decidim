@@ -136,9 +136,6 @@ hu:
             title: Aktiválnia kell a szervezet névjegyzéki CSV-állományadatait
           new:
             file: ".csv fájl e-mail adatokkal"
-            info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'
-            submit: Fájl feltöltés
-            title: Töltsön fel egy új névjegyzéket
         authorizations:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.
