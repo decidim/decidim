@@ -97,7 +97,6 @@ hu:
             default_registration_terms: Alapértelmezett regisztrációs feltételek
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             maps_enabled: Térképek engedélyezve
-            registration_code_enabled: Regisztrációs kód engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
             terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
           step:
@@ -264,8 +263,6 @@ hu:
         registrations:
           edit:
             save: Mentés
-            validate: Érvényesítés
-            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
@@ -281,9 +278,6 @@ hu:
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
-          validate_registration_code:
-            invalid: Érvénytelen a regisztrációs kód.
-            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
         invite:
           create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
@@ -400,7 +394,6 @@ hu:
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
-          registration_code_help_text: A regisztrációs kódod
           registration_state:
             validated: JÓVÁHAGYOTT
             validation_pending: ÉRVÉNYESÍTÉS FÜGGŐBEN
@@ -437,7 +430,6 @@ hu:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
-          registration_code: 'Regisztrációs kódod: %{code}.'
       registration_type:
         on_different_platform: Egy másik platformon
         on_this_platform: Ezen a platformon
