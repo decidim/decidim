@@ -121,7 +121,7 @@ module Decidim
             before { subject.variant(:testing).process }
 
             it "returns a URL to the variant with the correct extension" do
-              expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+              expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
             end
           end
         end

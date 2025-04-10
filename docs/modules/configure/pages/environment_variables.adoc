@@ -806,6 +806,11 @@ After this time the initiative will be moved to discarded state.
 |false
 |No
 
+|INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET
+|Secret used by the base class Decidim::Initiatives::SignatureHandler to encrypt the user personal data that will be stored in the initiatives votes.
+|personal user metadata
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
