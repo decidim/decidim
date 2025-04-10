@@ -8,6 +8,7 @@ cs:
         mandatory: Povinné
         max_characters: Limit znaků (ponechte na 0, pokud není limit)
       response:
+        body: Odpověď
         choices: Možnosti
         selected_choices: Vyberte možnosti
     errors:
@@ -21,6 +22,7 @@ cs:
             body:
               too_long: je příliš dlouhý
             choices:
+              missing: nejsou kompletní
               too_many: Můžete si vybrat maximálně %{count}.
   decidim:
     download_your_data:
@@ -57,6 +59,7 @@ cs:
               equal: Rovná se
               match: Zahrnuje text
               not_equal: Není rovno
+              not_responded: Neodpověděl
             condition_value: Zahrnuje text
             display_condition: Stav zobrazení
             mandatory: Tato podmínka musí být splněna vždy bez ohledu na stav ostatních podmínek
@@ -101,9 +104,19 @@ cs:
             expand: Rozbalit všechny otázky
             update:
               success: Otázky ankety byly úspěšně uloženy.
+          response_option:
+            free_text: Volný text
+            remove: Odstranit
+            response_option: Možnost odpovědi
+            statement: Prohlášení
           responses:
             actions:
+              back: Zpět na odpovědi
+              export: Export
+              next: Další &rsaquo;
+              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
+            empty: Zatím žádné odpovědi
           separator:
             down: Dolů
             remove: Odebrat
