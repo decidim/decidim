@@ -33,7 +33,7 @@ class Selection {
   }
 
   scrollIntoView() {
-    if(this.editor) {
+    if (this.editor) {
       this.editor.editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   }

@@ -19,13 +19,11 @@ export default class SuggestionsList {
     // Restore the positions after a timeout to allow the DOM to update
     // and avoid flickering
     this.restoreTimeout = setTimeout(() => {
-      const offset = 54;
+      const offset = 58;
       const positions = this.defaultSuggestions().map((suggestion) => [suggestion, suggestion.getPosition()]);
       positions.sort((one, two) => one[1] - two[1]);
       for (let i = 0; i < positions.length - 1; i++) { // eslint-disable-line
-        const floor = offset * Math.floor(positions[i][1] / offset);
-        const nextFloor = offset * Math.floor(positions[i + 1][1] / offset);
-        if (floor === nextFloor) {
+        if (positions[i + 1][1] < positions[i][1] + offset) {
           positions[i + 1][1] += offset - (positions[i + 1][1] - positions[i][1]);
         }
       }
@@ -49,7 +47,7 @@ export default class SuggestionsList {
     this.suggestions.forEach((suggestion) => {
       if (suggestion.applied) {
         suggestions[suggestion.boxWrapper.id] = suggestion;
-      } else if (!suggestions[suggestion.boxWrapper] && suggestion.isFirst) {
+      } else if (!suggestions[suggestion.boxWrapper.id] && suggestion.isFirst) {
         suggestions[suggestion.boxWrapper.id] = suggestion;
       }
     });

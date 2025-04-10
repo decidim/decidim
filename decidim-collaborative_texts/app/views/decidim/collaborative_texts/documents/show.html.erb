@@ -55,8 +55,10 @@
       <%= decidim_sanitize decidim_rich_text(document.consolidated_body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
 
+    <hr class="text-gray-6 my-12">
+
     <% if document.coauthorships.any? %>
-      <div>
+      <div class="my-12">
         <h5 class="h5 my-4"><%= t("decidim.collaborative_texts.documents.show.contributors") %></h5>
         <%= cell "decidim/coauthorships", document, context_actions: [:date] %>
       </div>

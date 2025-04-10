@@ -154,6 +154,7 @@ export default class Suggestion {
     if (!this.boxWrapper) {
       return this;
     }
+    console.log("setPosition", position, "for", this.boxWrapper);
     this.boxWrapper.style.top = `${position}px`;
     return this;
   }
