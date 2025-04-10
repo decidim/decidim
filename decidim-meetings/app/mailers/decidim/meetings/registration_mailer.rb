@@ -47,7 +47,7 @@ module Decidim
       end
 
       def add_qr_code_attachment
-        attachments[@qr_filename] = qr_code.as_png(size: 480).to_blob
+        attachments[@qr_filename] = qr_code.as_png(size: 500).to_blob
       end
     end
   end
