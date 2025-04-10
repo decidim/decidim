@@ -197,8 +197,6 @@ id:
         registrations:
           edit:
             save: Menyimpan
-            validate: Mengesahkan
-            validate_registration_code: Validasikan kode registrasi
           form:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             invites: Undangan
@@ -209,9 +207,6 @@ id:
           update:
             invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
             success: Pengaturan pendaftaran rapat berhasil disimpan.
-          validate_registration_code:
-            invalid: Kode registrasi ini tidak valid.
-            success: Kode registrasi berhasil divalidasi.
       admin_log:
         invite:
           create: "%{user_name} diundang %{attendee_name} untuk bergabung dengan %{resource_name} pertemuan di %{space_name} ruang"
@@ -259,7 +254,6 @@ id:
           meeting_minutes: Risalah Pertemuan
           no_slots_available: Tidak ada slot yang tersedia
           organizations: Menghadiri organisasi
-          registration_code_help_text: Kode registrasi Anda
           registration_state:
             validated: DIvalidasi
             validation_pending: MENUNGGU VALIDASI
@@ -288,7 +282,6 @@ id:
         confirmation:
           confirmed_html: Pendaftaran Anda untuk pertemuan <a href="%{url}">%{title}</a> telah dikonfirmasi.
           details: Anda akan menemukan rincian rapat dalam lampiran.
-          registration_code: Kode registrasi Anda adalah %{code}.
       registrations:
         create:
           invalid: Ada masalah saat bergabung dengan rapat ini.
