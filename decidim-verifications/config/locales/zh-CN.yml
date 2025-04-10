@@ -90,9 +90,6 @@ zh-CN:
             body: 要做到这一点，您必须输入系统管理并将csv_census授权添加到组织
           new:
             file: "带有电子邮件数据的.csv 文件"
-            info: '必须是 CSV 格式的文件，其中只有一个列有电子邮件地址：'
-            submit: 上传文件
-            title: 上传新的调查
         authorizations:
           new:
             error: 我们无法验证您的帐户或您不在组织的普查中。
