@@ -176,13 +176,8 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
-            example: |
-              john.doe@exemple.org
-              jane.doe@exemple.org
             file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
-            submit: Téléverser un fichier
-            title: Télécharger un nouveau recensement
+            submit: Déposer un fichier
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
