@@ -52,22 +52,6 @@ module Decidim
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
       end
 
-      def send_email_confirmation(registration, user, meeting)
-        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
-      end
-
-      def send_notification(next_in_waitlist)
-        Decidim::EventsManager.publish(
-          event: "decidim.events.meetings.meeting_registration_confirmed",
-          event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
-          resource: @meeting,
-          affected_users: [next_in_waitlist.user],
-          extra: {
-            registration_code: next_in_waitlist.code
-          }
-        )
-      end
-
       def promote_from_waitlist!
         return if @meeting.available_slots.zero?
         return unless @meeting.remaining_slots.positive?
