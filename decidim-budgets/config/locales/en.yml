@@ -223,6 +223,7 @@ en:
           pending_to_vote_budgets:
             one: You can vote in other budget
             other: You can vote in other budgets
+          share_text: "I just voted for my favorite projects in %{space_name}! 🎉 Vote now: %{component_url}"
           share_vote: Share your vote
           title: Your vote has been successfully accepted
           view_votes:
@@ -231,6 +232,9 @@ en:
           votes_count:
             one: Your vote for %{budget_name} has already been registered.
             other: Your %{count} votes for %{budget_name} have already been registered.
+      order_pdf:
+        text: You have voted in %{space_name}, for the following projects
+        title: Your vote has been successfully accepted.
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'

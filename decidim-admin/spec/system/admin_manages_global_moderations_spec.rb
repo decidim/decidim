@@ -171,5 +171,25 @@ describe "Admin manages global moderations" do
       click_on "Unhide selected resources"
       expect(page).to have_content("Resources successfully unhidden")
     end
+
+    context "when unhides the moderation" do
+      context "when the resource parent is hidden" do
+        let(:comment) { create(:comment, commentable: hidden_moderations.first.reportable, author: user) }
+        let!(:comment_moderation) { create(:moderation, reportable: comment, report_count: 1, hidden_at: Time.current) }
+
+        it "redirects hidden moderations path with alert" do
+          visit decidim_admin.moderations_path
+          click_on "Hidden"
+
+          within "tr", text: "Dummy resource" do
+            expect(page).to have_link("Unhide")
+          end
+          within "tr", text: "Comment" do
+            expect(page).to have_no_link("Unhide")
+            expect(page).to have_css("svg[aria-label='You cannot unhide this resource because its parent is still hidden.']", visible: :all)
+          end
+        end
+      end
+    end
   end
 end
