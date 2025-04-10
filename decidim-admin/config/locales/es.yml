@@ -477,6 +477,10 @@ es:
             explanation: 'Instrucciones para el archivo:'
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
+          import_csv:
+            explanation: 'Instrucciones para el archivo:'
+            message_1: Se admiten archivos CSV
+            message_2: "archivo .csv con datos de correos electrónicos"
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda.
         form:
