@@ -222,8 +222,6 @@ lv:
         registrations:
           edit:
             save: Saglabāt
-            validate: Validēt
-            validate_registration_code: Validācijas reģistrācijas kods
           form:
             available_slots_help: Atstājiet 0, ja jums ir pieejams neierobežots laiks runāšanai
             invites: Ielūgumi
@@ -238,9 +236,6 @@ lv:
           update:
             invalid: Saglabājot reģistrācijas iestatījumus, radās problēma.
             success: Sanāksmes reģistrācijas iestatījumi ir veiksmīgi saglabāti.
-          validate_registration_code:
-            invalid: Šis reģistrācijas kods nav derīgs.
-            success: Reģistrācijas kods ir veiksmīgi validēts.
       admin_log:
         invite:
           create: "%{user_name} uzaicināja %{attendee_name} pievienoties %{resource_name} sanāksmei telpā %{space_name}"
