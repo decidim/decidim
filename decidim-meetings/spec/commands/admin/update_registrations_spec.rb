@@ -117,13 +117,13 @@ module Decidim::Meetings
         let(:new_reserved_slots) { 4 }
 
         let!(:registered_users) { create_list(:registration, 6, meeting:, status: :registered) }
-        let!(:waitlisted_registration) { create(:registration, meeting:, status: :waiting_list) }
+        let!(:registration_on_waitlist) { create(:registration, meeting:, status: :waiting_list) }
 
         it "promotes the waitlisted user to registered" do
           described_class.new(form, meeting).call
           perform_enqueued_jobs
 
-          promoted = meeting.registrations.find_by(user: waitlisted_registration.user)
+          promoted = meeting.registrations.find_by(user: registration_on_waitlist.user)
           expect(promoted.status).to eq("registered")
           expect(meeting.registrations.registered.count).to eq(7)
         end

@@ -50,10 +50,10 @@ module Decidim::Meetings
     end
 
     context "when a user is on the waitlist and a slot becomes free" do
-      let(:waitlisted_user) { create(:user, :confirmed, organization: meeting.organization) }
+      let(:user_on_waitlist) { create(:user, :confirmed, organization: meeting.organization) }
 
       before do
-        create(:registration, meeting:, user: waitlisted_user, status: :waiting_list)
+        create(:registration, meeting:, user: user_on_waitlist, status: :waiting_list)
         clear_enqueued_jobs
       end
 
@@ -66,7 +66,7 @@ module Decidim::Meetings
           perform_enqueued_jobs { subject.call }
         end.not_to(change { meeting.registrations.registered.count })
 
-        promoted = meeting.registrations.find_by(user: waitlisted_user)
+        promoted = meeting.registrations.find_by(user: user_on_waitlist)
         expect(promoted.status).to eq("registered")
       end
     end

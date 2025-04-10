@@ -7,7 +7,7 @@ describe Decidim::Meetings::PromoteFromWaitlistJob do
 
   let!(:meeting) { create(:meeting, :with_registrations_enabled, available_slots: 11, reserved_slots: 2) }
   let!(:registered_users) { create_list(:registration, 8, meeting:, status: :registered) }
-  let!(:waitlisted_registration) { create(:registration, meeting:, status: :waiting_list) }
+  let!(:registration_on_waitlist) { create(:registration, meeting:, status: :waiting_list) }
 
   it "promotes one user from the waitlist to registered" do
     expect do
@@ -17,14 +17,14 @@ describe Decidim::Meetings::PromoteFromWaitlistJob do
       .and change { meeting.registrations.waiting_list.count }
       .by(-1)
 
-    promoted = meeting.registrations.find_by(user: waitlisted_registration.user)
+    promoted = meeting.registrations.find_by(user: registration_on_waitlist.user)
     expect(promoted.status).to eq("registered")
   end
 
   it "sends a confirmation email to the promoted user" do
     expect(Decidim::Meetings::RegistrationMailer)
       .to receive(:confirmation)
-      .with(waitlisted_registration.user, meeting, instance_of(Decidim::Meetings::Registration))
+      .with(registration_on_waitlist.user, meeting, instance_of(Decidim::Meetings::Registration))
       .and_call_original
 
     subject.perform_now(meeting.id)
@@ -35,8 +35,8 @@ describe Decidim::Meetings::PromoteFromWaitlistJob do
       event: "decidim.events.meetings.meeting_registration_confirmed",
       event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
       resource: meeting,
-      affected_users: [waitlisted_registration.user],
-      extra: hash_including(registration_code: waitlisted_registration.code)
+      affected_users: [registration_on_waitlist.user],
+      extra: hash_including(registration_code: registration_on_waitlist.code)
     )
 
     subject.perform_now(meeting.id)
