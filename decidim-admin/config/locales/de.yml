@@ -477,6 +477,10 @@ de:
             explanation: 'Hinweise für die Datei:'
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
+          import_csv:
+            explanation: 'Hinweise für die Datei:'
+            message_1: CSV-Dateien werden unterstützt
+            message_2: "CSV-Datei mit E-Mail-Daten"
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
@@ -1284,6 +1288,7 @@ de:
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
+        parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
         unhide: Einblenden
         unreport: Nicht melden
@@ -1310,6 +1315,7 @@ de:
             success: Ressource erfolgreich ausgeblendet
           unhide:
             invalid: Es gab ein Problem beim Verstecken der Ressource.
+            parent_invalid: Es gab ein Problem beim Anzeigen der Ressource. Übergeordnete Ressource ist nicht sichtbar.
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.
