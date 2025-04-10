@@ -165,7 +165,6 @@ es-PY:
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
@@ -417,8 +416,6 @@ es-PY:
         registrations:
           edit:
             save: Guardar
-            validate: Validar
-            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
@@ -435,9 +432,6 @@ es-PY:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
-          validate_registration_code:
-            invalid: Este código de registro no es válido.
-            success: Código de registro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
@@ -605,7 +599,6 @@ es-PY:
           organizations: Organizaciones que han asistido
           pending_address: La ubicación se anunciará pronto.
           redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Tu codigo de registro
           registration_state:
             validated: Validado
             validation_pending: VALIDACIÓN PENDIENTE
@@ -683,7 +676,6 @@ es-PY:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
-          registration_code: Tu código de registro es %{code}.
       registration_type:
         on_different_platform: En una plataforma diferente
         on_this_platform: En esta plataforma
