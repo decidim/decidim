@@ -318,7 +318,7 @@ ro:
         registrations:
           edit:
             save: Salvează
-            validate: Validare
+            validate: Valideaza
             validate_registration_code: Validează codul de înregistrare
           form:
             available_slots_help: Lăsați la 0 dacă aveți sloturi nelimitate disponibile.
