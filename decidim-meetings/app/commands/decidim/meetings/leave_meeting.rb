@@ -69,14 +69,11 @@ module Decidim
       end
 
       def promote_from_waitlist!
+        return if @meeting.available_slots.zero?
         return unless @meeting.remaining_slots.positive?
+        return unless @meeting.registrations.on_waiting_list.exists?
 
-        next_in_waitlist = @meeting.registrations.on_waiting_list.first
-        return unless next_in_waitlist
-
-        next_in_waitlist.update!(status: :registered)
-        send_email_confirmation(next_in_waitlist, next_in_waitlist.user, @meeting)
-        send_notification(next_in_waitlist)
+        Decidim::Meetings::PromoteFromWaitlistJob.perform_later(@meeting.id)
       end
     end
   end
