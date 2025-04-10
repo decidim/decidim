@@ -68,7 +68,7 @@ export default class Suggestion {
   // this is used to remove the highlight when leaving the suggestion
   blur() {
     // If applied, just remove the style from the changesWrapper
-    if (this.applied) {
+    if (this.applied && this.changesWrapper) {
       this.changesWrapper.classList.remove("collaborative-texts-highlight");
     }
     if (this.highlightWrapper) {
@@ -87,7 +87,7 @@ export default class Suggestion {
     if (!this.applied && !this.selection || !this.selection.blocked) {
       this.applied = true;
       if (this.highlightWrapper) {
-        this.highlightWrapper.remove();
+        this.blur();
       }
       // restore any other changes affecting the same nodes
       this.suggestionsList.restore(this.nodes, [this]);  
@@ -121,7 +121,6 @@ export default class Suggestion {
   // this does not manipulate the DOM, but only the wrapper
   _applyTo(wrapper) {
     this.replace.forEach((text) => wrapper.insertAdjacentHTML("beforeend", text));
-    console.log("Applying to wrapper", wrapper, wrapper.innerHTML);
     // wrap in <p> any text nodes
     wrapper.childNodes.forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -130,7 +129,6 @@ export default class Suggestion {
         node.replaceWith(paragraph);
       }
     });
-    console.log("After applying to wrapper", wrapper, wrapper.innerHTML);
   }
 
   _hideOriginalNodes() {

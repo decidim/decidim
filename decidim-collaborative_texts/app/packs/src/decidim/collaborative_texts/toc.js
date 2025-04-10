@@ -26,7 +26,6 @@ export default class Toc {
   render() {
     this.ul.innerHTML = "";
     this.ul.classList.remove("spinner-container");
-    console.log("Rendering table of contents", this.headings());
     this.headings().forEach((heading) => {
       this.ul.appendChild(this.createEntry(heading));
     });

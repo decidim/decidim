@@ -13,7 +13,6 @@ export default class SuggestionsList {
   
   resetPositions() {
     if (this.restoreTimeout) {
-      console.log("Clearing restore timeout");
       clearTimeout(this.restoreTimeout);
       this.restoreTimeout = null;
     }
@@ -22,19 +21,14 @@ export default class SuggestionsList {
     this.restoreTimeout = setTimeout(() => {
       const offset = 54;
       const positions = this.defaultSuggestions().map((suggestion) => [suggestion, suggestion.getPosition()]);
-      console.log("Restoring positions", this.defaultSuggestions().map((suggestion) => [suggestion.id, suggestion.getPosition()]));
       positions.sort((one, two) => one[1] - two[1]);
-      console.log("Sorted positions", positions);
       for (let i = 0; i < positions.length - 1; i++) { // eslint-disable-line
         const floor = offset * Math.floor(positions[i][1] / offset);
         const nextFloor = offset * Math.floor(positions[i + 1][1] / offset);
         if (floor === nextFloor) {
-          console.log("Adjusting position", positions[i + 1][1], "to avoid overlap with", positions[i][1]);
           positions[i + 1][1] += offset - (positions[i + 1][1] - positions[i][1]);
-          console.log("Adjusted position", positions[i + 1][1]);
         }
       }
-      console.log("Restoring positions", positions);
       positions.forEach(([suggestion, position]) => suggestion.setPosition(position));
     }, 100);
     return this;
@@ -78,7 +72,6 @@ export default class SuggestionsList {
   }
   
   _fetchSuggestions() {
-    console.log("Fetch suggestions", this);
     fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
       headers: {
         "Content-Type": "application/json",

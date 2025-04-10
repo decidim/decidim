@@ -34,14 +34,7 @@
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if document.suggestions_enabled? %>
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless document.suggestions_enabled? || document.draft? %>
 
-    <div class="collaborative-texts-manager hidden">
-      <div>
-        <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
-        <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
-        <%= button_tag(t("decidim.collaborative_texts.document.cancel"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_cancel: true }) %>
-      </div>
-      <p><%= t("decidim.collaborative_texts.document.applied_counter", count: '<span class="collaborative-texts-manager-count"></span>').html_safe %></p>
-    </div>
+    <div class="collaborative-texts-manager hidden"><%= render "manager" %></div>
 
     <div class="collaborative-texts-alert hidden">
       <div></div>

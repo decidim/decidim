@@ -61,7 +61,6 @@ export default class Editor {
   }
 
   _save() {
-    console.log("save editor", this)
     const event = new CustomEvent("collaborative-texts:suggest", {
       detail: {
         nodes: this.nodes,

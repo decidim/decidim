@@ -19,7 +19,7 @@
     @apply relative mb-8 md:mr-[18rem] pr-4;
 
     h2 {
-      @apply text-secondary mt-8;
+      @apply mt-8;
     }
   }
 
@@ -29,18 +29,18 @@
   }
 
   &-manager {
-    @apply sticky top-4 drop-shadow z-[60] p-4 bg-background rounded border border-black;
+    @apply sticky top-4 drop-shadow z-[40] p-4 bg-background rounded border border-black;
 
     > div {
       @apply flex justify-between gap-2 mb-4;
     }
 
-    > p {
-      @apply text-right;
-    }
-
     &.hidden {
       display: none;
+    }
+
+    &-applied, &-pending {
+      @apply font-bold;
     }
   }
 
@@ -101,7 +101,7 @@
   }
 
   &-menu {
-    @apply absolute top-0 right-0 z-[40] flex gap-2;
+    @apply absolute top-0 right-0 z-[39] flex gap-2;
   }
 
   &-suggestions-box {
@@ -117,7 +117,7 @@
     }
 
     &:has([aria-hidden="false"]) {
-      @apply z-[49] shadow-lg;
+      @apply z-[39] shadow-lg;
 
       &:has(.collaborative-texts-suggestions-box-item:hover) {
         .icon-pending {
@@ -159,7 +159,7 @@
     }
 
     &:hover {
-      @apply z-[50];
+      @apply z-[40];
     }
 
     &-header {
@@ -170,7 +170,7 @@
       @apply p-2 pr-0 mb-4 rounded w-full;
 
       &:hover {
-        @apply bg-white drop-shadow relative z-[50];
+        @apply bg-white drop-shadow relative z-[0];
       }
 
       .button-restore {
@@ -214,7 +214,7 @@
       }
 
       [id*="panel"][aria-hidden="false"] {
-        @apply z-[50] relative;
+        @apply z-[40] relative;
       }
 
       [aria-expanded="false"] > svg:last-of-type,

@@ -9,8 +9,20 @@ export default class Manager {
     this.rolloutButton = this.div.querySelector("[data-collaborative-texts-manager-rollout]");
     this.consolidateButton = this.div.querySelector("[data-collaborative-texts-manager-consolidate]");
     this.cancelButton = this.div.querySelector("[data-collaborative-texts-manager-cancel]");
-    this.counter = this.div.getElementsByClassName("collaborative-texts-manager-count")[0];
+    this.counters = {
+      applied: [...this.div.getElementsByClassName("collaborative-texts-manager-applied")],
+      pending: [...this.div.getElementsByClassName("collaborative-texts-manager-pending")]
+    };
     this._bindEvents();
+  }
+
+  updateCounters(applied, pending) {
+    this.counters.applied.forEach((counter) => {
+      counter.textContent = applied;
+    });
+    this.counters.pending.forEach((counter) => {
+      counter.textContent = pending;
+    });
   }
 
   show() {
@@ -24,7 +36,6 @@ export default class Manager {
   }
 
   cancel() {
-    console.log("Cancel manager", this.document);
     this.suggestions.forEach((suggestion) => suggestion.restore());
     this.hide();
   }
@@ -50,7 +61,6 @@ export default class Manager {
   }
 
   _save(event) {
-    console.log("Save manager", this, event);
     const draft = !event.target.dataset.collaborativeTextsManagerConsolidate;
 
     confirmDialog(draft
@@ -73,7 +83,6 @@ export default class Manager {
         }).
           then(async (response) => {
             const data = await response.json();
-            console.log("Response", response, data);
             if (!response.ok) {
               throw new Error(data.message
                 ? data.message

@@ -29,12 +29,10 @@ export default class Document {
     this.alertWrapper = window.document.querySelector(".collaborative-texts-alert");
     this.alertDiv = this.alertWrapper.querySelector("div");
     this._prepareNodes();
-    // console.log("Document prepared", this);
   }
 
   // listen to new selections and allows the user to participate in the collaborative text
   enableSuggestions() {
-    console.log("Enabling suggestions");
     window.document.addEventListener("selectstart", this._onSelectionStart.bind(this));
     window.document.addEventListener("mouseup", this._onSelectionEnd.bind(this));
     this.doc.addEventListener("collaborative-texts:applied", this._onApply.bind(this));
@@ -108,7 +106,7 @@ export default class Document {
     this.applying = true;
     this.manager = this.manager || new Manager(this);
     this.manager.show();
-    this.manager.counter.textContent = this.suggestionsList.getApplied().length
+    this.manager.updateCounters(this.suggestionsList.getApplied().length, this.suggestionsList.getPending().length);
   }
   
   _onRestore() {
@@ -119,7 +117,6 @@ export default class Document {
   }
 
   _sanitizeNodes(nodes) {
-    console.log("Sanitizing nodes", nodes);
     return [...nodes].filter((node) => node).map((node) => (node.nodeType === Node.TEXT_NODE
       ? node.textContent
       : node.outerHTML));
@@ -128,7 +125,6 @@ export default class Document {
   _onSuggest(event) {
     let original = this._sanitizeNodes(event.detail.nodes);
     let replace = this._sanitizeNodes(event.detail.replaceNodes);
-    console.log("Sending suggestion", original, replace, event.detail);
     fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
       method: "POST",
       headers: {

@@ -85,13 +85,14 @@ en:
           delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
-        applied_counter: Draft/consolidate will merge the %{count} applied suggestions
         apply: Apply
         cancel: Cancel
         consolidate:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
           new: Consolidate accepted suggestions
+        consolidate_counter: Consolidate will merge the %{applied} applied suggestions and move the %{pending} pending suggestions to the new version.
         controls_label: Suggestion controls
+        draft_counter: Draft will merge the %{applied} applied suggestions and discard the %{pending} pending suggestions.
         index: Index
         restore: Restore
         rollout:
