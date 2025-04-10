@@ -262,8 +262,6 @@
         registrations:
           edit:
             save: Lagre
-            validate: Valider
-            validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
@@ -277,9 +275,6 @@
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
-          validate_registration_code:
-            invalid: Denne registreringskoden er ugyldig.
-            success: Registreringskoden ble validert.
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
