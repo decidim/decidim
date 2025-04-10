@@ -2,10 +2,6 @@
   <div class="card">
     <div class="card-section">
       <div class="row column">
-        <%= form.check_box :accepting_suggestions, label: t(".allow_suggestions") %>
-      </div>
-
-      <div class="row column">
         <%= form.translated :editor, :announcement, lines: 15, aria: { label: :announcement } %>
       </div>
     </div>
