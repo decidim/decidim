@@ -162,7 +162,6 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             maps_enabled: 地図が有効
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            registration_code_enabled: 登録コードが有効
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
@@ -413,8 +412,6 @@ ja:
         registrations:
           edit:
             save: 保存
-            validate: 検証
-            validate_registration_code: 登録コードを検証する
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
@@ -430,9 +427,6 @@ ja:
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
-          validate_registration_code:
-            invalid: この登録コードは無効です。
-            success: 登録コードを検証しました。
       admin_log:
         invite:
           create: "%{user_name} が %{attendee_name} を %{resource_name} スペースの %{space_name} ミーティングに招待しました"
@@ -599,7 +593,6 @@ ja:
           organizations: 組織に参加
           pending_address: 場所はまもなく発表されます。
           redirect_notice: このミーティングは別のスペースの一部であるため、あなたは %{current_space_name} に移動されました。<br> ご希望の場合は、 <a href="%{previous_space_url}">%{previous_space_name}</a> に戻ることができます。
-          registration_code_help_text: 登録コード
           registration_state:
             validated: 有効化
             validation_pending: 保留中
@@ -675,7 +668,6 @@ ja:
         confirmation:
           confirmed_html: ミーティング <a href="%{url}">%{title}</a> の登録が確認されました。
           details: ミーティングの詳細は添付ファイルにあります。
-          registration_code: 登録コードは %{code} です。
       registration_type:
         on_different_platform: 異なるプラットフォーム
         on_this_platform: このプラットフォーム
