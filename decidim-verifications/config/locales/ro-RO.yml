@@ -121,6 +121,8 @@ ro:
             title: Trebuie să activezi recensământul CSV pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
+            submit: Încărcați fișierul
+            title: Încărcați un nou recensământ
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
