@@ -21,6 +21,7 @@ cs:
             body:
               too_long: je příliš dlouhý
             choices:
+              missing: nejsou kompletní
               too_many: Můžete si vybrat maximálně %{count}.
         questionnaire:
           request_invalid: Při zpracování požadavku došlo k chybě. Zkuste to prosím znovu.
@@ -37,10 +38,15 @@ cs:
             show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
+            free_text: Volný text
             remove: Odstranit
             statement: Prohlášení
           answers:
             actions:
+              back: Zpět na odpovědi
+              export: Export
+              next: Další &rsaquo;
+              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
             export_response:
