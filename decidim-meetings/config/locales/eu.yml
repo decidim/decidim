@@ -165,7 +165,6 @@ eu:
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
@@ -417,8 +416,6 @@ eu:
         registrations:
           edit:
             save: Gorde
-            validate: Balioztatu
-            validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
@@ -435,9 +432,6 @@ eu:
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
-          validate_registration_code:
-            invalid: Izena emateko kode hau baliogabea da.
-            success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
         invite:
           create: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
@@ -605,7 +599,6 @@ eu:
           organizations: Bertaratutako erakundeak
           pending_address: Kokapena laster adieraiko da.
           redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
-          registration_code_help_text: Zure izena emateko kodea
           registration_state:
             validated: BALIDATUA
             validation_pending: BALIOZKOTZEKO ZAIN
@@ -683,7 +676,6 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
-          registration_code: Zure izena emateko kodea %{code}.
       registration_type:
         on_different_platform: Plataforma desberdin batean
         on_this_platform: Plataforma honetan
