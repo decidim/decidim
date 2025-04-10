@@ -477,6 +477,10 @@ eu:
             explanation: 'Jarraibideak artxiborako:'
             message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
+          import_csv:
+            explanation: 'Jarraibideak artxiborako:'
+            message_1: CSV artxiboak onartzen dira
+            message_2: ".csv artxiboa korreo elektronikoen datuekin"
       help_sections:
         error: Arazo bat egon da laguntza-atalak eguneratzean.
         form:
