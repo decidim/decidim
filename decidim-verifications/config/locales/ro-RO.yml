@@ -98,7 +98,44 @@ ro:
         start_exploring: să începeți să explorați
       csv_census:
         admin:
+          actions:
+            edit: Modificați
+          census:
+            create_import:
+              error: A apărut o eroare la importarea datelor recensământului.
+              no_user: Niciun utilizator găsit
+              success: S-au importat cu succes %{count} elemente. Noi procesăm datele. Reîmprospătați pagina în câteva minute pentru a vedea modificările.
+            index:
+              no_sign_in: Niciodată conectat
+              no_user: Niciun utilizator găsit
+            last_login:
+              no_sign_in: Niciodată conectat
+              no_user: Nu există utilizator
+            new_import:
+              submit: Încărcați fișierul
+              upload_new_census: Încărcați un nou recensământ
+          census_records:
+            create_record:
+              success: S-au importat cu succes înregistrări. Noi procesăm datele. Reîmprospătați pagina în câteva minute pentru a vedea modificările.
+            edit_record:
+              save: Salvați
+              title: Editați înregistrarea recensământului
+            form:
+              email: Email
+            new_record:
+              save: Salvați
+              title: Adaugați o nouă înregistrare de recensământ
+            update_record:
+              success: Înregistrare date recensământ actualizată cu succes.
           index:
+            add_new_record_button: Adaugați înregistrare nouă
+            authorized: Utilizator autorizat
+            fields:
+              actions: Acțiuni
+              created_at: Creat la
+              email: Email
+              user_authorized: Utilizator autorizat?
+            no_authorized: Utilizator neautorizat
             title: Date de recensământ curente
           instructions:
             body: Pentru a face acest lucru, trebuie să introduci administrarea sistemului şi să adaugi autorizaţiile csv_recensământ în organizaţie
@@ -117,6 +154,9 @@ ro:
             one: Participarea este limitată la cei cu codul poștal %{postal_codes}, iar codul poștal tău este %{user_postal_code}.
             few: 'Participarea este limitată la cei cu oricare dintre codurile poștale %{postal_codes}, iar codul tău poștal este %{user_postal_code}.'
             other: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}. Codul tău poștal este %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Următoarele adrese de e-mail sunt incorecte: %{invalid_emails}.'
+        no_emails: Fișierul trebuie să conțină adrese de e-mail
       id_documents:
         admin:
           config:
