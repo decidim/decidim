@@ -41,10 +41,28 @@ module Decidim
         redirect_to redirect_path unless current_order.persisted?
       end
 
+      def export_pdf
+        enforce_permission_to :export_pdf, :order, order: current_order
+
+        pdf_export = Decidim::Budgets::OrderPDF.new(current_order).render
+
+        output = if pdf_signature_service
+                   pdf_signature_service.new(pdf: pdf_export.read).signed_pdf
+                 else
+                   pdf_export.read
+                 end
+
+        send_data output, filename: "order_#{current_order.id}.pdf", type: "application/pdf"
+      end
+
       private
 
       def budget
         @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
+      end
+
+      def pdf_signature_service
+        @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
       end
 
       def redirect_path
