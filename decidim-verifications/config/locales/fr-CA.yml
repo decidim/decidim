@@ -159,6 +159,9 @@ fr-CA:
         start_exploring: commencer à explorer
       csv_census:
         admin:
+          census:
+            new_import:
+              submit: Déposer un fichier
           index:
             title: Données de recensement actuelles
           instructions:
