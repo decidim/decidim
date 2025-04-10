@@ -9,9 +9,16 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   component.query_type = "Decidim::CollaborativeTexts::DocumentsType"
 
-  # component.register_stat ...
-  component.register_stat :collaborative_texts_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :published_collaborative_texts_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     collaborative_texts = Decidim::CollaborativeTexts::Document.where(component: components).published
+    collaborative_texts = collaborative_texts.where(created_at: start_at..) if start_at.present?
+    collaborative_texts = collaborative_texts.where(created_at: ..end_at) if end_at.present?
+    collaborative_texts.count
+  end
+
+  # For the admin sidebar (primary: true)
+  component.register_stat :collaborative_texts_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    collaborative_texts = Decidim::CollaborativeTexts::Document.where(component: components)
     collaborative_texts = collaborative_texts.where(created_at: start_at..) if start_at.present?
     collaborative_texts = collaborative_texts.where(created_at: ..end_at) if end_at.present?
     collaborative_texts.count
