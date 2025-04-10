@@ -99,6 +99,9 @@ ro:
         start_exploring: să începeți să explorați
       csv_census:
         admin:
+          census:
+            create:
+              error: A apărut o eroare la importarea datelor recensământului.
           destroy:
             title: Ștergeți toate datele recensământului
           index:
@@ -109,9 +112,8 @@ ro:
             title: Trebuie să activezi recensământul CSV pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
-            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresele de e-mail:'
-            submit: Încarcă fișier
-            title: Încarcă un nou recensământ
+            submit: Încărcați fișierul
+            title: Încărcați un nou recensământ
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
