@@ -6,6 +6,7 @@ module Decidim
     class InitiativeVotesController < Decidim::Initiatives::ApplicationController
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
+      include Decidim::Initiatives::HasSignatureWorkflow
 
       before_action :authenticate_user!
 
@@ -15,9 +16,9 @@ module Decidim
       def create
         enforce_permission_to :vote, :initiative, initiative: current_initiative
 
-        @form = form(Decidim::Initiatives::VoteForm).from_params(
+        @form = form(signature_form_class).from_params(
           initiative: current_initiative,
-          signer: current_user
+          user: current_user
         )
 
         VoteInitiative.call(@form) do

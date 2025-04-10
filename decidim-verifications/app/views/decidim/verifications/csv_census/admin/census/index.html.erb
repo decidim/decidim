@@ -1,59 +1,55 @@
 <% add_decidim_page_title(t("admin.index.title", scope: "decidim.verifications.csv_census")) %>
-
-<div class="item_show__header">
-  <h1 class="item_show__header-title">
-    <%= t("admin.index.title", scope: "decidim.verifications.csv_census") %>
-  </h1>
-</div>
-
-<div class="item__edit item__edit-1col">
-  <div class="item__edit-form">
-    <div class="form__wrapper">
-      <div class="card">
-        <div class="card-divider"></div>
-        <div class="card-section">
-
-        <% if @status.count > 0 %>
-          <div class="row column">
-            <p><%= t("decidim.verifications.csv_census.admin.index.data", count: @status.count,
-                                                                          due_date: l(@status.last_import_at, format: :long)) %>
-            </p>
-            <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
-                        destroy_all_census_path,
-                        method: :delete,
-                        class: "button button__sm button__secondary alert",
-                        data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
-          </div>
-        <% else %>
-          <p class="row column"><%= t("admin.index.empty", scope: "decidim.verifications.csv_census") %></p>
-        <% end %>
-        </div>
-
-        <div class="card-divider">
-          <h2 class="card-title">
-            <%= t("admin.new.title", scope: "decidim.verifications.csv_census") %>
-          </h2>
-        </div>
-        <div class="card-section">
-          <div class="row column">
-            <p><%= t("decidim.verifications.csv_census.admin.new.info") %></p>
-            <pre class="code-block"><%= t("decidim.verifications.csv_census.admin.new.example") %></pre>
-          </div>
-
-          <div class="row column">
-            <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
-              <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
-              <%= form.file_field :file %>
-
-              <div class="item__edit-sticky">
-                <div class="item__edit-sticky-container">
-                  <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="card">
+  <div class="item_show__header item_show__header--with-action-options">
+    <h1 class="item_show__header-title">
+      <%= t("index.title", scope: "decidim.verifications.csv_census.admin") %>
+      <%= link_to t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, method: :get, class: "button button__sm button__transparent-secondary" %>
+      <button type="button" data-action="csv_census-record" data-census-dialog="census_drawer" data-census-url="<%= new_record_census_logs_path %>" class="button button__sm button__secondary">
+        <%= t("index.add_new_record_button", scope: "decidim.verifications.csv_census.admin") %>
+      </button>
+    </h1>
   </div>
+  <% if csv_census_data.any? %>
+    <div class="table-scroll mt-8">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("index.fields.email", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.created_at", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.user_authorized", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.actions", scope: "decidim.verifications.csv_census.admin") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% csv_census_data.each do |data| %>
+            <tr>
+              <td><%= data.email %></td>
+              <td><%= l data.created_at, format: :decidim_short %></td>
+              <td class="custom-text-align">
+                <% last_login_info = last_login(data) || { icon: nil, text: t(".no_user"), last_sign_in: nil } %>
+                <% if last_login_info[:icon].present? %>
+                  <%= icon_with_tooltip(last_login_info[:icon], last_login_info[:text]) %>
+                <% else %>
+                  <%= last_login_info[:text] || t(".no_user") %>
+                <% end %>
+                <%= last_login_info[:last_sign_in] %>
+              </td>
+              <td class="table-list__actions">
+                  <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.verifications.csv_census.admin"), class: "action-icon--edit", data: { action: "csv_census-record", census_dialog: "census_drawer", census_url: edit_record_census_log_path(data) } %>
+                  <%= icon_link_to "delete-bin-line", census_log_path(data), t("actions.destroy", scope: "decidim.verifications.csv_census.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.verifications.csv_census.admin") } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: "underline decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
+  <% end %>
 </div>
+<%= decidim_paginate csv_census_data %>
+
+<%= render partial: "csv_census_drawer" %>
+
+<%= append_javascript_pack_tag "decidim_verifications" %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>

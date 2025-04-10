@@ -11,7 +11,7 @@
     label_options: { class: "form__wrapper-checkbox-label" }
   ) %>
 
-  <% Rails.application.secrets.dig(:omniauth, provider.to_sym).keys.select { |k| k != :enabled }.each do |setting| %>
+  <% Decidim.omniauth_providers.dig(provider.to_sym).keys.select { |k| k != :enabled }.each do |setting| %>
   <%= f.text_field("omniauth_settings_#{provider}_#{setting}", label: I18n.t(
         ".#{setting}",
         scope: [:icon, :icon_path].include?(setting) ? i18n_scope : "#{i18n_scope}.#{provider}"
