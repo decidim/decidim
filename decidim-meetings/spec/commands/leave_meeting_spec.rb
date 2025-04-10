@@ -57,7 +57,7 @@ module Decidim::Meetings
         clear_enqueued_jobs
       end
 
-      it "promotes the waitlisted user" do
+      it "promotes the user on waitlist" do
         expect do
           perform_enqueued_jobs { subject.call }
         end.to change { meeting.registrations.waiting_list.count }.by(-1)

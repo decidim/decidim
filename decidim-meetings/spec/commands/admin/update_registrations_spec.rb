@@ -119,7 +119,7 @@ module Decidim::Meetings
         let!(:registered_users) { create_list(:registration, 6, meeting:, status: :registered) }
         let!(:registration_on_waitlist) { create(:registration, meeting:, status: :waiting_list) }
 
-        it "promotes the waitlisted user to registered" do
+        it "promotes the user on waitlist to registered" do
           described_class.new(form, meeting).call
           perform_enqueued_jobs
 
@@ -138,7 +138,7 @@ module Decidim::Meetings
           create(:registration, meeting:, status: :waiting_list)
         end
 
-        it "does not promote any waitlisted user" do
+        it "does not promote any user on waitlist" do
           expect do
             described_class.new(form, meeting).call
             perform_enqueued_jobs
