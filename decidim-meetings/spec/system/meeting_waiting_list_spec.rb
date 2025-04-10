@@ -133,7 +133,7 @@ describe "Meeting waiting list" do
       it "displays the registration confirmation" do
         visit_meeting
         email = last_email
-        expect(page).to have_content("Your registration code")
+        expect(page).to have_content("Your registration and QR code")
         expect(email.subject).to eq("Your meeting's registration has been confirmed")
         expect(email.to).to eq([earliest_waitlist_user.email])
       end
