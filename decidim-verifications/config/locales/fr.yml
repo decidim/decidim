@@ -155,6 +155,7 @@ fr:
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
             file: "Fichier .csv avec données de courrier électronique"
+            submit: Déposer un fichier
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
