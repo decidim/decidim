@@ -477,6 +477,10 @@ ca:
             explanation: 'Instruccions per a l''arxiu:'
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
+          import_csv:
+            explanation: 'Instruccions per al fitxer:'
+            message_1: S'admeten fitxers CSV
+            message_2: "fitxer .csv amb dades de correus electrònics"
       help_sections:
         error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
