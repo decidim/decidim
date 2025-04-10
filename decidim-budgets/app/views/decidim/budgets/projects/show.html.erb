@@ -116,4 +116,8 @@ edit_link(
       </ul>
     <% end %>
   <% end %>
+
+  <% if current_user&.ephemeral? %>
+    <div class="h-40 bg-transparent"></div>
+  <% end %>
 </div>
