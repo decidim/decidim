@@ -30,7 +30,7 @@ module Decidim
           content_tag(:div) do
             safe_join([
                         content_tag(:h3, t("waitlist.status", scope: "decidim.meetings.meetings.show"), class: "meeting__aside-block__title"),
-                        content_tag(:p, t("waitlist.description", scope: "decidim.meetings.meetings.show"), class: "text-sm text-neutral-600")
+                        content_tag(:p, t("waitlist.description", scope: "decidim.meetings.meetings.show"), class: "text-sm")
                       ])
           end
         end

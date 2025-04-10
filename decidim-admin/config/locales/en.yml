@@ -478,6 +478,10 @@ en:
             explanation: 'Guidance for file:'
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
+          import_csv:
+            explanation: 'Guidance for file:'
+            message_1: CSV files are supported
+            message_2: ".csv file with emails data"
       help_sections:
         error: There was a problem updating the help sections.
         form:
