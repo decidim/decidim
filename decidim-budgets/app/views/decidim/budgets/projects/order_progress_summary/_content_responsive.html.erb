@@ -1,11 +1,12 @@
 <% focus_mode_index = local_assigns[:focus_mode_origin] == "index" %>
 <% focus_mode_show = local_assigns[:focus_mode_origin] == "show" %>
+<% start_voting_param = params[:start_voting] %>
 
 <% show_vote_button = !current_order_checked_out? && voting_open? && current_order_can_be_checked_out? %>
-<% show_hint = !show_vote_button && focus_mode_index %>
+<% show_hint = !show_vote_button && start_voting_param.present? %>
 
 <div data-order-progress-responsive="true" class="bg-transparent">
-  <% if focus_mode_index %>
+  <% if show_hint %>
     <div id="progress-summary-backdrop" class="fixed hidden inset-0 z-40 bg-black/50"></div>
   <% end %>
 

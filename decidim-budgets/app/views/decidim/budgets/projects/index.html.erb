@@ -59,9 +59,11 @@
               <%= t("select_projects", scope: "decidim.budgets.projects") %>
             </span>
 
-            <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__icon button__text-secondary lg:hidden">
-              <%= icon "question-line" %>
-            </button>
+            <% if cell("decidim/budgets/budget_information_modal", budget).more_information.present? %>
+              <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__icon button__text-secondary lg:hidden">
+                <%= icon "question-line" %>
+              </button>
+            <% end %>
           </div>
 
           <% unless @focus_mode %>
@@ -86,4 +88,7 @@
     <%= cell("decidim/announcement", t("empty", scope: "decidim.budgets.projects")) %>
   <% end %>
 
+  <% if current_user&.ephemeral? %>
+    <div class="h-28 bg-transparent"></div>
+  <% end %>
 <% end %>

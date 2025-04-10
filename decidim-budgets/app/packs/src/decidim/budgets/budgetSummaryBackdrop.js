@@ -26,8 +26,16 @@ $(() => {
     });
   }
 
+  const removeStartVotingParam = () => {
+    const url = new URL(window.location.href);
+    
+    url.searchParams.delete("start_voting");
+    window.history.replaceState({}, "", url);
+  }
+
   toggleBackdrop();
   setupBackdrop();
+  removeStartVotingParam();
 
   window.DecidimBudgets.toggleBackdrop = toggleBackdrop;
 });
