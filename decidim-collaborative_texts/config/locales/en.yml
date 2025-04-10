@@ -99,9 +99,9 @@ en:
           confirm: This action will create a new draft version of the document and you will be redirected to the edit page for final refinements. The current version will remain public and suggestions will be disabled.
           invalid: There was a problem creating a new version of the document (%{errors}).
           new: Draft a new version
-        save: Send suggestion
+        save: Suggest changes
         status:
-          accepting_suggestions: You can make suggestions on this document by selecting (or double click) the text you want to change and clicking on the "Suggest changes" button.
+          accepting_suggestions: To suggest changes, select or double-click on the text you want to edit, then click the 'Suggest changes' button.
           draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
           not_accepting_suggestions: Suggestions are not allowed at this time.
           selection_active: A selection is active. Please cancel the current selection to make a new one.
