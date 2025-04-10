@@ -275,8 +275,6 @@ pt:
         registrations:
           edit:
             save: Guardar
-            validate: Validar
-            validate_registration_code: Validar código de registo
           form:
             available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             invites: Convites
@@ -291,9 +289,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar as configurações de registo.
             success: Configurações de registo de reunião guardadas corretamente.
-          validate_registration_code:
-            invalid: Este código de registo é inválido.
-            success: Código de registo validado corretamente.
       admin_log:
         invite:
           create: "%{user_name} convidou %{attendee_name} a aderir à reunião %{resource_name} no espaço %{space_name}"
