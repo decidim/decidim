@@ -16,11 +16,11 @@
 
 <% content_for :aside do %>
   <div class="collaborative-texts-toc" data-collaborative-texts-toc="collaborative-text-<%= document.id %>">
-    <h3 class="title-decorator h3 mb-8 lg:mb-12"><%= document.title %></h3>
     <h4 class="h4 mb-4"><%= t("decidim.collaborative_texts.document.index") %></h4>
     <ul class="spinner-container"></ul>
   </div>
 <% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { columns: 10, large: true } do %>
   <%= render partial: "decidim/shared/component_announcement" %>
 
