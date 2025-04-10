@@ -28,6 +28,16 @@ class Selection {
     return this;
   }
 
+  changed() {
+    return this.editor && !this.editor.saveButton.disabled;
+  }
+
+  scrollIntoView() {
+    if(this.editor) {
+      this.editor.editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
   outsideBlock() {
     const node = this.selection.focusNode;
     if (node) {

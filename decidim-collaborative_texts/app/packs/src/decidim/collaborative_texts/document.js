@@ -84,9 +84,11 @@ export default class Document {
 
   _showOptions() {
     this.selection = this.selection || new Selection(this);
-    if (this.selection.blocked) {
+    if (this.selection.blocked && this.selection.changed()) {
       if (this.selection.outsideBlock()) {
         this.alert(this.i18n.selectionActive)
+        this.selection.scrollIntoView();
+        
       }
       return;
     }

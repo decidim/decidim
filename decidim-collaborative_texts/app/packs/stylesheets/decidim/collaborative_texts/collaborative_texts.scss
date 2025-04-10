@@ -45,7 +45,7 @@
   }
 
   &-alert {
-    @apply sticky top-8 border-alert z-10 bg-white rounded;
+    @apply fixed top-8 border-alert z-10 bg-white rounded;
 
     > div {
       @apply flex items-center gap-2 p-4 bg-alert/20 rounded;
