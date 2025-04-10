@@ -374,8 +374,6 @@ eu:
         registrations:
           edit:
             save: Gorde
-            validate: Balioztatu
-            validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
@@ -391,9 +389,6 @@ eu:
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
-          validate_registration_code:
-            invalid: Izena emateko kode hau baliogabea da.
-            success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
         invite:
           create: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
