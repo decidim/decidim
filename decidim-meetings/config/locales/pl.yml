@@ -157,7 +157,6 @@ pl:
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie padów
             maps_enabled: Mapy włączone
-            registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
           step:
@@ -361,8 +360,6 @@ pl:
         registrations:
           edit:
             save: Zapisz
-            validate: Zatwierdź
-            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
@@ -381,9 +378,6 @@ pl:
           update:
             invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
             success: Zapisano ustawienia rejestracji.
-          validate_registration_code:
-            invalid: Ten kod rejestracyjny jest nieprawidłowy.
-            success: Kod rejestracyjny został zatwierdzony.
       admin_log:
         invite:
           create: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
@@ -546,7 +540,6 @@ pl:
           micro_camera_permissions_warning: Gdy klikniesz poniższy przycisk, zostaniesz poproszony(a) o uprawnienia mikrofonu i/lub kamery i dołączysz do wideokonferencji
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
-          registration_code_help_text: Twój kod rejestracyjny
           registration_state:
             validated: ZWERYFIKOWANO
             validation_pending: OCZEKUJE NA WERYFIKACJĘ
@@ -609,7 +602,6 @@ pl:
         confirmation:
           confirmed_html: Twoja rejestracja na spotkanie <a href="%{url}">%{title}</a> została zatwierdzona.
           details: Szczegóły spotkania znajdą Państwo w załączniku.
-          registration_code: Twój kod rejestracyjny to %{code}.
       registration_type:
         on_different_platform: Na innej platformie
         on_this_platform: Na tej platformie
