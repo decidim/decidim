@@ -354,8 +354,6 @@ bg:
         registrations:
           edit:
             save: Запази
-            validate: Потвърди
-            validate_registration_code: Валидиране на регистрационния код
           form:
             available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
             invites: Покани
@@ -371,9 +369,6 @@ bg:
           update:
             invalid: Възникна проблем при запазването на настройките за регистрация.
             success: Настройките за регистрация бяха запазени успешно.
-          validate_registration_code:
-            invalid: Регистрационният код е невалиден.
-            success: Регистрационният код беше валидиран успешно.
       admin_log:
         invite:
           create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
