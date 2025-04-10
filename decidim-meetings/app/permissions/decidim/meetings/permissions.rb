@@ -56,10 +56,19 @@ module Decidim
           return permission_action
         end
 
+        toggle_allow(user_can_preview_space?) if permission_action.subject == :meeting || permission_action.action == :preview
+        permission_action
+
         permission_action
       end
 
       private
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: meeting, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
+      end
 
       def meeting
         @meeting ||= context.fetch(:meeting, nil)
