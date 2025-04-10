@@ -59,7 +59,6 @@ module Decidim
         end
 
         toggle_allow(user_can_preview_space?) if permission_action.subject == :meeting || permission_action.action == :preview
-        permission_action
 
         permission_action
       end
