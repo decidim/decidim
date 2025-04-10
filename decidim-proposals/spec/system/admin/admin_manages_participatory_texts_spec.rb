@@ -120,7 +120,7 @@ describe "Admin manages participatory texts" do
       validate_occurrences(sections: 2, subsections: 5, articles: 15)
       move_some_sections
       publish_participatory_text
-      validate_published
+      expect { validate_published }.not_to raise_error
     end
   end
 
@@ -129,7 +129,7 @@ describe "Admin manages participatory texts" do
 
     it "renders only draft proposals" do
       visit_participatory_texts
-      validate_occurrences(sections: 1, subsections: 0, articles: 0)
+      expect { validate_occurrences(sections: 1, subsections: 0, articles: 0) }.not_to raise_error
     end
   end
 
@@ -140,7 +140,7 @@ describe "Admin manages participatory texts" do
       visit_participatory_texts
       validate_occurrences(sections: 0, subsections: 0, articles: 5)
       discard_participatory_text_drafts
-      validate_occurrences(sections: 0, subsections: 0, articles: 0)
+      expect { validate_occurrences(sections: 0, subsections: 0, articles: 0) }.not_to raise_error
     end
   end
 

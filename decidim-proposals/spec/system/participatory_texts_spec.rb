@@ -47,7 +47,7 @@ describe "Participatory texts" do
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
         visit_component
-        should_have_proposal("#proposals section[id^='proposal']:first-child", proposal_section)
+        expect { should_have_proposal("#proposals section[id^='proposal']:first-child", proposal_section) }.not_to raise_error
       end
     end
 
@@ -57,7 +57,7 @@ describe "Participatory texts" do
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
         visit_component
-        should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article)
+        expect { should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article) }.not_to raise_error
       end
     end
   end

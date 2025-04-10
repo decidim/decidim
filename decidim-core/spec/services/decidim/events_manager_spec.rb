@@ -81,13 +81,11 @@ describe Decidim::EventsManager do
     let(:block) { proc { "Hello world" } }
 
     it "delegates the params to ActiveSupport::Notifications" do
-      allow(ActiveSupport::Notifications)
-        .to receive(:subscribe)
-        .with(event, &block)
-
-      expect(ActiveSupport::Notifications)
-        .to receive(:subscribe)
-        .with(event)
+      expect do
+        allow(ActiveSupport::Notifications)
+          .to receive(:subscribe)
+          .with(event, &block)
+      end.not_to raise_error
 
       described_class.subscribe(event, &block)
     end

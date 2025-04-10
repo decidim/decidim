@@ -36,6 +36,9 @@ shared_examples "proposals wizards" do |options|
           fill_in :proposal_body, with: proposal_body
           find("*[type=submit]").click
         end
+
+        expect(page).to have_css("[data-active]", text: "Publish your proposal")
+        expect(page).to have_css("[data-past]", count: 1)
       end
 
       context "when the back button is clicked" do
