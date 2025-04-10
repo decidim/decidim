@@ -154,7 +154,13 @@ ca-IT:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "fitxer .csv amb dades de correus electrònics"
+            info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
+            submit: Puja arxiu
+            title: Puja un nou cens
         authorizations:
           new:
             error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
