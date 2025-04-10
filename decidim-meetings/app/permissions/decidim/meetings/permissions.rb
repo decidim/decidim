@@ -58,7 +58,7 @@ module Decidim
           return permission_action
         end
 
-        toggle_allow(user_can_preview_space?) if permission_action.subject == :meeting || permission_action.action == :preview
+        allow! if user_can_preview_space? && user_has_any_role?(user, meeting, broad_check: true) && permission_action.subject == :preview
 
         permission_action
       end
