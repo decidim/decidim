@@ -165,7 +165,6 @@ ca-IT:
             enable_pads_creation: Habilitar la creació de pads
             maps_enabled: Mapes habilitats
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
@@ -417,8 +416,6 @@ ca-IT:
         registrations:
           edit:
             save: Desa
-            validate: Validar
-            validate_registration_code: Valida el codi de registre
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
@@ -435,9 +432,6 @@ ca-IT:
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
-          validate_registration_code:
-            invalid: Aquest codi de registre no és vàlid.
-            success: Codi de registre validat amb èxit.
       admin_log:
         invite:
           create: "%{user_name} ha convidat a %{attendee_name} a unir-se a la trobada %{resource_name} a l'espai %{space_name}"
@@ -605,7 +599,6 @@ ca-IT:
           organizations: Organitzacions assistents
           pending_address: La ubicació s'anunciarà aviat.
           redirect_notice: Aquesta trobada pertany a un altre espai de participació, motiu pel qual se t'ha traslladat a %{current_space_name}.<br>Si ho prefereixes, pots tornar a <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
             validation_pending: VALIDACIÓ PENDENT
@@ -683,7 +676,6 @@ ca-IT:
         confirmation:
           confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
           details: A l'arxiu adjunt trobaràs els detalls de la reunió.
-          registration_code: El teu codi de registre és %{code}.
       registration_type:
         on_different_platform: A una altra plataforma
         on_this_platform: En aquesta plataforma
