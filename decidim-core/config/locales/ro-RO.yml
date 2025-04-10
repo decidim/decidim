@@ -60,7 +60,7 @@ ro:
         user:
           attributes:
             nickname:
-              format:
+              format: Pseudonimul trebuie să conțină litere mici și să nu conțină spații
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
