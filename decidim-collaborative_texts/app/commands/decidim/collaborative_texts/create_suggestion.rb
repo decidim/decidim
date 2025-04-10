@@ -13,11 +13,13 @@ module Decidim
 
       def extra_params
         {
-          participatory_space: {
-            title: document&.participatory_space&.title
-          },
-          resource: {
-            title: document&.title
+          extra: {
+            participatory_space: {
+              title: form.document&.participatory_space&.title
+            },
+            resource: {
+              title: form.document&.title
+            }
           }
         }
       end

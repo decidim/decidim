@@ -9,35 +9,54 @@ module Decidim
         protected
 
         def update_resource
-          # As traceability might not understand the body attribute, we save it separately
-          if form.title != resource.title || form.accepting_suggestions != resource.accepting_suggestions
-            Decidim.traceability.update!(
-              resource,
-              current_user,
-              {
-                title: form.title,
-                accepting_suggestions: form.accepting_suggestions
-              },
-              **extra_document_params
-            )
-            end
-
-          # Admin forcing a draft to discard existing suggestions
-          if resource.has_suggestions? && form.draft
-            Decidim.traceability.create!(
-              Decidim::CollaborativeTexts::Version,
-              current_user,
-              { document: resource, body: resource.body, draft: true },
-              **extra_version_params
-            )
+          # Attributes to the model Document
+          update_document_record!
+          # As traceability might not understand the (delegated) body attribute, we save it separately
+          if create_new_version?
+            create_draft_version!
           else
-            Decidim.traceability.update!(
-              resource.current_version,
-              current_user,
-              { draft: form.draft, body: form.body },
-              **extra_version_params
-            )
+            update_version_record!
           end
+        end
+
+        def create_new_version?
+          @create_new_version ||= resource.has_suggestions? && form.draft
+        end
+
+        def update_document_record!
+          return unless form.title != resource.title || form.accepting_suggestions != resource.accepting_suggestions
+
+          Decidim.traceability.update!(
+            resource,
+            current_user,
+            {
+              title: form.title,
+              accepting_suggestions: form.accepting_suggestions
+            },
+            **extra_document_params
+          )
+          end
+
+        # When the document is not a draft or it has no suggestions, we just update the current version
+        def update_version_record!
+          Decidim.traceability.update!(
+            resource.current_version,
+            current_user,
+            { draft: form.draft, body: form.body },
+            **extra_version_params
+          )
+        end
+
+        # A new version is necessary when the document has suggestions and we want a draft (so we can edit it)
+        # If we allow to edit a version with suggestions all the reference nodes to the DOM will be out of sync
+        # Note that we do not update the body in purpose, as it is edition is disabled in the UI
+        def create_draft_version!
+          Decidim.traceability.create!(
+            Decidim::CollaborativeTexts::Version,
+            current_user,
+            { document: resource, body: resource.body, draft: true },
+            **extra_version_params
+          )
         end
 
         def extra_document_params
@@ -66,7 +85,10 @@ module Decidim
         end
 
         def current_version_number
-          resource.current_version&.version_number || 1
+          @current_version_number ||= begin
+            num = resource.current_version&.version_number || 1
+            create_new_version? ? num + 1 : num
+          end
         end
       end
     end
