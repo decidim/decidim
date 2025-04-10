@@ -68,11 +68,11 @@ module Decidim
 
       context "when values are serialized" do
         it "does not serialize the value if is an attachment" do
-          allow(model).to receive(:name).and_return("https://example.com/rails/active_storage/blobs/redirect/some_value")
+          allow(model).to receive(:name).and_return("https://example.com#{ActiveStorage.routes_prefix}/blobs/redirect/some_value")
 
-          expect(model.name_en).to eq("https://example.com/rails/active_storage/blobs/redirect/some_value")
-          expect(model.name_ca).to eq("https://example.com/rails/active_storage/blobs/redirect/some_value")
-          expect(model.name_pt__BR).to eq("https://example.com/rails/active_storage/blobs/redirect/some_value")
+          expect(model.name_en).to eq("https://example.com#{ActiveStorage.routes_prefix}/blobs/redirect/some_value")
+          expect(model.name_ca).to eq("https://example.com#{ActiveStorage.routes_prefix}/blobs/redirect/some_value")
+          expect(model.name_pt__BR).to eq("https://example.com#{ActiveStorage.routes_prefix}/blobs/redirect/some_value")
         end
       end
     end

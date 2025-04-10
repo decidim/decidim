@@ -129,7 +129,7 @@ module Decidim
     end
 
     def attachment?(value)
-      value.is_a?(String) && value.include?("/rails/active_storage/")
+      value.is_a?(String) && value.include?(ActiveStorage.routes_prefix)
     end
   end
 end
