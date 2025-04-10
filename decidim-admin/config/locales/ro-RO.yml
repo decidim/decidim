@@ -417,6 +417,8 @@ ro:
             explanation: 'Îndrumare pentru fișier:'
             message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
+          import_csv:
+            message_1: Sunt acceptate fișiere CSV
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor.
         form:
