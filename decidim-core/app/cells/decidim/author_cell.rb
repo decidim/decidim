@@ -56,15 +56,7 @@ module Decidim
     # If the options hash has the demo key it means we are in the decidim-design engine,
     # so it is not a real-world scenario with actual users
     def data
-      @data ||= begin
-        internal_data = { author: true }
-        if has_tooltip? && !options.has_key?(:demo)
-          internal_data["remote_tooltip"] = true
-          internal_data["tooltip-url"] = decidim.profile_tooltip_path(raw_model.nickname)
-        end
-
-        internal_data
-      end
+      @data ||= { author: true }
     end
 
     def layout

@@ -100,7 +100,6 @@ Decidim::Core::Engine.routes.draw do
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    get "tooltip", to: "profiles#tooltip", as: "profile_tooltip"
   end
 
   scope :timeouts do
