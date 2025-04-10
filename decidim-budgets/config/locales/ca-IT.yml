@@ -293,7 +293,7 @@ ca-IT:
             other: vots
           you_voted: Has votat això
         project_budget_button:
-          add: Afegir al teu vot
+          add: Afegir
           add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
           added: Afegit al teu vot
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.
