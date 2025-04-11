@@ -11,7 +11,6 @@ module Decidim::Conferences
       let(:conference_speaker) { create(:conference_speaker) }
       let(:model) { Decidim::ConferenceSpeakerPresenter.new(conference_speaker) }
 
-
       it "renders the card" do
         expect(subject).to have_css("[data-conference-speaker]")
       end

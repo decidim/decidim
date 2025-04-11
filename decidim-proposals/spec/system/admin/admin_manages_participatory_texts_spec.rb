@@ -106,17 +106,15 @@ describe "Admin manages participatory texts" do
       visit_participatory_texts
       expect(page).to have_content "Article", count: 5
 
-
       accept_confirm "Are you sure to discard the whole participatory text draft?" do
         click_on "Discard all"
       end
       expect(page).to have_content "All participatory text drafts have been discarded."
       expect(page).to have_content "Preview participatory text"
 
-      expect(page).not_to have_content "Section:"
-      expect(page).not_to have_content "Subsection:"
-      expect(page).not_to have_content "Article"
-
+      expect(page).to have_no_content "Section:"
+      expect(page).to have_no_content "Subsection:"
+      expect(page).to have_no_content "Article"
     end
   end
 

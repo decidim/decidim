@@ -62,7 +62,7 @@ describe "Participatory texts" do
         visit_component
 
         should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article)
-        expect(page).to have_tag("#proposals section[id^='proposal']:first-child", text: translated(proposal_article.title))
+        expect(page).to have_tag("#proposals section[id^='proposal']:last-child", text: translated(proposal_article.title))
       end
     end
   end
