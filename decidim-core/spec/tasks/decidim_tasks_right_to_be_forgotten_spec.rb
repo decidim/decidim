@@ -35,7 +35,8 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
       task.execute
       check_no_errors_have_been_printed
       expect(Decidim::User.where(id: user_ids).all?(&:deleted?)).to be true
-      check_message_printed("[#{user_ids.first}] DELETING USER")
+
+      expect($stdout.string).to include("[#{user_ids.first}] DELETING USER")
     end
 
     it "ignores not found users" do
@@ -64,7 +65,8 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
     it "raise a FILE NOT FOUND error" do
       allow(ENV).to receive(:[]).with("FILE_PATH").and_return("tmp/not_found_file")
       task.execute
-      expect { check_error_printed("File not found") }.not_to raise_error
+
+      expect($stdout.string).to include("ERROR: [File not found]")
     end
   end
 
@@ -77,7 +79,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
 
     it "raise a MALFORMED CSV error" do
       task.execute
-      expect { check_error_printed("Malformed CSV") }.not_to raise_error
+      expect($stdout.string).to include("ERROR: [Malformed CSV]")
     end
   end
 end
