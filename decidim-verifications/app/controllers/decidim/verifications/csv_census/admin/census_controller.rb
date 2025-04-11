@@ -10,41 +10,69 @@ module Decidim
           before_action :show_instructions,
                         unless: :csv_census_active?
 
+          include Decidim::Verifications::Admin::Filterable
           include Decidim::Admin::WorkflowsBreadcrumb
+          include Decidim::Paginable
 
           add_breadcrumb_item_from_menu :workflows_menu
 
-          def index
-            enforce_permission_to :index, :authorization
-            @form = form(CensusDataForm).instance
-            @status = Status.new(current_organization)
-          end
+          helper_method :csv_census_data, :last_login
 
-          def create
-            enforce_permission_to :create, :authorization
-            @form = form(CensusDataForm).from_params(params)
-            @status = Status.new(current_organization)
-            CreateCensusData.call(@form, current_organization) do
+          def index; end
+
+          def destroy
+            Decidim::Commands::DestroyResource.call(census_data, current_user) do
               on(:ok) do
-                flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
-                redirect_to census_path
-              end
-
-              on(:invalid) do
-                flash[:alert] = t(".error")
-                render :index
+                flash[:notice] = I18n.t("census.destroy.success", scope: "decidim.verifications.csv_census.admin")
+                redirect_to census_logs_path
               end
             end
           end
 
-          def destroy_all
-            enforce_permission_to :destroy, :authorization
-            CsvDatum.clear(current_organization)
+          def new_import
+            @form = form(CensusDataForm).from_params(params)
+            @status = Status.new(current_organization)
+          end
 
-            redirect_to census_path, notice: t(".success")
+          def create_import
+            enforce_permission_to :create, :authorization
+            @form = form(CensusDataForm).from_params(params)
+            @status = Status.new(current_organization)
+
+            @form.validate_csv
+
+            if @form.errors.any?
+              error_messages = @form.errors.full_messages.map { |msg| "<li>#{msg}</li>" }.join
+              flash[:alert] = "<ul>#{error_messages}</ul>"
+              redirect_to(census_logs_path) && return
+            end
+
+            CreateCensusData.call(@form, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("census.create_import.success", scope: "decidim.verifications.csv_census.admin", count: @form.data.values.count)
+                redirect_to census_logs_path
+              end
+
+              on(:invalid) do
+                flash[:alert] = I18n.t("census.create_import.error", scope: "decidim.verifications.csv_census.admin")
+                redirect_to census_logs_path
+              end
+            end
           end
 
           private
+
+          def census_data
+            @census_data ||= CsvDatum.where(organization: current_organization).find(params[:id])
+          end
+
+          def csv_census_data
+            @csv_census_data ||= filtered_collection
+          end
+
+          def collection
+            @collection ||= CsvDatum.where(organization: current_organization)
+          end
 
           def show_instructions
             enforce_permission_to :index, :authorization
@@ -53,6 +81,22 @@ module Decidim
 
           def csv_census_active?
             current_organization.available_authorizations.include?("csv_census")
+          end
+
+          def last_login(data)
+            user = current_organization.users.available.find_by(email: data.email)
+
+            return { icon: nil, text: t(".no_user"), last_sign_in: nil } unless user
+
+            authorized = Decidim::Authorization.where(name: "csv_census", user:)
+                                               .where.not(granted_at: nil)
+                                               .exists?
+
+            icon = authorized ? "checkbox-circle-line" : "close-circle-line"
+            text = authorized ? t("index.authorized", scope: "decidim.verifications.csv_census.admin") : t("index.no_authorized", scope: "decidim.verifications.csv_census.admin")
+            last_sign_in = user.last_sign_in_at ? l(user.last_sign_in_at, format: :decidim_short) : t(".no_sign_in")
+
+            { icon:, text:, last_sign_in: }
           end
         end
       end
