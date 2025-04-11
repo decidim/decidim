@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records = Decidim::Env.new("CI").present? ? 1 : 3
+        number_of_records = ci_environment? ? 1 : 3
 
         number_of_records.times do |_n|
           type = create_initiative_type!

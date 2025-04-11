@@ -15,7 +15,7 @@ module Decidim
       def call
         component = create_component!
 
-        number_of_records = Decidim::Env.new("CI").present? ? 1 : 2
+        number_of_records = ci_environment? ? 1 : 2
 
         number_of_records.times do
           create_meeting!(component:, type: :online)

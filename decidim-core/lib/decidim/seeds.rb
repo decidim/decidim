@@ -9,6 +9,10 @@ module Decidim
   class Seeds
     protected
 
+    def ci_environment?
+      Decidim::Env.new("CI").present? && Rails.env.test?
+    end
+
     def organization
       @organization ||= Decidim::Organization.first
     end
