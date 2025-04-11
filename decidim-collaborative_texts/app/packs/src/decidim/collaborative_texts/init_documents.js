@@ -19,7 +19,7 @@ window.document.addEventListener("DOMContentLoaded", () => {
   tableOfContents.forEach((tocEl) => {
     let document = window.CollaborativeTextsDocuments[tocEl.dataset.collaborativeTextsToc];
     if (document) {
-      let toc = new Toc(tocEl, document);
+      let toc = new Toc(tocEl, document.doc);
       toc.render();
       window.CollaborativeTextsToc[tocEl.id] = toc;
     }
