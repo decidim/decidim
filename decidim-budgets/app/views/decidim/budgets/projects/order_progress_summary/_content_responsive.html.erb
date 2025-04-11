@@ -28,8 +28,7 @@
       <div class="pt-5" id="progress-summary-dropdown-menu" aria-hidden="<%= show_hint ? "false" : "true" %>">
         <ul class="list-disc">
           <li>
-            <%= t("hint", scope: "decidim.budgets.projects.budget_summary",
-                          minimum_budget_amount: budget_to_currency(current_order.minimum_budget)) %>
+            <%= current_rule_description %>
           </li>
         </ul>
       </div>

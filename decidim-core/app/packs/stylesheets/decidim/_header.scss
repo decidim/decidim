@@ -77,6 +77,14 @@ header {
       }
     }
 
+    &__back-button {
+      @apply col-span-2 text-secondary;
+
+      svg {
+        @apply fill-current;
+      }
+    }
+
     &__menu-mobile {
       @apply lg:hidden flex flex-row-reverse items-center;
     }
