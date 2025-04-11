@@ -9,14 +9,30 @@ module Decidim
       field :collaborative_text, Decidim::CollaborativeTexts::DocumentType, "A single CollaborativeText object", null: true do
         argument :id, GraphQL::Types::ID, "The id of the CollaborativeText requested", required: true
       end
-      field :collaborative_texts, Decidim::CollaborativeTexts::DocumentType.connection_type, "A collection of CollaborativeTexts", null: true, connection: true
 
-      def collaborative_texts
-        Document.published.where(component: object).includes(:component)
+      field :collaborative_texts, Decidim::CollaborativeTexts::DocumentType.connection_type, "A collection of CollaborativeTexts", null: false, connection: true do
+        argument :filter, Decidim::CollaborativeTexts::DocumentInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, Decidim::CollaborativeTexts::DocumentInputSort, "Provides several methods to order the results", required: false
       end
 
-      def collaborative_text(**args)
-        Document.published.where(component: object).find_by(id: args[:id])
+      def collaborative_texts(filter: {}, order: {})
+        base_query = Decidim::Core::ComponentListBase.new(model_class: Document).call(object, { filter:, order: }, context)
+        if context[:current_user]&.admin?
+          base_query
+        else
+          base_query.published
+        end
+      end
+
+      def collaborative_text(id:)
+        scope =
+          if context[:current_user]&.admin?
+            Document
+          else
+            Document.published
+          end
+
+        Decidim::Core::ComponentFinderBase.new(model_class: scope).call(object, { id: }, context)
       end
     end
   end

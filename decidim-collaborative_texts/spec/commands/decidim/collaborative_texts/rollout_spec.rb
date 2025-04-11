@@ -73,7 +73,7 @@ module Decidim
 
           expect(document.suggestions.accepted.count).to eq(1)
           expect(document.suggestions.pending.count).to eq(1)
-          expect(document.document_versions.last.draft).to eq(false)
+          expect(document.document_versions.last.draft).to be(false)
           expect(accepted_suggestion.reload.document_version).not_to eq(pending_suggestion.reload.document_version)
           expect(accepted_suggestion.document_version).to eq(document.document_versions.first)
           expect(pending_suggestion.document_version).to eq(document.document_versions.last)
@@ -90,7 +90,7 @@ module Decidim
             expect { subject.call }.to change { document.document_versions.count }.by(1)
             expect(document.suggestions.accepted.count).to eq(1)
             expect(document.suggestions.pending.count).to eq(1)
-            expect(document.document_versions.last.draft).to eq(true)
+            expect(document.document_versions.last.draft).to be(true)
             expect(accepted_suggestion.reload.document_version).to eq(pending_suggestion.reload.document_version)
             expect(accepted_suggestion.document_version).to eq(document.document_versions.first)
           end

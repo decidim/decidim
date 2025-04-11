@@ -3,8 +3,8 @@
 module Decidim
   module CollaborativeTexts
     class DocumentType < Decidim::Api::Types::BaseObject
-      description "A collaborative text document."
       graphql_name "CollaborativeText"
+      description "A collaborative text document."
 
       implements Decidim::Core::CoauthorableInterface
       implements Decidim::Core::TraceableInterface
@@ -21,6 +21,11 @@ module Decidim
       field :suggestions, [Decidim::CollaborativeTexts::SuggestionType], "The suggestions for this collaborative text document.", null: true
       field :suggestions_count, GraphQL::Types::Int, "The number of suggestions for this collaborative text document.", null: true
       field :title, GraphQL::Types::String, "The title of this collaborative text document.", null: false
+      field :url, String, "The URL for this project", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
     end
   end
 end

@@ -15,7 +15,7 @@ module Decidim
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
 
-      delegate :organization, to: :document_version
+      delegate :participatory_space, :organization, to: :document_version
 
       scope :pending, -> { where(status: :pending) }
       scope :accepted, -> { where(status: :accepted) }

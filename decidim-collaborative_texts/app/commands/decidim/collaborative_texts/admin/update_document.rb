@@ -35,7 +35,7 @@ module Decidim
             },
             **extra_document_params
           )
-          end
+        end
 
         # When the document is not a draft or it has no suggestions, we just update the current version
         def update_version_record!
