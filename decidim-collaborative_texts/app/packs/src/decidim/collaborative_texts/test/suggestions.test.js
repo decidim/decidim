@@ -1,3 +1,6 @@
+/* eslint-disable prefer-reflect */
+/* global global, jest */
+
 import Document from "src/decidim/collaborative_texts/document";
 import SuggestionsList from "src/decidim/collaborative_texts/suggestions_list";
 import Suggestion from "src/decidim/collaborative_texts/suggestion";

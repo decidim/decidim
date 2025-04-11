@@ -1,3 +1,5 @@
+/* global global, jest */
+
 import Document from "src/decidim/collaborative_texts/document";
 import Suggestions from "src/decidim/collaborative_texts/suggestions";
 

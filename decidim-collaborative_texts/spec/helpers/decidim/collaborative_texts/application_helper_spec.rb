@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module CollaborativeTexts
     describe ApplicationHelper do
-      let(:component) { double("Component", name: { en: "Collaborative Texts rulez!" }) }
+      let(:component) { double("Component", name: { en: "Collaborative Texts on fire!" }) }
 
       before do
         allow(helper).to receive(:current_component).and_return(component)
@@ -13,7 +13,7 @@ module Decidim
 
       describe "#component_name" do
         it "returns the translated name of the current component when defined" do
-          expect(helper.component_name).to eq("Collaborative Texts rulez!")
+          expect(helper.component_name).to eq("Collaborative Texts on fire!")
         end
       end
 
