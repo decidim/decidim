@@ -57,7 +57,26 @@ bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
 ```
 
-### 1.5. Follow the steps and commands detailed in these notes
+### 1.5. Rails upgrade
+
+If you are upgrading an existing application, you may have a deprecation error like the one below:
+
+```text
+The Gemfile's dependencies are satisfied
+DEPRECATION WARNING: Support for `config.active_support.cache_format_version = 6.1` has been deprecated and will be removed in Rails 7.2.
+
+Check the Rails upgrade guide at https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#new-activesupport-cache-serialization-format
+for more information on how to upgrade.
+```
+
+To remove the deprecation warning, you must patch your `config/application.rb`, and update your `load_defaults` to the follwing:
+
+```ruby
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.0
+```
+
+### 1.6. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
