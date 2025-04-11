@@ -19,7 +19,7 @@ module Decidim
     end
 
     def qr_code_image
-      Base64.encode64(qr_code.as_png(size: 175).to_s).gsub("\n", "")
+      Base64.encode64(qr_code.as_png(size: 500).to_s).gsub("\n", "")
     end
   end
 end
