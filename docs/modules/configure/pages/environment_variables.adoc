@@ -813,7 +813,7 @@ After this time the initiative will be moved to discarded state.
 
 |===
 
-.Optional Env Vars for extra  configuration
+.Optional Env Vars for extra configuration
 [%autowidth.stretch]
 |===
 |Name |Value |Default value|Multitenant's System configurable
