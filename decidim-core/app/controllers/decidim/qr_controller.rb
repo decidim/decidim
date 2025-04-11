@@ -3,13 +3,12 @@
 require "rqrcode"
 
 module Decidim
-  class InvalidUrlError < StandardError; end
-
   class QrController < Decidim::ApplicationController
     include Decidim::OrganizationHelper
     include Decidim::QrCodeHelper
 
     helper_method :resource, :qr_code, :qr_code_image
+    before_action :validate_resource
 
     layout false
 
@@ -31,6 +30,12 @@ module Decidim
     end
 
     private
+
+    def validate_resource
+      raise ActiveRecord::RecordNotFound if resource.blank?
+      raise ActiveRecord::RecordNotFound if resource.respond_to?(:hidden?) && resource.hidden?
+      raise ActiveRecord::RecordNotFound if resource.respond_to?(:published?) && !resource.published?
+    end
 
     def processed_params
       return {} if resource.is_a?(Decidim::Participable)

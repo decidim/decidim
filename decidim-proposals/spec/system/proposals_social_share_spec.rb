@@ -36,6 +36,26 @@ describe "Social shares" do
   it_behaves_like "a social share widget"
   it_behaves_like "a social share via QR code" do
     let(:card_image) { "city3.jpeg" }
+
+    context "when the resource is not published" do
+      let(:proposal) { create(:proposal, :unpublished, component:, body:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource is moderated" do
+      let(:proposal) { create(:proposal, :published, component:, body:) }
+
+      before do
+        create(:moderation, reportable: proposal, hidden_at: 1.day.ago)
+      end
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: proposal.to_sgid.to_s) }
+      end
+    end
   end
 
   context "when no attachment images" do

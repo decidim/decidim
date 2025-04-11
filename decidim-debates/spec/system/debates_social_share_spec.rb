@@ -32,7 +32,19 @@ describe "Social shares" do
 
   it_behaves_like "a social share meta tag", "description_image.jpg"
   it_behaves_like "a social share widget"
-  it_behaves_like "a social share via QR code"
+  it_behaves_like "a social share via QR code" do
+    context "when the resource is moderated" do
+      let(:debate) { create(:debate, component:, description:) }
+
+      before do
+        create(:moderation, reportable: debate, hidden_at: 1.day.ago)
+      end
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: debate.to_sgid.to_s) }
+      end
+    end
+  end
 
   context "when no description images" do
     let(:description_image_path) { "" }
