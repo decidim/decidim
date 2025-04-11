@@ -13,7 +13,7 @@ module GeocoderHelpers
       coordinates
     )
   end
-  
+
   def stub_geocoding_coordinates(coordinates)
     geocoder_request_url = "https://nominatim.openstreetmap.org/reverse?accept-language=en&addressdetails=1&format=json&lat=#{coordinates[0]}&lon=#{coordinates[1]}"
     geocoder_response = File.read(Decidim::Dev.asset("geocoder_result_here.json"))
