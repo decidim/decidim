@@ -18,7 +18,7 @@ module Decidim
               metadatas: expected_metadatas
             )
 
-            described_class.publish(comment, expected_metadatas)
+          described_class.publish(comment, expected_metadatas)
         end
       end
 
