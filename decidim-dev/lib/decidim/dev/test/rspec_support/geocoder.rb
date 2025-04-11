@@ -14,6 +14,19 @@ module GeocoderHelpers
     )
   end
 
+  def stub_geocoding_coordinates(coordinates)
+    geocoder_request_url = "https://nominatim.openstreetmap.org/reverse?accept-language=en&addressdetails=1&format=json&lat=#{coordinates[0]}&lon=#{coordinates[1]}"
+    geocoder_response = File.read(Decidim::Dev.asset("geocoder_result_here.json"))
+
+    stub_request(:get, geocoder_request_url).with(
+      headers: {
+        "Accept" => "*/*",
+        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+        "User-Agent" => "Ruby"
+      }
+    ).to_return(body: geocoder_response)
+  end
+
   # Waits for the front-end geocoding request to finish in order to ensure there
   # are no pending requests when proceeding.
   def fill_in_geocoding(attribute, options = {})
