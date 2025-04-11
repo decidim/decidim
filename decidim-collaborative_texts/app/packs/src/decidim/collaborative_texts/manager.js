@@ -52,7 +52,7 @@ export default class Manager {
         node.childNodes.forEach((child) => this.container.appendChild(child.cloneNode(true)));
         return;
       }
-      if (node.classList.values().find((cls) => cls.startsWith("collaborative-texts-"))) {
+      if ([...node.classList].find((cls) => cls.startsWith("collaborative-texts-"))) {
         return;
       }
       this.container.appendChild(node.cloneNode(true));
@@ -62,11 +62,10 @@ export default class Manager {
 
   _save(event) {
     const draft = !event.target.dataset.collaborativeTextsManagerConsolidate;
-
     confirmDialog(draft
       ? this.i18n.rolloutConfirm
       : this.i18n.consolidateConfirm).then((accepted) => {
-      if (accepted) {
+        if (accepted) {
         fetch(this.doc.dataset.collaborativeTextsRolloutUrl, {
           method: "PATCH",
           headers: {
@@ -88,7 +87,7 @@ export default class Manager {
                 ? data.message
                 : data);
             }
-            location = data.redirect;
+            window.location.href = data.redirect;
           }).
           catch((error) => {
             console.error("Error saving:", error);

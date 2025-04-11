@@ -26,12 +26,6 @@ describe("Toc", () => {
   let toc = null;
   let doc = null;
 
-  global.fetch = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(fetchResult)
-    })
-  );
-
   beforeEach(() => {
     document.body.innerHTML = content;
     doc = document.querySelector("[data-collaborative-texts-document]");
