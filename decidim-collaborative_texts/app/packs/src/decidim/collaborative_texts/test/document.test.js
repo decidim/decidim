@@ -1,7 +1,7 @@
 /* global global, jest */
 
 import Document from "src/decidim/collaborative_texts/document";
-import Suggestions from "src/decidim/collaborative_texts/suggestions";
+import SuggestionsList from "src/decidim/collaborative_texts/suggestions_list";
 
 describe("Document", () => {
   let i18n = {test: "test"};
@@ -41,8 +41,8 @@ describe("Document", () => {
   });
 
   it("Filters text nodes and adds ids", () => {
-    expect(doc.fetchSuggestions().suggestions).toBeInstanceOf(Suggestions);
-    expect(doc.fetchSuggestions().suggestions.document).toBe(doc);
+    expect(doc.fetchSuggestions().suggestionsList).toBeInstanceOf(SuggestionsList);
+    expect(doc.fetchSuggestions().suggestionsList.document).toBe(doc);
     expect(doc.nodes.length).toBe(4);
     expect(doc.nodes[0].id).toBe("ct-node-1");
     expect(doc.nodes[0].textContent).toBe("This is a collaborative text");

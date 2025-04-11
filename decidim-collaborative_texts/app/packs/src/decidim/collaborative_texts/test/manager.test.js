@@ -51,12 +51,6 @@ describe("Manager", () => {
   </body>
 `;
 
-  const confirmDialog = null;
-  const Rails = {
-    linkClickSelector: null,
-    buttonClickSelector: null,
-    formInputClickSelector: null
-  }
   let manager = null;
   let doc = null;
   let suggestions = [

@@ -141,5 +141,5 @@ en:
           step:
             announcement: Announcement
     statistics:
+      all_collaborative_texts_count: All collaborative texts
       collaborative_texts_count: Collaborative texts
-      published_collaborative_texts_count: Collaborative texts
