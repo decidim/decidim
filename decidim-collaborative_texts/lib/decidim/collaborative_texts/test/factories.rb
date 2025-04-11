@@ -57,7 +57,7 @@ FactoryBot.define do
 
   factory :collaborative_text_suggestion, class: "Decidim::CollaborativeTexts::Suggestion" do
     document_version { build(:collaborative_text_version) }
-    author { build(:user, organization: document_version.document.organization) }
+    author { build(:user, :confirmed, organization: document_version.document.organization) }
     trait :pending do
       status { :pending }
     end

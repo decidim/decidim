@@ -17,6 +17,10 @@ module Decidim
 
       delegate :organization, to: :document_version
 
+      scope :pending, -> { where(status: :pending) }
+      scope :accepted, -> { where(status: :accepted) }
+      scope :rejected, -> { where(status: :rejected) }
+
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::SuggestionPresenter
       end
