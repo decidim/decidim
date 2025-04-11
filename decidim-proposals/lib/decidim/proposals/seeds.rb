@@ -17,7 +17,7 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        number_of_records = ci_environment? ? 15 : 30
+        number_of_records = fast_seeds? ? 15 : 30
 
         (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)

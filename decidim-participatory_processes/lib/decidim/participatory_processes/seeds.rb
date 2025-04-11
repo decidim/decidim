@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records = ci_environment? ? 1 : 2
+        number_of_records = fast_seeds? ? 1 : 2
 
         process_groups = []
         number_of_records.times do
