@@ -170,14 +170,40 @@ eu:
             create_import:
               error: Arazo bat izan da erroldak inportatzean.
               no_user: Ez da aurkitu parte-hartzailea
+            index:
+              empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV artxibo bat.
+              no_sign_in: Saioa inoiz ez hasia
+              no_user: Ez da aurkitu parte-hartzailerik
+            last_login:
+              no_sign_in: Inoiz ez sinatua
+              no_user: Parte-hartzailerik gabe
+            new_import:
+              errors:
+                email_exists: '%{email} helbide elektronikoa badago %{organization} elkartean.'
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'CSV formatudun artxiboa izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
+              submit: Igo fitxategia
+              title: Inportatu errolda-datuak
+              upload_new_census: Igo beste errolda bat
           census_records:
+            create_record:
+              success: Datuen erregistroa zuzen erantsita. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
             edit_record:
               save: Gorde
+              title: Editatu errolda-erregistroa
             form:
               email: Helbide elektronkoa
             new_record:
               save: Gorde
+              title: Gehitu beste errolda-erregistro bat
+            update_record:
+              invalid: Arazo bat egon da errolda-datuen erregistroa eguneratzean.
+              success: Zuzen eguneratu da errolda-datuen erregistroa.
           index:
+            add_new_record_button: Erantsi beste erregistro bat
+            authorized: Parte-hartzailea baimendua
             fields:
               actions: Ekintzak
               created_at: Noiz sortua
