@@ -4,7 +4,7 @@
     <%= t("decidim.amendments.amendments.title", count: emendations.count) %>
   </h2>
 
-  <div class="amendment-list">
+  <div id="amendment-list">
     <% emendations.each do |emendation| %>
       <%= card_for emendation, context: { current_user: } %>
     <% end %>
