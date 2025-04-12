@@ -34,7 +34,7 @@ module Decidim
     def validate_resource
       raise ActiveRecord::RecordNotFound if resource.blank?
       raise ActiveRecord::RecordNotFound if resource.respond_to?(:hidden?) && resource.hidden?
-      raise ActiveRecord::RecordNotFound if resource.respond_to?(:published?) && !resource.published?
+      raise ActiveRecord::RecordNotFound if resource.is_a?(Decidim::Publicable) && !resource.published?
     end
 
     def processed_params
