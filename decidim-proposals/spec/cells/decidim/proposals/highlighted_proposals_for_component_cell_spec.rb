@@ -55,11 +55,23 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
   context "with proposals" do
     let!(:proposal2) { create(:proposal, title: { en: "Another nice title" }, component: model) }
 
-    it "renders the proposals" do
+    it "renders the proposals in random" do
       expect(subject).to have_content("A nice title")
       expect(subject).to have_content("Another nice title")
       expect(subject).to have_content("Random")
       expect(subject).to have_css(".card__list-title", count: 2)
+    end
+
+    context "when order is set to most recent" do
+      let(:options) { { order: "recent" } }
+
+      it "renders the proposals" do
+        expect(subject).to have_content("A nice title")
+        expect(subject).to have_content("Another nice title")
+        expect(subject).to have_content("Last proposals")
+        expect(subject).to have_no_content("Random")
+        expect(subject).to have_css(".card__list-title", count: 2)
+      end
     end
   end
 
