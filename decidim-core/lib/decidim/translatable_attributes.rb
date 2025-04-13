@@ -62,7 +62,7 @@ module Decidim
             final = super(value)
             return unless final # Do not set the `nil` values for the parent hash
 
-            final = value_type.serialize(final) if value_type
+            final = value_type.serialize(final) if value_type && !attachment?(final)
 
             public_send("#{name}=", field.merge(locale => final))
           end
@@ -126,6 +126,10 @@ module Decidim
     def default_locale?(locale)
       locale.to_s == try(:default_locale).to_s ||
         locale.to_s == try(:current_organization).try(:default_locale).to_s
+    end
+
+    def attachment?(value)
+      value.is_a?(String) && value.include?(ActiveStorage.routes_prefix)
     end
   end
 end
