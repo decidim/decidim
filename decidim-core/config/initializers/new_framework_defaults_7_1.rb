@@ -275,7 +275,7 @@
 # Configure the test helpers in Action View, Action Dispatch, and rails-dom-testing to use HTML5
 # parsers.
 #
-# Nokogiri::HTML5 isn't supported on JRuby, so JRuby applications must set this to :html4.
+# Nokogiri::HTML5 is not supported on JRuby, so JRuby applications must set this to :html4.
 #
 # In previous versions of Rails, these test helpers always used an HTML4 parser.
 #++
