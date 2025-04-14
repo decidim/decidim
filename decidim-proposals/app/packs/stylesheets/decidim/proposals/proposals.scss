@@ -400,3 +400,9 @@
     @apply lg:col-start-2 lg:col-span-10;
   }
 }
+
+.card__proposals-item {
+  & + & {
+    @apply mt-6;
+  }
+}
