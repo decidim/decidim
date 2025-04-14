@@ -73,8 +73,10 @@ To remove the deprecation warning, you must patch your `config/application.rb`, 
 
 ```ruby
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 ```
+
+Please note that Rails 7.0 & 7.1 have changed the default configuration for encrypted attributes moving out from `OpenSSL::Digest::SHA1` to `OpenSSL::Digest::SHA256`, therefore there may be some issues with your encrypted fields like Organization's smtp settings, or even authorizations. To avoid these kind of issues, you will need to make sure your secret_key_base remains unchanged. Ideally, you should have it stored in `SECRET_KEY_BASE` ENV variable.
 
 ### 1.6. Follow the steps and commands detailed in these notes
 
