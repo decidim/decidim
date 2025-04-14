@@ -434,8 +434,12 @@ header {
         @apply h4 md:h3;
       }
 
+      nav {
+        @apply w-full md:w-1/4;
+      }
+
       &__menu {
-        @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+        @apply w-full bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
 
         > * {
           @apply py-3 md:py-3.5;
