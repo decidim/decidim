@@ -1,0 +1,16 @@
+<%= decidim_modal id: "RegistrationQRCodeDialog", class: "qr-modal" do %>
+  <div data-dialog-container>
+    <div data-dialog-title>
+      <%= icon "qr-code-line" %>
+      <h2 class="h4" tabindex="-1"><%= t("registration_and_qr_code", scope: "decidim.meetings.meetings.show") %></h2>
+    </div>
+    <div class="content">
+      <div>
+        <img src="data:;base64,<%= registration_qr_code_image %>" alt="<%= t("registration_and_qr_code", scope: "decidim.meetings.meetings.show") %>">
+      </div>
+      <div class="text-center">
+        <h2 class="h4"><%= t("registration_code", code: registration.code, scope: "decidim.meetings.meetings.show") %></h2>
+      </div>
+    </div>
+  </div>
+<% end %>
