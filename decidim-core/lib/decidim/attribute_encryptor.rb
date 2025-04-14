@@ -20,7 +20,7 @@ module Decidim
 
     def self.cryptor
       @cryptor ||= begin
-        key = ActiveSupport::KeyGenerator.new("attribute").generate_key(
+        key = ActiveSupport::KeyGenerator.new("attribute", hash_digest_class: OpenSSL::Digest::SHA1).generate_key(
           Rails.application.secret_key_base, ActiveSupport::MessageEncryptor.key_len
         )
         ActiveSupport::MessageEncryptor.new(key)
