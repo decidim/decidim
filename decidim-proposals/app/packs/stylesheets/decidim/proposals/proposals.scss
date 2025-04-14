@@ -430,7 +430,7 @@
 }
 
 .card__proposals-item {
-   & + &  {
+  & + & {
     @apply mt-6;
-   }
+  }
 }
