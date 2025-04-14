@@ -92,6 +92,20 @@ module Decidim
       safe_join [label_tabs, tabs_content]
     end
 
+    def datetime_field(attribute, opts = {})
+      label = label_for(attribute)
+      opts.reverse_merge!(
+        data: {
+          "date-label": I18n.t("datetime.widget.label.date", label:),
+          "time-label": I18n.t("datetime.widget.label.time", label:),
+          "button-date-label": I18n.t("datetime.widget.picker.date_button", label:),
+          "button-time-label": I18n.t("datetime.widget.picker.time_button", label:)
+        }
+      )
+
+      super
+    end
+
     def password_field(attribute, options = {})
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
