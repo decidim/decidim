@@ -6,10 +6,7 @@
           class: "main-bar__links-desktop__item",
           "aria-label": t("layouts.decidim.header.close"),
           data: {
-            close: "",
-            confirm: content_for(:focus_mode_close_confirm_message),
-            confirm_title: content_for(:focus_mode_close_confirm_title),
-            confirm_icon: "logout-box-line"
+            dialog_open: "exit-notification"
           }
         ) do %>
             <%= icon "close-line" %><span><%= t("layouts.decidim.header.close") %></span>
@@ -24,10 +21,7 @@
         type: :button,
         "aria-label": t("layouts.decidim.header.close"),
         data: {
-          close: "",
-          confirm: content_for(:focus_mode_close_confirm_message),
-          confirm_title: content_for(:focus_mode_close_confirm_title),
-          confirm_icon: "logout-box-line"
+          dialog_open: "exit-notification"
         }
       ) do %>
         <span class="flex items-center gap-1">
