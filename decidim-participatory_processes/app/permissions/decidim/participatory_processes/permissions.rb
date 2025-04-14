@@ -3,6 +3,8 @@
 module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
+
       def permissions
         user_can_enter_processes_space_area?
         user_can_enter_process_groups_space_area?
@@ -36,6 +38,7 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_upload_images_in_process?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -48,7 +51,6 @@ module Decidim
         collaborator_action?
         evaluator_action?
         process_admin_action?
-
         permission_action
       end
 
@@ -288,6 +290,10 @@ module Decidim
 
       def process_group
         @process_group ||= context.fetch(:process_group, nil)
+      end
+
+      def user_can_upload_images_in_process?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, process, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

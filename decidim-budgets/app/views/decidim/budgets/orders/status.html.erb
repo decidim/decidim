@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
   <div class="flex flex-col gap-4 items-center text-center my-12">
     <%= success_animation %>
 
@@ -22,16 +22,16 @@
     <% end %>
   </div>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <button class="button button__sm md:button__lg button__text-secondary">
-      <span><%= t("share_vote", scope: "decidim.budgets.order.status") %></span>
-      <%= icon "share-line", class: "fill-current" %>
-    </button>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between lg:px-12">
+    <%= cell "decidim/share_text_widget",
+             current_order.budget,
+             button_classes: "button button__sm md:button__lg button__text-secondary",
+             button_text: t("share_vote", scope: "decidim.budgets.order.status") %>
 
-    <button class="button button__sm md:button__lg button__transparent-secondary">
+    <%= link_to export_pdf_budget_order_path(current_order.budget), class: "button button__sm md:button__lg button__transparent-secondary" do %>
       <span><%= t("download_vote", scope: "decidim.budgets.order.status") %></span>
       <%= icon "download-line", class: "fill-current" %>
-    </button>
+    <% end %>
 
     <%= link_to budgets_path, class: "button button__sm md:button__lg button__secondary" do %>
       <span>
