@@ -280,11 +280,6 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
-        focus_mode:
-          close:
-            confirm_no_vote:
-              message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
-              title: You have not yet voted
         order_progress:
           assigned: Assigned
           budget: Budget

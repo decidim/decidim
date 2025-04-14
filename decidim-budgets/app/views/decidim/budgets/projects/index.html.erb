@@ -1,8 +1,6 @@
 <% if @focus_mode %>
   <% content_for :focus_mode, true %>
   <% content_for :focus_mode_return_path, budget_projects_path(budget) %>
-  <% content_for :focus_mode_close_confirm_message, t("decidim.budgets.projects.focus_mode.close.confirm_no_vote.message") %>
-  <% content_for :focus_mode_close_confirm_title, t("decidim.budgets.projects.focus_mode.close.confirm_no_vote.title") %>
 <% end %>
 
 <% add_decidim_meta_tags(
