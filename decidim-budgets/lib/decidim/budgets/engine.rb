@@ -17,6 +17,7 @@ module Decidim
             member do
               post :checkout
               get :status
+              get :export_pdf
             end
             resource :line_item, only: [:create, :destroy]
           end

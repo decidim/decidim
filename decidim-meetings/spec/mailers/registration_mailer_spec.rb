@@ -88,7 +88,6 @@ module Decidim::Meetings
       end
 
       it "includes the meeting's details in a ics file" do
-        expect(mail.attachments.length).to eq(1)
         attachment = mail.attachments.first
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)
 
@@ -100,6 +99,12 @@ module Decidim::Meetings
         expect(event.dtstart.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.start_time).value.to_i)
         expect(event.dtend.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.end_time).value.to_i)
         expect(event.geo).to eq([meeting.latitude, meeting.longitude])
+      end
+
+      it "includes a QR with the registration code" do
+        attachment = mail.attachments.last
+        expect(attachment.filename).to match(/qr-#{registration.code.parameterize}.png/)
+        expect(attachment.content_type).to match(%r{image/png})
       end
     end
   end
