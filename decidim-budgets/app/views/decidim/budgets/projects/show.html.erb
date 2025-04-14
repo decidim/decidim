@@ -97,7 +97,7 @@ edit_link(
     <% content_for :aside do %>
       <section class="layout-aside__section layout-aside__buttons hidden md:block">
         <% if voting_open? %>
-          <%= render partial: "project_budget_button", locals: { project: } %>
+          <%= render partial: "project_budget_button", locals: { project:, authorization_redirect_path: budget_focus_project_path(project.budget, project) } %>
         <% end %>
       </section>
       <section class="layout-aside__section">
