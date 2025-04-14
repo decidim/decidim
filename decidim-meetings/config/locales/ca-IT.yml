@@ -355,6 +355,8 @@ ca-IT:
         registrations:
           edit:
             save: Desa
+            validate: Validar
+            validate_registration_code: Valida el codi d'inscripció
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
@@ -370,6 +372,9 @@ ca-IT:
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+          validate_registration_code:
+            invalid: Aquest codi de registre no és vàlid.
+            success: Codi d'inscripció validat amb èxit.
       admin_log:
         invite:
           create: "%{user_name} ha convidat a %{attendee_name} a unir-se a la trobada %{resource_name} a l'espai %{space_name}"
