@@ -71,6 +71,10 @@ module Decidim
         :post
       end
 
+      def authorization_redirect_path
+        options[:authorization_redirect_path] || resource_path
+      end
+
       def vote_button_label
         if resource_added?
           return t(
