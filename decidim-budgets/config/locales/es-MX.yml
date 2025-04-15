@@ -254,7 +254,6 @@ es-MX:
             title: Se ha superado el número máximo de proyectos
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
-          cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
@@ -284,14 +283,6 @@ es-MX:
             minimum_reached: Has alcanzado el mínimo para poder votar
             start_adding_projects: Empezar a añadir proyectos
           minimum: Mínimo
-          minimum_projects_rule:
-            description: Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
-          projects_rule:
-            description: Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
-          projects_rule_maximum_only:
-            description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
-          vote_threshold_percent_rule:
-            description: Asigna al menos %{minimum_budget} a los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -316,7 +307,6 @@ es-MX:
           added: Añadido
           all: Todos
         projects_for: Proyectos de %{name}
-        select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
       prompt: Seleccionar presupuesto
