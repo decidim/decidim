@@ -244,7 +244,6 @@ fr:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          cancel_order: supprimer votre vote
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez supprimer votre vote.
             title: Vote du budget terminé
@@ -274,14 +273,6 @@ fr:
             minimum_reached: Vous avez atteint le minimum pour pouvoir voter
             start_adding_projects: Commencer à ajouter des projets
           minimum: Minimum
-          minimum_projects_rule:
-            description: Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
-          projects_rule:
-            description: Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
-          projects_rule_maximum_only:
-            description: Sélectionnez au maximum %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
-          vote_threshold_percent_rule:
-            description: Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
         orders:
           highest_cost: Prix décroissant
           label: Trier les projets par
@@ -306,7 +297,6 @@ fr:
           added: Ajouté
           all: Tout
         projects_for: Projets pour %{name}
-        select_projects: Sélectionner des projets
         show:
           budget: Budget
       prompt: Sélectionnez le budget
