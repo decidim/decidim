@@ -251,6 +251,8 @@ id:
         view_all: Lihat semua
       metrics:
         name: Metrik organisasi
+      participatory_space_metrics:
+        name: Partisipasi dalam angka
       stats:
         name: Statistik organisasi
       sub_hero:
@@ -588,11 +590,9 @@ id:
       participants:
         description: Jumlah pengguna aktif dalam organisasi
         object: peserta
-        title: Peserta
       users:
         description: Jumlah pengguna dalam organisasi
         object: pengguna
-        title: Pengguna
     newsletter_mailer:
       newsletter:
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.

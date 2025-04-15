@@ -33,6 +33,12 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: L'àlies o sobrenom s'ha d'escriure en minúscules i no ha de tenir cap espai
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -145,6 +151,7 @@ ca:
       front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Obrir en una pestanya nova
+      secondary_menu: Menú secundari
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels termes i condicions d'ús
@@ -1175,7 +1182,7 @@ ca:
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
         object: seguidores
-        title: Seguidores
+        title: Seguidors
       participants:
         description: Nombre de participants actives a l'organització
         object: participants

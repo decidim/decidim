@@ -176,14 +176,14 @@ eu:
             email_intro: '%{resource_title} zure ekimenak sinaduren %{percentage} lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako.
             email_subject: Beste maila bat osatua!
-            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %%{percentage} lortu ditu.
           follower:
             email_intro: '%{resource_title} ekimenak %%{percentage} sinadura lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Ondorengo estekan sartu jakinarazpenak jasotzeari uzteko.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinaduren %%{percentage} lortu ditu.
         support_threshold_reached:
-          email_intro: '%{resource_title} ekimena sinadura-atarira heldu da'
+          email_intro: '%{resource_title} ekimena beharrezko sinadura kopurura heldu da'
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Sinadura-atarira helduta
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena sinadura-atarira heldu da
@@ -234,7 +234,7 @@ eu:
             order:
               default: Lehenetsita (zaharragoak)
               label: 'Ordenatu elementua honen arabera:'
-              most_recent: Azkenak
+              most_recent: Berrienetatik zaharrenetara
         exports:
           initiatives: Ekimenak
         initiatives:
@@ -279,7 +279,7 @@ eu:
             update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
-            date: Azkenak
+            date: Berrienetatik zaharrenetara
             publication_date: Azken argitaratutakoak
             random: Ausaz
             signatures: Sinadura gehiago
@@ -344,7 +344,7 @@ eu:
           accepted: Sinadurak lortu ditu
           all: Guztiak
           answered: Erantzunda
-          closed: itxita
+          closed: Itxita
           open: Open
           rejected: Ez ditu lortu beharrezko sinadurak
         filter_type_values:
@@ -385,7 +385,7 @@ eu:
           back: Back
           continue: Jarraitu
         promotal_committee:
-          individual_help_text: Herritarren ekimen mota horrek batzorde sustatzaile bat eskatzen du, gutxienez % {committee_size} kidez osatua (ziurtatzaileak). Ekimen honetan parte hartzen duten gainerako pertsonekin partekatu behar duzu esteka hau. Zure kontaktuek esteka hau jasotzen dutenean, adierazten zaizkien urratsak jarraitu beharko dituzte.
+          individual_help_text: Herritarren ekimen mota horrek batzorde sustatzaile bat eskatzen du, gutxienez %{committee_size} kidez osatua (ziurtatzaileak). Ekimen honetan parte hartzen duten gainerako pertsonekin partekatu behar duzu esteka hau. Zure kontaktuek esteka hau jasotzen dutenean, adierazten zaizkien urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
@@ -410,7 +410,7 @@ eu:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} k onartu du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
-          email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean'
+          email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenarekin bat egitea eskatu duzulako'
           email_subject: "%{author_nickname} k onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         create_initiative_event:
@@ -506,7 +506,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienak
+          recent: Berrienetatik zaharrenetara
           recently_published: Oraintsu argitaratutakoa
         print:
           address: Helbidea
@@ -535,7 +535,7 @@ eu:
           initiative_rejected_reason: Ekimen hau ukatu egin da sinadura faltagatik.
         show:
           area: Arloa
-          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, %{count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: % {href}'
+          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, %{count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: %{href}'
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
           initiative_data: Ekimenaren datuak
@@ -606,7 +606,7 @@ eu:
         actions:
           create: Sortu
           title: Ekintzak
-          vote: Bozkatu
+          vote: Saioa
   layouts:
     decidim:
       initiative_creation_header:

@@ -541,7 +541,7 @@ pt-BR:
         actions:
           create: Criar
           title: Ações
-          vote: Voto
+          vote: Placa
   layouts:
     decidim:
       initiative_creation_header:

@@ -518,6 +518,7 @@ cs:
           index:
             actions: Akce
             assign_to_valuator: Přiřadit hodnotiteli
+            assign_to_valuator_button: Přiřadit
             cancel: Zrušit
             change_category: Změnit kategorii
             change_scope: Změnit rozsah
@@ -531,6 +532,7 @@ cs:
             split_button: Rozdělit
             title: Návrhy
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
+            unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
             update_scope_button: Aktualizovat rozsah
           new:
@@ -822,6 +824,7 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované

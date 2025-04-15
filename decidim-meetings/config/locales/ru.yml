@@ -220,8 +220,6 @@ ru:
         registrations:
           edit:
             save: Сохранить
-            validate: Подтвердить
-            validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
@@ -231,9 +229,6 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
-          validate_registration_code:
-            invalid: Этот регистрационный код неуместен.
-            success: Регистрационный код успешно подтвержден.
       admin_log:
         invite:
           create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"

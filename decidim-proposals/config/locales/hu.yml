@@ -323,7 +323,7 @@ hu:
       proposals:
         description: A létrehozott javaslatok száma
         object: javaslatok
-        title: javaslatok
+        title: Javaslatok
       votes:
         description: A felhasználók által benyújtott szavazatok száma
         object: szavazatok

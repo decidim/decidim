@@ -150,13 +150,7 @@ zh-TW:
             body: 您需要進入系統管理，並向組織添加 csv_census 授權以進行操作。
             title: 您需要為此組織啟用 CSV 戶籍調查。
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: "帶有電子郵件數據的.csv 文件"
-            info: '必須是一個 CSV 格式的文件，僅包含一列電子郵件地址：'
-            submit: 上傳檔案
-            title: 上傳新的調查
         authorizations:
           new:
             error: 我們無法驗證您的帳戶或您不在該組織的人口普查中。

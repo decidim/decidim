@@ -226,7 +226,7 @@ id:
       accepted_proposals:
         description: Jumlah proposal yang diterima oleh pengguna
         object: proposal
-        title: Proposal yang Diterima
+        title: Proposal yang diterima
       endorsements:
         description: Jumlah dukungan yang dihasilkan dalam proposal
         object: dukungan

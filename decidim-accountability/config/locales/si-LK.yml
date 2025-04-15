@@ -71,3 +71,6 @@ si:
         results:
           category_id_eq:
             label: ප්‍රවර්ගය
+    metrics:
+      results:
+        title: ප්‍රතිඵල

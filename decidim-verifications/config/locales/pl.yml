@@ -154,13 +154,7 @@ pl:
             body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
             title: Musisz aktywować spis CSV dla tej organizacji
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: "plik .csv z danymi e-maili"
-            info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'
-            submit: Prześlij plik
-            title: Prześlij nowy spis
         authorizations:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.

@@ -490,7 +490,7 @@ ar:
       metrics:
         name: مقاييس المنظمة
       participatory_space_metrics:
-        name: المقاييس
+        name: المشاركة في الأرقام
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -1014,11 +1014,11 @@ ar:
       participants:
         description: عدد المشاركين النشطين في المنظمة
         object: المشاركين
-        title: المشاركين
+        title: المشاركون
       users:
         description: عدد المشاركين في المنظمة
         object: المشاركين
-        title: المشاركين
+        title: المشاركون
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.

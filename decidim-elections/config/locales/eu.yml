@@ -550,7 +550,7 @@ eu:
       orders:
         label: Ordenatu bozketak honen arabera
         older: Zaharrena
-        recent: Berriena
+        recent: Berrienetatik zaharrenetara
       trustee_zone:
         elections:
           backup_modal:

@@ -158,7 +158,7 @@ eu:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
+            info: 'CSV formatudun artxiboa izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
             submit: Igo fitxategia
             title: Igo beste errolda bat
         authorizations:

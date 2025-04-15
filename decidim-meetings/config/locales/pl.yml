@@ -358,8 +358,6 @@ pl:
         registrations:
           edit:
             save: Zapisz
-            validate: Zatwierdź
-            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
@@ -377,9 +375,6 @@ pl:
           update:
             invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
             success: Zapisano ustawienia rejestracji.
-          validate_registration_code:
-            invalid: Ten kod rejestracyjny jest nieprawidłowy.
-            success: Kod rejestracyjny został zatwierdzony.
       admin_log:
         invite:
           create: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"

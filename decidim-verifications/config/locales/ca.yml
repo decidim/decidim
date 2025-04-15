@@ -158,8 +158,8 @@ ca:
               john.doe@example.org
               jane.doe@example.org
             file: "fitxer .csv amb dades de correus electrònics"
-            info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
-            submit: Puja un document
+            info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
+            submit: Puja arxiu
             title: Puja un nou cens
         authorizations:
           new:

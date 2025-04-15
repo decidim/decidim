@@ -5,6 +5,7 @@ it:
       assemblies_type:
         title: Titolo
       assembly:
+        announcement: Avviso
         area_id: Area
         assembly_type: Tipo di assemblea
         assembly_type_other: Altro tipo di assemblea
@@ -23,12 +24,16 @@ it:
         decidim_scope_id: Ambito
         description: Descrizione
         developer_group: Promotore
+        document: Documento
         domain: Dominio
         duration: Durata
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Immagine della home page
+        import_attachments: Importa allegati
+        import_categories: Importa categorie
+        import_components: Importa componenti
         included_at: Fino a
         instagram: Instagram
         internal_organisation: Organizzazione interna
@@ -52,6 +57,7 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
+        twitter: X
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
@@ -64,10 +70,17 @@ it:
         non_user_avatar: Avatar
         position: Posizione
         user_id: Utente
+        weight: Posizione nell'elenco
       assembly_user_role:
         email: E-mail
         name: Nome
         role: Ruolo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo di documento non valido. Sono ammessi solo i file con le seguenti estensioni: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -85,6 +98,7 @@ it:
         import_assembly: Importa
         new_assembly: Nuova assemblea
         new_assembly_type: Nuovo tipo di assemblea
+        new_assembly_user_role: Nuovo amministratore dello spazio
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
@@ -160,17 +174,24 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
+          title: Aggiorna gli amministratori dello spazio
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
         new:
           create: Crea
+          title: Nuovo amministratore dello spazio
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
       filters:
+        ceased_date_not_null:
+          values:
+            'true': Conclusq
         decidim_assemblies_type_id_eq:
           label: Tipo di assemblea
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Ricerca per nome o nickname
       menu:
         assemblies: Assemblee
         assemblies_submenu:
@@ -181,8 +202,11 @@ it:
           attachments: Allegati
           categories: Categorie
           components: Componenti
+          info: Info su questo spazio
+          landing_page: Pagina iniziale
           moderations: Moderazione
           private_users: Partecipanti privati
+          see_assembly: Guarda l'assemblea
         assemblies_types: Tipi di assemblea
       models:
         assemblies_types:
@@ -191,6 +215,7 @@ it:
             title: Titolo
         assembly:
           fields:
+            actions: Azioni
             created_at: Data/ora di creazione
             private: Privato
             promoted: In evidenza
@@ -226,6 +251,9 @@ it:
     admin_log:
       assembly:
         create: "%{user_name} ha creato l'assemblea %{resource_name}"
+        duplicate: "%{user_name} ha duplicato l'assemblea %{resource_name}"
+        export: "%{user_name} ha esportato l'assemblea %{resource_name}"
+        import: "%{user_name} ha importato l'assemblea %{resource_name}"
         publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha rimosso l'assemblea %{resource_name}"
         update: "%{user_name} ha aggiornato l'assemblea %{resource_name}"
@@ -254,17 +282,26 @@ it:
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
             filters: Filtri
             images: Immagini
+            included_at_help: Seleziona la data in cui questa assemblea è stata aggiunta a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             metadata: Metadati
             other: Altro
             select_a_created_by: Seleziona un creatore
             select_an_area: Seleziona un'Area
             select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Social networks
             title: Informazioni generali
+            visbility: Visibilità
         assemblies_types:
           form:
             title: Titolo
+        assembly_copies:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
             existing_user: Utente esistente
@@ -282,9 +319,26 @@ it:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Area
+          closing_date: Data di conclusione
+          created_by: Creata da
+          creation_date: Data di creazione
+          data: Dati sull'assemblea
+          developer_group: Gruppo promotore
+          duration: Durata
+          included_at: Inserito il
+          indefinite_duration: Indefinito
+          local_area: Area geografica
+          meta_scope: Ambito tematico
+          participatory_scope: Cosa si decide
+          participatory_structure: Come si decide
+          target: Chi partecipa
+          title: Info su questo spazio
         filters:
           names:
             all: Tutti
+          type: Tipo
         show:
           title: Su questa assemblea
       assembly_members:
@@ -299,8 +353,16 @@ it:
         participatory: Partecipativo
         working_group: Gruppo di lavoro
       content_blocks:
+        children_assemblies:
+          name: Assemblee
+        dates_metadata:
+          name: Metadati delle date
+        extra_data:
+          name: Tipo & durata
         highlighted_assemblies:
           name: Assiemi evidenziati
+        related_assemblies:
+          name: Assemblee collegate
       created_by:
         city_council: Consiglio comunale
         others: Altri
@@ -317,7 +379,13 @@ it:
         working_group: Gruppo di lavoro
       index:
         title: assemblee
+      last_activity:
+        new_assembly: 'Nuova assemblea:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblee attive
+            see_all_spaces: Vedi tutte le assemblee
         user_profile:
           member_of:
             member_of: Membro di
@@ -329,6 +397,7 @@ it:
           'true': trasparente
         private_space: Questa è un'assemblea privata
         related_participatory_processes: Processi partecipativi correlati
+        social_networks_title: Vai alla pagina
     assembly_members:
       assembly_member:
         designated_on: Designato su
@@ -338,7 +407,7 @@ it:
       assemblies:
         create_assembly_member:
           email_intro: Un amministratore dell'assemblea <a href="%{resource_url}">%{resource_name}</a> ti ha aggiunto come membro.
-          email_subject: Ti invitano a far parte dell'Assemblea %{resource_name}!
+          email_subject: Hai ricevuto un invito a far parte dell'Assemblea %{resource_name}!
           notification_title: Sei stato registrato come membro dell'Assemblea <a href="%{resource_path}">%{resource_name}</a>. Controlla la <a href="%{resource_path}">pagina dell'assemblea</a> per contribuire!
       assembly:
         role_assigned:

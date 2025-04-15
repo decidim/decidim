@@ -311,7 +311,7 @@ nl:
       accepted_proposals:
         description: Aantal geaccepteerde voorstellen
         object: voorstellen
-        title: Aanvaarde voorstellen
+        title: Geaccepteerde voorstellen
       endorsements:
         description: Aantal goedkeuringen van voorstellen
         object: goedkeuringen
@@ -319,7 +319,7 @@ nl:
       proposals:
         description: Aantal voorstellen
         object: voorstellen
-        title: voorstellen
+        title: Voorstellen
       votes:
         description: Aantal stemmen voor voorstellen
         object: stemmen

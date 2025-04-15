@@ -314,7 +314,7 @@ id:
         actions:
           create: Membuat
           title: Tindakan
-          vote: Memilih
+          vote: Tanda
   layouts:
     decidim:
       initiative_creation_header:

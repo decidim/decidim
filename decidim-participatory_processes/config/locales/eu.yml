@@ -362,7 +362,7 @@ eu:
       participatory_processes:
         description: Erakundeko partaidetza-prozesu kopurua
         object: partaidetza-prozesuak
-        title: Partaidetza-prozesuak
+        title: Prozesu pare-hartzaileak
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -512,7 +512,7 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
-          browse_resource: Aztertu %{resource_name} prozesuen multzoa
+          browse_resource: '%{resource_name} prozesuen multzoa arakatu'
           processes_count: 'Prozesuak:'
       participatory_processes:
         index:

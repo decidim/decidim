@@ -33,6 +33,12 @@ ro:
         personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Pseudonimul trebuie să conțină litere mici și să nu conțină spații
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
@@ -84,10 +90,14 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
+      file_cannot_be_processed: Fișierul nu poate fi procesat
+      file_resolution_too_large: Rezoluția fișierului este prea mare
       file_size_too_large: Mărimea fișierului este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -111,6 +121,23 @@ ro:
         one: mai puțin de o secundă
         few: mai puțin de %{count} secunde
         other: mai puțin de %{count} secunde
+      short:
+        about_x_days: "%{count}z"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count} m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count} m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count} m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 zi
         few: "%{count} zile"
@@ -137,6 +164,7 @@ ro:
       front_page_link: Mergeți la prima pagină
       logo: "Logo-ul oficial al %{organization}"
       opens_in_new_tab: Deschideți în tab nou
+      secondary_menu: Meniu secundar
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
@@ -270,6 +298,8 @@ ro:
         verify_via_csv: "%{user_name} a verificat grupul de utilizatori %{resource_name} printr-un upload de fișier CSV"
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la administratorul local de sistem. De obicei se rezumă la aceste trei lucruri: </p><ol><li>Respectați viața privată a celorlalți. </li><li>Gândiți înainte de a face clic.</li><li>Cu o putere mare vine și o mare responsabilitate.</li></ol>"
     alert:
       dismiss: Închideți notificare
     amendments:
@@ -281,6 +311,7 @@ ro:
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+        promote_help_text: Puteți să promovați această ediție și să o publicați ca independent %{model_name}.
       amendments:
         title:
           one: "%{count} amendament"
@@ -339,6 +370,8 @@ ro:
       update_draft:
         error: A apărut o problemă la actualizarea proiectului de amendament.
         success: Proiectului de amendament a fost actualizat cu succes.
+      withdraw:
+        success: Amendamentul a fost retras cu succes.
       wizard_step_form:
         steps:
           '1': Creeați un amendament
@@ -371,11 +404,13 @@ ro:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           passport_number: Număr pașaport
           postal_code: Cod poștal
         name: Un alt exemplu de autorizare
       dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
           allowed_scope_id: Domeniu de interes permis
@@ -407,6 +442,7 @@ ro:
           title: Autorizarea a expirat
         incomplete:
           cancel: Anulați
+          explanation: 'Chiar dacă sunteți autorizat în prezent cu "%{authorization}", trebuie să vă reautorizați deoarece ne lipsesc următoarele date:'
           invalid_field: "%{field}"
           reauthorize: Reautorizați
           title: Vă rugăm să reautorizați
@@ -414,9 +450,15 @@ ro:
           authorize: Autorizați cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}".
           title: Autorizare necesară
+        ok:
+          title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea.
         pending:
+          explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}", dar autorizarea dvs. este în curs.
+          resume: Verificați progresul autorizării "%{authorization}"
           title: În proces de autorizare
         unauthorized:
+          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele tale de autorizare nu se potrivesc.
+          invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
           title: Nu este autorizat
         unconfirmed:
@@ -495,6 +537,8 @@ ro:
         name: Banner suberou suberou
       global_menu:
         name: Meniul global
+      hero:
+        name: Imagine Erou și CTA
       hero_settings_form:
         background_image: Imagine de fundal
         welcome_text: Text de întâmpinare
@@ -517,6 +561,10 @@ ro:
         name: Ultima activitate
         title: Ultima activitate
         view_all: Vedeți tot
+      last_activity_settings_form:
+        max_last_activity_users: Numărul maxim de avatare ale utilizatorului cu activitate recentă de afișat
+      main_data:
+        name: Date principale
       metadata:
         name: Metadate
       metrics:
@@ -554,6 +602,8 @@ ro:
           all: Toate
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Un alt cont folosește aceeași adresă de e-mail.
         new:
           complete_profile: Completați-vă profilul
           nickname_help: Pseudonimul dumneavoastră în %{organization}. Poate conține doar litere, numere, '-' și '_'.
@@ -579,14 +629,32 @@ ro:
           are_you_new?: Nou pe platformă?
           register: Creați un cont
           sign_in_disabled: Puteți accesa printr-un cont extern.
+        user:
+          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
             check: Verificați și continuați
             uncheck: Mențineți nebifat
+          notice: |-
+            <p>Sigur nu doriți să primiți un buletin informativ?<br>
+            Vă rugăm să bifați din nou caseta din buletinul informativ de mai jos.<br>
+            Este foarte important pentru noi să puteți primi e-mailuri ocazionale
+            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe 
+            pagina cu setări pentru notificări. </p>
+            <p>Dacă nu bifați caseta ați putea rata informații importante
+            despre noi oportunități de participare în cadrul platformei.<br>Dacă, totuși, doriți să evitați primirea de buletine informative, înțelegem
+            perfect decizia dumneavoastră.</p>
+            <p>Vă mulțumim că ați citit acest mesaj!</p>
           title: Notificări newsletter
         omniauth_buttons:
           or: Sau
+        password_fields:
+          hidden_password: Parola dvs. este ascunsă
+          hide_password: Ascunde parola
+          show_password: Afişeaza parola
+          shown_password:
+        placeholder_email: hi@exemplu.org
     doorkeeper:
       authorizations:
         new:
@@ -608,6 +676,9 @@ ro:
         download_data: Descarcă datele
         request_data: Cere date
     editor_images:
+      create:
+        error: Eroare la încărcarea imaginii.
+        success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
@@ -619,13 +690,20 @@ ro:
     errors:
       internal_server_error:
         copied: Text copiat!
+        copy_error_message_clarification: Copiază mesajul de eroare în clipboard
         copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
+        reference: Referinţa
+        request_method: Metoda de solicitare
         title: A apărut o problemă cu serverul nostru
+        try_later: Te rugăm să încerci mai târziu. Dacă eroarea persistă, vă rugăm să copiați următoarele informații și să le trimiteți către întreținătorii platformei cu orice alte informații pe care poate doriți să le partajați.
         unknown: Necunoscut
+        url: Adresa URL
+        user: ID utilizator
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
+        title: Pagina pe care o cauți nu poate fi găsită.
     events:
       amendments:
         amendment_accepted:
@@ -691,7 +769,10 @@ ro:
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
+          email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
+          notification_title: Felicitări! Ați câștigat ecusonul<a href="%{resource_path}">%{badge_name} </a> (level %{current_level}).
         level_up:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
       groups:
@@ -761,6 +842,9 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
+        user_officialized:
+          email_intro: Participantul %{name} (%{nickname}) a fost oficializat.
+          email_outro: Ați primit această notificare deoarece sunteți un administrator al organizației.
     export_mailer:
       download_your_data_export:
         click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
@@ -771,6 +855,7 @@ ro:
     filters:
       linked_classes:
         all: Toate
+        answer: Răspuns
         collaborative_draft: Ciornă colaborativă
         dummy_resource: Resurse-test
         meeting: Întâlniri
@@ -779,6 +864,7 @@ ro:
         result: Rezultate
     fingerprint:
       check: Verificați amprenta
+      explanation: Textul de mai jos reprezintă o reprezentare simplificată, hash a acestui conținut. Este util să se asigure faptul că conținutul nu a fost modificat fraudulos, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -1007,6 +1093,10 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
+    metadata:
+      progress:
+        not_started: Încă nu a început
+        remaining: "%{time_distance} ramas"
     metrics:
       download:
         csv: Descărcare date (CSV)
@@ -1024,6 +1114,8 @@ ro:
         title: Participanți
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Acest e-mail a fost trimis de la o adresă de e-mail de notificare care nu poate accepta e-mailul primit. Nu răspundeți la acest mesaj.
+        see_on_website: Nu se poate vedea corect acest e-mail? Vezi pe site-ul <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1046,9 +1138,14 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
+        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în <a href="%{link}" target="_blank">pagina de configurare</a>.
+        error: A apărut o eroare la dezabonare.
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
         unsubscribe: Dezabonare
+    newsletters_opt_in:
+      update:
+        error: A apărut o eroare la actualizarea acestui buletin informativ.
     newsletters_opt_in_mailer:
       notify:
         body_1: Prelucrarea datelor cu caracter personal şi protecţia acesteia devin din ce în ce mai importante pentru noi toţi. Prin noul Regulament general privind protecția datelor (RGDP) din 25 mai 2018, persoanele fizice dețin un control mai bun asupra datelor lor cu caracter personal. Din acest motiv avem nevoie de "OK-ul tău" pentru a continua să trimiți informații relevante despre activitățile %{organization_name}.

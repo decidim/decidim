@@ -264,3 +264,6 @@ he:
       show:
         assembly_type: סוג אסיפה
         related_participatory_processes: תהליך השתתפותי מקושר
+    metrics:
+      assemblies:
+        title: אסיפות

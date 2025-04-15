@@ -550,7 +550,7 @@ fi-pl:
       metrics:
         name: Organisaation mittarit
       participatory_space_metrics:
-        name: Tilastomittarit
+        name: Osallistuminen lukuina
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -1179,11 +1179,11 @@ fi-pl:
       participants:
         description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujat
-        title: Osallistujat
+        title: Osallistujaa
       users:
         description: Organisaation käyttäjien määrä
         object: käyttäjät
-        title: Käyttäjät
+        title: Osallistujaa
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.

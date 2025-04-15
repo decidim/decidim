@@ -275,8 +275,6 @@ it:
         registrations:
           edit:
             save: Salva
-            validate: Convalidare
-            validate_registration_code: Convalida il codice di registrazione
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
@@ -291,9 +289,6 @@ it:
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
-          validate_registration_code:
-            invalid: Questo codice di registrazione non è valido.
-            success: Codice di registrazione validato con successo.
       admin_log:
         invite:
           create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"

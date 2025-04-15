@@ -163,6 +163,9 @@ da:
             scope_id: Anvendelsesområde
             scopes_enabled: Omfang aktiveret
             subcategories_label: Navn for "Underkategorier"
+    metrics:
+      results:
+        title: Resultater
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

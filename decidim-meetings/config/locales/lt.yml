@@ -358,8 +358,6 @@ lt:
         registrations:
           edit:
             save: Išsaugoti
-            validate: Patvirtinti
-            validate_registration_code: Patvirtinti registracijos kodą
           form:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
@@ -377,9 +375,6 @@ lt:
           update:
             invalid: Išsaugant registracijos nuostatas iškilo problema.
             success: Susirinkimo registracijų nuostatos išsaugotos.
-          validate_registration_code:
-            invalid: Šis registracijos kodas negalioja.
-            success: Registracijos kodas patvirtintas.
       admin_log:
         invite:
           create: "%{user_name} pakvietė %{attendee_name} į susirinkimą %{resource_name} %{space_name} erdvėje"
