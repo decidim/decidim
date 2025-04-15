@@ -60,14 +60,9 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless meeting
+        enforce_permission_to(:read, :meeting, meeting:)
 
         maybe_show_redirect_notice!
-
-        return if meeting.current_user_can_visit_meeting?(current_user)
-
-        flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
-        redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
 
       def edit
@@ -112,7 +107,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id])
       end
 
       def meetings
