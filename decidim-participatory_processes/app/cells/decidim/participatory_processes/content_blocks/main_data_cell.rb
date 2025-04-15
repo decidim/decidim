@@ -17,6 +17,10 @@ module Decidim
           t("title", scope: "decidim.participatory_processes.participatory_processes.show")
         end
 
+        def rich_text_processors?
+          true
+        end
+
         def short_description_text
           presenter.short_description
         end
