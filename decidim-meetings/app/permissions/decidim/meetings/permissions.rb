@@ -11,7 +11,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :meeting && permission_action.action == :read
-          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+          toggle_allow(user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)))
           return permission_action
         end
 
@@ -58,18 +58,10 @@ module Decidim
           return permission_action
         end
 
-        allow! if user_can_preview_space? && user_has_any_role?(user, meeting, broad_check: true) && permission_action.subject == :preview
-
         permission_action
       end
 
       private
-
-      def user_can_preview_space?
-        context[:share_token].present? && Decidim::ShareToken.use!(token_for: meeting, token: context[:share_token], user:)
-      rescue ActiveRecord::RecordNotFound, StandardError
-        nil
-      end
 
       def meeting
         @meeting ||= context.fetch(:meeting, nil)
