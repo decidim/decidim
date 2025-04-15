@@ -96,10 +96,10 @@ describe("Manager", () => {
       suggestionsList: {
         suggestions: suggestions,
         getApplied: () => {
-          return suggestions.filter((sug) => sug.status === "applied");
+          return suggestions.filter((suggestion) => suggestion.status === "applied");
         },
         getPending: () => {
-          return suggestions.filter((sug) => sug.status === "pending");
+          return suggestions.filter((suggestion) => suggestion.status === "pending");
         }
       },
       i18N: {
