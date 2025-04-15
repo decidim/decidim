@@ -20,7 +20,7 @@ module Decidim
         end
 
         def create_new_version?
-          @create_new_version ||= resource.has_suggestions? && form.draft
+          @create_new_version ||= resource.has_suggestions? && form.draft?
         end
 
         def update_document_record!
@@ -39,10 +39,12 @@ module Decidim
 
         # When the document is not a draft or it has no suggestions, we just update the current version
         def update_version_record!
+          attributes = { draft: form.draft? }
+          attributes[:body] = form.body unless resource.has_suggestions?
           Decidim.traceability.update!(
             resource.current_version,
             current_user,
-            { draft: form.draft, body: form.body },
+            attributes,
             **extra_version_params
           )
         end
