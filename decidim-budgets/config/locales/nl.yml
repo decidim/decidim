@@ -145,7 +145,6 @@ nl:
             title: Maximum aantal projecten overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
-          cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
             title: Begrotingsstemming voltooid
         count:
