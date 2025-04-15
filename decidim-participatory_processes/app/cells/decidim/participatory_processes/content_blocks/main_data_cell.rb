@@ -18,15 +18,19 @@ module Decidim
         end
 
         def short_description_text
-          decidim_sanitize_editor_admin translated_attribute(short_description)
+          presenter.short_description
         end
 
         def description_text
-          decidim_sanitize_editor_admin translated_attribute(description)
+          presenter.description
         end
 
         def nav_items
           process_nav_items(resource)
+        end
+
+        def presenter
+          @presenter ||= Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource)
         end
       end
     end
