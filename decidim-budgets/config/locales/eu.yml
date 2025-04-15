@@ -257,7 +257,6 @@ eu:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure babesa ezeztatu nahi duzula?
-          cancel_order: ezabatu ezazu babesa
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
@@ -287,14 +286,6 @@ eu:
             minimum_reached: Gutxieneko babesak lortu dituzu
             start_adding_projects: Hasi proiektuak gehitzen
           minimum: Gutxienekoa
-          minimum_projects_rule:
-            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
-          projects_rule:
-            description: Hautatu gutxienez %{minimum_number} eta gehienez %{maximum_number} nahi dituzun proiektu, eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
-          projects_rule_maximum_only:
-            description: Hautatu gehienez %{maximum_number} proiektu eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
-          vote_threshold_percent_rule:
-            description: Esleitu gutxienez %{minimum_budget} nahi dituzun proiektuei eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
@@ -319,7 +310,6 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
-        select_projects: Hautatu proiektuak 
         show:
           budget: Aurrekontua
       prompt: Aukeratu aurrekontua
