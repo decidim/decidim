@@ -9,7 +9,6 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:collaborative_text_document, :published, :with_versions) }
-      let!(:suggestions) { create_list(:collaborative_text_suggestion, 2, document_version: model.current_version) }
 
       include_examples "traceable interface"
       include_examples "timestamps interface"
@@ -54,7 +53,6 @@ module Decidim
         end
 
         context "when has coauthors" do
-          let(:model) { create(:collaborative_text_document, :published, :with_versions) }
           let(:user) { create(:user, :confirmed, organization: model.participatory_space.organization) }
 
           before do
@@ -80,6 +78,7 @@ module Decidim
       end
 
       describe "suggestions" do
+        let!(:suggestions) { create_list(:collaborative_text_suggestion, 2, document_version: model.current_version) }
         let(:query) { "{ suggestions { id } }" }
 
         it "returns all the required fields" do

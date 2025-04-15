@@ -67,9 +67,6 @@ en:
           update_settings:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
-        settings:
-          form:
-            allow_suggestions: Allow participants to make suggestions
       admin_log:
         document:
           create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
