@@ -1,5 +1,5 @@
 /* eslint-disable prefer-reflect */
-/* global global, jest */
+/* global global, jest, process */
 
 import Document from "src/decidim/collaborative_texts/document";
 import SuggestionsList from "src/decidim/collaborative_texts/suggestions_list";
@@ -83,7 +83,7 @@ describe("SuggestionsList", () => {
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
       "summary": "This is another summary"
-    },{
+    }, {
       "changeset": {
         "original": ["some content"],
         "replace": ["This is a replacement"],
@@ -109,7 +109,7 @@ describe("SuggestionsList", () => {
     removeListener: jest.fn()
   }));
 
-  global.setTimeout = jest.fn((fn, time) => {
+  global.setTimeout = jest.fn((fn) => {
     fn();
     return 1;
   });
@@ -117,8 +117,6 @@ describe("SuggestionsList", () => {
     return 1;
   });
 
-  // jest.spyOn(global, "clearTimeout");
-  
   beforeEach(async () => {
     document.body.innerHTML = content;
     doc = new Document(document.querySelector("[data-collaborative-texts-document]"));

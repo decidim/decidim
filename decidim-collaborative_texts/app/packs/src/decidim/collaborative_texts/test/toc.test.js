@@ -1,4 +1,4 @@
-/* global global, jest */
+/* global jest */
 
 import Toc from "src/decidim/collaborative_texts/toc";
 

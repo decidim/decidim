@@ -1,8 +1,8 @@
 export default class Editor {
   constructor(selection) {
     this.selection = selection;
-    this.templates = selection.document.templates;
-    this.doc = selection.doc;
+    this.templates = selection.doc.templates;
+    this.doc = selection.doc.doc;
     this.wrapper = selection.wrapper;
     this.nodes = selection.nodes;
     this.firstNode = selection.firstNode;

@@ -1,12 +1,10 @@
 import Editor from "src/decidim/collaborative_texts/editor";
 
 class Selection {
-  constructor(document) {
-    this.document = document;
-    this.doc = document.doc;
-    this.i18n = document.i18n || {};
+  constructor(doc) {
+    this.doc = doc;
     this.selection = window.document.getSelection();
-    this.nodes = {};
+    this.nodes = [];
     this.firstNode = null;
     this.lastNode = null;
     this.wrapper = null;
@@ -17,7 +15,7 @@ class Selection {
   detectNodes() {
     for (let idx = 0; idx < this.selection.rangeCount; idx++) { // eslint-disable-line no-plusplus
       const range = this.selection.getRangeAt(idx);
-      this.document.nodes.forEach((node, index) => {
+      this.doc.nodes.forEach((node, index) => {
         if (range.intersectsNode(node)) {
           this.nodes[index] = node;
           this.firstNode = this.firstNode || node;
@@ -36,6 +34,7 @@ class Selection {
     if (this.editor) {
       this.editor.editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
+    return this;
   }
 
   outsideBlock() {

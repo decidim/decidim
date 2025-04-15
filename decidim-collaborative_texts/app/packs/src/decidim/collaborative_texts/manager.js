@@ -65,7 +65,7 @@ export default class Manager {
     confirmDialog(draft
       ? this.i18n.rolloutConfirm
       : this.i18n.consolidateConfirm).then((accepted) => {
-        if (accepted) {
+      if (accepted) {
         fetch(this.doc.dataset.collaborativeTextsRolloutUrl, {
           method: "PATCH",
           headers: {

@@ -1,4 +1,5 @@
-/* global global, jest */
+/* eslint-disable prefer-reflect */
+/* global global, jest, process */
 
 import Manager from "src/decidim/collaborative_texts/manager";
 
@@ -58,18 +59,18 @@ describe("Manager", () => {
       id: 1,
       title: "Suggestion 1",
       status: "pending",
-      restore: jest.fn(),
+      restore: jest.fn()
     },
     {
       id: 2,
       title: "Suggestion 2",
       status: "applied",
-      restore: jest.fn(),
-    },
+      restore: jest.fn()
+    }
   ];
 
   const fetchResult = {
-    redirect: "#redirect-somewhere",
+    redirect: "#redirect-somewhere"
   }
   global.fetch = jest.fn(() =>
     Promise.resolve({
@@ -81,13 +82,13 @@ describe("Manager", () => {
   beforeEach(() => {
     window.Decidim.currentDialogs = { 
       "confirm-modal": new DummyDialog(document.querySelector("#confirm-modal"))
-     };
+    };
     
     document.body.innerHTML = content;
     delete global.window.location;
     global.window = Object.create(window);
     global.window.location = {
-      href: "test-url",
+      href: "test-url"
     };
     
     doc = {
@@ -95,16 +96,16 @@ describe("Manager", () => {
       suggestionsList: {
         suggestions: suggestions,
         getApplied: () => {
-          return suggestions.filter((s) => s.status === "applied");
+          return suggestions.filter((sug) => sug.status === "applied");
         },
         getPending: () => {
-          return suggestions.filter((s) => s.status === "pending");
-        },
+          return suggestions.filter((sug) => sug.status === "pending");
+        }
       },
       i18N: {
         rolloutConfirm: "Confirm rollout",
-        consolidateConfirm: "Confirm consolidate",
-      },
+        consolidateConfirm: "Confirm consolidate"
+      }
     }
     manager = new Manager(doc);
   });
