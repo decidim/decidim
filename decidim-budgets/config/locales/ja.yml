@@ -248,7 +248,6 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
-          cancel_order: 投票を削除してやり直してください
           checked_out:
             description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
@@ -277,14 +276,6 @@ ja:
             minimum_reached: 投票できる最小値に達しました
             start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
-          minimum_projects_rule:
-            description: 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
-          projects_rule:
-            description: 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
-          projects_rule_maximum_only:
-            description: 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
-          vote_threshold_percent_rule:
-            description: 希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -308,7 +299,6 @@ ja:
           added: 追加済
           all: すべて
         projects_for: '%{name} のプロジェクト'
-        select_projects: プロジェクトを選択
         show:
           budget: 予算
       prompt: 予算を選択
