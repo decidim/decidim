@@ -2,7 +2,6 @@ is-IS:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Höfundur
         description: Lýsing
         scope_id: Umfang
         signature_type_values:

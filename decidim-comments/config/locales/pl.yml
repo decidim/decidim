@@ -19,6 +19,10 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarze
     comments:
       admin:
         shared:
@@ -155,11 +159,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o Tobie w %{resource_title}.
           email_subject: Wspomniano o Tobie w %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> 
-    metrics:
-      comments:
-        description: Liczba komentarzy wygenerowanych przez użytkowników
-        object: komentarze
-        title: Komentarze
   errors:
     messages:
       cannot_have_comments: nie może mieć komentarzy

@@ -477,6 +477,10 @@ ca:
             explanation: 'Instruccions per a l''arxiu:'
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
+          import_csv:
+            explanation: 'Instruccions per al fitxer:'
+            message_1: S'admeten fitxers CSV
+            message_2: "fitxer .csv amb dades de correus electrònics"
       help_sections:
         error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
@@ -599,9 +603,6 @@ ca:
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomia
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: Veure més mètriques
       models:
         area:
           fields:
@@ -1236,7 +1237,6 @@ ca:
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         menu: Menú
-        metrics: Mètriques
         page_topics: Temes
         pages: Pàgines
         panel: Administradora
@@ -1282,22 +1282,13 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
-    metrics:
-      blocked_users:
-        object: usuàries bloquejades
-        title: Usuàries bloquejades
-      reported_users:
-        object: usuàries reportades
-        title: Usuàries reportades
-      user_reports:
-        object: informes d'usuari
-        title: Informes d'usuari
     moderations:
       actions:
         expand: Expandir
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
+        parent_hidden: No es pot mostrar aquest recurs perquè està inclòs dins un altre recurs ("pare") que segueix ocult.
         title: Accions
         unhide: Tornar a mostrar
         unreport: Desfer denúncia
@@ -1324,6 +1315,7 @@ ca:
             success: Contingut amagat correctament.
           unhide:
             invalid: S'ha produït un error en tornar a mostrar el contingut.
+            parent_invalid: Hi ha hagut un problema en revelar (fer visible) el recurs. El recurs en què aquest està inclòs ("pare") no és visible.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: S'ha produït un error en cancel·lar la denúncia.

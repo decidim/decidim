@@ -80,19 +80,11 @@ tr:
         start_exploring: keşfetmeye başla
       csv_census:
         admin:
-          destroy:
-            title: Tüm sayım verilerini sil
           index:
-            empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
             title: Geçerli kayıt verisi
           instructions:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
             title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
-          new:
-            file: "e-posta verileri içeren .csv dosyası"
-            info: 'E-posta adresi içeren yalnızca bir sütuna sahip CSV biçiminde bir dosya olmalıdır:'
-            submit: Dosya yükle
-            title: Yeni bir sayım yükleyin
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.

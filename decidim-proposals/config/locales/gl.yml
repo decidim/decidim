@@ -210,19 +210,6 @@ gl:
           name: Propostas
           next_level_in: Crea %{score} propostas para chegar ao seguinte nivel!
           unearned_own: Aínda non creaches propostas.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceptadas polos usuarios
-        object: propostas
-        title: Propostas aceptadas
-      endorsements:
-        description: Número de respostas xeradas nas propostas
-        object: respostas
-        title: Aprobacións
-      proposals:
-        description: Número de propostas xeradas
-        object: propostas
-        title: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
