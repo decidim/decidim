@@ -113,9 +113,6 @@ nl:
             title: Je moet de CSV-census voor deze organisatie activeren
           new:
             file: ".csv-bestand met e-mailgegevens"
-            info: 'Moet een bestand zijn in CSV formaat met slechts één kolom met het e-mailadres:'
-            submit: Upload bestand
-            title: Upload een nieuwe census
         authorizations:
           new:
             error: We kunnen uw account niet verifiëren of u staat niet in de ledenadministratie van de organisatie.

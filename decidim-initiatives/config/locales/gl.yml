@@ -325,7 +325,7 @@ gl:
         actions:
           create: Crear
           title: Accións
-          vote: Vota
+          vote: Iniciar sesión
   layouts:
     decidim:
       initiative_creation_header:

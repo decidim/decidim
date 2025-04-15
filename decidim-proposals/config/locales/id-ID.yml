@@ -177,7 +177,7 @@ id:
       accepted_proposals:
         description: Jumlah proposal yang diterima oleh pengguna
         object: proposal
-        title: Proposal yang Diterima
+        title: Proposal yang diterima
       endorsements:
         description: Jumlah dukungan yang dihasilkan dalam proposal
         object: dukungan
@@ -186,6 +186,8 @@ id:
         description: Jumlah proposal yang dihasilkan
         object: proposal
         title: Proposal
+      votes:
+        title: Suara
     participatory_spaces:
       highlighted_proposals:
         see_all: Lihat semua

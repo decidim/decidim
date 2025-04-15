@@ -1122,6 +1122,7 @@ cs:
         hidden: Skrytý
         hide: Skrýt
         not_hidden: Neskrytý
+        parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Odkrýt
         unreport: Zrušit nahlášení
@@ -1132,6 +1133,7 @@ cs:
             success: Zdroj byl úspěšně skryt.
           unhide:
             invalid: Došlo k potížím s odkrytím zdroje.
+            parent_invalid: Při odkrytí zdroje došlo k chybě. Nadřazená položka není viditelná.
             success: Zdroj byl úspěšně odkryt.
           unreport:
             invalid: Při oznamování zdroje došlo k problému.

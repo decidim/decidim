@@ -364,6 +364,8 @@ tr:
         view_all: Tümünü görüntüle
       metrics:
         name: Organizasyon metrikleri
+      participatory_space_metrics:
+        name: Metrikler
       static_page:
         section:
           name: Bölüm
@@ -801,15 +803,13 @@ tr:
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
         object: takipçiler
-        title: Takipçiler
+        title: İzleyiciler
       participants:
         description: Kuruluştaki aktif kullanıcı sayısı
         object: katılımcılar
-        title: Katılımcılar
       users:
         description: Kuruluştaki katılımcı sayısı
         object: katılımcılar
-        title: Katılımcılar
     newsletter_mailer:
       newsletter:
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.

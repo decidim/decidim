@@ -413,7 +413,7 @@ nl:
         actions:
           create: creëren
           title: acties
-          vote: Onderteken
+          vote: Teken
   layouts:
     decidim:
       initiative_creation_header:

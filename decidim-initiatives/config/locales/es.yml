@@ -7,7 +7,7 @@ es:
         answer_url: URL de la respuesta
         area_id: Área
         decidim_scope_id: Ámbito
-        decidim_user_group_id: Autoria
+        decidim_user_group_id: Autora
         description: Descripción
         hashtag: Etiqueta (hashtag)
         offline_votes: Firmas presenciales

@@ -230,6 +230,8 @@ lv:
         description: Priekšlikumu skaits
         object: priekšlikumi
         title: Priekšlikumi
+      votes:
+        title: Balsis
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums

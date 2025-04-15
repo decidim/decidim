@@ -74,6 +74,8 @@ ga:
       proposals:
         object: moltaí
         title: Moltaí
+      votes:
+        title: Vótaí
     proposals:
       actions:
         title: Gníomhartha

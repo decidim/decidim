@@ -374,7 +374,7 @@ de:
       votes:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
-        title: Abstimmungen
+        title: Stimmen
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
@@ -822,6 +822,7 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert

@@ -340,8 +340,6 @@ el:
         registrations:
           edit:
             save: Αποθήκευση
-            validate: Επικύρωση
-            validate_registration_code: Επικύρωση κωδικού εγγραφής
           form:
             available_slots_help: Αφήστε το σε 0, εάν έχετε απεριόριστες διαθέσιμες θέσεις.
             invites: Προσκλήσεις
@@ -357,9 +355,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση των ρυθμίσεων εγγραφής.
             success: Οι ρυθμίσεις εγγραφής στη σύσκεψη αποθηκεύτηκαν με επιτυχία.
-          validate_registration_code:
-            invalid: Αυτός ο κωδικός εγγραφής δεν είναι έγκυρος.
-            success: Ο κωδικός εγγραφής επικυρώθηκε με επιτυχία.
       admin_log:
         invite:
           create: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{attendee_name} στη σύσκεψη %{resource_name} στον χώρο %{space_name}"

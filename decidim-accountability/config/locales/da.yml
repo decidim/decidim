@@ -152,6 +152,9 @@ da:
             intro: Intro
             scope_id: Anvendelsesområde
             scopes_enabled: Omfang aktiveret
+    metrics:
+      results:
+        title: Resultater
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

@@ -246,6 +246,8 @@ gl:
         description: Número de propostas xeradas
         object: propostas
         title: Propostas
+      votes:
+        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos

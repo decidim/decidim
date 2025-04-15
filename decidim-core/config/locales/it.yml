@@ -374,6 +374,8 @@ it:
         view_all: Guarda tutto
       metrics:
         name: Metriche dell'organizzazione
+      participatory_space_metrics:
+        name: Partecipazione in cifre
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
@@ -810,11 +812,11 @@ it:
       participants:
         description: Numero di utenti attivi nell'organizzazione
         object: partecipanti
-        title: I partecipanti
+        title: Partecipanti
       users:
         description: Numero di utenti nell'organizzazione
         object: utenti
-        title: utenti
+        title: Partecipanti
     newsletter_mailer:
       newsletter:
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.

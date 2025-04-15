@@ -148,6 +148,9 @@ is:
           email_subject: Uppfærsla á %{participatory_space_title}
     menu:
       processes: Ferli
+    metrics:
+      participatory_processes:
+        title: Þátttökuferli
     participatory_process_groups:
       content_blocks:
         stats:

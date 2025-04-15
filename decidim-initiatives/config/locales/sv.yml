@@ -437,7 +437,7 @@ sv:
         uninitialized: Initiativ är ännu inte konfigurerade av en administratör.
       initiative_signatures:
         fill_personal_data:
-          continue: Fortsätt
+          continue: Fortsätta
           help: Skriv under initiativet genom att fylla i följande fält med dina uppgifter.
         finish:
           back_to_initiative: Tillbaka till initiativet
@@ -598,7 +598,7 @@ sv:
         actions:
           create: Skapa
           title: Åtgärder
-          vote: Underteckna
+          vote: Signera
   layouts:
     decidim:
       initiative_creation_header:

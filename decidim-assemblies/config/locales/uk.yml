@@ -272,6 +272,9 @@ uk:
           not_found: 'Ці збори не знайдено в базі даних (ID: %{id})'
     menu:
       assemblies: Збори
+    metrics:
+      assemblies:
+        title: Збори
   layouts:
     decidim:
       assemblies:

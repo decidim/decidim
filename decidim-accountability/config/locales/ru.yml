@@ -159,7 +159,7 @@ ru:
       results:
         description: Количество сгенерированных результатов
         object: результаты
-        title: Результаты
+        title: Итоги
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

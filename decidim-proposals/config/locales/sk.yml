@@ -229,6 +229,8 @@ sk:
         description: Počet návrhov
         object: návrhy
         title: Návrhy
+      votes:
+        title: Hlasy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobraziť všetky

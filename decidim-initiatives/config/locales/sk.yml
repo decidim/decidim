@@ -317,7 +317,7 @@ sk:
         actions:
           create: Vytvoriť
           title: Akcia
-          vote: Hlasovanie
+          vote: Podpísať
   layouts:
     decidim:
       initiative_creation_header:
