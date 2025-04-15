@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     module Focus
       class ProjectsController < Decidim::Budgets::ProjectsController
-        before_action :set_focus_mod
+        before_action :set_focus_mode
 
         def index
           super
@@ -17,9 +17,9 @@ module Decidim
 
           render "decidim/budgets/projects/show"
         end
-        
-        protected 
-        
+
+        protected
+
         def set_focus_mode
           @focus_mode = true
         end
