@@ -257,7 +257,6 @@ ca:
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
-          cancel_order: eliminar el teu vot i començar de nou
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots esborrar el teu vot.
             title: Vot pels pressupostos completat
@@ -287,14 +286,6 @@ ca:
             minimum_reached: Has arribat al mínim per a poder votar
             start_adding_projects: Començar a afegir projectes
           minimum: Mínim
-          minimum_projects_rule:
-            description: Selecciona com a mínim %{minimum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
-          projects_rule:
-            description: Selecciona entre %{minimum_number} i %{maximum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
-          projects_rule_maximum_only:
-            description: Selecciona fins a %{maximum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
-          vote_threshold_percent_rule:
-            description: Assigna com a mínim %{minimum_budget} amb els projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
         orders:
           highest_cost: Major cost
           label: Ordenar projectes per
@@ -319,7 +310,6 @@ ca:
           added: Afegit
           all: Tots
         projects_for: Projectes per a %{name}
-        select_projects: Selecciona projectes
         show:
           budget: Pressupost
       prompt: Seleccionar pressupost
