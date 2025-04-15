@@ -9,7 +9,7 @@
   }
 
   .editor-mention {
-    @apply inline-flex items-center align-bottom font-semibold underline;
+    @apply inline-flex items-center align-bottom font-semibold underline text-secondary;
 
     img,
     svg {

@@ -3,7 +3,7 @@
 <% if short_description_text.present? %>
   <div class="content-block__description editor-content">
     <% if rich_text_processors? %>
-      <%= decidim_sanitize_editor render_rich_text(resource, :short_description) %>
+      <%= render_rich_text(resource, :short_description) %>
     <% else %>
       <%= short_description_text %>
     <% end %>
@@ -17,7 +17,7 @@
       <% seed = SecureRandom.hex(4) %>
       <div id="panel-view-more-<%= seed %>" aria-hidden="true" class="editor-content">
         <% if rich_text_processors? %>
-          <%= decidim_sanitize_editor render_rich_text(resource, :description) %>
+          <%= render_rich_text(resource, :description) %>
         <% else %>
           <%= description_text %>
         <% end %>
@@ -35,7 +35,7 @@
       </button>
     <% else %>
       <% if rich_text_processors? %>
-        <%= decidim_sanitize_editor render_rich_text(resource, :description) %>
+        <%= render_rich_text(resource, :description) %>
       <% else %>
         <%= description_text %>
       <% end %>
