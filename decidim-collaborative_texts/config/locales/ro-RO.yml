@@ -1,5 +1,15 @@
 ---
 ro:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Conținut
+          title: Titlu
+          version_number: Număr versiune
+        version:
+          body: Conținut
+          version_number: Număr versiune
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ ro:
         settings:
           form:
             allow_suggestions: Permiteți participanților să facă sugestii
+      admin_log:
+        document:
+          create: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          delete: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          publish: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          restore: "%{user_name} a restaurat postarea %{resource_name} din %{space_name}"
+          soft_delete: "%{user_name} a mutat postarea %{resource_name} din %{space_name}"
+          unpublish: "%{user_name} a nepublicat %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat postarea %{resource_name} în %{space_name}"
+        version:
+          delete: "%{user_name} a șters versiunea text colaborativă %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat versiunea text colaborativ %{resource_name} în %{space_name}"
+      document:
+        cancel: Anulează
+        save: Trimite propunere
+        suggest: Sugerează modificări
       documents:
         index:
           count:

@@ -1,8 +1,4 @@
 sl:
-  activemodel:
-    attributes:
-      initiative:
-        decidim_user_group_id: Avtor
   decidim:
     admin:
       filters:

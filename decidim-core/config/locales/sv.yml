@@ -34,6 +34,12 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Smeknamnet ska vara små bokstäver utan mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -585,10 +591,6 @@ sv:
         name: Viktig information
       metadata:
         name: Metadata
-      metrics:
-        name: Organisationsdata
-      participatory_space_metrics:
-        name: Mätvärden
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
@@ -1076,6 +1078,8 @@ sv:
           modal_title: Nytt samtal
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
+          participants:
+            title: Deltagare
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
@@ -1108,21 +1112,6 @@ sv:
         finished: 'Färdig: %{end_date}'
         not_started: Inte påbörjad
         remaining: "%{time_distance} kvar"
-    metrics:
-      download:
-        csv: Ladda ner data (CSV)
-      followers:
-        description: Antal deltagare som följer detta deltagarområde
-        object: följare
-        title: Följare
-      participants:
-        description: Antal aktiva deltagare i organisationen
-        object: deltagare
-        title: Deltagare
-      users:
-        description: Antal användare i organisationen
-        object: användare
-        title: Deltagare
     newsletter_mailer:
       newsletter:
         no_reply_notice: Det här e-postmeddelandet har skickats från en adress som inte accepterar inkommande e-post. Du kan inte svara på detta meddelande.
@@ -1267,10 +1256,6 @@ sv:
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
         topics: Ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa allt
       terms_of_service:
         accept:
           error: Det gick inte att acceptera användarvillkoren.

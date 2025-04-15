@@ -151,6 +151,7 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
         user:
           fields:
@@ -342,11 +343,6 @@ de:
           not_found: 'Der Prozesstyp wurde nicht in der Datenbank gefunden (ID: %{id}).'
     menu:
       processes: Beteiligungsprozesse
-    metrics:
-      participatory_processes:
-        description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: Beteiligungsprozesse
-        title: Beteiligungsprozesse
     open_data:
       help:
         participatory_processes:
@@ -472,9 +468,6 @@ de:
           highlighted_processes:
             active_spaces: Aktive Prozesse
             see_all_spaces: Alle Prozesse anzeigen
-      participatory_process_steps:
-        index:
-          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         description:
           area_name: Gebiet
