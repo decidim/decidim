@@ -13,17 +13,17 @@ module Decidim
       end
 
       def safe_content?
-        rich_text_editor_in_public_views?
+        true
+      end
+
+      def safe_content_admin?
+        true
       end
 
       def render_rich_text(process, method)
         sanitized = render_sanitized_content(process, method, presenter_class: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter)
 
-        if safe_content?
-          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
-        else
-          Decidim::ContentProcessor.render(sanitized, "div")
-        end
+        Decidim::ContentProcessor.render_without_format(sanitized).html_safe
       end
     end
   end
