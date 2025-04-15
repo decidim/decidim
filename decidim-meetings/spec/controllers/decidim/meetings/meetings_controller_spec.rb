@@ -104,8 +104,7 @@ describe Decidim::Meetings::MeetingsController do
 
         get :show, params: { id: meeting.id }
 
-        expect(subject).to redirect_to(Decidim::ResourceLocatorPresenter.new(meeting).index)
-        expect(flash[:alert]).not_to be_empty
+        expect(flash[:alert]).to include("You are not authorized to perform this action.")
       end
     end
 
