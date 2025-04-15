@@ -16,6 +16,10 @@ tr:
         one: Oy ver
         other: oy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Yorumlar
     comments:
       comments:
         create:

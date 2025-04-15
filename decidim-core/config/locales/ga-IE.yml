@@ -97,6 +97,8 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
+      participatory_space_metrics:
+        name: Méadrachtaí
     devise:
       registrations:
         new:

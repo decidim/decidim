@@ -99,9 +99,6 @@ it:
             title: È necessario attivare il censimento CVS per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
-            info: 'Deve essere un file in formato CSV con una sola colonna con l''indirizzo email:'
-            submit: Caricare un file
-            title: Carica un nuovo censimento
         authorizations:
           new:
             error: Non è stato possibile verificare il tuo account o non ci si trova nel censimento dell'organizzazione.

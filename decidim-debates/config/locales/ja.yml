@@ -152,6 +152,7 @@ ja:
         new:
           back: 戻る
           create: 作成
+          title: 新しいディベートを作成
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'

@@ -332,7 +332,7 @@ fr:
       results:
         description: Nombre de résultats générés
         object: résultats
-        title: Résultats
+        title: Réalisations
     open_data:
       help:
         result_comments:

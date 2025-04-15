@@ -364,6 +364,8 @@ pt:
         view_all: Ver tudo
       metrics:
         name: Métricas da organização
+      participatory_space_metrics:
+        name: Métricas
       stats:
         name: Estatísticas da organização
       sub_hero:

@@ -794,7 +794,6 @@ pl:
         update:
           title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już głosował
           already_voted_hover: Wycofaj głos
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów

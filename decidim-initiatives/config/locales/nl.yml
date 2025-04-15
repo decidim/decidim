@@ -404,7 +404,7 @@ nl:
       initiatives_type:
         actions:
           title: acties
-          vote: Onderteken
+          vote: Teken
   layouts:
     decidim:
       initiative_creation_header:

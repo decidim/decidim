@@ -643,7 +643,7 @@ de:
         actions:
           create: Initiative erstellen
           title: Aktionen
-          vote: Abstimmung
+          vote: Signieren
   layouts:
     decidim:
       initiative_creation_header:

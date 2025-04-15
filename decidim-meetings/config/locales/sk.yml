@@ -212,8 +212,6 @@ sk:
         registrations:
           edit:
             save: Uložiť
-            validate: Overiť
-            validate_registration_code: Skontrolujte registračný kód
           form:
             available_slots_help: Nechajte to na 0, ak máte k dispozícii neobmedzené sloty.
             invites: Pozvánky
@@ -229,9 +227,6 @@ sk:
           update:
             invalid: Vyskytol sa problém pri ukladaní nastavení registrácie.
             success: Nastavenie úspešných registráciou bolo úspešne uložené.
-          validate_registration_code:
-            invalid: Tento registračný kód je neplatný.
-            success: Registračný kód bol úspešne overený.
       admin_log:
         invite:
           create: "% {USER_NAME} pozval% {attendee_name} aby sa pripojil ku% {resource_name} schôdzke na% {space_name} priestoru"
@@ -328,7 +323,7 @@ sk:
       meetings:
         description: Počet vytvorených stretnutí
         object: stretnutia
-        title: Stretnutia
+        title: Stretnutie
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze

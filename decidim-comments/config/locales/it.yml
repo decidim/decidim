@@ -16,6 +16,10 @@ it:
         one: Votazione
         other: voti
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Commenti
     comments:
       admin:
         shared:

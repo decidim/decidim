@@ -17,6 +17,10 @@ hu:
         one: Szavazat
         other: Szavazatok
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Hozzászólások
     comments:
       admin:
         shared:

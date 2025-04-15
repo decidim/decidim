@@ -48,6 +48,12 @@ fr:
         tos_agreement: Conditions d'utilisation
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Le pseudo doit être en minuscules et ne contenir aucun espace
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -161,6 +167,7 @@ fr:
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
+      secondary_menu: Menu secondaire
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -581,7 +588,7 @@ fr:
       metrics:
         name: Historique des statistiques de participation
       participatory_space_metrics:
-        name: Métriques
+        name: Participation en chiffres
       participatory_space_stats:
         name: Statistiques
       social_networks_metadata:
@@ -1290,7 +1297,7 @@ fr:
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
-        title: Utilisateurs
+        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.

@@ -407,7 +407,7 @@ fr:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
         object: propositions
-        title: Propositions Acceptées
+        title: Propositions acceptées
       endorsements:
         description: Nombre d'avenants générés dans les propositions
         object: soutiens
@@ -922,7 +922,7 @@ fr:
         update:
           title: Mettre à jour la proposition
         vote_button:
-          already_voted: Déjà votée
+          already_voted: Votée
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant

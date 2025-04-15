@@ -271,8 +271,6 @@ hu:
         registrations:
           edit:
             save: Mentés
-            validate: Érvényesítés
-            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
@@ -287,9 +285,6 @@ hu:
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
-          validate_registration_code:
-            invalid: Érvénytelen a regisztrációs kód.
-            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
         invite:
           create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
@@ -471,7 +466,7 @@ hu:
       meetings:
         description: A létrehozott találkozók száma
         object: ülések
-        title: találkozók
+        title: Találkozók
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók

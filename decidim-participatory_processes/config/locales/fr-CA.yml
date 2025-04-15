@@ -379,6 +379,8 @@ fr-CA:
           participatory_processes:
             one: 1 concertation
             other: "%{count} concertations"
+      related_processes:
+        help: Tous les processus sélectionnés seront assignés à ce groupe, y compris ceux qui sont déjà assignés à d'autres groupes.
       show:
         title: Groupes de concertations
     participatory_process_steps:

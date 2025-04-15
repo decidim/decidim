@@ -432,7 +432,7 @@ de:
       votes:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
-        title: Abstimmungen
+        title: Stimmen
     open_data:
       help:
         proposal_comments:
@@ -876,6 +876,7 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.
@@ -958,6 +959,7 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
@@ -1007,7 +1009,6 @@ de:
         update:
           title: Vorschlag aktualisieren
         vote_button:
-          already_voted: Bereits abgestimmt
           already_voted_hover: Stimme zurückziehen
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen

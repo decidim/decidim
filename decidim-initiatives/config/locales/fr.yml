@@ -580,7 +580,7 @@ fr:
       initiatives_type:
         actions:
           title: Actions
-          vote: Vote
+          vote: Signer
   layouts:
     decidim:
       initiative_creation_header:

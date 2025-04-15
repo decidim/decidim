@@ -265,6 +265,8 @@ ro:
         description: Număr de propuneri
         object: propuneri
         title: Propuneri
+      votes:
+        title: Voturi
     participatory_spaces:
       highlighted_proposals:
         see_all: Afișează toate propunerile
@@ -634,6 +636,7 @@ ro:
         update:
           title: Actualizează propunerea
         vote_button:
+          already_voted: Votat
           votes_blocked: Votați
         voting_rules:
           proposal_limit:

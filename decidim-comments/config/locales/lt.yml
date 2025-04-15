@@ -21,6 +21,10 @@ lt:
         many: Balsai
         other: Balsai
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarai
     comments:
       admin:
         shared:

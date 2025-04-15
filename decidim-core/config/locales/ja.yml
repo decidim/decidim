@@ -55,6 +55,12 @@ ja:
         tos_agreement: 利用規約
       user_group:
         avatar: アバター
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: ニックネームは小文字でスペースを含まない必要があります
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -597,7 +603,7 @@ ja:
       metrics:
         name: 組織の指標
       participatory_space_metrics:
-        name: メトリクス
+        name: 指標
       participatory_space_stats:
         name: 統計情報
       social_networks_metadata:
@@ -633,7 +639,7 @@ ja:
         create:
           email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
-          complete_profile: プロファイルを完了
+          complete_profile: プロフィールを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
           subtitle: アカウントの作成を完了するため、次のフォームに記入してください
@@ -734,7 +740,19 @@ ja:
           id: この通知の固有ID
           resource_type: 通知に関連するリソースの種類
           updated_at: 通知の最終更新日時
+        participatory_space_private_users:
+          created_at: プライベートユーザーの作成日時
+          id: このプライベートユーザーの固有ID
+          privatable_to: このプライベートユーザーが所属する領域：
+          published: このプライベートユーザーが公開されているか否か
+          role: このプライベートユーザーが持つ役割
+          updated_at: プライベートユーザーの最終更新日時
         reports:
+          created_at: レポートの作成日時
+          details: レポートの詳細
+          id: レポートの固有ID
+          locale: レポートの言語
+          moderation: レポートのモデレーション
           reason: レポートの理由
           updated_at: レポートの最終更新日時
         user_groups:
@@ -755,6 +773,12 @@ ja:
           delete_reason: このユーザーの削除理由
           deleted_at: このユーザーの削除日時
           email: このユーザーのメールアドレス
+          followers_count: このユーザーをフォローしている参加者の数
+          following_count: このユーザーがフォローしている参加者数
+          id: ユーザーの固有ID
+          invitation_accepted_at: 招待の承認日時
+          invitation_created_at: このユーザーの招待日時
+          invitation_sent_at: 招待の送信日時
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
           last_sign_in_at: 最終ログイン日時
@@ -762,13 +786,22 @@ ja:
           locale: このユーザーが選択したロケール（言語）
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
+          newsletter_notifications_at: このユーザーが最後にニュースレターを受信した日時
+          nickname: ユーザーのニックネーム
           notification_settings: このユーザーが選択した通知設定
+          notifications_sending_frequency: このユーザーが受け取る通知の頻度
+          officialized_as: 正式名称（参事官、市長等）
+          officialized_at: このユーザーの公式化日時
+          organization: このユーザーが所属する組織
+          password_updated_at: パスワードの最終更新日時
           personal_url: このユーザーの個人URL
           remember_created_at: ユーザーが記憶するように選択した日時
           reset_password_sent_at: パスワードリセットの送信日時
           roles: このユーザーが持っている役割
           sign_in_count: このユーザーがログインした回数
           type: このユーザーが持っているタイプ
+          unconfirmed_email: このユーザーのまだ確認されていないメールアドレス
+          updated_at: ユーザーの最終更新日時
       show:
         action: アクション
         download: ダウンロードファイル
@@ -779,6 +812,8 @@ ja:
         expiration: 有効期限
         expired: 有効期限が切れています
         explanation:
+          body_1: これらのファイルは、このプラットフォームでのあなたの提案やコメントなどの活動からエクスポートされたデータセットです。分析や研究、他のツールとの連携に活用できる、生の構造化データが含まれています
+          body_2: ファイルはCSV(カンマ区切り) 形式です。これは広く使われているファイル形式で、表計算プログラム、テキストエディタ、データ分析ツールなど、様々なソフトウェア・アプリケーションで開いて処理できます。
           title: これらのファイルは何ですか?
         files_to_download: ダウンロードするファイル
         request_data: リクエスト
@@ -869,6 +904,11 @@ ja:
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正が却下されました'
             notification_title: <a href="%{emendation_path}">修正</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> によって作成された <a href="%{amendable_path}">%{amendable_title}</a> は拒否されました。
+        emendation_promoted:
+          follower:
+            email_intro: '%{amendable_title}に対する修正案が公開されました。このページから確認できます：'
+            email_outro: あなたは %{amendable_title}の作者であるため、この通知を受け取りました。
+            email_subject: '%{emendation_author_nickname}による修正案が新しい%{amendable_type}として公開されました'
       attachments:
         attachment_created:
           email_intro: '%{resource_title}に新しいドキュメントが追加されました。このページから見ることができます：'
@@ -941,8 +981,8 @@ ja:
         user_group_updated:
           email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: ユーザーグループがプロファイルを更新しました
-          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+          email_subject: ユーザーグループがプロフィールを更新しました
+          notification_title: '%{user_group_name} ユーザーグループがプロフィールを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       nickname_event:
         notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の同じ名前の方の後に登録されたため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
@@ -1032,6 +1072,7 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、文字の入っていない横長の画像が望ましいです。サービス側で画像をトリミングします。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1431,6 +1472,7 @@ ja:
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 受け取りたい通知
         update_notifications_settings: 変更を保存
+        valuators: 評価者
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
@@ -1469,7 +1511,7 @@ ja:
           blocked_at: ユーザーがブロックされた日時
           blocking_user: ブロックを実行したユーザーの名前
           details: レポートの詳細
-          reasons: プロファイルが報告された理由のリスト
+          reasons: プロフィールが報告された理由のリスト
           user_id: 報告されたユーザーの固有ID
         moderations:
           hidden_at: コンテンツが非表示になった日時
@@ -1502,7 +1544,7 @@ ja:
           members_count: ユーザーグループに属するユーザーの数
           name: ユーザーグループの表示名
           nickname: ユーザーグループのユーザー名
-          profile_url: プロファイルURL
+          profile_url: プロフィールURL
         users:
           about: ユーザーの紹介テキスト
           avatar_url: ユーザーのアバター
@@ -1513,7 +1555,7 @@ ja:
           id: ユーザーの固有ID
           name: ユーザーの表示名
           nickname: ユーザーのユーザー名
-          profile_url: プロファイルURL
+          profile_url: プロフィールURL
       index:
         description: '%{organization_name} オープンデータページへようこそ。ここでは、 %{organization_name} 内のさまざまな審議およびガバナンスプロセスから定期的に生成されるデータファイルを提供しています。これらのファイルは、透明性、アクセス性、および協力を促進するために公開されています。以下に、これらのファイルが何であるか、どのように開いて使用するか、各ファイルの内容と構造についての詳細な情報を記載しています。'
         detailed:
@@ -1622,7 +1664,7 @@ ja:
         success: パスワードを更新しました。
     profile:
       deleted: 削除された参加者
-      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
+      inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
@@ -1643,7 +1685,7 @@ ja:
           create_user_group: グループを作成
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
-          edit_user_group: グループプロファイルを編集
+          edit_user_group: グループプロフィールを編集
           invite_user: 参加者の招待
           join_user_group: グループに参加するリクエスト
           leave_user_group: グループから退出する
@@ -1741,11 +1783,13 @@ ja:
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         block: この参加者をブロック
+        description: この参加者の不適切な点は何ですか？
         does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
+        title: 不適切な参加者を報告する
       floating_help:
         help: ヘルプ
       follow_button:

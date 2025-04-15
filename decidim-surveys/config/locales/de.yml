@@ -59,6 +59,8 @@ de:
         title: Aktionen
       admin:
         answers:
+          index:
+            title: "%{total} Antworten insgesamt"
           show:
             title: 'Antwort #%{number}'
         exports:
@@ -72,6 +74,9 @@ de:
               Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
               Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
               Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
+            status:
+              not_published: Nicht veröffentlicht
+              published: Veröffentlicht
             title: Antworten veröffentlichen
         surveys:
           create:

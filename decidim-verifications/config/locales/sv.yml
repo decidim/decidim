@@ -166,9 +166,9 @@ sv:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
+            info: 'Filen måste i formatet CSV med endast en kolumn med e-postadress:'
+            submit: Ladda upp fil
+            title: Ladda upp en ny folkräkning
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.

@@ -634,6 +634,7 @@ ja:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
             assign_to_valuator: 評価者に割り当てる
+            assign_to_valuator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
@@ -649,6 +650,7 @@ ja:
             statuses: ステータス
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
+            unassign_from_valuator_button: 割り当ての解除
             update: 更新
           manage_trash:
             title: 削除された提案
@@ -864,6 +866,7 @@ ja:
           success: 共同執筆者の招待を取り消しました。
         create:
           error: 共同執筆者を招待する際に問題が発生しました。
+          success: "%{author_name} は共同執筆者として正常に招待されました。"
         destroy:
           error: 招待を却下するのに問題が発生しました。
           success: 招待は拒否されました。
@@ -945,6 +948,7 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
+          title: 新しい提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
@@ -992,7 +996,7 @@ ja:
         update:
           title: 提案を更新
         vote_button:
-          already_voted: すでに投票済みです
+          already_voted: 投票済
           already_voted_hover: 投票を撤回する
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません

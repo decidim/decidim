@@ -348,7 +348,7 @@ eu:
       participatory_processes:
         description: Erakundeko partaidetza-prozesu kopurua
         object: partaidetza-prozesuak
-        title: Partaidetza-prozesuak
+        title: Prozesu pare-hartzaileak
     open_data:
       help:
         participatory_processes:
@@ -409,6 +409,8 @@ eu:
           participatory_processes:
             one: Prozesu bat
             other: "Prozesu bat"
+      related_processes:
+        help: Hautatutako prozesu guztiak talde horri esleituko zaizkio, beste talde batzuei esleituta daudenak barne.
       show:
         title: Partaidetza-prozesuen taldeak
     participatory_process_steps:
@@ -532,7 +534,7 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
-          browse_resource: Aztertu %{resource_name} prozesuen multzoa
+          browse_resource: '%{resource_name} prozesuen multzoa arakatu'
           processes_count: 'Prozesuak:'
       participatory_process_navigation:
         member_menu_item: Kideak

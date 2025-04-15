@@ -1,0 +1,119 @@
+---
+ca-IT:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Títol
+      template:
+        description: Descripció
+        name: Nom
+  decidim:
+    admin:
+      menu:
+        templates: Plantilles
+      templates:
+        actions:
+          new_template: Afegir plantilla
+        apply:
+          error: S'ha produït un error en actualitzar aquesta plantilla.
+          success: La plantilla s'ha aplicat correctament.
+        copy:
+          error: S'ha produït un error en copiar aquesta plantilla.
+          success: La plantilla s'ha copiat correctament.
+        create:
+          error: S'ha produït un error en crear aquesta plantilla.
+          success: La plantilla s'ha creat correctament.
+        destroy:
+          success: La plantilla s'ha eliminat correctament.
+        empty: Encara no hi ha plantilles.
+        fetch:
+          error: No s'ha pogut trobar aquesta plantilla. Si us plau, torna a carregar la pàgina.
+        missing_resource: "(recurs absent)"
+        update:
+          error: S'ha produït un error en actualitzar aquesta plantilla.
+          success: La plantilla s'ha actualitzat correctament.
+      titles:
+        template_types:
+          questionnaires: Plantilles de qüestionari
+        templates: Plantilles
+    models:
+      questionnaire_template:
+        fields:
+          questions: Nombre de preguntes
+          title: Títol del qüestionari
+      template:
+        fields:
+          created_at: Creat el
+        name: Plantilla
+    templates:
+      admin:
+        block_user_templates:
+          edit:
+            title: Editar la plantilla del missatge de bloqueig del compte d'usuària
+          form:
+            save: Desar
+          index:
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+            title: Bloquejar els missatges de la usuària
+          new:
+            title: Nova plantilla del missatge de bloqueig del compte d'usuària
+          template_chooser:
+            select_template: Selecciona una plantilla de resposta
+        proposal_answer_templates:
+          edit:
+            title: Editar la plantilla de resposta a la proposta
+          form:
+            component_constraint_help: Tingues en compte que només es llistaran els espais de participació que tinguin habilitat algun component de "propostes".
+            hint1_html: "<strong>%{organization}</strong> es reemplaçarà pel nom de l'organització"
+            hint2_html: "<strong>%{name}</strong> es reemplaçarà pel nom de l'autora"
+            hint3_html: "<strong>%{admin}</strong> serà reemplaçat pel nom de l'administradora (la que està responent a la proposta)"
+            hint_html: "<strong>Suggeriment:</strong> Pots fer servir aquestes variables a qualsevol lloc a la plantilla de resposta i seran substituïdes pels valors en actiu quan es faci servir la plantilla"
+            save: Desar
+          index:
+            component_constraint: Afegir restricció
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+            missing_state: Hi manca l'estat
+            proposal_state_id: Estat intern
+            title: Respostes a la proposta
+          new:
+            title: Nova plantilla de resposta a proposta
+          template_chooser:
+            select_template: Selecciona una plantilla de resposta
+        questionnaire_templates:
+          choose:
+            create_from_template: Crear des d'una plantilla
+            description: Estàs a punt de crear un nou qüestionari. Pots triar una plantilla predefinida i modificar-la després.
+            label: Escollir una plantilla
+            placeholder: Escollir una plantilla
+            skip_template: Ometre
+          edit:
+            edit: Editar
+            empty: Encara no hi ha preguntes.
+            manage_questions: Gestionar les preguntes
+            questionnaire: Qüestionari
+            title: Editar la plantilla del qüestionari
+          edit_questions:
+            add_question: Afegeix una pregunta
+            add_separator: Afegir un separador
+            add_title_and_description: Afegir títol i descripció
+          form:
+            title: Plantilla del qüestionari %{questionnaire_for}
+          index:
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+            title: Plantilles de qüestionari
+          new:
+            title: Nova plantilla de qüestioniari
+          preview:
+            current_step: Pas %{step}
+            of_total_steps: de %{total_steps}
+            tos_agreement: En participar acceptes els Termes i condicions d'ús
+      admin_log:
+        template:
+          create: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
+          delete: "%{user_name} ha esborrat la plantilla del qüestionari %{resource_name}"
+          duplicate: "%{user_name} ha duplicat la plantilla del qüestionari %{resource_name}"
+          update: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
+      template_types:
+        block_user: Bloquejar els missatges de la usuària
+        proposal_answer_templates: Respostes a propostes
+        questionnaires: Qüestionari

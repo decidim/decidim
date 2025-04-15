@@ -538,7 +538,7 @@ pt-BR:
       metrics:
         name: Métricas da organização
       participatory_space_metrics:
-        name: Métricas
+        name: Participação em números
       participatory_space_stats:
         name: Estatísticas
       social_networks_metadata:
@@ -1114,7 +1114,7 @@ pt-BR:
       users:
         description: Número de usuários na organização
         object: usuários
-        title: Usuários
+        title: Participantes
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este email foi enviado de uma caixa postal que não pode receber emails. Favor não responder esta mensagem.

@@ -130,6 +130,9 @@ is:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvæði var samþykkt með <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      initiative_signatures:
+        fill_personal_data:
+          continue: Haltu áfram
       initiatives:
         count:
           title:
@@ -165,6 +168,10 @@ is:
         expired: Útrunnið
     menu:
       initiatives: Frumkvæði
+    resources:
+      initiatives_type:
+        actions:
+          vote: Skráðu þig
   layouts:
     decidim:
       initiative_creation_header:

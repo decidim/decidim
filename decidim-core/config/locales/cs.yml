@@ -55,6 +55,12 @@ cs:
         tos_agreement: Podmínky smlouvy o poskytování služeb
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Přezdívka musí být malými písmeny a nesmí obsahovat mezery
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní komponenty
@@ -200,6 +206,7 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
+      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -1440,7 +1447,7 @@ cs:
       users:
         description: Počet uživatelů v organizaci
         object: uživatelů
-        title: Uživatelé
+        title: Účastníci
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
@@ -1536,6 +1543,7 @@ cs:
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
+        valuators: Hodnotitelé
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.

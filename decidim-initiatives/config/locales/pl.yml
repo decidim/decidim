@@ -595,7 +595,7 @@ pl:
       initiatives_type:
         actions:
           title: Działania
-          vote: Wspieranie
+          vote: Podpisz
   layouts:
     decidim:
       initiative_creation_header:

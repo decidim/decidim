@@ -526,7 +526,7 @@ hu:
       initiatives_type:
         actions:
           title: Hozzászólások
-          vote: Szavazás
+          vote: Aláírás
   layouts:
     decidim:
       initiative_creation_header:

@@ -17,6 +17,10 @@ fr-CA:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: commentaires
     comments:
       admin:
         shared:
