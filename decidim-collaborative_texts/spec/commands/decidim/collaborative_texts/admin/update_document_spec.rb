@@ -21,7 +21,8 @@ module Decidim
             current_user: user,
             title:,
             body:,
-            draft:,
+            draft?: draft,
+            draft: draft,
             accepting_suggestions:
           )
         end
@@ -42,7 +43,7 @@ module Decidim
             expect { subject.call }.not_to change(Decidim::CollaborativeTexts::Version, :count)
             expect(first_version).to eq last_version
             expect(last_version).to eq document.current_version
-            expect(last_version.body).to eq body
+            expect(last_version.body).to eq body unless document.has_suggestions?
             expect(last_version.draft).to eq draft
             expect(last_version.document).to eq document
             expect(document.reload.title).to eq title
@@ -50,6 +51,8 @@ module Decidim
           end
 
           it "traces the action", versioning: true do
+            updated_keys = { draft: }
+            updated_keys[:body] = body unless document.has_suggestions?
             expect(Decidim.traceability)
               .to receive(:update!)
               .with(document, user, { title:, accepting_suggestions: }, {
@@ -61,7 +64,7 @@ module Decidim
               .and_call_original
             expect(Decidim.traceability)
               .to receive(:update!)
-              .with(last_version, user, { body:, draft: }, {
+              .with(last_version, user, updated_keys, {
                       extra: {
                         document_id: document.id,
                         title: title,
