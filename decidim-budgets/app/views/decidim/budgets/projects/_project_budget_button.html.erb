@@ -1,11 +1,3 @@
 <div id="project-<%= project.id %>-budget-button">
-  <% if current_user.blank? %>
-      <button class="button button__lg w-full button__secondary"
-        data-dialog-open="loginModal"
-        aria-label="<%= t(".added_descriptive", resource_name: translated_attribute(project.title)) %>">
-        <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
-      </button>
-  <% else %>
-    <%= cell("decidim/budgets/project_vote_button", project, project_item: true) %>
-  <% end %>
+  <%= cell("decidim/budgets/project_vote_button", project, project_item: true, button_extra_classes: "w-full", authorization_redirect_path: budget_focus_project_path(project.budget, project)) %>
 </div>

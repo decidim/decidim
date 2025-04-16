@@ -122,29 +122,11 @@ lt:
         start_exploring: pradėti naršyti
       csv_census:
         admin:
-          census:
-            create:
-              success: Sėkmingai importuota %{count} elementų (%{errors} klaidų).
-            destroy_all:
-              success: Visi surašymo duomenys pašalinti.
-          destroy:
-            confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
-            title: Pašalinti visus surašymo duomenis
           index:
-            data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}.
-            empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
             title: Dabartiniai surašymo duomenys
           instructions:
             body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus
             title: Turite įjungti „cvs_census“ šiai organizacijai
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv rinkmena su el. pašto duomenimis"
-            info: 'Turi būti CSV formato rinkmena tik su viena skiltimi, kurioje nurodytas el. pašto adresas:'
-            submit: Įkelti failą
-            title: Įkelti naujus surašymo duomenis
         authorizations:
           new:
             error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.

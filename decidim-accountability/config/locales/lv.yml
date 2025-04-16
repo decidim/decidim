@@ -142,11 +142,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{proposal_title}", un šis priekšlikums ir iekļauts rezultātā "%{resource_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Atjaunināts %{resource_title} progress
           notification_title: Rezultāts <a href="%{resource_path}">%{resource_title}</a>, kas ietver priekšlikumu <a href="%{proposal_path}">%{proposal_title}</a>, tagad ir %{progress}% pabeigts.
-    metrics:
-      results:
-        description: Izveidoto rezultātu skaits
-        object: rezultāti
-        title: Rezultāti
     resource_links:
       included_projects:
         result_project: Šajā rezultātā iekļautie projekti

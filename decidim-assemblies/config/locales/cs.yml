@@ -206,6 +206,7 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
       taxonomy_filters:
         space_filter_for:
@@ -381,11 +382,6 @@ cs:
           not_found: 'Typ shromáždění nebyl v databázi nalezen (ID: %{id})'
     menu:
       assemblies: Shromáždění
-    metrics:
-      assemblies:
-        description: Počet vytvořených shromáždění
-        object: shromáždění
-        title: Shromáždění
     open_data:
       help:
         assemblies:

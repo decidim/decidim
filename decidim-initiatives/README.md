@@ -68,6 +68,45 @@ Or change the number of days given to gather signatures to 365 (default is 120) 
 Decidim::Initiatives.default_signature_time_period_length = 365
 ```
 
+### Initiatives signatures
+
+Different signature workflows can be registered in the code of your app and used in the signature workflow settings of signatures types. A signature workflow defines some options of the signature steps and the form objects and commands responsible for validating and managing the data provided by the users.
+
+To define a signature workflow create an initializer in your application and register it. For example, in `config/initializers/decidim_initiatives.rb`:
+
+```ruby
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = true
+  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:ephemeral_dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.ephemeral = true
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = false
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.save_authorizations = false
+  workflow.sms_verification = true
+end
+```
+
+All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
+
+Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest` and `Decidim::Initiatives::SignatureHandler`
+
 ## Rake tasks
 
 This engine comes with three rake tasks that should be executed on daily basis. The best

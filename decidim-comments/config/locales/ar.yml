@@ -23,6 +23,10 @@ ar:
         many: الأصوات
         other: الأصوات
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: تعليقات
     comments:
       admin:
         shared:
@@ -143,8 +147,3 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك ذكرت في %{resource_title}.
           email_subject: لقد ذكرت في %{resource_title}
           notification_title: لقد ذكرت في <a href="%{resource_path}">%{resource_title}</a> من <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: عدد التعليقات الناتجة عن المشاركين
-        object: تعليقات
-        title: تعليقات
