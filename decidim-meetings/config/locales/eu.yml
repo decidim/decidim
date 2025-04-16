@@ -355,6 +355,7 @@ eu:
         registrations:
           edit:
             save: Gorde
+            validate: Balioztatu
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
