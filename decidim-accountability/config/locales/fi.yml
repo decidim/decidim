@@ -328,11 +328,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteen %{resource_title} edistykseen
           notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
-    metrics:
-      results:
-        description: Luotujen tulosten lukumäärä
-        object: tulokset
-        title: Tulokset
     open_data:
       help:
         result_comments:

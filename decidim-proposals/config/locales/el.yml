@@ -267,19 +267,6 @@ el:
           next_level_in: Δημιουργήστε %{score} ακόμη προτάσεις για να φτάσετε στο επόμενο επίπεδο!
           unearned_another: Αυτός ο συμμετέχων δεν έχει ακόμα δημιουργήσει προτάσεις.
           unearned_own: Δεν έχετε δημιουργήσει ακόμη προτάσεις.
-    metrics:
-      accepted_proposals:
-        description: Αριθμός προτάσεων που έγιναν δεκτές
-        object: προτάσεις
-        title: Αποδεκτές προτάσεις
-      endorsements:
-        description: Αριθμός επιδοκιμασιών σε προτάσεις
-        object: επιδοκιμασίες
-        title: Επιδοκιμασίες
-      proposals:
-        description: Αριθμός προτάσεων
-        object: προτάσεις
-        title: Προτάσεις
     participatory_spaces:
       highlighted_proposals:
         see_all: Δείτε όλες τις προτάσεις

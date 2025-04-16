@@ -222,6 +222,7 @@ ca:
           pending_to_vote_budgets:
             one: Pots votar en un altre pressupost
             other: Pots votar en altres pressupostos
+          share_text: "Acabes de votar pels teus projectes favorits a: \"%{space_name}\"!  🎉 Pots seguir votant a: \"%{component_url}\""
           share_vote: Comparteix el teu vot
           title: El teu vot s'ha tramitat correctament
           view_votes:
@@ -230,6 +231,9 @@ ca:
           votes_count:
             one: El teu vot a %{budget_name} ja s'ha registrat.
             other: El teus %{count} vots a %{budget_name} ja s'han registrat.
+      order_pdf:
+        text: 'Has votat a "%{space_name}", on has seleccionat els projectes següents:'
+        title: El teu vot s'ha acceptat correctament.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
@@ -307,7 +311,7 @@ ca:
             other: vots
           you_voted: Has votat això
         project_budget_button:
-          add: Afegir al teu vot
+          add: Afegir
           add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
           added: Afegit al teu vot
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.

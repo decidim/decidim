@@ -183,11 +183,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".
           email_subject: Has estat esmentada a %{resource_title}
           notification_title: Has estat esmentada a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Nombre de comentaris generats per les participants
-        object: comentaris
-        title: Comentaris
   errors:
     messages:
       cannot_have_comments: no es poden fer comentaris
