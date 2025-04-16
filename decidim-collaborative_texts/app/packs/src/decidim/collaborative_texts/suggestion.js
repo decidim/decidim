@@ -1,4 +1,5 @@
 import {createDropdown, createAccordion} from "src/decidim/a11y";
+import Accordions from "a11y-accordion-component";
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -56,7 +57,7 @@ export default class Suggestion {
     this.highlightWrapper = window.document.createElement("div");
     this.highlightWrapper.classList.add("collaborative-texts-highlight");
     this.firstNode.before(this.highlightWrapper);
-    this._hideOriginalNodes();
+    this._hideOriginalNodes("collaborative-texts-highlight-hidden");
     this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
       suggestion.changesWrapper.classList.add("collaborative-texts-highlight-hidden");
       suggestion.nodes.forEach((node) => node.classList.add("collaborative-texts-highlight-shown"));
@@ -74,7 +75,7 @@ export default class Suggestion {
     if (this.highlightWrapper) {
       this.highlightWrapper.remove();
       this.highlightWrapper = null;
-      this._showOriginalNodes();
+      this._showOriginalNodes("collaborative-texts-highlight-hidden");
       this.siblingSuggestions().filter((suggestion) => suggestion.applied).forEach((suggestion) => {
         suggestion.changesWrapper.classList.remove("collaborative-texts-highlight-hidden");
         suggestion.nodes.forEach((node) => node.classList.remove("collaborative-texts-highlight-shown"));
@@ -95,7 +96,7 @@ export default class Suggestion {
       this._hideOriginalNodes();
       this._applyTo(this.changesWrapper);
       this.item.classList.add("applied");
-      this.boxWrapper.querySelector("[data-controls]").click();
+      this._resetAccordion();
       let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
     }
@@ -110,7 +111,7 @@ export default class Suggestion {
       this._showOriginalNodes();
       this.changesWrapper.remove();
       this.changesWrapper = null;
-      this.boxWrapper.querySelector("[data-controls]").click();
+      this._resetAccordion();
       let event = new CustomEvent("collaborative-texts:restored", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
     }
@@ -131,12 +132,12 @@ export default class Suggestion {
     });
   }
 
-  _hideOriginalNodes() {
-    this.nodes.forEach((node) => node.classList.add("collaborative-texts-hidden"));
+  _hideOriginalNodes(className = "collaborative-texts-hidden") {
+    this.nodes.forEach((node) => node.classList.add(className));
   }
 
-  _showOriginalNodes() {
-    this.nodes.forEach((node) => node.classList.remove("collaborative-texts-hidden"));
+  _showOriginalNodes(className = "collaborative-texts-hidden") {
+    this.nodes.forEach((node) => node.classList.remove(className));
   }
 
   getPosition() {
@@ -185,6 +186,14 @@ export default class Suggestion {
     this.firstNode.before(this.changesWrapper);
   }
 
+  // Because the A11y accordion has not an API to programmatically toggle the
+  // accordion, we need to destroy and recreate it to reset the state
+  _resetAccordion() {
+    let accordion = this.boxWrapper.querySelector('[data-component="accordion"]');
+    Accordions.destroy(accordion.id);
+    createAccordion(accordion);
+  }
+
   // Create a wrapper for all the suggestions applying to the same nodes
   _createBoxWrapper() {
     if (this.firstNode.previousSibling &&
@@ -199,7 +208,7 @@ export default class Suggestion {
     this.boxWrapper.classList.add("collaborative-texts-suggestions-box");
     this.boxWrapper.innerHTML = this.templates.suggestionsBox.innerHTML.replaceAll("{{ID}}", this.id);
     this.firstNode.before(this.boxWrapper);
-    createAccordion(this.boxWrapper.querySelector('[data-component="accordion"]'));
+    this._resetAccordion();
   }
   
   // Create the box item for the suggestion inside the wrapper
@@ -221,6 +230,10 @@ export default class Suggestion {
     this.itemsCounts.forEach((item) => {
       item.textContent = this.boxItems.childElementCount;
     });
+  }
+
+  _resetDropdown() {
+    
   }
 
   _bindEvents() {

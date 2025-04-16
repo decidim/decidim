@@ -8,7 +8,7 @@ export default class Toc {
   
   headings() {
     this.nodes = [];
-    this.doc.querySelectorAll("*> h2, *> div.collaborative-texts-changes> h2").forEach((node) => {
+    this.doc.querySelectorAll("*> h2:not(.collaborative-texts-hidden), *> div.collaborative-texts-changes> h2").forEach((node) => {
       if (node.nodeName === "H2") {
         this.nodes.push(node);
       }

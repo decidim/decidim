@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin edits documents" do
+describe "User adds suggestions" do
   include Decidim::FrontEndPointerTestHelpers
 
   include_context "with a component"
