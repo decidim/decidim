@@ -89,7 +89,7 @@ eu:
       file_cannot_be_processed: Fitxategia ezin izan da prozesatu
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
+      not_inside_organization: Fitxategia ez dago erakunde batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -284,7 +284,7 @@ eu:
         verify: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} txostena"
     admin_terms_of_service:
       default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -661,13 +661,13 @@ eu:
       show:
         download_data: Deskargatu datuak
         download_data_description_html: |-
-          Artxibo bat bidaliko da zure kontura lotutako informazio guztiarekin hona: <strong>%{user_email}</strong>.
+          Fitxategi bat bidaliko da zure kontura lotutako informazio guztiarekin hona: <strong>%{user_email}</strong>.
           Korreo honek .zip artxibo bat izango du eta pasahitz bat zabaldu ahal izateko.<br/><br/>Artxiboa deskonprimitzeko, beharko duzu: <a href="https://www.7-zip.org/">7-Zip</a> (Windows) edo <a href="https://www.keka.io/">Keka</a> (MacOS). Linux erabiltzen baduzu, gehienetan instalatuta izango duzu defektuz. 
           Bestela, erabil dezakezu: <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Eskaera datuak
     editor_images:
       create:
-        error: Errore bat egon da irudia eguneratzean.
+        error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
@@ -846,7 +846,7 @@ eu:
     export_mailer:
       download_your_data_export:
         click_button: 'Egin klik hurrengo estekan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
-        download: Deskarga
+        download: Deskargatu
       export:
         ready: Mesedez, atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
@@ -895,7 +895,7 @@ eu:
         error: Errore bat dago datu-eremu honetan.
       file_help:
         file:
-          explanation: 'Jarraibideak artxiborako:'
+          explanation: 'Fitxategirako jarraibideak:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
           message_2: Irudietarako, ahal dela, erabili irudi etzanak, zerbitzuak irudia mozten baitu.
         icon:
@@ -908,8 +908,8 @@ eu:
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
-        max_file_dimension: 'Artxiboaren gehieneko neurriak: %{resolution} pixel'
-        max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
+        max_file_dimension: 'Fitxategiaren gehieneko neurriak: %{resolution} pixel'
+        max_file_size: 'Fitxategiaren gehieneko tamaina: %{megabytes}MB'
       files:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
@@ -928,10 +928,10 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Balioztatze-akatsa! Egiaztatu artxiboak luzapen edo tamaina baimendua duela.
+          validation_error: Balioztatze-akatsa! Egiaztatu fitxategiak luzapen edo tamaina baimendua duela.
         select_file: Hautatu fitxategia
       upload_help:
-        dropzone: Bota artxiboak hona edo egin klik igotzeko
+        dropzone: Bota fitxategiak hona edo egin klik igotzeko
         explanation: Gida honetarako %{attribute}
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -1418,7 +1418,7 @@ eu:
         participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
-        see_report: Ikusi erreportea
+        see_report: Txostena ikusi
         subject: Eduki bat salatua izan da
     reports:
       create:
@@ -2021,7 +2021,7 @@ eu:
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
-    hacker_news: hacker News
+    hacker_news: Hacker berriak
     linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone
