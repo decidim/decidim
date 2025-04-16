@@ -37,8 +37,8 @@ export default class Editor {
     this.cancelButton.addEventListener("click", this._cancel.bind(this));
     this.wrapper.after(this.editor);
   }
-  
-  _setupContainer() {   
+
+  _setupContainer() {
     // This in the future should be the tiptap editor
     this.container = this.editor.querySelector(".collaborative-texts-editor-container");
     this.container.innerHTML = this.nodes.map((node) => node.outerHTML).join("");

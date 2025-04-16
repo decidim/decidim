@@ -10,7 +10,7 @@ export default class Suggestion {
     this.doc = suggestionsList.doc;
     this.nodes = [];
     for (const node of suggestionsList.nodes) {
-      if (node.id === `ct-node-${entry.changeset.firstNode}`) { 
+      if (node.id === `ct-node-${entry.changeset.firstNode}`) {
         this.firstNode = node;
       }
       if (node.id === `ct-node-${entry.changeset.lastNode}`) {
@@ -82,7 +82,7 @@ export default class Suggestion {
       });
     }
   }
-  
+
   // Apply the suggestion by replacing the nodes with the replace content
   apply() {
     if (!this.applied && !this.selection || !this.selection.blocked) {
@@ -91,7 +91,7 @@ export default class Suggestion {
         this.blur();
       }
       // restore any other changes affecting the same nodes
-      this.suggestionsList.restore(this.nodes, [this]);  
+      this.suggestionsList.restore(this.nodes, [this]);
       this._createChangesWrapper();
       this._hideOriginalNodes();
       this._applyTo(this.changesWrapper);
@@ -102,7 +102,7 @@ export default class Suggestion {
     }
     return this;
   }
-  
+
   // Restore the suggestion by removing the replace content and showing the original nodes
   restore() {
     if (this.applied) {
@@ -210,7 +210,7 @@ export default class Suggestion {
     this.firstNode.before(this.boxWrapper);
     this._resetAccordion();
   }
-  
+
   // Create the box item for the suggestion inside the wrapper
   _createBoxItem() {
     this.boxItems = this.boxWrapper.querySelector(".collaborative-texts-suggestions-box-items");
@@ -233,7 +233,7 @@ export default class Suggestion {
   }
 
   _resetDropdown() {
-    
+
   }
 
   _bindEvents() {

@@ -46,7 +46,7 @@ describe("Manager", () => {
             <button data-confirm-cancel data-dialog-close="confirm-modal">Cancel</button>
             <button data-confirm-ok>Ok</button>
           </div>
-        </div>    
+        </div>
       </div>
     </div>
   </body>
@@ -80,17 +80,17 @@ describe("Manager", () => {
   );
 
   beforeEach(() => {
-    window.Decidim.currentDialogs = { 
+    window.Decidim.currentDialogs = {
       "confirm-modal": new DummyDialog(document.querySelector("#confirm-modal"))
     };
-    
+
     document.body.innerHTML = content;
     delete global.window.location;
     global.window = Object.create(window);
     global.window.location = {
       href: "test-url"
     };
-    
+
     doc = {
       doc: document.querySelector("[data-collaborative-texts-document]"),
       suggestionsList: {

@@ -14,7 +14,7 @@ module Decidim
         when :suggest
           allow! if user
         when :rollout
-          allow! if user && user.admin? # TODO: allow participatory space admins!
+          allow! if user && (user.admin? || space_allows_admin_access?)
         end
 
         permission_action
@@ -24,6 +24,15 @@ module Decidim
 
       def document
         @document ||= context.fetch(:document, nil) || context.fetch(:resource, nil)
+      end
+
+      def space_allows_admin_access?
+        Decidim.participatory_space_manifests.any? do |manifest|
+          Decidim.find_participatory_space_manifest(manifest.name)
+                 .participatory_spaces.call(user.organization)&.any? do |space|
+            space.admins.exists?(id: user.id)
+          end
+        end
       end
     end
   end

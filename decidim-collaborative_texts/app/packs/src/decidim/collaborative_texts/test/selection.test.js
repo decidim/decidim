@@ -96,7 +96,7 @@ describe("Selection", () => {
     expect(selection.changed()).toBe(true);
     expect(selection.editor.saveButton.disabled).toBe(false);
   });
-  
+
   it("Scrolls into view", () => {
     selection.detectNodes();
     selection.wrap().showEditor();
@@ -104,7 +104,7 @@ describe("Selection", () => {
     selection.scrollIntoView();
     expect(selection.editor.editor.scrollIntoView).toHaveBeenCalledWith({ behavior: "smooth", block: "nearest" });
   });
-  
+
   it("saves the changes", () => {
     const spy = jest.spyOn(selection.doc.doc, "dispatchEvent");
     selection.detectNodes();
@@ -120,6 +120,6 @@ describe("Selection", () => {
     expect(spy.mock.calls[0][0].detail.nodes[1].id).toBe("ct-node-2");
     expect(spy.mock.calls[0][0].detail.nodes[1].textContent).toBe("Some content");
     expect(spy.mock.calls[0][0].detail.replaceNodes[0].textContent).toBe("Another content");
-    
+
   });
 });

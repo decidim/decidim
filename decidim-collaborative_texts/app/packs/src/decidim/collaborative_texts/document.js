@@ -93,7 +93,7 @@ export default class Document {
       if (this.selection.outsideBlock()) {
         this.alert(this.i18n.selectionActive)
         this.selection.scrollIntoView();
-        
+
       }
       return;
     }
@@ -115,7 +115,7 @@ export default class Document {
     this.manager.show();
     this.manager.updateCounters(this.suggestionsList.getApplied().length, this.suggestionsList.getPending().length);
   }
-  
+
   _onRestore() {
     if (!this.suggestionsList.suggestions.find((suggestion) => suggestion.applied)) {
       this.applying = false;
@@ -153,7 +153,7 @@ export default class Document {
             ? data.message
             : data);
         }
-        
+
         if (this.suggestionsList) {
           this.suggestionsList.destroy();
         }

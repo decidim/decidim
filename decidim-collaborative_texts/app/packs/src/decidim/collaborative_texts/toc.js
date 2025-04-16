@@ -5,7 +5,7 @@ export default class Toc {
     this.ul = toc.getElementsByTagName("ul")[0];
     this._bindEvents();
   }
-  
+
   headings() {
     this.nodes = [];
     this.doc.querySelectorAll("*> h2:not(.collaborative-texts-hidden), *> div.collaborative-texts-changes> h2").forEach((node) => {

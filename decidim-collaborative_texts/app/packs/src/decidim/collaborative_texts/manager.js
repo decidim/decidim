@@ -95,7 +95,7 @@ export default class Manager {
           });
       }
     });
-    
+
   }
 
   _bindEvents() {

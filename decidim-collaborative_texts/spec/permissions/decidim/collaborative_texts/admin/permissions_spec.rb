@@ -18,7 +18,7 @@ describe Decidim::CollaborativeTexts::Admin::Permissions do
 
   context "when scope is not admin" do
     let(:action) do
-      { scope: :foo, action: :bar, subject: :document }
+      { scope: :foo, action: :bar, subject: :collaborative_text }
     end
 
     it_behaves_like "permission is not set"
@@ -36,7 +36,7 @@ describe Decidim::CollaborativeTexts::Admin::Permissions do
 
   context "when action is a random one" do
     let(:action) do
-      { scope: :admin, action: :bar, subject: :document }
+      { scope: :admin, action: :bar, subject: :collaborative_text }
     end
 
     it_behaves_like "permission is not set"
@@ -44,7 +44,7 @@ describe Decidim::CollaborativeTexts::Admin::Permissions do
 
   describe "collaborative text document creation" do
     let(:action) do
-      { scope: :admin, action: :create, subject: :document }
+      { scope: :admin, action: :create, subject: :collaborative_text }
     end
 
     it { is_expected.to be true }
@@ -52,7 +52,7 @@ describe Decidim::CollaborativeTexts::Admin::Permissions do
 
   describe "collaborative text document update" do
     let(:action) do
-      { scope: :admin, action: :update, subject: :document }
+      { scope: :admin, action: :update, subject: :collaborative_text }
     end
 
     it { is_expected.to be true }

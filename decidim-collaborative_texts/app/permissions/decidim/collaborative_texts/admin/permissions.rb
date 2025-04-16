@@ -5,10 +5,6 @@ module Decidim
     module Admin
       class Permissions < Decidim::DefaultPermissions
         def permissions
-          # TODO: allow participatory space admins!
-          return permission_action unless user && user.admin?
-
-          # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
           return permission_action if permission_action.subject != :collaborative_text
@@ -25,6 +21,10 @@ module Decidim
 
         def document
           @document ||= context.fetch(:document, nil)
+        end
+
+        def space_admin?
+          true
         end
       end
     end

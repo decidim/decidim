@@ -11,7 +11,7 @@ class Selection {
     this.editor = null;
     this.blocked = false;
   }
-  
+
   detectNodes() {
     for (let idx = 0; idx < this.selection.rangeCount; idx++) { // eslint-disable-line no-plusplus
       const range = this.selection.getRangeAt(idx);

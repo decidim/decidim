@@ -106,9 +106,9 @@ describe("SuggestionsList", () => {
       "profileHtml": "<div>Profile</div>",
       "summary": "This is a summary"
     }
-    
+
   ];
-  
+
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve(fetchResult)
@@ -139,14 +139,14 @@ describe("SuggestionsList", () => {
     suggestion = suggestionsList.suggestions[1];
     jest.spyOn(suggestion, "setPosition");
   });
-  
+
   it("fetches suggestions", () => {
     expect(suggestionsList.nodes).toBe(suggestionsList.document.nodes);
     expect(suggestionsList.doc.innerHTML).toContain("collaborative-texts-suggestions-box");
     expect(suggestionsList.doc.innerHTML).toContain("This is a summary");
     expect(suggestionsList.suggestions.length).toBe(2);
     expect(suggestion).toBeInstanceOf(Suggestion);
-    expect(suggestion.valid).toBe(true);    
+    expect(suggestion.valid).toBe(true);
     expect(suggestion.nodes.length).toBe(1);
     expect(suggestion.firstNode).toBe(suggestionsList.nodes[1]);
     expect(suggestion.lastNode).toBe(suggestionsList.nodes[1]);
@@ -156,14 +156,14 @@ describe("SuggestionsList", () => {
     expect(suggestionsList.defaultSuggestions()).not.toContain(suggestion);
     expect(suggestionsList.defaultSuggestions()).toContain(firstSuggestion);
   });
-  
+
   it("applies a suggestion", () => {
     const spy = jest.spyOn(doc.doc, "dispatchEvent");
     suggestion.apply();
     expect(spy.mock.calls[0][0].type).toBe("collaborative-texts:applied");
     expect(spy.mock.calls[0][0].detail.suggestion).toBe(suggestion);
     expect(suggestion.setPosition).toHaveBeenCalled();
-    
+
     expect(suggestion.applied).toBe(true);
     expect(suggestion.changesWrapper).toBeInstanceOf(HTMLElement);
     expect(suggestion.item.classList.contains("applied")).toBe(true);
@@ -176,14 +176,14 @@ describe("SuggestionsList", () => {
     expect(suggestionsList.defaultSuggestions()).toContain(suggestion);
     expect(suggestionsList.defaultSuggestions()).not.toContain(firstSuggestion);
   });
-  
+
   it("restores a suggestion", () => {
-    const spy = jest.spyOn(doc.doc, "dispatchEvent");    
+    const spy = jest.spyOn(doc.doc, "dispatchEvent");
     suggestion.apply();
     expect(spy.mock.calls[0][0].type).toBe("collaborative-texts:applied");
     expect(spy.mock.calls[0][0].detail.suggestion).toBe(suggestion);
     expect(suggestion.setPosition).toHaveBeenCalled();
-    
+
     suggestion.restore();
     expect(spy.mock.calls[1][0].type).toBe("collaborative-texts:restored");
     expect(spy.mock.calls[1][0].detail.suggestion).toBe(suggestion);
@@ -222,7 +222,7 @@ describe("SuggestionsList", () => {
     expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden").innerHTML).toContain("Some content");
     expect(doc.doc.querySelector(".collaborative-texts-highlight").innerHTML).toContain("This is a replacement");
   });
-  
+
   it("blurs a suggestion on mouseout", () => {
     suggestion.highlight();
     suggestion.blur();

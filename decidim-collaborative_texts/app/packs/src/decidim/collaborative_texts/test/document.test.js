@@ -28,7 +28,7 @@ describe("Document", () => {
 
   let doc = null;
   let fetchResult = [];
-  
+
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve(fetchResult)

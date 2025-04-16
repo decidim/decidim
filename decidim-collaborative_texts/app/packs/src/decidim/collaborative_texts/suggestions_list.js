@@ -10,7 +10,7 @@ export default class SuggestionsList {
     this._fetchSuggestions();
     this._bindEvents();
   }
-  
+
   resetPositions() {
     if (this.restoreTimeout) {
       clearTimeout(this.restoreTimeout);
@@ -31,7 +31,7 @@ export default class SuggestionsList {
     }, 100);
     return this;
   }
-  
+
   // restore changes for any suggestion affecting the specified nodes
   restore(nodes, except = []) {
     this.suggestions.forEach((suggestion) => {
@@ -68,7 +68,7 @@ export default class SuggestionsList {
     this.suggestions = [];
     return this;
   }
-  
+
   _fetchSuggestions() {
     fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
       headers: {

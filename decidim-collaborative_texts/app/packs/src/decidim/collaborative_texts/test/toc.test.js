@@ -45,7 +45,7 @@ describe("Toc", () => {
     expect(toc.ul.children.length).toBe(2);
     expect(toc.ul.children[0].textContent).toBe("This is a collaborative text");
     expect(toc.ul.children[1].textContent).toBe("This is another title");
-  
+
   });
 
   it("scrolls to the heading on click", () => {
