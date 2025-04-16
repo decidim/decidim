@@ -1,5 +1,15 @@
 ---
 eu:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Gorputza
+          title: Izenburua
+          version_number: Bertsio zenbakia
+        version:
+          body: Gorputza
+          version_number: Bertsio zenbakia
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ eu:
         settings:
           form:
             allow_suggestions: Utzi erabiltzaileei iradokinak egiten
+      admin_log:
+        document:
+          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa ezabatu du %{space_name} espazioan"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa zaharberritu\n du %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa mugitu du %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
+        version:
+          delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
+      document:
+        cancel: Utzi
+        save: Bidali iradokizuna
+        suggest: Aldaketak iradoki
       documents:
         index:
           count:

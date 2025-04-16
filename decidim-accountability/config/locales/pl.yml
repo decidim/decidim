@@ -220,11 +220,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}", a ta propozycja jest uwzględniona w wyniku "%{resource_title}". Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: Aktualizacja postępów dla %{resource_title}
           notification_title: Wynik <a href="%{resource_path}">%{resource_title}</a>, który uwzględnia propozycję <a href="%{proposal_path}">%{proposal_title}</a>, został ukończony w %{progress}%.
-    metrics:
-      results:
-        description: Liczba wygenerowanych wyników
-        object: wyniki
-        title: Wyniki
     participatory_spaces:
       highlighted_results:
         see_all: Zobacz wszystkie wyniki (%{count})

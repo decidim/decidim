@@ -90,7 +90,12 @@ $(() => {
     event.stopPropagation();
 
     const $link = $(event.currentTarget);
-    exitLinkText = $link.text();
+    const linkText = $link.text();
+
+    if (linkText.length > 0) {
+      exitLinkText = linkText;
+    }
+
     openExitNotification($link.attr("href"), $link.data("method"));
   });
   // Custom handling for the exit link which needs to change the exit link

@@ -304,9 +304,6 @@ lv:
         settings: Iestatījumi
         static_pages: Lapas
         users: Dalībnieki
-      metrics:
-        metrics:
-          see_more_metrics: Skatīt vairāk rādītāju
       models:
         area:
           fields:
@@ -569,7 +566,6 @@ lv:
         dashboard: Informācijas panelis
         impersonatable_users: Pārvaldāmie dalībnieki
         impersonations: Dalībnieku pārvaldība
-        metrics: Rādītāji
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums

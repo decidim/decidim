@@ -62,17 +62,10 @@ id:
         start_exploring: mulai menjelajah
       csv_census:
         admin:
-          destroy:
-            title: Hapus semua data sensus
           index:
-            empty: Tidak ada data sensus. Gunakan formulir di bawah ini untuk mengimpornya menggunakan file CSV.
             title: Data sensus saat ini
           instructions:
             body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
-          new:
-            file: "File .csv dengan data email"
-            submit: Unggah data
-            title: Unggah sensus baru
         authorizations:
           new:
             error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.

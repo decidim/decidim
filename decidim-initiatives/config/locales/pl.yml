@@ -6,7 +6,6 @@ pl:
         answer_url: Adres URL odpowiedzi
         area_id: Obszar
         decidim_scope_id: Zakres
-        decidim_user_group_id: Autor
         description: Opis
         hashtag: Hashtag
         offline_votes: Podpisy na piśmie
@@ -35,7 +34,6 @@ pl:
         comments_enabled: Włącz komentarze
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
-        document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu przy zbiórce podpisów
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Pozwól na podpisy online
@@ -298,7 +296,6 @@ pl:
           edit:
             update: Aktualizuj
           form:
-            authorizations: Ustawienia autoryzacji
             child_scope_threshold_enabled_help_html: 'Ta flaga konfiguracja nie wspiera głosowania offline. Zezwala ona na pod-zakresy i działa z uchwytem autoryzacji, który łączy zakres z użytkownikiem. Upewnij się, że wybrałeś(aś) taką autoryzację w sekcji autoryzacji poniżej. Zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tą <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stroną dokumentacji administracji inicjatywami</a>.'
             only_global_scope_enabled_help_html: Zaznacz tę flagę, jeśli włączyłeś(aś) opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś(aś) globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Ustawienia
@@ -410,23 +407,14 @@ pl:
         uninitialized: Inicjatywy nie są jeszcze skonfigurowane przez administratora.
       initiative_signatures:
         fill_personal_data:
-          continue: Dalej
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę.
         finish:
           back_to_initiative: Wróć do inicjatywy
-        sms_code:
-          continue: Sprawdź kod i kontynuuj
-          help: Sprawdź SMS, który wysłaliśmy na Twój numer telefonu
-        sms_phone_number:
-          continue: Wyślij mi SMS-a
-          help: Wpisz w formularzu swój zweryfikowany numer telefonu, aby otrzymać kod weryfikacyjny.
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
           invalid: Dane dostarczone do poparcia inicjatywy nie są ważne.
           success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została poparta.
-        personal_data:
-          invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_code:
           invalid: Kod weryfikacyjny nie odpowiada naszemu kodowi. Prosimy o ponowne sprawdzenie wiadomości SMS.
         sms_phone:
@@ -574,18 +562,11 @@ pl:
       initiatives_type:
         actions:
           title: Działania
-          vote: Wspieranie
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Utwórz
         select_initiative_type: Wybierz
-      initiative_signature_creation_header:
-        fill_personal_data: Uzupełnij swoje dane
-        finish: Koniec
-        sms_code: Weryfikacja kodem SMS
-        sms_phone_number: Numer telefonu komórkowego
-        title: Podpisz %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nie ma jeszcze inicjatyw!

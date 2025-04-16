@@ -179,6 +179,8 @@ bg:
       order:
         status:
           title: Вашият глас е приет успешно
+      order_pdf:
+        title: Вашият глас е приет успешно.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Избраните от Вас проекти са:'

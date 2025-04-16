@@ -2,7 +2,6 @@ id:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Penulis
         description: Deskripsi
         offline_votes: Dukungan tatap muka
         scope_id: Cakupan
@@ -21,7 +20,6 @@ id:
         banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
-        document_number_authorization_handler: Otorisasi untuk memverifikasi nomor dokumen pada pemungutan suara
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
         minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
@@ -220,20 +218,11 @@ id:
           email_subject: Inisiatif yang didukung oleh %{author_nickname}
           notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Terus
         finish:
           back_to_initiative: Kembali ke inisiatif
-        sms_code:
-          continue: Periksa kode dan lanjutkan
-          help: Periksa SMS yang diterima di ponsel Anda
-        sms_phone_number:
-          continue: Kirimi saya SMS
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
-        personal_data:
-          invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
         sms_phone:
           invalid: Nomor telepon tidak valid atau menunggu otorisasi. Silakan periksa otorisasi Anda.
       initiatives:
@@ -295,18 +284,11 @@ id:
       initiatives_type:
         actions:
           title: Tindakan
-          vote: Memilih
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Membuat
         select_initiative_type: Memilih
-      initiative_signature_creation_header:
-        fill_personal_data: Lengkapi data Anda
-        finish: Selesai
-        sms_code: Verifikasi kode SMS
-        sms_phone_number: Nomor ponsel
-        title: Tanda %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Belum ada inisiatif!

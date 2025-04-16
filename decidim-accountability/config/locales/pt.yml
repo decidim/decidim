@@ -186,11 +186,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Uma atualização a %{resource_title} está em curso
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
-    metrics:
-      results:
-        description: Número de resultados gerados
-        object: resultados
-        title: Resultados
     open_data:
       help:
         result_comments:
