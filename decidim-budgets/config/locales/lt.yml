@@ -159,6 +159,8 @@ lt:
       order:
         status:
           title: Jūsų balsas įskaitytas
+      order_pdf:
+        title: Jūsų balsas įskaitytas.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsų pasirinkti projektai:'

@@ -194,10 +194,5 @@ bg:
           next_level_in: Участвайте в още %{score} дебата, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е участвал в нито един дебат.
           unearned_own: Все още не сте участвали в нито един дебат.
-    metrics:
-      debates:
-        description: Брой създадени дебати
-        object: дебати
-        title: Дебати
     statistics:
       debates_count: Дебати

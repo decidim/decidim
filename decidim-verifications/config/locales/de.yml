@@ -160,30 +160,11 @@ de:
         start_exploring: Fang an zu erforschen
       csv_census:
         admin:
-          census:
-            create:
-              error: Beim Importieren der Erhebung ist ein Fehler aufgetreten.
-              success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
-            destroy_all:
-              success: Alle Erhebungsdaten wurden gelöscht.
-          destroy:
-            confirm: Das Löschen der Erhebungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
-            title: Löschen Sie alle Erhebungsdaten
           index:
-            data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}.
-            empty: Es gibt keine Daten in dieser Erhebung. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
             title: Aktuelle Erhebungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
             title: Sie müssen die CSV Erhebung für diese Organisation aktivieren
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "CSV-Datei mit E-Mail-Daten"
-            info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
-            submit: Datei hochladen
-            title: Laden Sie eine neue Erhebung hoch
         authorizations:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.

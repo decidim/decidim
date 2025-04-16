@@ -30,7 +30,7 @@ module Decidim
       if onboarding_manager.valid?
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
 
-        return redirect_to decidim_verifications.onboarding_pending_authorizations_path unless authorizations_permitted_paths?(authorizations, onboarding_manager)
+        return redirect_to pending_authorizations_path unless authorizations_permitted_paths?(authorizations, onboarding_manager)
 
         if authorizations.global_code == :unauthorized
           flash[:alert] = t("unauthorized", scope: "decidim.core.actions")
@@ -77,11 +77,15 @@ module Decidim
                      []
                    end
       paths_list.prepend(
-        decidim_verifications.onboarding_pending_authorizations_path,
+        pending_authorizations_path,
         decidim.page_path(terms_of_service_page)
       )
 
       paths_list.find { |el| /\A#{URI.parse(el).path}/.match?(request.path) }
+    end
+
+    def pending_authorizations_path
+      onboarding_manager.authorization_path || decidim_verifications.onboarding_pending_authorizations_path
     end
   end
 end

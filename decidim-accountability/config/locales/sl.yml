@@ -92,11 +92,6 @@ sl:
         settings:
           global:
             intro: Predstavitev
-    metrics:
-      results:
-        description: Število ustvarjenih rezultatov
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_proposals:
         result_proposal: Predlogi, vključeni v rezultat

@@ -477,6 +477,10 @@ eu:
             explanation: 'Jarraibideak artxiborako:'
             message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
+          import_csv:
+            explanation: 'Jarraibideak artxiborako:'
+            message_1: CSV artxiboak onartzen dira
+            message_2: ".csv artxiboa korreo elektronikoen datuekin"
       help_sections:
         error: Arazo bat egon da laguntza-atalak eguneratzean.
         form:
@@ -599,9 +603,6 @@ eu:
         taxonomies: Taxonomiak
         taxonomy_filters: Taxonomia-iragazkiak
         users: Parte-hartzaileak 
-      metrics:
-        metrics:
-          see_more_metrics: Ikusi metrika gehiago
       models:
         area:
           fields:
@@ -1236,7 +1237,6 @@ eu:
         impersonatable_users: Parte-hartzaile erabilgarriak
         impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
-        metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
@@ -1282,22 +1282,13 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
-    metrics:
-      blocked_users:
-        object: parte-hartzaile blokeatuak
-        title: Parte-hartzaile blokeatuak
-      reported_users:
-        object: parte-hartzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
-      user_reports:
-        object: parte-hartzaileak erreportatzen du
-        title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
         expand: Zabaldu
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
+        parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
         unhide: Erakutsi berriro
         unreport: Ez erreportatu
@@ -1324,6 +1315,7 @@ eu:
             success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
+            parent_invalid: Ezin da baliabide hau erakutsi, ezkutuan jarraitzen duen beste baliabide baten ("nagusia") barruan sartuta dagoelako.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
