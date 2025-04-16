@@ -432,6 +432,10 @@ eu:
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
+        registrations_attendees:
+          index:
+            title: Izen-emateak
+            validate: Balioztatu
       admin_log:
         invite:
           create: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
@@ -588,6 +592,7 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           join: Izena eman
+          join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster izango da eusukagarri
@@ -633,6 +638,14 @@ eu:
             start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Titulua
+        registration:
+          actions: Ekintzak
+          fields:
+            email: Helbide elektronkoa
+            name: Izena
+            status: Egoera
+          status:
+            attended: Atenditua
       polls:
         questions:
           closed_question:
