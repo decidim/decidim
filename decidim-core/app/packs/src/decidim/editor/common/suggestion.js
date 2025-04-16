@@ -50,8 +50,13 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 
   const selectItem = (idx) => {
     const items = suggestionItems;
+
+    if (items[idx].help) {
+      return;
+    }
+
     const command = selectCommand;
-    if (currentRange && typeof jest === "undefined") {
+    if (currentRange && !window.isTestEnvironment && typeof jest === "undefined") {
       // Fixes an issue that after selecting the item, the written text will be
       // placed after the newly added suggestion.
       //
@@ -82,7 +87,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     suggestion.classList.remove("hidden", "hide");
     suggestion.innerHTML = "";
     items.forEach((rawItem, idx) => {
-      const { label, id } = convertItem(rawItem);
+      const { label, id, help } = convertItem(rawItem);
       const suggestionItem = document.createElement("button");
       suggestionItem.type = "button";
       suggestionItem.classList.add("editor-suggestions-item");
@@ -94,6 +99,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       if (idx === 0) {
         selectedIndex = idx;
         suggestionItem.dataset.selected = "true";
+      }
+      if (help) {
+        suggestionItem.disabled = true;
       }
       suggestionItem.textContent = label;
       suggestion.append(suggestionItem);
