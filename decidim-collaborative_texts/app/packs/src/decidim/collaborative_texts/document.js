@@ -80,29 +80,29 @@ export default class Document {
   }
 
   _onSelectionEnd() {
+    if (window.document.getSelection().toString() === "") {
+      this.selecting = false;
+      return;
+    }
     if (!this.selecting) {
       return;
     }
     this.selecting = false;
-    this._showOptions();
+    this._showEditable();
   }
 
-  _showOptions() {
+  _showEditable() {
     this.selection = this.selection || new Selection(this);
-    if (this.selection.blocked && this.selection.changed()) {
-      if (this.selection.outsideBlock()) {
-        this.alert(this.i18n.selectionActive)
-        this.selection.scrollIntoView();
-
-      }
-      return;
-    }
     if (this.applying) {
       return;
     }
-    this.selection.clear().detectNodes();
-    if (this.selection.nodes.length > 0) {
-      this.selection.wrap().showEditor();
+    if (this.selection.isEditing()) {
+      this.alert(this.i18n.selectionActive);
+      this.selection.scrollIntoView();
+      return;
+    }
+    if (this.selection.isValid()) {
+      this.selection.clear().wrap().showEditor();
     }
   }
 
@@ -157,7 +157,6 @@ export default class Document {
         if (this.suggestionsList) {
           this.suggestionsList.destroy();
         }
-        console.log("Suggestions list destroyed");
         this.fetchSuggestions();
       }).
       catch((error) => {

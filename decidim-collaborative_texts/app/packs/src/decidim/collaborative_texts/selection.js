@@ -12,9 +12,40 @@ class Selection {
     this.blocked = false;
   }
 
-  detectNodes() {
+  getRanges() {
+    const ranges = [];
     for (let idx = 0; idx < this.selection.rangeCount; idx++) { // eslint-disable-line no-plusplus
-      const range = this.selection.getRangeAt(idx);
+      ranges.push(this.selection.getRangeAt(idx));
+    }
+    return ranges;
+  }
+
+  isEditing() {
+    if (!this.blocked) {
+      return false;
+    }
+    if (this.changed()) {
+      return true;
+    }
+    return false;
+  }
+
+  isValid() {
+    if (this.selection.rangeCount === 0 || this.selection.isCollapsed) {
+      return false;
+    }
+    this.detectNodes();
+    if (this.nodes.length === 0) {
+      return false;
+    }
+    return true;
+  }
+
+  detectNodes() {
+    this.nodes = [];
+    this.firstNode = null;
+    this.lastNode = null;
+    this.getRanges().forEach((range) => {
       this.doc.nodes.forEach((node, index) => {
         if (range.intersectsNode(node)) {
           this.nodes[index] = node;
@@ -22,7 +53,7 @@ class Selection {
           this.lastNode = node;
         }
       });
-    }
+    });
     return this;
   }
 
@@ -35,16 +66,6 @@ class Selection {
       this.editor.editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
     return this;
-  }
-
-  outsideBlock() {
-    const node = this.selection.focusNode;
-    if (node) {
-      if (node.parentNode.closest(".collaborative-texts-selection") || node.parentNode.closest(".collaborative-texts-editor-container")) {
-        return false;
-      }
-    }
-    return true;
   }
 
   wrap() {
@@ -73,9 +94,6 @@ class Selection {
   }
 
   clear() {
-    this.nodes = [];
-    this.firstNode = null;
-    this.lastNode = null;
     this.unWrap();
     if (this.editor) {
       this.editor.destroy();
