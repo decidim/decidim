@@ -1,7 +1,7 @@
 <% if voted? %>
   <p><%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %></p>
 
-  <div id="voted-budgets" class="card__list-list">
+  <div id="voted-budgets" class="card__list-list w-full">
     <% voted.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>

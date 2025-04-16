@@ -55,15 +55,6 @@ ga:
       badges:
         proposals:
           name: Moltaí
-    metrics:
-      accepted_proposals:
-        object: moltaí
-      endorsements:
-        object: formhuinithe
-        title: Formhuinithe
-      proposals:
-        object: moltaí
-        title: Moltaí
     proposals:
       actions:
         title: Gníomhartha

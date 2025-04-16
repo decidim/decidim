@@ -16,6 +16,10 @@ lv:
         one: Balsot
         other: Balsis
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentāri
     comments:
       votes:
         create:
@@ -80,8 +84,3 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat pieminēts %{resource_title}.
           email_subject: Jūs esat pieminēts %{resource_title}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> jūs pieminēja <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Dalībnieku izveidoto komentāru skaits
-        object: komentāri
-        title: Komentāri

@@ -209,7 +209,6 @@ ru:
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
         vote_button:
-          already_voted: Уже проголосовали
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать

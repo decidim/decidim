@@ -131,8 +131,12 @@ de:
             export:
               response:
                 title: 'Antwort #%{number}'
+            export_response:
+              title: Umfrage_Benutzer_Antworten_%{token}
             index:
               title: "%{total} Antworten insgesamt"
+            show:
+              title: 'Antwort #%{number}'
           separator:
             down: Runter
             remove: Löschen
@@ -151,8 +155,14 @@ de:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
       admin_log:
+        question:
+          publish_responses: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
+          unpublish_responses: "%{user_name} hat die Veröffentlichung der Antworten zu den Fragen %{resource_name} im Bereich %{space_name} zurückgezogen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
+      errors:
+        response:
+          body: Textkörper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -160,20 +170,29 @@ de:
           resize_to_fit: Dieses Bild wird auf %{dimensions} skaliert.
       question_types:
         files: Dateien
+        long_response: Lange Antwort
         matrix_multiple: Matrix (Mehrfachoption)
         matrix_single: Matrix (Einzelne Option)
         multiple_option: Mehrfachoption
+        short_response: Kurze Antwort
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_response_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
+        response:
+          invalid: Es gab ein Problem beim Antworten auf das Formular.
+          max_choices_alert: Es sind zu viele Optionen ausgewählt
+          success: Formular erfolgreich beantwortet.
         show:
           current_step: Schritt %{step}
           empty: Für dieses Formular wurden noch keine Fragen eingestellt.
           of_total_steps: von %{total_steps}
           questionnaire_closed:
+            body: Das Formular ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
           questionnaire_for_private_users:
             body: Der Fragebogen ist nur für Privatanwender verfügbar
@@ -183,9 +202,35 @@ de:
             title: JavaScript ist deaktiviert
           questionnaire_not_published:
             body: Dieses Formular ist noch nicht veröffentlicht.
+          questionnaire_responded:
+            body: Sie haben dieses Formular bereits beantwortet.
+            title: Bereits beantwortet
+          questionnaire_responded_edit:
+            body: Sie haben dieses Formular bereits beantwortet. %{link}
+            edit: Antworten bearbeiten
+          response_questionnaire:
+            already_have_an_account?: Haben Sie bereits ein Konto?
+            are_you_new?: Neue Teilnehmer*in?
+            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
+            sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
+            title: Formularbeantwortung
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
+          are_you_sure_edit_guest: Wenn Sie Ihre Antworten nachträglich bearbeiten möchten, müssen Sie sich anmelden oder ein Konto erstellen.
+          are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden, und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
+          disallowed: Sie dürfen Ihre Antworten nicht bearbeiten.
           submit: einreichen
+      user_responses_serializer:
+        body: Antwort
+        completion: Abschluss
+        created_at: Beantwortet am
+        id: Antwort ID
+        ip_hash: IP-Hash
+        question: Frage
+        registered: Registriert
+        session_token: Benutzerkennung
+        unregistered: Nicht registriert
+        user_status: Benutzerstatus

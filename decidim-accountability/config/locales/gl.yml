@@ -160,11 +160,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}" e esta proposta inclúese no resultado "%{resource_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{resource_title} avances
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclúe a proposta <a href="%{proposal_path}">%{proposal_title}</a>, agora é o %{progress}% completo.
-    metrics:
-      results:
-        description: Número de resultados xerados
-        object: resultados
-        title: Resultados
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})

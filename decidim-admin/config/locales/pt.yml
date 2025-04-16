@@ -428,9 +428,6 @@ pt:
         taxonomies: Taxonomias
         taxonomy_filters: Filtros de taxonomia
         users: Utilizadores
-      metrics:
-        metrics:
-          see_more_metrics: Mostrar mais métricas
       models:
         area:
           fields:
@@ -761,7 +758,6 @@ pt:
         dashboard: Painel de Controlo
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
-        metrics: Métricas
         panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
@@ -787,16 +783,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: utilizadores bloqueados
-        title: Utilizadores bloqueados
-      reported_users:
-        object: utilizadores denunciados
-        title: Utilizadores denunciados
-      user_reports:
-        object: relatórios de utilizador
-        title: Relatórios de utilizador
     moderations:
       actions:
         expand: Expandir

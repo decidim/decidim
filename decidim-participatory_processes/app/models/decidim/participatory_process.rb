@@ -146,6 +146,10 @@ module Decidim
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    def presenter
+      @presenter ||= Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(self)
+    end
+
     def active?
       return false if start_date.blank?
 

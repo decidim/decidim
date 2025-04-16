@@ -169,7 +169,6 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             maps_enabled: Mapy povoleny
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
@@ -227,10 +226,8 @@ cs:
           email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
           notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
         meeting_updated:
-          email_intro: 'Schůzka "%{resource_title}" byla aktualizována. Nová verze si můžete přečíst na stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" byla aktualizována
-          notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
         registration_code_validated:
           email_intro: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen.
           email_outro: Toto oznámení jste obdrželi, protože byl ověřen váš registrační kód pro schůzku "%{resource_title}".
@@ -417,8 +414,6 @@ cs:
         registrations:
           edit:
             save: Uložit
-            validate: Ověřit
-            validate_registration_code: Ověřte registrační kód
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
@@ -437,9 +432,6 @@ cs:
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
-          validate_registration_code:
-            invalid: Tento registrační kód je neplatný.
-            success: Registrační kód byl úspěšně ověřen.
       admin_log:
         invite:
           create: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
@@ -607,7 +599,6 @@ cs:
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           redirect_notice: Tato schůzka je součástí jiné skupiny, takže jste byli přesunuti do %{current_space_name}. <br>Pokud chcete, můžete se vrátit do <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Váš registrační kód
           registration_state:
             validated: OVĚŘENÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
@@ -665,6 +656,13 @@ cs:
             question: Otázka
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
+        responses:
+          index:
+            administrate: Spravovat
+          index_admin:
+            back_to_meeting: Zpět na schůzku
+            title: Správa ankety
+            view_poll: Zobrazit anketu
       public_participants_list:
         attending_participants: Účast účastníků
         hidden_participants_count:
@@ -677,7 +675,6 @@ cs:
         confirmation:
           confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
           details: Podrobnosti schůzky naleznete v příloze.
-          registration_code: Váš registrační kód je %{code}.
       registration_type:
         on_different_platform: Na jiné platformě
         on_this_platform: Na této platformě
@@ -703,11 +700,6 @@ cs:
       withdraw:
         error: Při stahování schůzky došlo k chybě.
         success: Schůzka byla úspěšně stažena.
-    metrics:
-      meetings:
-        description: Počet vytvořených schůzek
-        object: setkání
-        title: Setkání
     open_data:
       help:
         meeting_comments:

@@ -819,11 +819,13 @@ module Decidim
       hashtaggable = options.delete(:hashtaggable)
       mentionable = options.delete(:mentionable)
       emojiable = options.delete(:emojiable)
+      resource_mentionable = options.delete(:resource_mentionable)
 
       editor_classes = ["editor-container"]
       editor_classes << "js-hashtags" if hashtaggable
       editor_classes << "js-mentions" if mentionable
       editor_classes << "js-emojis" if emojiable
+      editor_classes << "js-resource-mentions" if resource_mentionable
 
       editor_options = {
         class: editor_classes,
