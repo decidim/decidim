@@ -195,11 +195,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste byli uvedeni v %{resource_title}.
           email_subject: Byl jste zmíněn v %{resource_title}
           notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Počet komentářů generovaných uživateli
-        object: komentáře
-        title: Komentáře
   errors:
     messages:
       cannot_have_comments: nelze komentovat

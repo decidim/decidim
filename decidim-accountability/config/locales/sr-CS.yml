@@ -137,11 +137,6 @@ sr:
           email_outro: Dobili ste ovo obaveštenje jer pratite "%{proposal_title}", a ovaj predlog je uključen u rezultat "%{resource_title}". Možete da prekinete da dobijate obaveštenja ako pratite prethodni link.
           email_subject: Ažuriranje napredka %{resource_title}
           notification_title: Rezultat <a href="%{resource_path}">%{resource_title}</a>, koji uključuje predlog <a href="%{proposal_path}">%{proposal_title}</a>, je sada %{progress}% gotov.
-    metrics:
-      results:
-        description: Broj generisanih rezultata
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_projects:
         result_project: Projekti koji su deo ovog rezultata

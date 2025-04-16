@@ -45,11 +45,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
-    metrics:
-      survey_responses:
-        description: Nombre d'enquestes contestades per les participants
-        object: repostes a enquestes
-        title: Respostes a enquestes
     statistics:
       responses_count: Respostes
     surveys:

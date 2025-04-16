@@ -1,0 +1,69 @@
+ca-IT:
+  activemodel:
+    attributes:
+      dummy:
+        image: Imatge
+      dummy_attribute: Atribut de prova
+      dummy_resource:
+        created_at: Creat el
+        decidim_scope_id: Àmbit
+        field: El meu camp
+        start_date: Data d'inici
+        title: Títol
+        translatable_text: Text traduïble
+        updated_at: Actualitzat el
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            clear_all: Netejar-ho tot
+            guided: Entrada guiada
+            guided_help: Text d'ajuda
+            guided_readonly: Entrada deshabilitada
+            guided_rich: Entrada guiada enriquida
+            guided_rich_help_html: HTML <strong>ajuda</strong> text
+            guided_rich_readonly_html: HTML <strong>ajuda</strong> text per l'entrada deshabilitada
+            readonly_attribute: Atribut de només lectura
+            test: Una prova
+            test_add: Afegir una prova
+            test_choices:
+              a: Opció A
+              b: Opció B
+              c: Opció C
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
+          step:
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
+            readonly_step_attribute: Atribut de només lectura
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
+    dummy:
+      admin:
+        exports:
+          dummies: Proves
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Utilitza un entorn de prova per decidim.
+          description: Les participants obtenen aquesta insígnia creant proves.
+          description_another: Aquesta participant ha creat %{score} proves.
+          description_own: Has creat %{score} proves.
+          name: Proves
+          next_level_in: Crea %{score} més proves per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha creat cap prova.
+          unearned_own: Encara no has creat cap prova.
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Prova relacionada
+    statistics:
+      bar: Barra
+      dummies_count_high: Fals alt
+      dummies_count_medium: Fals mitjà
+      foo: Foo
