@@ -56,7 +56,13 @@ describe("Selection", () => {
     focusNode: null,
     anchorNode: null
   }));
-
+  let fetchResult = [];
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(fetchResult),
+      ok: true
+    })
+  );
   beforeEach(async () => {
     document.body.innerHTML = content;
     doc = new Document(document.querySelector("[data-collaborative-texts-document]"));

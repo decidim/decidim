@@ -29,6 +29,18 @@ describe("SuggestionsList", () => {
         <ul><li>More content</li><li>Event more content</li></ul>
       </div>
 
+      <div class="collaborative-texts-manager hidden">
+        <div>
+          <button data-collaborative-texts-manager-rollout="true">Rollout</button>
+          <button data-collaborative-texts-manager-consolidate="true">Consolidate</button>
+          <button data-collaborative-texts-manager-cancel="true">Cancel</button>
+        </div>
+        <div class="collaborative-texts-manager-counters">
+          Applied: <span class="collaborative-texts-manager-applied"></span>
+          Pending: <span class="collaborative-texts-manager-pending"></span>
+        </div>
+      </div>
+
       <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-template">
         <div data-component="accordion" id="collaborative-texts-box-{{ID}}">
           <button data-controls="panel-box-{{ID}}" aria-label="<%= t("decidim.collaborative_texts.document.toggle") %>" aria-expanded="false">
@@ -121,6 +133,7 @@ describe("SuggestionsList", () => {
     document.body.innerHTML = content;
     doc = new Document(document.querySelector("[data-collaborative-texts-document]"));
     suggestionsList = new SuggestionsList(doc);
+    doc.suggestionsList = suggestionsList;
     await new Promise(process.nextTick);
     firstSuggestion = suggestionsList.suggestions[0];
     suggestion = suggestionsList.suggestions[1];
@@ -206,7 +219,7 @@ describe("SuggestionsList", () => {
     suggestion.highlight();
     expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
     expect(suggestion.highlightWrapper.textContent).toBe("This is a replacement");
-    expect(doc.doc.querySelector(".collaborative-texts-hidden").innerHTML).toContain("Some content");
+    expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden").innerHTML).toContain("Some content");
     expect(doc.doc.querySelector(".collaborative-texts-highlight").innerHTML).toContain("This is a replacement");
   });
   

@@ -8,7 +8,7 @@ export default class Document {
     this.selecting = false;
     this.applying = false;
     this.active = false;
-    this.suggestionsList = [];
+    this.suggestionsList = null;
     this.templates = {
       suggestionsEditor: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsEditorTemplate),
       suggestionsBox: window.document.querySelector(this.doc.dataset.collaborativeTextsSuggestionsBoxTemplate),
@@ -153,8 +153,11 @@ export default class Document {
             ? data.message
             : data);
         }
-
-        this.suggestionsList.destroy();
+        
+        if (this.suggestionsList) {
+          this.suggestionsList.destroy();
+        }
+        console.log("Suggestions list destroyed");
         this.fetchSuggestions();
       }).
       catch((error) => {
