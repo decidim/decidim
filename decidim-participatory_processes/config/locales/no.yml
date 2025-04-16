@@ -311,11 +311,6 @@
           title: Hva er en deltakende prosess?
     menu:
       processes: Prosesser
-    metrics:
-      participatory_processes:
-        description: Antall deltakende prosesser gjennom denne siden
-        object: deltakende prosesser
-        title: Deltakende prosesser
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -385,9 +380,6 @@
           name: Fremhevede prosesser
       index:
         title: Deltakende prosesser
-      participatory_process_steps:
-        index:
-          back_to_process: Tilbake til prosesssiden
       participatory_processes:
         filters:
           all_types: Alle prosesser

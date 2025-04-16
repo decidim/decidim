@@ -37,7 +37,7 @@ module Decidim
         subject { helper.render_proposal_body(proposal) }
 
         before do
-          allow(helper).to receive(:present).with(proposal).and_return(Decidim::Proposals::ProposalPresenter.new(proposal))
+          allow(helper).to receive(:present).with(proposal, presenter_class: nil).and_return(Decidim::Proposals::ProposalPresenter.new(proposal))
           allow(helper).to receive(:current_organization).and_return(proposal.organization)
           helper.instance_variable_set(:@proposal, proposal)
         end

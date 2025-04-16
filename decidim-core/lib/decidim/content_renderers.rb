@@ -8,5 +8,6 @@ module Decidim
     autoload :HashtagRenderer, "decidim/content_renderers/hashtag_renderer"
     autoload :LinkRenderer, "decidim/content_renderers/link_renderer"
     autoload :ResourceRenderer, "decidim/content_renderers/resource_renderer"
+    autoload :MentionResourceRenderer, "decidim/content_renderers/mention_resource_renderer"
   end
 end

@@ -6,7 +6,6 @@ fr-CA:
         answer_url: URL de la réponse
         area_id: Périmètre d'assemblée
         decidim_scope_id: Secteur
-        decidim_user_group_id: Auteur
         description: Description
         hashtag: Hashtag
         offline_votes: Votes en présentiel
@@ -35,7 +34,6 @@ fr-CA:
         comments_enabled: Activer les commentaires
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
-        document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les initiatives de ce type d'initiative
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
@@ -288,7 +286,6 @@ fr-CA:
           edit:
             update: Mettre à jour
           form:
-            authorizations: Paramètres d'autorisation
             child_scope_threshold_enabled_help_html: 'Cette option de configuration ne prend pas en charge les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurés de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l''administration des initiatives</a>.'
             only_global_scope_enabled_help_html: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre secteur parent. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l'administration des initiatives</a>.
             options: Paramètres
@@ -403,24 +400,44 @@ fr-CA:
       index:
         uninitialized: Les pétitions ne sont pas encore configurées par un administrateur.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Date de naissance
+              document_number:
+                placeholder: Numéro du document
+              document_type:
+                prompt: Type de document
+              document_type_and_number:
+                label: Type et numéro de document
+              gender:
+                options:
+                  man: Homme
+                  non_binary: Non-binaire
+                  woman: Femme
         fill_personal_data:
-          continue: Continuer
+          continue: Valider vos données
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer la pétition.
+          invalid_data: Certaines des données personnelles fournies pour vérifier votre identité ne sont pas valides.
         finish:
           back_to_initiative: Retour à l'initiative
-        sms_code:
-          continue: Vérifier le code et continuer
-          help: Vérifiez les SMS reçus sur votre téléphone
+          title: Vous avez signé la pétition
         sms_phone_number:
-          continue: Envoyez moi un SMS
-          help: Remplissez le formulaire avec votre numéro de téléphone vérifié pour demander votre code de vérification.
+          confirmed_data: Vous avez confirmé vos données.
+          continue: Signer la pétition
+          help_enter_your_number: Veuillez entrer votre numéro de téléphone. Vous recevrez ensuite un SMS avec un code de validation.
+          receive_code: Recevoir le code
+          resend_code_html: Vous n'avez pas reçu le code ? <a href="%{new_code_path}">Réessayez</a>
+          your_code_is_correct: Votre code est correct.
+          your_code_is_incorrect: Le code n'est pas correct. Vérifiez-le ou <a href="%{new_code_path}">réessayez</a>.
+          your_confirmation_code: Votre code de confirmation
       initiative_votes:
         create:
+          already_voted: Votre signature a déjà été enregistrée avec vos données.
           error: Il y a eu des erreurs lors de la signature de l'initiative.
           invalid: Les données fournies pour signer la pétition ne sont pas valides.
           success_html: Toutes nos félicitations ! La pétition <strong> %{title}</strong> a été signée correctement.
-        personal_data:
-          invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
         sms_code:
           invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
         sms_phone:
@@ -544,6 +561,10 @@ fr-CA:
           open: Ouverte
           rejected: Pas assez de signatures
           validating: Validation technique
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Signature qui prend les informations personnelles de l'utilisateur, valide l'autorisation et vérifie le code SMS
       states:
         accepted: Acceptées
         expired: Expirées
@@ -559,18 +580,14 @@ fr-CA:
       initiatives_type:
         actions:
           title: Actions
-          vote: Vote
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Complétez votre initiative
         select_initiative_type: Sélectionnez le type de d'initiative
       initiative_signature_creation_header:
-        fill_personal_data: Complétez vos données
-        finish: terminer
-        sms_code: Vérification du code SMS
-        sms_phone_number: numéro de téléphone portable
-        title: Signer %{initiative_title}
+        help_information_html: Pour signer la pétition <strong>%{initiative_title}</strong> promue par %{initiative_author} , vous devez fournir des informations qui rendront la signature de la pétition juridiquement contraignante. Aucune information vous concernant ne sera rendue publique.
+        verify_your_identity: Vérifiez votre identité
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Aucune initiative pour le moment !

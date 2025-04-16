@@ -182,8 +182,3 @@ tr:
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
-    metrics:
-      debates:
-        description: Oluşturulan tartışmaların sayısı
-        object: tartışmalar
-        title: Tartışmalar
