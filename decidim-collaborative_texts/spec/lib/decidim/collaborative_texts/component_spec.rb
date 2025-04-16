@@ -27,20 +27,20 @@ describe "CollaborativeTexts component" do # rubocop:disable RSpec/DescribeClass
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
 
-    describe "collaborative_texts_count" do
-      let(:stats_name) { :collaborative_texts_count }
+    describe "all_collaborative_texts_count" do
+      let(:stats_name) { :all_collaborative_texts_count }
 
-      it "only counts published (except withdrawn) and not hidden documents" do
+      it "counts all documents" do
         expect(Decidim::CollaborativeTexts::Document.where(component:).count).to eq 3
         expect(subject).to eq 3
       end
     end
 
     describe "published_collaborative_texts_count" do
-      let(:stats_name) { :published_collaborative_texts_count }
+      let(:stats_name) { :collaborative_texts_count }
 
-      it "only counts published (except withdrawn) and not hidden documents" do
-        expect(Decidim::CollaborativeTexts::Document.where(component:).count).to eq 3
+      it "only counts published documents" do
+        expect(Decidim::CollaborativeTexts::Document.where(component:).published.count).to eq 1
         expect(subject).to eq 1
       end
     end

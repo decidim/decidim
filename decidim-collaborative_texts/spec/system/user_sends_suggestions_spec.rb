@@ -138,11 +138,15 @@ describe "User adds suggestions" do
 
           click_on "Suggest changes"
           expect(page).to have_content("2 suggestions")
+          expect(page).to have_content("First paragraph", count: 1)
+
           click_on "2 suggestions"
-          find(".collaborative-texts-suggestions-box-item:first-child").hover
           expect(page).to have_content("First paragraph", count: 2)
           expect(page).to have_content("Edited First paragraph", count: 1)
           expect(page).to have_content("A new content", count: 1)
+          find(".collaborative-texts-suggestions-box-item:first-child").hover
+          expect(page).to have_content("First paragraph", count: 1)
+          expect(page).to have_content("A new content", count: 2)
         end
       end
     end
