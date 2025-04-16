@@ -65,12 +65,18 @@ describe "Admin edits documents" do
     expect(page).to have_no_content("A new content")
     expect(page).to have_no_content("Added content")
     expect(page).to have_no_content("A meaningful content")
+    expect(page).to have_no_button("Cancel")
+    expect(page).to have_no_button("Draft a new version")
+    expect(page).to have_no_button("Consolidate accepted suggestions")
 
     click_on "2 suggestions"
     click_on "Suggestion controls", match: :first
     click_on "Apply"
     expect(page).to have_no_content("Third paragraph")
     expect(page).to have_content("A new content")
+    expect(page).to have_button("Cancel")
+    expect(page).to have_button("Draft a new version")
+    expect(page).to have_button("Consolidate accepted suggestions")
 
     click_on "2 suggestions"
     within ".collaborative-texts-suggestions-box-item:last-child" do
@@ -82,7 +88,6 @@ describe "Admin edits documents" do
     expect(page).to have_content("Added content")
 
     click_on "1 suggestions"
-    # page.execute_script('document.querySelector(".collaborative-texts-suggestions-box-item:first-child [data-component=dropdown]").click()')
     click_on "Suggestion controls"
     click_on "Apply"
     expect(page).to have_no_content("Second title")
@@ -95,6 +100,30 @@ describe "Admin edits documents" do
     expect(page).to have_no_content("A meaningful content")
     expect(page).to have_content("Second title", count: 1) # TOC is not rendered on hover
     expect(page).to have_content("A new content")
+  end
+
+  it "can cancel applied suggestions" do
+    click_on "2 suggestions"
+    click_on "Suggestion controls", match: :first
+    click_on "Apply"
+    expect(page).to have_no_content("Third paragraph")
+    expect(page).to have_content("A new content")
+
+    click_on "2 suggestions"
+    click_on "Suggestion controls", match: :first
+    click_on "Restore"
+    expect(page).to have_content("Third paragraph")
+    expect(page).to have_no_content("A new content")
+
+    click_on "1 suggestions"
+    click_on "Suggestion controls"
+    click_on "Apply"
+
+    expect(page).to have_content("First title", count: 2)
+    expect(page).to have_no_content("Second title")
+    expect(page).to have_no_content("Third paragraph")
+    expect(page).to have_no_content("A new content")
+    expect(page).to have_content("A meaningful content")
 
     within ".collaborative-texts-manager" do
       click_on "Cancel"
@@ -102,7 +131,7 @@ describe "Admin edits documents" do
 
     expect(page).to have_no_button("Cancel")
     expect(page).to have_no_button("Draft a new version")
-    expect(page).to have_no_button("Consolidate accepted versions")
+    expect(page).to have_no_button("Consolidate accepted suggestions")
     expect(page).to have_content("First title", count: 2)
     expect(page).to have_content("Second title", count: 2)
     expect(page).to have_content("Third paragraph")
@@ -111,8 +140,62 @@ describe "Admin edits documents" do
     expect(page).to have_no_content("A meaningful content")
   end
 
-  # TODO: restore
-  # todo draft
-  # todo cancel
-  # todo consolidate
+  it "can draft a new version" do
+    click_on "1 suggestions"
+    click_on "Suggestion controls"
+    click_on "Apply"
+
+    within ".collaborative-texts-manager" do
+      click_on "Draft a new version"
+    end
+    accept_confirm
+
+    expect(page).to have_content("Edit collaborative texts")
+    expect(page).to have_checked_field("Draft version")
+    expect(page).to have_content("Version 1")
+    expect(page).to have_content("Version 2")
+    expect(page).to have_content("(Draft version)")
+    document.document_versions.reload
+    expect(document.body).to include("First title")
+    expect(document.body).to include("First <b>paragraph</b>")
+    expect(document.body).to include("Second paragraph")
+    expect(document.body).not_to include("Second title")
+    expect(document.body).not_to include("A new content")
+    expect(document.body).not_to include("Added content")
+    expect(document.body).to include("A meaningful content")
+    expect(document.consolidated_body).to include("First title")
+    expect(document.consolidated_body).to include("First <b>paragraph</b>")
+    expect(document.consolidated_body).to include("Second paragraph")
+    expect(document.consolidated_body).to include("Second title")
+    expect(document.consolidated_body).to include("Third paragraph")
+    expect(document.consolidated_body).not_to include("A new content")
+    expect(document.consolidated_body).not_to include("Added content")
+    expect(document.consolidated_body).not_to include("A meaningful content")
+  end
+
+  it "can consolidate accepted suggestions" do
+    click_on "1 suggestions"
+    click_on "Suggestion controls"
+    click_on "Apply"
+
+    within ".collaborative-texts-manager" do
+      click_on "Consolidate accepted suggestions"
+    end
+
+    accept_confirm
+
+    expect(page).to have_content("First title", count: 2)
+    expect(page).to have_no_content("Second title")
+    expect(page).to have_content("Second paragraph")
+    expect(page).to have_content("A meaningful content")
+    document.document_versions.reload
+    expect(document.body).to include("First title")
+    expect(document.body).to include("First <b>paragraph</b>")
+    expect(document.body).to include("Second paragraph")
+    expect(document.body).not_to include("Second title")
+    expect(document.body).not_to include("A new content")
+    expect(document.body).not_to include("Added content")
+    expect(document.body).to include("A meaningful content")
+    expect(document.consolidated_body).to eq(document.body)
+  end
 end

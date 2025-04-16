@@ -29,15 +29,13 @@ export default class Document {
     this.alertWrapper = window.document.querySelector(".collaborative-texts-alert");
     this.alertDiv = this.alertWrapper.querySelector("div");
     this._prepareNodes();
+    this._bindManager();
   }
 
   // listen to new selections and allows the user to participate in the collaborative text
   enableSuggestions() {
     window.document.addEventListener("selectstart", this._onSelectionStart.bind(this));
     window.document.addEventListener("mouseup", this._onSelectionEnd.bind(this));
-    this.doc.addEventListener("collaborative-texts:applied", this._onApply.bind(this));
-    this.doc.addEventListener("collaborative-texts:restored", this._onRestore.bind(this));
-    this.doc.addEventListener("collaborative-texts:suggest", this._onSuggest.bind(this));
     return this;
   }
 
@@ -54,6 +52,13 @@ export default class Document {
     setTimeout(() => {
       this.alertWrapper.classList.add("hidden");
     }, 5000);
+  }
+
+  // bind the manager to the document
+  _bindManager() {
+    this.doc.addEventListener("collaborative-texts:applied", this._onApply.bind(this));
+    this.doc.addEventListener("collaborative-texts:restored", this._onRestore.bind(this));
+    this.doc.addEventListener("collaborative-texts:suggest", this._onSuggest.bind(this));
   }
 
   // For all first level nodes of type ELEMENT_NODE, ensure they have a unique id if they do not have one starting with "ct-node-"
