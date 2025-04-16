@@ -10,6 +10,7 @@ module Decidim
     attribute :nickname
     attribute :organization
     attribute :verified, Boolean, default: false
+    attribute :onboarding_data, Hash, default: {}
 
     def name
       super || I18n.t("decidim.ephemeral_user", locale:)

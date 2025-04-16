@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.fill_personal_data')
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finish')
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_code')
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_phone_number')
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finish')
 module Decidim
   module Initiatives
     class InitiativeSignaturesController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_signature_creation"
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
+      include Decidim::Initiatives::HasSignatureWorkflow
 
       prepend_before_action :set_wizard_steps
-      before_action :authenticate_user!
+      before_action :authenticate_user!, unless: :ephemeral_signature_workflow?
+      skip_before_action :check_ephemeral_user_session
+
       before_action :authorize_wizard_step, only: [
         :fill_personal_data,
         :store_personal_data,
@@ -23,6 +21,8 @@ module Decidim
         :store_sms_code,
         :finish
       ]
+
+      before_action :set_ephemeral_user, if: :ephemeral_signature_workflow?, only: :index
 
       helper InitiativeHelper
 
@@ -36,11 +36,10 @@ module Decidim
       def create
         enforce_permission_to :vote, :initiative, initiative: current_initiative
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
 
         VoteInitiative.call(@form) do
           on(:ok) do
@@ -57,11 +56,10 @@ module Decidim
       def fill_personal_data
         redirect_to(sms_phone_number_path) && return unless fill_personal_data_step?
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
       end
 
       def store_personal_data
@@ -69,8 +67,11 @@ module Decidim
 
         build_vote_form(params)
 
-        if @vote_form.invalid?
-          flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
+        if @vote_form.already_voted?
+          flash[:alert] = I18n.t("create.already_voted", scope: "decidim.initiatives.initiative_votes")
+          clear_authorization_path
+          redirect_to initiative_path(current_initiative)
+        elsif @vote_form.invalid?
           @form = @vote_form
 
           render :fill_personal_data
@@ -80,19 +81,20 @@ module Decidim
       end
 
       def sms_phone_number
-        redirect_to(finish_path) && return unless sms_step?
+        return redirect_to fill_personal_data_path if fill_personal_data_step? && session[:initiative_vote_form].blank?
+        return redirect_to(finish_path) unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.new
+        @form = sms_mobile_phone_form_class.new
       end
 
       def store_sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(params.merge(user: current_user))
+        @form = sms_mobile_phone_form_class.from_params(params.merge(user: current_user))
 
-        ValidateMobilePhone.call(@form, current_user) do
+        sms_mobile_phone_validator_class.call(@form, current_user) do
           on(:ok) do |metadata|
-            store_session_sms_code(metadata)
+            store_session_sms_code(metadata, @form.mobile_phone_number)
             redirect_to sms_code_path
           end
 
@@ -106,24 +108,41 @@ module Decidim
       def sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        redirect_to sms_phone_number_path && return if session_sms_code.blank?
+        return redirect_to sms_phone_number_path if session_sms_code.blank?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @phone_number_form = sms_mobile_phone_form_class.from_params(mobile_phone_number: session_sms_code[:phone_number], user: current_user)
       end
 
       def store_sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
-        ValidateSmsCode.call(@form, session_sms_code) do
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
+        sms_code_validator_class.call(@sms_code_form, session_sms_code) do
           on(:ok) do
-            clear_session_sms_code
-            redirect_to finish_path
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "OK" }
+              end
+
+              format.html do
+                clear_session_sms_code
+                redirect_to finish_path
+              end
+            end
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
-            render :sms_code
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "KO" }
+              end
+
+              format.html do
+                flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
+                render :sms_code
+              end
+            end
           end
         end
       end
@@ -135,9 +154,12 @@ module Decidim
           check_session_personal_data
         end
 
+        return if @vote_form.blank?
+
         VoteInitiative.call(@vote_form) do
           on(:ok) do
             session[:initiative_vote_form] = {}
+            clear_authorization_path
           end
 
           on(:invalid) do |vote|
@@ -169,13 +191,35 @@ module Decidim
       end
 
       def build_vote_form(parameters)
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(parameters).tap do |form|
+        @vote_form = form(signature_form_class).from_params(parameters).tap do |form|
           form.initiative = current_initiative
-          form.signer = current_user
+          form.user = current_user
+        end
+
+        @vote_form.validate
+
+        if @vote_form.transfer_status == :transfer_user && @vote_form.user != current_user
+          new_user = @vote_form.user
+          new_user.update(last_sign_in_at: Time.current, deleted_at: nil)
+          sign_out(current_user)
+          sign_in(new_user)
+        elsif @vote_form.transfer_status.is_a?(Decidim::AuthorizationTransfer)
+          transfer = @vote_form.transfer_status
+
+          message = t("authorizations.create.success", scope: "decidim.verifications")
+          if transfer.records.any?
+            message = <<~HTML
+              <p>#{CGI.escapeHTML(message)}</p>
+              <p>#{CGI.escapeHTML(t("authorizations.create.transferred", scope: "decidim.verifications"))}</p>
+              #{transfer.presenter.records_list_html}
+            HTML
+          end
+
+          flash[:notice] = message
         end
 
         session[:initiative_vote_form] ||= {}
-        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :signer))
+        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :user, :transfer_status))
       end
 
       def initiative_type
@@ -183,11 +227,11 @@ module Decidim
       end
 
       def sms_step?
-        current_initiative.validate_sms_code_on_votes?
+        current_initiative.organization.available_authorizations.include?("sms") && signature_workflow_manifest.sms_verification
       end
 
       def fill_personal_data_step?
-        initiative_type.collect_user_extra_fields?
+        signature_form_class.requires_extra_attributes?
       end
 
       def authorize_wizard_step
@@ -205,9 +249,9 @@ module Decidim
       end
 
       def session_vote_form
-        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, signer: current_user)
+        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, user: current_user)
 
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(attributes)
+        @vote_form = form(signature_form_class).from_params(attributes)
       end
 
       def check_session_personal_data
@@ -221,12 +265,59 @@ module Decidim
         session[:initiative_sms_code] = {}
       end
 
-      def store_session_sms_code(metadata)
-        session[:initiative_sms_code] = metadata
+      def store_session_sms_code(metadata, phone_number)
+        session[:initiative_sms_code] = metadata.merge(phone_number:)
       end
 
       def session_sms_code
-        session[:initiative_sms_code]
+        (session[:initiative_sms_code] || {}).symbolize_keys
+      end
+
+      def clear_authorization_path
+        return unless current_user.ephemeral? && onboarding_manager.authorization_path.present?
+
+        base_path = initiatives_path
+        return if onboarding_manager.authorization_path == base_path
+
+        current_user.update(extended_data: current_user.extended_data.deep_merge("onboarding" => { "authorization_path" => base_path }))
+      end
+
+      def set_ephemeral_user
+        if user_signed_in?
+          update_onboarding_data
+        else
+          create_ephemeral_user
+        end
+      end
+
+      def update_onboarding_data
+        return unless current_user.ephemeral?
+        return if onboarding_manager.model == current_initiative
+
+        current_user.update(extended_data: current_user.extended_data.deep_merge("onboarding" => current_initiative_onboarding_data))
+      end
+
+      def create_ephemeral_user
+        form = Decidim::EphemeralUserForm.new(
+          organization: current_organization,
+          locale: current_locale,
+          onboarding_data: current_initiative_onboarding_data
+        )
+        CreateEphemeralUser.call(form) do
+          on(:ok) do |ephemeral_user|
+            sign_in(ephemeral_user)
+          end
+        end
+      end
+
+      def current_initiative_onboarding_data
+        {
+          "model" => current_initiative.to_gid,
+          "permissions_holder" => initiative_type.to_gid,
+          "action" => "vote",
+          "redirect_path" => initiative_path(current_initiative),
+          "authorization_path" => initiative_signatures_path(current_initiative)
+        }
       end
     end
   end

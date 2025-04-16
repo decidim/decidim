@@ -150,9 +150,8 @@ describe "Admin manages organization" do
       end
 
       context "when the admin terms of service content has an image with an alt tag" do
-        let(:another_organization) { create(:organization) }
-        let(:image) { create(:attachment, attached_to: another_organization) }
-        let(:image_url) { image.attached_uploader(:file).url }
+        let(:image) { create(:attachment, :with_image) }
+        let(:image_url) { image.attached_uploader(:file).url(host: organization_host) }
         let(:organization_host) { "example.lvh.me" }
         let(:organization) do
           create(
@@ -177,9 +176,9 @@ describe "Admin manages organization" do
                 <button type="button" aria-label="Resize image (bottom left corner)" data-image-resizer-control="bottom-left"></button>
                 <button type="button" aria-label="Resize image (bottom right corner)" data-image-resizer-control="bottom-right"></button>
                 <div data-image-resizer-dimensions="">
-                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
+                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
                   ×
-                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value=""></span></div>
+                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="342"></span></div>
                 <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
               </div>
             </div>
@@ -194,8 +193,6 @@ describe "Admin manages organization" do
       end
 
       context "when the admin terms of service content has an br tags" do
-        let(:another_organization) { create(:organization) }
-        let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,
@@ -276,8 +273,6 @@ describe "Admin manages organization" do
       end
 
       context "when adding br tags to terms of service content" do
-        let(:another_organization) { create(:organization) }
-        let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,
@@ -337,8 +332,6 @@ describe "Admin manages organization" do
       end
 
       context "when modifying list using rich text editor" do
-        let(:another_organization) { create(:organization) }
-        let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,

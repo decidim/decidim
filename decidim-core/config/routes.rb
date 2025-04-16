@@ -113,6 +113,7 @@ Decidim::Core::Engine.routes.draw do
   end
 
   get "/search", to: "searches#index", as: :search
+  get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
   get "/qr-code", to: "qr#show", as: :qr

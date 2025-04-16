@@ -7,15 +7,42 @@ cs:
       questionnaire_question:
         mandatory: Povinné
         max_characters: Limit znaků (ponechte na 0, pokud není limit)
+      response:
+        body: Odpověď
+        choices: Možnosti
+        selected_choices: Vyberte možnosti
     errors:
       models:
         questionnaire:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Vyžaduje být znovu připojen
+            body:
+              too_long: je příliš dlouhý
+            choices:
+              missing: nejsou kompletní
+              too_many: Můžete si vybrat maximálně %{count}.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: Jedinečný identifikátor odpovědi
+          question: Otázka, která byla zodpovězena,
+          questionnaire: Dotazník, který byl zodpovězen
+          response: Odpověď na otázku
+          user: Uživatel, který odpověděl na dotazník
+      show:
+        responses: Export odpovědí
+        survey_user_responses: Odpovědi uživatele dotazníku
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Povolit registrovaným uživatelům upravovat vlastní odpovědi z průzkumu
+            allow_responses: Povolit odpovědi
+            allow_unregistered: Povolit neregistrovaným uživatelům odpovědět na průzkum
             announcement: Oznámení
             description: Popis
             ends_at_help: Ponechte prázdné pro žádné konkrétní datum
@@ -32,6 +59,7 @@ cs:
               equal: Rovná se
               match: Zahrnuje text
               not_equal: Není rovno
+              not_responded: Neodpověděl
             condition_value: Zahrnuje text
             display_condition: Stav zobrazení
             mandatory: Tato podmínka musí být splněna vždy bez ohledu na stav ostatních podmínek
@@ -76,9 +104,19 @@ cs:
             expand: Rozbalit všechny otázky
             update:
               success: Otázky ankety byly úspěšně uloženy.
+          response_option:
+            free_text: Volný text
+            remove: Odstranit
+            response_option: Možnost odpovědi
+            statement: Prohlášení
           responses:
             actions:
+              back: Zpět na odpovědi
+              export: Export
+              next: Další &rsaquo;
+              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
+            empty: Zatím žádné odpovědi
           separator:
             down: Dolů
             remove: Odebrat
@@ -109,12 +147,17 @@ cs:
         matrix_multiple: Matice (Více možností)
         matrix_single: Matice (Jedna možnost)
         multiple_option: Více možností
+        short_response: Krátká odpověď
         single_option: Jedna možnost
         sorting: Třídění
         title_and_description: Název a popis
+      questionnaire_response_presenter:
+        download_attachment: Stáhnout přílohu
       questionnaires:
         question:
           max_choices: 'Max možnosti: %{n}'
+        response:
+          invalid: Při odpovídání formuláře došlo k chybě.
         show:
           current_step: Krok %{step}
           empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
@@ -129,9 +172,21 @@ cs:
             title: JavaScript je zakázán
           questionnaire_not_published:
             body: Tento formulář zatím není zveřejněn.
+          response_questionnaire:
+            are_you_new?: Nový uživatel?
+            sign_in_description: Přihlaste se k provedení průzkumu
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
           back: Zpět
           continue: Pokračovat
           submit: Odeslat
+      user_responses_serializer:
+        body: Odpověď
+        completion: Dokončení
+        ip_hash: IP Hash
+        question: Otázka
+        registered: Registrován
+        session_token: Identifikátor uživatele
+        unregistered: Neregistrovaný
+        user_status: Stav uživatele

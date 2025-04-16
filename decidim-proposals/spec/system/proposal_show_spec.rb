@@ -52,34 +52,6 @@ describe "Show a Proposal" do
           end
         end
       end
-
-      describe "author tooltip" do
-        let(:user) { create(:user, :confirmed, organization:) }
-
-        before do
-          visit_proposal
-          login_as user, scope: :user
-          visit current_path
-        end
-
-        context "when author does not restrict messaging" do
-          it "includes a link to message the proposal author" do
-            within "[data-author]" do
-              find(".author__container").hover
-            end
-            expect(page).to have_link("Send private message")
-          end
-        end
-
-        context "when participant is deleted" do
-          let!(:author) { create(:user, :deleted, organization: component.organization) }
-          let!(:proposal) { create(:proposal, component:, users: [author]) }
-
-          it "successfully shows the page" do
-            expect(page).to have_content("Deleted participant")
-          end
-        end
-      end
     end
 
     context "when proposal author is a meeting" do

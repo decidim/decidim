@@ -89,8 +89,5 @@ lb:
       badges:
         commented_debates:
           name: Debatten
-    metrics:
-      debates:
-        title: Debatten
     statistics:
       debates_count: Debatten

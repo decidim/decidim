@@ -1,0 +1,35 @@
+<% unless content_for(:focus_mode_back_button) %>
+  <div class="main-bar__links-desktop">
+    <div>
+      <%= link_to(
+          content_for(:focus_mode_return_path),
+          class: "main-bar__links-desktop__item",
+          "aria-label": t("layouts.decidim.header.close"),
+          data: {
+            dialog_open: "exit-notification",
+            close_focus_mode: true
+          }
+        ) do %>
+            <%= icon "close-line" %><span><%= t("layouts.decidim.header.close") %></span>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="main-bar__menu-mobile">
+    <%= link_to(
+        content_for(:focus_mode_return_path),
+        class: "text-secondary",
+        type: :button,
+        "aria-label": t("layouts.decidim.header.close"),
+        data: {
+          dialog_open: "exit-notification",
+          close_focus_mode: true
+        }
+      ) do %>
+        <span class="flex items-center gap-1">
+          <%= icon "close-line", class: "w-8 h-6 fill-current" %>
+          <%= t("layouts.decidim.header.cancel") %>
+        </span>
+      <% end %>
+  </div>
+<% end %>

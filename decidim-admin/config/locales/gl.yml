@@ -446,9 +446,6 @@ gl:
         settings: Configuración
         static_pages: Páxinas
         users: Usuarios
-      metrics:
-        metrics:
-          see_more_metrics: Veer máis métricas
       models:
         area:
           fields:
@@ -772,7 +769,6 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
-        metrics: Métricas
         panel: Administrador
         participants: Usuarios
         scope_types: Tipos de alcance
@@ -800,16 +796,6 @@ gl:
           last_month: O mes pasado
           last_week: A semana pasada
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuario/as reportado/as
-        title: Usuario/as reportado/as
-      user_reports:
-        object: informe de usuarios
-        title: Informe de usuarios
     moderations:
       actions:
         expand: Expandir
