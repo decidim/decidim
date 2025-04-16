@@ -133,7 +133,7 @@ describe "Private meetings" do
           visit resource_locator(private_meeting).path
         end
 
-        it "declines the user access to view the meeting" do
+        it "declines access to view the meeting" do
           expect(page).to have_content "You are not authorized to perform this action"
         end
       end
