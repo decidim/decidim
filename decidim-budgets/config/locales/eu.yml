@@ -257,6 +257,7 @@ eu:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure babesa ezeztatu nahi duzula?
+          cancel_order: Ezabatu ezazu babesa
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
@@ -310,8 +311,10 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
+        select_projects: Proiektuak gehitu
         show:
           budget: Aurrekontua
+        start_voting: Babesa ematen hasi
       prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
