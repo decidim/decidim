@@ -222,6 +222,7 @@ sv:
           pending_to_vote_budgets:
             one: Du kan rösta i en till budget
             other: Du kan rösta i fler budgetar
+          share_text: "Jag röstade just på mina favoritprojekt i %{space_name}! 🎉 Rösta nu: %{component_url}"
           share_vote: Dela din röst
           title: Din röst har tagits emot
           view_votes:
@@ -230,6 +231,9 @@ sv:
           votes_count:
             one: Din röst på %{budget_name} har redan registrerats.
             other: Dina %{count} röster för %{budget_name} har redan registrerats.
+      order_pdf:
+        text: Du har röstat i %{space_name} för följande projekt
+        title: Din röst har tagits emot.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'

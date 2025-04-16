@@ -183,11 +183,6 @@ sv:
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antal kommentarer från deltagare
-        object: kommentarer
-        title: Kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

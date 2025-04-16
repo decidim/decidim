@@ -170,11 +170,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt en dit voorstel is opgenomen in resultaat "%{resource_title}". Je kunt stoppen met het ontvangen van meldingen via bovenstaande link.
           email_subject: Voortgang van %{resource_title} bijgewerkt
           notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, waarin het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen, is nu %{progress}% voltooid.
-    metrics:
-      results:
-        description: Aantal gegenereerde resultaten
-        object: resultaten
-        title: Resultaten
     participatory_spaces:
       highlighted_results:
         see_all: Bekijk alle resultaten (%{count})

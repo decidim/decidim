@@ -265,11 +265,6 @@ ar:
           title: ما هي العملية التشاركية؟
     menu:
       processes: العمليات
-    metrics:
-      participatory_processes:
-        description: عدد العمليات التشاركية في هذه المنظمة
-        object: العمليات التشاركية
-        title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
         stats:

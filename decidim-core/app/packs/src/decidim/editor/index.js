@@ -68,6 +68,9 @@ export default function createEditor(container) {
   if (container.classList.contains("js-emojis")) {
     decidimOptions.emoji = true;
   }
+  if (container.classList.contains("js-resource-mentions")) {
+    decidimOptions.mentionResource = true;
+  }
 
   const editor = new Editor({
     element: editorContainer,

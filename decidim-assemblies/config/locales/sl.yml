@@ -155,11 +155,6 @@ sl:
           title: Kaj so združbe?
     menu:
       assemblies: Združbe
-    metrics:
-      assemblies:
-        description: Število kreiranih združb
-        object: združbe
-        title: Združbe
     participatory_processes:
       show:
         related_assemblies: Povezane združbe

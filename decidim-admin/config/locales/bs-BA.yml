@@ -303,9 +303,6 @@ bs:
         settings: Podešavanja
         static_pages: Stranice
         users: Učesnici
-      metrics:
-        metrics:
-          see_more_metrics: Prikaži više metrika
       models:
         area:
           fields:
@@ -476,7 +473,6 @@ bs:
           add_images: Dodaj slike
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
-        metrics: Metrika
         statistics: Aktivnost
       users_statistics:
         users_count:
