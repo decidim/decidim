@@ -315,8 +315,8 @@ module Decidim
           "model" => current_initiative.to_gid,
           "permissions_holder" => initiative_type.to_gid,
           "action" => "vote",
-          "redirect_path" => initiative_path(current_initiative),
-          "authorization_path" => initiative_signatures_path(current_initiative)
+          "redirect_path" => initiative_path(current_initiative, locale: current_locale),
+          "authorization_path" => initiative_signatures_path(current_initiative, locale: current_locale)
         }
       end
     end
