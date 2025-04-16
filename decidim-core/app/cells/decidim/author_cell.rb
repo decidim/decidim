@@ -16,7 +16,6 @@ module Decidim
 
     property :profile_path
     property :can_be_contacted?
-    property :has_tooltip?
 
     delegate :current_user, to: :controller, prefix: false
 
@@ -169,14 +168,6 @@ module Decidim
 
     def resource_name
       @resource_name ||= from_context.class.name.demodulize.underscore
-    end
-
-    def has_tooltip?
-      return false if model.deleted?
-      return false if model.respond_to?(:blocked?) && model.blocked?
-      return true if options.has_key?(:tooltip)
-
-      model.has_tooltip?
     end
   end
 end
