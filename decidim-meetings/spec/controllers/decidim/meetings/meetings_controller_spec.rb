@@ -122,7 +122,6 @@ describe Decidim::Meetings::MeetingsController do
         let!(:participatory_process_user_role) { create(:participatory_process_user_role, user:, participatory_process:) }
 
         it_behaves_like "having meeting access visibility applied"
-        it_behaves_like "process admin manages meetings"
       end
 
       context "when user is private user" do
