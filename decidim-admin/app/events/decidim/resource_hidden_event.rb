@@ -4,7 +4,15 @@ module Decidim
   class ResourceHiddenEvent < Decidim::Events::SimpleEvent
     include Decidim::ApplicationHelper
 
-    i18n_attributes :report_reasons, :resource_type, :resource_content
+    i18n_attributes :resource_path, :report_reasons, :resource_type, :resource_content
+
+    def resource_path
+      @resource.reported_content_url
+    end
+
+    def resource_url
+      @resource.reported_content_url
+    end
 
     def report_reasons
       extra["report_reasons"].map do |reason|
