@@ -37,5 +37,11 @@ module Decidim
     def resource_type
       @resource.model_name.human.downcase
     end
+
+    def i18n_scope
+      return "decidim.events.reports.parent_hidden" if @resource.reports.last&.reason == "parent_hidden"
+
+      super
+    end
   end
 end

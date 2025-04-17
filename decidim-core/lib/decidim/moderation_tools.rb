@@ -109,7 +109,7 @@ module Decidim
     end
 
     def report_reasons
-      @reportable.moderation.reports.pluck(:reason).uniq
+      [@reportable.moderation.reports.last&.reason]
     end
   end
 end
