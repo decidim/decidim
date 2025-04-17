@@ -997,6 +997,7 @@ de:
         update:
           title: Vorschlag aktualisieren
         vote_button:
+          already_voted: Abgestimmt
           already_voted_hover: Stimme zurückziehen
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
