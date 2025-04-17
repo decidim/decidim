@@ -416,6 +416,8 @@ de:
         registrations:
           edit:
             save: Speichern
+            validate: Validieren
+            validate_registration_code: Registrierungscode validieren
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
@@ -432,6 +434,9 @@ de:
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
+          validate_registration_code:
+            invalid: Dieser Registrierungscode ist ungültig.
+            success: Registrierungscode erfolgreich validiert.
       admin_log:
         invite:
           create: "%{user_name} hat %{attendee_name} eingeladen, an der Veranstaltung %{resource_name} in %{space_name} teilzunehmen"
