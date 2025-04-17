@@ -1511,8 +1511,6 @@ en:
         activity: Activity
         badges: Badges
         conversations: Conversations
-        followers: Followers
-        following: Follows
         officialized: Official participant
         send_private_message: Send private message
       user:
