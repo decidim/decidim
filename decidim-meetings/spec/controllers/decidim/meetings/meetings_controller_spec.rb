@@ -126,7 +126,7 @@ describe Decidim::Meetings::MeetingsController do
         context "when meeting is unpublished" do
           let(:meeting) { create(:meeting, component: meeting_component) }
 
-          it "process admin sucessfully sees the meeting" do
+          it "process admin successfully sees the meeting" do
             get :show, params: { id: meeting.id }
 
             expect(subject).to render_template(:show)
