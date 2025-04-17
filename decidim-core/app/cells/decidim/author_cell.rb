@@ -46,10 +46,6 @@ module Decidim
       @context_actions_options ||= options[:context_actions].map(&:to_sym)
     end
 
-    def profile_minicard
-      render
-    end
-
     private
 
     # If the options hash has the demo key it means we are in the decidim-design engine,
