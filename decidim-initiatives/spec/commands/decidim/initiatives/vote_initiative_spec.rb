@@ -264,7 +264,7 @@ module Decidim
                   command_with_personal_data.call
                   vote = InitiativesVote.last
                   expect(vote.encrypted_metadata).to be_present
-                  expect(vote.decrypted_metadata).to eq personal_data_params.except(:scope_id)
+                  expect(vote.decrypted_metadata).to eq personal_data_params.with_indifferent_access.except(:scope_id)
                   expect(vote.scope).to eq initiative.scope
                 end
               end

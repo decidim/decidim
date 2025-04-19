@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      census_data:
+        file: File
       authorization:
         verification_attachment: Verification attachment
       config:
