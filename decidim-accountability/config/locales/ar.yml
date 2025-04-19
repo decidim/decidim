@@ -288,11 +288,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تحديث حول تقدم %{resource_title}
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
-    metrics:
-      results:
-        description: عدد النتائج التي تم توليدها
-        object: النتائج
-        title: النتائج
     open_data:
       help:
         result_comments:

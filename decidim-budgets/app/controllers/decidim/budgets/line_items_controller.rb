@@ -8,6 +8,8 @@ module Decidim
 
       helper_method :budget, :project
 
+      before_action :set_focus_mode, :set_request_origin
+
       def create
         enforce_permission_to :vote, :project, project:, budget:, workflow: current_workflow
 
@@ -48,6 +50,23 @@ module Decidim
       end
 
       private
+
+      def set_request_origin
+        return unless request.referer
+
+        path = URI(request.referer).path
+        @focus_mode_origin = if path.match?(%r{/focus/projects/\d+$})
+                               "show"
+                             elsif path.match?(%r{/focus/projects$})
+                               "index"
+                             else
+                               "unknown"
+                             end
+      end
+
+      def set_focus_mode
+        @focus_mode = true
+      end
 
       def project
         @project ||= budget&.projects&.find_by(id: params[:project_id])

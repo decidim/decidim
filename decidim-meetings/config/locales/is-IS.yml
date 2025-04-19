@@ -58,10 +58,8 @@ is-IS:
         meeting_registrations_over_percentage:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert stjórnandi á þátttökustigi fundarins.
         meeting_updated:
-          email_intro: '"%{resource_title}" fundurinn var uppfærður. Þú getur lesið nýja útgáfu af síðunni:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir "%{resource_title}" fundinum. Þú getur sleppt því frá fyrri tengilinn.
           email_subject: '"%{resource_title}" fundurinn var uppfærður'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn var uppfærður.
         registrations_enabled:
           email_intro: '"%{resource_title}" fundurinn hefur gert skráningu kleift. Þú getur skráð þig á síðunni:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir "%{resource_title}" fundinum. Þú getur sleppt því frá fyrri tengilinn.

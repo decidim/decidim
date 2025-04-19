@@ -294,6 +294,7 @@ de:
         usage_typography_2: Inline-Text
         usage_typography_3: Text über dunklem Hintergrund
         usage_typography_4: Links und Schaltflächen
+        usage_typography_5: Deaktivierter Tab
         value: Wert
         variations: Variationen
         variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.

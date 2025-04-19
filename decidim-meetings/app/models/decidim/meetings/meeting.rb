@@ -200,14 +200,18 @@ module Decidim
         false
       end
 
+      def waitlist_enabled?
+        Decidim::Meetings.waiting_list_enabled
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
-        (available_slots - reserved_slots) > registrations.count
+        (available_slots - reserved_slots) > registrations.registered.count
       end
 
       def remaining_slots
-        available_slots - reserved_slots - registrations.count
+        available_slots - reserved_slots - registrations.registered.count
       end
 
       def has_registration_for?(user)

@@ -179,6 +179,8 @@ pt-BR:
       order:
         status:
           title: Seu voto foi aceito com sucesso
+      order_pdf:
+        title: Seu voto foi aceito com sucesso.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os projetos que você selecionou são:'

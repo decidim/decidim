@@ -308,11 +308,6 @@ ar:
           not_found: 'لم يتم العثور على نوع التجمع في قاعدة البيانات (الرقم-المُعرف: %{id})'
     menu:
       assemblies: الجمعيات
-    metrics:
-      assemblies:
-        description: عدد الجمعيات التي تم إنشاؤها
-        object: المجالس
-        title: الجمعيات
     participatory_processes:
       show:
         related_assemblies: التجمعات ذات الصلة

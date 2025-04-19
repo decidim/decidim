@@ -1,3 +1,9 @@
+<% if @focus_mode %>
+  <% content_for :focus_mode, true %>
+  <% content_for :focus_mode_back_button, true %>
+  <% content_for :focus_mode_return_path, budget_focus_projects_path(budget) %>
+<% end %>
+
 <% add_decidim_meta_tags(
   title: translated_attribute(project.title),
   description: translated_attribute(project.description),
@@ -20,10 +26,10 @@ edit_link(
 <%= render partial: "exit_modal" %>
 
 <div id="project-item">
-  <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
+  <%= render partial: "budget_summary", locals: { responsive: true, focus_mode_origin: "show" } %>
   <% content_for :item_header do %>
     <% unless voting_finished? %>
-      <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: false } %>
+      <%= render partial: "budget_summary", locals: { responsive: false, focus_mode_origin: "show" } %>
       <%= render partial: "budget_excess" %>
       <%= render partial: "budget_confirm" %>
     <% end %>
@@ -89,7 +95,7 @@ edit_link(
     </section>
 
     <% content_for :aside do %>
-      <section class="layout-aside__section layout-aside__buttons">
+      <section class="layout-aside__section layout-aside__buttons hidden md:block">
         <% if voting_open? %>
           <%= render partial: "project_budget_button", locals: { project: } %>
         <% end %>
@@ -109,5 +115,9 @@ edit_link(
         <%= content_tag :li, resource_reference(project), class: "metadata__item" %>
       </ul>
     <% end %>
+  <% end %>
+
+  <% if current_user&.ephemeral? %>
+    <div class="h-40 bg-transparent"></div>
   <% end %>
 </div>
