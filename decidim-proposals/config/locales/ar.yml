@@ -273,21 +273,6 @@ ar:
           name: اقتراحات
           next_level_in: إنشاء %{score} المزيد من المقترحات للوصول إلى المستوى التالي!
           unearned_own: لم تنشئ اقتراحات بعد.
-    metrics:
-      accepted_proposals:
-        description: عدد المقترحات المقبولة
-        object: اقتراحات
-        title: مقترحات مقبولة
-      endorsements:
-        description: عدد موافقات المقترحات
-        object: موافقات
-        title: موافقات
-      proposals:
-        description: عدد المقترحات
-        object: اقتراحات
-        title: اقتراحات
-      votes:
-        object: أصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل
@@ -607,7 +592,6 @@ ar:
           text_banner: أنت تتطلع على قائمة الاقتراحات المسحوبة من قبل مؤلفيها. %{go_back_link}.
         new:
           send: استمر
-          title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها

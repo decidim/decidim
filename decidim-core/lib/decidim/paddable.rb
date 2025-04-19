@@ -66,7 +66,7 @@ module Decidim
           return tokenizer.hex_digest(id)
         end
 
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secret_key_base}")
+        Digest::SHA256.hexdigest("#{id}-#{Rails.application.secret_key_base}")
       end
 
       def build_pad_url(id)

@@ -250,22 +250,6 @@ pt-BR:
           name: Propostas
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
           unearned_own: Você não criou nenhuma proposta ainda.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceitas pelos usuários
-        object: propostas
-        title: Propostas aceitas
-      endorsements:
-        description: Número de endossos gerados nas propostas
-        object: endossos
-        title: Endossos
-      proposals:
-        description: Número de propostas geradas
-        object: propostas
-        title: Propostas
-      votes:
-        object: votos
-        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -553,7 +537,6 @@ pt-BR:
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
@@ -597,7 +580,6 @@ pt-BR:
         update:
           title: Atualizar proposta
         vote_button:
-          already_voted: Já votou
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto

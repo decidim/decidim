@@ -60,6 +60,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -576,6 +577,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -601,6 +603,8 @@ newwindow
 ngrams
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
@@ -784,6 +788,8 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
@@ -852,6 +858,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby

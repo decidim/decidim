@@ -16,7 +16,6 @@ pl:
         customize_registration_email: Dostosuj maila rejestracji
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
-        decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
         id: Numer ID
@@ -117,7 +116,6 @@ pl:
             values:
               official: Oficjalny
               participants: Uczestnik
-              user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
@@ -159,14 +157,12 @@ pl:
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie padów
             maps_enabled: Mapy włączone
-            registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             creation_enabled_for_participants: Możliwe tworzenie spotkań przez uczestników
-            creation_enabled_for_user_groups: Możliwe tworzenie spotkań przez grupy użytkowników
     events:
       meetings:
         meeting_closed:
@@ -194,10 +190,8 @@ pl:
           email_subject: Liczba zarezerwowanych miejsc na spotkanie "%{resource_title}" przekroczyła %{percentage}%
           notification_title: Liczba zarezerwowanych miejsc na spotkanie <a href="%{resource_path}">%{resource_title}"</a> przekroczyła %{percentage}%.
         meeting_updated:
-          email_intro: 'Spotkanie "%{resource_title}" zostało zaktualizowane. Możesz sprawdzić aktualną wersję na stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
-          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
         registration_code_validated:
           email_intro: Twój kod rejestracyjny "%{registration_code}" na spotkanie "%{resource_title}" został zatwierdzony.
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny na spotkanie "%{resource_title}" został zatwierdzony.
@@ -278,7 +272,6 @@ pl:
             invalid: Przy aktualizacji tego porządku obrad pojawił się problem.
             success: Aktualizacja porządku obrad się powiodła.
         exports:
-          answers: Odpowiedzi
           meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
@@ -360,15 +353,13 @@ pl:
         poll:
           form:
             announcement_html:
-              - Gdy pytanie otrzymuje odpowiedzi lub jest opublikowane/zamknięte, nie może być już edytowane.
+              - 
               - Możesz dodać pytanie w dowolnym momencie.
               - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
               - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
         registrations:
           edit:
             save: Zapisz
-            validate: Zatwierdź
-            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
@@ -387,9 +378,6 @@ pl:
           update:
             invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
             success: Zapisano ustawienia rejestracji.
-          validate_registration_code:
-            invalid: Ten kod rejestracyjny jest nieprawidłowy.
-            success: Kod rejestracyjny został zatwierdzony.
       admin_log:
         invite:
           create: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
@@ -500,7 +488,6 @@ pl:
             all: Wszystkie
             official: Oficjalny
             participants: Uczestnicy
-            user_group: Grupy
           search: Szukaj
           type: Typ
           type_values:
@@ -511,7 +498,6 @@ pl:
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
-          create_as: Utwórz spotkanie jako
           disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy(a), że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
           iframe_embed_type_html: 'Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo z następujących domen: %{domains}'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
@@ -538,7 +524,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -555,7 +540,6 @@ pl:
           micro_camera_permissions_warning: Gdy klikniesz poniższy przycisk, zostaniesz poproszony(a) o uprawnienia mikrofonu i/lub kamery i dołączysz do wideokonferencji
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
-          registration_code_help_text: Twój kod rejestracyjny
           registration_state:
             validated: ZWERYFIKOWANO
             validation_pending: OCZEKUJE NA WERYFIKACJĘ
@@ -591,26 +575,14 @@ pl:
             start_time: Data rozpoczęcia
             title: Tytuł
       polls:
-        answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
-          index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
-            view_poll: Zobacz ankietę
         questions:
           closed_question:
             announcement: Odpowiedzi na to pytanie zostały zamknięte.
             question: Pytanie
             question_results: Wyniki
-          index:
-            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie
-            received_answer: otrzymana odpowiedź
-            received_answers: otrzymane odpowiedzi
             results: Wyniki
             send: Wyślij
             sent: Wysłano
@@ -624,14 +596,12 @@ pl:
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
       public_participants_list:
-        attending_organizations: Organizacje
         attending_participants: Uczestnicy
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na spotkanie <a href="%{url}">%{title}</a> została zatwierdzona.
           details: Szczegóły spotkania znajdą Państwo w załączniku.
-          registration_code: Twój kod rejestracyjny to %{code}.
       registration_type:
         on_different_platform: Na innej platformie
         on_this_platform: Na tej platformie
@@ -656,11 +626,6 @@ pl:
         withdraw: Wycofany
       withdraw:
         success: Spotkanie zostało pomyślnie wycofane.
-    metrics:
-      meetings:
-        description: Liczba utworzonych spotkań
-        object: spotkania
-        title: Spotkania
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Przeszłe spotkania

@@ -1,6 +1,67 @@
 ---
 de:
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Sind Sie sicher, dass Sie dieses Dokument löschen wollen?
+        deleted_document_info: Gelöschtes Dokument kann aus dem Papierkorb wiederhergestellt werden.
+        edit: Bearbeiten
+        manage: Verwalten
+        new: Neuer Text
+        title: Aktionen
+        view_deleted_documents: Gelöschte Dokumente anzeigen
+      admin:
+        documents:
+          create:
+            invalid: Beim Erstellen des Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich erstellt.
+          edit:
+            title: Kollaborative Texte bearbeiten
+            update: Aktualisieren
+          edit_settings:
+            title: Kollaborative Texte einstellen
+            update: Aktualisieren
+          index:
+            title: Kollaborative Texte
+          manage_trash:
+            title: Gelöschte Dokumente
+          new:
+            create: Erstellen
+            title: Kollaborative Texte erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieses Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich veröffentlicht.
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieses Dokuments ist ein Fehler aufgetreten.
+            success: Die Veröffentlichung des Dokuments wurde erfolgreich aufgehoben.
+          update:
+            invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich aktualisiert.
+          update_settings:
+            invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich aktualisiert.
+        settings:
+          form:
+            allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
+      documents:
+        index:
+          count:
+            one: "%{count} kollaborativer Text"
+            other: "%{count} kollaborative Texte"
+          empty: Es gibt noch keine kollaborative Texte.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Anregung akzeptieren
+            title: Titel
     components:
       collaborative_texts:
         name: Kollaborative Texte
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+          step:
+            announcement: Ankündigung
+    statistics:
+      collaborative_texts_count: Kollaborative Texte

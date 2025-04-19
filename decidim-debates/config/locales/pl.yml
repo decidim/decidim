@@ -10,7 +10,6 @@ pl:
         instructions: Instrukcje uczestnictwa
         start_time: Zaczyna się
         title: Tytuł
-        user_group_id: Utwórz debatę jako
     models:
       decidim/debates/close_debate_event: Debata zamknięta
       decidim/debates/create_debate_event: Debata
@@ -117,13 +116,11 @@ pl:
           state_values:
             closed: Zakończone
             open: Otwarte
-          user_group: Grupy
         index:
           new_debate: Nowa debata
         new:
           back: Wróć
           create: Utwórz
-          title: Nowa debata
         orders:
           commented: Najczęściej komentowane
           label: Sortuj debaty według
@@ -134,7 +131,6 @@ pl:
           debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
-          groups_count: Grupy
           open: Otwarta
           participants_count: Użytkownicy
         update:
@@ -202,10 +198,5 @@ pl:
           next_level_in: Weź udział w %{score} kolejnych debatach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
           unearned_own: Nie uczestniczono jeszcze w żadnej debacie.
-    metrics:
-      debates:
-        description: Liczba utworzonych debat
-        object: debaty
-        title: Debaty
     statistics:
       debates_count: Debaty

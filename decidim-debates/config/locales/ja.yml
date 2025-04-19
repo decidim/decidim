@@ -10,7 +10,6 @@ ja:
         instructions: 参加方法
         start_time: 開始
         title: タイトル
-        user_group_id: ディベートを作成
     models:
       decidim/debates/close_debate_event: ディベートが終了しました
       decidim/debates/create_debate_event: ディベート
@@ -145,13 +144,12 @@ ja:
           state_values:
             closed: 終了
             open: 公開
-          user_group: グループ
         index:
           new_debate: 新しいディベート
         new:
           back: 戻る
           create: 作成
-          title: 新しいディベート
+          title: 新しいディベートを作成
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'
@@ -164,7 +162,6 @@ ja:
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
           edit_debate: 編集
-          groups_count: グループ
           open: 公開ディベート
           participants_count: 参加者
         update:
@@ -237,11 +234,6 @@ ja:
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
           unearned_own: まだどのディベートにも参加していません。
-    metrics:
-      debates:
-        description: 作成されたディベート数
-        object: ディベート
-        title: ディベート
     open_data:
       help:
         debate_comments:
@@ -255,7 +247,6 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         debates:
           author: ディベートの作者に関するデータ
           closed_at: ディベートの終了日時

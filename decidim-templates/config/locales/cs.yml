@@ -80,7 +80,11 @@ cs:
             select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
+            continue: Pokračovat
             label: Vyberte šablonu
+            options:
+              create_new_form: Vytvořit nový formulář
+              select_template: Vyberte šablonu
             placeholder: Vyberte šablonu
           edit:
             edit: Upravit

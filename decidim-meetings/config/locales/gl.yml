@@ -107,10 +107,8 @@ gl:
           email_subject: As xuntas ocupadas con "%{resource_title}" ocuparon máis de %{percentage}%
           notification_title: As xuntas ocupadas por <a href="%{resource_path}">%{resource_title}</a> ocupadas son máis do %{percentage}%.
         meeting_updated:
-          email_intro: 'Realizouse a reunión "%{resource_title}". Podes ler a nova versión da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Realizouse a reunión "%{resource_title}"
-          notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado.
           email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
@@ -172,7 +170,6 @@ gl:
             create: Crear
             title: Nova axenda
         exports:
-          answers: Respostas
           meetings: Reunións
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -219,8 +216,6 @@ gl:
         registrations:
           edit:
             save: Gardar
-            validate: Validar
-            validate_registration_code: Validar o código de rexistro
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
@@ -234,9 +229,6 @@ gl:
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
-          validate_registration_code:
-            invalid: Este código de rexistro non é válido.
-            success: Código de rexistro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
@@ -314,7 +306,6 @@ gl:
           meeting_minutes: Minutos de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
-          registration_code_help_text: O seu código de rexistro
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDACIÓN PENDENTE
@@ -345,8 +336,6 @@ gl:
         questions:
           index_admin:
             question: Pregunta
-            received_answer: resposta recibida
-            received_answers: respostas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
@@ -363,7 +352,6 @@ gl:
         confirmation:
           confirmed_html: Inscríbase o rexistro da reunión <a href="%{url}">%{title}</a>.
           details: Atoparás os detalles da reunión no anexo.
-          registration_code: O teu código de rexistro é %{code}.
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
@@ -377,11 +365,6 @@ gl:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
-    metrics:
-      meetings:
-        description: Número de reunións creadas
-        object: reunións
-        title: Reunións
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reunións pasadas

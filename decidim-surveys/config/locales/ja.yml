@@ -7,17 +7,23 @@ ja:
     models:
       decidim/surveys/survey:
         other: 調査
-      decidim/surveys/survey_answer:
+      decidim/surveys/survey_response:
         other: 回答
   decidim:
     admin:
       admin_log:
         changeset:
           surveys: 調査
+      menu:
+        surveys_menu:
+          main: メイン
+          questions: 質問
+          responses: 回答
+          settings: 設定
     components:
       surveys:
         actions:
-          answer: 回答
+          response: 回答
         name: 調査
         settings:
           announcement: お知らせ
@@ -37,50 +43,59 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} での新しい調査'
           notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}の調査</a> が公開されました。
-    metrics:
-      survey_answers:
-        description: 回答したアンケート数
-        object: アンケートに対する答えは
-        title: アンケートへの回答
     statistics:
-      answers_count: 回答
+      responses_count: 回答
     surveys:
       actions:
-        answers_alert: この調査では公開時の回答削除機能が有効です。続行すると現状 %{answers_count} 件の回答が破棄されます。
         confirm_destroy: 削除してもよろしいですか？
         destroy: 破棄
         edit: 編集
+        manage_questions: 質問
         new_survey: 新しいアンケート
         preview: プレビュー
+        responses_alert: このアンケートでは、公開時に回答を削除する設定が有効になっています。現在%{responses_count}件の回答があり、続行するとそれらは削除されます。
         title: アクション
       admin:
-        answers:
-          index:
-            title: "総回答数 %{total} 件"
-          show:
-            title: '回答 #%{number}'
         exports:
-          survey_user_answers: アンケート参加者の回答
-        publish_answers:
+          survey_user_responses: アンケート参加者の回答
+        publish_responses:
           index:
-            answers:
-              other: "%{count} 件の回答"
             description: |-
-              質問の回答を公開すると、それらが一般に表示されるようになります。
-              各質問の横にあるチェックボックスをクリックして、公開したい回答を選択できます。
-              公開可能な質問のタイプは次の通りです：「単一選択」、「複数選択」、「マトリックス（単一選択）」、「マトリックス（複数選択）」、「並べ替え」です。
+              質問への回答を公開すると、それらが一般に表示されるようになります。
+              各質問の横にあるチェックボックスをクリックすることで、公開したい回答を選択できます。
+              公開できる質問の種類は、「単一選択」「複数選択」「マトリックス（単一選択）」「マトリックス（複数選択）」「並べ替え」です。
+            responses:
+              other: "%{count} 回答"
             status:
               not_published: 未公開
               published: 公開済み
             title: 回答を公開
+        questions:
+          surveys:
+            edit:
+              title: 質問
+        responses:
+          index:
+            no_responses: 回答はまだありません
+            title: "総回答数 %{total} 件"
+          show:
+            title: '応答 #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: 設定
         surveys:
           create:
             invalid: アンケートの作成中に問題が発生しました。
             success: アンケートを作成しました。
           destroy:
             success: アンケートを削除しました。
+          edit:
+            title: メイン
           index:
             title: 調査
+          new:
+            title: メイン
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
@@ -106,8 +121,8 @@ ja:
       models:
         survey:
           fields:
-            answers: 回答
             questions: 質問
+            responses: 回答
             status: ステータス
             title: タイトル
           status:
@@ -119,10 +134,6 @@ ja:
           subject: アンケート %{questionnaire_title} 回答確認
         export_name: アンケートの回答
       surveys:
-        answer:
-          invalid: アンケートの回答に問題がありました。
-          spam_detected: フォームでの回答中に問題が発生しました。もしかしたら回答が早すぎたかもしれません。再度お試しいただけますか？
-          success: アンケートは正常に回答しました。
         count:
           surveys_count:
             other: "%{count} 件の調査"
@@ -132,6 +143,10 @@ ja:
             closed: 終了済
             open: 公開
         no_surveys_warning: アンケートが検索条件に一致していないか、アンケートが公開されていません。
+        response:
+          invalid: アンケートに回答する際に問題が発生しました。
+          spam_detected: フォームに回答する際に問題が発生しました。早すぎるかもしれません。もう一度やり直していただけますか？
+          success: アンケートに回答しました。
         show:
           closed: 終了済
           open: 公開

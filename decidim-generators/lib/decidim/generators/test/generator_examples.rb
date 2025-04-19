@@ -127,7 +127,6 @@ shared_context "with application env vars" do
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      # "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
   end
@@ -237,6 +236,7 @@ shared_context "with application env vars" do
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
@@ -948,7 +948,7 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to contain (#{queues})"
   end

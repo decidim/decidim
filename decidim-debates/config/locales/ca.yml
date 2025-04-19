@@ -10,7 +10,6 @@ ca:
         instructions: Instruccions per participar
         start_time: Data d'inici
         title: Títol
-        user_group_id: Crea un debat com
     models:
       decidim/debates/close_debate_event: Debat tancat
       decidim/debates/create_debate_event: Debat
@@ -102,7 +101,7 @@ ca:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
           restore: "%{user_name} ha restaurat el debat %{resource_name} a l'espai %{space_name}"
-          soft_delete: "%{user_name} ha mogut el debate %{resource_name} des de %{space_name} a la paperera"
+          soft_delete: "%{user_name} ha mogut el debat %{resource_name} des de %{space_name} a la paperera"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       content_blocks:
         highlighted_debates:
@@ -147,13 +146,12 @@ ca:
           state_values:
             closed: Tancat
             open: Obert
-          user_group: Grups
         index:
           new_debate: Nou debat
         new:
           back: Torna
           create: Crear
-          title: Nou debat
+          title: Crear un debat
         orders:
           commented: Més comentats
           label: Ordenar debats per
@@ -166,7 +164,6 @@ ca:
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar
-          groups_count: Grups
           open: Debat obert
           participants_count: Participants
         update:
@@ -239,11 +236,6 @@ ca:
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha participat en cap debat.
           unearned_own: Encara no has participat a cap debat.
-    metrics:
-      debates:
-        description: Nombre de debats creats
-        object: debats
-        title: Debats
     open_data:
       help:
         debate_comments:
@@ -257,7 +249,6 @@ ca:
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         debates:
           author: Les dades d'autoria d'aquesta debat
           closed_at: La data en què va ser tancar aquest debat
@@ -267,7 +258,7 @@ ca:
           conclusions: Les conclusions del debat si s'ha tancat
           created_at: La data i l'hora en què es va tancar aquest debat
           description: La descripció del debat
-          end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
+          end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar
           endorsements_count: El número d'adhesions que té aquest debat
           follows_count: El número de seguidores que té aquest debat
           id: L'identificador únic del debat
@@ -277,7 +268,7 @@ ca:
           last_comment_by: La data del darrer comentari realitzat en aquest debat
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
-          start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
+          start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar
           taxonomies: Les taxonomies del projecte
           title: El títol del debat
           updated_at: La data de la darrera actualització del debat

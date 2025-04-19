@@ -10,11 +10,6 @@ cs:
         few: Průzkumy
         many: Průzkumy
         other: Průzkumy
-      decidim/surveys/survey_answer:
-        one: Odpovědět
-        few: Odpovědi
-        many: Odpovědi
-        other: Odpovědi
   decidim:
     admin:
       admin_log:
@@ -22,14 +17,14 @@ cs:
           surveys: průzkumy
       menu:
         surveys_menu:
-          answers: Odpovědi
           main: Hlavní
           questions: Otázky
+          responses: Odpovědi
           settings: Nastavení
     components:
       surveys:
         actions:
-          answer: Odpovědět
+          response: Odpověď
         name: Průzkumy
         settings:
           announcement: Oznámení
@@ -49,16 +44,10 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nový průzkum v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
-    metrics:
-      survey_answers:
-        description: Počet průzkumů, které uživatelé zodpověděli
-        object: odpovědi na průzkumy
-        title: Odpovědi na průzkumy
     statistics:
-      answers_count: Odpovědi
+      responses_count: Odpovědi
     surveys:
       actions:
-        answers_alert: Odstranění odpovědí při zveřejnění je pro tento průzkum aktivní. V současné době existuje %{answers_count} odpovědí, které budou zničeny, pokud budete pokračovat.
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Zničit
         edit: Upravit
@@ -67,29 +56,11 @@ cs:
         preview: Náhled
         title: Akce
       admin:
-        answers:
+        publish_responses:
           index:
-            no_answers: Zatím nejsou žádné odpovědi
-            title: "%{total} odpovědí celkem"
-          show:
-            title: 'Odpověď č.%{number}'
-        exports:
-          survey_user_answers: Odpovědi účastníka na průzkum
-        publish_answers:
-          index:
-            answers:
-              one: "%{count} odpověď"
-              few: "%{count} odpovědi"
-              many: "%{count} odpovědí"
-              other: "%{count} odpovědí"
-            description: |-
-              Zveřejněním odpovědí na otázky je veřejnosti zviditelníte.
-              Můžete vybrat odpovědi, které chcete publikovat, kliknutím na zaškrtávací políčko vedle každé otázky.
-              Můžete publikovat pouze následující typy úloh: "Jedna možnost", "Vícenásobná možnost", "Matice (jedna možnost)", "Matice (více možností)" a "Řazení".
             status:
               not_published: Nezveřejněno
               published: Zveřejněno
-            title: Zveřejnit odpovědi
         questions:
           surveys:
             edit:
@@ -135,23 +106,14 @@ cs:
       models:
         survey:
           fields:
-            answers: Odpovědi
             questions: Otázky
+            responses: Odpovědi
             status: Status
             title: Název
           status:
             closed: Uzavřeno
             open: Otevřeno
-      survey_confirmation_mailer:
-        confirmation:
-          body: Úspěšně jste odpověděli na anketu %{questionnaire_title} v rámci %{participatory_space}
-          subject: Potvrzení odpovědi na dotazník %{questionnaire_title}
-        export_name: Odpovědi na dotazník
       surveys:
-        answer:
-          invalid: Při odpovědi na průzkum došlo k chybám.
-          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
-          success: Průzkum úspěšně odpověděl.
         count:
           surveys_count:
             one: "%{count} anketa"

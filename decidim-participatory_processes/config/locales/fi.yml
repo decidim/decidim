@@ -151,6 +151,7 @@ fi:
           roles:
             admin: Hallintakäyttäjä
             collaborator: Osallistuva käyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
         user:
           fields:
@@ -341,11 +342,6 @@ fi:
           not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id}).'
     menu:
       processes: Prosessit
-    metrics:
-      participatory_processes:
-        description: Osallistumisprosessien määrä tässä organisaatiossa
-        object: osallistumisprosessit
-        title: Osallistumisprosessit
     open_data:
       help:
         participatory_processes:
@@ -471,9 +467,6 @@ fi:
           highlighted_processes:
             active_spaces: Aktiiviset prosessit
             see_all_spaces: Näytä kaikki prosessit
-      participatory_process_steps:
-        index:
-          back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         description:
           area_name: Alue

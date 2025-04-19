@@ -38,7 +38,6 @@ import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
 import "src/decidim/delayed"
-import "src/decidim/vizzs"
 import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
@@ -71,7 +70,8 @@ import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import createTooltip from "src/decidim/tooltips"
-import fetchRemoteTooltip from "src/decidim/remote_tooltips"
+// Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
+// import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
@@ -199,7 +199,8 @@ const initializer = (element = document) => {
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
-  element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
+  // Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
+  // element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 

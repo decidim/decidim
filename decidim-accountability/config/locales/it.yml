@@ -9,6 +9,7 @@ it:
         end_date: Data di fine
         progress: Progresso
         start_date: Data di inizio
+        subresults: Sottorisultati
         title: Nome
         updated_at: Aggiornato al
       status:
@@ -25,6 +26,14 @@ it:
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Questo risultato %{link} è stato incluso
+            meetings_ids: 'È stato discusso in questa incontro: %{link}'
+            project_ids: 'È stato incluso in questo progetto: %{link}'
+            proposal_ids: 'È stato incluso in questa proposta: %{link}'
+            text: 'È stato aggiunto a questo risultato: %{link}'
       decidim/accountability/result:
         one: Risultato
         other: Risultati
@@ -33,6 +42,7 @@ it:
       actions:
         attachment_collections: Cartelle
         attachments: Allegati
+        confirm_delete_result: Sei sicuro di voler cancellare questo risultato?
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         deleted_results_info: I risultati eliminati possono essere ripristinati dal cestino.
         destroy: Cancella
@@ -41,6 +51,7 @@ it:
         import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
         new_status: Nuovo stato
+        new_timeline_entry: Voce della cronologia
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -67,15 +78,21 @@ it:
             origin_component_id: Componente d'origine
             select_component: Seleziona un componente
           new:
+            success:
+              one: 1 risultato in coda per essere importato. Sarai avvisato via email, una volta completato.
+              other: "%{count} risultati in coda per essere importati. Sarai avvisato via email, una volta completato."
             title: Importa i risultati da un altro componente
         import_results:
           new:
             download_export: Scarica l'esportazione in formato CSV
             import: Importa
+            info: |
+              <p>Si consiglia di seguire questi passaggi:</p><ol><li>Creare gli stati per i risultati che si desidera aggiungere (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creare manualmente almeno un risultato attraverso questo pannello di amministrazione (<a href='%{link_new_result}' target='_blank'>link</a>) prima di utilizzare Importa, per avere una migliore comprensione del formato e di ciò che è necessario compilare.</li><li>Scaricare l'esportazione nel formato CSV (%{link_export_csv})</li><li>Effettuare le modifiche localmente. È possibile modificare solo le seguenti colonne del CSV:</li></ol><ul><li><b>categoria/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per l'ambito</li><li><b>parent/id:</b> ID dell'origine (per i risultati correlati). Opzionale</li><li><b>titolo/I18N:</b> Titolo sulla lingua X</li><li><b>descrizione/I18N:</b> Descrizione sulla lingua X</li><li><b>start_date:</b> data in cui il risultato inizia l'esecuzione (formato AAAA-MM-DD)</li><li><b>end_date:</b> data in cui il risultato termina l'esecuzione (formato AAAA-MM-DD)</li><li><b>status/id:</b> ID dello stato per questo risultato</li><li><b>progresso:</b> Percentuale (da 0 a 100) dell'esecuzione</li><li><b>proposte_ids:</b> ID interno delle relative proposte (separate da una virgola). Viene convertito automaticamente in <span class='attribute-name'>proposal_url</span></li></ul>
             title: Importa risultati da un file CSV
         imports:
           create:
             invalid: Si è verificato un problema durante l'importazione dei risultati.
+            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito.
         models:
           result:
             name: Risultato
@@ -84,6 +101,7 @@ it:
         results:
           bulk_actions:
             dates_form:
+              change_dates: Data della modifica
               end_date: Data di fine
               start_date: Data d'inizio
             dropdown:
@@ -98,6 +116,9 @@ it:
               cancel: Annulla
             taxonomies_form:
               change_taxonomies: Cambia tassonomie
+          create:
+            invalid: C'è stato un problema durante la creazione di questo risultato.
+            success: Risultato creato con successo.
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
@@ -110,10 +131,19 @@ it:
             create: Crea un risultato
             title: Nuovo risultato
           update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato.
+            success: Risultati aggiornati con successo
+          update_dates:
+            invalid: Si è verificato un errore durante l'aggiornamento delle date dei risultati
+            success: Risultati aggiornati con successo
+          update_status:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
             success: Risultati aggiornati con successo
           update_taxonomies:
+            invalid: Non è stato possibile aggiornare le tassonomie %{taxonomies} per i risultati %{results}
             select_a_result: Seleziona un risultato
             select_a_taxonomy: Seleziona una categoria
+            success: Sono state aggiornate le tassonomie %{taxonomies} per i risultati %{results}
         shared:
           subnav:
             statuses: Stati
@@ -132,9 +162,11 @@ it:
             create: Crea stato
             title: Nuovo stato
           update:
+            invalid: C'è stato un problema nel aggiornamento di questo stato.
             success: Stato aggiornato con successo.
         timeline_entries:
           create:
+            invalid: C'è stato un problema nella creazione di questa voce.
             success: Voce creata con successo.
           destroy:
             success: La voce è stata eliminata con successo.
@@ -160,6 +192,10 @@ it:
           create: "%{user_name} ha creato lo stato %{resource_name}"
           delete: "%{user_name} ha eliminato lo stato %{resource_name}"
           update: "%{user_name} ha aggiornato lo stato %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creato la voce della cronologia %{resource_name}"
+          delete: "%{user_name} ha cancellato la voce della cronologia %{resource_name}"
+          update: "%{user_name} ha aggiornato la voce della cronologia %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
@@ -175,9 +211,20 @@ it:
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Un risultato è stato importato dai progetti.
+            other: "%{count} risultati sono stati importati dai progetti."
+          subject: Importazione riuscita dei progetti
+          success: Progetti importati con successo per ottenere risultati nel componente %{component_name}. È possibile rivedere i risultati nell'interfaccia di amministrazione.
       import_proposals_mailer:
         import:
+          added_proposals:
+            one: Un risultato è stato importato dalle proposte
+            other: "%{count} risultati sono stati importati dalle proposte."
           subject: Importazione delle proposte riuscita con successo
+          success: Proposte importate con successo per ottenere risultati nel componente %{component_name}. Puoi rivedere i risultati nell'interfaccia di amministrazione.
       last_activity:
         new_result: 'Nuovo risultato:'
       models:
@@ -247,6 +294,10 @@ it:
           step:
             comments_blocked: Commenti bloccati
           visualization: Visualizzazione
+    download_your_data:
+      show:
+        result_comments: Esportazione commenti risultati
+        results: Esportazione risultati
     events:
       accountability:
         proposal_linked:
@@ -259,26 +310,36 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{proposal_title}" e questa proposta è inclusa nel risultato "%{resource_title}". È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Un aggiornamento dell'avanzamento di %{resource_title}
           notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che include la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
-    metrics:
-      results:
-        description: Numero di risultati generati
-        object: risultati
-        title: Risultati
     open_data:
       help:
         result_comments:
           alignment: Se questo commento è stato a favore, contro o neutrale
           author: Il nome del partecipante che ha fatto questo commento
           body: Il commento stesso
+          commentable_id: L'id unico del commentabile
+          commentable_type: Il tipo di commentabile (se è stato un risultato, una proposta, ecc.)
           created_at: La data in cui questo commento è stato creato
+          depth: Il luogo in cui tale commento figura nel tre dei commenti (se si tratta di una risposta o di una risposta)
           id: L'id di questo commento
+          locale: Il Locale (lingua) che il partecipante aveva quando ha lasciato questo commento
+          root_commentable_url: L'URL della risorsa che si lega a questo commento
         results:
+          address: L'indirizzo dell'eventuale risultato
+          children_count: Il numero di risultati figli
+          comments_count: Il numero di commenti che questo risultato ha
+          component: Il componente a cui il risultato appartiene
+          created_at: La data in cui il risultato è stato creato
           description: La descrizione del risultato
+          end_date: La data in cui il risultato termina l'esecuzione ed è finito
           id: L'identificatore univoco del risultato
           latitude: La latitudine del risultato nel caso in cui abbia un luogo fisico
           longitude: La longitudine del risultato nel caso in cui abbia una luogo fisico
           parent: Il risultato principale (se presente) del risultato
           progress: La percentuale di esecuzione del risultato
+          proposal_urls: Gli URL delle proposte che sono incluse in questo risultato
+          reference: L'identificatore univoco del risultato
+          start_date: La data in cui il risultato inizia l'esecuzione
+          status: Lo stato attuale di questo risultato
           taxonomies: Le tassonomie del risultato
           title: Il titolo del risultato
           updated_at: L'ultima data in cui questo risultato è stato aggiornato

@@ -257,19 +257,6 @@ ro:
           name: Propuneri
           next_level_in: Creează încă %{score} propuneri pentru a atinge nivelul următor!
           unearned_own: Nu ai creat încă nicio propunere.
-    metrics:
-      accepted_proposals:
-        description: Numărul de propuneri acceptate
-        object: propuneri
-        title: Propuneri acceptate
-      endorsements:
-        description: Numărul de susțineri ale propunerilor
-        object: susțineri
-        title: Susțineri
-      proposals:
-        description: Număr de propuneri
-        object: propuneri
-        title: Propuneri
     participatory_spaces:
       highlighted_proposals:
         see_all: Afișează toate propunerile
@@ -607,6 +594,7 @@ ro:
           text_banner: Vizualizezi lista de propuneri retrase de autorii lor. %{go_back_link}.
         new:
           send: Continuă
+          title: Creați o nouă propunere
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
@@ -648,6 +636,7 @@ ro:
         update:
           title: Actualizează propunerea
         vote_button:
+          already_voted: Votat
           votes_blocked: Votați
         voting_rules:
           proposal_limit:

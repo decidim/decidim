@@ -8,7 +8,7 @@ es:
       decidim/surveys/survey:
         one: Encuesta
         other: Encuestas
-      decidim/surveys/survey_answer:
+      decidim/surveys/survey_response:
         one: Respuesta
         other: Respuestas
   decidim:
@@ -18,14 +18,14 @@ es:
           surveys: Encuestas
       menu:
         surveys_menu:
-          answers: Respuestas
           main: Principal
           questions: Preguntas
+          responses: Respuestas
           settings: Configuración
     components:
       surveys:
         actions:
-          answer: Responder
+          response: Respuesta
         name: Encuestas
         settings:
           announcement: Aviso
@@ -45,49 +45,44 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-    metrics:
-      survey_answers:
-        description: Número de encuestas respondidas por las participantes
-        object: respuestas a encuestas
-        title: Respuestas a encuestas
     statistics:
-      answers_count: Respuestas
+      responses_count: Respuestas
     surveys:
       actions:
-        answers_alert: La opción de borrar las respuestas al publicar la encuesta está activada. Si sigues, se borrarán las %{answers_count} existentes actualmente.
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
         edit: Editar
         manage_questions: Preguntas
         new_survey: Nueva encuesta
         preview: Previsualizar
+        responses_alert: La opción de borrar las respuestas al publicar la encuesta está activada. Si sigues, se borrarán las %{responses_count} existentes actualmente.
         title: Acciones
       admin:
-        answers:
-          index:
-            no_answers: No hay respuestas aún
-            title: "%{total} respuestas totales"
-          show:
-            title: 'Respuesta #%{number}'
         exports:
-          survey_user_answers: Respuestas de las participantes de la encuesta
-        publish_answers:
+          survey_user_responses: Respuestas de las participantes de la encuesta
+        publish_responses:
           index:
-            answers:
-              one: "%{count} respuesta"
-              other: "%{count} respuestas"
             description: |-
-              Publicando las respuestas a las preguntas de la encuesta, estas serán visibles para las visitantes.
-              Puedes seleccionar las preguntas de las que quieres publicar las respuestas marcancndo el "checkbox" de cada una de ellas.
+              Publicando las respuestas a las respuestas de la encuesta, estas serán visibles para las visitantes.
+              Puedes seleccionar las repuestas que quieres publicar marcancndo el "checkbox" de cada una de ellas.
               Solo puedes publicar las respuestas de las preguntas que son del tipo de respuesta: "Opción única", "Opción múltiple", "Matriz (opción única)", "Matriz (opción múltiple), y "Ordenación".
+            responses:
+              one: "%{count} respuesta"
+              other: "%{count} respostes"
             status:
               not_published: No publicadas
               published: Publicadas
-            title: Publicar respuestas
+            title: Publicar las respuestas
         questions:
           surveys:
             edit:
               title: Preguntas
+        responses:
+          index:
+            no_responses: Aún no hay ninguna respuesta
+            title: "%{total} respuestas en total"
+          show:
+            title: 'Respuesta #%{number}'
         settings:
           surveys:
             edit:
@@ -129,8 +124,8 @@ es:
       models:
         survey:
           fields:
-            answers: Respuestas
             questions: Preguntas
+            responses: Respuestas
             status: Estado
             title: Título
           status:
@@ -142,10 +137,6 @@ es:
           subject: Confirmación de respuesta al cuestionario %{questionnaire_title}
         export_name: Respuestas a la encuesta
       surveys:
-        answer:
-          invalid: Se ha producido un error al responder la encuesta.
-          spam_detected: Hubo un problema respondiendo al formulario. Tal vez has sido demasiado rápido, ¿puedes intentarlo de nuevo?
-          success: La encuesta se ha respondido correctamente.
         count:
           surveys_count:
             one: "%{count} encuesta"
@@ -156,6 +147,10 @@ es:
             closed: Cerrada
             open: Abiertas
         no_surveys_warning: No hay encuestas que coincidan con tu criterio de búsqueda o no hay ninguna encuesta.
+        response:
+          invalid: Se ha producido un error al responder la encuesta.
+          spam_detected: Hubo un problema respondiendo al formulario. Tal vez has sido demasiado rápido, ¿puedes intentarlo de nuevo?
+          success: La encuesta se ha respondido correctamente.
         show:
           closed: Cerrada
           open: Abierta

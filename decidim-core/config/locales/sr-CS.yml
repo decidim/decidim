@@ -64,11 +64,6 @@ sr:
     notifications_settings:
       show:
         direct_messages: Primaj direktne poruke od svih bez ograničenja
-    pages:
-      participatory_space:
-        metrics:
-          headline: Metrika
-          link: Prikaži svu metriku
     resource_endorsements:
       create:
         error: Nastao je problem pri podržavanju.

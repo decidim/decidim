@@ -10,7 +10,6 @@
         instructions: Instruksjoner for å delta
         start_time: Starter den
         title: Tittel
-        user_group_id: Opprett innspillstråd som
     models:
       decidim/debates/close_debate_event: Innspillstråden er stengt
       decidim/debates/create_debate_event: Innspillstråd
@@ -113,7 +112,6 @@
         new:
           back: Tilbake
           create: Opprett
-          title: Ny innspillstråd
         orders:
           commented: Mest kommentert
           label: Ranger debatter etter
@@ -124,7 +122,6 @@
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
-          groups_count: Grupper
           open: Åpen debatt
           participants_count: Deltakere
         update:
@@ -178,10 +175,5 @@
           name: Innspillstråder
           next_level_in: Delta i %{score} flere innspillstråder for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i noen innspillstråder ennå.
-    metrics:
-      debates:
-        description: Antall innspillstråder opprettet
-        object: innspillstråder
-        title: Innspillstråder
     statistics:
       debates_count: Debatter

@@ -77,26 +77,20 @@ module Decidim
           context "when publish time is provided" do
             let!(:publish_time) { Time.new(2022, 11, 12, 8, 37, 48, "-06:00") }
 
-            it "sets the publish time" do
-              subject.call
+            it "sends a notification to the participatory space followers" do
+              follower = create(:user, organization:)
+              create(:follow, followable: participatory_process, user: follower)
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.blogs.post_created",
+                  event_class: Decidim::Blogs::CreatePostEvent,
+                  resource: kind_of(Post),
+                  followers: [follower]
+                )
+              perform_enqueued_jobs { subject.call }
               expect(post.published_at).to eq(publish_time)
             end
-          end
-
-          it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization:)
-            create(:follow, followable: participatory_process, user: follower)
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.blogs.post_created",
-                event_class: Decidim::Blogs::CreatePostEvent,
-                resource: kind_of(Post),
-                followers: [follower]
-              )
-
-            subject.call
           end
 
           it "traces the action", versioning: true do

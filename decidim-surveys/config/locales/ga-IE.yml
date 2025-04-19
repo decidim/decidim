@@ -1,8 +1,1 @@
 ga:
-  decidim:
-    components:
-      surveys:
-        actions:
-          answer: Freagair
-    statistics:
-      answers_count: Freagraí

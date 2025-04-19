@@ -5,7 +5,12 @@
         method: :delete,
         class: "main-bar__links-desktop__item",
         "aria-label": t("layouts.decidim.header.close"),
-        data: { close: "", confirm: t("layouts.decidim.header.confirm_close_ephemeral_session") }
+        data: {
+          close: "main-bar__links-desktop__item",
+          confirm: t("layouts.decidim.header.confirm_close_ephemeral_session"),
+          confirm_title: t("layouts.decidim.header.confirm_title_close_ephemeral_session"),
+          confirm_icon: "logout-box-line"
+        }
      ) do %>
         <%= icon "close-line" %><span><%= t("layouts.decidim.header.close") %></span>
     <% end %>
@@ -20,6 +25,11 @@
       class: "text-secondary",
       type: :button,
       "aria-label": t("layouts.decidim.header.close"),
-      data: { close: "", confirm: t("layouts.decidim.header.confirm_close_ephemeral_session") }
+      data: {
+        close: "",
+        confirm: t("layouts.decidim.header.confirm_close_ephemeral_session"),
+        confirm_title: t("layouts.decidim.header.confirm_title_close_ephemeral_session"),
+        confirm_icon: "logout-box-line"
+      }
     ) %>
 </div>

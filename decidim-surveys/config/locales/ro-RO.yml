@@ -9,22 +9,15 @@ ro:
         one: Sondaj
         few: Sondaje
         other: Sondaje
-      decidim/surveys/survey_answer:
-        one: Răspuns
-        few: Răspunsuri
-        other: Răspunsuri
   decidim:
     admin:
       menu:
         surveys_menu:
-          answers: Răspunsuri
           main: Principal
           questions: Întrebări
           settings: Setări
     components:
       surveys:
-        actions:
-          answer: Răspunde
         settings:
           global:
             announcement: Anunţ
@@ -42,22 +35,10 @@ ro:
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Un nou sondaj în %{participatory_space_title}
           notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> este acum deschis.
-    metrics:
-      survey_answers:
-        description: Numărul de sondaje la care au răspuns participanții
-        object: răspunsuri la sondaje
-        title: Răspunsuri la sondaje
-    statistics:
-      answers_count: Răspunsuri
     surveys:
       actions:
         manage_questions: Întrebări
       admin:
-        answers:
-          index:
-            no_answers: Încă nu există răspunsuri
-        exports:
-          survey_user_answers: Răspunsuri ale participantului la sondaj
         questions:
           surveys:
             edit:
@@ -76,8 +57,3 @@ ro:
             success: Sondajul a fost salvat cu succes.
       last_activity:
         new_survey: 'Sondaj nou:'
-      surveys:
-        answer:
-          invalid: A apărut o problemă în timpul răspunsului pentru sondaj.
-          spam_detected: A apărut o problemă la completarea formularului. Poate că ați fost prea rapid(ă), puteți încerca din nou?
-          success: Răspunsul pentru sondaj a fost înregistrat cu succes.

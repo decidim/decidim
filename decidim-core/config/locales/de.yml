@@ -165,6 +165,7 @@ de:
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       opens_in_new_tab: In neuem Tab öffnen
+      secondary_menu: Sekundäres Menü
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -179,6 +180,7 @@ de:
         leaving_authorizations_behind: Einige Daten, die an Ihre Autorisierung gebunden sind, werden aus Sicherheitsgründen gespeichert. Wenn Sie ein anderes Konto erstellen und erneut autorisieren, werden diese Daten auf Ihr neues Konto wiederhergestellt.
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
+        inactive_account_removal_reason: Konto nach %{inactivity_period} Tagen Inaktivität entfernt
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
@@ -524,7 +526,7 @@ de:
           comment: Kommentar
           debate: Debatte
           initiative: Initiative
-          meeting: Treffen
+          meeting: Veranstaltung
           order: Budget-Abstimmung
           post: Beitrag
           proposal: Vorschlag
@@ -604,10 +606,6 @@ de:
         name: Hauptdaten
       metadata:
         name: Metadaten
-      metrics:
-        name: Organisationsmetriken
-      participatory_space_metrics:
-        name: Metriken
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -1173,6 +1171,8 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer möchte keine privaten Nachrichten empfangen.
+          participants:
+            title: Teilnehmende
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
@@ -1205,27 +1205,6 @@ de:
         finished: 'Beendet am: %{end_date}'
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
-    metrics:
-      blocked_users:
-        description: Anzahl der blockierten Teilnehmenden
-      download:
-        csv: Daten herunterladen (CSV)
-      followers:
-        description: Anzahl der Benutzer, die dieser Teilnahme folgen
-        object: Anhänger
-        title: Anhänger
-      participants:
-        description: Anzahl der aktiven Benutzer in der Organisation
-        object: Teilnehmer
-        title: Teilnehmer
-      reported_users:
-        description: Anzahl der gemeldeten Teilnehmenden
-      user_reports:
-        description: Anzahl der von Teilnehmenden getätigten Meldungen
-      users:
-        description: Anzahl der Benutzer in der Organisation
-        object: Benutzer
-        title: Benutzer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
@@ -1305,6 +1284,7 @@ de:
         assigned_to_proposal: Ich möchte eine E-Mail erhalten, wenn mir jemand einen Vorschlag zur Bewertung zuweist
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
+        evaluators: Bewertende Personen
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
@@ -1345,14 +1325,13 @@ de:
         core:
           components: Komponenten
           description: Diese ZIP-Datei enthält Dateien zum Studium und Recherchen über diese Mitwirkungsplattform.
+          generated_on_date: Generiert am %{date}
           main: Kern
+          resources:
+            one: "%{count} Ressource"
+            other: "%{count} Ressourcen"
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
-        metrics:
-          cumulative: Die Gesamtzahl der Metrik an diesem Tag
-          day: Erstellungsdatum dieser Metrik
-          metric_type: Typ der Metrik
-          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1475,10 +1454,6 @@ de:
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1496,6 +1471,26 @@ de:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Unsere Datensätze zeigen, dass Sie ein %{organization_name} Konto am <strong>%{date_account_creation}</strong> erstellt haben und seit <strong>%{date_last_connection}</strong> nicht mehr aktiv waren.</p>
+          <p>Zum Schutz Ihrer Privatsphäre, werden wir dieses Konto in <strong>%{days} Tagen</strong> automatisch löschen geplant.</p>
+          <p>Wenn Sie Ihr %{organization_name} Konto behalten möchten, dann %{login_url} vor Ablauf der Frist, und Ihr Konto bleibt erhalten.<p>
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello_html: Hallo <strong>%{username}</strong>,
+        log_in: anmelden
+        never_logged_in: Nie angemeldet
+        subject: Inaktive Kontowarnung
+      removal_notification:
+        body: Ihr %{organization_name} Konto wurde aufgrund von Inaktivität gelöscht.
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello: Hallo %{username},
+        subject: Inaktives Konto gelöscht
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1672,6 +1667,13 @@ de:
     user_conversations:
       index:
         time_ago: "Vor %{time}"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update für folgende Gruppe, bei der Sie Mitglied sind, informieren: <strong>%{group_name}</strong>.'
+        body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
+        greeting: Hallo %{name},
+        instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
+        subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2041,7 +2043,6 @@ de:
         terms_of_service: Nutzungsbedingungen
       header:
         close: Schliessen
-        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü

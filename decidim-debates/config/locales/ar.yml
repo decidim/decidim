@@ -9,7 +9,6 @@ ar:
         instructions: تعليمات للمشاركة
         start_time: يبدأ عند
         title: عنوان
-        user_group_id: إنشاء النقاش كما
     models:
       decidim/debates/create_debate_event: النقاش
       decidim/debates/creation_disabled_event: تم تعطيل المناقشات
@@ -92,9 +91,7 @@ ar:
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
-          groups_count: الفِرَق
           participants_count: المشاركون
       models:
         debate:
@@ -133,10 +130,5 @@ ar:
           name: المناقشات
           next_level_in: شارك في %{score} مناقشات أخرى للوصول إلى المستوى التالي!
           unearned_another: هذا المشارك لم يشارك بعد في أي نقاش.
-    metrics:
-      debates:
-        description: عدد المناقشات التي تم إنشاؤها
-        object: المناقشات
-        title: المناقشات
     statistics:
       debates_count: المناقشات

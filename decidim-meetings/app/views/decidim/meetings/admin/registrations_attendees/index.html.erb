@@ -1,0 +1,110 @@
+<% add_decidim_page_title(t("title", scope: "decidim.meetings.admin.registrations_attendees.index")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t("title", scope: "decidim.meetings.admin.registrations_attendees.index") %>
+    <div class="flex items-center gap-x-4 ml-auto">
+      <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
+      <% if allowed_to? :export_registrations, :meeting, meeting: meeting %>
+            <span class="exports button button__sm button__secondary button--title" data-toggle="export-dropdown">
+              <%= t "actions.export", scope: "decidim.admin" %>
+              <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+            </span>
+        <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+          <ul class="vertical menu add-components">
+            <% %w(CSV JSON Excel).each do |format| %>
+              <%= link_to export_meeting_registrations_path(meeting_id: meeting, format:) do %>
+                <li class="exports--format--<%= format.downcase %> exports--registrations"><%= t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format) %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
+      <%= link_to t("manage_questions" , scope: "decidim.meetings.admin.registrations.form"), edit_questions_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
+    </div>
+  </h1>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <% if meeting.component.settings.registration_code_enabled %>
+      <div class="card mb-4">
+        <div class="card-divider">
+          <h2 class="card-title">
+            <%= t(".validate_registration_code") %>
+          </h2>
+        </div>
+        <div class="card-section">
+          <%= decidim_form_for(@validation_form, url: validate_registration_code_meeting_registrations_attendees_path, html: { class: "form form-defaults validate_meeting_registration_code" })  do |f| %>
+            <div class="form__wrapper">
+              <div class="card-section">
+                <div class="row column">
+                  <div>
+                    <%= f.label :code %>
+                  </div>
+                  <%= f.text_field :code, label: false %>
+                </div>
+                <div class="row column">
+                  <%= f.submit t(".validate"), class: "button button__sm button__secondary" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="card" id="meeting-invites">
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= t("models.registration.fields.name", scope: "decidim.meetings") %></th>
+              <th><%= t("models.registration.fields.email", scope: "decidim.meetings") %></th>
+              <th><%= t("models.registration.fields.status", scope: "decidim.meetings") %></th>
+              <th><%= t("models.registration.actions", scope: "decidim.meetings") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% registrations.each do |registration| %>
+              <% presenter = registration.presenter %>
+              <tr data-id="<%= registration.id %>">
+                <td>
+                  <%= presenter.name %>
+                </td>
+                <td>
+                  <%= presenter.email %>
+                </td>
+                <td class="<%= presenter.status_html_class %>">
+                  <strong class="label <%= presenter.status_html_class %>">
+                    <%= presenter.status %>
+                  </strong>
+                </td>
+                <td class="table-list__actions">
+                  <% if allowed_to? :update, :meeting, meeting: meeting %>
+                    <% if presenter.validated? %>
+                      <%= icon(
+                            "user-follow-line",
+                            class: "action-icon action-icon--disabled",
+                            role: "img",
+                            aria_label: t("actions.mark_as_attendee", scope: "decidim.meetings")
+                          ) %>
+                    <% else %>
+                      <%= icon_link_to(
+                            "user-follow-line",
+                            mark_as_attendee_meeting_registrations_attendee_path(id: registration),
+                            t("actions.mark_as_attendee", scope: "decidim.meetings"),
+                            method: :put,
+                            class: "action-icon--mark-attendee"
+                          ) %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

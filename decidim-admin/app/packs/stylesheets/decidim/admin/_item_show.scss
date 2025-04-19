@@ -3,7 +3,7 @@
 }
 
 .item_show__header {
-  @apply flex items-center pb-4 border-b border-gray mb-4 gap-x-2;
+  @apply flex items-center pb-4 border-b border-neutral-200 mb-4 gap-x-2;
 
   > svg {
     @apply w-4 h-4;

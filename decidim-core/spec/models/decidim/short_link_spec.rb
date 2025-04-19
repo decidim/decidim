@@ -54,7 +54,7 @@ module Decidim
       end
 
       context "when the first two identifiers are taken" do
-        let!(:taken_identifier1) { "abcDEF1234" }
+        let(:taken_identifier1) { "abcDEF1234" }
         let(:taken_identifier2) { "GHIjkl5678" }
         let!(:existing_link1) { create(:short_link, target: organization, identifier: taken_identifier1) }
         let!(:existing_link2) { create(:short_link, target: organization, identifier: taken_identifier2) }

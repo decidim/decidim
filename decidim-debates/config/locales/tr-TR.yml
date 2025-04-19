@@ -10,7 +10,6 @@ tr:
         instructions: Katılma talimatları
         start_time: Den başlar
         title: Başlık
-        user_group_id: Olarak tartışma oluştur
     models:
       decidim/debates/close_debate_event: Tartışma kapandı
       decidim/debates/create_debate_event: tartışma
@@ -113,7 +112,6 @@ tr:
         new:
           back: Geri
           create: Oluştur
-          title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
@@ -124,7 +122,6 @@ tr:
           debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
-          groups_count: Gruplar
           open: Açık tartışma
           participants_count: Katılımcılar
         update:
@@ -185,8 +182,3 @@ tr:
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
-    metrics:
-      debates:
-        description: Oluşturulan tartışmaların sayısı
-        object: tartışmalar
-        title: Tartışmalar

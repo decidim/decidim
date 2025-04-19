@@ -10,7 +10,6 @@ el:
         instructions: Οδηγίες συμμετοχής
         start_time: Ξεκινά στις
         title: Τίτλος
-        user_group_id: Δημιουργία συζήτησης ως
     models:
       decidim/debates/close_debate_event: Η συζήτηση έκλεισε
       decidim/debates/create_debate_event: Συζήτηση
@@ -113,7 +112,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Νέα συζήτηση
         orders:
           commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά
@@ -124,7 +122,6 @@ el:
           debate_closed: Κλειστό
           debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
           edit_conclusions: Επεξεργασία συμπερασμάτων
-          groups_count: Ομάδες
           open: Άνοιγμα συζήτησης
           participants_count: Συμμετέχοντες
         update:
@@ -183,10 +180,5 @@ el:
           next_level_in: Συμμετάσχετε σε %{score} ακόμη συζητήσεις για να φτάσετε στο επόμενο επίπεδο!
           unearned_another: Αυτός ο συμμετέχων δεν έχει λάβει ακόμα μέρος σε καμία συζήτηση.
           unearned_own: Δεν έχετε συμμετάσχει ακόμα σε καμία συζήτηση.
-    metrics:
-      debates:
-        description: Αριθμός συζητήσεων που δημιουργήθηκαν
-        object: συζητήσεις
-        title: Συζητήσεις
     statistics:
       debates_count: Συζητήσεις

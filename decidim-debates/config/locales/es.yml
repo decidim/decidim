@@ -10,7 +10,6 @@ es:
         instructions: Instrucciones para participar
         start_time: Fecha de inicio
         title: Título
-        user_group_id: Crea un debate como
     models:
       decidim/debates/close_debate_event: Debate cerrado
       decidim/debates/create_debate_event: Debate
@@ -147,13 +146,12 @@ es:
           state_values:
             closed: Cerrado
             open: Abierto
-          user_group: Grupos
         index:
           new_debate: Nuevo debate
         new:
           back: Volver
           create: Crear
-          title: Nuevo debate
+          title: Crear un debate
         orders:
           commented: Más comentados
           label: Ordenar debates por
@@ -166,7 +164,6 @@ es:
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
           edit_debate: Editar
-          groups_count: Grupos
           open: Debate abierto
           participants_count: Participantes
         update:
@@ -239,11 +236,6 @@ es:
           next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha participado en ningún debate.
           unearned_own: Aún no has participado en ningún debate.
-    metrics:
-      debates:
-        description: Número de debates creados
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:
@@ -257,7 +249,6 @@ es:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         debates:
           author: Los datos de autoría de este debate
           closed_at: La fecha en la que la se cerró este debate

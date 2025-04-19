@@ -16,7 +16,6 @@
         customize_registration_email: Tilpass registrerings-e-post
         decidim_category_id: Kategori
         decidim_scope_id: Tema
-        decidim_user_group_id: Brukergruppe
         description: Beskrivelse
         id: ID
         location: Plassering
@@ -64,9 +63,6 @@
             values:
               'false': Tidligere
               'true': Kommende
-          with_any_origin:
-            values:
-              user_group: Brukergrupper
           with_any_type:
             label: Type møte
             values:
@@ -93,14 +89,12 @@
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
             maps_enabled: Kart aktivert
-            registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
             creation_enabled_for_participants: Deltakere kan nå opprette møter
-            creation_enabled_for_user_groups: Brukergrupper kan nå opprette møter
     events:
       meetings:
         meeting_closed:
@@ -128,10 +122,8 @@
           email_subject: De tildelte plassene for "%{resource_title}" møtet er over %{percentage}%
           notification_title: De tildelte plassene for <a href="%{resource_path}">%{resource_title}</a> møtet er over %{percentage}%.
         meeting_updated:
-          email_intro: 'Møtet "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Møtet "%{resource_title}" ble oppdatert
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble oppdatert.
         registration_code_validated:
           email_intro: Din registreringskode "%{registration_code}" for "%{resource_title}" møtet er blitt validert.
           email_outro: Du har mottatt denne varslingen fordi registreringskoden din for "%{resource_title}" møtet er blitt validert.
@@ -198,7 +190,6 @@
             create: Opprett
             title: Ny agenda
         exports:
-          answers: Svar
           meeting_comments: Kommentarer
           meetings: Møter
           registrations: Registreringer
@@ -261,8 +252,6 @@
         registrations:
           edit:
             save: Lagre
-            validate: Valider
-            validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
@@ -277,9 +266,6 @@
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
-          validate_registration_code:
-            invalid: Denne registreringskoden er ugyldig.
-            success: Registreringskoden ble validert.
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
@@ -373,7 +359,6 @@
         form:
           address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
-          create_as: Opprett møte som
           select_a_meeting_type: Velg en møtetype
           select_a_registration_type: Velg en registreringstype
           select_an_iframe_access_level: Velg et tilgangsnivå for iframe
@@ -392,7 +377,6 @@
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
-          registration_code_help_text: Din registreringskode
           registration_state:
             validated: VALIDERT
             validation_pending: VALIDERING VENTER
@@ -422,12 +406,8 @@
             title: Tittel
       polls:
         questions:
-          index:
-            empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
           index_admin:
             question: Spørsmål
-            received_answer: mottatt svar
-            received_answers: mottatt svar
             results: Resultater
             send: Send
             sent: Sendt
@@ -441,7 +421,6 @@
         confirmation:
           confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
           details: Du finner møtets detaljer i vedlegget.
-          registration_code: Registreringskoden din er %{code}.
       registrations:
         create:
           invalid: Det oppstod et problem med å bli med på dette møtet.
@@ -454,11 +433,6 @@
       types:
         private_meeting: Privat møte
         transparent: Privat
-    metrics:
-      meetings:
-        description: Antall møter opprettet
-        object: møter
-        title: Møter
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidligere møter

@@ -10,7 +10,6 @@ de:
         instructions: Anweisungen zur Teilnahme
         start_time: Startet um
         title: Titel
-        user_group_id: Debatte erstellen als
     models:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
@@ -147,13 +146,12 @@ de:
           state_values:
             closed: Geschlossen
             open: Offen
-          user_group: Gruppen
         index:
           new_debate: Neue Debatte
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
+          title: Debatte erstellen
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
@@ -166,7 +164,6 @@ de:
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Bearbeiten
-          groups_count: Gruppen
           open: Offene Debatte
           participants_count: Teilnehmer
         update:
@@ -239,11 +236,6 @@ de:
           next_level_in: Nehmen Sie an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
           unearned_own: Sie haben bisher an keiner Debatte teilgenommen.
-    metrics:
-      debates:
-        description: Anzahl der erstellten Debatten
-        object: Debatten
-        title: Debatten
     open_data:
       help:
         debate_comments:
@@ -257,7 +249,6 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         debates:
           author: Die Angaben über die verfassende Person dieser Debatte
           closed_at: Das Datum, an dem diese Debatte geschlossen wurde

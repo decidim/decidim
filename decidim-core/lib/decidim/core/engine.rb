@@ -231,12 +231,6 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
-      # this is just to pass us through Rails upgrade
-      initializer "decidim_core.patch_encryption" do |app|
-        app.config.active_support.hash_digest_class = OpenSSL::Digest::SHA1
-        app.config.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
-      end
-
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
       end
@@ -478,7 +472,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
         end
       end
 
@@ -558,70 +552,6 @@ module Decidim
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
           resource.searchable = true
-        end
-      end
-
-      initializer "decidim_core.register_metrics" do
-        Decidim.metrics_registry.register(:users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:user_reports) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UserReportsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:reported_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ReportedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:participants) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 1
-            settings.attribute :stat_block, type: :string, default: "big"
-          end
-        end
-
-        Decidim.metrics_registry.register(:followers) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::FollowersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 10
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
         end
       end
 

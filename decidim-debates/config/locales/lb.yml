@@ -10,7 +10,6 @@ lb:
         instructions: Anweisungen zur Teilnahme
         start_time: Startet um
         title: Titel
-        user_group_id: Debatte erstellen als
     models:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
@@ -54,7 +53,6 @@ lb:
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
@@ -65,7 +63,6 @@ lb:
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          groups_count: Gruppen
           open: Offene Debatte
           participants_count: Teilnehmer
         update:
@@ -92,8 +89,5 @@ lb:
       badges:
         commented_debates:
           name: Debatten
-    metrics:
-      debates:
-        title: Debatten
     statistics:
       debates_count: Debatten
