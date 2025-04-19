@@ -154,7 +154,6 @@ module Decidim
         expect(email_body(mail)).to match(reportable.title["en"])
         expect(email_body(mail)).to match(reportable.body["en"])
       end
-
     end
   end
 end
