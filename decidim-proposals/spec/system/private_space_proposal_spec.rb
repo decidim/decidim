@@ -115,6 +115,27 @@ describe "Private Space Proposal" do
           expect(page).to have_content("You are not authorized to perform this action")
         end
       end
+
+      context "and is an admin" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:target_path) { main_component_path(component) }
+
+        context "when the component has votes enabled and the proposal has votes" do
+          let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
+
+          before do
+            component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
+            component.save!
+
+            login_as user, scope: :user
+            visit target_path
+          end
+
+          it "displays the proposals votes count" do
+            expect(page).to have_content("Votes")
+          end
+        end
+      end
     end
   end
 end
