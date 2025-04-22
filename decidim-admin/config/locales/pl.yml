@@ -563,9 +563,6 @@ pl:
         static_page_topics: Tematy
         static_pages: Strony
         users: Użytkownicy
-      metrics:
-        metrics:
-          see_more_metrics: Zobacz więcej danych
       models:
         area:
           fields:
@@ -969,7 +966,6 @@ pl:
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         menu: Menu
-        metrics: Partycypacja w liczbach
         page_topics: Wątki
         pages: Strony
         panel: Administrator
@@ -1004,16 +1000,6 @@ pl:
       errors:
         impersonate_user:
           reason: Aby zarządzać uczestnikiem niezarządzanym, należy podać przyczynę.
-    metrics:
-      blocked_users:
-        object: zablokowani użytkownicy
-        title: Zablokowani użytkownicy
-      reported_users:
-        object: zgłoszeni użytkownicy
-        title: Zgłoszeni użytkownicy
-      user_reports:
-        object: zgłoszenia użytkownika
-        title: Zgłoszenia użytkownika
     moderations:
       actions:
         expand: Rozwiń

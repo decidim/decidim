@@ -30,6 +30,8 @@ module Decidim
           case permission_action.action
           when :join
             toggle_allow(can_join_meeting?)
+          when :join_waitlist
+            toggle_allow(can_join_waitlist?)
           when :leave
             toggle_allow(can_leave_meeting?)
           when :decline_invitation
@@ -72,6 +74,13 @@ module Decidim
       def can_join_meeting?
         meeting.can_be_joined_by?(user) &&
           authorized?(:join, resource: meeting)
+      end
+
+      def can_join_waitlist?
+        meeting.waitlist_enabled? &&
+          !meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user) &&
+          authorized?(:join_waitlist, resource: meeting)
       end
 
       def can_leave_meeting?

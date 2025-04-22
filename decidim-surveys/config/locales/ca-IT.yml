@@ -1,0 +1,157 @@
+ca-IT:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Ha acabat l'enquesta
+      decidim/surveys/opened_survey_event: Ha començat l'enquesta
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquesta
+        other: Enquestes
+      decidim/surveys/survey_response:
+        one: Resposta
+        other: Respostes
+  decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enquestes
+      menu:
+        surveys_menu:
+          main: Principal
+          questions: Preguntes
+          responses: Respostes
+          settings: Configuració
+    components:
+      surveys:
+        actions:
+          response: Resposta
+        name: Enquestes
+        settings:
+          announcement: Avís
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    events:
+      surveys:
+        survey_closed:
+          email_intro: L'enquesta %{resource_title} a %{participatory_space_title} ha estat tancada.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha acabat una enquesta a %{participatory_space_title}
+          notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha acabat.
+        survey_opened:
+          email_intro: 'L''enquesta %{resource_title} a %{participatory_space_title} ja està oberta. Pots participar-hi des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una nova enquesta a %{participatory_space_title}
+          notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
+    statistics:
+      responses_count: Respostes
+    surveys:
+      actions:
+        confirm_destroy: Segur que ho vols eliminar?
+        destroy: Eliminar
+        edit: Editar
+        manage_questions: Preguntes
+        new_survey: Nova enquesta
+        preview: Previsualitzar
+        responses_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{responses_count} existents actualment.
+        title: Accions
+      admin:
+        exports:
+          survey_user_responses: Respostes de les participants de l'enquesta
+        publish_responses:
+          index:
+            description: |-
+              Publicant les respostes a les repostes de l'enquesta, aquestes seran visibles per a les visitants.
+              Pots seleccionar les repostes que vols publicar marcant el "checkbox" de cadascuna d'elles.
+              Només pots publicar les respostes de les preguntes que són del tipus de resposta: "Opció única", "Opció múltiple", "Matriu (opció única)", "Matriu (opció múltiple), i "Ordenació".
+            responses:
+              one: "%{count} resposta"
+              other: "%{count} respostes"
+            status:
+              not_published: No publicades
+              published: Publicades
+            title: Publicar les respostes
+        questions:
+          surveys:
+            edit:
+              title: Preguntes
+        responses:
+          index:
+            no_responses: Encara no hi ha cap resposta
+            title: "%{total} respostes en total"
+          show:
+            title: 'Resposta #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: Configuració
+        surveys:
+          create:
+            invalid: S'ha produït un error creant l'enquesta.
+            success: Enquesta creada correctament.
+          destroy:
+            success: Enquesta eliminada correctament.
+          edit:
+            title: Principal
+          index:
+            title: Enquestes
+          new:
+            title: Principal
+          publish:
+            invalid: S'ha produït un error en publicar aquesta enquesta.
+            success: Enquesta publicada correctament.
+          unpublish:
+            invalid: S'ha produït un error en despublicar aquesta enquesta.
+            success: Enquesta despublicada correctament.
+          update:
+            invalid: S'ha produït un error en desar l'enquesta.
+            success: Enquesta desada correctament.
+      admin_log:
+        survey:
+          create: "%{user_name} ha creat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          delete: "%{user_name} ha eliminat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          publish: "%{user_name} ha publicat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          unpublish: "%{user_name} ha despublicat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          update: "%{user_name} ha actualitzat l'enquesta %{resource_name} de l'espai de participació %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Enquestes
+      last_activity:
+        new_survey: 'Nova enquesta:'
+      models:
+        survey:
+          fields:
+            questions: Preguntes
+            responses: Respostes
+            status: Estat
+            title: Títol
+          status:
+            closed: Tancada
+            open: Oberta
+      survey_confirmation_mailer:
+        confirmation:
+          body: Has respost amb èxit a l'enquesta %{questionnaire_title} dins de %{participatory_space}
+          subject: Confirmació de resposta al qüestionari %{questionnaire_title}
+        export_name: Respuestas a l'encuesta
+      surveys:
+        count:
+          surveys_count:
+            one: "%{count} enquesta"
+            other: "%{count} enquestes"
+        filters:
+          all: Totes
+          state_values:
+            closed: Tancada
+            open: Obertes
+        no_surveys_warning: No hi ha enquestes que coincideixin amb el teu criteri de cerca o no hi ha cap enquesta.
+        response:
+          invalid: S'ha produït un error en respondre l'enquesta.
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
+          success: L'enquesta s'ha respost correctament.
+        show:
+          closed: Tancada
+          open: Oberta
+          questions: preguntes

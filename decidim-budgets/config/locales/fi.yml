@@ -230,6 +230,8 @@ fi:
           votes_count:
             one: Olet jo äänestänyt budjetin %{budget_name} äänestyksessä.
             other: Olet jo antanut %{count} ääntä budjetin %{budget_name} äänestyksessä.
+      order_pdf:
+        title: Äänesi kirjaaminen onnistui.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Projektit, jotka valitsit:'

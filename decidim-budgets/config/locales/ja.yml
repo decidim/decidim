@@ -223,6 +223,8 @@ ja:
             other: 投票を表示
           votes_count:
             other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
+      order_pdf:
+        title: 投票が正常に受理されました。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'

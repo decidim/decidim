@@ -53,6 +53,12 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: The nickname must be lowercase and contain no spaces
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -166,6 +172,7 @@ en:
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
+      secondary_menu: Secondary menu
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -1545,6 +1552,8 @@ en:
         report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
+    resource_autocomplete:
+      help: Type to search proposals
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -2055,8 +2064,11 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        back: Back to list
+        cancel: Cancel
         close: Close
-        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
+        confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
+        confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu

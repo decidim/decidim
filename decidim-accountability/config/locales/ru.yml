@@ -138,11 +138,6 @@ ru:
           email_intro: 'Результат "%{resource_title}", который включает предложение "%{proposal_title}", теперь завершено на %{progress}%. Вы можете увидеть его на этой странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}", и это предложение включено в результат "%{resource_title}". Вы можете прекратить получение уведомлений, перейдя по предыдущей ссылке.
           notification_title: Результат <a href="%{resource_path}">%{resource_title}</a>, который включает предложение <a href="%{proposal_path}">%{proposal_title}</a>, теперь %{progress}% завершен.
-    metrics:
-      results:
-        description: Количество сгенерированных результатов
-        object: результаты
-        title: Результаты
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

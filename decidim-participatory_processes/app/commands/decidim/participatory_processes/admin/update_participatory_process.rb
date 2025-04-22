@@ -8,11 +8,23 @@ module Decidim
       class UpdateParticipatoryProcess < Decidim::Commands::UpdateResource
         fetch_file_attributes :hero_image
 
-        fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :promoted, :description,
-                              :short_description, :taxonomizations,
-                              :private_space, :developer_group, :local_area, :target, :participatory_scope,
-                              :participatory_structure, :meta_scope, :start_date, :end_date, :participatory_process_group,
+        fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :promoted,
+                              :taxonomizations, :private_space, :developer_group, :local_area,
+                              :target, :participatory_scope, :participatory_structure,
+                              :meta_scope, :start_date, :end_date, :participatory_process_group,
                               :announcement
+
+        protected
+
+        def attributes
+          parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+          parsed_short_description = Decidim::ContentProcessor.parse(form.short_description, current_organization: form.current_organization).rewrite
+
+          super.merge(
+            description: parsed_description,
+            short_description: parsed_short_description
+          )
+        end
 
         private
 
