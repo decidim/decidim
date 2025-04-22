@@ -2,6 +2,32 @@
 
 require "spec_helper"
 
+shared_examples "a version of a hidden object" do
+  before do
+    visit resource_path
+    click_on "see other versions"
+    click_on("Version 1 of #{hidden_object.reload.versions.size}")
+  end
+
+  around do |example|
+    previous = Capybara.raise_server_errors
+
+    Capybara.raise_server_errors = false
+    example.run
+    Capybara.raise_server_errors = previous
+  end
+
+  it "shows an error page" do
+    expect(page).to have_content("Changes at")
+
+    create(:moderation, reportable: hidden_object, hidden_at: 1.day.ago)
+
+    visit current_path
+
+    expect(page).to have_content(ActiveRecord::RecordNotFound)
+  end
+end
+
 shared_examples "versions controller" do
   let(:base_params) do
     if resource.is_a?(Decidim::Participable)
