@@ -287,6 +287,14 @@ eu:
             minimum_reached: Gutxieneko babesak lortu dituzu
             start_adding_projects: Hasi proiektuak gehitzen
           minimum: Gutxienekoa
+          minimum_projects_rule:
+            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta babesa eman zure lehentasunen arabera.
+          projects_rule:
+            description: Hautatu gutxienez %{minimum_number} eta gehienez %{maximum_number} nahi dituzun proiektu, eta bozkatu zure lehentasunen arabera.
+          projects_rule_maximum_only:
+            description: Hautatu gutxienez nahi dituzun %{maximum_number} proiektu eta babesa eman zure lehentasunen arabera.
+          vote_threshold_percent_rule:
+            description: Esleitu gutxienez nahi dituzun %{minimum_budget} proiektu eta babesa eman zure lehentasunen arabera.
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
