@@ -123,6 +123,9 @@ eu:
       admin_log:
         csv_datum:
           create: "%{user_name} -k sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
+          delete: "%{user_name} -k ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          import: "%{user_name} -k %{imported_count} errolda-erregistroak inportatu ditu"
+          update: "%{user_name} -k eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'
@@ -171,6 +174,9 @@ eu:
             create_import:
               error: Arazo bat izan da erroldak inportatzean.
               no_user: Ez da aurkitu parte-hartzailea
+              success: Zuzen inportatu dira %{count} elementu. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
+            destroy:
+              success: Errolda-datuen erregistroa ezabatu da.
             index:
               empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV fitxategi bat.
               no_sign_in: Saioa inoiz ez hasia
