@@ -11,14 +11,17 @@ module Decidim
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
 
-        JoinMeeting.call(meeting, @form) do
+        command = should_join_waitlist? ? JoinWaitlist : JoinMeeting
+        joining_waitlist = should_join_waitlist?
+
+        command.call(meeting, @form) do
           on(:ok) do
-            flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t(joining_waitlist ? "registrations.waitlist.success" : "registrations.create.success", scope: "decidim.meetings")
             redirect_to after_response_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t(joining_waitlist ? "registrations.waitlist.invalid" : "registrations.create.invalid", scope: "decidim.meetings")
             render template: "decidim/forms/questionnaires/show"
           end
 
@@ -42,6 +45,24 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            redirect_after_path
+          end
+        end
+      end
+
+      def join_waitlist
+        enforce_permission_to(:join_waitlist, :meeting, meeting:)
+
+        @form = JoinMeetingForm.from_params(params).with_context(current_user:)
+
+        JoinWaitlist.call(meeting, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("registrations.waitlist.success", scope: "decidim.meetings")
+            redirect_after_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("registrations.waitlist.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
@@ -79,8 +100,14 @@ module Decidim
         end
       end
 
+      def should_join_waitlist?
+        meeting.waitlist_enabled? && !meeting.has_available_slots? && !meeting.has_registration_for?(current_user)
+      end
+
       def allow_responses?
-        meeting.registrations_enabled? && meeting.registration_form_enabled? && meeting.has_available_slots?
+        return false unless meeting.registrations_enabled? && meeting.registration_form_enabled?
+
+        meeting.has_available_slots? || should_join_waitlist?
       end
 
       def after_response_path

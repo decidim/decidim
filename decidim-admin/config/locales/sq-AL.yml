@@ -324,9 +324,6 @@ sq:
         static_page_topics: Temat
         static_pages: Faqet
         users: Pjesëmarrësit
-      metrics:
-        metrics:
-          see_more_metrics: Shiko më shumë të dhëna
       models:
         area:
           fields:

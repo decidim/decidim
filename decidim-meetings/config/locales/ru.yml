@@ -96,10 +96,8 @@ ru:
           email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
           notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         meeting_updated:
-          email_intro: 'Встреча «%{resource_title}» обновлена. Вы можете прочитать новую версию на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
-          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
         registration_code_validated:
           email_intro: Ваш регистрационный код «%{registration_code}» для встречи %{resource_title} был подтвержден.
           email_outro: Вы получили это уведомление, потому что ваш регистрационный код для встречи «%{resource_title}» был подтвержден.
@@ -206,8 +204,6 @@ ru:
         registrations:
           edit:
             save: Сохранить
-            validate: Подтвердить
-            validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
@@ -217,9 +213,6 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
-          validate_registration_code:
-            invalid: Этот регистрационный код неуместен.
-            success: Регистрационный код успешно подтвержден.
       admin_log:
         invite:
           create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
@@ -265,7 +258,6 @@ ru:
           meeting_minutes: Протокол встречи
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
-          registration_code_help_text: Ваш регистрационный код
           registration_state:
             validated: ПОДТВЕРЖДЕНО
             validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
@@ -292,7 +284,6 @@ ru:
         confirmation:
           confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
           details: Подробное описание встречи - в прилагаемом файле.
-          registration_code: 'Ваш регистрационный код: %{code}.'
       registrations:
         create:
           invalid: При попытке присоединиться к встрече произошла ошибка.
@@ -305,11 +296,6 @@ ru:
       types:
         private_meeting: Частная встреча
         transparent: Прозрачная
-    metrics:
-      meetings:
-        description: Количество созданных встреч
-        object: встречи
-        title: Встречи
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи

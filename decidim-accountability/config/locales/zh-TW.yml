@@ -203,11 +203,6 @@ zh-TW:
           email_outro: 收到這個通知表示正在訂閱 "%{proposal_title}" ，而這個提案包含在結果 "%{resource_title}" ，透過下面連結可以停止接收通知。
           email_subject: '%{resource_title} 的更新進度'
           notification_title: 這個結果 <a href="%{resource_path}">%{resource_title}</a> 包含提案 <a href="%{proposal_path}">%{proposal_title}</a>，現在完成 %{progress}% 。
-    metrics:
-      results:
-        description: 產生的結果數量
-        object: 結果
-        title: 結果
     participatory_spaces:
       highlighted_results:
         see_all: 檢視所有結果 (%{count})

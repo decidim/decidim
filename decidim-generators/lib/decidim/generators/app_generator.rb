@@ -191,7 +191,7 @@ module Decidim
       end
 
       def add_storage_provider
-        template "storage.yml.erb", "config/storage.yml", force: true
+        copy_file "storage.yml", "config/storage.yml", force: true
 
         providers = options[:storage].split(",")
 
@@ -417,7 +417,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.pdf_signature_service = "MyPDFSignatureService"/,
-                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
+                  "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
       end
 
       def machine_translation_service

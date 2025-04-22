@@ -149,10 +149,6 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{proposal_title}". Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Uppfærsla á %{proposal_title}
           notification_title: Tillagan <a href="%{proposal_path}">%{proposal_title}</a> hefur verið innifalinn í <a href="%{resource_path}">%{resource_title}</a> niðurstöðum.
-    metrics:
-      results:
-        object: niðurstöður
-        title: Niðurstöður
     participatory_spaces:
       highlighted_results:
         see_all: Sjá allar niðurstöður (%{count})
