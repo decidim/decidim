@@ -183,11 +183,6 @@ eu:
           email_outro: 'Jakinarazpen hau jaso duzu hemen: %{resource_title} aipatu zaituztelako.'
           email_subject: 'Hemen: %{resource_title} aipatu zaituzte'
           notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
-    metrics:
-      comments:
-        description: Parte-hatzaileek sortutako iruzkin kopurua
-        object: iruzkinak
-        title: Iruzkinak
   errors:
     messages:
       cannot_have_comments: ezin zaio iruzkinik egin

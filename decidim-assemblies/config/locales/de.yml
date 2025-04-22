@@ -376,11 +376,6 @@ de:
           not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
-    metrics:
-      assemblies:
-        description: Anzahl der erstellten Gremien
-        object: Gremien
-        title: Gremien
     open_data:
       help:
         assemblies:

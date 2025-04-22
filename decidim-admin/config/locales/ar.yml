@@ -849,15 +849,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-    metrics:
-      blocked_users:
-        title: المستخدمين المحظورين
-      reported_users:
-        object: المستخدمين المبلغ عنهم
-        title: المستخدمون المبلغ عنهم
-      user_reports:
-        object: تقارير المستخدم
-        title: تقارير المستخدم
     moderations:
       actions:
         hidden: مخفي

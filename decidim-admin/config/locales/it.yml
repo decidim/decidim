@@ -546,6 +546,7 @@ it:
             xlsx: xlsx
           actions:
             back: Indietro
+          download_example: Scarica esempio
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
       managed_users:
@@ -578,9 +579,6 @@ it:
         settings: Impostazioni
         static_pages: Pagine
         users: Partecipanti
-      metrics:
-        metrics:
-          see_more_metrics: Visualizza Ulteriori Dettagli
       models:
         area:
           fields:
@@ -976,7 +974,6 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
-        metrics: Partecipazione in cifre
         panel: Amministratrice/tore
         participants: Partecipanti
         scope_types: Tipi di ambito
@@ -1002,16 +999,6 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           participants: Partecipanti
-    metrics:
-      blocked_users:
-        object: utenti bloccati
-        title: Utenti bloccati
-      reported_users:
-        object: utenti segnalati
-        title: Utenti segnalati
-      user_reports:
-        object: rapporti utenti
-        title: Rapporti utenti
     moderations:
       actions:
         expand: Espandi

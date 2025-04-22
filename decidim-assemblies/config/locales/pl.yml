@@ -359,11 +359,6 @@ pl:
           not_found: 'Nie znaleziono typu zespołu w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
-    metrics:
-      assemblies:
-        description: Liczba utworzonych zespołów
-        object: zespoły
-        title: Zespoły
     participatory_processes:
       show:
         related_assemblies: Powiązane zespoły

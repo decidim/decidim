@@ -78,43 +78,35 @@
       <div class="row column">
         <%= form.check_box :comments_enabled %>
       </div>
-
-      <div class="row column">
-        <%= form.check_box :collect_user_extra_fields %>
-      </div>
-
-      <div class="row column">
-        <%= form.translated :editor, :extra_fields_legal_information, aria: { label: :extra_fields_legal_information } %>
-      </div>
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-authorizations">
+  <div class="card" data-component="accordion" id="accordion-signature-workflow">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-authorizations" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-signature-workflow" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="authorizations">
-          <%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>
+        <h2 class="card-title" id="signature-workflow">
+          <%= t("initiatives_types.form.signature_workflow_settings", scope: "decidim.initiatives.admin") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-authorizations" class="card-section">
+    <div id="panel-signature-workflow" class="card-section">
       <div class="row column">
         <%=
           form.select(
             :document_number_authorization_handler,
-            current_organization.available_authorizations.map { |name| [t("#{name}.name", scope: "decidim.authorization_handlers"), name] },
+            Decidim::Initiatives::Signatures.workflows.map do |workflow|
+              [t("#{workflow.name}.name", scope: "decidim.initiatives.signatures.workflows"), workflow.name]
+            end,
             include_blank: true
           )
         %>
       </div>
 
-      <% if current_organization.available_authorizations.include? "sms" %>
-        <div class="row column">
-          <%= form.check_box :validate_sms_code_on_votes %>
-        </div>
-      <% end %>
+      <div class="row column">
+        <%= form.translated :editor, :extra_fields_legal_information, aria: { label: :extra_fields_legal_information } %>
+      </div>
     </div>
   </div>
 

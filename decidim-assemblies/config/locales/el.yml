@@ -298,11 +298,6 @@ el:
           not_found: 'Ο τύπος συνέλευσης δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
     menu:
       assemblies: Συνελεύσεις
-    metrics:
-      assemblies:
-        description: Αριθμός συνελεύσεων που δημιουργήθηκαν
-        object: συνελεύσεις
-        title: Συνελεύσεις
     participatory_processes:
       show:
         related_assemblies: Σχετικές συνελεύσεις

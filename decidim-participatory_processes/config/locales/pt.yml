@@ -280,11 +280,6 @@ pt:
           title: O que é um processo participativo?
     menu:
       processes: Processos
-    metrics:
-      participatory_processes:
-        description: Número de processos participativos nesta organização
-        object: processos participativos
-        title: Processos participativos
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -340,9 +335,6 @@ pt:
           name: Processos realçados
       index:
         title: Processos participativos
-      participatory_process_steps:
-        index:
-          back_to_process: Retroceder à página do processo
       participatory_processes:
         description:
           title: Sobre este processo

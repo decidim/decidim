@@ -521,9 +521,6 @@ el:
         settings: Ρυθμίσεις
         static_pages: Σελίδες
         users: Συμμετέχοντες
-      metrics:
-        metrics:
-          see_more_metrics: Δείτε περισσότερα μετρικά
       models:
         area:
           fields:
@@ -875,7 +872,6 @@ el:
         dashboard: Πίνακας εργαλείων
         impersonatable_users: Διαχειρίσιμοι συμμετέχοντες
         impersonations: Διαχείριση συμμετεχόντων
-        metrics: Μετρικά
         panel: Διαχειριστής
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
@@ -908,16 +904,6 @@ el:
       errors:
         impersonate_user:
           reason: Πρέπει να καταχωρήσετε έναν λόγο κατά τη διαχείριση ενός μη διαχειριζόμενου συμμετέχοντα.
-    metrics:
-      blocked_users:
-        object: αποκλεισμένοι χρήστες
-        title: Αποκλεισμένοι χρήστες
-      reported_users:
-        object: αναφερόμενοι χρήστες
-        title: Αναφερόμενοι χρήστες
-      user_reports:
-        object: αναφορές χρηστών
-        title: Αναφορές χρηστών
     moderations:
       actions:
         expand: Επέκταση

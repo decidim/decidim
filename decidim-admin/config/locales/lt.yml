@@ -532,9 +532,6 @@ lt:
         settings: Nustatymai
         static_pages: Puslapiai
         users: Dalyviai
-      metrics:
-        metrics:
-          see_more_metrics: Žiūrėti daugiau rodiklių
       models:
         area:
           fields:
@@ -909,7 +906,6 @@ lt:
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
-        metrics: Duomenys
         pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
@@ -943,16 +939,6 @@ lt:
       errors:
         impersonate_user:
           reason: Tvarkydami dalyvio, kurio duomenys netvarkomi, duomenis, turite nurodyti priežastį.
-    metrics:
-      blocked_users:
-        object: užblokuoti naudotojai
-        title: Užblokuoti naudotojai
-      reported_users:
-        object: raportuoti naudotojai
-        title: Raportuoti naudotojai
-      user_reports:
-        object: vartotojo pranešimai
-        title: Naudotojo pranešimai
     moderations:
       actions:
         expand: Išplėsti
