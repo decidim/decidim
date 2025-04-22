@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      elections:
+        name: Elections
