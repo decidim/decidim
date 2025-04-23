@@ -535,24 +535,24 @@ en:
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
-            description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            description: These indicators are obtained automatically from the platform data.
             indicators:
               hybridization: Hybridization
-              hybridization_tooltip: Hybridization tooltip
-              influence: Influence
-              influence_tooltip: Influence tooltip
+              hybridization_tooltip: This indicator measures the level of combination between online and offline spaces during the process
+              influence: Citizen influence
+              influence_tooltip: This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.
               traceability: Traceability
-              traceability_tooltip: Traceability tooltip
-              transparency: Transparency
-              transparency_tooltip: Transparency tooltip
+              traceability_tooltip: This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.
+              transparency: Responsiveness
+              transparency_tooltip: This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.
             name: Automatic metrics
           global_score:
-            description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
             name: Global score
             note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest participation quality."
           name: Participation quality
           qualitative_metrics:
-            description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
             indicators:
               accessibility: Accessibility
               accessibility_tooltip: Accessibility tooltip
@@ -562,7 +562,7 @@ en:
               inclusiveness_tooltip: Inclusiveness tooltip
               relevance: Relevance
               relevance_tooltip: Relevance tooltip
-            name: Auto-evaluation metrics
+            name: Self-assessment metrics
         extra_data:
           name: Phase & duration
         hero:
