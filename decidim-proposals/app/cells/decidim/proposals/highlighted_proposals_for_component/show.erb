@@ -10,18 +10,14 @@
     <% end %>
   <% end %>
 </div>
-
-<div class="flex items-center justify-between space-x-6">
-  <span class="content-block__span flex-shrink-0">
-    <%= options[:order] == "recent" ? t("decidim.participatory_spaces.highlighted_proposals.last") : t("decidim.participatory_spaces.highlighted_proposals.random") %>
-  </span>
-  <% if single_component? %>
-    <%= link_to decidim_proposals.new_proposal_path, class: "button button__xs md:button__lg button__secondary" do %>
+<% if single_component? %>
+  <div class="flex items-center justify-between space-x-6">
+    <%= link_to decidim_proposals.new_proposal_path, class: "button button__xs md:button__lg button__secondary ml-auto" do %>
       <span class="text-center"><%= t("decidim.proposals.actions.new") %></span>
       <%= icon "add-line" %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <div class="flex items-start justify-between">
   <div class="grow space-y-6">
     <% proposals_to_render.each do |p| %>
