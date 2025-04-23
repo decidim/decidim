@@ -43,14 +43,14 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
       user_id = user
       create_forgotten_users_file([user_id, 123_456])
       task.execute
-      expect { check_message_printed("[123456] User not found") }.not_to raise_error
+      expect($stdout.string).to include("[123456] User not found")
     end
 
     it "ignores already deleted users" do
       user_ids = [deleted_user].collect(&:id)
       create_forgotten_users_file(user_ids)
       task.execute
-      expect { check_message_printed("[#{deleted_user.id}] User already deleted") }.not_to raise_error
+      expect($stdout.string).to include("[#{deleted_user.id}] User already deleted")
     end
 
     it "creates a log file" do
