@@ -85,7 +85,7 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:author_item] }
 
       it "displays the author cell" do
-        expect(cell_html).to have_css("span[data-author]")
+        expect(cell_html).to have_css("p[data-author]")
         expect(cell_html).to have_content(model.author.name)
       end
     end
