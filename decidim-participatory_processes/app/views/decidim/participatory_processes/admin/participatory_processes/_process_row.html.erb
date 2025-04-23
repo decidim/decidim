@@ -36,48 +36,87 @@
         <span class="action-space icon"></span>
       <% end %>
     <% else %>
-      <% if allowed_to? :read, :share_tokens, current_participatory_space: process %>
-        <%= icon_link_to "share-line", decidim_admin_participatory_processes.participatory_process_share_tokens_path(process), t("actions.share_tokens", scope: "decidim.admin"), class: "action-icon--new" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
-      <% if allowed_to? :update, :process, process: process %>
-        <%= icon_link_to "pencil-line", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-      <% else %>
-        <span class="action-space icon"></span>
+
+      <%= link_to "#", "data-toggle" => "actions-dropdown-#{ process.id }" do %>
+        <%= icon "more-fill" %>
       <% end %>
 
-      <% if allowed_to? :create, :process, process: process %>
-        <%= icon_link_to "download-line", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
+      <div class="dropdown-pane small" id="actions-dropdown-<%= process.id %>" data-dropdown data-auto-focus="true" data-close-on-click="true">
+        <ul>
 
-      <% if allowed_to? :create, :process, process: process %>
-        <%= icon_link_to "file-copy-line", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
+          <% if allowed_to? :read, :share_tokens, current_participatory_space: process %>
+            <%= link_to decidim_admin_participatory_processes.participatory_process_share_tokens_path(process) do %>
+              <li>
+                <%= icon "share-line" %>
+                <%= t("actions.share_tokens", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
 
-      <% if allowed_to? :preview, :process, process: process %>
-        <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
+          <% if allowed_to? :update, :process, process: process %>
+            <%= link_to edit_participatory_process_path(process) do %>
+              <li>
+                <%= icon "pencil-line" %>
+                <%= t("actions.configure", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
 
-      <% if allowed_to? :read, :moderation, process: process %>
-        <%= icon_link_to "flag-line", moderations_path(process), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
+          <% if allowed_to? :create, :process, process: process %>
+            <%= link_to participatory_process_export_path(process) do %>
+              <li>
+                <%= icon "download-line" %>
+                <%= t("actions.export", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
 
-      <% if allowed_to? :soft_delete, :process, trashable_deleted_resource: process %>
-        <% if process.published? %>
-          <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
-        <% else %>
-          <%= icon_link_to "delete-bin-line", soft_delete_participatory_process_path(process), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_process", scope: "decidim.admin") } %>
-        <% end %>
-      <% end %>
+          <% if allowed_to? :create, :process, process: process %>
+            <%= link_to new_participatory_process_copy_path(process) do %>
+              <li>
+                <%= icon "file-copy-line" %>
+                <%= t("actions.duplicate", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <% if allowed_to? :preview, :process, process: process %>
+            <%= link_to decidim_participatory_processes.participatory_process_path(process), target: "_blank", data: { "external-link": false } do %>
+              <li>
+                <%= icon "eye-line" %>
+                <%= t("actions.preview", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <% if allowed_to? :read, :moderation, process: process %>
+            <%= link_to moderations_path(process) do %>
+              <li>
+                <%= icon "flag-line" %>
+                <%= t("actions.moderate", scope: "decidim.admin") %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <% if allowed_to? :soft_delete, :process, trashable_deleted_resource: process %>
+            <% if process.published? %>
+              <li>
+                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
+                <%= t("actions.soft_delete", scope: "decidim.admin") %>
+              </li>
+            <% else %>
+              <%= link_to soft_delete_participatory_process_path(process), method: :patch, data: { confirm: t("actions.confirm_delete_process", scope: "decidim.admin") } do %>
+                <li>
+                  <%= icon "delete-bin-line" %>
+                  <%= t("actions.soft_delete", scope: "decidim.admin") %>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
+
+        </ul>
+      </div>
+
     <% end %>
   </td>
 </tr>
