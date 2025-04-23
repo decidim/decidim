@@ -156,8 +156,8 @@ es-PY:
             success: Formulario guardado correctamente.
       admin_log:
         question:
-          publish_responses: "%{user_name} publicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
-          unpublish_responses: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          publish_responses: "%{user_name} publicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish_responses: "%{user_name} despublicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
@@ -225,6 +225,7 @@ es-PY:
           submit: Enviar
       user_responses_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido el
         id: ID de la repuesta
         ip_hash: Hash de la dirección IP

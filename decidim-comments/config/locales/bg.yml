@@ -15,6 +15,10 @@ bg:
         one: Глас
         other: Гласове
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Коментари
     comments:
       admin:
         shared:
@@ -150,11 +154,6 @@ bg:
           email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
           email_subject: Бяхте споменати в(ъв) %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Брой коментари генерирани от участници
-        object: коментари
-        title: Коментари
   errors:
     messages:
       cannot_have_comments: не може да има коментари

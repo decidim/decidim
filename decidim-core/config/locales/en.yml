@@ -6,6 +6,7 @@ en:
         delete_reason: Reason to delete your account
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Created at
@@ -1552,6 +1553,8 @@ en:
         report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
+    resource_autocomplete:
+      help: Type to search proposals
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -2062,6 +2065,8 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        back: Back to list
+        cancel: Cancel
         close: Close
         confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
         confirm_title_close_ephemeral_session: Before leaving this page…

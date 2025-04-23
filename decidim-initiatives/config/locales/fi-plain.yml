@@ -6,7 +6,6 @@ fi-pl:
         answer_url: Vastaa URL-osoite
         area_id: Alue
         decidim_scope_id: Teema
-        decidim_user_group_id: Laatija
         description: Kuvaus
         hashtag: Aihetunniste (hashtag)
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
@@ -35,7 +34,6 @@ fi-pl:
         comments_enabled: Ota kommentit käyttöön
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
-        document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen äänestyksessä
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
@@ -319,7 +317,6 @@ fi-pl:
           edit:
             update: Päivitä
           form:
-            authorizations: Varmennuksen asetukset
             child_scope_threshold_enabled_help_html: 'Tämä asetus ei tue fyysisiä äänestyksiä. Se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 vanhempi - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">aloitteiden hallinnoinnin dokumentaatioon</a>.'
             only_global_scope_enabled_help_html: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
@@ -470,23 +467,14 @@ fi-pl:
         uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia.
       initiative_signatures:
         fill_personal_data:
-          continue: Jatka
           help: Täytä henkilötietosi seuraaviin kohtiin allekirjoittaaksesi aloitteen.
         finish:
           back_to_initiative: Takaisin aloitteeseen
-        sms_code:
-          continue: Tarkista koodi ja jatka
-          help: Tarkista vastaanotetut tekstiviestit puhelimestasi
-        sms_phone_number:
-          continue: Lähetä minulle tekstiviesti
-          help: Pyydä varmennuskoodia täyttämällä vahvistettu puhelinnumerosi lomakkeeseen.
       initiative_votes:
         create:
           error: Allekirjoitettaessa aloite tapahtui virheitä.
           invalid: Aloitteen allekirjoittamiseksi annetut tiedot eivät kelpaa.
           success_html: Onnittelut! Aloite <strong> %{title}</strong> on allekirjoitettu.
-        personal_data:
-          invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
         sms_code:
           invalid: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
         sms_phone:
@@ -659,7 +647,6 @@ fi-pl:
         actions:
           create: Luo aloite
           title: Toimet
-          vote: Äänestä
   layouts:
     decidim:
       initiative_creation_header:
@@ -667,12 +654,6 @@ fi-pl:
         finish: Tekninen tarkastus
         promotal_committee: Etsi jäseniä kannatuskomiteaan
         select_initiative_type: Valitse
-      initiative_signature_creation_header:
-        fill_personal_data: Täydennä tietosi
-        finish: Viimeistele
-        sms_code: Tekstiviestikoodin vahvistaminen
-        sms_phone_number: Matkapuhelimen numero
-        title: Allekirjoita %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ei vielä yhtään aloitetta!
