@@ -364,6 +364,11 @@ ignore_unused:
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
   - time.buttons.*
   - decidim.profiles.show.members
+  - decidim.meetings.meetings.show.leave
+  - decidim.meetings.meetings.show.leave_waitlist
+  - decidim.meetings.meetings.show.leave_confirmation
+  - decidim.meetings.meetings.show.leave_waitlist_confirmation
+
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
