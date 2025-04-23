@@ -5,6 +5,7 @@ eu:
         delete_reason: Zure kontua ezabatzeko arrazoia
       attachment:
         documents: Dokumentuak
+        image: Irudia
         photos: Argazkiak
       common:
         created_at: Sortze-data
