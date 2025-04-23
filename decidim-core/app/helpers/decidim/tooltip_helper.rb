@@ -7,12 +7,8 @@ module Decidim
     def with_tooltip(title, opts = {}, &)
       content_tag(:p,
                   title:,
-                  style: "display: inline-block",
-                  data: { tooltip: content_tag(:p, title,
-                                               style: "display: inline-block",
-                                               id: opts[:id],
-                                               class: opts[:class] || "bottom", role: "tooltip",
-                                               "aria-hidden": "true") }) do
+                  class: "inline-block",
+                  data: { tooltip: content_tag(:p, title, id: opts[:id], class: opts[:class] || "bottom", role: "tooltip", "aria-hidden": "true") }) do
         capture(&).html_safe
       end
     end
