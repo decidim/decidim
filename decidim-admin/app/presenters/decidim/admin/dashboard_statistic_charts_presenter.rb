@@ -8,18 +8,25 @@ module Decidim
       end
 
       def highlighted
-        high_priority_stats = collection(priority: StatsRegistry::HIGH_PRIORITY)
-        medium_priority_stats = collection(priority: StatsRegistry::MEDIUM_PRIORITY)
+        stats_by_title = {}
 
-        filtered_high_priority = high_priority_stats.reject { |stat| duplicated_stat?(stat) }
+        collection(priority: StatsRegistry::MEDIUM_PRIORITY).each do |stat|
+          title = translate_stat_title(stat)
+          stats_by_title[title] = { stat: stat, priority: 2 }
+        end
 
-        (filtered_high_priority + medium_priority_stats).uniq
+        collection(priority: StatsRegistry::HIGH_PRIORITY).each do |stat|
+          title = translate_stat_title(stat)
+          stats_by_title[title] ||= { stat: stat, priority: 1 }
+        end
+
+        stats_by_title.values.sort_by { |entry| entry[:priority] }.map { |entry| entry[:stat] }
       end
 
       private
 
-      def duplicated_stat?(stat)
-        [:proposals_count, :meetings_count].include?(stat[:name].to_sym)
+      def translate_stat_title(stat)
+        I18n.t(stat[:name], scope: "decidim.statistics")
       end
     end
   end
