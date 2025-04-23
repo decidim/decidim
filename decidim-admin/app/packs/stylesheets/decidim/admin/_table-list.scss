@@ -131,10 +131,6 @@
 .table-list__actions {
   @apply text-center whitespace-nowrap;
 
-  a:not(:last-child) {
-    @apply pr-2;
-  }
-
   &:last-child {
     @apply text-right;
   }
@@ -147,7 +143,7 @@
     @apply inline-block fill-secondary w-5 h-5;
 
     &.action-icon--disabled {
-      @apply fill-gray mr-2;
+      @apply fill-gray;
     }
   }
 
