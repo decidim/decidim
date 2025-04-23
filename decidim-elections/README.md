@@ -1,6 +1,6 @@
 # Decidim::Elections
 
-The Decidim::Elections is a component that allows users to setup non-cryptographic elections, similarly as the old consultation module. Elections are basically polls/surveys with census access management built-in. This allows registered or non-registered users to directly participate in them.
+The Decidim::Elections is a component that allows users to setup non-cryptographic elections. Elections are basically polls/surveys with census access management built-in. This allows registered or non-registered users to directly participate in them.
 
 > **WARNING**
 > This module is under development and is not ready for usage yet.
