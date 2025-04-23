@@ -150,7 +150,6 @@ module Decidim
       end
 
       it "includes the reported content" do
-        expect(email_body(mail)).to match("(ID: #{reportable.id})")
         expect(email_body(mail)).to match(reportable.title["en"])
         expect(email_body(mail)).to match(reportable.body["en"])
       end

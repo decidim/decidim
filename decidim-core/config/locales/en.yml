@@ -1531,7 +1531,6 @@ en:
         content: Reported content
         details: Details
         hello: Hello %{name},
-        id: ID
         manage_moderations: Manage moderations
         participatory_space: Participatory space
         reason: Reason
