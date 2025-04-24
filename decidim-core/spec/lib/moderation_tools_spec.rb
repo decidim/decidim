@@ -31,7 +31,14 @@ module Decidim
       let!(:report) { subject.create_report!(report_params) }
 
       it "sends a notification to the author of the resource" do
-        expect(Decidim::EventsManager).to receive(:publish).with(hash_including(event: "decidim.events.reports.resource_hidden"))
+        expect(Decidim::EventsManager).to receive(:publish).with(hash_including(
+                                                                   event: "decidim.events.reports.resource_hidden",
+                                                                   extra: {
+                                                                     report_reasons: [report_params[:reason]],
+                                                                     force_email: true
+                                                                   },
+                                                                   force_send: true
+                                                                 ))
         subject.send_notification_to_author
       end
     end
