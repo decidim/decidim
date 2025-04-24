@@ -485,7 +485,6 @@ es:
           withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todas las propuestas
     proposals:
       actions:
