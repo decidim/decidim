@@ -768,7 +768,6 @@ lb:
       prompt: Wiel en Themeberäich
     search:
       results: Resultater vun der Sich
-      results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
       term_input_placeholder: Sich
     searches:
       filters:
