@@ -1,0 +1,442 @@
+"no":
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivelse
+        image: Bilde
+        proposals: Relaterte forslag
+        title: Tittel
+      election:
+        description: Beskrivelse
+        end_time: Avstemningen avsluttes ved
+        start_time: Stemmegivning starter
+        title: Tittel
+      question:
+        max_selections: Maksimalt antall valg
+        min_selections: Ingen av valgene over
+        title: Tittel
+      voting:
+        end_time: Avstemningen avsluttes
+        start_time: Avstemningen begynner
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Må festes på nytt
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Må festes på nytt
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svarene
+      decidim/elections/election:
+        one: Valg
+        other: Valg
+      decidim/elections/question:
+        one: Spørsmål
+        other: Spørsmål
+      decidim/votings/census/dataset:
+        one: Datasett
+        other: Datasett
+      decidim/votings/census/datum:
+        one: Data
+        other: Data
+      decidim/votings/polling_officer:
+        one: Avstemningansvarlig
+        other: Valgansvarlige
+      decidim/votings/polling_station:
+        one: Valgstasjon
+        other: Valgstasjoner
+      decidim/votings/voting:
+        one: Avstemning
+        other: Avstemninger
+  decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Ansvarlige
+          values:
+            assigned: Tildelt
+            unassigned: Ikke tildelt
+        role_eq:
+          label: Rolle
+          values:
+            manager: Ansvarlig
+            president: Leder
+            unassigned: Ikke tildelt
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Søk %{collection} med navn/e-post/kallenavn eller valgstasjon.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Søk %{collection} med tittel, adresse eller brukernavn/e-post/kallenavn.
+        signed_eq:
+          label: Signert
+          values:
+            'false': Signert
+            'true': Ikke signert
+        validated_eq:
+          label: Godkjent
+    components:
+      elections:
+        actions:
+          vote: Stem
+        name: Valg
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
+    elections:
+      actions:
+        confirm_destroy: Er du sikker?
+        destroy: Ødelegg
+        edit: Rediger
+        feedback: Tilbakemelding fra stemmegiver
+        import: Importer forslag til svar
+        manage_answers: Behandle svar
+        manage_questions: Behandle spørsmål
+        manage_steps: Behandle trinn
+        preview: Forhåndsvis
+        publish: Publiser
+        title: Handlinger
+        unpublish: Avpubliser
+      admin:
+        answers:
+          edit:
+            title: Rediger svar
+            update: Oppdater svar
+          index:
+            title: Svar
+          new:
+            create: Opprett svar
+            title: Nytt svar
+          not_selected: Ikke valgt
+          select:
+            disable: Fjern svar
+            enable: Marker svar som valgt
+          selected: Valgt
+        elections:
+          edit:
+            title: Rediger valg
+            update: Oppdater valg
+          index:
+            no_bulletin_board: Det er ingen <a href="https://github.com/decidim/decidim-bulletin-board">server for oppslagstavle</a> konfigurert, som er nødvendig for å bruke denne modulen. Denne oppgaven skal utføres av systemadministratoren.
+            title: Valg
+          new:
+            create: Opprett valg
+            title: Nytt valg
+          publish:
+            success: Valget er publisert.
+          unpublish:
+            success: Valget har blitt avpublisert.
+        exports:
+          elections: Valg
+          feedback_form_answers: Svar på tilbakemeldingsskjema
+        menu:
+          trustees: Tillitsmenn
+        models:
+          answer:
+            name: Svar
+        proposals_imports:
+          new:
+            create: Importer forslag til svar
+            no_components: Det er ingen andre utkastkomponenter i dette deltakerrommet for å importere forslagene til svar.
+            select_component: Vennligst velg en komponent
+            title: Importer forslag
+        questions:
+          edit:
+            title: Rediger spørsmål
+            update: Oppdater spørsmål
+          index:
+            title: Spørsmål
+          new:
+            create: Lag spørsmål
+            title: Nytt spørsmål
+        steps:
+          create_election:
+            errors:
+              max_selections: Spørsmålene har ingen <strong>korrekt verdi for antall svar</strong>
+              minimum_answers: Spørsmål må ha <strong>minst to svar</strong>.
+              minimum_questions: Valget <strong>må ha minst ett spørsmål</strong>.
+              published: Valget er <strong>og ikke publisert</strong>.
+              trustees_number: Deltakerområdet <strong>må ha minst %{number} tillitsmenn med offentlig nøkkel</strong>.
+            invalid: Det oppstod et problem med opprettelsen av dette valget
+            no_trustees: Det er ikke satt opp noen tillitsmenn for dette deltakelsesrommet
+            not_used_trustee: "(ikke brukt)"
+            public_key:
+              'false': har ikke en <strong>offentlig nøkkel</strong>
+              'true': har en <strong>offentlig nøkkel</strong>
+            requirements:
+              max_selections: Alle spørsmålene har en korrekt verdi for <strong>maks antall svar</strong>.
+              minimum_answers: Hvert spørsmål har <strong>minst 2 svar</strong>.
+              minimum_questions: Valget har <strong>minst 1 spørsmål</strong>.
+              published: Valget er <strong>publisert</strong>.
+              time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
+              trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
+            submit: Oppsett av valg
+            title: Oppsett valg
+            trustees: Valgets tillitsmenn
+          created:
+            submit: Start hovedseremonien
+            title: Valget opprettet
+            trustees: Tillitsmenn
+          key_ceremony:
+            continue: Fortsett
+            title: Hovedseremoni
+          key_ceremony_ended:
+            errors:
+              time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
+            requirements:
+              time_before: Valget vil starte snart. Du kan starte valgperioden manuelt, eller den vil bli startet automatisk før starttidspunktet, %{start_time}.
+            submit: Start valgperiode
+            title: Klar for å begynne
+          processing: Behandler...
+          results_published:
+            answer: Svar
+            not_selected: Ikke valgt
+            question: Spørsmål
+            result: Resultat
+            selected: Valgt
+            submit: Send inn
+            title: Resultater publisert
+          tally_ended:
+            answer: Svar
+            not_selected: Ikke valgt
+            question: Spørsmål
+            result: Resultat
+            selected: Valgt
+            submit: Publiser resultater
+            title: Beregnet resultat
+          tally_started:
+            mark_as_missing: Marker som manglende
+            tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
+            undo_mark_as_missing: En tillitsmann merket som feilaktig merkes som manglende vil kunne delta før prosessen fullføres. De kan fortsette som vanlig og merket for "manglende" vil bli ignorert.
+          vote:
+            errors:
+              time_after: Valget pågår enda. Du må vente til det er ferdog (%{end_time}) for å avslutte avstemmingen.
+            requirements:
+              time_after: Valget er ferdig. Du kan avslutte avstemmingen manuelt, eller den vil automatisk avsluttes om noen minutter.
+            submit: Avslutt avstemming
+            title: Avstemming
+          vote_ended:
+            submit: Start opptelling
+            text: Avstemming avsluttet. Du kan starte opptellingen nå.
+            title: Avstemming avsluttet
+          vote_stats:
+            no_vote_statistics_yet: Ingen statistikk enda
+            title: Valgresultat
+            voters: Velgere
+            votes: Stemmer
+        trustees_participatory_spaces:
+          actions:
+            disable: Deaktiver
+            enable: Vurder
+          form:
+            select_user: Velg bruker
+          index:
+            title: Tillitsmenn
+          new:
+            create: Opprett tillitsmann
+            title: Ny tillitsmann
+      admin_log:
+        election:
+          create: "%{user_name} opprettet valget %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettet valget %{resource_name} i %{space_name}"
+          end_vote: "%{user_name} avsluttet avstemmingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          publish: "%{user_name} publiserte valget %{resource_name} i %{space_name}"
+          publish_results: "%{user_name} publiserte resultatet for valget %{resource_name} i %{space_name} på opplysningstavlen"
+          report_missing_trustee: "%{user_name} rapporterte %{trustee_name} som en manglende tillitsmann under opptellingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          setup: "%{user_name} opprettet valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_key_ceremony: "%{user_name} startet nøkkelseremonien for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_tally: "%{user_name} startet opptellingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_vote: "%{user_name} startet avstemmingen for valget av %{resource_name} i %{space_name} på oppslagstavlen"
+          unpublish: "%{user_name} avpubliserte %{resource_name} i %{space_name}-valget"
+          update: "%{user_name} oppdaterte valget %{resource_name} i %{space_name}"
+        trustee:
+          create: "%{user_name} gjorde brukeren %{trustee_user} til tillitsmann"
+      election_m:
+        badge_name:
+          finished: Fullført
+          ongoing: Aktiv
+          upcoming: Kommende
+        end_date: Slutter
+        footer:
+          remaining_time:
+            one: "<strong>%{count} time %{minutes} minutter</strong> gjenstår til å stemme."
+            other: "<strong>%{count} timer %{minutes} minutter</strong> gjenstår til å stemme."
+          view: Vis
+          vote: Stem
+        label:
+          date: Datoer
+        questions: Spørsmål %{count}
+        start_date: Starter
+        unspecified: Ikke spesifisert
+      elections:
+        count:
+          elections_count:
+            one: "%{count} valg"
+            other: "%{count} valg"
+        election_log:
+          chained_hash: Hashkjedet for meldingen
+          complete: Fullfør
+          creation_description:
+            complete: Valget ble opprettet og ble ført opp på oppslagstavlen.
+            not_created: Valget er ikke opprettet enda.
+          creation_title: Valg opprettet
+          description: Dette er valgloggen hvor du kan sjekke statusen på hvert trinn, f.eks. når valget ble opprettet, om opptellingsprosessen er avsluttet, og når valget er stengt.
+          download: Last ned
+          key_ceremony_description:
+            complete: Nøkkelseremonien er fullført. Hver tillitsmann har gyldige nøkler og har lastet ned de nødvendige backup-nøklene.
+            not_started: Nøkkelseremonien har ikke startet enda.
+            started: Nøkkelseremonien har startet, men er ikke ferdig enda.
+          key_ceremony_title: Nøkkelseremoni
+          not_available: Foreløpig ikke tilgjengelig
+          not_created: Ikke opprettet
+          not_ready: Ikke klar
+          not_started: Ikke påbegynt
+          published: Publisert
+          results_description:
+            not_published: Resultatene er ikke publisert enda.
+            published: Resultatene er publisert.
+          results_title: Resultater
+          started: Startet
+          tally_description:
+            finished: Opptellingsprosessen er fullført.
+            not_started: Opptellingsprosessen har ikke startet enda.
+            started: Opptellingsprosessen har startet.
+          tally_title: Opptellingsprosess
+          title: Valglogg
+          verifiable_results:
+            checksum: 'Fil SHA256 sjekksum:'
+            description:
+              ready: 'Her har du mulighet til å verifisere valget. Først må du laste ned filen og sørge for at den ikke er ødelagt. Kjør følgende kommando og sjekk at utfallet samsvarer med kontrollsummen:'
+            how_to_verify: 'Når du har lastet ned filen og sørget for at den er ok, kan du fortsette å kjøre den universelle verifisereren. Klon <a href=''https://github.com/decidim/decidim-bulletin-board''>dette kodelageret</a> og, fra rotmappen, kjør følgende kommando:'
+            title: Verifiser valgresultater
+            verifiable_file: 'Verifiserbar valgfil:'
+          verify: Verifiser valget
+          vote_description:
+            finished: Avstemningsprosessen er fullført.
+            not_started: Avstemningsprosessen har ikke startet enda.
+            started: Avstemningsprosessen har startet.
+          vote_title: Avstemningsprosess
+        filters:
+          active: Aktiv
+          all: Alt
+          finished: Fullført
+          upcoming: Kommende
+        show:
+          action_button:
+            change_vote: Endre stemmen din
+            vote: Start avstemning
+            vote_again: Stem på nytt
+          callout:
+            already_voted: Du har allerede gitt din stemme i denne prosessen. Du kan endre stemmen din eller verifisere den.
+            vote_rejected: Det var ikke mulig å bekrefte stemmen din. Vennligst avgi den igjen.
+          preview: Forhåndsvisning
+          verify:
+            already_voted: Stemt allerede?
+            verify_here: Sjekk hva du har stemt på her.
+            will_verify: Du vil kunne bekrefte stemmen din når avstemningen starter.
+          voting_period_status:
+            finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
+            upcoming: Avstemning begynner %{start_time}
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            list:
+              status: Status
+              task: Oppgave
+            process_warning: Når prosessen er startet, bør du ikke gå ut av denne siden før prosessen er ferdig. Det vil ta flere minutter fordi alle tillitsmenn skal kobles til dette for å fullføre.
+            start: Start
+            status:
+              completed: Fullført
+              pending: Ventende
+              processing: Behandler
+            title: Opprett valgnøkler for %{election}
+          restore_modal:
+            description: Oppslagstavlen har informasjon fra deg som tillitsmann om dette valget. For å fortsette prosessen, last opp sikkerhetskopien generert i løpet av forrige sesjon.
+            title: Gjenopprett valgnøkler for %{election}
+            upload_election_keys: Last opp valgnøkler
+          tally_started_steps:
+            description: Resultatet av valget utregnes i oppslagstavlen. For å fullføre denne prosessen må du delta som en tillitsmann.
+            keys:
+              end_tally: Opptelling avsluttet
+              tally:
+                cast: Opptelling ferdig
+                share: Opptellingsandel
+            title: Opptelling for %{election}
+        menu:
+          trustee_zone: Område for tillitsmenn
+        no_bulletin_board:
+          body: En konfigurert oppslagstavle er påkrevd for denne delen. Kontakt administrator for mer informasjon.
+          title: Beklager, oppslagstavlen er ikke konfigurert enda.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Nei'
+                  name: Handling kreves?
+                  'true': Utfør handling
+                bb_status: Status
+                election: Valg
+                voting_period: Stemmeperiode
+              title: Valg
+            identification_keys:
+              cancel: Avbryt
+              generate: Generer identifikasjonsnøkler
+              generate_error: Kunne ikke generere identifikasjonsnøkkelene.
+              generate_legend: Du må generere et identifikasjonspar med nøkler for å delta i valg som en tillitsmann.
+              generate_legend_1: Etter å ha trykket på knappen bør du laste ned filen med de genererte identifikasjonsnøklene.
+              generate_legend_2: Kopier den nedlastede filen til en ren USB-enhet
+              generate_legend_4: Lag en annen kopi av filen på en annen ekstern enhet og lagre den på et svært trygt sted.
+              submit: Send inn
+              submit_title: Send inn den offentlige identifikasjonsnøkkelen
+              title: Identifikasjonsnøkler for tillitsmenn
+              upload: Last opp dine identifikasjonsnøkler
+      votes:
+        confirm:
+          answer_number: svar %{number}
+          confirm: Bekreft
+          edit: rediger
+          header: Bekreft stemmen din
+          intro: Her er et sammendrag av stemmen du er i ferd med å avgi. <br> Bekreft stemmen din eller rediger svarene dine.
+        confirmed:
+          back: Tilbake til valg
+          experience: Hvordan var opplevelsen din?
+          feedback: Gi oss en tilbakemelding
+          header: Avstemning bekreftet
+          text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        header:
+          confirm: Bekreft stemmen din
+        messages:
+          not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
+        modal:
+          close: Lukk
+          proposal_header: 'Forslag:'
+        new:
+          more_information: Mer informasjon
+          preview_alert: Dette er en forhåndsvisning av stemmebåsen.
+          question_steps: Spørsmål %{current_step} av %{total_steps}
+          selections: "%{selected} av %{max_selections}<br> valg"
+        verify:
+          success:
+            header: Stemme plassert!
+        voting_step:
+          back: Tilbake
+          continue: Neste
+    events:
+      elections:
+        election_published:
+          email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Kontrollgruppe
+      votings:
+        login:
+          start_voting: Start avstemning
