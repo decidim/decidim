@@ -20,6 +20,7 @@ module Decidim
         toggle_allow(can_update_question?) if subject == :question && action == :update
 
         toggle_allow(can_join_meeting?) if subject == :meeting && action == :join
+        toggle_allow(can_join_waitlist?) if subject == :meeting && action == :join_waitlist
         toggle_allow(can_leave_meeting?) if subject == :meeting && action == :leave
         toggle_allow(can_decline_invitation?) if subject == :meeting && action == :decline_invitation
         toggle_allow(can_create_meetings?) if subject == :meeting && action == :create
