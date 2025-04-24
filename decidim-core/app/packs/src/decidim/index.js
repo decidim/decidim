@@ -70,8 +70,6 @@ import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import createTooltip from "src/decidim/tooltips"
-// Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
-// import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
@@ -198,9 +196,6 @@ const initializer = (element = document) => {
 
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
-
-  // Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
-  // element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 

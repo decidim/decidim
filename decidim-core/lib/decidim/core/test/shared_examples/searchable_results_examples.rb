@@ -20,9 +20,9 @@ shared_examples "searchable results" do
       find(search_input_selector).native.send_keys :enter
 
       expect(page).to have_current_path decidim.search_path, ignore_query: true
-      expect(page).to have_content(%(Results for the search: "#{term}"))
+      expect(page).to have_content(%(results for the search: "#{term}"))
       expect(page).to have_css(".filter-search.filter-container")
-      expect(page.find("#search-count h1").text.to_i).to be_positive
+      expect(page.find("#search-count h2").text.to_i).to be_positive
     end
 
     it "finds content by hashtag" do
@@ -30,7 +30,7 @@ shared_examples "searchable results" do
         fill_in "term", with: hashtag
         find(search_input_selector).native.send_keys :enter
 
-        expect(page.find("#search-count h1").text.to_i).to be_positive
+        expect(page.find("#search-count h2").text.to_i).to be_positive
 
         within "#results" do
           expect(page).to have_content(hashtag)
@@ -47,9 +47,9 @@ shared_examples "searchable results" do
         find(search_input_selector).native.send_keys :enter
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(%(Results for the search: "#{term}"))
+        expect(page).to have_content(%(results for the search: "#{term}"))
         expect(page).to have_css(".filter-search.filter-container")
-        expect(page.find("#search-count h1").text.to_i).to be_positive
+        expect(page.find("#search-count h2").text.to_i).to be_positive
 
         searchables.each do |searchable|
           next unless searchable.is_a?(Decidim::Reportable)
@@ -66,9 +66,9 @@ shared_examples "searchable results" do
         find(search_input_selector).native.send_keys :enter
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(%(Results for the search: "#{term}"))
+        expect(page).to have_content(%(results for the search: "#{term}"))
         expect(page).to have_css(".filter-search.filter-container")
-        expect(page.find("#search-count h1").text.to_i).not_to be_positive
+        expect(page.find("#search-count h2").text.to_i).not_to be_positive
       end
     end
 
@@ -82,9 +82,9 @@ shared_examples "searchable results" do
           find(search_input_selector).native.send_keys :enter
 
           expect(page).to have_current_path decidim.search_path, ignore_query: true
-          expect(page).to have_content(%(Results for the search: "#{term}"))
+          expect(page).to have_content(%(results for the search: "#{term}"))
           expect(page).to have_css(".filter-search.filter-container")
-          expect(page.find("#search-count h1").text.to_i).not_to be_positive
+          expect(page.find("#search-count h2").text.to_i).not_to be_positive
         end
 
         it "does not find content by hashtag" do
@@ -92,7 +92,7 @@ shared_examples "searchable results" do
             fill_in "term", with: hashtag
             find(search_input_selector).native.send_keys :enter
 
-            expect(page.find("#search-count h1").text.to_i).not_to be_positive
+            expect(page.find("#search-count h2").text.to_i).not_to be_positive
 
             within "#results" do
               expect(page).to have_no_content(hashtag)
