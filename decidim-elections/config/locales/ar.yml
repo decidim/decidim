@@ -1,0 +1,91 @@
+ar:
+  activemodel:
+    attributes:
+      answer:
+        description: الوصف
+      election:
+        description: الوصف
+      monitoring_committee_member:
+        name: الاسم
+      polling_officer:
+        name: الاسم
+  decidim:
+    components:
+      elections:
+        name: الانتخابات
+    elections:
+      actions:
+        confirm_destroy: أأنت متأكد؟
+        edit: تعديل
+      admin:
+        models:
+          answer:
+            name: الإجابة
+        steps:
+          tally_started:
+            mark_as_missing: وضع علامة مفقود
+            tally_completion: وستكتمل هذه العملية عندما يكون جميع الأمناء مُفعلين أو موسومين باعتبارهم مفقودين. مطلوب بحد أدنى %{quorum} من الأمناء لإكمال العملية.
+            undo_mark_as_missing: وسيتمكن الأمين الذي وُضع عليه علامة مفقودة عن طريق الخطأ من المشاركة قبل إتمام العملية. ويمكنهم المضي قدما كالمعتاد وسيتم تجاهل العلامة المفقودة.
+      elections:
+        election_log:
+          results_title: النتائج
+        results:
+          percentage: "%{count}%"
+      models:
+        trustees_participatory_space:
+          fields:
+            name: الاسم
+      trustee_zone:
+        trustees:
+          show:
+            identification_keys:
+              cancel: إلغاء
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            actions:
+              destroy: حذف
+              edit: تعديل
+              title: الإجراءات
+        models:
+          monitoring_committee_member:
+            fields:
+              name: الاسم
+          polling_officer:
+            fields:
+              name: الاسم
+        monitoring_committee_election_results:
+          actions:
+            title: الإجراءات
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: الإجراءات
+      monitoring_committee_members:
+        actions:
+          destroy: حذف
+          title: الإجراءات
+      polling_officer_zone:
+        closures:
+          edit:
+            modal_ballots_results_count_error:
+              close_modal: غلق
+          sign:
+            cancel: إلغاء
+        in_person_votes:
+          verify_document:
+            name: الاسم
+        polling_officers:
+          index:
+            polling_station:
+              name: الاسم
+      polling_officers:
+        actions:
+          confirm_destroy: أأنت متأكد؟
+          destroy: حذف
+          title: الإجراءات
+      polling_stations:
+        actions:
+          confirm_destroy: أأنت متأكد؟
+          destroy: حذف
+          edit: تعديل
