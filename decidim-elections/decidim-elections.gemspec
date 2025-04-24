@@ -2,10 +2,10 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/collaborative_texts/version"
+require "decidim/elections/version"
 
 Gem::Specification.new do |s|
-  s.version = Decidim::CollaborativeTexts.version
+  s.version = Decidim::Elections.version
   s.authors = ["Ivan Vergés"]
   s.email = ["ivan@pokecode.net"]
   s.license = "AGPL-3.0-or-later"
@@ -19,9 +19,9 @@ Gem::Specification.new do |s|
   }
   s.required_ruby_version = "~> 3.3.0"
 
-  s.name = "decidim-collaborative_texts"
-  s.summary = "A Decidim module for creating Collaborative Texts"
-  s.description = "A module that aims to provide step by step collaborative texts in Decidim."
+  s.name = "decidim-elections"
+  s.summary = "A Decidim module for creating Elections."
+  s.description = "A module that aims to provide a set of tools to create elections in Decidim."
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::CollaborativeTexts.version
+  s.add_dependency "decidim-admin", Decidim::Elections.version
+  s.add_dependency "decidim-core", Decidim::Elections.version
 
-  s.add_development_dependency "decidim-dev", Decidim::CollaborativeTexts.version
+  s.add_development_dependency "decidim-dev", Decidim::Elections.version
 end
