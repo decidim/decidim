@@ -30,7 +30,7 @@ module Decidim
                         B: :description
                       },
                       index_on_create: ->(_process) { true },
-                      index_on_update: ->(process) { true })
+                      index_on_update: ->(_process) { true })
 
     # Scope to return only the promoted groups.
     #
