@@ -183,11 +183,6 @@ es-MX:
           email_outro: Has recibido esta notificación porque has sido mencionado en %{resource_title}.
           email_subject: Has sido mencionado en %{resource_title}
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentarios generados por los usuarios
-        object: comentarios
-        title: Comentarios
   errors:
     messages:
       cannot_have_comments: no se pueden hacer comentarios

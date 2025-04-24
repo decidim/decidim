@@ -15,6 +15,10 @@ pt-BR:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentários
     comments:
       comments:
         create:
@@ -127,8 +131,3 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
           email_subject: Você foi mencionado em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentários gerados pelos usuários
-        object: comentários
-        title: Comentários

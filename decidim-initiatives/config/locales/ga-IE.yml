@@ -2,7 +2,6 @@ ga:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Údar
         scope_id: Scóip
         signature_type_values:
           any: Measctha
@@ -108,9 +107,6 @@ ga:
       edit:
         back: Ar Ais
         update: Nuashonraigh
-      initiative_signatures:
-        fill_personal_data:
-          continue: Lean ar aghaidh
       initiatives:
         committee_members:
           approve: Ceadaigh
@@ -148,11 +144,8 @@ ga:
       initiatives_type:
         actions:
           title: Gníomhartha
-          vote: Sínigh
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Cruthaigh
         select_initiative_type: Roghnaigh
-      initiative_signature_creation_header:
-        finish: Críochnaigh

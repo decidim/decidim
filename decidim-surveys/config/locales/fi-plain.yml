@@ -45,11 +45,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
-    metrics:
-      survey_responses:
-        description: Vastattujen kyselyiden määrä
-        object: vastausta kyselyihin
-        title: Vastauksia kyselyihin
     statistics:
       responses_count: Vastauksia
     surveys:

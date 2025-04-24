@@ -2,7 +2,6 @@ ru:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Автор
         description: Описание
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
