@@ -5,6 +5,7 @@ es:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -1544,6 +1545,8 @@ es:
         report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
+    resource_autocomplete:
+      help: Escribe aquí para buscar entre las propuestas
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -2053,6 +2056,8 @@ es:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        back: Volver al listado
+        cancel: Cancelar
         close: Cerrar
         confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
         confirm_title_close_ephemeral_session: Antes de salir de esta página…

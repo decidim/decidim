@@ -142,7 +142,6 @@ ro:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
-          cancel_order: șterge votul și reia procesul
           checked_out:
             title: Votul pentru buget a fost finalizat
         count:

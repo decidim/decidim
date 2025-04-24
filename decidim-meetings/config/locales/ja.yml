@@ -162,6 +162,7 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             maps_enabled: 地図が有効
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            registration_code_enabled: 登録コードとQRコードを有効化
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
@@ -271,6 +272,7 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
+        mark_as_attendee: 出席者としてマーク
         new_meeting: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -419,6 +421,7 @@ ja:
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
+            registrations: 登録を表示
             registrations_count:
               other: '%{count} 件の登録がありました。'
             reserved_slots_help: 予約スロットがない場合は0にしておいてください。
@@ -427,6 +430,10 @@ ja:
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
+        registrations_attendees:
+          index:
+            title: 登録
+            validate: 検証
       admin_log:
         invite:
           create: "%{user_name} が %{attendee_name} を %{resource_name} スペースの %{space_name} ミーティングに招待しました"
