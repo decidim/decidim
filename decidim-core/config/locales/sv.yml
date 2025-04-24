@@ -1335,7 +1335,6 @@ sv:
     search:
       name: Sök
       results: Sökresultat
-      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
