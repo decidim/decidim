@@ -1528,13 +1528,21 @@ en:
         title: QR Code for %{resource_title}
     reported_mailer:
       hidden_automatically:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       hidden_by_admin:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden by %{admin}.</p>
         subject: A resource has been hidden by %{admin}
       report:
