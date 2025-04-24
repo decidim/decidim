@@ -33,10 +33,6 @@ describe "Components" do
     it_behaves_like "showing the design page", "Announcement", "secondary color"
   end
 
-  context "when on author page" do
-    it_behaves_like "showing the design page", "Author", "Hovering with the mouse"
-  end
-
   context "when on buttons page" do
     it_behaves_like "showing the design page", "Buttons", "button__xs"
   end

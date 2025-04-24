@@ -158,6 +158,7 @@ ja:
       front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
       opens_in_new_tab: 新しいタブで開く
+      secondary_menu: セカンダリメニュー
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約に違反しているためブロックされています
@@ -1523,6 +1524,8 @@ ja:
         report_details: 親リソースは非表示
     resource:
       controls_label: リソースコントロール
+    resource_autocomplete:
+      help: 提案を検索するには入力してください
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
@@ -2029,6 +2032,8 @@ ja:
         sign_up: アカウントを作成
         terms_of_service: 利用規約
       header:
+        back: リストに戻る
+        cancel: キャンセル
         close: 閉じる
         confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
         confirm_title_close_ephemeral_session: このページから離れる前に…

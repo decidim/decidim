@@ -5,6 +5,7 @@ fr-CA:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Créé le
@@ -1416,6 +1417,8 @@ fr-CA:
         success: Le contenu a été signalé, il sera examiné par un administrateur.
       parent_hidden:
         report_details: La ressource parente a été masquée
+    resource_autocomplete:
+      help: Tapez pour rechercher des propositions
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action d'approbation.
@@ -1920,6 +1923,8 @@ fr-CA:
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        back: Retour à la liste
+        cancel: Annuler
         close: Fermer
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
