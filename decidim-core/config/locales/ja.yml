@@ -1535,7 +1535,6 @@ ja:
     search:
       name: 検索
       results: 検索結果
-      results_found_for_term: '%{count} 検索結果: "%{term}"'
       term_input_placeholder: 検索
     searches:
       filters:
