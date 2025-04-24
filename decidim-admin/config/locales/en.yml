@@ -1106,17 +1106,14 @@ en:
         description: Blocked users are those who have blocked by the admin.
         object: blocked users
         title: Blocked users
-        description: Blocked users are those who have been blocked by the admin.
       reported_users:
         description: Reported users are those who have been reported by other users pending to be moderated.
         object: reported users
         title: Reported users
-        description: Reported users are those who have been reported by other users pending to be moderated.
       user_reports:
         description: User reports detail information regarding users in a space.
         object: user reports
         title: User reports
-        description: User reports detail information regarding users in a space.
     moderations:
       actions:
         expand: Expand
