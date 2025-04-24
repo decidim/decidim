@@ -23,8 +23,8 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
     let!(:proposal) { nil }
 
     it "renders nothing" do
-      expect(subject).to have_no_content("A nice title")
-      expect(subject).to have_no_css(".card__list-title", count: 1)
+      expect(subject).not_to have_content("A nice title")
+      expect(subject).not_to have_css(".card__list-title", count: 1)
     end
   end
 
@@ -32,8 +32,8 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
     let!(:proposal) { create(:proposal, :unpublished, title: { en: "A nice title" }, component: model) }
 
     it "renders the proposals" do
-      expect(subject).to have_no_content("A nice title")
-      expect(subject).to have_no_css(".card__list-title", count: 1)
+      expect(subject).not_to have_content("A nice title")
+      expect(subject).not_to have_css(".card__list-title", count: 1)
     end
   end
 
@@ -41,8 +41,8 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
     let!(:proposal) { create(:proposal, :hidden, title: { en: "A nice title" }, component: model) }
 
     it "renders the proposals" do
-      expect(subject).to have_no_content("A nice title")
-      expect(subject).to have_no_css(".card__list-title", count: 1)
+      expect(subject).not_to have_content("A nice title")
+      expect(subject).not_to have_css(".card__list-title", count: 1)
     end
   end
 
