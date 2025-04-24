@@ -237,6 +237,7 @@ shared_context "with application env vars" do
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",

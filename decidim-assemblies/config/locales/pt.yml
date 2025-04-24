@@ -2,6 +2,7 @@ pt:
   activemodel:
     attributes:
       assembly:
+        announcement: Anúncio
         area_id: Área
         assembly_type: Tipo de reunião
         assembly_type_other: Outro tipo de reunião
@@ -19,14 +20,19 @@ pt:
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
         duration: Duração
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
+        internal_organisation: Organização interna
         is_transparent: É transparente
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -44,6 +50,7 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
+        twitter: X
         weight: Posição de ordenamento
         youtube: Youtube
       assembly_member:
@@ -56,10 +63,17 @@ pt:
         non_user_avatar: Avatar
         position: Posição
         user_id: Utilizador ou grupo
+        weight: Posição de ordenamento
       assembly_user_role:
         email: E-mail
         name: Nome
         role: Função
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Só são permitidos ficheiros com as seguintes extensões: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -74,17 +88,24 @@ pt:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Tem a certeza de que quer eliminar esta reunião?  Se mudar de ideias, poderá restaurá-lo mais tarde.
         import_assembly: Importar
         new_assembly: Nova reunião
+        new_assembly_user_role: Administrador da nova reunião
+        view_deleted_assemblies: Ver reuniões excluídas
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
+          success: Reunião criada com sucesso. Agora pode adicionar componentes e configurá-la.
         edit:
           update: Atualizar
         index:
           private: Privado
           public: Público
           published: Publicado
+          unpublished: Não publicado
+        manage_trash:
+          title: Reuniões excluídas
         new:
           create: Criar
           title: Nova assembléia
@@ -122,14 +143,24 @@ pt:
         destroy:
           success: Administrador removido corretamente desta reunião.
         edit:
+          title: Atualizar o administrador da reunião
           update: Atualizar
         index:
           assembly_admins_title: Administradores da reunião
         new:
           create: Criar
+          title: Administrador da nova reunião
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
+      filters:
+        ceased_date_not_null:
+          label: Cessou
+          values:
+            'false': Não cessou
+            'true': Cessou
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Pesquisar por nome ou apelido
       menu:
         assemblies: Reuniões
         assemblies_submenu:
@@ -138,10 +169,15 @@ pt:
           attachment_files: Ficheiros
           attachments: Anexos
           components: Componentes
+          info: Sobre esta reunião
+          landing_page: Página de destino
           moderations: Moderação
+          private_users: Membros
+          see_assembly: Veja a reunião
       models:
         assembly:
           fields:
+            actions: Ações
             created_at: Criado em
             private: Privado
             promoted: Realçado
@@ -165,13 +201,24 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Todas as reuniões
       titles:
         assemblies: Reuniões
+        assemblies_deleted: Reuniões excluídas
         assemblies_types: Tipos de reuniões
+      tooltips:
+        deleted_assemblies_info: Só é possível excluir uma reunião se o status for «Não publicado».
     admin_log:
       assembly:
         create: "%{user_name} criou a reunião %{resource_name}"
+        duplicate: "%{user_name} duplicou a reunião %{resource_name}"
+        export: "%{user_name} exportou a reunião %{resource_name}"
+        import: "%{user_name} importou a reunião %{resource_name}"
         publish: "%{user_name} publicou a reunião %{resource_name}"
+        restore: "%{user_name} restaurou a reunião %{resource_name}"
+        soft_delete: "%{user_name} moveu para o lixo a reunião %{resource_name}"
         unpublish: "%{user_name} removeu a publicação da reunião %{resource_name}"
         update: "%{user_name} atualizou a reunião %{resource_name}"
       assembly_member:
@@ -195,18 +242,32 @@ pt:
         assemblies:
           form:
             announcement_help: O texto que introduzir aqui será mostrado ao utilizador imediatamente abaixo da informação sobre a reunião.
+            define_taxonomy_filters: Defina alguns filtros para este espaço de participação antes de usar esta configuração.
             duration: Duração
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
             images: Imagens
+            included_at_help: Selecione a data em que esta reunião foi adicionada à plataforma. Não precisa de ser necessariamente a mesma que a data de criação.
             metadata: Metadados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             other: Outros
+            private_notice: Poderá gerir participantes privados depois de os definir como privados
             select_a_created_by: Selecione um criado por
             select_parent_assembly: Selecione a reunião pai
+            slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomias
             title: Informação geral
+            visibility: Visibilidade
+        assembly_copies:
+          form:
+            slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             explanation: 'Orientações para imagem:'
+            image_guide: De preferência uma imagem de retrato que não tenha nenhum texto.
             non_user_avatar_help: Deve obter o consentimento das pessoas antes de as publicar como membros.
         content_blocks:
           highlighted_assemblies:
@@ -215,15 +276,42 @@ pt:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Área
+          closing_date: Data de encerramento
+          created_by: Criado por
+          creation_date: Data de criação
+          data: Dados da reunião
+          developer_group: Grupo promotor
+          duration: Duração
+          included_at: Incluído em
+          indefinite_duration: Indeterminada
+          local_area: Área de organização
+          meta_scope: Âmbito
+          participatory_scope: O que é decidido
+          participatory_structure: Como é decidido
+          target: Quem participa
+          title: Sobre esta reunião
         filters:
           names:
             all: Todos
+          type: Tipo
+        show:
+          title: Sobre esta reunião
       assembly_members:
         index:
           members: Membros
       content_blocks:
+        children_assemblies:
+          name: Reuniões
+        dates_metadata:
+          name: Metadados de datas
+        extra_data:
+          name: Tipo e duração
         highlighted_assemblies:
           name: Reuniões realçadas
+        related_assemblies:
+          name: Reuniões relacionadas
       created_by:
         city_council: Câmara Municipal
         others: Outros
@@ -240,20 +328,31 @@ pt:
         working_group: Grupo de trabalho
       index:
         title: Reuniões
+      last_activity:
+        new_assembly: 'Nova reunião:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Reuniões ativas
+            see_all_spaces: Ver todas as reuniões
         user_profile:
           member_of:
             member_of: Membro de
       show:
         duration: Duração
         private_space: Esta é uma reunião privada
+        social_networks_title: Visite a reunião em
     assembly_members:
       index:
         title: Membros
+    download_your_data:
+      show:
+        assemblies: Exportar reuniões
     events:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da reunião <a href="%{resource_url}">%{resource_name}</a> adicionou-o como um dos seus membros.
+          email_outro: Recebeu esta notificação porque foi convidado para uma reunião. Verifique a <a href="%{resource_url}">página da reunião</a> para contribuir!
           email_subject: Foi convidado para ser membro da reunião %{resource_name}!
           notification_title: Foi registado como membro da Reunião <a href="%{resource_path}">%{resource_name}</a>. Consulte a página da reunião <a href="%{resource_path}"></a> para contribuir!
       assembly:
@@ -276,11 +375,55 @@ pt:
           not_found: 'O tipo de reunião não foi encontrado na base de dados (ID: %{id})'
     menu:
       assemblies: Reuniões
-    metrics:
-      assemblies:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
+    open_data:
+      help:
+        assemblies:
+          announcement: As informações do anúncio (chamada)
+          area: A área da reunião
+          assembly_type: O tipo de reunião
+          closing_date: Data de encerramento da reunião
+          closing_date_reason: Por que a assembleia foi fechada
+          composition: A composição de reunião
+          created_at: A data em que este espaço foi criado
+          created_by: Quem criou esta reunião
+          created_by_other: Outro criador da reunião
+          creation_date: A data de criação desta reunião
+          decidim_scope_id: O objetivo da reunião
+          description: Uma descrição longa da reunião
+          developer_group: O grupo de desenvolvimento da reunião
+          duration: A duração da reunião
+          facebook_handler: Responsável de redes sociais para o Facebook
+          follows_count: O número de utilizadores que seguem este espaço
+          github_handler: Responsável de redes sociais para o GitHub
+          hashtag: A hashtag da reunião, usada para o Twitter/X
+          id: O identificador exclusivo desta reunião
+          included_at: A data em que a reunião foi incluída
+          instagram_handler: Responsável de redes sociais para o Instagram
+          internal_organisation: A organização interna desta reunião
+          is_transparent: Onde a reunião é transparente ou não
+          local_area: A localização da reunião
+          meta_scope: Os metadados objetivo da reunião
+          participatory_scope: O objetivo participativo da reunião
+          participatory_structure: A estrutura participativa da reunião
+          promoted: Se a reunião é promovida ou não
+          published_at: A data em que este espaço foi publicado
+          purpose_of_action: O objetivo da ação da reunião
+          reference: A referência única do espaço
+          remote_banner_image_url: A URL da imagem do banner da reunião
+          remote_hero_image_url: A URL da imagem do herói da reunião
+          scope: O objetivo da reunião
+          scopes_enabled: Se os objetivos estão ou não ativados
+          short_description: Uma descrição breve da reunião
+          slug: O slug da reunião (usado para fins de identificação, para a URL)
+          special_features: Quais são as características especiais desta reunião
+          subtitle: O subtítulo da reunião
+          target: O alvo da reunião
+          taxonomies: As taxonomias do projeto
+          title: O título da reunião
+          twitter_handler: Responsável de redes sociais para o Twitter
+          updated_at: A última data em que este espaço foi atualizado
+          url: O URL do espaço
+          youtube_handler: Responsável de redes sociais para o YouTube
     participatory_processes:
       show:
         related_assemblies: Reuniões relacionadas
@@ -294,6 +437,10 @@ pt:
           take_part: Participar
         index:
           promoted_assemblies: Reuniões realçadas
+        metadata:
+          children_item:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
         order_by_assemblies:
           assemblies:
             one: "%{count} reunião"

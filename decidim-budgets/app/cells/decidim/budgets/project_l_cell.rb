@@ -37,7 +37,7 @@ module Decidim
         options[:show_only_added]
       end
 
-      def hide_vote_button
+      def hide_vote_button?
         options[:hide_vote_button]
       end
 

@@ -85,7 +85,11 @@ module Decidim
 
       # @return [Float]
       def calculate_automatic_hybridization
-        (meetings_component_score + meetings_score) / 2.0
+        (meetings_component_score +
+           meetings_online_score +
+           meetings_in_person_score +
+           meetings_hybrid_score +
+           meetings_with_proposals_score) / 5.0
       end
 
       # @return [Float]
@@ -94,8 +98,34 @@ module Decidim
       end
 
       # @return [Float]
-      def meetings_score
-        all_meetings.any? ? 5.0 : 0.0
+      def meetings_online_score
+        all_meetings.online.any? ? 5.0 : 0.0
+      end
+
+      # @return [Float]
+      def meetings_in_person_score
+        all_meetings.in_person.any? ? 5.0 : 0.0
+      end
+
+      # @return [Float]
+      def meetings_hybrid_score
+        all_meetings.hybrid.any? ? 5.0 : 0.0
+      end
+
+      # @return [Float]
+      def meetings_with_proposals_score
+        if all_meetings.joins(:resource_links_from)
+                       .where(
+                         decidim_resource_links: {
+                           name: "proposals_from_meetings",
+                           to_type: "Decidim::Meetings::Meeting"
+                         }
+                       )
+                       .any?
+          5.0
+        else
+          0.0
+        end
       end
 
       # Transparency
@@ -104,24 +134,41 @@ module Decidim
       def calculate_automatic_transparency
         [
           answered_proposals_score,
-          linked_results_score,
-          completed_results_score,
-          quality_meetings_score
-        ].sum / 4.0
-      end
-
-      # @return [Float]
-      def quality_meetings_score
-        meetings = all_meetings
-                   .where.not(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING[:online])
-                   .where.not(end_time: nil)
-
-        percentage_to_scale(meetings.count, all_meetings.count)
+          completed_results_score
+        ].sum / 2.0
       end
 
       # @return [Float]
       def answered_proposals_score
         percentage_to_scale(all_proposals.answered.count, all_proposals.count)
+      end
+
+      # @return [Float]
+      def completed_results_score
+        results = all_accountability_results.where(progress: 100)
+        percentage_to_scale(results.count, all_accountability_results.count)
+      end
+
+      # Traceability
+
+      # @return [Float]
+      def calculate_automatic_traceability
+        [
+          proposals_with_history_score,
+          linked_results_score,
+          quality_meetings_score,
+          proposals_linked_to_budgets_score
+        ].sum / 4.0
+      end
+
+      # @return [Float]
+      def proposals_with_history_score
+        linked_proposals_ids = (
+          all_proposals.joins(:resource_links_from).pluck(:id) +
+          all_proposals.joins(:resource_links_to).pluck(:id)
+        ).uniq
+
+        percentage_to_scale(linked_proposals_ids.count, all_proposals.count)
       end
 
       # @return [Float]
@@ -138,21 +185,21 @@ module Decidim
       end
 
       # @return [Float]
-      def completed_results_score
-        results = all_accountability_results.where(progress: 100)
-        percentage_to_scale(results.count, all_accountability_results.count)
+      def quality_meetings_score
+        meetings = all_meetings
+                   .where.not(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING[:online])
+                   .where.not(end_time: nil)
+
+        percentage_to_scale(meetings.count, all_meetings.count)
       end
 
-      # Traceability
-
       # @return [Float]
-      def calculate_automatic_traceability
-        linked_proposals_ids = (
-          all_proposals.joins(:resource_links_from).pluck(:id) +
-          all_proposals.joins(:resource_links_to).pluck(:id)
-        ).uniq
+      def proposals_linked_to_budgets_score
+        proposals = all_proposals
+                    .joins(:resource_links_to)
+                    .where(decidim_resource_links: { name: "included_proposals", from_type: "Decidim::Budgets::Project" })
 
-        percentage_to_scale(linked_proposals_ids.count, all_proposals.count)
+        percentage_to_scale(proposals.count, all_proposals.count)
       end
 
       # Auto-evaluation metrics

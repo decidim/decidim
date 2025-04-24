@@ -19,6 +19,10 @@ module Decidim
         def presenter
           @presenter ||= ParticipatoryProcessDemocraticQualityStatsPresenter.new(model, resource)
         end
+
+        def info_url
+          decidim.page_path("democratic-quality-indicators")
+        end
       end
     end
   end

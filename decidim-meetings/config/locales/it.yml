@@ -90,7 +90,6 @@ it:
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
             maps_enabled: Mappe abilitate
-            registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
           step:
@@ -124,10 +123,8 @@ it:
           email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
           notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
         meeting_updated:
-          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata aggiornata
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
           email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
           email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
@@ -255,8 +252,6 @@ it:
         registrations:
           edit:
             save: Salva
-            validate: Convalidare
-            validate_registration_code: Convalida il codice di registrazione
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
@@ -272,9 +267,6 @@ it:
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
-          validate_registration_code:
-            invalid: Questo codice di registrazione non è valido.
-            success: Codice di registrazione validato con successo.
       admin_log:
         invite:
           create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
@@ -384,7 +376,6 @@ it:
           micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
-          registration_code_help_text: Il tuo codice di registrazione
           registration_state:
             validated: CONVALIDATA
             validation_pending: IN ATTESA DELLA CONVALIDA
@@ -436,7 +427,6 @@ it:
         confirmation:
           confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
           details: Puoi trovare i dettagli della riunione in allegato.
-          registration_code: Il tuo codice di registrazione è %{code}.
       registration_type:
         on_different_platform: Su una piattaforma diversa
         on_this_platform: Usa questa piattaforma
@@ -456,11 +446,6 @@ it:
       types:
         private_meeting: Incontro privato
         transparent: Trasparente
-    metrics:
-      meetings:
-        description: Numero di riunioni create
-        object: incontri
-        title: Incontri
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Incontri passati
