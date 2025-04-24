@@ -93,7 +93,11 @@ tr:
           new:
             create: İçe aktar
             import_all_selected_projects: Seçilen tüm projeleri içe aktarın
+            new_items:
+              one: Seçilen 1 proje içe aktarılacak
+              other: "Seçilen %{count} proje içe aktarılacak"
             no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
+            origin_component_id:
             title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
