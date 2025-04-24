@@ -434,7 +434,6 @@ fr:
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
