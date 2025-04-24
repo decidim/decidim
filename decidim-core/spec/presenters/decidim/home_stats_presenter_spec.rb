@@ -34,11 +34,11 @@ module Decidim
     describe "#collection" do
       it "renders a collection of high priority stats including users and processes" do
         stats = [
-          { data: [1], name: :users_count, icon_name: "user-line", tooltip_key: "users_count_tooltip", sub_title: nil },
-          { data: [1], name: :processes_count, icon_name: "treasure-map-line", tooltip_key: "processes_count_tooltip", sub_title: nil },
-          { data: [1], name: :assemblies_count, icon_name: "government-line", tooltip_key: "assemblies_count_tooltip", sub_title: nil },
-          { data: [10], name: :foo, icon_name: nil, tooltip_key: nil, sub_title: nil },
-          { data: [20], name: :dummies_count_high, icon_name: nil, tooltip_key: nil, sub_title: nil }
+          { admin: true, data: [1], name: :users_count, icon_name: "user-line", tooltip_key: "users_count_tooltip", sub_title: nil },
+          { admin: true, data: [1], name: :processes_count, icon_name: "treasure-map-line", tooltip_key: "processes_count_tooltip", sub_title: nil },
+          { admin: true, data: [1], name: :assemblies_count, icon_name: "government-line", tooltip_key: "assemblies_count_tooltip", sub_title: nil },
+          { admin: true, data: [10], name: :foo, icon_name: nil, tooltip_key: nil, sub_title: nil },
+          { admin: true, data: [20], name: :dummies_count_high, icon_name: nil, tooltip_key: nil, sub_title: nil }
         ]
 
         expect(subject.collection).to eq(stats)

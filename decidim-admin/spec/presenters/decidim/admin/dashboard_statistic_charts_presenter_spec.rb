@@ -18,14 +18,15 @@ module Decidim
       describe "#highlighted" do
         let(:high_priority_stats) do
           [
-            { name: :proposals_count, data: [3] },
-            { name: :custom_stat, data: [10] }
+            { name: :proposals_count, data: [3], admin: false },
+            { name: :custom_stat, data: [10], admin: true }
           ]
         end
 
         let(:medium_priority_stats) do
           [
-            { name: :comments_count, data: [5] }
+            { name: :comments_count, data: [5], admin: true },
+            { name: :other_stat, data: [7], admin: false }
           ]
         end
 
@@ -39,21 +40,24 @@ module Decidim
           end
         end
 
-        it "returns filtered and merged stats" do
+        it "returns filtered and merged stats with admin: true" do
           result = presenter.highlighted
 
           expect(result).to include(
-            { name: :custom_stat, data: [10] },
-            { name: :comments_count, data: [5] }
+            { name: :custom_stat, data: [10], admin: true },
+            { name: :comments_count, data: [5], admin: true }
           )
-          expect(result).not_to include(name: :proposals_count)
+          expect(result).not_to include(
+            { name: :proposals_count, data: [3], admin: false },
+            { name: :other_stat, data: [7], admin: false }
+          )
         end
 
         it "does not include duplicated stats like :meetings_count" do
-          high_priority_stats << { name: :meetings_count, data: [2] }
+          high_priority_stats << { name: :meetings_count, data: [2], admin: true }
           result = presenter.highlighted
 
-          expect(result).not_to include(name: :meetings_count)
+          expect(result).to include(admin: true, name: :meetings_count, data: [2])
         end
       end
     end

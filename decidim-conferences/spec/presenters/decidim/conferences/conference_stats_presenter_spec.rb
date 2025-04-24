@@ -36,7 +36,7 @@ module Decidim
       end
 
       it "renders a collection of stats including users and processes" do
-        expect(subject.collection).to include({ data: [10], name: :foo, icon_name: nil, sub_title: nil, tooltip_key: nil })
+        expect(subject.collection).to include({ admin: true, data: [10], name: :foo, icon_name: nil, sub_title: nil, tooltip_key: nil })
       end
     end
 
