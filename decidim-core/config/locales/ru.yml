@@ -470,7 +470,6 @@ ru:
       global: Всеобщий охват
       prompt: Выбрать охват
     search:
-      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
       filters:
