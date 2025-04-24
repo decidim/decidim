@@ -1726,8 +1726,12 @@ en:
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
     reported_mailer:
       hide:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
