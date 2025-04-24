@@ -412,6 +412,7 @@ ja:
         registrations:
           edit:
             save: 保存
+            validate: 検証
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待

@@ -416,6 +416,8 @@ de:
         registrations:
           edit:
             save: Speichern
+            validate: Validieren
+            validate_registration_code: Registrierungscode validieren
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
@@ -432,6 +434,9 @@ de:
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
+          validate_registration_code:
+            invalid: Dieser Registrierungscode ist ungültig.
+            success: Registrierungscode erfolgreich validiert.
       admin_log:
         invite:
           create: "%{user_name} hat %{attendee_name} eingeladen, an der Veranstaltung %{resource_name} in %{space_name} teilzunehmen"
@@ -584,14 +589,14 @@ de:
           create: Erstellen
           title: Neue Veranstaltung erstellen
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
           join: Anmelden
-          leave: Registrierung stornieren
-          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          leave: Anmeldung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Anmeldung für diese Veranstaltung stornieren möchten?
           link_available_soon: Link in Kürze verfügbar
           link_closed: Der Link, um an der Veranstaltung teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Diese Veranstaltung findet gerade statt
