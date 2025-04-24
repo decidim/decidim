@@ -13,7 +13,7 @@
     }
 
     &_content {
-      @apply flex flex-col lg:items-center lg:flex-row lg:gap-1;
+      @apply flex flex-col lg:items-center lg:flex-row lg:gap-2;
     }
 
     &_date {
@@ -22,10 +22,10 @@
   }
 
   &_text {
-    @apply flex flex-col lg:flex-none lg:block relative;
+    @apply flex flex-col lg:flex-none lg:block relative max-w-[250px] lg:max-w-[620px] lg:whitespace-normal;
   }
 
   &__line {
-    @apply absolute -left-[26px] lg:-left-[130px] top-3.5 lg:top-[26px] w-px h-full bg-secondary;
+    @apply absolute -left-[26px] lg:-left-[135px] top-3.5 lg:top-[26px] w-px h-full bg-secondary;
   }
 }
