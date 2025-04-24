@@ -7,7 +7,7 @@ describe "Admin manages conference admins" do
 
   it_behaves_like "manage conference admins examples"
 
-  context "when visiting as process admin" do
+  context "when visiting as space admin" do
     let!(:user) do
       create(:conference_admin,
              :confirmed,

@@ -7,7 +7,7 @@ describe "Admin manages assembly admins" do
 
   it_behaves_like "manage assembly admins examples"
 
-  context "when visiting as process admin" do
+  context "when visiting as space admin" do
     let!(:user) do
       create(:assembly_admin,
              :confirmed,

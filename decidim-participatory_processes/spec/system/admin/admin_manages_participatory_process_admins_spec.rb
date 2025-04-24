@@ -7,7 +7,7 @@ describe "Admin manages participatory process admins" do
 
   it_behaves_like "manage process admins examples"
 
-  context "when visiting as process admin" do
+  context "when visiting as space admin" do
     let!(:user) do
       create(:process_admin,
              :confirmed,
