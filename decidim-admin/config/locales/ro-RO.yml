@@ -278,6 +278,8 @@ ro:
         no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta.
       block_user:
+        bulk_new:
+          justification: Justificare
         new:
           action: Blochează contul și trimite justificarea
           already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
@@ -415,6 +417,8 @@ ro:
             explanation: 'Îndrumare pentru fișier:'
             message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
+          import_csv:
+            message_1: Sunt acceptate fișiere CSV
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor.
         form:
@@ -533,9 +537,6 @@ ro:
         static_pages: Pagini
         taxonomy_filters: Filtre taxonomie
         users: Participanți
-      metrics:
-        metrics:
-          see_more_metrics: Vezi mai mulți indicatori
       models:
         area:
           fields:
@@ -932,7 +933,6 @@ ro:
         dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
-        metrics: Indicatori
         panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu
@@ -965,22 +965,13 @@ ro:
       errors:
         impersonate_user:
           reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat.
-    metrics:
-      blocked_users:
-        object: utilizatori blocați
-        title: Utilizatori blocați
-      reported_users:
-        object: utilizatori raportați
-        title: Utilizatori raportați
-      user_reports:
-        object: rapoarte de utilizator
-        title: Rapoarte de utilizator
     moderations:
       actions:
         expand: Extinde
         hidden: Ascuns
         hide: Ascunde
         not_hidden: Neascuns
+        parent_hidden: Nu puteți afișa această resursă deoarece părintele său este încă ascuns.
         title: Acțiuni
         unhide: Anulează ascunderea
         unreport: Anulează raportarea
@@ -991,6 +982,7 @@ ro:
             success: Resursa a fost ascunsă cu succes.
           unhide:
             invalid: A apărut o problemă la anularea ascunderii resursei.
+            parent_invalid: A apărut o problemă la afișarea resursei. Părintele nu este vizibil.
             success: Anularea ascunderii resursei a fost realizată cu succes.
           unreport:
             invalid: A apărut o problemă la anularea raportării resursei.

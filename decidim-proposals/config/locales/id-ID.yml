@@ -152,19 +152,6 @@ id:
           name: Proposal
           next_level_in: Buat %{score} proposal lagi untuk mencapai level berikutnya!
           unearned_own: Anda belum membuat proposal.
-    metrics:
-      accepted_proposals:
-        description: Jumlah proposal yang diterima oleh pengguna
-        object: proposal
-        title: Proposal yang Diterima
-      endorsements:
-        description: Jumlah dukungan yang dihasilkan dalam proposal
-        object: dukungan
-        title: Endorsemen
-      proposals:
-        description: Jumlah proposal yang dihasilkan
-        object: proposal
-        title: Proposal
     participatory_spaces:
       highlighted_proposals:
         see_all: Lihat semua

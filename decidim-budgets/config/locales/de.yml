@@ -222,6 +222,7 @@ de:
           pending_to_vote_budgets:
             one: Sie können in einem anderen Budget abstimmen
             other: Sie können in anderen Budgets abstimmen
+          share_text: "Ich habe gerade für meine Lieblingsprojekte in %{space_name} gestimmt! 🎉 Jetzt abstimmen: %{component_url}"
           share_vote: Teilen Sie Ihre Stimme
           title: Ihre Stimme wurde erfolgreich angenommen
           view_votes:
@@ -230,6 +231,9 @@ de:
           votes_count:
             one: Ihre Stimme für %{budget_name} wurde bereits registriert.
             other: Ihre %{count} Stimmen für %{budget_name} wurden bereits registriert.
+      order_pdf:
+        text: Sie haben in %{space_name} für folgende Projekte abgestimmt
+        title: Ihre Stimme wurde erfolgreich abgegeben.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
@@ -253,7 +257,7 @@ de:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
-          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
+          cancel_order: Stimme löschen
           checked_out:
             description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
@@ -284,13 +288,13 @@ de:
             start_adding_projects: Mit dem Hinzufügen von Projekten beginnen
           minimum: Minimum
           minimum_projects_rule:
-            description: Wählen Sie mindestens %{minimum_number} Projekte aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+            description: Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
           projects_rule:
-            description: Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekten aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+            description: Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
           projects_rule_maximum_only:
-            description: Wählen Sie bis zu %{maximum_number} Projekte aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+            description: Wählen Sie bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
           vote_threshold_percent_rule:
-            description: Teilen Sie mindestens %{minimum_budget} den Projekten zu, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+            description: Weisen Sie mindestens %{minimum_budget} den Projekten hinzu und stimmen Sie entsprechend Ihren Wünschen ab.
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -315,9 +319,10 @@ de:
           added: Hinzugefügt
           all: Alle
         projects_for: Projekte für %{name}
-        select_projects: Projekte auswählen
+        select_projects: Projekt hinzufügen
         show:
           budget: Budget
+        start_voting: Abstimmung beginnen
       prompt: Budget auswählen
       vote_reminder_mailer:
         vote_reminder:

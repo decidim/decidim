@@ -244,6 +244,8 @@ cs:
             few: Vaše %{count} hlasy pro %{budget_name} již byly zaregistrovány.
             many: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
             other: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
+      order_pdf:
+        title: Váš hlas byl úspěšně přijat.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
@@ -267,7 +269,6 @@ cs:
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
-          cancel_order: smazat váš hlas a začít znovu
           checked_out:
             description: Už jste pro rozpočet hlasovali. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
@@ -299,14 +300,6 @@ cs:
             minimum_reached: Dosáhli jste minima, abyste mohli hlasovat
             start_adding_projects: Začít přidávat projekty
           minimum: Minimum
-          minimum_projects_rule:
-            description: Vyberte alespoň %{minimum_number} projekty, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-          projects_rule:
-            description: Vyberte alespoň %{minimum_number} a až %{maximum_number} projekty, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-          projects_rule_maximum_only:
-            description: Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-          vote_threshold_percent_rule:
-            description: Přiřaďte alespoň %{minimum_budget} k projektům, které chcete, a hlasujte podle vašich preferencí pro definování rozpočtu.
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -333,7 +326,6 @@ cs:
           added: Přidáno
           all: Vše
         projects_for: Projekty pro %{name}
-        select_projects: Vybrat projekty
         show:
           budget: Rozpočet
       prompt: Vybrat rozpočet

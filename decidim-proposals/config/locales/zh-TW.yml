@@ -258,19 +258,6 @@ zh-TW:
           next_level_in: 建立更多 %{score} 個提案以達到下一個等級！
           unearned_another: 這位參與者還沒有建立任何提案。
           unearned_own: 你還沒有建立提案。
-    metrics:
-      accepted_proposals:
-        description: 已接受的提案數
-        object: 提案
-        title: 已通過的提案
-      endorsements:
-        description: 對提案的連署次數
-        object: 連署
-        title: 連署
-      proposals:
-        description: 提案總數
-        object: 提案
-        title: 提案
     participatory_spaces:
       highlighted_proposals:
         see_all: 檢視所有提案

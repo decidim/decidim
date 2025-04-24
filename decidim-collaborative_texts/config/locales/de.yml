@@ -1,14 +1,74 @@
 ---
 de:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Inhalt
+          title: Titel
+          version_number: Versionsnummer
+        version:
+          body: Haupttext
+          version_number: Versionsnummer
   decidim:
     collaborative_texts:
+      actions:
+        confirm_delete_document: Sind Sie sicher, dass Sie dieses Dokument löschen wollen?
+        deleted_document_info: Gelöschtes Dokument kann aus dem Papierkorb wiederhergestellt werden.
+        edit: Bearbeiten
+        manage: Verwalten
+        new: Neuer Text
+        title: Aktionen
+        view_deleted_documents: Gelöschte Dokumente anzeigen
       admin:
         documents:
+          create:
+            invalid: Beim Erstellen des Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich erstellt.
+          edit:
+            title: Kollaborative Texte bearbeiten
+            update: Aktualisieren
+          edit_settings:
+            title: Kollaborative Texte einstellen
+            update: Aktualisieren
+          index:
+            title: Kollaborative Texte
+          manage_trash:
+            title: Gelöschte Dokumente
+          new:
+            create: Erstellen
+            title: Kollaborative Texte erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieses Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich veröffentlicht.
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieses Dokuments ist ein Fehler aufgetreten.
+            success: Die Veröffentlichung des Dokuments wurde erfolgreich aufgehoben.
+          update:
+            invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich aktualisiert.
           update_settings:
+            invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
             success: Dokument erfolgreich aktualisiert.
         settings:
           form:
             allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
+      admin_log:
+        document:
+          create: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat den kollaborativen Text %{resource_name} aus %{space_name} gelöscht"
+          publish: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} veröffentlicht"
+          restore: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat den kollaborativen Text %{resource_name} auf %{space_name} in den Papierkorb verschoben"
+          unpublish: "%{user_name} hat die Veröffentlichung des kollaborativen Texts %{resource_name} auf %{space_name} rückgängig gemacht"
+          update: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} aktualisiert"
+        version:
+          delete: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} aus %{space_name} gelöscht"
+          update: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} in %{space_name} aktualisiert"
+      document:
+        cancel: Abbrechen
+        save: Anmerkung absenden
+        suggest: Änderung vorschlagen
       documents:
         index:
           count:

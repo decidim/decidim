@@ -222,6 +222,7 @@ sv:
           pending_to_vote_budgets:
             one: Du kan rösta i en till budget
             other: Du kan rösta i fler budgetar
+          share_text: "Jag röstade just på mina favoritprojekt i %{space_name}! 🎉 Rösta nu: %{component_url}"
           share_vote: Dela din röst
           title: Din röst har tagits emot
           view_votes:
@@ -230,6 +231,9 @@ sv:
           votes_count:
             one: Din röst på %{budget_name} har redan registrerats.
             other: Dina %{count} röster för %{budget_name} har redan registrerats.
+      order_pdf:
+        text: Du har röstat i %{space_name} för följande projekt
+        title: Din röst har tagits emot.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'
@@ -253,7 +257,7 @@ sv:
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
-          cancel_order: dra tillbaka din röst
+          cancel_order: Dra tillbaka din röst
           checked_out:
             description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
@@ -284,13 +288,13 @@ sv:
             start_adding_projects: Börja lägga till projekt
           minimum: Minst
           minimum_projects_rule:
-            description: Välj minst %{minimum_number} projekt att rösta på inom budgeten.
+            description: Välj minst %{minimum_number} projekt som du vill är intresserad av och vill rösta om.
           projects_rule:
-            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på inom budgeten.
+            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt som du vill är intresserad av och vill rösta om.
           projects_rule_maximum_only:
-            description: Välj upp till %{maximum_number} projekt att rösta på inom budgeten.
+            description: Välj upp till %{maximum_number} projekt som du är intresserad av och vill rösta om.
           vote_threshold_percent_rule:
-            description: Tilldela minst %{minimum_budget} till de projekt du vill rösta på inom budgeten.
+            description: Tilldela minst %{minimum_budget} till de projekt du är intresserad av och vill rösta om.
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
@@ -315,9 +319,10 @@ sv:
           added: Tillagd
           all: Alla
         projects_for: Projekt inom %{name}
-        select_projects: Välj projekt
+        select_projects: Lägg till projekt
         show:
           budget: Budget
+        start_voting: Börja rösta
       prompt: Välj budget
       vote_reminder_mailer:
         vote_reminder:
