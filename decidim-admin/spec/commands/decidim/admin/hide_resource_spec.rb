@@ -15,8 +15,10 @@ module Decidim::Admin
         event_class: Decidim::ResourceHiddenEvent,
         resource: reportable,
         extra: {
+          force_email: true,
           report_reasons: [report.reason]
         },
+        force_send: true,
         affected_users: reportable.try(:authors) || [reportable.try(:author)]
       }
     end

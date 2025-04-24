@@ -59,9 +59,11 @@ module Decidim
         event_class: Decidim::ResourceHiddenEvent,
         resource: @reportable,
         extra: {
-          report_reasons:
+          report_reasons:,
+          force_email: true
         },
-        affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
+        affected_users:,
+        force_send: true
       }
 
       Decidim::EventsManager.publish(**data)
@@ -91,6 +93,10 @@ module Decidim
     end
 
     private
+
+    def affected_users
+      @affected_users ||= (@reportable.try(:authors) || [@reportable.try(:author)]).select { |author| author.is_a?(Decidim::User) }
+    end
 
     def report_reasons
       @reportable.moderation.reports.pluck(:reason).uniq
