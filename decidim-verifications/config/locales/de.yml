@@ -120,6 +120,12 @@ de:
           email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
           notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} hat einen neuen Volkszählungsdatensatz mit E-Mail %{resource_email} erstellt"
+          delete: "%{user_name} hat den Volkszählungsdatensatz mit E-Mail %{resource_email} gelöscht"
+          import: "%{user_name} hat %{imported_count} Volkszählungsdatensätze importiert"
+          update: "%{user_name} hat den Datensatz der Volkszählung mit der E-Mail %{resource_email} aktualisiert"
       authorizations:
         authorization_metadata:
           info: 'Dies sind die Daten der aktuellen Verifizierung:'
@@ -160,7 +166,58 @@ de:
         start_exploring: Fang an zu erforschen
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Sind Sie sicher, dass Sie diesen Datensatz löschen möchten?
+            destroy: Löschen
+            edit: Bearbeiten
+          census:
+            create_import:
+              error: Beim Importieren der Zählung ist ein Fehler aufgetreten.
+              no_user: Kein Mitglied gefunden
+              success: '%{count} Elemente erfolgreich importiert. Wir verarbeiten die Daten. Aktualisieren Sie die Seite in wenigen Minuten, um die Änderungen zu sehen.'
+            destroy:
+              success: Zählungsdatensatz wurde gelöscht.
+            index:
+              empty: Es gibt keine Volkszählungsdaten. Verwenden Sie %{import_csv} um eine CSV-Datei zu importieren.
+              no_sign_in: Nie angemeldet
+              no_user: Kein Mitglied gefunden
+            last_login:
+              no_sign_in: Nie angemeldet
+              no_user: Kein Mitglied
+            new_import:
+              errors:
+                email_exists: Die E-Mail-Adresse %{email} existiert bereits in der Organisation %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte mit E-Mail-Adressen:'
+              submit: Datei hochladen
+              title: Daten der Volkszählung importieren
+              upload_new_census: Neue Volkszählung hochladen
+          census_records:
+            create_record:
+              success: Datensatz zur Volkszählung erfolgreich hinzugefügt. Wir verarbeiten die Daten. Aktualisieren Sie die Seite in wenigen Minuten, um die Änderungen zu sehen.
+            edit_record:
+              save: Speichern
+              title: Volkszählung bearbeiten
+            form:
+              email: E-Mail
+            new_record:
+              save: Speichern
+              title: Neuen Volkszählungseintrag hinzufügen
+            update_record:
+              invalid: Es gab ein Problem beim Aktualisieren des Datensatzes.
+              success: Datensatz für die Volkszählung erfolgreich aktualisiert.
           index:
+            add_new_record_button: Neuen Eintrag hinzufügen
+            authorized: Mitglied berechtigt
+            fields:
+              actions: Aktionen
+              created_at: Erstellt am
+              email: E-Mail
+              user_authorized: Mitglied berechtigt?
+            import_csv: CSV importieren
+            no_authorized: Mitglied nicht berechtigt
             title: Aktuelle Erhebungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
@@ -177,6 +234,10 @@ de:
           user_postal_codes:
             one: Die Teilnahme ist auf Teilnehmer mit der Postleitzahl %{postal_codes} beschränkt, und Ihre Postleitzahl ist %{user_postal_code}.
             other: 'Die Teilnahme ist auf Teilnehmer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}. Ihre Postleitzahl ist %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Die folgenden E-Mail-Adressen sind ungültig: %{invalid_emails}.'
+        no_emails: Die Datei muss E-Mails enthalten
+        wrong_number_columns: "%{expected} Spalten wurden erwartet, aber %{actual} wurden gefunden."
       id_documents:
         admin:
           config:

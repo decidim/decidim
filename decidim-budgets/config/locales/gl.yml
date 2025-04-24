@@ -121,7 +121,6 @@ gl:
           ok: Ok
         budget_summary:
           are_you_sure: Estás certo de querer cancelar o teu voto?
-          cancel_order: elimine o seu voto e volva comezar
           checked_out:
             title: A votación do orzamento completada
         count:

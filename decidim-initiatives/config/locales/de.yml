@@ -34,6 +34,7 @@ de:
         comments_enabled: Kommentare aktivieren
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
+        document_number_authorization_handler: Unterzeichnungsablauf
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
@@ -320,6 +321,7 @@ de:
             child_scope_threshold_enabled_help_html: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
             only_global_scope_enabled_help_html: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
+            signature_workflow_settings: Einstellungen zum Unterzeichnungsablauf
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
@@ -476,6 +478,7 @@ de:
               document_type:
                 prompt: Dokumenttyp
               document_type_and_number:
+                help_text: Die Dokumentennummer entspricht dem Dokument, welches bei der Schriftenbeglaubigung verwendet wird.
                 label: Dokumenttyp und -nummer
               gender:
                 options:
@@ -485,10 +488,23 @@ de:
         fill_personal_data:
           continue: Daten überprüfen
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen.
+          invalid_authorization: Die Daten, die zum Fortfahren der Aktion zur Verfügung gestellt werden, sind nicht kompatibel mit Ihren bestehenden Genehmigungen oder Sie müssen eine erteilte Genehmigung erstellen.
+          invalid_data: Einige der zur Überprüfung Ihrer Identität zur Verfügung gestellten persönlichen Daten sind nicht gültig.
         finish:
           back_to_initiative: Zurück zur Initiative
+          title: Sie haben die Initiative unterzeichnet
+        sms_phone_number:
+          confirmed_data: Sie haben Ihre Daten bestätigt.
+          continue: Initiative unterzeichnen
+          help_enter_your_number: Bitte geben Sie Ihre Telefonnummer ein. Sie erhalten dann eine SMS mit einem Bestätigungscode.
+          receive_code: Code erhalten
+          resend_code_html: Keinen Code erhalten? <a href="%{new_code_path}">Erneut versuchen</a>
+          your_code_is_correct: Der Code ist korrekt.
+          your_code_is_incorrect: Der Code ist nicht korrekt. Vitte überprüfen oder <a href="%{new_code_path}"> erneut versuchen</a>.
+          your_confirmation_code: Ihr Bestätigungscode
       initiative_votes:
         create:
+          already_voted: Ihre Unterschrift wurde bereits mit Ihren Daten registriert.
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
           invalid: Ihre zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig.
           success_html: Herzliche Glückwünsche! Die Initiative <strong> %{title}</strong> wurde erfolgreich unterzeichnet.
@@ -618,6 +634,23 @@ de:
           open: Offen
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Unterzeichnung, welche die persönlichen Daten des Benutzers aufnimmt, die Autorisierung und den SMS-Code überprüft
+            name: Muster-Unterzeichnungsverfahren
+          dummy_signature_with_personal_data_handler:
+            description: Unterzeichnung, die nur persönliche Informationen der Nutzenden annimmt und diese validiert
+            name: Muster-Unterzeichnungsverfahren mit persönlichen Daten
+          dummy_signature_with_sms_handler:
+            description: Unterzeichnung, die nur die Telefonnummer auf der Suche nach einer zugehörigen Autorisierung und den SMS-Code überprüft
+            name: Muster-Unterzeichnungsverfahren nur mit SMS
+          ephemeral_dummy_signature_handler:
+            description: Ephemere Unterzeichnung, die persönliche Informationen der Nutzenden annimmt, die Autorisierungen und den SMS-Code überprüft
+            name: Ephemeres Muster-Unterzeichnungsverfahren
+          legacy_signature_handler:
+            description: Veraltetes Muster-Unterzeichnungsverfahren basierend auf der alten Unterzeichnungsfunktion einschließlich der Erfassung persönlicher Daten, SMS-Schritt und Validierung der Autorisierung mit dummy_authorization_handler. Ändere jeden Parameter, um sich an die verwendete Konfiguration anzupassen
+            name: Veraltetes Muster-Unterzeichnungsverfahren
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
@@ -671,6 +704,9 @@ de:
         finish: Technische Prüfung
         promotal_committee: Suche nach Unterstützenden
         select_initiative_type: Wählen
+      initiative_signature_creation_header:
+        help_information_html: Um die Initiative <strong>%{initiative_title}</strong> zu unterzeichnen, die von %{initiative_author} gefördert wurde, müssen Sie einige Informationen angeben, die die Unterzeichnung der Initiative rechtsverbindlich machen. Keine Informationen über Sie werden öffentlich gemacht.
+        verify_your_identity: Bestätigen Sie Ihre Identität
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

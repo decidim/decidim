@@ -1,24 +1,25 @@
 <%= csrf_meta_tags %>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% available_locales.each do |locale| %>
   <link rel="alternate" href="<%= current_url(request.parameters.merge(locale:)) %>" hreflang="<%= locale %>">
 <% end %>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@<%= decidim_meta_twitter_handler %>">
-<meta name="twitter:title" content="<%= decidim_page_title %>">
-<meta name="twitter:description" content="<%= decidim_meta_description %>">
-<meta name="twitter:image" content="<%= decidim_meta_image_url %>">
+<%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
 
-<meta property="og:url" content="<%= decidim_meta_url %>">
-<meta property="og:type" content="article">
-<meta property="og:title" content="<%= decidim_page_title %>">
-<meta property="og:description" content="<%= decidim_meta_description %>">
-<meta property="og:image" content="<%= decidim_meta_image_url %>">
+<%= tag :meta, name: "twitter:card", content: "summary_large_image" %>
+<%= tag :meta, name: "twitter:site", content: "@#{decidim_meta_twitter_handler}" %>
+<%= tag :meta, name: "twitter:title", content: decidim_page_title %>
+<%= tag :meta, name: "twitter:description", content: decidim_meta_description %>
+<%= tag :meta, name: "twitter:image", content: decidim_meta_image_url.presence || "" %>
+
+<%= tag :meta, property: "og:image", content: decidim_meta_image_url.presence || "" %>
+<%= tag :meta, property: "og:type", content: "article" %>
+<%= tag :meta, property: "og:title", content: decidim_page_title %>
+<%= tag :meta, property: "og:description", content: decidim_meta_description %>
+<%= tag :meta, property: "og:url", content: decidim_meta_url %>
 
 <% if current_organization.colors.present? %>
-  <meta name="theme-color" content="<%= current_organization.colors["primary"] %>">
+  <%= tag :meta, name: "theme-color", content: current_organization.colors["primary"] %>
 <% end %>
 
 <%= render partial: "layouts/decidim/meta_tags_context" %>
