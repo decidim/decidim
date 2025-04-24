@@ -1527,11 +1527,16 @@ en:
         scan: Scan the QR code
         title: QR Code for %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         hello: Hello %{name},
         manage_moderations: Manage moderations
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
+      hidden_by_admin:
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden by %{admin}.</p>
+        subject: A resource has been hidden by %{admin}
       report:
         authors: Authors
         content: Reported content

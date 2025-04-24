@@ -21,13 +21,25 @@ module Decidim
       end
     end
 
-    def hide(user, report)
+    def hidden_by_admin(user, report, current_user)
       with_user(user) do
         @report = report
         @participatory_space = @report.moderation.participatory_space
         @organization = user.organization
         @user = user
-        subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
+        @admin = current_user
+        subject = I18n.t("hidden_by_admin.subject", scope: "decidim.reported_mailer", admin: @admin.name)
+        mail(to: user.email, subject:)
+      end
+    end
+
+    def hidden_automatically(user, report)
+      with_user(user) do
+        @report = report
+        @participatory_space = @report.moderation.participatory_space
+        @organization = user.organization
+        @user = user
+        subject = I18n.t("hidden_automatically.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject:)
       end
     end
