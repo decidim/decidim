@@ -26,14 +26,14 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
     it "runs gracefully" do
       create_forgotten_users_file
       expect { task.execute }.not_to raise_error
-      check_no_errors_have_been_printed
+      expect($stdout.string).not_to include("ERROR:")
     end
 
     it "deletes users" do
       user_ids = users.collect(&:id)
       create_forgotten_users_file(user_ids)
       task.execute
-      check_no_errors_have_been_printed
+      expect($stdout.string).not_to include("ERROR:")
       expect(Decidim::User.where(id: user_ids).all?(&:deleted?)).to be true
 
       expect($stdout.string).to include("[#{user_ids.first}] DELETING USER")
