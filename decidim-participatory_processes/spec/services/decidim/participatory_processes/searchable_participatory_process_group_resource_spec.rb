@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Search do
-    # We can not use the shared example "global search of participatory spaces",
+    # We cannot use the shared example "global search of participatory spaces",
     # as the Participatory Process Group is not Publicable (does not have a `published_at` column)
     let(:participatory_process_group) do
       create(
