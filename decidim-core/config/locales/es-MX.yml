@@ -6,6 +6,7 @@ es-MX:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -1721,8 +1722,12 @@ es-MX:
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
     reported_mailer:
       hide:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
