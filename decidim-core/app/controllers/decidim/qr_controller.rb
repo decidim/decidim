@@ -9,6 +9,8 @@ module Decidim
 
     helper_method :resource, :qr_code, :qr_code_image
     before_action :validate_resource
+    before_action :validate_component
+    before_action :validate_participatory_space
 
     layout false
 
@@ -35,6 +37,14 @@ module Decidim
       raise ActiveRecord::RecordNotFound if resource.blank?
       raise ActiveRecord::RecordNotFound if resource.respond_to?(:hidden?) && resource.hidden?
       raise ActiveRecord::RecordNotFound if resource.is_a?(Decidim::Publicable) && !resource.published?
+    end
+
+    def validate_component
+      raise ActiveRecord::RecordNotFound if resource.respond_to?(:component) && !resource.component.published?
+    end
+
+    def validate_participatory_space
+      raise ActiveRecord::RecordNotFound if resource.respond_to?(:participatory_space) && !resource.participatory_space.published?
     end
 
     def processed_params

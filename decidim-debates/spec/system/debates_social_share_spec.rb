@@ -44,6 +44,24 @@ describe "Social shares" do
         let(:target_path) { decidim.qr_path(resource: debate.to_sgid.to_s) }
       end
     end
+
+    context "when the resource's component is not published" do
+      let(:component) { create(:debates_component, :unpublished, participatory_space: participatory_process) }
+      let(:debate) { create(:debate, component:, description:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: debate.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource's space is not published" do
+      let(:participatory_process) { create(:participatory_process, :unpublished, hero_image:, organization:) }
+      let(:debate) { create(:debate, component:, description:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: debate.to_sgid.to_s) }
+      end
+    end
   end
 
   context "when no description images" do
