@@ -4,6 +4,7 @@ module Decidim
   # Default permissions class for all components and spaces. It deauthorizes all
   # actions by any kind of user. Also works as a default implementation so other
   # components can inherit from it and get some convenience methods.
+  # Delgates the admin permission check on :subject and :action to the permissions module.
   class DefaultPermissions
     include Decidim::UserRoleChecker
 
