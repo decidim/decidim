@@ -485,7 +485,6 @@ ca:
           withdrawn_at: Quan va ser retirada aquesta proposta
     participatory_spaces:
       highlighted_proposals:
-        last: Propostes més recents
         see_all: Veure totes les propostes
     proposals:
       actions:
