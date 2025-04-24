@@ -40,7 +40,9 @@ module Decidim
     end
 
     def validate_component
-      raise ActiveRecord::RecordNotFound if resource.respond_to?(:component) && !resource.component.published?
+      return unless resource.respond_to?(:component) && resource.component.present?
+
+      raise ActiveRecord::RecordNotFound unless resource.component.published?
     end
 
     def validate_participatory_space
