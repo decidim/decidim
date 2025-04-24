@@ -387,7 +387,6 @@ en:
         title: Supports
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
