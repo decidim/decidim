@@ -12,10 +12,10 @@
 # https://guides.rubyonrails.org/upgrading_ruby_on_rails.html
 
 ###
-# No longer add autoloaded paths into `$LOAD_PATH`. This means that you won't be able
-# to manually require files that are managed by the autoloader, which you shouldn't do anyway.
+# No longer add autoloaded paths into `$LOAD_PATH`. This means that you will not be able
+# to manually require files that are managed by the autoloader, which you should not do anyway.
 #
-# This will reduce the size of the load path, making `require` faster if you don't use bootsnap, or reduce the size
+# This will reduce the size of the load path, making `require` faster if you do not use bootsnap, or reduce the size
 # of the bootsnap cache if you use it.
 #
 # To set this configuration, add the following line to `config/application.rb` (NOT this file):
@@ -55,7 +55,7 @@
 #++
 # Rails.application.config.active_record.encryption.hash_digest_class = OpenSSL::Digest::SHA256
 #
-# 3. If you don't currently have data encrypted with Active Record encryption, you can disable this setting to
+# 3. If you do not currently have data encrypted with Active Record encryption, you can disable this setting to
 # configure the default behavior starting 7.1+:
 #++
 # Rails.application.config.active_record.encryption.support_sha1_for_non_deterministic_encryption = false
@@ -73,9 +73,9 @@
 # Configures SQLite with a strict strings mode, which disables double-quoted string literals.
 #
 # SQLite has some quirks around double-quoted string literals.
-# It first tries to consider double-quoted strings as identifier names, but if they don't exist
+# It first tries to consider double-quoted strings as identifier names, but if they do not exist
 # it then considers them as string literals. Because of this, typos can silently go unnoticed.
-# For example, it is possible to create an index for a non existing column.
+# For example, it is possible to create an index for a missing column.
 # See https://www.sqlite.org/quirks.html#double_quoted_string_literals_are_accepted for more details.
 #++
 # Rails.application.config.active_record.sqlite3_adapter_strict_strings_by_default = true
@@ -239,7 +239,7 @@
 #
 # Only change this value after your application is fully deployed to Rails 7.1
 # and you have no plans to rollback.
-# When you're ready to change format, add this to `config/application.rb` (NOT
+# When you are ready to change format, add this to `config/application.rb` (NOT
 # this file):
 #   config.active_support.cache_format_version = 7.1
 
@@ -275,7 +275,7 @@
 # Configure the test helpers in Action View, Action Dispatch, and rails-dom-testing to use HTML5
 # parsers.
 #
-# Nokogiri::HTML5 isn't supported on JRuby, so JRuby applications must set this to :html4.
+# Nokogiri::HTML5 is not supported on JRuby, so JRuby applications must set this to :html4.
 #
 # In previous versions of Rails, these test helpers always used an HTML4 parser.
 #++
