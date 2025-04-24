@@ -353,7 +353,6 @@ bg:
         title: Гласове
     participatory_spaces:
       highlighted_proposals:
-        last: Позледни предложения
         see_all: Виж всички предложения
     proposals:
       actions:
