@@ -5,6 +5,7 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       attachment:
         documents: Documents
+        image: Imatge
         photos: Fotos
       common:
         created_at: Creat el
@@ -1544,6 +1545,8 @@ ca:
         report_details: El recurs principal estava amagat
     resource:
       controls_label: Controls de recursos
+    resource_autocomplete:
+      help: Escriu aquí per cercar entre les propostes
     resource_endorsements:
       create:
         error: S'ha produït un error durant l'acció d'adhesió.
@@ -2053,6 +2056,8 @@ ca:
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús
       header:
+        back: Tornar al llistat
+        cancel: Cancel·lar
         close: Tancar
         confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…

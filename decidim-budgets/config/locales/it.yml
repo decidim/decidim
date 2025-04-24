@@ -125,7 +125,6 @@ it:
             title: Limite massimo di progetti superato
         budget_summary:
           are_you_sure: Sei certo di voler cancellare il tuo voto?
-          cancel_order: Cancella il tuo voto e ricomincia.
           checked_out:
             title: Voto di budget completato.
         count:

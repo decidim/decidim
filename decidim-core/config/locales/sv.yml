@@ -3,6 +3,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -1322,6 +1324,8 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+    resource_autocomplete:
+      help: Sök efter förslag
     resource_endorsements:
       create:
         error: Det gick inte att gilla.
@@ -1796,6 +1800,8 @@ sv:
         sign_up: Skapa ett konto
         terms_of_service: Användarvillkor
       header:
+        back: Tillbaka till listan
+        cancel: Avbryt
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
