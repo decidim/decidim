@@ -8,25 +8,10 @@ module Decidim
       end
 
       def highlighted
-        stats_by_title = {}
+        high_priority = collection(priority: StatsRegistry::HIGH_PRIORITY)
+        medium_priority = collection(priority: StatsRegistry::MEDIUM_PRIORITY)
 
-        collection(priority: StatsRegistry::MEDIUM_PRIORITY).each do |stat|
-          title = translate_stat_title(stat)
-          stats_by_title[title] = { stat: stat, priority: 2 }
-        end
-
-        collection(priority: StatsRegistry::HIGH_PRIORITY).each do |stat|
-          title = translate_stat_title(stat)
-          stats_by_title[title] ||= { stat: stat, priority: 1 }
-        end
-
-        stats_by_title.values.sort_by { |entry| entry[:priority] }.map { |entry| entry[:stat] }
-      end
-
-      private
-
-      def translate_stat_title(stat)
-        I18n.t(stat[:name], scope: "decidim.statistics")
+        (high_priority + medium_priority).select { |stat| stat[:admin] }
       end
     end
   end

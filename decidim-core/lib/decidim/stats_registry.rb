@@ -28,6 +28,7 @@ module Decidim
       raise StandardError, "Stats '#{name}' is already registered." if stat.present?
 
       options[:primary] ||= false
+      options[:admin] = true unless options.has_key?(:admin)
       options[:priority] ||= LOW_PRIORITY
 
       @stats.push(name:,
@@ -37,6 +38,7 @@ module Decidim
                   icon_name: options[:icon_name],
                   tooltip_key: options[:tooltip_key],
                   sub_title: options[:sub_title],
+                  admin: options[:admin],
                   block:)
     end
 
@@ -70,7 +72,8 @@ module Decidim
             data: resolve(stat[:name], context, start_at, end_at),
             icon_name: stat[:icon_name],
             tooltip_key: stat[:tooltip_key],
-            sub_title: stat[:sub_title]
+            sub_title: stat[:sub_title],
+            admin: stat[:admin]
           }
         end
       end

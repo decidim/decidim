@@ -29,6 +29,7 @@ Decidim.register_component(:meetings) do |component|
 
   component.register_stat :meetings_count,
                           primary: true,
+                          admin: false,
                           priority: Decidim::StatsRegistry::HIGH_PRIORITY,
                           icon_name: "map-pin-line",
                           tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
@@ -37,7 +38,6 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :participatory_space_meetings_count,
-                          primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
                           icon_name: "map-pin-line",
                           tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
