@@ -1,5 +1,21 @@
-<nav role="navigation" aria-labelledby="search-results-title">
+<nav role="navigation" aria-labelledby="search-results-title" class="w-full">
   <div class="filter-container search__filter">
+    <div class="filter-search filter-container border-none mb-15 md:mb-8">
+      <%= form_tag(decidim.search_path, method: :get) do %>
+        <%= text_field_tag(
+              :term,
+              nil,
+              id: "input-search-page",
+              value: params[:term] || params.dig(:filter, :term),
+              placeholder: t("decidim.search.term_input_placeholder"),
+              title: t("decidim.search.term_input_placeholder"),
+              "aria-label": t("decidim.search.term_input_placeholder")
+            ) %>
+        <button type="submit" aria-controls="results" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+          <%= icon "search-line" %>
+        </button>
+      <% end %>
+    </div>
     <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
       <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
       <% @blocks.each do |elements| %>
@@ -7,6 +23,7 @@
           <%= content_tag :span, class: "#{"is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
             <span><%= searchable_resource_human_name(type) %></span>
           <% end %>
+
         <% end %>
       <% end %>
       <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
