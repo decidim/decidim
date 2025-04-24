@@ -31,22 +31,11 @@ describe "Admin manages participatory texts" do
       find("a#import-doc").click
       expect(page).to have_content "Add document"
 
-      fill_in_i18n(
-          :import_participatory_text_title,
-          "#import-title",
-          ca: "Algun text participatiu",
-          en: "Some participatory text",
-          es: "Un texto participativo"
-      )
-      fill_in_i18n(
-          :import_participatory_text_description,
-          "#import-desc",
-          ca: "La descripció d'algun text participatiu",
-          en: "The description of some participatory text",
-          es: "La descripción de algún texto participativo"
-      )
+      fill_in_i18n(:import_participatory_text_title, "#import-title", ca: "Algun text participatiu", en: "Some participatory text", es: "Un texto participativo")
+      fill_in_i18n(:import_participatory_text_description, "#import-desc", ca: "La descripció d'algun text participatiu", en: "The description of some participatory text", es: "La descripción de algún texto participativo")
       dynamically_attach_file(:import_participatory_text_document, Decidim::Dev.asset("participatory_text.md"))
       click_on "Upload document"
+
       expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
       expect(page).to have_content "Preview participatory text"
 
