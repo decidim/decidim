@@ -1586,7 +1586,6 @@ cs:
     search:
       name: Hledat
       results: Výsledky hledání
-      results_found_for_term: '%{count} Výsledky pro vyhledávání: "%{term}"'
       term_input_placeholder: Vyhledávání
     searches:
       filters:
