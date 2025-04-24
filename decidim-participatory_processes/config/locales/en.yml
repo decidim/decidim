@@ -632,8 +632,210 @@ en:
         democratic_quality_indicators:
           title: Democratic quality indicators
           content: |-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h1>Indicator system to measure participation quality in Decidim.</h1>
+
+            <h2>Introduction</h2>
+            <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>
+
+            <h2>How Are Indicators Calculated?</h2>
+            <p>We have defined two methods for collecting quality indicators:</p>
+
+            <ol>
+              <li><strong>Automatic Metrics:</strong> These are calculated directly from Decidim platform data.</li>
+              <li><strong>Self-Assessment Questions:</strong> These are based on a form filled out by an administrator.</li>
+            </ol>
+
+            <p>Each indicator is expressed as a percentage (n/total). This percentage is then converted to a score on a 1-to-5 scale:</p>
+
+            <ul>
+              <li>1 = 0–20%</li>
+              <li>2 = 20–40%</li>
+              <li>3 = 40–60%</li>
+              <li>4 = 60–80%</li>
+              <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h2>Automatic Metrics</h2>
+            <p>These metrics are automatically calculated from data available in Decidim. They are evaluated per participatory process and can be made public by administrators, so all participants can access it.</p>
+
+            <p>We have defined four main indicators: Citizen Influence, Hybridization, Responsiveness and Traceability:</p>
+
+            <h3>Citizen Influence</h3>
+
+            <p>This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.</p>
+
+            <ul>
+              <li>
+                Citizen influence on proposals
+                <ul>
+                  <li>Percentage of proposals accepted (n/total)</li>
+                  <li>Percentage of approved <em>citizen</em> proposals over total of citizen proposals (total citizen influence on proposals approved)</li>
+                  <li>Percentage of approved citizen proposals over total of approved proposals (relative citizen influence on approved proposal)</li>
+                </ul>
+              </li>
+              <li>
+                Citizen influence on outputs/results
+                <ul>
+                  <li>Percentage of results linked to citizen proposals out of the total of results (total citizen influence on outputs)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Hybridization</h3>
+
+            <p>This indicator measures the level of combination between online and offline spaces during the process.</p>
+
+            <ul>
+              <li>Is a meeting component active? (Yes=5, No=0)</li>
+              <li>Are there face to face meetings? (Yes=5, No=0)</li>
+              <li>Are there online meetings ? (Yes=5, No=0)</li>
+              <li>Are there hybrid meetings? (Yes=5, No=0)</li>
+              <li>Are there proposals created from meetings? (Yes=5, No=0)</li>
+            </ul>
+
+            <h3>Responsiveness</h3>
+
+            <p>This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.</p>
+
+            <ul>
+              <li>Percentage of proposals with answers (n/total) – Proposal institutional responsiveness</li>
+              <li>Percentage of results completed at 100% (n/total)</li>
+            </ul>
+
+            <h3>Traceability</h3>
+
+            <p>This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.</p>
+
+            <ul>
+              <li>Number of Proposals with history (n/total)</li>
+              <li>Percentage of results linked to proposals (n/total)</li>
+              <li>Percentage of meetings closed with minutes published (n/total)</li>
+              <li>Activation of the open data module (dichotomic: 0 or 5)</li>
+              <li>Percentage of proposals related to budgets (n/total)</li>
+            </ul>
+
+            <br><br>
+            <h2>Self-Assessment Metrics</h2>
+
+            <p>In addition to automatic metrics, we propose the use of a <strong>self-evaluation form</strong> to assess the qualitative dimensions of each participatory process. This form will be completed by platform administrators at the end of each process, and the responses will be publicly displayed in the indicators content block.</p>
+
+            <p>These questions aim to capture aspects of democratic quality that cannot be assessed through quantitative data alone. It is important to note that the responses to this survey are biased by the opinion of the platform administrators.</p>
+
+            <br><br>
+            <h2>Self-assessment questions</h2>
+            
+            <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
+
+            <h3>Inclusiveness</h3>
+            
+            <p>Inclusivity according to cultural origin and functional diversity.</p>
+
+            <ol>
+              <li>Have migrant groups been invited to participate?
+                <ul>
+                  <li>Yes = 5</li>
+                  <li>No = 0</li>
+                </ul>
+              </li>
+              <li>How many people from diverse cultural origins have participated out of the invited?
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+              <li>Have groups of people with functional diversity been invited to participate?
+                <ul>
+                  <li>Yes = 5</li>
+                  <li>No = 0</li>
+                </ul>
+              </li>
+              <li>How many people with functional diversity have participated out of the invited?
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h3>Relevance</h3>
+            
+            <p>Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.</p>
+
+            <ol>
+              <li>Percentage of organisation's budget, workforce or of the total population affected by the process' result.
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h3>Citizens influence</h3>
+
+            <ol>
+              <li>Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
+                <ul>
+                  <li>Informative = 0
+                    <p>One-way flow of information—from officials to citizens—with no channel provided for feedback and no power for negotiation.</p>
+                  </li>
+                  <li>Consultation = 1
+                    <p>A participatory process where citizens are asked for their opinions, typically through surveys or meetings, but without assurance that their input will influence decisions.</p>
+                  </li>
+                  <li>Placation = 2
+                    <p>A participatory process where citizens are given limited influence, often in a tokenistic manner, such as inclusion in boards or committees, but without real power, as decision-making remains controlled by the traditional power elite.</p>
+                  </li>
+                  <li>Partnership = 3
+                    <p>A participatory process where citizens and organizations share decision-making power, allowing participants to negotiate, allocate resources, and influence planning, with rules that cannot be changed unilaterally. It often emerges from citizen mobilization and collective action.</p>
+                  </li>
+                  <li>Delegated power = 4
+                    <p>A participatory process where citizens gain authority, control, or funding to influence and manage an organization.</p>
+                  </li>
+                  <li>Citizen control = 5
+                    <p>A highest level of participation where citizens fully govern a program or institution, managing policies, resources, and decision-making without external interference.</p>
+                  </li>
+                </ul>
+              </li>
+              <li>Percentage of phases with 0-5 citizen decisional intervention.
+                <p>Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?</p>
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h3>Accessibility</h3>
+
+            <ol>
+              <li>In how many languages has the process been communicated?
+                <ul>
+                  <li>One language = 1</li>
+                  <li>Less than half of the languages spoken in the community = 2,5</li>
+                  <li>More than half of the languages spoken in the community = 5</li>
+                </ul>
+              </li>
+              <li>Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+            </ol>
+
     statistics:
       processes_count: Processes
   layouts:
