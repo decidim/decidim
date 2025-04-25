@@ -4,6 +4,10 @@ ca-IT:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        image: Imatge
+        photos: Fotos
       common:
         created_at: Creat el
       conversation:
@@ -357,7 +361,7 @@ ca-IT:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
-        error: S'ha produït un error en retirar l'esmena.
+        error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
@@ -614,7 +618,7 @@ ca-IT:
           are_you_new?: Ets nova a la plataforma?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
-          sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi.
+          sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
         user:
           timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
@@ -660,7 +664,7 @@ ca-IT:
         download_data: Descarrega't les dades
         download_data_description_html: |-
           S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>.
-          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). 
+          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS).
           Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     editor_images:
@@ -669,7 +673,7 @@ ca-IT:
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsement_buttons_cell:
-      already_endorsed: No m'agrada
+      already_endorsed: Desfer el "M'agrada"
       endorse: M'agrada
     endorsements:
       identities:
@@ -815,7 +819,7 @@ ca-IT:
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
       nickname_event:
-        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
+        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que s'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1320,7 +1324,7 @@ ca-IT:
           headline: Estat actual de %{organization}
         sub_hero:
           register: Registra't
-          register_title: Registra't per crear un compte
+          register_title: Crea un compte
       index:
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
@@ -1632,7 +1636,7 @@ ca-IT:
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
-      unauthenticated: Cal iniciar sessió o registrar-te abans de continuar.
+      unauthenticated: Cal iniciar sessió o crear un compte abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
@@ -1992,8 +1996,8 @@ ca-IT:
         title: Configuració de la participant
         user_groups: Grups
   locale:
-    name: Català
-    name_with_error: Català (error!)
+    name: Algherese
+    name_with_error: Algherese (error!)
   password_validator:
     denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini
