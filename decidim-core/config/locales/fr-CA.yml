@@ -4,6 +4,10 @@ fr-CA:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      attachment:
+        documents: Documents
+        image: Image
+        photos: Photos
       common:
         created_at: Créé le
       conversation:
