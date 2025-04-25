@@ -54,18 +54,18 @@ module Decidim
 
       def root_taxonomy
         @root_taxonomy ||= organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
-                                                                                     "Categories") || organization.taxonomies.roots.sample
+                                                                 "Categories") || organization.taxonomies.roots.sample
       end
 
       def create_taxonomies!
-        parent_taxonomy = root_taxonomy.children.sample || root_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+        parent_taxonomy = root_taxonomy.children.sample || create_taxonomy!(name: Decidim::Faker::Localized.sentence(word_count: 5), parent: root_taxonomy)
         taxonomies = [parent_taxonomy]
 
         2.times do
           taxonomies << if parent_taxonomy.children.count > 1
                           parent_taxonomy.children.sample
                         else
-                          parent_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+                          create_taxonomy!(name: Decidim::Faker::Localized.sentence(word_count: 5), parent: parent_taxonomy)
                         end
         end
 
