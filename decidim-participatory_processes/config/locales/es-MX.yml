@@ -312,6 +312,7 @@ es-MX:
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
         create: "%{user_name} creó el grupo de procesos participativos de %{resource_name}"
+        unpublish: "%{user_name} ha despublicado el grupo de procesos participativos: %{resource_name}"
         update: "%{user_name} actualizó el grupo de procesos participativos de %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
