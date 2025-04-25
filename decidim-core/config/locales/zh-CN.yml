@@ -25,6 +25,8 @@ zh-CN:
         password_confirmation: 确认您的密码
         personal_url: 个人网址
         remove_avatar: 删除头像
+      user_group:
+        avatar: 头像
     models:
       decidim/attachment_created_event: 附文
       decidim/component_published_event: 活动组件
