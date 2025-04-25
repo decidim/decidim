@@ -17,16 +17,24 @@ module Decidim
           t("title", scope: "decidim.participatory_processes.participatory_processes.show")
         end
 
+        def rich_text_processors?
+          true
+        end
+
         def short_description_text
-          decidim_sanitize_editor_admin translated_attribute(short_description)
+          presenter.short_description
         end
 
         def description_text
-          decidim_sanitize_editor_admin translated_attribute(description)
+          presenter.description
         end
 
         def nav_items
           process_nav_items(resource)
+        end
+
+        def presenter
+          @presenter ||= Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource)
         end
       end
     end

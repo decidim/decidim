@@ -110,7 +110,6 @@ lb:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
-          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
             title: Budget-Abstimmung abgeschlossen
         count:

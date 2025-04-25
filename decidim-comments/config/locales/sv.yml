@@ -26,6 +26,8 @@ sv:
             enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -183,11 +185,6 @@ sv:
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antal kommentarer från deltagare
-        object: kommentarer
-        title: Kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

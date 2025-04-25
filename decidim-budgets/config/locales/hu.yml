@@ -165,6 +165,8 @@ hu:
       order:
         status:
           title: A szavazatod elfogadása sikeres volt
+      order_pdf:
+        title: A szavazatodat sikeresen leadtad.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
@@ -188,7 +190,6 @@ hu:
             title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
-          cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
@@ -218,14 +219,6 @@ hu:
             minimum_reached: Elérted a minimumot a szavazáshoz
             start_adding_projects: Kezdj el projekteket hozzáadni
           minimum: Minimum
-          minimum_projects_rule:
-            description: Válassz lekevesebb %{minimum_number} projektet és szavazz a preferenciád szerint a költségvetésük meghatározására.
-          projects_rule:
-            description: Válassz ki legkevesebb %{minimum_number} és legfeljebb %{maximum_number} projektet és szavazz a költségvetés meghatározásához preferenciáid szerint.
-          projects_rule_maximum_only:
-            description: Válassz ki maximum %{maximum_number} projektet és szavazz a preferenciádis szerint a költségvetés meghatározásához.
-          vote_threshold_percent_rule:
-            description: Rendelj hozzá legalább %{minimum_budget} projektet, és szavazz a prefereniáid szerint a költségvetés meghatározásához.
         orders:
           highest_cost: Legmagasabb költség
           label: Projektek rendezése
@@ -247,7 +240,6 @@ hu:
           added: Hozzáadva
           all: Összes
         projects_for: '%{name} projektek'
-        select_projects: Projektek kiválasztása
         show:
           budget: Költségvetés
       prompt: Költségvetés választása

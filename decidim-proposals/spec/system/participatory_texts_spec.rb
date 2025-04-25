@@ -47,7 +47,10 @@ describe "Participatory texts" do
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
         visit_component
+
         should_have_proposal("#proposals section[id^='proposal']:first-child", proposal_section)
+
+        expect(page).to have_tag("#proposals section[id^='proposal']:first-child", text: translated(proposal_section.title))
       end
     end
 
@@ -57,7 +60,9 @@ describe "Participatory texts" do
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
         visit_component
+
         should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article)
+        expect(page).to have_tag("#proposals section[id^='proposal']:last-child", text: translated(proposal_article.title))
       end
     end
   end

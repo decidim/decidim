@@ -225,6 +225,7 @@ ca:
           submit: Enviar respostes
       user_responses_serializer:
         body: Resposta
+        completion: Finalització
         created_at: Respost el
         id: ID de la resposta
         ip_hash: Hash de l'adreça IP
