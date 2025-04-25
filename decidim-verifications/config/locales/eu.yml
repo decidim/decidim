@@ -2,6 +2,8 @@
 eu:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Egiaztapen-eranskina
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline
