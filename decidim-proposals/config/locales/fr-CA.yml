@@ -385,7 +385,6 @@ fr-CA:
         title: Votes
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
