@@ -395,7 +395,6 @@ cs:
         title: Hlasy
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:
