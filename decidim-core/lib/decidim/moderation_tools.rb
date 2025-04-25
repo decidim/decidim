@@ -60,9 +60,13 @@ module Decidim
     def send_notification_to_author
       return if affected_users.blank?
 
-      data = {
-        event: "decidim.events.reports.resource_hidden",
-        event_class: Decidim::ResourceHiddenEvent,
+      data = if @reportable.moderation.reports.last&.reason == "parent_hidden"
+               { event: "decidim.events.reports.parent_hidden", event_class: Decidim::ParentHiddenEvent }
+             else
+               { event: "decidim.events.reports.resource_hidden", event_class: Decidim::ResourceHiddenEvent }
+             end
+
+      data.merge!(
         resource: @reportable,
         extra: {
           report_reasons:,
@@ -70,7 +74,7 @@ module Decidim
         },
         affected_users:,
         force_send: true
-      }
+      )
 
       Decidim::EventsManager.publish(**data)
     end
@@ -97,7 +101,7 @@ module Decidim
 
       if @reportable.is_a?(Decidim::Comments::Commentable)
         @reportable.comment_threads.each do |comment|
-          Decidim::HideChildResourcesJob.perform_later(comment, @current_user.id)
+          Decidim::HideChildResourcesJob.perform_later(comment, current_user.id)
         end
       end
 
@@ -111,7 +115,7 @@ module Decidim
     end
 
     def report_reasons
-      @reportable.moderation.reports.pluck(:reason).uniq
+      [@reportable.moderation.reports.last&.reason]
     end
   end
 end
