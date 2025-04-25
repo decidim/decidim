@@ -112,11 +112,11 @@ module Decidim
           end
 
           it "sends an email to the admin" do
-            allow(ReportedMailer).to receive(:hide).and_call_original
+            allow(ReportedMailer).to receive(:hidden_automatically).and_call_original
             command.call
             last_report = Report.last
             expect(ReportedMailer)
-              .to have_received(:hide)
+              .to have_received(:hidden_automatically)
               .with(admin, last_report)
           end
         end
