@@ -4,6 +4,9 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      attachment:
+        documents: ドキュメント
+        photos: 写真
       common:
         created_at: 作成日時
       conversation:
