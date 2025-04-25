@@ -4,6 +4,10 @@ es-MX:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        image: Imagen
+        photos: Fotos
       common:
         created_at: Creado el
       conversation:
