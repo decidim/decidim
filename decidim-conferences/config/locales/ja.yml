@@ -69,6 +69,8 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
+      partner:
+        logo: ロゴ
     errors:
       models:
         conference_registration_invite:
