@@ -31,6 +31,8 @@ lt:
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
         tos_agreement: Paslaugos sutarties sąlygos
+      user_group:
+        avatar: Avataras
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
@@ -88,6 +90,8 @@ lt:
     errors:
       file_size_too_large: Dokumento dydis per didelis
   date:
+    buttons:
+      select: Pasirinkti
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%d-%m-%Y"
