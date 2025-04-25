@@ -22,10 +22,14 @@
   }
 
   &_text {
-    @apply flex flex-col lg:flex-none lg:block relative max-w-[250px] lg:max-w-[400px] lg:whitespace-normal;
+    @apply flex flex-col relative max-w-[250px] lg:max-w-[400px];
+
+    a {
+      @apply lg:ml-[-106px];
+    }
   }
 
   &__line {
-    @apply absolute -left-[26px] lg:-left-[133px] top-3.5 lg:top-[26px] w-px h-full lg:h-[92.3%] bg-secondary;
+    @apply absolute -left-[26px] lg:-left-[134px] top-3.5 lg:top-[26px] w-px h-full lg:h-[90%] bg-secondary;
   }
 }
