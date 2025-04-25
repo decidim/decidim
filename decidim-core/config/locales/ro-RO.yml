@@ -6,6 +6,7 @@ ro:
         delete_reason: Motivul pentru care vă ștergeți contul
       attachment:
         documents: Documente
+        image: Imagine
         photos: Fotografii
       common:
         created_at: Creat la
