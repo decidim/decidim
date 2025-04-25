@@ -959,6 +959,16 @@ ro:
       notification_event:
         notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al %{resource_type}.
+          email_subject: '%{resource_type} nu mai este vizibil'
+          notification_title: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
           email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
