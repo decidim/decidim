@@ -69,6 +69,8 @@ de:
         email: Email
         name: Name
         role: Rolle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
