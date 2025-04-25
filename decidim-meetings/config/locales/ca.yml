@@ -2,6 +2,8 @@
 ca:
   activemodel:
     attributes:
+      answer:
+        add_documents: Afegir documents
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
