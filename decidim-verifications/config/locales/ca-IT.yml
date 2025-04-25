@@ -2,6 +2,8 @@
 ca-IT:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Arxiu adjunt de la verificació
       config:
         available_methods: Mètodes disponibles
         offline: Sense connexió
