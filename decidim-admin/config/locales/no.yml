@@ -463,9 +463,6 @@
         settings: Innstillinger
         static_pages: Sider
         users: Deltakere
-      metrics:
-        metrics:
-          see_more_metrics: Se flere måltall
       models:
         area:
           fields:
@@ -798,7 +795,6 @@
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         menu: Meny
-        metrics: Måltall
         panel: Administrator
         participants: Deltakere
         scope_types: Tematyper
@@ -826,16 +822,6 @@
           last_month: Siste måned
           last_week: Siste uke
           participants: Deltakere
-    metrics:
-      blocked_users:
-        object: blokkerte brukere
-        title: Blokkerte brukere
-      reported_users:
-        object: rapporterte brukere
-        title: Rapporterte brukere
-      user_reports:
-        object: brukerrapporter
-        title: Brukerrapporter
     moderations:
       actions:
         expand: Utvid

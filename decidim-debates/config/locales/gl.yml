@@ -122,10 +122,5 @@ gl:
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
-    metrics:
-      debates:
-        description: Número de debates creados
-        object: debates
-        title: Debates
     statistics:
       debates_count: Debates

@@ -180,10 +180,6 @@ ko:
           email_outro: '%{proposal_title} 을(를) 팔로우중이어서 이 알림을 받게되었고, %{resource_title} 에 이 의도가 포함되어 있습니다. 이전 링크를 팔로우해서 알림을 받지 않으실 수 있습니다.'
           email_subject: '%{resource_title} 과정에 업데이트 발생'
           notification_title: 제안 <a href="% {resource_path}">% {resource_path}">% {proposal_title}/a>를 포함하는 <a href="% {resource_title}/a> 결과는 이제 %{progress}% 완료되었습니다.
-    metrics:
-      results:
-        object: 결과
-        title: 결과
     participatory_spaces:
       highlighted_results:
         see_all: 모든 결과 보기

@@ -19,9 +19,12 @@ cs:
         surveys_menu:
           main: Hlavní
           questions: Otázky
+          responses: Odpovědi
           settings: Nastavení
     components:
       surveys:
+        actions:
+          response: Odpověď
         name: Průzkumy
         settings:
           announcement: Oznámení
@@ -41,6 +44,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nový průzkum v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
+    statistics:
+      responses_count: Odpovědi
     surveys:
       actions:
         confirm_destroy: Opravdu to chcete smazat?
@@ -51,6 +56,11 @@ cs:
         preview: Náhled
         title: Akce
       admin:
+        publish_responses:
+          index:
+            status:
+              not_published: Nezveřejněno
+              published: Zveřejněno
         questions:
           surveys:
             edit:
@@ -97,6 +107,7 @@ cs:
         survey:
           fields:
             questions: Otázky
+            responses: Odpovědi
             status: Status
             title: Název
           status:

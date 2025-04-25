@@ -133,11 +133,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{proposal_title}", dan proposal ini termasuk dalam hasil "%{resource_title}". Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
           email_subject: Pembaruan ke %{resource_title} berlanjut
           notification_title: Hasilnya <a href="%{resource_path}">%{resource_title}</a>, yang termasuk proposal <a href="%{proposal_path}">%{proposal_title}</a>, sekarang %{progress}% selesai.
-    metrics:
-      results:
-        description: Jumlah hasil yang dihasilkan
-        object: hasil
-        title: Hasil
     resource_links:
       included_projects:
         result_project: Proyek termasuk dalam hasil ini

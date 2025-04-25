@@ -165,7 +165,7 @@ es:
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            registration_code_enabled: Código de inscripción activado
+            registration_code_enabled: Código de inscripción y código QR activados
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
@@ -223,15 +223,27 @@ es:
           email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
           notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
-          email_intro: 'El encuentro "%{resource_title}" se ha actualizado. Puedes leer la nueva versión en su página:'
+          email_intro: 'Se ha actualizado el encuentro: "%{resource_title}" con cambios en %{changed_fields}. Puedes consultar la nueva versión en:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" se ha actualizado
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
+          field_names:
+            address: la dirección
+            end_time: la hora de finalización
+            location: la ubicación
+            start_time: la hora de inicio
+          notification_title: Se ha actualizado el encuentro <a href="%{resource_path}">%{resource_title}</a> con cambios en %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Se te ha añadido a la lista de espera para la reunión <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Se ha validado tu código de inscripción "%{registration_code}" para el encuentro "%{resource_title}".
           email_outro: Has recibido esta notificación porqué se ha validado tu código de registro para el encuentro "%{resource_title}".
           email_subject: Se ha validado tu código de inscripción "%{registration_code}" para el encuentro "%{resource_title}"
           notification_title: Se ha validado tu código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+        registration_marked_as_attendee:
+          email_intro: Se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          email_outro: Recibes esta notificación porque se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          email_subject: Se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          notification_title: Se ha validado tu inscripción al encuentro "<a href="%{resource_path}">%{resource_title}</a>" confirmando así tu asistencia.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
           email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
@@ -271,6 +283,7 @@ es:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         manage_poll: Configurar encuesta
+        mark_as_attendee: Confirmar asistencia
         new_meeting: Añadir encuentro
         preview: Previsualizar
         registrations: Inscripciones
@@ -412,8 +425,6 @@ es:
         registrations:
           edit:
             save: Guardar
-            validate: Validar
-            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Dejar a 0 si las inscripciones son ilimitadas.
             invites: Invitaciones
@@ -421,6 +432,7 @@ es:
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
             registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
+            registrations: Ver inscripciones
             registrations_count:
               one: Ha habido %{count} inscripción.
               other: Ha habido %{count} inscripciones.
@@ -430,9 +442,17 @@ es:
           update:
             invalid: Se ha producido un error al guardar la configuración de la inscripción.
             success: La configuración de las inscripciones del encuentro se ha guardado correctamente.
+        registrations_attendees:
+          index:
+            title: Inscripciones
+            validate: Validar
+            validate_registration_code: Validar código de inscripción
+          mark_attendee:
+            invalid: Esta inscripción ya ha estado marcada como asistente.
+            success: Esta inscripción se ha marcado como asistente correctamente.
           validate_registration_code:
-            invalid: Este código de registro no es válido.
-            success: Código de registro validado con éxito.
+            invalid: Este código de inscripción no es válido.
+            success: Código de inscripción validado correctamente.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
@@ -589,8 +609,11 @@ es:
           attendees: Número de asistentes
           contributions: Número de aportaciones
           join: Unirse al encuentro
+          join_waitlist: Apuntarse a la lista de espera
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          leave_waitlist: Abandonar lista de espera
+          leave_waitlist_confirmation: '¿Seguro que quieres abandonar la lista de espera para este encuentro?'
           link_available_soon: Enlace disponible próximamente
           link_closed: El enlace a la sala de videoconferencia estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
@@ -598,8 +621,11 @@ es:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones asistentes
+          pending_address: La ubicación se anunciará pronto.
           redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Tu código de inscripción
+          registration_and_qr_code: Inscripción y código QR
+          registration_code: 'Código de inscripción: %{code}'
+          registration_code_help_text: Tu código de inscripción y tu código QR
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDACIÓN PENDIENTE
@@ -607,6 +633,9 @@ es:
             one: "Queda %{count} plaza"
             other: "%{count} plazas restantes"
           visit_finished: Ver encuentro pasado
+          waitlist:
+            description: Si queda alguna plaza libre, se tramitará tu inscripción automáticamente y te lo notificaremos por correo electrónico.
+            status: Estás en la lista de espera
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
           withdraw_meeting: Retirar
@@ -634,6 +663,15 @@ es:
             start_time: Fecha de inicio
             taxonomies: Taxonomías
             title: Título
+        registration:
+          actions: Acciones
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            status: Estado
+          status:
+            attended: Asististe
+            not_attended: No asististe
       polls:
         questions:
           closed_question:
@@ -662,11 +700,11 @@ es:
         responses:
           index:
             administrate: Administrar
-            title: Consulta/Sondeo en directo
+            title: Sondeo
           index_admin:
             back_to_meeting: Volver al encuentro
             title: Administrar consulta/sondeo en directo
-            view_poll: Ver consulta/sondeo
+            view_poll: Ver sondeo
       public_participants_list:
         attending_participants: Participantes asistentes
         hidden_participants_count:
@@ -677,7 +715,7 @@ es:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
-          registration_code: Tu código de registro es %{code}.
+          registration_code: Tu código de inscripción es %{code}. Por favor, muestra el siguiente código QR a una administradora para validar su asistencia.
       registration_type:
         on_different_platform: En una plataforma diferente
         on_this_platform: En esta plataforma
@@ -692,6 +730,9 @@ es:
         destroy:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
+        waitlist:
+          invalid: Se ha producido un error al incorporarte a la lista de espera.
+          success: Te has inscrito correctamente en la lista de espera de la reunión. Si se liberan plazas se te notificará tu inscripción automáticamente.
       type_of_meeting:
         hybrid: Híbrido
         in_person: Presencial
@@ -703,11 +744,6 @@ es:
       withdraw:
         error: Se ha producido un error al retirar el encuentro.
         success: El encuentro se ha retirado con éxito.
-    metrics:
-      meetings:
-        description: Número de encuentros creados
-        object: encuentros
-        title: Encuentros
     open_data:
       help:
         meeting_comments:

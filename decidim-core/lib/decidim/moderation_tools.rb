@@ -65,9 +65,11 @@ module Decidim
         event_class: Decidim::ResourceHiddenEvent,
         resource: @reportable,
         extra: {
-          report_reasons:
+          report_reasons:,
+          force_email: true
         },
-        affected_users:
+        affected_users:,
+        force_send: true
       }
 
       Decidim::EventsManager.publish(**data)
