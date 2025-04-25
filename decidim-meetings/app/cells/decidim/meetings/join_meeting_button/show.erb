@@ -31,5 +31,5 @@
   ) %>
 <% end %>
 <% if shows_remaining_slots? %>
-  <%= render :remaining_slots %>
+  <%= render :remaining_slots unless participant_registered_for_meeting? %>
 <% end %>
