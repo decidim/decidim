@@ -16,7 +16,7 @@ module Decidim
       CreateReport.call(@form, reportable, current_user) do
         on(:ok) do
           flash[:notice] = I18n.t("decidim.reports.create.success")
-          redirect_back fallback_location: root_path
+          redirect_to reportable.reload.reported_content_url
         end
 
         on(:invalid) do

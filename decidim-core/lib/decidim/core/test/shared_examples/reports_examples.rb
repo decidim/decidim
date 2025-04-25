@@ -33,17 +33,57 @@ shared_examples "higher user role hides" do
     before do
       login_as user, scope: :user
     end
+
+    it "reports the resource" do
+      visit reportable_path
+
+      find("#dropdown-trigger-resource-#{reportable.id}").click
+      expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+      find(%(button[data-dialog-open="flagModal"])).click
+      expect(page).to have_css(".flag-modal", visible: :visible)
+
+      within ".flag-modal" do
+        find(:css, "input[name='report[hide]']").set(true)
+        click_on "Hide"
+      end
+
+      sleep(1)
+
+      expect(page).to have_current_path(reportable_index_path, ignore_query: true)
+
+      expect(reportable.reload).to be_hidden
+    end
+  end
+end
+
+shared_examples "higher user role hides resource with comments" do
+  context "and the admin hides a resource with comments" do
+    let!(:comments) { create_list(:comment, 2, body: "Dummy comment", commentable: reportable, author: user) }
+
+    before do
+      login_as user, scope: :user
+      Decidim::Ai::SpamDetection.create_reporting_user!
+    end
     around do |example|
       previous = Capybara.raise_server_errors
 
+      # Disabling server errors to that we can test page not found error.
       Capybara.raise_server_errors = false
       example.run
       Capybara.raise_server_errors = previous
     end
 
-    it "reports the resource" do
+    it "hides the resource" do
+      visit decidim.search_path
+      expect(page).to have_content(translated(comments.first.body))
+      expect(page).to have_content(translated(comments.second.body))
+
       visit reportable_path
 
+      expect(page).to have_content(translated(comments.first.body))
+      expect(page).to have_content(translated(comments.second.body))
+
+      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -53,7 +93,19 @@ shared_examples "higher user role hides" do
         click_button "Hide"
       end
 
+      sleep(1)
+
+      expect(page).to have_current_path(reportable_index_path, ignore_query: true)
+
+      perform_enqueued_jobs
+
       expect(reportable.reload).to be_hidden
+      expect(comments.first.reload).to be_hidden
+      expect(comments.second.reload).to be_hidden
+
+      visit decidim.search_path
+      expect(page).to have_no_content(translated(comments.first.body))
+      expect(page).to have_no_content(translated(comments.second.body))
     end
   end
 end
