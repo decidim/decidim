@@ -2,6 +2,9 @@
 sv:
   activemodel:
     attributes:
+      dummy:
+        image: Bild
+      dummy_attribute: Testattribut
       dummy_resource:
         created_at: Skapad
         decidim_scope_id: Indelning
