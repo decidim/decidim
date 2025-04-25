@@ -217,6 +217,7 @@ ja:
           download_vote: 投票のダウンロード
           pending_to_vote_budgets:
             other: 他の予算に投票できます
+          share_text: "%{space_name}でお気に入りのプロジェクトに投票しました! 🎉 今すぐ投票: %{component_url}"
           share_vote: 投票を共有する
           title: 投票は正常に承認されました
           view_votes:
@@ -224,6 +225,7 @@ ja:
           votes_count:
             other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
       order_pdf:
+        text: '%{space_name}で、以下のプロジェクトに投票しました'
         title: 投票が正常に受理されました。
       order_summary_mailer:
         order_summary:
@@ -248,6 +250,7 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
+          cancel_order: 投票を取り消す
           checked_out:
             description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
@@ -276,6 +279,14 @@ ja:
             minimum_reached: 投票できる最小値に達しました
             start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
+          minimum_projects_rule:
+            description: 少なくとも%{minimum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
+          projects_rule:
+            description: 少なくとも%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
+          projects_rule_maximum_only:
+            description: 最大で%{maximum_number}件までプロジェクトを選び、あなたの希望に沿って投票してください。
+          vote_threshold_percent_rule:
+            description: 少なくとも%{minimum_budget}の予算をプロジェクトに割り当て、あなたの希望に沿って投票してください。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -299,8 +310,10 @@ ja:
           added: 追加済
           all: すべて
         projects_for: '%{name} のプロジェクト'
+        select_projects: プロジェクトを追加
         show:
           budget: 予算
+        start_voting: 投票を開始
       prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
