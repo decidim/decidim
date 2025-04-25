@@ -31,6 +31,8 @@ el:
         personal_url: Προσωπική ιστοσελίδα
         remove_avatar: Αφαίρεση avatar
         tos_agreement: Όροι Παροχής Υπηρεσιών
+      user_group:
+        avatar: Άβαταρ
     models:
       decidim/attachment_created_event: Συνημμένο
       decidim/component_published_event: Ενεργό στοιχείο
