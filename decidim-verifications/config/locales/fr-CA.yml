@@ -2,6 +2,8 @@
 fr-CA:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Pièce jointe de vérification
       config:
         available_methods: Méthodes disponibles
         offline: Hors ligne
