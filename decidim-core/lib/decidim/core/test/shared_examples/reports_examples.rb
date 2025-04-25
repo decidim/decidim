@@ -104,8 +104,8 @@ shared_examples "higher user role hides resource with comments" do
       expect(comments.second.reload).to be_hidden
 
       visit decidim.search_path
-      expect(page).to have_no_content(translated(comments.first.body))
-      expect(page).to have_no_content(translated(comments.second.body))
+      expect(page).not_to have_content(translated(comments.first.body))
+      expect(page).not_to have_content(translated(comments.second.body))
     end
   end
 end
