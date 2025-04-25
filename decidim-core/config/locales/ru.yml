@@ -23,6 +23,8 @@ ru:
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
+      user_group:
+        avatar: Аватар
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
