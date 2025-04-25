@@ -172,6 +172,41 @@ ja:
             confirm_destroy: このセンサスデータの記録を本当に削除してもよろしいですか？
             destroy: 破棄
             edit: 編集
+          census:
+            create_import:
+              error: センサスのインポート中に問題が発生しました。
+              no_user: ユーザーが見つかりません
+              success: '%{count} 件のアイテムを正常にインポートしました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。'
+            destroy:
+              success: センサスデータレコードが削除されました。
+            index:
+              empty: センサスデータがありません。CSVファイルをインポートするには %{import_csv} を使用してください。
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーが見つかりません
+            last_login:
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーがいません
+            new_import:
+              errors:
+                email_exists: メールアドレス %{email} はすでに組織 %{organization}に存在します。
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
+              submit: ファイルをアップロード
+              title: センサスデータのインポート
+              upload_new_census: 新しいセンサスをアップロード
+          census_records:
+            create_record:
+              success: センサスデータレコードを正常に追加しました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。
+            edit_record:
+              save: 保存
+              title: センサスレコードを編集
+            form:
+              email: メールアドレス
+            new_record:
+              save: 保存
+              title: 新しいセンサスレコードを追加
           index:
             title: 現在のセンサスデータ
           instructions:
