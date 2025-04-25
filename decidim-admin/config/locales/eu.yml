@@ -106,6 +106,8 @@ eu:
       participatory_space_private_user:
         email: Helbide elektronikoa
         name: Izena
+      participatory_space_private_user_csv_import:
+        file: Fitxategia
       scope:
         code: Kodea
         name: Izena
@@ -721,6 +723,11 @@ eu:
             report_language: Txostenaren hizkuntza
             report_reason: Arrazoia
             title: Erreportatu xehetasunak
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Aurreikusi
