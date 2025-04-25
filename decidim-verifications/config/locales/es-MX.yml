@@ -2,6 +2,8 @@
 es-MX:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Archivo adjunto de la verificación
       config:
         available_methods: Metodos disponibles
         offline: Desconectado
