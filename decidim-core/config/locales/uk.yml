@@ -36,6 +36,8 @@ uk:
     'false': 'Ні'
     'true': 'Так'
   date:
+    buttons:
+      select: Оберіть
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
