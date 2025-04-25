@@ -38,6 +38,7 @@ module Decidim
       with_user(user) do
         @report = report
         @participatory_space = @report.moderation.participatory_space
+        @reportable = @report.moderation.reportable
         @organization = user.organization
         @user = user
         subject = I18n.t("hidden_automatically.subject", scope: "decidim.reported_mailer")
