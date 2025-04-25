@@ -6,6 +6,7 @@ ja:
         delete_reason: アカウントを削除する理由
       attachment:
         documents: ドキュメント
+        image: 画像
         photos: 写真
       common:
         created_at: 作成日時
@@ -1404,8 +1405,12 @@ ja:
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
       hide:
+        content: 通報されたコンテンツ
+        details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
         subject: リソースは自動的に非表示になりました
       report:
