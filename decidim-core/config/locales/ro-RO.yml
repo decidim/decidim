@@ -4,6 +4,9 @@ ro:
     attributes:
       account:
         delete_reason: Motivul pentru care vă ștergeți contul
+      attachment:
+        documents: Documente
+        photos: Fotografii
       common:
         created_at: Creat la
       conversation:
