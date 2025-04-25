@@ -2,6 +2,9 @@
 es:
   activemodel:
     attributes:
+      dummy:
+        image: Imagen
+      dummy_attribute: Atributo de prueba
       dummy_resource:
         created_at: Creado en
         decidim_scope_id: Ámbito
