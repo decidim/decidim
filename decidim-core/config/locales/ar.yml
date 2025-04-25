@@ -4,6 +4,9 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      attachment:
+        documents: المستندات
+        photos: الصور
       common:
         created_at: تم إنشاؤها في
       conversation:
