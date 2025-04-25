@@ -62,7 +62,10 @@ module.exports = function(content) { // eslint-disable-line no-undef
     );
   } catch (error) {
     if (error.span && typeof error.span.url !== "undefined") {
-      this.addDependency(url.fileURLToPath(error.span.url));
+      const errorUrl = typeof error.span.url === "string" ? new URL(error.span.url) : error.span.url;
+      if (errorUrl.protocol === "file:") {
+        this.addDependency(url.fileURLToPath(error.span.url));
+      }
     }
 
     callback(error);
