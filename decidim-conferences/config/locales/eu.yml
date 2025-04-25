@@ -69,6 +69,8 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
+      partner:
+        logo: Logoa
     errors:
       models:
         conference_registration_invite:
