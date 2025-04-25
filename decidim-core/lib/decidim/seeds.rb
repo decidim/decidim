@@ -14,7 +14,7 @@ module Decidim
     end
 
     def number_of_records
-      fast_seeds? ? 1 : rand(5)
+      fast_seeds? ? 1 : rand(3..5)
     end
 
     def organization

@@ -16,7 +16,7 @@ module Decidim
 
         create_statuses!(component:)
 
-        3.times do
+        number_of_records.times do
           taxonomies = create_taxonomies!
 
           taxonomies.each do |taxonomy|
@@ -96,7 +96,7 @@ module Decidim
 
         Decidim::Comments::Seed.comments_for(result)
 
-        3.times do
+        number_of_records.times do
           child_result = Decidim.traceability.create!(
             Decidim::Accountability::Result,
             admin_user,
@@ -115,7 +115,7 @@ module Decidim
             visibility: "all"
           )
 
-          rand(0..5).times do |i|
+          number_of_records.times do |i|
             child_result.timeline_entries.create!(
               entry_date: child_result.start_date + i.days,
               title: Decidim::Faker::Localized.sentence(word_count: 2),
