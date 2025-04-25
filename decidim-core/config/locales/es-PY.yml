@@ -4,10 +4,19 @@ es-PY:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        image: Imagen
+        photos: Fotos
       common:
         created_at: Creado el
+      content_block_attachment:
+        background_image: Imagen de fondo
+        main_image: Imagen principal
       conversation:
         body: Cuerpo
+      editor_image:
+        file: Archivo
       group:
         about: Acerca de
         avatar: Avatar
@@ -16,12 +25,15 @@ es-PY:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      import:
+        file: Archivo
       message:
         body: Cuerpo
       report:
         details: Comentarios adicionales
       user:
         about: Acerca de
+        avatar: Imagen de perfil
         email: Tu correo electrónico
         encrypted_password: Contraseña
         locale: Configuración regional
@@ -33,6 +45,8 @@ es-PY:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -746,6 +760,11 @@ es-PY:
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
+            email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
+            email_subject: Una enmienda de %{emendation_author_nickname} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -1188,6 +1207,8 @@ es-PY:
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueadas
       download:
         csv: Descargar datos (CSV)
       followers:
@@ -1198,6 +1219,10 @@ es-PY:
         description: Número de usuarios activos en la organización.
         object: Participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportadas
+      user_reports:
+        description: Número de denuncias realizadas por participantes
       users:
         description: Número de usuarios en la organización.
         object: usuarios
@@ -1263,10 +1288,12 @@ es-PY:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
+        real_time: En tiempo real
         weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        real_time: 'Esta es una notificación sobre la actividad que sigues:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
       outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
       see_more: Ver más notificaciones
@@ -1399,8 +1426,12 @@ es-PY:
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
     reported_mailer:
       hide:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
