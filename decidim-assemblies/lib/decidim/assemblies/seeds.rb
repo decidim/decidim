@@ -8,8 +8,6 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records = fast_seeds? ? 1 : 2
-
         taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
         number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)

@@ -9,8 +9,6 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records = fast_seeds? ? 1 : 2
-
         process_groups = []
         number_of_records.times do
           process_groups << create_process_group!

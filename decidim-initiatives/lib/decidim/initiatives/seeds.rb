@@ -9,8 +9,6 @@ module Decidim
       def call
         create_content_block!
 
-        number_of_records = fast_seeds? ? 1 : 3
-
         number_of_records.times do |_n|
           type = create_initiative_type!
 

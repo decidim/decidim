@@ -13,6 +13,10 @@ module Decidim
       Decidim::Env.new("FAST_SEEDS").present?
     end
 
+    def number_of_records
+      fast_seeds? ? 1 : rand(5)
+    end
+
     def organization
       @organization ||= Decidim::Organization.first
     end
