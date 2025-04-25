@@ -312,6 +312,7 @@ de:
         update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
       participatory_process_group:
         create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
+        unpublish: "%{user_name} hat die Veröffentlichung der Prozessgruppe %{resource_name} rückgängig gemacht"
         update: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} aktualisiert"
       participatory_process_step:
         activate: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktiviert"
