@@ -4,6 +4,9 @@ fi-pl:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      attachment:
+        documents: Asiakirjat
+        photos: Kuvat
       common:
         created_at: Luontiaika
       conversation:
