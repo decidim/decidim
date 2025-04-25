@@ -213,11 +213,6 @@ bg:
           email_outro: Получавате това известие, защото следвате "%{proposal_title}" и това предложение е включено в резултата %{resource_title}. Може да прекратите известията чрез предната връзка.
           email_subject: Напредък в обновлението на %{resource_title}
           notification_title: Резултатът <a href="%{resource_path}">%{resource_title}</a>, който включва предложението <a href="%{proposal_path}">%{proposal_title}</a>, е завършен %{progress}%.
-    metrics:
-      results:
-        description: Брой генерирани резултати
-        object: резултати
-        title: Резултати
     participatory_spaces:
       highlighted_results:
         see_all: Виж всички резултати (%{count})

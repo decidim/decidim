@@ -163,7 +163,7 @@ sv:
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            registration_code_enabled: Aktivera registreringskod
+            registration_code_enabled: Registreringskod och QR-kod aktiverade
             resources_permissions_enabled: Behörigheter kan ställas in för varje möte
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
@@ -209,15 +209,20 @@ sv:
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
-          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan se den nya versionen på mötessidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
+        meeting_waitlist_added:
+          notification_title: Du har lagts till i väntelistan för <a href="%{resource_url}">%{resource_title}</a> mötet.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
           email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
           notification_title: Din anmälningskod "%{registration_code}" till mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
+        registration_marked_as_attendee:
+          email_intro: Du har registrerats som deltagare i mötet "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom din anmälning till mötet "%{resource_title}" har registrerats.
+          email_subject: Du har registrerats som deltagare i mötet "%{resource_title}"
+          notification_title: Din anmälan till <a href="%{resource_path}">%{resource_title}</a> mötet har registrerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
@@ -257,6 +262,7 @@ sv:
             one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
             other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
         manage_poll: Hantera enkäter
+        mark_as_attendee: Markera som deltagare
         new_meeting: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
@@ -397,8 +403,6 @@ sv:
         registrations:
           edit:
             save: Spara
-            validate: Bekräfta
-            validate_registration_code: Bekräfta registreringskod
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
@@ -406,6 +410,7 @@ sv:
             recommendation_message: Av sekretesskäl rekommenderar vi att du tar bort anmälningsformuläret när det inte längre används. Som standard är det 3 månader efter att mötet avslutats.
             registration_email_help: Texten visas i e-postmeddelandet med registreringsbekräftelsen, efter registreringskoden.
             registration_form: Anmälningsformulär
+            registrations: Visa registreringar
             registrations_count:
               one: Det har gjorts %{count} anmälan.
               other: Det har gjorts %{count} anmälningar.
@@ -415,8 +420,16 @@ sv:
           update:
             invalid: Det gick inte att spara inställningarna för anmälan.
             success: Inställningarna för registrering till mötet har sparats.
+        registrations_attendees:
+          index:
+            title: Registreringar
+            validate: Bekräfta
+            validate_registration_code: Bekräfta registreringskod
+          mark_attendee:
+            invalid: Anmälan är redan registrerad.
+            success: Närvaron är registrerad.
           validate_registration_code:
-            invalid: Denna registreringskod är ogiltig.
+            invalid: Registreringskoden är ogiltig.
             success: Registreringskoden validerades.
       admin_log:
         invite:
@@ -573,8 +586,11 @@ sv:
           attendees: Antal deltagare
           contributions: Antal bidrag
           join: Anmäl dig
+          join_waitlist: Gå med i väntelistan
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
+          leave_waitlist: Lämna väntelistan
+          leave_waitlist_confirmation: Är du säker på att du vill lämna väntelistan för detta möte?
           link_available_soon: Länk kommer snart
           link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
           live_event: Mötet pågår just nu
@@ -582,8 +598,11 @@ sv:
           micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd att godkänna att webbplatsen använder din mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
+          pending_address: Platsen kommer att meddelas snart.
           redirect_notice: Mötet är en del av ett annat utrymme, så du har flyttats till %{current_space_name}. <br>Om du vill kan du gå tillbaka till <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Din registreringskod
+          registration_and_qr_code: Registrering och QR-kod
+          registration_code: 'Registreringskod: %{code}'
+          registration_code_help_text: Din registrering och QR-kod
           registration_state:
             validated: VALIDERAD
             validation_pending: VALIDERING PÅGÅR
@@ -591,6 +610,9 @@ sv:
             one: "%{count} plats kvar"
             other: "%{count} platser kvar"
           visit_finished: Visa tidigare möten
+          waitlist:
+            description: Om en plats blir ledig behandlar vi din registrering automatiskt och meddelar dig via e-post.
+            status: Du är på väntelistan
           withdraw_btn_hint: Du kan ställa in mötet om du ändrar dig. Mötet raderas inte utan kommer att synas i en lista med inställda möten.
           withdraw_confirmation_html: Är du säker på att du vill ställa in mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
           withdraw_meeting: Dra tillbaka
@@ -618,6 +640,15 @@ sv:
             start_time: Startdatum
             taxonomies: Kategorisering
             title: Titel
+        registration:
+          actions: Handlingar
+          fields:
+            email: E-post
+            name: Namn
+            status: Status
+          status:
+            attended: Närvaro
+            not_attended: Frånvaro
       polls:
         questions:
           closed_question:
@@ -649,7 +680,7 @@ sv:
         confirmation:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
           details: Du hittar mötesuppgifterna i bilagan.
-          registration_code: Din registreringskod är %{code}.
+          registration_code: Din registreringskod är %{code}. Vänligen visa följande QR-kod för en administratör för att validera din närvaro.
       registration_type:
         on_different_platform: På en annan plattform
         on_this_platform: På den här plattformen
@@ -664,6 +695,9 @@ sv:
         destroy:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
+        waitlist:
+          invalid: Det gick inte att gå med i väntelistan.
+          success: Du har gått med i väntelistan för mötet. Du kommer att meddelas om din registrering är säkrad.
       type_of_meeting:
         hybrid: Hybrid
         in_person: Fysiska
@@ -675,11 +709,6 @@ sv:
       withdraw:
         error: Det gick inte att ställa in mötet.
         success: Mötet har ställts in.
-    metrics:
-      meetings:
-        description: Antal skapade möten
-        object: möten
-        title: Möten
     open_data:
       help:
         meeting_comments:

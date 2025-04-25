@@ -156,7 +156,7 @@ eu:
       new_import:
         attributes:
           file:
-            invalid_file: Emandako artxiboak ez du balio. mesedez, begiratu ea fitxategia ondo formateatuta dagoen.
+            invalid_file: Emandako fitxategiak ez du balio. mesedez, begiratu ea fitxategia ondo formateatuta dagoen.
             invalid_mime_type: MIME mota baliogabea.
   activerecord:
     attributes:
@@ -457,7 +457,7 @@ eu:
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
-          report_count_eq: Erreporte kopurua
+          report_count_eq: Txosten kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -474,9 +474,13 @@ eu:
       forms:
         file_help:
           import:
-            explanation: 'Jarraibideak artxiborako:'
-            message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
+            explanation: 'Fitxategirako jaribideak:'
+            message_1: CSV, JSON eta Excel (.xlsx) fitxategiak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
+          import_csv:
+            explanation: 'Fitxategirako jarraibideak:'
+            message_1: CSV fitxategiak onartzen dira
+            message_2: ".csv fitxategiak helbide elektronikoak ditu"
       help_sections:
         error: Arazo bat egon da laguntza-atalak eguneratzean.
         form:
@@ -549,7 +553,7 @@ eu:
             back: Atzera
           download_example: Deskargatu adibidea
           download_example_format: Adibidez, %{name}
-          file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
+          file_legend: Gehitu prozesatuko den inportazio-fitxategi bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatua."
       logs:
@@ -599,9 +603,6 @@ eu:
         taxonomies: Taxonomiak
         taxonomy_filters: Taxonomia-iragazkiak
         users: Parte-hartzaileak 
-      metrics:
-        metrics:
-          see_more_metrics: Ikusi metrika gehiago
       models:
         area:
           fields:
@@ -693,7 +694,7 @@ eu:
           name: Izena
           nickname: Ezizena
           reason: Arrazoia
-          reports: Erreporte kopurua
+          reports: Txosten kopurua
           selected: Hautatua
           title: Parte-hartzaile erreportatuak
         report:
@@ -1236,7 +1237,6 @@ eu:
         impersonatable_users: Parte-hartzaile erabilgarriak
         impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
-        metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
@@ -1282,22 +1282,13 @@ eu:
       errors:
         impersonate_user:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
-    metrics:
-      blocked_users:
-        object: parte-hartzaile blokeatuak
-        title: Parte-hartzaile blokeatuak
-      reported_users:
-        object: parte-hartzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
-      user_reports:
-        object: parte-hartzaileak erreportatzen du
-        title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
         expand: Zabaldu
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
+        parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
         unhide: Erakutsi berriro
         unreport: Ez erreportatu
@@ -1324,6 +1315,7 @@ eu:
             success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
+            parent_invalid: Ezin da baliabide hau erakutsi, ezkutuan jarraitzen duen beste baliabide baten ("nagusia") barruan sartuta dagoelako.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
@@ -1335,7 +1327,7 @@ eu:
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
             participatory_space: Partaidetza-espazioa
-            report_count: Erreporte kopurua
+            report_count: Txosten kopurua
             reportable_id: ID
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa

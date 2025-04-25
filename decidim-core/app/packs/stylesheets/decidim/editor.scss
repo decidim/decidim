@@ -7,8 +7,8 @@
 
 .editor-suggestions-props {
   --editor-suggestions-border-color: #000;
-  --editor-suggestions-background-color: #fff;
-  --editor-suggestions-selected-highlight-color: #c7c7c7;
+  --editor-suggestions-background-color: #eee;
+  --editor-suggestions-selected-highlight-color: #ccc;
 }
 
 .editor-active {
@@ -176,7 +176,7 @@
 }
 
 .editor-suggestions {
-  @apply editor-suggestions-props border border-solid border-[var(--editor-suggestions-border-color)] bg-[var(--editor-suggestions-background-color)];
+  @apply editor-suggestions-props border-0 bg-[var(--editor-suggestions-background-color)] max-w-sm drop-shadow-md rounded-md;
 
   &:hover {
     .editor-suggestions-item[data-selected]:not(:hover) {
@@ -185,10 +185,14 @@
   }
 
   .editor-suggestions-item {
-    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[var(--editor-suggestions-border-color)] rounded-none;
+    @apply block w-full text-left py-[0.375rem] px-1.5 border-0 rounded-none truncate text-sm;
 
     &:first-child {
-      @apply border-t-0;
+      @apply rounded-t-md;
+    }
+
+    &:last-child {
+      @apply rounded-b-md;
     }
 
     &:hover,

@@ -54,7 +54,7 @@ eu:
         close: Itxi
         confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
-        edit: Editatu
+        edit: Aldatu
         new: Beste eztabaida bat
         title: Ekintzak
         view_deleted_debates: Ikusi ezabatutako eztabaidak
@@ -116,7 +116,7 @@ eu:
         close_debate_modal:
           cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
-          send: Itxi eztabaida
+          send: Eztabaida itxi
         count:
           debates_count:
             one: "%{count} eztabaida"
@@ -139,7 +139,7 @@ eu:
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
-          origin: Origin
+          origin: Jatorria
           participants: Parte-hartzaileak
           search: Bilatu
           state: Egoera
@@ -156,7 +156,7 @@ eu:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
           random: Ausazko ordena
-          recent: Azkenak
+          recent: Berrienetatik zaharrenetara
           updated: Orain dela gutxi eguneratuak
         show:
           close_debate: Itxi
@@ -236,11 +236,6 @@ eu:
           next_level_in: Hartu parte %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
-    metrics:
-      debates:
-        description: Sortutako eztabaida kopurua
-        object: eztabaidak
-        title: Eztabaidak
     open_data:
       help:
         debate_comments:

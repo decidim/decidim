@@ -159,6 +159,8 @@ lt:
       order:
         status:
           title: Jūsų balsas įskaitytas
+      order_pdf:
+        title: Jūsų balsas įskaitytas.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsų pasirinkti projektai:'
@@ -182,7 +184,6 @@ lt:
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
-          cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
             description: Jūs jau balsavote už biudžetą. Jeigu persigalvojote, galite ištrinti savo balsą.
             title: Balsavimas dėl biudžeto baigtas
@@ -213,14 +214,6 @@ lt:
             minimum_reached: Pasiekėte minimalų projektų kiekį balsavimui
             start_adding_projects: Pradėktie balsavimą
           minimum: Mažiausiai
-          minimum_projects_rule:
-            description: Pasirinkite bent %{minimum_number} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžetą.
-          projects_rule:
-            description: Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad nustatyti kam skirti biudžetą.
-          projects_rule_maximum_only:
-            description: Pasirinkite iki %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
-          vote_threshold_percent_rule:
-            description: Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
         orders:
           highest_cost: Didžiausia kaina
           label: Rikiuoti projektus pagal
@@ -247,7 +240,6 @@ lt:
           added: Pridėta
           all: Visi
         projects_for: Projektai dėl %{name}
-        select_projects: Pasirinkite projektus
         show:
           budget: Biudžetas
       vote_reminder_mailer:
