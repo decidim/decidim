@@ -185,7 +185,7 @@ en:
         conference_s: Conference S
         conferences: Conferences
         context: Context
-        context_description: This cell display some information about a user. It a visual help to identify the resource/content creator. Hovering with the mouse displays a tooltip with further info and links to its profile.
+        context_description: This cell display some information about a user. It a visual help to identify the resource/content creator.
         context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
         debate_l: Debate L
         debate_s: Debate S

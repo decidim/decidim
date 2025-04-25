@@ -1,5 +1,15 @@
 ---
 de:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Inhalt
+          title: Titel
+          version_number: Versionsnummer
+        version:
+          body: Haupttext
+          version_number: Versionsnummer
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ de:
         settings:
           form:
             allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
+      admin_log:
+        document:
+          create: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat den kollaborativen Text %{resource_name} aus %{space_name} gelöscht"
+          publish: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} veröffentlicht"
+          restore: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat den kollaborativen Text %{resource_name} auf %{space_name} in den Papierkorb verschoben"
+          unpublish: "%{user_name} hat die Veröffentlichung des kollaborativen Texts %{resource_name} auf %{space_name} rückgängig gemacht"
+          update: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} aktualisiert"
+        version:
+          delete: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} aus %{space_name} gelöscht"
+          update: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} in %{space_name} aktualisiert"
+      document:
+        cancel: Abbrechen
+        save: Anmerkung absenden
+        suggest: Änderung vorschlagen
       documents:
         index:
           count:

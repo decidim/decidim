@@ -31,7 +31,14 @@ module Decidim
       let!(:report) { subject.create_report!(report_params) }
 
       it "sends a notification to the author of the resource" do
-        expect(Decidim::EventsManager).to receive(:publish).with(hash_including(event: "decidim.events.reports.resource_hidden"))
+        expect(Decidim::EventsManager).to receive(:publish).with(hash_including(
+                                                                   event: "decidim.events.reports.resource_hidden",
+                                                                   extra: {
+                                                                     report_reasons: [report_params[:reason]],
+                                                                     force_email: true
+                                                                   },
+                                                                   force_send: true
+                                                                 ))
         subject.send_notification_to_author
       end
     end
@@ -45,6 +52,18 @@ module Decidim
         expect(resource).not_to be_hidden
         subject.hide!
         expect(resource.reload).to be_hidden
+      end
+
+      describe "send parent hidden notification" do
+        let!(:comment) { create(:comment, author: current_user, commentable: resource) }
+        let(:current_user) { create(:user, :admin, :confirmed, organization: resource.organization) }
+
+        it "sends a notification to the author of the resource" do
+          expect(Decidim::EventsManager).to receive(:publish).with(hash_including(event: "decidim.events.reports.resource_hidden"))
+          expect(Decidim::EventsManager).to receive(:publish).with(hash_including(event: "decidim.events.reports.parent_hidden", resource: comment))
+
+          perform_enqueued_jobs { subject.hide! }
+        end
       end
     end
 

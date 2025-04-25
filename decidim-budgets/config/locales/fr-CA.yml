@@ -244,7 +244,7 @@ fr-CA:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          cancel_order: supprimer votre vote et recommencer
+          cancel_order: Supprimer votre vote
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
@@ -275,13 +275,13 @@ fr-CA:
             start_adding_projects: Commencer à ajouter des projets
           minimum: Minimum
           minimum_projects_rule:
-            description: Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences.
           projects_rule:
-            description: Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences.
           projects_rule_maximum_only:
-            description: Sélectionnez au maximum %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences.
           vote_threshold_percent_rule:
-            description: Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            description: Assignez au moins %{minimum_budget} aux projets que vous voulez et votez selon vos préférences.
         orders:
           highest_cost: Prix décroissant
           label: Trier les projets par
@@ -306,9 +306,10 @@ fr-CA:
           added: Ajouté
           all: Tout
         projects_for: Projets pour %{name}
-        select_projects: Sélectionner des projets
+        select_projects: Ajouter des projets
         show:
           budget: Budget
+        start_voting: Commencer à voter
       prompt: Sélectionnez le budget
       vote_reminder_mailer:
         vote_reminder:
