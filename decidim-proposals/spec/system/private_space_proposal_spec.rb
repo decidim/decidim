@@ -118,7 +118,6 @@ describe "Private Space Proposal" do
 
       context "and is an admin" do
         let!(:user) { create(:user, :admin, :confirmed, organization:) }
-        let(:target_path) { main_component_path(component) }
 
         context "when the component has votes enabled and the proposal has votes" do
           let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
@@ -126,13 +125,32 @@ describe "Private Space Proposal" do
           before do
             component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
             component.save!
-
-            login_as user, scope: :user
-            visit target_path
           end
 
-          it "displays the proposals votes count" do
-            expect(page).to have_content("Votes")
+          context "when accessing the component page" do
+            let(:target_path) { main_component_path(component) }
+
+            before do
+              login_as user, scope: :user
+              visit target_path
+            end
+
+            it "displays the proposals votes count" do
+              expect(page).to have_content("Votes")
+            end
+          end
+
+          context "when accessing the proposal page" do
+            let(:target_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
+
+            before do
+              login_as user, scope: :user
+              visit target_path
+            end
+
+            it "displays the proposals votes count" do
+              expect(page).to have_content("Votes")
+            end
           end
         end
       end
