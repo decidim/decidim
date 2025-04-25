@@ -2,6 +2,8 @@
 cs:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Příloha ověření
       config:
         available_methods: Dostupné metody
         offline: Offline
