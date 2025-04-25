@@ -12,6 +12,8 @@ es:
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
+      import_participatory_text:
+        document: Documento
       proposal:
         address: Dirección
         answer: Responder
@@ -22,6 +24,8 @@ es:
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -48,6 +52,8 @@ es:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente desde dónde importar las propuestas
+      proposals_file_import:
+        file: Archivo
       proposals_import:
         import_proposals: Importar propuestas
         keep_answers: Mantener estado y respuestas
@@ -377,7 +383,6 @@ es:
         title: Apoyos
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todas las propuestas
     proposals:
       actions:
