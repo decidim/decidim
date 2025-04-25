@@ -27,7 +27,7 @@ module Decidim
 
       def create_component!
         params = {
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
+          name: Decidim::Components::Namer.new(organization.available_locales, :accountability).i18n_name,
           manifest_name: :accountability,
           published_at: Time.current,
           participatory_space:,
@@ -53,8 +53,8 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
-                                                                                     "Categories") || participatory_space.organization.taxonomies.roots.sample
+        @root_taxonomy ||= organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
+                                                                                     "Categories") || organization.taxonomies.roots.sample
       end
 
       def create_taxonomies!
