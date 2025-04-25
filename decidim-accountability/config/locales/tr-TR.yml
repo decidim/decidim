@@ -98,6 +98,7 @@ tr:
               other: "Seçilen %{count} proje içe aktarılacak"
             no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
             origin_component_id:
+            select_component: Bir bileşen seç
             title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
