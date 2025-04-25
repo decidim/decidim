@@ -315,6 +315,7 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesuen multzoa"
+        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesuen multzoa"
         update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} partaidetza-prozesuen multzoa"
       participatory_process_step:
         activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} partaidetza-prozesuan"
