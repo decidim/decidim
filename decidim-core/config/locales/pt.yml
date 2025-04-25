@@ -29,6 +29,8 @@ pt:
         password_confirmation: Confirme a sua palavra-passe
         personal_url: URL pessoal
         remove_avatar: Remover avatar
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
