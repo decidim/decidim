@@ -4,6 +4,10 @@ de:
     attributes:
       account:
         delete_reason: Grund, Ihr Konto zu löschen
+      attachment:
+        documents: Dokumente
+        image: Bild
+        photos: Fotos
       common:
         created_at: Erstellt am
       conversation:
