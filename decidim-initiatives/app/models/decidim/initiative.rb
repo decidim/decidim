@@ -212,6 +212,16 @@ module Decidim
       user_group&.name || author.name
     end
 
+    # Public: Overrides the `reported_content_url` Reportable concern method.
+    def reported_content_url
+      ResourceLocatorPresenter.new(self).url
+    end
+
+    # Public: Overrides the `reported_attributes` Reportable concern method.
+    def reported_attributes
+      [:title, :description]
+    end
+
     def votes_enabled?
       published? &&
         signature_start_date <= Date.current &&
