@@ -4,6 +4,9 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění vašeho účtu
+      attachment:
+        documents: Dokumenty
+        photos: Fotky
       common:
         created_at: Vytvořeno v
       conversation:
