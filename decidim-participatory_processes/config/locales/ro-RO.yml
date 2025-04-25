@@ -366,6 +366,8 @@ ro:
             one: 1 proces
             few: "%{count} procese"
             other: "%{count} procese"
+      related_processes:
+        help: Toate procesele selectate vor fi atribuite acestui grup, inclusiv celor care sunt deja atribuite altor grupuri.
       show:
         title: Grupuri ale procesului participativ
     participatory_process_steps:
