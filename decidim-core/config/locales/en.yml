@@ -1546,15 +1546,15 @@ en:
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
-      hidden_by_admin:
+      hidden_manually:
         content: Reported content
         details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
         participatory_space: Participatory space
         reason: Reason
-        report_html: <p>The following <a href="%{url}">content</a> has been hidden by %{admin}.</p>
-        subject: A resource has been hidden by %{admin}
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden by %{moderator}.</p>
+        subject: A resource has been hidden by %{moderator}
       report:
         authors: Authors
         content: Reported content

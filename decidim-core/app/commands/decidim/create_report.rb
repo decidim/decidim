@@ -77,7 +77,7 @@ module Decidim
         next unless moderator.email_on_moderations
 
         if hidden_by_admin?
-          ReportedMailer.hidden_by_admin(moderator, @report, current_user).deliver_later
+          ReportedMailer.hidden_manually(moderator, @report, current_user).deliver_later
         else
           ReportedMailer.hidden_automatically(moderator, @report).deliver_later
         end
