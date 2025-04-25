@@ -5,6 +5,7 @@ ro:
         delete_reason: Motivul pentru care vă ștergeți contul
       attachment:
         documents: Documente
+        image: Imagine
         photos: Fotografii
       common:
         created_at: Creat la
@@ -890,6 +891,16 @@ ro:
       notification_event:
         notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al %{resource_type}.
+          email_subject: '%{resource_type} nu mai este vizibil'
+          notification_title: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
           email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
@@ -1295,6 +1306,8 @@ ro:
         report_details: Resursa părinte a fost ascunsă
     resource:
       controls_label: Control resursă
+    resource_autocomplete:
+      help: Tastați pentru a căuta propuneri
     resource_endorsements:
       create:
         error: A apărut o problemă în timpul înregistrării susținerii.
@@ -1633,6 +1646,8 @@ ro:
         resources: Resurse
         sign_up: Creați un cont
       header:
+        back: Înapoi la listă
+        cancel: Anulați
         confirm_close_ephemeral_session: Dacă părăsiți pagina, sesiunea temporară va fi închisă. Cu toate acestea, progresul și activitatea dumneavoastră vor fi salvate. Dacă ați terminat activitatea, apăsați Ok.
         confirm_title_close_ephemeral_session: Înainte de a părăsi această pagină…
         log_in: Autentificare
