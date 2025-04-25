@@ -4,6 +4,10 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        image: Imatge
+        photos: Fotos
       common:
         created_at: Creat el
       conversation:
