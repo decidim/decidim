@@ -69,6 +69,8 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Papel
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
