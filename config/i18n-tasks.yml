@@ -364,6 +364,7 @@ ignore_unused:
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
   - time.buttons.*
   - decidim.profiles.show.members
+  - decidim.participatory_processes.static_pages.democratic_quality_indicators.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
