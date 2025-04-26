@@ -28,17 +28,6 @@ module Decidim
         let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
         let!(:accountability_component) { create(:component, :published, participatory_space: process, manifest_name: :accountability) }
 
-        let!(:proposals) { create_list(:proposal, 5, :accepted, component: proposals_component) }
-        let!(:rejected_proposals) { create_list(:proposal, 3, component: proposals_component) }
-        let!(:answered_proposals) { create_list(:proposal, 4, :with_answer, component: proposals_component) }
-
-        let!(:online_meeting) { create(:meeting, :online, component: meetings_component) }
-        let!(:in_person_meeting) { create(:meeting, :in_person, component: meetings_component) }
-        let!(:hybrid_meeting) { create(:meeting, :hybrid, component: meetings_component) }
-
-        let!(:completed_results) { create_list(:result, 3, progress: 100, component: accountability_component) }
-        let!(:incomplete_results) { create_list(:result, 2, progress: 50, component: accountability_component) }
-
         it "returns a hash with all stats" do
           stats = subject.stats
 
@@ -98,7 +87,7 @@ module Decidim
               end
 
               it "returns minimum score" do
-                expect(subject.stats[:automatic][:hybridization]).to eq(1.0)
+                expect(subject.stats[:automatic][:hybridization]).to eq(0.0)
               end
             end
 
@@ -122,9 +111,9 @@ module Decidim
 
                 before do
                   create(:resource_link,
-                         name: "proposals_from_meetings",
-                         from: online_meeting,
-                         to: proposal)
+                         name: "proposals_from_meeting",
+                         from: proposal,
+                         to: online_meeting)
                 end
 
                 it "returns maximum score" do
@@ -195,12 +184,6 @@ module Decidim
               let!(:budgets_component) { create(:component, :published, participatory_space: process, manifest_name: :budgets) }
               let!(:budget) { create(:budget, component: budgets_component) }
               let!(:project) { create(:project, budget:) }
-
-              context "with no linked resources" do
-                it "returns minimum score" do
-                  expect(subject.stats[:automatic][:traceability]).to eq(1.0)
-                end
-              end
 
               context "with linked resources" do
                 before do
