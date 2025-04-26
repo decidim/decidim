@@ -1,0 +1,19 @@
+---
+en:
+  decidim:
+    demographics:
+      admin:
+        demographics:
+          tabs_menu:
+            save: Save
+        demographics_menu:
+          settings: Settings
+        settings:
+          show:
+            collect_data: Enable demographic data collection
+            collect_data_help: Enabling this setting will enable users to donate their data to the platform.
+            title: Demographics Settings
+          update:
+            invalid: There was an error saving demographic data
+            success: Demographic data successfully saved
+        title: Demographics Settings

@@ -1,0 +1,8 @@
+<div class="flex justify-between">
+  <div class="w-2/3">
+    <%= admin_tabs(:admin_demographics_menu).render %>
+  </div>
+  <%= button_tag t(".save"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
+
+  <%= yield if block_given? %>
+</div>
