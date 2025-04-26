@@ -1,0 +1,15 @@
+<% add_decidim_meta_tags({
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
+
+<%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <section>
+    <%= cell("decidim/announcement", t("layouts.decidim.shared.layout_center.alert")) %>
+    <%= render partial: "decidim/demographics/demographics/questionnaire" %>
+  </section>
+
+<% end %>

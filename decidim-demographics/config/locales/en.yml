@@ -26,3 +26,9 @@ en:
             invalid: There was an error saving demographic data
             success: Demographic data successfully saved
         title: Demographics Settings
+      name: Demographic data donation
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: By providing this information, you contribute to statistical analysis that helps improve participation quality. Your data will be aggregated and used only for research purposes.
