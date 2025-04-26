@@ -111,6 +111,9 @@ PATH
     decidim-debates (0.31.0.dev)
       decidim-comments (= 0.31.0.dev)
       decidim-core (= 0.31.0.dev)
+    decidim-demographics (0.31.0.dev)
+      decidim-core (= 0.31.0.dev)
+      decidim-forms (= 0.31.0.dev)
     decidim-design (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
     decidim-dev (0.31.0.dev)
@@ -844,6 +847,7 @@ DEPENDENCIES
   decidim-ai!
   decidim-collaborative_texts!
   decidim-conferences!
+  decidim-demographics!
   decidim-design!
   decidim-dev!
   decidim-elections!

@@ -1,0 +1,35 @@
+name: "[CI] Demographics"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-demographics/**"
+      - "decidim-core/**"
+      - "decidim-admin/**"
+      - "decidim-dev/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build_app:
+    uses: ./.github/workflows/build_app.yml
+    secrets: inherit
+    name: Build test application
+  main:
+    needs: build_app
+    name: Tests
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-demographics"
+      test_command: bundle exec parallel_test --type rspec --pattern spec/
