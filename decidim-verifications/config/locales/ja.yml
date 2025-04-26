@@ -207,7 +207,18 @@ ja:
             new_record:
               save: 保存
               title: 新しいセンサスレコードを追加
+            update_record:
+              success: センサスデータのレコードを更新しました。
           index:
+            add_new_record_button: 新しいレコードを追加
+            authorized: 承認されているユーザー
+            fields:
+              actions: アクション
+              created_at: 作成日時
+              email: メールアドレス
+              user_authorized: 承認済み？
+            import_csv: CSVをインポート
+            no_authorized: 承認されていないユーザー
             title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
@@ -222,6 +233,10 @@ ja:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
           user_postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}. あなたの郵便番号は %{user_postal_code} です。'
+      errors:
+        invalid_emails: '次のメールアドレスが無効です: %{invalid_emails}。'
+        no_emails: ファイルにはメールアドレスが含まれている必要があります
+        wrong_number_columns: "%{expected} 列が期待されていましたが、 %{actual} 列が見つかりました。"
       id_documents:
         admin:
           config:
