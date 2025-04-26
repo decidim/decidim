@@ -7,7 +7,16 @@ en:
           tabs_menu:
             save: Save
         demographics_menu:
+          questions: Questions
           settings: Settings
+        questions:
+          edit:
+            add_question: Add question
+            add_separator: Add separator
+            title: Edit Questions
+          questions_form:
+            collapse: Collapse all questions
+            expand: Expand all questions
         settings:
           show:
             collect_data: Enable demographic data collection

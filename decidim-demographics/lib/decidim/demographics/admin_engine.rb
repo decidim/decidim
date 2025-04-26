@@ -15,6 +15,13 @@ module Decidim
         resources :demographics, only: [:index] do
           collection do
             resource :settings, only: [:show, :update]
+
+            resource :questions, only: [:edit_questions, :update_questions] do
+              collection do
+                get :edit_questions
+                patch :update_questions
+              end
+            end
           end
         end
       end
@@ -32,7 +39,10 @@ module Decidim
                         decidim_admin_demographics.settings_path,
                         position: 1.8,
                         icon_name: "team-line",
-                        if: allowed_to?(:update, :organization, organization: current_organization)
+                        if: allowed_to?(:update, :organization, organization: current_organization),
+                        active:
+                          is_active_link?(decidim_admin_demographics.settings_path) ||
+                          is_active_link?(decidim_admin_demographics.edit_questions_questions_path)
         end
       end
 
@@ -42,12 +52,12 @@ module Decidim
                         I18n.t("settings", scope: "decidim.demographics.admin.demographics_menu"),
                         decidim_admin_demographics.settings_path,
                         icon_name: "settings-4-line"
-          #
-          #     menu.add_item :demographics_questions_edit,
-          #                   I18n.t("questions", scope: "decidim.demographics.admin.demographics_menu"),
-          #                   decidim_admin_demographics.edit_questions_questions_path,
-          #                   icon_name: "question-answer-line"
-          #
+
+          menu.add_item :demographics_questions_edit,
+                        I18n.t("questions", scope: "decidim.demographics.admin.demographics_menu"),
+                        decidim_admin_demographics.edit_questions_questions_path,
+                        icon_name: "question-answer-line"
+
           #     menu.add_item :demographics_responses_view,
           #                   I18n.t("responses", scope: "decidim.demographics.admin.demographics_menu"),
           #                   decidim_admin_demographics.responses_path,
