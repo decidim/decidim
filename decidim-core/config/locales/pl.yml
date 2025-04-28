@@ -33,6 +33,8 @@ pl:
         personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
         tos_agreement: Warunki korzystania z Platformy
+      user_group:
+        avatar: Awatar
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny komponent
@@ -93,6 +95,9 @@ pl:
       file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
+    buttons:
+      close: Zamknij
+      select: Wybierz
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -100,6 +105,10 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/rrrr'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:

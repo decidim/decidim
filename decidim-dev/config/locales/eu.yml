@@ -2,6 +2,9 @@
 eu:
   activemodel:
     attributes:
+      dummy:
+        image: Irudia
+      dummy_attribute: Balizko atributua
       dummy_resource:
         created_at: Sortua
         decidim_scope_id: Eremua

@@ -2,6 +2,9 @@
 cs:
   activemodel:
     attributes:
+      dummy:
+        image: Obrázek
+      dummy_attribute: Zástupný atribut
       dummy_resource:
         created_at: Vytvořeno v
         decidim_scope_id: Oblast působnosti

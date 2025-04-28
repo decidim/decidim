@@ -4,10 +4,19 @@ ro:
     attributes:
       account:
         delete_reason: Motivul pentru care vă ștergeți contul
+      attachment:
+        documents: Documente
+        image: Imagine
+        photos: Fotografii
       common:
         created_at: Creat la
+      content_block_attachment:
+        background_image: Imagine de fundal
+        main_image: Imaginea principală
       conversation:
         body: Conținut
+      editor_image:
+        file: Fișier
       group:
         about: Despre
         avatar: Avatar
@@ -16,12 +25,15 @@ ro:
         name: Nume
         nickname: Pseudonim
         phone: Telefon
+      import:
+        file: Fișier
       message:
         body: Conținut
       report:
         details: Detalii
       user:
         about: Despre
+        avatar: Fotografie de profil
         email: E-mailul dumneavoastră
         encrypted_password: Parolă
         locale: Setări regionale
@@ -33,6 +45,8 @@ ro:
         personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -95,6 +109,9 @@ ro:
       file_size_too_large: Mărimea fișierului este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
+    buttons:
+      close: Închideți
+      select: Selectare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -102,6 +119,10 @@ ro:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: zz/ll/aaa'
+      order: z-l-a
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -750,6 +771,9 @@ ro:
             email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{amendable_title}.
       attachments:
         attachment_created:
           email_intro: 'Un nou document a fost adăugat la %{resource_title}. Îl poți vedea de pe această pagină:'
@@ -1098,6 +1122,8 @@ ro:
         not_started: Încă nu a început
         remaining: "%{time_distance} ramas"
     metrics:
+      blocked_users:
+        description: Număr de participanți blocați
       download:
         csv: Descărcare date (CSV)
       followers:
@@ -1108,6 +1134,10 @@ ro:
         description: Numărul de participanți activi în organizație
         object: participanți
         title: Participanți
+      reported_users:
+        description: Numărul de participanți raportați
+      user_reports:
+        description: Numărul de raportări întocmite de participanți
       users:
         description: Numărul de participanți în organizație
         object: participanți

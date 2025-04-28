@@ -4,10 +4,19 @@ de:
     attributes:
       account:
         delete_reason: Grund, Ihr Konto zu löschen
+      attachment:
+        documents: Dokumente
+        image: Bild
+        photos: Fotos
       common:
         created_at: Erstellt am
+      content_block_attachment:
+        background_image: Hintergrundbild
+        main_image: Hauptbild
       conversation:
         body: Haupttext
+      editor_image:
+        file: Datei
       group:
         about: Über
         avatar: Profilbild
@@ -16,12 +25,15 @@ de:
         name: Name
         nickname: Spitzname
         phone: Telefonnummer
+      import:
+        file: Datei
       message:
         body: Haupttext
       report:
         details: Zusätzliche Kommentare
       user:
         about: Über
+        avatar: Profilbild
         email: Ihre E-Mail
         encrypted_password: Passwort
         locale: Spracheinstellung
@@ -33,6 +45,8 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
+      user_group:
+        avatar: Profilbild
     errors:
       models:
         user:
@@ -91,6 +105,9 @@ de:
       file_size_too_large: Datei ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation angefügt.
   date:
+    buttons:
+      close: Schliessen
+      select: Wählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -98,6 +115,10 @@ de:
       decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d. %b"
+      help:
+        date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -745,6 +766,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+        emendation_promoted:
+          follower:
+            email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
+            email_subject: Eine Änderung von %{emendation_author_nickname} ist als neuer %{amendable_type} veröffentlicht worden
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
@@ -1182,6 +1208,8 @@ de:
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
     metrics:
+      blocked_users:
+        description: Anzahl der blockierten Teilnehmenden
       download:
         csv: Daten herunterladen (CSV)
       followers:
@@ -1192,6 +1220,10 @@ de:
         description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
         title: Teilnehmer
+      reported_users:
+        description: Anzahl der gemeldeten Teilnehmenden
+      user_reports:
+        description: Anzahl der von Teilnehmenden getätigten Meldungen
       users:
         description: Anzahl der Benutzer in der Organisation
         object: Benutzer
@@ -1256,10 +1288,12 @@ de:
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
+        real_time: In Echtzeit
         weekly: Wöchentliche Zusammenfassung
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
+        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die du folgst:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen

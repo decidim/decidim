@@ -23,6 +23,8 @@ lv:
         password_confirmation: Apstiprināt jūsu paroli
         personal_url: Personīgais URL
         remove_avatar: Noņemt avatāru
+      user_group:
+        avatar: Avatārs
     models:
       decidim/attachment_created_event: Pielikums
       decidim/component_published_event: Aktīvs komponents
@@ -63,6 +65,8 @@ lv:
     'false': 'Nē'
     'true': 'Jā'
   date:
+    buttons:
+      select: Izvēlēties
     formats:
       decidim_short: "%d/%m/%G"
       decidim_short_with_month_name_short: "%d %b %G"

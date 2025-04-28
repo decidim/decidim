@@ -29,6 +29,8 @@ it:
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
+      user_group:
+        avatar: Immagine del profilo
     models:
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
@@ -70,6 +72,9 @@ it:
     errors:
       file_size_too_large: La dimensione del file è troppo grande
   date:
+    buttons:
+      close: Chiudere
+      select: Selezionare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"

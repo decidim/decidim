@@ -4,10 +4,18 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění vašeho účtu
+      attachment:
+        documents: Dokumenty
+        photos: Fotky
       common:
         created_at: Vytvořeno v
+      content_block_attachment:
+        background_image: Obrázek pozadí
+        main_image: Hlavní obrázek
       conversation:
         body: Tělo zprávy
+      editor_image:
+        file: Soubor
       group:
         about: O nás
         avatar: Avatar
@@ -16,12 +24,15 @@ cs:
         name: Jméno
         nickname: Přezdívka
         phone: Telefon
+      import:
+        file: Soubor
       message:
         body: Tělo zprávy
       report:
         details: Další komentáře
       user:
         about: O nás
+        avatar: Avatar
         email: Váš email
         encrypted_password: Heslo
         locale: Jazyk
@@ -33,6 +44,8 @@ cs:
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
         tos_agreement: Podmínky smlouvy o poskytování služeb
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -99,6 +112,9 @@ cs:
       file_size_too_large: Soubor je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
+    buttons:
+      close: Zavřít‏
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -106,6 +122,10 @@ cs:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formát: dd/mm/rrrr'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -779,6 +799,11 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
             email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
+        emendation_promoted:
+          follower:
+            email_intro: 'Byla zveřejněna oprava pro %{amendable_title}. Můžete si ji prohlédnout na této stránce:'
+            email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
+            email_subject: Doplněk z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
@@ -1220,6 +1245,8 @@ cs:
         not_started: Ještě nezačalo
         remaining: "Zbývá %{time_distance}"
     metrics:
+      blocked_users:
+        description: Počet blokovaných účastníků
       download:
         csv: Stáhnout data (CSV)
       followers:
@@ -1230,6 +1257,10 @@ cs:
         description: Počet aktivních uživatelů v organizaci
         object: účastníků
         title: Účastníci
+      reported_users:
+        description: Počet nahlášených účastníků
+      user_reports:
+        description: Počet zpráv vypracovaných účastníky
       users:
         description: Počet uživatelů v organizaci
         object: uživatelů
@@ -1294,10 +1325,12 @@ cs:
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
+        real_time: V reálném čase
         weekly: Týdenní výběr oznámení
       hello: Dobrý den %{name},
       intro:
         daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
+        real_time: 'Toto je oznámení o aktivitě, kterou sledujete:'
         weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
       outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
       see_more: Zobrazit další oznámení

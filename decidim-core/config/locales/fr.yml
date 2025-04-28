@@ -4,10 +4,19 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      attachment:
+        documents: Documents
+        image: Image
+        photos: Photos
       common:
         created_at: Créé le
+      content_block_attachment:
+        background_image: Image d'arrière-plan
+        main_image: Image principale
       conversation:
         body: Corps de texte
+      editor_image:
+        file: Fichier
       group:
         about: A propos
         avatar: Avatar
@@ -16,12 +25,15 @@ fr:
         name: Nom
         nickname: Pseudonyme
         phone: Téléphone
+      import:
+        file: Fichier
       message:
         body: Corps de texte
       report:
         details: Commentaires supplémentaires
       user:
         about: A propos de moi
+        avatar: Avatar
         email: Votre email
         encrypted_password: Mot de passe
         locale: Langue
@@ -33,6 +45,8 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -91,6 +105,9 @@ fr:
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est attaché à aucune organisation
   date:
+    buttons:
+      close: Fermer
+      select: Sélectionner
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -98,6 +115,10 @@ fr:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: jj/mm/aaaa'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -744,6 +765,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
             notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Une correction a été publiée pour %{amendable_title}. Vous pouvez la voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur/trice de %{amendable_title}.
+            email_subject: Une correction réalisée par %{emendation_author_nickname} a été publiée en tant que nouvelle %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -1181,6 +1207,8 @@ fr:
         not_started: Pas encore commencé
         remaining: "%{time_distance} restant"
     metrics:
+      blocked_users:
+        description: Nombre de participants bloqués
       download:
         csv: Télécharger les données (CSV)
       followers:
@@ -1191,6 +1219,10 @@ fr:
         description: Nombre d'utilisateurs actifs dans l'organisation
         object: les participants
         title: Participants
+      reported_users:
+        description: Nombre de participants signalés
+      user_reports:
+        description: Nombre de signalements effectués par les participants
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
@@ -1255,10 +1287,12 @@ fr:
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
+        real_time: Temps réel
         weekly: Résumé hebdomadaire des notifications
       hello: Bonjour %{name},
       intro:
         daily: 'Voici les notifications de la veille, basées sur les ressources que vous suivez :'
+        real_time: 'Ceci est une notification sur l''activité que vous suivez :'
         weekly: 'Voici les notifications de la semaine dernière, basées sur les ressources que vous suivez :'
       outro: Vous avez reçu ces notifications parce que vous suivez ce contenu ou ses auteurs. Pour arrêter de les suivre, rendez-vous sur la page du contenu ou de l'auteur et cliquez sur "Ne plus suivre".
       see_more: Voir plus de notifications

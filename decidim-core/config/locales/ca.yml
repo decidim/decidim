@@ -4,10 +4,19 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        image: Imatge
+        photos: Fotos
       common:
         created_at: Creat el
+      content_block_attachment:
+        background_image: Imatge de fons
+        main_image: Imatge principal
       conversation:
         body: Cos
+      editor_image:
+        file: Arxiu
       group:
         about: Quant a
         avatar: Avatar
@@ -16,12 +25,15 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      import:
+        file: Arxiu
       message:
         body: Cos
       report:
         details: Comentaris addicionals
       user:
         about: Quant a
+        avatar: Imatge de perfil
         email: El teu correu electrònic
         encrypted_password: Contrasenya
         locale: Configuració regional
@@ -33,6 +45,8 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -91,6 +105,9 @@ ca:
       file_size_too_large: La mida del fitxer és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
+    buttons:
+      close: Tancar
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -98,6 +115,10 @@ ca:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/aaaa'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -740,6 +761,11 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè és autora de %{amendable_title}.
+            email_subject: Una esmena de %{emendation_author_nickname} s'ha publicat com un nou %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
@@ -1177,6 +1203,8 @@ ca:
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participants bloquejades
       download:
         csv: Descarregar les dades (csv)
       followers:
@@ -1187,6 +1215,10 @@ ca:
         description: Nombre de participants actives a l'organització
         object: participants
         title: Participants
+      reported_users:
+        description: Número de participants reportades
+      user_reports:
+        description: Número de denúncies realitzades per participants
       users:
         description: Nombre de participants a l'organització
         object: participants
@@ -1251,10 +1283,12 @@ ca:
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
+        real_time: En temps real
         weekly: Resum setmanal de notificacions
       hello: Hola %{name},
       intro:
         daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        real_time: 'Aquesta és una notificació sobre l''activitat que segueixes:'
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions

@@ -2,6 +2,8 @@
 de:
   activemodel:
     attributes:
+      answer:
+        add_documents: Dokumente hinzufügen
       close_meeting:
         attendees_count: Anzahl Teilnehmende
         attending_organizations: Liste der Organisationen, die teilgenommen haben

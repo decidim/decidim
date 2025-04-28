@@ -4,10 +4,19 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        image: Imagen
+        photos: Fotos
       common:
         created_at: Creado el
+      content_block_attachment:
+        background_image: Imagen de fondo
+        main_image: Imagen principal
       conversation:
         body: Cuerpo
+      editor_image:
+        file: Archivo
       group:
         about: Acerca de
         avatar: Avatar
@@ -16,12 +25,15 @@ es:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      import:
+        file: Archivo
       message:
         body: Cuerpo
       report:
         details: Comentarios adicionales
       user:
         about: Acerca de
+        avatar: Imagen de perfil
         email: Tu correo electrónico
         encrypted_password: Contraseña
         locale: Configuración regional
@@ -33,6 +45,8 @@ es:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -91,6 +105,9 @@ es:
       file_size_too_large: El tamaño del archivo es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
+    buttons:
+      close: Cerrar
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -98,6 +115,10 @@ es:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formato: dd/mm/aaaa'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -740,6 +761,11 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
+            email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
+            email_subject: Una enmienda de %{emendation_author_nickname} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -1177,6 +1203,8 @@ es:
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueadas
       download:
         csv: Descargar datos (CSV)
       followers:
@@ -1187,6 +1215,10 @@ es:
         description: Número de participantes activas en la organización
         object: participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportadas
+      user_reports:
+        description: Número de denuncias realizadas por participantes
       users:
         description: Número de participantes en la organización
         object: participantes
@@ -1251,10 +1283,12 @@ es:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
+        real_time: En tiempo real
         weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        real_time: 'Esta es una notificación sobre la actividad que sigues:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
       outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
       see_more: Ver más notificaciones
