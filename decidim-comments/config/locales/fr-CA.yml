@@ -28,6 +28,8 @@ fr-CA:
             enabled: Commentaires activés
             end_time: Commentaires activés jusqu'à
             start_time: Commentaires activés depuis
+      comment_thread:
+        accessibility_label: Fil de commentaires démarré par %{full_name} le %{date}
       comments:
         create:
           error: Une erreur s'est produite lors de la création du commentaire.

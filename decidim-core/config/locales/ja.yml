@@ -6,6 +6,7 @@ ja:
         delete_reason: アカウントを削除する理由
       attachment:
         documents: ドキュメント
+        image: 画像
         photos: 写真
       common:
         created_at: 作成日時
@@ -989,6 +990,18 @@ ja:
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
+        parent_hidden:
+          email_intro: |-
+            あなたの%{resource_type}は表示されなくなりました。<br>
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。
+          email_outro: この通知は、影響を受けた%{resource_type}の作成者であるために送信されました。
+          email_subject: '%{resource_type} は表示されなくなりました'
+          notification_title: |-
+            あなたの%{resource_type}は表示されなくなりました。<br>
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。 
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。 
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: '%{report_reasons} として報告されたため、管理者が %{resource_type} を削除しました。'
           email_outro: 削除されたコンテンツの作成者であるため、この通知を受け取りました。
@@ -1699,8 +1712,12 @@ ja:
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
       hide:
+        content: 通報されたコンテンツ
+        details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
         subject: リソースは自動的に非表示になりました
       report:
