@@ -9,7 +9,7 @@ module Decidim
       isolate_namespace Decidim::Demographics
 
       routes do
-        resource :demographics, only: [:show, :respond] do
+        resource :demographics, only: [:show, :respond, :destroy] do
           collection do
             post :respond
           end

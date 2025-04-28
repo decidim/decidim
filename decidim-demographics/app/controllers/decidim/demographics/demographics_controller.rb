@@ -16,6 +16,20 @@ module Decidim
         render template:
       end
 
+      def destroy
+        DeleteDemographicData.call(questionnaire, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("destroy.success", scope: "decidim.demographics")
+            redirect_to demographics_engine.demographics_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("destroy.invalid", scope: "decidim.demographics")
+            redirect_to demographics_engine.demographics_path
+          end
+        end
+      end
+
       def template
         "decidim/demographics/demographics/show"
       end

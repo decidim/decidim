@@ -12,65 +12,74 @@
   <%= form.hidden_field :allow_editing_responses %>
 
   <%= invisible_captcha %>
+
   <% response_idx = 0 %>
   <% cleaned_response_idx = 1 %>
-  <% @form.responses_by_step.each_with_index do |step_responses, step_index| %>
-    <div id="step-<%= step_index %>" class="response-questionnaire__step" <%= "hidden" if !step_index.zero? %>>
 
-      <% if @form.total_steps > 1 %>
-        <p class="response-questionnaire__step-counter">
-          <%= t("decidim.forms.questionnaires.show.current_step", step: step_index + 1) %>&nbsp;<%= t("decidim.forms.questionnaires.show.of_total_steps", total_steps: @form.total_steps) %></span>
-        </p>
+  <div id="step-0" class="response-questionnaire__step">
+    <% @form.responses.each_with_index do |response, step_index| %>
+      <div class="response question" data-max-choices="<%= response.question.max_choices %>" data-conditioned="<%= response.question.display_conditions.any? %>" data-question-id="<%= response.question.id %>">
+        <% response.question.display_conditions.each do |display_condition| %>
+          <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
+        <% end %>
+
+        <%= fields_for "questionnaire[responses][#{response_idx}]", response do |response_form| %>
+          <%= render(
+                "decidim/forms/questionnaires/response",
+                response_form:,
+                response:,
+                response_idx:,
+                cleaned_response_idx:,
+                disabled: false
+              ) %>
+        <% end %>
+      </div>
+
+      <% if !(response.question.separator? || response.question.title_and_description?) %>
+        <% cleaned_response_idx += 1 %>
       <% end %>
 
-      <% step_responses.each do |response| %>
-        <div class="response question" data-max-choices="<%= response.question.max_choices %>" data-conditioned="<%= response.question.display_conditions.any? %>" data-question-id="<%= response.question.id %>">
-          <% response.question.display_conditions.each do |display_condition| %>
-            <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
-          <% end %>
-
-          <%= fields_for "questionnaire[responses][#{response_idx}]", response do |response_form| %>
-            <%= render(
-                  "decidim/forms/questionnaires/response",
-                  response_form:,
-                  response:,
-                  response_idx:,
-                  cleaned_response_idx:,
-                  disabled: false
-                ) %>
-          <% end %>
+      <% response_idx += 1 %>
+    <% end %>
+    <div class="response-questionnaire__footer">
+      <div class="response-questionnaire__tos">
+        <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: false %>
+        <div>
+          <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
         </div>
+      </div>
 
-        <% if !(response.question.separator? || response.question.title_and_description?) %>
-          <% cleaned_response_idx += 1 %>
-        <% end %>
-
-        <% response_idx += 1 %>
-      <% end %>
-
-      <div class="response-questionnaire__footer">
-        <% if step_index + 1 == @form.total_steps %>
-          <% if show_public_participation? %>
-            <%= cell("decidim/public_participation", form) %>
-          <% end %>
-
-          <div class="response-questionnaire__tos">
-            <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: false %>
-            <div>
-              <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
-            </div>
-          </div>
-        <% end %>
-
-        <%= cell(
-              "decidim/forms/step_navigation",
-              step_index,
-              total_steps: @form.total_steps,
-              button_disabled: !demographic.collect_data?,
-              form:,
-              allow_editing_responses: allow_editing_responses?
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between pt-0">
+        <%= form.submit(
+              t(".submit"),
+              class: "button button__sm md:button__lg button__secondary mr-auto !ml-0",
+              disabled: !demographic.collect_data?
             ) %>
+
+        <% if visitor_already_responded? %>
+          <button type="button" data-dialog-open="delete-answers" class="button button__sm md:button__lg button__secondary ml-auto mr-0 open-modal-button">
+            <%= t(".delete_my_data") %>
+          </button>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+<%= decidim_modal id: "delete-answers", class:"verification-modal" do %>
+    <div data-dialog-container>
+      <%= icon "close-circle-line" %>
+      <h3 class="h3" id="dialog-title-delete-account" data-dialog-title>
+        <%= t(".question") %>
+      </h3>
+    </div>
+    <div data-dialog-actions>
+      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="delete-account">
+        <%= t(".close") %>
+      </button>
+
+      <%= button_to demographics_engine.demographics_path, method: :delete, class: "button button__sm md:button__lg button__secondary" do %>
+        <%= t(".ok") %>
+      <% end %>
+    </div>
 <% end %>

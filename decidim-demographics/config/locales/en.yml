@@ -26,6 +26,17 @@ en:
             invalid: There was an error saving demographic data
             success: Demographic data successfully saved
         title: Demographics Settings
+      demographics:
+        questionnaire:
+          close: Close window
+          delete_my_data: Delete my data
+          ok: Yes, I want to delete the data
+          question: Are you sure you want to delete your submitted data?
+          submit: Save
+          tos_agreement: By donating your data, you agree to our terms of service
+      destroy:
+        error: There was an error removing your donated data
+        success: Successfully removed your donated data
       name: Demographic data donation
   layouts:
     decidim:
