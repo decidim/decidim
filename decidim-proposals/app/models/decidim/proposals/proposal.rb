@@ -301,11 +301,6 @@ module Decidim
         state == "evaluating"
       end
 
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
-      end
-
       # Returns the presenter for this author, to be used in the views.
       # Required by ResourceRenderer.
       def presenter
