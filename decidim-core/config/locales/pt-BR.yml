@@ -1149,7 +1149,6 @@ pt-BR:
     search:
       name: Pesquisar
       results: Procurar resultados
-      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisa
     searches:
       filters:

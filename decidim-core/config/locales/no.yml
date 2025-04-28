@@ -792,7 +792,6 @@
       prompt: Velg et tema
     search:
       results: Søkeresultater
-      results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
       filters:

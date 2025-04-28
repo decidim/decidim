@@ -1548,7 +1548,6 @@ fi:
     search:
       name: Hae
       results: Hakutulokset
-      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:

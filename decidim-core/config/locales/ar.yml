@@ -1021,7 +1021,6 @@ ar:
     search:
       name: البحث
       results: نتائج البحث
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:

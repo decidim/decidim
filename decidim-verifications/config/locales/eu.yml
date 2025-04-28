@@ -3,6 +3,8 @@ eu:
     attributes:
       authorization:
         verification_attachment: Egiaztapen-eranskina
+      census_data:
+        file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline

@@ -859,6 +859,16 @@ sv:
       notification_event:
         notification_title: Något inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_subject: Din %{resource_type} är inte längre synlig
+          notification_title: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände på grund av att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar att återställas automatiskt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
           email_outro: Du har fått det här meddelandet eftersom du är en författare till det här innehållet.
@@ -1335,7 +1345,6 @@ sv:
     search:
       name: Sök
       results: Sökresultat
-      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:

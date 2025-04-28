@@ -479,6 +479,10 @@ cs:
             explanation: 'Pokyny pro soubor:'
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
+          import_csv:
+            explanation: 'Pokyny pro soubor:'
+            message_1: CSV soubory jsou podporovány
+            message_2: ".csv soubor s e-maily"
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
