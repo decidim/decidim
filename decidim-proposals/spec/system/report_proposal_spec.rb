@@ -9,6 +9,7 @@ describe "Report Proposal" do
   let!(:proposals) { create_list(:proposal, 3, :participant_author, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
+  let(:reportable_index_path) { resource_locator(reportable).index }
 
   let!(:component) do
     create(:proposal_component,
