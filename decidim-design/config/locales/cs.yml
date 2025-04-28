@@ -185,7 +185,6 @@ cs:
         conference_s: Konference S
         conferences: Konference
         context: Kontext
-        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
         context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
         debate_l: Debata L
         debate_s: Debata S

@@ -185,7 +185,7 @@ fr-CA:
         conference_s: Conférence S
         conferences: Conférences
         context: Contexte
-        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de ressource/contenu. Survoler avec la souris affiche une info-bulle avec des informations supplémentaires et des liens vers son profil.
+        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de la ressource/du contenu.
         context_description_2: Pour les ressources, cette cellule apparaît sous le titre principal. Pour les autres contenus, elle apparaît à côté du contenu lui-même.
         debate_l: Débat L
         debate_s: Débat S

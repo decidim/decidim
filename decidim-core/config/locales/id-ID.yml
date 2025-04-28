@@ -559,7 +559,6 @@ id:
       global: Ruang lingkup global
       prompt: Pilih cakupan
     search:
-      results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
     searches:
       filters:

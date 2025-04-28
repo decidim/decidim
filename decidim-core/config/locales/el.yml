@@ -902,7 +902,6 @@ el:
       prompt: Επιλέξτε πεδίο εφαρμογής
     search:
       results: Αποτελέσματα αναζήτησης
-      results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
       term_input_placeholder: Αναζήτηση
     searches:
       filters:
