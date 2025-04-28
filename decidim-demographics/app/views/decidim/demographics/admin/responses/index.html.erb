@@ -1,0 +1,66 @@
+<% add_decidim_page_title(t(".title", total: @total)) %>
+
+<%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
+  <div>
+    <% if allowed_to? :index, :demographics_responses %>
+      <% if @participants.count.zero? %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), "#", class: "button button__xs button__secondary h-8", disabled: true %>
+      <% else %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), publish_responses_path, class: "button button__xs button__secondary h-8" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @participants.count.zero? %>
+  <%= cell("decidim/announcement", { body: t("decidim.surveys.admin.responses.index.no_responses") }) %>
+<% end %>
+
+<div class="card" id="responses">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t ".title", total: @total %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th class="!text-left"><%= first_table_th(@participants.first) %></th>
+        <th><%= t("user_status", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("completion", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("created_at", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @participants.each_with_index do |participant, idx| %>
+        <tr>
+          <td><%= idx + 1 + page_offset %></td>
+          <td class="!text-left">
+            <% if allowed_to? :show, :questionnaire_responses %>
+              <%= link_to first_table_td(participant), questionnaire_participant_responses_url(participant.session_token) %>
+            <% else %>
+              <%= first_table_td(participant) %></td>
+            <% end %>
+            <td><%= participant.status %></td>
+            <td><%= participant.ip_hash %></td>
+            <td><%= display_percentage(participant.completion) %></td>
+            <td><%= l participant.responded_at, format: :short %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :show, :demographics_responses %>
+                <%= icon_link_to "eye-line", questionnaire_participant_responses_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
+              <% end %>
+              <% if allowed_to? :export_response, :demographics_responses %>
+                <%= icon_link_to "download-line", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--data-transfer-download" %>
+              <% end %>
+            </td>
+            </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate @query %>

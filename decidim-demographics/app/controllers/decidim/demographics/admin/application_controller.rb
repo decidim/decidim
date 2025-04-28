@@ -19,16 +19,15 @@ module Decidim
 
         private
 
-        #
-        # def questionnaire
-        #   @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_create
-        #   @questionnaire.override_edit!
-        #   @questionnaire
-        # end
-        #
-        # def questionnaire_for
-        #   demographic
-        # end
+        def questionnaire
+          @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_create
+          @questionnaire.override_edit!
+          @questionnaire
+        end
+
+        def questionnaire_for
+          demographic
+        end
 
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Demographics::Admin::ApplicationController)

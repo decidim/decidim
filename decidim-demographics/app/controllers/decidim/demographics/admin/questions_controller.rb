@@ -19,8 +19,7 @@ module Decidim
 
         # Returns the url to get the response options json (for the display conditions form)
         # for the question with id = params[:id]
-        # decidim_admin_demographics.responses_path
-        def response_options_url(_params) = "#"
+        def response_options_url(_params) = decidim_admin_demographics.responses_path
 
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_create

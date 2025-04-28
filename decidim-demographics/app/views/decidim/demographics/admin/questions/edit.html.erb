@@ -1,6 +1,9 @@
 <% add_decidim_page_title(t(".title")) %>
 
-<%= render "decidim/demographics/admin/demographics/tabs_menu" %>
+<%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
+  <%= button_tag t(".save"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
+<% end %>
+
 <div class="questionnaire-questions">
   <div class="item_show__header">
     <h1 class="item_show__header-title">

@@ -1,13 +1,23 @@
 ---
 en:
+
   decidim:
     demographics:
       admin:
+        publish_responses:
+          index:
+            description: Description
+            title: Publish responses
+        responses:
+          index:
+            publish_responses: Publish responses
+            title: "%{total} total responses"
         demographics:
           tabs_menu:
             save: Save
         demographics_menu:
           questions: Questions
+          responses: Responses
           settings: Settings
         questions:
           edit:

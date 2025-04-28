@@ -22,6 +22,13 @@ module Decidim
                 patch :update_questions
               end
             end
+
+            resources :responses, only: [:index, :show] do
+              member do
+                get :export_response
+              end
+            end
+            resources :publish_responses, only: [:index]
           end
         end
       end
@@ -42,6 +49,8 @@ module Decidim
                         if: allowed_to?(:update, :organization, organization: current_organization),
                         active:
                           is_active_link?(decidim_admin_demographics.settings_path) ||
+                          is_active_link?(decidim_admin_demographics.responses_path) ||
+                          is_active_link?(decidim_admin_demographics.publish_responses_path) ||
                           is_active_link?(decidim_admin_demographics.edit_questions_questions_path)
         end
       end
@@ -58,10 +67,13 @@ module Decidim
                         decidim_admin_demographics.edit_questions_questions_path,
                         icon_name: "question-answer-line"
 
-          #     menu.add_item :demographics_responses_view,
-          #                   I18n.t("responses", scope: "decidim.demographics.admin.demographics_menu"),
-          #                   decidim_admin_demographics.responses_path,
-          #                   icon_name: "draft-line"
+          menu.add_item :demographics_responses_view,
+                        I18n.t("responses", scope: "decidim.demographics.admin.demographics_menu"),
+                        decidim_admin_demographics.responses_path,
+                        icon_name: "draft-line",
+                        active: is_active_link?(decidim_admin_demographics.responses_path) ||
+                          is_active_link?(decidim_admin_demographics.publish_responses_path)
+
         end
       end
 
