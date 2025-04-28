@@ -2,6 +2,9 @@
 ca:
   activemodel:
     attributes:
+      dummy:
+        image: Imatge
+      dummy_attribute: Atribut de prova
       dummy_resource:
         created_at: Creat el
         decidim_scope_id: Àmbit

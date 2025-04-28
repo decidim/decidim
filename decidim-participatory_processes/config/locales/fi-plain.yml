@@ -311,6 +311,7 @@ fi-pl:
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
+        unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
         update: "%{user_name} päivitti osallisuusprosessien ryhmää %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"

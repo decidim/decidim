@@ -4,10 +4,19 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      attachment:
+        documents: ドキュメント
+        image: 画像
+        photos: 写真
       common:
         created_at: 作成日時
+      content_block_attachment:
+        background_image: 背景画像
+        main_image: メイン画像
       conversation:
         body: 本文
+      editor_image:
+        file: ファイル
       group:
         about: グループについて
         avatar: アバター
@@ -16,12 +25,15 @@ ja:
         name: 名前
         nickname: アカウントID
         phone: 電話番号
+      import:
+        file: ファイル
       message:
         body: 本文
       report:
         details: 追加コメント
       user:
         about: 私について
+        avatar: アバター
         email: あなたのメールアドレス
         encrypted_password: パスワード
         locale: 地域
@@ -33,6 +45,8 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
+      user_group:
+        avatar: アバター
     errors:
       models:
         user:
@@ -727,6 +741,11 @@ ja:
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正が却下されました'
             notification_title: <a href="%{emendation_path}">修正</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> によって作成された <a href="%{amendable_path}">%{amendable_title}</a> は拒否されました。
+        emendation_promoted:
+          follower:
+            email_intro: '%{amendable_title}に対する修正案が公開されました。このページから確認できます：'
+            email_outro: あなたは %{amendable_title}の作者であるため、この通知を受け取りました。
+            email_subject: '%{emendation_author_nickname}による修正案が新しい%{amendable_type}として公開されました'
       attachments:
         attachment_created:
           email_intro: '%{resource_title}に新しいドキュメントが追加されました。このページから見ることができます：'
@@ -1167,6 +1186,8 @@ ja:
         not_started: まだ開始していません
         remaining: "残り %{time_distance}"
     metrics:
+      blocked_users:
+        description: ブロックされた参加者数
       download:
         csv: ダウンロードデータ(CSV)
       followers:
@@ -1177,6 +1198,10 @@ ja:
         description: 組織内のアクティブな参加者数
         object: 参加者
         title: 参加者
+      reported_users:
+        description: 報告された参加者数
+      user_reports:
+        description: 参加者によって行われた報告数
       users:
         description: 組織の参加者数
         object: 参加者
@@ -1242,10 +1267,12 @@ ja:
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
+        real_time: リアルタイム
         weekly: 週次の通知のダイジェスト
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
+        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
         weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
@@ -1378,8 +1405,12 @@ ja:
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
       hide:
+        content: 通報されたコンテンツ
+        details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
         subject: リソースは自動的に非表示になりました
       report:

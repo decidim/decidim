@@ -29,6 +29,8 @@ nl:
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
+      user_group:
+        avatar: Profielafbeelding
     models:
       decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component

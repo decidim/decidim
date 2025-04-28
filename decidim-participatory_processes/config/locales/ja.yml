@@ -308,6 +308,7 @@ ja:
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"
       participatory_process_group:
         create: "%{user_name} が %{resource_name} 参加型プロセスグループを作成しました"
+        unpublish: "%{user_name} が %{resource_name} 参加プロセスグループを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加型プロセスグループを更新しました"
       participatory_process_step:
         activate: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを有効化しました"

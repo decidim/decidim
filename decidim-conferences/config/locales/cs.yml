@@ -69,6 +69,8 @@ cs:
         email: E-mail
         name: Název
         role: Role
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:

@@ -23,6 +23,8 @@ lv:
         password_confirmation: Apstiprināt jūsu paroli
         personal_url: Personīgais URL
         remove_avatar: Noņemt avatāru
+      user_group:
+        avatar: Avatārs
     models:
       decidim/attachment_created_event: Pielikums
       decidim/component_published_event: Aktīvs komponents

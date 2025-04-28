@@ -25,6 +25,8 @@ tr:
         password_confirmation: Şifrenizi Onaylayın
         personal_url: Kişisel URL
         remove_avatar: Avatarı kaldır
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Ek dosya
       decidim/component_published_event: Aktif bileşen

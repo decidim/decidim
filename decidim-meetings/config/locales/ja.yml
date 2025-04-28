@@ -2,6 +2,8 @@
 ja:
   activemodel:
     attributes:
+      answer:
+        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -370,6 +372,7 @@ ja:
           edit:
             save: 保存
             validate: 検証
+            validate_registration_code: 登録コードを検証する
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
@@ -384,6 +387,9 @@ ja:
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
+          validate_registration_code:
+            invalid: この登録コードは無効です。
+            success: 登録コードを検証しました。
       admin_log:
         invite:
           create: "%{user_name} が %{attendee_name} を %{resource_name} スペースの %{space_name} ミーティングに招待しました"

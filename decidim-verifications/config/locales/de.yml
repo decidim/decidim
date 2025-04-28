@@ -2,6 +2,8 @@
 de:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Anhang zur Verifizierung
       config:
         available_methods: Verfügbare Methoden
         offline: Offline
