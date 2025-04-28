@@ -4,12 +4,14 @@
                          }) %>
 
 <%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_stylesheet_pack_tag "decidim_demographics" %>
 <%= append_javascript_pack_tag "decidim_forms" %>
 
-<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-  <section>
-    <%= cell("decidim/announcement", t("layouts.decidim.shared.layout_center.alert")) %>
-    <%= render partial: "decidim/demographics/demographics/questionnaire" %>
-  </section>
+<% content_for :profile_title do %>
+  <%= t(".page_title") %>
+<% end %>
 
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <%= t("layouts.decidim.shared.layout_center.alert") %>
+  <%= render partial: "decidim/demographics/demographics/questionnaire" %>
 <% end %>

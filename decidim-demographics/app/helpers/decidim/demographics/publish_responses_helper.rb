@@ -3,13 +3,11 @@
 module Decidim
   module Demographics
     module PublishResponsesHelper
-
       def question_response_is_publicable(question_type)
         ignored_question_types = %w(short_response long_response separator files).freeze
 
         ignored_question_types.exclude?(question_type)
       end
-
 
       # Renders the chart for the given question.
       # Uses chartkick to render the chart.
@@ -55,7 +53,6 @@ module Decidim
           #316395
         )
       end
-
     end
   end
 end

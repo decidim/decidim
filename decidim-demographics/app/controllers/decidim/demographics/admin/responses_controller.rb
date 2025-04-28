@@ -18,12 +18,11 @@ module Decidim
           render template: "decidim/demographics/admin/responses/index"
         end
 
-
         def permission_subject = :demographics_responses
 
         def questionnaire_for = demographic
 
-        def questionnaire_export_response_url(id) = export_response_response_path( id:)
+        def questionnaire_export_response_url(id) = export_response_response_path(id:)
 
         def questionnaire_url = edit_questions_questions_path
 

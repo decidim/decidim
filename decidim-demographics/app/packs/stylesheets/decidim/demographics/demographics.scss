@@ -1,0 +1,35 @@
+.response-questionnaire {
+  @apply border-t-0 border-background pt-8;
+
+  &__question-label {
+    @apply before:hidden;
+  }
+
+  &__step {
+    @apply space-y-6;
+  }
+
+  &__footer {
+    @apply flex flex-col gap-6 pt-6 border-t-2 border-background text-gray-2 only:border-t-0;
+  }
+
+  /* text-like inputs */
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea {
+    &:not(.reset-defaults) {
+      @apply border border-gray;
+    }
+  }
+}

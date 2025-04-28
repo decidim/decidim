@@ -24,7 +24,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("destroy.invalid", scope: "decidim.demographics")
+            flash.now[:alert] = I18n.t("destroy.error", scope: "decidim.demographics")
             redirect_to demographics_engine.demographics_path
           end
         end

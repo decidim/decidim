@@ -72,8 +72,7 @@ module Decidim
                         decidim_admin_demographics.responses_path,
                         icon_name: "draft-line",
                         active: is_active_link?(decidim_admin_demographics.responses_path) ||
-                          is_active_link?(decidim_admin_demographics.publish_responses_path)
-
+                                is_active_link?(decidim_admin_demographics.publish_responses_path)
         end
       end
 

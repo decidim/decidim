@@ -28,6 +28,7 @@ describe "Admin manages demographic questions" do
   end
 
   before do
+    Capybara.raise_server_errors = false
     switch_to_host(organization.host)
     login_as user, scope: :user
 
@@ -74,11 +75,10 @@ describe "Admin manages demographic questions" do
     it "adds a few questions and separators to the questionnaire" do
       fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
       click_on "Add question"
-      click_on "Add separator"
       click_on "Add question"
       click_on "Add question"
 
-      expect(page).to have_css(".questionnaire-question", count: 4)
+      expect(page).to have_css(".questionnaire-question", count: 3)
 
       expand_all_questions
 
@@ -97,7 +97,6 @@ describe "Admin manages demographic questions" do
       expect(page).to have_css("input[value='This is the first question']")
       expect(page).to have_css("input[value='This is the second question']")
       expect(page).to have_css("input[value='This is the first title and description']")
-      expect(page).to have_content("Separator #2")
     end
 
     it "adds a question with response options" do

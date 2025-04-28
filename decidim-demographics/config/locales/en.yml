@@ -1,36 +1,33 @@
 ---
 en:
-
   decidim:
     demographics:
       admin:
-        publish_responses:
-          index:
-            description: Description
-            title: Publish responses
-        responses:
-          index:
-            publish_responses: Publish responses
-            title: "%{total} total responses"
-        demographics:
-          tabs_menu:
-            save: Save
         demographics_menu:
           questions: Questions
           responses: Responses
           settings: Settings
+        publish_responses:
+          index:
+            description: Description
+            title: Publish responses
         questions:
           edit:
             add_question: Add question
-            add_separator: Add separator
+            save: Save
             title: Edit Questions
           questions_form:
             collapse: Collapse all questions
             expand: Expand all questions
+        responses:
+          index:
+            publish_responses: Publish responses
+            title: "%{total} total responses"
         settings:
           show:
             collect_data: Enable demographic data collection
             collect_data_help: Enabling this setting will enable users to donate their data to the platform.
+            save: Save
             title: Demographics Settings
           update:
             invalid: There was an error saving demographic data
@@ -38,12 +35,15 @@ en:
         title: Demographics Settings
       demographics:
         questionnaire:
-          close: Close window
-          delete_my_data: Delete my data
-          ok: Yes, I want to delete the data
-          question: Are you sure you want to delete your submitted data?
-          submit: Save
-          tos_agreement: By donating your data, you agree to our terms of service
+          delete_my_data: Delete data
+          modal_close: Cancel
+          modal_ok: Ok
+          modal_question: All your demographic data will be removed.
+          modal_title: Delete data
+          submit: Save data
+          tos_agreement: By participating you accept the %{link}.
+        show:
+          page_title: Demographic data donation
       destroy:
         error: There was an error removing your donated data
         success: Successfully removed your donated data

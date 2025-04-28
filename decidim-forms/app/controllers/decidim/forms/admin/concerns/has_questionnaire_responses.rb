@@ -65,6 +65,7 @@ module Decidim
             end
 
             private
+
             def permission_subject
               :questionnaire_responses
             end

@@ -1,0 +1,14 @@
+<div>
+  <%= response_form.collection_select :body,
+                                      response.question.response_options,
+                                      :id,
+                                      ->(response_option) { translated_attribute(response_option.body) },
+                                      { label: false },
+                                      {
+                                        name: field_id,
+                                        id: field_id,
+                                        disabled:,
+                                        maxlength:,
+                                        class: "w-full"
+                                      } %>
+</div>

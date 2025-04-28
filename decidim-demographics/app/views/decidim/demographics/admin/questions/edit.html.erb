@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 
 <%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
-  <%= button_tag t(".save"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
+  <%= button_tag t("decidim.demographics.admin.questions.edit.save"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
 <% end %>
 
 <div class="questionnaire-questions">
@@ -10,7 +10,6 @@
       <%= t(".title") %>
       <% if questionnaire.questions_editable? %>
         <button class="button button__sm button__transparent-secondary add-question"><%= t(".add_question") %></button>
-        <button class="button button__sm button__transparent-secondary add-separator"><%= t(".add_separator") %></button>
       <% end %>
     </h1>
   </div>

@@ -14,7 +14,7 @@ module Decidim
         end
 
         def questionnaire_url
-          edit_questions_questions_path
+          responses_path
         end
       end
     end
