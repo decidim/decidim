@@ -1070,7 +1070,6 @@ hu:
     search:
       name: Keresés
       results: Keresési eredmények
-      results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
       filters:

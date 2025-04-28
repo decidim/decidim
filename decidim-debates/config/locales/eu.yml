@@ -54,7 +54,7 @@ eu:
         close: Itxi
         confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
-        edit: Editatu
+        edit: Aldatu
         new: Beste eztabaida bat
         title: Ekintzak
         view_deleted_debates: Ikusi ezabatutako eztabaidak
@@ -116,7 +116,7 @@ eu:
         close_debate_modal:
           cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
-          send: Itxi eztabaida
+          send: Eztabaida itxi
         count:
           debates_count:
             one: "%{count} eztabaida"
@@ -139,7 +139,7 @@ eu:
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
-          origin: Origin
+          origin: Jatorria
           participants: Parte-hartzaileak
           search: Bilatu
           state: Egoera

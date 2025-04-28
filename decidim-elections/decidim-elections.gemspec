@@ -23,9 +23,15 @@ Gem::Specification.new do |s|
   s.summary = "A Decidim module for creating Elections."
   s.description = "A module that aims to provide a set of tools to create elections in Decidim."
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "decidim-admin", Decidim::Elections.version
   s.add_dependency "decidim-core", Decidim::Elections.version
+
   s.add_development_dependency "decidim-dev", Decidim::Elections.version
 end

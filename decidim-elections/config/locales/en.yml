@@ -4,3 +4,8 @@ en:
     components:
       elections:
         name: Elections
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement

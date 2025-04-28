@@ -1,0 +1,1426 @@
+bg:
+  activemodel:
+    attributes:
+      answer:
+        description: Описание
+        image: Изображение
+        proposals: Свързани предложения
+        title: Заглавие
+      ballot_style:
+        code: Код
+      election:
+        description: Описание
+        end_time: Гласуването приключва на
+        start_time: Гласуването стартира на
+        title: Заглавие
+      monitoring_committee_member:
+        email: Имейл
+        name: Име
+      polling_officer:
+        email: Имейл
+        name: Име
+      polling_station:
+        address: Адрес
+        location: Местоположение
+        location_hints: Подсказки за местоположението
+        polling_station_managers: Управители
+        polling_station_president_id: Председател
+        title: Заглавие
+      question:
+        max_selections: Максимален брой селекции
+        min_selections: Нито една от горните опции
+        title: Заглавие
+      trustees_participatory_space:
+        user_id: Участник
+      voting:
+        banner_image: Изображение на банера
+        census_contact_information: Контактна информация от преброяването
+        description: Описание
+        end_time: Гласуването приключи
+        introductory_image: Изображение за въведението
+        promoted: Промотирано
+        scope_id: Обхват
+        show_check_census: Показване на страницата „проверка на преброяването“.
+        start_time: Гласуването започва
+        title: Заглавие
+        voting_type: Тип гласуване
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Трябва да се прикрепи отново
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: The total number of answers does not match the valid/blank/null breakdown.
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Трябва да се прикрепи отново
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Общият брой на празните отговори не може да бъде по-голям от общия брой на празните бюлетини.
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: не може да бъде променяно
+            public_key:
+              cant_be_changed: не може да бъде променяно
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} не е валиден тип гласуване"
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Избирателният служител вече е председател/управител на избирателна секция.
+            voting:
+              different_organization: Гласуването трябва да е в същата организация като потребителя.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Избирателният служител трябва да бъде в същото гласуване като избирателната секция.
+    models:
+      decidim/elections/answer:
+        one: Отговор
+        other: Отговори
+      decidim/elections/election:
+        one: Избор
+        other: Избори
+      decidim/elections/question:
+        one: Въпрос
+        other: Въпроси
+      decidim/voting:
+        one: Гласуване
+        other: Гласувания
+      decidim/votings/census/dataset:
+        one: Архив от данни
+        other: Архиви от данни
+      decidim/votings/census/datum:
+        one: Данни
+        other: Данни
+      decidim/votings/polling_officer:
+        one: Член на избирателна комисия
+        other: Членове на избирателна комисия
+      decidim/votings/polling_station:
+        one: Избирателна секция
+        other: Избирателни секции
+      decidim/votings/voting:
+        one: Гласуване
+        other: Гласувания
+  decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Служители
+          values:
+            assigned: Възложено
+            unassigned: Невъзложено
+        role_eq:
+          label: Роля
+          values:
+            manager: Управител
+            president: Председател
+            unassigned: Отнемане на възложеното
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Търсете в %{collection} по име/имейл/псевдоним или избирателна секция.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Търсете в %{collection} по заглавие, адрес или име/имейл/псевдоним на служител.
+        signed_eq:
+          label: Подписано
+          values:
+            'false': Подписано
+            'true': Неподписано
+        validated_eq:
+          label: Валидирано
+          values:
+            'false': Невалидирано
+            'true': Валидирано
+      voting_publications:
+        create:
+          error: Възникна проблем при публикуването на това гласуване.
+          success: Гласуването беше публикувано успешно.
+        destroy:
+          error: Възникна проблем при отмяната на публикуването на това гласуване.
+          success: Публикуването на гласуването бе успешно отменено.
+    components:
+      elections:
+        actions:
+          vote: Глас
+        name: Избори
+        settings:
+          global:
+            announcement: Обявление
+          step:
+            announcement: Обявление
+    elections:
+      actions:
+        confirm_destroy: Сигурни ли сте?
+        destroy: Унищожи
+        edit: Редактирай
+        feedback: Обратна връзка на гласоподавателя
+        import: Импортиране на предложения в отговори
+        manage_answers: Управление на отговорите
+        manage_questions: Управление на въпросите
+        manage_steps: Управление на стъпките
+        new_answer: Нов отговор
+        new_election: Нов избор
+        new_question: Нов въпрос
+        new_trustee: Нов доверител
+        preview: Преглед
+        publish: Публикувай
+        title: Активности
+        unpublish: Отмяна на публикуването
+      admin:
+        answers:
+          create:
+            invalid: Възникна проблем при създаването на този отговор.
+            success: Отговорът беше създаден успешно.
+          destroy:
+            invalid: Възникна проблем при изтриването на този отговор.
+            success: Отговорът беше изтрит успешно.
+          edit:
+            title: Редактиране на отговора
+            update: Актуализиране на отговора
+          index:
+            invalid_max_selections: Имате нужда от още %{missing_answers} отговора, за достигане на максималните селекции.
+            title: Отговори
+          new:
+            create: Създаване на отговор
+            title: Нов отговор
+          not_selected: Не селектирано
+          select:
+            disable: Отмяна на селекциата на отговора
+            enable: Маркирайте отговора като селектиран
+            invalid: Възникна проблем при селектирането на този отговор.
+            success: Отговорът е селектиран успешно.
+          selected: Селектирано
+          unselect:
+            invalid: Възникна проблем при премахването на селекцията на този отговор.
+            success: Успешно премахната селекция на отговора.
+          update:
+            invalid: Възникна проблем при актуализирането на този отговор.
+            success: Отговорът беше актуализиран успешно.
+        elections:
+          create:
+            invalid: Възникна проблем при създаването на този избор.
+            success: Изборът беше създаден успешно.
+          destroy:
+            invalid: Възникна проблем при изтриването на този избор.
+            success: Изборът беше изтрит успешно.
+          edit:
+            title: Редактиране на избора
+            update: Актуализиране на избора
+          form:
+            organization_time_zone: Проверете дали часовата зона на организацията е правилна в настройките на организацията. Текущата конфигурация е %{time_zone} (%{time}).
+          index:
+            no_bulletin_board: Няма конфигуриран <a href="https://github.com/decidim/decidim-bulletin-board">сървър на Информационното табло</a>, който е необходим за използване на този модул. Тази задача трябва да се извърши от системния администратор.
+            title: Избори
+          new:
+            create: Създаване на избор
+            title: Нов избор
+          publish:
+            success: Изборът беше публикуван успешно.
+          unpublish:
+            success: Публикацията на избора беше премахната успешно.
+          update:
+            invalid: Възникна проблем при актуализирането на този избор.
+            success: Изборът беше актуализиран успешно.
+        exports:
+          elections: Избори
+          feedback_form_answers: Обратна връзка от отговори
+        mailers:
+          trustee_mailer:
+            body:
+              help_html: |-
+                <p>Здравейте %{user_name},</p><br>
+                <p>Вие бяхте добавени да действате като попечител в някои избори, които ще се проведат в %{organization}.</p><br>
+                <p>Във вашия акаунт е активирана нова секция, наречена „Доверена зона“. Оттам ще изпълнявате задачи според нуждите. Засега, моля, генерирайте вашите идентификационни ключове.</p><br>
+            subject: Бяхте добавен като довереник на %{resource_name}
+            trustee_zone: Заведи ме в доверената зона
+        menu:
+          trustees: Довереници
+        models:
+          answer:
+            name: Отговор
+        proposals_imports:
+          create:
+            invalid: Възникна проблем при импортирането на предложенията в отговорите.
+            success: "%{number} предложения бяха импортирани успешно в отговорите."
+          new:
+            create: Импортиране на предложения в отговори
+            no_components: Няма други компоненти на предложения в това пространство за участие за импортиране на предложенията в отговори.
+            select_component: Моля, изберете компонент
+            title: Импортиране на предложения
+        questions:
+          create:
+            election_started: Изборния процес вече стартира.
+            invalid: Възникна проблем при създаването на този въпрос.
+            success: Въпросът беше създаден успешно.
+          destroy:
+            invalid: Възникна проблем при изтриването на този въпрос.
+            success: Въпросът беше изтрит успешно.
+          edit:
+            title: Редактиране на въпрос
+            update: Актуализиране на въпроса
+          index:
+            title: Въпроси
+          new:
+            create: Създаване на въпрос
+            title: Нов въпрос
+          update:
+            invalid: Възникна проблем при актуализирането на този въпрос.
+            success: Въпросът беше актуализиран успешно.
+        steps:
+          create_election:
+            census: Преброяване
+            errors:
+              census_codes_generated: Кодове за достъп до преброяването не се генерират.
+              census_frozen: Кодовете за достъп до преброяването не се генерират.
+              census_uploaded: Няма качено преброяване за тези избори.
+              component_published: Изборният компонент <strong>не е публикуван</strong>.
+              fix_it_text: Оправи това
+              max_selections: Въпросите нямат <strong>правилна стойност за количество отговори</strong>
+              minimum_answers: Въпросите трябва да имат <strong>поне два отговора</strong>.
+              minimum_questions: Изборът<strong>трябва да има поне един въпрос</strong>.
+              published: Изборът<strong>не е публикуван</strong>.
+              time_before: Началният час е след <strong>по-малко от %{hours}</strong> преди началото на изборите.
+              trustees_number: Пространството за участие <strong>трябва да има поне %{number} попечители с публичен ключ</strong>.
+            invalid: Имаше проблем с организирането на тези избори
+            no_trustees: Няма конфигурирани попечители за това пространство за участие
+            not_used_trustee: "(не използван)"
+            public_key:
+              'false': няма <strong>публичен ключ</strong>
+              'true': има <strong>публичен ключ</strong>
+            requirements:
+              census_codes_generated: Кодове за достъп до преброяването са генерирани.
+              census_frozen: Кодовете за достъп до преброяването се експортират и преброяването се замразява.
+              census_uploaded: Преброяването е качено.
+              component_published: Изборният компонент е<strong>публикуван</strong>.
+              max_selections: Всички въпроси имат правилна стойност за <strong>максимален брой отговори</strong>.
+              minimum_answers: Всеки въпрос има <strong>поне 2 отговора</strong>.
+              minimum_questions: Изборът има<strong>поне 1 въпрос</strong>.
+              published: Изборът е<strong>публикуван</strong>.
+              time_before: Настройката се извършва <strong>поне %{hours}</strong> преди началото на изборите.
+              trustees_number: Пространството за участие има <strong>поне %{number} попечители с публичен ключ</strong>.
+            submit: Настройка на изборите
+            success: Изборът е изпратен успешно към Информационното табло.
+            technical_configuration:
+              authority_name: "<strong>Титла:</strong> %{value}"
+              bulletin_board_server: "<strong>Сървър на Информационното табло:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Име на схемата:</strong> %{value}"
+              title: Вижте техническа информация
+            title: Настройка на изборите
+            trustees: Изборни доверители
+          created:
+            invalid: Имаше проблем при стартирането на ключовата церемония.
+            submit: Стартиране на ключовата церемония
+            success: Стартирането на ключовата церемония беше успешно изпратено към Информационното табло.
+            title: Изборът е създаден
+            trustees: Довереници
+          key_ceremony:
+            continue: Продължи
+            title: Ключова церемония
+          key_ceremony_ended:
+            errors:
+              time_before: Изборите са готови да започнат. Трябва да изчакате до %{hours} часа преди началния час (%{start_time}), за да започнете периода на гласуване.
+            invalid: Възникна проблем със започването на периода за гласуване.
+            requirements:
+              time_before: Скоро започват изборите. Можете да стартирате периода на гласуване ръчно или той ще бъде стартиран автоматично преди началния час, в %{start_time}.
+            submit: Стартиране на периода за гласуване
+            success: Обявлението за начало на периода на гласуване беше успешно изпратено към Информационното табло.
+            title: Готов за стартиране
+          processing: Обработване...
+          results_published:
+            answer: Отговор
+            not_selected: Неселектирано
+            question: Въпрос
+            result: Резултат
+            selected: Селектирано
+            submit: Подаване
+            title: Резултатите са публикувани
+          tally_ended:
+            answer: Отговор
+            not_selected: Не селектирано
+            question: Въпрос
+            result: Резултат
+            selected: Селектирано
+            submit: Публикуване на резултатите
+            success: Заявката за публикуване на резултати беше успешно изпратена до Информационното табло.
+            title: Изчислен резултат
+          tally_started:
+            continue: Продължи
+            invalid: Възникна проблем при докладването за отсъствие на довереник.
+            mark_as_missing: Маркирай като липсващ
+            mark_as_missing_description: Всички довереници трябва да участват в този процес, но ако накой довереник не може да участва в процеса, можете да го маркирате като липсващ.
+            success: Докладване за липсващ довереник беше успешно изпратено към Информационното табло.
+            tally_completion: Процесът ще бъде завършен, когато всички попечители са активни или маркирани като липсващи. Необходими са поне %{quorum} попечители за завършване на процеса.
+            title: Процес на преброяване
+            undo_mark_as_missing: Довереник, маркиран като липсващ по погрешка, ще може да участва преди завършването на процеса. Те могат да продължат както обикновено и липсващият знак ще бъде игнориран.
+          vote:
+            errors:
+              time_after: Изборите все още продължават. Трябва да изчакате до крайния час (%{end_time}), за да приключите периода на гласуване.
+            invalid: Възникна проблем при приключване на периода за гласуване.
+            requirements:
+              time_after: Изборите приключиха. Можете да прекратите периода на гласуване ръчно или той ще приключи автоматично след няколко минути.
+            submit: Край на периода за гласуване
+            success: Обявлението за край на периода на гласуване беше успешно изпратено към Информационното табло.
+            title: Период на гласуване
+          vote_ended:
+            invalid: Възникна проблем със стартирането на преброяването.
+            submit: Започнете преброяване
+            success: Заявката за започване на преброяване беше успешно изпратена до Информационното табло.
+            text: Гласуването приключи. Можете да започнете преброяването сега.
+            title: Срокът за гласуване приключи
+          vote_stats:
+            no_vote_statistics_yet: Все още няма статистики за гласуване
+            title: Статистика на гласуването
+            voters: Гласоподаватели
+            votes: Гласове
+        trustees_participatory_spaces:
+          actions:
+            disable: Деактивиране
+            enable: Обмисляне
+          create:
+            exists: В това пространство за участие съществува доверител.
+            invalid: Възникна проблем при създаването на доверител.
+            success: Успешно създаване на доверител.
+          delete:
+            invalid: Възникна проблем при премахването на този доверител.
+            success: Успешно премахване на доверител.
+          form:
+            select_user: Избор на потребител
+          index:
+            title: Довереници
+          new:
+            create: Създай Доверител
+            title: Нов Доверител
+          update:
+            invalid: Възникна проблем при актуализирането на %{trustee} доверител.
+            success: Доверителят %{trustee} е актуализиран успешно.
+      admin_log:
+        election:
+          create: "%{user_name} създаде изборa %{resource_name} на %{space_name}"
+          delete: "%{user_name} изтри изборa %{resource_name} на %{space_name}"
+          end_vote: "%{user_name} приключи периода на гласуване за изборите %{resource_name} от %{space_name} на Информационното табло"
+          publish: "%{user_name} публикува избора %{resource_name} на %{space_name}"
+          publish_results: "%{user_name} публикува резултатите от изборите %{resource_name} от %{space_name} на Информационното табло"
+          report_missing_trustee: "%{user_name} съобщи за %{trustee_name} като липсващ довереник по време на преброяването за изборите %{resource_name} от %{space_name} на Информационното табло"
+          setup: "%{user_name} създаде избора %{resource_name} на %{space_name} на Информационното табло"
+          start_key_ceremony: "%{user_name} започна ключовата церемония за избора %{resource_name} на %{space_name} на Информационното табло"
+          start_tally: "%{user_name} започна преброяването за изборите %{resource_name} от %{space_name} на Информационното табло"
+          start_vote: "%{user_name} стартира периода на гласуване за изборите %{resource_name} от %{space_name} на Информационното табло"
+          unpublish: "%{user_name} отмени публикуването на изборите %{resource_name} на %{space_name}"
+          update: "%{user_name} актуализира изборите %{resource_name} на %{space_name}"
+        trustee:
+          create: "%{user_name} определи потребителя %{trustee_user} като довереник"
+      connection:
+        failed:
+          modal:
+            close: Затваряне
+            communication_lost: За съжаление, изглежда, че комуникацията със сървъра за гласуване (Информационното табло) е загубена.<br>Възможно е интернет връзката да е прекъсната или целевият сървър да е твърде зает.<br>Можете да опитате отново по-късно или да се свържете с отдела за поддръжка ако този проблем продължава.
+            generic_error: За съжаление, възникна неизвестна грешка. Възможно е вашият браузър да не се поддържа или да използвате режима „инкогнито“ или „частен“, който не се поддържа.
+            title: Нещо се обърка
+      election_m:
+        badge_name:
+          finished: Завършено
+          ongoing: Активно
+          upcoming: Предстоящо
+        end_date: Приключило
+        footer:
+          remaining_time:
+            one: "<strong>%{count} час %{minutes} минути</strong> остават за гласуване."
+            other: "Остават <strong>%{count} часа %{minutes} минути</strong> за гласуване."
+          view: Преглед
+          vote: Глас
+        label:
+          date: Дати
+        questions: Въпроси %{count}
+        start_date: Започва
+        unspecified: Неопределено
+      elections:
+        count:
+          elections_count:
+            one: "%{count} избор"
+            other: "%{count} избора"
+        election_log:
+          chained_hash: Верижният хеш на това съобщение
+          complete: Завършено
+          creation_description:
+            complete: Изборът беше създаден и успешно настроен на Информационното табло.
+            not_created: Изборът все още не е създаден.
+          creation_title: Изборът е създаден
+          description: Това е регистърът на изборите, където можете да проверите състоянието на всяка стъпка, напр. кога са създадени изборите, ако процесът на преброяване е завършен и кога изборите са затворени.
+          download: Сваляне
+          key_ceremony_description:
+            complete: Ключовата церемония е завършена. Всеки попечител има валидни ключове и е изтеглил необходимите резервни ключове.
+            not_started: Ключовата церемония все още не е започнала.
+            started: Ключовата церемония започна, но все още не е завършена.
+          key_ceremony_title: Ключова церемония
+          not_available: Не е налично все още
+          not_created: Не е създадено
+          not_ready: Не е готово
+          not_started: Не е започнало
+          published: Публикувано
+          results_description:
+            not_published: Резултатите все още не са публикувани.
+            published: Резултатите се публикуват.
+          results_title: Резултати
+          started: Стартирано
+          tally_description:
+            finished: Процесът на преброяване приключи.
+            not_started: Процесът на преброяване все още не е започнал.
+            started: Процесът на преброяване започна.
+          tally_title: Процес на преброяване
+          title: Регистър на избора
+          unpublished: Непубликувано
+          verifiable_results:
+            checksum: 'File SHA256 checksum:'
+            description:
+              not_ready: Проверяемият изборен файл и контролната сума SHA256 все още не са налични. Веднага щом резултатите бъдат публикувани, ще можете да проверите този избор.
+              ready: 'Тук имате възможност да потвърдите избора. Първо, трябва да изтеглите файла и да се уверите, че не е повреден. За да направите това, изпълнете следната команда и проверете дали изходът съответства на контролната сума:'
+            how_to_verify: 'След като изтеглите файла и се уверите, че е наред, можете да продължите да стартирате универсалния верификатор. Клонирайте <a href=''https://github.com/decidim/decidim-bulletin-board''>това хранилище</a> и от главната папка изпълнете следната команда:'
+            title: Потвърдете резултатите от изборите
+            verifiable_file: 'Изборен файл за проверка:'
+          verify: Провери избора
+          vote_description:
+            finished: Процесът на гласуване приключи.
+            not_started: Процесът на гласуване все още не е започнал.
+            started: Процесът на гласуване все още не е започнал.
+          vote_title: Процес на гласуване
+        filters:
+          active: Активно
+          all: Всички
+          date: Дата
+          finished: Приключило
+          upcoming: Предстоящо
+        preview:
+          available_answers: 'Налични орговори:'
+          description: 'Това са въпросите, които ще намерите в процеса на гласуване:'
+          title: Изборни въпроси
+        results:
+          description: 'Това са резултатите от гласуването за всеки въпрос:'
+          percentage: "%{count}%"
+          selected: Селектирано
+          title: Резултати от изборите
+          votes:
+            one: "%{count} глас"
+            other: "%{count} гласа"
+        show:
+          action_button:
+            change_vote: Променете Вашия глас
+            vote: Започнете гласуването
+            vote_again: Гласувайте отново
+          callout:
+            already_voted: Вие вече гласувахте на тези избори. Можете да промените гласа си или да го потвърдите.
+            pending_vote: Вашият глас се предава на сървъра.
+            vote_rejected: Не беше възможно да се провери вашият глас. Моля, пуснете го отново.
+          election_log: Регистър на избора
+          preview: Преглед
+          verify:
+            already_voted: Вече гласувано?
+            verify_here: Проверете своя глас тук.
+            will_verify: Ще можете да потвърдите гласа си, след като изборите започнат.
+          voting_period_status:
+            finished: Гласуването започна на %{start_time} и приключи на %{end_time}
+            ongoing: 'Активно гласуване до: %{end_time}'
+            upcoming: Гласуването започва на %{end_time}
+      feedback:
+        answer:
+          invalid: Възникна проблем при изпращането на вашите отзиви.
+          spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
+          success: Отзивът е изпратен успешно.
+      models:
+        answer:
+          fields:
+            proposals: Предложения
+            selected: Селектирано
+            title: Заглавие
+            votes: Гласове
+        election:
+          fields:
+            bb_status: Статус на Информационното табло
+            end_time: Приключва на
+            start_time: Започва в
+            title: Заглавие
+            verifiable_results_file_hash: Файлова контролна сума SHA256
+            verifiable_results_file_url: Проверяем изборен файл
+        question:
+          fields:
+            answers: Отговори
+            max_selections: Макс. селекции
+            title: Заглавие
+        trustees_participatory_space:
+          fields:
+            considered: разглеждан
+            email: Имейл
+            inactive: неактивен
+            name: Име
+            notification: Известието е изпратено на
+            public_key: Публичен ключ
+            status: Статус
+      orders:
+        label: Подреждане на изборите по
+        older: По-старо
+        recent: Скорошни
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Този избор се създава в Информационното табло. Много е важно всеки довереник, участващ в него, да създаде резервно копие на тези ключове и да ги съхранява на сигурно място. След това процесът продължава.
+            download_election_keys: Изтегляне на ключове
+            title: Резервни избирателни ключове за %{election}
+          key_ceremony_steps:
+            back: Назад
+            description: Този избор се създава в Информационното табло. За да завършите този процес, е необходимо вашето участие като довереник.
+            keys:
+              create_election: Генериране на ключове
+              key_ceremony:
+                joint_election_key: Генериране на съвместен ключ
+                step_1: Публикуване на ключове
+            list:
+              status: Статус
+              task: Задача
+            process_warning: След като процесът започне, не трябва да излизате от тази страница, докато процесът не приключи. Ще отнеме няколко минути, тъй като всички довереници трябва да бъдат свързани, за да го изпълнят.
+            start: Старт
+            status:
+              completed: Завършено
+              pending: Чакащо
+              processing: Обработване
+            title: Създайте избирателни ключове за %{election}
+          restore_modal:
+            description: Информационното табло има информация от вас като попечител за този избор. За да продължите процеса, първо качете архивния файл, генериран по време на предишната сесия.
+            title: Възстановете изборните ключове за %{election}
+            upload_election_keys: Качете избирателни ключове
+          tally_started_steps:
+            back: Назад
+            description: Резултатите от този избор се изчисляват в Информационното табло. За да завършите този процес, е необходимо вашето участие като попечител.
+            keys:
+              end_tally: Преброяването приключи
+              tally:
+                cast: Преброителен списък
+                share: Споделяне на преброяването
+            list:
+              status: Статус
+              task: Задача
+            process_warning: След като процесът започне, не трябва да излизате от тази страница, докато процесът не приключи. Ще отнеме няколко минути, тъй като всички попечители трябва да бъдат свързани, за да го изпълнят.
+            start: Старт
+            status:
+              completed: Завършено
+              pending: Изчакване
+              processing: Обработване
+            title: Преброяване за %{election}
+          update:
+            error: Статусът на изборите не беше актуализиран.
+            success: 'Статусът на изборите е: %{status}.'
+        menu:
+          trustee_zone: Доверителна зона
+        no_bulletin_board:
+          body: За този раздел е необходимо конфигурирано Информационното табло. Свържете се с администратора за повече подробности.
+          title: За съжаление Информационното табло все още не е конфигурирано.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Не'
+                  name: Необходимо е действие?
+                  'true': Изпълнение на действие
+                bb_status: Статус
+                election: Избор
+                voting_period: Период на гласуване
+              no_elections: В момента не ви е възложено да предприемате никакви действия като попечител. Ще получите известие, когато е време да действате по време на различни фази.
+              title: Избори
+            identification_keys:
+              cancel: Отказ
+              generate: Генерирайте идентификационни ключове
+              generate_error: Възникна грешка при генерирането на идентификационните ключове.
+              generate_legend: Трябва да генерирате идентификационен чифт ключове, за да участвате в избори като доверител.
+              generate_legend_1: След натискане на бутона трябва да изтеглите файла с генерираните идентификационни ключове.
+              generate_legend_2: Копирайте изтегления файл на чисто USB устройство
+              generate_legend_3: Уверете се, че компютърът Ви няма копие на файла (напр. проверете папките Downloads и Desktop).
+              generate_legend_4: Направете друго копие на файла на друго външно устройство и го съхранете на много безопасно място.
+              submit: Подаване
+              submit_legend: След като следвате всички стъпки, обяснени по-горе, завършете процеса, като изпратите публичния идентификационен ключ на сървъра.
+              submit_title: Изпратете публичния идентификационен ключ
+              title: Ключове за идентификация на доверителя
+              upload: Качете вашите идентификационни ключове
+              upload_error:
+                invalid_format: Каченият файл не съдържа идентификационен ключ.
+                invalid_key: Идентификационните ключове в качения файл не могат да бъдат заредени.
+                invalid_public_key: Идентификационните ключове в качения файл не съвпадат със съхранения публичен идентификационен ключ.
+              upload_legend: Сървърът има вашите публични идентификационни ключове, но вашият браузър все още не ги има. Трябва да импортирате файла с вашите идентификационни ключове на вашия компютър от резервното копие, което сте създали след генерирането им.
+            not_supported_browser_description: Изглежда, че използвате уеб браузър, който не може да се използва за действията на Валидатор. Уверете се, че използвате най-новата версия на вашия браузър или опитайте да използвате който и да е от най-популярните браузъри, за да можете да изпълнявате задачите си на Валидатор.
+            not_supported_browser_title: Надстройте браузъра, за да действате като доверител
+            safari_warning_description: Изглежда, че използвате Safari, който не се поддържа да действа като довереник или да шифрова гласуване (това се дължи на ограниченията на паметта, които Apple налага в него). Това може да бъде решено в бъдеще чрез промяна на политиката от Apple или бъдеща оптимизация на Decidim Elections. Моля, междувременно използвайте друг браузър.
+            safari_warning_title: Засечен е браузър Safari
+            trustee_role_description:
+              with_keys: Възложено ви е да действате като доверител на някои от изборите, които се празнуват в тази платформа.
+              without_keys: Възложено ви е да действате като доверител. Моля, генерирайте и качете вашите идентификационни ключове.
+          update:
+            success: Вашият идентификационен публичен ключ беше успешно съхранен.
+      votes:
+        ballot_decision:
+          audit: Одитирай бюлетина
+          back: Започнете процеса на гласуване отново
+          ballot_hash: 'Вашият идентификатор на бюлетината е:'
+          cast: Гласувайте, за да завършите своя вот
+          description_html: Тук имате опциите да пуснете бюлетината си, така че да бъде правилно преброена, или можете да проверите дали вашата бюлетина е била правилно криптирана. Ако искате да проверите вота, моля, прочетете инструкциите за <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">как да процедираме</ a>.
+          header: 'Гласуването е криптирано: пуснете го или го проверете'
+        casting:
+          header: Подаване на вот...
+          text: Вашата бюлетина се пуска в урната.
+        confirm:
+          answer_number: отговор %{number}
+          confirm: Потвърждаване
+          edit: редактирай
+          header: Потвърдете гласа си
+          intro: Тук ще намерите обобщение на гласа, който сте напът да подадете. <br> Моля, потвърдете гласа си или редактирайте отговорите си.
+          nota_option: Празно
+        confirmed:
+          back: Назад към изборите
+          experience: С какви впечатления останахте?
+          feedback: Споделете мнението си с нас
+          header: Гласът е потвърден
+          lead: Вашият глас е подаден!
+          text: 'Можете да проверите дали гласът Ви е добавен успешно в урната със следния идентификатор: '
+          verify_link: За да го проверите, копирайте идентификатора и го поставете на <a href="%{link}">страницата за проверка на гласа</a>
+        create:
+          error: Имаше проблем с гласуването. Моля, опитайте отново.
+        encrypting:
+          header: Гласуването се криптира...
+          text: Вашата бюлетина е криптирана, за да се гарантира тайната на вашия вот.
+        failed:
+          header: Неуспешно гласуване
+          lead: Вашият глас не беше подаден!
+          text: Нещо се обърка, моля, опитайте отново.
+          try_again: Опитайте отново
+        header:
+          ballot_decision: Предаване
+          confirm: Потвърждаване
+          election: Избор
+          register: Регистър
+          vote_for: Глас за %{title}
+        messages:
+          invalid_token: Вашата сесия в кабината за гласуване не е валидна. Опитайте да гласувате отново.
+          not_allowed: Не можете да гласувате на тези избори в настоящия момент.
+        modal:
+          close: Затвори
+          proposal_header: 'Предложения:'
+        new:
+          answer_choices: Можете да избере до %{choices} отговора
+          more_information: Още информация
+          nota_option: Празно/ Нито едно от горните
+          preview_alert: Това е визуализация на кабината за гласуване.
+          question_steps: Въпрос %{current_step} от %{total_steps}
+          selections: "%{selected} от %{max_selections} селекции"
+        onboarding_modal:
+          create_account: Създай профил
+          description: Искате ли да създадете нов акаунт в платформата? Ще можете да участвате в процесите и да бъдете активна част от организацията.
+          no_account: Не, благодаря.
+          title: Нов сте в тази платформа?
+        update:
+          error: Възникна проблем при актуализирането на състоянието на гласуването. Моля, гласувайте отново.
+        verify:
+          content:
+            heading: Проверете Вашия глас
+            info: Този верификатор проверява дали вашият глас, идентифициран с шифрован текстов низ, е подаден правилно и е в урната.
+          error:
+            header: Гласът не е намерен!
+            info: Кодът за гласуване не беше намерен в урната %{link}, опитайте отново.
+          form:
+            back: Обратно към платформата
+            submit: Проверка
+            vote_identifier: 'Идентификационен код:'
+            vote_identifier_help: Това е идентификаторът, който ви беше даден, след като сте гласували (а не кодът за влизане в кабината за гласуване).
+          header:
+            title: Проверете Вашия глас
+          success:
+            header: Гласът Ви е локализиран!
+            info: Вашият криптиран вот е в %{link} избирателна урна.
+        voting_step:
+          back: Назад
+          continue: Напред
+      warnings:
+        empty_filters: Няма избори с този критерий.
+        no_elections: Няма насрочени избори.
+        no_scheduled_elections: Понастоящем няма насрочени избори, но тук можете да намерите изброени всички минали избори.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Изборите %{resource_title} вече са активни за %{participatory_space_title}. Можете да ги видите на следната страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Изборите %{resource_title} вече са активни за %{participatory_space_title}.
+          notification_title: Изборите <a href="%{resource_path}">%{resource_title}</a> вече са активни за %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Бяхте добавен като довереник за изборите %{resource_title}.
+            email_outro: Получихте това известие, защото бяхте добавен като довереник за изборите %{resource_title}.
+            email_subject: Вие сте довереник на изборите %{resource_title}.
+            notification_title: Бяхте избран за довереник в изборите <a href="%{resource_path}">%{resource_title}.</a> Моля, изпълнете ключовата церемония, за да организирате изборите.
+          new_trustee:
+            email_intro: Администратор ви е добавил като довереник за %{resource_name}. Трябва да създадете своя публичен ключ <a href='%{trustee_zone_url}'>във вашата доверена зона</a>
+            email_outro: Получихте това известие, защото бяхте добавен като довереник за изборите %{resource_name}.
+            email_subject: Вие сте довереник на %{resource_name}.
+            notification_title: Бяхте добавен да действате като довереник в %{resource_name} за някои избори, които ще се проведат в тази платформа.<br> Ще изпълнявате задачи според нуждите. Засега, моля, <a href='%{trustee_zone_url}'>генерирайте вашите идентификационни ключове</a>.
+          start_tally:
+            email_intro: Периодът на гласуване за изборите %{resource_title} приключи. Сега, моля, извършете преброяването на изборите, за да публикувате окончателните резултати.
+            email_outro: Получихте това известие, защото сте довереник за изборите %{resource_title}.
+            email_subject: Процесът на преброяване за изборите %{resource_title} започна.
+            notification_title: Периодът на гласуване за изборите %{resource_title} приключи. Сега, моля, извършете преброяването на изборите, за да публикувате окончателните резултати.
+        votes:
+          accepted_votes:
+            email_intro: 'Вашият глас беше приет! С помощта на токена си за гласуване: %{encrypted_vote_hash} можете да потвърдите гласа си <a href="%{verify_url}">тук</a>.'
+            email_outro: Получихте това известие, защото гласувахте за изборите %{resource_name}.
+            email_subject: Вашият глас за %{resource_name} беше приет.
+            notification_title: 'Вашият глас беше приет. Потвърдете гласа си <a href="%{verify_url}">тук</a>, като използвате токена си за гласуване: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Назначени сте като %{role} в избирателната секция %{polling_station_name} в <a href="%{resource_url}">%{resource_title}</a>. Можете да управлявате избирателната секция от специалната <a href="%{polling_officer_zone_url}">зона на избирателния служител</a>.
+            email_outro: Получихте това известие, защото сте назначени като %{role} от %{polling_station_name}.
+            email_subject: Вие сте %{role} от избирателната секция %{polling_station_name}.
+            notification_title: Вие сте %{role} от избирателната секция %{polling_station_name} в гласуването <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Ето вашия код за достъп, който поискахте: %{access_code}. С това ще можете да участвате в %{voting}.'
+          subject: Вашият код за достъп за участие в %{voting}
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p><strong>Гласуването</strong> е пространство, което ви позволява да зададете ясен въпрос на всички хора, които формират организация, да се обадите за участие в гласуването, да предизвикате и да наредите дебата за или против отговор. Когато настъпи датата за гласуване, можете да гласувате и да публикувате резултатите от гласуването.</p> <p>Примери: Гласуването може да се отнася за почти всеки аспект, който засяга дадена организация: някои примери са промяна на името или логото на организацията предлагане на няколко алтернативи, вземане на решение с Да или Не, за да станете част от по-голяма организация, валидиране или отхвърляне на нов стратегически план или резултат от работна група, или определяне дали позициите трябва да останат максимум 1, 2 или 3 мандата.</p>\n"
+          page: "<p><strong>Гласуването</strong> е пространство, което ви позволява да зададете ясен въпрос на всички хора, които формират организация, да се обадите за участие в гласуването, да предизвикате и да наредите дебата за или против отговор. Когато настъпи датата за гласуване, можете да гласувате и да публикувате резултатите от гласуването.</p> <p>Примери: Гласуването може да се отнася за почти всеки аспект, който засяга дадена организация: някои примери са промяна на името или логото на организацията предлагане на няколко алтернативи, вземане на решение с Да или Не, за да станете част от по-голяма организация, валидиране или отхвърляне на нов стратегически план или резултат от работна група, или определяне дали позициите трябва да останат максимум 1, 2 или 3 мандата.</p>"
+          title: Какво представляват гласуванията?
+    menu:
+      votings: Гласувания
+    participatory_spaces:
+      related_elections:
+        see_all: Виж всички избори
+    statistics:
+      elections_count: Избори
+      votings_count: Гласувания
+    votings:
+      admin:
+        ballot_styles:
+          create:
+            error: Възникна проблем при създаването на този "Стил на бюлетина"
+            success: Стилът на бюлетината е създаден успешно.
+          destroy:
+            invalid: Възникна проблем при изтриването на този стил на бюлетина.
+            success: Стилът на бюлетината беше изтрит успешно.
+          edit:
+            title: Редактиране на стила на бюлетината
+            update: Актуализация
+          form:
+            code_help: 'Съвет: кодът е връзката между преброяването и стила на бюлетината. При качване на данните от преброяването на всеки запис ще бъде присвоен стил на бюлетина чрез съвпадение на кода.'
+            election: Избор
+            questions: Въпроси относно стила на бюлетината
+            questions_help: 'Съвет: изберете въпросите от изборните компоненти, които да бъдат представени на гласоподавателите, определени за този стил на бюлетина.'
+          index:
+            actions:
+              confirm_destroy: Сигурни ли сте?
+              destroy: Изтрий
+              edit: Редактирай
+              new: Нов стил на бюлетина
+              title: Активности
+            associated_census_data: Свързани записи от преброяването
+            explanation_callout: В "Стил на бюлетина" се определят какви въпроси ще бъдат представени на гласоподавателя в кабината. Можете да изберете кои въпроси от изборните компоненти на това гласуване принадлежат към дадена бюлетина. Кодът за "Стил на бюлетина" се използва за съпоставяне на гласоподавател от преброяването с бюлетината, която ще бъде представена в кабината. Не създавайте "Стил на бюлетина", ако винаги искате да представите всички въпроси.
+            title: Стилове на бюлетина
+          new:
+            create: Създаване
+            title: Създайте стил на бюлетина
+          update:
+            invalid: Възникна проблем при актуализирането на този "Стил на бюлетина"
+            success: Стилът на бюлетината е актуализиран успешно.
+        content_blocks:
+          attachments_and_folders:
+            name: Прикачени файлове и папки за гласуване
+          header:
+            name: Заглавка при гласуване
+          highlighted_votings:
+            max_results: Максимален брой елементи, които да се показват
+          html_block_1:
+            name: Гласуване html блок 1
+          html_block_2:
+            name: Гласуване html блок 2
+          html_block_3:
+            name: Гласуване html блок 3
+          main_data:
+            name: Заглавие и описание
+          metrics:
+            name: Метрики при гласуване
+          polling_stations:
+            name: Секции за гласуване
+          related_elections:
+            name: Избори за гласуване
+          stats:
+            name: Статистики за гласуване
+          timeline:
+            name: Хронология на гласуване
+        index:
+          published: Публикувано
+          unpublished: Непубликувано
+        menu:
+          votings: Гласувания
+          votings_submenu:
+            attachment_collections: Папки
+            attachment_files: Файлове
+            attachments: Прикачени файлове
+            ballot_styles: Стилове на бюлетина
+            census: Преброяване
+            components: Компоненти
+            info: Относно това гласуване
+            landing_page: Целева страница
+            monitoring_committee: Мониторингов комитет
+            monitoring_committee_election_results: Валидиране на резултатите
+            monitoring_committee_members: Членове
+            monitoring_committee_polling_station_closures: Валидация на сертификатите
+            monitoring_committee_verify_elections: Провери изборите
+            polling_officers: Членове на избирателна комисия
+            polling_stations: Избирателни секции
+            see_voting: Вижте гласуване
+        models:
+          ballot_style:
+            fields:
+              code: Код
+          monitoring_committee_member:
+            fields:
+              email: Имейл
+              name: Име
+          polling_officer:
+            fields:
+              email: Имейл
+              name: Име
+              polling_station: Избирателна секция (роля)
+          polling_station:
+            fields:
+              address: Адрес
+              polling_station_managers: Управители
+              polling_station_president: Председател
+              title: Заглавие
+          voting:
+            fields:
+              created_at: Създадено на
+              published: Публикувано
+              title: Заглавие
+        monitoring_committee_election_results:
+          actions:
+            title: Активности
+            view: Преглед
+          index:
+            title: Изберете избори, за които искате да видите резултатите
+          results:
+            bulletin_board: Информационно табло
+            election_totals: Суми от изборите
+            polling_stations: Избирателни секции
+            result_types:
+              blank_answers: Празни отговори
+              blank_ballots: Празни бюлетини
+              null_ballots: Нулеви бюлетини
+              total_ballots: Сума на бюлетините
+              valid_ballots: Валидни бюлетини
+            selected: Селектирано
+            title: Резултати от изборите <i>%{election_title}</i>
+            totals: Суми
+          show:
+            change_election: Смяна на изборите
+            publish_results: Публикувайте на резултатите
+            publishing: Публикуване на резултатите...
+          update:
+            invalid: Възникна проблем при публикуването на резултатите.
+            rejected: Публикуването на резултатите беше отхвърлено от Информационното табло. Опитайте отново или се свържете със системния администратор.
+            success: Резултатите бяха публикувани успешно.
+        monitoring_committee_members:
+          create:
+            invalid: Възникна проблем при създаването на този член на Мониторингов комитет.
+            success: Успешно създаден член на Мониторинговия комитет.
+          destroy:
+            invalid: Възникна проблем при премахването на този член на Мониторингов комитет.
+            success: Успешно премахнат член на Мониторинговия комитет.
+          form:
+            existing_user: Съществуващ участник
+            non_user: Поканете нов участник
+            select_user: Търсете по име, имейл, или псевдоним
+            user_type: Тип участник
+          index:
+            title: Мониторингов комитет
+          new:
+            create: Създаване
+            title: Създайте член на комитета за наблюдение
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Активности
+            validate: Потвърди
+            view: Преглед
+          closures:
+            change_election: Смяна на изборите
+            signed: Подписано?
+            title: Избирателни секции за изборите <i>%{election_title}</i>
+            validated: Валидирано?
+          edit:
+            change_polling_station: Назад към секциите за гласуване
+            monitoring_committee_notes: Забележки
+            monitoring_committee_notes_placeholder: Докладвайте всеки инцидент тук
+            title: Резултати от изборите <i>%{election_title}</i> в избирателна секция <i>%{polling_station_title}</i>
+          elections:
+            title: Изберете избори, които искате да потвърдите
+          show:
+            change_polling_station: Назад към секциите за гласуване
+            monitoring_committee_notes: Забележки от Мониторинговия комитет
+          validate:
+            error: Възникна проблем при валидирането на затварянето.
+            success: Затварянето беше валидирано коректно.
+        monitoring_committee_verify_elections:
+          index:
+            download: Сваляне
+            how_to_checksum: 'За да сте сигурни, че файлът, който сте изтеглили, не е бил повреден или подправен по време на процеса на изтегляне, изпълнете следната команда в конзолата си и проверете дали изходът съответства на отчетената по-горе контролна сума:'
+            how_to_download: За да потвърдите избори, изтеглете неговия проверяем файл от таблицата по-горе.
+            how_to_run_verifier: 'След като изтеглите файла и се уверите, че е наред, можете да продължите да стартирате универсалния верификатор. Клонирайте <a href=''https://github.com/decidim/decidim-bulletin-board''>това хранилище</a> и от главната папка изпълнете следната команда:'
+            how_to_title: Как се проверява валидността на изборите
+            not_available: Не е налично все още
+            title: Избори
+        polling_officers:
+          create:
+            invalid: Възникна проблем при създаването на този член на избирателна комисия.
+            success: Успешно създаване на член на избирателна комисия.
+          destroy:
+            invalid: Възникна проблем при премахването на този член на избирателна комисия.
+            success: Успешно премахване на член на избирателна комисия.
+          form:
+            existing_user: Съществуващ участник
+            non_user: Поканете нов участник
+            select_user: Търсете по име, имейл, или псевдоним
+            user_type: Тип участник
+          index:
+            role_manager: управител
+            role_president: председател
+            title: Членове на избирателна комисия
+          new:
+            create: Създаване
+            title: Създаване на член на избирателна комисия
+          polling_officers_picker:
+            choose_polling_officers: Избор на член на избирателна комисия
+            no_polling_officers: Няма членове на избирателна комисия, които да съответстват на критериите Ви за търсене, или няма никакви членове.
+        polling_stations:
+          create:
+            invalid: Възникна проблем при създаването на тази избирателна секция.
+            success: Успешно създадена избирателна секция.
+          destroy:
+            invalid: Възникна проблем при изтриването на тази избирателна секция.
+            success: Успешно изтрита избирателна секция.
+          edit:
+            title: Редактиране на избирателната секция
+            update: Актуализация на избирателната секция
+          form:
+            address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+            location_help: 'Местоположение: съобщение, насочено към избирателите, в което се посочва точното място на избирателната секция'
+            location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, където се намира избирателната секция.'
+            polling_station_managers_help: 'Ръководители на избирателни секции: служителите, които ще действат като ръководители на избирателни секции. Уверете се, че служителите вече са създадени в Polling Officers и че вече не са назначени към друга избирателна секция'
+            polling_station_president_help: 'Председател на избирателна секция: служителят, който ще действа като председател на избирателна секция. Уверете се, че служителят вече е създаден в "Членове на избирателна секция" и че той вече не е назначен към друга избирателна секция'
+            select_president: Изберете член на ИК за председател на избирателната секция 
+          index:
+            title: Избирателни секции
+          new:
+            create: Създаване
+            title: Създаване на избирателна секция
+          update:
+            invalid: Възникна проблем при актуализирането на тази избирателна секция.
+            success: Успешно актуализирана избирателна секция.
+        titles:
+          votings: Гласувания
+        votings:
+          actions:
+            confirm_destroy: Сигурни ли сте?
+            destroy: Унищожи
+            new_voting: Ново пространство за гласуване
+          create:
+            invalid: Възникна проблем при създаването на това гласуване.
+            success: Гласуването е създадено успешно.
+          edit:
+            add_election_component: Нямате конфигурирани избори за това гласуване. Моля, добавете го в секцията Компоненти.
+            assign_missing_officers: Има избирателни секции без председател. Моля, задайте ги от раздел Избирателни секции.
+            update: Актуализация
+          form:
+            banner_image: Изображение на банера
+            census_contact_information: Контактна информация от преброяването
+            census_contact_information_help: Тази информация за контакт е за участник, който иска да съобщи за проблеми с преброяването. Това може да бъде имейл адрес, форма за контакт в друг сайт, анкета за посетители и др.
+            introductory_image: Изображение за въведението
+            promoted: Промотирано
+            select_a_voting_type: Моля, изберете тип гласуване
+            show_check_census_help: Да се показва ли линк "Мога ли да гласувам?" в менюто за публични гласувания.
+            slug: Съкратен
+            slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към това гласуване. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+            title: Заглавие
+            voting_type:
+              hybrid: Хибрид
+              in_person: Лично
+              online: Онлайн
+            voting_type_label: Тип гласуване
+          new:
+            create: Създаване
+            title: Ново гласуване
+          update:
+            invalid: Възникна проблем при актуализирането на това гласуване.
+            success: Гласуването е актуализирано успешно.
+      admin_log:
+        ballot_style:
+          create: "%{user_name} създаде стил на гласуване с код %{ballot_style_code} в пространството %{space_name}"
+          delete: "%{user_name} изтри стила на гласуване с код %{ballot_style_code} в пространството %{space_name}"
+          update: "%{user_name} актуализира стила на гласуване с код %{ballot_style_code} в пространството %{space_name}"
+        census:
+          create: "%{user_name} създаде преброяването за пространството %{space_name}"
+          delete: "%{user_name} изтри преброяването за пространство %{space_name}"
+          update: "%{user_name} актуализира преброяването за пространството %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} назначи потребителя %{monitoring_committee_member_user} като член на комитета за наблюдение в пространството %{space_name}"
+          delete: "%{user_name} отмени потребителя %{monitoring_committee_member_user} като член на Мониторингов комитет в пространството %{space_name}"
+        polling_officer:
+          create: "%{user_name} назначи потребителя %{polling_officer_user} като Член на избирателна комисия в пространството %{space_name}"
+          delete: "%{user_name} премахна възлагането на потребителя %{polling_officer_user} като Член на избирателна комисия в пространството %{space_name}"
+        polling_station:
+          create: "%{user_name} създаде избирателната секция %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри избирателната секция %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира избирателната секция %{resource_name} в пространството %{space_name}"
+        voting:
+          create: "%{user_name} създаде гласуването %{resource_name}"
+          publish: "%{user_name} публикува гласуването %{resource_name}"
+          unpublish: "%{user_name} отмени публикуването на гласуването %{resource_name}"
+      census:
+        admin:
+          census:
+            create:
+              invalid: Възникна грешка при качването на преброяването, моля, опитайте отново по-късно.
+              invalid_csv_header: CSV заглавките липсват или не са правилни - моля, прочетете внимателно инструкциите.
+            creating_data:
+              info_message: "<strong>Моля, изчакайте</strong>, обработени са %{processed_count} от %{raw_count} реда от %{file} файл (това може да отнеме няколко минути)."
+            delete:
+              button: Изтриване на всички данни от преброяването
+              confirm: Изтриването на всички данни от преброяването не може да бъде отменено. Сигурен ли си, че искаш да продължиш?
+            destroy:
+              error: Възникна грешка при изтриването на преброяването, моля, опитайте отново по-късно.
+              success: Данните от преброяването са изтрити.
+            export_access_codes:
+              button: Експортиране на кодове за достъп до гласуване
+              callout: Сега можете да продължите с експортирането на кодовете за достъп. Това може да се направи само веднъж. След като стартирате експортирането, ще получите имейл с инструкции до <strong>%{email}</strong>
+              confirm: Можете да експортирате кодовете за достъп само веднъж. Уверете се, че имате достъп до имейл акаунта <strong>%{email}</strong>.
+              file_not_exist: Файлът не съществува.
+              launch_error: Проблем при стартиране на експортирането на кодове за достъп.
+              launch_success: Стартира експорт на кодове за достъп. Скоро ще получите имейл на %{email}.
+            exporting_access_codes:
+              info_message: "<strong>Моля, изчакайте</strong>, експортирането се подготвя, ще го получите скоро на %{email} (това може да отнеме няколко минути)."
+            freeze:
+              callout: Преброяването е замразено и не може да се променя.
+              help_html: |
+                Данните от преброяването са качени, кодовете са генерирани и експортирани успешно.<br>
+                <strong>Вече сте готови да започнете изборите.</strong><br>
+                Използвайте експортирания CSV с индивидуалните кодове, за да го разпространите във вашето преброяване, като използвате вашите собствени средства, или активирайте раздела „Мога ли да гласувам“, за да позволите на всеки да извлече този код, използвайки собствените си данни от преброяването.
+            generate_access_codes:
+              button: Генериране на кодове за достъп до гласуване
+              callout: Сега можете да продължите с генерирането на кодовете за достъп. Имайте предвид, че след генерирането на кодовете за достъп вече няма да можете да променяте преброяването.
+              confirm: If you continue, you will not be able to modify the census.
+              info_message_all: "<strong>Всички редове са импортирани успешно</strong> от %{file} файл (%{raw_count} от %{data_count})."
+              info_message_warn: Моля, проверете дали няма липсващи данни, защото са създадени %{data_count} записа и каченият файл %{file} имаше %{raw_count} реда.
+              launch_error: Проблем при стартирането на генератора за кодове на достъп
+              launch_success: Генерирането на кодове стартира.
+              start_over: Моля, изтрийте текущото преброяване и започнете отначало с подходящ CSV файл с валидни редове.
+            generating_access_codes:
+              info_message: "<strong>Моля, изчакайте</strong>, кодовете за достъп до гласуване се генерират (това може да отнеме няколко минути)..."
+            new:
+              file_help:
+                explanation: 'Указания за файла:'
+                message_1: Разрешени са само CSV (.csv) файлове.
+                message_2: Разделителят между колоните трябва да е точка и запетая (";").
+              has_ballot_styles_message: Вие настройвате стилове на бюлетини. Моля, уверете се, че полето „%{ballot_style_code_header}“ в CSV файла съответства на желания код на стила на бюлетината.
+              info_message: "<strong>Все още няма преброяване.</strong> Моля, използвайте формуляра по-долу, за да го създадете чрез импортиране на CSV файл."
+              missing_ballot_styles_message: 'Все още няма стил на бюлетина за това гласуване. Ако желаете да имате условни въпроси (т.е.: да представите на избирателя различни въпроси в зависимост от, напр. областта/региона на пребиваване), трябва да настроите <a href=%{ballot_styles_admin_path}>Стилове на бюлетина</a> П<strong>реди</strong> импортирането на преброяването. Ако искате да зададете едни и същи въпроси на всички избиратели, можете да продължите с процедурата за импортиране на преброяване.'
+              submit: Изпратете CSV
+              title: Създайте преброяването
+            show:
+              heading: Преброяване в пространството за гласуване
+            upload_info:
+              csv_example_with_ballot_style: 'Пример за файл<strong>с</strong> стилове на гласуване:'
+              csv_example_without_ballot_style: 'Пример за файл <strong>без</strong> стилове на гласуване:'
+              csv_header_after: Не включвайте последното поле ("%{ballot_style_code_header}"), ако не се нуждаете от стилове на гласуване/условни въпроси
+              csv_header_before: 'Файлът за преброяването трябва да бъде CSV файл със следната заглавка:'
+        document_types:
+          identification_number: ЕГН
+          passport: Паспорт/лична карта
+        export_mailer:
+          access_codes_export:
+            click_button: 'Щракнете върху следващата връзка, за да изтеглите данните за кодовете за достъп.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/ ">7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https: //peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
+            download: Сваляне
+            subject: Експортирането на кодовете за достъп до гласуване за %{voting_title} е налично
+        vote_flow:
+          already_voted_in_person: Този участник вече е гласувал лично и няма право на глас.
+          datum_not_found: Посочените данни не отговарят на нито един гласоподавател.
+      content_blocks:
+        highlighted_votings:
+          name: Акцентирани гласувания
+        landing_page:
+          polling_stations:
+            heading: Избирателни секции
+            no_polling_stations: Все още няма избирателни секции.
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Сигурни ли сте?
+          destroy: Изтрий
+          new: Нов член
+          title: Активности
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Активно гласуване
+            see_all_spaces: Виж всички гласувания
+      polling_officer_zone:
+        closures:
+          back_to_polling_stations: Назад към секциите за гласуване
+          certify:
+            add_photos: Добави снимки
+            edit_photos: Редактиране на снимки
+            error: Възникна грешка при прикачването на сертификата, моля, опитайте отново.
+            heading: Повторно преброяване на гласовете - Качване на сертификат
+            info_text: Моля, качете снимка на удостоверението за приключване на изборите.
+            submit: Качи сертификата
+            success: Сертификатът е качен успешно.
+            upload_photos: Качете снимка на удостоверението за приключване на изборите
+          completed:
+            sub_heading: Това преброяване е сертифицирано и вече не може да се редактира.
+          create:
+            error: Възникна грешка при затварянето, моля, опитайте отново по-късно.
+            success: Затварянето е създадено успешно.
+          destroy:
+            error: Възникна грешка при прекратяване на затварянето.
+            success: Затварянето е прекратено успешно.
+          edit:
+            confirm_start_over: Това ще премахне общия брой гласове и прикачените бележки. Сигурен ли си?
+            heading: Повторно преброяване на гласовете - Повторно преброяване на отговорите
+            info_text: Моля, опишете подробно общия брой отговори за всеки въпрос. Това трябва да съответства на общия брой отговори, въведени в предишната стъпка (%{total} отговори общо).
+            modal_ballots_results_count_error:
+              blank: Очакваният общ брой празни гласове е %{expected}, но сборът на празните въпроси е %{current}.
+              close_modal: Затвори
+              info_text: Общият брой на бюлетините не съвпада с общия брой на пликовете. Моля, прегледайте общия брой бюлетини.
+              title: Общият брой бюлетини не се сумира
+              total: Очакваната обща сума е %{expected}, но сборът от валидните, празни и невалидни бюлетини е %{current}.
+              valid: Очакваният общ брой валидни гласове е %{expected}, но сборът на валидните въпроси е %{current}.
+            save_recount: Запазване на повторното преброяване
+            start_over: Ако има грешка в общия брой, можете да изтриете всичко и да започнете отначало.
+            total_ballots: Сума на бюлетините
+            total_blank_ballots: Сума на празните бюлетини
+            total_null_ballots: Сума на анулираните бюлетини
+            total_valid_ballots: Сума на валидните бюлетини
+          new:
+            election: 'Избор:'
+            heading: Повторно преброяване на гласовете
+            info_text: 'Моля, въведете общия брой на преброените бюлетини (пликове) в тази избирателна секция:'
+            modal_ballots_count_error:
+              btn_validate_total: Валидирайте общото повторно преброяване на бюлетините
+              info_explanation_text: 'Моля, прегледайте общия брой бюлетини. Ако общият брой е неправилен, трябва да предоставите обяснение на Комитета за наблюдение:'
+              info_text: Общият брой на въведените бюлетини (пликове) не съответства на записа на хората, гласували в тази избирателна секция.
+              message_for_monitoring_committee: Съобщения за Мониторинговия комитет
+              review_recount: Прегледайте повторното преброяване
+              text_area_placeholder: Моля, въведете Вашето съобщение
+              title: Всичките записи не се сумират
+              total_ballots: 'Сума на бюлетините:'
+              total_people: 'Всички хора:'
+            polling_station: 'Избирателна секция:'
+            submit: Верифицирайте общия брой
+            total_ballots_count: Брой бюлетини
+          show:
+            edit_count_votes: Грешни числа? Все още можете да ги редактирате.
+            heading: Повторно преброяване на гласовете
+            sub_heading: Повторното преброяване трябва да бъде затворено чрез качване на сертификат. След като това бъде направено, повторното преброяване ще бъде запечатано и вече не може да се редактира.
+          sign:
+            cancel: Отказ
+            check_box: Прегледах това и е същото като физическото удостоверение за приключване на изборите
+            confirm: Добре, продължи
+            error: Грешка, моля опитайте отново.
+            heading: Повторно преброяване на гласовете - Подпишете затваряне
+            info_text: .
+            submit: Подпишете закриването
+            success: Затварянето е подписано успешно.
+          update:
+            error: Възникна грешка при актуализирането на резултатите от затварянето, моля, опитайте отново по-късно.
+            success: Резултатите от затварянето са актуализирани успешно.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Налични орговори:'
+            census_verified: Този участник все още не е гласувал лично.
+            census_verified_with_online_vote: Този участник вече е гласувал онлайн. Ако гласуват лично, предишните гласове ще бъдат анулирани и това ще бъде окончателният вот.
+            complete_voting: Завършете гласуването
+            identify_another: Идентифицирайте друг участник
+            questions_title: 'Те имат право да гласуват по следните въпроси:'
+            questions_title_voted: 'Този участник вече е гласувал онлайн и има право да гласува по следните въпроси:'
+            voted: Участникът е гласувал
+          create:
+            error: Вотът не беше регистриран. Моля, опитайте отново.
+          in_person_form:
+            census_not_present: Този участник не фигурира в преброяването.
+            census_not_present_description: Те трябва да отидат в службата за жалби при преброяването или да се свържат с поддръжката.
+            date_of_birth: Дата на раждане
+            day: Ден
+            day_placeholder: ДД
+            document_number: Номер на документ
+            document_number_placeholder: Идентификационен номер (ЕГН)
+            month: Месец
+            month_placeholder: ММ
+            select: Изберете типа на документа
+            title: 'Изберете вида на документа и въведете номера на документа на участника:'
+            validate_document: Валидирайте документа
+            year: Година
+            year_placeholder: ГГГГ
+          new:
+            back: Назад към секциите за гласуване
+            title: Идентифицирайте и верифицирайте участник
+          show:
+            back: Назад към секциите за гласуване
+            title: Изчаква се регистрирането на личния вот
+          update:
+            error: Възникна грешка при регистриране на вота. Моля, опитайте отново.
+            success:
+              accepted: Гласуването беше регистрирано успешно.
+              rejected: Вотът не беше приет от таблото за обяви. Моля, свържете се със системния администратор.
+          verify_document:
+            census_present: Този участник е вписан в преброяването.
+            name: Име
+            title: 'Проверете дали следните данни са верни:'
+            verify_document: Потвърдете документа
+        menu:
+          polling_officer_zone: Зона на Членове на избирателна комисия
+        polling_officers:
+          index:
+            polling_officer_role_description: Възложено ви е да действате като служител в избирателната секция (председател или управител) на някои от изборите, които се организират в тази платформа.
+            polling_station:
+              address: Адрес
+              count_votes: Брой гласове
+              election: Избор
+              identify_person: Идентифицирайте личност
+              name: Име
+              no_polling_stations: Все още не сте назначени в нито една избирателна секция.
+              role: Вашата роля
+              show_closure: Виж затварянето
+              title: Избирателни секции
+              voting: Гласуване
+      polling_officers:
+        actions:
+          confirm_destroy: Сигурни ли сте?
+          destroy: Изтрий
+          new: Нов член на избирателна комисия
+          title: Активности
+        roles:
+          manager: Управител
+          president: Председател
+          unassigned: Отнемане на възложеното
+      polling_station_closure_certificate:
+        current_certificate: 'Актуален сертификат:'
+      polling_station_closure_recount:
+        nota_option: Празно/ Нито едно от горните
+        polling_officer_notes: 'Бележки на Член на избирателна комисия:'
+        polling_officer_notes_blank: Няма бележки
+        recount_summary: 'Резюме за повторно преброяване:'
+        signed: Подписано
+        total_ballots: 'Сума на бюлетините:'
+        total_blank_ballots: 'Сума на празните бюлетини:'
+        total_null_ballots: 'Сума на анулираните бюлетини:'
+        total_valid_ballots: 'Сума на валидните бюлетини:'
+      polling_stations:
+        actions:
+          confirm_destroy: Сигурни ли сте?
+          destroy: Изтрий
+          edit: Редактирай
+          new: Нова избирателна секция
+          title: Активности
+      votings:
+        access_code_modal:
+          email: Изпратете по имейл до %{email}
+          info: Имате нужда от Код за достъп, за да участвате. Ако не сте получили такъв по пощата, можем да ви изпратим нов.
+          no_email: Няма наличен имейл
+          no_sms: Няма наличен телефонен номер
+          sms: Изпратете чрез SMS до %{sms}
+          title: Вземете код за достъп
+        check_census:
+          check_status: Статус на проверката
+          description: Тук имате възможност да проверите данните си от преброяването, за да знаете дали имате право да участвате в това гласуване. Трябва вече да имате код за достъп, но ако сте го загубили, можете да го поискате отново, когато данните ви са правилни.
+          error:
+            info: 'Моля, опитайте отново. Ако смятате, че данните в системата са неверни, можете да докладвате тук: %{census_contact_information}.'
+            title: Данните, които сте въвели, не са в преброяването за този вот
+          form_title: 'Попълнете следния формуляр, за да проверите вашите данни от преброяването:'
+          invalid: Имаше проблем при проверката на преброяването.
+          success:
+            access_link: по имейл.
+            access_link_with_sms: чрез SMS или имейл.
+            info: Трябва вече да сте получили кода си за достъп по пощата. В случай, че не разполагате с него, можете да го заявите тук
+            title: Вашите данни от преброяването са верни!
+          title: Мога ли да гласувам?
+        check_fields:
+          date_of_birth: Дата на раждане
+          day: Ден
+          day_placeholder: ДД
+          document_number: Номер на документ
+          document_number_placeholder: Идентификационен номер (ЕГН)
+          document_type: Тип документ
+          month: Месец
+          month_placeholder: ММ
+          postal_code: Пощенски код
+          postal_code_placeholder: Номер на пощенски код
+          select: Изберете типа на документа
+          year: Година
+          year_placeholder: ГГГГ
+        count:
+          title:
+            one: "%{count} гласуване"
+            other: "%{count} гласувания"
+        elections_log:
+          description: Изборният дневник ще ви покаже цялата необходима информация за всяко гласуване. Например състоянието на ключовата церемония или резултата, или ако резултатите вече са публикувани. Щракнете върху изборите, за които искате информация от дневника.
+          title: Регистър на избора
+        filters:
+          active: Активно
+          all: Всички
+          date: Дата
+          finished: Завършено
+          search: Търсене
+          upcoming: Предстоящо
+        index:
+          no_votings: Нито едно гласуване не отговаря на вашите критерии за търсене.
+          only_finished: В момента няма насрочени гласувания, но тук можете да намерите списък с готовите гласувания.
+          title: Гласувания
+        login:
+          access_code: Код за достъп
+          access_code_placeholder: Код за достъп
+          ask_for_a_new_one: Поискайте нов.
+          dont_have_access_code: Нямате код за достъп?
+          form_title: 'Попълнете следната форма за достъп до гласуването:'
+          start_voting: Започнете гласуването
+          title: Идентифицирам се с моите данни от преброяването на гласовете
+        no_census_contact_information: Все още няма контактна информация.
+        orders:
+          label: 'Сортиране на гласовете по:'
+          random: Произволно
+          recent: Най-скорошни
+        send_access_code:
+          invalid: Възникна проблем при изпращането на кода за достъп.
+          success: Вашият код за достъп беше изпратен успешно.
+        show:
+          title: Относно това гласуване
+      votings_m:
+        badge_name:
+          finished: Завършено
+          ongoing: В момента
+          upcoming: Предстоящо
+        unspecified: Неопределено
+        voting_type:
+          hybrid: Хибрид
+          in_person: Лично
+          online: Онлайн
+  layouts:
+    decidim:
+      voting_navigation:
+        check_census: Мога ли да гласувам?
+        election_log: Регистър на избора
+      votings:
+        index:
+          promoted_votings: Акцентирани гласувания
+        promoted_voting:
+          vote: Глас

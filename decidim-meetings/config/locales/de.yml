@@ -165,6 +165,7 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
+            registration_code_enabled: Registrierungs- und QR-Code aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
@@ -222,13 +223,27 @@ de:
           email_subject: Plätze der Sitzung "%{resource_title}" sind zu %{percentage}% belegt
           notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
+          email_intro: 'Es gab ein Aktualisierung %{changed_fields} zur Veranstaltung "%{resource_title}". Die aktuellen Angaben finden Sie auf:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Veranstaltung "%{resource_title}" wurde aktualisiert
+          field_names:
+            address: der Adresse
+            end_time: der Schlusszeit
+            location: des Standorts
+            start_time: der Startzeit
+          notification_title: Es gab ein Aktualisierung %{changed_fields} zur Veranstaltung <a href="%{resource_path}">%{resource_title}</a>.
+        meeting_waitlist_added:
+          notification_title: Sie wurden zur Warteliste für die Veranstaltung <a href="%{resource_url}">%{resource_title}</a> hinzugefügt.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung "%{resource_title}" wurde bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Registrierungscode für die Veranstaltung "%{resource_title}" validiert wurde.
           email_subject: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung"%{resource_title}" wurde bestätigt
           notification_title: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde bestätigt.
+        registration_marked_as_attendee:
+          email_intro: Bei Ihrer Anmeldung für die Veranstaltung "%{resource_title}" wurde Ihre Teilnahme bestätigt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil bei Ihrer Anmeldung für die Veranstaltung "%{resource_title}" die Teilnahme bestätigt wurde.
+          email_subject: Bei Ihrer Anmeldung für die Veranstaltung "%{resource_title}" wurde die Teilnahme bestätigt
+          notification_title: Bei Ihrer Anmeldung für die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde Ihre Teilnahme bestätigt.
         registrations_enabled:
           email_intro: 'Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Veranstaltungsseite registrieren:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -268,6 +283,7 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
+        mark_as_attendee: Als Teilnehmer markieren
         new_meeting: Neue Veranstaltung
         preview: Vorschau
         registrations: Anmeldungen
@@ -416,6 +432,7 @@ de:
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
+            registrations: Anmeldungen anzeigen
             registrations_count:
               one: Es wurde %{count} registriert.
               other: Es wurden %{count} Anmeldungen vorgenommen.
@@ -425,6 +442,17 @@ de:
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
+        registrations_attendees:
+          index:
+            title: Anmeldungen
+            validate: Validieren
+            validate_registration_code: Registrierungscode validieren
+          mark_attendee:
+            invalid: Teilnahme der Anmeldung bereits bestätigt.
+            success: Teilnahme der Anmeldung erfolgreich bestätigt.
+          validate_registration_code:
+            invalid: Dieser Registrierungscode ist ungültig.
+            success: Registrierungscode erfolgreich validiert.
       admin_log:
         invite:
           create: "%{user_name} hat %{attendee_name} eingeladen, an der Veranstaltung %{resource_name} in %{space_name} teilzunehmen"
@@ -575,14 +603,17 @@ de:
           create: Erstellen
           title: Neue Veranstaltung erstellen
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
           join: Anmelden
-          leave: Registrierung stornieren
-          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          join_waitlist: Warteliste beitreten
+          leave: Anmeldung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Anmeldung für diese Veranstaltung stornieren möchten?
+          leave_waitlist: Warteliste verlassen
+          leave_waitlist_confirmation: Sind Sie sicher, dass Sie die Warteliste für diese Veranstaltung verlassen möchten?
           link_available_soon: Link in Kürze verfügbar
           link_closed: Der Link, um an der Veranstaltung teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Diese Veranstaltung findet gerade statt
@@ -590,7 +621,11 @@ de:
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
+          pending_address: Der Standort wird in Kürze bekannt gegeben.
           redirect_notice: Diese Veranstaltung ist Teil eines anderen Bereichs, daher wurden Sie zu %{current_space_name} weitergeleitet. <br>Wenn Sie es bevorzugen, können Sie zu <a href="%{previous_space_url}">%{previous_space_name}</a> zurückkehren.
+          registration_and_qr_code: Registrierungs- und QR-Code
+          registration_code: 'Registrierungscode: %{code}'
+          registration_code_help_text: Ihr Registrierungs- und QR-Code
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend
@@ -598,6 +633,9 @@ de:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
           visit_finished: Vergangene Veranstaltungen anzeigen
+          waitlist:
+            description: Wenn ein Platz verfügbar wird, wird ihre Anmeldung automatisch vollzogen. Sie werden per E-Mail beanchrichtigt.
+            status: Sie stehen auf der Warteliste
           withdraw_btn_hint: Sie können Ihre Veranstaltung zurückziehen, wenn Sie Ihre Meinung ändern. Die Veranstaltung wird nicht gelöscht, sie wird in der Liste der zurückgezogenen Veranstaltungen angezeigt.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
           withdraw_meeting: Zurückziehen
@@ -625,6 +663,15 @@ de:
             start_time: Anfangsdatum
             taxonomies: Klassifizierungen
             title: Titel
+        registration:
+          actions: Aktionen
+          fields:
+            email: E-Mail
+            name: Name
+            status: Status
+          status:
+            attended: Teilgenommen
+            not_attended: Nicht teilgenommen
       polls:
         questions:
           closed_question:
@@ -668,6 +715,7 @@ de:
         confirmation:
           confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zur Veranstaltung im Anhang.
+          registration_code: Ihr Registrierungscode ist %{code}. Bitte zeigen Sie dem Admin den folgenden QR-Code, um Ihren Besuch zu bestätigen.
       registration_type:
         on_different_platform: Auf einer anderen Plattform
         on_this_platform: Auf dieser Plattform
@@ -682,6 +730,9 @@ de:
         destroy:
           invalid: Beim Verlassen dieser Veranstaltung ist ein Problem aufgetreten.
           success: Sie haben die Veranstaltung erfolgreich verlassen.
+        waitlist:
+          invalid: Beim Beitritt zur Warteliste ist ein Problem aufgetreten.
+          success: Sie sind der Warteliste erfolgreich beigetreten. Sie werden benachrichtigt, wenn Ihre Anmeldung vollzogen wird.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In Person

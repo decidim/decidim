@@ -5,6 +5,7 @@ es-MX:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -942,6 +943,16 @@ es-MX:
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+          email_outro: Has recibido esta notificación porque es autora del/de la %{resource_type}.
+          email_subject: Tu %{resource_type} ya no es visible
+          notification_title: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
           email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
@@ -1522,8 +1533,12 @@ es-MX:
         title: Código QR para %{resource_title}
     reported_mailer:
       hide:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
@@ -1547,6 +1562,8 @@ es-MX:
         report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
+    resource_autocomplete:
+      help: Escribe aquí para buscar entre las propuestas
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -1556,7 +1573,7 @@ es-MX:
     search:
       name: Buscar
       results: Resultados de la búsqueda
-      results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
+      results_found_for_term: '%{count} resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
@@ -2053,6 +2070,8 @@ es-MX:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        back: Volver al listado
+        cancel: Cancelar
         close: Cerrar
         confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
         confirm_title_close_ephemeral_session: Antes de salir de esta página…
