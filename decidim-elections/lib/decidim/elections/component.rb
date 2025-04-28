@@ -3,6 +3,7 @@
 Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
+  component.stylesheet = "decidim/elections/elections"
   component.icon = "media/images/decidim_elections.svg"
   component.icon_key = "draft-line"
 
