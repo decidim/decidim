@@ -114,10 +114,10 @@ module Decidim
 
       # @return [Float]
       def meetings_with_proposals_score
-        if all_meetings.joins(:resource_links_from)
+        if all_meetings.joins(:resource_links_to)
                        .where(
                          decidim_resource_links: {
-                           name: "proposals_from_meetings",
+                           name: "proposals_from_meeting",
                            to_type: "Decidim::Meetings::Meeting"
                          }
                        )
@@ -231,7 +231,7 @@ module Decidim
 
       # @return [Float]
       def percentage_to_scale(value, total)
-        return 0 if total.zero?
+        return 1.0 if total.zero?
 
         percentage = (value.to_f / total) * 100
         case percentage

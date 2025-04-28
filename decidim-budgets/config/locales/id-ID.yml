@@ -62,7 +62,6 @@ id:
           ok: baik
         budget_summary:
           are_you_sure: Anda yakin ingin membatalkan suara?
-          cancel_order: hapus suara Anda dan mulai lagi dari awal
           checked_out:
             title: Suara anggaran selesai
         count:

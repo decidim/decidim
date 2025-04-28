@@ -185,7 +185,7 @@ es-PY:
         conference_s: Conferencia S
         conferences: Conferencia
         context: Contexto
-        context_description: Esta celda muestra información acerca de un usuario. Es una ayuda visual para identificar la creadora del recurso/contenido. Al pasar por encima el cursor, se muestra una descripción con más información y enlaces a su perfil.
+        context_description: Esta celda muestra información acerca de una usuaria. Es una ayuda visual para identificar la creadora de recursos/contenidos.
         context_description_2: Para los recursos, esta célula aparece debajo del encabezado principal. Para otros contenidos, aparece al lado del contenido mismo.
         debate_l: Debate L
         debate_s: Debate S

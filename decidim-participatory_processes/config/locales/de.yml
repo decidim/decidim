@@ -403,6 +403,8 @@ de:
           participatory_processes:
             one: 1 Prozess
             other: "%{count} Prozesse"
+      related_processes:
+        help: Alle ausgewählten Prozesse werden dieser Gruppe zugewiesen, einschließlich derjenigen, die bereits anderen Gruppen zugeordnet sind.
       show:
         title: Partizipative Prozessgruppen
     participatory_process_steps:

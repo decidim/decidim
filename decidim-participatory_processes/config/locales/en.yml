@@ -630,7 +630,6 @@ en:
         related_processes: Related processes
       static_pages:
         democratic_quality_indicators:
-          title: Democratic quality indicators
           content: |-
             <h1>Indicator system to measure participation quality in Decidim.</h1>
 
@@ -724,11 +723,11 @@ en:
 
             <br><br>
             <h2>Self-assessment questions</h2>
-            
+
             <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
 
             <h3>Inclusiveness</h3>
-            
+
             <p>Inclusivity according to cultural origin and functional diversity.</p>
 
             <ol>
@@ -765,7 +764,7 @@ en:
             </ol>
 
             <h3>Relevance</h3>
-            
+
             <p>Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.</p>
 
             <ol>
@@ -835,7 +834,7 @@ en:
                 </ul>
               </li>
             </ol>
-
+          title: Democratic quality indicators
     statistics:
       processes_count: Processes
   layouts:

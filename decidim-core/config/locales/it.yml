@@ -787,7 +787,6 @@ it:
       prompt: Seleziona un ambito
     search:
       results: Risultato della ricerca
-      results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:

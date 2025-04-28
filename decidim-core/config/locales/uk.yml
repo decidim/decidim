@@ -397,7 +397,6 @@ uk:
       global: Всеохопний обсяг
       prompt: Оберіть обсяг
     search:
-      results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
       filters:

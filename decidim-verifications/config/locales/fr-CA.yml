@@ -3,6 +3,8 @@ fr-CA:
     attributes:
       authorization:
         verification_attachment: Pièce jointe de vérification
+      census_data:
+        file: Fichier
       config:
         available_methods: Méthodes disponibles
         offline: Hors ligne
