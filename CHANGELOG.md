@@ -2,6 +2,69 @@
 
 # Changelog
 
+## [0.28.6](https://github.com/decidim/decidim/tree/0.28.6)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Fix UX link mobile login' to v0.28 [\#14077](https://github.com/decidim/decidim/pull/14077)
+- **decidim-blogs**, **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**, **decidim-surveys**: Backport 'Fix WCAG add pagination to title' to v0.28 [\#14079](https://github.com/decidim/decidim/pull/14079)
+- **decidim-budgets**, **decidim-core**: Backport 'Fix UX mobile budget page adjustements' to v0.28 [\#14113](https://github.com/decidim/decidim/pull/14113)
+- **decidim-core**, **decidim-proposals**: Backport 'Suggested hashtags in Proposals' to v0.28 [\#14114](https://github.com/decidim/decidim/pull/14114)
+- **decidim-core**: Backport 'Hide help buttons if no help content is given in admin-side' to v0.28 [\#14140](https://github.com/decidim/decidim/pull/14140)
+- **decidim-budgets**: Backport 'Fix an UI error in budgeting in the progress bar' to v0.28 [\#14195](https://github.com/decidim/decidim/pull/14195)
+- **decidim-proposals**: Backport 'Fix error handling when proposal answer form has errors' to v0.28 [\#14190](https://github.com/decidim/decidim/pull/14190)
+- **decidim-budgets**: Backport 'Fix budget index card width' to v0.28 [\#14196](https://github.com/decidim/decidim/pull/14196)
+- **decidim-core**: Backport 'Use leaflet-tilelayer-here v2.0.3' to v0.28 [\#14177](https://github.com/decidim/decidim/pull/14177)
+- **decidim-core**: Backport 'Fix user activity filter' to v0.28 [\#14230](https://github.com/decidim/decidim/pull/14230)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix WCAG status messages when update filter' to v0.28 [\#14237](https://github.com/decidim/decidim/pull/14237)
+- Backport 'Update oauth.adoc, fix typo' to v0.28 [\#14258](https://github.com/decidim/decidim/pull/14258)
+- **decidim-core**, **decidim-generators**: Backport 'Fix static map image fetching with Here maps service' to v0.28 [\#14253](https://github.com/decidim/decidim/pull/14253)
+- **decidim-core**: Backport 'Register user without avatar on omniauth registration' to v0.28 [\#14295](https://github.com/decidim/decidim/pull/14295)
+- **decidim-core**: Backport 'Fix invalid chars in name when using OAuth login' to v0.28 [\#14297](https://github.com/decidim/decidim/pull/14297)
+- **decidim-admin**, **decidim-core**: Backport 'Fix lower casing for user's nickname' to v0.28 [\#14308](https://github.com/decidim/decidim/pull/14308)
+- **decidim-core**: Backport 'Fix WCAG search filters navigation' to v0.28 [\#14351](https://github.com/decidim/decidim/pull/14351)
+- **decidim-blogs**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport 'Add title tag on pages for blogs, debates and meetings' to v0.28 [\#14342](https://github.com/decidim/decidim/pull/14342)
+- **decidim-verifications**: Backport 'Fix title on spec for the 'Create new proposal' page' to v0.28 [\#14354](https://github.com/decidim/decidim/pull/14354)
+- **decidim-core**: Backport 'Fix searches filtering results when not are commentable' to v0.28 [\#14372](https://github.com/decidim/decidim/pull/14372)
+- **decidim-budgets**: Backport 'Fix alignment of sorting options on projects' to v0.28 [\#14379](https://github.com/decidim/decidim/pull/14379)
+- **decidim-core**, **decidim-proposals**: Backport 'Prevent the error generating the diff for non-translatable fields in old version' to v0.28 [\#14376](https://github.com/decidim/decidim/pull/14376)
+- **decidim-meetings**: Backport 'Fix meeting overriding customized frame-src security policy' to v0.28 [\#14393](https://github.com/decidim/decidim/pull/14393)
+- **decidim-dev**: Backport 'Fix admin pipeline with `welcome_notification_body` spec error' to v0.28 [\#14487](https://github.com/decidim/decidim/pull/14487)
+- **decidim-core**: Backport 'Fix nickname casing task and add validation in account edit form' to v0.28 [\#14478](https://github.com/decidim/decidim/pull/14478)
+- **decidim-core**: Backport 'Error displayed when accessing admin dashboard after a user deletes its account' to v0.28 [\#14481](https://github.com/decidim/decidim/pull/14481)
+- **decidim-core**: Backport 'Fix WCAG add nav tag to proposals dropdown menu' to v0.28 [\#14483](https://github.com/decidim/decidim/pull/14483)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Fix image editor permissions for spaces' admins' to v0.28 [\#14506](https://github.com/decidim/decidim/pull/14506)
+- **decidim-core**: Backport 'Fix broken breadcrumb menu width on spaces' to v0.28 [\#14525](https://github.com/decidim/decidim/pull/14525)
+- **decidim-core**, **decidim-proposals**: Backport 'Disable tooltips due to poor performance' to v0.28 [\#14516](https://github.com/decidim/decidim/pull/14516)
+- **decidim-core**: Backport 'Use better URI regexp to detect host part of blobs and prevent errors' to v0.28 [\#14535](https://github.com/decidim/decidim/pull/14535)
+- **decidim-core**: Backport 'Fix error in announcement field when has a link with an attachment' to v0.28 [\#14538](https://github.com/decidim/decidim/pull/14538)
+- **decidim-core**, **decidim-surveys**: Backport 'Fix datetime format used to parse TimeWithZone attribute' to v0.28 [\#14544](https://github.com/decidim/decidim/pull/14544)
+- **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix version visibility in resources' to v0.28 [\#14561](https://github.com/decidim/decidim/pull/14561)
+- **decidim-core**: Backport 'Fix missing image label in attachment' to v0.28 [\#14573](https://github.com/decidim/decidim/pull/14573)
+- **decidim-proposals**: Backport 'Fix label on proposals landing page block' to v0.28 [\#14581](https://github.com/decidim/decidim/pull/14581)
+- **decidim-admin**, **decidim-blogs**, **decidim-comments**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix resource redirect after resource has been hidden' to v0.28 [\#14598](https://github.com/decidim/decidim/pull/14598)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Fix alignment of sorting options on projects' to v0.28 [\#14379](https://github.com/decidim/decidim/pull/14379)
+
+### Internal
+
+- **decidim-dev**: Backport 'Fix admin pipeline with `welcome_notification_body` spec error' to v0.28 [\#14487](https://github.com/decidim/decidim/pull/14487)
+- **decidim-admin**, **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-verifications**: Backport 'Add missing translations' to v0.28 [\#14594](https://github.com/decidim/decidim/pull/14594)
+
 ## [0.28.5](https://github.com/decidim/decidim/tree/0.28.5)
 
 ### Added
