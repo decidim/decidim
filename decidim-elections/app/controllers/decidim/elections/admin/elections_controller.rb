@@ -1,13 +1,83 @@
+# frozen_string_literal: true
+
 module Decidim
   module Elections
     module Admin
       class ElectionsController < Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
+
+        helper Decidim::ApplicationHelper
+
+        helper_method :elections
+
         def index
-          @elections = Election.all
+          enforce_permission_to :read, :election
         end
 
-        def show
-          @election = Election.find(params[:id])
+        def new
+          enforce_permission_to :create, :election
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(
+            attachment: form(AttachmentForm).from_params({})
+          )
+        end
+
+        def create
+          enforce_permission_to :create, :election
+
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:)
+
+          CreateElection.call(@form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.create.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
+              render action: "new"
+            end
+          end
+        end
+
+        def edit
+          enforce_permission_to(:update, :election, election:)
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
+        end
+
+        def update
+          enforce_permission_to(:update, :election, election:)
+
+          @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
+
+          UpdateElection.call(@form, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
+              render action: "edit"
+            end
+          end
+        end
+
+        private
+
+        def elections
+          @elections ||= Election.where(component: current_component).not_hidden
+        end
+
+        def trashable_deleted_resource_type
+          @trashable_deleted_resource_type ||= Election.where(component: current_component).only_deleted.deleted_at_desc
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Election.with_deleted.find_by(component: current_component, id: params[:id])
+        end
+
+        def election
+          @election ||= Election.find_by(component: current_component, id: params[:id])
         end
       end
     end

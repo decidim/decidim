@@ -6,11 +6,13 @@ Decidim.register_component(:elections) do |component|
   component.stylesheet = "decidim/elections/elections"
   component.icon = "media/images/decidim_elections.svg"
   component.icon_key = "draft-line"
+  component.permissions_class_name = "Decidim::Elections::Permissions"
 
   component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|

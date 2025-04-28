@@ -7,5 +7,48 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
           step:
             announcement: Announcement
+    elections:
+      actions:
+        deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
+        new: New election
+        title: Elections
+        view_deleted_elections: View deleted elections
+      admin:
+        elections:
+          form:
+            add_attachments: Add images
+            attachment_legend: Add an image gallery (optional)
+            attachments: Attachments
+            basic_title: Basic info
+            calendar: Calendar
+            description: Description
+            edit_attachments: Edit attachments
+            end_time: End time
+            manual_start: Manual start
+            results_availability:
+              after_elections_end: After elections end
+              after_elections_end_help: Results are revealed after the elections end
+              questions_by_questions: Questions by questions
+              questions_by_questions_help: Results are shown after each question
+              real_time: Real time
+              real_time_help: Results are shown live as votes come in
+              title: Results availability
+            start_time: Start time
+            title: Title
+          index:
+            fields:
+              title: Title
+            title: Elections
+          new:
+            create: Create election
+            title: New election
+      models:
+        election:
+          fields:
+            description: Description
+            end_time: End time
+            start_time: Start time
+            title: Title

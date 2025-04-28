@@ -9,12 +9,18 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::SoftDeletable
       include Decidim::HasComponent
+      include Decidim::HasAttachments
       include Decidim::Publicable
       include Decidim::Traceable
+      include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
       include Decidim::Loggable
       include Decidim::Searchable
+      include Decidim::Reportable
 
       component_manifest_name "elections"
+
+      translatable_fields :title, :description
     end
   end
 end
