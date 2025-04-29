@@ -14,18 +14,18 @@ en:
       actions:
         confirm_delete_election: Are you sure you want to delete this election?
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
+        edit: Edit election
         new: New election
         title: Actions
-        edit: Edit election
         view_deleted_elections: View deleted elections
       admin:
         elections:
-          edit:
-            title: Edit election
-            update: Update election
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
+          edit:
+            title: Edit election
+            update: Update election
           form:
             add_attachments: Add images
             attachment_legend: Add an image gallery (optional)
@@ -56,6 +56,14 @@ en:
           new:
             create: Create election
             title: New election
+          publish:
+            invalid: There was a problem publishing the election.
+            success: Election published successfully.
+            title: Publish election
+          unpublish:
+            invalid: There was a problem unpublishing the election.
+            success: Election unpublished successfully.
+            title: Unpublish election
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
@@ -66,3 +74,5 @@ en:
             end_at: End time
             start_at: Start time
             title: Title
+    statistics:
+      elections_count: Elections

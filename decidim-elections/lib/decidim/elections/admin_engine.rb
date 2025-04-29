@@ -14,6 +14,8 @@ module Decidim
           get :manage_trash, on: :collection
 
           member do
+            put :publish
+            put :unpublish
             patch :soft_delete
             patch :restore
           end

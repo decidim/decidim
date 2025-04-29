@@ -62,6 +62,38 @@ module Decidim
           end
         end
 
+        def publish
+          enforce_permission_to(:update, :election, election:)
+
+          PublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to(:update, :election, election:)
+
+          Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.unpublish.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
+              render action: "index"
+            end
+          end
+        end
+
         private
 
         def elections
