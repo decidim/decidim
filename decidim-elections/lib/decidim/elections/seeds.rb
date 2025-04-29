@@ -42,7 +42,7 @@ module Decidim
 
       def create_election!(component:)
         params = {
-          name: Decidim::Components::Namer.new(
+          title: Decidim::Components::Namer.new(
             participatory_space.organization.available_locales,
             :elections
           ).i18n_name,
@@ -59,6 +59,14 @@ module Decidim
         ) do
           Decidim::Elections::Election.create!(params)
         end
+      end
+
+      def organization
+        @organization ||= Decidim::Organization.first
+      end
+
+      def admin_user
+        @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
       end
     end
   end
