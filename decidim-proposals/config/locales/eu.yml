@@ -1016,7 +1016,7 @@ eu:
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
-            description: '%{limit} proposamen sortu ditzakezu.'
+            description: Proposamen(ak) sortu ditzakezu.
           success: Zure babesak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} babes izatera iritsi behar da.
