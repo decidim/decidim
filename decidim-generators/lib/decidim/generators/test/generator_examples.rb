@@ -751,6 +751,34 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
+    # Test onto the initializer with ENV vars OFF for the Budgets module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Budgets")
+    budgets_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Budgets module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Budgets")
+    budgets_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Accountability module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
+    accountability_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Accountability module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
+    accountability_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
     # Test onto some extra Rails configs when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
