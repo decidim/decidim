@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ResourceHiddenEvent do
+  describe ParentHiddenEvent do
     include_context "when a simple event"
 
     let(:comment) { create(:comment, body: generate_localized_description(:comment_body)) }
@@ -11,11 +11,11 @@ module Decidim
     let(:report) { create(:report, moderation:) }
     let(:resource) { comment }
     let(:resource_text) { "<i>#{decidim_sanitize(translated(resource.body), strip_tags: true)}</i>" }
-    let(:event_name) { "decidim.events.reports.resource_hidden" }
+    let(:event_name) { "decidim.events.reports.parent_hidden" }
     let(:extra) { { report_reasons: ["spam"] } }
-    let(:email_subject) { "Your comment has been removed" }
-    let(:email_outro) { "You have received this notification because you are an author of the removed content." }
-    let(:email_intro) { "An administrator removed your comment because it has been reported as spam." }
+    let(:email_subject) { "Your comment is no longer visible" }
+    let(:email_outro) { "You have received this notification because you are an author of the affected comment." }
+    let(:email_intro) { "#{email_subject}.<br>\nThis happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored." }
 
     it_behaves_like "a simple event email"
 

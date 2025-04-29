@@ -26,6 +26,12 @@ tr:
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            meetings_ids: 'Bu toplantıda tartışılmıştır: %{link}'
+            project_ids: 'Bu projeye dahil edilmiştir: %{link}'
+            proposal_ids: 'Bu önergeye dahil edilmiştir: %{link}'
       decidim/accountability/result:
         one: Sonuç
         other: Sonuçlar
@@ -39,6 +45,7 @@ tr:
         deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
         destroy: silmek
         edit: Düzenle
+        import: Sonuçları başka bir bileşenden içe aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
@@ -65,7 +72,9 @@ tr:
             select_state: Durum seç
           form:
             create: İçe aktar
+            no_components: Bu katılımcı alanda içe aktaracak bir bileşen bulunmamaktadır.
             origin_component_id:
+            select_component: Bir bileşen seç
         import_results:
           new:
             download_export: '  İhracat i CSV formatında indirin '

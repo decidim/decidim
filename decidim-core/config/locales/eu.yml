@@ -6,6 +6,7 @@ eu:
         delete_reason: Zure kontua ezabatzeko arrazoia
       attachment:
         documents: Dokumentuak
+        image: Irudia
         photos: Argazkiak
       common:
         created_at: Sortze-data
@@ -1008,6 +1009,16 @@ eu:
       notification_event:
         notification_title: 'Ekintza bat izan da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
+        parent_hidden:
+          email_intro: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+          email_outro: Jakinarazpen hau jaso duzu eragindako %{resource_type}-ren egilea zarelako.
+          email_subject: Zure %{resource_type} ez da dagoeneko ikusten
+          notification_title: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
@@ -1719,8 +1730,11 @@ eu:
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
+        details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
+        participatory_space: Partaidetza-espazioa
+        reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       report:

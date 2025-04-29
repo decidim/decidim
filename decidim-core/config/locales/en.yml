@@ -1014,6 +1014,16 @@ en:
       notification_event:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+          email_outro: You have received this notification because you are an author of the affected %{resource_type}.
+          email_subject: Your %{resource_type} is no longer visible
+          notification_title: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.

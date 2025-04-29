@@ -485,7 +485,6 @@ fi:
           withdrawn_at: Ajankohta, jolloin ehdotus peruttiin
     participatory_spaces:
       highlighted_proposals:
-        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki ehdotukset
     proposals:
       actions:

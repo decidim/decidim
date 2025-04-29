@@ -493,7 +493,6 @@ cs:
           withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:

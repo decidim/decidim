@@ -449,7 +449,6 @@ sv:
           user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:

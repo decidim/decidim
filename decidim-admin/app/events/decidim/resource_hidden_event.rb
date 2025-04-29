@@ -6,6 +6,10 @@ module Decidim
 
     i18n_attributes :resource_path, :report_reasons, :resource_type, :resource_content
 
+    def self.types
+      [:email]
+    end
+
     def resource_path
       @resource.reported_content_url
     end

@@ -163,6 +163,7 @@ ja:
         admin:
           census:
             create:
+              error: センサスのインポート中に問題が発生しました。
               success: '%{count} 個のアイテム(%{errors} 個のエラー) を正常にインポートしました。'
             destroy_all:
               success: すべてのセンサスデータが削除されました。
@@ -177,7 +178,13 @@ ja:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
             title: この組織のCSVセンサス認証を有効にする必要があります
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "電子メールデータを含む.csvファイル"
+            info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
+            submit: ファイルをアップロード
+            title: 新しいセンサスをアップロード
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。

@@ -6,6 +6,7 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       attachment:
         documents: Documents
+        image: Imatge
         photos: Fotos
       common:
         created_at: Creat el
@@ -1006,6 +1007,16 @@ ca:
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+          email_outro: Has rebut aquesta notificació perquè és autora del/ de la %{resource_type}.
+          email_subject: El teu/la teva %{resource_type} ja no és visible
+          notification_title: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè s'ha eliminiat un contingut que havies creat.
@@ -1718,8 +1729,12 @@ ca:
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
     reported_mailer:
       hide:
+        content: Contingut reportat
+        details: Detalls
         hello: Hola %{name},
         manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
       report:
