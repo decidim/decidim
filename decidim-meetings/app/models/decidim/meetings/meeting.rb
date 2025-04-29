@@ -318,7 +318,7 @@ module Decidim
       end
 
       def authored_proposals
-        return [] unless Decidim::Meetings.enable_proposal_linking
+        return [] unless Decidim.module_installed?(:proposals)
 
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
