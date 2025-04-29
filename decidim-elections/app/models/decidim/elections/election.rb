@@ -23,6 +23,12 @@ module Decidim
       translatable_fields :title, :description
 
       enum results_availability: [:real_time, :questions_by_questions, :after_end].index_with(&:to_s), _prefix: true
+
+      searchable_fields(
+        A: :title,
+        D: :description,
+        participatory_space: { component: :participatory_space }
+      )
     end
   end
 end

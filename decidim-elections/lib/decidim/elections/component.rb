@@ -10,6 +10,11 @@ Decidim.register_component(:elections) do |component|
 
   component.actions = %w(create update destroy)
 
+  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+    elections = Decidim::Elections::Election.where(component: components).not_hidden
+    elections.count
+  end
+
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :attachments_allowed, type: :boolean, default: false

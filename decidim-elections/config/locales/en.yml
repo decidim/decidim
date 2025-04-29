@@ -15,7 +15,7 @@ en:
         confirm_delete_election: Are you sure you want to delete this election?
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         new: New election
-        title: Elections
+        title: Actions
         view_deleted_elections: View deleted elections
       admin:
         elections:
@@ -46,6 +46,8 @@ en:
             fields:
               title: Title
             title: Elections
+          manage_trash:
+            title: Deleted elections
           new:
             create: Create election
             title: New election

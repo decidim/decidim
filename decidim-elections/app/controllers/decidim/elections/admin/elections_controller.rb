@@ -5,8 +5,8 @@ module Decidim
     module Admin
       class ElectionsController < Admin::ApplicationController
         include Decidim::Admin::HasTrashableResources
-
-        helper Decidim::ApplicationHelper
+        include Decidim::ApplicationHelper
+        include Decidim::Elections::Admin::Filterable
 
         helper_method :elections
 
@@ -65,11 +65,19 @@ module Decidim
         private
 
         def elections
-          @elections ||= Election.where(component: current_component).not_hidden
+          @elections ||= filtered_collection
+        end
+
+        def collection
+          @collection ||= Election.where(component: current_component).not_hidden
         end
 
         def trashable_deleted_resource_type
-          @trashable_deleted_resource_type ||= Election.where(component: current_component).only_deleted.deleted_at_desc
+          :election
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= elections.only_deleted.deleted_at_desc
         end
 
         def trashable_deleted_resource
