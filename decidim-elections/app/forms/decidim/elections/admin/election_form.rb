@@ -14,17 +14,17 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, Decidim::Attributes::RichText
 
-        attribute :start_time, DateTime
-        attribute :end_time, DateTime
+        attribute :start_at, DateTime
+        attribute :end_at, DateTime
         attribute :manual_start, Boolean, default: true
-        attribute :results_availability, :string, default: "after_end"
+        attribute :results_availability, :string, default: "real_time"
         attribute :attachment, AttachmentForm
 
         attachments_attribute :photos
 
         validates :title, presence: true
-        validates :start_time, presence: true, unless: :manual_start?
-        validates :end_time, presence: true, unless: :manual_start?
+        validates :start_at, presence: true, unless: :manual_start?
+        validates :end_at, presence: true, unless: :manual_start?
       end
     end
   end

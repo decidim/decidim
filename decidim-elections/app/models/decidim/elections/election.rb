@@ -21,6 +21,8 @@ module Decidim
       component_manifest_name "elections"
 
       translatable_fields :title, :description
+
+      enum results_availability: [:real_time, :questions_by_questions, :after_end].index_with(&:to_s), _prefix: true
     end
   end
 end

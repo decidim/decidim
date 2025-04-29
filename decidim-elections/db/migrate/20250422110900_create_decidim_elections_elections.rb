@@ -9,7 +9,7 @@ class CreateDecidimElectionsElections < ActiveRecord::Migration[7.0]
       t.jsonb :announcement
       t.timestamp :start_at, index: true
       t.timestamp :end_at, index: true
-      t.integer :results_availability, default: 0, null: false
+      t.string :results_availability, default: "after_end", null: false
       t.integer :census_type, default: 0, null: false
       t.timestamp :published_at, index: true
       t.datetime :deleted_at, index: true
