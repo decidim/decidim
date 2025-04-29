@@ -19,11 +19,6 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # Public Setting that defines whether proposals can be linked to meetings
-    config_accessor :enable_proposal_linking do
-      Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", Decidim.const_defined?("Proposals")).present?
-    end
-
     # Public Setting that defines the interval when the upcoming meeting will be sent
     config_accessor :upcoming_meeting_notification do
       Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
