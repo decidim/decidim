@@ -1531,6 +1531,7 @@ eu:
         title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
       hide:
+        content: Jakinarazitako edukia
         details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
@@ -1570,6 +1571,7 @@ eu:
     search:
       name: Bilatu
       results: Bilatu emaitzak
+      results_found_for_term: '%{count} emaitza bilaketarako: "%{term}"'
       term_input_placeholder: Bilatu
     searches:
       filters:
