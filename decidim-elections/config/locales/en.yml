@@ -28,6 +28,7 @@ en:
             attachments: Attachments
             basic_title: Basic info
             calendar: Calendar
+            calendar_description: Check that the organization time zone is correct in the organization settings. The current configuration is %{timezone}.
             description: Description
             edit_attachments: Edit attachments
             end_at: End time

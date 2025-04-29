@@ -40,15 +40,20 @@
         </h2>
       </button>
       <div id="panel-calendar">
+        <%= cell "decidim/announcement", t("decidim.elections.admin.elections.form.calendar_description",
+                                           timezone: "#{current_organization.time_zone} (#{l(Time.current.in_time_zone(current_organization.time_zone), format: :long)})"
+                                          ), callout_class: "warning" %>
         <div class="row column">
           <%= form.check_box :manual_start, label: t("decidim.elections.admin.elections.form.manual_start") %>
         </div>
         <div class="row column election-fields--time">
-          <div class="column">
-            <%= form.datetime_field :start_at %>
-          </div>
-          <div class="column">
-            <%= form.datetime_field :end_at %>
+          <div class="md:flex w-100">
+            <div class="row column">
+              <%= form.datetime_field :start_at %>
+            </div>
+            <div class="row column">
+              <%= form.datetime_field :end_at %>
+            </div>
           </div>
         </div>
       </div>
