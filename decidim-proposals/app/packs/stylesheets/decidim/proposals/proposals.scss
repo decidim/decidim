@@ -401,6 +401,12 @@
   }
 }
 
+.proposal__aside-vote {
+  button[disabled] {
+    @apply bg-[var(--secondary)] opacity-50 text-white border-current cursor-not-allowed;
+  }
+}
+
 .card__proposals-item {
   & + & {
     @apply mt-6;
