@@ -947,6 +947,16 @@ de:
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des betroffenen %{resource_type}s sind.
+          email_subject: Ihr %{resource_type} ist nicht mehr sichtbar
+          notification_title: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Ein Administrator hat Ihr/e/n %{resource_type} entfernt, weil diese/r/s als %{report_reasons} gemeldet wurde.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor des entfernten Inhalts sind.
@@ -1527,8 +1537,12 @@ de:
         title: QR-Code für %{resource_title}
     reported_mailer:
       hide:
+        content: Gemeldeter Inhalt
+        details: Details
         hello: Hallo %{name},
         manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
         subject: Eine Ressource wurde automatisch ausgeblendet
       report:
@@ -1563,6 +1577,7 @@ de:
     search:
       name: Suchen
       results: Suchergebnisse
+      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
