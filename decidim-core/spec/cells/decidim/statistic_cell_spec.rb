@@ -7,7 +7,7 @@ describe Decidim::StatisticCell, type: :cell do
 
   let(:model) do
     {
-      name: "Proposals",
+      name: "Dummy Resource",
       data: [1234, 5678],
       sub_title: "votes",
       tooltip_key: "proposals_count_tooltip",
@@ -37,7 +37,7 @@ describe Decidim::StatisticCell, type: :cell do
 
   describe "#stat_dom_class" do
     it "returns the stat name" do
-      expect(cell.send(:stat_dom_class)).to eq("Proposals")
+      expect(cell.send(:stat_dom_class)).to eq("Dummy Resource")
     end
   end
 

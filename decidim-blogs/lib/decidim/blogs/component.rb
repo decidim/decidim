@@ -21,6 +21,14 @@ Decidim.register_component(:blogs) do |component|
     Decidim::Blogs::Post.where(component: components).count
   end
 
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, _start_at, _end_at|
+    Decidim::Blogs::Post.where(component: components).count
+  end
+
   component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|

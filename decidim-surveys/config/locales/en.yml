@@ -47,7 +47,6 @@ en:
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     statistics:
-      answers_count: Answers
       responses: 'Responses:'
       responses_count: Responses
       surveys_count_tooltip: The number of available surveys and responses collected.

@@ -30,14 +30,6 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     resource.searchable = true
   end
 
-  participatory_space.register_stat :followers_count,
-                                    tag: :followers,
-                                    icon_name: "user-follow-line",
-                                    tooltip_key: "followers_count_tooltip",
-                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |spaces, _start_at, _end_at|
-    Decidim::Follow.where(followable: spaces).count
-  end
-
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ParticipatoryProcesses::Engine
     context.layout = "layouts/decidim/participatory_process"

@@ -77,6 +77,17 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.stats" do
+        Decidim.stats.register :processes_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "treasure-map-line",
+                               tooltip_key: "processes_count_tooltip" do |organization, start_at, end_at|
+          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
+          processes = processes.where(created_at: start_at..) if start_at.present?
+          processes = processes.where(created_at: ..end_at) if end_at.present?
+          processes.count
+        end
+
         Decidim.stats.register :followers_count,
                                priority: StatsRegistry::MEDIUM_PRIORITY,
                                icon_name: "user-follow-line",
