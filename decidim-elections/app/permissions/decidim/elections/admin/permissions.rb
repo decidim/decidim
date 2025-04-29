@@ -14,6 +14,8 @@ module Decidim
             case permission_action.action
             when :create, :read
               allow!
+            when :update
+              allow! if election&.present?
             end
           end
 

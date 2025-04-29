@@ -16,9 +16,13 @@ en:
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         new: New election
         title: Actions
+        edit: Edit election
         view_deleted_elections: View deleted elections
       admin:
         elections:
+          edit:
+            title: Edit election
+            update: Update election
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
@@ -52,6 +56,9 @@ en:
           new:
             create: Create election
             title: New election
+          update:
+            invalid: There was a problem updating the election.
+            success: Election updated successfully.
       models:
         election:
           fields:
