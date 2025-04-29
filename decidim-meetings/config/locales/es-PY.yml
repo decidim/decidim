@@ -232,6 +232,8 @@ es-PY:
             location: la ubicación
             start_time: la hora de inicio
           notification_title: Se ha actualizado el encuentro <a href="%{resource_path}">%{resource_title}</a> con cambios en %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Se te ha añadido a la lista de espera para la reunión <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
@@ -607,8 +609,11 @@ es-PY:
           attendees: Número de asistentes
           contributions: Número de contribuciones
           join: Inscribirse al encuentro
+          join_waitlist: Apuntarse a la lista de espera
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          leave_waitlist: Abandonar lista de espera
+          leave_waitlist_confirmation: '¿Seguro que quieres abandonar la lista de espera para este encuentro?'
           link_available_soon: Enlace disponible próximamente
           link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
@@ -628,6 +633,9 @@ es-PY:
             one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           visit_finished: Ver encuentro pasado
+          waitlist:
+            description: Si queda alguna plaza libre, se tramitará tu inscripción automáticamente y te lo notificaremos por correo electrónico.
+            status: Estás en la lista de espera
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
           withdraw_meeting: Retirar
@@ -722,6 +730,9 @@ es-PY:
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
+        waitlist:
+          invalid: Se ha producido un error al incorporarte a la lista de espera.
+          success: Te has inscrito correctamente en la lista de espera de la reunión. Si se liberan plazas se te notificará tu inscripción automáticamente.
       type_of_meeting:
         hybrid: Híbrido
         in_person: Presencial

@@ -185,6 +185,8 @@ ro:
             location: locația
             start_time: ora de început
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a fost actualizată cu modificări la %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Ați fost adăugat la lista de așteptare pentru întâlnirea <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
           email_outro: Ai primit această notificare deoarece codul tău de înregistrare pentru întâlnirea „%{resource_title}” a fost validat.
@@ -484,8 +486,11 @@ ro:
           attendees: Numărul participanților
           contributions: Număr de contribuții
           join: Participă la întâlnire
+          join_waitlist: Înscrieți-vă pe lista de așteptare
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
+          leave_waitlist: Retrăgeți-vă de pe lista de așteptare
+          leave_waitlist_confirmation: Sunteți sigur că vreți să părăsiți lista de așteptare pentru această întâlnire?
           link_available_soon: Link disponibil în curând
           link_closed: Link-ul pentru a se alătura întâlnirii va fi disponibil cu câteva minute înainte ca aceasta să înceapă
           live_event: Această întâlnire are loc chiar acum
@@ -505,6 +510,9 @@ ro:
             few: "%{count} sloturi rămase"
             other: "%{count} sloturi rămase"
           visit_finished: Arată întâlniri deja desfășurate
+          waitlist:
+            description: Dacă un loc devine disponibil, vom procesa cererea dvs. automat și vă notificăm prin e-mail.
+            status: Sunteți pe lista de așteptare
           withdraw_btn_hint: Poți să anulezi întâlnirea dacă te răzgândești. Întâlnirea nu va fi ștearsă, ci va apărea în lista de întâlniri anulate.
           withdraw_confirmation_html: Sigur dorești să retragi această întâlnire?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
         update:
@@ -576,6 +584,9 @@ ro:
         destroy:
           invalid: A existat o problemă la părăsirea acestei reuniuni.
           success: Ai părăsit şedinţa cu succes.
+        waitlist:
+          invalid: A apărut o eroare la înscrierea pe lista de așteptare.
+          success: V-ați înscris pe lista de așteptare cu succes. Veți fi notificat dacă înregistrarea dvs. devine eligibilă.
       type_of_meeting:
         hybrid: Hibrid
         in_person: În persoană

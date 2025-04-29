@@ -3,6 +3,8 @@ es-PY:
     attributes:
       authorization:
         verification_attachment: Archivo adjunto de la verificación
+      census_data:
+        file: Archivo
       config:
         available_methods: Metodos disponibles
         offline: Desconectado
