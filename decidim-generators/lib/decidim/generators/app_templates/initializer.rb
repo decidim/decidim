@@ -456,9 +456,6 @@ end
 #     if Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ").present?
 #       config.embeddable_services = Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ")
 #     end
-#     unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-#       config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
-#     end
 #   end
 # end
 
