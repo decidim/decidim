@@ -5,6 +5,7 @@ eu:
         delete_reason: Zure kontua ezabatzeko arrazoia
       attachment:
         documents: Dokumentuak
+        image: Irudia
         photos: Argazkiak
       common:
         created_at: Sortze-data
@@ -26,7 +27,7 @@ eu:
         nickname: Goitizena
         phone: Telefonoa
       import:
-        file:
+        file: Fitxategia
       message:
         body: Testua
       report:
@@ -338,7 +339,7 @@ eu:
         verify: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} txostena"
     admin_terms_of_service:
       default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -721,8 +722,8 @@ eu:
         ready: Prest
       help:
         core:
-          description: Hauek dira %{user_name} parte-hartzaileren datu pertsonalak, ekarpenak eta jarduera dituzten artxiboak
-          title: 'Deskargatu zure datuen artxiboak hemendik: %{organization}'
+          description: Hauek dira %{user_name} parte-hartzaileren datu pertsonalak, ekarpenak eta jarduera dituzten fitxategiak
+          title: 'Deskargatu zure datuen fitxategiak hemendik: %{organization}'
         follows:
           created_at: Zein datatan eta zein ordutan sortu zen jarraipena
           followable: Jarraitzen ari den baliabidea edo espazioa
@@ -757,12 +758,12 @@ eu:
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
         reports:
           created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
-          details: Erreporte honen xehetasunak
-          id: Erreporte honen identifikatzaile bakarra
-          locale: Erreporte honen hizkuntza
-          moderation: Erreporte honek duen moderazioa
-          reason: Erreporte honen arrazoia
-          updated_at: Zein datatan eta zein ordutan eguneratu zen erreporte hau azken aldiz
+          details: Txosten honen xehetasunak
+          id: Txosten honen identifikatzaile bakarra
+          locale: Txosten honen hizkuntza
+          moderation: Txosten honek duen moderazioa
+          reason: Txosten honen arrazoia
+          updated_at: Zein datatan eta zein ordutan eguneratu zen txosten hau azken aldiz
         users:
           about: Erabiltzaile honen biografia
           accepted_tos_version: Zein datatan onartu zituen parte-hartzaileak plataforma honen zerbitzu-baldintzak
@@ -816,13 +817,13 @@ eu:
         explanation:
           body_1: Fitxategi hauek zure jardueratik plataforma honetan esportatutako datuak dira, adibidez, proposamenak edo iruzkinak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak
           body_2: Fitxategi hauek CSV formatuan daude (Comma-Separated Values). Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
-          title: Zer dira artxibo hauek?
-        files_to_download: Deskargatu beharreko artxiboak
+          title: Zer dira fitxategi hauek?
+        files_to_download: Deskargatu beharreko fitxategiak
         request_data: Eskaera
         type: Deskarga mota
     editor_images:
       create:
-        error: Errore bat egon da irudia eguneratzean.
+        error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
@@ -840,7 +841,7 @@ eu:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
-        not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
+        not_inside_organization: Fitxategia ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Errore-mezua arbelean kopiatuta
@@ -941,6 +942,16 @@ eu:
       notification_event:
         notification_title: 'Ekintza bat izan da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
+        parent_hidden:
+          email_intro: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+          email_outro: Jakinarazpen hau jaso duzu eragindako %{resource_type}-ren egilea zarelako.
+          email_subject: Zure %{resource_type} ez da dagoeneko ikusten
+          notification_title: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
@@ -969,7 +980,7 @@ eu:
     export_mailer:
       download_your_data_export:
         click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
-        download: Deskarga
+        download: Deskargatu
       export:
         click_button_html: Zure deskarga prest dago. <br/> fitxategia deskargatu ahal izango da %{date} arte.
         download: Deskargatu
@@ -1024,7 +1035,7 @@ eu:
         error: Errore bat dago datu-eremu honetan.
       file_help:
         file:
-          explanation: 'Jarraibideak artxiborako:'
+          explanation: 'Fitxategirako jarraibideak:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
           message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Zerbitzuak irudia lantzen du.
         icon:
@@ -1037,8 +1048,8 @@ eu:
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
-        max_file_dimension: 'Artxiboaren gehieneko neurriak: %{resolution} pixel'
-        max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
+        max_file_dimension: 'Fitxategiaren gehieneko neurriak: %{resolution} pixel'
+        max_file_size: 'Fitxategiaren gehieneko tamaina: %{megabytes}MB'
       files:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
@@ -1057,10 +1068,10 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Balioztatze-akatsa! Egiaztatu artxiboak luzapen edo tamaina baimendua duela.
+          validation_error: Balioztatze-akatsa! Egiaztatu fitxategiak luzapen edo tamaina baimendua duela.
         select_file: Hautatu fitxategia
       upload_help:
-        dropzone: Bota artxiboak hona edo egin klik igotzeko
+        dropzone: Bota fitxategiak hona edo egin klik igotzeko
         explanation: Gida honetarako %{attribute}
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -1364,7 +1375,7 @@ eu:
           weight: Zein ordenatan erakusten den taxonomia hau
         users:
           about: Parte-hartzailearen testuari buruzkoa
-          avatar_url: Parte-hartzailearen avatarra
+          avatar_url: Parte-hartzailearen abatarra
           badge: Parte-hartzailearen garaikurra
           deleted: Parte-hartzailea ezabatuta dagoen ala ez
           direct_messages_enabled: Parte-hartzaileak mezu zuzenak bidaltzeko aukera ematen duen
@@ -1390,11 +1401,11 @@ eu:
         explanation:
           body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
           body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
-          title: Zer dira artxibo hauek?
+          title: Zer dira fitxategi hauek?
         how_to:
           step_1:
             body_html: Sakatu CSV fitxategiak zure ordenagailura deskargatzeko esteketan.
-            title: 1. Deskargatu artxiboak
+            title: 1. Deskargatu fitxategiak
           step_2:
             body_html: |-
               <ul>
@@ -1402,7 +1413,7 @@ eu:
               <li><b>Testu-editoreak</b>: CSV fitxategiak edozein testu-editoretan ere ireki daitezke, hala nola Notepad edo Sublime Text. Honek datu gordinak erakutsiko ditu, lerro bakoitzak lerro bat eta balio bakoitza koma batez bereizita.</li>
               <li><b>Datuak analizatzeko tresnak</b>:: Datuak analizatzeko tresnak ezagutzen badituzu, hala nola Python (pandekin), R, edo SQL datu-baseak, CSV fitxategi horiek inporta ditzakezu zuzenean tratatzeko eta aztertzeko.</li>
               </ul>
-            title: 2. Ireki artxiboak
+            title: 2. Ireki fitxategiak
           step_3:
             body_html: |-
               <ul>
@@ -1520,8 +1531,11 @@ eu:
         title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
       hide:
+        details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
+        participatory_space: Partaidetza-espazioa
+        reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       report:
@@ -1535,7 +1549,7 @@ eu:
         participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
-        see_report: Ikusi erreportea
+        see_report: Txostena ikusi
         subject: Eduki bat salatua izan da
     reports:
       create:
@@ -1545,6 +1559,8 @@ eu:
         report_details: Baliabide nagusia ezkutatu egin zen
     resource:
       controls_label: Baliabideen kontrolak
+    resource_autocomplete:
+      help: Bilatu beharreko proposamen-mota
     resource_endorsements:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
@@ -1554,7 +1570,6 @@ eu:
     search:
       name: Bilatu
       results: Bilatu emaitzak
-      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Bilatu
     searches:
       filters:
@@ -2054,6 +2069,8 @@ eu:
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
       header:
+        back: Itzuli zerrendara
+        cancel: Utzi
         close: Itxi
         confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
@@ -2131,7 +2148,7 @@ eu:
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
-    hacker_news: hacker News
+    hacker_news: Hacker berriak
     linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone

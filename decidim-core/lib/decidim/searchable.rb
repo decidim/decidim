@@ -31,7 +31,9 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_participatory_space
-      searchable_resources.select { |r| r.constantize.reflect_on_association(:components).present? }
+      searchable_resources
+        .select { |r| r.constantize.reflect_on_association(:organization).present? }
+        .reject { |r| searchable_resources_of_type_participant.keys.include?(r) }
     end
 
     def self.searchable_resources_of_type_component

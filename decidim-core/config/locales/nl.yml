@@ -778,7 +778,6 @@ nl:
       prompt: Selecteer een scope
     search:
       results: Zoek resultaten
-      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:

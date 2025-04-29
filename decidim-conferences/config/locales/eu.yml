@@ -450,7 +450,7 @@ eu:
         decline_invitation:
           invalid: Arazo bat egon da gonbidapena ez onartzean.
           success: Gonbidapena ongi egin du.
-          unauthorized: Gonbidapenari uko egin aurretik hasi behar duzu saioa.
+          unauthorized: Saioa hasi behar duzu gonbidapenari uko egin aurretik.
         destroy:
           invalid: Arazo bat egon da jardunaldi hau uztean.
           success: Jardunaldia behar bezala utzi duzu.
