@@ -87,5 +87,12 @@ module Decidim::Elections
 
       it { is_expected.not_to be_valid }
     end
+
+    describe "when manual_start is true and end_at is missing" do
+      let(:manual_start) { true }
+      let(:end_at) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
   end
 end

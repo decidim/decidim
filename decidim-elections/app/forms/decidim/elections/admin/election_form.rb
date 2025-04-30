@@ -52,9 +52,13 @@ module Decidim
         end
 
         def validate_end_not_in_past_if_manual
-          return unless manual_start? && end_at.present?
+          return unless manual_start?
 
-          errors.add(:end_at, :invalid) if end_at < Time.zone.now
+          if end_at.blank?
+            errors.add(:end_at, :blank)
+          elsif end_at < Time.zone.now
+            errors.add(:end_at, :invalid)
+          end
         end
       end
     end

@@ -22,7 +22,7 @@ module Decidim
                         title: parsed_title,
                         description: parsed_description,
                         start_at: form.manual_start ? nil : form.start_at,
-                        end_at: form.manual_start ? nil : form.end_at,
+                        end_at: form.end_at,
                         results_availability: form.results_availability
                       })
         end

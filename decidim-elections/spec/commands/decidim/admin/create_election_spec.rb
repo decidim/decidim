@@ -63,8 +63,8 @@ module Decidim
 
           it "sets start and end time" do
             subject.call
-            expect(election.start_at.to_i).to eq(start_at.to_i)
-            expect(election.end_at.to_i).to eq(end_at.to_i)
+            expect(election.start_at).to eq(start_at)
+            expect(election.end_at).to eq(end_at)
           end
 
           context "when manual_start is true" do
@@ -73,7 +73,7 @@ module Decidim
             it "does not set times" do
               subject.call
               expect(election.start_at).to be_nil
-              expect(election.end_at).to be_nil
+              expect(election.end_at).to eq(end_at)
             end
           end
 
