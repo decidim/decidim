@@ -663,7 +663,6 @@ lv:
       global: Globālais darbības tvērums
       prompt: Izvēlēties darbības tvērumu
     search:
-      results_found_for_term: '%{count} Meklēšanas rezultāti: "%{term}"'
       term_input_placeholder: Meklēt
     searches:
       filters:

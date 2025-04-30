@@ -5,3 +5,4 @@ sv:
       helpers:
         assembly_g: Samråd G
         assembly_s: Samråd S
+        context_description: Denna cell visar information om en användare. Det är en visuell hjälp för att identifiera resurs/innehållsskaparen.
