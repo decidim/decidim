@@ -75,7 +75,7 @@ eu:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
             title:
-              identical: ETA gorputza ezin da berdina izan
+              identical: ETA testua ezin da berdina izan
         proposals_merge:
           attributes:
             base:
@@ -453,7 +453,7 @@ eu:
           answered_at: Zein datatan erantzun zen proposamen hau
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
-          body: Proposamenaren gorputza
+          body: Proposamenaren testua
           coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
           comments: Proposamen honek duen babes kopurua
           component: Proposamena osagai honen barruan dago
@@ -669,7 +669,7 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
