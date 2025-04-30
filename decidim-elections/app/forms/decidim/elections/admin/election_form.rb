@@ -22,7 +22,8 @@ module Decidim
 
         attachments_attribute :photos
 
-        validates :title, presence: true
+        validates :title, translatable_presence: true
+        validates :description, translatable_presence: true
         validates :start_at, presence: true, unless: :manual_start?
         validates :end_at, presence: true, unless: :manual_start?
       end

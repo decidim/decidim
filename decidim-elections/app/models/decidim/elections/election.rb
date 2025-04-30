@@ -22,6 +22,11 @@ module Decidim
 
       translatable_fields :title, :description
 
+      validates :title, presence: true
+      validates :description, presence: true
+
+      scope :published, -> { where(published_at: ..Time.current) }
+
       enum results_availability: [:real_time, :questions_by_questions, :after_end].index_with(&:to_s), _prefix: true
 
       searchable_fields(
@@ -29,6 +34,10 @@ module Decidim
         D: :description,
         participatory_space: { component: :participatory_space }
       )
+
+      def presenter
+        Decidim::Elections::ElectionPresenter.new(self)
+      end
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter

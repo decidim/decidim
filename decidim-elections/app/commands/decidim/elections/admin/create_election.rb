@@ -6,7 +6,7 @@ module Decidim
       class CreateElection < Decidim::Commands::CreateResource
         include ::Decidim::GalleryMethods
 
-        fetch_form_attributes :component, :title, :description, :start_at, :end_at, :results_availability
+        fetch_form_attributes :title, :description, :start_at, :end_at, :results_availability
 
         protected
 
@@ -14,12 +14,16 @@ module Decidim
 
         def resource_class = Decidim::Elections::Election
 
+        def extra_params
+          { visibility: "all" }
+        end
+
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
 
           super.merge({
-                        component: current_component,
+                        component: form.current_component,
                         title: parsed_title,
                         description: parsed_description,
                         start_at: form.manual_start ? nil : form.start_at,
