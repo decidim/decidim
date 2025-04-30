@@ -43,6 +43,30 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      describe "#manual_start?" do
+        it "returns true when start_at is nil" do
+          election.start_at = nil
+          expect(election.manual_start?).to be true
+        end
+
+        it "returns false when start_at is present" do
+          election.start_at = Time.current
+          expect(election.manual_start?).to be false
+        end
+      end
+
+      describe "#auto_start?" do
+        it "returns true when start_at is present" do
+          election.start_at = Time.current
+          expect(election.auto_start?).to be true
+        end
+
+        it "returns false when start_at is nil" do
+          election.start_at = nil
+          expect(election.auto_start?).to be false
+        end
+      end
     end
   end
 end

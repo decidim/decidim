@@ -17,15 +17,45 @@ module Decidim
         attribute :start_at, DateTime
         attribute :end_at, DateTime
         attribute :manual_start, Boolean, default: true
-        attribute :results_availability, :string, default: "real_time"
+        attribute :results_availability, String, default: "real_time"
         attribute :attachment, AttachmentForm
 
         attachments_attribute :photos
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :start_at, presence: true, unless: :manual_start?
-        validates :end_at, presence: true, unless: :manual_start?
+        validates :results_availability, inclusion: { in: %w(real_time after_end question_by_question) }
+
+        validate :validate_start_at_presence
+        validate :validate_end_at_presence
+        validate :validate_start_before_end
+        validate :validate_end_not_in_past_if_manual
+
+        private
+
+        def validate_start_at_presence
+          return if manual_start?
+
+          errors.add(:start_at, :blank) if start_at.blank?
+        end
+
+        def validate_end_at_presence
+          return if manual_start?
+
+          errors.add(:end_at, :blank) if end_at.blank?
+        end
+
+        def validate_start_before_end
+          return if start_at.blank? || end_at.blank?
+
+          errors.add(:start_at, :invalid) if start_at >= end_at
+        end
+
+        def validate_end_not_in_past_if_manual
+          return unless manual_start? && end_at.present?
+
+          errors.add(:end_at, :invalid) if end_at < Time.zone.now
+        end
       end
     end
   end

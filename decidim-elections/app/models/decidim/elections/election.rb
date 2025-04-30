@@ -42,6 +42,14 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
       end
+
+      def auto_start?
+        start_at.present?
+      end
+
+      def manual_start?
+        !auto_start?
+      end
     end
   end
 end
