@@ -28,6 +28,13 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::Assemblies::AssembliesStatsFollowersCount.for(participatory_space)
   end
 
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsParticipantsCount.for(participatory_space)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"

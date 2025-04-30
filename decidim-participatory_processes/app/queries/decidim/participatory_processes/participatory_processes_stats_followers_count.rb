@@ -22,6 +22,10 @@ module Decidim
                                          participatory_space.participatory_processes
                                        end
       end
+
+      def space_components
+        Decidim::Component.where(participatory_space: participatory_space_items).published
+      end
     end
   end
 end

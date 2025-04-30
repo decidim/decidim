@@ -34,12 +34,8 @@ module Decidim
       end
     end
 
-    def participatory_space_items
-      raise NotImplementedError, "Must be implemented in subclass"
-    end
-
     def space_components
-      @space_components ||= Decidim::Component.where(participatory_space: participatory_space_items).published
+      @space_components ||= Decidim::Component.where(participatory_space:).published
     end
   end
 end
