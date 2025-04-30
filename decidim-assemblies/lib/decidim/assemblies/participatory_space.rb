@@ -21,6 +21,13 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     resource.searchable = true
   end
 
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsFollowersCount.for(participatory_space)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"

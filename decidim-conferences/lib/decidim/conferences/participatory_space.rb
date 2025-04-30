@@ -25,6 +25,13 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     resource.searchable = true
   end
 
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Conferences::ConferencesStatsFollowersCount.for(participatory_space)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Conferences::Engine
     context.layout = "layouts/decidim/conference"

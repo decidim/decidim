@@ -10,7 +10,7 @@ describe Decidim::StatisticCell, type: :cell do
       name: "Dummy Resource",
       data: [1234, 5678],
       sub_title: "votes",
-      tooltip_key: "proposals_count_tooltip",
+      tooltip_key: "dummy_resource_count_tooltip",
       icon_name: "chat-new-line"
     }
   end
@@ -56,9 +56,20 @@ describe Decidim::StatisticCell, type: :cell do
   end
 
   describe "#information_tooltip" do
+    before do
+      I18n.backend.store_translations(:en, {
+                                        decidim: {
+                                          statistics: {
+                                            dummy_resource_count_tooltip: "This is a dummy tooltip"
+                                          }
+                                        }
+                                      })
+    end
+
     it "renders the tooltip if tooltip_key is present" do
-      expect(cell.send(:information_tooltip)).to include("information-line")
-      expect(cell.send(:information_tooltip)).to include(I18n.t("proposals_count_tooltip", scope: "decidim.statistics"))
+      tooltip_html = cell.send(:information_tooltip)
+      expect(tooltip_html).to include("This is a dummy tooltip")
+      expect(tooltip_html).to include("information-line")
     end
 
     context "when tooltip_key is blank" do

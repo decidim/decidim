@@ -127,6 +127,7 @@ module Decidim
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
   autoload :PdfSignatureExample, "decidim/pdf_signature_example"
   autoload :HasWorkflows, "decidim/has_workflows"
+  autoload :StatsFollowersCount, "decidim/stats_followers_count"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"

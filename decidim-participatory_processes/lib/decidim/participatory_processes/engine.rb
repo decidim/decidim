@@ -92,7 +92,7 @@ module Decidim
                                priority: StatsRegistry::MEDIUM_PRIORITY,
                                icon_name: "user-follow-line",
                                tooltip_key: "followers_count_tooltip" do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesStatsFollowersCount.for(participatory_space)
         end
 
         Decidim.stats.register :participants_count,
