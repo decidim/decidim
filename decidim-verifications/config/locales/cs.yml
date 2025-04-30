@@ -177,7 +177,12 @@ cs:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
             title: Musíte aktivovat CSV s kontakty členů organizace
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: ".csv soubor s daty e-mailů"
+            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
+            submit: Nahrát soubor
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.
