@@ -23,20 +23,20 @@ shared_examples_for "copies all questionnaire contents" do
         expect(source_question.description).to eq(new_question.description)
         expect(source_question.max_choices).to eq(new_question.max_choices)
 
-        check_answer_options(source_question, new_question)
+        check_response_options(source_question, new_question)
         check_matrix_rows(source_question, new_question)
         check_display_conditions(source_question.display_conditions, new_question.display_conditions)
         check_display_conditions(source_question.display_conditions_for_other_questions, new_question.display_conditions_for_other_questions)
       end
     end
 
-    def check_answer_options(source_question, new_question)
-      expect(source_question.answer_options.size).to eq(new_question.answer_options.size)
+    def check_response_options(source_question, new_question)
+      expect(source_question.response_options.size).to eq(new_question.response_options.size)
 
-      source_question.answer_options.each_with_index do |source_answer_option, idx|
-        new_answer_option = new_question.answer_options[idx]
+      source_question.response_options.each_with_index do |source_response_option, idx|
+        new_response_option = new_question.response_options[idx]
 
-        expect(source_answer_option.body).to eq(new_answer_option.body)
+        expect(source_response_option.body).to eq(new_response_option.body)
       end
     end
 

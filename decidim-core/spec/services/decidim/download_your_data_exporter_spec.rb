@@ -19,13 +19,12 @@ module Decidim
         decidim-participatoryspaceprivateusers-
         decidim-reports-
         decidim-users-
-        decidim-usergroups-
         decidim-meetings-registrations-
         decidim-meetings-invites-
         decidim-meetings-meetings-
         decidim-proposals-proposals-
         decidim-budgets-orders-
-        decidim-forms-answers-
+        decidim-forms-responses-
         decidim-debates-debates-
         decidim-conferences-conferenceregistrations-
         decidim-conferences-conferenceinvites-
@@ -53,13 +52,6 @@ module Decidim
 
     describe "#readme" do
       describe "the user" do
-        let(:help_definition_string) { "The username of the user" }
-
-        it_behaves_like "a download your data entity"
-      end
-
-      context "when the user has a user group" do
-        let!(:user_group) { create(:user_group, users: [user]) }
         let(:help_definition_string) { "The username of the user" }
 
         it_behaves_like "a download your data entity"

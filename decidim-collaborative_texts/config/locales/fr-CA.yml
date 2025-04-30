@@ -1,6 +1,93 @@
 ---
 fr-CA:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Corps de texte
+          title: Titre
+          version_number: Numéro de version
+        version:
+          body: Corps de texte
+          version_number: Numéro de version
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Êtes-vous sûr(e) de vouloir supprimer ce document ?
+        deleted_document_info: Le document supprimé peut être restauré à partir de la corbeille.
+        edit: Modifier
+        manage: Gérer
+        new: Nouveau texte
+        title: Actions
+        view_deleted_documents: Voir les documents supprimés
+      admin:
+        documents:
+          create:
+            invalid: Un problème est survenu lors de la création du document.
+            success: Document créé avec succès.
+          edit:
+            title: Modifier les textes collaboratifs
+            update: Mettre à jour
+          edit_settings:
+            title: Configurer les textes collaboratifs
+            update: Mettre à jour
+          index:
+            title: Textes collaboratifs
+          manage_trash:
+            title: Documents supprimés
+          new:
+            create: Créer
+            title: Créer des textes collaboratifs
+          publish:
+            invalid: Une erreur s'est produite lors de la publication de ce document.
+            success: Document publié avec succès.
+          unpublish:
+            invalid: Il y a eu un problème lors de la dépublication de ce document.
+            success: Document dépublié avec succès.
+          update:
+            invalid: Un problème est survenu lors de la mise à jour du document.
+            success: Document mis à jour avec succès.
+          update_settings:
+            invalid: Un problème est survenu lors de la mise à jour du document.
+            success: Document mis à jour avec succès.
+        settings:
+          form:
+            allow_suggestions: Autoriser les participants à faire des suggestions
+      admin_log:
+        document:
+          create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le texte collaboratif %{resource_name} de %{space_name}"
+          publish: "%{user_name} a publié le texte collaboratif %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré le texte collaboratif %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le texte collaboratif %{resource_name} en %{space_name} dans la corbeille"
+          unpublish: "%{user_name} a dépublié le texte collaboratif %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le texte collaboratif %{resource_name} dans %{space_name}"
+        version:
+          delete: "%{user_name} a supprimé la version du texte collaboratif %{resource_name} de %{space_name}"
+          update: "%{user_name} a mis à jour la version du texte collaboratif %{resource_name} dans %{space_name}"
+      document:
+        cancel: Annuler
+        save: Envoyer une suggestion
+        suggest: Suggérer des modifications
+      documents:
+        index:
+          count:
+            one: "%{count} texte collaboratif"
+            other: "%{count} textes collaboratifs"
+          empty: Il n'y a pas encore de textes collaboratifs.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Accepter les suggestions
+            title: Titre
     components:
       collaborative_texts:
         name: Textes collaboratifs
+        settings:
+          global:
+            announcement: Message d'annonce
+            comments_blocked: Commentaires bloqués
+          step:
+            announcement: Message d'annonce
+    statistics:
+      collaborative_texts_count: Textes collaboratifs

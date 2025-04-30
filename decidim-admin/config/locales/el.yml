@@ -33,8 +33,6 @@ el:
       help_section:
         content: Περιεχόμενο
       id: Αναγνωριστικό
-      import:
-        user_group_id: Δημιουργία εισαγωγών ως
       newsletter:
         body: Σώμα
         subject: Θέμα
@@ -92,7 +90,6 @@ el:
         tertiary_color: Τριτοβάθμιος
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
-        user_groups_enabled: Ενεργοποίηση ομάδων
         users_registration_mode: Λειτουργία εγγραφής χρηστών
         warning_color: Προειδοποίηση
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
@@ -187,11 +184,9 @@ el:
           new: Νέος ιδιωτικός χρήστης συμμετοχικού χώρου
         per_page: Ανά σελίδα
         permissions: Δικαιώματα
-        reject: Απόρριψη
         share: Κοινοποίηση
         user:
           new: Νέος διαχειριστής
-        verify: Επαλήθευση
       admin_terms_of_service:
         accept:
           success: Τέλεια! Έχετε αποδεχτεί τους όρους παροχής υπηρεσιών διαχειριστή.
@@ -525,11 +520,7 @@ el:
         scopes: Πεδία εφαρμογής
         settings: Ρυθμίσεις
         static_pages: Σελίδες
-        user_groups: Ομάδες
         users: Συμμετέχοντες
-      metrics:
-        metrics:
-          see_more_metrics: Δείτε περισσότερα μετρικά
       models:
         area:
           fields:
@@ -594,16 +585,6 @@ el:
               admin: Διαχειριστής
               user_manager: Διαχειριστής συμμετεχόντων
           name: Συμμετέχων
-        user_group:
-          fields:
-            actions: Ενέργειες
-            created_at: Δημιουργήθηκε στις
-            document_number: Αριθμός εγγράφου
-            name: Όνομα
-            nickname: Ψευδωνυμο
-            phone: Τηλέφωνο
-            state: Κατάσταση
-            users_count: Πλήθος συμμετεχόντων
       moderated_users:
         index:
           actions:
@@ -793,6 +774,8 @@ el:
         create:
           success: Το αρχείο CSV μεταφορτώθηκε με επιτυχία. Στέλνουμε πρόσκληση στους συμμετέχοντες μέσω email. Αυτή η διαδικασία μπορεί να χρειαστεί λίγη ώρα.
         new:
+          csv_upload:
+            title: Αποστολή του αρχείου σας CSV
           example_file: 'Παράδειγμα αρχείου:'
           upload: Αποστολή
       reminders:
@@ -853,7 +836,6 @@ el:
           title: Επεξεργασία θέματος
           update: Ενημέρωση θέματος
         new:
-          create: Δημιουργία θέματος
           title: Νέο θέμα
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του θέματος.
@@ -875,7 +857,6 @@ el:
         index:
           last_notable_change: Τελευταία σημαντική αλλαγή
         new:
-          create: Δημιουργία σελίδας
           title: Νέα σελίδα
         topic:
           empty: Δεν υπάρχουν σελίδες κάτω από αυτό το θέμα.
@@ -891,40 +872,12 @@ el:
         dashboard: Πίνακας εργαλείων
         impersonatable_users: Διαχειρίσιμοι συμμετέχοντες
         impersonations: Διαχείριση συμμετεχόντων
-        metrics: Μετρικά
         panel: Διαχειριστής
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
         statistics: Δραστηριότητα
-        user_groups: Ομάδες
         users: Διαχειριστές
-      user_group:
-        csv_verify:
-          invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
-          success: Το αρχείο CSV ανέβηκε με επιτυχία, επαληθεύουμε τις ομάδες που ταιριάζουν στα κριτήρια. Αυτό μπορεί να διαρκέσει λίγο.
-        reject:
-          invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της ομάδας.
-          success: Η ομάδα απορρίφθηκε με επιτυχία.
-        verify:
-          invalid: Υπήρξε ένα πρόβλημα κατά την επαλήθευση αυτής της ομάδας.
-          success: Η ομάδα επαληθεύτηκε με επιτυχία.
-      user_groups:
-        index:
-          state:
-            pending: Σε εκκρεμότητα
-            rejected: Απορρίφθηκε
-            verified: Επαληθεύτηκε
-          verify_via_csv: Επαλήθευση μέσω CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Παράδειγμα αρχείου:'
-          explanation: Πραγματοποιήστε αποστολή του αρχείου CSV. Πρέπει να έχει τις επίσημες διευθύνσεις email των ομάδων του οργανισμού σας στην πρώτη στήλη του αρχείου, χωρίς κεφαλίδες. Θα επικυρωθούν μόνο οι ομάδες που έχουν επιβεβαιώσει τη διεύθυνση email τους και το email εμφανίζεται στο αρχείο CSV.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Αποστολή του αρχείου σας CSV
-          upload: Αποστολή
       users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση αυτού του διαχειριστή.
@@ -951,16 +904,6 @@ el:
       errors:
         impersonate_user:
           reason: Πρέπει να καταχωρήσετε έναν λόγο κατά τη διαχείριση ενός μη διαχειριζόμενου συμμετέχοντα.
-    metrics:
-      blocked_users:
-        object: αποκλεισμένοι χρήστες
-        title: Αποκλεισμένοι χρήστες
-      reported_users:
-        object: αναφερόμενοι χρήστες
-        title: Αναφερόμενοι χρήστες
-      user_reports:
-        object: αναφορές χρηστών
-        title: Αναφορές χρηστών
     moderations:
       actions:
         expand: Επέκταση

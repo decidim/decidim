@@ -151,6 +151,10 @@
       }
     }
 
+    & > div.success {
+      @apply text-sm text-success;
+    }
+
     [data-author] + [data-author] {
       @apply -ml-4;
     }

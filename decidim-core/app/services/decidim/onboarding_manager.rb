@@ -171,6 +171,10 @@ module Decidim
       EngineRouter.main_proxy(component).root_path
     end
 
+    def authorization_path
+      @authorization_path ||= onboarding_data["authorization_path"].presence
+    end
+
     def expired?
       return unless ephemeral?
 

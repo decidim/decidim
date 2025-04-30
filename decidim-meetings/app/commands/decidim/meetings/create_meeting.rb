@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    # This command is executed when a participant or user group creates a Meeting from the public
+    # This command is executed when a participant creates a Meeting from the public
     # views.
     class CreateMeeting < Decidim::Commands::CreateResource
       fetch_form_attributes :end_time, :start_time, :address, :latitude, :longitude,
@@ -49,7 +49,6 @@ module Decidim
                       location: { I18n.locale => form.location },
                       location_hints: { I18n.locale => form.location_hints },
                       author: form.current_user,
-                      decidim_user_group_id: form.user_group_id,
                       registration_terms: { I18n.locale => form.registration_terms },
                       type_of_meeting: form.clean_type_of_meeting,
                       published_at: Time.current

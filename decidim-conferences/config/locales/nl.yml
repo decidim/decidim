@@ -184,7 +184,6 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-            valuator: Beoordelaar
         media_link:
           fields:
             date: Datum

@@ -275,6 +275,8 @@ ca:
         home_header:
           global_status: Estat d'execució global
         no_results: No hi ha projectes
+        root_taxonomies:
+          title: 'Visualitza per:'
         search:
           search: Cercar actuacions
         show:
@@ -299,6 +301,8 @@ ca:
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            default_taxonomy: Taxonomia predeterminada
+            default_taxonomy_help: Selecciona quina taxonomia vols mostrar per defecte. Si no se selecciona cap taxonomia, els resultats es mostraran en un format de llista.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             display_progress_enabled: Mostrar el progrés
             geocoding_enabled: Mapes habilitats
@@ -308,6 +312,7 @@ ca:
             taxonomy_filters_add: Afegir un filtre
           step:
             comments_blocked: Comentaris bloquejats
+          visualization: Visualització
     download_your_data:
       show:
         result_comments: Exportar els comentaris als resultats
@@ -324,11 +329,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització sobre el progrés de %{resource_title}
           notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
-    metrics:
-      results:
-        description: Nombre de resultats generats
-        object: resultats
-        title: Resultats
     open_data:
       help:
         result_comments:
@@ -342,7 +342,6 @@ ca:
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         results:
           address: La data del resultat (si n'hi ha)
           children_count: El número de resultats fills (imbricats)

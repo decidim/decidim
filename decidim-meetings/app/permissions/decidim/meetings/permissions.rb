@@ -16,10 +16,10 @@ module Decidim
         return permission_action unless user
 
         case permission_action.subject
-        when :answer
+        when :response
           case permission_action.action
           when :create
-            toggle_allow(can_answer_question?)
+            toggle_allow(can_respond_question?)
           end
         when :question
           case permission_action.action
@@ -30,6 +30,8 @@ module Decidim
           case permission_action.action
           when :join
             toggle_allow(can_join_meeting?)
+          when :join_waitlist
+            toggle_allow(can_join_waitlist?)
           when :leave
             toggle_allow(can_leave_meeting?)
           when :decline_invitation
@@ -72,6 +74,13 @@ module Decidim
       def can_join_meeting?
         meeting.can_be_joined_by?(user) &&
           authorized?(:join, resource: meeting)
+      end
+
+      def can_join_waitlist?
+        meeting.waitlist_enabled? &&
+          !meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user) &&
+          authorized?(:join_waitlist, resource: meeting)
       end
 
       def can_leave_meeting?
@@ -141,8 +150,8 @@ module Decidim
           meeting.poll.present?
       end
 
-      def can_answer_question?
-        question.present? && user.present? && !question.answered_by?(user)
+      def can_respond_question?
+        question.present? && user.present? && !question.responded_by?(user)
       end
 
       def can_update_question?

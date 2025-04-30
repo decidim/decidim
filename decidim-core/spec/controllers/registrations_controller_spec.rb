@@ -29,11 +29,6 @@ module Decidim
         }
       end
 
-      def send_form_and_expect_rendering_the_new_template_again
-        post(:create, params:)
-        expect(controller).to render_template "new"
-      end
-
       context "when the user created is active for authentication" do
         before do
           expect_any_instance_of(Decidim::User) # rubocop:disable RSpec/AnyInstance
@@ -53,7 +48,8 @@ module Decidim
         let(:email) { nil }
 
         it "renders the new template" do
-          send_form_and_expect_rendering_the_new_template_again
+          post(:create, params:)
+          expect(controller).to render_template "new"
         end
 
         it "adds the flash message" do
@@ -91,7 +87,8 @@ module Decidim
         end
 
         it "informs the user she must accept the pending invitation" do
-          send_form_and_expect_rendering_the_new_template_again
+          post(:create, params:)
+          expect(controller).to render_template "new"
           expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
       end

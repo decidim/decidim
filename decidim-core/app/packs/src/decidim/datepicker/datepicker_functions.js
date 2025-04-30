@@ -29,12 +29,12 @@ export const formatInputDate = (date, formats) => {
   const month = dateList[1];
   const day = dateList[2];
 
-  if (formats.order === "d-m-y") {
-    return `${day}${formats.separator}${month}${formats.separator}${year}`;
+  if (formats.order === "m-d-y") {
+    return `${month}${formats.separator}${day}${formats.separator}${year}`;
   } else if (formats.order === "y-m-d") {
     return `${year}${formats.separator}${month}${formats.separator}${day}`;
   };
-  return `${month}${formats.separator}${day}${formats.separator}${year}`;
+  return `${day}${formats.separator}${month}${formats.separator}${year}`;
 };
 
 export const formatInputTime = (time, format, input) => {

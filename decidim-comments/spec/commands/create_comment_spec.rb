@@ -57,7 +57,6 @@ module Decidim
                 root_commentable: commentable,
                 body: { en: body },
                 alignment:,
-                decidim_user_group_id: user_group_id,
                 participatory_space: form.current_component.try(:participatory_space) }
             ).and_call_original
 
@@ -73,7 +72,7 @@ module Decidim
           end
 
           it "calls content processors" do
-            parsed_metadata = { user: double(users: []), user_group: double(groups: []) }
+            parsed_metadata = { user: double(users: []) }
             parser = instance_double(Decidim::ContentParsers::BaseParser, rewrite: "whatever", metadata: parsed_metadata)
             allow(Decidim::ContentProcessor).to receive(:parse).with(
               form.body,
@@ -89,7 +88,7 @@ module Decidim
 
             allow(NewCommentNotificationCreator)
               .to receive(:new)
-              .with(kind_of(Comment), [], [])
+              .with(kind_of(Comment), [])
               .and_return(creator_double)
 
             expect(creator_double)
@@ -127,7 +126,6 @@ module Decidim
                   root_commentable: commentable,
                   body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
                   alignment:,
-                  decidim_user_group_id: user_group_id,
                   participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
 
@@ -141,43 +139,7 @@ module Decidim
 
               allow(NewCommentNotificationCreator)
                 .to receive(:new)
-                .with(kind_of(Comment), [mentioned_user], [])
-                .and_return(creator_double)
-
-              expect(creator_double)
-                .to receive(:create)
-
-              command.call
-            end
-          end
-
-          context "and comment contains a group mention" do
-            let(:mentioned_group) { create(:user_group, organization:) }
-            let(:parser_context) { { current_organization: organization } }
-            let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_group.nickname}" }
-
-            it "creates a new comment with user_group mention replaced" do
-              expect(Comment).to receive(:create!).with(
-                { author:,
-                  commentable:,
-                  root_commentable: commentable,
-                  body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                  alignment:,
-                  decidim_user_group_id: user_group_id,
-                  participatory_space: form.current_component.try(:participatory_space) }
-              ).and_call_original
-
-              expect do
-                command.call
-              end.to change(Comment, :count).by(1)
-            end
-
-            it "sends the notifications" do
-              creator_double = instance_double(NewCommentNotificationCreator, create: true)
-
-              allow(NewCommentNotificationCreator)
-                .to receive(:new)
-                .with(kind_of(Comment), [], [mentioned_group])
+                .with(kind_of(Comment), [mentioned_user])
                 .and_return(creator_double)
 
               expect(creator_double)

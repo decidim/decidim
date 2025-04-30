@@ -9,7 +9,7 @@ describe Decidim::OpenDataExporter do
 
   let(:resource_file_name) { "initiatives" }
   let!(:resource) { create(:initiative, :open, organization:) }
-  let(:resource_title) { "## initiatives" }
+  let(:resource_title) { "## initiatives (1 resource)" }
   let(:help_lines) do
     [
       "reference: The unique reference of the space"

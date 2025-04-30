@@ -9,6 +9,17 @@ describe "Profile" do
     switch_to_host(user.organization.host)
   end
 
+  context "when has casing in the nickname" do
+    before do
+      switch_to_host(user.organization.host)
+      visit decidim.profile_path(user.nickname.upcase)
+    end
+
+    it "downcases the path" do
+      expect(page).to have_current_path(decidim.profile_activity_path(user.nickname.downcase))
+    end
+  end
+
   context "when navigating privately" do
     before do
       login_as user, scope: :user
@@ -127,14 +138,12 @@ describe "Profile" do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
-      let(:user_group) { create(:user_group, organization: user.organization) }
       let(:public_resource) { create(:dummy_resource, :published) }
 
       before do
         create(:follow, user:, followable: other_user)
         create(:follow, user:, followable: user_to_follow)
         create(:follow, user: other_user, followable: user)
-        create(:follow, user:, followable: user_group)
         create(:follow, user:, followable: public_resource)
       end
 
@@ -142,7 +151,7 @@ describe "Profile" do
         visit decidim.profile_path(user.nickname)
         within(".profile__details") do
           expect(page).to have_content("1 follower")
-          expect(page).to have_content("3 follows")
+          expect(page).to have_content("2 follows")
         end
       end
 
@@ -161,7 +170,6 @@ describe "Profile" do
         expect(page).to have_no_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
         expect(page).to have_content(translated(user_to_follow.name))
-        expect(page).to have_content(translated(user_group.name))
         expect(page).to have_no_content(translated(public_resource.title))
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
@@ -176,14 +184,13 @@ describe "Profile" do
         it "lists only the public followings" do
           visit decidim.profile_path(user.nickname)
           within(".profile__details") do
-            expect(page).to have_content("4 follows")
+            expect(page).to have_content("3 follows")
           end
 
           click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_content(translated(user_group.name))
           expect(page).to have_no_content(translated(public_resource.title))
           expect(page).to have_no_content(translated(non_public_resource.name))
         end
@@ -203,7 +210,6 @@ describe "Profile" do
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_content(translated(user_group.name))
           expect(page).to have_no_content(translated(public_resource.title))
         end
       end
@@ -247,31 +253,6 @@ describe "Profile" do
         it "shows a badges tab" do
           expect(page).to have_no_link("Badges")
         end
-      end
-    end
-
-    context "when belonging to user groups" do
-      let!(:accepted_user_group) { create(:user_group, users: [user], organization: user.organization) }
-      let!(:pending_user_group) { create(:user_group, users: [], organization: user.organization) }
-      let!(:pending_membership) { create(:user_group_membership, user_group: pending_user_group, user:, role: "requested") }
-
-      before do
-        visit decidim.profile_path(user.nickname)
-      end
-
-      it "lists the user groups" do
-        click_on "Groups"
-
-        expect(page).to have_content(accepted_user_group.name)
-        expect(page).to have_no_content(pending_user_group.name)
-        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
-      end
-
-      context "when user groups are disabled" do
-        let(:organization) { create(:organization, user_groups_enabled: false) }
-        let(:user) { create(:user, :confirmed, organization:) }
-
-        it { is_expected.to have_no_content("Groups") }
       end
     end
   end

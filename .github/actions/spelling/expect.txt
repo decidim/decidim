@@ -143,6 +143,7 @@ codeclimate
 codecov
 codefor
 CODEOWNERS
+codeql
 coditramuntana
 commentables
 commentaire
@@ -600,6 +601,8 @@ newwindow
 ngrams
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
@@ -824,7 +827,6 @@ sgid
 shakapacker
 sharedapp
 shellwords
-shortanswer
 shs
 sidekiq
 signedby
@@ -841,6 +843,7 @@ Smileys
 Snowlvhme
 Snoworg
 softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -998,7 +1001,6 @@ Uusimaa
 Valero
 validable
 valids
-valuatable
 valueline
 Valuetypes
 VCALENDAR
@@ -1066,3 +1068,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

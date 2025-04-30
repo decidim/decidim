@@ -3,6 +3,8 @@
 module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
+
       def permissions
         return permission_action if managed_user_action?
 
@@ -31,10 +33,11 @@ module Decidim
 
         apply_global_moderations_permission_for_admin!
 
+        can_use_image_editor?
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
-          allow! if read_metrics_action?
           allow! if static_page_action?
           allow! if templates_action?
           allow! if organization_action?
@@ -49,7 +52,6 @@ module Decidim
           allow! if permission_action.subject == :scope_type
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
-          allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
@@ -142,11 +144,6 @@ module Decidim
 
       def read_user_statistics_action?
         permission_action.subject == :users_statistics &&
-          permission_action.action == :read
-      end
-
-      def read_metrics_action?
-        permission_action.subject == :metrics &&
           permission_action.action == :read
       end
 
@@ -283,6 +280,10 @@ module Decidim
 
       def component
         context.fetch(:component, nil)
+      end
+
+      def can_use_image_editor?
+        allow! if permission_action.subject == :editor_image && user_has_any_role?(user, nil, broad_check: true)
       end
     end
   end

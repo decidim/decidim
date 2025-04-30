@@ -36,7 +36,7 @@ module Decidim
         [
           Decidim::ContentRenderers::HashtagRenderer,
           Decidim::ContentRenderers::UserRenderer,
-          Decidim::ContentRenderers::UserGroupRenderer
+          Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|
           renderer = renderer_class.new(content)
           content = renderer.render(links: false, editor: true, extras:).html_safe

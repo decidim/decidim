@@ -1,27 +1,12 @@
 pl:
   activemodel:
     attributes:
-      answer:
-        body: Odpowiedź
-        choices: Opcje
-        selected_choices: Wybrane opcje
       question:
         max_choices: Maksymalna liczba opcji do wyboru
         question_type: Typ odpowiedzi
       questionnaire_question:
         mandatory: Odpowiedź wymagana
         max_characters: Limit znaków (zostaw 0, jeśli nie chcesz ustawiać limitu)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Załącz ponownie
-            body:
-              too_long: jest zbyt długie
-            choices:
-              missing: nie są kompletne
-              too_many: Możesz wybrać maksymalnie %{count}.
   decidim:
     forms:
       admin:
@@ -32,45 +17,18 @@ pl:
         questionnaires:
           actions:
             back: Powrót do pytań
-            show: Pokaż odpowiedzi
-          answer_option:
-            answer_option: Opcja odpowiedzi
-            free_text: Możliwość wpisania dowolnego tekstu
-            remove: Usuń
-            statement: Komunikat
-          answers:
-            actions:
-              back: Powrót do odpowiedzi
-              export: Eksportuj
-              next: Następne &rsaquo;
-              previous: "&lsaquo; Poprzedni"
-              show: Pokaż odpowiedzi
-            empty: Brak odpowiedzi
-            export:
-              answer:
-                title: 'Odpowiedź #%{number}'
-            export_response:
-              title: ankieta_odpowiedzi_uzytkownika_%{token}
-            index:
-              title: "%{total} odpowiedzi ogółem"
-            show:
-              title: 'Odpowiedź #%{number}'
           display_condition:
-            answer_option: Opcja odpowiedzi
             condition_question: Pytanie
             condition_type: Warunek
             condition_types:
-              answered: Odpowiedziano
               equal: Równy
               match: Zawiera tekst
-              not_answered: Nie odpowiedziano
               not_equal: Nie jest równe
             condition_value: Zawiera tekst
             display_condition: Warunek wyświetlania
             mandatory: Ten warunek musi być zawsze spełniony niezależnie od statusu innych warunków
             remove: Usuń
             save_warning: Pamiętaj, aby zapisać formularz przed skonfigurowaniem warunków wyświetlania
-            select_answer_option: Wybierz opcję odpowiedzi
             select_condition_question: Wybierz pytanie
             select_condition_type: Wybierz typ warunku
           edit:
@@ -87,7 +45,6 @@ pl:
             remove: Usuń
             statement: Komunikat
           question:
-            add_answer_option: Dodaj opcję odpowiedzi
             add_display_condition: Dodaj warunek wyświetlania
             add_display_condition_info: Zapisz formularz, aby skonfigurować warunki wyświetlania
             add_matrix_row: Dodaj wiersz
@@ -100,6 +57,9 @@ pl:
             remove: Usuń
             statement: Komunikat
             up: W górę
+          responses:
+            actions:
+              show: Pokaż odpowiedzi
           separator:
             down: Na dół
             remove: Usuń
@@ -120,9 +80,6 @@ pl:
       admin_log:
         questionnaire:
           update: "%{user_name} zaktualizował(a) kwestionariusz %{resource_name}"
-      errors:
-        answer:
-          body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
         processors:
@@ -130,38 +87,20 @@ pl:
           resize_to_fit: Rozmiar obrazu zostanie zmieniony i dopasowany do wymiarów %{dimensions}.
       question_types:
         files: Pliki
-        long_answer: Długa odpowiedź
         matrix_multiple: Macierz (wiele opcji)
         matrix_single: Macierz (jedna opcja)
         multiple_option: Wiele opcji
-        short_answer: Krótka odpowiedź
         single_option: Jedna opcja
         sorting: Sortowanie
         title_and_description: Tytuł i opis
-      questionnaire_answer_presenter:
-        download_attachment: Pobierz załącznik
       questionnaires:
-        answer:
-          invalid: Podczas wypełniania formularza wystąpiły błędy.
-          max_choices_alert: Wybrano zbyt wiele opcji
-          success: Wypełniono formularz.
         question:
           max_choices: 'Maksymalny wybór opcji: %{n}'
         show:
-          answer_questionnaire:
-            already_have_an_account?: Posiadasz już konto?
-            are_you_new?: Nowy użytkownik?
-            sign_in_description: Zaloguj się, aby wziąć udział w ankiecie
-            sign_up_description: Utwórz konto uczestnika, aby wziąć udział w ankiecie
-            title: Wypełnij formularz
           current_step: Krok %{step}
           empty: Nie skonfigurowano jeszcze żadnych pytań dla tego formularza.
           of_total_steps: z %{total_steps}
-          questionnaire_answered:
-            body: Już wypełniłeś/łaś ten formularz.
-            title: Już odpowiedziano
           questionnaire_closed:
-            body: Formularz jest zamknięty i nie można udzielić na niego odpowiedzi.
             title: Formularz został zamknięty
           questionnaire_for_private_users:
             body: Formularz jest dostępny tylko dla użytkowników prywatnych
@@ -177,14 +116,3 @@ pl:
           back: Wróć
           continue: Dalej
           submit: Zatwierdź
-      user_answers_serializer:
-        body: Odpowiedź
-        completion: Ukończenie
-        created_at: Odpowiedziałem
-        id: ID odpowiedzi
-        ip_hash: Hash IP
-        question: Pytanie
-        registered: Zarejestrowano
-        session_token: Identyfikator użytkownika
-        unregistered: Nie zarejestrowano
-        user_status: Status użytkownika

@@ -2,7 +2,6 @@ sk:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Popis
         offline_votes: Podpora tvárou v tvár
         scope_id: Rozsah
@@ -21,7 +20,6 @@ sk:
         banner_image: Obrázok banneru
         collect_user_extra_fields: Zbierajte osobné údaje užívateľov podpisom
         description: Popis
-        document_number_authorization_handler: Povolenie overiť číslo dokumentu na hlasovaní
         extra_fields_legal_information: Právne informácie o zbere osobných údajov
         minimum_committee_members: Minimálny počet členov výboru
         online_signature_enabled: Online podpis povolený
@@ -171,7 +169,6 @@ sk:
           send_to_technical_validation: "% {USER_NAME} zaslala% {resource_name} iniciatívu k technickému overenie"
           update: "% {USER_NAME} aktualizoval iniciatívu% {resource_name}"
       admin_states:
-        created: Vytvorené
         discarded: Odstránená
       application_helper:
         filter_state_values:
@@ -187,27 +184,17 @@ sk:
           name: Významné iniciatívy
       create_initiative:
         fill_data:
-          back: Späť
           continue: Pokračovať
-          more_information: "(Viac informácií)"
           select_scope: Zvoľte rozsah
         finish:
           back: Späť
-          back_to_initiatives: Späť na iniciatívy
-          go_to_my_initiatives: Ísť na mojej iniciatívy
-          more_information: "(Viac informácií)"
         previous_form:
           back: Späť
-          continue: Pokračovať
-        promotal_committee:
-          more_information: "(Viac informácií)"
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
           more_information: (Viac informácií)
           select: Chcem túto iniciatívu podporiť
-        share_committee_link:
-          invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
       events:
         create_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
@@ -220,20 +207,11 @@ sk:
           email_subject: Iniciatíva bola schválená od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Pokračovať
         finish:
           back_to_initiative: Späť na iniciatívu
-        sms_code:
-          continue: Skontrolujte kód a pokračujte
-          help: Skontrolujte SMS prijaté v telefóne
-        sms_phone_number:
-          continue: Pošlite mi SMS
       initiative_votes:
         create:
           error: Pri podpise iniciatívy došlo k chybám.
-        personal_data:
-          invalid: Osobné údaje nie sú v súlade s údajmi poskytnutými na autorizáciu.
         sms_phone:
           invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontrolujte prosím vaše oprávnenie.
       initiatives:
@@ -310,20 +288,11 @@ sk:
       initiatives_type:
         actions:
           title: Akcia
-          vote: Hlasovanie
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Vytvoriť
-        finish: Dokončiť
-        promotal_committee: Výbor predkladateľov
         select_initiative_type: Vybrať
-      initiative_signature_creation_header:
-        fill_personal_data: Dokončiť svoje údaje
-        finish: Dokončiť
-        sms_code: Overenie kódu SMS
-        sms_phone_number: Číslo mobilného telefónu
-        title: Podpísať%{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Zatiaľ žiadne iniciatívy!

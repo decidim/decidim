@@ -40,12 +40,12 @@ module Decidim
         "step-#{current_step_index}"
       end
 
-      def allow_editing_answers?
-        options[:allow_editing_answers]
+      def allow_editing_responses?
+        options[:allow_editing_responses]
       end
 
       def confirm_data
-        return {} if allow_editing_answers? && current_user
+        return {} if allow_editing_responses? && current_user
 
         {
           data: {

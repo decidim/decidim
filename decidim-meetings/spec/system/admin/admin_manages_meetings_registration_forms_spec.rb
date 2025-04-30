@@ -32,7 +32,7 @@ describe "Admin manages meetings registration forms" do
     component.update!(
       step_settings: {
         component.participatory_space.active_step.id => {
-          allow_answers: true
+          allow_responses: true
         }
       }
     )

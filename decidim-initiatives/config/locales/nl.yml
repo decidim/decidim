@@ -2,7 +2,6 @@ nl:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Auteur
         description: Beschrijving
         offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
@@ -24,7 +23,6 @@ nl:
         collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
         custom_signature_end_date_enabled: Sta auteurs toe het einde van de handtekeningperiode te kiezen
         description: Beschrijving
-        document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
@@ -225,7 +223,6 @@ nl:
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
         accepted: Genoeg handtekeningen
-        created: gemaakt
         discarded: Afgedankte
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
@@ -253,31 +250,19 @@ nl:
           name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
-          back: Terug
           continue: Doorgaan met
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is de titel begrijpelijk? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief?</li> </ul>"
-          more_information: "(Meer informatie)"
           select_area: Selecteer een gebied
           select_scope: Selecteer een scope
         finish:
           back: Terug
-          back_to_initiatives: Terug naar initiatieven
-          edit_my_initiative: Mijn initiatieven bewerken
-          go_to_my_initiatives: Ga naar mijn initiatieven
-          more_information: "(Meer informatie)"
-          send_my_initiative: Stuur mijn initiatief naar technische validatie
         previous_form:
           back: Terug
-          continue: Doorgaan met
-        promotal_committee:
-          more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
           choose_html: Ik wil een <strong>%{title}</strong> aanmaken
           more_information: (Meer informatie)
           select: Ik wil dit initiatief promoten
-        share_committee_link:
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van het promotiecomité %{resource_title} aanvaard."
@@ -303,20 +288,11 @@ nl:
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Doorgaan met
         finish:
           back_to_initiative: Terug naar initiatief
-        sms_code:
-          continue: Controleer de code en ga verder
-          help: Controleer de sms die je op je telefoon hebt ontvangen
-        sms_phone_number:
-          continue: Stuur me een sms
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-        personal_data:
-          invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_phone:
           invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
@@ -386,7 +362,6 @@ nl:
       show:
         badge_name:
           accepted: Genoeg handtekeningen
-          created: Aangemaakt
           discarded: Verwijderd
           rejected: Niet genoeg handtekeningen
           validating: Technische validatie
@@ -403,20 +378,11 @@ nl:
       initiatives_type:
         actions:
           title: acties
-          vote: Onderteken
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: creëren
-        finish: Voltooien
-        promotal_committee: Promotieraad
         select_initiative_type: Kiezen
-      initiative_signature_creation_header:
-        fill_personal_data: Vul uw gegevens in
-        finish: Voltooien
-        sms_code: Verificatie van sms-codes
-        sms_phone_number: Mobiele telefoonnummer
-        title: Teken %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nog geen initiatieven!

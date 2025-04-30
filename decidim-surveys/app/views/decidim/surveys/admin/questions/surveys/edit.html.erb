@@ -2,10 +2,14 @@
 
 <% if templates_defined? && choose_template? %>
   <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
-    <%# No button %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs h-8 disabled", disabled: true, data: { disabled_button: true } %>
+
+    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "button button__sm button__secondary h-8 hidden", data: { create_new_form_button: true }, method: :post %>
+
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs button__secondary h-8 hidden", data: { with_template_button: true }, form: "choose-template-form" %>
   <% end %>
 
-  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t(".title") } %>
+  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t(".title"), show_buttons: false } %>
 <% else %>
   <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
     <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__xs button__secondary h-8", form: "survey-form" %>

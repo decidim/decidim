@@ -6,7 +6,6 @@ ca:
         answer_url: URL de la resposta
         area_id: Àrea
         decidim_scope_id: Àmbit
-        decidim_user_group_id: Autoria
         description: Descripció
         hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
@@ -35,7 +34,7 @@ ca:
         comments_enabled: Habilitar comentaris
         custom_signature_end_date_enabled: Permet a les autores triar la fi del període de recollida de signatures
         description: Descripció
-        document_number_authorization_handler: Autorització per verificar el número de document en les signatures
+        document_number_authorization_handler: Procés per a signar
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Nombre mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura digital
@@ -89,7 +88,7 @@ ca:
             label: Estat
             values:
               accepted: Ha aconseguit les signatures
-              created: Creada
+              created: Esborrany creat
               discarded: Descartada
               open: Oberta
               rejected: No ha aconseguit les signatures
@@ -319,10 +318,10 @@ ca:
           edit:
             update: Actualitza
           form:
-            authorizations: Configuració de l'autorització
             child_scope_threshold_enabled_help_html: 'Aquest ajust de configuració no admet les votacions sense connexió. Aquest habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> documentació sobre l''administració d''iniciatives</a>.'
             only_global_scope_enabled_help_html: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentació sobre l'administració d'iniciatives</a>.
             options: Opcions
+            signature_workflow_settings: Configuració del procés per a signar
           initiative_type_scopes:
             title: Àmbits del tipus d'iniciativa
           new:
@@ -345,7 +344,7 @@ ca:
           update: "%{user_name} ha actualitzat el tipus d'iniciativa %{resource_name}"
       admin_states:
         accepted: Ha aconseguit les signatures necessàries
-        created: Creada
+        created: Esborrany creat
         discarded: Rebutjada
         open: Oberta
         rejected: No ha aconseguit les signatures necessàries
@@ -374,40 +373,55 @@ ca:
         highlighted_initiatives:
           name: Iniciatives destacades
       create_initiative:
+        committee_member:
+          approve: Aprovar
+          confirm_approve: Segur que vols aprovar aquest membre?
+          confirm_revoke: Segur que vols revocar aquest membre?
+          revoke: Revocar
         fill_data:
-          back: Torna
+          confirm_discard: Segur que vols descartar aquesta iniciativa?
           continue: Continua
+          discard: Descartar la iniciativa
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          more_information: "(Més informació)"
+          more_information: Més informació
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
         finish:
           back: Torna
-          back_to_initiatives: Torna a iniciatives
-          callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
-          edit_my_initiative: Editar la meva iniciativa
-          go_to_my_initiatives: Ves a les meves iniciatives
-          more_information: "(Més informació)"
-          send_my_initiative: Enviar la meva iniciativa a validació tècnica
-        finish_help:
-          publish_helper_text: Recorda que per publicar la teva iniciativa has de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
+          callout_text_created: Enhorabona! La teva iniciativa s'ha creat correctament.
+          callout_text_validating: La iniciativa s'ha enviat correctament a validació tècnica.
+          go_to_initiatives: Ves a iniciatives
+          publish_helper_text_html: Recorda que perquè la teva iniciativa sigui publicada aquesta ha de ser enviada a validació tècnica per revisar-la una administradora.
         previous_form:
           back: Torna
-          continue: Continua
         promotal_committee:
-          individual_help_text: Aquest tipus d'iniciativa requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els teus contactes rebin aquest enllaç, hauran de seguir els passos indicats.
-          more_information: "(Més informació)"
+          individual_help_text: La teva iniciativa ha estat creada i guardada com a esborrany. Ara cal afegir gent a la Comissió Promotora.
+          invite_link_title: Enllaç per convidar gent a formar part de la Comissió Promotora
+          promoters_committee_help_2: Recorda que per poder publicar la teva iniciativa cal completar la informació requerida i enviar-la a validació tècnica perquè sigui revisada per una administradora.
+          promoters_committee_help_html: Abans d'enviar la teva iniciativa de validació tècnica, necessites afegir al Comissió Promotora a %{committee_members_left} persones més. Actualment hi ha <strong>%{committee_members_count}/%{committee_size}</strong> a la comissió.
+          promoters_committee_title: Comissió Promotora
+        return_to_initiatives_button:
+          return_initiatives_html: Ometre ara i <a href="%{initiatives path}">tornar a les iniciatives</a>
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
+          consult_existing_initiatives: Consultar les iniciatives existents
+          continue: Continuar
           more_information: (Més informació)
           new: Crea una nova iniciativa
           select: Vull promoure aquesta iniciativa
-          select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
+          select_initiative_type_help_html: "<p>Les iniciatives ciutadanes són un mitjà a través del qual les participants poden sol·licitar que l'organització, dins de les seves competències, adopti mesures en defensa de l'interès general. Quina iniciativa vols engegar?</p>"
+          show_less: Mostra menys
+          show_more: Mostra'n més
+          subtitle: Quin tipus d'iniciativa vols promoure?
           verification_required: Verifica el teu compte per a impulsar la iniciativa
+        send_to_technical_validation_button:
+          button: Enviar a validació tècnica
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui si s'escau. Un cop publicada no la podràs editar. N'estàs segura?
         share_committee_link:
-          invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
+          invite_to_committee_help: Enllaç per convidar altres persones perquè formin part de la Comissió Promotora.
+          invite_to_committee_help_2: Aquest tipus d'iniciativa ciutadana requereix una Comissió Promotora formada per com a mínim %{committee_size} persones. Comparteix el següent enllaç amb altres persones perquè formin part de la comissió. Quan aquestes persones rebin aquest enllaç, hauran de seguir els passos indicats.
+          more_information: Més informació
       edit:
         accept: Accepta la iniciativa
         back: Tornar
@@ -454,24 +468,46 @@ ca:
       index:
         uninitialized: Les iniciatives no han estat configurades encara des de l'administració.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Data de naixement
+              document_number:
+                placeholder: Número de document
+              document_type:
+                prompt: Tipus de document
+              document_type_and_number:
+                help_text: El número de document correspon al document utilitzat en la verificació del cens.
+                label: Tipus i número de document
+              gender:
+                options:
+                  man: Home
+                  non_binary: No binari
+                  woman: Dona
         fill_personal_data:
-          continue: Continua
+          continue: Valida les teves dades
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa.
+          invalid_authorization: Les dades proporcionades per procedir amb l'acció no són compatibles amb les autoritzacions existents o has d'obtenir una nova autorització.
+          invalid_data: Alguna de les dades personals proporcionades per verificar la vostra identitat no són vàlides.
         finish:
           back_to_initiative: Torna a la iniciativa
-        sms_code:
-          continue: Comprova el codi i continua
-          help: Consulta el SMS rebut al teu mòbil
+          title: Has signat la iniciativa
         sms_phone_number:
-          continue: Envia'm un SMS
-          help: Omple el formulari amb el teu número de telèfon mòbil verificat per sol·licitar el teu codi de verificació.
+          confirmed_data: Has confirmat les teves dades.
+          continue: Signar la iniciativa
+          help_enter_your_number: Si us plau, introdueix el teu número de telèfon. Rebràs un SMS amb un codi de validació.
+          receive_code: Rebre codi
+          resend_code_html: No has rebut el codi? <a href="%{new_code_path}">Torna-ho a provar</a>
+          your_code_is_correct: El teu codi és correcte.
+          your_code_is_incorrect: El codi no és correcte. Revisa'l o <a href="%{new_code_path}">torna-ho a provar</a>.
+          your_confirmation_code: El teu codi de confirmació
       initiative_votes:
         create:
+          already_voted: La teva signatura ja ha estat registrada amb les teves dades.
           error: S'ha produït un error en signar la iniciativa.
           invalid: Les dades proporcionades per signar la iniciativa no són vàlides.
           success_html: Enhorabona! Has signat la iniciativa <strong> %{title}</strong> correctament.
-        personal_data:
-          invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
           invalid: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
         sms_phone:
@@ -519,6 +555,8 @@ ca:
           random: Aleatori
           recent: Més recents
           recently_published: Publicada més recentment
+        pending_initiatives:
+          title: Esborranys i iniciatives pendents
         print:
           address: Adreça
           author_title: Autora de la iniciativa
@@ -591,11 +629,28 @@ ca:
       show:
         badge_name:
           accepted: Amb les signatures necessàries
-          created: Creada
+          created: Esborrany creat
           discarded: Descartada
           open: Obertes
           rejected: No ha aconseguit les signatures
           validating: Validació tècnica
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: La signatura recull la informació personal de la usuària, valida l'autorització i comprova el codi SMS
+            name: Gestor de signatures simulat
+          dummy_signature_with_personal_data_handler:
+            description: La signatura només recull informació personal de la usuària i la valida
+            name: Gestor simulat de signatura amb dades personals
+          dummy_signature_with_sms_handler:
+            description: La firma només revisa el número de telèfon validant-lo amb una autorització existent i revisa el codi SMS
+            name: Gestor simulat de signatura només amb SMS
+          ephemeral_dummy_signature_handler:
+            description: Firma efímera que reconeix la informació personal de l'usuari, valida l'autorització i comprova el codi SMS
+            name: Gestor simulat de signatura efímera
+          legacy_signature_handler:
+            description: Gestor de signatures basat en les característiques antigues de signatura, incloent-hi dades personals, el pas d'SMS i la validació de l'autorització amb dummy_authorization_handler. Modifica qualsevol paràmetre per apartar-lo a la configuració definida
+            name: Gestor heretat de signatures
       states:
         accepted: Acceptada
         expired: Vençuda
@@ -642,20 +697,16 @@ ca:
         actions:
           create: Crear una iniciativa
           title: Accions
-          vote: Signar
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Acabar
-        promotal_committee: Comissió Promotora
+        finish: Validació tècnica
+        promotal_committee: Buscar promotores
         select_initiative_type: Tria
       initiative_signature_creation_header:
-        fill_personal_data: Completa les teves dades
-        finish: Finalitzar
-        sms_code: Verificació per codi SMS
-        sms_phone_number: Número de telèfon mòbil
-        title: Signa %{initiative_title}
+        help_information_html: Per signar la iniciativa <strong>%{initiative_title}</strong> promoguda per %{initiative_author} cal que facilitis certa informació per tal que la teva signatura sigui legalment vinculant. No es farà pública cap de les teves dades.
+        verify_your_identity: Verifica la teva identitat
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Encara no hi ha iniciatives!

@@ -5,7 +5,6 @@ de:
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/comment_upvoted_event: Kommentar positiv bewertet
       decidim/comments/reply_created_event: Kommentarantwort
-      decidim/comments/user_group_mentioned_event: Erwähnen
       decidim/comments/user_mentioned_event: Erwähnen
   activerecord:
     models:
@@ -27,6 +26,8 @@ de:
             enabled: Kommentare aktiviert
             end_time: Kommentare aktiviert bis
             start_time: Kommentare aktiviert von
+      comment_thread:
+        accessibility_label: Kommentar-Thread gestartet von %{full_name} am %{date}
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
@@ -51,9 +52,6 @@ de:
           form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
           submit_reply: Antwort veröffentlichen
           submit_root_comment: Kommentar veröffentlichen
-          user_group_id:
-            label: Kommentieren als
-            your_profile: Ihr Profil
         opinion:
           label: Ihre Meinung zu diesem Thema
           negative: Negativ
@@ -155,17 +153,11 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} hat einen Kommentar zu %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieses Benutzers.
-          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
-          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieser Gruppe.
           email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -188,21 +180,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
           email_subject: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
-        user_group_mentioned:
-          email_intro: Eine Ihrer Gruppen wurde erwähnt
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
-          email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
-          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
         user_mentioned:
           email_intro: Sie wurden erwähnt
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
           email_subject: Sie wurden in %{resource_title} erwähnt
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt
-    metrics:
-      comments:
-        description: Anzahl der von Benutzern generierten Kommentare
-        object: Bemerkungen
-        title: Bemerkungen
   errors:
     messages:
       cannot_have_comments: kann keine Kommentare haben

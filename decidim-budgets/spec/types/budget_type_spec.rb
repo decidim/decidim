@@ -21,6 +21,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model.component).budget_url(model))
+        end
+      end
+
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
@@ -42,6 +50,14 @@ module Decidim
 
         it "returns the total budget" do
           expect(response["total_budget"]).to eq(model.total_budget)
+        end
+      end
+
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the total budget" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 

@@ -14,8 +14,7 @@ module Decidim
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
-                      coauthorship = coauthorships.includes(:author, :user_group).first
-                      coauthorship.user_group&.presenter || coauthorship.author.presenter
+                      coauthorships.includes(:author).first.author.presenter
                     end
       end
 

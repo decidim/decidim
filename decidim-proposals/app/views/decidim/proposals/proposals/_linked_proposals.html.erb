@@ -1,3 +1,3 @@
 <% resources.each do |proposal| %>
-  <%= cell "decidim/proposals/proposal_l", proposal, url_extra_params: { included_in: resource.to_gid }, hide_voting: true %>
+  <%= cell "decidim/proposals/proposal_l", proposal, url_extra_params: { included_in: resource.to_gid } %>
 <% end %>

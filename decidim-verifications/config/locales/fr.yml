@@ -3,6 +3,8 @@ fr:
     attributes:
       authorization:
         verification_attachment: Pièce jointe de vérification
+      census_data:
+        file: Fichier
       config:
         available_methods: Méthodes disponibles
         offline: Hors ligne
@@ -81,7 +83,7 @@ fr:
             - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
             - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
             - Il s'agit d'une copie d'un exemple d'autorisation.
-            - 
+            - Soyez vérifié en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -145,6 +147,9 @@ fr:
           authorize_with: Vérifier votre identité avec %{authorizer}
           tos_agreement: En vérifiant votre identité, vous acceptez %{link}.
         onboarding_pending:
+          completed_verifications: Vous avez été autorisé avec succès, maintenant vous pouvez %{action} dans la %{resource_name}
+          granted_verifications: Vérifications accordées
+          onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
         renew_modal:
@@ -157,28 +162,13 @@ fr:
       csv_census:
         admin:
           census:
-            create:
-              success: '%{count} éléments importés avec succès (%{errors} erreurs).'
-            destroy_all:
-              success: Toutes les données du recensement ont été supprimées.
-          destroy:
-            confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
-            title: Supprimer toutes les données du recensement
+            new_import:
+              submit: Déposer un fichier
           index:
-            data: Il y a %{count} enregistrements chargés au total. La dernière date de téléchargement était le %{due_date}.
-            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
             title: Données de recensement actuelles
           instructions:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
-          new:
-            example: |
-              john.doe@exemple.org
-              jane.doe@exemple.org
-            file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
-            submit: Téléverser un fichier
-            title: Télécharger un nouveau recensement
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.

@@ -40,6 +40,7 @@ module Decidim
         end
 
         describe "PUT update" do
+          let(:proposals_path) { "decidim/proposals/admin/proposals/index" }
           let(:params) do
             {
               id: proposal1.id,
@@ -49,7 +50,7 @@ module Decidim
             }
           end
 
-          context "when cost is required" do
+          context "when costs are enabled" do
             before do
               component.update!(
                 step_settings: {
@@ -58,13 +59,14 @@ module Decidim
                   }
                 }
               )
+              allow(controller).to receive(:proposals_path).and_return(proposals_path)
             end
 
-            context "when update fails" do
-              it "renders ProposalsController#show view" do
+            context "when the update is successful." do
+              it "renders ProposalsAdmin#index view" do
                 post :update, params: params
-                expect(response).to have_http_status(:ok)
-                expect(subject).to render_template("decidim/proposals/admin/proposals/show")
+                expect(response).to have_http_status(:found)
+                expect(subject).to redirect_to(proposals_path)
               end
             end
           end
@@ -110,7 +112,7 @@ module Decidim
             end
           end
 
-          context "when cost is required" do
+          context "when cost is not required" do
             before do
               component.update!(
                 step_settings: {
@@ -121,14 +123,12 @@ module Decidim
               )
             end
 
-            let(:proposal_state) { Decidim::Proposals::ProposalState.find_by(token: :accepted) }
-
-            it "redirects with an alert" do
-              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
+            it "redirects without an alert" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(2).times
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:alert]).to include("could not be answered due errors applying the template \"#{template.name["en"]}\".")
-              expect(flash[:notice]).to be_nil
+              expect(flash[:notice]).to include("proposals will be answered using the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to be_nil
             end
           end
 

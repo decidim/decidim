@@ -77,26 +77,20 @@ module Decidim
           context "when publish time is provided" do
             let!(:publish_time) { Time.new(2022, 11, 12, 8, 37, 48, "-06:00") }
 
-            it "sets the publish time" do
-              subject.call
+            it "sends a notification to the participatory space followers" do
+              follower = create(:user, organization:)
+              create(:follow, followable: participatory_process, user: follower)
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.blogs.post_created",
+                  event_class: Decidim::Blogs::CreatePostEvent,
+                  resource: kind_of(Post),
+                  followers: [follower]
+                )
+              perform_enqueued_jobs { subject.call }
               expect(post.published_at).to eq(publish_time)
             end
-          end
-
-          it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization:)
-            create(:follow, followable: participatory_process, user: follower)
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.blogs.post_created",
-                event_class: Decidim::Blogs::CreatePostEvent,
-                resource: kind_of(Post),
-                followers: [follower]
-              )
-
-            subject.call
           end
 
           it "traces the action", versioning: true do
@@ -110,27 +104,6 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
             expect(action_log.version.event).to eq "create"
-          end
-
-          context "with a group author" do
-            let(:group) { create(:user_group, :verified, organization:) }
-            let(:form) do
-              double(
-                invalid?: invalid,
-                title: { en: title },
-                published_at: publish_time,
-                body: { en: body },
-                component:,
-                current_user:,
-                author: group,
-                taxonomizations: []
-              )
-            end
-
-            it "sets the group as the author" do
-              subject.call
-              expect(post.author).to eq(group)
-            end
           end
         end
       end

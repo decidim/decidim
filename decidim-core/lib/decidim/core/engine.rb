@@ -191,7 +191,6 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
-        Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
         Decidim.icons.register(name: "unfollow", icon: "notification-3-fill", description: "Unfollow", category: "action", engine: :core)
         Decidim.icons.register(name: "share", icon: "share-line", description: "Share", category: "action", engine: :core)
@@ -328,7 +327,6 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
-        Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
       initializer "decidim_core.ransack" do
@@ -403,7 +401,7 @@ module Decidim
               Decidim.configure do |config|
                 config.maps = {
                   provider: :here,
-                  api_key: Rails.application.secrets.maps[:api_key],
+                  api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", Decidim::Env.new("MAPS_API_KEY", nil)).to_s,
                   static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
                 }
               end
@@ -455,7 +453,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :user_group, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
         end
       end
 
@@ -535,76 +533,6 @@ module Decidim
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
           resource.searchable = true
-        end
-
-        Decidim.register_resource(:user_group) do |resource|
-          resource.model_class_name = "Decidim::UserGroup"
-          resource.card = "decidim/user_profile"
-          resource.searchable = true
-        end
-      end
-
-      initializer "decidim_core.register_metrics" do
-        Decidim.metrics_registry.register(:users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:user_reports) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::UserReportsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:reported_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ReportedUsersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
-
-        Decidim.metrics_registry.register(:participants) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: true
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 1
-            settings.attribute :stat_block, type: :string, default: "big"
-          end
-        end
-
-        Decidim.metrics_registry.register(:followers) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::FollowersMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 10
-            settings.attribute :stat_block, type: :string, default: "medium"
-          end
         end
       end
 

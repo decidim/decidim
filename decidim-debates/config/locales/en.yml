@@ -11,7 +11,6 @@ en:
         instructions: Instructions to participate
         start_time: Starts at
         title: Title
-        user_group_id: Create debate as
     models:
       decidim/debates/close_debate_event: Debate closed
       decidim/debates/create_debate_event: Debate
@@ -148,13 +147,12 @@ en:
           state_values:
             closed: Closed
             open: Open
-          user_group: Groups
         index:
           new_debate: New debate
         new:
           back: Back
           create: Create
-          title: New debate
+          title: Create new debate
         orders:
           commented: Most commented
           label: Order debates by
@@ -167,7 +165,6 @@ en:
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit
-          groups_count: Groups
           open: Open debate
           participants_count: Participants
         update:
@@ -240,11 +237,6 @@ en:
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
           unearned_own: You have not participated in any debates yet.
-    metrics:
-      debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:
@@ -258,7 +250,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         debates:
           author: The data for the author of this debate
           closed_at: The date when this debate was closed

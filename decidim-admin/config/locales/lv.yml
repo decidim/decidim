@@ -61,7 +61,6 @@ lv:
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
-        user_groups_enabled: Iespējot grupas
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
         welcome_notification_subject: Sveiciena paziņojuma temats
@@ -118,8 +117,6 @@ lv:
         manage: Pārvaldīt
         per_page: Lapā
         permissions: Atļaujas
-        reject: Noraidīt
-        verify: Verificēt
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
@@ -306,11 +303,7 @@ lv:
         scopes: Darbības tvērums
         settings: Iestatījumi
         static_pages: Lapas
-        user_groups: Grupas
         users: Dalībnieki
-      metrics:
-        metrics:
-          see_more_metrics: Skatīt vairāk rādītāju
       models:
         area:
           fields:
@@ -370,15 +363,6 @@ lv:
               admin: Administrators
               user_manager: Dalībnieka pārvaldnieks
           name: Dalībnieks
-        user_group:
-          fields:
-            actions: Darbības
-            created_at: Izveidots plkst.
-            document_number: Dokumenta numurs
-            name: Nosaukums
-            phone: Tālrunis
-            state: Stāvoklis
-            users_count: Dalībnieku skaits
       moderations:
         report:
           reasons:
@@ -499,6 +483,8 @@ lv:
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
       resource_permissions:
         edit:
@@ -547,7 +533,6 @@ lv:
           title: Rediģēt tēmu
           update: Atjaunināt tēmu
         new:
-          create: Izveidot tēmu
           title: Jauna tēma
         update:
           error: Šīs tēmas atjaunināšanas laikā radās problēma.
@@ -568,7 +553,6 @@ lv:
         index:
           last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
-          create: Izveidot lapu
           title: Jauna lapa
         topic:
           without_topic: Lapas bez tēmas
@@ -582,31 +566,10 @@ lv:
         dashboard: Informācijas panelis
         impersonatable_users: Pārvaldāmie dalībnieki
         impersonations: Dalībnieku pārvaldība
-        metrics: Rādītāji
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
         statistics: Aktivitāte
-        user_groups: Grupas
-      user_group:
-        csv_verify:
-          invalid: CSV faila lasīšanas laikā radās problēma.
-        reject:
-          invalid: Šīs grupas noraidīšanas laikā radās problēma.
-        verify:
-          invalid: Šīs grupas pārbaudes laikā radās problēma.
-      user_groups:
-        index:
-          state:
-            pending: Nepabeigts
-            rejected: Noraidīts
-            verified: Pārbaudīts
-          verify_via_csv: Pārbaudīt, izmantojot CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Augšupielādējiet savu CSV failu. Faila pirmajā kolonnā bez galvenēm jābūt oficiālajiem jūsu organizācijas grupu e-pastiem. Tiks pārbaudītas tikai tās grupas, kuras ir apstiprinājušas savu e-pastu un kurām ir e-pasts, kas parādās CSV failā.
-          title: Augšupielādējiet savu CSV failu
-          upload: Augšupielādēt
       users:
         create:
           error: Šī administratora uzaicināšanas laikā radās problēma.

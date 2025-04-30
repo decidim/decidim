@@ -1,21 +1,11 @@
 nl:
   activemodel:
     attributes:
-      answer:
-        body: Antwoord
-        choices: Keuzes
-        selected_choices: Geselecteerde keuzes
       question:
         max_choices: Maximum aantal keuzes
         question_type: Type
       questionnaire_question:
         mandatory: Verplicht
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: zijn niet compleet
   decidim:
     forms:
       admin:
@@ -26,43 +16,18 @@ nl:
         questionnaires:
           actions:
             back: Terug naar vragen
-            show: Antwoorden tonen
-          answer_option:
-            answer_option: Antwoord optie
-            free_text: Vrije tekst
-            remove: Verwijderen
-            statement: Uitspraak
-          answers:
-            actions:
-              back: Terug naar antwoorden
-              export: Exporteren
-              show: Toon antwoorden
-            empty: Nog geen antwoorden
-            export:
-              answer:
-                title: 'Antwoord #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} totale antwoorden"
-            show:
-              title: 'Antwoord #%{number}'
           display_condition:
-            answer_option: Antwoord optie
             condition_question: Vraag
             condition_type: Voorwaarde
             condition_types:
-              answered: beantwoord
               equal: Gelijk
               match: Tekst inbegrepen
-              not_answered: Niet beantwoord
               not_equal: Niet gelijk aan
             condition_value: Inbegrepen tekst
             display_condition: Toon voorwaarde
             mandatory: Deze voorwaarde moet altijd worden vervuld, ongeacht de status van andere voorwaarden
             remove: Verwijderen
             save_warning: Vergeet niet om het formulier op te slaan voordat u voorwaarden voor het weergeven configureert
-            select_answer_option: Selecteer antwoord optie
             select_condition_question: Selecteer een vraag
             select_condition_type: Selecteer een type voorwaarde
           edit:
@@ -78,7 +43,6 @@ nl:
             remove: Verwijderen
             statement: Uitspraak
           question:
-            add_answer_option: Antwoordoptie toevoegen
             add_display_condition: Weergavevoorwaarde toevoegen
             add_display_condition_info: Sla het formulier op om weergavevoorwaarden te configureren
             add_matrix_row: Rij toevoegen
@@ -91,6 +55,9 @@ nl:
             remove: Verwijderen
             statement: Uitspraak
             up: omhoog
+          responses:
+            actions:
+              show: Antwoorden tonen
           separator:
             down: Omlaag
             remove: Verwijderen
@@ -111,31 +78,19 @@ nl:
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
-        long_answer: Lang antwoord
         matrix_multiple: Matrix (meerdere opties)
         matrix_single: Matrix (enkele optie)
         multiple_option: Meerdere optie
-        short_answer: Kort antwoord
         single_option: Enkele optie
         sorting: sorteer-
         title_and_description: Titel en beschrijving
       questionnaires:
-        answer:
-          invalid: Er zijn fouten opgetreden bij het beantwoorden van de vragenlijst.
-          max_choices_alert: Er zijn te veel keuzes geselecteerd
-          success: Vragenlijst met succes beantwoord.
         question:
           max_choices: 'Max. Keuzes: %{n}'
         show:
-          answer_questionnaire:
-            title: Beantwoord de vragenlijst
           current_step: Stap %{step}
           of_total_steps: van %{total_steps}
-          questionnaire_answered:
-            body: U hebt deze vragenlijst al beantwoord.
-            title: Al beantwoord
           questionnaire_closed:
-            body: De vragenlijst is gesloten en kan niet worden beantwoord.
             title: Vragenlijst gesloten
           questionnaire_for_private_users:
             body: De vragenlijst is alleen beschikbaar voor privé-gebruikers
@@ -151,14 +106,3 @@ nl:
           back: Achterzijde
           continue: Doorgaan
           submit: Verzenden
-      user_answers_serializer:
-        body: Beantwoorden
-        completion: Voltooiing
-        created_at: Beantwoord
-        id: Antwoord ID
-        ip_hash: IP Hash
-        question: Vraag
-        registered: Geregistreerd
-        session_token: Gebruiker identificatie
-        unregistered: Niet-geregistreerd
-        user_status: Gebruiker-status

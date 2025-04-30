@@ -2,7 +2,6 @@ lb:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
@@ -26,7 +25,6 @@ lb:
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
-        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
@@ -71,7 +69,6 @@ lb:
             label: Zustand
             values:
               accepted: Ausreichend Unterschriften
-              created: Erstellt
               discarded: Verworfen
               rejected: Zu wenige Unterschriften
               validating: Technische Validierung
@@ -206,7 +203,6 @@ lb:
           update: "%{user_name} hat die Initiative %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
-        created: Erstellt
         discarded: Verworfen
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
@@ -234,37 +230,19 @@ lb:
           name: Hervorgehobene Initiativen
       create_initiative:
         fill_data:
-          back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
         finish:
           back: Zurück
-          back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
-          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
-          edit_my_initiative: Meine Initiativen bearbeiten
-          go_to_my_initiatives: Geh zu meinen Initiativen
-          more_information: "(Weitere Informationen)"
-          send_my_initiative: Meine Initiative zur technischen Validierung senden
-        finish_help:
-          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zréck
-          continue: Weider
-        promotal_committee:
-          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
-          more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zréck
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: (Weitere Informationen)
           select: Ich möchte diese Initiative fördern
-          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
-        share_committee_link:
-          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
       edit:
         accept: Initiative akzeptieren
         back: Zréck
@@ -302,20 +280,11 @@ lb:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Fortsetzen
         finish:
           back_to_initiative: Zurück zur Initiative
-        sms_code:
-          continue: Code überprüfen und fortfahren
-          help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
-        sms_phone_number:
-          continue: Senden Sie mir eine SMS
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-        personal_data:
-          invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
@@ -361,7 +330,6 @@ lb:
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
-          created: Erstellt
           discarded: Verworfen
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
@@ -378,20 +346,11 @@ lb:
       initiatives_type:
         actions:
           title: Aktionen
-          vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
-        finish: Fertig
-        promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
-      initiative_signature_creation_header:
-        fill_personal_data: Ergänzen Sie Ihre Daten
-        finish: Fertig
-        sms_code: SMS-Code-Bestätigung
-        sms_phone_number: Handynummer
-        title: Zeichen %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

@@ -16,7 +16,7 @@ ro:
         description: Descriere
         key: Cheie
         name: Nume
-        progress: Progresul
+        progress: Progres
       timeline_entry:
         description: Descriere
         entry_date: Data
@@ -36,7 +36,7 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
-        destroy: Ștergere
+        destroy: Ștergeți
         edit: Actualizare
         import_csv: Importați rezultate dintr-un fișier CSV
         new_result: Rezultat nou
@@ -220,11 +220,6 @@ ro:
           email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}” și această propunere este inclusă în rezultatul „%{resource_title}”. Poți înceta să primești notificări urmând link-ul anterior.
           email_subject: O actualizare la progresul %{resource_title}
           notification_title: Rezultatul <a href="%{resource_path}">%{resource_title}</a>, care include propunerea <a href="%{proposal_path}">%{proposal_title}</a>, este acum %{progress}% complet.
-    metrics:
-      results:
-        description: Număr de rezultate generate
-        object: rezultate
-        title: Rezultate
     participatory_spaces:
       highlighted_results:
         see_all: Vezi toate rezultatele

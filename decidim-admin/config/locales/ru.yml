@@ -61,7 +61,6 @@ ru:
         send_welcome_notification: Отправить приветственное уведомление
         success_color: Успешно
         tos_version: Версия условий участия
-        user_groups_enabled: Включить группы
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
         welcome_notification_subject: Тема приветствия
@@ -117,8 +116,6 @@ ru:
         browse: Просмотреть
         manage: Управлять
         permissions: Права
-        reject: Отклонить
-        verify: Подтвердить личность
       area_types:
         create:
           error: При попытке создать новый вид участка произошла ошибка.
@@ -287,7 +284,6 @@ ru:
         scopes: Охваты
         settings: Настройки
         static_pages: Страницы
-        user_groups: Группы участников
         users: Участники
       models:
         area:
@@ -349,15 +345,6 @@ ru:
               admin: Администратор
               user_manager: Распорядитель участников
           name: участника
-        user_group:
-          fields:
-            actions: Действия
-            created_at: 'Создано:'
-            document_number: Номер документа
-            name: Имя
-            phone: Телефон
-            state: Cостояние
-            users_count: Количество участников
       moderations:
         report:
           reasons:
@@ -454,6 +441,10 @@ ru:
         new:
           create: Добавить
           title: Добавить частного участника пространства соучастия.
+      participatory_space_private_users_csv_imports:
+        new:
+          csv_upload:
+            title: Загрузите ваш CSV файл
       resource_permissions:
         edit:
           title: Редактировать права доступа
@@ -511,22 +502,6 @@ ru:
         dashboard: Панель управления
         scope_types: Виды охвата
         scopes: Охваты
-        user_groups: Группы участников
-      user_group:
-        reject:
-          invalid: При отказе от этой группы участников произошла ошибка.
-        verify:
-          invalid: При подтверждении этой группы участников произошла ошибка.
-      user_groups:
-        index:
-          state:
-            pending: В ожидании
-            rejected: Отклонено
-            verified: Проверено
-      user_groups_csv_verifications:
-        new:
-          title: Загрузите ваш CSV файл
-          upload: Загрузить
       users:
         create:
           error: При приглашении этого участника произошла ошибка.

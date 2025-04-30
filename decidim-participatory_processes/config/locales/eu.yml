@@ -73,10 +73,10 @@ eu:
     models:
       decidim/participatory_process:
         one: Prozesu parte-hartzailea
-        other: Prozesu parte-hartzaileak
+        other: Partaidetza-prozesua
       decidim/participatory_process_group:
-        one: Prozesu parte-hartzailearen taldea
-        other: Prozesu parte-hartzaileen taldeak
+        one: Partaidetza-prozesuaren taldea
+        other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
         one: Step
         other: Urratsak
@@ -131,7 +131,7 @@ eu:
             private: Pribatua
             published: Argitaratua
             title: Izenburua
-          name: Prozesu parte-hartzailea
+          name: Partaidetza-prozesua
         participatory_process_group:
           fields:
             title: Izenburua
@@ -141,18 +141,18 @@ eu:
             end_date: Bukaera-data
             start_date: Hasiera-data
             title: Izenburua
-          name: Prozesu parte-hartzailearen fasea
+          name: Partaidetza-prozesuaren fasea
         participatory_process_user_role:
           fields:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Prozesu parte-hartzailearen administratzailea
+          name: Partaidetza-prozesuaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
+            evaluator: Ebaluatzailea
             moderator: Moderatzailea
-            valuator: Ebaluatzailea
         user:
           fields:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
@@ -162,11 +162,11 @@ eu:
         new:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Bikoiztu prozesu parte-hartzailea
+          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
-          success: Prozesu parte-hartzaileen taldea zuzen ezabatua.
+          success: Partaidetza-prozesuen taldea zuzen ezabatua.
         edit:
           title: Editatu prozesu-taldea
           update: Eguneratu
@@ -174,37 +174,37 @@ eu:
           create: Sortu
           title: Beste prozesu-talde bat
         update:
-          error: Arazo bat egon da prozesu parte-hartzaileen talde hau eguneratzean.
-          success: Prozesu parte-hartzailearen taldea zuzen eguneratua.
+          error: Partaidetza-prozesu talde hori eguneratzeko arazo bat izan da.
+          success: Partaidetza-prozesuaren taldea zuzen eguneratua.
       participatory_process_imports:
         create:
-          error: Arazo bat izan da prozesu parte-hartzaile hau inportatzean.
-          success: Prozesu parte-hartzailea zuzen inportatu da.
+          error: Arazo bat izan da partaidetza-prozesu hau inportatzean.
+          success: Partaidetza-prozesua zuzen inportatu da.
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu prozesu parte-hartzailea
+          title: Inportatu partaidetza-prozesua
       participatory_process_publications:
         create:
-          error: Arazo bat egon da prozesu parte-hartzaile hau argitaratzean.
-          success: Prozesu parte-hartzailea zuzen argitaratua.
+          error: Arazo bat egon da partaidetza-prozesua hau argitaratzean.
+          success: Partaidetza-prozesua zuzen argitaratua.
         destroy:
-          error: Arazo bat egon da prozesu parte-hartzaile hau desargitaratzean.
-          success: Prozesu parte-hartzailea zuzen desargitaratua.
+          error: Arazo bat egon da partaidetza-prozesu hau desargitaratzean.
+          success: Partaidetza-prozesua zuzen desargitaratua.
       participatory_process_step_activations:
         create:
-          error: Arazo bat egon da prozesu parte-hartzailearen fase hau aktibatzean.
-          success: Prozesu parte-hartzailearen fasea zuzen aktibatua.
+          error: Arazo bat egon da partaidetza-prozesuaren fase hau aktibatzean.
+          success: Partaidetza-prozesuaren fasea zuzen aktibatua.
       participatory_process_steps:
         create:
-          error: Arazo bat egon da prozesu parte-hartzailearen beste fase bat sortzean.
-          success: Prozesu parte-hartzailearen fasea zuzen sortua.
+          error: Arazo bat egon da partaidetza-prozesuaren beste fase bat sortzean.
+          success: Partaidetza-prozesuaren fasea zuzen sortua.
         default_title: Sarrera
         destroy:
           error:
             active_step: Ezin da ezabatu fase aktiboa.
             last_step: Ezin da ezabatu prozesuaren azken fasea.
-          success: Prozesu parte-hartzailearen fasea ondo ezabatua.
+          success: Partaidetza-prozesuaren fasea ondo ezabatua.
         edit:
           cta_deprecated:
             body_html: |-
@@ -213,38 +213,38 @@ eu:
               Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
               <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
             title: CTA zaharkituta
-          title: Editatu prozesu parte-hartzailearen fasea
+          title: Editatu partaidetza-prozesuaren fasea
           update: Eguneratu
         index:
           steps_title: Prozesuaren faseak
         new:
           create: Sortu
-          title: Prozesu parte-hartzailearen beste fase bat
+          title: Prozesu partaidetza-prozesuaren beste fase bat
         ordering:
-          error: Arazo bat egon da prozesu parte-hartzaile honen faseak berrantolatzean.
+          error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
-          error: Arazo bat egon da prozesu parte-hartzaile honan fase hau eguneratzean.
+          error: Arazo bat egon da partaidetza-prozesu honan fase hau eguneratzean.
           success: Parte hartzeko fasea zuzen eguneratua.
       participatory_process_user_roles:
         create:
-          error: Arazo bat egon da prozesu parte-hartzaile honetarako parte-hartzailea gehitzean.
-          success: Administratzailea zuzen gehitu da prozesu parte-hartzailera.
+          error: Arazo bat egon da partaidetza-prozesu honetarako parte-hartzailea gehitzean.
+          success: Administratzailea zuzen gehitu da partaidetza-prozesua.
         destroy:
-          success: Administratzailea behar bezala kendu da prozesu parte-hartzailetik.
+          success: Administratzailea behar bezala kendu da partaidetza-prozesutik.
         edit:
-          title: Eguneratu prozesu parte-hartzailearen administratzailea
+          title: Eguneratu partaidetza-prozesuaren administratzailea
           update: Eguneratu
         index:
-          process_admins_title: Prozesu parte-hartzailearen administratzaileak
+          process_admins_title: Prozesu partaidetza-prozesuaren administratzaileak
         new:
           create: Sortu
-          title: Prozesu parte-hartzailearen beste administratzaile bat
+          title: Partaidetza-prozesuaren beste administratzaile bat
         update:
-          error: Arazo bat egon da prozesu parte-hartzaile honetarako administratzaile bat eguneratzean.
-          success: Administratzailea zuzen eguneratu da prozesu parte-hartzaile honetarako.
+          error: Arazo bat egon da partaidetza-prozesu honetarako administratzaile bat eguneratzean.
+          success: Administratzailea zuzen eguneratu da partaidetza-prozesu honetarako.
       participatory_processes:
         create:
-          error: Arazo bat egon da beste prozesu parte-hartzaile bat sortzean.
+          error: Arazo bat egon da beste partaidetza-prozesu bat sortzean.
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         edit:
           update: Eguneratu
@@ -254,29 +254,29 @@ eu:
           published: Argitaratua
           unpublished: Argitaratu gabea
         manage_trash:
-          title: Ezabatutako prozesu parte-hartzaileak
+          title: Ezabatutako partaidetza-prozesuak
         new:
           create: Sortu
-          title: Beste prozesu parte-hartzaile bat
+          title: Beste partaidetza-prozesu bat
         update:
-          error: Arazo bat egon da prozesu parte-hartzaile hau eguneratzean.
-          success: Prozesu parte-hartzailea zuzen eguneratua.
+          error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
+          success: Partaidetza-prozesua zuzen eguneratua.
       participatory_processes_copies:
         create:
-          error: Arazo bat egon da prozesu parte-hartzaile hau bikoiztean.
-          success: Prozesu parte-hartzailea zuzen kopiatua.
+          error: Arazo bat egon da partaidetza-prozesu hau bikoiztean.
+          success: Partaidetza-prozesua zuzen kopiatua.
       participatory_processes_group:
         create:
-          error: Arazo bat egon da beste prozesu parte-hartzaileen multzo bat sortzean.
-          success: Prozesu parte-hartzaileen taldea zuzen eguneratua.
+          error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
+          success: Partaidetza-prozesuearen taldea zuzen eguneratua.
       taxonomy_filters:
         space_filter_for:
-          participatory_processes: Prozesu parte-hartzaile guztiak
+          participatory_processes: Partaidetza-prozesu guztiak
       titles:
-        participatory_process_groups: Prozesu parte-hartzaileen taldeak
-        participatory_process_types: Prozesu parte-hartzaile motak
+        participatory_process_groups: Partaidetza-prozesuen taldeak
+        participatory_process_types: Partaidetza-prozesu motak
         participatory_processes: Prozesu pare-hartzaileak
-        participatory_processes_deleted: Ezabatutako prozesu parte-hartzaileak
+        participatory_processes_deleted: Ezabatutako partaidetza-prozesuak
       tooltips:
         deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
       users:
@@ -285,42 +285,42 @@ eu:
           success: Gonbidapena zuzen birbidalia.
     admin_log:
       participatory_process:
-        create: "%{user_name} parte-hartzaileak %{resource_name} prozesu parte-hartzailea sortu du"
-        duplicate: "%{user_name} parte-hartzaileak bikoiztu du %{resource_name} prozesu parte-hartzailea"
-        export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} prozesu parte-hartzailea"
-        import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} prozesu parte-hartzailea"
-        publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} prozesu parte-hartzailea"
-        restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} prozesu parte-hartzailea"
-        soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} prozesu parte-hartzailea"
-        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzailea"
-        update: "%{user_name} parte-hartzaileak %{resource_name} partehartze prozesua eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} rozesu parte-hartzailea sortu du"
+        duplicate: "%{user_name} parte-hartzaileak bikoiztu du %{resource_name} partaidetza-prozesua"
+        export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} partaidetza-prozesua"
+        import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} partaidetza-prozesua"
+        publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} partaidetza-prozesua"
+        restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} partaidetza-prozesua"
+        soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} partaidetza-prozesua"
+        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesua"
+        update: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua eguneratu du"
       participatory_process_group:
-        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
-        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzaileen multzoa"
-        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesuen multzoa"
+        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesuen multzoa"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} partaidetza-prozesuen multzoa"
       participatory_process_step:
-        activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} prozesu parte-hartzailean"
-        create: "%{user_name} parte-hartzaileak %{resource_name} fasea lortu du %{space_name} prozesu parte-hartzailean"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} fasea ezabatu du %{space_name} prozesu parte-hartzailean"
-        update: "%{user_name} parte-hartzaileak %{resource_name} fasea eguneratu du %{space_name} prozesu parte-hartzailean"
+        activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} partaidetza-prozesuan"
+        create: "%{user_name} parte-hartzaileak %{resource_name} fasea lortu du %{space_name} partaidetza-prozesuan"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} fasea ezabatu du %{space_name} partaidetza-prozesuan"
+        update: "%{user_name} parte-hartzaileak %{resource_name} fasea eguneratu du %{space_name} partaidetza-prozesuan"
       participatory_process_type:
-        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaile mota"
-        delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} prozesu parte-hartzaile mota"
-        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} prozesu parte-hartzaile mota"
+        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesu mota"
+        delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} partaidetza-prozesu mota"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} partaidetza-prozesu mota"
       participatory_process_user_role:
-        create: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea gonbidatu du %{space_name} parte hartze-prozesura"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea kendu du %{space_name} prozesu parte-hartzailetik"
-        update: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen rola aldatu du %{space_name} prozesu parte-hartzailean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea gonbidatu du %{space_name} partaidetza-prozesura"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea kendu du %{space_name} partaidetza-prozesutik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen rola aldatu du %{space_name} partaidetza-prozesuan"
     download_your_data:
       show:
-        participatory_processes: Esportatu Prozesu Parte-hartzailea
+        participatory_processes: Esportatu partaidetza-prozesua
     events:
       participatory_process:
         role_assigned:
-          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> prozesu parte-hartzailean.'
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> partaidetza-prozesuan.'
           email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" espazioan.
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
-          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> prozesu parte-hartzailean.'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
           email_intro: '%{resource_title} urratsa orain aktibo dago honetarako: %{participatory_space_title}. Ikusi dezakezu orrialde honetatik:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
@@ -334,20 +334,15 @@ eu:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Prozesu parte-hartzaileen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\n"
-          page: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Prozesu parte-hartzaileen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\n"
-          title: Zer da prozesu parte-hartzaile bat?
+          contextual: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Partaidetza-prozesuen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\nproposamena\n"
+          page: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Partaidetza-prozesuen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\n"
+          title: Zer da partaidetza-prozesu bat?
     log:
       value_types:
         participatory_process_type_presenter:
           not_found: 'Prozesu mota ez da (ID: %{id}) datu-basean aurkitu.'
     menu:
       processes: Prozesuak
-    metrics:
-      participatory_processes:
-        description: Erakundeko prozesu parte-hartzaile kopurua
-        object: prozesu parte-hartzaileak
-        title: Prozesu parte-hartzaileak
     open_data:
       help:
         participatory_processes:
@@ -365,7 +360,7 @@ eu:
           participatory_process_group: Prozesuaren taldea, baldin badago
           participatory_process_type: Prozesu mota
           participatory_scope: Prozesuaren parte-hartze eremua
-          participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
+          participatory_structure: Prozesuaren partaidetza-egitura. Horrela erabakitzen da prozesua.
           promoted: Prozesua sustatu den ala ez
           published_at: Zein egunetan argitaratu zen espazio hau
           reference: Espazioaren erreferentzia bakarra
@@ -399,8 +394,8 @@ eu:
         main_data:
           name: Izenburua eta deskribapena
         participatory_processes:
-          active: Prozesu parte-hartzaile aktiboak
-          name: Prozesu parte-hartzaileak
+          active: Partaidetza-prozesu aktiboak
+          name: Partaidetza-prozesuak
         stats:
           name: Jarduera
         title:
@@ -408,8 +403,10 @@ eu:
           participatory_processes:
             one: Prozesu bat
             other: "Prozesu bat"
+      related_processes:
+        help: Hautatutako prozesu guztiak talde horri esleituko zaizkio, beste talde batzuei esleituta daudenak barne.
       show:
-        title: Prozesu parte-hartzaileen taldeak
+        title: Partaidetza-prozesuen taldeak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -465,17 +462,14 @@ eu:
         related_processes:
           name: Elkarrekin lotutako prozesuak
       index:
-        title: Prozesu parte-hartzaileak
+        title: Partaidetza-prozesuak
       last_activity:
-        new_participatory_process: 'Beste prozesu parte-hartzaile bat:'
+        new_participatory_process: 'Beste partaidetza-prozesu bat:'
       pages:
         home:
           highlighted_processes:
             active_spaces: Prozesu aktiboak
             see_all_spaces: Ikusi prozesu guztiak
-      participatory_process_steps:
-        index:
-          back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
         description:
           area_name: Arloa
@@ -510,7 +504,7 @@ eu:
           filter_by: Erakutsi
           names:
             active: Aktiboa
-            all: guztiak
+            all: Guztiak
             past: Aurrekoak
             upcoming: Hurrengoak
           see: Ikusi
@@ -531,7 +525,7 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
-          browse_resource: Aztertu %{resource_name} prozesuen multzoa
+          browse_resource: '%{resource_name} prozesuen multzoa arakatu'
           processes_count: 'Prozesuak:'
       participatory_process_navigation:
         member_menu_item: Kideak
@@ -542,5 +536,5 @@ eu:
           active_step: Oraingo fasea
           more_info: Informazio gehiago
           more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
-          take_part: Parte hartu
-          take_part_in: Parte hartu %{resource_name} prozesuan
+          take_part: Hartu parte
+          take_part_in: Hartu parte %{resource_name} prozesuan

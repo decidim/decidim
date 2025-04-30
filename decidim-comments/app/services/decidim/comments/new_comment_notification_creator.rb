@@ -17,12 +17,9 @@ module Decidim
       # comment - the Comment from which to generate notifications.
       # mentioned_users - An ActiveRecord::Relation of the users that have been
       #   mentioned
-      # mentioned_groups - And ActiveRecord::Relation of the user_groups that have
-      #   been mentioned
-      def initialize(comment, mentioned_users, mentioned_groups = nil)
+      def initialize(comment, mentioned_users)
         @comment = comment
         @mentioned_users = mentioned_users
-        @mentioned_groups = mentioned_groups
         @already_notified_users = [comment.author]
       end
 
@@ -31,33 +28,20 @@ module Decidim
       # Returns nothing.
       def create
         notify_mentioned_users
-        notify_mentioned_groups
         notify_parent_comment_author
         notify_author_followers
-        notify_user_group_followers
         notify_commentable_recipients
       end
 
       private
 
-      attr_reader :comment, :mentioned_users, :mentioned_groups, :already_notified_users
+      attr_reader :comment, :mentioned_users, :already_notified_users
 
       def notify_mentioned_users
         affected_users = mentioned_users - already_notified_users
         @already_notified_users += affected_users
 
         notify(:user_mentioned, affected_users:)
-      end
-
-      def notify_mentioned_groups
-        return unless mentioned_groups
-
-        mentioned_groups.each do |group|
-          affected_users = group.accepted_users - already_notified_users
-          @already_notified_users += affected_users
-
-          notify(:user_group_mentioned, affected_users:, extra: { group_id: group.id })
-        end
       end
 
       # Notifies the author of a comment that their comment has been replied.
@@ -76,15 +60,6 @@ module Decidim
         @already_notified_users += followers
 
         notify(:comment_by_followed_user, followers:)
-      end
-
-      def notify_user_group_followers
-        return if comment.user_group.blank?
-
-        followers = comment.user_group.followers - already_notified_users
-        @already_notified_users += followers
-
-        notify(:comment_by_followed_user_group, followers:)
       end
 
       # Notifies the users the `comment.commentable` resource implements as necessary.

@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      census_data:
+        file: Fil
       config:
         available_methods: Tillgängliga alternativ
         offline: Offline
@@ -112,6 +114,12 @@ sv:
           email_subject: Kunde inte verifiera försök mot en annan deltagare
           notification_title: Deltagaren <a href="%{resource_path}">%{resource_title}</a> har försökt verifiera sig själva med data från en annan deltagare (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} Skapade en ny folkräkning med e-post %{resource_email}"
+          delete: "%{user_name} Raderade folkräkningen med e-post %{resource_email}"
+          import: "%{user_name} Importerade %{imported_count} folkräkningar"
+          update: "%{user_name} Uppdaterade folkräkningen med e-post %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Följande är uppgifter för den aktuella verifieringen:'
@@ -144,30 +152,62 @@ sv:
         start_exploring: börja utforska
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Är du säker på att du vill ta bort denna folkräkningsdata?
+            destroy: Ta bort
+            edit: Redigera
           census:
-            create:
+            create_import:
               error: Det gick inte att importera folkbokföringen.
-              success: Importerade %{count} objekt (%{errors} fel).
-            destroy_all:
-              success: All folkbokföringsdata har tagits bort.
-          destroy:
-            confirm: Radering av folkbokföringsdata kan inte ångras. Är du säker på att du vill fortsätta?
-            title: Radera alla medlemsuppgifter
+              no_user: Ingen användare hittad
+              success: Importerade %{count} objekt. Vi behandlar data. Uppdatera sidan om några minuter för att se ändringarna.
+            destroy:
+              success: Folkräkningsdata har tagits bort.
+            index:
+              empty: Det finns inga folkräkningsdata. Använd %{import_csv} för att importera en CSV-fil.
+              no_sign_in: Aldrig inloggad
+              no_user: Ingen användare hittad
+            last_login:
+              no_sign_in: Aldrig loggat in
+              no_user: Ingen användare
+            new_import:
+              errors:
+                email_exists: E-postadressen %{email} finns redan i organisationen %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Filen måste i formatet CSV med endast en kolumn med e-postadress:'
+              submit: Ladda upp fil
+              title: Importera folkräkningsdata
+              upload_new_census: Ladda upp en ny folkräkning
+          census_records:
+            create_record:
+              success: Folkräkningsdata har framgångsrikt lagts till. Vi behandlar data. Uppdatera sidan om några minuter för att se ändringarna.
+            edit_record:
+              save: Spara
+              title: Redigera folkräkning
+            form:
+              email: E-post
+            new_record:
+              save: Spara
+              title: Lägg till ny folkräkning
+            update_record:
+              invalid: Det gick inte att uppdatera folkräkningen.
+              success: Folkräkningen är uppdaterad.
           index:
-            data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}.
-            empty: Det finns inga medlemsuppgifter. Importera dem som en CSV-fil med formuläret nedan.
+            add_new_record_button: Lägg till ny post
+            authorized: Användaren är behörig
+            fields:
+              actions: Handlingar
+              created_at: Skapad
+              email: E-post
+              user_authorized: Användare behörig?
+            import_csv: Importera CSV
+            no_authorized: Användare obehörig
             title: Aktuella medlemsuppgifter
           instructions:
             body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
             title: Du måste aktivera medlemsregister via CSV för organisationen
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.
@@ -180,6 +220,10 @@ sv:
           user_postal_codes:
             one: Deltagandet är begränsat till deltagare med postnumret %{postal_codes} och ditt postnummer är %{user_postal_code}.
             other: 'Deltagandet är begränsat till deltagare med något av följande postnummer: %{postal_codes}. Ditt postnummer är %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Följande e-postadresser är ogiltiga: %{invalid_emails}.'
+        no_emails: Filen måste innehålla e-post
+        wrong_number_columns: "Kolumnen %{expected} förväntades, men %{actual} hittades."
       id_documents:
         admin:
           config:

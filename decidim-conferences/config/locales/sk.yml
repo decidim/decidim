@@ -157,7 +157,6 @@ sk:
             admin: Administrátor
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotiteľ
         media_link:
           fields:
             date: Dátum

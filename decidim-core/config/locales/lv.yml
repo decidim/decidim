@@ -53,10 +53,6 @@ lv:
         zero: Dalībnieki
         one: Dalībnieks
         other: Dalībnieki
-      decidim/user_group:
-        zero: Grupas
-        one: Grupa
-        other: Grupas
   booleans:
     'false': 'Nē'
     'true': 'Jā'
@@ -173,7 +169,6 @@ lv:
           withdrawn: |-
             %{amendable_type} %{proposal_link} grozījumu atsaucis autors.
       new:
-        amendment_author: Grozījuma autors
         send: Izveidot
         title: Izveidot grozījuma melnrakstu
       preview_draft:
@@ -312,8 +307,6 @@ lv:
         name: Pēdējā aktivitāte
         title: Pēdējā aktivitāte
         view_all: Skatīt visu
-      metrics:
-        name: Organizācijas rādītāji
       stats:
         name: Organizācijas statistika
       sub_hero:
@@ -358,10 +351,6 @@ lv:
     download_your_data:
       export:
         ready: Gatavs
-    endorsements:
-      identities:
-        done: Pabeigts
-        select_identity: Izvēlieties identitāti
     errors:
       internal_server_error:
         title: Radās problēma ar mūsu serveri
@@ -436,52 +425,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
         level_up:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-      groups:
-        demoted_membership:
-          email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir noņēmis jūsu administratora tiesības šai grupā.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs grupas dalībnieks.
-          email_subject: Jūs vairs neesat grupas %{user_group_name} administrators!
-          notification_title: Jūs vairs neesat <a href="%{resource_path}">%{user_group_name}</a> grupas administrators.
-        invited_to_group:
-          email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators aicina jūs tai pievienoties.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo jūs aicina pievienoties grupai. Lūdzu, pārbaudiet cilni Grupas savā profilā, lai to apstiprinātu.
-          email_subject: Jūs aicina pievienoties grupai %{user_group_name}!
-          notification_title: Jūs aicina pievienoties <a href="%{resource_path}">%{user_group_name}</a> grupai. Lai to apstiprinātu, pārbaudiet <a href="%{groups_profile_tab_path}"> Grupu lapu</a> savā profilā.
-        join_request_accepted:
-          email_intro: Apsveicam! Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir pieņēmis jūsu lūgumu pievienoties tai.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo jūsu pievienošanās pieprasījuma statuss ir atjaunināts.
-          email_subject: Jūs pieņēma grupā %{user_group_name}!
-          notification_title: Jūs pieņēma <a href="%{resource_path}">%{user_group_name}</a> grupā.
-        join_request_created:
-          email_intro: Kāds lūdza pievienoties %{user_group_name} grupai. Varat to pieņemt vai noraidīt <a href="%{resource_url}"> grupas dalībnieku lapā </a>.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo varat pārvaldīt grupu %{user_group_name}.
-          email_subject: Kāds lūdza pievienoties %{user_group_name} grupai!
-          notification_title: Kāds lūdza pievienoties %{user_group_name} grupai. Varat to pieņemt vai noraidīt <a href="%{resource_path}"> grupas dalībnieku lapā </a>.
-        join_request_rejected:
-          email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir noraidījis jūsu lūgumu pievienoties.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo jūsu pievienošanās pieprasījuma statuss ir atjaunināts.
-          email_subject: Jūsu lūgums pievienoties grupai %{user_group_name} ir noraidīts!
-          notification_title: Jūsu lūgums pievienoties <a href="%{resource_path}">%{user_group_name}</a> grupai ir noraidīts.
-        promoted_to_admin:
-          email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir piešķīris jums administratora tiesības šai grupā.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs grupas dalībnieks.
-          email_subject: Jūs tagad esat grupas %{user_group_name} administrators!
-          notification_title: Jūs tagad esat grupas <a href="%{resource_path}">%{user_group_name}</a> administrators.
-        removed_from_group:
-          email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators noņēma jūs no tās.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo bijāt šīs grupas dalībnieks.
-          email_subject: Jūs esat noņemts no grupas %{user_group_name}!
-          notification_title: Jūs esat noņemts no grupas <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Ir izveidota jauna lietotāju grupa, ko sauc %{user_group_name}. Varat tagad to apstiprināt <a href="%{groups_admin_url}">administratora panelī</a>.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs platformas administrators.
-          email_subject: Ir izveidota jauna lietotāju grupa
-          notification_title: Lietotāju grupa %{user_group_name} ir izveidota. Varat to tagad apstiprināt <a href="%{groups_admin_path}">administratora panelī</a>.
-        user_group_updated:
-          email_intro: Lietotāju grupa, ko sauc %{user_group_name}, ir atjauninājusi savu profilu, atstājot to neapstiprinātu. Tagad to varat apstiprināt <a href="%{groups_admin_url}">administratora panelī</a>.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs platformas administrators.
-          email_subject: Lietotāju grupa ir atjauninājusi savu profilu
-          notification_title: Lietotāju grupa %{user_group_name}, ir atjauninājusi savu profilu, atstājot to neapstiprinātu. Tagad to varat apstiprināt <a href="%{groups_admin_path}">administratora panelī</a>.
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, kam jūs sekojat, tikko atbalstīja "%{resource_title}", un mums šķiet, ka tas jums varētu būt interesanti. Aplūkojiet to un piedalieties:'
         email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{endorser_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
@@ -544,50 +487,7 @@ lv:
           title: Žetoni
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
-    group_admins:
-      actions:
-        demote_admin: Noņemt administratoru
-      index:
-        current_admins: 'Pašreizējie administratori:'
-        manage_admins: Pārvaldīt administratorus
-    group_invites:
-      accept_invitation: Pieņemt
-      accept_or_reject_group_invitations: 'Šīs grupas ir uzaicinājušas jūs pievienoties. Pieņemiet vai noraidiet to pieprasījumus:'
-      index:
-        invite: Uzaicināt
-        invite_user: Uzaicināt dalībnieku
-      reject_invitation: Noraidīt
-    group_members:
-      actions:
-        are_you_sure: Vai esat pārliecināts?
-        promote_to_admin: Padarīt par administratoru
-        remove_from_group: Noņemt dalībnieku
-      index:
-        current_members_without_admins: 'Pašreizējie dalībnieki (bez administratoriem):'
-        manage_members: Pārvaldīt biedrus
     groups:
-      actions:
-        are_you_sure: Vai esat pārliecināts?
-      edit:
-        edit_user_group: Rediģēt grupu
-        update_user_group: Atjaunināt grupu
-      form:
-        email_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. e-pasta adrese.
-        fill_in_for_verification: 'Aizpildiet šos laukus, ja vēlaties, lai jūsu grupa tiktu apstiprināta:'
-        name_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. nosaukums.
-        nickname_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. segvārds. Neizmantojiet atstarpes un uzsvarus.
-      join:
-        success: Pievienošanās pieprasījums ir veiksmīgi izveidots. Administrators pārskatīs jūsu pieprasījumu pirms jūsu pieņemšanas grupā.
-      leave:
-        success: Grupa ir veiksmīgi pamesta.
-      members:
-        accept_or_reject_join_requests: 'Šie lietotāji ir pieteikušies, lai pievienotos šai grupai. Pieņemt vai noraidīt viņu pieprasījumus:'
-        accept_request: Pieņemt
-        reject_request: Noraidīt
-      new:
-        create_user_group: Izveidot grupu
-        new_user_group: Jauna grupa
-        subtitle: Izveidojiet grupu un uzaiciniet citus lietotājus pievienoties kopējā līmenī.
       roles:
         admin: Administrators
         member: Dalībnieks
@@ -626,30 +526,10 @@ lv:
       home: Sākums
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Jūs to saņemat, jo administrējat %{group}.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{manager} ir uzsācis jaunu sarunu %{group} vārdā. Noklikšķiniet šeit, lai to aplūkotu:"
-          subject: "%{manager} ir sācis jaunu sarunu kā %{group}"
-        comanagers_new_message:
-          admin_in_group: Jūs to saņemat, jo administrējat %{group}.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{manager} sarunā ir nosūtījis jaunus ziņojumus %{group} vārdā. Noklikšķiniet šeit, lai tos aplūkotu:"
-          subject: "%{manager} ir nosūtījis jaunus ziņojumus kā %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir sācis jaunu sarunu ar jums. Noklikšķiniet šeit, lai to aplūkotu:"
           subject: "%{sender} ir sācis sarunu ar jums"
-        new_group_conversation:
-          admin_in_group: Jūs to saņemat, jo administrējat %{group}.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{sender} ir sācis jaunu sarunu ar grupu %{group}. Noklikšķiniet šeit, lai to aplūkotu:"
-          subject: "%{sender} ir sācis sarunu ar %{group}"
-        new_group_message:
-          admin_in_group: Jūs to saņemat, jo administrējat %{group}.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{sender} ir nosūtījis jaunus ziņojumus sarunā ar grupu %{group}. Noklikšķiniet šeit, lai tos aplūkotu:"
-          subject: "%{group} ir jauni ziņojumi no %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir nosūtījis jaunus ziņojumus jūsu sarunā. Lai apskatītu tos, noklikšķiniet šeit:"
@@ -664,24 +544,13 @@ lv:
           new_conversation: Jauna saruna
           next: Nākamais
           title: Sarunas
+        reply_form:
+          placeholder: Jūsu atbilde...
         show:
           chat_with: Saruna ar
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
-    metrics:
-      followers:
-        description: Dalībnieku skaits, kas seko šai līdzdalības telpai
-        object: sekotāji
-        title: Sekotāji
-      participants:
-        description: Aktīvo dalībnieku skaits organizācijā
-        object: dalībnieki
-        title: Dalībnieki
-      users:
-        description: Dalībnieku skaits organizācijā
-        object: dalībnieki
-        title: Dalībnieki
     newsletter_mailer:
       newsletter:
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
@@ -761,10 +630,6 @@ lv:
         subheading: Pārvietojieties %{name} palīdzības lapās
         title: Palīdzība
         topics: Tēmas
-      participatory_space:
-        metrics:
-          headline: Rādītāji
-          link: Rādīt visus rādītājus
     profile:
       deleted: Dzēsts dalībnieks
     profiles:
@@ -774,22 +639,10 @@ lv:
         conversations: Sarunas
         followers: Sekotāji
         following: Seko
-        groups: Grupas
-        members: Dalībnieki
-      sidebar:
-        badges:
-          info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
-          title: Žetoni
       user:
-        create_user_group: Izveidot grupu
-        edit_profile: Rediģēt profilu
-        edit_user_group: Rediģēt grupas profilu
-        invite_user: Uzaicināt dalībnieku
-        join_user_group: Pieteikums pievienoties grupai
-        leave_user_group: Pamest grupu
-        manage_user_group_admins: Pārvaldīt administratorus
-        manage_user_group_users: Pārvaldīt biedrus
-        resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
+        actions:
+          edit_profile: Rediģēt profilu
+          resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
     reported_mailer:
       hide:
         hello: Sveiki, %{name}!
@@ -810,7 +663,6 @@ lv:
       global: Globālais darbības tvērums
       prompt: Izvēlēties darbības tvērumu
     search:
-      results_found_for_term: '%{count} Meklēšanas rezultāti: "%{term}"'
       term_input_placeholder: Meklēt
     searches:
       filters:
@@ -840,9 +692,6 @@ lv:
         help: Palīdzība
       reference:
         reference: 'Atsauce: %{reference}'
-      represent_user_group:
-        represent_user_group: Es pārstāvu grupu
-        select_user_group: Izvēlieties grupu
       results_per_page:
         label: 'Rezultāti vienā lapā'
         title: Izvēlieties rezultātu skaitu vienā lapā
@@ -853,18 +702,8 @@ lv:
       comments_count: Komentāri
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
-      create:
-        existing_error: Ziņojumu nevarēja izveidot. Saruna jau eksistē, lūdzu, mēģiniet vēlreiz.
-        success: Saruna sākās veiksmīgi!
       index:
-        conversations_info: Sarunas ir privātas. Neviens cits tās nevar redzēt. Sarunu var sākt ar jebkuru dalībnieku vai grupu, kas reģistrēta platformā.
-        no_conversations_warning: Šeit vēl nav sarunu.
         time_ago: "Pirms %{time}"
-      reply:
-        placeholder: Jūsu atbilde...
-        send: Sūtīt
-      update:
-        error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
     version:
       show:
         back_to_resource: Atgriezties
@@ -1037,7 +876,6 @@ lv:
         my_data: Mani dati
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
-        user_groups: Grupas
   locale:
     name: Latviešu
     name_with_error: Latviešu (kļūda!)

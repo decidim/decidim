@@ -13,7 +13,7 @@ describe Decidim::OpenDataExporter do
       create(:meeting_component, organization:, published_at: Time.current)
     end
     let!(:resource) { create(:meeting, component:) }
-    let(:resource_title) { "## meetings" }
+    let(:resource_title) { "## meetings (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the meeting"
@@ -34,7 +34,7 @@ describe Decidim::OpenDataExporter do
       create(:meeting_component, organization:, published_at: Time.current)
     end
     let!(:resource) { create(:meeting, component:, author: deleted_user) }
-    let(:resource_title) { "## meetings" }
+    let(:resource_title) { "## meetings (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the meeting"
@@ -55,7 +55,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:commentable) { create(:meeting, component:) }
     let!(:resource) { create(:comment, commentable:) }
-    let(:resource_title) { "## meetings" }
+    let(:resource_title) { "## meeting_comments (1 resource)" }
     let(:help_lines) do
       [
         "* id: The id for this comment"

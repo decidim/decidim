@@ -288,11 +288,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تحديث حول تقدم %{resource_title}
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
-    metrics:
-      results:
-        description: عدد النتائج التي تم توليدها
-        object: النتائج
-        title: النتائج
     open_data:
       help:
         result_comments:
@@ -306,7 +301,6 @@ ar:
           id: معرف هذا التعليق
           locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
           root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
-          user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
         results:
           address: عنوان النتيجة (إن وجد)
           children_count: عدد النتائج الفرعية

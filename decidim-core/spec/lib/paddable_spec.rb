@@ -85,7 +85,7 @@ module Decidim
 
         context "when salt is undefined" do
           it "returns unsecure hash" do
-            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}")
+            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0, 50))
           end
         end
 
@@ -95,7 +95,7 @@ module Decidim
           end
 
           it "returns unsecure hash" do
-            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}")
+            expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}".slice(0, 50))
           end
         end
 
@@ -111,7 +111,7 @@ module Decidim
       end
 
       def unsecure_hash(id)
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secret_key_base}")
+        Digest::SHA256.hexdigest("#{id}-#{Rails.application.secret_key_base}")
       end
 
       def secure_hash(id)

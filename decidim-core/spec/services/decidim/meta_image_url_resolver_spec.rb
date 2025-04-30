@@ -53,6 +53,18 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to end_with("/icon.png") }
   end
 
+  context "when there is no image attached" do
+    let(:hero_image) { nil }
+    let(:banner_image) { nil }
+    let(:resource) { nil }
+
+    before do
+      FileUtils.rm(Rails.root.glob("tmp/storage/**/**/#{content_block.images_container.background_image.blob.key}"))
+    end
+
+    it { is_expected.to be_nil }
+  end
+
   context "when avatar image" do
     let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     let(:resource) { user }

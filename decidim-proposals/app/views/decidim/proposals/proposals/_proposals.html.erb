@@ -18,7 +18,7 @@
   <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
 
   <div class="<%= proposals_container_class(@view_mode) %>">
-    <%= render partial: "proposal", collection: @proposals, as: :proposal, locals: { card_size: card_size_for_view_mode(@view_mode) } %>
+    <%= render partial: "proposal", collection: @proposals, as: :proposal, locals: { card_size: card_size_for_view_mode(@view_mode), show_voting: true } %>
   </div>
 
   <%= decidim_paginate @proposals %>

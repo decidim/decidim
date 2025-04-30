@@ -8,7 +8,7 @@ eu:
       decidim/surveys/survey:
         one: Inkesta
         other: Inkestak
-      decidim/surveys/survey_answer:
+      decidim/surveys/survey_response:
         one: Erantzuna
         other: Erantzunak
   decidim:
@@ -16,10 +16,16 @@ eu:
       admin_log:
         changeset:
           surveys: inkestak
+      menu:
+        surveys_menu:
+          main: Nagusia
+          questions: Galderak
+          responses: Erantzunak
+          settings: Ezarpenak
     components:
       surveys:
         actions:
-          answer: Erantzuna
+          response: Erantzuna
         name: Inkestak
         settings:
           announcement: Oharra
@@ -39,44 +45,48 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
-    metrics:
-      survey_answers:
-        description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkestei erantzunak
-        title: Inkestei erantzunak
     statistics:
-      answers_count: Erantzunak
+      responses_count: Erantzunak
     surveys:
       actions:
-        answers_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen % {responers_count} suntsitu egingo dira, jarraitzen baduzu.
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         destroy: Suntsitu
         edit: Editatu
-        manage_questions: Kudeatu galderak
+        manage_questions: Galderak
         new_survey: Beste inkesta bat
         preview: Aurreikusi
+        responses_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen % {responers_count} suntsitu egingo dira, jarraitzen baduzu.
         title: Ekintzak
       admin:
-        answers:
-          index:
-            title: "Guztira %{guztira} erantzun"
-          show:
-            title: '#%{number} erantzun'
         exports:
-          survey_user_answers: Inkestako parte-hartzaileen erantzunak
-        publish_answers:
+          survey_user_responses: Inkestako parte-hartzaileen erantzunak
+        publish_responses:
           index:
-            answers:
-              one: "Erantzun bat"
-              other: "%{count} erantzun"
             description: |-
               Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
               Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
+            responses:
+              one: "%{count} erantzun"
+              other: "%{count} erantzun"
             status:
               not_published: Argitaratu gabe
               published: Argitaratua
             title: Argitaratu erantzunak
+        questions:
+          surveys:
+            edit:
+              title: Galderak
+        responses:
+          index:
+            no_responses: Oraindik ez dago erantzunik
+            title: "Guztira, %{guztira} erantzun"
+          show:
+            title: '#%{number} erantzun'
+        settings:
+          surveys:
+            edit:
+              title: Ezarpenak
         surveys:
           create:
             invalid: Arazo bat egon da inkesta sortzean.
@@ -84,9 +94,11 @@ eu:
           destroy:
             success: Inkesta behar bezala ezabatua.
           edit:
-            title: Editatu inkesta
+            title: Nagusia
           index:
             title: Inkestak
+          new:
+            title: Nagusia
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
@@ -112,8 +124,8 @@ eu:
       models:
         survey:
           fields:
-            answers: Erantzunak
             questions: Galderak
+            responses: Erantzunak
             status: Egoera
             title: Izenburua
           status:
@@ -123,12 +135,8 @@ eu:
         confirmation:
           body: Zuzen erantzun duzu %{participatory_space} espazioko %{questionnaire_title} inkesta
           subject: '%{questionnaire_title} galdetegiaren erantzun-baieztapena'
-        export_name: Inkestaren erantzunak
+        export_name: Aztertu erantzunak
       surveys:
-        answer:
-          invalid: Inkesta erantzutean errorea gertatu da.
-          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
-          success: Inkesta ondo bete da.
         count:
           surveys_count:
             one: "Inkesta bat"
@@ -139,6 +147,10 @@ eu:
             closed: Itxita
             open: Zabaldu
         no_surveys_warning: Ez dago zure bilatzeko irizpidearekin bat datorren inkestarik edo ez dago inkestarik irekita.
+        response:
+          invalid: Arazo bat egon da galdetegia erantzutean.
+          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
+          success: Galdetegia zuzen erantzun da.
         show:
           closed: Itxita
           open: Zabaldu

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting poll answer" do
+describe "Meeting poll response" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -80,7 +80,7 @@ describe "Meeting poll answer" do
       open_first_question
       expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", visible: :visible, count: 3)
 
-      check question_multiple_option.answer_options.first.body["en"]
+      check question_multiple_option.response_options.first.body["en"]
       click_on "Reply question"
 
       expect(page).to have_content("Question replied")
@@ -92,22 +92,22 @@ describe "Meeting poll answer" do
       find("details[data-question='#{question_single_option.id}']").click
       expect(page).to have_css("details[data-question='#{question_single_option.id}'] input[type='radio']:not([disabled])", visible: :visible, count: 3)
 
-      choose question_single_option.answer_options.first.body["en"]
-      choose question_single_option.answer_options.second.body["en"]
-      answers = all("details[data-question='#{question_single_option.id}'] input[type='radio']")
+      choose question_single_option.response_options.first.body["en"]
+      choose question_single_option.response_options.second.body["en"]
+      responses = all("details[data-question='#{question_single_option.id}'] input[type='radio']")
 
-      expect(answers[0]["checked"]).to be_falsy
-      expect(answers[1]["checked"]).to be_truthy
-      expect(answers[2]["checked"]).to be_falsy
+      expect(responses[0]["checked"]).to be_falsy
+      expect(responses[1]["checked"]).to be_truthy
+      expect(responses[2]["checked"]).to be_falsy
     end
 
     it "does not allow selecting more than the maximum choices for multiple options" do
       open_first_question
       expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", visible: :visible, count: 3)
 
-      check question_multiple_option.answer_options.first.body["en"]
-      check question_multiple_option.answer_options.second.body["en"]
-      check question_multiple_option.answer_options.third.body["en"]
+      check question_multiple_option.response_options.first.body["en"]
+      check question_multiple_option.response_options.second.body["en"]
+      check question_multiple_option.response_options.third.body["en"]
 
       click_on "Reply question"
       expect(page).to have_content("You can choose a maximum of 2.")
@@ -116,8 +116,8 @@ describe "Meeting poll answer" do
 
   context "when questions are closed" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :closed, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user:, questionnaire:) }
-    let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1) }
+    let!(:response_user1) { create(:meetings_poll_response, question: question_multiple_option, user:, questionnaire:) }
+    let!(:response_choice_user1) { create(:meetings_poll_response_choice, response: response_user1) }
 
     before do
       login_as user, scope: :user

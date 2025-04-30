@@ -41,6 +41,8 @@ module Decidim
     end
 
     def parse_i18n_changeset(attribute, values, type, diff)
+      return diff unless values.last.is_a?(Hash)
+
       (values.last.keys - ["machine_translations"]).each do |locale, _value|
         first_value = values.first.try(:[], locale)
         last_value = values.last.try(:[], locale)
@@ -80,22 +82,6 @@ module Decidim
       diff
     end
 
-    def parse_user_group_changeset(attribute, values, type, diff)
-      return unless diff
-
-      old_user_group = Decidim::UserGroup.find_by(id: values[0])
-      new_user_group = Decidim::UserGroup.find_by(id: values[1])
-
-      diff.update(
-        attribute => {
-          type:,
-          label: I18n.t(attribute, scope: i18n_scope),
-          old_value: old_user_group ? translated_attribute(old_user_group.name) : "",
-          new_value: new_user_group ? translated_attribute(new_user_group.name) : ""
-        }
-      )
-    end
-
     def parse_scope_changeset(attribute, values, type, diff)
       return unless diff
 
@@ -116,7 +102,6 @@ module Decidim
       return parse_i18n_changeset(attribute, values, type, diff) if [:i18n, :i18n_html].include?(type)
 
       return parse_scope_changeset(attribute, values, type, diff) if type == :scope
-      return parse_user_group_changeset(attribute, values, type, diff) if type == :user_group
 
       diff.update(
         attribute => {

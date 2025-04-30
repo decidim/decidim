@@ -47,7 +47,6 @@ bg:
       decidim/removed_from_group: Премахнат от групата
       decidim/resource_endorsed_event: Съдържанието е одобрено
       decidim/resource_hidden_event: Съдържанието е скрито
-      decidim/user_group_created_event: Потребителска група е създадена
       decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
     attributes:
@@ -70,9 +69,6 @@ bg:
       decidim/user:
         one: Участник
         other: Участници
-      decidim/user_group:
-        one: Група
-        other: Групи
   booleans:
     'false': 'Не'
     'true': 'Да'
@@ -89,7 +85,7 @@ bg:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Формат: дд/мм/гггг'
-      order: д-м-г
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -320,7 +316,6 @@ bg:
             беше оттеглена от автора.
       name: Изменение
       new:
-        amendment_author: Автор на поправката
         send: Създай
         title: Създай чернова на поправка
       preview_draft:
@@ -533,10 +528,6 @@ bg:
         name: Основни данни
       metadata:
         name: Метаданни
-      metrics:
-        name: Показатели за организацията
-      participatory_space_metrics:
-        name: Метрики
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
@@ -639,10 +630,6 @@ bg:
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
       endorse: Харесвам
-    endorsements:
-      identities:
-        done: Готово
-        select_identity: Изберете самоличност
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
@@ -738,52 +725,6 @@ bg:
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
           email_subject: Достигнахте ниво %{current_level} за значката %{badge_name}!
           notification_title: Поздравления! Достигнахте ниво %{current_level} за <a href="%{resource_path}">значката %{badge_name}</a>!
-      groups:
-        demoted_membership:
-          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отне администраторските Ви права за тази група.
-          email_outro: Получавате това известие, защото сте член на тази група.
-          email_subject: Вече не се администратор на групата %{user_group_name}!
-          notification_title: Вече не се администратор на групата <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> ви покани да се присъедините към нея.
-          email_outro: Получавате това известие, защото имате покана за група. Проверете раздела "Групи" в профила си, за да приемете.
-          email_subject: Имате покана да се присъедините към групата %{user_group_name}!
-          notification_title: Получихте покана да се присъедините към групата <a href="%{resource_path}">%{user_group_name}</a>. Проверете <a href="%{groups_profile_tab_path}">Групи</a> в профила си, за да я приемете!
-        join_request_accepted:
-          email_intro: Поздравления! Администратор на групата <a href="%{resource_url}">%{user_group_name}</a> одобри заявката Ви за присъединяване.
-          email_outro: Получавате това известие, защото заявката Ви за присъединяване беше обновена.
-          email_subject: Бяхте одобрен(а) в групата %{user_group_name}!
-          notification_title: Бяхте одобрен(а) в групата <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Някой заяви членство в групата %{user_group_name}. Одобрете или отхвърлете заявката на страницата <a href="%{resource_url}">Членове на група</a>.
-          email_outro: Получихте известие, защото управлявате групата %{user_group_name}.
-          email_subject: Някой желае да се присъедини към групата %{user_group_name}!
-          notification_title: Някой заяви членство в групата %{user_group_name}. Одобрете или отхвърлете заявката на страницата <a href="%{resource_path}">Членове на група</a>.
-        join_request_rejected:
-          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отхвърли заявката Ви за присъединяване.
-          email_outro: Получавате това известие, защото заявката Ви за присъединяване беше обновена.
-          email_subject: Заявката Ви за присъединяване към групата %{user_group_name} беше отхвърлена!
-          notification_title: Заявката Ви за присъединяване към групата <a href="%{resource_path}">%{user_group_name}</a> беше отхвърлена.
-        promoted_to_admin:
-          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> Ви даде администраторски права за тази група.
-          email_outro: Получавате това известие, защото сте член на тази група.
-          email_subject: Вече сте администратор на групата %{user_group_name}!
-          notification_title: Вече сте администратор на групата <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> ви изключи от нея.
-          email_outro: Получавате това известие, защото бяхте член на тази група.
-          email_subject: Бяхте изключен(а) от групата %{user_group_name}!
-          notification_title: Бяхте изключена(а) от групата <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Нова група беше създадена с име %{user_group_name}. Проверете я на <a href="%{groups_admin_url}">админ панела</a>.
-          email_outro: Получавате това известие, защото сте администратор на платформата.
-          email_subject: Нова група участници беше създадена
-          notification_title: Групата от участници %{user_group_name} беше създадена. Проверете я на <a href="%{groups_admin_path}">админ панел</a>.
-        user_group_updated:
-          email_intro: Групата с име %{user_group_name} обнови профила си, което я прави "непроверена". Проверете я на <a href="%{groups_admin_url}">админ панел</a>.
-          email_outro: Получавате това известие, защото сте администратор на платформата.
-          email_subject: Група от участници обнови профила си
-          notification_title: Групата %{user_group_name} обнови профила си, което я прави "непроверена". Проверете я на <a href="%{groups_admin_path}">админ панел</a>.
       nickname_event:
         notification_body: Коригирахме начина, по който се използват прякорите, така че да няма дублиращи се имена и затова премахнахме правилото за чувствителност към главни и малки букви. <br/> Вашият псевдоним е създаден след друг със същото име, така че автоматично го преименувахме. Можете да го промените от <a href="%{link_to_account_settings}">настройките на вашия акаунт</a>.
       notification_event:
@@ -923,92 +864,11 @@ bg:
       level: Ниво %{level}
       reached_top: Достигнахте най-високото ниво за тази значка.
       title: Какви са значките?
-    group_admins:
-      actions:
-        are_you_sure: Сигурни ли сте? Това няма да премахне участника от групата.
-        demote_admin: Премахни администратор
-      demote:
-        error: Възникна проблем при премахването на този участник от списъка с администратори.
-        success: Участника е успешно премахнат като администратор.
-      index:
-        current_admins: 'Текущи администратори:'
-        manage_admins: Управлявай администраторите
-    group_invites:
-      accept:
-        error: Възникна проблем при приемането на тази покана.
-        success: Поканата е приета успешно.
-      accept_invitation: Приеми
-      accept_or_reject_group_invitations: 'Следните групи ви поканиха да се присъедините. Приемете или отхвърлете заявките:'
-      index:
-        invite: Покани
-        invite_user: Покани участник
-      invite:
-        error: Възникна проблем с поканата към този участник.
-        success: Участникът беше поканен успешно.
-      pending_invitations: Чакащи заявки
-      reject:
-        error: Възникна проблем при отхвърлянето на поканата.
-        success: Поканата е отхвърлена успешно.
-      reject_invitation: Отхвърли
-    group_members:
-      accept:
-        error: Възникна проблем при приемането на заявката за присъединяване.
-        success: Заявката за присъединяване е приета успешно.
-      actions:
-        are_you_sure: Сигурни ли сте?
-        promote_to_admin: Направи администратор
-        remove_from_group: Премахни участник
-      index:
-        current_members_without_admins: 'Текущи членове (без админи):'
-        manage_members: Управллявай членовете
-      promote:
-        error: Възникна проблем с повишаването на този участник.
-        success: Участникът беше повишен успешно.
-      reject:
-        error: Възникна проблем при отхвърлянето на заявката за присъединяване.
-        success: Заявката за присъединяване е отхвърлена успешно.
-      remove:
-        error: Възникна проблем при премахването на участник от групата.
-        success: Участника е успешно премахнат от групата.
     groups:
-      actions:
-        are_you_sure: Сигурни ли сте?
-      create:
-        error: Възникна проблем при създаване на групата.
-        success: Групата създадена успешно.
-      edit:
-        edit_user_group: Редактирай група
-        update_user_group: Обнови група
-      form:
-        document_number_help: Не използвайте тирета или интервали.
-        email_help: Ел. поща на вашата организация, асоциация, колектив, група и т.н.
-        fill_in_for_verification: 'Попълнете тези полета, ако желаете вашата група да бъде проверена:'
-        name_help: Име на вашата организация, асоциация, колектив, група и т.н.
-        nickname_help: Псевдоним на вашата организация, асоциация, колектив, група и т.н.
-        phone_help: Не използвайте тирета или интервали.
-      join:
-        error: Възникна проблем при присъединяването към групата.
-        success: Заявката за присъединяване е създадена успешно. Администраторът ще прегледа вашата заявка, преди да ви приеме в групата.
-      leave:
-        error: Възникна проблем при напускане на групата.
-        last_admin: Не можете да премахнете себе си от тази група, тъй като сте последният администратор. Направете друг член администратор, за да напуснете групата.
-        success: Групата е напусната успешно.
-      members:
-        accept_or_reject_join_requests: 'Следните участници кандидатстват за присъединяване към групата. Приемете или отхвърлете техните заявки:'
-        accept_request: Приеми
-        reject_request: Отхвърли
-      new:
-        create_user_group: Създай група
-        new_user_group: Нова група
-        subtitle: Създайте група и поканете други участници да се присъединят, за да участват на колективно ниво.
-      no_user_groups: Все още не принадлежи към никоя група.
       roles:
         admin: Администратор
         creator: Администратор
         member: Член
-      update:
-        error: Възникна проблем при обновяването на групата.
-        success: Групата е обновена успешно.
     help:
       main_topic:
         default_page:
@@ -1063,42 +923,16 @@ bg:
       static:
         latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Тази група все още няма членове.
     menu:
       help: Помощ
       home: Начало
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Получавате това защото сте администратор в %{group}.
-          greeting: Здравейте, %{recipient}!
-          intro: "%{manager} започна нов разговор от името на %{group}. Натисни тук за да го видите:"
-          outro: Насладете се на платформата!
-          subject: "%{manager} започна нов разговор като %{group}"
-        comanagers_new_message:
-          admin_in_group: Получавате това защото сте администратор в %{group}.
-          greeting: Здравейте, %{recipient}!
-          intro: "%{manager} публикува ново съобщение от името на %{group}. Натисни тук за да го видите:"
-          outro: Насладете се на платформата!
-          subject: "%{manager} изпрати ново съобщение като %{group}"
         new_conversation:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с Вас. Натисни тук за да го видите:"
           outro: Насладете се на платформата!
           subject: "%{sender} започва разговор с Вас"
-        new_group_conversation:
-          admin_in_group: Получавате това защото сте администратор в %{group}.
-          greeting: Здравейте, %{recipient}!
-          intro: "%{sender} започна нов разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Насладете се на платформата!
-          subject: "%{sender} започна нов разговор с %{group}"
-        new_group_message:
-          admin_in_group: Получавате това защото сте администратор в %{group}.
-          greeting: Здравейте, %{recipient}!
-          intro: "%{sender} публикува ново съобщение в разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Насладете се на платформата!
-          subject: "%{group} има ново съобщение от %{sender}"
         new_message:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение във вашият разговор. Натисни тук за да го видите:"
@@ -1143,21 +977,6 @@ bg:
         finished: 'Приключило: %{end_date}'
         not_started: Още не е започнало
         remaining: "Остават %{time_distance}"
-    metrics:
-      download:
-        csv: Изтегляне на данни (CSV)
-      followers:
-        description: Брой участници, които следват това пространство
-        object: последователи
-        title: Последователи
-      participants:
-        description: Брой активни участници в организацията
-        object: участници
-        title: Участници
-      users:
-        description: Брой участници в организацията
-        object: участници
-        title: Участници
     newsletter_mailer:
       newsletter:
         no_reply_notice: Този имейл е изпратен от имейл адрес за уведомяване, който не може да приема входящи имейли. Моля, не отговаряйте на това съобщение.
@@ -1293,10 +1112,6 @@ bg:
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
         topics: Tеми
-      participatory_space:
-        metrics:
-          headline: Индикатори
-          link: Покажи всички индикатори
       terms_of_service:
         accept:
           error: Възникна проблем при приемането на Условията за ползване.
@@ -1322,7 +1137,6 @@ bg:
       deleted: Изтрит участник
       inaccessible_message: Този профил е недостъпен поради нарушение на Правилата и условията за ползване!
     profiles:
-      default_officialization_text_for_user_groups: Тази група е публично проверена, нейното име е потвърдено, че съответства на истинското и име.
       default_officialization_text_for_users: Този участник е публично проверен, името му или ролята са потвърдени, че съответстват на истинските му име и роля.
       show:
         activity: Дейност
@@ -1330,41 +1144,14 @@ bg:
         conversations: Разговори
         followers: Последователи
         following: Следванния
-        group_admins: Управление на администраторите
-        group_members: Управление на членовете
-        groups: Групи
-        members: Членове
         officialized: Официален участник
         send_private_message: Изпрати лично съобщение
-      sidebar:
-        badges:
-          info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
-          title: Значки
       user:
         actions:
-          create_user_group: Създаване на група
           disabled_message: Съобщение
           edit_profile: Редактиране на профил
-          edit_user_group: Редактиране на профила на групата
-          invite_user: Покани участник
-          join_user_group: Заявка за присъединяване към група
-          leave_user_group: Напусни на групата
-          manage_user_group: Управление на групата
-          manage_user_group_admins: Управление на администраторите
-          manage_user_group_users: Управление на членовете
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
-        confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
-        create_user_group: Създай група
-        edit_profile: Редактиране на профил
-        edit_user_group: Редактиране профил на група
-        fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
-        invite_user: Покани участник
-        join_user_group: Заявка за присъединяване към група
-        leave_user_group: Напусни на групата
-        manage_user_group_admins: Управлявай администраторите
-        manage_user_group_users: Управлявай членовете
-        resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
       hide:
         hello: Здравейте %{name},
@@ -1396,7 +1183,6 @@ bg:
     search:
       name: Търсене
       results: Резултати от търсенето
-      results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:
@@ -1446,14 +1232,11 @@ bg:
       flag_user_modal:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         block: Блокирай този участник
-        close: Затвори
-        description: Какво е неприемливо при този потребител?
         does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
         hide: Скрийте цялото им съдържание
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
         report: Доклад
         spam: Съдържа примамка за кликване, реклама, измами или скриптове.
-        title: Докладвайте за неподходящ потребител
       floating_help:
         help: Помощ
       follow_button:
@@ -1467,9 +1250,6 @@ bg:
         public_participation: Показване на присъствието ми публично
       reference:
         reference: 'Справка: %{reference}'
-      represent_user_group:
-        represent_user_group: Аз представлявам групата
-        select_user_group: Избери група
       results_per_page:
         label: 'Резултати на страница:'
         title: Изберете брой резултати на страница
@@ -1499,19 +1279,8 @@ bg:
         no_activities_warning: Този участник все още няма активности.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
-      create:
-        error: Съобщението не можа да бъде създадено. Опитайте по-късно.
-        existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
-        success: Разговорът започна успешно!
       index:
-        conversations_info: Разговорите са частни. никой друг не може да ги види. Разговор може да започне с всеки участник или група, регистрирана в платформата.
-        no_conversations_warning: Тук все още няма разговори.
         time_ago: "преди %{time}"
-      reply:
-        placeholder: Вашият отговор...
-        send: Изпрати
-      update:
-        error: Съобщението не е изпратено. Опитайте по-късно
     user_report_mailer:
       notify:
         body_1: Потребителят %{user} е докладван от %{token}
@@ -1912,7 +1681,6 @@ bg:
         notifications_settings: Настройки на известията
         profile: Профил
         title: Настройки за участника
-        user_groups: Групи
   locale:
     name: български език
     name_with_error: Английски (грешка!)

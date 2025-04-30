@@ -222,6 +222,7 @@ eu:
           pending_to_vote_budgets:
             one: Beste aurrekontu batean bozkatu dezakezu
             other: Beste aurrekontu batzuetan bozkatu dezakezu
+          share_text: "Botoa eman diet nire proiekturik gogokoenei hemen %{space_name}! 🎉 Eman botoa orain: %{component_url}"
           share_vote: Aldatu zure babesa
           title: Zure babesa ongi bideratu da
           view_votes:
@@ -230,6 +231,9 @@ eu:
           votes_count:
             one: 'Zure babesa honentzat: %{budget_name} erregistratu da.'
             other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
+      order_pdf:
+        text: Botoa eman duzu hemen %{space_name}, honako proiektu hauetan
+        title: Zure botua zuzen onartu da.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -253,7 +257,7 @@ eu:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure babesa ezeztatu nahi duzula?
-          cancel_order: ezabatu ezazu babesa
+          cancel_order: Ezabatu ezazu babesa
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
@@ -284,13 +288,13 @@ eu:
             start_adding_projects: Hasi proiektuak gehitzen
           minimum: Gutxienekoa
           minimum_projects_rule:
-            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
+            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta babesa eman zure lehentasunen arabera.
           projects_rule:
-            description: Hautatu gutxienez %{minimum_number} eta gehienez %{maximum_number} nahi dituzun proiektu, eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
+            description: Hautatu gutxienez %{minimum_number} eta gehienez %{maximum_number} nahi dituzun proiektu, eta bozkatu zure lehentasunen arabera.
           projects_rule_maximum_only:
-            description: Hautatu gehienez %{maximum_number} proiektu eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
+            description: Hautatu gutxienez nahi dituzun %{maximum_number} proiektu eta babesa eman zure lehentasunen arabera.
           vote_threshold_percent_rule:
-            description: Esleitu gutxienez %{minimum_budget} nahi dituzun proiektuei eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
+            description: Esleitu gutxienez nahi dituzun %{minimum_budget} proiektu eta babesa eman zure lehentasunen arabera.
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
@@ -315,9 +319,10 @@ eu:
           added: Gehituta
           all: Guztiak
         projects_for: '%{name} parte-hartzailearen proiektuak'
-        select_projects: Hautatu proiektuak 
+        select_projects: Proiektuak gehitu
         show:
           budget: Aurrekontua
+        start_voting: Babesa ematen hasi
       prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
@@ -414,7 +419,7 @@ eu:
           id: Proiektuaren identifikatzaile bakarra
           latitude: Proiektuaren latitudea, baldin eta kokagune fisikoa badu
           longitude: Proiektuaren longitudea, baldin eta kokapen fisikoa badu
-          participatory_space: Proiektu hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          participatory_space: Proiektu hau zein espaziotakoa da (adibidez, Partaidetza-prozesua edo Batzarra)
           reference: Proiektuaren erreferentzia bakarra
           related_proposal_titles: Zerrendatutako proposamenen izenburuak
           related_proposal_urls: Zerrendatutako proposamenen URLak

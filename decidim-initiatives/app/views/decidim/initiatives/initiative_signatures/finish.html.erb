@@ -1,6 +1,18 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html", title: translated_attribute(current_initiative.title)), callout_class: "secondary") %>
+<div class="flex flex-col gap-4 items-center text-center my-12">
+  <%= success_animation %>
 
-<%= link_to initiative_path(current_initiative), class: "button button__sm md:button__lg button__text-secondary" do %>
-  <%= icon "arrow-left-line" %>
-  <%= t(".back_to_initiative") %>
-<% end %>
+  <h1 class="h1 inline-block">
+    <%= t("title", scope: "decidim.initiatives.initiative_signatures.finish") %>
+  </h1>
+
+  <p>
+    <%= t("decidim.initiatives.initiative_votes.create.success_html", title: translated_attribute(current_initiative.title)) %>
+  </p>
+</div>
+
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= link_to initiative_path(current_initiative), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" do %>
+    <%= icon "arrow-left-line", class: "fill-current" %>
+    <%= t("back_to_initiative", scope: "decidim.initiatives.initiative_signatures.finish") %>
+  <% end %>
+</div>

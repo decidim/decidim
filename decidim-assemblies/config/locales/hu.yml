@@ -191,7 +191,6 @@ hu:
             admin: Adminisztrátor
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
       titles:
         assemblies: Gyűlések
         assemblies_types: Gyűlés típusa
@@ -343,11 +342,6 @@ hu:
           not_found: 'A gyűlés típus nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
-    metrics:
-      assemblies:
-        description: A létrehozott gyűlések száma
-        object: gyűlések
-        title: Gyűlések
     participatory_processes:
       show:
         related_assemblies: Kapcsolódó gyűlések

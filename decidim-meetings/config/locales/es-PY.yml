@@ -1,8 +1,6 @@
 es-PY:
   activemodel:
     attributes:
-      answer:
-        add_documents: Añadir documentos
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -18,13 +16,12 @@ es-PY:
         customize_registration_email: Personalizar email de inscripción
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
-        decidim_user_group_id: Grupo de usuarias
         description: Descripción
         end_time: Día y hora de finalización
         id: ID
         iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
-        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Ten en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Pistas de ubicación
         online_meeting_url: URL del encuentro online
@@ -52,6 +49,8 @@ es-PY:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
+      response:
+        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
@@ -122,7 +121,6 @@ es-PY:
             values:
               official: Oficial
               participants: Participante
-              user_group: Grupos
           with_any_type:
             label: Tipo de encuentro
             values:
@@ -167,7 +165,7 @@ es-PY:
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            registration_code_enabled: Código de inscripción activado
+            registration_code_enabled: Código de inscripción y código QR activados
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
@@ -176,7 +174,6 @@ es-PY:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
-            creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     download_your_data:
       help:
         invites:
@@ -226,15 +223,27 @@ es-PY:
           email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
           notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
         meeting_updated:
-          email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_intro: 'Se ha actualizado el encuentro: "%{resource_title}" con cambios en %{changed_fields}. Puedes consultar la nueva versión en:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
+          field_names:
+            address: la dirección
+            end_time: la hora de finalización
+            location: la ubicación
+            start_time: la hora de inicio
+          notification_title: Se ha actualizado el encuentro <a href="%{resource_path}">%{resource_title}</a> con cambios en %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Se te ha añadido a la lista de espera para la reunión <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado.
           email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
           email_subject: Su código de registro "%{registration_code}" para la reunión "%{resource_title}" ha sido validado
           notification_title: Su código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
+        registration_marked_as_attendee:
+          email_intro: Se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          email_outro: Recibes esta notificación porque se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          email_subject: Se ha validado tu inscripción al encuentro "%{resource_title}" confirmando así tu asistencia.
+          notification_title: Se ha validado tu inscripción al encuentro "<a href="%{resource_path}">%{resource_title}</a>" confirmando así tu asistencia.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -274,6 +283,7 @@ es-PY:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         manage_poll: Configurar encuesta
+        mark_as_attendee: Confirmar asistencia
         new_meeting: Añadir encuentro
         preview: Previsualizar
         registrations: Inscripciones
@@ -311,10 +321,10 @@ es-PY:
             invalid: Se ha producido un error al actualizar este orden del día.
             success: El orden del día se ha actualizado correctamente.
         exports:
-          answers: Respuestas
           meeting_comments: Comentarios
           meetings: Reuniones
           registrations: Inscripciones
+          responses: Respuestas
         invite_join_meeting_mailer:
           invite:
             decline: Rechazar invitación
@@ -415,15 +425,14 @@ es-PY:
         registrations:
           edit:
             save: Guardar
-            validate: Validar
-            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
-            manage_questions: Gestionar las preguntas
+            manage_questions: Preguntas
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
             registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
+            registrations: Ver inscripciones
             registrations_count:
               one: Ha habido %{count} registro.
               other: Ha habido %{count} registros.
@@ -433,9 +442,17 @@ es-PY:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
+        registrations_attendees:
+          index:
+            title: Inscripciones
+            validate: Validar
+            validate_registration_code: Validar código de inscripción
+          mark_attendee:
+            invalid: Esta inscripción ya ha estado marcada como asistente.
+            success: Esta inscripción se ha marcado como asistente correctamente.
           validate_registration_code:
-            invalid: Este código de registro no es válido.
-            success: Código de registro validado con éxito.
+            invalid: Este código de inscripción no es válido.
+            success: Código de inscripción validado correctamente.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
@@ -474,7 +491,7 @@ es-PY:
           body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ahora puede cerrar la reunión "%{meeting_title}" con un informe
+          subject: Ahora puedes cerrar la reunión "%{meeting_title}" con un informe
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_meetings:
@@ -546,7 +563,6 @@ es-PY:
             all: Todos
             official: Oficial
             participants: Participantes
-            user_group: Grupos
           search: Buscar
           type: Tipo
           type_values:
@@ -557,7 +573,6 @@ es-PY:
         form:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
-          create_as: Crear encuentro como
           disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
           iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
@@ -577,7 +592,7 @@ es-PY:
           close_meeting: Cerrar
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar
-          join_meeting: Unirse al encuentro
+          join_meeting: Inscríbete
           reply_poll: Responder consulta
           view_poll: Ver consulta
         meetings:
@@ -586,7 +601,7 @@ es-PY:
         new:
           back: Atrás
           create: Crear
-          title: Crea tu encuentro
+          title: Crear un nuevo encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -594,8 +609,11 @@ es-PY:
           attendees: Número de asistentes
           contributions: Número de contribuciones
           join: Inscribirse al encuentro
+          join_waitlist: Apuntarse a la lista de espera
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          leave_waitlist: Abandonar lista de espera
+          leave_waitlist_confirmation: '¿Seguro que quieres abandonar la lista de espera para este encuentro?'
           link_available_soon: Enlace disponible próximamente
           link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
@@ -603,8 +621,11 @@ es-PY:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          pending_address: La ubicación se anunciará pronto.
           redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Tu codigo de registro
+          registration_and_qr_code: Inscripción y código QR
+          registration_code: 'Código de inscripción: %{code}'
+          registration_code_help_text: Tu código de inscripción y tu código QR
           registration_state:
             validated: Validado
             validation_pending: VALIDACIÓN PENDIENTE
@@ -612,6 +633,9 @@ es-PY:
             one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           visit_finished: Ver encuentro pasado
+          waitlist:
+            description: Si queda alguna plaza libre, se tramitará tu inscripción automáticamente y te lo notificaremos por correo electrónico.
+            status: Estás en la lista de espera
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
           withdraw_meeting: Retirar
@@ -639,15 +663,16 @@ es-PY:
             start_time: Fecha de inicio
             taxonomies: Taxonomías
             title: Título
+        registration:
+          actions: Acciones
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            status: Estado
+          status:
+            attended: Asististe
+            not_attended: No asististe
       polls:
-        answers:
-          index:
-            administrate: Administrar
-            title: Consulta
-          index_admin:
-            back_to_meeting: Volver al encuentro
-            title: Administrar consulta
-            view_poll: Ver consulta
         questions:
           closed_question:
             announcement: Se han cerrado las respuestas a esta pregunta.
@@ -658,8 +683,8 @@ es-PY:
           index_admin:
             edit: Editar en el panel de administración
             question: Pregunta
-            received_answer: respuesta recibida
-            received_answers: respuestas recibidas
+            received_response: respuesta recibida
+            received_responses: respuestas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
@@ -672,8 +697,15 @@ es-PY:
             question: Pregunta
             question_replied: Pregunta respondida
             reply_question: Responder pregunta
+        responses:
+          index:
+            administrate: Administrar
+            title: Sondeo
+          index_admin:
+            back_to_meeting: Volver al encuentro
+            title: Administrar consulta/sondeo en directo
+            view_poll: Ver sondeo
       public_participants_list:
-        attending_organizations: Organizaciones
         attending_participants: Participantes asistentes
         hidden_participants_count:
           one: y %{count} persona más
@@ -683,7 +715,7 @@ es-PY:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
-          registration_code: Tu código de registro es %{code}.
+          registration_code: Tu código de inscripción es %{code}. Por favor, muestra el siguiente código QR a una administradora para validar su asistencia.
       registration_type:
         on_different_platform: En una plataforma diferente
         on_this_platform: En esta plataforma
@@ -698,6 +730,9 @@ es-PY:
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
+        waitlist:
+          invalid: Se ha producido un error al incorporarte a la lista de espera.
+          success: Te has inscrito correctamente en la lista de espera de la reunión. Si se liberan plazas se te notificará tu inscripción automáticamente.
       type_of_meeting:
         hybrid: Híbrido
         in_person: Presencial
@@ -709,11 +744,6 @@ es-PY:
       withdraw:
         error: Se ha producido un error al retirar el encuentro.
         success: El encuentro se ha retirado con éxito.
-    metrics:
-      meetings:
-        description: Número de reuniones creadas
-        object: reuniones
-        title: Reuniones
     open_data:
       help:
         meeting_comments:
@@ -724,11 +754,10 @@ es-PY:
           commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
           comments: Los datos de los comentarios del encuentro
           created_at: La fecha en la que se creó este comentario
-          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es una respuesta, o la respuesta de una respuesta)
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         meetings:
           address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
           attachments: El número de archivos adjuntos en este encuentro
@@ -746,7 +775,6 @@ es-PY:
           created_at: La fecha en la que se creó este encuentro
           customize_registration_email: Posibilidad de introducir un correo electrónico personalizado al registrarse en el encuentro
           decidim_author_type: Tipo de autoría (origen) del encuentro
-          decidim_user_group_id: ID del grupo de usuarias involucrado en el encuentro
           description: La descripción del encuentro
           end_time: La fecha y hora en que terminó este encuentro
           follows_count: El número de seguidoras que tiene el encuentro

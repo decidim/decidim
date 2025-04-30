@@ -45,7 +45,6 @@ lt:
       decidim/removed_from_group: Pašalinta iš grupės
       decidim/resource_endorsed_event: Išteklis palaikytas
       decidim/resource_hidden_event: Išteklis paslėptas
-      decidim/user_group_created_event: Naudotojų grupė sukurta
       decidim/welcome_notification_event: Sveikinimo prisijungus žinutė
   activerecord:
     attributes:
@@ -74,11 +73,6 @@ lt:
         few: Dalyviai
         many: Dalyviai
         other: Dalyviai
-      decidim/user_group:
-        one: Grupė
-        few: Grupės
-        many: Grupės
-        other: Grupės
   booleans:
     'false': 'Ne'
     'true': 'Taip'
@@ -338,7 +332,6 @@ lt:
             Ši pataisa dėl %{amendable_type}%{proposal_link} buvo išimta autoriaus(-ės).
       name: Pataisa
       new:
-        amendment_author: Pataisos autorius(-ė)
         send: Sukurti
         title: Sukurti Pataisos Juodraštį
       preview_draft:
@@ -550,10 +543,6 @@ lt:
         name: Pagrindnė statitika
       metadata:
         name: Metaduomenys
-      metrics:
-        name: Organizacijos metrika
-      participatory_space_metrics:
-        name: Rodikliai
       participatory_space_stats:
         name: Statistika
       social_networks_metadata:
@@ -645,10 +634,6 @@ lt:
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsement_buttons_cell:
       endorse: Patinka
-    endorsements:
-      identities:
-        done: Atlikta
-        select_identity: Pasirinkite tapatybę
     errors:
       internal_server_error:
         copied: Tekstas nukopijuotas!
@@ -740,52 +725,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
           email_subject: Jūs pelnėte %{current_level} lygio ženklelį %{badge_name}!
           notification_title: Sveikiname! Jūs pelnėte %{current_level} lygio ženklelį <a href="%{resource_path}">%{badge_name}</a>!
-      groups:
-        demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jūsų administratoriaus teises, susijusias su šia grupe.
-          email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
-          email_subject: Jūs nebesate %{user_group_name} grupės administratorius!
-          notification_title: Jūs nebesate <a href="%{resource_path}">%{user_group_name}</a> grupės administratorius.
-        invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pakvietė jus prisijungti prie grupės.
-          email_outro: Šį pranešimą gavote dėl to, kad esate pakviestas į grupę. Patikrinkite puslapį „Grupės“ savo profilyje, jeigu norite priimti kvietimą.
-          email_subject: Esate pakviestas prisijungti prie %{user_group_name} grupės!
-          notification_title: Esate pakviestas prisijungti prie <a href="%{resource_path}">%{user_group_name}</a> grupės. Jeigu norite priimti kvietimą, spustelėkite puslapį „Grupės“ <a href="%{groups_profile_tab_path}"> </a> savo profilyje!
-        join_request_accepted:
-          email_intro: Sveikiname! <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius priėmė jūsų prašymą prisijungti prie grupės.
-          email_outro: Šį pranešimą gavote, nes jūsų prisijungimo prašymas atnaujintas.
-          email_subject: Esate priimtas į %{user_group_name} grupę!
-          notification_title: Esate priimtas į <a href="%{resource_path}">%{user_group_name}</a> grupę.
-        join_request_created:
-          email_intro: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_url}">grupės narių puslapyje</a>.
-          email_outro: Šį pranešimą gavote dėl to, kad galite valdyti %{user_group_name} grupę.
-          email_subject: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės!
-          notification_title: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_path}">grupės narių puslapyje</a>.
-        join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
-          email_outro: Šį pranešimą gavote, nes jūsų prisijungimo prašymas buvo atnaujintas.
-          email_subject: Jūsų prašymas prisijungti prie %{user_group_name} grupės buvo atmestas!
-          notification_title: Jūsų prašymas prisijungti prie <a href="%{resource_path}">%{user_group_name}</a> grupės buvo atmestas.
-        promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius suteikė jums tos grupės administratoriaus teises.
-          email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
-          email_subject: Tapote %{user_group_name} grupės administratoriumi(-e)!
-          notification_title: Dabar esate <a href="%{resource_path}">%{user_group_name}</a> grupės administratorius(-ė).
-        removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jus iš grupės.
-          email_outro: Šį pranešimą gavote dėl to, kad buvote tos grupės narys.
-          email_subject: Buvote pašalintas iš %{user_group_name} grupės!
-          notification_title: Buvote pašalintas(-a) iš <a href="%{resource_path}">%{user_group_name}</a> grupės.
-        user_group_created:
-          email_intro: Sukurta nauja naudotojų grupė ir jai suteiktas vardas %{user_group_name}. Galite tai patikrinti <a href="%{groups_admin_url}">administratorių erdvėje</a>.
-          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
-          email_subject: Sukurta nauja naudotojų grupė
-          notification_title: Sukurta %{user_group_name} naudotojų grupė. Dabar galite ją patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
-        user_group_updated:
-          email_intro: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_url}">administratoriaus srityje</a>.
-          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
-          email_subject: Naudotojų grupė atnaujino savo profilį
-          notification_title: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
       reports:
         resource_hidden:
           email_intro: Administratorius pašalino jūsų %{resource_type}, nes buvo pranešta apie tai kaip %{report_reasons}.
@@ -920,92 +859,11 @@ lt:
       level: '%{level} lygis'
       reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
       title: Kas yra ženkleliai?
-    group_admins:
-      actions:
-        are_you_sure: Ar tikrai? Tai nepašalins dalyvio iš grupės.
-        demote_admin: Pašalinti administratorių
-      demote:
-        error: Šalinant šį dalyvį iš administratorių sąrašo kilo problema.
-        success: Dalyvis pašalintas iš administratorių.
-      index:
-        current_admins: 'Dabartiniai administratoriai:'
-        manage_admins: Valdyti administratorių duomenis
-    group_invites:
-      accept:
-        error: Priimant šį kvietimą iškilo problema.
-        success: Kvietimas priimtas.
-      accept_invitation: Sutikti
-      accept_or_reject_group_invitations: 'Šios grupės jus pakvietė prie jų prisijungti. Priimkite arba atmeskite jų prašymus:'
-      index:
-        invite: Pakviesti
-        invite_user: Pakviesti dalyvį
-      invite:
-        error: Kviečiant šį dalyvį iškilo problema.
-        success: Dalyvis pakviestas.
-      pending_invitations: Laukiantys prašymai
-      reject:
-        error: Atmetant šį kvietimą iškilo problema.
-        success: Kvietimas atmestas.
-      reject_invitation: Atmesti
-    group_members:
-      accept:
-        error: Priimant šį prisijungimo kvietimą iškilo problema.
-        success: Prisijungimo kvietimas priimtas.
-      actions:
-        are_you_sure: Ar esate tikri?
-        promote_to_admin: Padaryti administratoriumi
-        remove_from_group: Pašalinti dalyvį
-      index:
-        current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
-        manage_members: Valdyti narius
-      promote:
-        error: Paaukštinant šį dalyvį iškilo problema.
-        success: Dalyvis paaukštintas sėkmingai.
-      reject:
-        error: Atmetant šį prisijungimo kvietimą iškilo problema.
-        success: Prisijungimo kvietimas atmestas.
-      remove:
-        error: Šalinant šį dalyvį iš grupės iškilo problema.
-        success: Dalyvis pašalintas iš grupės.
     groups:
-      actions:
-        are_you_sure: Ar esate tikri?
-      create:
-        error: Kuriant grupę iškilo problema.
-        success: Grupė sukurta.
-      edit:
-        edit_user_group: Redaguoti grupę
-        update_user_group: Atnaujinti grupę
-      form:
-        document_number_help: Nenaudokite nei brūkšnių, nei tarpų.
-        email_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. el. pašto adresas.
-        fill_in_for_verification: 'Jei norite, kad jūsų grupė būtų patvirtinta, užpildykite šiuos laukelius:'
-        name_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. pavadinimas.
-        nickname_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. naudotojo vardas. Nenaudokite nei tarpų, nei diakritinių ženklų.
-        phone_help: Nenaudokite nei brūkšnių, nei tarpų.
-      join:
-        error: Prisijungiant prie šios grupės iškilo problema.
-        success: Prisijungimo prašymas sukurtas. Administratorius peržiūrės jūsų prašymą prieš priimdamas jus į grupę.
-      leave:
-        error: Paliekant šią grupę iškilo problema.
-        last_admin: Negalite savęs pašalinti iš šios grupės, nes esate paskutinis jos administratorius. Norėdami palikti grupę, paskirkite kitą žmogų jos administratoriumi.
-        success: Grupė palikta.
-      members:
-        accept_or_reject_join_requests: 'Toliau nurodyti naudotojai pateikė prašymą prisijungti prie šios grupės. Priimkite arba atmeskite jų prašymus:'
-        accept_request: Sutikti
-        reject_request: Atmesti
-      new:
-        create_user_group: Sukurti grupę
-        new_user_group: Nauja grupė
-        subtitle: Sukurti grupę ir pakviesti kitus naudotojus dalyvauti bendru lygmeniu.
-      no_user_groups: Dar nepriklauso nė vienai grupei.
       roles:
         admin: Administratorius
         creator: Administratorius
         member: Narys
-      update:
-        error: Atnaujinant šią grupę iškilo problema.
-        success: Grupė atnaujinta.
     help:
       main_topic:
         default_page:
@@ -1059,37 +917,15 @@ lt:
       static:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
-    members:
-      no_members: Šioje grupėje dar nėra nė vieno nario.
     menu:
       help: Pagalba
       home: Pagrindinis
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{manager} pradėjo naują pokalbį %{group} vardu. Spustelėkite čia ir pamatysite:"
-          subject: "%{manager} pradėjo naują pokalbį kaip %{group}"
-        comanagers_new_message:
-          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{manager} paskelbė naujų žinučių pokalbyje %{group} vardu. Spustelkite čia norėdami juos pamatyti:"
-          subject: "%{manager} išsiuntė naujas žinutes kaip %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} pradėjo naują pokalbį su jumis. Spustelėkite čia ir pamatysite:"
           subject: "%{sender} pradėjo pokalbį su jumis"
-        new_group_conversation:
-          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{sender} pradėjo naują pokalbį su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          subject: "%{sender} pradėjo pokalbį su %{group}"
-        new_group_message:
-          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
-          greeting: Sveiki, %{recipient}!
-          intro: "%{sender} paskelbė naujų pranešimų pokalbyje su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          subject: "%{group} gavo naujų pranešimų iš %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} paskelbė naujų pranešimų jūsų pokalbyje. Spustelėkite čia ir pamatysite:"
@@ -1133,21 +969,6 @@ lt:
         finished: 'Baigėsi: %{end_date}'
         not_started: Neprasidėjo
         remaining: "Liko %{time_distance}"
-    metrics:
-      download:
-        csv: Parsisiųsti duomenis (CSV)
-      followers:
-        description: Dalyvių, kurie seka šią dalyvaujamojo proceso erdvę, skaičius
-        object: sekėjai
-        title: Sekėjai
-      participants:
-        description: Aktyvių dalyvių skaičius organizacijoje
-        object: dalyviai
-        title: Dalyviai
-      users:
-        description: Dalyvių skaičius organizacijoje
-        object: dalyviai
-        title: Dalyviai
     newsletter_mailer:
       newsletter:
         no_reply_notice: Šis el. laiškas išsiųstas iš pranešimų el. pašto adreso, kuris negali priimti gaunamų el. laiškų. Prašome neatsakyti į šį pranešimą.
@@ -1277,10 +1098,6 @@ lt:
         subheading: Naršyti %{name} pagalbos puslapiuose
         title: Pagalba
         topics: Temos
-      participatory_space:
-        metrics:
-          headline: Rodikliai
-          link: Rodyti visus rodiklius
       terms_of_service:
         accept:
           error: Sutinkant su sąlygomis iškilo problema.
@@ -1306,7 +1123,6 @@ lt:
       deleted: Ištrintas dalyvis
       inaccessible_message: Profilis neprieinamas dėl naudojimo sąlygų pažeidimų!
     profiles:
-      default_officialization_text_for_user_groups: Ši grupė yra patikrinta, jos pavadinimas atitinka realybę.
       default_officialization_text_for_users: Šis dalyvis yra patikrintas, jo vardas ir pavardė arba pareigos buvo patikrintos ir atitinka jo tikrąjį vardą ir pavardę bei pareigas.
       show:
         activity: Veikla
@@ -1314,39 +1130,14 @@ lt:
         conversations: Pokalbiai
         followers: Sekėjai
         following: Seka
-        groups: Grupės
-        members: Nariai
         officialized: Patikrintas dalyvis
         send_private_message: Siųsti asmeninę žinutę
-      sidebar:
-        badges:
-          info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
-          title: Ženkleliai
       user:
         actions:
-          create_user_group: Sukurti grupę
           disabled_message: Žinutė
           edit_profile: Redaguoti profilį
-          edit_user_group: Redaguoti grupės profilį
-          invite_user: Kviesti dalyvį
-          join_user_group: Prašyti prisijungti prie grupės
-          leave_user_group: Palikti grupę
-          manage_user_group: Tvarkyti grupę
-          manage_user_group_admins: Valdyti administratorių duomenis
-          manage_user_group_users: Valdyti narius
           message: Pranešimas
           resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
-        confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
-        create_user_group: Sukurti grupę
-        edit_profile: Redaguoti profilį
-        edit_user_group: Redaguoti grupės profilį
-        fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
-        invite_user: Kviesti dalyvį
-        join_user_group: Prašyti prisijungti prie grupės
-        leave_user_group: Palikti grupę
-        manage_user_group_admins: Tvarkyti administratorius
-        manage_user_group_users: Valdyti narius
-        resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
     reported_mailer:
       hide:
         hello: Sveiki %{name},
@@ -1378,7 +1169,6 @@ lt:
     search:
       name: Ieškoti
       results: Paieškos rezultatai
-      results_found_for_term: '%{count} rezultatai atlikus paiešką: "%{term}"'
       term_input_placeholder: Ieškoti
     searches:
       filters:
@@ -1425,14 +1215,11 @@ lt:
       flag_user_modal:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         block: Blokuoti šį naudotoją
-        close: Uždaryti
-        description: Kas netinka apie naudotoją?
         does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
         hide: Slėpti visą jų turinį
         offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
         report: Pranešti
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
-        title: Pranešti apie netinkamą turinį
       floating_help:
         help: Pagalba
       mentions_modal:
@@ -1442,9 +1229,6 @@ lt:
         public_participation: Rodyti mano dalyvavimą viešai
       reference:
         reference: 'Nuoroda: %{reference}'
-      represent_user_group:
-        represent_user_group: Aš atstovauju grupei
-        select_user_group: Pasirinkti grupę
       results_per_page:
         label: 'Rezultatų skaičius puslapyje:'
         title: Pasirinkti rezultatų skaičių puslapyje
@@ -1474,19 +1258,8 @@ lt:
         no_activities_warning: Šis dalyvis dar neturi jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
-      create:
-        error: Žinutės nepavyko sukurti. Bandykite dar kartą vėliau.
-        existing_error: Pranešimo nepavyko sukurti. Pokalbis jau egzistuoja, dabar bandykite dar kartą.
-        success: Pokalbis pradėtas!
       index:
-        conversations_info: Pokalbiai yra privatūs. Niekas kitas jų negali matyti. Pokalbį galima pradėti su bet kuriuo registruotu platformos dalyviu arba grupe.
-        no_conversations_warning: Pokalbių dar nėra.
         time_ago: "Prieš %{time}"
-      reply:
-        placeholder: Jūsų atsakymas...
-        send: Siųsti
-      update:
-        error: Pranešimas neišsiųstas. Bandykite dar kartą vėliau
     user_report_mailer:
       notify:
         body_1: '%{token} pranešė apie naudotoją %{user}'
@@ -1846,7 +1619,6 @@ lt:
         notifications_settings: Pranešimų nustatymai
         profile: Profilis
         title: Dalyvio nuostatos
-        user_groups: Grupės
   locale:
     name: Lietuvių
     name_with_error: Lietuvių (klaida!)

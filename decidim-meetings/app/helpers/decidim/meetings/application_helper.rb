@@ -15,7 +15,6 @@ module Decidim
 
       def filter_origin_values
         origin_keys = %w(official participants)
-        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
         origin_values = flat_filter_values(*origin_keys, scope: "decidim.meetings.meetings.filters.origin_values")
         origin_values.prepend(["", t("all", scope: "decidim.meetings.meetings.filters.origin_values")])

@@ -3,7 +3,7 @@
 module CommentsHelpers
   def have_comment_from(user, text, opts = {})
     within "#comments" do
-      have_content(user.name, **opts) && have_content(text, **opts)
+      have_content(user.name, **opts).and have_content(text, **opts)
     end
   end
 

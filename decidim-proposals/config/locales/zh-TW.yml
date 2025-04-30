@@ -9,7 +9,6 @@ zh-TW:
         scope_id: 範圍
         state: 狀態
         title: 標題
-        user_group_id: 建立協作草稿為
       proposal:
         address: 地址
         answer: 回答
@@ -22,7 +21,6 @@ zh-TW:
         state: 狀態
         suggested_hashtags: 建議使用標籤
         title: 標題
-        user_group_id: 建立提案
       proposal_answer:
         answer: 回答
         cost: 費用
@@ -35,9 +33,6 @@ zh-TW:
         import_proposals: 導入提案
         keep_answers: 保留狀態和回答
         keep_authors: 保留原作者
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: 檢核者名稱
     errors:
       models:
         participatory_text:
@@ -95,8 +90,6 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
-          valuator_role_ids_has:
-            label: 已分配給評估人員
         search_placeholder:
           id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
@@ -178,7 +171,6 @@ zh-TW:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
@@ -266,19 +258,6 @@ zh-TW:
           next_level_in: 建立更多 %{score} 個提案以達到下一個等級！
           unearned_another: 這位參與者還沒有建立任何提案。
           unearned_own: 你還沒有建立提案。
-    metrics:
-      accepted_proposals:
-        description: 已接受的提案數
-        object: 提案
-        title: 已通過的提案
-      endorsements:
-        description: 對提案的連署次數
-        object: 連署
-        title: 連署
-      proposals:
-        description: 提案總數
-        object: 提案
-        title: 提案
     participatory_spaces:
       highlighted_proposals:
         see_all: 檢視所有提案
@@ -366,8 +345,6 @@ zh-TW:
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
-            assign_to_valuator: 分配給評估人員
-            assign_to_valuator_button: 指派
             cancel: 取消
             merge: 合併為新提案
             publish: 發布
@@ -377,8 +354,6 @@ zh-TW:
             split: 拆分提案
             split_button: 拆分
             title: 提案
-            unassign_from_valuator: 取消分派給評估者
-            unassign_from_valuator_button: 取消分配
             update: 更新
           new:
             create: 建立
@@ -387,7 +362,6 @@ zh-TW:
             select_a_proposal: 請選擇一個提案。
           show:
             amendments_count: 修改案數量
-            assigned_valuators: 已分配給評估人員
             body: 正文
             comments_count: 評論次數
             documents: 文件
@@ -399,12 +373,9 @@ zh-TW:
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
             remove_assignment: 移除指派
-            remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
-            valuators: 評估者
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題.
-            success: "%{number} 個提案成功匯入."
           new:
             create: 匯入提案
             no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。
@@ -416,11 +387,6 @@ zh-TW:
         proposals_splits:
           create:
             success: 成功將提案拆分為新的提案。
-        valuation_assignments:
-          create:
-            success: 提案已成功分配給評估人員.
-          delete:
-            success: 評估員已成功取消分配提案.
       admin_log:
         proposal:
           answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
@@ -428,9 +394,6 @@ zh-TW:
           update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
         proposal_note:
           create: "%{user_name} 在 %{space_name} 空間的 %{resource_name} 提案中留下了私人註記。"
-        valuation_assignment:
-          create: "%{user_name} 將 %{resource_name} 提案指派給了一個評估者。"
-          delete: "%{user_name} 取消了 %{proposal_title} 提案的評估者指派。"
       answers:
         accepted: 已接受
         evaluating: 評估
@@ -443,7 +406,6 @@ zh-TW:
           meetings: 會議
           official: 官方
           participants: 參與者
-          user_groups: 群組
         filter_state_values:
           all: 全部
           not_answered: 未回答
@@ -561,8 +523,6 @@ zh-TW:
             published_at: 發佈於
             state: 狀態
             title: 標題
-            valuator: 評估者
-            valuators: 評估者
             votes: 投票
       new:
         limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
@@ -605,7 +565,6 @@ zh-TW:
           text_banner: 您正在查看由其作者撤回的提案列表。%{go_back_link}。
         new:
           send: 繼續
-          title: 創建你的提案
         orders:
           label: '依順序排序提案：'
           most_commented: 最多評論

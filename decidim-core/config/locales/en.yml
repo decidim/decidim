@@ -6,6 +6,7 @@ en:
         delete_reason: Reason to delete your account
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Created at
@@ -53,8 +54,12 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
-      user_group:
-        avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: The nickname must be lowercase and contain no spaces
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -70,7 +75,6 @@ en:
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
       decidim/resource_hidden_event: Resource hidden
-      decidim/user_group_created_event: User group created
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
@@ -98,9 +102,6 @@ en:
       decidim/user:
         one: Participant
         other: Participants
-      decidim/user_group:
-        one: Group
-        other: Groups
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -172,6 +173,7 @@ en:
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
+      secondary_menu: Secondary menu
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -186,6 +188,7 @@ en:
         leaving_authorizations_behind: Some data bound to your authorization will be saved for security. If you create another account and authorize again, this data will be recovered to your new account.
       destroy:
         error: There was a problem deleting your account.
+        inactive_account_removal_reason: Account removed after %{inactivity_period} days of inactivity
         success: Your account was successfully deleted.
       download_your_data_export:
         export_expired: The export has expired. Try to generate a new export.
@@ -385,7 +388,6 @@ en:
             has been withdrawn by the author.
       name: Amendment
       new:
-        amendment_author: Amendment author
         send: Create
         title: Create Amendment Draft
       preview_draft:
@@ -612,10 +614,6 @@ en:
         name: Main data
       metadata:
         name: Metadata
-      metrics:
-        name: Organization metrics
-      participatory_space_metrics:
-        name: Metrics
       participatory_space_stats:
         name: Statistics
       social_networks_metadata:
@@ -772,12 +770,6 @@ en:
           moderation: The moderation that this report has
           reason: The reason of this report
           updated_at: The date and time when this report was last updated
-        user_groups:
-          document_number: The document number of this user group
-          id: The unique identifier of this user group
-          name: The name of this user group
-          phone: The phone number of this user group
-          verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
           accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
@@ -843,10 +835,6 @@ en:
     endorsement_buttons_cell:
       already_endorsed: Undo the like
       endorse: Like
-    endorsements:
-      identities:
-        done: Done
-        select_identity: Select identity
     endorsers_list:
       endorsed_by:
         one: Liked by %{visible}
@@ -955,57 +943,21 @@ en:
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You have reached level %{current_level} on the %{badge_name} badge!
           notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
-      groups:
-        demoted_membership:
-          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
-          email_outro: You have received this notification because you are a member of that group.
-          email_subject: You are no longer an admin of the %{user_group_name} group!
-          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
-        invited_to_group:
-          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
-          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
-          email_subject: You have been invited to join the %{user_group_name} group!
-          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
-        join_request_accepted:
-          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
-          email_outro: You have received this notification because your join request has been updated.
-          email_subject: You have been accepted to the %{user_group_name} group!
-          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
-        join_request_created:
-          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
-          email_outro: You have received this notification because you can manage the %{user_group_name} group.
-          email_subject: Someone requested to join the %{user_group_name} group!
-          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
-        join_request_rejected:
-          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
-          email_outro: You have received this notification because your join request has been updated.
-          email_subject: Your request to join the %{user_group_name} group has been rejected!
-          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
-        promoted_to_admin:
-          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
-          email_outro: You have received this notification because you are a member of that group.
-          email_subject: You are now an admin of the %{user_group_name} group!
-          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
-        removed_from_group:
-          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
-          email_outro: You have received this notification because you were a member of that group.
-          email_subject: You have been removed from the %{user_group_name} group!
-          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
-        user_group_created:
-          email_intro: A new user group has been created with the name %{user_group_name}. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
-          email_outro: You have received this notification because you are an admin of the platform.
-          email_subject: A new user group has been created
-          notification_title: The %{user_group_name} user group has been created. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
-        user_group_updated:
-          email_intro: A user group with the name %{user_group_name} has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
-          email_outro: You have received this notification because you are an admin of the platform.
-          email_subject: A user group has updated its profile
-          notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       nickname_event:
         notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case-sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+          email_outro: You have received this notification because you are an author of the affected %{resource_type}.
+          email_subject: Your %{resource_type} is no longer visible
+          notification_title: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.
@@ -1150,92 +1102,11 @@ en:
       level: Level %{level}
       reached_top: You have reached the top level for this badge.
       title: What are the badges?
-    group_admins:
-      actions:
-        are_you_sure: Are you sure? This will not remove the participant from the group.
-        demote_admin: Remove admin
-      demote:
-        error: There was a problem removing this participant from the admins list.
-        success: Participant successfully removed from admin.
-      index:
-        current_admins: 'Current admins:'
-        manage_admins: Manage admins
-    group_invites:
-      accept:
-        error: There was a problem accepting this invitation.
-        success: Invitation successfully accepted.
-      accept_invitation: Accept
-      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
-      index:
-        invite: Invite
-        invite_user: Invite a participant
-      invite:
-        error: There was a problem inviting this participant.
-        success: Participant successfully invited.
-      pending_invitations: Pending requests
-      reject:
-        error: There was a problem rejecting this invitation.
-        success: Invitation successfully rejected.
-      reject_invitation: Reject
-    group_members:
-      accept:
-        error: There was a problem accepting this join request.
-        success: Join request successfully accepted.
-      actions:
-        are_you_sure: Are you sure?
-        promote_to_admin: Make admin
-        remove_from_group: Remove participant
-      index:
-        current_members_without_admins: 'Current members (without admins):'
-        manage_members: Manage members
-      promote:
-        error: There was a problem promoting this participant.
-        success: Participant promoted successfully.
-      reject:
-        error: There was a problem rejecting this join request.
-        success: Join request successfully rejected.
-      remove:
-        error: There was a problem removing this participant from the group.
-        success: Participant successfully removed from the group.
     groups:
-      actions:
-        are_you_sure: Are you sure?
-      create:
-        error: There was a problem creating the group.
-        success: Group successfully created.
-      edit:
-        edit_user_group: Edit group
-        update_user_group: Update group
-      form:
-        document_number_help: Do not use dashes nor spaces.
-        email_help: Email of your organization, association, collective, group, etc.
-        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
-        name_help: Name of your organization, association, collective, group, etc.
-        nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
-        phone_help: Do not use dashes nor spaces.
-      join:
-        error: There was a problem joining the group.
-        success: Join request successfully created. An admin will review your request before accepting you to the group.
-      leave:
-        error: There was a problem leaving the group.
-        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
-        success: Group successfully abandoned.
-      members:
-        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
-        accept_request: Accept
-        reject_request: Reject
-      new:
-        create_user_group: Create group
-        new_user_group: New group
-        subtitle: Create a group and invite other users to join to participate in a collective level.
-      no_user_groups: Does not belong to any group yet.
       roles:
         admin: Administrator
         creator: Administrator
         member: Member
-      update:
-        error: There was a problem updating the group.
-        success: Group successfully updated.
     help:
       main_topic:
         default_page:
@@ -1296,42 +1167,16 @@ en:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: This group does not have any members yet.
     menu:
       help: Help
       home: Home
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: You are receiving this because you are an admin in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
-          outro: Enjoy the platform!
-          subject: "%{manager} has started a new conversation as a %{group}"
-        comanagers_new_message:
-          admin_in_group: You are receiving this because you are an admin in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
-          outro: Enjoy the platform!
-          subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with you"
-        new_group_conversation:
-          admin_in_group: You are receiving this because you are an admin in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy the platform!
-          subject: "%{sender} has started a conversation with %{group}"
-        new_group_message:
-          admin_in_group: You are receiving this because you are an admin in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy the platform!
-          subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
@@ -1344,6 +1189,8 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant does not want to receive private messages.
+          participants:
+            title: Participants
         create:
           error: Conversation not started. Try again later.
         error_modal:
@@ -1376,27 +1223,6 @@ en:
         finished: 'Finished: %{end_date}'
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
-    metrics:
-      blocked_users:
-        description: Number of blocked participants
-      download:
-        csv: Download data (CSV)
-      followers:
-        description: Number of participants that follow this participation space
-        object: followers
-        title: Followers
-      participants:
-        description: Number of active participants in organization
-        object: participants
-        title: Participants
-      reported_users:
-        description: Number of reported participants
-      user_reports:
-        description: Number of reports done by participants
-      users:
-        description: Number of participants in organization
-        object: participants
-        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
@@ -1476,6 +1302,7 @@ en:
         assigned_to_proposal: I want to receive an email when someone assigns me a proposal to evaluate
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
+        evaluators: Evaluators
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
@@ -1492,7 +1319,6 @@ en:
         push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
-        valuators: Evaluators
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
@@ -1517,14 +1343,13 @@ en:
         core:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
+          generated_on_date: Generated on %{date}
           main: Core
+          resources:
+            one: "%{count} resource"
+            other: "%{count} resources"
           spaces: Spaces
           title: Open Data files for %{organization}
-        metrics:
-          cumulative: The total number of the metric at this day
-          day: The day this metric was created
-          metric_type: The type of the metric
-          quantity: The number of the metrics for this day
         moderated_users:
           about: The about field of the user
           block_reasons: The reason why the admin user blocked the user
@@ -1555,16 +1380,6 @@ en:
           taxonomizations_count: The count of the resources that use this taxonomy
           updated_at: The date when this taxonomy was updated for the last time
           weight: The order in which this taxonomy is shown
-        user_groups:
-          avatar_url: The avatar of the user group
-          badge: The badge of the user group
-          deleted: Whether the user is deleted or not
-          id: The unique identifier of the user group
-          members: The id and name of the users belonging to the group
-          members_count: The number of the users belonging to the user group
-          name: The display name of user group
-          nickname: The username of the user group
-          profile_url: The profile url
         users:
           about: The about text of the user
           avatar_url: The avatar of the user
@@ -1657,10 +1472,6 @@ en:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
-      participatory_space:
-        metrics:
-          headline: Metrics
-          link: Show all
       terms_of_service:
         accept:
           error: There was a problem accepting the terms of service.
@@ -1678,6 +1489,26 @@ en:
           alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Our records indicate you created a %{organization_name} account on <strong>%{date_account_creation}</strong> and have not been active since <strong>%{date_last_connection}</strong>.</p>
+          <p>To protect your privacy, this account has been scheduled for automatic deletion in <strong>%{days} days</strong>.</p>
+          <p>If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.<p>
+        greetings_html: |
+          Kind regards,<br>
+          %{organization_name}
+        hello_html: Dear <strong>%{username}</strong>,
+        log_in: log in
+        never_logged_in: never logged in
+        subject: Inactive account warning
+      removal_notification:
+        body: Your %{organization_name} account has been deleted due to inactivity.
+        greetings_html: |
+          Kind regards,<br>
+          %{organization_name}
+        hello: Dear %{username},
+        subject: Inactive account deleted
     passwords:
       update:
         error: There was a problem updating the password.
@@ -1686,7 +1517,6 @@ en:
       deleted: Deleted participant
       inaccessible_message: This profile is inaccessible due to terms of service violation!
     profiles:
-      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
       show:
         activity: Activity
@@ -1694,36 +1524,26 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
-        group_admins: Manage admins
-        group_members: Manage members
-        groups: Groups
-        members: Members
         officialized: Official participant
         send_private_message: Send private message
       user:
         actions:
-          create_user_group: Create group
           disabled_message: Message
           edit_profile: Edit profile
-          edit_user_group: Edit group profile
-          invite_user: Invite participant
-          join_user_group: Request to join group
-          leave_user_group: Leave group
-          manage_user_group: Manage group
-          manage_user_group_admins: Manage admins
-          manage_user_group_users: Manage members
           message: Message
           resend_email_confirmation_instructions: Resend email confirmation instructions
-        confirmation_instructions_sent: Email confirmation instructions sent.
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
     qr:
       show:
         scan: Scan the QR code
         title: QR Code for %{resource_title}
     reported_mailer:
       hide:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
@@ -1747,6 +1567,8 @@ en:
         report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
+    resource_autocomplete:
+      help: Type to search proposals
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -1756,7 +1578,7 @@ en:
     search:
       name: Search
       results: Search results
-      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      results_found_for_term: '%{count} results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
@@ -1832,9 +1654,6 @@ en:
         public_participation: Show my attendance publicly
       reference:
         reference: 'Reference: %{reference}'
-      represent_user_group:
-        represent_user_group: I represent a group
-        select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
         title: Select number of results per page
@@ -1870,19 +1689,28 @@ en:
         no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
-      create:
-        error: The message could not be created. Try again later.
-        existing_error: The message could not be created. The conversation already exists, please try again now.
-        success: Conversation started successfully!
       index:
-        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
-        no_conversations_warning: There are no conversations yet.
         time_ago: "%{time} ago"
-      reply:
-        placeholder: Your reply...
-        send: Send
-      update:
-        error: Message not sent. Try again later
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'We are reaching out to inform you about an important update to the User Group you are a member of: <strong>%{group_name}</strong>.'
+        body_2: As part of our efforts to simplify the experience for organizations, the "User Groups" feature is being deprecated. Your User Group profile has now been converted into a regular participant profile.
+        greeting: Dear %{name},
+        instructions_1: If you have access to that email account, please check your inbox for the instructions.
+        instructions_intro: We have sent instructions to the email associated with the account to set a new password for the profile.
+        instructions_title: "<strong>What This Means for You</strong>"
+        subject: User group you are member of important update
+      notify_deprecation_to_owner:
+        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
+        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
+        body_3: To continue accessing your account, we need you to set a password.
+        greeting: Dear %{name},
+        instructions_1: 'Click the link below to start the password setup process:'
+        instructions_2: On the form, enter the email address where you received this message and submit the request.
+        instructions_3: Check your inbox for an email with further instructions to set your new password.
+        instructions_title: "<strong>What You Need to Do</strong>"
+        set_password: Start Password Setting Process
+        subject: User group important update
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -2251,8 +2079,11 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        back: Back to list
+        cancel: Cancel
         close: Close
-        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
+        confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
+        confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
@@ -2298,7 +2129,6 @@ en:
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
-        user_groups: Groups
   locale:
     name: English
     name_with_error: English (error!)

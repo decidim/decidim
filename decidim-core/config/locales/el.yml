@@ -45,7 +45,6 @@ el:
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
       decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
       decidim/resource_hidden_event: Κρυφός πόρος
-      decidim/user_group_created_event: Η ομάδα χρηστών δημιουργήθηκε
       decidim/welcome_notification_event: Μήνυμα καλωσορίσματος
   activerecord:
     attributes:
@@ -68,9 +67,6 @@ el:
       decidim/user:
         one: Συμμετέχων
         other: Συμμετέχοντες
-      decidim/user_group:
-        one: Ομάδα
-        other: Ομάδες
   booleans:
     'false': 'Όχι'
     'true': 'Ναι'
@@ -252,7 +248,6 @@ el:
           withdrawn: |-
             Αυτή η τροποποίηση για το %{amendable_type} %{proposal_link} αποσύρθηκε από τους συγγραφείς.
       new:
-        amendment_author: Συγγραφέας τροποποίησης
         send: Δημιουργία
         title: Δημιουργία Πρόχειρου Τροποποίησης
       preview_draft:
@@ -427,8 +422,6 @@ el:
         name: Τελευταία δραστηριότητα
         title: Τελευταία δραστηριότητα
         view_all: Προβολή όλων
-      metrics:
-        name: Μετρικά οργανισμού
       static_page:
         section:
           name: Ενότητα
@@ -500,10 +493,6 @@ el:
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
     endorsement_buttons_cell:
       endorse: Μου αρέσει
-    endorsements:
-      identities:
-        done: Τέλος
-        select_identity: Επιλέξτε ταυτότητα
     errors:
       internal_server_error:
         title: Υπήρξε ένα πρόβλημα με τον διακομιστή μας
@@ -578,52 +567,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
         level_up:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-      groups:
-        demoted_membership:
-          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> κατάργησε τα δικαιώματα διαχειριστή σας σε αυτήν την ομάδα.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε μέλος αυτής της ομάδας.
-          email_subject: Δεν είστε πλέον διαχειριστής της ομάδας %{user_group_name}!
-          notification_title: Δεν είστε πλέον διαχειριστής της ομάδας <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σας προσκάλεσε να συμμετάσχετε.
-          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή έχετε προσκληθεί σε μια ομάδα. Ελέγξτε την καρτέλα Ομάδες στο προφίλ σας για να την εγκρίνετε.
-          email_subject: Έχετε προσκληθεί να συμμετάσχετε στην ομάδα %{user_group_name}!
-          notification_title: Έχετε προσκληθεί να συμμετάσχετε στην ομάδα <a href="%{resource_path}">%{user_group_name}</a>. Ελέγξτε τη <a href="%{groups_profile_tab_path}">σελίδα Ομάδες</a> στο προφίλ σας για να την εγκρίνετε!
-        join_request_accepted:
-          email_intro: Συγχαρητήρια! Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> αποδέχτηκε το αίτημα συμμετοχής σας.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή το αίτημα συμμετοχής σας ενημερώθηκε.
-          email_subject: Γίνατε δεκτός στην ομάδα %{user_group_name}!
-          notification_title: Γίνατε δεκτός στην ομάδα <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}. Μπορείτε να τον αποδεχτείτε ή να τον απορρίψετε από <a href="%{resource_url}">τη σελίδα μελών της ομάδας</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή μπορείτε να διαχειριστείτε την ομάδα %{user_group_name}.
-          email_subject: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}!
-          notification_title: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}. Μπορείτε να τον αποδεχτείτε ή να τον απορρίψετε από <a href="%{resource_path}">τη σελίδα μελών της ομάδας</a>.
-        join_request_rejected:
-          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> απέρριψε το αίτημα συμμετοχής σας.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή το αίτημα συμμετοχής σας ενημερώθηκε.
-          email_subject: Το αίτημα συμμετοχής σας στην ομάδα %{user_group_name} απορρίφθηκε!
-          notification_title: Το αίτημα συμμετοχής σας στην ομάδα <a href="%{resource_path}">%{user_group_name}</a> απορρίφθηκε.
-        promoted_to_admin:
-          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σάς έδωσε δικαιώματα διαχειριστή σε αυτήν την ομάδα.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε μέλος αυτής της ομάδας.
-          email_subject: Είστε πλέον διαχειριστής της ομάδας %{user_group_name}!
-          notification_title: Είστε πλέον διαχειριστής της ομάδας <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σας κατάργησε από αυτήν.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ήσασταν μέλος αυτής της ομάδας.
-          email_subject: Καταργηθήκατε από την ομάδα %{user_group_name}!
-          notification_title: Καταργηθήκατε από την ομάδα <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Δημιουργήθηκε μια νέα ομάδα χρηστών με το όνομα %{user_group_name}. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_url}">πίνακα διαχειριστή</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
-          email_subject: Δημιουργήθηκε μια νέα ομάδα χρηστών
-          notification_title: Η ομάδα χρηστών %{user_group_name} δημιουργήθηκε. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_path}">πίνακα διαχειριστή</a>.
-        user_group_updated:
-          email_intro: Μια ομάδα χρηστών με το όνομα %{user_group_name} ενημέρωσε το προφίλ της, αφήνοντάς την χωρίς επαλήθευση. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_url}">πίνακα διαχειριστή</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
-          email_subject: Μια ομάδα χρηστών ενημέρωσε το προφίλ της
-          notification_title: Η ομάδα χρηστών %{user_group_name} ενημέρωσε το προφίλ της, αφήνοντάς την χωρίς επαλήθευση. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_path}">πίνακα διαχειριστή</a>.
       resource_endorsed:
         email_intro: 'Ο υποστηρικτής %{endorser_name} %{endorser_nickname}, τον οποίο ακολουθείτε, μόλις επιδοκίμασε το στοιχείο «%{resource_title}» και πιστεύουμε ότι μπορεί να σας ενδιαφέρει. Δείτε το και συνεισφέρετε:'
         email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον υποστηρικτή %{endorser_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
@@ -714,91 +657,11 @@ el:
       level: Επίπεδο %{level}
       reached_top: Φτάσατε στο ανώτατο επίπεδο για αυτό το έμβλημα.
       title: Τι είναι τα εμβλήματα;
-    group_admins:
-      actions:
-        are_you_sure: Είσαι βέβαιοι; Αυτό δεν θα καταργήσει τον συμμετέχοντα από την ομάδα.
-        demote_admin: Κατάργηση διαχειριστή
-      demote:
-        error: Υπήρξε ένα πρόβλημα κατά την κατάργηση αυτού του συμμετέχοντα από τη λίστα διαχειριστών.
-        success: Ο συμμετέχων καταργήθηκε με επιτυχία από διαχειριστής.
-      index:
-        current_admins: 'Τρέχοντες διαχειριστές:'
-        manage_admins: Διαχείριση διαχειριστών
-    group_invites:
-      accept:
-        error: Υπήρξε ένα πρόβλημα κατά την αποδοχή αυτής της πρόσκλησης.
-        success: Η πρόσκληση έγινε αποδεκτή με επιτυχία.
-      accept_invitation: Αποδοχή
-      accept_or_reject_group_invitations: 'Οι ακόλουθες ομάδες σας προσκάλεσαν να συμμετάσχετε σε αυτές. Αποδεχτείτε ή απορρίψτε τα αιτήματά τους:'
-      index:
-        invite: Πρόσκληση
-        invite_user: Προσκαλέστε έναν συμμετέχοντα
-      invite:
-        error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση αυτού του συμμετέχοντα.
-        success: Ο συμμετέχων προσκλήθηκε με επιτυχία.
-      reject:
-        error: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της πρόσκλησης.
-        success: Η πρόσκληση απορρίφθηκε με επιτυχία.
-      reject_invitation: Απόρριψη
-    group_members:
-      accept:
-        error: Υπήρξε ένα πρόβλημα κατά την αποδοχή αυτού του αιτήματος συμμετοχής.
-        success: Το αίτημα συμμετοχής έγινε δεκτό με επιτυχία.
-      actions:
-        are_you_sure: Είστε βέβαιοι;
-        promote_to_admin: Ορισμός διαχειριστή
-        remove_from_group: Κατάργηση συμμετέχοντα
-      index:
-        current_members_without_admins: 'Τρέχοντα μέλη (χωρίς διαχειριστές):'
-        manage_members: Διαχείριση μελών
-      promote:
-        error: Υπήρξε ένα πρόβλημα με την αναβάθμιση αυτού του συμμετέχοντα.
-        success: Ο συμμετέχων αναβαθμίστηκε επιτυχώς.
-      reject:
-        error: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτού του αιτήματος συμμετοχής.
-        success: Η αίτηση συμμετοχής απορρίφθηκε επιτυχώς.
-      remove:
-        error: Υπήρξε ένα πρόβλημα κατά την αφαίρεση αυτού του συμμετέχοντα από την ομάδα.
-        success: Ο συμμετέχων αφαιρέθηκε με επιτυχία από την ομάδα.
     groups:
-      actions:
-        are_you_sure: Είστε βέβαιοι;
-      create:
-        error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της ομάδας.
-        success: Η ομάδα δημιουργήθηκε επιτυχώς.
-      edit:
-        edit_user_group: Επεξεργασία ομάδας
-        update_user_group: Ενημέρωση ομάδας
-      form:
-        document_number_help: Μην χρησιμοποιείτε παύλες ούτε κενά.
-        email_help: Διεύθυνση email του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ.
-        fill_in_for_verification: 'Συμπληρώστε αυτά τα πεδία εάν θέλετε να επαληθευτεί η ομάδα σας:'
-        name_help: Όνομα του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ.
-        nickname_help: Ψευδώνυμο του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ. Μην χρησιμοποιείτε κενά και τόνους.
-        phone_help: Μην χρησιμοποιείτε παύλες ούτε κενά.
-      join:
-        error: Υπήρξε ένα πρόβλημα με την ένταξη στην ομάδα.
-        success: Το αίτημα συμμετοχής δημιουργήθηκε με επιτυχία. Ένας διαχειριστής θα εξετάσει το αίτημά σας προτού σας δεχτεί στην ομάδα.
-      leave:
-        error: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από την ομάδα.
-        last_admin: Δεν μπορείτε να αφαιρέσετε τον εαυτό σας από αυτή την ομάδα καθώς είστε ο τελευταίος διαχειριστής. Κάντε ένα άλλο μέλος ένα διαχειριστή για να φύγετε από την ομάδα.
-        success: Αποχωρήσατε από την ομάδα με επιτυχία.
-      members:
-        accept_or_reject_join_requests: 'Οι ακόλουθοι χρήστες υπέβαλαν αίτημα να συμμετάσχουν σε αυτήν την ομάδα. Αποδεχτείτε ή απορρίψτε τα αιτήματά τους:'
-        accept_request: Αποδοχή
-        reject_request: Απόρριψη
-      new:
-        create_user_group: Δημιουργία ομάδας
-        new_user_group: Νέα ομάδα
-        subtitle: Δημιουργήστε μια ομάδα και προσκαλέστε άλλους χρήστες να συμμετάσχουν σε συλλογικό επίπεδο.
-      no_user_groups: Δεν ανήκει ακόμα σε καμία ομάδα.
       roles:
         admin: Διαχειριστής
         creator: Διαχειριστής
         member: Μέλος
-      update:
-        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της ομάδας.
-        success: Ομάδα ενημερώθηκε επιτυχώς.
     help:
       main_topic:
         default_page:
@@ -853,30 +716,10 @@ el:
       home: Αρχική σελίδα
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
-          greeting: Γεια σου, %{recipient}!
-          intro: "Ο διαχειριστής %{manager} ξεκίνησε μια νέα συνομιλία στο όνομα της ομάδας %{group}. Κάντε κλικ εδώ για να την δείτε:"
-          subject: "Ο διαχειριστής %{manager} ξεκίνησε μια νέα συνομιλία ως ομάδα %{group}"
-        comanagers_new_message:
-          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
-          greeting: Γεια σου, %{recipient}!
-          intro: "Ο διαχειριστής %{manager} δημοσίευσε νέα μηνύματα σε μια συνομιλία στο όνομα της ομάδας %{group}. Κάντε κλικ εδώ για να τα δείτε:"
-          subject: "Ο διαχειριστής %{manager} έστειλε νέα μηνύματα ως ομάδα %{group}"
         new_conversation:
           greeting: Γεια σου, %{recipient}!
           intro: "Ο αποστολέας %{sender} ξεκίνησε μια νέα συνομιλία μαζί σας. Κάντε κλικ εδώ για να την δείτε:"
           subject: "Ο αποστολέας %{sender} ξεκίνησε μια συνομιλία μαζί σας"
-        new_group_conversation:
-          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
-          greeting: Γεια σου, %{recipient}!
-          intro: "Ο αποστολέας %{sender} ξεκίνησε μια νέα συνομιλία με την ομάδα %{group}. Κάντε κλικ εδώ για να την δείτε:"
-          subject: "Ο αποστολέας %{sender} ξεκίνησε μια συνομιλία με την ομάδα %{group}"
-        new_group_message:
-          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
-          greeting: Γεια σου, %{recipient}!
-          intro: "Ο αποστολέας %{sender} δημοσίευσε νέα μηνύματα σε μια συνομιλία με την ομάδα %{group}. Κάντε κλικ εδώ για να τα δείτε:"
-          subject: "Η ομάδα %{group} έχει νέα μηνύματα από τον αποστολέα %{sender}"
         new_message:
           greeting: Γεια σου, %{recipient}!
           intro: "Ο αποστολέας %{sender} δημοσίευσε νέα μηνύματα στη συνομιλία σας. Κάντε κλικ εδώ για να τα δείτε:"
@@ -891,25 +734,14 @@ el:
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες
+        reply_form:
+          placeholder: Η απάντησή σας...
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
           title: Συνομιλία με τους χρήστες %{usernames}
         start:
           send: Αποστολή
-    metrics:
-      followers:
-        description: Αριθμός συμμετεχόντων που ακολουθούν αυτόν τον χώρο συμμετοχής
-        object: ακόλουθοι
-        title: Ακόλουθοι
-      participants:
-        description: Αριθμός ενεργών συμμετεχόντων στον οργανισμό
-        object: συμμετέχοντες
-        title: Συμμετέχοντες
-      users:
-        description: Αριθμός συμμετεχόντων στον οργανισμό
-        object: συμμετέχοντες
-        title: Συμμετέχοντες
     newsletter_mailer:
       newsletter:
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
@@ -1001,10 +833,6 @@ el:
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
         title: Βοήθεια
         topics: Θέματα
-      participatory_space:
-        metrics:
-          headline: Μετρικά
-          link: Εμφάνιση όλων των μετρικών
       terms_of_service:
         accept:
           error: Παρουσιάστηκε πρόβλημα κατά την αποδοχή των όρων υπηρεσίας.
@@ -1030,7 +858,6 @@ el:
       deleted: Διαγραμμένος συμμετέχων
       inaccessible_message: Αυτό το προφίλ δεν είναι προσβάσιμο λόγω παραβίασης όρων υπηρεσίας!
     profiles:
-      default_officialization_text_for_user_groups: Αυτή η ομάδα έχει επαληθευτεί δημόσια, το όνομά της έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό της όνομα.
       default_officialization_text_for_users: Αυτός ο συμμετέχων έχει επαληθευτεί δημόσια, το όνομα ή ο ρόλος του έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό όνομα και τον ρόλο του.
       show:
         activity: Δραστηριότητα
@@ -1038,35 +865,13 @@ el:
         conversations: Συνομιλίες
         followers: Ακόλουθοι
         following: Ακολουθεί
-        groups: Ομάδες
-        members: Μέλη
         officialized: Επίσημος συμμετέχων
         send_private_message: Αποστολή προσωπικού μηνύματος
-      sidebar:
-        badges:
-          info: Τα εμβλήματα κερδίζονται πραγματοποιώντας μια συγκεκριμένη δραστηριότητα στην πλατφόρμα.
-          title: Εμβλήματα
       user:
         actions:
-          create_user_group: Δημιουργία ομάδας
           edit_profile: Επεξεργασία προφίλ
-          edit_user_group: Επεξεργασία προφίλ ομάδας
-          invite_user: Πρόσκληση συμμετέχοντα
-          join_user_group: Αίτημα συμμετοχής σε ομάδα
-          manage_user_group_admins: Διαχείριση διαχειριστών
-          manage_user_group_users: Διαχείριση μελών
           message: Μήνυμα
-        confirmation_instructions_sent: Στάλθηκαν οι οδηγίες επιβεβαίωσης email.
-        create_user_group: Δημιουργία ομάδας
-        edit_profile: Επεξεργασία προφίλ
-        edit_user_group: Επεξεργασία προφίλ ομάδας
-        fill_in_email_to_confirm_it: Συμπληρώστε τη διεύθυνση email της ομάδας σας για να την επιβεβαιώσετε.
-        invite_user: Πρόσκληση συμμετέχοντα
-        join_user_group: Αίτημα συμμετοχής σε ομάδα
-        leave_user_group: Αποχώρηση από την ομάδα
-        manage_user_group_admins: Διαχείριση διαχειριστών
-        manage_user_group_users: Διαχείριση μελών
-        resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
+          resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
     reported_mailer:
       hide:
         hello: Γεια σας %{name},
@@ -1097,7 +902,6 @@ el:
       prompt: Επιλέξτε πεδίο εφαρμογής
     search:
       results: Αποτελέσματα αναζήτησης
-      results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
       term_input_placeholder: Αναζήτηση
     searches:
       filters:
@@ -1142,9 +946,6 @@ el:
         help: Βοήθεια
       reference:
         reference: 'Αναφορά: %{reference}'
-      represent_user_group:
-        represent_user_group: Εκπροσωπώ μια ομάδα
-        select_user_group: Επιλέξτε ομάδα
       results_per_page:
         label: 'Αποτελέσματα ανά σελίδα:'
         title: Επιλέξτε αριθμό αποτελεσμάτων ανά σελίδα
@@ -1155,18 +956,8 @@ el:
       comments_count: Σχόλια
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
-      create:
-        existing_error: Δεν ήταν δυνατή η δημιουργία του μηνύματος. Η συνομιλία υπάρχει ήδη. Δοκιμάστε ξανά τώρα.
-        success: Η συνομιλία ξεκίνησε με επιτυχία!
       index:
-        conversations_info: Οι συνομιλίες είναι ιδιωτικές. Κανείς άλλος δεν μπορεί να τις δει. Μια συνομιλία μπορεί να ξεκινήσει με οποιονδήποτε συμμετέχοντα ή ομάδα εγγεγραμμένη στην πλατφόρμα.
-        no_conversations_warning: Δεν υπάρχουν ακόμη συνομιλίες.
         time_ago: "%{time} πριν"
-      reply:
-        placeholder: Η απάντησή σας...
-        send: Αποστολή
-      update:
-        error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
     version:
       show:
         back_to_resource: Επιστροφή
@@ -1354,7 +1145,6 @@ el:
         my_data: Τα δεδομένα μου
         notifications_settings: Ρυθμίσεις ειδοποιήσεων
         title: Ρυθμίσεις συμμετέχοντα
-        user_groups: Ομάδες
   locale:
     name: Ελληνικά
     name_with_error: Ελληνικά (σφάλμα!)

@@ -1,19 +1,11 @@
 sk:
   activemodel:
     attributes:
-      answer:
-        body: Odpoveď
       question:
         max_choices: Maximálny počet možností
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: nie je kompletné
   decidim:
     forms:
       admin:
@@ -22,11 +14,6 @@ sk:
             description: Popis
             tos: Podmienky použitia
         questionnaires:
-          answer_option:
-            answer_option: Možnosť odpovede
-            free_text: Voľný text
-            remove: Odstrániť
-            statement: Prehlásenie
           edit:
             save: Uložiť
           form:
@@ -35,7 +22,6 @@ sk:
             remove: Odstrániť
             statement: Prehlásenie
           question:
-            add_answer_option: Pridať možnosť odpovede
             any: Akékoľvek
             description: Popis
             down: Nadol
@@ -46,25 +32,14 @@ sk:
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
       question_types:
-        long_answer: Dlhá odpoveď 
         multiple_option: Viacero možností
-        short_answer: Krátka odpoveď
         single_option: Jedna možnosť
         sorting: Zoradenie
       questionnaires:
-        answer:
-          invalid: Vyskytol sa problém s odpovedaním na formulár.
-          success: Formulár úspešne zodpovedaný.
         question:
           max_choices: 'Maximum možností: %{n}'
         show:
-          answer_questionnaire:
-            title: Odpovedať na formulár
-          questionnaire_answered:
-            body: Na tento formulár už ste dopovedali.
-            title: Už ste odpovedali
           questionnaire_closed:
-            body: Tento formulár je už uzavretý a nedá sa naň odpovedať.
             title: Formulár je uzavretý.
           questionnaire_for_private_users:
             body: Formulár je otvorený len pre súkromných používateľov
@@ -73,9 +48,3 @@ sk:
       step_navigation:
         show:
           submit: Poslať
-      user_answers_serializer:
-        created_at: Odpovedané na 
-        id: ID odpovede
-        registered: Registrovaný
-        unregistered: Neregistrovaný
-        user_status: Status Užívateľa

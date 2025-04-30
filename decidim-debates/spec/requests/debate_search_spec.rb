@@ -39,7 +39,7 @@ RSpec.describe "Debate search" do
   let!(:debate4) do
     create(
       :debate,
-      :user_group_author,
+      :participant_author,
       component:
     )
   end

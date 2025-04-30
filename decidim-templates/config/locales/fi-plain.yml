@@ -80,17 +80,19 @@ fi-pl:
             select_template: Valitse mallivastaus
         questionnaire_templates:
           choose:
-            create_from_template: Luo mallipohjasta
-            description: Olet luomassa uutta kyselyä. Voit valita etukäteen määritellyn mallipohjan ja muokata sitä sen jälkeen.
+            continue: Jatka
+            description: Voit luoda uuden kyselyn tai valita valmiiksi määritetyn mallipohjan ja muokata sitä haluamallasi tavalla. Valitse, miten haluat toimia.
             label: Valitse mallipohja
+            options:
+              create_new_form: Luo uusi lomake
+              select_template: Valitse mallipohja
             placeholder: Valitse mallipohja
-            skip_template: Ohita
           edit:
             edit: Muokkaa
             empty: Kysymyksiä ei ole vielä.
-            manage_questions: Hallinnoi kysymyksiä
+            manage_questions: Kysymykset
             questionnaire: Kysely
-            title: Muokkaa kyselylomakkeen mallipohjaa
+            title: Muokkaa kyselyn mallipohjaa
           edit_questions:
             add_question: Lisää kysymys
             add_separator: Lisää erotinviiva
@@ -101,7 +103,7 @@ fi-pl:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit
           new:
-            title: Uusi kyselylomakkeen mallipohja
+            title: Uusi kyselyn mallipohja
           preview:
             current_step: Vaihe %{step}
             of_total_steps: / %{total_steps}

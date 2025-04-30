@@ -33,18 +33,6 @@
   <% end %>
 
   <div class="grid-x grid-margin-x">
-    <% if allowed_to? :read, :metrics %>
-      <div class="cell small-6 medium-6 large-6">
-        <%= render(
-          partial: "decidim/admin/metrics/metrics",
-          locals: {
-            metrics_presenter:,
-            show_link_to_more: true
-          }
-        ) %>
-      </div>
-    <% end %>
-
     <% if allowed_to? :read, :admin_log %>
       <div class="cell small-6 medium-6 large-6">
         <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs, display_filters: false } %>

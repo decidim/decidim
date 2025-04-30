@@ -1,6 +1,77 @@
 ---
 cs:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Tělo zprávy
+          title: Název
+          version_number: Číslo verze
+        version:
+          body: Tělo zprávy
+          version_number: Číslo verze
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Opravdu chcete odstranit tento dokument?
+        deleted_document_info: Odstraněný dokument může být obnoven z koše.
+        edit: Upravit
+        manage: Spravovat
+        new: Nový text
+        title: Akce
+        view_deleted_documents: Zobrazit odstraněné dokumenty
+      admin:
+        documents:
+          create:
+            invalid: Při vytváření dokumentu došlo k chybě.
+            success: Doklad byl úspěšně vytvořen.
+          edit:
+            title: Upravit texty pro spolupráci
+            update: Aktualizovat
+          edit_settings:
+            title: Konfigurovat společné texty
+            update: Aktualizovat
+          index:
+            title: Kolaborativní texty
+          manage_trash:
+            title: Odstraněné dokumenty
+          new:
+            create: Vytvořit
+            title: Vytvořit společné texty
+          publish:
+            invalid: Při publikování tohoto dokumentu došlo k chybě.
+            success: Dokument byl úspěšně zveřejněn.
+          unpublish:
+            invalid: Při rušení publikování tohoto dokumentu došlo k chybě.
+            success: Dokument byl úspěšně nezveřejněn.
+          update:
+            invalid: Při aktualizaci dokumentu došlo k chybě.
+            success: Dokument byl úspěšně aktualizován.
+          update_settings:
+            invalid: Při aktualizaci dokumentu došlo k chybě.
+            success: Dokument byl úspěšně aktualizován.
+        settings:
+          form:
+            allow_suggestions: Umožnit účastníkům předkládat návrhy
+      document:
+        cancel: Zrušit
+        save: Odeslat návrh
+      documents:
+        index:
+          empty: Zatím neexistují žádné koncepty spolupráce.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Přijmout návrhy
+            title: Název
     components:
       collaborative_texts:
         name: Kolaborativní texty
+        settings:
+          global:
+            announcement: Oznámení
+            comments_blocked: Komentáře blokovány
+          step:
+            announcement: Oznámení
+    statistics:
+      collaborative_texts_count: Kolaborativní texty

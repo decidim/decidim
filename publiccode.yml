@@ -1,0 +1,557 @@
+publiccodeYmlVersion: "0.4"
+
+name: Decidim
+url: "https://github.com/decidim/decidim.git"
+platforms:
+  - web
+developmentStatus: stable
+softwareVersion: "0.29.2"
+releaseDate: "2025-02-12"
+logo: "https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/logo.svg"
+softwareType: "library"
+
+categories:
+  - budgeting
+  - collaboration
+  - communications
+  - contact-management
+  - content-management
+  - digital-citizenship
+  - event-management
+  - online-community
+  - regulations-and-directives
+  - survey
+  - web-collaboration
+
+description:
+  en:
+    shortDescription: >
+       The participatory democracy framework.
+       A generator and multiple gems made with Ruby on Rails
+    longDescription: >
+       Decidim is a Free and Open-Source digital infrastructure for participatory democracy.
+       Institutions and organizations around the world use Decidim to easily articulate governance and participatory processes: citizen initiatives, participatory budgets, strategic planning or collaborative legislation in an open and democratic way.
+       The project was originally developed for the Barcelona City Government, and now is maintained by the Decidim Free Software Association and a vibrant community.
+    features:
+      - "Participatory process: Run participatory processes to foster debate, assessment, and decision-making on issues that matter to your community."
+      - "Assembly: Create a space for your organization committees, choosing the level of privacy, to manage membership, meetings, or activities."
+      - "Initiatives: Collaborate with others to create bottom-up petitions by collecting signatures to achieve a common goal."
+      - "Proposal: Collect proposals from participants, enriched with geolocation and attachments, merge similar ones, and set a workflow for official approval or rejection."
+      - "Voting: Prioritize proposals using various voting methods, such as setting minimum and maximum thresholds, weighted voting, or participatory budgeting."
+      - "Meeting: Organize face-to-face or online meetings, manage registrations, and publish the agenda."
+      - "Participatory  text: Develop any document collaboratively by gathering suggestions and tracking all contributors."
+      - "Debate: Engage your community in a deliberation topic, and follow the discussion with different visualizations of the arguments."
+      - "Result: Ensure accountability in your participatory processes by converting proposals into results and tracking their implementation with the level of detail you prefer."
+      - "Post: Don’t forget to blog about your activities and share your learnings."
+    documentation: "https://docs.decidim.org"
+    apiDocumentation: "https://meta.decidim.org/api"
+    awards:
+      - Sharing & Reuse Awards by European Commission (2019)
+      - Innovation in Politics Awards (2021)
+      - OSOR Awards by European Commission (2023)
+      - Recognized as a Digital Public Good by the DPGA (2023)
+
+legal:
+  license: AGPL-3.0-or-later
+  mainCopyrightOwner: Associació de Software Lliure Decidim
+  repoOwner: Associació de Software Lliure Decidim
+
+maintenance:
+  type: "internal"
+
+  contacts:
+    - name: Andrés Pereira de Lucena
+      email: "andres@decidim.org"
+      affiliation: Associació de Software Lliure Decidim
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - fi
+    - ca
+    - es
+    - eu
+    - de
+    - cs
+    - ja
+    - fr
+    - pl
+    - bg
+    - se
+    - lt
+    - pt
+    - zh
+
+dependsOn:
+  open:
+    - name: PostgreSQL
+      version: "16.5"
+    - name: Redis
+      version: "7.4"
+
+usedBy:
+  - Accio Escolta de Catalunya
+  - Administració Oberta de Catalunya
+  - AFA Escola Àngels Garriga
+  - AFA Reina Violant
+  - Agence landaise pour l'informatique
+  - Agence Nationale de la Cohesion des Territoires
+  - Agenzia Mobilita Piemontese
+  - Agora
+  - Agora SSO - Code for France
+  - AiCT
+  - Aide et Action
+  - Ajuntament de Guissona
+  - Ajuntament de Premià de Mar
+  - Ajuntament de Sencelles
+  - Alella
+  - Alsace
+  - ANECA
+  - Antibes Juan-les-Pins
+  - Arcueil
+  - Area Metropolitana de Barcelona
+  - Arenys de Mar
+  - Arenys de Munt
+  - Asamblea Ciudadana para el Clima
+  - Asociación Cultural Heuristica
+  - Assemblea Catalana per la Transició Ecosocial
+  - Assemblée Nationale
+  - Associació de Mestres Rosa Sensat
+  - Associació Economia Social Catalunya
+  - ASSOCIACIONS FEDERADES DE FAMÍLIES D’ALUMNES DE CATALUNYA
+  - Associació Pla Estratègic Metropolità de Barcelona (PEMB)
+  - Asuntos del Sur
+  - Auch
+  - Axian Group
+  - Badalona
+  - Bagneux
+  - Banská Bystrica
+  - Barberà del Vallès
+  - Barcelona
+  - Barcelona En Comú
+  - Barcelona Energia
+  - Bauhaus4Med
+  - Begues
+  - Bélgica
+  - BePart
+  - Bergueda
+  - Besaya
+  - Binic-Etables sur Mer
+  - Bithabitat
+  - Bodo
+  - Bordeaux
+  - Bordeaux Métropole
+  - Botkyrka
+  - Brasil Participativo
+  - Cabildo de Fuerteventura
+  - Cabrera de Mar
+  - Cachan
+  - Calaf
+  - Calafell
+  - Caldes de Montbui
+  - Calldetenes
+  - Calonge i Sant Antoni
+  - Canodrom
+  - Canovelles
+  - Cap Digital
+  - Capellades
+  - Castellbisbal
+  - Castellcir
+  - Castelldefels
+  - Castelloli
+  - Castell-Platja d'Aro
+  - Castellvi de la Marca
+  - Castilla La Mancha
+  - Catalonia IOT Alliance
+  - Catalunya en Comú
+  - Centre National de Ressources Handicaps Rares
+  - Cercles Coop
+  - Cerdanyola del Valles
+  - Chambery
+  - Changing cities - Urbane mobilitat
+  - Cities for Change
+  - Ciudad de Mexico
+  - Clairoix
+  - Club des utilisateurs francophones de Decidim
+  - Coact for Mental Health
+  - Code For France
+  - Code for Japan
+  - Coinicidim
+  - Colaboratorio
+  - Colectic Coop
+  - Collbato
+  - Collsacabra
+  - Colombes
+  - Commission Nationale du Débat Public
+  - Communes de la Métropole de Montpellier
+  - Comune di Milano
+  - Comune di Prato
+  - Conference on the Future of Europe
+  - Conseil de Développement de la Communauté d'Agglomération Sophia Antipolis
+  - Conseil économique, social et environnemental
+  - Consell de la Joventut de Barcelona
+  - Consell de Poble de Santa Pau
+  - Convention Citoyenne pour le Climat
+  - Coop57
+  - Coopmunity
+  - CoTerrats
+  - Cour de comptes
+  - Cubelles
+  - Cuenca
+  - Cultuur Connect
+  - Cunit
+  - CUP Sant Pol de Mar
+  - Decathlon
+  - Decidim Atende
+  - Decidim Hungary
+  - DECODE
+  - Degrowth Conference
+  - De Kamber Belgium
+  - Demain Amu
+  - Departement de Herault
+  - Departement de La Mayenne
+  - Dipartimento della funzione pubblica
+  - Diputació de Barcelona
+  - Diputació de Girona
+  - Diputación de Guipuzcoa
+  - Diputación Granada
+  - Eau de Paris
+  - Elogie Siemp
+  - El Prat de Llobregat
+  - Emilia-Romagna
+  - Emmaus Solidarite
+  - Energética coop
+  - Enguera
+  - Escoltes Catalans
+  - Eslövs Kommun
+  - Esparreguera
+  - Esplugues de Llobregat
+  - Est  Ensemble Grand Paris
+  - Estratègia de l'Economia Social i Solidària a Barcelona 2030
+  - European Citizens Bank
+  - European Commission - Missions
+  - European Commission -  Citizens’ Engagement Platform
+  - EUTeens4Green
+  - Fàbrica de Creació Fabra i Coats
+  - FAVB
+  - FCEG - Federació Catalana d'Escoltisme i Guiatge
+  - Fearless Cities
+  - FEDAIA -  Federació d'entitats d'atenció a la infància i l'adolescència
+  - Federació Catalana de Voluntariat Social
+  - Federació d'Ateneus de Catalunya
+  - Federació VEUS
+  - Figaró-Montmany
+  - Fleury-les-Aubrais
+  - Folgueroles
+  - Food Coop BCN
+  - Fòrum de la Joventut d'Andorra
+  - Fòrum Social Mundial d'Economies Transformadores
+  - Freiwilligenpolitik mitgestalten
+  - FundAction
+  - Galdakao
+  - Gavà
+  - Gdynia
+  - Gemeinde Köniz
+  - Generalitat de Catalunya
+  - Génération
+  - Getxo
+  - Gijón
+  - Girona
+  - Gobierno de Cochabamba
+  - Gobierno de Mendoza
+  - Goteborgs Stad
+  - Goteo
+  - Granollers
+  - Granville
+  - Graz Gemeinsam Gestalten
+  - Green Party of Canada
+  - Greenpeace
+  - Gualba
+  - Hackovid
+  - Hamamatsu
+  - Helsingborg
+  - Helsinki
+  - Helsinki - Nuorten bujetti
+  - Imagine Ton Territoire
+  - IMT - Institut Mines-Télécom
+  - inDICEs
+  - Infermeres de Catalunya
+  - Innovation Yokohama
+  - Inochi Forum
+  - INS Camí de Mar
+  - INSPIRE
+  - Institut Bernat Metge
+  - Institut Bosc de Montjuïc
+  - Institut Caterina Albert
+  - Institut de Drets Humans de Catalunya
+  - Institut Municipal de Persones amb Discapacitat
+  - Interreg Northern Periphery and Arctic
+  - investigaDUS - Secretaría de Educiación Superior, Ciencia, Tecnología e
+  - IOPD - International Observatory on Participatory Democracy
+  - Iridia
+  - Jaen
+  - Jimin Yokohama
+  - Kakawa University
+  - Kakogawa
+  - Kamaishi
+  - Kawanishi
+  - Kehlen
+  - Kokubunji
+  - Komae
+  - Laboratori d'Innovació Democratica
+  - La Fabrique de la Region
+  - Lafede.cat
+  - La Gaspésie
+  - L'Ametlla del Vallès
+  - La Pobla de Claramunt
+  - La Torre del Claramunt
+  - L'Economat Social
+  - Lens
+  - Les Ecologistes 2022
+  - Les Franqueses del Valles
+  - L'Hospitalet de Llobregat
+  - Liberta School
+  - Llagosta
+  - Llavaneres
+  - Lleida
+  - Llinars del Valles
+  - Loire Atlantique
+  - Loiret
+  - Lyon
+  - Mairie d’Angers
+  - Malakoff
+  - Malgrat de Mar
+  - Manlleu
+  - Manresa
+  - Marseille
+  - Martorelles
+  - Masnou
+  - Masquefa
+  - Mataró
+  - Mautic
+  - Mein Zürich
+  - Mérida
+  - Metadecidim
+  - Metadecidim Japan
+  - Métropole Européene de Lille
+  - Ministère de l’Éducation nationale de la Jeunesse et des Sports
+  - Ministry of Land, Infrastructure, Transport and Tourism (Japan)
+  - Minyos Escoltes i Guies de Catalunya
+  - Mission Politique publique de la donnée
+  - Mkutano
+  - Molins de Rei
+  - Mollerussa
+  - Mollet del Valles
+  - Monistrol de Montserrat
+  - Montcada i Reixac
+  - Monterrey
+  - Montesquiu
+  - Montlouis-sur-Loire
+  - Montmelló
+  - Montornès
+  - Municipalidad de Rosario
+  - Murcia
+  - Nanterre
+  - Navarra
+  - Nishiaizu
+  - Nivelles
+  - Noisy-le-Grand
+  - Nous Sommes Montpellier
+  - NUMÉRIQUE(S) ET HUMAIN(S) - MGEN
+  - NYC
+  - Observatori DESC
+  - Okinawa 2024
+  - Olèrdola
+  - Olesa de Montserrat
+  - Olost
+  - Opcions Cooperativa
+  - Open Heritatge
+  - Open Knowledge Brasil
+  - Open Spaces
+  - Organización Nacional Indígena de Colombia
+  - Orsay
+  - Ouka / Oulu
+  - Outreau
+  - Ovillage
+  - Ovre Eiker Kommune
+  - Oyama
+  - Pacte de les Alcaldies per al Clima i l'Energia
+  - Palafrugell
+  - Palamos
+  - Palau-solità i Plegamans
+  - Pamplona
+  - Parets del Valles
+  - Paris - La Mairie du 14e
+  - Parlement de la Région de Bruxelles-Capitale et du Parlement francophone
+  - Parma
+  - Partecipa Governo Italia
+  - PARTEI DES FORTSCHRITTS
+  - Participa Catalunya
+  - Participa Cloud
+  - PATLY
+  - Pays de Gex agglo
+  - Peligros
+  - People Powered
+  - Plan Nacional de Desarrollo Paraguay 2050
+  - Plantaformas
+  - PlataformESS
+  - Plural Centre de Masculinitats
+  - Polinya
+  - Poliste
+  - Prefeitura de Belém
+  - Prefeitura de Contagem
+  - Premet25
+  - Puglia
+  - Quart
+  - Quartieridee Wipkingen
+  - Québec
+  - Quorum Global
+  - Real Deal
+  - RECHARGE - Resilient European Cultural Heritage As Resource for Growth
+  - Red de Investigación de Conocimiento Libre
+  - Région Nouvelle-Aquitaine
+  - Reinosa
+  - República Oriental del Uruguay
+  - République et Canton de Genève
+  - Reus
+  - Rezero
+  - Rillieux-La-Pape
+  - Rio Grande
+  - Rio Grande Do Sul
+  - RIVP - Régie Immobilière de la Ville de Paris
+  - Romainville
+  - Rome Collaboratory ACT
+  - Rubí
+  - Sabadell
+  - Sainte-Savine
+  - Saint-Jean de Braye
+  - Salo
+  - Salou
+  - Salt
+  - Salut, Drets i Acció
+  - Sanda
+  - San Nicolás
+  - Santa Coloma de Cervello
+  - Sant Adrià de Besòs
+  - Santa Eugènia de Berga
+  - Santa Eulàlia de Ronçana
+  - Santa Margarida de Montbui
+  - Santa Maria de Palautordera
+  - Sant Antoni de Vilamajor
+  - Santa Perpètua de Mogoda
+  - Sant Boi de Llobregat
+  - Sant Celoni
+  - Sant Cugat del Vallès
+  - Sant Cugat Sesgarrigues
+  - Sant Esteve Sesrovires
+  - Sant Feliu de Codines
+  - Sant Fliu
+  - Sant Fruitos de Bages
+  - Sant Hipòlit de Voltregà
+  - Sant Joan Despí
+  - Sant Llorenç Savall
+  - Sant Miquel de Balenyà
+  - Sant Pere de Vilamajor
+  - Sant Quintí de Mediona
+  - Sant Salvador de Guardiola
+  - Sant Vicenç dels Horts
+  - Sant Vicenç de Montalt
+  - Sarmato
+  - Schuttrange
+  - Schuttrange
+  - Seignosse
+  - Seinäjoki
+  - Sénat (FR)
+  - Setagaya
+  - Shibuya
+  - Shinshu Good talk
+  - Shirahama Engine
+  - Sicilia
+  - Signes
+  - Sigtuna
+  - Sitges
+  - Smart Catalonia
+  - Som Connexio
+  - Som Enèrgia
+  - Som Mobilitat
+  - Sortland
+  - Sostre Cívic
+  - Soyaux
+  - SPF Stratégie et Appui (BOSA)
+  - Sporting Club Bastia
+  - Spotter
+  - Stadt Luzern
+  - Stadt Zürich
+  - Stalowa Wola
+  - Stavanger kommune
+  - Steinfort
+  - Sukagawa
+  - Supsi -   Scuola universitaria professionale della Svizzera italiana
+  - Synergies, la Fabrique citoyenne
+  - Sytral Mobilités
+  - Takehara
+  - Tampere
+  - Taradell
+  - Tarragona
+  - Tavernoles
+  - Teia
+  - Terrassa
+  - Terrassa en Comú
+  - Terres de Gauche
+  - Terriotir de l'Ouest
+  - The Alan Turing Institute
+  - The People's Budget Seattle
+  - Thionville
+  - Tiana
+  - Tona
+  - Tordera
+  - Torelló
+  - Torre Jussana
+  - Torrelles de Llobregat
+  - Torroella de Montgri
+  - Toulouse
+  - Touraine
+  - Touraine
+  - Tours
+  - Trencin
+  - Trondheim Kommune
+  - Turku
+  - Tuusula
+  - Tysver Kommune
+  - Uccle
+  - UCLG CGLU - United Cities and Local Governments
+  - UNED
+  - Universitat Oberta de Catalunya
+  - Universitat Politecnica de Catalunya
+  - Université de Bordeaux
+  - Université de Caen Normandie
+  - Université de Lille
+  - UPEC (Université Paris-Est Créteil)
+  - Urban Mobility
+  - Vacarisses
+  - Valbonne Sophia Antipolis
+  - Val de Marne
+  - Vallirana
+  - Vantaa
+  - Veracruz
+  - Verrières-le-Buisson
+  - Vic
+  - Vignola
+  - Viladecans
+  - Vilanova del Valles
+  - Vilanova i la Geltrú
+  - Villani
+  - Ville de Bouscat
+  - Ville de Lausanne
+  - Ville de Namur
+  - Ville de Nancy
+  - Villejuif
+  - Ville Roubaix
+  - Villeurbanne
+  - Visc Andorra
+  - voca
+  - Waterloo
+  - Xarxa d'economia solidaria de Catalunya
+  - Yosano
+  - Zukunftsprozess

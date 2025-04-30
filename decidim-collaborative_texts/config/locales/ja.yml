@@ -1,6 +1,92 @@
 ---
 ja:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: 本文
+          title: タイトル
+          version_number: バージョン番号
+        version:
+          body: 本文
+          version_number: バージョン番号
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: このドキュメントを削除してもよろしいですか？
+        deleted_document_info: 削除されたドキュメントはゴミ箱から復元できます。
+        edit: 編集
+        manage: 管理
+        new: 新しいテキスト
+        title: アクション
+        view_deleted_documents: 削除されたドキュメントを表示
+      admin:
+        documents:
+          create:
+            invalid: ドキュメント作成中に問題が発生しました。
+            success: ドキュメントを作成しました。
+          edit:
+            title: コラボレーションテキストを編集
+            update: 更新
+          edit_settings:
+            title: コラボレーションテキストを設定する
+            update: 更新
+          index:
+            title: コラボレーションテキスト
+          manage_trash:
+            title: 削除されたドキュメント
+          new:
+            create: 作成
+            title: コラボレーションテキストを作成
+          publish:
+            invalid: このドキュメントの公開中に問題が発生しました。
+            success: ドキュメントを公開しました。
+          unpublish:
+            invalid: この文書を非公開にする際に問題が発生しました。
+            success: ドキュメントを非公開にしました。
+          update:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+          update_settings:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+        settings:
+          form:
+            allow_suggestions: 参加者に提案を許可する
+      admin_log:
+        document:
+          create: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを作成しました"
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコレボレーションテキストを削除しました"
+          publish: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを公開しました"
+          restore: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを復元しました"
+          soft_delete: "%{user_name}が%{space_name}の%{resource_name}のコレボレーションテキストをゴミ箱に移動しました"
+          unpublish: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを非公開にしました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを更新しました"
+        version:
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコレボレーションテキストバージョンを削除しました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストバージョンを更新しました"
+      document:
+        cancel: キャンセル
+        save: 提案を送信
+        suggest: 変更の提案
+      documents:
+        index:
+          count:
+            other: "%{count} 件のコラボレーションテキスト"
+          empty: コラボレーションテキストはまだありません。
+      models:
+        collaborative_text:
+          fields:
+            suggestions: 提案を承認する
+            title: タイトル
     components:
       collaborative_texts:
         name: 共同テキスト
+        settings:
+          global:
+            announcement: お知らせ
+            comments_blocked: コメントをブロック
+          step:
+            announcement: お知らせ
+    statistics:
+      collaborative_texts_count: コラボレーションテキスト

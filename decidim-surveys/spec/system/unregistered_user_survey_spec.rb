@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Answer a survey" do
+describe "Respond a survey" do
   InvisibleCaptcha.honeypots = [:honeypot_id]
   InvisibleCaptcha.visual_honeypots = true
 
@@ -28,8 +28,8 @@ describe "Answer a survey" do
 
   include_context "with a component"
 
-  context "when the survey does not allow answers" do
-    it "does not allow answering the survey" do
+  context "when the survey does not allow responses" do
+    it "does not allow responding the survey" do
       visit_component
       choose "All"
       click_on translated_attribute(questionnaire.title)
@@ -39,15 +39,15 @@ describe "Answer a survey" do
 
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(page).to have_content("The form is closed and cannot be answered.")
+      expect(page).to have_content("The form is closed and cannot be responded.")
     end
   end
 
-  context "when the survey allow answers" do
-    let(:last_answer) { questionnaire.answers.last }
+  context "when the survey allow responses" do
+    let(:last_response) { questionnaire.responses.last }
 
     before do
-      survey.update!(allow_answers: true, allow_unregistered: true)
+      survey.update!(allow_responses: true, allow_unregistered: true)
     end
 
     # rubocop:disable Naming/VariableNumber
@@ -69,7 +69,7 @@ describe "Answer a survey" do
       let(:max_characters) { 0 }
       let(:max_choices) { nil }
 
-      let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
+      let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_responses, :allow_unregistered, component:, questionnaire:) }
       let!(:second_question) { create(:questionnaire_question, position: 1, questionnaire:, question_type: :multiple_option, max_choices:, max_characters:, options:) }
       let!(:question) { create(:questionnaire_question, questionnaire:, mandatory: true, position: 0, description: question_description) }
 
@@ -77,30 +77,30 @@ describe "Answer a survey" do
         visit_component
         click_on translated_attribute(questionnaire.title)
 
-        fill_in :questionnaire_responses_0, with: "My first answer"
+        fill_in :questionnaire_responses_0, with: "My first response"
         check "questionnaire_tos_agreement"
         accept_confirm { click_on "Submit" }
       end
 
-      it "restricts the change of an answer when editing is disabled" do
-        expect(page).to have_content("Already answered")
+      it "restricts the change of an response when editing is disabled" do
+        expect(page).to have_content("Already responded")
       end
 
       it "hides the form when on edit page" do
         visit Decidim::EngineRouter.main_proxy(survey.component).edit_survey_path(survey)
-        expect(page).to have_content("Already answered")
+        expect(page).to have_content("Already responded")
       end
     end
     # rubocop:enable Naming/VariableNumber
 
-    it "allows answering the questionnaire" do
+    it "allows responding the questionnaire" do
       visit_component
       click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
-      fill_in question.body["en"], with: "My first answer"
+      fill_in question.body["en"], with: "My first response"
 
       check "questionnaire_tos_agreement"
 
@@ -111,18 +111,18 @@ describe "Answer a survey" do
       end
 
       # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily
-      expect(page).to have_content("You have already answered this form.")
+      expect(page).to have_content("You have already responded this form.")
       expect(page).to have_no_i18n_content(question.body)
 
-      expect(last_answer.session_token).not_to be_empty
-      expect(last_answer.ip_hash).not_to be_empty
+      expect(last_response.session_token).not_to be_empty
+      expect(last_response.ip_hash).not_to be_empty
     end
 
     context "and honeypot is filled" do
       it "fails with spam complain" do
         visit_component
         click_on translated_attribute(questionnaire.title)
-        fill_in question.body["en"], with: "My first answer"
+        fill_in question.body["en"], with: "My first response"
         fill_in "honeypot_id", with: "I am a robot"
 
         check "questionnaire_tos_agreement"

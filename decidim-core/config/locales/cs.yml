@@ -52,8 +52,12 @@ cs:
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
         tos_agreement: Podmínky smlouvy o poskytování služeb
-      user_group:
-        avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Přezdívka musí být malými písmeny a nesmí obsahovat mezery
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní komponenty
@@ -69,7 +73,6 @@ cs:
       decidim/removed_from_group: Odstraněna ze skupiny
       decidim/resource_endorsed_event: Zdroj byl schválen
       decidim/resource_hidden_event: Zdroj skryt
-      decidim/user_group_created_event: Uživatelská skupina vytvořena
       decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
     attributes:
@@ -105,11 +108,6 @@ cs:
         few: Uživatelé
         many: Uživatelé
         other: Uživatelé
-      decidim/user_group:
-        one: Uživatelská skupina
-        few: Skupiny uživatelů
-        many: Skupiny uživatelů
-        other: Skupiny uživatelů
   booleans:
     'false': 'Ne'
     'true': 'Ano'
@@ -126,7 +124,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formát: dd/mm/rrrr'
-      order: d-m-r
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -199,6 +197,7 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
+      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -414,7 +413,6 @@ cs:
             byla autorem stažena.
       name: Pozměňovací návrh
       new:
-        amendment_author: Autor změn
         send: Vytvořit
         title: Vytvořit pozměňovací návrh
       preview_draft:
@@ -647,10 +645,6 @@ cs:
         name: Hlavní údaje
       metadata:
         name: Metadata
-      metrics:
-        name: Organizační metriky
-      participatory_space_metrics:
-        name: Metriky
       participatory_space_stats:
         name: Statistiky
       social_networks_metadata:
@@ -809,12 +803,6 @@ cs:
           moderation: Moderování, které tato zpráva má
           reason: Důvod této zprávy
           updated_at: Datum a čas poslední aktualizace této zprávy
-        user_groups:
-          document_number: Číslo dokumentu této uživatelské skupiny
-          id: Jedinečný identifikátor této skupiny uživatelů
-          name: Název této skupiny uživatelů
-          phone: Telefonní číslo této skupiny uživatelů
-          verified_at: Datum a čas, kdy byla tato skupina uživatelů ověřena
         users:
           about: Životopis tohoto uživatele
           accepted_tos_version: Datum, kdy uživatel přijal podmínky poskytování služeb této platformy
@@ -880,10 +868,6 @@ cs:
     endorsement_buttons_cell:
       already_endorsed: Vrátit označení Líbí se
       endorse: Líbí se mi
-    endorsements:
-      identities:
-        done: Hotovo
-        select_identity: Vybrat identitu
     endorsers_list:
       endorsed_by:
         one: Líbí se %{visible}
@@ -994,52 +978,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
           email_subject: Dosáhli jste úrovně %{current_level} na %{badge_name} odznaku!
           notification_title: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_path}">%{badge_name} odznaku</a>!
-      groups:
-        demoted_membership:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odebral vaše práva administrátora do této skupiny.
-          email_outro: Toto oznámení jste obdrželi, protože jste členem této skupiny.
-          email_subject: Už nejste správcem skupiny %{user_group_name}!
-          notification_title: Už nejste správcem skupiny <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> vás pozval, abyste se k němu připojili.
-          email_outro: Toto oznámení jste obdrželi, protože jste byli pozváni do skupiny. Zaškrtněte prosím kartu Skupiny ve svém profilu.
-          email_subject: Byli jste pozváni, abyste se připojili ke skupině %{user_group_name}!
-          notification_title: Byli jste pozváni, abyste se připojili ke skupině <a href="%{resource_path}">%{user_group_name}</a>. Zkontrolujte <a href="%{groups_profile_tab_path}">stránku skupin</a> ve svém profilu a schvalte ji!
-        join_request_accepted:
-          email_intro: Gratulujeme! Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> přijal vaši žádost o připojení.
-          email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
-          email_subject: Byli jste přijati do skupiny %{user_group_name}!
-          notification_title: Byli jste přijati do skupiny <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_url}">strany člena skupiny</a>.
-          email_outro: Toto oznámení jste obdrželi, protože můžete spravovat skupinu %{user_group_name}.
-          email_subject: Někdo požádal o zařazení do skupiny %{user_group_name}!
-          notification_title: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_path}">strany člena skupiny</a>.
-        join_request_rejected:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odmítl vaši žádost o připojení.
-          email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
-          email_subject: Vaše žádost o zařazení do skupiny %{user_group_name} byla zamítnuta!
-          notification_title: Vaše žádost o zařazení do skupiny <a href="%{resource_path}">%{user_group_name}</a> byla zamítnuta.
-        promoted_to_admin:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> vám dal administrátorská práva do této skupiny.
-          email_outro: Toto oznámení jste obdrželi, protože jste členem této skupiny.
-          email_subject: Nyní jste správcem skupiny %{user_group_name}!
-          notification_title: Nyní jste správcem skupiny <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Administrátor ze skupiny <a href="%{resource_url}">%{user_group_name}</a> vás z ní odebral.
-          email_outro: Toto oznámení jste obdrželi, protože jste byli členem této skupiny.
-          email_subject: Byli jste odstraněni ze skupiny %{user_group_name}!
-          notification_title: Byli jste odstraněni ze skupiny <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Nová uživatelská skupina byla vytvořena s názvem %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
-          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
-          email_subject: Byla vytvořena nová skupina uživatelů
-          notification_title: Byla vytvořena uživatelská skupina %{user_group_name}. Nyní ji můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
-        user_group_updated:
-          email_intro: Uživatelská skupina s názvem %{user_group_name} aktualizovala svůj profil a ponechala jej neověřený. Nyní ho můžete ověřit v <a href="%{groups_admin_url}">admin panelu</a>.
-          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
-          email_subject: Skupina uživatelů aktualizovala svůj profil
-          notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       nickname_event:
         notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">vašeho nastavení účtu</a>.
       notification_event:
@@ -1193,92 +1131,11 @@ cs:
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
       title: Jaké jsou odznaky?
-    group_admins:
-      actions:
-        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
-        demote_admin: Odstranit admin
-      demote:
-        error: Při odebrání tohoto účastníka ze seznamu administrátorů došlo k chybě.
-        success: Účastník byl úspěšně odstraněn z administrátora.
-      index:
-        current_admins: 'Aktuální administrátoři:'
-        manage_admins: Správa administrátorů
-    group_invites:
-      accept:
-        error: Při přijetí této pozvánky došlo k chybě.
-        success: Pozvánka úspěšně přijata.
-      accept_invitation: Akceptovat
-      accept_or_reject_group_invitations: 'Následující skupiny vás pozvaly, abyste se k nim připojili. Přijmout nebo odmítnout jejich požadavky:'
-      index:
-        invite: Pozvat
-        invite_user: Pozvat uživatele
-      invite:
-        error: Při pozvání tohoto účastníka došlo k chybě.
-        success: Účastník úspěšně pozván.
-      pending_invitations: Nevyřízené požadavky
-      reject:
-        error: Při odmítnutí této pozvánky došlo k chybě.
-        success: Pozvánka byla úspěšně zamítnuta.
-      reject_invitation: Odmítnout
-    group_members:
-      accept:
-        error: Při přijímání této žádosti o připojení došlo k chybě.
-        success: Žádost o připojení byla úspěšně přijata.
-      actions:
-        are_you_sure: Jste si jisti?
-        promote_to_admin: Udělat adminem
-        remove_from_group: Odstranit uživatele
-      index:
-        current_members_without_admins: 'Aktuální členové (bez administrátorů):'
-        manage_members: Správa členů
-      promote:
-        error: Při propagaci tohoto účastníka došlo k chybě.
-        success: Účastník byl úspěšně povýšen.
-      reject:
-        error: Při odmítnutí této žádosti o připojení došlo k chybě.
-        success: Žádost o připojení byla úspěšně zamítnuta.
-      remove:
-        error: Při odebrání tohoto uživatele ze skupiny došlo k chybě.
-        success: Uživatel byl úspěšně odstraněn ze skupiny.
     groups:
-      actions:
-        are_you_sure: Jste si jisti?
-      create:
-        error: Při vytváření skupiny došlo k chybě.
-        success: Skupina úspěšně vytvořena.
-      edit:
-        edit_user_group: Upravit skupinu
-        update_user_group: Aktualizovat skupinu
-      form:
-        document_number_help: Nepoužívejte pomlčky ani mezery.
-        email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
-        fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
-        name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
-        nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
-        phone_help: Nepoužívejte pomlčky ani mezery.
-      join:
-        error: Při připojení ke skupině došlo k chybě.
-        success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
-      leave:
-        error: Při opuštění skupiny došlo k chybě.
-        last_admin: Nemůžete se odebrat z této skupiny, protože jste poslední správce. Udělejte jiného člena administrátorem asbyste mohl opustit skupinu.
-        success: Skupina úspěšně opustila.
-      members:
-        accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
-        reject_request: Odmítnout
-      new:
-        create_user_group: Vytvořit skupinu
-        new_user_group: Nová skupina
-        subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
-      no_user_groups: Zatím nepatří do žádné skupiny.
       roles:
         admin: Správce
         creator: Administrátor
         member: Člen
-      update:
-        error: Při aktualizaci skupiny došlo k problému.
-        success: Skupina byla úspěšně aktualizována.
     help:
       main_topic:
         default_page:
@@ -1339,42 +1196,16 @@ cs:
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Tato skupina zatím nemá žádné členy.
     menu:
       help: Pomoc
       home: Úvod
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
-          intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
-          outro: Užijte si platformu!
-          subject: "%{manager} zahájil novou konverzaci jako %{group}"
-        comanagers_new_message:
-          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
-          intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
-          outro: Užijte si platformu!
-          subject: "%{manager} odeslal nové zprávy jako %{group}"
         new_conversation:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci s vámi. Klikněte sem pro zobrazení:"
           outro: Užijte si platformu!
           subject: "%{sender} začal s vámi konverzovat"
-        new_group_conversation:
-          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
-          intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
-          outro: Užijte si platformu!
-          subject: "%{sender} zahájil konverzaci s %{group}"
-        new_group_message:
-          admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
-          intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
-          outro: Užijte si platformu!
-          subject: "%{group} má nové zprávy od %{sender}"
         new_message:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} poslala nové zprávy ve vaší konverzaci. Klikněte sem pro jejich zobrazení:"
@@ -1387,6 +1218,8 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel nechce přijímat soukromé zprávy.
+          participants:
+            title: Účastníci
         create:
           error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
@@ -1419,27 +1252,6 @@ cs:
         finished: 'Dokončeno: %{end_date}'
         not_started: Ještě nezačalo
         remaining: "Zbývá %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Počet blokovaných účastníků
-      download:
-        csv: Stáhnout data (CSV)
-      followers:
-        description: Počet uživatelů, kteří následují v tomto prostoru účasti
-        object: následovníků
-        title: Sledující
-      participants:
-        description: Počet aktivních uživatelů v organizaci
-        object: účastníků
-        title: Účastníci
-      reported_users:
-        description: Počet nahlášených účastníků
-      user_reports:
-        description: Počet zpráv vypracovaných účastníky
-      users:
-        description: Počet uživatelů v organizaci
-        object: uživatelů
-        title: Uživatelé
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
@@ -1519,6 +1331,7 @@ cs:
         assigned_to_proposal: Chci dostávat e-mail, když mi někdo přiřadí návrh na vyhodnocení
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
+        evaluators: Hodnotitelé
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
         newsletters: Zpravodaje
@@ -1535,7 +1348,6 @@ cs:
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
-        valuators: Hodnotitelé
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
@@ -1560,14 +1372,10 @@ cs:
         core:
           components: Komponenty
           description: Tento ZIP soubor obsahuje soubory pro studium a výzkum této participační platformy.
+          generated_on_date: Vygenerováno v %{date}
           main: Jádro
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
-        metrics:
-          cumulative: Celkový počet metrik v tento den
-          day: Den, kdy byla tato metrika vytvořena
-          metric_type: Typ metriky
-          quantity: Počet metrik za tento den
         moderated_users:
           about: Informační pole uživatele
           block_reasons: Důvod, proč administrátor zablokoval uživatele
@@ -1598,16 +1406,6 @@ cs:
           taxonomizations_count: Počet zdrojů, které používají tuto taxonomii
           updated_at: Datum poslední aktualizace této taxonomie
           weight: Pořadí, v jakém je tato taxonomie uvedena, je následující
-        user_groups:
-          avatar_url: Avatar uživatelské skupiny
-          badge: Odznak uživatelské skupiny
-          deleted: Zda je uživatel odstraněn nebo ne
-          id: Jedinečný identifikátor skupiny uživatelů
-          members: ID a jméno uživatelů patřících do skupiny
-          members_count: Počet uživatelů patřících do skupiny uživatelů
-          name: Zobrazované jméno uživatelské skupiny
-          nickname: Uživatelské jméno skupiny uživatelů
-          profile_url: URL profilu
         users:
           about: Text o uživateli
           avatar_url: Avatar uživatele
@@ -1700,10 +1498,6 @@ cs:
         subheading: Procházejte stránky nápovědy %{name}
         title: Pomoc
         topics: Témata
-      participatory_space:
-        metrics:
-          headline: Metriky
-          link: Zobrazit všechny metriky
       terms_of_service:
         accept:
           error: Při přijímání podmínek služby došlo k chybě.
@@ -1721,6 +1515,14 @@ cs:
           alert: Aktualizovali jsme Podmínky služeb, přečtěte si je, prosím.
           body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
+    participants_account_mailer:
+      inactivity_notification:
+        log_in: přihlásit se
+        never_logged_in: nikdy se nepřihlásil
+        subject: Upozornění na neaktivní účet
+      removal_notification:
+        hello: Dobrý den %{username},
+        subject: Neaktivní účet byl smazán
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.
@@ -1729,7 +1531,6 @@ cs:
       deleted: Vymazaný účastník
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
     profiles:
-      default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
       default_officialization_text_for_users: Tento účastník byl veřejně ověřen, jeho jméno a role byly ověřeny a souhlasí se skutečným jménem a rolí.
       show:
         activity: Aktivita
@@ -1737,41 +1538,18 @@ cs:
         conversations: Konverzace
         followers: Sledující
         following: Sleduje
-        group_admins: Spravovat správce
-        group_members: Spravovat členy
-        groups: Skupiny
-        members: Členové
         officialized: Oficiální účastník
         send_private_message: Odeslat soukromou zprávu
-      sidebar:
-        badges:
-          info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
-          title: Odznaky
       user:
         actions:
-          create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
           edit_profile: Upravit profil
-          edit_user_group: Upravit profil skupiny
-          invite_user: Pozvat účastníka
-          join_user_group: Požádat o připojení ke skupině
-          leave_user_group: Opustit skupinu
-          manage_user_group: Spravovat skupinu
-          manage_user_group_admins: Spravovat správce
-          manage_user_group_users: Spravovat členy
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
-        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
-        create_user_group: Vytvořit skupinu
-        edit_profile: Editovat profil
-        edit_user_group: Upravit profil skupiny
-        fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
-        invite_user: Pozvat uživatele
-        join_user_group: Žádost o připojení ke skupině
-        leave_user_group: Opustit skupinu
-        manage_user_group_admins: Správa administrátorů
-        manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
+    qr:
+      show:
+        scan: Naskenujte QR kód
+        title: QR kód pro %{resource_title}
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1808,7 +1586,6 @@ cs:
     search:
       name: Hledat
       results: Výsledky hledání
-      results_found_for_term: '%{count} Výsledky pro vyhledávání: "%{term}"'
       term_input_placeholder: Vyhledávání
     searches:
       filters:
@@ -1829,6 +1606,10 @@ cs:
       selfxss_warning:
         description: Tato funkce prohlížeče je určena pro vývojáře a pokud jste o to byli požádáni, neměli byste sem nic vkládat. Vkládání obsahu do tohoto okna může ohrozit vaše soukromí a umožnit hackerům přístup k vašemu účtu.
         title: Zastavit!
+    share_widget:
+      download: Stáhnout
+      print: Tisk plakátu
+      qr_code: QR kód
     shared:
       confirm_modal:
         cancel: Zrušit
@@ -1859,14 +1640,13 @@ cs:
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         block: Blokovat tohoto uživatele
-        close: Zavřít
-        description: Co je s uživatelem nevhodné?
+        description: Co je s tímto účastníkem nevhodné?
         does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         hide: Skrýt veškerý jejich obsah
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
-        title: Nahlásit nevhodného uživatele
+        title: Nahlásit nevhodného účastníka
       floating_help:
         help: Pomoc
       follow_button:
@@ -1881,9 +1661,6 @@ cs:
         public_participation: Ukázat svou účast veřejně
       reference:
         reference: 'Odkaz: %{reference}'
-      represent_user_group:
-        represent_user_group: Zastupuji skupinu
-        select_user_group: Vyberte skupinu
       results_per_page:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledků na stránku
@@ -1891,6 +1668,7 @@ cs:
         copy_share_link: Kopírovat
         copy_share_link_clarification: Zkopírovat odkaz pro sdílení do schránky
         copy_share_link_copied: Zkopírováno!
+        copy_share_link_cta: Nebo zkopírovat odkaz
         copy_share_link_message: Odkaz byl úspěšně zkopírován do schránky.
         share: Sdílet
         share_link: Sdílet odkaz
@@ -1918,19 +1696,17 @@ cs:
         no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
     user_conversations:
-      create:
-        error: Zprávu nelze vytvořit. Zkuste to znovu později.
-        existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
-        success: Konverzace byla úspěšně spuštěna!
       index:
-        conversations_info: Konverzace jsou soukromé. Nikdo je nemůže vidět. Konverzaci lze zahájit s kterýmkoli účastníkem nebo skupinou registrovanou na platformě.
-        no_conversations_warning: Zatím nejsou žádné konverzace.
         time_ago: "před %{time}"
-      reply:
-        placeholder: Vaše odpověď...
-        send: Odeslat
-      update:
-        error: Zpráva nebyla odeslána. Zkuste to později
+    user_group_mailer:
+      notify_deprecation_to_member:
+        greeting: Dobrý den %{name},
+        instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
+        instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
+      notify_deprecation_to_owner:
+        greeting: Dobrý den %{name},
+        instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'
+        set_password: Začít proces nastavení hesla
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -2305,8 +2081,10 @@ cs:
         sign_up: Vytvořit účet
         terms_of_service: Podmínky služby
       header:
+        cancel: Zrušit
         close: Zavřít‏
-        confirm_close_ephemeral_session: Pokud z této stránky odejdete, vaše relace bude ukončena. Jste si jisti?
+        confirm_close_ephemeral_session: Pokud odejdete, vaše dočasná relace bude ukončena. Nicméně veškerý váš pokrok a aktivita budou uloženy. Pokud jste svou aktivitu dokončili, klikněte na tlačítko Ok.
+        confirm_title_close_ephemeral_session: Před opuštěním této stránky…
         log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
@@ -2352,7 +2130,6 @@ cs:
         notifications_settings: Nastavení oznámení
         profile: Profil
         title: Uživatelské nastavení
-        user_groups: Skupiny
   locale:
     name: Čeština
     name_with_error: Čeština (chyba!)

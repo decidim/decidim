@@ -1,6 +1,94 @@
 ---
 ro:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Conținut
+          title: Titlu
+          version_number: Număr versiune
+        version:
+          body: Conținut
+          version_number: Număr versiune
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Sigur doriți să ștergeți acest document?
+        deleted_document_info: Documentul șters poate fi restaurat din gunoi.
+        edit: Modificați
+        manage: Administrați
+        new: Text nou
+        title: Acțiuni
+        view_deleted_documents: Vizualizați documentele șterse
+      admin:
+        documents:
+          create:
+            invalid: A apărut o problemă la crearea documentului.
+            success: Documentul a fost creat cu succes.
+          edit:
+            title: Actualizați texte colaborative
+            update: Actualizați
+          edit_settings:
+            title: Configurare texte colaborative
+            update: Actualizați
+          index:
+            title: Texte colaborative
+          manage_trash:
+            title: Documente șterse
+          new:
+            create: Creați
+            title: Creați texte colaborative
+          publish:
+            invalid: A apărut o problemă la publicarea acestui document.
+            success: Documentul a fost publicat cu succes.
+          unpublish:
+            invalid: A apărut o problemă la retragerea de la publicare a acestui document.
+            success: Documentul a fost retras de la publicare cu succes.
+          update:
+            invalid: A apărut o eroare la actualizarea documentului.
+            success: Document actualizat cu succes.
+          update_settings:
+            invalid: A apărut o eroare la actualizarea documentului.
+            success: Document actualizat cu succes.
+        settings:
+          form:
+            allow_suggestions: Permiteți participanților să facă sugestii
+      admin_log:
+        document:
+          create: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          delete: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          publish: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          restore: "%{user_name} a restaurat postarea %{resource_name} din %{space_name}"
+          soft_delete: "%{user_name} a mutat postarea %{resource_name} din %{space_name}"
+          unpublish: "%{user_name} a nepublicat %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat postarea %{resource_name} în %{space_name}"
+        version:
+          delete: "%{user_name} a șters versiunea text colaborativă %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat versiunea text colaborativ %{resource_name} în %{space_name}"
+      document:
+        cancel: Anulează
+        save: Trimite propunere
+        suggest: Sugerează modificări
+      documents:
+        index:
+          count:
+            one: "%{count} text colaborativ"
+            few: "%{count} texte colaborativ"
+            other: "%{count} texte colaborative"
+          empty: Nu există încă texte colaborative.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Acceptați sugestii
+            title: Titlu
     components:
       collaborative_texts:
         name: Texte colaborative
+        settings:
+          global:
+            announcement: Anunț
+            comments_blocked: Comentarii blocate
+          step:
+            announcement: Anunț
+    statistics:
+      collaborative_texts_count: Texte colaborative

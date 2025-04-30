@@ -6,7 +6,7 @@ module Decidim
   module ParticipatorySpaceUser
     extend ActiveSupport::Concern
 
-    ROLES = %w(admin collaborator moderator valuator).freeze
+    ROLES = %w(admin collaborator moderator evaluator).freeze
 
     included do
       validate :user_and_space_same_organization
@@ -37,9 +37,7 @@ module Decidim
         raise "Not implemented"
       end
 
-      def self.ransackable_attributes(auth_object = nil)
-        return [] unless auth_object&.admin?
-
+      def self.ransackable_attributes(_auth_object = nil)
         %w(name nickname email invitation_accepted_at last_sign_in_at role)
       end
 

@@ -41,7 +41,7 @@ eu:
     accountability:
       actions:
         attachment_collections: Karpetak
-        attachments: Erantsitako artxiboak
+        attachments: Erantsitako fitxategiak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
@@ -74,7 +74,7 @@ eu:
             select_state: Hautatu egoera
           form:
             create: Inportatu
-            no_components: Espazio parte-hartzaile honetan ez dago inportatu beharreko osagairik.
+            no_components: Partaidetza-espazio honetan ez dago inportatu beharreko osagairik.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
           new:
@@ -302,7 +302,7 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
             default_taxonomy: Taxonomia akatsa
             default_taxonomy_help: Aukeratu zein taxonomia erakutsi nahi duzun akatsez. Taxonomiarik aukeratzen ez bada, emaitzak zerrenda formatuan agertuko dira.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk partaidetza-espazio honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
             intro: Sarrera
@@ -328,11 +328,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako, eta proposamen hori "%{resource_title}" emaitzaren barruan dago. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
           email_subject: Eguneraketa bat %{resource_title} bilakaeran
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza, % %{progress}% osatu da.
-    metrics:
-      results:
-        description: Sortutako emaitza kopurua
-        object: emaitzak
-        title: Emaitzak
     open_data:
       help:
         result_comments:
@@ -346,7 +341,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         results:
           address: Emaitzaren helbidea (hala badagokio)
           children_count: Emaitza txikien kopurua

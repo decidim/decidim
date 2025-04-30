@@ -8,14 +8,9 @@ tr:
       decidim/surveys/survey:
         one: Anket
         other: Anketler
-      decidim/surveys/survey_answer:
-        one: Cevap
-        other: Cevaplar
   decidim:
     components:
       surveys:
-        actions:
-          answer: Cevap
         settings:
           global:
             announcement: Duyuru
@@ -33,20 +28,9 @@ tr:
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{participatory_space_title} içinde yeni bir anket'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title} </a> içindeki anket <a href="%{resource_path}">%{resource_title} </a> şimdi açık.
-    metrics:
-      survey_answers:
-        description: Katılımcılar tarafından cevaplanan anket sayısı
-        object: anketlerin cevapları
-        title: Anketlere verilen cevaplar
     surveys:
       admin:
-        exports:
-          survey_user_answers: Ankete katılanların cevapları
         surveys:
           update:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
-      surveys:
-        answer:
-          invalid: Anketi cevaplarken bir sorun oluştu.
-          success: Anket başarıyla cevaplandı.

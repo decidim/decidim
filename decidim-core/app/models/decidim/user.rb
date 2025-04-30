@@ -13,8 +13,6 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[\w-]+\z/
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -30,8 +28,6 @@ module Decidim
     devise :rememberable if Decidim.enable_remember_me
 
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
-    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
-    has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
@@ -53,8 +49,6 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
-    scope :not_deleted, -> { where(deleted_at: nil) }
-
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
 
@@ -64,6 +58,16 @@ module Decidim
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
+
+    scope :with_inactivity_notification, lambda {
+      where("extended_data ? 'inactivity_notification'")
+    }
+
+    scope :active_after_notification, lambda {
+      where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+    }
+    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
 
     attr_accessor :newsletter_notifications
 
@@ -97,6 +101,21 @@ module Decidim
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
       invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
+    end
+
+    # Returns users eligible for receiving the first inactivity warning email.
+    def self.first_warning_inactive_users
+      InactiveUsersQuery.new(self).for_first_warning(Decidim.first_warning_inactive_users_after_days.days.ago)
+    end
+
+    # Returns users eligible for receiving the final inactivity warning email.
+    def self.last_warning_inactive_users
+      InactiveUsersQuery.new(self).for_last_warning(Decidim.last_warning_inactive_users_after_days.days.ago)
+    end
+
+    # Returns users eligible for account removal due to prolonged inactivity.
+    def self.removable_users
+      InactiveUsersQuery.new(self).for_removal(Decidim.delete_inactive_users_last_warning_days_before.days.ago)
     end
 
     # Returns the presenter for this author, to be used in the views.
@@ -137,6 +156,10 @@ module Decidim
     # Public: whether the user has been officialized or not
     def officialized?
       !officialized_at.nil?
+    end
+
+    def group?
+      extended_data["group"]
     end
 
     def follows?(followable)
@@ -209,16 +232,6 @@ module Decidim
 
     def user_name
       extended_data["user_name"] || name
-    end
-
-    # return the groups where this user has been accepted
-    def accepted_user_groups
-      UserGroups::AcceptedUserGroups.for(self)
-    end
-
-    # return the groups where this user has admin permissions
-    def manageable_user_groups
-      UserGroups::ManageableUserGroups.for(self)
     end
 
     def authenticatable_salt

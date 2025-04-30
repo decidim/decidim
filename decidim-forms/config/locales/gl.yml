@@ -1,19 +1,11 @@
 gl:
   activemodel:
     attributes:
-      answer:
-        body: Resposta
       question:
         max_choices: Número máximo de opcións
         question_type: Tipo
       questionnaire_question:
         mandatory: Obrigatorio
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: non están completos
   decidim:
     forms:
       admin:
@@ -22,11 +14,6 @@ gl:
             description: Descrición
             tos: Condicións de servicio
         questionnaires:
-          answer_option:
-            answer_option: Opción de resposta
-            free_text: Texto libre
-            remove: Quitar
-            statement: Declaración
           edit:
             save: Gardar
           form:
@@ -35,7 +22,6 @@ gl:
             remove: Quitar
             statement: Declaración
           question:
-            add_answer_option: Engadir unha opción de resposta
             any: Calquera
             description: Descrición
             down: Baixo
@@ -59,26 +45,15 @@ gl:
           resize_and_pad: A imaxe axustarase para se encadrar a %{dimensions}.
           resize_to_fit: A imaxe axustarase para se adaptar a %{dimensions}.
       question_types:
-        long_answer: Resposta longa
         multiple_option: Múltipla opción
-        short_answer: Resposta curta
         single_option: Opción única
         sorting: Clasificación
         title_and_description: Título e descrición
       questionnaires:
-        answer:
-          invalid: Houbo erros ao responder ao cuestionario.
-          success: O cuestionario respondeu con éxito.
         question:
           max_choices: 'Opcións máximas: %{n}'
         show:
-          answer_questionnaire:
-            title: Responde o cuestionario
-          questionnaire_answered:
-            body: Xa contestou este cuestionario.
-            title: Xa respondeu
           questionnaire_closed:
-            body: O cuestionario está pechado e non se pode responder.
             title: Cuestionario pechado
           questionnaire_for_private_users:
             body: O cuestionario só está dispoñible para usuarios privados
@@ -87,6 +62,3 @@ gl:
       step_navigation:
         show:
           submit: Enviar
-      user_answers_serializer:
-        created_at: Respondeu
-        id: ID de resposta

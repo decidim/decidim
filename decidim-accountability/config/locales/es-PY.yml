@@ -275,6 +275,8 @@ es-PY:
         home_header:
           global_status: Estado de ejecución global
         no_results: No hay proyectos
+        root_taxonomies:
+          title: 'Visualizar por:'
         search:
           search: Buscar actuaciones
         show:
@@ -299,6 +301,8 @@ es-PY:
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            default_taxonomy: Taxonomía predeterminada
+            default_taxonomy_help: Selecciona qué taxonomía quieres mostrar por defecto. Si no se selecciona alguna taxonomía, los resultados se mostrarán en un formato de lista.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             display_progress_enabled: Mostrar progreso
             geocoding_enabled: Mapas habilitados
@@ -308,6 +312,7 @@ es-PY:
             taxonomy_filters_add: Añadir un filtro
           step:
             comments_blocked: Comentarios bloqueados
+          visualization: Visualización
     download_your_data:
       show:
         result_comments: Exportar los comentarios a los resultados
@@ -324,11 +329,6 @@ es-PY:
           email_outro: Ha recibido esta notificación porque está siguiendo "%{proposal_title}" y esta propuesta se incluye en el resultado "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización a %{resource_title} progreso
           notification_title: El resultado <a href="%{resource_path}">%{resource_title}</a>, que incluye la propuesta <a href="%{proposal_path}">%{proposal_title}</a>, ahora está completo al %{progress}%.
-    metrics:
-      results:
-        description: Número de resultados generados
-        object: resultados
-        title: Resultados
     open_data:
       help:
         result_comments:
@@ -342,7 +342,6 @@ es-PY:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         results:
           address: La dirección del resultado (si existe)
           children_count: El número de resultados hijos (anidados)

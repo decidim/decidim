@@ -1,6 +1,93 @@
 ---
 eu:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Gorputza
+          title: Izenburua
+          version_number: Bertsio zenbakia
+        version:
+          body: Gorputza
+          version_number: Bertsio zenbakia
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Ziur zaude dokumentu hau ezabatu nahi duzula?
+        deleted_document_info: Ezabatutako dokumentua zaborretik berreskura daiteke.
+        edit: Editatu
+        manage: Kudeatu
+        new: Testu berria
+        title: Ekintzak
+        view_deleted_documents: Ikusi ezabatutako dokumentuak
+      admin:
+        documents:
+          create:
+            invalid: Arazo bat egon da dokumentua sortzean.
+            success: Dokumentua zuzen sortua.
+          edit:
+            title: Editatu testu kolaboratzaileak
+            update: Eguneratu
+          edit_settings:
+            title: Konfiguratu testu kolaboratzaileak
+            update: Eguneratu
+          index:
+            title: Testu kolaboratzaileak
+          manage_trash:
+            title: Dokumentuak ezabatuta
+          new:
+            create: Sortu
+            title: Sortu testu kolaboratzaileak
+          publish:
+            invalid: Arazo bat egon da dokumentu hau argitaratzean.
+            success: Dokumentua zuzen argitaratua.
+          unpublish:
+            invalid: Arazo bat egon da dokumentu hau despublikatzean.
+            success: Dokumentua behar bezala despublikatua.
+          update:
+            invalid: Arazo bat egon da dokumentua eguneratzean.
+            success: Dokumentua zuzen eguneratua.
+          update_settings:
+            invalid: Arazo bat egon da dokumentua eguneratzean.
+            success: Dokumentua zuzen eguneratua.
+        settings:
+          form:
+            allow_suggestions: Utzi erabiltzaileei iradokinak egiten
+      admin_log:
+        document:
+          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa ezabatu du %{space_name} espazioan"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa zaharberritu\n du %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa mugitu du %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
+        version:
+          delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
+      document:
+        cancel: Utzi
+        save: Bidali iradokizuna
+        suggest: Aldaketak iradoki
+      documents:
+        index:
+          count:
+            one: "%{count} testu kolaboratzaile"
+            other: "%{count} testu kolaboratzaile"
+          empty: Oraindik ez dago testu kolaboratzailerik.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Onartu iradokina(k)
+            title: Izenburua
     components:
       collaborative_texts:
         name: Testu kolaboratiboak
+        settings:
+          global:
+            announcement: Oharra
+            comments_blocked: Iruzkinak blokeatuta
+          step:
+            announcement: Oharra
+    statistics:
+      collaborative_texts_count: Testu kolaboratzaileak

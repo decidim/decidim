@@ -21,9 +21,9 @@ module Decidim
                   "es" => "Primera pregunta"
                 },
                 "position" => "0",
-                "question_type" => "short_answer",
+                "question_type" => "short_response",
                 "max_characters" => "0",
-                "answer_options" => {}
+                "response_options" => {}
               },
               "1" => {
                 "body" => {
@@ -34,9 +34,9 @@ module Decidim
                 "description" => { "en" => "Description" },
                 "position" => "1",
                 "mandatory" => "1",
-                "question_type" => "long_answer",
+                "question_type" => "long_response",
                 "max_characters" => "100",
-                "answer_options" => {}
+                "response_options" => {}
               },
               "2" => {
                 "body" => {
@@ -47,10 +47,10 @@ module Decidim
                 "position" => "2",
                 "question_type" => "single_option",
                 "max_characters" => "0",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
@@ -58,7 +58,7 @@ module Decidim
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -74,10 +74,10 @@ module Decidim
                 "position" => "3",
                 "question_type" => "multiple_option",
                 "max_choices" => "2",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
@@ -85,7 +85,7 @@ module Decidim
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -100,10 +100,10 @@ module Decidim
                 },
                 "position" => "4",
                 "question_type" => "matrix_single",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
@@ -111,7 +111,7 @@ module Decidim
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -143,10 +143,10 @@ module Decidim
                 "position" => "5",
                 "question_type" => "matrix_multiple",
                 "max_choices" => "2",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
@@ -154,7 +154,7 @@ module Decidim
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -223,31 +223,31 @@ module Decidim
 
             expect(questionnaire.questions[1]).to be_mandatory
             expect(questionnaire.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
-            expect(questionnaire.questions[1].question_type).to eq("long_answer")
+            expect(questionnaire.questions[1].question_type).to eq("long_response")
             expect(questionnaire.questions[1].max_characters).to eq(100)
-            expect(questionnaire.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+            expect(questionnaire.questions[2].response_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["response_options"]["1"]["body"]["en"])
 
             expect(questionnaire.questions[2].question_type).to eq("single_option")
             expect(questionnaire.questions[2].max_choices).to be_nil
             expect(questionnaire.questions[2].max_characters).to eq(0)
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[2].answer_options[0].free_text).to be(false)
+            expect(questionnaire.questions[2].response_options[0].free_text).to be(false)
             expect(questionnaire.questions[2].max_choices).to be_nil
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[3].answer_options[0].free_text).to be(true)
+            expect(questionnaire.questions[3].response_options[0].free_text).to be(true)
             expect(questionnaire.questions[3].max_choices).to eq(2)
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
-            expect(questionnaire.questions[4].answer_options[0].free_text).to be(true)
+            expect(questionnaire.questions[4].response_options[0].free_text).to be(true)
             2.times do |idx|
               expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
               expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
             end
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
-            expect(questionnaire.questions[5].answer_options[0].free_text).to be(true)
+            expect(questionnaire.questions[5].response_options[0].free_text).to be(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
           end
 
@@ -275,7 +275,7 @@ module Decidim
                     "id" => question.id,
                     "body" => question.body,
                     "position" => 0,
-                    "question_type" => "short_answer",
+                    "question_type" => "short_response",
                     "deleted" => "true"
                   }
                 ]
@@ -293,7 +293,7 @@ module Decidim
 
         describe "when the questionnaire has existing questions" do
           let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire:, position: x) } }
-          let!(:question_2_answer_options) { create_list(:answer_option, 3, question: questions.second) }
+          let!(:question_2_response_options) { create_list(:response_option, 3, question: questions.second) }
 
           context "and display conditions are to be created" do
             let(:form_params) do
@@ -303,34 +303,34 @@ module Decidim
                     "id" => questions[0].id,
                     "body" => questions[0].body,
                     "position" => 0,
-                    "question_type" => "short_answer"
+                    "question_type" => "short_response"
                   },
                   "2" => {
                     "id" => questions[1].id,
                     "body" => questions[1].body,
                     "position" => 1,
                     "question_type" => "single_option",
-                    "answer_options" => question_2_answer_options.to_h do |answer_option|
-                      [answer_option.id.to_s, { "id" => answer_option.id, "body" => answer_option.body, "free_text" => answer_option.free_text, "deleted" => false }]
+                    "response_options" => question_2_response_options.to_h do |response_option|
+                      [response_option.id.to_s, { "id" => response_option.id, "body" => response_option.body, "free_text" => response_option.free_text, "deleted" => false }]
                     end
                   },
                   "3" => {
                     "id" => questions[2].id,
                     "body" => questions[2].body,
                     "position" => 2,
-                    "question_type" => "short_answer",
+                    "question_type" => "short_response",
                     "deleted" => "false",
                     "display_conditions" => {
                       "1" => {
                         "decidim_condition_question_id" => questions[0].id,
                         "decidim_question_id" => questions[2].id,
-                        "condition_type" => "answered"
+                        "condition_type" => "responded"
                       },
                       "2" => {
                         "decidim_condition_question_id" => questions[1].id,
                         "decidim_question_id" => questions[2].id,
                         "condition_type" => "equal",
-                        "decidim_answer_option_id" => question_2_answer_options.first.id
+                        "decidim_response_option_id" => question_2_response_options.first.id
                       }
                     }
                   }
@@ -343,9 +343,9 @@ module Decidim
               questionnaire.reload
 
               expect(questionnaire.questions[2].display_conditions).not_to be_empty
-              expect(questionnaire.questions[2].display_conditions.first.condition_type).to eq("answered")
+              expect(questionnaire.questions[2].display_conditions.first.condition_type).to eq("responded")
               expect(questionnaire.questions[2].display_conditions.second.condition_type).to eq("equal")
-              expect(questionnaire.questions[2].display_conditions.second.decidim_answer_option_id).to eq(question_2_answer_options.first.id)
+              expect(questionnaire.questions[2].display_conditions.second.decidim_response_option_id).to eq(question_2_response_options.first.id)
             end
           end
         end

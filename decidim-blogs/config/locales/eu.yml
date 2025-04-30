@@ -69,11 +69,15 @@ eu:
             body: Gorputza
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
+            taxonomies: Taxonomiak
             title: Izenburua
       posts:
         edit:
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu dokumentu edo irudi bat
           back: Itzuli sarrerara
           button: Eguneratu
+          edit_attachments: Editatu eranskinak
           title: Editatu sarrera
         form:
           author_id: Egilea
@@ -105,9 +109,14 @@ eu:
         settings:
           global:
             announcement: Iragarpena
+            attachments_allowed: Baimendu eranskinak
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
+            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk partaidetza-espazio honetarako eszenatoki hau erabili aurretik.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            taxonomy_filters: Aukeratu osagairako filtroak
+            taxonomy_filters_add: Erantsi iragazkia
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
@@ -133,7 +142,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         posts:
           author: Egilearen informazioa
           body: Argitaratuaren gorputza
@@ -143,7 +151,7 @@ eu:
           endorsements_count: Argitalpen honek duen abal kopurua
           follows_count: Argitalpen honek duen jarraitzaile kopurua
           id: Argitalpen honen identifikatzaile bakarra
-          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
+          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Partaidetza-prozesua, Batzarra)
           published_at: Zein datatan argitaratu zen atgitalpen hau
           title: Argitalpenaren izenburua
           updated_at: Zein egunetan eguneratu da azken aldiz argitalpen hau

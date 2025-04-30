@@ -25,12 +25,6 @@ uk:
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
-    models:
-      decidim/user_group:
-        one: Гурт учасників
-        few: Гурти учасників
-        many: Гуртів учасників
-        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -384,7 +378,8 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
-        edit_profile: Редагувати профіль
+        actions:
+          edit_profile: Редагувати профіль
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -402,7 +397,6 @@ uk:
       global: Всеохопний обсяг
       prompt: Оберіть обсяг
     search:
-      results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
       filters:
@@ -428,9 +422,6 @@ uk:
         share_link: Поділитись посиланням
     statistics:
       comments_count: Коментарів
-    user_conversations:
-      update:
-        error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:
     invitations:
       edit:

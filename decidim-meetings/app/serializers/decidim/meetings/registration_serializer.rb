@@ -11,18 +11,19 @@ module Decidim
           code: resource.code,
           user: {
             name: resource.user.name,
-            email: resource.user.email,
-            user_group: resource.user_group&.name || ""
+            email: resource.user.email
           },
-          registration_form_answers: serialize_answers
+          registration_form_responses: serialize_responses
         }
       end
 
       private
 
-      def serialize_answers
-        Decidim::Forms::UserAnswersSerializer.new(
-          resource.meeting.questionnaire.answers.where(user: resource.user)
+      def serialize_responses
+        return [] unless resource.meeting.questionnaire
+
+        Decidim::Forms::UserResponsesSerializer.new(
+          resource.meeting.questionnaire.responses.where(user: resource.user)
         ).serialize
       end
     end

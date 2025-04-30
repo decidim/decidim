@@ -13,7 +13,7 @@ module Decidim
 
       routes do
         resources :proposals, only: [:show, :index, :new, :create, :edit, :update] do
-          resources :valuation_assignments, only: [:destroy]
+          resources :evaluation_assignments, only: [:destroy]
           member do
             patch :soft_delete
             patch :restore
@@ -26,7 +26,7 @@ module Decidim
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:new, :create]
             resource :proposals_split, only: [:create]
-            resource :valuation_assignment, only: [:create, :destroy]
+            resource :evaluation_assignment, only: [:create, :destroy]
           end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:create] do

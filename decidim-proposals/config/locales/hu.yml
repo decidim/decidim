@@ -8,7 +8,6 @@ hu:
         has_address: Van lakcíme
         state: Állapot
         title: Cím
-        user_group_id: Közösen szerkesztett vázlat
       proposal:
         address: Cím
         answer: Válasz
@@ -21,7 +20,6 @@ hu:
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím
-        user_group_id: Készíts javaslatot
       proposal_answer:
         answer: Válasz
       proposals_copy:
@@ -30,9 +28,6 @@ hu:
       proposals_import:
         import_proposals: Javaslatok importálása
         keep_authors: Eredeti szerzők megtartása
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Értékelő neve
     errors:
       models:
         proposal:
@@ -85,8 +80,6 @@ hu:
               rejected: Elutasítva
               validating: Műszaki érvényesítés
               withdrawn: Visszavonva
-          valuator_role_ids_has:
-            label: Értékelőhöz rendelve
           with_any_state:
             label: Megválaszolt
             values:
@@ -165,7 +158,6 @@ hu:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
@@ -243,25 +235,8 @@ hu:
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
           unearned_another: A résztvevő még nem hozott létre egy javaslatot sem.
           unearned_own: Még nem hoztál létre javaslatokat.
-    metrics:
-      accepted_proposals:
-        description: Az elfogadott javaslatok száma
-        object: javaslatok
-        title: Elfogadott javaslatok
-      endorsements:
-        description: A javaslatokhoz kapcsolódó támogatások száma
-        object: támogatások
-        title: Támogatások
-      proposals:
-        description: A létrehozott javaslatok száma
-        object: javaslatok
-        title: javaslatok
-      votes:
-        object: szavazat
-        title: szavazatok
     participatory_spaces:
       highlighted_proposals:
-        last: Legutóbbi javaslatok
         see_all: Összes
     proposals:
       actions:
@@ -351,8 +326,6 @@ hu:
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
-            assign_to_valuator: Értékelőhöz rendel
-            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             merge: Összeolvasztás egy újba
             publish: Közzétesz
@@ -362,8 +335,6 @@ hu:
             split: Javaslatok szétválasztása
             split_button: Szétválasztás
             title: Javaslatok
-            unassign_from_valuator: Visszarendelés értékelőtől
-            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
           new:
             create: Létrehozás
@@ -372,7 +343,6 @@ hu:
             select_a_proposal: Kérjük, válasszon egy javaslatot.
           show:
             amendments_count: Módosítás száma (%{count}
-            assigned_valuators: Hozzárendelt értékelők
             body: Szöveg
             comments_count: Hozzászólások száma
             documents: Dokumentumok
@@ -385,8 +355,6 @@ hu:
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
             remove_assignment: Hozzárendelés eltávolítsa
-            remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
-            valuators: Értékelők
         proposals_imports:
           new:
             create: Javaslatok importálása
@@ -406,9 +374,6 @@ hu:
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
-        valuation_assignment:
-          create: "A(z) %{user_name} a %{resource_name} javaslatot értékelőhöz rendelte hozzá"
-          delete: "A(z) %{user_name} a %{resource_name} javaslatot értékelőtől rendelte vissza"
       answers:
         accepted: Elfogadva
         evaluating: Értékelés
@@ -421,7 +386,6 @@ hu:
           meetings: Találkozók
           official: Hivatalos
           participants: Résztvevők
-          user_groups: Felhasználói csoportok
         filter_state_values:
           all: Minden
           not_answered: Nem megválaszolt
@@ -532,8 +496,6 @@ hu:
             published_at: 'Közzétéve:'
             state: Állapot
             title: Cím
-            valuator: Értékelő
-            valuators: Értékelők
             votes: Szavazatok
       participatory_text_proposal:
         alternative_title: Jelenleg nincsenek részvételi szövegek
@@ -571,7 +533,6 @@ hu:
           see_all_withdrawn: Összes visszavont javaslat
         new:
           send: Tovább
-          title: Javaslat létrehozása
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
@@ -605,7 +566,6 @@ hu:
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
         vote_button:
-          already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás

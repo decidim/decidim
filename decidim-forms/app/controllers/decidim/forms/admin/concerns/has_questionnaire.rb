@@ -17,8 +17,8 @@ module Decidim
             helper Decidim::Forms::Admin::ApplicationHelper
             include Decidim::TranslatableAttributes
 
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
-                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url, :edit_questionnaire_title
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_response_option, :blank_matrix_row,
+                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :response_options_url, :edit_questionnaire_title
 
             if defined?(Decidim::Templates::Admin::Concerns::Templatable)
               include Decidim::Templates::Admin::Concerns::Templatable
@@ -84,12 +84,12 @@ module Decidim
               end
             end
 
-            def answer_options
+            def response_options
               respond_to do |format|
                 format.json do
                   question_id = params["id"]
                   question = Question.find_by(id: question_id)
-                  render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).as_json } if question.present?
+                  render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
                 end
               end
             end
@@ -113,7 +113,7 @@ module Decidim
             end
 
             # Implement this method in your controller to set the URL
-            # where the questionnaire can be answered.
+            # where the questionnaire can be responded.
             def public_url
               raise "#{self.class.name} is expected to implement #public_url"
             end
@@ -124,10 +124,10 @@ module Decidim
               "decidim/forms/admin/questionnaires/edit_questions"
             end
 
-            # Returns the url to get the answer options json (for the display conditions form)
+            # Returns the url to get the response options json (for the display conditions form)
             # for the question with id = params[:id]
-            def answer_options_url(params)
-              url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
+            def response_options_url(params)
+              url_for([questionnaire.questionnaire_for, { action: :response_options, format: :json, **params }])
             end
 
             # Implement this method in your controller to set the title
@@ -158,8 +158,8 @@ module Decidim
               @blank_question ||= Admin::QuestionForm.new
             end
 
-            def blank_answer_option
-              @blank_answer_option ||= Admin::AnswerOptionForm.new
+            def blank_response_option
+              @blank_response_option ||= Admin::ResponseOptionForm.new
             end
 
             def blank_display_condition

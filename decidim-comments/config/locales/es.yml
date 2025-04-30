@@ -5,7 +5,6 @@ es:
       decidim/comments/comment_created_event: Comentario
       decidim/comments/comment_upvoted_event: Comentario valorado positivamente
       decidim/comments/reply_created_event: Respuesta al comentario
-      decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:
@@ -27,6 +26,8 @@ es:
             enabled: Comentarios habilitados
             end_time: Comentarios habilitados hasta
             start_time: Comentarios habilitados desde
+      comment_thread:
+        accessibility_label: Hilo de comentario iniciado por %{full_name} el %{date}
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
@@ -51,9 +52,6 @@ es:
           form_error: El texto es necesario y no puede ser más largo de %{length} caracteres.
           submit_reply: Publicar respuesta
           submit_root_comment: Publicar comentario
-          user_group_id:
-            label: Comentar como
-            your_profile: Tu perfil
         opinion:
           label: Tu opinión sobre este tema
           negative: Negativa
@@ -155,17 +153,11 @@ es:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} ha dejado un comentario en %{resource_title}. Puedes leerlo en esta página:"
           email_outro: Has recibido esta notificación porque sigues a "%{author_name}". Puedes dejar de seguir a esta participante desde su página de perfil.
-          email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-          notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} ha dejado un comentario en %{resource_title}. Puedes leerlo en esta página:'
-          email_outro: Recibes esta notificación porque sigues a %{author_name}. Puedes dejar de seguir a este grupo desde su página de perfil.
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
           notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -188,21 +180,11 @@ es:
           email_outro: Has recibido esta notificación porque han respondido a tu comentario.
           email_subject: "%{author_name} ha respondido a tu comentario en %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Se ha mencionado un grupo al que perteneces
-          email_outro: Has recibido esta notificación porque formas parte del grupo "%{group_name}" que ha sido mencionado en "%{resource_title}".
-          email_subject: Te han mencionado en %{resource_title} como miembro de %{group_name}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en <a href="%{resource_path}">%{resource_title}</a> como miembro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Has sido mencionada
           email_outro: Has recibido esta notificación porque te han mencionado en el comentario "%{resource_title}".
           email_subject: Has sido mencionada en %{resource_title}
           notification_title: Has sido mencionada en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentarios generados por las participantes
-        object: comentarios
-        title: Comentarios
   errors:
     messages:
       cannot_have_comments: no se pueden hacer comentarios

@@ -73,23 +73,6 @@ module Decidim
               end
             end
           end
-
-          context "when it is a user group" do
-            let!(:debate) { create(:debate, :user_group_author) }
-
-            before do
-              debate.author.update!(name: "ACME", nickname: "acme")
-              debate.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: "ACME")
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: profile_url("acme"))
-            end
-          end
         end
 
         it "serializes the title" do
@@ -201,19 +184,6 @@ module Decidim
               name: "User",
               url: profile_url(last_comment_by.nickname)
             )
-          end
-
-          context "when the last comment is from a user group" do
-            let(:last_comment_by) { create(:user_group, name: "ACME") }
-            let(:debate) { create(:debate, last_comment_by:) }
-
-            it "serializes the last comment by fields" do
-              expect(serialized[:last_comment_by]).to eq(
-                id: last_comment_by.id,
-                name: "ACME",
-                url: profile_url(last_comment_by.nickname)
-              )
-            end
           end
 
           context "when the last comment is from a deleted user" do

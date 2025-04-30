@@ -154,7 +154,6 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Weryfikator
         user:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
@@ -329,11 +328,6 @@ pl:
           not_found: 'W bazie danych nie znaleziono typu procesu (ID: %{id}).'
     menu:
       processes: Procesy
-    metrics:
-      participatory_processes:
-        description: Liczba procesów partycypacyjnych w tej organizacji
-        object: procesy partycypacyjne
-        title: Procesy partycypacyjne
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -423,9 +417,6 @@ pl:
           highlighted_processes:
             active_spaces: Aktywne procesy
             see_all_spaces: Zobacz wszystkie procesy
-      participatory_process_steps:
-        index:
-          back_to_process: Powrót do strony procesu
       participatory_processes:
         description:
           area_name: Obszar

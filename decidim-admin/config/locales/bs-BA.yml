@@ -63,7 +63,6 @@ bs:
         success_color: Uspeh
         time_zone: Vremenska zona
         tos_version: Verzija uslova korišćenja
-        user_groups_enabled: Omogući grupe
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
         welcome_notification_subject: Naslov obaveštenja dobrodošlice
@@ -120,8 +119,6 @@ bs:
         manage: Upravljaj
         per_page: Po stranici
         permissions: Dozvole
-        reject: Odbaci
-        verify: Overi
       area_types:
         create:
           error: Nastao je problem pri stvaranju novog tipa oblasti.
@@ -305,11 +302,7 @@ bs:
         scopes: Oblasti
         settings: Podešavanja
         static_pages: Stranice
-        user_groups: Grupe
         users: Učesnici
-      metrics:
-        metrics:
-          see_more_metrics: Prikaži više metrika
       models:
         area:
           fields:
@@ -370,15 +363,6 @@ bs:
               admin: Administrator
               user_manager: Rukovodilac učesnika
           name: Učesnik
-        user_group:
-          fields:
-            actions: Akcije
-            created_at: Kreirano na
-            document_number: Broj dokumenta
-            name: Ime
-            phone: Telefon
-            state: Država
-            users_count: Broj učesnika
       moderations:
         report:
           reasons:
@@ -489,7 +473,6 @@ bs:
           add_images: Dodaj slike
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
-        metrics: Metrika
         statistics: Aktivnost
       users_statistics:
         users_count:

@@ -328,11 +328,6 @@ fi-pl:
           email_outro: Saat tämän ilmoituksen, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteen %{resource_title} edistykseen
           notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
-    metrics:
-      results:
-        description: Luotujen tulosten lukumäärä
-        object: tulokset
-        title: Tulokset
     open_data:
       help:
         result_comments:
@@ -346,7 +341,6 @@ fi-pl:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         results:
           address: Tuloksen osoite (jos määritetty)
           children_count: Alatulosten määrä

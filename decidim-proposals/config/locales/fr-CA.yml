@@ -9,7 +9,9 @@ fr-CA:
         scope_id: Périmètre d'application
         state: État
         title: Titre
-        user_group_id: Créez un brouillon collaboratif comme
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Nom de l'évaluateur
       import_participatory_text:
         document: Document
       proposal:
@@ -27,7 +29,6 @@ fr-CA:
         state: État
         suggested_hashtags: Hashtags suggérés
         title: Titre
-        user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
         cost: Coût
@@ -55,9 +56,6 @@ fr-CA:
         import_proposals: Importer des propositions
         keep_answers: Garder l'état et les réponses
         keep_authors: Gardez les auteurs originaux
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nom de l'évaluateur
     errors:
       models:
         participatory_text:
@@ -93,6 +91,11 @@ fr-CA:
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: La proposition %{link} a été créée
+            import_to_proposal_text: La proposition %{link} a été créée
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -107,8 +110,13 @@ fr-CA:
         other: Votes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propositions
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Assignée à l'évaluateur
           is_emendation_true:
             label: Type
             values:
@@ -126,8 +134,8 @@ fr-CA:
               rejected: Rejetée
               validating: Validation technique
               withdrawn: Retirée
-          valuator_role_ids_has:
-            label: Assigné à l'évaluateur
+          taxonomies_part_of_contains:
+            label: Taxonomie
           with_any_state:
             label: Répondue
             values:
@@ -158,6 +166,7 @@ fr-CA:
             attachments_allowed: Autoriser les pièces jointes
             attachments_allowed_help: En activant cette option, les propositions seront en mode grille par défaut, et la première image liée à la proposition apparaîtra sur la carte.
             can_accumulate_votes_beyond_threshold: Peut accumuler des votes au-delà du seuil
+            clear_all: Tout effacer
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
@@ -172,11 +181,17 @@ fr-CA:
               random: Aléatoire
               recent: Les plus récents
               with_more_authors: Avec le plus d'auteurs
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            edit_time: Les propositions peuvent être éditées par les auteurs avant l'expiration du temps imparti
+            edit_time_units:
+              days: Jours
+              hours: Heures
             geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             official_proposals_enabled: Autoriser la création de propositions officielles
             participatory_texts_enabled: Textes participatifs activés
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
@@ -185,11 +200,16 @@ fr-CA:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+            proposal_edit_time_unit_options:
+              days: Jours
+              hours: Heures
+              minutes: Minutes
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
             taxonomy_filters_add: Ajouter un filtre
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
@@ -240,13 +260,14 @@ fr-CA:
         accepted_coauthorship:
           notification_title: Vous avez été ajouté en tant que co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         admin:
-          proposal_assigned_to_valuator:
-            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+          proposal_assigned_to_evaluator:
+            email_intro: Vous avez été assigné en tant qu'évaluateur à la proposition "%{resource_title}". Cela signifie que vous avez confiance pour leur donner des commentaires et une réponse adéquate dans les prochains jours. Jetez-y un coup d'œil sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
+            email_outro: Vous avez reçu cette notification parce que vous pouvez évaluer la proposition.
             email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
             notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
             email_intro: '%{author_name} a créé une note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
-            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+            email_outro: Vous avez reçu cette notification parce que vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a créé une note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_mentioned:
@@ -385,23 +406,6 @@ fr-CA:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
-    metrics:
-      accepted_proposals:
-        description: Nombre de propositions acceptées par les utilisateurs
-        object: propositions
-        title: Propositions Acceptées
-      endorsements:
-        description: Nombre d'avenants générés dans les propositions
-        object: soutiens
-        title: Soutiens
-      proposals:
-        description: Nombre de propositions générées
-        object: propositions
-        title: Propositions
-      votes:
-        description: Nombre de votes sur des propositions
-        object: votes
-        title: Votes
     open_data:
       help:
         proposals:
@@ -416,7 +420,6 @@ fr-CA:
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
@@ -441,9 +444,23 @@ fr-CA:
           deleted_proposals_info: Les propositions supprimées peuvent être restaurées à partir de la corbeille.
           preview: Aperçu
           view_deleted_proposals: Voir les propositions supprimées
+        evaluation_assignments:
+          create:
+            invalid: Une erreur s'est produite lors de l'assignation des propositions à un évaluateur.
+            success: Propositions assignées à un évaluateur avec succès.
+          delete:
+            invalid: Une erreur s'est produite lors de la désassignation des propositions d'un évaluateur.
+            success: Évaluateur retiré des propositions avec succès.
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        import_proposals_mailer:
+          notify_failure:
+            body: Il y a eu un problème lors de l'importation des propositions du composant %{origin_component_name} vers le composant %{target_component_name}.
+            subject: Une erreur s'est produite lors de l'importation des propositions
+          notify_success:
+            body: Propositions importées avec succès depuis le composant %{origin_component_name} vers le composant %{target_component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
+            subject: Les propositions ont été importées avec succès
         imports:
           label:
             answers: Importer des valeurs depuis un fichier
@@ -543,22 +560,22 @@ fr-CA:
             select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
-            assign_to_valuator: Assigner à un évaluateur
-            assign_to_valuator_button: Assigner
+            assign_to_evaluator: Assigner à un évaluateur
+            assign_to_evaluator_button: Assigner
             cancel: Annuler
             merge: Fusionner dans un nouveau
             merge_button: Créer
             publish: Publier
             publish_answers: Publier les réponses
             select_component: Sélectionnez un composant
-            select_valuators: Sélectionnez un ou plusieurs évaluateurs
+            select_evaluators: Sélectionnez un ou plusieurs évaluateurs
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder
             statuses: États
             title: Propositions
-            unassign_from_valuator: Retirer de l'évaluateur
-            unassign_from_valuator_button: Ne plus assigner
+            unassign_from_evaluator: Retirer de l'évaluateur
+            unassign_from_evaluator_button: Ne plus assigner
             update: Mettre à jour
           manage_trash:
             title: Propositions supprimées
@@ -570,12 +587,13 @@ fr-CA:
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
-            assigned_valuators: Évaluateurs assignés
+            assigned_evaluators: Évaluateurs assignés
             body: Corps
             comments_count: Nombre de commentaires
             documents: Documents
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
+            evaluators: Évaluateurs
             link: Voir la proposition
             n_more_endorsers:
               one: et 1 de plus
@@ -584,13 +602,12 @@ fr-CA:
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
             remove_assignment: Supprimer l'affectation
-            remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
-            valuators: Évaluateurs
+            remove_assignment_confirmation: Êtes-vous sûr(e) de vouloir retirer l'évaluateur de cette proposition ?
             votes_count: Nombre de votes
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions.
-            success: "%{number} propositions importées avec succès."
+            success: Le processus d'importation a commencé. Nous vous informerons dès qu'il sera terminé.
           new:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
@@ -610,14 +627,10 @@ fr-CA:
           create:
             invalid: 'Une erreur s''est produite lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
-        valuation_assignments:
-          create:
-            invalid: Une erreur s'est produite lors de l'affectation des propositions à un évaluateur.
-            success: Propositions assignées à un évaluateur avec succès.
-          delete:
-            invalid: Une erreur s'est produite lors de la désassignation des propositions d'un évaluateur.
-            success: Evaluateur désaffecté aux propositions avec succès.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} a assigné la proposition %{resource_name} à un évaluateur"
+          delete: "%{user_name} a désassigné un évaluateur de la proposition %{proposal_title}"
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} à partir de la fusion de %{merged_count} propositions dans %{space_name}"
@@ -625,9 +638,6 @@ fr-CA:
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} a assigné la proposition %{resource_name} à un évaluateur"
-          delete: "%{user_name} a désassigné un évaluateur de la proposition %{proposal_title}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -640,7 +650,6 @@ fr-CA:
           meetings: Des réunions
           official: Propositions officielles
           participants: Participants
-          user_groups: Groupes d'utilisateurs
         filter_state_values:
           all: Tout
           not_answered: En attente de réponse
@@ -770,7 +779,7 @@ fr-CA:
           success: Invitation de co-auteur annulée avec succès.
         create:
           error: Une erreur s'est produite lors de l'invitation du co-auteur.
-          success: "%{author_name} a été invité en tant que co-auteur."
+          success: "%{author_name} a été invité avec succès en tant que co-auteur."
         destroy:
           error: Une erreur s'est produite lors du refus de l'invitation.
           success: L'invitation a été refusée.
@@ -784,6 +793,8 @@ fr-CA:
         proposal:
           fields:
             comments: Commentaires
+            evaluator: Évaluateur
+            evaluators: Évaluateurs
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
@@ -791,8 +802,6 @@ fr-CA:
             published_at: Publiée à
             state: État
             title: Titre
-            valuator: Évaluateur
-            valuators: Évaluateurs
             votes: Votes
         proposal_state:
           css_class: Classe CSS
@@ -852,7 +861,7 @@ fr-CA:
           text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
         new:
           send: Continuer
-          title: Créer une proposition
+          title: Créer une nouvelle proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
@@ -902,7 +911,7 @@ fr-CA:
         update:
           title: Mettre à jour la proposition
         vote_button:
-          already_voted: Déjà votée
+          already_voted: Votée
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant

@@ -33,8 +33,6 @@ ro:
       help_section:
         content: Conținut
       id: ID
-      import:
-        user_group_id: Creează importuri ca
       newsletter:
         body: Conținut
         send_to_all_users: Trimiteți către toți utilizatorii
@@ -94,7 +92,6 @@ ro:
         success_color: Succes
         time_zone: Fus orar
         tos_version: Versiune a condițiilor de furnizare a serviciului
-        user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Conținutul notificării de bun venit
@@ -190,12 +187,10 @@ ro:
           new: Nou utilizator privat al spațiului participativ
         per_page: Pe pagină
         permissions: Drepturi
-        reject: Respinge
         send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
         user:
           new: Administrator nou
-        verify: Verifică
       admin_terms_of_service:
         accept:
           error: A apărut o problemă la acceptarea termenilor de administrare a serviciului.
@@ -283,6 +278,8 @@ ro:
         no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta.
       block_user:
+        bulk_new:
+          justification: Justificare
         new:
           action: Blochează contul și trimite justificarea
           already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
@@ -420,6 +417,8 @@ ro:
             explanation: 'Îndrumare pentru fișier:'
             message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
+          import_csv:
+            message_1: Sunt acceptate fișiere CSV
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor.
         form:
@@ -537,11 +536,7 @@ ro:
         settings: Setări
         static_pages: Pagini
         taxonomy_filters: Filtre taxonomie
-        user_groups: Grupuri
         users: Participanți
-      metrics:
-        metrics:
-          see_more_metrics: Vezi mai mulți indicatori
       models:
         area:
           fields:
@@ -606,16 +601,6 @@ ro:
               admin: Administrator
               user_manager: Manager de participanți
           name: Participant
-        user_group:
-          fields:
-            actions: Acțiuni
-            created_at: Creat la
-            document_number: Număr document
-            name: Nume
-            nickname: Pseudonim
-            phone: Telefon
-            state: Stadiu
-            users_count: Numărul de participanți
       moderated_users:
         index:
           actions:
@@ -801,6 +786,8 @@ ro:
           invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
           success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
         new:
+          csv_upload:
+            title: Încarcă fișierul tău CSV
           destroy:
             button: Șterge toți participanții privați
             confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
@@ -881,7 +868,7 @@ ro:
           title: Editează subiectul
           update: Actualizează subiectul
         new:
-          create: Creează un subiect
+          create: Subiect nou
           title: Subiect nou
         update:
           error: A apărut o eroare la actualizarea acestui subiect.
@@ -903,7 +890,7 @@ ro:
         index:
           last_notable_change: Ultima modificare importantă
         new:
-          create: Creează o pagină
+          create: Pagină nouă
           title: Pagină nouă
         topic:
           empty: Nu sunt pagini sub acest subiect.
@@ -946,40 +933,12 @@ ro:
         dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
-        metrics: Indicatori
         panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
-        user_groups: Grupuri
         users: Administratori
-      user_group:
-        csv_verify:
-          invalid: A apărut o problemă la citirea fișierului CSV.
-          success: Fișierul CSV încărcat cu succes, verificăm grupurile care corespund criteriilor. Acest lucru ar putea dura un timp.
-        reject:
-          invalid: A apărut o eroare la respingerea acestui grup.
-          success: Grupul a fost respins cu succes.
-        verify:
-          invalid: A apărut o eroare la verificarea acestui grup.
-          success: Grupul a fost verificat cu succes.
-      user_groups:
-        index:
-          state:
-            pending: În așteptare
-            rejected: Respins
-            verified: Verificat
-          verify_via_csv: Verifică prin CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Exemplu de fişier:'
-          explanation: Încărcă fișierul tău CSV. Acesta trebuie să aibă e-mail-urile oficiale ale grupurilor din organizația ta în prima coloană a fișierului, fără antet. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
-          explanation_example: |
-            acme@exemplu.org
-            bubba.gump@example.org
-          title: Încarcă fișierul tău CSV
-          upload: Încarcă
       users:
         create:
           error: A apărut o eroare la invitarea acestui administrator.
@@ -1006,22 +965,13 @@ ro:
       errors:
         impersonate_user:
           reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat.
-    metrics:
-      blocked_users:
-        object: utilizatori blocați
-        title: Utilizatori blocați
-      reported_users:
-        object: utilizatori raportați
-        title: Utilizatori raportați
-      user_reports:
-        object: rapoarte de utilizator
-        title: Rapoarte de utilizator
     moderations:
       actions:
         expand: Extinde
         hidden: Ascuns
         hide: Ascunde
         not_hidden: Neascuns
+        parent_hidden: Nu puteți afișa această resursă deoarece părintele său este încă ascuns.
         title: Acțiuni
         unhide: Anulează ascunderea
         unreport: Anulează raportarea
@@ -1032,6 +982,7 @@ ro:
             success: Resursa a fost ascunsă cu succes.
           unhide:
             invalid: A apărut o problemă la anularea ascunderii resursei.
+            parent_invalid: A apărut o problemă la afișarea resursei. Părintele nu este vizibil.
             success: Anularea ascunderii resursei a fost realizată cu succes.
           unreport:
             invalid: A apărut o problemă la anularea raportării resursei.

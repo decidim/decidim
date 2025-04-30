@@ -71,7 +71,6 @@ tr:
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
         twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
-        user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
@@ -133,9 +132,7 @@ tr:
         manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
-        reject: reddetmek
         share: Paylaş
-        verify: DOĞRULAYIN
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -350,11 +347,7 @@ tr:
         scopes: kapsamları
         settings: Ayarlar
         static_pages: Sayfalar
-        user_groups: Kullanıcı Grupları
         users: Kullanıcılar
-      metrics:
-        metrics:
-          see_more_metrics: Daha fazla metrik gör
       models:
         area:
           fields:
@@ -419,15 +412,6 @@ tr:
               admin: yönetim
               user_manager: Kullanıcı yöneticisi
           name: kullanıcı
-        user_group:
-          fields:
-            actions: Eylemler
-            created_at: Düzenlendi
-            document_number: Belge Numarası
-            name: isim
-            phone: Telefon
-            state: Belirtmek, bildirmek
-            users_count: Kullanıcılar
       moderated_users:
         index:
           actions:
@@ -586,6 +570,8 @@ tr:
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: CSV dosyanızı yükleyin
           upload: Yükle
       resource_permissions:
         edit:
@@ -637,7 +623,6 @@ tr:
           title: Konuyu düzenle
           update: Konuyu güncelle
         new:
-          create: Konu oluştur
           title: Yeni Konu
         update:
           error: Bu konu güncellenirken bir hata oluştu.
@@ -658,7 +643,6 @@ tr:
         index:
           last_notable_change: Son önemli değişiklik
         new:
-          create: Sayfa oluştur
           title: Yeni sayfa
         topic:
           without_topic: Konu olmayan sayfalar
@@ -674,33 +658,12 @@ tr:
         edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
-        metrics: Metrik
         pages: Sayfalar
         panel: Yönetici
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         statistics: Aktivite
-        user_groups: Kullanıcı Grupları
-      user_group:
-        csv_verify:
-          invalid: CSV dosyasını okurken bir hata oluştu.
-        reject:
-          invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
-        verify:
-          invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
-      user_groups:
-        index:
-          state:
-            pending: kadar
-            rejected: Reddedilen
-            verified: Doğrulanmış
-          verify_via_csv: CSV ile doğrulayın
-      user_groups_csv_verifications:
-        new:
-          explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
-          title: CSV dosyanızı yükleyin
-          upload: Yükleme
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.

@@ -16,16 +16,12 @@
     input[type="week"],
     select,
     textarea {
-      @apply mt-0;
+      @apply mt-2;
     }
 
     & label:not(&-checkbox-label),
     &-block label:not(&-checkbox-label) {
       @apply text-sm;
-    }
-
-    .help-text {
-      @apply mt-1;
     }
 
     .row .columns,

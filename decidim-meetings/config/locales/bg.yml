@@ -16,7 +16,6 @@ bg:
         customize_registration_email: Персонализирайте имейла за регистрация
         decidim_category_id: Категория
         decidim_scope_id: Обхват
-        decidim_user_group_id: Потребителскa групa
         description: Описание
         end_time: Крайно време
         id: ID
@@ -111,7 +110,6 @@ bg:
             values:
               official: Официални
               participants: Участник
-              user_group: Потребителски групи
           with_any_type:
             label: Тип на срещата
             values:
@@ -153,14 +151,12 @@ bg:
             default_registration_terms: Условия за регистрация по подразбиране
             enable_pads_creation: Активирай създаване на бележки
             maps_enabled: Картите са активирани
-            registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
             terms_and_conditions_url_for_meeting_creators: URL адрес за правила и условия за създатели на срещи
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
             creation_enabled_for_participants: Създаването на срещи от участници е разрешено
-            creation_enabled_for_user_groups: Създаването на срещи от потребителски групи е разрешено
     events:
       meetings:
         meeting_closed:
@@ -188,10 +184,8 @@ bg:
           email_subject: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %
           notification_title: Предоставените места за срещата <a href="%{resource_path}">%{resource_title}</a> са над %{percentage} %.
         meeting_updated:
-          email_intro: 'Срещата „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
           email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
           email_subject: Срещата „%{resource_title}“ беше актуализирана
-          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше актуализирана.
         registration_code_validated:
           email_intro: Регистрационният Ви код „{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
           email_outro: Получавате това известие, защото регистрационният Ви код за срещата „%{resource_title}“ беше валидиран.
@@ -270,7 +264,6 @@ bg:
             invalid: Възникна проблем при актуализирането на този дневен ред.
             success: Дневният ред беше актуализиран успешно.
         exports:
-          answers: Отговори
           meeting_comments: Коментари
           meetings: Срещи
           registrations:
@@ -352,18 +345,17 @@ bg:
         poll:
           form:
             announcement_html:
-              - Когато даден въпрос получи отговори или бъде публикуван/затворен, той вече не може да бъде редактиран.
+              - 
               - Можете да добавите въпрос по всяко време.
               - Анкетата ще бъде затворена, когато резултатите от всички създадени въпроси бъдат публикувани.
               - Посетете <a href='%{admin_link}'>страницата за администриране на анкетата</a>, за да изпратите въпроси и да публикувате резултати.
         registrations:
           edit:
             save: Запази
-            validate: Потвърди
-            validate_registration_code: Валидиране на регистрационния код
           form:
             available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
             invites: Покани
+            manage_questions: Въпроси
             recommendation_message: От съображения за поверителност Ви препоръчваме да изтриете този формуляр за участие, когато вече нямате нужда от него. По подразбиране срокът е 3 месеца след приключването на срещата.
             registration_email_help: Този текст ще се появи в средата на имейла за потвърждение на регистрацията. Точно след регистрационния код.
             registration_form: Формуляр за регистрация
@@ -376,9 +368,6 @@ bg:
           update:
             invalid: Възникна проблем при запазването на настройките за регистрация.
             success: Настройките за регистрация бяха запазени успешно.
-          validate_registration_code:
-            invalid: Регистрационният код е невалиден.
-            success: Регистрационният код беше валидиран успешно.
       admin_log:
         invite:
           create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
@@ -487,7 +476,6 @@ bg:
             all: Всички
             official: Официални
             participants: Участници
-            user_group: Групи
           search: Търсене
           type: Тип
           type_values:
@@ -498,7 +486,6 @@ bg:
         form:
           address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
           available_slots_help: Оставете 0, ако разполагате с неограничен брой места
-          create_as: Създаване на среща като
           disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
           iframe_embed_type_html: 'Само няколко услуги позволяват вграждане в среща или събитие на живо от следните домейни: %{domains}'
           location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
@@ -525,7 +512,6 @@ bg:
         new:
           back: Назад
           create: Създаване
-          title: Създайте среща
         registration_confirm:
           cancel: Отказ
           confirm: Потвърждаване
@@ -542,7 +528,6 @@ bg:
           micro_camera_permissions_warning: Когато щракнете върху бутона по-долу, ще бъдете помолени за разрешения за микрофон и/или камера и ще се присъедините към видеоконференцията
           no_slots_available: Няма свободни места
           organizations: Присъстващи организации
-          registration_code_help_text: Вашият регистрационен код
           registration_state:
             validated: ВАЛИДИРАНО
             validation_pending: ОЧАКВА ВАЛИДИРАНЕ
@@ -576,26 +561,14 @@ bg:
             start_time: Начална дата
             title: Заглавие
       polls:
-        answers:
-          index:
-            administrate: Администриране
-            title: Анкета
-          index_admin:
-            back_to_meeting: Назад към срещата
-            title: Администриране на анкета
-            view_poll: Вижте анкетата
         questions:
           closed_question:
             announcement: Отговорите на този въпрос са затворени.
             question: Въпрос
             question_results: Резултати
-          index:
-            empty_questions: По време на тази среща ще бъдат изпратени някои въпроси и вие ще можете да отговорите на тях. Те ще бъдат показани тук.
           index_admin:
             edit: Редактирайте в админ панела
             question: Въпрос
-            received_answer: получен отговор
-            received_answers: получени отговори
             results: Резултати
             send: Изпрати
             sent: Изпратено
@@ -609,7 +582,6 @@ bg:
             question_replied: Въпросът е отговорен
             reply_question: Отговорете на въпроса
       public_participants_list:
-        attending_organizations: Организации
         attending_participants: Участници
         hidden_participants_count:
           one: и още %{count} човек
@@ -619,7 +591,6 @@ bg:
         confirmation:
           confirmed_html: Регистрацията Ви за срещата <a href="%{url}">%{title}</a> беше потвърдена.
           details: Ще намерите подробности за срещата в прикачения файл.
-          registration_code: Вашият регистрационен код е %{code}.
       registration_type:
         on_different_platform: На различна платформа
         on_this_platform: На тази платформа
@@ -644,11 +615,6 @@ bg:
         withdraw: Оттеглено
       withdraw:
         success: Срещата е оттеглена успешно.
-    metrics:
-      meetings:
-        description: Брой създадени срещи
-        object: срещи
-        title: Срещи
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минали срещи

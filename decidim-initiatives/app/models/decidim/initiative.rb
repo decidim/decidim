@@ -34,6 +34,7 @@ module Decidim
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
              :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
+    delegate :name, to: :author, prefix: true
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -197,27 +198,6 @@ module Decidim
     # Public: Whether the object's comments are visible or not.
     def commentable?
       type.comments_enabled?
-    end
-
-    # Public: Check if an initiative has been created by an individual person.
-    # If it is false, then it has been created by an authorized organization.
-    #
-    # Returns a Boolean
-    def created_by_individual?
-      decidim_user_group_id.nil?
-    end
-
-    # Public: Returns the author name. If it has been created by an organization it will
-    # return the organization's name. Otherwise it will return author's name.
-    #
-    # Returns a string
-    def author_name
-      user_group&.name || author.name
-    end
-
-    # Public: Overrides the `reported_content_url` Reportable concern method.
-    def reported_content_url
-      ResourceLocatorPresenter.new(self).url
     end
 
     # Public: Overrides the `reported_attributes` Reportable concern method.

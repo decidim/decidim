@@ -2,7 +2,6 @@
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Forfatter
         description: Beskrivelse
         offline_votes: Personlige underskrifter
         offline_votes_for_scope: Signatur ved fysisk oppmøte for %{scope_name}
@@ -26,7 +25,6 @@
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
         description: Beskrivelse
-        document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
         online_signature_enabled: Online signatur aktivert
@@ -71,7 +69,6 @@
             label: Tilstand
             values:
               accepted: Nok signaturer
-              created: Opprettet
               discarded: Forkastet
               rejected: Ikke nok signaturer
               validating: Teknisk validering
@@ -246,7 +243,6 @@
           edit:
             update: Oppdater
           form:
-            authorizations: Innstillinger for autorisasjon
             options: Valg
           initiative_type_scopes:
             title: Tema for initiativtypen
@@ -263,7 +259,6 @@
           update: "%{user_name} oppdaterte innstillingene for initiativer"
       admin_states:
         accepted: Nok signaturer
-        created: Opprettet
         discarded: Forkastet
         rejected: Ikke nok signaturer
         validating: Teknisk validering
@@ -291,37 +286,19 @@
           name: Fremhevede initiativer
       create_initiative:
         fill_data:
-          back: Tilbake
           continue: Fortsett
           fill_data_help: "<ul> <li>Gjennomgå innholdet i ditt initiativ. Er tittelen din lett å forstå? Er målet med initiativet ditt tydelig?</li> <li>Du må velge type signatur. Pålogget, fysisk tilstede eller en kombinasjon av begge</li> <li>Hvilket geografisk tema av satsingen?</li> </ul>"
-          more_information: "(Mer informasjon)"
           select_area: Velg et område
           select_scope: Velg et temaet
         finish:
           back: Tilbake
-          back_to_initiatives: Tilbake til initiativer
-          callout_text: Gratulerer! Initiativet ditt er opprettet.
-          confirm: Du sender nå initiativet til en administrator for å gjennomgå og publisere det. Når det er publisert vil du ikke kunne redigere den. Er du sikker?
-          edit_my_initiative: Rediger mitt initiativ
-          go_to_my_initiatives: Gå til mine initiativer
-          more_information: "(Mer informasjon)"
-          send_my_initiative: Send mitt initiativ til teknisk validering
-        finish_help:
-          publish_helper_text: Husk at for å publisere ditt initiativ må du fylle ut påkrevd informasjon og <strong>sende den til teknisk validering</strong> slik at en administrator kan gjennomgå det.
         previous_form:
           back: Tilbake
-          continue: Fortsett
-        promotal_committee:
-          individual_help_text: Denne typen initiativ krever en promoteringskommisjon som består av minst %{committee_size} personer (vitner). Du må dele følgende kobling til de andre som inngår i dette initiativet. Når kontaktene dine mottar denne lenken må de følge de angitte trinnene.
-          more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
           more_information: (Mer informasjon)
           select: Jeg ønsker å promotere dette initiativet
-          select_initiative_type_help: Initiativer er en måte deltakerne kan gripe inn på, slik at organisasjonen kan iverksette tiltak i forsvar for den generelle interessen. Hvilket initiativ vil du lansere?
-        share_committee_link:
-          invite_to_committee_help: Lenke for å invitere folk som vil være en del av promotør komiteen
       edit:
         accept: Godta initiativ
         back: Tilbake
@@ -352,20 +329,11 @@
           email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avviste søknaden din om å være en del av promotørutvalget i følgende initiativ <a href="%{resource_url}">%{resource_title}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Fortsett
         finish:
           back_to_initiative: Tilbake til initiativ
-        sms_code:
-          continue: Sjekk kode og fortsett
-          help: Sjekk SMS mottatt på telefonen
-        sms_phone_number:
-          continue: Send meg en meldig
       initiative_votes:
         create:
           error: Det oppstod et problem med å signere initiativet.
-        personal_data:
-          invalid: Personopplysninger samsvar ikke med informasjonen som er gitt for autorisering.
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
@@ -461,7 +429,6 @@
       show:
         badge_name:
           accepted: Nok signaturer
-          created: Opprettet
           discarded: Forkastet
           rejected: Ikke nok signaturer
           validating: Teknisk validering
@@ -478,20 +445,11 @@
       initiatives_type:
         actions:
           title: Handlinger
-          vote: Signer
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Opprett
-        finish: Fullfør
-        promotal_committee: Promotør komitè
         select_initiative_type: Velg
-      initiative_signature_creation_header:
-        fill_personal_data: Fullfør dataene dine
-        finish: Fullfør
-        sms_code: SMS-kode verifisering
-        sms_phone_number: Mobiltelefon number
-        title: Signer %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ingen intiativer ennå!

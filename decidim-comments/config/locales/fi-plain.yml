@@ -5,7 +5,6 @@ fi-pl:
       decidim/comments/comment_created_event: Kommentti
       decidim/comments/comment_upvoted_event: Kommenttia äänestettiin
       decidim/comments/reply_created_event: Vastaus kommentiin
-      decidim/comments/user_group_mentioned_event: Maininta
       decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
@@ -51,9 +50,6 @@ fi-pl:
           form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
           submit_reply: Julkaise vastaus
           submit_root_comment: Julkaise kommentti
-          user_group_id:
-            label: Kommentoi käyttäjänä
-            your_profile: Oma profiilisi
         opinion:
           label: Mielipiteesi tästä aiheesta
           negative: Negatiivinen
@@ -155,16 +151,10 @@ fi-pl:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
-          email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen täältä:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
@@ -188,21 +178,11 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Ryhmä, jonka jäsen olet, on mainittu
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jäsenenä ryhmässä %{group_name} ja ryhmä on mainittu kohteessa %{resource_title}.
-          email_subject: Sinut on mainittu kohteessa %{resource_title} ryhmän %{group_name} jäsenenä
-          notification_title: Käyttäjä <a href="%{author_path}">%{author_name}%{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a> ryhmän <a href="%{group_path}">%{group_name} %{group_nickname}</a> jäsenenä
         user_mentioned:
           email_intro: Sinut on mainittu
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Käyttäjien kirjoittamien kommenttien määrä
-        object: kommentit
-        title: Kommentit
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja

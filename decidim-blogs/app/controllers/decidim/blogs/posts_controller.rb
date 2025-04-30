@@ -8,7 +8,6 @@ module Decidim
       include Paginable
       include Decidim::IconHelper
 
-      helper Decidim::UserGroupHelper
       helper Decidim::Blogs::PostsSelectHelper
       include Decidim::FormFactory
 

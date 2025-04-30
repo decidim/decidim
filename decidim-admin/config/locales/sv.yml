@@ -33,8 +33,6 @@ sv:
       help_section:
         content: Innehåll
       id: ID
-      import:
-        user_group_id: Skapa import som
       newsletter:
         body: Innehåll
         send_to_all_users: Skicka till alla deltagare
@@ -96,7 +94,6 @@ sv:
         time_zone: Tidszon
         tos_version: Version av användarvillkoren
         twitter_handler: Användarnamn till X
-        user_groups_enabled: Aktivera grupper
         users_registration_mode: Inställning för registrering
         warning_color: Varning
         welcome_notification_body: Välkomstmeddelande
@@ -201,7 +198,6 @@ sv:
           new: Ny privat deltagare i deltagarutrymme
         per_page: Per sida
         permissions: Behörigheter
-        reject: Avvisa
         restore: Återställ
         send_me_a_test_email: Skicka ett testmeddelande till mig
         share: Dela
@@ -209,7 +205,6 @@ sv:
         soft_delete: Mjuk radering
         user:
           new: Ny administratör
-        verify: Kontrollera
         view_deleted_components: Visa borttagna komponenter
       admin_terms_of_service:
         accept:
@@ -482,6 +477,10 @@ sv:
             explanation: 'Instruktioner för fil:'
             message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
             message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
+          import_csv:
+            explanation: 'Instruktioner för fil:'
+            message_1: CSV-filer stöds
+            message_2: ".csv-fil med e-postuppgifter"
       help_sections:
         error: Det gick inte att uppdatera hjälpsidorna.
         form:
@@ -587,7 +586,7 @@ sv:
         content: Rapporterat innehåll
         external_domain_allowlist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
-        homepage: Hemsida
+        homepage: Startsida
         impersonations: Uppträd som
         manage: Hantera
         moderation: Moderering
@@ -603,11 +602,7 @@ sv:
         static_pages: Sidor
         taxonomies: Kategorisering
         taxonomy_filters: Kategorifilter
-        user_groups: Grupper
         users: Deltagare
-      metrics:
-        metrics:
-          see_more_metrics: Se fler mätvärden
       models:
         area:
           fields:
@@ -676,16 +671,6 @@ sv:
               admin: Administratör
               user_manager: Användarhanterare
           name: Deltagare
-        user_group:
-          fields:
-            actions: Åtgärder
-            created_at: Skapad
-            document_number: Dokumentnummer
-            name: Namn
-            nickname: Användarnamn
-            phone: Telefon
-            state: Status
-            users_count: Antal användare
       moderated_users:
         index:
           actions:
@@ -1097,7 +1082,6 @@ sv:
           title: Redigera ämne
           update: Uppdatera ämne
         new:
-          create: Skapa ämne
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
@@ -1121,7 +1105,6 @@ sv:
         index:
           last_notable_change: Senaste större ändring
         new:
-          create: Skapa sida
           title: Ny sida
         topic:
           empty: Det här ämnesområdet har inga sidor.
@@ -1251,7 +1234,6 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         menu: Meny
-        metrics: Deltagande i siffror
         page_topics: Ämnesområden
         pages: Sidor
         panel: Administratör
@@ -1261,7 +1243,6 @@ sv:
         statistics: Aktivitet
         taxonomies: Kategorier
         taxonomy_filters: Kategorifilter för "%{taxonomy}"
-        user_groups: Grupper
         users: Administratörer
       tooltips:
         deleted_component_info: Komponenten kan endast tas bort om statusen är 'avpublicerad'.
@@ -1272,32 +1253,6 @@ sv:
         soft_delete:
           invalid: Det gick inte att ta bort %{resource_name}.
           success: "%{resource_name} raderades."
-      user_group:
-        csv_verify:
-          invalid: Det gick inte att läsa CSV-filen.
-          success: CSV-filen har laddats upp och vi kontrollerar grupperna som stämmer överens med kriterierna. Det kan ta en stund.
-        reject:
-          invalid: Det gick inte att avvisa gruppen.
-          success: Gruppen har avvisats.
-        verify:
-          invalid: Det gicka inte att verifiera gruppen.
-          success: Gruppen har godkänts.
-      user_groups:
-        index:
-          state:
-            pending: Väntande
-            rejected: Avvisad
-            verified: Verifierat
-          verify_via_csv: Verifiera via CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Exempelfil:'
-          explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
-          explanation_example: |
-            acme@exempel.org
-            bubba.gump@exempel.org
-          title: Skicka CSV-fil
-          upload: Skicka
       users:
         create:
           error: Det gick inte att bjuda in administratören.
@@ -1324,16 +1279,6 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
-    metrics:
-      blocked_users:
-        object: blockerade användare
-        title: Blockerade användare
-      reported_users:
-        object: rapporterade användare
-        title: Rapporterade användare
-      user_reports:
-        object: användarrapporter
-        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
@@ -1366,6 +1311,7 @@ sv:
             success: Innehållet har dolts.
           unhide:
             invalid: Det gick inte att sluta dölja innehållet.
+            parent_invalid: Det gick inte att visa resursen. Föräldern är inte synlig.
             success: Innehållet är inte längre dolt.
           unreport:
             invalid: Det gick inte att ta bort rapporten om innehållet.

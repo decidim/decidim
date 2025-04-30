@@ -6,7 +6,6 @@ sv:
         answer_url: Svars-URL
         area_id: Område
         decidim_scope_id: Indelning
-        decidim_user_group_id: Författare
         description: Beskrivning
         hashtag: Hashtag
         offline_votes: Fysiska underskrifter
@@ -35,7 +34,6 @@ sv:
         comments_enabled: Aktivera kommentarer
         custom_signature_end_date_enabled: Gör det möjligt för författarna att välja när perioden för insamling av underskrifter ska sluta
         description: Beskrivning
-        document_number_authorization_handler: Tillstånd att verifiera dokumentnummer för underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kampanjmedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
@@ -89,7 +87,6 @@ sv:
             label: Status
             values:
               accepted: Tillräckligt många underskrifter
-              created: Skapad
               discarded: Avvisad
               open: Öppna
               rejected: För få underskrifter
@@ -300,7 +297,6 @@ sv:
           edit:
             update: Uppdatera
           form:
-            authorizations: Inställningar för autentisering
             child_scope_threshold_enabled_help_html: 'Den här konfigurationen har inte stöd för offline-röster. Den aktiverar indelningar och fungerar med en auktorisering som associerar ett utrymme till användaren. Kontrollera att du väljer den auktoriseringen, nedan i auktoriseringsinställningar. För att det ska fungera måste indelningen konfigureras på ett hierarkiskt sätt: 1 Förälder - N barn. För mer information om hur denna konfiguration fungerar, se <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiativs admindokumentationssida</a>.'
             only_global_scope_enabled_help_html: Välj den här om du aktiverade "Child scope signatur" och konfigurerade den globala indelningen som din överordnade indelning. Genom att aktivera detta kommer man att hoppa över valet av initiativtyp i guiden för att skapa initiativ. För mer information om hur denna konfiguration fungerar, se denna <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">länk</a>.
             options: Alternativ
@@ -326,7 +322,6 @@ sv:
           update: "%{user_name} uppdaterade initiativtypen %{resource_name}"
       admin_states:
         accepted: Tillräckligt många underskrifter
-        created: Skapad
         discarded: Bortagna
         open: Öppna
         rejected: För få underskrifter
@@ -356,39 +351,21 @@ sv:
           name: Viktiga initiativ just nu
       create_initiative:
         fill_data:
-          back: Tillbaka
           continue: Fortsätt
           fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrifter. Fysiska, digitala eller en kombination av båda</li> <li>Vilket är initiativets geografiska omfång? Stad, distrikt?</li> </ul>"
-          more_information: "(Mer information)"
           select_area: Välj ett område
           select_scope: Välj en indelning
         finish:
           back: Tillbaka
-          back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats.
-          confirm: Du kommer att skicka initiativet till en administratör för att granska och publicera det. När det har publicerats kommer du inte att kunna redigera det. Vill du gå vidare?
-          edit_my_initiative: Redigera mitt initiativ
-          go_to_my_initiatives: Gå till mina initiativ
-          more_information: "(Mer information)"
-          send_my_initiative: Skicka mitt initiativ till teknisk validering
-        finish_help:
-          publish_helper_text: Kom ihåg att för att ditt initiativ ska publiceras måste du fylla i obligatoriska uppgifter och <strong>skicka det till teknisk validering</strong> för att en administratör ska kunna granska det.
         previous_form:
           back: Tillbaka
-          continue: Fortsätt
-        promotal_committee:
-          individual_help_text: Den här typen av medborgarinitiativ kräver att kampanjgruppen består av minst %{committee_size} personer (attesterare). Du måste dela följande länk med andra personer som är del av initiativet. När dina kontakter får denna länk måste de följa de angivna stegen.
-          more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
           more_information: Mer information
           new: Skapa nytt initiativ
           select: Jag vill arbeta för detta initiativ
-          select_initiative_type_help: Initiativ är ett sätt för deltagare att påverka sin organisation och ta initiativ till förbättringar. Vilket initiativ vill du lansera?
           verification_required: Verifiera ditt konto för att skriva under initiativet
-        share_committee_link:
-          invite_to_committee_help: Länk för att bjuda in personer till kampanjgruppen
       edit:
         accept: Acceptera initiativet
         back: Tillbaka
@@ -433,23 +410,14 @@ sv:
         uninitialized: Initiativ är ännu inte konfigurerade av en administratör.
       initiative_signatures:
         fill_personal_data:
-          continue: Fortsätt
           help: Skriv under initiativet genom att fylla i följande fält med dina uppgifter.
         finish:
           back_to_initiative: Tillbaka till initiativet
-        sms_code:
-          continue: Kontrollera koden och fortsätt
-          help: Se det SMS som skickades till din telefon
-        sms_phone_number:
-          continue: Skicka mig ett SMS
-          help: Begär en verifieringskod genom att fyll i formuläret med ditt verifierade telefonnummer.
       initiative_votes:
         create:
           error: Det gick inte att skriva under initiativet.
           invalid: Uppgifterna för underskrift av initiativet är ogiltiga.
           success_html: Grattis! Du har skrivit under initiativet <strong> %{title}</strong>.
-        personal_data:
-          invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_code:
           invalid: Din verifieringskod matchar inte vår. Vänligen dubbelkolla SMS vi skickade dig.
         sms_phone:
@@ -569,7 +537,6 @@ sv:
       show:
         badge_name:
           accepted: Tillräckligt många underskrifter
-          created: Skapad
           discarded: Bortagen
           open: Öppna
           rejected: För få underskrifter
@@ -590,20 +557,11 @@ sv:
       initiatives_type:
         actions:
           title: Åtgärder
-          vote: Underteckna
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Skapa
-        finish: Avsluta
-        promotal_committee: Kampanjgrupp
         select_initiative_type: Välj
-      initiative_signature_creation_header:
-        fill_personal_data: Komplettera dina uppgifter
-        finish: Slutför
-        sms_code: Verifiering med SMS-kod
-        sms_phone_number: Mobiltelefonnummer
-        title: Skriv under %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Inga initiativ ännu!

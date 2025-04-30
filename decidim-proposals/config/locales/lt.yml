@@ -9,7 +9,6 @@ lt:
         scope_id: Apimtis
         state: Būsena
         title: Pavadinimas
-        user_group_id: Sukurti bendrą projektą kaip
       proposal:
         address: Adresas
         answer: Atsakyti
@@ -22,7 +21,6 @@ lt:
         state: Būsena
         suggested_hashtags: Pasiūlytos grotažymės
         title: Pavadinimas
-        user_group_id: Sukurti pasiūlymą kaip
       proposal_answer:
         answer: Atsakymas
         cost: Kaina
@@ -35,9 +33,6 @@ lt:
         import_proposals: Importuoti pasiūlymus
         keep_answers: Išlaikyti būseną ir atsakymus
         keep_authors: Išlaikyti originalius autorius
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Vertintojo vardas ir pavardė
     errors:
       models:
         participatory_text:
@@ -105,8 +100,6 @@ lt:
               rejected: Atmesta
               validating: Techninis patvirtinimas
               withdrawn: Atsiimta
-          valuator_role_ids_has:
-            label: Pavesta vertintojui
           with_any_state:
             label: Atsakyta
             values:
@@ -193,7 +186,6 @@ lt:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
@@ -281,22 +273,8 @@ lt:
           next_level_in: Parenkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar neparengė jokių pasiūlymų.
           unearned_own: Jūs dar neparengėte jokių pasiūlymų.
-    metrics:
-      accepted_proposals:
-        description: Priimtų pasiūlymų skaičius
-        object: pasiūlymai
-        title: Priimti pasiūlymai
-      endorsements:
-        description: Pritarimų pasiūlymams skaičius
-        object: pritarimai
-        title: Pritarimai
-      proposals:
-        description: Pasiūlymų skaičius
-        object: pasiūlymai
-        title: Pasiūlymai
     participatory_spaces:
       highlighted_proposals:
-        last: Paskutiniai pasiūlymai
         see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:
@@ -388,8 +366,6 @@ lt:
             select_a_meeting: Pasirinkite susitikimą
           index:
             actions: Veiksmai
-            assign_to_valuator: Priskirti vertintojui
-            assign_to_valuator_button: Priskirti
             cancel: Atšaukti
             merge: Sulieti į vieną
             publish: Publikuoti
@@ -399,8 +375,6 @@ lt:
             split: Išskaidyti pasiūlymus
             split_button: Skaidyti
             title: Pasiūlymai
-            unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
-            unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
           new:
             create: Sukurti
@@ -409,7 +383,6 @@ lt:
             select_a_proposal: Pasirinkite pasiūlymą.
           show:
             amendments_count: Pakeitimų skaičius
-            assigned_valuators: Paskirti vertintojai
             body: Pagrindinė dalis
             comments_count: Komentarų skaičius
             documents: Dokumentai
@@ -424,12 +397,9 @@ lt:
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
             remove_assignment: Pašalinti užduotį
-            remove_assignment_confirmation: Ar tikrai norite nušalinti vertintoją nuo šio pasiūlymo?
-            valuators: Vertintojai
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema.
-            success: "%{number} pasiūlymai importuoti."
           new:
             create: Importuoti pasiūlymus
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
@@ -441,11 +411,6 @@ lt:
         proposals_splits:
           create:
             success: Pasiūlymai išskaidyti į naujus.
-        valuation_assignments:
-          create:
-            success: Pasiūlymai pavesti vertintojui.
-          delete:
-            success: Vertintojas sėkmingai pašalintas nuo pasiūlymų.
       admin_log:
         proposal:
           answer: "%{user_name} atsakė į pasiūlymą %{resource_name} %{space_name} erdvėje"
@@ -453,9 +418,6 @@ lt:
           update: "%{user_name} atnaujino %{resource_name} oficialų pasiūlymą %{space_name} erdvėje"
         proposal_note:
           create: "%{user_name} paliko privačią pastabą dėl pasiūlymo %{resource_name} %{space_name} erdvėje"
-        valuation_assignment:
-          create: "%{user_name} pavedė %{resource_name} pasiūlymą vertintojui"
-          delete: "%{user_name} pašalino vertintoją nuo %{proposal_title} pasiūlymo"
       answers:
         accepted: Priimta
         evaluating: Vertinama
@@ -468,7 +430,6 @@ lt:
           meetings: Susitikimai
           official: Oficialūs
           participants: Dalyviai
-          user_groups: Grupės
         filter_state_values:
           all: Visi
           not_answered: Neatsakyta
@@ -598,8 +559,6 @@ lt:
             published_at: Paskelbta
             state: Būsena
             title: Pavadinimas
-            valuator: Vertintojas
-            valuators: Vertintojai
             votes: Balsai
       new:
         limit_reached: Naujų pasiūlymų rengti negalite, nes viršijote nustatytą ribą.
@@ -645,7 +604,6 @@ lt:
           text_banner: Jūs žiūrite autorių atsiimtų pasiūlymų sąrašą. %{go_back_link}.
         new:
           send: Tęsti
-          title: Sukurti savo pasiūlymą
         orders:
           label: 'Rikiuoti pasiūlymus pagal:'
           most_commented: Labiausiai komentuojamas

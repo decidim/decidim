@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rqrcode"
+
 module Decidim
   module Meetings
     # Exposes the meeting resource so users can view them
@@ -16,7 +18,7 @@ module Decidim
       include Decidim::AttachmentsHelper
       include Decidim::SanitizeHelper
 
-      helper_method :meetings, :meeting, :registration, :search, :tab_panel_items
+      helper_method :meetings, :meeting, :registration, :registration_qr_code_image, :search, :tab_panel_items
 
       before_action :add_additional_csp_directives, only: [:show]
 
@@ -122,6 +124,12 @@ module Decidim
         @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
+      def registration_qr_code_image
+        Base64.encode64(
+          RQRCode::QRCode.new(registration.validation_code_short_link.short_url).as_png(size: 500).to_s
+        ).gsub("\n", "")
+      end
+
       def search_collection
         Meeting
           .where(component: current_component)
@@ -151,14 +159,6 @@ module Decidim
             icon: "group-line",
             method: :cell,
             args: ["decidim/meetings/public_participants_list", meeting]
-          },
-          {
-            enabled: !meeting.closed? && meeting.user_group_registrations.any?,
-            id: "organizations",
-            text: t("attending_organizations", scope: "decidim.meetings.public_participants_list"),
-            icon: "community-line",
-            method: :cell,
-            args: ["decidim/meetings/attending_organizations_list", meeting]
           },
           {
             enabled: meeting.linked_resources(:proposals, "proposals_from_meeting").present?,

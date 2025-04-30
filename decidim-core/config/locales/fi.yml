@@ -52,8 +52,6 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
-      user_group:
-        avatar: Profiilikuva
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -69,7 +67,6 @@ fi:
       decidim/removed_from_group: Poistettu ryhmästä
       decidim/resource_endorsed_event: Kohdetta suositeltu
       decidim/resource_hidden_event: Piilotettu asia
-      decidim/user_group_created_event: Käyttäjäryhmä luotu
       decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
     attributes:
@@ -97,9 +94,6 @@ fi:
       decidim/user:
         one: Osallistuja
         other: Osallistujat
-      decidim/user_group:
-        one: Käyttäjäryhmä
-        other: Käyttäjäryhmät
   booleans:
     'false': 'Ei'
     'true': 'Kyllä'
@@ -185,6 +179,7 @@ fi:
         leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
         error: Tilisi poisto epäonnistui.
+        inactive_account_removal_reason: Tili on poistettu %{inactivity_period} päivän käyttämättömyyden jälkeen
         success: Tilisi poisto onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
@@ -347,7 +342,7 @@ fi:
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
-        error: Kohteen muuttamisessa tapahtui virhe.
+        error: Kohteen muuttaminen epäonnistui.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
@@ -384,7 +379,6 @@ fi:
             on peruttu sen laatijan toimesta.
       name: Muutos
       new:
-        amendment_author: Muutoksen laatija
         send: Luo
         title: Luo muutosluonnos
       preview_draft:
@@ -611,10 +605,6 @@ fi:
         name: Olennaisimmat tiedot
       metadata:
         name: Metatiedot
-      metrics:
-        name: Organisaation tilastomittarit
-      participatory_space_metrics:
-        name: Tilastomittarit
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -767,12 +757,6 @@ fi:
           moderation: Ilmoitukseen liitetty moderointi
           reason: Ilmoituksen syy
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
-        user_groups:
-          document_number: Käyttäjäryhmän organisaatiotunnus (esim. Y-tunnus)
-          id: Käyttäjäryhmän yksilöivä tunniste
-          name: Käyttäjäryhmän nimi
-          phone: Käyttäjäryhmän puhelinnumero
-          verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
           about: Käyttäjätilin profiilin kuvaus
           accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
@@ -838,10 +822,6 @@ fi:
     endorsement_buttons_cell:
       already_endorsed: Peruuta tykkäys
       endorse: Tykkää
-    endorsements:
-      identities:
-        done: Valmis
-        select_identity: Valitse henkilöllisyys
     endorsers_list:
       endorsed_by:
         one: Tästä on tykännyt %{visible}
@@ -950,52 +930,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
           email_subject: Olet saavuttanut kunniamerkin %{badge_name} tason %{current_level}!
           notification_title: Onnittelut! Olet saavuttanut <a href="%{resource_path}">kunniamerkin %{badge_name}</a> tason %{current_level}!
-      groups:
-        demoted_membership:
-          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet kyseisen ryhmän jäsen.
-          email_subject: Et ole enää ryhmän %{user_group_name} ylläpitäjä!
-          notification_title: Et ole enää ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
-        invited_to_group:
-          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on kutsunut sinut liittymään kyseiseen ryhmään.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy kutsu.
-          email_subject: Sinut on kutsuttu liittymään ryhmään %{user_group_name}!
-          notification_title: Sinut on kutsuttu liittymään ryhmään <a href="%{resource_path}">%{user_group_name}</a>. Tarkista profiilisi <a href="%{groups_profile_tab_path}">Ryhmät-sivu</a> hyväksyäksesi kutsun!
-        join_request_accepted:
-          email_intro: Onnittelut! Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on hyväksynyt pyyntösi liittyä kyseiseen ryhmään.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Sinut on hyväksytty ryhmään %{user_group_name}!
-          notification_title: Sinut on hyväksytty ryhmään <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_url}">ryhmän jäsenten sivulta</a>.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit hallita ryhmää %{user_group_name}.
-          email_subject: Joku pyysi sinua liittymään ryhmään %{user_group_name}!
-          notification_title: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_path}">ryhmän jäsenten sivulta</a>.
-        join_request_rejected:
-          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä hylkäsi pyyntösi liittyä kyseiseen ryhmään.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Pyyntösi liittyä ryhmään %{user_group_name} on hylätty!
-          notification_title: Pyyntösi liittyä ryhmään <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
-        promoted_to_admin:
-          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitäjän oikeudet kyseiseen ryhmään.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet kyseisen ryhmän jäsen.
-          email_subject: Olet nyt ryhmän %{user_group_name} ylläpitäjä!
-          notification_title: Olet nyt ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
-        removed_from_group:
-          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut sinut kyseisestä ryhmästä.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olit kyseisen ryhmän jäsen.
-          email_subject: Sinut on poistettu ryhmästä %{user_group_name}!
-          notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Uusi ryhmä on luotu nimellä %{user_group_name}. Voit vahvistaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
-          email_subject: Uusi ryhmä on luotu
-          notification_title: Uusi ryhmä nimellä %{user_group_name} on luotu. Voit vahvistaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
-        user_group_updated:
-          email_intro: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen käyttäjän vahvistamattomaksi. Voit vahvistaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
-          email_subject: Ryhmä on päivittänyt profiiliaan
-          notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän vahvistamattomaksi. Voit vahvistaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
       nickname_event:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
@@ -1144,92 +1078,11 @@ fi:
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
       title: Mitä kunniamerkit ovat?
-    group_admins:
-      actions:
-        are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
-        demote_admin: Poista ylläpitäjä
-      demote:
-        error: Osallistujan poistaminen hallintakäyttäjien luettelosta epäonnistui.
-        success: Osallistujan poistaminen hallintakäyttäjien luettelosta onnistui.
-      index:
-        current_admins: 'Nykyiset ylläpitäjät:'
-        manage_admins: Hallinnoi ylläpitäjiä
-    group_invites:
-      accept:
-        error: Kutsun hyväksyminen epäonnistui.
-        success: Kutsun hyväksyminen onnistui.
-      accept_invitation: Hyväksy
-      accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
-      index:
-        invite: Kutsu
-        invite_user: Kutsu käyttäjä
-      invite:
-        error: Osallistujan kutsuminen epäonnistui.
-        success: Osallistuja on kutsuttu.
-      pending_invitations: Odottavat pyynnöt
-      reject:
-        error: Kutsun hylkääminen epäonnistui.
-        success: Kutsu on hylätty.
-      reject_invitation: Hylkää
-    group_members:
-      accept:
-        error: Liittymispyynnön hyväksyminen epäonnistui.
-        success: Liittymispyyntö on hyväksytty.
-      actions:
-        are_you_sure: Oletko varma?
-        promote_to_admin: Nimitä ylläpitäjäksi
-        remove_from_group: Poista käyttäjä
-      index:
-        current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
-        manage_members: Hallinnoi jäseniä
-      promote:
-        error: Osallistujan oikeuksien korottaminen epäonnistui.
-        success: Osallistujan oikeuksien korottaminen onnistui.
-      reject:
-        error: Liittymispyynnön hylkääminen epäonnistui.
-        success: Liittymispyyntö on hylätty.
-      remove:
-        error: Osallistujan poistaminen ryhmästä epäonnistui.
-        success: Osallistuja on poistettu ryhmästä.
     groups:
-      actions:
-        are_you_sure: Oletko varma?
-      create:
-        error: Ryhmän luominen epäonnistui.
-        success: Ryhmä luonti onnistui.
-      edit:
-        edit_user_group: Muokkaa ryhmää
-        update_user_group: Päivitä ryhmä
-      form:
-        document_number_help: Älä käytä väliviivoja tai välilyöntejä.
-        email_help: Sähköpostiosoite organisaatiolle, yhdistykselle, ryhmälle, tms.
-        fill_in_for_verification: 'Täytä nämä kentät, jos haluat ryhmäsi vahvistettavan:'
-        name_help: Nimi organisaatiolle, yhdistykselle, ryhmälle, tms.
-        nickname_help: Nimimerkki organisaatiolle, yhdistykselle, ryhmälle, tms. Älä käytä välilyöntejä tai erikoismerkkejä.
-        phone_help: Älä käytä väliviivoja tai välilyöntejä.
-      join:
-        error: Ryhmään liittyminen epäonnistui.
-        success: Liittymispyynnön luonti onnistui. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
-      leave:
-        error: Ryhmästä poistuminen epäonnistui.
-        last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
-        success: Ryhmästä poistuminen onnistui.
-      members:
-        accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
-        accept_request: Hyväksy
-        reject_request: Hylkää
-      new:
-        create_user_group: Luo ryhmä
-        new_user_group: Uusi ryhmä
-        subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
-      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Hallinnoija
         creator: Hallinnoija
         member: Jäsen
-      update:
-        error: Ryhmän päivittäminen epäonnistui.
-        success: Ryhmän päivitys onnistui.
     help:
       main_topic:
         default_page:
@@ -1290,42 +1143,16 @@ fi:
       static:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Tässä ryhmässä ei ole vielä jäseniä.
     menu:
       help: Tietoa
       home: Etusivu
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
-          outro: Nauti palvelun käyttämisestä!
-          subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
-        comanagers_new_message:
-          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
-          outro: Nauti palvelun käyttämisestä!
-          subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
         new_conversation:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun kanssasi"
-        new_group_conversation:
-          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
-          outro: Nauti palvelun käyttämisestä!
-          subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
-        new_group_message:
-          admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
-          outro: Nauti palvelun käyttämisestä!
-          subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
         new_message:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
@@ -1338,6 +1165,8 @@ fi:
           modal_title: Uusi keskustelu
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä käyttäjä ei halua vastaanottaa yksityisiä viestejä.
+          participants:
+            title: Osallistujia
         create:
           error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudestaan.
         error_modal:
@@ -1370,27 +1199,6 @@ fi:
         finished: 'Päättynyt: %{end_date}'
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
-    metrics:
-      blocked_users:
-        description: Estettyjen osallistujien määrä
-      download:
-        csv: Lataa tiedot (CSV)
-      followers:
-        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
-        object: seuraajat
-        title: Seuraajat
-      participants:
-        description: Organisaation aktiivisten käyttäjien määrä
-        object: osallistujat
-        title: Osallistujat
-      reported_users:
-        description: Ilmoitettujen osallistujien määrä
-      user_reports:
-        description: Osallistujien lähettämien ilmoitusten määrä
-      users:
-        description: Organisaation käyttäjien määrä
-        object: käyttäjät
-        title: Käyttäjät
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
@@ -1470,6 +1278,7 @@ fi:
         assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
+        evaluators: Arvioijat
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
@@ -1486,7 +1295,6 @@ fi:
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
-        valuators: Arvioijat
       update:
         error: Ilmoitusasetustesi päivitys epäonnistui.
         success: Ilmoitusasetuksesi päivitys onnistui.
@@ -1511,14 +1319,13 @@ fi:
         core:
           components: Komponentit
           description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          generated_on_date: Luontipäivä %{date}
           main: Ydin
+          resources:
+            one: "%{count} asia"
+            other: "%{count} asiaa"
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
-        metrics:
-          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
-          day: Tilastomittarin luontipäivä
-          metric_type: Tilastomittarin tyyppi
-          quantity: Tilastomittarien määrä tälle päivälle
         moderated_users:
           about: Käyttäjän henkilökohtainen kuvaus
           block_reasons: Syy, miksi käyttäjä estettiin
@@ -1549,16 +1356,6 @@ fi:
           taxonomizations_count: Tähän luokitteluun liitettyjen asioiden lukumäärä
           updated_at: Luokittelun viimeisimmän päivityksen ajankohta
           weight: Luokittelun järjestysnumero
-        user_groups:
-          avatar_url: Käyttäjäryhmän avatar-kuva
-          badge: Käyttäjäryhmän tunnusmerkki
-          deleted: Onko käyttäjä poistettu vai ei
-          id: Käyttäjäryhmän yksilöivä tunniste
-          members: Ryhmään kuuluvien käyttäjien yksilöivät tunnisteet (ID) ja nimet
-          members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
-          name: Käyttäjäryhmän nimi
-          nickname: Käyttäjäryhmän käyttäjänimi
-          profile_url: Profiilin URL-osoite
         users:
           about: Käyttäjäryhmän kuvaus
           avatar_url: Käyttäjän avatar-kuva
@@ -1651,10 +1448,6 @@ fi:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
-      participatory_space:
-        metrics:
-          headline: Osallistuminen lukuina
-          link: Näytä kaikki
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
@@ -1672,6 +1465,26 @@ fi:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Tietojemme mukaan olet luonut tilin <strong>%{date_account_creation}</strong> palveluun %{organization_name}, eikä kyseistä tiliä ole käytetty <strong>%{date_last_connection}</strong> jälkeen.</p>
+          <p>Suojellaksemme yksityisyyttäsi, tämä tili poistetaan automaattisesti <strong>%{days} päivän</strong> päästä.</p>
+          <p>Mikäli haluat säilyttää tilisi palvelussa %{organization_name}, %{login_url} ennen kyseistä hetkeä, jotta tilisi säilytetään.<p>
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello_html: Hei <strong>%{username}</strong>,
+        log_in: kirjaudu sisään
+        never_logged_in: et ole koskaan kirjautunut palveluun
+        subject: Varoitus passiivisesta käyttäjätilistä
+      removal_notification:
+        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello: Hei %{username},
+        subject: Käyttämättä ollut tili on poistettu
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
@@ -1680,7 +1493,6 @@ fi:
       deleted: Poistettu osallistuja
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
     profiles:
-      default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti vahvistettu, ja ryhmän nimen oikeellisuus on varmistettu.
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu, ja hänen nimensä sekä asemansa oikeellisuus on varmistettu.
       show:
         activity: Toiminta
@@ -1688,41 +1500,18 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
-        group_admins: Hallinnoi hallintakäyttäjiä
-        group_members: Hallinnoi jäseniä
-        groups: Ryhmät
-        members: Jäsenet
         officialized: Virallinen osallistuja
         send_private_message: Lähetä yksityisviesti
-      sidebar:
-        badges:
-          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
-          title: Kunniamerkit
       user:
         actions:
-          create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
-          join_user_group: Lähetä liittymispyyntö ryhmään
-          leave_user_group: Poistu ryhmästä
-          manage_user_group: Hallinnoi ryhmää
-          manage_user_group_admins: Hallinnoi ylläpitäjiä
-          manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
           resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
-        confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
-        create_user_group: Luo ryhmä
-        edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa ryhmän profiilia
-        fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
-        invite_user: Kutsu käyttäjä
-        join_user_group: Lähetä liittymispyyntö ryhmään
-        leave_user_group: Poistu ryhmästä
-        manage_user_group_admins: Hallinnoi ylläpitäjiä
-        manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
+    qr:
+      show:
+        scan: Skannaa QR-koodi
+        title: QR-koodi kohteelle %{resource_title}
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -1759,7 +1548,6 @@ fi:
     search:
       name: Hae
       results: Hakutulokset
-      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
@@ -1780,6 +1568,10 @@ fi:
       selfxss_warning:
         description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinua on pyydetty sellaista tekemään. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
         title: Seis!
+    share_widget:
+      download: Lataa
+      print: Tulosta juliste
+      qr_code: QR-koodi
     shared:
       confirm_modal:
         cancel: Peruuta
@@ -1806,18 +1598,17 @@ fi:
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiatonta sisältöä
+        title: Ilmoita epäasiallista sisältöä
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja
-        close: Sulje
-        description: Mikä tässä käyttäjässä on asiatonta?
+        description: Mikä tässä osallistujassa on epäasiallista?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiaton käyttäjä
+        title: Ilmoita epäasiallinen käyttäjä
       floating_help:
         help: Ohjeet
       follow_button:
@@ -1832,9 +1623,6 @@ fi:
         public_participation: Näytä läsnäoloni julkisesti
       reference:
         reference: 'Viite: %{reference}'
-      represent_user_group:
-        represent_user_group: Edustan ryhmää
-        select_user_group: Valitse ryhmä
       results_per_page:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
@@ -1842,6 +1630,7 @@ fi:
         copy_share_link: Kopioi
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
+        copy_share_link_cta: Tai kopioi linkki
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
@@ -1869,19 +1658,15 @@ fi:
         no_activities_warning: Tällä osallistujalla ei ole vielä ollut toimintaa.
     user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
     user_conversations:
-      create:
-        error: Viestiä ei voida luoda. Yritä myöhemmin uudestaan.
-        existing_error: Viestiä ei voitu luoda, koska keskustelu on jo olemassa. Yritä uudestaan nyt.
-        success: Keskustelun aloittaminen onnistui!
       index:
-        conversations_info: Keskustelut ovat yksityisiä. Kukaan muu ei voi nähdä niitä. Voit aloittaa keskustelun osallistujien tai ryhmien kanssa tässä palvelussa.
-        no_conversations_warning: Ei vielä yhtään keskustelua.
         time_ago: "%{time} sitten"
-      reply:
-        placeholder: Vastauksesi...
-        send: Lähetä
-      update:
-        error: Viestiä ei lähetetty. Yritä myöhemmin uudestaan
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Tämä viesti koskee tärkeää päivitystä käyttäjäryhmässä, jonka jäsen olet: <strong>%{group_name}</strong>.'
+        body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
+        greeting: Hei %{name},
+        instructions_1: Mikäli sinulla on pääsy kyseiselle sähköpostitilille, tarkasta kyseiseen sähköpostiin saapuneet ohjeet.
+        subject: Tärkeä ilmoitus koskien käyttäjäryhmää, jonka jäsen olet
     user_report_mailer:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
@@ -2251,7 +2036,6 @@ fi:
         terms_of_service: Käyttöehdot
       header:
         close: Sulje
-        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
@@ -2297,7 +2081,6 @@ fi:
         notifications_settings: Ilmoitusten asetukset
         profile: Profiili
         title: Käyttäjätilin asetukset
-        user_groups: Ryhmät
   locale:
     name: Suomi
     name_with_error: Suomi (virhe!)

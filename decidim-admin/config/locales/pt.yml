@@ -26,8 +26,6 @@ pt:
         published_at: Publicado em
         weight: Posição do pedido
       id: ID
-      import:
-        user_group_id: Criar importações como
       newsletter:
         body: Corpo
         send_to_all_users: Enviar para todas as pessoas utilizadoras
@@ -84,7 +82,6 @@ pt:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        user_groups_enabled: Ativar grupos
         users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
@@ -156,10 +153,8 @@ pt:
           new: Novo utilizador privado do espaço participativo
         per_page: Por página
         permissions: Permissões
-        reject: Rejeitar
         share: Partilhar
         soft_delete: Mover para a lixeira
-        verify: Verificar
       area_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de área.
@@ -432,11 +427,7 @@ pt:
         static_pages: Páginas
         taxonomies: Taxonomias
         taxonomy_filters: Filtros de taxonomia
-        user_groups: Grupos
         users: Utilizadores
-      metrics:
-        metrics:
-          see_more_metrics: Mostrar mais métricas
       models:
         area:
           fields:
@@ -501,15 +492,6 @@ pt:
               admin: Administrador(a)
               user_manager: Gestor de participante
           name: Participante
-        user_group:
-          fields:
-            actions: Ações
-            created_at: Criado em
-            document_number: Número do documento
-            name: Nome
-            phone: Telefone
-            state: Estado
-            users_count: Contagem de participantes
       moderated_users:
         index:
           actions:
@@ -690,6 +672,8 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:
@@ -741,7 +725,6 @@ pt:
           title: Editar tópico
           update: Atualizar tópico
         new:
-          create: Criar tópico
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
@@ -762,7 +745,6 @@ pt:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar página
           title: Nova página
         topic:
           without_topic: Páginas sem tópico
@@ -776,32 +758,11 @@ pt:
         dashboard: Painel de Controlo
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
-        metrics: Métricas
         panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         statistics: Atividade
-        user_groups: Grupos
-      user_group:
-        csv_verify:
-          invalid: Ocorreu um problema ao ler o ficheiro CSV.
-        reject:
-          invalid: Ocorreu um problema ao rejeitar este grupo.
-        verify:
-          invalid: Ocorreu um problema ao verificar este grupo.
-      user_groups:
-        index:
-          state:
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          verify_via_csv: Verificar via CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Envie o seu ficheiro CSV. Deve ter os e-mails oficiais dos grupos na sua organização na primeira coluna do ficheiro, sem cabeçalhos. Somente grupos que confirmaram os seus e-mails e que tenham um e-mail a aparecer no arquivo CSV serão validados.
-          title: Envie o seu ficheiro CSV
-          upload: Envio
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).
@@ -822,16 +783,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: utilizadores bloqueados
-        title: Utilizadores bloqueados
-      reported_users:
-        object: utilizadores denunciados
-        title: Utilizadores denunciados
-      user_reports:
-        object: relatórios de utilizador
-        title: Relatórios de utilizador
     moderations:
       actions:
         expand: Expandir

@@ -64,7 +64,6 @@ is-IS:
         secondary_color: Til vara
         success_color: Tókst
         time_zone: Tímabelti
-        user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -125,9 +124,7 @@ is-IS:
           new: Nýtt fréttabréf
         per_page: Á hveri síðu
         permissions: Heimildir
-        reject: Hafna
         share: Deila
-        verify: Staðfestu
       area_types:
         create:
           success: Svæði gerð búin til með góðum árangri.
@@ -312,14 +309,6 @@ is-IS:
             role: Hlutverk
             roles:
               admin: Admin
-        user_group:
-          fields:
-            actions: Aðgerðir
-            created_at: Búið til á
-            document_number: Skjal númer
-            name: Nafn
-            phone: Sími
-            state: Ríki
       moderations:
         report:
           reasons:
@@ -440,12 +429,6 @@ is-IS:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-      user_groups:
-        index:
-          state:
-            pending: Í bið
-            rejected: Hafnað
-            verified: Staðfest
       users:
         form:
           email: Email

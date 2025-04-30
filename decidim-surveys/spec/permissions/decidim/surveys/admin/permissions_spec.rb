@@ -38,9 +38,9 @@ describe Decidim::Surveys::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when exporting answers for a survey" do
+  context "when exporting responses for a survey" do
     let(:action) do
-      { scope: :admin, action: :export_answers, subject: :questionnaire }
+      { scope: :admin, action: :export_responses, subject: :questionnaire }
     end
 
     it { is_expected.to be true }
@@ -54,25 +54,25 @@ describe Decidim::Surveys::Admin::Permissions do
     it { is_expected.to be true }
   end
 
-  context "when indexing a survey's answers" do
+  context "when indexing a survey's responses" do
     let(:action) do
-      { scope: :admin, action: :index, subject: :questionnaire_answers }
+      { scope: :admin, action: :index, subject: :questionnaire_responses }
     end
 
     it { is_expected.to be true }
   end
 
-  context "when showing a participant's survey answers" do
+  context "when showing a participant's survey responses" do
     let(:action) do
-      { scope: :admin, action: :show, subject: :questionnaire_answers }
+      { scope: :admin, action: :show, subject: :questionnaire_responses }
     end
 
     it { is_expected.to be true }
   end
 
-  context "when exporting a participant's survey answers" do
+  context "when exporting a participant's survey responses" do
     let(:action) do
-      { scope: :admin, action: :export_response, subject: :questionnaire_answers }
+      { scope: :admin, action: :export_response, subject: :questionnaire_responses }
     end
 
     it { is_expected.to be true }

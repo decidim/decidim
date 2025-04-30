@@ -205,7 +205,6 @@ lt:
             admin: Administratorius
             collaborator: Bendraautorius
             moderator: Moderatorius
-            valuator: Vertintojas
         media_link:
           fields:
             date: Data

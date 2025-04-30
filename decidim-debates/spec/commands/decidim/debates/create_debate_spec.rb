@@ -18,7 +18,6 @@ describe Decidim::Debates::CreateDebate do
       invalid?: invalid,
       title: "title",
       description: "description",
-      user_group_id: nil,
       taxonomizations:,
       current_user: user,
       current_component:,
@@ -92,7 +91,7 @@ describe Decidim::Debates::CreateDebate do
         .with(
           Decidim::Debates::Debate,
           user,
-          hash_including(:taxonomizations, :title, :description, :component, :author, :decidim_user_group_id),
+          hash_including(:taxonomizations, :title, :description, :component, :author),
           visibility: "public-only"
         )
         .and_call_original

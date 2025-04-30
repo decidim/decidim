@@ -8,8 +8,6 @@ module Decidim::Blogs::Admin
       let(:organization) { create(:organization) }
       let(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:another_user) { create(:user, :admin, :confirmed, organization:) }
-      let!(:user_group) { create(:user_group, :verified, decidim_organization_id: organization.id, users: [user]) }
-      let!(:another_user_group) { create(:user_group, :verified, decidim_organization_id: organization.id, users: [another_user]) }
       let(:name) { "a-select-form-name" }
       let(:author) { user }
       let(:form) do
@@ -21,8 +19,7 @@ module Decidim::Blogs::Admin
       let(:all_fields) do
         [
           [translated(organization.name), ""],
-          [user.name, user.id],
-          [user_group.name, user_group.id]
+          [user.name, user.id]
         ]
       end
 
@@ -30,17 +27,7 @@ module Decidim::Blogs::Admin
         [
           [translated(organization.name), ""],
           [user.name, user.id],
-          [user_group.name, user_group.id],
           [another_user.name, another_user.id]
-        ]
-      end
-
-      let(:extra_group_fields) do
-        [
-          [translated(organization.name), ""],
-          [user.name, user.id],
-          [user_group.name, user_group.id],
-          [another_user_group.name, another_user_group.id]
         ]
       end
 
@@ -51,42 +38,15 @@ module Decidim::Blogs::Admin
         ]
       end
 
-      let(:groups_enabled) { true }
-
       before do
         allow(helper).to receive(:current_organization).and_return(organization)
         allow(helper).to receive(:current_user).and_return(user)
-        allow(organization).to receive(:user_groups_enabled?).and_return(groups_enabled)
         allow(form).to receive(:select) { |_, array| array }
       end
 
-      context "when all actors are present" do
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
-        end
-      end
-
-      context "when author is a user's user_group" do
-        let(:author) { user_group }
-
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
-        end
-      end
-
-      context "when organization has no groups_enabled" do
-        let(:groups_enabled) { false }
-
+      context "when author is a user" do
         it "Returns organization and user" do
           expect(helper.post_author_select_field(form, name)).to eq(basic_fields)
-        end
-
-        context "when author is a user's user_group" do
-          let(:author) { user_group }
-
-          it "Returns organization, user and user group" do
-            expect(helper.post_author_select_field(form, name)).to eq(all_fields)
-          end
         end
       end
 
@@ -101,16 +61,8 @@ module Decidim::Blogs::Admin
       context "when author is the organization" do
         let(:author) { organization }
 
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
-        end
-      end
-
-      context "when author is another user_group" do
-        let(:author) { another_user_group }
-
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(extra_group_fields)
+        it "Returns organization and user" do
+          expect(helper.post_author_select_field(form, name)).to eq(basic_fields)
         end
       end
     end

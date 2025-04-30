@@ -17,7 +17,9 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        (5..30).to_a.sample.times do |n|
+        number_of_records = fast_seeds? ? 10 : rand(25..50)
+
+        (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
@@ -154,15 +156,13 @@ module Decidim
       end
 
       def random_coauthor
-        n = rand(5)
-        n = 3 if n == 2 && !Decidim.module_installed?(:meetings)
+        n = rand(4)
+        n = 2 if n == 1 && !Decidim.module_installed?(:meetings)
 
         case n
         when 0
           Decidim::User.where(organization:).sample
         when 1
-          Decidim::UserGroup.where(organization:).sample
-        when 2
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
           Decidim::Meetings::Meeting.where(component: meeting_component).sample
@@ -184,25 +184,6 @@ module Decidim
       def create_emendation!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "amendment"))
 
-        group = Decidim::UserGroup.create!(
-          name: ::Faker::Name.name,
-          nickname: random_nickname,
-          email: ::Faker::Internet.email,
-          extended_data: {
-            document_number: ::Faker::Code.isbn,
-            phone: ::Faker::PhoneNumber.phone_number,
-            verified_at: Time.current
-          },
-          organization:,
-          confirmed_at: Time.current
-        )
-
-        Decidim::UserGroupMembership.create!(
-          user: author,
-          role: "creator",
-          user_group: group
-        )
-
         params = {
           component: proposal.component,
           title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
@@ -220,7 +201,7 @@ module Decidim
           visibility: "public-only"
         ) do
           emendation = Decidim::Proposals::Proposal.new(params)
-          emendation.add_coauthor(author, user_group: author.user_groups.first)
+          emendation.add_coauthor(author)
           emendation.save!
           emendation
         end

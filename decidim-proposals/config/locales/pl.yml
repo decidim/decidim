@@ -9,7 +9,6 @@ pl:
         scope_id: Zakres
         state: Stan
         title: Tytuł
-        user_group_id: Utwórz wspólny szkic jako
       proposal:
         address: Adres
         answer: Odpowiedź
@@ -22,7 +21,6 @@ pl:
         state: Stan
         suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
-        user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
         cost: Koszt
@@ -48,9 +46,6 @@ pl:
         import_proposals: Importuj propozycje
         keep_answers: Zachowaj stan i odpowiedzi
         keep_authors: Zachowaj oryginalnych autorów
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Imię weryfikatora
     errors:
       models:
         participatory_text:
@@ -122,8 +117,6 @@ pl:
               rejected: Odrzucono
               validating: Walidacja techniczna
               withdrawn: Wycofaj
-          valuator_role_ids_has:
-            label: Przypisano do weryfikatora
           with_any_state:
             label: Z odpowiedziami
             values:
@@ -225,7 +218,6 @@ pl:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
@@ -334,26 +326,8 @@ pl:
           next_level_in: Stwórz %{score} kolejnych propozycji, aby awansować na kolejny poziom!
           unearned_another: Ten uczestnik nie utworzył jeszcze żadnych propozycji.
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
-    metrics:
-      accepted_proposals:
-        description: Liczba zaakceptowanych propozycji
-        object: propozycje
-        title: Zaakceptowane propozycje
-      endorsements:
-        description: Liczba rekomendacji propozycji
-        object: rekomendacje
-        title: Rekomendacje
-      proposals:
-        description: Liczba propozycji
-        object: propozycje
-        title: Propozycje
-      votes:
-        description: Liczba głosów na propozycje
-        object: głosów
-        title: Głosy
     participatory_spaces:
       highlighted_proposals:
-        last: Ostatnie propozycje
         see_all: Zobacz wszystkie propozycje
     proposals:
       actions:
@@ -467,21 +441,16 @@ pl:
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
-            assign_to_valuator: Przypisz do weryfikatora
-            assign_to_valuator_button: Przypisz
             cancel: Anuluj
             merge: Przyłącz do nowego
             publish: Publikuj
             publish_answers: Publikuj odpowiedzi
             select_component: Wybierz komponent
-            select_valuators: Wybierz jedną lub więcej osób zajmujących się wyceną
             selected: wybrany
             split: Podziel propozycje
             split_button: Podziel
             statuses: Statusy
             title: Propozycje
-            unassign_from_valuator: Anuluj przypisanie do weryfikatora
-            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
           new:
             create: Utwórz
@@ -491,7 +460,6 @@ pl:
             select_a_proposal: Wybierz propozycję.
           show:
             amendments_count: Liczba poprawek
-            assigned_valuators: Przypisani weryfikatorzy
             body: Treść
             comments_count: Liczba komentarzy
             documents: Dokumenty
@@ -507,13 +475,10 @@ pl:
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
-            remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
-            valuators: Weryfikatorzy
             votes_count: Liczba głosów
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił błąd.
-            success: "Zaimportowano %{number} propozycji."
           new:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
@@ -526,11 +491,6 @@ pl:
         proposals_splits:
           create:
             success: Pomyślnie podzielono propozycje.
-        valuation_assignments:
-          create:
-            success: Przypisano propozycje do weryfikatora.
-          delete:
-            success: Anulowano przypisanie weryfikatora do propozycji.
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
@@ -538,9 +498,6 @@ pl:
           update: "%{user_name} zaktualizował(a) oficjalną propozycję %{resource_name} w przestrzeni %{space_name}"
         proposal_note:
           create: "%{user_name} zostawił(a) prywatną notatkę do propozycji %{resource_name} w przestrzeni %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} przypisał(a) propozycję %{resource_name} do weryfikatora"
-          delete: "%{user_name} anulował(a) przypisanie taksatora do propozycji %{proposal_title}"
       answers:
         accepted: Zaakceptowano
         evaluating: Ocena
@@ -553,7 +510,6 @@ pl:
           meetings: Spotkania
           official: Urzędnik
           participants: Użytkownicy
-          user_groups: Grupy użytkowników
         filter_state_values:
           all: Wszystko
           not_answered: Bez odpowiedzi
@@ -683,8 +639,6 @@ pl:
             published_at: Opublikowano
             state: Status
             title: Tytuł
-            valuator: Weryfikator
-            valuators: Weryfikatorzy
             votes: Głosy
         proposal_state:
           css_class: klasa CSS
@@ -741,7 +695,6 @@ pl:
           text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
@@ -793,7 +746,6 @@ pl:
         update:
           title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już głosował
           already_voted_hover: Wycofaj głos
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów

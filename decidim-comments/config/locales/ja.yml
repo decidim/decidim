@@ -5,7 +5,6 @@ ja:
       decidim/comments/comment_created_event: コメント
       decidim/comments/comment_upvoted_event: 賛成票のあったコメント
       decidim/comments/reply_created_event: コメント返信
-      decidim/comments/user_group_mentioned_event: メンション
       decidim/comments/user_mentioned_event: メンション
   activerecord:
     models:
@@ -25,6 +24,8 @@ ja:
             enabled: コメントを有効にする
             end_time: 次の時点までのコメントを有効にする
             start_time: 次の時点からコメントを有効にする
+      comment_thread:
+        accessibility_label: '%{full_name} が %{date} に開始したコメントスレッド'
       comments:
         create:
           error: コメントの登録に問題がありました。
@@ -49,9 +50,6 @@ ja:
           form_error: テキストは必須で、 %{length} 文字を超えることはできません。
           submit_reply: 返信を公開
           submit_root_comment: コメントを公開
-          user_group_id:
-            label: 'コメント:'
-            your_profile: あなたのプロフィール
         opinion:
           label: このトピックに関するあなたの意見
           negative: 否定的
@@ -149,17 +147,11 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
-          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
-        comment_by_followed_user_group:
-          email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
-          email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
@@ -182,21 +174,11 @@ ja:
           email_outro: コメントが返信されたため、この通知を受信しました。
           email_subject: "%{author_name} が %{resource_title} であなたのコメントに返信しました"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a> であなたのコメントに返信しました
-        user_group_mentioned:
-          email_intro: あなたが所属しているグループがメンションされました
-          email_outro: あなたは %{group_name} でメンションされたグループ %{resource_title} のメンバーであるため、この通知を受け取りました。
-          email_subject: あなたは %{resource_title} で %{group_name} のメンバーとしてメンションされました
-          notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> に <a href="%{author_path}">%{author_name} %{author_nickname}</a> のメンバとして <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: あなたはメンションされています
           email_outro: あなたが %{resource_title}でメンションされたため、この通知を受け取りました。
           email_subject: あなたは %{resource_title} でメンションされました
           notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> で <a href="%{author_path}">%{author_name} %{author_nickname}によってメンションされました</a>
-    metrics:
-      comments:
-        description: 出席者によって生成されたコメント数
-        object: コメント
-        title: コメント
   errors:
     messages:
       cannot_have_comments: コメントを持つことはできません

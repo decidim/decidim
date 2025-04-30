@@ -11,7 +11,6 @@ module Decidim
 
       attribute :title, String
       attribute :description, String
-      attribute :user_group_id, Integer
       attribute :attachment, AttachmentForm
 
       attachments_attribute :documents
@@ -27,7 +26,6 @@ module Decidim
         # user locale is taken as the text locale.
         self.title = debate.title.values.first
         self.description = debate.description.values.first
-        self.user_group_id = debate.decidim_user_group_id
         self.documents = debate.attachments
       end
 

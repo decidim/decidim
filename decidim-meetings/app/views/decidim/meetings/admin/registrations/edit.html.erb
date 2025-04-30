@@ -3,6 +3,7 @@
   <h1 class="item_show__header-title">
     <%= t("title", scope: "decidim.meetings.admin.registrations.form") %>
     <div class="flex items-center gap-x-4 ml-auto">
+      <%= link_to t("registrations", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_attendees_path(meeting), class: "button button__sm button__secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
       <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
       <% if allowed_to? :export_registrations, :meeting, meeting: meeting %>
             <span class="exports button button__sm button__secondary button--title" data-toggle="export-dropdown">
@@ -27,33 +28,6 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <% if meeting.component.settings.registration_code_enabled %>
-      <div class="card mb-4">
-        <div class="card-divider">
-          <h2 class="card-title">
-            <%= t(".validate_registration_code") %>
-          </h2>
-        </div>
-        <div class="card-section">
-          <%= decidim_form_for(@validation_form, url: validate_registration_code_meeting_registrations_path, html: { class: "form form-defaults validate_meeting_registration_code" })  do |f| %>
-            <div class="form__wrapper">
-              <div class="card-section">
-                <div class="row column">
-                  <div>
-                    <%= f.label :code %>
-                  </div>
-                  <%= f.text_field :code, label: false %>
-                </div>
-                <div class="row column">
-                  <%= f.submit t(".validate"), class: "button button__sm button__secondary" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
     <%= cell("decidim/announcement", t("recommendation_message", scope: "decidim.meetings.admin.registrations.form"), callout_class: "warning" ) %>
 
     <%= decidim_form_for(@form, url: meeting_registrations_path, html: { class: "form-defaults form edit_meeting_registrations mt-4" })  do |f| %>

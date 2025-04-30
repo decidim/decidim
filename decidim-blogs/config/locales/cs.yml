@@ -71,11 +71,15 @@ cs:
             body: Tělo
             official_blog_post: Oficiální příspěvek
             published_at: Čas zveřejnění
+            taxonomies: Taxonomie
             title: Název
       posts:
         edit:
+          add_attachments: Přidat přílohy
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zpět na příspěvek
           button: Aktualizovat
+          edit_attachments: Upravit přílohy
           title: Upravit příspěvek
         form:
           author_id: Autor
@@ -109,9 +113,14 @@ cs:
         settings:
           global:
             announcement: Oznámení
+            attachments_allowed: Povolit přílohy
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet příspěvky
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
@@ -137,7 +146,6 @@ cs:
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         posts:
           author: Informace autora
           body: Tělo příspěvku

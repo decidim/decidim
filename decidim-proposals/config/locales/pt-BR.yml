@@ -9,7 +9,6 @@ pt-BR:
         scope_id: Escopo
         state: Estado
         title: Título
-        user_group_id: Criar rascunho colaborativo como
       proposal:
         address: Endereço
         answer: Responda
@@ -22,7 +21,6 @@ pt-BR:
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
-        user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
         cost: Custo
@@ -34,9 +32,6 @@ pt-BR:
         import_proposals: Importar propostas
         keep_answers: Manter o estado e as respostas
         keep_authors: Mantenha os autores originais
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome do Avaliador
     errors:
       models:
         participatory_text:
@@ -93,8 +88,6 @@ pt-BR:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-          valuator_role_ids_has:
-            label: Atribuído ao avaliador
           with_any_state:
             values:
               state_not_published: Não respondido
@@ -171,7 +164,6 @@ pt-BR:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
@@ -258,22 +250,6 @@ pt-BR:
           name: Propostas
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
           unearned_own: Você não criou nenhuma proposta ainda.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceitas pelos usuários
-        object: propostas
-        title: Propostas aceitas
-      endorsements:
-        description: Número de endossos gerados nas propostas
-        object: endossos
-        title: Endossos
-      proposals:
-        description: Número de propostas geradas
-        object: propostas
-        title: Propostas
-      votes:
-        object: votos
-        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -352,8 +328,6 @@ pt-BR:
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
-            assign_to_valuator: Atribuir ao avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
             publish: Publicar
@@ -363,15 +337,12 @@ pt-BR:
             split: Dividir propostas
             split_button: Dividir
             title: Propostas
-            unassign_from_valuator: Desatribuir do avaliador
-            unassign_from_valuator_button: Desatribuir
             update: Atualizar
           new:
             create: Criar
             title: Criar proposta
           show:
             amendments_count: As alterações contam
-            assigned_valuators: Avaliadores atribuídos
             body: Corpo
             comments_count: Contagem de Comentários
             documents: Documentos
@@ -384,8 +355,6 @@ pt-BR:
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
-            remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
-            valuators: Avaliadores
         proposals_imports:
           new:
             create: Propostas de importação
@@ -405,9 +374,6 @@ pt-BR:
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} atribuiu a proposta %{resource_name} a um valor"
-          delete: "%{user_name} desatribuiu um valor à proposta %{proposal_title}"
       answers:
         accepted: Aceitaram
         evaluating: Avaliando
@@ -420,7 +386,6 @@ pt-BR:
           meetings: Reuniões
           official: Oficial
           participants: Participantes
-          user_groups: Grupos de usuários
         filter_state_values:
           all: Todos
           not_answered: Não respondido
@@ -533,8 +498,6 @@ pt-BR:
             published_at: Publicado em
             state: Estado
             title: Título
-            valuator: Avaliador
-            valuators: Avaliadores
             votes: Votos
       participatory_text_proposal:
         alternative_title: Não há textos participativos no momento
@@ -574,7 +537,6 @@ pt-BR:
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
@@ -618,7 +580,6 @@ pt-BR:
         update:
           title: Atualizar proposta
         vote_button:
-          already_voted: Já votou
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto

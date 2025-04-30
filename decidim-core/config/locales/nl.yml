@@ -57,9 +57,6 @@ nl:
       decidim/user:
         one: Deelnemer
         other: Deelnemers
-      decidim/user_group:
-        one: Groep
-        other: Groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -196,7 +193,6 @@ nl:
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
       new:
-        amendment_author: Amendement auteur
         send: Aanmaken
         title: Maak een amendement
       preview_draft:
@@ -360,8 +356,6 @@ nl:
         name: Laatste activiteit
         title: Laatste activiteit
         view_all: Bekijk alles
-      metrics:
-        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -410,10 +404,6 @@ nl:
         ready: Klaar
     editor_images:
       drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
-    endorsements:
-      identities:
-        done: Voltooid
-        select_identity: Selecteer identiteit
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -488,52 +478,6 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
         level_up:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-      groups:
-        demoted_membership:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
-          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
-          email_subject: Je bent niet langer een beheerder van de %{user_group_name} groep!
-          notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
-        invited_to_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om deel te nemen.
-          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd tot een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
-          email_subject: Je bent uitgenodigd om deel te nemen aan de %{user_group_name} groep!
-          notification_title: U bent uitgenodigd om deel te nemen aan de <a href="%{resource_path}">%{user_group_name}</a> groep. Controleer de <a href="%{groups_profile_tab_path}">groepen pagina</a> in uw profiel om het goed te keuren!
-        join_request_accepted:
-          email_intro: Gefeliciteerd! Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft uw verzoek om hieraan deel te nemen geaccepteerd.
-          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
-          email_subject: Je bent toegelaten tot de %{user_group_name} groep!
-          notification_title: U bent geaccepteerd door de <a href="%{resource_path}">%{user_group_name}</a> groep.
-        join_request_created:
-          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. U kunt het accepteren of weigeren via <a href="%{resource_url}">de groepsleden pagina</a>.
-          email_outro: U heeft deze melding ontvangen omdat u de %{user_group_name} groep beheert.
-          email_subject: Iemand heeft verzocht lid te worden van de %{user_group_name} groep!
-          notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de groepsleden pagina</a>.
-        join_request_rejected:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om lid te worden afgewezen.
-          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
-          email_subject: Uw aanvraag om lid te worden van de %{user_group_name} groep is afgewezen!
-          notification_title: Uw aanvraag om lid te worden van de <a href="%{resource_path}">%{user_group_name}</a> groep is afgewezen.
-        promoted_to_admin:
-          email_intro: Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft u beheerdersrechten voor die groep verleend.
-          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
-          email_subject: U bent nu een beheerder van de %{user_group_name} groep!
-          notification_title: U bent nu een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
-        removed_from_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je eruit verwijderd.
-          email_outro: U heeft deze melding ontvangen omdat u lid was van die groep.
-          email_subject: U bent verwijderd uit de %{user_group_name} groep!
-          notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
-        user_group_created:
-          email_intro: Een nieuwe gebruikersgroep is aangemaakt met de naam %{user_group_name}. Je kunt het nu verifiëren in het <a href="%{groups_admin_url}">beheerderspaneel</a>.
-          email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
-          email_subject: Er is een nieuwe gebruikersgroep aangemaakt
-          notification_title: De %{user_group_name} gebruikersgroep is aangemaakt. U kunt het nu verifiëren in het <a href="%{groups_admin_path}">beheerderspaneel</a>.
-        user_group_updated:
-          email_intro: Een gebruikersgroep met de naam %{user_group_name} heeft zijn profiel bijgewerkt, dit is niet geverifieerd. Je kunt het nu verifiëren in het <a href="%{groups_admin_url}">beheerderspaneel</a>.
-          email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
-          email_subject: Een gebruikersgroep heeft zijn profiel bijgewerkt
-          notification_title: De gebruikersgroep %{user_group_name} heeft zijn profiel bijgewerkt, het niet geverifieerd. U kunt het nu verifiëren in het beheerderspaneel <a href="%{groups_admin_path}"></a>.
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
         email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
@@ -612,50 +556,7 @@ nl:
           title: Badges
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
-    group_admins:
-      actions:
-        demote_admin: Verwijder admin
-      index:
-        current_admins: 'Huidige beheerders:'
-        manage_admins: Beheer beheerders
-    group_invites:
-      accept_invitation: Aanvaarden
-      accept_or_reject_group_invitations: 'De volgende groepen hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
-      index:
-        invite: Nodig uit
-        invite_user: Nodig een deelnemer uit
-      reject_invitation: afwijzen
-    group_members:
-      actions:
-        are_you_sure: Weet je het zeker?
-        promote_to_admin: Beheerder maken
-        remove_from_group: Gebruiker verwijderen
-      index:
-        current_members_without_admins: 'Huidige leden (zonder beheerders):'
-        manage_members: Leden beheren
     groups:
-      actions:
-        are_you_sure: Weet je het zeker?
-      edit:
-        edit_user_group: Groep bewerken
-        update_user_group: Groep bijwerken
-      form:
-        email_help: E-mail van uw organisatie, vereniging, collectief, groep, etc.
-        fill_in_for_verification: 'Vul deze velden in als u wilt dat uw groep wordt geverifieerd:'
-        name_help: Naam van uw organisatie, vereniging, collectief, groep, etc.
-        nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
-      join:
-        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
-      leave:
-        success: Groep met succes verlaten.
-      members:
-        accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
-        accept_request: Aanvaarden
-        reject_request: afwijzen
-      new:
-        create_user_group: Maak een groep
-        new_user_group: Nieuwe groep
-        subtitle: Maak een groep en nodig andere gebruikers uit om deel te nemen aan een collectief niveau.
       roles:
         admin: Beheerder
         member: Lid
@@ -709,30 +610,10 @@ nl:
       home: Home
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} is een nieuw gesprek begonnen in de naam van %{group}. Klik hier om het te zien:"
-          subject: "%{manager} is een nieuw gesprek begonnen als %{group}"
-        comanagers_new_message:
-          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} heeft nieuwe berichten gepost in een gesprek in de naam van %{group}. Klik hier om ze te bekijken:"
-          subject: "%{manager} heeft nieuwe berichten verzonden als %{group}"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} is een nieuw gesprek met je begonnen. Klik hier om het te zien:"
           subject: "%{sender} is een gesprek met je begonnen"
-        new_group_conversation:
-          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} is een nieuw gesprek begonnen met de groep %{group}. Klik hier om het te zien:"
-          subject: "%{sender} is een gesprek begonnen met %{group}"
-        new_group_message:
-          admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} heeft nieuwe berichten gepost in een gesprek met de groep %{group}. Klik hier om het te zien:"
-          subject: "%{group} heeft nieuwe berichten van %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te zien:"
@@ -752,6 +633,8 @@ nl:
           new_conversation: Nieuwe conversatie
           next: Volgende
           title: conversaties
+        reply_form:
+          placeholder: Jouw antwoord...
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
@@ -759,21 +642,6 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-    metrics:
-      download:
-        csv: Gegevens downloaden (csv)
-      followers:
-        description: Aantal deelnemers dat deze participatieruimte volgt
-        object: volgers
-        title: Volgers
-      participants:
-        description: Aantal actieve deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
-      users:
-        description: Aantal deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
     newsletter_mailer:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
@@ -866,10 +734,6 @@ nl:
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
         topics: Onderwerpen
-      participatory_space:
-        metrics:
-          headline: Deelname in cijfers
-          link: Toon alle statistieken
     profile:
       deleted: Verwijderde deelnemer
     profiles:
@@ -879,23 +743,11 @@ nl:
         conversations: Gesprekken
         followers: Volgers
         following: Aan het volgen
-        groups: Groepen
-        members: Leden
         officialized: Officiële gebruiker
-      sidebar:
-        badges:
-          info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
-          title: Badges
       user:
-        create_user_group: Maak een groep
-        edit_profile: Bewerk profiel
-        edit_user_group: Bewerk groepsprofiel
-        invite_user: Nodig deelnemer uit
-        join_user_group: Verzoek om lid te worden van de groep
-        leave_user_group: Verlaat groep
-        manage_user_group_admins: Beheer beheerders
-        manage_user_group_users: Leden beheren
-        resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
+        actions:
+          edit_profile: Bewerk profiel
+          resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -926,7 +778,6 @@ nl:
       prompt: Selecteer een scope
     search:
       results: Zoek resultaten
-      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
@@ -972,9 +823,6 @@ nl:
         public_participation: Maak mijn aanwezigheid openbaar
       reference:
         reference: 'Referentie: %{reference}'
-      represent_user_group:
-        represent_user_group: Ik vertegenwoordig een groep
-        select_user_group: Selecteer een groep
       results_per_page:
         label: 'Resultaten per pagina:'
         title: Selecteer het aantal resultaten per pagina
@@ -996,18 +844,8 @@ nl:
       users_count: Deelnemers
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
-      create:
-        existing_error: Het bericht kon niet worden aangemaakt. Het gesprek bestaat al, probeer het nu opnieuw.
-        success: Gesprek is succesvol gestart!
       index:
-        conversations_info: Gesprekken zijn privé. Niemand anders kan ze zien. Een gesprek kan worden gestart met elke geregistreerde deelnemer of groep op het platform.
-        no_conversations_warning: Er zijn nog geen gesprekken.
         time_ago: "%{time} geleden"
-      reply:
-        placeholder: Jouw antwoord...
-        send: Verzenden
-      update:
-        error: Bericht niet verzonden. Probeer het later opnieuw
     version:
       show:
         back_to_resource: Ga terug
@@ -1213,7 +1051,6 @@ nl:
         my_data: Mijn data
         notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
-        user_groups: Gebruikersgroepen
   locale:
     name: Nederlands
     name_with_error: Nederlands (fout!)

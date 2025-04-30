@@ -81,7 +81,6 @@ module Decidim
     end
 
     def user
-      return resource.normalized_author if resource.respond_to?(:normalized_author)
       return resource.author if resource.respond_to?(:author)
       # As Proposals have Coauthorable concern instead of Authorable
       return resource.identities.first if resource.respond_to?(:identities)
@@ -131,8 +130,6 @@ module Decidim
       presenter = case user
                   when Decidim::User
                     UserPresenter.new(user)
-                  when Decidim::UserGroup
-                    UserGroupPresenter.new(user)
                   end
 
       return unless presenter

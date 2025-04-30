@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Автор
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
@@ -126,7 +125,6 @@ uk:
           unpublish: "%{user_name} відкинув почин %{resource_name}"
           update: "%{user_name} оновив почин %{resource_name}"
       admin_states:
-        created: Створені
         discarded: Відкинуті
         validating: Технічна перевірка
       application_helper:
@@ -143,25 +141,15 @@ uk:
           name: Висвітлені почини
       create_initiative:
         fill_data:
-          back: Повернутись
           continue: Продовжити
-          more_information: "(Додаткові відомості)"
           select_scope: Оберіть обсяг
         finish:
           back: Повернутись
-          back_to_initiatives: Повернутися до починів
-          go_to_my_initiatives: Перейти до моїх починів
-          more_information: "(Додаткові відомості)"
         previous_form:
           back: Повернутись
-          continue: Продовжити
-        promotal_committee:
-          more_information: "(Додаткові відомості)"
         select_initiative_type:
           back: Повернутись
           more_information: (Додаткові відомості)
-        share_committee_link:
-          invite_to_committee_help: Посилання для запрошення людей, які увійдуть в робочий гурт з просування
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, зробив новий почин. Прочитайте його та зробіть свій внесок:"
@@ -242,8 +230,6 @@ uk:
     decidim:
       initiative_creation_header:
         fill_data: Внести
-        finish: Завершити
-        promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
       initiatives:
         no_initiatives_yet:

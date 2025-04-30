@@ -151,8 +151,8 @@ ca:
           roles:
             admin: Administradora
             collaborator: Col·laboradora
+            evaluator: Avaluadora
             moderator: Moderadora
-            valuator: Avaluadora
         user:
           fields:
             invitation_accepted_at: Invitació acceptada el
@@ -295,7 +295,7 @@ ca:
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
         create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
-        unpublish: "%{user_name} ha despublicat el grup processos participatius: %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el grup de processos participatius: %{resource_name}"
         update: "%{user_name} ha actualitzat el grup de processos participatius %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"
@@ -342,11 +342,6 @@ ca:
           not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
     menu:
       processes: Processos
-    metrics:
-      participatory_processes:
-        description: Nombre de processos participatius d'aquesta organització
-        object: processos participatius
-        title: Processos participatius
     open_data:
       help:
         participatory_processes:
@@ -407,6 +402,8 @@ ca:
           participatory_processes:
             one: Un procés
             other: "%{count} processos"
+      related_processes:
+        help: Tots els processos seleccionats seran assignats a aquest grup, incloent-hi els que ja estan assignats a altres grups.
       show:
         title: Grups de processos participatius
     participatory_process_steps:
@@ -472,9 +469,6 @@ ca:
           highlighted_processes:
             active_spaces: Processos actius
             see_all_spaces: Veure tots els processos
-      participatory_process_steps:
-        index:
-          back_to_process: Torna a la pàgina de procés
       participatory_processes:
         description:
           area_name: Àrea

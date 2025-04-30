@@ -33,8 +33,6 @@ pt-BR:
       help_section:
         content: Conteúdo
       id: ID
-      import:
-        user_group_id: Criar importações como
       newsletter:
         body: Corpo
         send_to_all_users: Enviar para todos os usuários
@@ -96,7 +94,6 @@ pt-BR:
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
         twitter_handler: X handler
-        user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
         welcome_notification_body: Corpo de notificação de boas-vindas
@@ -192,12 +189,10 @@ pt-BR:
           new: Novo espaço participativo de usuário privado
         per_page: Por página
         permissions: Permissões
-        reject: Negar
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
         user:
           new: Novo administrador
-        verify: Verificar
       admin_terms_of_service:
         accept:
           error: Houve um erro ao aceitar os termos de serviço de administrador. 
@@ -563,11 +558,7 @@ pt-BR:
         settings: Configurações
         static_page_topics: Tópicos
         static_pages: Páginas
-        user_groups: Grupos de usuários
         users: Usuários
-      metrics:
-        metrics:
-          see_more_metrics: Ver mais métricas
       models:
         area:
           fields:
@@ -633,16 +624,6 @@ pt-BR:
               admin: Admin
               user_manager: Gerente de usuário
           name: Usuário
-        user_group:
-          fields:
-            actions: Ações
-            created_at: Criado em
-            document_number: Número do documento
-            name: Nome
-            nickname: Nome de usuário
-            phone: Telefone
-            state: Situação
-            users_count: Total de usuários
       moderated_users:
         index:
           actions:
@@ -930,7 +911,6 @@ pt-BR:
           title: Editar tópico
           update: Atualizar tópico
         new:
-          create: Criar tópico
           title: Novo tópico
         update:
           error: Houve um erro ao atualizar este tópico.
@@ -954,7 +934,6 @@ pt-BR:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar página
           title: Nova página
         topic:
           empty: Não há página sob este tópico.
@@ -1004,7 +983,6 @@ pt-BR:
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         menu: Menu
-        metrics: Métricas
         page_topics: Tópicos
         pages: Páginas
         panel: Administrador
@@ -1012,34 +990,7 @@ pt-BR:
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         statistics: Atividade
-        user_groups: Grupos de usuários
         users: Administradores
-      user_group:
-        csv_verify:
-          invalid: Ocorreu um erro ao ler o arquivo CSV.
-          success: O arquivo CSV foi enviado com sucesso, estamos verificando os grupos de usuários que correspondem aos critérios. Isso pode demorar um pouco.
-        reject:
-          invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
-          success: Grupo de usuários rejeitado com sucesso.
-        verify:
-          invalid: Ocorreu um erro ao verificar este grupo de usuários.
-          success: Grupo de usuários verificado com sucesso.
-      user_groups:
-        index:
-          state:
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          verify_via_csv: Verificar via CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Arquivo de exemplo:'
-          explanation: Envie seu arquivo CSV. Deve ter os e-mails oficiais dos grupos de usuários em sua organização na primeira coluna do arquivo, sem cabeçalhos. Somente grupos de usuários que confirmaram seus e-mails e que tenham um e-mail aparecendo no arquivo CSV serão validados.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Envie seu arquivo CSV
-          upload: Envio
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -1066,16 +1017,6 @@ pt-BR:
       errors:
         impersonate_user:
           reason: Você precisa fornecer um motivo ao representar um participante não gerenciado.
-    metrics:
-      blocked_users:
-        object: usuários bloqueados
-        title: Usuários bloqueados
-      reported_users:
-        object: usuários denunciados
-        title: Usuários denunciados
-      user_reports:
-        object: reports do usuário
-        title: Reports do usuário
     moderations:
       actions:
         expand: Expandir

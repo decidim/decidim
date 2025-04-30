@@ -7,10 +7,6 @@ ru:
             description: Описание
             tos: Условия участия
         questionnaires:
-          answer_option:
-            answer_option: Вариант ответа
-            free_text: Произвольный текст
-            remove: Удалить
           edit:
             save: Сохранить
           form:
@@ -18,7 +14,6 @@ ru:
           matrix_row:
             remove: Удалить
           question:
-            add_answer_option: Добавить вариант ответа
             any: Любые
             down: Вниз
             question: Вопрос
@@ -27,13 +22,10 @@ ru:
           update:
             invalid: При попытке сохранить форму произошли ошибки.
       question_types:
-        long_answer: Длинный ответ
         multiple_option: Несколько вариантов
         single_option: Единственный вариант
       questionnaires:
         show:
-          questionnaire_answered:
-            title: Уже отвечено
           questionnaire_closed:
             title: Форма закрыта
           questionnaire_for_private_users:

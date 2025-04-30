@@ -7,13 +7,9 @@ id:
     models:
       decidim/surveys/survey:
         other: Survei
-      decidim/surveys/survey_answer:
-        other: Jawaban
   decidim:
     components:
       surveys:
-        actions:
-          answer: Menjawab
         settings:
           global:
             announcement: Pengumuman
@@ -31,20 +27,9 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
           email_subject: Survei baru di %{participatory_space_title}
           notification_title: Survei <a href="%{resource_path}">%{resource_title}</a> di <a href="%{participatory_space_url}">%{participatory_space_title}</a> sekarang terbuka.
-    metrics:
-      survey_answers:
-        description: Jumlah survei dijawab oleh peserta
-        object: jawaban untuk survei
-        title: Jawaban untuk survei
     surveys:
       admin:
-        exports:
-          survey_user_answers: Jawaban peserta survei
         surveys:
           update:
             invalid: Terjadi masalah saat menyimpan survei.
             success: Survei berhasil disimpan.
-      surveys:
-        answer:
-          invalid: Ada masalah saat menjawab survei.
-          success: Survei berhasil dijawab.

@@ -137,7 +137,6 @@ pt-BR:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         user:
           fields:
             invitation_accepted_at: Convite aceito em
@@ -300,11 +299,6 @@ pt-BR:
           not_found: 'O tipo de processo não foi encontrado no banco de dados (ID: %{id}).'
     menu:
       processes: Processos
-    metrics:
-      participatory_processes:
-        description: Número de processos participativos nesta organização
-        object: processos participativos
-        title: Processos participativos
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -375,9 +369,6 @@ pt-BR:
           highlighted_processes:
             active_spaces: Processos ativos
             see_all_spaces: Ver todos os processos
-      participatory_process_steps:
-        index:
-          back_to_process: Voltar à página do processo
       participatory_processes:
         description:
           title: Sobre este processo

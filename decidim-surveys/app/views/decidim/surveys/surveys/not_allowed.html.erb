@@ -16,7 +16,7 @@
 
   <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
   <section>
-    <% body = t("decidim.forms.questionnaires.show.questionnaire_answered.body") %>
-    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: body }) %>
+    <% body = t("decidim.forms.questionnaires.show.questionnaire_responded.body") %>
+    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_responded.title"), body: body }) %>
   </section>
 <% end %>

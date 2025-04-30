@@ -2,7 +2,6 @@ tr:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Yazar
         description: Açıklama
         offline_votes: Şahsen imzalar
         offline_votes_for_scope: '%{scope_name} için şahsen imzalar'
@@ -26,7 +25,6 @@ tr:
         collect_user_extra_fields: İmzada katılımcıya ait kişisel verileri toplayın
         custom_signature_end_date_enabled: Yazarların imza toplama süresinin sonunu seçmesine izin ver
         description: Açıklama
-        document_number_authorization_handler: İmzalardaki belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
@@ -72,7 +70,6 @@ tr:
             label: Durum
             values:
               accepted: Yeterince imza
-              created: Oluşturuldu
               discarded: Yok sayıldı
               rejected: Yeterince imza yok
               validating: Teknik doğrulama
@@ -226,7 +223,6 @@ tr:
           edit:
             update: Güncelle
           form:
-            authorizations: Yetkilendirme ayarları
             options: Seçenekler
           initiative_type_scopes:
             title: Girişim türü için kapsamlar
@@ -241,7 +237,6 @@ tr:
           update: "%{user_name}, %{resource_name} girişimini güncelledi"
       admin_states:
         accepted: Yeterince imza
-        created: Oluşturuldu
         discarded: Yok sayıldı
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
@@ -265,37 +260,19 @@ tr:
           name: Vurgulanan girişimler
       create_initiative:
         fill_data:
-          back: Geri
           continue: Devam et
           fill_data_help: "<ul> <li> Girişiminizin içeriğini inceleyin. Başlığınızı anlamak kolay mı? Girişiminizin amacı açık mı? </li> <li> İmza türünü seçmeniz gerekiyor. Yüz yüze, çevrimiçi veya her ikisinin kombinasyonu </li> <li> Girişimin coğrafi kapsamı nedir? </li> </ul>"
-          more_information: "(Daha fazla bilgi)"
           select_area: Bir alan seçin
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
-          back_to_initiatives: Girişimlere geri dön
-          callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
-          confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
-          edit_my_initiative: Girişimimi düzenle
-          go_to_my_initiatives: Benim girişimlerime git
-          more_information: "(Daha fazla bilgi)"
-          send_my_initiative: Girişimimi teknik doğrulamaya gönder
-        finish_help:
-          publish_helper_text: Girişiminizin yayınlanması için gerekli bilgileri tamamlamanız ve bir yöneticinin incelemesi için <strong> teknik doğrulamaya göndermeniz </strong> gerektiğini unutmayın.
         previous_form:
           back: Geri
-          continue: Devam et
-        promotal_committee:
-          individual_help_text: Bu tür bir girişim, en az %{committee_size} kişiden (onaylayanlardan) oluşan bir Teşvik Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
-          more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
           choose_html: <strong>%{title}</strong> oluşturmak istiyorum
           more_information: (Daha fazla bilgi)
           select: Bu girişimi tanıtmak istiyorum
-          select_initiative_type_help: Girişimler, kuruluşun genel menfaati savunmak için eylemlerde bulunabilmesi için katılımcıların müdahale edebilecekleri bir araçtır. Hangi girişimi başlatmak istiyorsunuz?
-        share_committee_link:
-          invite_to_committee_help: Tanıtım komitesinin bir parçası olacak kişileri davet etmek için bağlantı
       edit:
         accept: Girişimi kabul edin
         back: Geri
@@ -318,20 +295,11 @@ tr:
           email_subject: Girişim %{author_nickname} tarafından onaylandı
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       initiative_signatures:
-        fill_personal_data:
-          continue: Devam et
         finish:
           back_to_initiative: Girişime geri dön
-        sms_code:
-          continue: Kodu kontrol et ve devam et
-          help: Telefonunuza gelen SMS'i kontrol edin
-        sms_phone_number:
-          continue: Bana bir sms gönder
       initiative_votes:
         create:
           error: Girişimi imzalarken bir hata oluştu.
-        personal_data:
-          invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
         sms_phone:
           invalid: Telefon numarası geçersiz veya yetki bekleniyor. Lütfen yetkilerinizi kontrol edin.
       initiatives:
@@ -429,7 +397,6 @@ tr:
       show:
         badge_name:
           accepted: Yeterince imza
-          created: Oluşturuldu
           discarded: Yok sayıldı
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
@@ -443,20 +410,11 @@ tr:
       initiatives_type:
         actions:
           title: Eylemler
-          vote: İmza
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Oluştur
-        finish: Bitir
-        promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
-      initiative_signature_creation_header:
-        fill_personal_data: Verilerinizi tamamlayın
-        finish: Bitiş
-        sms_code: SMS kodu doğrulama
-        sms_phone_number: Cep telefonu numarası
-        title: İşaret %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Henüz girişim yok!

@@ -52,13 +52,13 @@ module Decidim
           }
 
           update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
-            form_question.answer_options.each do |form_answer_option|
-              answer_option_attributes = {
-                body: form_answer_option.body,
-                free_text: form_answer_option.free_text
+            form_question.response_options.each do |form_response_option|
+              response_option_attributes = {
+                body: form_response_option.body,
+                free_text: form_response_option.free_text
               }
 
-              update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
+              update_nested_model(form_response_option, response_option_attributes, question.response_options)
             end
 
             form_question.display_conditions.each do |form_display_condition|
@@ -68,7 +68,7 @@ module Decidim
                 condition_question: form_display_condition.condition_question,
                 condition_type: form_display_condition.condition_type,
                 condition_value: type == "match" ? form_display_condition.condition_value : nil,
-                answer_option: %w(equal not_equal).include?(type) ? form_display_condition.answer_option : nil,
+                response_option: %w(equal not_equal).include?(type) ? form_display_condition.response_option : nil,
                 mandatory: form_display_condition.mandatory
               }
 

@@ -12,7 +12,7 @@ module Decidim
       field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
 
       def endorsements
-        object.endorsements.map(&:normalized_author)
+        object.endorsements.map(&:author)
       end
     end
   end

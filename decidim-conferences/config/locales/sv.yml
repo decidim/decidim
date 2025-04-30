@@ -236,8 +236,8 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
+            evaluator: Utvärderare
             moderator: Moderator
-            valuator: Handläggare
         media_link:
           fields:
             date: Datum

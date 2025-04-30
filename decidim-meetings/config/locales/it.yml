@@ -16,7 +16,6 @@ it:
         customize_registration_email: Pagina di registrazione personalizzata
         decidim_category_id: Categoria
         decidim_scope_id: Visibilità
-        decidim_user_group_id: Gruppo di utenti
         description: Descrizione
         id: ID
         location: Luogo
@@ -65,9 +64,6 @@ it:
             values:
               'false': Conclusi
               'true': Prossimi
-          with_any_origin:
-            values:
-              user_group: Gruppi di utenti
           with_any_type:
             label: Tipologia di incontro
             values:
@@ -94,14 +90,12 @@ it:
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
             maps_enabled: Mappe abilitate
-            registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled_for_participants: Creazione delle riunioni da parte dei partecipanti abilitata
-            creation_enabled_for_user_groups: Creazione delle riunioni da parte dei partecipanti abilitata
     events:
       meetings:
         meeting_closed:
@@ -129,10 +123,8 @@ it:
           email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
           notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
         meeting_updated:
-          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata aggiornata
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
           email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
           email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
@@ -199,7 +191,6 @@ it:
             create: Creare
             title: Nuova agenda
         exports:
-          answers: Risposte
           meeting_comments: Commenti
           meetings: Incontri
           registrations: Iscrizioni
@@ -261,11 +252,10 @@ it:
         registrations:
           edit:
             save: Salva
-            validate: Convalidare
-            validate_registration_code: Convalida il codice di registrazione
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
+            manage_questions: Domande
             recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
             registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione
@@ -277,9 +267,6 @@ it:
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
-          validate_registration_code:
-            invalid: Questo codice di registrazione non è valido.
-            success: Codice di registrazione validato con successo.
       admin_log:
         invite:
           create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
@@ -360,7 +347,6 @@ it:
         form:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
           available_slots_help: Lasciare a 0 se disponi di slot illimitati
-          create_as: Crea riunione come
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
           location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
           online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
@@ -374,7 +360,6 @@ it:
         new:
           back: Indietro
           create: Crea
-          title: Crea una riunione
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
@@ -391,7 +376,6 @@ it:
           micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
-          registration_code_help_text: Il tuo codice di registrazione
           registration_state:
             validated: CONVALIDATA
             validation_pending: IN ATTESA DELLA CONVALIDA
@@ -423,12 +407,8 @@ it:
             title: Titolo
       polls:
         questions:
-          index:
-            empty_questions: Durante questa riunione, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
           index_admin:
             question: Domanda
-            received_answer: risposta ricevuta
-            received_answers: risposte ricevute
             results: Risultati
             send: Invia
             sent: Inviato
@@ -447,7 +427,6 @@ it:
         confirmation:
           confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
           details: Puoi trovare i dettagli della riunione in allegato.
-          registration_code: Il tuo codice di registrazione è %{code}.
       registration_type:
         on_different_platform: Su una piattaforma diversa
         on_this_platform: Usa questa piattaforma
@@ -467,11 +446,6 @@ it:
       types:
         private_meeting: Incontro privato
         transparent: Trasparente
-    metrics:
-      meetings:
-        description: Numero di riunioni create
-        object: incontri
-        title: Incontri
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Incontri passati

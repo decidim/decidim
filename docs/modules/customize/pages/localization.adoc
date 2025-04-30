@@ -1,0 +1,57 @@
+= Localization
+
+Depending on your country, you might want to adapt some details in the configuration.
+
+Some are defined in the locales (your language configuration). If this is the same in all the countries that speak your language, then you can change it directly in the translations. You can read more about  xref:contribute:translations.adoc[how to contribute translations to Decidim]).
+If the changes that you need are only for your country or your installation, then you need to configure it on your application. This page explains how to do that.
+
+== Date and time formats
+
+These are defined in the YAML. You can read more about this in the link:https://guides.rubyonrails.org/i18n.html[Rails Internationalization (i18n) API] and also in the xref:customize:texts.adoc[Texts] page.
+
+The following keys are relevant to time and date format:
+
+```yaml
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
+```
+
+If you need to change the format to comply with the United States of America standard, you must do the following:
+
+1. Create or update the file `config/locales/en.yml` in your generated application.
+2. Add the following snippet:
+```yaml
+en:
+  date:
+    formats:
+      decidim_short: "%m/%d/%Y"
+      decidim_short_dashed: "%m-%d-%Y"
+      decidim_short_with_month_name_short: "%b %d %Y"
+      decidim_with_day_and_month_name: "%A, %b %d %Y"
+      decidim_with_month_name: "%B %d %Y"
+      decidim_with_month_name_short: "%b %d"
+      help:
+        date_format: 'Format: mm/dd/yyyy'
+      order: m-d-y
+      separator: "/"
+```
+3. Restart your application server.
+
+Note that in the case of the `order` value, currently it only supports two values:
+
+- `m-d-y`
+- `d-m-y`
+
+== Currency unit
+
+If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].

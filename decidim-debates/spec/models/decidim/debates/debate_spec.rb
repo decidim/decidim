@@ -45,12 +45,6 @@ describe Decidim::Debates::Debate do
 
       it { is_expected.not_to be_official }
     end
-
-    context "when it is authored by a user group" do
-      let(:debate) { build(:debate, :user_group_author) }
-
-      it { is_expected.not_to be_official }
-    end
   end
 
   describe "ama?" do

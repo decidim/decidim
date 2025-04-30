@@ -5,7 +5,6 @@ bg:
       decidim/comments/comment_created_event: Коментар
       decidim/comments/comment_upvoted_event: Коментарът е одобрен
       decidim/comments/reply_created_event: Отговор на коментар
-      decidim/comments/user_group_mentioned_event: Споменаване
       decidim/comments/user_mentioned_event: Споменаване
   activerecord:
     models:
@@ -16,6 +15,10 @@ bg:
         one: Глас
         other: Гласове
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Коментари
     comments:
       admin:
         shared:
@@ -45,8 +48,6 @@ bg:
           form_error: Текстът е задължителен и не може да е по-дълъг от %{length} символа.
           submit_reply: Публикуване на отговор
           submit_root_comment: Публикуване на коментар
-          user_group_id:
-            label: Коментирайте като
         opinion:
           label: Вашето мнение по тази тема
           negative: Негативно
@@ -128,11 +129,6 @@ bg:
           email_outro: Получихте това известие, защото следвате %{author_name}. Можете да спрете да следвате този потребител от страницата на неговия профил.
           email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
           notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Групата %{author_name} остави коментар в(ъв) %{resource_title}. Можете да го прочетете на следната страница:'
-          email_outro: Получавате това известие, защото следвате %{author_name}. Можете да спрете да следвате тази група от страницата на профила ѝ.
-          email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
-          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} получи коментар. Можете да прочетете коментара на тази страница:"
           email_outro: Получавате това известие, защото следвате „%{resource_title}“ или неговия автор. Можете да прекратите следването от предходната връзка.
@@ -153,21 +149,11 @@ bg:
           email_outro: Получавате това известие, защото някой отговори на коментара Ви.
           email_subject: "%{author_name} отговори на коментара Ви по %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> отговори на коментара Ви по <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Група, към която принадлежите, беше спомената
-          email_outro: Получавате това известие, защото сте член на групата %{group_name}, която беше спомената в(ъв) %{resource_title}.
-          email_subject: Бяхте споменати в(ъв) %{resource_title} като член на %{group_name}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a> като член на <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Бяхте споменати
           email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
           email_subject: Бяхте споменати в(ъв) %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Брой коментари генерирани от участници
-        object: коментари
-        title: Коментари
   errors:
     messages:
       cannot_have_comments: не може да има коментари

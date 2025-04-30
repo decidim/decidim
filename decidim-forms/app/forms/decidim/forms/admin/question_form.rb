@@ -10,7 +10,7 @@ module Decidim
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String
-        attribute :answer_options, Array[AnswerOptionForm]
+        attribute :response_options, Array[ResponseOptionForm]
         attribute :display_conditions, Array[DisplayConditionForm]
         attribute :matrix_rows, Array[QuestionMatrixRowForm]
         attribute :max_choices, Integer
@@ -26,7 +26,7 @@ module Decidim
         validates :max_characters, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
         validates :body, translatable_presence: true, if: :requires_body?
         validates :matrix_rows, presence: true, if: :matrix?
-        validates :answer_options, presence: true, if: :matrix?
+        validates :response_options, presence: true, if: :matrix?
 
         def to_param
           return id if id.present?
@@ -35,7 +35,7 @@ module Decidim
         end
 
         def number_of_options
-          answer_options.size
+          response_options.size
         end
 
         def separator?

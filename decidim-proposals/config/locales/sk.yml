@@ -8,7 +8,6 @@ sk:
         has_address: Má adresu
         state: Štát
         title: Titul
-        user_group_id: Vytvoriť návrh spolupráce ako
       proposal:
         address: Adresa
         answer: Odpovedať
@@ -20,7 +19,6 @@ sk:
         state: Štát
         suggested_hashtags: Navrhované hashtags
         title: Titul
-        user_group_id: Vytvoriť návrh ako
       proposal_answer:
         answer: Odpovedať
         cost: Náklady
@@ -31,9 +29,6 @@ sk:
       proposals_import:
         import_proposals: Importovať návrhy
         keep_authors: Uchovať pôvodných autorov
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Meno hodnotiteľa
     errors:
       models:
         proposal:
@@ -73,9 +68,6 @@ sk:
   decidim:
     admin:
       filters:
-        proposals:
-          valuator_role_ids_has:
-            label: Priradené ku hodnotiteľov
         search_placeholder:
           id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
     components:
@@ -195,19 +187,6 @@ sk:
           name: Návrhy
           next_level_in: Vytvorte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
           unearned_own: Zatiaľ ste nevytvorili žiadny návrh.
-    metrics:
-      accepted_proposals:
-        description: Počet prijatých návrhov
-        object: návrhy
-        title: Prijaté návrhy
-      endorsements:
-        description: Počet schválení návrhov
-        object: schválenia
-        title: Schválenia
-      proposals:
-        description: Počet návrhov
-        object: návrhy
-        title: Návrhy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobraziť všetky
@@ -274,8 +253,6 @@ sk:
             select_a_meeting: Vyberte schôdzku
           index:
             actions: Akcia
-            assign_to_valuator: Priradiť ku hodnotiteľovi
-            assign_to_valuator_button: Priradiť
             cancel: zrušenie
             merge: Zlúčiť do nového
             publish: Publikovať
@@ -285,15 +262,12 @@ sk:
             split: Rozdeliť návrhy
             split_button: Rozdeliť
             title: Návrhy
-            unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
-            unassign_from_valuator_button: Zrušiť priradenie
             update: Aktualizácia
           new:
             create: Vytvoriť
             title: Vytvorte návrh
           show:
             amendments_count: Počet zmien
-            assigned_valuators: Priradení hodnotitelia
             body: Telo
             comments_count: Počet komentárov
             documents: Dokumenty
@@ -308,8 +282,6 @@ sk:
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
             remove_assignment: Zrušiť priradenie
-            remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
-            valuators: Hodnotiteľ
         proposals_imports:
           new:
             create: Návrhy na dovoz
@@ -329,9 +301,6 @@ sk:
           update: "%{user_name} aktualizoval oficiálny návrh %{resource_name} na priestore %{space_name}"
         proposal_note:
           create: "%{user_name} zanechal súkromnú poznámku k návrhu %{resource_name} na %{space_name} priestore."
-        valuation_assignment:
-          create: "%{user_name} pridelil návrh %{resource_name} hodnotiteľovi"
-          delete: "%{user_name} odobral hodnotiteľovi návrh %{proposal_title}"
       answers:
         accepted: Prijaté
         evaluating: Hodnotené
@@ -343,7 +312,6 @@ sk:
           all: Všetko
           meetings: Stretnutie
           official: Oficiálne
-          user_groups: Skupiny užívateľov
         filter_state_values:
           all: Všetko
           not_answered: Nezodpovedané
@@ -453,8 +421,6 @@ sk:
             published_at: Publikované v
             state: Štát
             title: Titul
-            valuator: Hodnotiteľ
-            valuators: Hodnotitelia
             votes: Hlasy
       participatory_text_proposal:
         alternative_title: Momentálne nie sú k dispozícii žiadne príspevky

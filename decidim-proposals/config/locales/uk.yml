@@ -9,7 +9,6 @@ uk:
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -210,7 +209,6 @@ uk:
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
         vote_button:
-          already_voted: Вже проголосували
           maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати

@@ -1,8 +1,0 @@
-$("#messages .text-alert").remove();
-
-<% if defined?(message) %>
-  $("#messages").append("<%= j(cell("decidim/user_conversation", user).message(message)).html_safe %>");
-  $(".new_message textarea#message_body").val("");
-<% else %>
-  $("#messages").append("<p class='text-alert'><%= j(error) %></p>");
-<% end %>

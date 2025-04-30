@@ -203,7 +203,6 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: وسيط
-            valuator: مُقيِّم
         media_link:
           fields:
             date: تاريخ

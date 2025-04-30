@@ -1,7 +1,11 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.translated :text_field, :welcome_text, label: t(".welcome_text") %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :welcome_text, label: t(".welcome_text") %>
+  </div>
 <% end %>
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
-  <%= images_fields.upload :background_image, label: t(".background_image") %>
+  <div class="row column">
+    <%= images_fields.upload :background_image, label: t(".background_image"), button_class: "button button__sm button__transparent-secondary" %>
+  </div>
 <% end %>

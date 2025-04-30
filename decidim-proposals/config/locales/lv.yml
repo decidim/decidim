@@ -8,7 +8,6 @@ lv:
         has_address: Ir adrese
         state: Stāvoklis
         title: Nosaukums
-        user_group_id: Izveidot sadarbības projektu kā
       proposal:
         address: Adrese
         answer: Atbilde
@@ -20,7 +19,6 @@ lv:
         state: Stāvoklis
         suggested_hashtags: Ieteiktās mirkļbirkas
         title: Nosaukums
-        user_group_id: Izveidot priekšlikumu kā
       proposal_answer:
         answer: Atbilde
       proposals_copy:
@@ -28,9 +26,6 @@ lv:
       proposals_import:
         import_proposals: Importēt priekšlikumus
         keep_authors: Saglabāt oriģinālos autorus
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Vērtētāja vārds
     errors:
       models:
         proposal:
@@ -67,9 +62,6 @@ lv:
   decidim:
     admin:
       filters:
-        proposals:
-          valuator_role_ids_has:
-            label: Piešķirts vērtētājam
         search_placeholder:
           id_string_or_title_cont: Meklējiet %{collection} pēc ID vai nosaukuma.
     components:
@@ -125,7 +117,6 @@ lv:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
@@ -196,19 +187,6 @@ lv:
           name: Priekšlikumi
           next_level_in: Izveidojiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
           unearned_own: Jūs vēl neesat izveidojis nevienu priekšlikumu.
-    metrics:
-      accepted_proposals:
-        description: Pieņemto priekšlikumu skaits
-        object: priekšlikumi
-        title: Pieņemtie priekšlikumi
-      endorsements:
-        description: Atbalstīto priekšlikumu skaits
-        object: atbalsti
-        title: Atbalsts
-      proposals:
-        description: Priekšlikumu skaits
-        object: priekšlikumi
-        title: Priekšlikumi
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums
@@ -270,8 +248,6 @@ lv:
             select_a_meeting: Atlasiet sanāksmi
           index:
             actions: Darbības
-            assign_to_valuator: Piešķirt vērtētājam
-            assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             merge: Apvienot jaunā
             publish: Publicēt
@@ -281,15 +257,12 @@ lv:
             split: Sadalīt priekšlikumus
             split_button: Sadalījums
             title: Priekšlikumi
-            unassign_from_valuator: Atsaukt no vērtētāja
-            unassign_from_valuator_button: Atsaukt
             update: Atjaunināt
           new:
             create: Izveidot
             title: Izveidot priekšlikumu
           show:
             amendments_count: Grozījumu skaits
-            assigned_valuators: Piešķirtie vērtētāji
             body: Pamatteksts
             comments_count: Komentāru skaits
             documents: Dokumenti
@@ -303,8 +276,6 @@ lv:
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
             remove_assignment: Noņemt uzdevumu
-            remove_assignment_confirmation: Vai tiešām vēlaties noņemt vērtētāju šim priekšlikumam?
-            valuators: Vērtētāji
         proposals_imports:
           new:
             create: Importēt priekšlikumus
@@ -324,9 +295,6 @@ lv:
           update: "%{user_name} atjaunināja %{resource_name} oficiālo priekšlikumu %{space_name} telpā"
         proposal_note:
           create: "%{user_name} atstāja privātu piezīmi par %{resource_name} priekšlikumu telpā%{space_name}"
-        valuation_assignment:
-          create: "%{user_name} piešķīra vērtētājam priekšlikumu %{resource_name}"
-          delete: "%{user_name} atsauca vērtētāju no %{proposal_title} priekšlikuma"
       answers:
         accepted: Pieņemts
         evaluating: Vērtē
@@ -338,7 +306,6 @@ lv:
           all: Visi
           meetings: Sanāksmes
           official: Oficiālā
-          user_groups: Grupas
         filter_state_values:
           all: Visi
           not_answered: Nav atbildēts
@@ -445,8 +412,6 @@ lv:
             published_at: Publicēts plkst.
             state: Statuss
             title: Nosaukums
-            valuator: Vērtētājs
-            valuators: Vērtētāji
             votes: Balsis
       participatory_text_proposal:
         alternative_title: Pašlaik nav neviena līdzdalības teksta

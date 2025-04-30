@@ -84,13 +84,17 @@ FactoryBot.define do
     end
 
     trait :with_user_extra_fields_collection do
-      collect_user_extra_fields { true }
       extra_fields_legal_information { generate_localized_description(:initiatives_type_extra_fields_legal_information, skip_injection:) }
-      document_number_authorization_handler { "dummy_authorization_handler" }
+      document_number_authorization_handler { "dummy_signature_with_personal_data_handler" }
     end
 
     trait :with_sms_code_validation do
-      validate_sms_code_on_votes { true }
+      document_number_authorization_handler { "dummy_signature_with_sms_handler" }
+    end
+
+    trait :with_sms_code_validation_and_user_extra_fields_collection do
+      extra_fields_legal_information { generate_localized_description(:initiatives_type_extra_fields_legal_information, skip_injection:) }
+      document_number_authorization_handler { "dummy_signature_handler" }
     end
 
     trait :child_scope_threshold_enabled do
@@ -268,10 +272,6 @@ FactoryBot.define do
     end
     initiative { create(:initiative, skip_injection:) }
     author { create(:user, :confirmed, organization: initiative.organization, skip_injection:) }
-    decidim_user_group_id { create(:user_group, skip_injection:).id }
-    after(:create) do |support, evaluator|
-      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id), skip_injection: evaluator.skip_injection)
-    end
   end
 
   factory :initiatives_committee_member, class: "Decidim::InitiativesCommitteeMember" do

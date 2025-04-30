@@ -73,7 +73,7 @@ module Decidim
 
       def user_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User
         else
           root_url # is a Decidim::Organization
         end

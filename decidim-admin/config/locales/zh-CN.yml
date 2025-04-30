@@ -70,7 +70,6 @@ zh-CN:
         success_color: 成功
         time_zone: 时区
         tos_version: 服务条款版本
-        user_groups_enabled: 启用组
         warning_color: 警告
         welcome_notification_body: 欢迎通知机构
         welcome_notification_subject: 欢迎通知主题
@@ -127,9 +126,7 @@ zh-CN:
         manage: 管理
         per_page: 每页
         permissions: 权限
-        reject: 拒绝
         share: 分享
-        verify: 验证
       area_types:
         create:
           error: 创建新区域类型时出现问题。
@@ -320,11 +317,7 @@ zh-CN:
         scopes: 范围
         settings: 设置
         static_pages: 页 次
-        user_groups: 群組
         users: 参加者
-      metrics:
-        metrics:
-          see_more_metrics: 查看更多指标
       models:
         area:
           fields:
@@ -389,15 +382,6 @@ zh-CN:
               admin: 管理员
               user_manager: 参与者管理器
           name: 参与者
-        user_group:
-          fields:
-            actions: 行动
-            created_at: 创建于
-            document_number: 文档编号
-            name: 名称
-            phone: 电话
-            state: 状态
-            users_count: 参与者数量
       moderations:
         report:
           reasons:
@@ -521,6 +505,8 @@ zh-CN:
           title: 新的参与性空间活动私人参与者。
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: 上传您的 CSV 文件
           upload: 上传
       resource_permissions:
         edit:
@@ -572,7 +558,6 @@ zh-CN:
           title: 编辑主题
           update: 更新主题
         new:
-          create: 创建主题
           title: 新主题
         update:
           error: 更新这个主题时出现问题。
@@ -593,7 +578,6 @@ zh-CN:
         index:
           last_notable_change: 上一次值得注意的变化
         new:
-          create: 创建页面
           title: 新页面
         topic:
           without_topic: 无主题页面
@@ -607,31 +591,10 @@ zh-CN:
         dashboard: 仪表板
         impersonatable_users: 可管理的参与者
         impersonations: 参与者管理
-        metrics: 指标
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
         statistics: 活动
-        user_groups: 群組
-      user_group:
-        csv_verify:
-          invalid: 读取CSV文件时出现问题。
-        reject:
-          invalid: 拒绝这个组时出现问题。
-        verify:
-          invalid: 验证此组时出现问题。
-      user_groups:
-        index:
-          state:
-            pending: 待定
-            rejected: 已拒绝
-            verified: 已验证
-          verify_via_csv: 通过CSV验证
-      user_groups_csv_verifications:
-        new:
-          explanation: 上传您的 CSV 文件。它必须在文件的第一列中包含您组织中的群组的官方电子邮件，没有标题。 只有已确认其电子邮件并在CSV文件中出现电子邮件的组才会被验证。
-          title: 上传您的 CSV 文件
-          upload: 上传
       users:
         create:
           error: 邀请此管理员时出现问题。

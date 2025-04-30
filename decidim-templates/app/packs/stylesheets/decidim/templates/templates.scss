@@ -1,5 +1,9 @@
-.questionnaire-template-preview {
-  .card {
-    @apply w-full m-auto border-0;
+.questionnaire-template__form {
+  .form__wrapper input[type="radio"] {
+    @apply mt-0;
+  }
+
+  &-card {
+    @apply p-4 block border border-background rounded-lg cursor-pointer has-[:checked]:border-secondary has-[:checked]:border-2;
   }
 }

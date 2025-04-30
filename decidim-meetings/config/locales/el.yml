@@ -16,7 +16,6 @@ el:
         customize_registration_email: Προσαρμογή email εγγραφής
         decidim_category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
-        decidim_user_group_id: Ομάδα χρηστών
         description: Περιγραφή
         end_time: Ώρα λήξης
         id: ID
@@ -129,14 +128,12 @@ el:
             default_registration_terms: Προεπιλεγμένοι όροι εγγραφής
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             maps_enabled: Χάρτες ενεργοποιημένοι
-            registration_code_enabled: Ενεργοποιήθηκε ο κωδικός εγγραφής
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε σύσκεψη
             terms_and_conditions_url_for_meeting_creators: URL Όρων και Προϋποθέσεων για τους δημιουργούς της συνάντησης
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
             creation_enabled_for_participants: Δημιουργία συνάντησης από τους συμμετέχοντες ενεργοποιημένη
-            creation_enabled_for_user_groups: Δημιουργία συνάντησης από ομάδες χρηστών ενεργοποιημένη
     events:
       meetings:
         meeting_closed:
@@ -164,10 +161,8 @@ el:
           email_subject: Οι κατανεμημένες θέσεις για τη σύσκεψη «%{resource_title}» είναι πάνω από %{percentage}%
           notification_title: Οι κατανεμημένες θέσεις για τη σύσκεψη <a href="%{resource_path}">%{resource_title}</a> είναι πάνω από %{percentage}%.
         meeting_updated:
-          email_intro: 'Η σύσκεψη «%{resource_title}» ενημερώθηκε. Μπορείτε να διαβάσετε τη νέα έκδοση από τη σελίδα της:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τη σύσκεψη «%{resource_title}». Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
           email_subject: Η σύσκεψη «%{resource_title}» ενημερώθηκε
-          notification_title: Η σύσκεψη <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε.
         registration_code_validated:
           email_intro: Ο κωδικός εγγραφής «%{registration_code}» για τη σύσκεψη «%{resource_title}» επικυρώθηκε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ο κωδικός εγγραφής σας για τη σύσκεψη «%{resource_title}» επικυρώθηκε.
@@ -245,7 +240,6 @@ el:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της ατζέντας.
             success: Η ατζέντα ενημερώθηκε επιτυχώς.
         exports:
-          answers: Απαντήσεις
           meeting_comments: Σχόλια
           meetings: Συσκέψεις
           registrations: Εγγραφές
@@ -326,11 +320,10 @@ el:
         registrations:
           edit:
             save: Αποθήκευση
-            validate: Επικύρωση
-            validate_registration_code: Επικύρωση κωδικού εγγραφής
           form:
             available_slots_help: Αφήστε το σε 0, εάν έχετε απεριόριστες διαθέσιμες θέσεις.
             invites: Προσκλήσεις
+            manage_questions: Ερωτήσεις
             recommendation_message: Για λόγους απορρήτου, συνιστούμε να διαγράψετε αυτήν τη φόρμα επιγραφής όταν δεν τη χρειάζεστε πλέον. Από προεπιλογή, αυτό είναι 3 μήνες μετά τη λήξη της σύσκεψης.
             registration_email_help: Αυτό το κείμενο θα εμφανιστεί στη μέση του email επιβεβαίωσης εγγραφής. Λίγο μετά τον κωδικό εγγραφής.
             registration_form: Φόρμα εγγραφής
@@ -343,9 +336,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση των ρυθμίσεων εγγραφής.
             success: Οι ρυθμίσεις εγγραφής στη σύσκεψη αποθηκεύτηκαν με επιτυχία.
-          validate_registration_code:
-            invalid: Αυτός ο κωδικός εγγραφής δεν είναι έγκυρος.
-            success: Ο κωδικός εγγραφής επικυρώθηκε με επιτυχία.
       admin_log:
         invite:
           create: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{attendee_name} στη σύσκεψη %{resource_name} στον χώρο %{space_name}"
@@ -459,7 +449,6 @@ el:
         form:
           address_help: 'Διεύθυνση: χρησιμοποιείται από το Geocoder για τον εντοπισμό της τοποθεσίας'
           available_slots_help: Αφήστε το σε 0, εάν έχετε απεριόριστες διαθέσιμες θέσεις
-          create_as: Δημιουργία συνάντησης ως
           disclaimer: 'Αποποίηση ευθυνών: Χρησιμοποιώντας ένα εξωτερικό σύστημα εγγραφής, γνωρίζετε ότι οι διοργανωτές του %{organization} δεν είναι υπεύθυνοι για τα δεδομένα που παρέχονται από τους χρήστες στην εξωτερική υπηρεσία.'
           location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους χρήστες υποδεικνύοντας το σημείο συνάντησης'
           location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου αν πρόκειται για προσωπική συνάντηση ή τον κωδικό πρόσβασης συνάντησης αν πρόκειται για ηλεκτρονική συνάντηση με περιορισμένη πρόσβαση.'
@@ -480,7 +469,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Δημιουργήστε τη Συνάντησή σας
         registration_confirm:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
@@ -497,7 +485,6 @@ el:
           micro_camera_permissions_warning: Όταν κάνετε κλικ στο παρακάτω κουμπί, θα σας ζητηθεί δικαιώματα μικροφώνου ή / και κάμερας και θα συμμετάσχετε στη βιντεοδιάσκεψη
           no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
           organizations: Οργανισμοί που συμμετέχουν
-          registration_code_help_text: Ο κωδικός εγγραφής σας
           registration_state:
             validated: ΕΠΙΚΥΡΩΘΗΚΕ
             validation_pending: ΕΚΚΡΕΜΕΙ ΕΠΙΚΥΡΩΣΗ
@@ -532,13 +519,9 @@ el:
             title: Τίτλος
       polls:
         questions:
-          index:
-            empty_questions: Κατά τη διάρκεια αυτής της συνάντησης, ορισμένες ερωτήσεις θα σταλούν και θα είστε σε θέση να τις απαντήσετε. Θα εμφανιστούν εδώ.
           index_admin:
             edit: Επεξεργασία στον πίνακα διαχείρισης
             question: Ερώτηση
-            received_answer: έλαβε απάντηση
-            received_answers: έλαβε απαντήσεις
             results: Αποτελέσματα
             send: Αποστολή
             sent: Στάλθηκε
@@ -556,7 +539,6 @@ el:
         confirmation:
           confirmed_html: Η εγγραφή σας στη σύσκεψη <a href="%{url}">%{title}</a> έχει επιβεβαιωθεί.
           details: Θα βρείτε τις λεπτομέρειες της σύσκεψης στο συνημμένο.
-          registration_code: Ο κωδικός εγγραφής σας είναι %{code}.
       registration_type:
         on_different_platform: Σε διαφορετική πλατφόρμα
         on_this_platform: Σε αυτή την πλατφόρμα
@@ -581,11 +563,6 @@ el:
         withdraw: Αποσύρθηκε
       withdraw:
         success: Η συνάντηση αποσύρθηκε με επιτυχία.
-    metrics:
-      meetings:
-        description: Αριθμός συσκέψεων που δημιουργήθηκαν
-        object: συσκέψεις
-        title: Συσκέψεις
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Προηγούμενες συσκέψεις

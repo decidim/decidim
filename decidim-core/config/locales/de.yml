@@ -5,6 +5,7 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       attachment:
         documents: Dokumente
+        image: Bild
         photos: Fotos
       common:
         created_at: Erstellt am
@@ -52,8 +53,12 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
-      user_group:
-        avatar: Profilbild
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Der Spitzname muss Kleinbuchstaben sein und keine Leerzeichen enthalten
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -69,7 +74,6 @@ de:
       decidim/removed_from_group: Aus der Gruppe entfernt
       decidim/resource_endorsed_event: Ressource befürwortet
       decidim/resource_hidden_event: Ressource versteckt
-      decidim/user_group_created_event: Benutzergruppe erstellt
       decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
@@ -97,9 +101,6 @@ de:
       decidim/user:
         one: Benutzer
         other: Benutzer
-      decidim/user_group:
-        one: Benutzergruppe
-        other: Benutzergruppen
   booleans:
     'false': 'Nein'
     'true': 'Ja'
@@ -171,6 +172,7 @@ de:
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       opens_in_new_tab: In neuem Tab öffnen
+      secondary_menu: Sekundäres Menü
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -185,6 +187,7 @@ de:
         leaving_authorizations_behind: Einige Daten, die an Ihre Autorisierung gebunden sind, werden aus Sicherheitsgründen gespeichert. Wenn Sie ein anderes Konto erstellen und erneut autorisieren, werden diese Daten auf Ihr neues Konto wiederhergestellt.
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
+        inactive_account_removal_reason: Konto nach %{inactivity_period} Tagen Inaktivität entfernt
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
@@ -384,7 +387,6 @@ de:
             wurde vom Autor zurückgezogen.
       name: Anpassung
       new:
-        amendment_author: Änderungsautor
         send: Erstellen
         title: Änderungsvorschlag erstellen
       preview_draft:
@@ -531,7 +533,7 @@ de:
           comment: Kommentar
           debate: Debatte
           initiative: Initiative
-          meeting: Treffen
+          meeting: Veranstaltung
           order: Budget-Abstimmung
           post: Beitrag
           proposal: Vorschlag
@@ -611,10 +613,6 @@ de:
         name: Hauptdaten
       metadata:
         name: Metadaten
-      metrics:
-        name: Organisationsmetriken
-      participatory_space_metrics:
-        name: Metriken
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -771,12 +769,6 @@ de:
           moderation: Die Moderationsmeldung dieses Berichts
           reason: Die Begründung dieser Meldung
           updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
-        user_groups:
-          document_number: Die Dokumentennummer dieser Benutzergruppe
-          id: Die eindeutige Bezeichnung der Gruppe
-          name: Der Name dieser Benutzergruppe
-          phone: Die Telefonnummer dieser Benutzergruppe
-          verified_at: Datum und Uhrzeit, wann diese Benutzergruppe überprüft wurde
         users:
           about: Die Profilbeschreibung dieses Benutzers
           accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
@@ -842,10 +834,6 @@ de:
     endorsement_buttons_cell:
       already_endorsed: Zustimmung zurückziehen
       endorse: Gefällt mir
-    endorsements:
-      identities:
-        done: Erledigt
-        select_identity: Identität auswählen
     endorsers_list:
       endorsed_by:
         one: '%{visible} stimmt zu'
@@ -954,52 +942,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
           email_subject: Sie haben Level %{current_level} auf dem Abzeichen %{badge_name} erreicht!
           notification_title: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_path}">%{badge_name}</a> erreicht!
-      groups:
-        demoted_membership:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist kein Administrator der Gruppe %{user_group_name} mehr!
-          notification_title: Sie sind nicht mehr Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie in die Gruppe eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie das Tab "Gruppen" in Ihrem Profil, um die Einladung zu akzeptieren.
-          email_subject: Sie wurden eingeladen, der Gruppe %{user_group_name} beizutreten!
-          notification_title: Sie wurden eingeladen, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten. Besuchen Sie die <a href="%{groups_profile_tab_path}">Gruppen-Seite</a> in Ihrem Profil, um die Einladung zu akzeptieren!
-        join_request_accepted:
-          email_intro: Herzlichen Glückwunsch! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
-          email_subject: Sie wurden in die Gruppe %{user_group_name} aufgenommen!
-          notification_title: Sie wurden in die Gruppe <a href="%{resource_path}">%{user_group_name}</a> aufgenommen.
-        join_request_created:
-          email_intro: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_url}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Gruppe %{user_group_name} verwalten können.
-          email_subject: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten!
-          notification_title: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_path}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
-        join_request_rejected:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage abgelehnt, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
-          email_subject: Ihre Anfrage, der Gruppe %{user_group_name} beizutreten, wurde abgelehnt!
-          notification_title: Ihre Anfrage, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten, wurde abgelehnt.
-        promoted_to_admin:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihnen Administratorrechte für diese Gruppe erteilt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist jetzt ein Admin der Gruppe %{user_group_name}!
-          notification_title: Sie sind jetzt ein Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
-          email_subject: Du wurdest aus der Gruppe %{user_group_name} entfernt!
-          notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a> entfernt.
-        user_group_created:
-          email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Eine neue Benutzergruppe wurde erstellt
-          notification_title: Die Benutzergruppe %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
-        user_group_updated:
-          email_intro: Die Benutzergruppe mit dem Namen %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Eine Benutzergruppe hat ihr Profil aktualisiert
-          notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
       nickname_event:
         notification_body: Wir haben die Verwendung von Spitznamen so korrigiert, dass es keine Duplikate gibt, und deshalb haben wir die Gross-/Kleinschreibungsregeln entfernt. <br/> Ihr Spitzname wurde nach einem anderen mit dem gleichen Namen erstellt, weshalb wir ihn automatisch umbenannt haben. Sie können ihn in <a href="%{link_to_account_settings}">Ihren Kontoeinstellungen</a> ändern.
       notification_event:
@@ -1149,92 +1091,11 @@ de:
       level: Level %{level}
       reached_top: Sie haben die höchste Stufe dieses Abzeichens erreicht.
       title: Was sind Abzeichen?
-    group_admins:
-      actions:
-        are_you_sure: Sind Sie sicher? Dadurch wird der Teilnehmer nicht aus der Gruppe entfernt.
-        demote_admin: Entferne Admin
-      demote:
-        error: Beim Entfernen dieses Teilnehmers aus der Adminliste ist ein Fehler aufgetreten.
-        success: Teilnehmer erfolgreich aus den Admins entfernt.
-      index:
-        current_admins: 'Aktuelle Admins:'
-        manage_admins: Admins verwalten
-    group_invites:
-      accept:
-        error: Beim Akzeptieren dieser Einladung ist ein Fehler aufgetreten.
-        success: Einladung erfolgreich angenommen.
-      accept_invitation: Akzeptieren
-      accept_or_reject_group_invitations: 'Die folgenden Gruppen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
-      index:
-        invite: Einladen
-        invite_user: Laden Sie einen Benutzer ein
-      invite:
-        error: Bei der Einladung dieses Teilnehmers ist ein Problem aufgetreten.
-        success: Teilnehmer erfolgreich eingeladen.
-      pending_invitations: Ausstehende Anfragen
-      reject:
-        error: Beim Ablehnen dieser Einladung ist ein Fehler aufgetreten.
-        success: Einladung erfolgreich abgelehnt.
-      reject_invitation: Ablehnen
-    group_members:
-      accept:
-        error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
-        success: Beitrittsanfrage erfolgreich angenommen.
-      actions:
-        are_you_sure: Sind Sie sich sicher?
-        promote_to_admin: Zum Admin ernennen
-        remove_from_group: Benutzer entfernen
-      index:
-        current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
-        manage_members: Mitglieder verwalten
-      promote:
-        error: Bei der Beförderung dieses Teilnehmers ist ein Problem aufgetreten.
-        success: Teilnehmer erfolgreich befördert.
-      reject:
-        error: Beim Ablehnen dieser Beitrittsanfrage ist ein Fehler aufgetreten.
-        success: Beitrittsanfrage erfolgreich abgelehnt.
-      remove:
-        error: Beim Entfernen dieses Teilnehmers aus der Gruppe ist ein Problem aufgetreten.
-        success: Teilnehmer erfolgreich aus der Gruppe entfernt.
     groups:
-      actions:
-        are_you_sure: Sind Sie sich sicher?
-      create:
-        error: Beim Erstellen der Gruppe ist ein Problem aufgetreten.
-        success: Gruppe erfolgreich erstellt.
-      edit:
-        edit_user_group: Gruppe bearbeiten
-        update_user_group: Gruppe aktualisieren
-      form:
-        document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
-        email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
-        name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Kontonamen Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
-        phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
-      join:
-        error: Beim Beitritt zur Gruppe ist ein Problem aufgetreten.
-        success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
-      leave:
-        error: Beim Verlassen der Gruppe ist ein Problem aufgetreten.
-        last_admin: Sie können sich nicht von dieser Gruppe entfernen, da Sie der einzige Admin sind. Machen Sie ein anderes Mitglied zum Admin, um die Gruppe verlassen zu können.
-        success: Gruppe erfolgreich verlassen.
-      members:
-        accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
-        accept_request: Akzeptieren
-        reject_request: Ablehnen
-      new:
-        create_user_group: Gruppe erstellen
-        new_user_group: Neue Gruppe
-        subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
-      no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
         creator: Administrator
         member: Mitglied
-      update:
-        error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten.
-        success: Gruppe erfolgreich aktualisiert.
     help:
       main_topic:
         default_page:
@@ -1295,42 +1156,16 @@ de:
       static:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Diese Gruppe hat noch keine Mitglieder.
     menu:
       help: Hilfe
       home: Start
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
-          greeting: Hallo, %{recipient}!
-          intro: "%{manager} hat eine Unterhaltung im Namen von %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Vergnügen auf der Plattform!
-          subject: "%{manager} hat eine Unterhaltung als %{group} begonnen"
-        comanagers_new_message:
-          admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
-          greeting: Hallo, %{recipient}!
-          intro: "%{manager} hat Nachrichten in einer Unterhaltung im Namen von %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Vergnügen auf der Plattform!
-          subject: "%{manager} hat neue Nachrichten als %{group} gesendet"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
           outro: Viel Vergnügen auf der Plattform!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
-        new_group_conversation:
-          admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
-          greeting: Hallo, %{recipient}!
-          intro: "%{sender} hat eine neue Unterhaltung mit der Gruppe %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Vergnügen auf der Plattform!
-          subject: "%{sender} hat eine Unterhaltung mit %{group} begonnen"
-        new_group_message:
-          admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
-          greeting: Hallo, %{recipient}!
-          intro: "%{sender} hat neue Nachrichten in einer Unterhaltung mit der Gruppe %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Vergnügen auf der Plattform!
-          subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
@@ -1343,6 +1178,8 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer möchte keine privaten Nachrichten empfangen.
+          participants:
+            title: Teilnehmende
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
@@ -1375,27 +1212,6 @@ de:
         finished: 'Beendet am: %{end_date}'
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
-    metrics:
-      blocked_users:
-        description: Anzahl der blockierten Teilnehmenden
-      download:
-        csv: Daten herunterladen (CSV)
-      followers:
-        description: Anzahl der Benutzer, die dieser Teilnahme folgen
-        object: Anhänger
-        title: Anhänger
-      participants:
-        description: Anzahl der aktiven Benutzer in der Organisation
-        object: Teilnehmer
-        title: Teilnehmer
-      reported_users:
-        description: Anzahl der gemeldeten Teilnehmenden
-      user_reports:
-        description: Anzahl der von Teilnehmenden getätigten Meldungen
-      users:
-        description: Anzahl der Benutzer in der Organisation
-        object: Benutzer
-        title: Benutzer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
@@ -1475,6 +1291,7 @@ de:
         assigned_to_proposal: Ich möchte eine E-Mail erhalten, wenn mir jemand einen Vorschlag zur Bewertung zuweist
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
+        evaluators: Bewertende Personen
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
@@ -1491,7 +1308,6 @@ de:
         push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
-        valuators: Bewertende
       update:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
@@ -1516,14 +1332,13 @@ de:
         core:
           components: Komponenten
           description: Diese ZIP-Datei enthält Dateien zum Studium und Recherchen über diese Mitwirkungsplattform.
+          generated_on_date: Generiert am %{date}
           main: Kern
+          resources:
+            one: "%{count} Ressource"
+            other: "%{count} Ressourcen"
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
-        metrics:
-          cumulative: Die Gesamtzahl der Metrik an diesem Tag
-          day: Erstellungsdatum dieser Metrik
-          metric_type: Typ der Metrik
-          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1554,16 +1369,6 @@ de:
           taxonomizations_count: Die Anzahl der Ressourcen, die diese Klassifizierung verwenden
           updated_at: Datum, an dem diese Klassifizierung zuletzt aktualisiert wurde
           weight: Die Reihenfolge, in der diese Klassifizierung angezeigt wird
-        user_groups:
-          avatar_url: Der Avatar der Gruppe
-          badge: Das Abzeichen der Gruppe
-          deleted: Ob der Benutzer gelöscht wurde oder nicht
-          id: Die eindeutige Bezeichnung des Gruppe
-          members: Die IDs und die Namen der Gruppenmitglieder
-          members_count: Die Anzahl Gruppenmitglieder
-          name: Der Anzeigename der Gruppe
-          nickname: Der Kontoname der Gruppe
-          profile_url: Die Profil-URL
         users:
           about: Der Beschreibungstext des Kontos
           avatar_url: Der Avatar des Kontos
@@ -1656,10 +1461,6 @@ de:
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1677,6 +1478,26 @@ de:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Unsere Datensätze zeigen, dass Sie ein %{organization_name} Konto am <strong>%{date_account_creation}</strong> erstellt haben und seit <strong>%{date_last_connection}</strong> nicht mehr aktiv waren.</p>
+          <p>Zum Schutz Ihrer Privatsphäre, werden wir dieses Konto in <strong>%{days} Tagen</strong> automatisch löschen geplant.</p>
+          <p>Wenn Sie Ihr %{organization_name} Konto behalten möchten, dann %{login_url} vor Ablauf der Frist, und Ihr Konto bleibt erhalten.<p>
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello_html: Hallo <strong>%{username}</strong>,
+        log_in: anmelden
+        never_logged_in: Nie angemeldet
+        subject: Inaktive Kontowarnung
+      removal_notification:
+        body: Ihr %{organization_name} Konto wurde aufgrund von Inaktivität gelöscht.
+        greetings_html: |
+          Freundliche Grüsse,<br>
+          %{organization_name}
+        hello: Hallo %{username},
+        subject: Inaktives Konto gelöscht
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1685,7 +1506,6 @@ de:
       deleted: Gelöschter Teilnehmer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
-      default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
       default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
       show:
         activity: Aktivität
@@ -1693,41 +1513,18 @@ de:
         conversations: Unterhaltungen
         followers: Follower
         following: Folgt
-        group_admins: Admins verwalten
-        group_members: Mitglieder verwalten
-        groups: Gruppen
-        members: Mitglieder
         officialized: Offizieller Teilnehmer
         send_private_message: Private Nachricht senden
-      sidebar:
-        badges:
-          info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
-          title: Abzeichen
       user:
         actions:
-          create_user_group: Gruppe erstellen
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
-          edit_user_group: Gruppenprofil bearbeiten
-          invite_user: Teilnehmer einladen
-          join_user_group: Gruppenbeitritt anfragen
-          leave_user_group: Gruppe verlassen
-          manage_user_group: Gruppe verwalten
-          manage_user_group_admins: Admins verwalten
-          manage_user_group_users: Mitglieder verwalten
           message: Nachricht
           resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
-        confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
-        create_user_group: Gruppe erstellen
-        edit_profile: Profil bearbeiten
-        edit_user_group: Gruppenprofil bearbeiten
-        fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
-        invite_user: Nutzer einladen
-        join_user_group: Anfrage zur Teilnahme an der Gruppe
-        leave_user_group: Gruppe verlassen
-        manage_user_group_admins: Admins verwalten
-        manage_user_group_users: Mitglieder verwalten
-        resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
+    qr:
+      show:
+        scan: QR-Code scannen
+        title: QR-Code für %{resource_title}
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -1755,6 +1552,8 @@ de:
         report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
       controls_label: Ressourcensteuerung
+    resource_autocomplete:
+      help: Tippen, um Vorschläge zu durchsuchen
     resource_endorsements:
       create:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
@@ -1764,7 +1563,6 @@ de:
     search:
       name: Suchen
       results: Suchergebnisse
-      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
@@ -1785,6 +1583,10 @@ de:
       selfxss_warning:
         description: Diese Browser-Funktion ist nur für Entwickler gedacht und Sie sollten hier keine Daten einfügen, wenn Sie darum gebeten wurden. Das Einfügen von Inhalten in dieses Fenster kann Ihre Privatsphäre beeinträchtigen und Hackern Zugriff auf Ihr Konto ermöglichen.
         title: Stop!
+    share_widget:
+      download: Herunterladen
+      print: Poster drucken
+      qr_code: QR Code
     shared:
       confirm_modal:
         cancel: Abbrechen
@@ -1815,14 +1617,13 @@ de:
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
-        close: Schließen
-        description: Was ist unangebracht über den Benutzer?
+        description: Was ist unangemessen an diesem Teilnehmenden?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
         offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Unangemessenen Nutzer melden
+        title: Unangemessenen Teilnehmenden melden
       floating_help:
         help: Hilfe
       follow_button:
@@ -1837,9 +1638,6 @@ de:
         public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
-      represent_user_group:
-        represent_user_group: Ich vertrete eine Gruppe
-        select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
         label: 'Ergebnisse pro Seite:'
         title: Anzahl der Ergebnisse pro Seite auswählen
@@ -1847,6 +1645,7 @@ de:
         copy_share_link: Kopieren
         copy_share_link_clarification: Öffentlichen Link in die Zwischenablage kopieren
         copy_share_link_copied: Kopiert!
+        copy_share_link_cta: Oder Link kopieren
         copy_share_link_message: Der Link wurde erfolgreich in die Zwischenablage kopiert.
         share: Teilen
         share_link: Link teilen
@@ -1874,19 +1673,28 @@ de:
         no_activities_warning: Für diesen Teilnehmer gibt es bisher noch keine Aktivität.
     user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
     user_conversations:
-      create:
-        error: Die Nachricht konnte nicht erstellt werden. Versuchen Sie es später nochmal.
-        existing_error: Die Nachricht konnte nicht erstellt werden. Die Unterhaltung besteht bereits, versuchen Sie es noch einmal.
-        success: Unterhaltung erfolgreich gestartet!
       index:
-        conversations_info: Unterhaltungen sind privat, niemand sonst kann sie anzeigen. Eine Unterhaltung kann von jedem auf der Plattform registrierten Teilnehmer oder jeder Gruppe gestartet werden.
-        no_conversations_warning: Es gibt noch keine Unterhaltungen.
         time_ago: "Vor %{time}"
-      reply:
-        placeholder: Ihre Antwort...
-        send: Senden
-      update:
-        error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update für folgende Gruppe, bei der Sie Mitglied sind, informieren: <strong>%{group_name}</strong>.'
+        body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
+        greeting: Hallo %{name},
+        instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
+        instructions_intro: Wir haben Anweisungen an die mit dem Konto verknüpfte E-Mail-Adresse gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
+        subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
+      notify_deprecation_to_owner:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
+        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3: Um weiterhin auf Ihr Konto zuzugreifen, müssen Sie ein Passwort setzen.
+        greeting: Hallo %{name},
+        instructions_1: 'Klicken Sie auf den Link unten, um den Passwortaufsetzungsprozess zu starten:'
+        instructions_2: Geben Sie in das Formular die E-Mail-Adresse ein, unter der Sie diese Nachricht erhalten haben, und senden Sie die Anfrage ab.
+        instructions_3: Überprüfen Sie Ihren Posteingang für eine E-Mail mit weiteren Anweisungen, um Ihr neues Passwort festzulegen.
+        instructions_title: "<strong>Was Sie tun müssen</strong>"
+        set_password: Starte Passwortsetzungsprozess
+        subject: Wichtiges Update zur Gruppenfunktion
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2255,8 +2063,11 @@ de:
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
+        back: Zurück zur Liste
+        cancel: Abbrechen
         close: Schliessen
-        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
+        confirm_close_ephemeral_session: Wenn Sie wegnavigieren, wird Ihre temporäre Sitzung geschlossen. Allerdings werden alle Fortschritte und Aktivitäten gespeichert. Wenn Sie Ihre Aktivität beendet haben, klicken Sie auf OK.
+        confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
@@ -2302,7 +2113,6 @@ de:
         notifications_settings: Benachrichtigungseinstellungen
         profile: Profil
         title: Benutzereinstellungen
-        user_groups: Gruppen
   locale:
     name: Deutsch
     name_with_error: Deutsch (Fehler!)

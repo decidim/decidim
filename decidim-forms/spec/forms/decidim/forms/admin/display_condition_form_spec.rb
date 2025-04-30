@@ -12,7 +12,7 @@ module Decidim
                               decidim_condition_question_id:,
                               condition_value:,
                               condition_type:,
-                              decidim_answer_option_id:,
+                              decidim_response_option_id:,
                               mandatory: true).with_context(current_organization: organization)
         end
 
@@ -21,11 +21,11 @@ module Decidim
         let(:decidim_condition_question_id) { condition_question&.id }
         let(:question) { create(:questionnaire_question, position: 2) }
         let(:decidim_question_id) { question&.id }
-        let(:answer_option) { create(:answer_option, question: condition_question) }
-        let(:decidim_answer_option_id) { answer_option&.id }
+        let(:response_option) { create(:response_option, question: condition_question) }
+        let(:decidim_response_option_id) { response_option&.id }
         let(:questionnaire) { question.questionnaire }
 
-        let(:condition_type) { :answered }
+        let(:condition_type) { :responded }
         let(:condition_value) do
           {
             en: "Text en",
@@ -46,7 +46,7 @@ module Decidim
 
         context "when decidim_condition_question_id is not present" do
           let!(:decidim_condition_question_id) { nil }
-          let!(:decidim_answer_option_id) { nil } # otherwise it will try to use condition_question overridden in previous line
+          let!(:decidim_response_option_id) { nil } # otherwise it will try to use condition_question overridden in previous line
 
           it { is_expected.not_to be_valid }
         end
@@ -73,16 +73,16 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when answer_option is not from condition_question" do
+        context "when response_option is not from condition_question" do
           let(:condition_type) { :equal }
-          let(:answer_option) { create(:answer_option) }
+          let(:response_option) { create(:response_option) }
 
           it { is_expected.not_to be_valid }
         end
 
-        context "when answer_option is mandatory" do
+        context "when response_option is mandatory" do
           let!(:condition_type) { :equal }
-          let!(:decidim_answer_option_id) { nil }
+          let!(:decidim_response_option_id) { nil }
 
           it { is_expected.not_to be_valid }
         end
@@ -90,23 +90,23 @@ module Decidim
         context "when it is deleted" do
           let!(:condition_type) { :equal }
           let!(:condition_value) { nil }
-          let!(:decidim_answer_option_id) { nil }
+          let!(:decidim_response_option_id) { nil }
 
           before { subject.deleted = true }
 
           it { is_expected.to be_valid }
         end
 
-        describe "#answer_options" do
+        describe "#response_options" do
           context "when decidim_condition_question_id is set" do
-            it { expect(subject.answer_options).to match_array(condition_question.answer_options) }
+            it { expect(subject.response_options).to match_array(condition_question.response_options) }
           end
 
           context "when decidim_condition_question_id is not set" do
             let!(:condition_question) { nil }
-            let!(:answer_option) { nil }
+            let!(:response_option) { nil }
 
-            it { expect(subject.answer_options).to be_empty }
+            it { expect(subject.response_options).to be_empty }
           end
         end
 
@@ -148,21 +148,21 @@ module Decidim
 
           context "when decidim_condition_question_id is not set" do
             let!(:condition_question) { nil }
-            let!(:answer_option) { nil }
+            let!(:response_option) { nil }
 
             it { expect(subject.condition_question).to be_nil }
           end
         end
 
-        describe "#answer_option" do
-          context "when decidim_answer_option_id is set" do
-            it { expect(subject.answer_option).to eq(answer_option) }
+        describe "#response_option" do
+          context "when decidim_response_option_id is set" do
+            it { expect(subject.response_option).to eq(response_option) }
           end
 
-          context "when decidim_answer_option_id is not set" do
-            let!(:answer_option) { nil }
+          context "when decidim_response_option_id is not set" do
+            let!(:response_option) { nil }
 
-            it { expect(subject.answer_option).to be_nil }
+            it { expect(subject.response_option).to be_nil }
           end
         end
 

@@ -194,7 +194,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-            valuator: Оценител
       titles:
         assemblies: Събрания
         assemblies_types: Типове събрания
@@ -354,11 +353,6 @@ bg:
           not_found: 'Типът събрание не бе намерен в базата данни (Идент. №: %{id})'
     menu:
       assemblies: Събрания
-    metrics:
-      assemblies:
-        description: Брой на създадените събрания
-        object: събрания
-        title: Събрания
     participatory_processes:
       show:
         related_assemblies: Свързани събрания

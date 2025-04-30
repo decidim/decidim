@@ -237,7 +237,6 @@ describe "Explore meetings", :slow do
         end
 
         let!(:official_meeting) { create(:meeting, :published, :official, component:, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component:) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -251,21 +250,6 @@ describe "Explore meetings", :slow do
 
             within meetings_selector do
               expect(page).to have_content(translated(official_meeting.title))
-            end
-          end
-        end
-
-        context "with 'groups' origin" do
-          it "lists the filtered meetings" do
-            visit_component
-
-            within "#panel-dropdown-menu-origin" do
-              click_filter_item "Groups"
-            end
-
-            expect(page).to have_css(meetings_selector, count: 1)
-            within meetings_selector do
-              expect(page).to have_content(translated(user_group_meeting.title))
             end
           end
         end

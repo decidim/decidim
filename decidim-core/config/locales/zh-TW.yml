@@ -45,7 +45,6 @@ zh-TW:
       decidim/removed_from_group: 從群組中移除
       decidim/resource_endorsed_event: 資源已獲得連署
       decidim/resource_hidden_event: 資源已隱藏
-      decidim/user_group_created_event: 用戶群組已建立
       decidim/welcome_notification_event: 歡迎訊息
   activerecord:
     attributes:
@@ -65,8 +64,6 @@ zh-TW:
         other: 連署
       decidim/user:
         other: 參與者
-      decidim/user_group:
-        other: 群組
   booleans:
     'false': '否'
     'true': '是'
@@ -274,7 +271,6 @@ zh-TW:
           withdrawn: |-
             對於 %{amendable_type} %{proposal_link} 的修正案已被作者撤回。
       new:
-        amendment_author: 修正案作者
         send: 建立
         title: 創建修正案草稿
       preview_draft:
@@ -462,8 +458,6 @@ zh-TW:
         name: 最後活動
         title: 最後活動
         view_all: 檢視全部
-      metrics:
-        name: 組織指標
       static_page:
         section:
           name: 節
@@ -543,10 +537,6 @@ zh-TW:
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
     endorsement_buttons_cell:
       endorse: 喜歡！
-    endorsements:
-      identities:
-        done: 已完成
-        select_identity: 選擇身份
     errors:
       internal_server_error:
         copied: 文字已複製!
@@ -638,52 +628,6 @@ zh-TW:
           email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
           email_subject: 你已經達到了 %{badge_name} 徽章的 %{current_level} 等級！
           notification_title: 恭喜！您已經達到了 <a href="%{resource_path}">%{badge_name} 徽章</a>的 %{current_level} 級！
-      groups:
-        demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將您的管理權限從該群組中移除。
-          email_outro: 您收到此通知是因為您是該群組的成員。
-          email_subject: 您不再是 %{user_group_name} 群組的管理員！
-          notification_title: 您不再是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員。
-        invited_to_group:
-          email_intro: 一位<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員邀請您加入該群組。
-          email_outro: 您收到此通知是因為您已獲邀請加入一個群組。請在個人檔案的「群組」選項中檢查並核准該邀請。
-          email_subject: 您已獲邀請加入 %{user_group_name} 群組！
-          notification_title: 您已獲邀請加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。請檢查您個人檔案中的<a href="%{groups_profile_tab_path}">群組頁面</a>以進行批准！
-        join_request_accepted:
-          email_intro: 恭喜！<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經接受您加入的請求。
-          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
-          email_subject: 您已被接受加入 %{user_group_name} 群組！
-          notification_title: 您已被接受加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。
-        join_request_created:
-          email_intro: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_url}">群組成員頁面</a>接受或拒絕。
-          email_outro: 您收到此通知是因為您可以管理 %{user_group_name} 群組。
-          email_subject: 有人申請加入 %{user_group_name} 群組！
-          notification_title: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_path}">群組成員頁面</a>接受或拒絕。
-        join_request_rejected:
-          email_intro: 一位 <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已拒絕了你加入的請求。
-          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
-          email_subject: 你的加入 %{user_group_name} 群組的請求已被拒絕！
-          notification_title: 你加入 <a href="%{resource_path}">%{user_group_name}</a> 群組的請求已被拒絕。
-        promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經給予你該群組的管理權限。
-          email_outro: 您收到此通知是因為您是該群組的成員。
-          email_subject: 你現在是 %{user_group_name} 群組的管理員了！
-          notification_title: 你現在是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員了！
-        removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將你從該群組中移除。
-          email_outro: 你收到這個通知是因為你曾經是該群組的成員。
-          email_subject: 你已從 %{user_group_name} 群組中移除！
-          notification_title: 您已被從<a href="%{resource_path}">%{user_group_name}</a> 群組中移除。
-        user_group_created:
-          email_intro: 一個名為 %{user_group_name} 的新用戶組已被創建。您現在可以在<a href="%{groups_admin_url}">管理員面板</a>中進行驗證。
-          email_outro: 你收到了這個通知是因為你是該平台的管理員。
-          email_subject: 已建立新的使用者群組
-          notification_title: 已建立 %{user_group_name} 使用者群組。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。
-        user_group_updated:
-          email_intro: 名為 %{user_group_name} 的使用者群組已更新其個人檔案，尚未完成驗證。您現在可以在<a href="%{groups_admin_url}">管理面板</a>中進行驗證
-          email_outro: 你收到了這個通知是因為你是該平台的管理員。
-          email_subject: 一個使用者群組已更新其個人檔案。
-          notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
       reports:
         resource_hidden:
           email_intro: 一位管理員因為您的%{resource_type} 已被檢舉為%{report_reasons} 而將其移除。
@@ -809,91 +753,11 @@ zh-TW:
       level: 等級 %{level}
       reached_top: 您已經達到此徽章的最高等級。
       title: 徽章是什麼？
-    group_admins:
-      actions:
-        are_you_sure: 確定嗎？這將不會將該參與者從該組中移除。
-        demote_admin: 移除管理員
-      demote:
-        error: 刪除此參與者的管理員名單時發生問題。
-        success: 成功從管理員列表中刪除參與者.
-      index:
-        current_admins: '目前的管理員：'
-        manage_admins: 管理管理員
-    group_invites:
-      accept:
-        error: 這個邀請接受時發生問題。
-        success: 邀請已成功接受.
-      accept_invitation: 接受
-      accept_or_reject_group_invitations: '以下群組已邀請您加入。請接受或拒絕他們的邀請：'
-      index:
-        invite: 邀請
-        invite_user: 邀請一位參與者
-      invite:
-        error: 邀請參與者加入時發生問題.
-        success: 成功邀請參與者.
-      reject:
-        error: 拒絕邀請時出現問題.
-        success: 邀請已成功拒絕.
-      reject_invitation: 拒絕
-    group_members:
-      accept:
-        error: 加入請求接受時發生問題.
-        success: 加入申請已成功接受.
-      actions:
-        are_you_sure: 您確定嗎？
-        promote_to_admin: 設為管理員
-        remove_from_group: 刪除該參與者
-      index:
-        current_members_without_admins: '當前成員 (不包括管理員)：'
-        manage_members: 管理成員
-      promote:
-        error: 提升這位參與者的權限時發生問題.
-        success: 成功提升參與者權限.
-      reject:
-        error: 拒絕此加入請求時發生問題.
-        success: 加入申請已被拒絕.
-      remove:
-        error: 將此參與者從群組中移除時發生問題.
-        success: 已成功將參與者從群組中移除.
     groups:
-      actions:
-        are_you_sure: 您確定嗎？
-      create:
-        error: 在建立這個群組時發生問題.
-        success: 分組已成功創建.
-      edit:
-        edit_user_group: 編輯群組
-        update_user_group: 更新群組
-      form:
-        document_number_help: 不要使用破折号或空格.
-        email_help: 組織、協會、集體、群組等的電子郵件地址。
-        fill_in_for_verification: '如果您希望您的群組進行驗證，請填寫以下字段：'
-        name_help: 您的組織、協會、集體、群組等的名稱。
-        nickname_help: 您的組織、協會、集體、群組等的暱稱。請勿使用空格或重音符號。
-        phone_help: 不要使用破折号或空格.
-      join:
-        error: 加入這個群組時發生問題.
-        success: 加入請求已成功建立。管理員將在接受您加入該組之前審查您的請求。
-      leave:
-        error: 離開這個群組時發生問題.
-        last_admin: 你無法從這個群組中移除自己，因為你是唯一的管理員。請先讓另一位成員成為管理員，然後才能離開該群組。
-        success: 成功退出群組。
-      members:
-        accept_or_reject_join_requests: '以下使用者申請加入該群組。請接受或拒絕他們的申請：'
-        accept_request: 接受
-        reject_request: 拒絕
-      new:
-        create_user_group: 建立群組
-        new_user_group: 新群組
-        subtitle: 建立一個群組並邀請其他使用者加入，以便在集體層面上參與。
-      no_user_groups: 尚未加入任何群組。
       roles:
         admin: 管理員
         creator: 管理員
         member: 成員
-      update:
-        error: 更新群組時，發生錯誤。
-        success: 成功更新群組.
     help:
       main_topic:
         default_page:
@@ -943,37 +807,15 @@ zh-TW:
       static:
         latlng_text: '緯度：%{latitude}，經度：%{longitude}'
         map_service_brand: 開放街圖
-    members:
-      no_members: 這個群組還沒有任何成員。
     menu:
       help: 幫助
       home: 首頁
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
-          greeting: 嗨, %{recipient}!
-          intro: "%{manager} 以%{group} 的名義開始了一個新對話。點擊這裡查看："
-          subject: "%{manager} 以%{group} 的身份開始了一個新對話。"
-        comanagers_new_message:
-          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
-          greeting: 嗨, %{recipient}!
-          intro: "%{manager} 以%{group} 的名義在一個對話中發佈了新訊息。點擊這裡查看它們："
-          subject: "%{manager} 以%{group} 的身份發送了新的訊息。點擊這裡查看它們："
         new_conversation:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 與您開始了一個新的對話。點擊這裡查看它："
           subject: "%{sender} 已與您開始對話"
-        new_group_conversation:
-          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
-          greeting: 嗨, %{recipient}!
-          intro: "%{sender} 已與群組%{group} 開始了一個新的對話。點擊這裡查看："
-          subject: "%{sender} 已與%{group} 開始了一個對話"
-        new_group_message:
-          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
-          greeting: 嗨, %{recipient}!
-          intro: "%{sender} 在與 %{group} 的對話中發表了新訊息。點擊這裡查看："
-          subject: "%{group} 收到了 %{sender} 的新訊息。"
         new_message:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 在您的對話中發布了新訊息。點擊這裡查看："
@@ -1011,21 +853,6 @@ zh-TW:
           send: 發送
         update:
           error: 由於錯誤，訊息未能傳送.
-    metrics:
-      download:
-        csv: 下載資料(CSV)
-      followers:
-        description: 追蹤此參與空間的參與者數量
-        object: 追隨者
-        title: 追隨者
-      participants:
-        description: 組織中活躍參與者的數量
-        object: 參與者
-        title: 參與者
-      users:
-        description: 組織中參與者的數量
-        object: 參與者
-        title: 參與者
     newsletter_mailer:
       newsletter:
         no_reply_notice: 此封郵件是由無法接收傳入郵件的通知郵件地址發送的。請不要回覆此訊息。
@@ -1154,10 +981,6 @@ zh-TW:
         subheading: 瀏覽 %{name} 的幫助頁面
         title: 幫助
         topics: 主題
-      participatory_space:
-        metrics:
-          headline: 指標
-          link: 顯示所有指標
       terms_of_service:
         accept:
           error: 接受服務條款時出現問題。
@@ -1183,7 +1006,6 @@ zh-TW:
       deleted: 已刪除的參與者
       inaccessible_message: 由於違反服務條款，此個人資料無法存取！
     profiles:
-      default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
       default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
       show:
         activity: 啟動
@@ -1191,35 +1013,13 @@ zh-TW:
         conversations: 對話
         followers: 追隨者
         following: 關注
-        groups: 群組
-        members: 成員
         officialized: 正式認證參與者
         send_private_message: 發送私人訊息
-      sidebar:
-        badges:
-          info: 徽章是通過在平台上執行特定活動而獲得的。
-          title: 徽章
       user:
         actions:
-          create_user_group: 建立群組
           edit_profile: 編輯個人資料
-          edit_user_group: 編輯群組資料
-          invite_user: 邀請參與者
-          join_user_group: 申請加入群組
-          manage_user_group_admins: 管理管理員
-          manage_user_group_users: 管理成員
           message: 訊息
-        confirmation_instructions_sent: 電子郵件確認指示已發送.
-        create_user_group: 建立群組
-        edit_profile: 編輯個人資料
-        edit_user_group: 編輯群組資料
-        fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
-        invite_user: 邀請參與者
-        join_user_group: 申請加入群組
-        leave_user_group: 退出群組
-        manage_user_group_admins: 管理管理員
-        manage_user_group_users: 管理成員
-        resend_email_confirmation_instructions: 重新發送電子郵件確認指示
+          resend_email_confirmation_instructions: 重新發送電子郵件確認指示
     reported_mailer:
       hide:
         hello: 哈囉，%{name},
@@ -1250,7 +1050,6 @@ zh-TW:
       prompt: 選擇一個範圍
     search:
       results: 搜尋結果
-      results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
       term_input_placeholder: 搜尋
     searches:
       filters:
@@ -1296,14 +1095,11 @@ zh-TW:
       flag_user_modal:
         already_reported: 此內容已被舉報，將由管理員進行審查。
         block: 封鎖此參與者
-        close: 關閉
-        description: 關於該使用者有什麼不適當的行為？
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
         hide: 隱藏所有內容
         offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
         report: 報告
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
-        title: 舉報不適當的使用者
       floating_help:
         help: 幫助
       mentions_modal:
@@ -1312,9 +1108,6 @@ zh-TW:
         public_participation: 公開展示我的出席情況。
       reference:
         reference: '參考資料: %{reference}'
-      represent_user_group:
-        represent_user_group: 我代表一個群組。
-        select_user_group: 選擇一個群組
       results_per_page:
         label: '每頁顯示的結果：'
         title: 選擇每頁的結果數量
@@ -1344,19 +1137,8 @@ zh-TW:
         no_activities_warning: 這個參與者還沒有任何活動。
     user_contact_disabled: 該參與者不接受直接訊息。
     user_conversations:
-      create:
-        error: 訊息無法建立。請稍後再試。
-        existing_error: 無法建立訊息。該對話已存在，請現在重試。
-        success: 對話成功開始！
       index:
-        conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
-        no_conversations_warning: 目前還沒有任何對話。
         time_ago: "%{time} 之前"
-      reply:
-        placeholder: 您的回覆...
-        send: 發送
-      update:
-        error: 訊息未送出，請稍後再試。
     user_report_mailer:
       notify:
         body_1: 使用者 %{user} 已被 %{token} 舉報。
@@ -1647,7 +1429,6 @@ zh-TW:
         my_data: 我的資料
         notifications_settings: 通知設定
         title: 參與者設定
-        user_groups: 群組
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)

@@ -9,7 +9,9 @@ cs:
         scope_id: Oblast působnosti
         state: Stav
         title: Titul
-        user_group_id: Vytvořit návrh spolupráce jako
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Název hodnotitele
       import_participatory_text:
         document: Dokument
       proposal:
@@ -27,7 +29,6 @@ cs:
         state: Stav
         suggested_hashtags: Navrhované hashtagy
         title: Titul
-        user_group_id: Vytvořit návrh jako
       proposal_answer:
         answer: Odpovědět
         cost: Náklady
@@ -55,9 +56,6 @@ cs:
         import_proposals: Návrhy na dovoz
         keep_answers: Zachovat stav a odpovědi
         keep_authors: Uchovávejte původní autory
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Název hodnotitele
     errors:
       models:
         participatory_text:
@@ -131,6 +129,8 @@ cs:
           proposals: Návrhy
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Přiřazeno hodnotiteli
           is_emendation_true:
             label: Typ
             values:
@@ -150,8 +150,6 @@ cs:
               withdrawn: Odebráno
           taxonomies_part_of_contains:
             label: Taxonomie
-          valuator_role_ids_has:
-            label: Přiřazeno k hodnotiteli
           with_any_state:
             label: Odpovězeno
             values:
@@ -277,14 +275,8 @@ cs:
         accepted_coauthorship:
           notification_title: Byli jste přidáni jako spoluautor návrhu <a href="%{resource_path}">%{resource_title}</a>.
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: Byli jste přiděleni jako hodnotitel k nnávrhu "%{resource_title}". To znamená, že vám důvěřujeme, že jim v příštích dnech poskytnete zpětnou vazbu a náležitou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
-            email_outro: Obdrželi jste toto oznámení, protože můžete návrh hhodnotit.
-            email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
-            notification_title: Byli jste přiřazeni jako hodnotitel k nnávrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_created:
             email_intro: '%{author_name} vytvořil soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.'
-            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_mentioned:
@@ -428,23 +420,6 @@ cs:
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
-    metrics:
-      accepted_proposals:
-        description: Počet návrhů přijatých uživateli
-        object: návrhy
-        title: Přijaté návrhy
-      endorsements:
-        description: Počet schvalování k návrhům
-        object: schvalování
-        title: Schvalování
-      proposals:
-        description: Počet vytvořených návrhů
-        object: návrhy
-        title: Návrhy
-      votes:
-        description: Počet hlasů pro návrhy
-        object: hlasy
-        title: Hlasy
     open_data:
       help:
         proposal_comments:
@@ -458,7 +433,6 @@ cs:
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         proposals:
           address: Adresa návrhu v případě, že má návrh fyzické umístění
           answer: Odpověď na návrh v případě, že byl zodpovězen
@@ -497,7 +471,6 @@ cs:
           withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:
@@ -525,6 +498,12 @@ cs:
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
+        import_proposals_mailer:
+          notify_failure:
+            body: Při importu návrhů ze komponenty %{origin_component_name} do komponenty %{target_component_name} došlo k chybě.
+            subject: Došlo k chybě při importu návrhů
+          notify_success:
+            subject: Návrhy byly úspěšně importovány
         imports:
           help:
             answers: |
@@ -646,8 +625,8 @@ cs:
           index:
             actions: Akce
             apply_answer_template: Použít šablonu odpovědi
-            assign_to_valuator: Přiřadit hodnotiteli
-            assign_to_valuator_button: Přiřadit
+            assign_to_evaluator: Přiřadit hodnotiteli
+            assign_to_evaluator_button: Přiřadit
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
@@ -656,14 +635,14 @@ cs:
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
-            select_valuators: Vyberte jednoho nebo více hodnotitelů
+            select_evaluators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
             statuses: Statusy
             title: Návrhy
-            unassign_from_valuator: Odebrat přiřazení od hodnotitele
-            unassign_from_valuator_button: Zrušit přiřazení
+            unassign_from_evaluator: Odebrat hodnotiteli
+            unassign_from_evaluator_button: Zrušit přiřazení
             update: Aktualizace
           manage_trash:
             title: Smazané návrhy
@@ -675,12 +654,13 @@ cs:
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
-            assigned_valuators: Přiřazení hodnotitelé
+            assigned_evaluators: Přiřazení hodnotitelé
             body: Tělo
             comments_count: Počet komentářů
             documents: Dokumenty
             endorsements_count: Počet schvalování
             endorsers: Schvalující
+            evaluators: Hodnotitelé
             link: Zobrazit návrh
             n_more_endorsers:
               one: a další 1
@@ -691,8 +671,6 @@ cs:
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
             remove_assignment: Odstranit přiřazení
-            remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
-            valuators: Hodnotitelé
             votes_count: Počet hlasů
           update_taxonomies:
             invalid: 'Tyto návrhy již mají taxonomie %{taxonomies}: %{proposals}.'
@@ -702,7 +680,7 @@ cs:
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
-            success: "%{number} návrhů bylo úspěšně importováno."
+            success: Proces importu byl zahájen. Jakmile bude dokončen, dáme vám vědět.
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
@@ -722,13 +700,6 @@ cs:
           create:
             invalid: 'Při rozdělování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
-        valuation_assignments:
-          create:
-            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
-            success: Návrhy byly úspěšně přiřazené hodnotiteli.
-          delete:
-            invalid: Při odebírání návrhů od hodnotitele došlo k chybě.
-            success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
@@ -739,9 +710,6 @@ cs:
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
-        valuation_assignment:
-          create: "%{user_name} přiřadil návrh %{resource_name} hodnotiteli"
-          delete: "%{user_name} odebral hodnotitele z návrhu %{proposal_title}"
       answers:
         accepted: Přijato
         evaluating: Hodnocení
@@ -754,7 +722,6 @@ cs:
           meetings: Setkání
           official: Oficiální
           participants: Účastníci
-          user_groups: Skupiny uživatelů
         filter_state_values:
           all: Vše
           not_answered: Nezodpovězeno
@@ -893,7 +860,6 @@ cs:
           success: Pozvánka spoluautora byla úspěšně zrušena.
         create:
           error: Při pozvání spoluautora došlo k chybě.
-          success: "%{author_name} byl úspěšně pozván jako spoluautor."
         destroy:
           error: Při odmítání pozvánky došlo k chybě.
           success: Pozvánka byla zamítnuta.
@@ -907,6 +873,8 @@ cs:
         proposal:
           fields:
             comments: Komentáře
+            evaluator: Hodnotitel
+            evaluators: Hodnotitelé
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -915,8 +883,6 @@ cs:
             state: Stav
             taxonomies: Taxonomie
             title: Titul
-            valuator: Hodnotitel
-            valuators: Hodnotitelé
             votes: Hlasy
         proposal_state:
           css_class: Třída CSS
@@ -978,7 +944,7 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
-          title: Vytvořte svůj návrh
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
@@ -1032,7 +998,7 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
-          already_voted: Již hlasovalo
+          already_voted: Hlasováno
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy

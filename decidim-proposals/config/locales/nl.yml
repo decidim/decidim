@@ -9,7 +9,6 @@ nl:
         scope_id: Bereik
         state: Staat
         title: Titel
-        user_group_id: Creëer samenwerkingsconcept als
       proposal:
         address: Adres
         answer: Antwoord
@@ -22,7 +21,6 @@ nl:
         state: Status
         suggested_hashtags: Voorgestelde hashtags
         title: Titel
-        user_group_id: Maak een voorstel als
       proposal_answer:
         answer: Antwoord
         cost: Kost
@@ -34,9 +32,6 @@ nl:
         import_proposals: Voorstellen importeren
         keep_answers: Status en antwoorden behouden
         keep_authors: Bewaar originele auteurs
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Naam beoordelaar
     errors:
       models:
         proposal:
@@ -78,9 +73,6 @@ nl:
   decidim:
     admin:
       filters:
-        proposals:
-          valuator_role_ids_has:
-            label: Toegewezen aan beoordelaar
         search_placeholder:
           id_string_or_title_cont: Zoek %{collection} op ID of titel.
     components:
@@ -163,7 +155,6 @@ nl:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Je hebt deze melding ontvangen omdat je het voorstel kan waarderen.
             email_subject: Iemand heeft een notitie achtergelaten bij het voorstel %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
@@ -236,19 +227,6 @@ nl:
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
           unearned_own: U hebt nog geen voorstellen gemaakt.
-    metrics:
-      accepted_proposals:
-        description: Aantal geaccepteerde voorstellen
-        object: voorstellen
-        title: Aanvaarde voorstellen
-      endorsements:
-        description: Aantal goedkeuringen van voorstellen
-        object: goedkeuringen
-        title: Goedkeuringen
-      proposals:
-        description: Aantal voorstellen
-        object: voorstellen
-        title: voorstellen
     participatory_spaces:
       highlighted_proposals:
         see_all: Alles zien
@@ -328,8 +306,6 @@ nl:
             select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
-            assign_to_valuator: Toewijzen aan beoordelaar
-            assign_to_valuator_button: Toewijzen
             cancel: Annuleer
             merge: Samenvoegen met een nieuwe
             publish: Publiceren
@@ -339,15 +315,12 @@ nl:
             split: Voorstellen splitsen
             split_button: Splits
             title: Voorstellen
-            unassign_from_valuator: Toewijzing beoordelaar ongedaan maken
-            unassign_from_valuator_button: Ontkoppelen
             update: Bijwerken
           new:
             create: Creëren
             title: Maak een voorstel
           show:
             amendments_count: Aantal amendementen
-            assigned_valuators: Toegewezen beoordelaars
             body: Tekstgedeelte
             comments_count: Aantal reacties
             documents: Documenten
@@ -360,8 +333,6 @@ nl:
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
             remove_assignment: Opdracht verwijderen
-            remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
-            valuators: Beoordelaars
         proposals_imports:
           new:
             create: Geïmporteerde voorstellen
@@ -381,9 +352,6 @@ nl:
           update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:
           create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} ruimte"
-        valuation_assignment:
-          create: "%{user_name} heeft het %{resource_name} voorstel toegewezen aan een beoordelaar"
-          delete: "%{user_name} heeft de toewijzing van een beoordelaar aan voorstel %{proposal_title} ongedaan gemaakt"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
@@ -396,7 +364,6 @@ nl:
           meetings: vergaderingen
           official: Officieel
           participants: Deelnemers
-          user_groups: Groepen
         filter_state_values:
           all: Alle
           not_answered: Nog niet beantwoord
@@ -504,8 +471,6 @@ nl:
             published_at: Gepubliceerd op
             state: Staat
             title: Titel
-            valuator: Beoordelaar
-            valuators: Beoordelaars
             votes: Stemmen
       participatory_text_proposal:
         alternative_title: Er zijn op dit moment geen participatieve teksten
@@ -586,7 +551,6 @@ nl:
         update:
           title: Update voorstel
         vote_button:
-          already_voted: Al gestemd
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem

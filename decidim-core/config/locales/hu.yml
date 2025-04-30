@@ -47,7 +47,6 @@ hu:
       decidim/removed_from_group: Eltávolítva a csoportból
       decidim/resource_endorsed_event: Erőforrás támogatva
       decidim/resource_hidden_event: Rejtett erőforrás
-      decidim/user_group_created_event: Felhasználói csoport létrehozva
       decidim/welcome_notification_event: Üdvözlő üzenet
   activerecord:
     attributes:
@@ -70,9 +69,6 @@ hu:
       decidim/user:
         one: Résztvevő
         other: Résztvevők
-      decidim/user_group:
-        one: Csoport
-        other: csoportok
   booleans:
     'false': 'Nem'
     'true': 'Igen'
@@ -282,7 +278,6 @@ hu:
             módosítást a szerző visszavonta.
       name: Módosítás
       new:
-        amendment_author: Módosítás szerző
         send: Létrehozás
         title: Módosító javaslat létrehozása
       preview_draft:
@@ -488,10 +483,6 @@ hu:
         name: Alapadatok
       metadata:
         name: Metaadat
-      metrics:
-        name: Szervezeti mutatók
-      participatory_space_metrics:
-        name: Mérőszámok
       participatory_space_stats:
         name: Statisztikák
       social_networks_metadata:
@@ -579,10 +570,6 @@ hu:
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsement_buttons_cell:
       endorse: Tetszik
-    endorsements:
-      identities:
-        done: Kész
-        select_identity: Válassz azonosítót
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
@@ -677,52 +664,6 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
           email_subject: Elérte a(z) %{badge_name} jelvény %{current_level}. szintjét!
           notification_title: Szép munka! Elértee a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
-      groups:
-        demoted_membership:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította az adminisztrátori jogokat a csoporthoz.
-          email_outro: Ezt az értesítést azért kapta meg, mert Ön tagja a csoportnak.
-          email_subject: Ön már nem a %{user_group_name} csoport adminisztrátora!
-          notification_title: Már nem a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora.
-        invited_to_group:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora meghívta Önt, hogy csatlakozzon hozzá.
-          email_outro: Ezt az értesítést megkaptuk, mert meghívtak egy csoportba. Kérjük, ellenőrizze a profilok Csoportok lapját annak jóváhagyásához.
-          email_subject: Felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz!
-          notification_title: Felkérték, hogy csatlakozzon a <a href="%{resource_path}">%{user_group_name}</a> csoporthoz. Ellenőrizze a <a href="%{groups_profile_tab_path}">Csoportok</a> oldalát a profiljában, hogy jóváhagyja!
-        join_request_accepted:
-          email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elfogadta a csatlakozás iránti kérelmét.
-          email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
-          email_subject: Elfogadták a %{user_group_name} csoportba!
-          notification_title: A jelentkezésedet <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
-        join_request_created:
-          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadjatod vagy elutasíthatod a csoport tag oldaláról <a href="%{resource_url}"></a>.
-          email_outro: Ezt az értesítést azért kapta, mert kezelheti a %{user_group_name} csoportot.
-          email_subject: Valaki arra kért, hogy csatlakozz a %{user_group_name} csoporthoz!
-          notification_title: Valaki felkért, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadhatod vagy elutasíthatod a csoport tagjainak oldalán <a href="%{resource_path}"></a>.
-        join_request_rejected:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elutasította a csatlakozás iránti kérelmét.
-          email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
-          email_subject: A %{user_group_name} csoporthoz való csatlakozás iránti kérelmét elutasították!
-          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> csoporthoz való csatlakozás iránti kérelmét elutasították.
-        promoted_to_admin:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora adminisztrátori jogokat adott számodra.
-          email_outro: Ezt az értesítést azért kaptad meg, mert tagja vagy a csoportnak.
-          email_subject: Most a %{user_group_name} csoport adminisztrátora lettél!
-          notification_title: Most már a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora vagy.
-        removed_from_group:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolított a csoportóból.
-          email_outro: Ezt az értesítést azért kapta meg, mert tagja ennek a csoportnak.
-          email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
-          notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
-        user_group_created:
-          email_intro: 'Egy új felhasználói csoportot hoztak létre a következő névvel: %{user_group_name}. Jóváhagyhatja a <a href="%{groups_admin_url}">adminisztrációs panelen</a>.'
-          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
-          email_subject: Új felhasználói csoport létrehozva
-          notification_title: Létrehozták a(z) %{user_group_name} felhasználói csoportot. Jóváhagyhatja a <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
-        user_group_updated:
-          email_intro: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_url}">adminisztrációs panelen</a>.
-          email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
-          email_subject: Egy felhasználói csoport frissítette a profilját
-          notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
       nickname_event:
         notification_body: Javítottunk a becenevek használatán, hogy elkerüljük a duplikációkat, és ezért megszüntettük a nagy- és kisbetűkre vonatkozó szabályt. <br/> A beceneve egy másik, azonos nevű becenév után jött létre, ezért automatikusan át lett nevezve. Megváltoztathatja itt <a href="%{link_to_account_settings}">a Fiókbeállítások menüpontban</a>.
       notification_event:
@@ -835,92 +776,11 @@ hu:
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
       title: Mik a jelvények?
-    group_admins:
-      actions:
-        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
-        demote_admin: Admin eltávolítása
-      demote:
-        error: Hiba történt a résztvevő adminisztrátori listáról történő eltávolítása során.
-        success: A résztvevő sikeresen eltávolítva az adminisztrátori listáról.
-      index:
-        current_admins: 'Jelenlegi adminisztrátorok:'
-        manage_admins: Adminisztrátorok kezelése
-    group_invites:
-      accept:
-        error: Hiba történt a meghívó elfogadásakor.
-        success: A meghívó sikeresen elfogadva.
-      accept_invitation: Elfogad
-      accept_or_reject_group_invitations: 'A következő csoportok meghívtak, hogy csatlakozz hozzájuk. A kérelmek elfogadása vagy elutasítása:'
-      index:
-        invite: Meghívás
-        invite_user: Résztvevő meghívása
-      invite:
-        error: Hiba történt a résztvevő meghívása során.
-        success: A résztvevő sikeresen meghívásra került.
-      pending_invitations: Függő kérések
-      reject:
-        error: Hiba történt a meghívás elutasítása során.
-        success: A meghívó sikeresen elutasítva.
-      reject_invitation: Elutasít
-    group_members:
-      accept:
-        error: Hiba történt a csatlakozási kérelem elfogadásakor.
-        success: A csatlakozási kérelem sikeresen elfogadva.
-      actions:
-        are_you_sure: biztos vagy ebben?
-        promote_to_admin: Tedd rendszergazdává
-        remove_from_group: A résztvevő eltávolítása
-      index:
-        current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
-        manage_members: Tagok kezelése
-      promote:
-        error: Hiba történt a felhasználó előléptetésekor.
-        success: A felhasználó sikeresen előléptetve.
-      reject:
-        error: Hiba történt a csatlakozási kérelem elutasításakor.
-        success: Csatlakozási kérelem sikeresen elutasítva.
-      remove:
-        error: Probléma adódott a résztvevő csoportból való eltávolítása során.
-        success: Résztvevő sikeresen eltávolítva a csoportból.
     groups:
-      actions:
-        are_you_sure: biztos vagy ebben?
-      create:
-        error: Hiba történt a csoport létrehozásakor.
-        success: A csoport sikeresen létrejött.
-      edit:
-        edit_user_group: Csoport szerkesztése
-        update_user_group: Csoport frissítése
-      form:
-        document_number_help: Ne használjon kötőjeleket és szóközöket.
-        email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
-        fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
-        name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
-        nickname_help: Adja meg a szervezet, az egyesület, a társaság, a csoport stb. felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
-        phone_help: Ne használjon kötőjeleket és szóközöket.
-      join:
-        error: Hiba történt a csoporthoz való csatlakozáskor.
-        success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmet, mielőtt a csatlakozás elfogadásra kerül.
-      leave:
-        error: Hiba történt a csoport elhagyása során.
-        last_admin: Ön nem távolíthatja el magát ebből a csoportból, mivel Ön az utolsó adminisztrátor. A csoportból való kilépéshez egy másik tagot kell adminisztrátorrá tenni.
-        success: A csoportot sikeresen elhagytad.
-      members:
-        accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
-        accept_request: Elfogad
-        reject_request: Elutasít
-      new:
-        create_user_group: Csoport létrehozása
-        new_user_group: Új csoport
-        subtitle: Hozz létre egy csoportot, és hívd meg a többi felhasználót, hogy vegyél részt közöségi szinten.
-      no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
         creator: Adminisztrátor
         member: Tag
-      update:
-        error: Hiba történt a csoport frissítése során.
-        success: A csoport sikeresen frissült.
     help:
       main_topic:
         default_page:
@@ -970,42 +830,16 @@ hu:
       static:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Ennek a csoportnak még nincs tagja.
     menu:
       help: Segítség
       home: Kezdőlap
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
-          intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Örömteli platform használatot kívánunk!
-          subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
-        comanagers_new_message:
-          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
-          intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Örömteli platform használatot kívánunk!
-          subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
         new_conversation:
           greeting: Szia %{recipient}!
           intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{sender} beszélgetést kezdett veled"
-        new_group_conversation:
-          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
-          intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Örömteli platform használatot kívánunk!
-          subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
-        new_group_message:
-          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
-          intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
-          outro: Örömteli platform használatot kívánunk!
-          subject: "%{group} csoportba új üzenetet küldött %{sender}"
         new_message:
           greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket küldött neked. Ide kattintva megtekintheted őket:"
@@ -1047,21 +881,6 @@ hu:
       progress:
         active: Aktív
         not_started: Még nem kezdődött el
-    metrics:
-      download:
-        csv: Adatok letöltése (CSV)
-      followers:
-        description: A résztvevők száma, akik ezt a részvételi teret követik
-        object: követők
-        title: Követők
-      participants:
-        description: Az aktív felhasználók száma a szervezetben
-        object: résztvevők
-        title: Résztvevők
-      users:
-        description: A felhasználók száma a szervezetben
-        object: résztvevők
-        title: Résztvevők
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ez az email egy olyan emailcímről érkezett, amely nem tud fogadni emaileket, csak értesítésre használható. Kérjük ne válaszoljon erre az üzenetre.
@@ -1192,10 +1011,6 @@ hu:
         subheading: Navigáljon a %{name} súgó oldalán
         title: Segítség
         topics: Témakörök
-      participatory_space:
-        metrics:
-          headline: Részvétel számokban
-          link: Az összes statisztika megjelenítése
       terms_of_service:
         form:
           agreement: Elfogadom a feltételeket
@@ -1216,41 +1031,14 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
-        group_admins: Adminisztrátorok kezelése
-        group_members: Tagok kezelése
-        groups: Csoportok
-        members: Belépés
         officialized: Hivatalos résztvevő
         send_private_message: Privát üzenet küldése
-      sidebar:
-        badges:
-          info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
-          title: Kitűzők
       user:
         actions:
-          create_user_group: Csoport létrehozása
           disabled_message: Üzenet
           edit_profile: Profil szerkesztése
-          edit_user_group: Csoportprofil szerkesztése
-          invite_user: Résztvevő meghívása
-          join_user_group: Csatlakozás kérése a csoporthoz
-          leave_user_group: Kilépés a csoportból
-          manage_user_group: Csoport kezelése
-          manage_user_group_admins: Adminisztrátorok kezelése
-          manage_user_group_users: Tagok kezelése
           message: Üzenet
           resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
-        confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
-        create_user_group: Csoport létrehozása
-        edit_profile: Profil szerkesztése
-        edit_user_group: Csoportprofil szerkesztése
-        fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
-        invite_user: Résztvevő meghívása
-        join_user_group: Csatlakozás kérése a csoporthoz
-        leave_user_group: Kilépés a csoportból
-        manage_user_group_admins: Adminisztrátorok kezelése
-        manage_user_group_users: Tagok kezelése
-        resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
     reported_mailer:
       hide:
         hello: Helló %{name}!
@@ -1282,7 +1070,6 @@ hu:
     search:
       name: Keresés
       results: Keresési eredmények
-      results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
       filters:
@@ -1329,14 +1116,11 @@ hu:
       flag_user_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         block: Résztvevő blokkolása
-        close: Bezár
-        description: Mi nem megfelelő a felhasználóval kapcsolatban?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
         hide: Minden tartalom elrejtése
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
-        title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
         help: Segítség
       follow_button:
@@ -1350,9 +1134,6 @@ hu:
         public_participation: Nyilvánosan mutassa a részvételemet
       reference:
         reference: 'Hivatkozás: %{reference}'
-      represent_user_group:
-        represent_user_group: Egy csoportot képviselek
-        select_user_group: Csoport kiválasztása
       results_per_page:
         label: 'Találatok száma oldalanként:'
         title: Az oldalankénti találatok számának kiválasztása
@@ -1382,19 +1163,8 @@ hu:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
-      create:
-        error: Az üzenet létrehozása sikertelen. Próbálkozzon újra később.
-        existing_error: Az üzenet létrehozása sikertelen. A beszélgetés már létezik, kérjük, próbálkozzon újra most.
-        success: A beszélgetés sikeresen elindult!
       index:
-        conversations_info: A beszélgetések privátak. Senki más nem láthatja őket. Bármelyik, a platformon regisztrált résztvevővel vagy csoporttal beszélgetést kezdeményezhet.
-        no_conversations_warning: Még nincsenek beszélgetések.
         time_ago: "%{time} ideje"
-      reply:
-        placeholder: A válaszod...
-        send: Küldés
-      update:
-        error: Üzenet elküldése sikertelen. Próbáld újra később
     user_report_mailer:
       notify:
         body_1: '%{user} felhasználót jelentette %{token}'
@@ -1782,7 +1552,6 @@ hu:
         notifications_settings: Értesítési beállítások
         profile: Profil
         title: A résztvevő beállításai
-        user_groups: Csoportok
   locale:
     name: Magyar
     name_with_error: Magyar (hiba!)

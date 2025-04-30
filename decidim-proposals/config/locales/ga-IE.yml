@@ -55,15 +55,6 @@ ga:
       badges:
         proposals:
           name: Moltaí
-    metrics:
-      accepted_proposals:
-        object: moltaí
-      endorsements:
-        object: formhuinithe
-        title: Formhuinithe
-      proposals:
-        object: moltaí
-        title: Moltaí
     proposals:
       actions:
         title: Gníomhartha
@@ -93,7 +84,6 @@ ga:
             update: Nuashonraigh
           index:
             actions: Gníomhartha
-            assign_to_valuator_button: Ceap
             cancel: Cealaigh
             publish: Foilsigh
             selected: roghnaithe
@@ -115,7 +105,6 @@ ga:
           all: Uile
           meetings: Cruinnithe
           official: Oifigiúil
-          user_groups: Grúpaí
         filter_state_values:
           all: Uile
         filter_type_values:
@@ -161,7 +150,6 @@ ga:
             notes: Nótaí
             state: Stádas
             title: Teideal
-            valuator: Luachálaí
             votes: Vótaí
       participatory_text_proposal:
         buttons:

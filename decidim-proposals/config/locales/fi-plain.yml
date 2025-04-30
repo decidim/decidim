@@ -9,7 +9,9 @@ fi-pl:
         scope_id: Teema
         state: Tila
         title: Ehdotuksen nimi
-        user_group_id: Luo yhteistyöluonnos nimellä
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Arvioijan nimi
       import_participatory_text:
         document: Asiakirja
       proposal:
@@ -27,7 +29,6 @@ fi-pl:
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
-        user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
         cost: Kustannusarvio
@@ -55,9 +56,6 @@ fi-pl:
         import_proposals: Tuo ehdotuksia
         keep_answers: Säilytä tilat ja vastaukset
         keep_authors: Säilytä alkuperäiset laatijat
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Arvioijan nimi
     errors:
       models:
         participatory_text:
@@ -123,6 +121,8 @@ fi-pl:
           proposals: Ehdotukset
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Annettu tehtäväksi arvioijalle
           is_emendation_true:
             label: Tyyppi
             values:
@@ -142,8 +142,6 @@ fi-pl:
               withdrawn: Peruutettu
           taxonomies_part_of_contains:
             label: Luokittelu
-          valuator_role_ids_has:
-            label: Annettu tehtäväksi arvioijalle
           with_any_state:
             label: Vastattu
             values:
@@ -269,14 +267,14 @@ fi-pl:
         accepted_coauthorship:
           notification_title: Sinut on lisätty ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
         admin:
-          proposal_assigned_to_valuator:
+          proposal_assigned_to_evaluator:
             email_intro: Sinulle on annettu arvioitavaksi ehdotus "%{resource_title}". Tämä tarkoittaa, että sinut on valtuutettu antamaan palautetta ja vastaamaan ehdotukseen tulevien päivien aikana. Tarkasta ehdotus <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen arvioija.
             email_subject: Sinulle on annettu arvioitavaksi ehdotus %{resource_title}.
             notification_title: Sinulle on annettu arvioitavaksi ehdotus <a href="%{resource_path}">"%{resource_title}"</a>. Tarkasta ehdotus <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_created:
             email_intro: '%{author_name} on luonut yksityisen muistiinpanon kohteeseen %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.'
-            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen arvioija.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name}</a> on luonut yksityisen muistiinpanon kohteeseen <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_mentioned:
@@ -420,23 +418,6 @@ fi-pl:
           next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
-    metrics:
-      accepted_proposals:
-        description: Hyväksyttyjen ehdotusten määrä
-        object: ehdotukset
-        title: Hyväksytyt ehdotukset
-      endorsements:
-        description: Ehdotuksiin kohdistuneiden suositusten määrä
-        object: suositukset
-        title: Suositukset
-      proposals:
-        description: Ehdotusten määrä
-        object: ehdotukset
-        title: Ehdotukset
-      votes:
-        description: Ehdotuksiin kohdistuneiden äänten määrä
-        object: äänet
-        title: Äänet
     open_data:
       help:
         proposal_comments:
@@ -450,7 +431,6 @@ fi-pl:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         proposals:
           address: Ehdotuksen osoite, mikäli ehdotus on määritetty tiettyyn paikkaan
           answer: Ehdotuksen vastaus, mikäli siihen on vastattu
@@ -489,7 +469,6 @@ fi-pl:
           withdrawn_at: Ajankohta, jolloin ehdotus peruttiin
     participatory_spaces:
       highlighted_proposals:
-        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
@@ -514,9 +493,26 @@ fi-pl:
           deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
           view_deleted_proposals: Näytä poistetut ehdotukset
+        evaluation_assignments:
+          create:
+            invalid: Arvioijan määritys ehdotuksille epäonnistui.
+            success: Arvioijien määritys ehdotuksille onnistui.
+          delete:
+            invalid: Arvioijan poistaminen ehdotuksilta epäonnistui.
+            success: Arvioijien poistaminen ehdotuksilta onnistui.
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
+        import_proposals_mailer:
+          notify_failure:
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} epäonnistui.
+            subject: Ehdotusten tuonti epäonnistui
+          notify_success:
+            added_proposals:
+              one: Yksi ehdotus tuotiin.
+              other: "%{count} ehdotusta tuotiin."
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} onnistui. Voit tarkastella tuonnin lopputulosta hallintapaneelin kautta.
+            subject: Ehdotusten tuonti onnistui.
         imports:
           help:
             answers: |
@@ -634,8 +630,8 @@ fi-pl:
           index:
             actions: Toiminnot
             apply_answer_template: Käytä vastauksen mallipohjaa
-            assign_to_valuator: Anna tehtäväksi arvioijalle
-            assign_to_valuator_button: Anna tehtäväksi
+            assign_to_evaluator: Anna tehtäväksi arvioijalle
+            assign_to_evaluator_button: Anna tehtäväksi
             cancel: Peruuta
             change_taxonomies: Muuta luokitteluja
             merge: Yhdistä uuteen
@@ -644,14 +640,14 @@ fi-pl:
             publish: Julkaise
             publish_answers: Julkaise vastaukset
             select_component: Valitse komponentti
-            select_valuators: Valitse yksi tai useampi arvioija
+            select_evaluators: Valitse yksi tai useampi arvioija
             selected: valittu
             split: Jaa ehdotuksia
             split_button: Jaa
             statuses: Tilat
             title: Ehdotukset
-            unassign_from_valuator: Poista tehtävä arvioijalta
-            unassign_from_valuator_button: Poista tehtävä
+            unassign_from_evaluator: Poista tehtävä arvioijalta
+            unassign_from_evaluator_button: Poista tehtävä
             update: Päivitä
           manage_trash:
             title: Poistetut ehdotukset
@@ -663,12 +659,13 @@ fi-pl:
             select_a_proposal: Valitse ehdotus.
           show:
             amendments_count: Muutosten lukumäärä
-            assigned_valuators: Arvioijat
+            assigned_evaluators: Annettu tehtäväksi arvioijalle
             body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
             documents: Asiakirjat
             endorsements_count: Suositusten lukumäärä
             endorsers: Suosittelijat
+            evaluators: Arvioijat
             link: Näytä ehdotus
             n_more_endorsers:
               one: ja 1 muu
@@ -677,8 +674,7 @@ fi-pl:
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapahtumat
             remove_assignment: Poista tehtävä arvioijalta
-            remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
-            valuators: Arvioijat
+            remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tästä ehdotuksesta?
             votes_count: Äänten määrä
           update_taxonomies:
             invalid: 'Seuraavat ehdotukset oli jo määritetty %{taxonomies} luokitteluihin: %{proposals}.'
@@ -688,7 +684,7 @@ fi-pl:
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
-            success: "%{number} ehdotuksen tuonti onnistui."
+            success: Ehdotusten tuonti on aloitettu. Ilmoitamme sinulle, kun tuonti valmistuu.
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
@@ -708,14 +704,10 @@ fi-pl:
           create:
             invalid: 'Ehdotusten jakaminen epäonnistui seuraavista syistä:'
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
-        valuation_assignments:
-          create:
-            invalid: Arvioijan määritys ehdotuksille epäonnistui.
-            success: Arvioijien asettaminen ehdotuksille onnistui.
-          delete:
-            invalid: Arvioijan poistaminen ehdotuksilta epäonnistui.
-            success: Arvioijien poistaminen ehdotuksilta onnistui.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} määräsi ehdotuksen %{resource_name} arvioijalle"
+          delete: "%{user_name} otti pois ehdotuksen %{proposal_title} arvioijalta"
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} yhdistämällä %{merged_count} ehdotusta osallistumistilassa %{space_name}"
@@ -725,9 +717,6 @@ fi-pl:
           update: "%{user_name} päivitti virallisen ehdotuksen %{resource_name} osallistumistilassa %{space_name}"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} asetti arvioijan ehdotukselle %{resource_name}"
-          delete: "%{user_name} poisti arvioijan ehdotukselta %{proposal_title}"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
@@ -740,7 +729,6 @@ fi-pl:
           meetings: Tapaamiset
           official: Virallinen
           participants: Osallistujat
-          user_groups: Käyttäjäryhmät
         filter_state_values:
           all: Kaikki
           not_answered: Vastaamaton
@@ -889,6 +877,8 @@ fi-pl:
         proposal:
           fields:
             comments: Kommentit
+            evaluator: Arvioija
+            evaluators: Arvioijat
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
@@ -897,8 +887,6 @@ fi-pl:
             state: Tila
             taxonomies: Luokittelut
             title: Otsikko
-            valuator: Arvioija
-            valuators: Arvioijat
             votes: Äänet
         proposal_state:
           css_class: CSS-luokka
@@ -958,7 +946,7 @@ fi-pl:
           text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         new:
           send: Jatka
-          title: Luo ehdotuksesi
+          title: Luo uusi ehdotus
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
@@ -1008,7 +996,6 @@ fi-pl:
         update:
           title: Muokkaa ehdotusta
         vote_button:
-          already_voted: Jo äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä

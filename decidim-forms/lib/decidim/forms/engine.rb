@@ -19,7 +19,7 @@ module Decidim
       initializer "decidim_forms.authorization_transfer" do
         config.to_prepare do
           Decidim::AuthorizationTransfer.register(:forms) do |transfer|
-            transfer.move_records(Decidim::Forms::Answer, :decidim_user_id)
+            transfer.move_records(Decidim::Forms::Response, :decidim_user_id)
           end
         end
       end

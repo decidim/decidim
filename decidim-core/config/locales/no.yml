@@ -57,9 +57,6 @@
       decidim/user:
         one: Deltaker
         other: Deltakere
-      decidim/user_group:
-        one: Gruppe
-        other: Grupper
   booleans:
     'false': 'Nei'
     'true': 'Ja'
@@ -199,7 +196,6 @@
           withdrawn: |-
             Denne endringen for %{amendable_type} %{proposal_link} har blitt trukket av forfatteren.
       new:
-        amendment_author: Endrings forfatter
         send: Opprett
         title: Opprett endrings utkast
       preview_draft:
@@ -366,8 +362,6 @@
         name: Siste aktivitet
         title: Siste aktivitet
         view_all: Vis alle
-      metrics:
-        name: Organisasjonens målinger
       stats:
         name: Organisasjonsstatistikk
       sub_hero:
@@ -416,10 +410,6 @@
         ready: Klar
     editor_images:
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
-    endorsements:
-      identities:
-        done: Ferdig
-        select_identity: Velg identitet
     errors:
       internal_server_error:
         title: Det oppsto et problem med våre servere
@@ -494,52 +484,6 @@
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
         level_up:
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
-      groups:
-        demoted_membership:
-          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
-          email_outro: Du har mottatt denne varslingen fordi du er medlem av den gruppen.
-          email_subject: Du er ikke lengre en administrator av gruppen %{user_group_name}!
-          notification_title: Du er ikke lengre en administrator av <a href="%{resource_path}">%{user_group_name}</a> gruppen.
-        invited_to_group:
-          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har invitert deg til å være med i den.
-          email_outro: Du har mottatt denne varslingen fordi du er invitert til en gruppe. Sjekk kategorien Grupper i profilen din for å godkjenne den.
-          email_subject: Du har blitt invitert til å delta i gruppen %{user_group_name}!
-          notification_title: Du har blitt invitert til å bli med i <a href="%{resource_path}">%{user_group_name}</a> gruppen. See <a href="%{groups_profile_tab_path}"> Grupper side</a> i profilen din for å godkjenne den!
-        join_request_accepted:
-          email_intro: Gratulerer! En administrator av gruppen <a href="%{resource_url}">%{user_group_name}</a> har akseptert forespørselen din om å bli med i den.
-          email_outro: Du har mottatt denne varslingen fordi din forespørsel om å bli med er oppdatert.
-          email_subject: Du ble godtatt til %{user_group_name} gruppen!
-          notification_title: Du ble akseptert til <a href="%{resource_path}">%{user_group_name}</a> gruppen.
-        join_request_created:
-          email_intro: Noen spurte om å bli med i %{user_group_name} gruppen. Du kan godta eller avvise dem fra <a href="%{resource_url}">gruppe medlems siden</a>.
-          email_outro: Du har mottatt denne varslingen fordi du kan administrere %{user_group_name} gruppen.
-          email_subject: Noen ba om å bli med i %{user_group_name} gruppen!
-          notification_title: Noen spurte om å bli med i %{user_group_name} gruppen. Du kan godta eller avvise dem fra <a href="%{resource_path}">gruppe medlems siden</a>.
-        join_request_rejected:
-          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen avviste forespørselen din om å bli med i den.
-          email_outro: Du har mottatt denne varslingen fordi din forespørsel om å bli med er oppdatert.
-          email_subject: Forespørselen din om å bli med i %{user_group_name} gruppen ble avvist!
-          notification_title: Forespørselen din om å bli med i <a href="%{resource_path}">%{user_group_name}</a> gruppen ble avvist.
-        promoted_to_admin:
-          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
-          email_outro: Du har mottatt denne varslingen fordi du er medlem av den gruppen.
-          email_subject: Du er nå en administrator av %{user_group_name} gruppen!
-          notification_title: Du er nå en administrator av <a href="%{resource_path}">%{user_group_name}</a> gruppen.
-        removed_from_group:
-          email_intro: En admind av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet deg fra den.
-          email_outro: Du har mottatt denne varslingen fordi du var medlem av den gruppen.
-          email_subject: Du er fjernet fra %{user_group_name} gruppen!
-          notification_title: Du er fjernet fra <a href="%{resource_path}">%{user_group_name}</a> gruppen.
-        user_group_created:
-          email_intro: En ny brukergruppe har blitt opprettet med navnet %{user_group_name}. Du kan nå bekrefte det i <a href="%{groups_admin_url}">admin-panelet</a>.
-          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
-          email_subject: En ny brukergruppe har blitt opprettet
-          notification_title: Brukergruppen %{user_group_name} har blitt opprettet. Du kan nå bekrefte den i <a href="%{groups_admin_path}">admin-panelet</a>.
-        user_group_updated:
-          email_intro: En brukergruppe med navnet %{user_group_name} har oppdatert sin profil, og er ubekreftet. Du kan nå bekrefte den i <a href="%{groups_admin_url}">admin-panelet</a>.
-          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
-          email_subject: En brukergruppe har oppdatert sin profil
-          notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
       reports:
         resource_hidden:
           email_intro: En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.
@@ -626,50 +570,7 @@
           title: Merker
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
       level: Nivå %{level}
-    group_admins:
-      actions:
-        demote_admin: Fjern admin
-      index:
-        current_admins: 'Nåværende administratorer:'
-        manage_admins: Administrer administrator
-    group_invites:
-      accept_invitation: Aksepter
-      accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
-      index:
-        invite: Inviter
-        invite_user: Inviter en deltaker
-      reject_invitation: Avvis
-    group_members:
-      actions:
-        are_you_sure: Er du sikker?
-        promote_to_admin: Lag administrator
-        remove_from_group: Fjern deltaker
-      index:
-        current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
-        manage_members: Administrere medlemmer
     groups:
-      actions:
-        are_you_sure: Er du sikker?
-      edit:
-        edit_user_group: Rediger gruppe
-        update_user_group: Oppdater gruppe
-      form:
-        email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
-        fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
-        name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
-        nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
-      join:
-        success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
-      leave:
-        success: Gruppen ble forlatt.
-      members:
-        accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
-        accept_request: Aksepter
-        reject_request: Avvis
-      new:
-        create_user_group: Opprett gruppe
-        new_user_group: Ny gruppe
-        subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       roles:
         admin: Administrator
         member: Medlem
@@ -723,30 +624,10 @@
       home: Hjem
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{manager} har startet en ny samtale for %{group}. Klikk her for å se den:"
-          subject: "%{manager} har startet en ny samtale som %{group}"
-        comanagers_new_message:
-          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{manager} har postet nye meldinger i en samtale for %{group}. Klikk her for å se dem:"
-          subject: "%{manager} har sendt nye meldinger som %{group}"
         new_conversation:
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
           subject: "%{sender} har startet en samtale med deg"
-        new_group_conversation:
-          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{sender} har startet en ny samtale med gruppen %{group}. Klikk her for å se den:"
-          subject: "%{sender} har startet en samtale med %{group}"
-        new_group_message:
-          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
-          greeting: Hei %{recipient}!
-          intro: "%{sender} har postet nye meldinger i en samtale med gruppen %{group}. Klikk her for å se den:"
-          subject: "%{group} har nye meldinger fra %{sender}"
         new_message:
           greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
@@ -766,6 +647,8 @@
           new_conversation: Ny samtale
           next: Neste
           title: Samtaler
+        reply_form:
+          placeholder: Ditt svar...
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
@@ -773,21 +656,6 @@
           title: Samtale med %{usernames}
         start:
           send: Send
-    metrics:
-      download:
-        csv: Last ned data (CSV)
-      followers:
-        description: Antall deltakere som følger dette deltakerområdet
-        object: følgere
-        title: Følgere
-      participants:
-        description: Antall aktive deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
-      users:
-        description: Antall deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
     newsletter_mailer:
       newsletter:
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
@@ -879,10 +747,6 @@
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
-      participatory_space:
-        metrics:
-          headline: Deltakelse i tall
-          link: Vis all statistikk
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -892,24 +756,12 @@
         conversations: Samtaler
         followers: Følgere
         following: Følger
-        groups: Grupper
-        members: Medlemmer
         officialized: Offisiell deltaker
         send_private_message: Send privat melding
-      sidebar:
-        badges:
-          info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
-          title: Merker
       user:
-        create_user_group: Opprett gruppe
-        edit_profile: Rediger profil
-        edit_user_group: Rediger gruppeprofil
-        invite_user: Inviter deltaker
-        join_user_group: Forespør om å bli med i gruppen
-        leave_user_group: Forlat gruppe
-        manage_user_group_admins: Administrer administrator
-        manage_user_group_users: Administrere medlemmer
-        resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
+        actions:
+          edit_profile: Rediger profil
+          resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -940,7 +792,6 @@
       prompt: Velg et tema
     search:
       results: Søkeresultater
-      results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
       filters:
@@ -982,21 +833,15 @@
         title: Rapporter et problem
       flag_user_modal:
         already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
-        close: Lukk
-        description: Hva er upassende med brukeren?
         offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
         report: Rapporter
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
-        title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
       public_participation:
         public_participation: Vis min deltagelse offentlig
       reference:
         reference: 'Referanse: %{reference}'
-      represent_user_group:
-        represent_user_group: Jeg representerer en gruppe
-        select_user_group: Velg en gruppe
       results_per_page:
         label: 'Resultater per side:'
         title: Velg antall resultater per side
@@ -1022,18 +867,8 @@
       show_translated: Vis automatisk oversatt tekst
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
-      create:
-        existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
-        success: Samtalen startet vellykket!
       index:
-        conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
-        no_conversations_warning: Det er ingen samtaler ennå.
         time_ago: "%{time} siden"
-      reply:
-        placeholder: Ditt svar...
-        send: Send
-      update:
-        error: Melding ikke sendt. Prøv igjen senere
     user_report_mailer:
       notify:
         body_1: Brukeren %{user} er rapportert av %{token}
@@ -1240,7 +1075,6 @@
         my_data: Min data
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
-        user_groups: Grupper
   locale:
     name: Norsk
     name_with_error: Norsk (feil!)

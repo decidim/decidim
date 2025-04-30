@@ -10,22 +10,27 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Debates {
         debate(id: #{debate.id}){
           acceptsNewComments
+          attachments {
+            thumbnail
+          }
           author {
             id
           }
-          taxonomies {
-            id
-          }
+          closedAt
           comments {
             id
           }
+          commentsEnabled
           commentsHaveAlignment
           commentsHaveVotes
+          conclusions { translation(locale:"#{locale}") }
           createdAt
           description {
             translation(locale: "#{locale}")
           }
+          endorsementsCount
           endTime
+          followsCount
           hasComments
           id
           image
@@ -35,14 +40,20 @@ describe "Decidim::Api::QueryType" do
           instructions {
             translation(locale: "#{locale}")
           }
+          lastCommentAt
+          lastCommentBy { id }
           reference
           startTime
+          taxonomies {
+            id
+          }
           title {
             translation(locale: "#{locale}")
           }
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
         }
       }
@@ -53,30 +64,49 @@ describe "Decidim::Api::QueryType" do
 
   let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
   let(:author) { build(:user, :confirmed, organization: current_component.organization) }
-  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, taxonomies:) }
+  let(:last_comment_by) { create(:user, :confirmed, name: "User") }
+  let!(:debate) do
+    create(:debate, :closed, :with_endorsements, :participant_author,
+           author:,
+           component: current_component,
+           taxonomies:,
+           last_comment_at: 1.year.ago,
+           last_comment_by:,
+           comments_enabled: true)
+  end
+  let!(:follows) { create_list(:follow, 3, followable: debate) }
 
   let(:debate_single_result) do
     {
       "acceptsNewComments" => debate.accepts_new_comments?,
+      "attachments" => [],
       "author" => { "id" => debate.author.id.to_s },
-      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
+      "closedAt" => debate.closed_at.to_time.iso8601,
       "comments" => [],
+      "commentsEnabled" => true,
       "commentsHaveAlignment" => debate.comments_have_alignment?,
       "commentsHaveVotes" => debate.comments_have_votes?,
+      "conclusions" => { "translation" => translated(debate.conclusions) },
       "createdAt" => debate.created_at.to_time.iso8601,
       "description" => { "translation" => debate.description[locale] },
+      "endorsementsCount" => 5,
       "endTime" => debate.end_time,
+      "followsCount" => 3,
       "hasComments" => debate.comment_threads.size.positive?,
       "id" => debate.id.to_s,
       "image" => nil,
       "informationUpdates" => { "translation" => debate.information_updates[locale] },
       "instructions" => { "translation" => debate.instructions[locale] },
+      "lastCommentAt" => debate.last_comment_at.to_time.iso8601,
+      "lastCommentBy" => { "id" => last_comment_by.id.to_s },
       "reference" => debate.reference,
       "startTime" => debate.start_time,
+      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
       "title" => { "translation" => debate.title[locale] },
       "totalCommentsCount" => debate.comments_count,
       "type" => "Decidim::Debates::Debate",
       "updatedAt" => debate.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(debate).url,
       "userAllowedToComment" => debate.user_allowed_to_comment?(current_user)
     }
   end
@@ -125,22 +155,27 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
+              attachments {
+                thumbnail
+              }
               author {
                 id
               }
-              taxonomies {
-                id
-              }
+              closedAt
               comments {
                 id
               }
+              commentsEnabled
               commentsHaveAlignment
               commentsHaveVotes
+              conclusions { translation(locale:"#{locale}") }
               createdAt
               description {
                 translation(locale: "#{locale}")
               }
+              endorsementsCount
               endTime
+              followsCount
               hasComments
               id
               image
@@ -150,14 +185,20 @@ describe "Decidim::Api::QueryType" do
               instructions {
                 translation(locale: "#{locale}")
               }
+              lastCommentAt
+              lastCommentBy { id }
               reference
               startTime
+              taxonomies {
+                id
+              }
               title {
                 translation(locale: "#{locale}")
               }
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
             }
           }

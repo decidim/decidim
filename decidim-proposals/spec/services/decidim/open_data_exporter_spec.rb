@@ -13,7 +13,7 @@ describe Decidim::OpenDataExporter do
       create(:proposal_component, organization:, published_at: Time.current)
     end
     let!(:resource) { create(:proposal, component:) }
-    let(:resource_title) { "## proposals" }
+    let(:resource_title) { "## proposals (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier for the proposal"
@@ -34,7 +34,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:deleted_user) { create(:user, :confirmed, :deleted, organization:) }
     let!(:resource) { create(:proposal, component:, users: [deleted_user]) }
-    let(:resource_title) { "## proposals" }
+    let(:resource_title) { "## proposals (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier for the proposal"
@@ -55,7 +55,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:commentable) { create(:proposal, component:) }
     let!(:resource) { create(:comment, commentable:) }
-    let(:resource_title) { "## proposals" }
+    let(:resource_title) { "## proposals (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier for the proposal"

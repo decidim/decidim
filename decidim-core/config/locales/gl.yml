@@ -39,9 +39,6 @@ gl:
       decidim/user:
         one: Non hai usuarios
         other: Usuarios
-      decidim/user_group:
-        one: Grupo de usuarios
-        other: Grupos de usuarios
   booleans:
     'false': 'Non'
     'true': 'Si'
@@ -159,8 +156,6 @@ gl:
           withdrawn: |-
             Esta autorización foi retirada esta enmenda do %{amendable_type} %{amendable_link}
             .
-      new:
-        amendment_author: Autor da emenda
       review:
         back: De volta
         heading: Revisa a modificación
@@ -266,8 +261,6 @@ gl:
         name: Última actividade
         title: Última actividade
         view_all: Ver todo
-      metrics:
-        name: Métricas da organización
       stats:
         name: Estatísticas da organización
       sub_hero:
@@ -387,42 +380,6 @@ gl:
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
         level_up:
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
-      groups:
-        demoted_membership:
-          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> eliminou os dereitos de administrador dese grupo.
-          email_outro: Recibiches esta notificación porque es membro dese grupo.
-          email_subject: Xa non es administrador do grupo %{user_group_name}.
-          notification_title: Xa non es administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidoute a unirse a este.
-          email_outro: Recibiches esta notificación porque estivo convidado a un grupo. Verifica a pestana Grupos no teu perfil para aprobar.
-          email_subject: Invitaches a unirte ao grupo %{user_group_name}.
-          notification_title: Invitabades a unirte ao grupo <a href="%{resource_path}">%{user_group_name}</a> . Comprobe a páxina <a href="%{groups_profile_tab_path}">Grupos</a> seu perfil para aprobarla.
-        join_request_accepted:
-          email_intro: Parabéns! Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirte.
-          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
-          email_subject: Recibiches o grupo %{user_group_name}.
-          notification_title: Recibiches o grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Alguén solicitou unirse ao grupo %{user_group_name} . Podes aceptalo ou rexeitalo desde a <a href="%{resource_url}">páxina de membros do grupo</a>.
-          email_outro: Recibiches esta notificación porque podes xestionar o grupo %{user_group_name}.
-          email_subject: Alguén solicitou unirse ao grupo %{user_group_name}.
-          notification_title: Alguén solicitou unirse ao grupo %{user_group_name} . Podes aceptalo ou rexeitalo desde a <a href="%{resource_path}">páxina de membros do grupo</a>.
-        join_request_rejected:
-          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rexeitou a solicitude para unirse a ela.
-          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
-          email_subject: A túa solicitude para unirse ao grupo %{user_group_name} foi rexeitada!
-          notification_title: A súa solicitude para unirse ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rexeitada.
-        promoted_to_admin:
-          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deulle dereitos de administrador a ese grupo.
-          email_outro: Recibiches esta notificación porque es membro dese grupo.
-          email_subject: Agora es un administrador do grupo %{user_group_name}.
-          notification_title: Agora es un administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> eliminouno.
-          email_outro: Recibiches esta notificación porque ti es membro dese grupo.
-          email_subject: Eliminaches do grupo %{user_group_name}.
-          notification_title: Elimineches do grupo <a href="%{resource_path}">%{user_group_name}</a>.
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
@@ -500,50 +457,7 @@ gl:
           title: Insignias
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
-    group_admins:
-      actions:
-        demote_admin: Eliminar administrador
-      index:
-        current_admins: 'Administradores actuais:'
-        manage_admins: Xestionar os administradores
-    group_invites:
-      accept_invitation: Aceptar
-      accept_or_reject_group_invitations: 'Os seguintes grupos convidáronlle a unirse a eles. Aceptar ou rexeitar as súas solicitudes:'
-      index:
-        invite: Invitar
-        invite_user: Convidar un usuario
-      reject_invitation: Rexeitar
-    group_members:
-      actions:
-        are_you_sure: Estás seguro?
-        promote_to_admin: Facer admin
-        remove_from_group: Eliminar o usuario
-      index:
-        current_members_without_admins: 'Membros actuais (sen admins):'
-        manage_members: Xestionar membros
     groups:
-      actions:
-        are_you_sure: Estás seguro?
-      edit:
-        edit_user_group: Editar grupo
-        update_user_group: Grupo de actualización
-      form:
-        email_help: Correo electrónico da súa organización, asociación, colectivo, grupo, etc.
-        fill_in_for_verification: 'Encha estes campos se quere verificar o teu grupo:'
-        name_help: Nome da súa organización, asociación, colectivo, grupo, etc.
-        nickname_help: Nome de usuario da túa organización, asociación, colectivo, grupo, etc. Non uses espazos nin acentos.
-      join:
-        success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche no grupo.
-      leave:
-        success: O grupo saíu con éxito.
-      members:
-        accept_or_reject_join_requests: 'Os seguintes usuarios solicitaron unirse a este grupo. Aceptar ou rexeitar as súas solicitudes:'
-        accept_request: Aceptar
-        reject_request: Rexeitar
-      new:
-        create_user_group: Crear grupo
-        new_user_group: Novo grupo
-        subtitle: Crea un grupo e invita a outros usuarios a participar para participar a nivel colectivo.
       roles:
         admin: Administrador
         member: Membro
@@ -605,19 +519,6 @@ gl:
           title: Conversa con %{usernames}
         start:
           send: Enviar
-    metrics:
-      followers:
-        description: Número de usuarios que seguen este espazo de participación
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de usuarios activos na organización
-        object: participantes
-        title: Participantes
-      users:
-        description: Número de usuarios da organización
-        object: usuarios
-        title: Usuarios
     newsletter_mailer:
       newsletter:
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
@@ -688,10 +589,6 @@ gl:
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en números
-          link: Mostrar todas as estatísticas
     profile:
       deleted: Usuario eliminado
     profiles:
@@ -700,22 +597,10 @@ gl:
         badges: Insignias
         followers: Seguidores
         following: Segue
-        groups: Grupos
-        members: Membros
-      sidebar:
-        badges:
-          info: As insignias obtéñense realizando actividades específicas na plataforma.
-          title: Insignias
       user:
-        create_user_group: Crear grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar o perfil do grupo
-        invite_user: Invitar ao usuario
-        join_user_group: Solicitude para unirse ao grupo
-        leave_user_group: Deixar de grupo
-        manage_user_group_admins: Xestionar os administradores
-        manage_user_group_users: Xestionar membros
-        resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
+        actions:
+          edit_profile: Editar perfil
+          resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
       hide:
         hello: Ola %{name},
@@ -733,7 +618,6 @@ gl:
       global: Alcance global
       prompt: Seleccione un alcance
     search:
-      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
       filters:
@@ -769,9 +653,6 @@ gl:
         public_participation: Amosar a miña presenza publicamente
       reference:
         reference: 'Referencia: %{reference}'
-      represent_user_group:
-        represent_user_group: Represento a un grupo
-        select_user_group: Seleccione un grupo
       results_per_page:
         label: 'Resultados por páxina:'
       share_modal:
@@ -790,9 +671,6 @@ gl:
       pages_count: Páxinas
       participants_count: Participantes
       users_count: Participantes
-    user_conversations:
-      update:
-        error: Mensaxe non enviada. Téntao de novo máis tarde
     user_report_mailer:
       notify:
         details: Detalles fornecidos polo usuario
@@ -951,7 +829,6 @@ gl:
         my_data: Os meus datos
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
-        user_groups: Grupos
   locale:
     name: Galego
   password_validator:

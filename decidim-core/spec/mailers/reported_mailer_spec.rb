@@ -103,14 +103,6 @@ module Decidim
           end
         end
 
-        context "when the author is a user group" do
-          let(:reportable) { create(:proposal, user_groups: create(:user_group)) }
-
-          it "includes the name of the group and a link to their profile" do
-            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
-          end
-        end
-
         context "when the author is an organization" do
           let(:reportable) { create(:proposal, :official) }
 
@@ -141,8 +133,26 @@ module Decidim
 
       let(:body) { "ocultat automàticament" }
       let(:default_body) { "has been hidden" }
+      let(:locale) { nil }
 
       include_examples "localised email"
+
+      it "includes the participatory space name" do
+        expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
+      end
+
+      it "includes the report's reason" do
+        expect(email_body(mail)).to match(I18n.t(report.reason, scope: "decidim.shared.flag_modal"))
+      end
+
+      it "includes the report's details" do
+        expect(email_body(mail)).to match(report.details)
+      end
+
+      it "includes the reported content" do
+        expect(email_body(mail)).to match(reportable.title["en"])
+        expect(email_body(mail)).to match(reportable.body["en"])
+      end
     end
   end
 end

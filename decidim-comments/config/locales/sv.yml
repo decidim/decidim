@@ -5,7 +5,6 @@ sv:
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/comment_upvoted_event: Uppröstad kommentarer
       decidim/comments/reply_created_event: Svar till en kommentar
-      decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
   activerecord:
     models:
@@ -27,6 +26,8 @@ sv:
             enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -51,9 +52,6 @@ sv:
           form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
           submit_root_comment: Publicera kommentar
-          user_group_id:
-            label: Kommentera som
-            your_profile: Din profil
         opinion:
           label: Din åsikt om frågan
           negative: Negativ
@@ -155,17 +153,11 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet för kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
-          email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den här:'
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från dess profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -188,21 +180,11 @@ sv:
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: En grupp som du tillhör har nämnts
-          email_outro: Du har fått det här meddelandet eftersom du är medlem i gruppen %{group_name} som har nämnts i %{resource_title}.
-          email_subject: Du har nämnts i %{resource_title} som en medlem i %{group_name}
-          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a> som medlem av <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antal kommentarer från deltagare
-        object: kommentarer
-        title: Kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

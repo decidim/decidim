@@ -148,6 +148,10 @@
       &__list {
         @apply ml-4 list-disc text-gray-2 text-sm;
       }
+
+      &__item {
+        @apply items-center gap-2;
+      }
     }
 
     &-actions {
@@ -228,7 +232,7 @@
     }
   }
 
-  &__answer {
+  &__response {
     label {
       @apply block p-4 ring-4 ring-background rounded transition;
 

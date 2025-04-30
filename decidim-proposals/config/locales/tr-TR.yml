@@ -9,7 +9,6 @@ tr:
         scope_id: Kapsam
         state: Belirtmek, bildirmek
         title: Başlık
-        user_group_id: Ortak çalışma taslağını oluştur
       proposal:
         address: Adres
         answer: Cevap
@@ -22,7 +21,6 @@ tr:
         state: Durum
         suggested_hashtags: Önerilen Etiketler
         title: Başlık
-        user_group_id: Teklif oluştur
       proposal_answer:
         answer: Cevap
         cost: Maliyet
@@ -46,9 +44,6 @@ tr:
       proposals_import:
         import_proposals: Teklifleri içe aktar
         keep_authors: Orijinal yazarları sakla
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Bilirkişi adı
     errors:
       models:
         proposal:
@@ -99,8 +94,6 @@ tr:
               rejected: Reddedildi
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
-          valuator_role_ids_has:
-            label: Bilirkişiye atandı
         search_placeholder:
           id_string_or_title_cont: Başlığa vey ID'ye göre %{collection} ara.
     components:
@@ -158,7 +151,6 @@ tr:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
@@ -240,19 +232,6 @@ tr:
           name: Teklif
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklif daha oluşturun!
           unearned_own: Henüz hiç teklif oluşturmadınız.
-    metrics:
-      accepted_proposals:
-        description: Kabul edilen teklif sayısı
-        object: teklifler
-        title: Kabul edilen teklifler
-      endorsements:
-        description: Tekliflere verilen onay sayısı
-        object: onaylar
-        title: Onaylar
-      proposals:
-        description: Teklif sayısı
-        object: teklifler
-        title: Teklifler
     participatory_spaces:
       highlighted_proposals:
         see_all: Tüm teklifleri görün
@@ -345,8 +324,6 @@ tr:
             select_a_meeting: Bir toplantı seç
           index:
             actions: Eylemler
-            assign_to_valuator: Bilirkişiye ata
-            assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
             publish: Yayınla
@@ -357,15 +334,12 @@ tr:
             split_button: Böl
             statuses: Durumlar
             title: Teklifler
-            unassign_from_valuator: Bilirkişinin atamasını kaldır
-            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
           new:
             create: Oluştur
             title: Teklif oluştur
           show:
             amendments_count: Değişikliklerin sayısı
-            assigned_valuators: Atanan bilirkişiler
             body: Gövde
             comments_count: Yorum sayısı
             documents: Dokümanlar
@@ -378,8 +352,6 @@ tr:
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
             remove_assignment: Atamayı kaldır
-            remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
-            valuators: Bilirkişiler
         proposals_imports:
           new:
             create: Teklifleri içe aktar
@@ -399,9 +371,6 @@ tr:
           update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
           create: "%{user_name}, %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
-        valuation_assignment:
-          create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
-          delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
         accepted: Kabul Edildi
         evaluating: Değerlendiriliyor
@@ -413,7 +382,6 @@ tr:
           all: Tümü
           meetings: Toplantılar
           official: Resmi
-          user_groups: Gruplar
         filter_state_values:
           all: Tümü
           not_answered: Cevaplanmadı
@@ -521,8 +489,6 @@ tr:
             published_at: Yayınlandı
             state: Durum
             title: Başlık
-            valuator: Bilirkişi
-            valuators: Bilirkişiler
             votes: Oylar
         proposal_state:
           css_class: CSS Sınıfı 

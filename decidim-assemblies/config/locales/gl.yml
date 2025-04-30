@@ -165,7 +165,6 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador/a
       titles:
         assemblies: Asembleas
         assemblies_types: Tipo de xuntanzas
@@ -270,11 +269,6 @@ gl:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Xuntanzas
-    metrics:
-      assemblies:
-        description: Número de xuntanzas creadas
-        object: xuntanzas
-        title: Xuntanzas
     participatory_processes:
       show:
         related_assemblies: Xuntanzas relacionadas

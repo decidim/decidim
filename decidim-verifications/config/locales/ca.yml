@@ -3,6 +3,8 @@ ca:
     attributes:
       authorization:
         verification_attachment: Arxiu adjunt de la verificació
+      census_data:
+        file: Fitxer
       config:
         available_methods: Mètodes disponibles
         offline: Sense connexió
@@ -120,6 +122,12 @@ ca:
           email_subject: Error en intentar verificar-se contra una altra participant
           notification_title: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades d'una altra participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} ha creat un nou registre de dades censals amb correu electrònic: %{resource_email}"
+          delete: "%{user_name} ha eliminado un nou registre de dades censals amb correu electrònic: %{resource_email}"
+          import: "%{user_name} ha importat: %{imported_count} registre(s) censal(s)"
+          update: "%{user_name} ha actualitzat el registre de dades censals amb correu electrònic: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Aquestes són les dades de la verificació actual:'
@@ -147,7 +155,7 @@ ca:
         onboarding_pending:
           completed_verifications: El teu perfil s'ha verificat amb èxit, ara pots %{action} a %{resource_name}
           granted_verifications: Verificacions concedides
-          onboarding_message_html: 'Manquen uns passo previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:'
+          onboarding_message_html: Manquen uns passos previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:.
           pending_admin_approval_verifications: Verificacions pendents de l'aprovació d'una administradora
           pending_verifications: Verificacions pendents
           unauthorized: No tens l'autorització corresponent per a %{action} en aquest recurs
@@ -160,30 +168,62 @@ ca:
         start_exploring: comença a explorar
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Segur que vols esborrar aquest registre de dades censals?
+            destroy: Destruir
+            edit: Editar
           census:
-            create:
+            create_import:
               error: S'ha produït un error en importar del cens.
-              success: S'han importat correctament %{count} elements (%{errors} errors).
-            destroy_all:
-              success: S'han eliminat totes les dades del cens.
-          destroy:
-            confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
-            title: Eliminar totes les dades del cens
+              no_user: No s'ha trobat la usuària
+              success: S'han importat amb èxit %{count} elements. S'estan processant les dades. Actualitza la pàgina en uns minuts per veure els canvis.
+            destroy:
+              success: S'ha eliminat el registre de dades censals.
+            index:
+              empty: No hi ha dades del cens. Utilitza %{import_csv} per importar-lo mitjançant un fitxer CSV.
+              no_sign_in: Mai no ha iniciat sessió
+              no_user: No s'ha trobat cap usuària
+            last_login:
+              no_sign_in: Mai no ha iniciat sessió
+              no_user: Cap usuària
+            new_import:
+              errors:
+                email_exists: L'adreça de correu electrònic %{email} ja existeix a l'organització %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
+              submit: Puja arxiu
+              title: Importar dades censals
+              upload_new_census: Puja un nou cens
+          census_records:
+            create_record:
+              success: Registre de dades censals afegides amb èxit. S'estan processant les dades. Actualitza la pàgina, en uns minuts, per veure els canvis.
+            edit_record:
+              save: Desar
+              title: Editar el registre censal
+            form:
+              email: Correu electrònic
+            new_record:
+              save: Desar
+              title: Afegir un nou registre censal
+            update_record:
+              invalid: Hi ha hagut un problema en actualitzar el registre de dades del cens.
+              success: S'ha actualitzat correctament el registre de dades censals.
           index:
-            data: Hi ha %{count} registres carregats en total. La darrera data de pujada va ser el dia %{due_date}.
-            empty: No hi ha dades del cens. Utilitza el formulari següent per importar-lo mitjançant un fitxer CSV.
+            add_new_record_button: Afegir nou registre
+            authorized: Usuària actualitzada
+            fields:
+              actions: Accions
+              created_at: Creat el
+              email: Correu electrònic
+              user_authorized: Usuària autoritzada?
+            import_csv: Importar CSV
+            no_authorized: Usuària no actualitzada
             title: Dades censals actuals
           instructions:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "fitxer .csv amb dades de correus electrònics"
-            info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
-            submit: Puja un document
-            title: Puja un nou cens
         authorizations:
           new:
             error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
@@ -196,6 +236,10 @@ ca:
           user_postal_codes:
             one: La participació està restringida a participants amb el codi postal %{postal_codes}, i el teu codi postal és %{user_postal_code}.
             other: 'La participació està restringida a participants amb qualsevol dels codis postals següents: %{postal_codes}. El teu codi postal és %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Les adreces de correu electrònic següents no són vàlides: %{invalid_emails}.'
+        no_emails: El fitxer ha de contenir adreces de correu electrònic
+        wrong_number_columns: "S'esperava una columna %{expected}, però es van trobar %{actual}."
       id_documents:
         admin:
           config:

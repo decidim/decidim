@@ -1,6 +1,67 @@
 ---
 fi:
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Haluatko varmasti poistaa tämän asiakirjan?
+        deleted_document_info: Poistetut asiakirjat voidaan palauttaa roskakorista.
+        edit: Muokkaa
+        manage: Hallinnoi
+        new: Uusi teksti
+        title: Toiminnot
+        view_deleted_documents: Näytä poistetut asiakirjat
+      admin:
+        documents:
+          create:
+            invalid: Asiakirjan luonti epäonnistui.
+            success: Asiakirjan luonti onnistui.
+          edit:
+            title: Muokkaa yhteistyötekstiä
+            update: Päivitä
+          edit_settings:
+            title: Yhteistyötekstien asetukset
+            update: Päivitä
+          index:
+            title: Yhteistyötekstit
+          manage_trash:
+            title: Poistetut asiakirjat
+          new:
+            create: Luo
+            title: Luo yhteistyöteksti
+          publish:
+            invalid: Asiakirjan julkaisu epäonnistui.
+            success: Asiakirjan julkaisu onnistui.
+          unpublish:
+            invalid: Asiakirjan julkaisun peruminen epäonnistui.
+            success: Asiakirjan julkaisun peruminen onnistui.
+          update:
+            invalid: Asiakirjan päivittäminen epäonnistui.
+            success: Asiakirjan päivittäminen onnistui.
+          update_settings:
+            invalid: Asiakirjan päivittäminen epäonnistui.
+            success: Asiakirjan päivittäminen onnistui.
+        settings:
+          form:
+            allow_suggestions: Salli osallistujille muutosten esittäminen
+      documents:
+        index:
+          count:
+            one: "%{count} yhteistyöteksti"
+            other: "%{count} yhteistyötekstiä"
+          empty: Yhteistyötekstejä ei ole vielä luotu.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Hyväksy muutosehdotus
+            title: Otsikko
     components:
       collaborative_texts:
         name: Yhteistyötekstit
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_blocked: Kommentointi estetty
+          step:
+            announcement: Ilmoitus
+    statistics:
+      collaborative_texts_count: Yhteistyötekstit

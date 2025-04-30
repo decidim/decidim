@@ -15,14 +15,12 @@ module Decidim
     # It takes into account:
     # - if endorsements are enabled
     # - if users are logged in
-    # - if users can endorse with many identities (of their user_groups)
     # - if users require verification
     def show
       return render :disabled_endorsements if endorsements_blocked?
       return render unless current_user
       return render :disabled_endorsements if user_can_not_participate?
       return render :verification_modal unless endorse_allowed?
-      return render :select_identity_button if user_has_verified_groups?
 
       render
     end
@@ -34,10 +32,6 @@ module Decidim
     # The resource being un/endorsed is the Cell's model.
     def resource
       model
-    end
-
-    def reveal_identities_url
-      decidim.identities_endorsement_path(resource.to_gid.to_param)
     end
 
     # produce the path to endorsements from the engine routes as the cell does not have access to routes
@@ -66,10 +60,6 @@ module Decidim
 
     def endorse_allowed?
       allowed_to?(:create, :endorsement, resource:)
-    end
-
-    def user_has_verified_groups?
-      current_user && current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
     end
 
     def endorse_translated

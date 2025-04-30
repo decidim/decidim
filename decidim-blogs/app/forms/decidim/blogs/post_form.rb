@@ -42,7 +42,6 @@ module Decidim
 
       def can_set_author
         return if author == current_user
-        return if user_groups.include? author
         return if author == post&.author
 
         errors.add(:decidim_author_id, :invalid)
@@ -50,10 +49,6 @@ module Decidim
 
       def post
         @post ||= Post.find_by(id: id)
-      end
-
-      def user_groups
-        @user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
       end
 
       def participatory_space_manifest

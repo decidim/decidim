@@ -67,7 +67,7 @@ module Decidim
           name,
           {
             toolbar: :full,
-            lines: 25
+            lines: 8
           }.merge(options)
         )
       end

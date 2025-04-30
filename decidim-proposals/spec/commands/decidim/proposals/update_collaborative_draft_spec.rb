@@ -22,10 +22,6 @@ module Decidim
       let!(:collaborative_draft) { create(:collaborative_draft, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :verified, organization:, users: [author])
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
@@ -39,7 +35,6 @@ module Decidim
             body: "This is the collaborative draft body",
             address:,
             has_address:,
-            user_group_id: user_group.try(:id),
             suggested_hashtags:
           }
         end
@@ -102,8 +97,6 @@ module Decidim
           end
 
           context "with an author" do
-            let(:user_group) { nil }
-
             it "sets the author" do
               command.call
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last

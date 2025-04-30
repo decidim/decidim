@@ -5,7 +5,6 @@ zh-TW:
       decidim/comments/comment_created_event: 評論
       decidim/comments/comment_upvoted_event: 評論已獲得讚同
       decidim/comments/reply_created_event: 評論回覆
-      decidim/comments/user_group_mentioned_event: 提及
       decidim/comments/user_mentioned_event: 提及
   activerecord:
     models:
@@ -14,6 +13,10 @@ zh-TW:
       decidim/comments/comment_vote:
         other: 投票
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: 評論
     comments:
       admin:
         shared:
@@ -39,8 +42,6 @@ zh-TW:
             label: 評論
             placeholder: 你有什麼想法？
           form_error: 文字為必填欄位，且不可超過 %{length} 個字元。
-          user_group_id:
-            label: 評論者：
         opinion:
           label: 關於此議題，您的意見
           negative: 負面
@@ -113,11 +114,6 @@ zh-TW:
           email_outro: 您收到此通知是因為您正在關注%{author_name}。您可以從他們的個人資料頁面取消關注該用戶。
           email_subject: '%{author_name} 在%{resource_title} 發表了一則新的評論'
           notification_title: 在<a href="%{resource_path}">%{resource_title}</a>中，<a href="%{author_path}">%{author_name} %{author_nickname}</a>有了一個新的評論。
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} 群組在%{resource_title} 中留下了一則評論。您可以在此頁面中閱讀它:'
-          email_outro: 您收到此通知是因為您正在關注%{author_name}。您可以從其個人資料頁面取消關注此群組。
-          email_subject: '%{author_name} 在%{resource_title} 發表了一則新的評論'
-          notification_title: 在<a href="%{resource_path}">%{resource_title}</a>中，<a href="%{author_path}">%{author_name} %{author_nickname}</a>有了一個新的評論。
         comment_created:
           email_intro: "%{resource_title} 已被評論。您可以在此頁面中閱讀評論:"
           email_outro: 您收到此通知是因為您正在關注「%{resource_title}」或其作者。您可以從上面的連結取消關注。
@@ -138,21 +134,11 @@ zh-TW:
           email_outro: 你收到此通知是因為有人回覆了你的評論。
           email_subject: "%{author_name} 回覆了你在 %{resource_title} 中的評論。"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中回覆了你的評論。
-        user_group_mentioned:
-          email_intro: 你所屬的群組被提及了
-          email_outro: 你收到了這個通知，因為你是 %{group_name} 的成員，而該小組在 %{resource_title} 中被提及。
-          email_subject: 你作為 %{group_name} 的成員在 %{resource_title} 中被提及
-          notification_title: 你作為<a href="%{group_path}">%{group_name} %{group_nickname}</a>的成員，被<a href="%{author_path}">%{author_name} %{author_nickname}</a>在<a href="%{resource_path}">%{resource_title}</a>中提及
         user_mentioned:
           email_intro: 您已被提及
           email_outro: 您收到了此通知，因為您被提及在 %{resource_title} 中。
           email_subject: 您被提及在 %{resource_title} 中
           notification_title: 您被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中提及。
-    metrics:
-      comments:
-        description: 參與者產生的評論數量
-        object: 評論
-        title: 評論
   errors:
     messages:
       cannot_have_comments: 無法評論

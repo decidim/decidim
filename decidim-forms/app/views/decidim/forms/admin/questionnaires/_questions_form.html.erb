@@ -5,7 +5,7 @@
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <% if questionnaire.answers.any? && !questionnaire.published? %>
+    <% if questionnaire.responses.any? && !questionnaire.published? %>
       <%= cell("decidim/announcement", t(".unpublished_warning"), callout_class: "warning" ) %>
     <% end %>
 
@@ -15,7 +15,7 @@
                    form: question_form,
                    id: tabs_id_for_question(blank_question),
                    editable: questionnaire.questions_editable?,
-                   answer_option_template_selector: "#answer-option-template-dummy",
+                   response_option_template_selector: "#response-option-template-dummy",
                    display_condition_template_selector: "#display-condition-template-dummy",
                    matrix_row_template_selector: "#matrix-row-template-dummy" %>
       </script>
@@ -31,12 +31,12 @@
                    id: tabs_id_for_question(blank_question),
                    editable: questionnaire.questions_editable? %>
       </script>
-      <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
+      <%= render "decidim/forms/admin/questionnaires/response_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "response-option-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
     <% end %>
   <% else %>
-    <%= cell("decidim/announcement", t(".already_answered_warning"), callout_class: "warning" ) %>
+    <%= cell("decidim/announcement", t(".already_responded_warning"), callout_class: "warning" ) %>
   <% end %>
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
@@ -58,10 +58,10 @@
                      id: tabs_id_for_question(question),
                      editable: questionnaire.questions_editable?,
                      display_condition_template_selector: "#display-condition-template-#{index}",
-                     answer_option_template_selector: "#answer-option-template-#{index}",
+                     response_option_template_selector: "#response-option-template-#{index}",
                      matrix_row_template_selector: "#matrix-row-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
-          <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
+          <%= render "decidim/forms/admin/questionnaires/response_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "response-option-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
         <% end %>
       <% end %>

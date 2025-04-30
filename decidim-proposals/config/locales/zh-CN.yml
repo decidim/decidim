@@ -9,7 +9,6 @@ zh-CN:
         scope_id: 范围
         state: 状态
         title: 标题
-        user_group_id: 创建协作草稿为
       proposal:
         address: 地址
         answer: 答案
@@ -22,7 +21,6 @@ zh-CN:
         state: 状态
         suggested_hashtags: 建议的哈希标签
         title: 标题
-        user_group_id: 创建提案为
       proposal_answer:
         answer: 答案
       proposals_copy:
@@ -30,9 +28,6 @@ zh-CN:
       proposals_import:
         import_proposals: 导入提议
         keep_authors: 保留原始作者
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: 值名称
     errors:
       models:
         proposal:
@@ -78,8 +73,6 @@ zh-CN:
               rejected: 已拒绝
               validating: 技术验证
               withdrawn: 取出
-          valuator_role_ids_has:
-            label: 分配给值者
         search_placeholder:
           id_string_or_title_cont: 通过ID或标题搜索 %{collection}。
     components:
@@ -136,7 +129,6 @@ zh-CN:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
@@ -203,19 +195,6 @@ zh-CN:
           name: 建议
           next_level_in: 再创建 %{score} 个建议以达到下一关！
           unearned_own: 您尚未创建任何提案。
-    metrics:
-      accepted_proposals:
-        description: 接受的建议数
-        object: 提议
-        title: 已接受的提议
-      endorsements:
-        description: 建议认可次数
-        object: 核准
-        title: 授权
-      proposals:
-        description: 建议数
-        object: 提议
-        title: 建议
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议
@@ -281,8 +260,6 @@ zh-CN:
             select_a_meeting: 选择会议
           index:
             actions: 行动
-            assign_to_valuator: 分配给值器
-            assign_to_valuator_button: 分配
             cancel: 取消
             merge: 合并为一个新的
             publish: 发布
@@ -292,15 +269,12 @@ zh-CN:
             split: 拆分提案
             split_button: 拆分
             title: 建议
-            unassign_from_valuator: 取消分配给值
-            unassign_from_valuator_button: 取消分配
             update: 更新
           new:
             create: 创建
             title: 创建提案
           show:
             amendments_count: 修改计数
-            assigned_valuators: 分配给值者
             body: 正文内容
             comments_count: 评论计数
             documents: www.un.org/webcast
@@ -312,8 +286,6 @@ zh-CN:
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议
             remove_assignment: 移除作业
-            remove_assignment_confirmation: 您确定要从此建议中删除值吗？
-            valuators: 估价器
         proposals_imports:
           new:
             create: 导入提议
@@ -333,9 +305,6 @@ zh-CN:
           update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 空间的官方提议"
         proposal_note:
           create: "%{user_name} 在 %{space_name} 空间的 %{resource_name} 提案上留下了一个私人笔记"
-        valuation_assignment:
-          create: "%{user_name} 将 %{resource_name} 的建议分配给了一个值者"
-          delete: "%{user_name} 在 %{proposal_title} 提议中没有分配到一个值者"
       answers:
         accepted: 已接受
         evaluating: 评价
@@ -347,7 +316,6 @@ zh-CN:
           all: 所有的
           meetings: 会议
           official: 官方的
-          user_groups: 群組
         filter_state_values:
           all: 所有的
           not_answered: 未回答
@@ -453,8 +421,6 @@ zh-CN:
             published_at: 发布于
             state: 状态
             title: 标题
-            valuator: 值者
-            valuators: 估价器
             votes: 所得票数
       participatory_text_proposal:
         alternative_title: 目前没有参与性文本

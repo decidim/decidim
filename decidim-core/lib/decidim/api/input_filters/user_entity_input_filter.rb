@@ -12,16 +12,6 @@ module Decidim
       {
         users(filter:{wildcard:\"sandy\", excludeIds:[2,10,11]}) {
           id
-          ...on User {
-            groups {
-              name
-            }
-          }
-          ...on UserGroup {
-            members {
-              name
-            }
-          }
         }
       }
       ```
@@ -42,11 +32,6 @@ module Decidim
                description: "Filters by nickname of the user entity. Searches (case-insensitive) any fragment of the provided string",
                required: false,
                prepare: :prepare_nickname
-      argument :type,
-               type: String,
-               description: "Filters by type of entity (User or UserGroup)",
-               required: false,
-               prepare: :prepare_type
       argument :wildcard,
                type: String,
                description: "Filters by nickname or name of the user entity. Searches (case-insensitive) any fragment of the provided string",
@@ -75,12 +60,6 @@ module Decidim
             model_class.arel_table[:id].not_in(value)
           end
         ]
-      end
-
-      def self.prepare_type(value, _ctx)
-        type = value.downcase.camelcase
-        type = "UserGroup" if %w(Group Usergroup).include?(type)
-        { type: "Decidim::#{type}" }
       end
 
       def self.prepare_wildcard(value, _ctx)

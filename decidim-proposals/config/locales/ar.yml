@@ -9,7 +9,6 @@ ar:
         scope_id: نطاق
         state: حالة
         title: عنوان
-        user_group_id: إنشاء مسودة تعاونية كـ
       import_participatory_text:
         document: مستند
       proposal:
@@ -26,7 +25,6 @@ ar:
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
         title: عنوان
-        user_group_id: إنشاء اقتراح باسم
       proposal_answer:
         answer: إجابة
         cost: التكلفة
@@ -40,9 +38,6 @@ ar:
         import_proposals: مقترحات الاستيراد
         keep_answers: الاحتفاظ بالحالة والإجابات
         keep_authors: الحفاظ على المؤلفين الأصلي
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: اسم المُقيِّم
     errors:
       models:
         participatory_text:
@@ -115,8 +110,6 @@ ar:
               rejected: تم رفضه
               validating: تحقق تقني
               withdrawn: تم السحب
-          valuator_role_ids_has:
-            label: تم إسناده إلى مُقيِّم
         search_placeholder:
           id_string_or_title_cont: البحث عن %{collection} بحسب المعرف ID أو العنوان.
     components:
@@ -198,7 +191,6 @@ ar:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
@@ -281,21 +273,6 @@ ar:
           name: اقتراحات
           next_level_in: إنشاء %{score} المزيد من المقترحات للوصول إلى المستوى التالي!
           unearned_own: لم تنشئ اقتراحات بعد.
-    metrics:
-      accepted_proposals:
-        description: عدد المقترحات المقبولة
-        object: اقتراحات
-        title: مقترحات مقبولة
-      endorsements:
-        description: عدد موافقات المقترحات
-        object: موافقات
-        title: موافقات
-      proposals:
-        description: عدد المقترحات
-        object: اقتراحات
-        title: اقتراحات
-      votes:
-        object: أصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل
@@ -383,8 +360,6 @@ ar:
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
-            assign_to_valuator: أسنِده إلى مُقيِّم
-            assign_to_valuator_button: تعيين
             cancel: إلغاء
             merge: دمج في واحدة جديدة
             publish: نشر
@@ -394,15 +369,12 @@ ar:
             split: تقسيم المقترحات
             split_button: انشق، مزق
             title: اقتراحات
-            unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
-            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
             title: إنشاء اقتراح
           show:
             amendments_count: تعداد التعديلات
-            assigned_valuators: المقيِّمون الذين تم تعيينهم
             body: الجسم
             comments_count: تعداد التعليقات
             documents: المستندات
@@ -419,8 +391,6 @@ ar:
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
             remove_assignment: إزالة التعيين
-            remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
-            valuators: المُقيِّمون
         proposals_imports:
           new:
             create: مقترحات الاستيراد
@@ -440,9 +410,6 @@ ar:
           update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
         proposal_note:
           create: "غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء"
-        valuation_assignment:
-          create: "قام %{user_name} بتعيين اقتراح %{resource_name} إلى مُقيِّم"
-          delete: "قام %{user_name} بسحب تعيين اقتراح %{resource_name} من مُقيِّم"
       answers:
         accepted: وافقت
         evaluating: تقييم
@@ -455,7 +422,6 @@ ar:
           meetings: اجتماعات
           official: الرسمية
           participants: المشاركون
-          user_groups: المجموعات
         filter_state_values:
           all: الكل
           not_answered: بلا جواب
@@ -578,8 +544,6 @@ ar:
             published_at: نشرت في
             state: الحالة
             title: عنوان
-            valuator: مُقيِّم
-            valuators: المُقيِّمون
             votes: الأصوات
       participatory_text_proposal:
         alternative_title: لا توجد نصوص تشاركية في الوقت الحالي
@@ -628,7 +592,6 @@ ar:
           text_banner: أنت تتطلع على قائمة الاقتراحات المسحوبة من قبل مؤلفيها. %{go_back_link}.
         new:
           send: استمر
-          title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها

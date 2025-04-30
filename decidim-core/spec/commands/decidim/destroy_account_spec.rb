@@ -73,15 +73,6 @@ module Decidim
         end.to change(Identity, :count).by(-1)
       end
 
-      it "deletes user group memberships" do
-        user_group = create(:user_group)
-        create(:user_group_membership, user_group:, user:)
-
-        expect do
-          command.call
-        end.to change(UserGroupMembership, :count).by(-1)
-      end
-
       it "deletes the follows" do
         other_user = create(:user)
         create(:follow, followable: user, user: other_user)

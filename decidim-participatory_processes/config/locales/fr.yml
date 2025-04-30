@@ -151,8 +151,8 @@ fr:
           roles:
             admin: Administrateur
             collaborator: Relecteur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
@@ -340,11 +340,11 @@ fr:
           not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id}).'
     menu:
       processes: Concertations
-    metrics:
-      participatory_processes:
-        description: Nombre de concertations dans cette organisation
-        object: concertations
-        title: Concertations
+    open_data:
+      help:
+        participatory_processes:
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -373,6 +373,8 @@ fr:
           participatory_processes:
             one: 1 concertation
             other: "%{count} concertations"
+      related_processes:
+        help: Tous les processus sélectionnés seront assignés à ce groupe, y compris ceux qui sont déjà assignés à d'autres groupes.
       show:
         title: Groupes de concertations
     participatory_process_steps:
@@ -408,9 +410,11 @@ fr:
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             images: Images
             metadata: Métadonnées
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             private_notice: Vous serez en mesure de gérer les membres après l'avoir défini comme privé
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
@@ -436,9 +440,6 @@ fr:
           highlighted_processes:
             active_spaces: Concertations actives
             see_all_spaces: Voir toutes les concertations
-      participatory_process_steps:
-        index:
-          back_to_process: Retour à la page du processus
       participatory_processes:
         description:
           area_name: Périmètre d'assemblée

@@ -33,8 +33,6 @@ ca:
       help_section:
         content: Contingut
       id: ID
-      import:
-        user_group_id: Importar com
       newsletter:
         body: Cos
         send_to_all_users: Envia a totes les usuàries
@@ -96,7 +94,6 @@ ca:
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària a X
-        user_groups_enabled: Habilitar grups
         users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
@@ -201,7 +198,6 @@ ca:
           new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
         permissions: Permisos
-        reject: Rebutjar
         restore: Restaurar
         send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
@@ -209,7 +205,6 @@ ca:
         soft_delete: Enviar a la paperera
         user:
           new: Nova administradora
-        verify: Verificar
         view_deleted_components: Veure els components eliminats
       admin_terms_of_service:
         accept:
@@ -482,6 +477,10 @@ ca:
             explanation: 'Instruccions per a l''arxiu:'
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
+          import_csv:
+            explanation: 'Instruccions per al fitxer:'
+            message_1: S'admeten fitxers CSV
+            message_2: "fitxer .csv amb dades de correus electrònics"
       help_sections:
         error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
@@ -603,11 +602,7 @@ ca:
         static_pages: Pàgines
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomia
-        user_groups: Grups
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: Veure més mètriques
       models:
         area:
           fields:
@@ -676,16 +671,6 @@ ca:
               admin: Administradora
               user_manager: Administradora de participants
           name: Participant
-        user_group:
-          fields:
-            actions: Accions
-            created_at: Data de creació
-            document_number: Número de document
-            name: Nom
-            nickname: Àlies
-            phone: Telèfon
-            state: Estat
-            users_count: Nombre de participants
       moderated_users:
         index:
           actions:
@@ -1098,7 +1083,7 @@ ca:
           title: Edita el tema
           update: Actualitza el tema
         new:
-          create: Crea un tema
+          create: Nou tema
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
@@ -1122,7 +1107,7 @@ ca:
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Crea una pàgina
+          create: Nova pàgina
           title: Nova pàgina
         topic:
           empty: No hi ha cap pàgina sobre aquest tema.
@@ -1252,7 +1237,6 @@ ca:
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         menu: Menú
-        metrics: Mètriques
         page_topics: Temes
         pages: Pàgines
         panel: Administradora
@@ -1262,7 +1246,6 @@ ca:
         statistics: Activitat
         taxonomies: Taxonomies
         taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
-        user_groups: Grups
         users: Administradores
       tooltips:
         deleted_component_info: Aquest component només es pot eliminar si el seu estat és 'Despublicat'.
@@ -1273,32 +1256,6 @@ ca:
         soft_delete:
           invalid: S'ha produït un problema en eliminar %{resource_name}.
           success: "%{resource_name} s'ha eliminat correctament."
-      user_group:
-        csv_verify:
-          invalid: S'ha produït un error en llegir el fitxer CSV.
-          success: L'arxiu CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
-        reject:
-          invalid: S'ha produït un error al rebutjar aquest grup.
-          success: El grup s'ha rebutjat correctament.
-        verify:
-          invalid: S'ha produït un error al verificar aquest grup.
-          success: Grup verificat correctament.
-      user_groups:
-        index:
-          state:
-            pending: Pendent
-            rejected: Rebutjat
-            verified: Verificat
-          verify_via_csv: Verifica mitjançant CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Fitxer d''exemple:'
-          explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Puja el fitxer CSV
-          upload: Pujar
       users:
         create:
           error: S'ha produït un error en convidar aquesta participant.
@@ -1325,22 +1282,13 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
-    metrics:
-      blocked_users:
-        object: usuàries bloquejades
-        title: Usuàries bloquejades
-      reported_users:
-        object: usuàries reportades
-        title: Usuàries reportades
-      user_reports:
-        object: informes d'usuari
-        title: Informes d'usuari
     moderations:
       actions:
         expand: Expandir
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
+        parent_hidden: No es pot mostrar aquest recurs perquè està inclòs dins un altre recurs ("pare") que segueix ocult.
         title: Accions
         unhide: Tornar a mostrar
         unreport: Desfer denúncia
@@ -1367,6 +1315,7 @@ ca:
             success: Contingut amagat correctament.
           unhide:
             invalid: S'ha produït un error en tornar a mostrar el contingut.
+            parent_invalid: Hi ha hagut un problema en revelar (fer visible) el recurs. El recurs en què aquest està inclòs ("pare") no és visible.
             success: S'ha tornat a mostrar el recurs correctament.
           unreport:
             invalid: S'ha produït un error en cancel·lar la denúncia.

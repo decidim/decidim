@@ -1,102 +1,80 @@
 ca:
   activemodel:
     attributes:
-      answer:
-        body: Resposta
-        choices: Opcions
-        selected_choices: Opcions seleccionades
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
       questionnaire_question:
         mandatory: Obligatori
         max_characters: Límit de caràcters (deixa-ho a 0 si no hi ha límit)
+      response:
+        body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
     errors:
       models:
-        answer:
+        questionnaire:
+          request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
+        response:
           attributes:
             add_documents:
-              needs_to_be_reattached: Ha de ser adjuntat de nou
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               too_long: és massa llarg
             choices:
-              missing: no estan complets
+              missing: no estan completes
               too_many: Pots triar un màxim de %{count} opcions.
-        questionnaire:
-          request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
     download_your_data:
       help:
-        answers:
-          answer: La resposta a la pregunta
-          id: L'identificador únic de la resposta
+        responses:
+          id: L'identificador únic del resultat
           question: La pregunta que es va respondre
-          questionnaire: L'enquesta que es va respondre
-          user: La usuària que va respondre l'enquesta
+          questionnaire: El qüestionari que es va respondre
+          response: La resposta a la pregunta
+          user: La usuària que va respondre al qüestionari
       show:
-        answers: Exportar les respostes
-        survey_user_answers: Respostes de les usuàries a l'enquesta
+        responses: Exportar respostes
+        survey_user_responses: Resposta de les usuàries a l'enquesta
     forms:
       admin:
         models:
           components:
-            allow_answers: Permetre respostes
-            allow_editing_answers: Permetre a les usuàries registrades editar les seves respostes a l'enquesta
+            allow_editing_responses: Permetre a les usuàries registrades editar les seves respostes a l'enquesta
+            allow_responses: Permetre respostes
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
-            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegador web.
             announcement: Avís
             clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
             ends_at: Respostes acceptades fins a
             ends_at_help: Deixar en blanc si no hi ha cap data específica
-            starts_at: Respostes acceptades des de
+            starts_at: Respostes acceptades fins a
             starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
           actions:
             back: Tornar a les preguntes
-            publish_answers: Publica respostes
-            show: Mostrar les respostes
-          answer_option:
-            answer_option: Opció de resposta
-            free_text: Text lliure
-            remove: Elimina
-            statement: Declaració
-          answers:
-            actions:
-              back: Tornar a les respostes
-              export: Exportar
-              next: Següent &rsaquo;
-              previous: "&lsaquo; Anterior"
-              show: Mostrar les respostes
-            empty: Encara no hi ha respostes
-            export:
-              answer:
-                title: 'Resposta #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} respostes totals"
-            show:
-              title: 'Resposta #%{number}'
+            publish_responses: Publicar les respostes
+            show: Respostes
           display_condition:
-            answer_option: Opció de resposta
             condition_question: Pregunta
             condition_type: Condició
             condition_types:
-              answered: Amb resposta
               equal: Igual a
               match: Inclou text
-              not_answered: No resposta
               not_equal: No és igual
+              not_responded: Sense resposta
+              responded: Amb resposta
             condition_value: Text inclòs
             display_condition: Condicions de visualització
             mandatory: Aquesta condició s'ha de complir sempre independentment de l'estat d'altres condicions
             remove: Eliminar
+            response_option: Opció de resposta
             save_warning: Recorda de guardar l'enquesta abans de configurar les condicions de visualitzacióó
-            select_answer_option: Eliminar l'opció de resposta
             select_condition_question: Seleccionar una pregunta
             select_condition_type: Seleccionar un tipus de condició
+            select_response_option: Seleccionar opció de resposta
           edit:
             save: Desa
             title: Editar el qüestionari
@@ -117,10 +95,10 @@ ca:
             remove: Elimina
             statement: Declaració
           question:
-            add_answer_option: Afegeix una opció de resposta
             add_display_condition: Afegir condició de visualització
             add_display_condition_info: Guardar l'enquesta per a configurar les condicions de visualització
             add_matrix_row: Afegir fila
+            add_response_option: Afegir opció de resposta
             any: Cap
             collapse: Redueix
             description: Descripció
@@ -131,12 +109,34 @@ ca:
             statement: Declaració
             up: Amunt
           questions_form:
-            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
+            already_responded_warning: L'enquesta ja està contestada per algunes usuàries i per tant no pots modificar les seves preguntes.
             collapse: Replega totes les preguntes
             expand: Desplega totes les preguntes
             unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però en fer-ho s'esborraran les respostes actuals.
             update:
               success: Pregunta/es afegida/es correctament a l'enquesta.
+          response_option:
+            free_text: Text lliure
+            remove: Eliminar
+            response_option: Opció de resposta
+            statement: Enunciat
+          responses:
+            actions:
+              back: Tornar a les respostes
+              export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
+              show: Mostrar les respostes
+            empty: Encara no hi ha respostes
+            export:
+              response:
+                title: 'Resposta #%{number}'
+            export_response:
+              title: repostes_usuaria_enquesta_%{token}
+            index:
+              title: "%{total} respostes en total"
+            show:
+              title: 'Resposta #%{number}'
           separator:
             down: Baixar
             remove: Eliminar
@@ -156,12 +156,12 @@ ca:
             success: Formulari desat correctament.
       admin_log:
         question:
-          publish_answers: "%{user_name} va publicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
-          unpublish_answers: "%{user_name} va despublicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          publish_responses: "%{user_name} va publicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          unpublish_responses: "%{user_name} va despublicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
-        answer:
+        response:
           body: El camp no pot estar en blanc
       images:
         dimensions: "%{width} x %{height} px"
@@ -170,39 +170,27 @@ ca:
           resize_to_fit: Aquesta imatge serà redimensionada per ajustar-se a %{dimensions}.
       question_types:
         files: Arxius
-        long_answer: Resposta llarga
+        long_response: Resposta llarga
         matrix_multiple: Matriu (opció multiple)
         matrix_single: Matriu (opció única)
         multiple_option: Opció múltiple
-        short_answer: Resposta curta
+        short_response: Resposta curta
         single_option: Opció única
         sorting: Ordenació
         title_and_description: Títol i descripció
-      questionnaire_answer_presenter:
+      questionnaire_response_presenter:
         download_attachment: Descarregar l'arxiu adjunt
       questionnaires:
-        answer:
-          invalid: S'han produït un error en respondre el formulari.
-          max_choices_alert: Hi ha massa opcions seleccionades
-          success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
+        response:
+          invalid: S'han produït un error en respondre el formulari.
+          max_choices_alert: Has seleccionat massa opcions
+          success: El formulari s'ha respost correctament.
         show:
-          answer_questionnaire:
-            already_have_an_account?: Ja tens un compte?
-            are_you_new?: Ets una nova usuària?
-            sign_in_description: Inicia la teva sessió per respondre l'enquesta
-            sign_up_description: Crea un compte de participant per a respondre l'enquesta
-            title: Respon el formulari
           current_step: Pas %{step}
           empty: No s'ha configurat cap pregunta encara en aquest formulari.
           of_total_steps: de %{total_steps}
-          questionnaire_answered:
-            body: Ja has respost a aquest formulari.
-            title: Ja has respost
-          questionnaire_answered_edit:
-            body: 'Ja has respost a aquest formulari: %{link}'
-            edit: Edita les respostes
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
             title: S'ha tancat el formulari
@@ -214,24 +202,35 @@ ca:
             title: JavaScript està desactivat
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
+          questionnaire_responded:
+            body: Ja has respost a aquest formulari.
+            title: Ja has respost
+          questionnaire_responded_edit:
+            body: 'Ja has respost a aquest formulari: %{link}'
+            edit: Edita les teves respostes
+          response_questionnaire:
+            already_have_an_account?: Ja tens un compte?
+            are_you_new?: Ets una nova usuària?
+            sign_in_description: Inicia la teva sessió per respondre l'enquesta
+            sign_up_description: Crea un compte de participant per a respondre l'enquesta
+            title: Respondre al formulari
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure_edit: Podràs editar les teves respostes. Segur que vols continuar?
-          are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o que creïs un compte.
-          are_you_sure_no_edit: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
+          are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o et creïs un compte.
+          are_you_sure_no_edit: Aquesta acció és irreversible i no podràs editar les teves respostes posteriorment. Segur que vols continuar?
           back: Enrere
           continue: Continuar
           disallowed: No pots editar les teves respostes.
           submit: Enviar respostes
-      user_answers_serializer:
+      user_responses_serializer:
         body: Resposta
         completion: Finalització
         created_at: Respost el
-        id: Identificador de resposta
-        ip_hash: Hash d'adreça IP
+        id: ID de la resposta
+        ip_hash: Hash de l'adreça IP
         question: Pregunta
         registered: Registrada
         session_token: Identificador d'usuària
         unregistered: No registrada
-        user_status: Estat de l'usuària
+        user_status: Estat de la usuària

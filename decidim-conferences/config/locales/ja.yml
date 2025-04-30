@@ -233,8 +233,8 @@ ja:
           roles:
             admin: 管理者
             collaborator: コラボレーター
+            evaluator: 評価者
             moderator: モデレーター
-            valuator: 評価者
         media_link:
           fields:
             date: 日付

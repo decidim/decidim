@@ -200,8 +200,8 @@ es-MX:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
-            valuator: Evaluadora
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
@@ -376,11 +376,6 @@ es-MX:
           not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
-    metrics:
-      assemblies:
-        description: Número de asambleas creadas
-        object: asambleas
-        title: Asambleas
     open_data:
       help:
         assemblies:

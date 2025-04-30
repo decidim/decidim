@@ -5,7 +5,6 @@ el:
       decidim/comments/comment_created_event: Σχόλιο
       decidim/comments/comment_upvoted_event: Το σχόλιο ψηφίστηκε
       decidim/comments/reply_created_event: Απάντηση σχολίου
-      decidim/comments/user_group_mentioned_event: Αναφορά
       decidim/comments/user_mentioned_event: Αναφορά
   activerecord:
     models:
@@ -16,6 +15,10 @@ el:
         one: Ψηφοφορία
         other: Ψήφοι
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Σχόλια
     comments:
       admin:
         shared:
@@ -41,8 +44,6 @@ el:
             label: Σχόλιο
             placeholder: Ποια είναι η γνώμη σας για αυτό;
           form_error: Το κείμενο είναι υποχρεωτικό και δεν μπορεί να υπερβαίνει τους %{length} χαρακτήρες.
-          user_group_id:
-            label: Σχόλιο ως
         opinion:
           label: Η γνώμη σας για το θέμα αυτό
           negative: Αρνητική
@@ -117,11 +118,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_name}. Μπορείτε να σταματήσετε να ακολουθείτε αυτόν τον χρήστη από τη σελίδα προφίλ του.
           email_subject: Υπάρχει ένα νέο σχόλιο από τον συντάκτη %{author_name} στο στοιχείο %{resource_title}
           notification_title: Υπάρχει ένα νέο σχόλιο από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a> στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Η ομάδα %{author_name} έκανε ένα σχόλιο στο στοιχείο %{resource_title}. Μπορείτε να το διαβάσετε σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_name}. Μπορείτε να σταματήσετε να ακολουθείτε αυτήν την ομάδα από τη σελίδα προφίλ της.
-          email_subject: Υπάρχει ένα νέο σχόλιο από τον συντάκτη %{author_name} στο στοιχείο %{resource_title}
-          notification_title: Υπάρχει ένα νέο σχόλιο από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a> στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Το στοιχείο %{resource_title} έχει σχολιαστεί. Μπορείτε να διαβάσετε το σχόλιο σε αυτήν τη σελίδα:"
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε το στοιχείο «%{resource_title}» ή τον συντάκτη του. Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
@@ -142,21 +138,11 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή το σχόλιό σας απαντήθηκε.
           email_subject: "Ο συντάκτης %{author_name} απάντησε στο σχόλιό σας στο στοιχείο %{resource_title}"
           notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> απάντησε στο σχόλιό σας στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Έγινε αναφορά σε μια ομάδα στην οποία ανήκετε
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε μέλος της ομάδας %{group_name} που αναφέρθηκε στο στοιχείο %{resource_title}.
-          email_subject: Έγινε αναφορά σε εσάς στο στοιχείο %{resource_title} ως μέλος της ομάδας %{group_name}
-          notification_title: Έγινε αναφορά σε εσάς στο στοιχείο <a href="%{resource_path}">%{resource_title}</a> από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a> ως μέλος της ομάδας <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Έγινε αναφορά σε εσάς
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}.
           email_subject: Έγινε αναφορά σε εσάς στο στοιχείο %{resource_title}
           notification_title: Έγινε αναφορά σε εσάς στο στοιχείο <a href="%{resource_path}">%{resource_title}</a> από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Αριθμός σχολίων που δημιουργήθηκαν από συμμετέχοντες
-        object: σχόλια
-        title: Σχόλια
   errors:
     messages:
       cannot_have_comments: δεν μπορεί να έχει σχόλια

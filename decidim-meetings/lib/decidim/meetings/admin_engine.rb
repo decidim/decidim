@@ -12,7 +12,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/answer_options", to: "registration_form#answer_options", as: :answer_options_meeting
+        get "/response_options", to: "registration_form#response_options", as: :response_options_meeting
 
         resources :meetings do
           member do
@@ -34,7 +34,15 @@ module Decidim
             end
             collection do
               get :export
+            end
+          end
+          resources :registrations_attendees, only: [:index] do
+            collection do
               post :validate_registration_code
+            end
+            member do
+              get :qr_mark_as_attendee
+              put :mark_as_attendee
             end
           end
           resources :agenda, except: [:index, :destroy]

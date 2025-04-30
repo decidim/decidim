@@ -128,7 +128,6 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
-            valuator: Beoordelaar
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -280,11 +279,6 @@ nl:
           title: Wat is een participatief proces?
     menu:
       processes: Inspraakprocessen
-    metrics:
-      participatory_processes:
-        description: Aantal participatieve processen in deze organisatie
-        object: participatieve processen
-        title: Participatieve processen
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -337,9 +331,6 @@ nl:
           name: Uitgelichte processen
       index:
         title: Inspraakproces
-      participatory_process_steps:
-        index:
-          back_to_process: Terug naar de procespagina
       participatory_processes:
         filters:
           counters:

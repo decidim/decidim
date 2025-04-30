@@ -13,7 +13,7 @@ describe Decidim::Assemblies::Permissions do
   let(:assembly_admin) { create(:assembly_admin, assembly:) }
   let(:assembly_collaborator) { create(:assembly_collaborator, assembly:) }
   let(:assembly_moderator) { create(:assembly_moderator, assembly:) }
-  let(:assembly_valuator) { create(:assembly_valuator, assembly:) }
+  let(:assembly_evaluator) { create(:assembly_evaluator, assembly:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -49,10 +49,10 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "access for role", access[:moderator]
     end
 
-    context "when user is a space valuator" do
-      let(:user) { assembly_valuator }
+    context "when user is a space evaluator" do
+      let(:user) { assembly_evaluator }
 
-      it_behaves_like "access for role", access[:valuator]
+      it_behaves_like "access for role", access[:evaluator]
     end
   end
 
@@ -68,7 +68,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: true,
         moderator: true,
-        valuator: true
+        evaluator: true
       )
     end
 
@@ -85,7 +85,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        valuator: false
+        evaluator: false
       )
     end
 
@@ -179,7 +179,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -194,7 +194,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -211,7 +211,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: true
+        evaluator: true
       )
     end
 
@@ -227,7 +227,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
   end
@@ -243,7 +243,23 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
+    )
+  end
+
+  context "when uploading editor images" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :editor_image }
+    end
+    let(:context) { { assembly: } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      evaluator: true
     )
   end
 
@@ -259,7 +275,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -275,7 +291,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -290,7 +306,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      evaluator: false
     )
   end
 
@@ -305,7 +321,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      evaluator: false
     )
   end
 
@@ -320,7 +336,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      evaluator: false
     )
   end
 
@@ -337,7 +353,7 @@ describe Decidim::Assemblies::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        valuator: :not_set,
+        evaluator: :not_set,
         moderator: true
       )
     end
@@ -352,7 +368,7 @@ describe Decidim::Assemblies::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        valuator: :not_set,
+        evaluator: :not_set,
         moderator: :not_set
       )
     end

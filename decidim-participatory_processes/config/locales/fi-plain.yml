@@ -151,8 +151,8 @@ fi-pl:
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
+            evaluator: Arvioija
             moderator: Moderoija
-            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
@@ -342,11 +342,6 @@ fi-pl:
           not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id}).'
     menu:
       processes: Prosessit
-    metrics:
-      participatory_processes:
-        description: Osallisuusprosessien määrä tässä organisaatiossa
-        object: osallisuusprosessit
-        title: Osallisuusprosessit
     open_data:
       help:
         participatory_processes:
@@ -472,9 +467,6 @@ fi-pl:
           highlighted_processes:
             active_spaces: Aktiiviset prosessit
             see_all_spaces: Näytä kaikki prosessit
-      participatory_process_steps:
-        index:
-          back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         description:
           area_name: Alue

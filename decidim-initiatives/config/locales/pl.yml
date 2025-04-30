@@ -6,7 +6,6 @@ pl:
         answer_url: Adres URL odpowiedzi
         area_id: Obszar
         decidim_scope_id: Zakres
-        decidim_user_group_id: Autor
         description: Opis
         hashtag: Hashtag
         offline_votes: Podpisy na piśmie
@@ -35,7 +34,6 @@ pl:
         comments_enabled: Włącz komentarze
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
-        document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu przy zbiórce podpisów
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Pozwól na podpisy online
@@ -95,7 +93,6 @@ pl:
             label: Stan
             values:
               accepted: Wystarczająca liczba podpisów
-              created: Utworzono
               discarded: Odrzucono
               rejected: Niewystarczająca liczba podpisów
               validating: Walidacja techniczna
@@ -299,7 +296,6 @@ pl:
           edit:
             update: Aktualizuj
           form:
-            authorizations: Ustawienia autoryzacji
             child_scope_threshold_enabled_help_html: 'Ta flaga konfiguracja nie wspiera głosowania offline. Zezwala ona na pod-zakresy i działa z uchwytem autoryzacji, który łączy zakres z użytkownikiem. Upewnij się, że wybrałeś(aś) taką autoryzację w sekcji autoryzacji poniżej. Zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tą <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stroną dokumentacji administracji inicjatywami</a>.'
             only_global_scope_enabled_help_html: Zaznacz tę flagę, jeśli włączyłeś(aś) opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś(aś) globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Ustawienia
@@ -324,7 +320,6 @@ pl:
           update: "%{user_name} zaktualizował(a) typ inicjatyw %{resource_name}"
       admin_states:
         accepted: Wystarczająca liczba podpisów
-        created: Utworzono
         discarded: Odrzucono
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
@@ -353,39 +348,21 @@ pl:
           name: Wyróżnione inicjatywy
       create_initiative:
         fill_data:
-          back: Wróć
           continue: Dalej
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
-          more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
           select_scope: Wybierz zakres
         finish:
           back: Wróć
-          back_to_initiatives: Wróć do inicjatyw
-          callout_text: Gratulacje! Twoja inicjatywa została utworzona.
-          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
-          edit_my_initiative: Edytuj moją inicjatywę
-          go_to_my_initiatives: Przejdź do moich inicjatyw
-          more_information: "(Więcej informacji)"
-          send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
-        finish_help:
-          publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
-          continue: Dalej
-        promotal_committee:
-          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
-          more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: (Więcej informacji)
           new: Utwórz nową inicjatywę
           select: Chcę utworzyć inicjatywę tego typu
-          select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
           verification_required: Zweryfikuj swoje konto, aby promować tę inicjatywę
-        share_committee_link:
-          invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
       edit:
         accept: Akceptuj inicjatywę
         back: Wróć
@@ -430,23 +407,14 @@ pl:
         uninitialized: Inicjatywy nie są jeszcze skonfigurowane przez administratora.
       initiative_signatures:
         fill_personal_data:
-          continue: Dalej
           help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę.
         finish:
           back_to_initiative: Wróć do inicjatywy
-        sms_code:
-          continue: Sprawdź kod i kontynuuj
-          help: Sprawdź SMS, który wysłaliśmy na Twój numer telefonu
-        sms_phone_number:
-          continue: Wyślij mi SMS-a
-          help: Wpisz w formularzu swój zweryfikowany numer telefonu, aby otrzymać kod weryfikacyjny.
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
           invalid: Dane dostarczone do poparcia inicjatywy nie są ważne.
           success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została poparta.
-        personal_data:
-          invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_code:
           invalid: Kod weryfikacyjny nie odpowiada naszemu kodowi. Prosimy o ponowne sprawdzenie wiadomości SMS.
         sms_phone:
@@ -576,7 +544,6 @@ pl:
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
-          created: Utworzone
           discarded: Odrzucone
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
@@ -595,20 +562,11 @@ pl:
       initiatives_type:
         actions:
           title: Działania
-          vote: Wspieranie
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Utwórz
-        finish: Koniec
-        promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
-      initiative_signature_creation_header:
-        fill_personal_data: Uzupełnij swoje dane
-        finish: Koniec
-        sms_code: Weryfikacja kodem SMS
-        sms_phone_number: Numer telefonu komórkowego
-        title: Podpisz %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nie ma jeszcze inicjatyw!

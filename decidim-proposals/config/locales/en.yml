@@ -10,7 +10,9 @@ en:
         scope_id: Scope
         state: State
         title: Title
-        user_group_id: Create collaborative draft as
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Evaluator name
       import_participatory_text:
         document: Document
       proposal:
@@ -28,7 +30,6 @@ en:
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
-        user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
         cost: Cost
@@ -56,9 +57,6 @@ en:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
         keep_authors: Keep original authors
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Valuator name
     errors:
       models:
         participatory_text:
@@ -124,6 +122,8 @@ en:
           proposals: Proposals
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Assigned to evaluator
           is_emendation_true:
             label: Type
             values:
@@ -143,8 +143,6 @@ en:
               withdrawn: Withdrawn
           taxonomies_part_of_contains:
             label: Taxonomy
-          valuator_role_ids_has:
-            label: Assigned to valuator
           with_any_state:
             label: Answered
             values:
@@ -270,14 +268,14 @@ en:
         accepted_coauthorship:
           notification_title: You have been added as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: You have been assigned as a valuator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
-            email_outro: You have received this notification because you can valuate the proposal.
-            email_subject: You have been assigned as a valuator to the proposal %{resource_title}.
-            notification_title: You have been assigned as a valuator to the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+          proposal_assigned_to_evaluator:
+            email_intro: You have been assigned as a evaluator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_outro: You have received this notification because you can evaluate the proposal.
+            email_subject: You have been assigned as a evaluator to the proposal %{resource_title}.
+            notification_title: You have been assigned as a evaluator to the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_created:
             email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
-            email_outro: You have received this notification because you can valuate the proposal.
+            email_outro: You have received this notification because you can evaluate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_mentioned:
@@ -421,23 +419,6 @@ en:
           next_level_in: Create %{score} more proposals to reach the next level!
           unearned_another: This participant has not created any proposals yet.
           unearned_own: You have created no proposals yet.
-    metrics:
-      accepted_proposals:
-        description: Number of proposals accepted
-        object: proposals
-        title: Accepted proposals
-      endorsements:
-        description: Number of endorsements to proposals
-        object: endorsements
-        title: Endorsements
-      proposals:
-        description: Number of proposals
-        object: proposals
-        title: Proposals
-      votes:
-        description: Number of votes to proposals
-        object: votes
-        title: Votes
     open_data:
       help:
         proposal_comments:
@@ -451,7 +432,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         proposals:
           address: The address of the proposal in case the proposal has a physical location
           answer: The answer to the proposal in the case it has been answered
@@ -490,7 +470,6 @@ en:
           withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
@@ -515,6 +494,13 @@ en:
           deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
           view_deleted_proposals: View deleted proposals
+        evaluation_assignments:
+          create:
+            invalid: There was a problem assigning proposals to a evaluator.
+            success: Proposals assigned to a evaluator successfully.
+          delete:
+            invalid: There was a problem unassigning proposals from a evaluator.
+            success: Evaluator unassigned from proposals successfully.
         exports:
           proposal_comments: Comments
           proposals: Proposals
@@ -645,8 +631,8 @@ en:
           index:
             actions: Actions
             apply_answer_template: Apply answer template
-            assign_to_valuator: Assign to valuator
-            assign_to_valuator_button: Assign
+            assign_to_evaluator: Assign to evaluator
+            assign_to_evaluator_button: Assign
             cancel: Cancel
             change_taxonomies: Change taxonomies
             merge: Merge into a new one
@@ -655,14 +641,14 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
-            select_valuators: Select one or more valuators
+            select_evaluators: Select one or more evaluators
             selected: selected
             split: Split proposals
             split_button: Split
             statuses: Statuses
             title: Proposals
-            unassign_from_valuator: Unassign from valuator
-            unassign_from_valuator_button: Unassign
+            unassign_from_evaluator: Unassign from evaluator
+            unassign_from_evaluator_button: Unassign
             update: Update
           manage_trash:
             title: Deleted proposals
@@ -674,12 +660,13 @@ en:
             select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
-            assigned_valuators: Assigned valuators
+            assigned_evaluators: Assigned evaluators
             body: Body
             comments_count: Comments count
             documents: Documents
             endorsements_count: Endorsements count
             endorsers: Endorsers
+            evaluators: Evaluators
             link: See proposal
             n_more_endorsers:
               one: and 1 more
@@ -688,8 +675,7 @@ en:
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
             remove_assignment: Remove assignment
-            remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
-            valuators: Valuators
+            remove_assignment_confirmation: Are you sure you want to remove the evaluator from this proposal?
             votes_count: Votes count
           update_taxonomies:
             invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
@@ -719,14 +705,10 @@ en:
           create:
             invalid: 'There was a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
-        valuation_assignments:
-          create:
-            invalid: There was a problem assigning proposals to a valuator.
-            success: Proposals assigned to a valuator successfully.
-          delete:
-            invalid: There was a problem unassigning proposals from a valuator.
-            success: Valuator unassigned from proposals successfully.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} assigned the %{resource_name} proposal to a evaluator"
+          delete: "%{user_name} unassigned a evaluator from the %{proposal_title} proposal"
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the proposal %{resource_name} from the merging of %{merged_count} proposals in %{space_name}"
@@ -736,9 +718,6 @@ en:
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
-        valuation_assignment:
-          create: "%{user_name} assigned the %{resource_name} proposal to a valuator"
-          delete: "%{user_name} unassigned a valuator from the %{proposal_title} proposal"
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -751,7 +730,6 @@ en:
           meetings: Meetings
           official: Official
           participants: Participants
-          user_groups: Groups
         filter_state_values:
           all: All
           not_answered: Not answered
@@ -900,6 +878,8 @@ en:
         proposal:
           fields:
             comments: Comments
+            evaluator: Evaluator
+            evaluators: Evaluators
             id: ID
             notes: Notes
             official_proposal: Official proposal
@@ -908,8 +888,6 @@ en:
             state: Status
             taxonomies: Taxonomies
             title: Title
-            valuator: Valuator
-            valuators: Valuators
             votes: Votes
         proposal_state:
           css_class: CSS class
@@ -969,7 +947,7 @@ en:
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
         new:
           send: Continue
-          title: Create your proposal
+          title: Create new proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
@@ -1019,7 +997,7 @@ en:
         update:
           title: Update proposal
         vote_button:
-          already_voted: Already voted
+          already_voted: Voted
           already_voted_hover: Withdraw vote
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining

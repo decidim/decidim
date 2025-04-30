@@ -10,60 +10,56 @@
   <%= cell("decidim/announcement", translated_attribute(questionnaire_for.announcement), callout_class: "warning") %>
 <% end %>
 
-<%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+<%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form response-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
   <%= form_required_explanation %>
 
-  <%= form.hidden_field :allow_editing_answers %>
+  <%= form.hidden_field :allow_editing_responses %>
 
   <%= invisible_captcha %>
-  <% answer_idx = 0 %>
-  <% cleaned_answer_idx = 1 %>
-  <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
-    <div id="step-<%= step_index %>" class="answer-questionnaire__step" <%= "hidden" if !step_index.zero? %>>
+  <% response_idx = 0 %>
+  <% cleaned_response_idx = 1 %>
+  <% @form.responses_by_step.each_with_index do |step_responses, step_index| %>
+    <div id="step-<%= step_index %>" class="response-questionnaire__step" <%= "hidden" if !step_index.zero? %>>
 
       <% if @form.total_steps > 1 %>
-        <p class="answer-questionnaire__step-counter">
+        <p class="response-questionnaire__step-counter">
           <%= t("decidim.forms.questionnaires.show.current_step", step: step_index + 1) %>&nbsp;<%= t("decidim.forms.questionnaires.show.of_total_steps", total_steps: @form.total_steps) %></span>
         </p>
       <% end %>
 
-      <% step_answers.each do |answer| %>
-        <div class="answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
-          <% answer.question.display_conditions.each do |display_condition| %>
+      <% step_responses.each do |response| %>
+        <div class="response question" data-max-choices="<%= response.question.max_choices %>" data-conditioned="<%= response.question.display_conditions.any? %>" data-question-id="<%= response.question.id %>">
+          <% response.question.display_conditions.each do |display_condition| %>
             <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
           <% end %>
 
-          <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
+          <%= fields_for "questionnaire[responses][#{response_idx}]", response do |response_form| %>
             <%= render(
-              "decidim/forms/questionnaires/answer",
-              answer_form:,
-              answer:,
-              answer_idx:,
-              cleaned_answer_idx:,
+              "decidim/forms/questionnaires/response",
+              response_form:,
+              response:,
+              response_idx:,
+              cleaned_response_idx:,
               disabled: !current_participatory_space.can_participate?(current_user)
             ) %>
           <% end %>
         </div>
 
-        <% if !(answer.question.separator? || answer.question.title_and_description?) %>
-          <% cleaned_answer_idx += 1 %>
+        <% if !(response.question.separator? || response.question.title_and_description?) %>
+          <% cleaned_response_idx += 1 %>
         <% end %>
 
-        <% answer_idx += 1 %>
+        <% response_idx += 1 %>
 
       <% end %>
 
-      <div class="answer-questionnaire__footer">
+      <div class="response-questionnaire__footer">
         <% if step_index + 1 == @form.total_steps %>
-          <% if show_represent_user_group? %>
-            <%= cell("decidim/represent_user_group", form) %>
-          <% end %>
-
           <% if show_public_participation? %>
             <%= cell("decidim/public_participation", form) %>
           <% end %>
 
-          <div class="answer-questionnaire__tos">
+          <div class="response-questionnaire__tos">
             <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
             <div>
               <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
@@ -77,7 +73,7 @@
           total_steps: @form.total_steps,
           button_disabled: !current_participatory_space.can_participate?(current_user),
           form:,
-          allow_editing_answers: questionnaire_for.try(:allow_editing_answers?)
+          allow_editing_responses: questionnaire_for.try(:allow_editing_responses?)
         ) %>
       </div>
     </div>

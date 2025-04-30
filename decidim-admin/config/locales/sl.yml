@@ -61,7 +61,6 @@ sl:
         success_color: Uspeh
         time_zone: Časovni pas
         tos_version: Pogoji storitve - verzija
-        user_groups_enabled: Omogoči grupe
         warning_color: Opozorilo
         welcome_notification_body: Sporočilo dobrodošlice - vsebina
         welcome_notification_subject: Sporočilo dobrodošlice - naslov
@@ -117,8 +116,6 @@ sl:
         manage: Uredi
         per_page: Na stran
         permissions: Dovoljenja
-        reject: Zavrni
-        verify: Preveri
       filters:
         state_eq:
           values:

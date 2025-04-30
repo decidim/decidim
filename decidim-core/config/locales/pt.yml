@@ -57,9 +57,6 @@ pt:
       decidim/user:
         one: Participante
         other: Participantes
-      decidim/user_group:
-        one: Grupo
-        other: Grupos
   booleans:
     'false': 'Não'
     'true': 'Sim'
@@ -192,7 +189,6 @@ pt:
             Esta modificação de %{amendable_type} %{proposal_link}
             foi retirada pelo autor.
       new:
-        amendment_author: Autor da modificação
         send: Criar
         title: Criar Rascunho da Modificação
       preview_draft:
@@ -359,8 +355,6 @@ pt:
         name: Última atividade
         title: Última atividade
         view_all: Ver tudo
-      metrics:
-        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -407,10 +401,6 @@ pt:
     download_your_data:
       export:
         ready: Pronto
-    endorsements:
-      identities:
-        done: Concluído
-        select_identity: Selecione a identidade
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
@@ -485,52 +475,6 @@ pt:
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
         level_up:
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
-      groups:
-        demoted_membership:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu os seus direitos de administrador desse grupo.
-          email_outro: Recebeu esta notificação porque é um membro desse grupo.
-          email_subject: Deixou de ser um administrador do grupo %{user_group_name}!
-          notification_title: Deixou de ser administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou-o a participar.
-          email_outro: Recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-la.
-          email_subject: Foi convidado(a) para participar no grupo %{user_group_name}!
-          notification_title: Foi convidado(a) a participar no grupo <a href="%{resource_path}">%{user_group_name}</a>. Verifique a <a href="%{groups_profile_tab_path}">página de Grupos</a> no seu perfil para aprovar!
-        join_request_accepted:
-          email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para participar.
-          email_outro: Recebeu esta notificação porque o seu pedido de participação foi atualizado.
-          email_subject: Foi aceite no grupo %{user_group_name}!
-          notification_title: Foi aceite no grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Alguém pediu para participar no grupo %{user_group_name}. Pode aceitar ou rejeitar a partir da <a href="%{resource_url}">página de membros do grupo</a>.
-          email_outro: Recebeu esta notificação porque pode gerir o grupo %{user_group_name}.
-          email_subject: Alguém pediu para aderir ao grupo %{user_group_name}!
-          notification_title: Alguém pediu para aderir ao grupo %{user_group_name}. Pode aceitar ou rejeitar a partir da <a href="%{resource_path}">página de membros do grupo</a>.
-        join_request_rejected:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido de adesão.
-          email_outro: Recebeu esta notificação porque o seu pedido de adesão foi atualizado.
-          email_subject: O seu pedido de adesão ao grupo %{user_group_name} foi rejeitado!
-          notification_title: O seu pedido de adesão ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitado.
-        promoted_to_admin:
-          email_intro: Um(a) administrador(a) do grupo <a href="%{resource_url}">%{user_group_name}</a> deu-lhe direitos de administrador desse grupo.
-          email_outro: Recebeu esta notificação porque é um membro desse grupo.
-          email_subject: Agora é um(a) administrador(a) do grupo %{user_group_name}!
-          notification_title: Agora é um(a) administrador(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Um(a) administrador(a) do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu-o(a) do mesmo.
-          email_outro: Recebeu esta notificação porque era um membro desse grupo.
-          email_subject: Foi removido(a) do grupo %{user_group_name}!
-          notification_title: Foi removido(a) do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Um novo grupo de utilizadores foi criado com o nome %{user_group_name}. Pode agora verificá-lo no <a href="%{groups_admin_url}">painel de administrador</a>.
-          email_outro: Recebeu esta notificação porque é administrador(a) da plataforma.
-          email_subject: Um novo grupo de utilizadores foi criado
-          notification_title: O grupo de utilizadores %{user_group_name} foi criado. Pode agora verificá-lo no <a href="%{groups_admin_path}">painel de administrador</a>.
-        user_group_updated:
-          email_intro: Um grupo de utilizadores com o nome %{user_group_name} atualizou o seu perfil, deixando-o por verificar. Pode agora verificá-lo no <a href="%{groups_admin_url}">painel de administrador</a>.
-          email_outro: Recebeu esta notificação porque é administrador(a) da plataforma.
-          email_subject: Um grupo de utilizadores atualizou o seu perfil
-          notification_title: O grupo de utilizadores %{user_group_name} atualizou o seu perfil, deixando-o por verificar. Pode agora verificá-lo no <a href="%{groups_admin_path}">painel de administrador</a>.
       reports:
         resource_hidden:
           email_intro: Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.
@@ -615,50 +559,7 @@ pt:
           title: Distintivos
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
-    group_admins:
-      actions:
-        demote_admin: Remover administrador
-      index:
-        current_admins: 'Administradores atuais:'
-        manage_admins: Gerir administradores
-    group_invites:
-      accept_invitation: Aceitar
-      accept_or_reject_group_invitations: 'Os seguintes grupos convidaram-no(a) para se juntar a eles. Aceite ou rejeite os seus pedidos:'
-      index:
-        invite: Convite
-        invite_user: Convidar um participante
-      reject_invitation: Rejeitar
-    group_members:
-      actions:
-        are_you_sure: Tem a certeza?
-        promote_to_admin: Tornar administrador
-        remove_from_group: Remover participante
-      index:
-        current_members_without_admins: 'Membros atuais (sem administradores):'
-        manage_members: Gerir membros
     groups:
-      actions:
-        are_you_sure: Tem a certeza?
-      edit:
-        edit_user_group: Editar grupo
-        update_user_group: Atualizar grupo
-      form:
-        email_help: E-mail da sua organização, associação, coletivo, grupo etc.
-        fill_in_for_verification: 'Preencha estes campos se quiser que o seu grupo seja verificado:'
-        name_help: Nome da sua organização, associação, coletivo, grupo etc.
-        nickname_help: Alcunha da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
-      join:
-        success: Pedido de adesão criado corretamente. Um administrador analisará o seu pedido antes de aceitá-lo(a) no grupo.
-      leave:
-        success: Grupo abandonado corretamente.
-      members:
-        accept_or_reject_join_requests: 'Os seguintes utilizadores pediram para aderir a este grupo. Aceite ou rejeite os seus pedidos:'
-        accept_request: Aceitar
-        reject_request: Rejeitar
-      new:
-        create_user_group: Criar grupo
-        new_user_group: Novo grupo
-        subtitle: Crie um grupo e convide outros utilizadores a aderir para participarem a um nível coletivo.
       roles:
         admin: Administrador
         member: Membro
@@ -712,30 +613,10 @@ pt:
       home: Inicio
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Está a receber isto pois é um administrador(a) em %{group}.
-          greeting: Olá, %{recipient}!
-          intro: "%{manager} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
-          subject: "%{manager} iniciou uma nova conversa como %{group}"
-        comanagers_new_message:
-          admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
-          greeting: Olá, %{recipient}!
-          intro: "%{manager} publicou novas mensagens numa conversa em nome de %{group}. Clique aqui para vê-las:"
-          subject: "%{manager} enviou novas mensagens como %{group}"
         new_conversation:
           greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa consigo. Clique aqui para vê-la:"
           subject: "%{sender} iniciou uma conversa consigo"
-        new_group_conversation:
-          admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
-          greeting: Olá, %{recipient}!
-          intro: "%{sender} iniciou uma nova conversa com o grupo %{group}. Clique aqui para vê-la:"
-          subject: "%{sender} iniciou uma conversa com %{group}"
-        new_group_message:
-          admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
-          greeting: Olá, %{recipient}!
-          intro: "%{sender} publicou novas mensagens numa conversa com o grupo %{group}. Clique aqui para vê-las:"
-          subject: "%{group} tem novas mensagens de %{sender}"
         new_message:
           greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-las:"
@@ -755,6 +636,8 @@ pt:
           new_conversation: Nova conversa
           next: Seguinte
           title: Conversas
+        reply_form:
+          placeholder: A sua resposta...
         show:
           back: Retroceder a todas as conversas
           chat_with: Conversa com
@@ -762,21 +645,6 @@ pt:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-    metrics:
-      download:
-        csv: Descarregar dados (CSV)
-      followers:
-        description: Número de participantes que seguem este espaço de participação
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de participantes ativos na organização
-        object: participantes
-        title: Participantes
-      users:
-        description: Número de participantes na organização
-        object: participantes
-        title: Participantes
     newsletter_mailer:
       newsletter:
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
@@ -859,10 +727,6 @@ pt:
         subheading: Navegar pelas páginas de ajuda de %{name}
         title: Ajuda
         topics: Tópicos
-      participatory_space:
-        metrics:
-          headline: Métricas
-          link: Mostrar todas as métricas
     profile:
       deleted: Participante eliminado
     profiles:
@@ -872,24 +736,12 @@ pt:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Grupos
-        members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-      sidebar:
-        badges:
-          info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
       user:
-        create_user_group: Criar grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar perfil do grupo
-        invite_user: Convidar participante
-        join_user_group: Solicitar adesão ao grupo
-        leave_user_group: Deixar o grupo
-        manage_user_group_admins: Gerir administradores
-        manage_user_group_users: Gerir membros
-        resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
+        actions:
+          edit_profile: Editar perfil
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -920,7 +772,6 @@ pt:
       prompt: Selecionar um âmbito
     search:
       results: Resultados da pesquisa
-      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisar
     searches:
       filters:
@@ -962,21 +813,15 @@ pt:
         title: Denunciar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
-        close: Fechar
-        description: O que é inapropriado acerca do utilizador?
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
         report: Denuncie
         spam: Contém clickbait, publicidade, golpes ou bots de script.
-        title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
       public_participation:
         public_participation: Mostrar publicamente a minha participação
       reference:
         reference: 'Referência: %{reference}'
-      represent_user_group:
-        represent_user_group: Eu represento um grupo
-        select_user_group: Selecione um grupo
       results_per_page:
         label: 'Resultados por página:'
         title: Selecionar número de resultados por página
@@ -1002,18 +847,8 @@ pt:
       show_translated: Mostrar texto traduzido automaticamente
     user_contact_disabled: Este participante não aceita mensagens diretas.
     user_conversations:
-      create:
-        existing_error: Não foi possível criar a mensagem. A conversa já existe, por favor tente novamente agora.
-        success: Conversa iniciada corretamente!
       index:
-        conversations_info: As conversas são privadas, mais ninguém consegue vê-las. Uma conversa pode ser iniciada com quaisquer participantes ou grupos registados na plataforma.
-        no_conversations_warning: Ainda não há conversas.
         time_ago: "Há %{time}"
-      reply:
-        placeholder: A sua resposta...
-        send: Enviar
-      update:
-        error: Mensagem não enviada. Tente novamente mais tarde
     user_report_mailer:
       notify:
         body_1: O utilizador %{user} foi denunciado por %{token}
@@ -1225,7 +1060,6 @@ pt:
         my_data: Os meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do participante
-        user_groups: Grupos
   locale:
     name: Português
     name_with_error: Português (erro!)

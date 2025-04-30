@@ -9,7 +9,6 @@ bg:
         scope_id: Обхват
         state: Състояние
         title: Заглавие
-        user_group_id: Създай съвместна чернова като
       proposal:
         address: Адрес
         answer: Отговор
@@ -22,7 +21,6 @@ bg:
         state: Състояние
         suggested_hashtags: Предложени хаштагове
         title: Заглавие
-        user_group_id: Създай предложение като
       proposal_answer:
         answer: Отговор
         cost: Разход
@@ -48,9 +46,6 @@ bg:
         import_proposals: Копиране на предложения
         keep_answers: Запазете състоянието и отговорите
         keep_authors: Запази автора на оригинала
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Име на проверяващ
     errors:
       models:
         participatory_text:
@@ -119,8 +114,6 @@ bg:
               rejected: Отхвърлено
               validating: Техническа проверка
               withdrawn: Оттеглено
-          valuator_role_ids_has:
-            label: Прикрепено към проверяващ
           with_any_state:
             label: Отговорено
             values:
@@ -222,7 +215,6 @@ bg:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
@@ -331,26 +323,8 @@ bg:
           next_level_in: Създайте още %{score} предложения, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е създал нито едно предложение.
           unearned_own: Все още не сте създали нито едно предложение.
-    metrics:
-      accepted_proposals:
-        description: Брой на приетите предложения
-        object: предложения
-        title: Приети предложения
-      endorsements:
-        description: Брой одобрения на предложения
-        object: одобрения
-        title: Одобрения
-      proposals:
-        description: Брой предложения
-        object: предложения
-        title: Предложения
-      votes:
-        description: Брой гласове за предложения
-        object: гласове
-        title: Гласове
     participatory_spaces:
       highlighted_proposals:
-        last: Позледни предложения
         see_all: Виж всички предложения
     proposals:
       actions:
@@ -465,21 +439,16 @@ bg:
             select_a_meeting: Избор на среща
           index:
             actions: Активности
-            assign_to_valuator: Възлагане на оценител
-            assign_to_valuator_button: Възлагане
             cancel: Отказ
             merge: Сливане в едно ново
             publish: Публикувай
             publish_answers: Публикуване на отговори
             select_component: Избери компонент
-            select_valuators: Изберете един или повече оценители
             selected: избрани
             split: Разделяне на предложения
             split_button: Разделяне
             statuses: Статуси
             title: Предложения
-            unassign_from_valuator: Отнемане възложеното на оценителя
-            unassign_from_valuator_button: Отнемане на възложеното
             update: Актуализация
           new:
             create: Създаване
@@ -489,7 +458,6 @@ bg:
             select_a_proposal: Моля, изберете предложение.
           show:
             amendments_count: Брой изменения
-            assigned_valuators: Присъеденени оценители
             body: Основен текст
             comments_count: Брой коментари
             documents: Документи
@@ -503,13 +471,10 @@ bg:
             ranking: "%{ranking} от %{total}"
             related_meetings: Свързани срещи
             remove_assignment: Премахване на възлагане
-            remove_assignment_confirmation: Наистина ли искате да премахнете оценителя от това предложение?
-            valuators: Оценители
             votes_count: Брой гласове
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията.
-            success: "%{number} предложения бяха импортирани успешно."
           new:
             create: Импортиране на предложения
             no_components: Няма други компоненти на предложения в това пространство за участие, от които да се импортират предложенията.
@@ -522,11 +487,6 @@ bg:
         proposals_splits:
           create:
             success: Предложенията бяха разделени успешно в нови предложения.
-        valuation_assignments:
-          create:
-            success: Предложенията бяха възложени успешно на оценител.
-          delete:
-            success: Оценителят бе успешно премахнат от предложенията.
       admin_log:
         proposal:
           answer: "%{user_name} отговори на предложението %{resource_name} в пространството %{space_name}"
@@ -534,9 +494,6 @@ bg:
           update: "%{user_name} актуализира официалното предложение %{resource_name} в пространството %{space_name}"
         proposal_note:
           create: "%{user_name} остави частна бележка в предложението %{resource_name} в пространството %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} възложи предложението %{resource_name} на оценител"
-          delete: "%{user_name} премахна възлагането на предложението %{proposal_title} на оценител"
       answers:
         accepted: Прието
         evaluating: Оценяване
@@ -549,7 +506,6 @@ bg:
           meetings: Срещи
           official: Официално
           participants: Участници
-          user_groups: Групи
         filter_state_values:
           all: Всички
           not_answered: Не отговорено
@@ -675,8 +631,6 @@ bg:
             published_at: Публикувано на
             state: Статус
             title: Заглавие
-            valuator: Оценител
-            valuators: Оценители
             votes: Гласове
         proposal_state:
           css_class: CSS-клас
@@ -731,7 +685,6 @@ bg:
           text_banner: Разглеждате списъка с предложения, оттеглени от своите автори. %{go_back_link}.
         new:
           send: Продължи
-          title: Създайте Ваше предложение
         orders:
           label: 'Подреждане на предложенията по:'
           most_commented: Най-коментирани
@@ -779,7 +732,6 @@ bg:
         update:
           title: Актуализиране на предложението
         vote_button:
-          already_voted: Вече гласувано
           already_voted_hover: Оттегляне на гласа
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове

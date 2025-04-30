@@ -9,7 +9,6 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Заголовок
-        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -210,7 +209,6 @@ ru:
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
         vote_button:
-          already_voted: Уже проголосовали
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать

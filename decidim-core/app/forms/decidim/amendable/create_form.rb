@@ -7,7 +7,6 @@ module Decidim
       mimic :amendment
 
       attribute :amendable_gid, String
-      attribute :user_group_id, Integer
       attribute :emendation_params, Hash
 
       validates :amendable_gid, presence: true

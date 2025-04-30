@@ -200,8 +200,8 @@ fr:
           roles:
             admin: Administrateur
             collaborator: Collaborateur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
       taxonomy_filters:
         space_filter_for:
           assemblies: Toutes les assemblées
@@ -219,6 +219,7 @@ fr:
         import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
         restore: "%{user_name} a restauré l'assemblée %{resource_name}"
+        soft_delete: "%{user_name} a déplacé dans la corbeille l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
@@ -242,11 +243,13 @@ fr:
         assemblies:
           form:
             announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             images: Images
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             other: Autre
             private_notice: Vous serez en mesure de gérer les participants privés après l'avoir défini comme privé
             select_a_created_by: Sélectionnez un créateur
@@ -373,15 +376,16 @@ fr:
           not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
-    metrics:
-      assemblies:
-        description: Nombre d'assemblées créées
-        object: assemblées
-        title: Assemblées
     open_data:
       help:
         assemblies:
+          announcement: Information sur l'annonce (callout)
           assembly_type: Le type de l'assemblée
+          closing_date: La date de clôture de l'assemblée
+          closing_date_reason: Pourquoi l'assemblée a été clôturée
+          composition: La composition de l'assemblée
+          created_at: La date de création de cet espace
+          created_by: Qui a créé cette assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

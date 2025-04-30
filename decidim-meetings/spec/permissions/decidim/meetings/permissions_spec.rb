@@ -43,7 +43,7 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when subject is not a meeting and answer or a question" do
+  context "when subject is not a meeting and response or a question" do
     let(:action) do
       { scope: :public, action: :vote, subject: :foo }
     end
@@ -51,17 +51,17 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when answering a question" do
+  context "when responding a question" do
     let(:action) do
-      { scope: :public, action: :create, subject: :answer }
+      { scope: :public, action: :create, subject: :response }
     end
 
-    context "when question not answered" do
+    context "when question not responded" do
       it { is_expected.to be true }
     end
 
-    context "when question answered" do
-      let!(:answer) { create(:meetings_poll_answer, user:, question:, questionnaire: poll_questionnaire) }
+    context "when question responded" do
+      let!(:response) { create(:meetings_poll_response, user:, question:, questionnaire: poll_questionnaire) }
 
       it { is_expected.to be false }
     end

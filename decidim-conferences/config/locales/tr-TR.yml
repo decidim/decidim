@@ -157,7 +157,6 @@ tr:
             admin: Yönetici
             collaborator: İşbirlikçi
             moderator: Moderatör
-            valuator: Bilirkişi
         media_link:
           fields:
             date: Tarih

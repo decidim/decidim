@@ -63,7 +63,6 @@ sk:
         success_color: Úspech
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
-        user_groups_enabled: Povoliť skupiny
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
         welcome_notification_subject: Predmet textu úvodného privítania
@@ -120,8 +119,6 @@ sk:
         manage: Správa
         per_page: Na stranu
         permissions: Práva
-        reject: Odmietnuť
-        verify: Overiť
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
@@ -305,11 +302,7 @@ sk:
         scopes: Rozsahy
         settings: Nastavenia
         static_pages: Stránky
-        user_groups: Skupiny
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobraziť viac metrík
       models:
         area:
           fields:
@@ -370,15 +363,6 @@ sk:
               admin: Admin
               user_manager: Správca účastníkov
           name: Účastník
-        user_group:
-          fields:
-            actions: Akcie
-            created_at: Vytvorené
-            document_number: Číslo dokumentu
-            name: Meno
-            phone: Telefón
-            state: Štát
-            users_count: Počet účastníkov
       moderations:
         report:
           reasons:
@@ -502,6 +486,8 @@ sk:
           title: Nový súkromný účastník participatívneho priestoru.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Nahrať súbor CSV
           upload: Nahrať
       resource_permissions:
         edit:
@@ -550,7 +536,6 @@ sk:
           title: Upraviť tému
           update: Aktualizovať tému
         new:
-          create: Vytvoriť tému
           title: Nová téma
         update:
           error: Pri aktualizácii témy nastala chyba.
@@ -571,7 +556,6 @@ sk:
         index:
           last_notable_change: Posledná výrazná úprava
         new:
-          create: Vytvoriť stránku
           title: Nová stránka
         topic:
           without_topic: Stránky bez témy
@@ -585,31 +569,10 @@ sk:
         dashboard: Hlavný panel
         impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
-        metrics: Metriky
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
         statistics: Aktivita
-        user_groups: Skupiny
-      user_group:
-        csv_verify:
-          invalid: Vyskytol sa problém s čítaním súboru CSV.
-        reject:
-          invalid: Nastal problém pri odmietaní tejto skupiny.
-        verify:
-          invalid: Nastal problém pri overovaní tejto skupiny.
-      user_groups:
-        index:
-          state:
-            pending: Čakajúce
-            rejected: Odmietnuté
-            verified: Overené
-          verify_via_csv: Overte pomocou CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Nahrajte svoj súbor CSV. Musí obsahovať oficiálne e-maily skupín vo Vašej organizácii v prvom stĺpci, bez hlavičiek. Iba skupiny, ktoré overili svoj e-mail a CSV obsahuje ich e-mail, budú validované.
-          title: Nahrať súbor CSV
-          upload: Nahrať
       users:
         create:
           error: Pri pozývaní administrátora nastal problém.

@@ -2,7 +2,6 @@ lv:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autors
         description: Apraksts
         offline_votes: Klātienes paraksti
         scope_id: Darbības tvērums
@@ -24,7 +23,6 @@ lv:
         collect_user_extra_fields: Vākt dalībnieka personas datus ar parakstu
         custom_signature_end_date_enabled: Ļaut autoriem izvēlēties parakstu vākšanas perioda beigas
         description: Apraksts
-        document_number_authorization_handler: Autorizācija, lai verificētu dokumenta numuru parakstos
         extra_fields_legal_information: Juridiska informācija par personas datu vākšanu
         minimum_committee_members: Minimālais skaits komisijas locekļu
         online_signature_enabled: Tiešsaistes paraksts ir iespējots
@@ -214,7 +212,6 @@ lv:
           update: "%{user_name} atjaunināja %{resource_name} iniciatīvu"
       admin_states:
         accepted: Pietiekami daudz parakstu
-        created: Izveidots
         discarded: Atmests
         rejected: Nepietiek parakstu
         validating: Tehniskā validācija
@@ -238,28 +235,18 @@ lv:
           name: Izceltās iniciatīvas
       create_initiative:
         fill_data:
-          back: Atpakaļ
           continue: Turpināt
-          more_information: "(Papildu informācija)"
           select_area: Izvēlieties jomu
           select_scope: Izvēlēties darbības tvērumu
         finish:
           back: Atpakaļ
-          back_to_initiatives: Atpakaļ pie iniciatīvām
-          go_to_my_initiatives: Doties pie manām iniciatīvām
-          more_information: "(Papildu informācija)"
         previous_form:
           back: Atpakaļ
-          continue: Turpināt
-        promotal_committee:
-          more_information: "(Papildu informācija)"
         select_initiative_type:
           back: Atpakaļ
           choose_html: Es vēlos izveidot <strong>%{title}</strong>
           more_information: (Papildu informācija)
           select: Es vēlos veicināt šo iniciatīvu
-        share_committee_link:
-          invite_to_committee_help: Saite, lai uzaicinātu cilvēkus, kas piedalīsies veicinātāju komitejā
       events:
         create_initiative_event:
           email_intro: "{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunu iniciatīvu \"%{resource_title}\". Aplūkojiet to un piedalieties:"
@@ -272,20 +259,11 @@ lv:
           email_subject: Iniciatīvu atbalstīja %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīvu atbalstīja <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Turpināt
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas
-        sms_code:
-          continue: Pārbaudīt kodu un turpināt
-          help: Pārbaudiet tālrunī saņemto SMS
-        sms_phone_number:
-          continue: Sūtīt man SMS
       initiative_votes:
         create:
           error: Iniciatīvas parakstīšanas laikā radās problēma
-        personal_data:
-          invalid: Personas dati neatbilst autorizējoties sniegtajiem datiem.
         sms_phone:
           invalid: Tālruņa numurs nav derīgs vai gaida autorizāciju. Lūdzu, pārbaudiet savas autorizācijas.
       initiatives:
@@ -348,7 +326,6 @@ lv:
       show:
         badge_name:
           accepted: Pietiekami daudz parakstu
-          created: Izveidots
           discarded: Atmests
           rejected: Nepietiek parakstu
           validating: Tehniskā validācija
@@ -362,20 +339,11 @@ lv:
       initiatives_type:
         actions:
           title: Darbības
-          vote: Parakstīt
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Izveidot
-        finish: Pabeigt
-        promotal_committee: Veicināšanas komiteja
         select_initiative_type: Izvēlēties
-      initiative_signature_creation_header:
-        fill_personal_data: Pabeidziet ierakstīt savus datus
-        finish: Pabeigt
-        sms_code: SMS koda verifikācija
-        sms_phone_number: Mobilā tālruņa numurs
-        title: Parakstīt %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Pagaidām nav iniciatīvu!

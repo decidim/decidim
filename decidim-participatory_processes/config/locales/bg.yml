@@ -148,7 +148,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-            valuator: Оценител
         user:
           fields:
             invitation_accepted_at: 'Поканата е приета на:'
@@ -323,11 +322,6 @@ bg:
           not_found: 'Типът процес не е намерен в базата данни (ID: %{id}).'
     menu:
       processes: Процеси
-    metrics:
-      participatory_processes:
-        description: Брой на процесите на участие в тази организация
-        object: процеси на участие
-        title: Процеси на участие
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -415,9 +409,6 @@ bg:
           highlighted_processes:
             active_spaces: Активни процеси
             see_all_spaces: Вижте всички процеси
-      participatory_process_steps:
-        index:
-          back_to_process: Назад към страницата на процеса
       participatory_processes:
         description:
           area_name: Област

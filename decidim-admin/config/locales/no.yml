@@ -26,8 +26,6 @@
         published_at: Publisert den
         weight: Plassering av sortering
       id: ID
-      import:
-        user_group_id: Opprett importer som
       newsletter:
         body: Tekst
         subject: Emne
@@ -83,7 +81,6 @@
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenesten
-        user_groups_enabled: Aktiver grupper
         users_registration_mode: Brukerregistrering
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
@@ -155,11 +152,9 @@
           new: Nytt deltakerområde for privat bruker
         per_page: Per side
         permissions: Tillatelser
-        reject: Avvis
         share: Del
         user:
           new: Ny admin
-        verify: Verifiser
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -467,11 +462,7 @@
         scopes: Tema
         settings: Innstillinger
         static_pages: Sider
-        user_groups: Grupper
         users: Deltakere
-      metrics:
-        metrics:
-          see_more_metrics: Se flere måltall
       models:
         area:
           fields:
@@ -536,15 +527,6 @@
               admin: Administrator
               user_manager: Deltaker sjef
           name: Deltaker
-        user_group:
-          fields:
-            actions: Handlinger
-            created_at: Opprettet på
-            document_number: Dokumentnummer
-            name: Navn
-            phone: Telefon
-            state: Stat
-            users_count: Deltakere teller
       moderated_users:
         index:
           actions:
@@ -712,6 +694,8 @@
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Last opp din CSV fil
           destroy:
             button: Slett alle private deltakere
             empty: Du har ingen private deltakere.
@@ -777,7 +761,6 @@
           title: Rediger emne
           update: Oppdater emne
         new:
-          create: Opprett emne
           title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
@@ -798,7 +781,6 @@
         index:
           last_notable_change: Siste merkbare endring
         new:
-          create: Opprett side
           title: Ny side
         topic:
           without_topic: Sider uten emne
@@ -813,33 +795,12 @@
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         menu: Meny
-        metrics: Måltall
         panel: Administrator
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
         statistics: Aktivitet
-        user_groups: Grupper
         users: Administratorer
-      user_group:
-        csv_verify:
-          invalid: Det oppstod et problem med å lese CSV-filen.
-        reject:
-          invalid: Det oppstod et problem med å avvise denne gruppen.
-        verify:
-          invalid: Det oppstod et problem med å verifisere denne gruppen.
-      user_groups:
-        index:
-          state:
-            pending: Venter
-            rejected: Avvist
-            verified: Verifisert
-          verify_via_csv: Verifiser via CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
-          title: Last opp din CSV fil
-          upload: Last opp
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.
@@ -861,16 +822,6 @@
           last_month: Siste måned
           last_week: Siste uke
           participants: Deltakere
-    metrics:
-      blocked_users:
-        object: blokkerte brukere
-        title: Blokkerte brukere
-      reported_users:
-        object: rapporterte brukere
-        title: Rapporterte brukere
-      user_reports:
-        object: brukerrapporter
-        title: Brukerrapporter
     moderations:
       actions:
         expand: Utvid

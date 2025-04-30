@@ -52,9 +52,6 @@ tr:
       decidim/user:
         one: Katılımcı
         other: Katılımcılar
-      decidim/user_group:
-        one: grup
-        other: Gruplar
   booleans:
     'false': 'Hayır'
     'true': 'Evet'
@@ -187,7 +184,6 @@ tr:
           withdrawn: |-
             %{amendable_type} %{proposal_link} için bu değişiklik yazar tarafından geri çekildi.
       new:
-        amendment_author: Değişiklik yazarı
         send: Oluştur
         title: Değişiklik Taslağı Oluştur
       preview_draft:
@@ -354,8 +350,6 @@ tr:
         name: Son Aktivite
         title: Son Aktivite
         view_all: Tümünü görüntüle
-      metrics:
-        name: Organizasyon metrikleri
       static_page:
         section:
           name: Bölüm
@@ -418,10 +412,6 @@ tr:
     download_your_data:
       export:
         ready: Hazır
-    endorsements:
-      identities:
-        done: Bitti
-        select_identity: Kimlik seçin
     errors:
       internal_server_error:
         title: Sunucumuzla ilgili bir sorun oluştu
@@ -496,52 +486,6 @@ tr:
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
         level_up:
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-      groups:
-        demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi, yönetici haklarınızı bu gruba kaldırdı.
-          email_outro: Bu bildirimi aldınız çünkü bu gruba üye iseniz.
-          email_subject: Artık %{user_group_name} grubunun bir yöneticisi değilsiniz!
-          notification_title: Artık <a href="%{resource_path}">%{user_group_name}</a> grubunun yöneticisi değilsiniz.
-        invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi sizi katılmaya davet etti.
-          email_outro: Bu bildirimi bir gruba davet edildiğiniz için aldınız. Lütfen onaylamak için profilinizdeki Gruplar sekmesini kontrol edin.
-          email_subject: '%{user_group_name} gruba katılmaya davet edildiniz!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubuna katılmaya davet edildiniz. Onaylamak için profilinizdeki <a href="%{groups_profile_tab_path}">Gruplar sayfasını</a> kontrol edin!
-        join_request_accepted:
-          email_intro: Tebrikler! <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi, katılma isteğinizi kabul etti.
-          email_outro: Bu bildirimi, katılma isteğiniz güncellendiği için aldınız.
-          email_subject: '%{user_group_name} gruba kabul edildi!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubuna kabul edildiniz.
-        join_request_created:
-          email_intro: Birisi %{user_group_name} gruba katılmayı talep etti. Kabul veya onu reddedebilir <a href="%{resource_url}">grup üyeleri sayfa</a>.
-          email_outro: Bu bildirimi aldınız çünkü %{user_group_name} grubunu yönetebilirsiniz.
-          email_subject: Biri %{user_group_name} gruba katılmayı talep etti!
-          notification_title: Birisi %{user_group_name} gruba katılmayı talep etti. Kabul veya onu reddedebilir <a href="%{resource_path}">grup üyeleri sayfa</a>.
-        join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi, katılma isteğinizi reddetti.
-          email_outro: Bu bildirimi, katılma isteğiniz güncellendiği için aldınız.
-          email_subject: '%{user_group_name} gruba katılma isteğiniz reddedildi!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> gruba katılma isteğiniz reddedildi.
-        promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun bir yöneticisi size bu gruba yönetici hakları verdi.
-          email_outro: Bu bildirimi aldınız çünkü bu gruba üye iseniz.
-          email_subject: Artık %{user_group_name} grubunun bir yöneticisisiniz!
-          notification_title: Artık <a href="%{resource_path}">%{user_group_name}</a> grubunun bir yöneticisisiniz.
-        removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi sizi bundan kaldırdı.
-          email_outro: Bu bildirimi siz grubun üyesi olduğunuz için aldınız.
-          email_subject: '%{user_group_name} gruptan kaldırıldınız!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubundan kaldırıldınız.
-        user_group_created:
-          email_intro: '%{user_group_name} adıyla yeni bir kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_url}"> yönetici panelinde </a> doğrulayabilirsiniz.'
-          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
-          email_subject: Yeni bir kullanıcı grubu oluşturuldu
-          notification_title: '%{user_group_name} kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
-        user_group_updated:
-          email_intro: '%{user_group_name} adlı bir kullanıcı grubu profilini güncelledi ve doğrulanmamış olarak bırakıldı. Artık bunu <a href="%{groups_admin_url}"> yönetici panelinde </a> doğrulayabilirsiniz.'
-          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
-          email_subject: Bir kullanıcı grubu profilini güncelledi
-          notification_title: '%{user_group_name} kullanıcı grubu profilini güncelledi ve doğrulanmadan bırakıldı. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
       reports:
         resource_hidden:
           email_intro: Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı.
@@ -627,50 +571,7 @@ tr:
           title: Rozetler
       description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız.
       level: Seviye %{level}
-    group_admins:
-      actions:
-        demote_admin: Yönetici kaldır
-      index:
-        current_admins: 'Mevcut yöneticiler:'
-        manage_admins: Yöneticileri yönet
-    group_invites:
-      accept_invitation: Kabul Et
-      accept_or_reject_group_invitations: 'Aşağıdaki gruplar, onlara katılmaları için sizi davet etti. İsteklerini kabul etme veya reddetme:'
-      index:
-        invite: Davet et
-        invite_user: Bir katılımcı davet et
-      reject_invitation: Reddet
-    group_members:
-      actions:
-        are_you_sure: Emin misiniz?
-        promote_to_admin: Yönetici yap
-        remove_from_group: Katılımcıyı kaldır
-      index:
-        current_members_without_admins: 'Mevcut üyeler (yöneticiler olmadan):'
-        manage_members: Üyeleri yönet
     groups:
-      actions:
-        are_you_sure: Emin misiniz?
-      edit:
-        edit_user_group: Grubu düzenle
-        update_user_group: Grubu güncelle
-      form:
-        email_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
-        fill_in_for_verification: 'Grubunuzun doğrulanmasını istiyorsanız, bu alanları doldurun:'
-        name_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
-        nickname_help: Kuruluşunuzun, derneğinizin, kolektifiniziz, grubunuzun vb. isimlerinde boşluk veya aksan kullanmayın.
-      join:
-        success: Katılım isteği başarıyla oluşturuldu. Bir yönetici sizi gruba kabul etmeden önce isteğinizi inceleyecektir.
-      leave:
-        success: Grup başarıyla terk edildi.
-      members:
-        accept_or_reject_join_requests: 'Aşağıdaki kullanıcılar bu gruba katılmak için başvurdu. İsteklerini kabul edin veya reddedin:'
-        accept_request: Kabul Et
-        reject_request: Reddet
-      new:
-        create_user_group: Grup oluştur
-        new_user_group: Yeni grup
-        subtitle: Bir grup oluşturun ve diğer kullanıcıları ortak bir düzeye katılmaya davet edin.
       roles:
         admin: Yönetici
         member: Üye
@@ -718,34 +619,11 @@ tr:
       home: Ana Sayfa
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
-          intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Platformun tadını çıkarın!
-          subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
-        comanagers_new_message:
-          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
-          intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
-          subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{sender} sizinle bir konuşma başlattı"
-        new_group_conversation:
-          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
-          intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Platformun tadını çıkarın!
-          subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
-        new_group_message:
-          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
-          intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
-          outro: Platformun tadını çıkarın!
-          subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
@@ -766,27 +644,14 @@ tr:
           new_conversation: Yeni görüşme
           next: Sonraki
           title: Konuşmalar
+        reply_form:
+          placeholder: Cevabınız...
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-    metrics:
-      download:
-        csv: Veri indir (csv)
-      followers:
-        description: Bu katılım alanını takip eden kullanıcı sayısı
-        object: takipçiler
-        title: Takipçiler
-      participants:
-        description: Kuruluştaki aktif kullanıcı sayısı
-        object: katılımcılar
-        title: Katılımcılar
-      users:
-        description: Kuruluştaki katılımcı sayısı
-        object: katılımcılar
-        title: Katılımcılar
     newsletter_mailer:
       newsletter:
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
@@ -870,10 +735,6 @@ tr:
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
         topics: Başlıklar
-      participatory_space:
-        metrics:
-          headline: Metrikler
-          link: Bütün istatistikleri göster
     profile:
       deleted: Silinmiş kullanıcı
     profiles:
@@ -883,23 +744,11 @@ tr:
         conversations: Konuşmalar
         followers: Takipçiler
         following: Takip Et
-        groups: Gruplar
-        members: Üyeler
         officialized: Resmi katılımcı
-      sidebar:
-        badges:
-          info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
-          title: Rozetler
       user:
-        create_user_group: Grup oluştur
-        edit_profile: Profili Düzenle
-        edit_user_group: Grup profilini düzenle
-        invite_user: Katılımcı davet et
-        join_user_group: Gruba katılma isteği
-        leave_user_group: Gruptan ayrıl
-        manage_user_group_admins: Yöneticileri yönet
-        manage_user_group_users: Üyeleri yönet
-        resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
+        actions:
+          edit_profile: Profili Düzenle
+          resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
       hide:
         hello: Merhaba %{name}
@@ -930,7 +779,6 @@ tr:
       prompt: Bir kapsam seçin
     search:
       results: Arama sonuçları
-      results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
       filters:
@@ -973,12 +821,9 @@ tr:
         title: Sorun bildir
       flag_user_modal:
         already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
-        close: Kapat
-        description: Kullanıcı hakkında uygunsuz olan nedir?
         offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
         report: Bildir
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
-        title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
         help: yardım et
       follow_button:
@@ -988,9 +833,6 @@ tr:
       progress: "Süreç\nİlerleme"
       reference:
         reference: 'Referans: %{reference}'
-      represent_user_group:
-        represent_user_group: Bir grubu temsil ediyorum
-        select_user_group: Bir grup seçiniz
       results_per_page:
         label: 'Sayfa başına sonuç:'
         title: Sayfa başına sonuç sayısını seçin
@@ -1005,18 +847,8 @@ tr:
       show_translated: Otomatik olarak çevrilmiş metni göster
     user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
-      create:
-        existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
-        success: Görüşme başarıyla başladı!
       index:
-        conversations_info: Görüşmeler özeldir, onları başka kimse göremez. Platforma kayıtlı herhangi bir katılımcı veya grup ile görüşme başlatılabilir.
-        no_conversations_warning: Henüz bir görüşme yok.
         time_ago: "%{time} önce"
-      reply:
-        placeholder: Cevabınız...
-        send: Gönder
-      update:
-        error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_report_mailer:
       notify:
         body_1: Kullanıcı %{user}, %{token} tarafından rapor edildi
@@ -1226,7 +1058,6 @@ tr:
         my_data: Benim verim
         notifications_settings: Bildirimler ayarları
         title: Kullanıcı ayarları
-        user_groups: Gruplar
   locale:
     name: Türkçe
     name_with_error: Türkçe (hata!)

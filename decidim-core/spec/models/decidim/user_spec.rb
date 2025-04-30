@@ -26,12 +26,6 @@ module Decidim
       expect(subject.identities).to eq([])
     end
 
-    it "has an association for user groups" do
-      user_group = create(:user_group)
-      create(:user_group_membership, user: subject, user_group:)
-      expect(subject.user_groups).to eq([user_group])
-    end
-
     describe "name" do
       context "when it has a name" do
         let(:user) { build(:user, name: "Oriol") }

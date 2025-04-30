@@ -2,7 +2,6 @@ zh-CN:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: 作者
         description: 描述
         offline_votes: 本人签名
         offline_votes_for_scope: '%{scope_name} 的本人签名'
@@ -26,7 +25,6 @@ zh-CN:
         collect_user_extra_fields: 在签名时收集参与者个人数据
         custom_signature_end_date_enabled: 允许作者选择签名收集期的结束
         description: 描述
-        document_number_authorization_handler: 验证签名上的文档编号的授权
         extra_fields_legal_information: 关于收集个人数据的法律信息
         minimum_committee_members: 委员会成员的最低人数
         online_signature_enabled: 启用在线签名
@@ -69,7 +67,6 @@ zh-CN:
             label: 状态
             values:
               accepted: 足够的签名
-              created: 已创建
               discarded: 丢弃的
               rejected: 签名不足
               validating: 技术验证
@@ -217,7 +214,6 @@ zh-CN:
           edit:
             update: 更新
           form:
-            authorizations: 授权设置
             options: 备选方案
           initiative_type_scopes:
             title: 倡议类型的范围
@@ -232,7 +228,6 @@ zh-CN:
           update: "%{user_name} 更新了 %{resource_name} 倡议"
       admin_states:
         accepted: 足够的签名
-        created: 已创建
         discarded: 丢弃的
         rejected: 签名不足
         validating: 技术验证
@@ -256,28 +251,18 @@ zh-CN:
           name: B. 重点倡议
       create_initiative:
         fill_data:
-          back: 后退
           continue: 继续
-          more_information: "(更多信息)"
           select_area: 选择区域
           select_scope: 选择范围
         finish:
           back: 后退
-          back_to_initiatives: 回到倡议
-          go_to_my_initiatives: 转到我的倡议
-          more_information: "(更多信息)"
         previous_form:
           back: 后退
-          continue: 继续
-        promotal_committee:
-          more_information: "(更多信息)"
         select_initiative_type:
           back: 后退
           choose_html: 我想要创建 <strong>%{title}</strong>
           more_information: (更多信息)
           select: 我想促进这项倡议
-        share_committee_link:
-          invite_to_committee_help: 邀请将成为促进委员会成员的人的链接
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经创建了一个新的倡议，查看它并做出贡献："
@@ -290,20 +275,11 @@ zh-CN:
           email_subject: '%{author_nickname} 认可的倡议'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
       initiative_signatures:
-        fill_personal_data:
-          continue: 继续
         finish:
           back_to_initiative: 回到倡议
-        sms_code:
-          continue: 检查代码并继续
-          help: 检查手机收到的短信
-        sms_phone_number:
-          continue: 给我发送短信
       initiative_votes:
         create:
           error: 在签署该倡议时遇到了问题。
-        personal_data:
-          invalid: 个人资料与批准数据不一致。
         sms_phone:
           invalid: 电话号码无效或正在等待授权。请检查您的授权。
       initiatives:
@@ -369,7 +345,6 @@ zh-CN:
       show:
         badge_name:
           accepted: 足够的签名
-          created: 已创建
           discarded: 丢弃的
           rejected: 签名不足
           validating: 技术验证
@@ -383,20 +358,11 @@ zh-CN:
       initiatives_type:
         actions:
           title: 行动
-          vote: 签名
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: 创建
-        finish: 完成
-        promotal_committee: 宣传委员会
         select_initiative_type: 选择
-      initiative_signature_creation_header:
-        fill_personal_data: 完成您的数据
-        finish: 完成
-        sms_code: 短信代码验证
-        sms_phone_number: 手机号码
-        title: 签名 %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: 还没有倡议！

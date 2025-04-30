@@ -23,12 +23,10 @@
       morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
     }
 
-    <% if remaining_votes_count_for(current_user) == 0 %>
+    <% if remaining_votes_count_for_user == 0 %>
       $notVotedButtons.attr('disabled', true);
-      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
     <% else %>
       $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
   }());
 <% end %>
@@ -44,9 +42,8 @@
       morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
     }
 
-    <% if remaining_minimum_votes_count_for(current_user).zero? %>
+    <% if minimum_votes_per_user_enabled? && remaining_minimum_votes_count_for_user.zero? %>
       $votingRulesNode.prepend(`<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>`)
-
     <% end %>
     if ($exitProposalModal[0]) {
       morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
@@ -56,7 +53,7 @@
     }
 
     if ($remainingVotesNotification[0]) {
-      morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
+      morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>');
     }
   }());
 <% end %>

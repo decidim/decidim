@@ -3,6 +3,8 @@
 module Decidim
   module Assemblies
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
+
       def permissions
         user_can_enter_space_area?
 
@@ -34,6 +36,7 @@ module Decidim
         user_can_create_assembly?
         user_can_export_assembly?
         user_can_copy_assembly?
+        user_can_upload_images_in_assembly?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -44,7 +47,7 @@ module Decidim
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         assembly_admin_action?
 
         permission_action
@@ -226,9 +229,9 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Valuators can only read the assembly components
-      def valuator_action?
-        return unless can_manage_assembly?(role: :valuator)
+      # Evaluators can only read the assembly components
+      def evaluator_action?
+        return unless can_manage_assembly?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -302,6 +305,11 @@ module Decidim
 
           Decidim::Assembly.where(id: assemblies + child_assemblies)
         end
+      end
+
+      # Checks if the assigned admins can upload images on the editor
+      def user_can_upload_images_in_assembly?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, assembly, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

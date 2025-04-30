@@ -16,9 +16,9 @@ export default function createEditableForm() {
   const wrapperSelector = ".questionnaire-questions";
   const fieldSelector = ".questionnaire-question";
   const questionTypeSelector = "select[name$=\\[question_type\\]]";
-  const answerOptionFieldSelector = ".questionnaire-question-answer-option";
-  const answerOptionsWrapperSelector = ".questionnaire-question-answer-options";
-  const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
+  const responseOptionFieldSelector = ".questionnaire-question-response-option";
+  const responseOptionsWrapperSelector = ".questionnaire-question-response-options";
+  const responseOptionRemoveFieldButtonSelector = ".remove-response-option";
   const matrixRowFieldSelector = ".questionnaire-question-matrix-row";
   const matrixRowsWrapperSelector = ".questionnaire-question-matrix-rows";
   const matrixRowRemoveFieldButtonSelector = ".remove-matrix-row";
@@ -30,12 +30,12 @@ export default function createEditableForm() {
   const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
 
   const displayConditionQuestionSelector = "select[name$=\\[decidim_condition_question_id\\]]";
-  const displayConditionAnswerOptionSelector = "select[name$=\\[decidim_answer_option_id\\]]";
+  const displayConditionResponseOptionSelector = "select[name$=\\[decidim_response_option_id\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
   const deletedInputSelector = "input[name$=\\[deleted\\]]";
 
   const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
-  const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
+  const displayconditionResponseOptionWrapperSelector = ".questionnaire-question-display-condition-response-option";
 
   const addDisplayConditionButtonSelector = ".add-display-condition";
 
@@ -74,27 +74,27 @@ export default function createEditableForm() {
   const MULTIPLE_CHOICE_VALUES = ["single_option", "multiple_option", "sorting", "matrix_single", "matrix_multiple"];
   const MATRIX_VALUES = ["matrix_single", "matrix_multiple"];
 
-  const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
+  const createAutoMaxChoicesByNumberOfResponseOptions = (fieldId) => {
     return new AutoSelectOptionsByTotalItemsComponent({
       wrapperSelector: fieldSelector,
       selectSelector: `${maxChoicesWrapperSelector} select`,
-      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .questionnaire-question-answer-option:not(.hidden)`
+      listSelector: `#${fieldId} ${responseOptionsWrapperSelector} .questionnaire-question-response-option:not(.hidden)`
     })
   };
 
-  const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
+  const createAutoButtonsByMinItemsForResponseOptions = (fieldId) => {
     return new AutoButtonsByMinItemsComponent({
       wrapperSelector: fieldSelector,
-      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .questionnaire-question-answer-option:not(.hidden)`,
+      listSelector: `#${fieldId} ${responseOptionsWrapperSelector} .questionnaire-question-response-option:not(.hidden)`,
       minItems: 2,
-      hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
+      hideOnMinItemsOrLessSelector: responseOptionRemoveFieldButtonSelector
     })
   };
 
   const createAutoSelectOptionsFromUrl = ($field) => {
     return new AutoSelectOptionsFromUrl({
       source: $field.find(displayConditionQuestionSelector),
-      select: $field.find(displayConditionAnswerOptionSelector),
+      select: $field.find(displayConditionResponseOptionSelector),
       sourceToParams: ($element) => { return { id: $element.val() } }
     })
   };
@@ -138,18 +138,18 @@ export default function createEditableForm() {
     }
   };
 
-  const createDynamicFieldsForAnswerOptions = (fieldId) => {
-    const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
-    const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
+  const createDynamicFieldsForResponseOptions = (fieldId) => {
+    const autoButtons = createAutoButtonsByMinItemsForResponseOptions(fieldId);
+    const autoSelectOptions = createAutoMaxChoicesByNumberOfResponseOptions(fieldId);
 
     return createDynamicFields({
-      placeholderId: "questionnaire-question-answer-option-id",
-      wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
-      containerSelector: ".questionnaire-question-answer-options-list",
-      fieldSelector: answerOptionFieldSelector,
-      addFieldButtonSelector: ".add-answer-option",
-      fieldTemplateSelector: ".decidim-answer-option-template",
-      removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
+      placeholderId: "questionnaire-question-response-option-id",
+      wrapperSelector: `#${fieldId} ${responseOptionsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-response-options-list",
+      fieldSelector: responseOptionFieldSelector,
+      addFieldButtonSelector: ".add-response-option",
+      fieldTemplateSelector: ".decidim-response-option-template",
+      removeFieldButtonSelector: responseOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
         autoSelectOptions.run();
@@ -161,7 +161,7 @@ export default function createEditableForm() {
     });
   };
 
-  const dynamicFieldsForAnswerOptions = {};
+  const dynamicFieldsForResponseOptions = {};
 
   const createDynamicFieldsForMatrixRows = (fieldId) => {
     return createDynamicFields({
@@ -200,7 +200,7 @@ export default function createEditableForm() {
 
     const isMultiple = isMultipleChoiceOption(selectedQuestionType);
 
-    let conditionTypes = ["answered", "not_answered"];
+    let conditionTypes = ["responded", "not_responded"];
 
     if (isMultiple) {
       conditionTypes.push("equal");
@@ -236,7 +236,7 @@ export default function createEditableForm() {
   const onDisplayConditionTypeChange = ($field) => {
     const value = $field.find(displayConditionTypeSelector).val();
     const $valueWrapper = $field.find(displayConditionValueWrapperSelector);
-    const $answerOptionWrapper = $field.find(displayconditionAnswerOptionWrapperSelector);
+    const $responseOptionWrapper = $field.find(displayconditionResponseOptionWrapperSelector);
 
     const $questionSelector = $field.find(displayConditionQuestionSelector);
     const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
@@ -251,10 +251,10 @@ export default function createEditableForm() {
     }
 
     if (isMultiple && (value === "not_equal" || value === "equal")) {
-      $answerOptionWrapper.show();
+      $responseOptionWrapper.show();
     }
     else {
-      $answerOptionWrapper.hide();
+      $responseOptionWrapper.hide();
     }
   };
 
@@ -302,8 +302,8 @@ export default function createEditableForm() {
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
-      dependentFieldsSelector: answerOptionsWrapperSelector,
-      dependentInputSelector: `${answerOptionFieldSelector} input`,
+      dependentFieldsSelector: responseOptionsWrapperSelector,
+      dependentInputSelector: `${responseOptionFieldSelector} input`,
       enablingCondition: ($field) => {
         return isMultipleChoiceOption($field.val());
       }
@@ -329,20 +329,20 @@ export default function createEditableForm() {
       }
     });
 
-    dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
+    dynamicFieldsForResponseOptions[fieldId] = createDynamicFieldsForResponseOptions(fieldId);
     dynamicFieldsForMatrixRows[fieldId] = createDynamicFieldsForMatrixRows(fieldId);
     dynamicFieldsForDisplayConditions[fieldId] = createDynamicFieldsForDisplayConditions(fieldId);
 
-    const dynamicFieldsAnswerOptions = dynamicFieldsForAnswerOptions[fieldId];
+    const dynamicFieldsResponseOptions = dynamicFieldsForResponseOptions[fieldId];
     const dynamicFieldsMatrixRows = dynamicFieldsForMatrixRows[fieldId];
 
     const onQuestionTypeChange = () => {
       if (isMultipleChoiceOption($fieldQuestionTypeSelect.val())) {
-        const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
+        const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(responseOptionFieldSelector).length;
 
         if (nOptions === 0) {
-          dynamicFieldsAnswerOptions._addField();
-          dynamicFieldsAnswerOptions._addField();
+          dynamicFieldsResponseOptions._addField();
+          dynamicFieldsResponseOptions._addField();
         }
       }
 
@@ -400,8 +400,8 @@ export default function createEditableForm() {
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
-      $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
-        dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
+      $field.find(responseOptionRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForResponseOptions[$field.attr("id")]._removeField(el);
       });
 
       $field.find(matrixRowRemoveFieldButtonSelector).each((idx, el) => {

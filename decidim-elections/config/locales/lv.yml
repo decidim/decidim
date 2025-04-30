@@ -1,0 +1,104 @@
+lv:
+  activemodel:
+    attributes:
+      answer:
+        description: Apraksts
+        image: Attēls
+        proposals: Saistītie priekšlikumi
+        title: Nosaukums
+      election:
+        description: Apraksts
+        end_time: Balsošana beidzas plkst.
+        start_time: Balsošanas sākas plkst.
+        title: Nosaukums
+      question:
+        max_selections: Maksimālais izvēļu skaits
+        title: Nosaukums
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Jāpievieno no jauna
+  activerecord:
+    models:
+      decidim/elections/answer:
+        zero: Atbildes
+        one: Atbilde
+        other: Atbildes
+      decidim/elections/election:
+        zero: Vēlēšanas
+        one: Vēlēšanas
+        other: Vēlēšanas
+      decidim/elections/question:
+        zero: Jautājumi
+        one: Jautājums
+        other: Jautājumi
+  decidim:
+    components:
+      elections:
+        name: Vēlēšanas
+        settings:
+          global:
+            announcement: Paziņojums
+          step:
+            announcement: Paziņojums
+    elections:
+      actions:
+        confirm_destroy: Vai esat pārliecināts?
+        destroy: Dzēst
+        edit: Labot
+        import: Importēt priekšlikumus atbildēm
+        preview: Priekšskatīt
+        title: Darbības
+      admin:
+        answers:
+          edit:
+            title: Rediģēt atbildi
+            update: Atjaunināt atbildi
+          index:
+            title: Atbildes
+          new:
+            create: Izveidot atbildi
+            title: Jauna atbilde
+        elections:
+          edit:
+            title: Rediģēt vēlēšanas
+            update: Atjaunināt vēlēšanas
+          index:
+            title: Vēlēšanas
+          new:
+            create: Izveidot vēlēšanas
+            title: Jaunas vēlēšanas
+        models:
+          answer:
+            name: Atbilde
+        proposals_imports:
+          new:
+            create: Importēt priekšlikumus atbildēm
+            no_components: Šajā līdzdalības telpā nav citu priekšlikumu komponentu, lai priekšlikumus importētu atbildēs.
+            select_component: Lūdzu, izvēlieties komponentu
+        questions:
+          edit:
+            title: Rediģēt jautājumu
+            update: Atjaunināt jautājumu
+          index:
+            title: Jautājumi
+          new:
+            create: Izveidot jautājumu
+            title: Jauns jautājums
+      models:
+        answer:
+          fields:
+            proposals: Priekšlikumi
+            title: Nosaukums
+        election:
+          fields:
+            end_time: Beidzas plkst.
+            start_time: Sākas plkst.
+            title: Nosaukums
+        question:
+          fields:
+            answers: Atbildes
+            max_selections: Maks. izvēles
+            title: Nosaukums

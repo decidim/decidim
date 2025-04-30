@@ -5,7 +5,6 @@ module Decidim
   #
   # Coauthorable shares nearly the same object interface as Authorable but with some differences.
   # - `authored_by?(user)` is exactly the same
-  # - `normalized_author` is now `identities`.
   #
   # All coauthors, including the initial author, will share the same permissions.
   module Coauthorable
@@ -13,16 +12,13 @@ module Decidim
 
     included do
       has_many :coauthorships, -> { order(:created_at) }, as: :coauthorable, class_name: "Decidim::Coauthorship", dependent: :destroy, inverse_of: :coauthorable
-      has_many :user_groups, -> { order(:created_at) }, as: :coauthorable, class_name: "Decidim::UserGroup", through: :coauthorships
 
       # retrieves models from all identities of the author.
       scope :from_all_author_identities, lambda { |author|
         joins(:coauthorships).where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ?", author.id, author.class.base_class.name)
       }
-      # retrieves models from the given author, ignoring the UserGroups it belongs to.
-      scope :from_author, ->(author) { from_all_author_identities(author).where("decidim_coauthorships.decidim_user_group_id": nil) }
-      # retrieves models from the given UserGroup.
-      scope :from_user_group, ->(user_group) { joins(:coauthorships).where("decidim_coauthorships.decidim_user_group_id": user_group.id) }
+      # retrieves models from the given author.
+      scope :from_author, ->(author) { from_all_author_identities(author) }
       scope :with_official_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
@@ -31,14 +27,7 @@ module Decidim
       scope :with_participants_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
-             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-             .where(decidim_coauthorships: { decidim_user_group_id: nil })
-      }
-      scope :with_user_group_origin, lambda {
-        where.not(coauthorships_count: 0)
-             .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-             .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
       }
       scope :with_meeting_origin, lambda {
         where.not(coauthorships_count: 0)
@@ -49,7 +38,7 @@ module Decidim
       scope :with_any_origin, lambda { |*origin_keys|
         search_values = origin_keys.compact.compact_blank
 
-        conditions = [:official, :participants, :user_group, :meeting].map do |key|
+        conditions = [:official, :participants, :meeting].map do |key|
           search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
         end.compact
         return self unless conditions.any?
@@ -96,32 +85,29 @@ module Decidim
         @notifiable_identities ||= identities.flat_map do |identity|
           if identity.is_a?(Decidim::User)
             identity
-          elsif identity.is_a?(Decidim::UserGroup)
-            identity.managers
           elsif respond_to?(:component)
             component.participatory_space.admins
           end
         end.compact.uniq
       end
 
-      # Checks whether the user is author of the given proposal, either directly
-      # authoring it or via a user group.
+      # Checks whether the user is author of the given proposal.
       #
       # author - the author to check for authorship
       def authored_by?(author)
         coauthorships.exists?(author:)
       end
 
-      # Returns the identities for the authors, whether they are user groups, users or others.
+      # Returns the identities for the authors, whether they are users or others.
       #
-      # Returns an Array of User, UserGroups or any other entity capable object (such as Organization).
+      # Returns an Array of Users or any other entity capable object (such as Organization).
       def identities
-        coauthorships.includes(:author, :user_group).order(:created_at).collect(&:identity)
+        coauthorships.includes(:author).order(:created_at).collect(&:identity)
       end
 
-      # Returns the identities for the authors, only if they are user groups or users.
+      # Returns the identities for the authors, only if they are users.
       #
-      # Returns an Array of User and/or UserGroups.
+      # Returns an Array of Users.
       def user_identities
         coauthorships.where(decidim_author_type: "Decidim::UserBaseEntity").order(:created_at).collect(&:identity)
       end
@@ -143,23 +129,19 @@ module Decidim
         creator.try(:author)
       end
 
-      # Syntactic sugar to access first identity whether it is a User or a UserGroup.
-      # @return The User od UserGroup that created this Coauthorable.
+      # Syntactic sugar to access first identity.
+      # @return The User that created this Coauthorable.
       def creator_identity
         creator.try(:identity)
       end
 
       # Adds a new coauthor to the list of coauthors. The coauthorship is created with
-      # current object as coauthorable and `user` param as author. To set the user group
-      # use `extra_attributes` with the `user_group` key.
+      # current object as coauthorable and `user` param as author.
       #
       # @param author: The new coauthor.
       # @extra_attrs: Extra
       def add_coauthor(author, extra_attributes = {})
-        user_group = extra_attributes[:user_group]
-
-        return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name) && user_group.blank?
-        return if user_group && coauthorships.exists?(user_group:)
+        return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name)
 
         coauthorship_attributes = extra_attributes.merge(author:)
 

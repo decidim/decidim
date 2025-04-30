@@ -141,7 +141,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-            valuator: Εκτιμητής
         user:
           fields:
             invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις
@@ -308,11 +307,6 @@ el:
           not_found: 'Ο τύπος διεργασίας δεν βρέθηκε στη βάση δεδομένων (ID: %{id}).'
     menu:
       processes: Διαδικασίες
-    metrics:
-      participatory_processes:
-        description: Αριθμός διαδικασιών συμμετοχής σε αυτόν τον οργανισμό
-        object: διαδικασίες συμμετοχής
-        title: Διαδικασίες συμμετοχής
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -367,9 +361,6 @@ el:
           name: Επισημασμένες διαδικασίες
       index:
         title: Διαδικασίες συμμετοχής
-      participatory_process_steps:
-        index:
-          back_to_process: Πίσω στην σελίδα της διαδικασίας
       participatory_processes:
         filters:
           all_types: Όλοι οι τύποι

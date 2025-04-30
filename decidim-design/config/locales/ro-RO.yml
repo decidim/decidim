@@ -43,3 +43,6 @@ ro:
           adjacent_links: Link-uri adiacente
           elements_hidden: Elemente ascunse
           elements_hidden_header: Elemente ascunse de API-ul de accesibilitate
+      helpers:
+        context_description: Această celulă afișează câteva informații despre un utilizator. Un ajutor vizual pentru identificarea creatorului de resurse/conținut.
+        usage_typography_5: Tab dezactivat

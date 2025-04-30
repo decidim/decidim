@@ -105,9 +105,6 @@ ga:
     download_your_data:
       export:
         ready: Réidh
-    endorsements:
-      identities:
-        done: Críochnaithe
     export_mailer:
       download_your_data_export:
         download: Íoslódáil
@@ -128,15 +125,7 @@ ga:
       badges:
         index:
           title: Suaitheantais
-    group_invites:
-      accept_invitation: Glac
-      index:
-        invite: Tabhair Cuireadh
-      reject_invitation: Diúltaigh
     groups:
-      members:
-        accept_request: Glac
-        reject_request: Diúltaigh
       roles:
         admin: Riarthóir
         member: Ball
@@ -183,19 +172,11 @@ ga:
         standalone_pages: Leathanaigh
         title: Cabhair
         topics: Ábhair
-      participatory_space:
-        metrics:
-          headline: Méadrachtaí
     profiles:
       show:
         activity: Gníomhaíocht
         badges: Suaitheantais
         following: Leantach
-        groups: Grúpaí
-        members: Baill
-      sidebar:
-        badges:
-          title: Suaitheantais
     reported_mailer:
       report:
         authors: Údair
@@ -229,7 +210,6 @@ ga:
         reason: Cúis
         report: Tuairiscigh
       flag_user_modal:
-        close: Dún
         report: Tuairiscigh
       floating_help:
         help: Cabhair
@@ -241,9 +221,6 @@ ga:
       comments_count: Tráchtanna
       endorsements_count: Formhuinithe
       pages_count: Leathanaigh
-    user_conversations:
-      reply:
-        send: Seol
     version:
       show:
         back_to_resource: Dul ar ais
@@ -277,7 +254,6 @@ ga:
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
-        user_groups: Grúpaí
   locale:
     name: Gaeilge
     name_with_error: Gaeilge (earráid!)

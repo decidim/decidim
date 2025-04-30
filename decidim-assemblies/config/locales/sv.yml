@@ -200,8 +200,8 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medverkande
+            evaluator: Utvärderare
             moderator: Moderator
-            valuator: Handläggare
       taxonomy_filters:
         space_filter_for:
           assemblies: Alla samråd
@@ -376,11 +376,6 @@ sv:
           not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Samråd
-    metrics:
-      assemblies:
-        description: Antal skapade samråd
-        object: samråd
-        title: Samråd
     open_data:
       help:
         assemblies:

@@ -44,7 +44,6 @@ ga:
           create: Cruthaigh
         show:
           debate_closed: Dúnta
-          groups_count: Grúpaí
       models:
         debate:
           fields:
@@ -54,9 +53,5 @@ ga:
       badges:
         commented_debates:
           name: Díospóireachtaí
-    metrics:
-      debates:
-        object: díospóireachtaí
-        title: Díospóireachtaí
     statistics:
       debates_count: Díospóireachtaí

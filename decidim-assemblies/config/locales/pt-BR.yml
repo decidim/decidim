@@ -194,7 +194,6 @@ pt-BR:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
       titles:
         assemblies: Assembleias
         assemblies_types: Tipos de assembleia
@@ -352,11 +351,6 @@ pt-BR:
           not_found: 'O tipo de assembleia não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembleias
-    metrics:
-      assemblies:
-        description: Número de montagens criadas
-        object: assembleias
-        title: Assembleias
     participatory_processes:
       show:
         related_assemblies: Assembleias Relacionadas

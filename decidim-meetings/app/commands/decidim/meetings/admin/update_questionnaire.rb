@@ -73,12 +73,12 @@ module Decidim
           }
 
           update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
-            form_question.answer_options.each do |form_answer_option|
-              answer_option_attributes = {
-                body: form_answer_option.body
+            form_question.response_options.each do |form_response_option|
+              response_option_attributes = {
+                body: form_response_option.body
               }
 
-              update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
+              update_nested_model(form_response_option, response_option_attributes, question.response_options)
             end
           end
         end

@@ -49,8 +49,6 @@ zh-CN:
         other: 授权
       decidim/user:
         other: 参加者
-      decidim/user_group:
-        other: 群組
   booleans:
     'false': '否'
     'true': '否'
@@ -163,7 +161,6 @@ zh-CN:
           promoted: 晋升到 %{amendable_type}。
           rejected: '%{amendable_type} %{proposal_link} 的这个修改在 <strong>%{date}</strong> 被拒绝。'
       new:
-        amendment_author: 修改者
         send: 创建
         title: 创建修正草稿
       preview_draft:
@@ -305,8 +302,6 @@ zh-CN:
         name: 上次活动
         title: 上次活动
         view_all: 查看全部
-      metrics:
-        name: 组织指标
       stats:
         name: 组织统计
       sub_hero:
@@ -351,10 +346,6 @@ zh-CN:
     download_your_data:
       export:
         ready: 准备好
-    endorsements:
-      identities:
-        done: 完成
-        select_identity: 选择身份
     errors:
       internal_server_error:
         title: 服务器出现问题
@@ -427,52 +418,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      groups:
-        demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员已经删除了您对该组的管理员权限。
-          email_outro: 您收到此通知是因为您是该小组的成员。
-          email_subject: 您不再是 %{user_group_name} 组的管理员！
-          notification_title: 您不再是 <a href="%{resource_path}">%{user_group_name}组</a> 的管理员。
-        invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员邀请您加入它。
-          email_outro: 您收到此通知是因为您已被邀请加入一个群组。请检查您个人资料中的群组选项卡以获得批准。
-          email_subject: 您已被邀请加入 %{user_group_name} 小组！
-          notification_title: 您已被邀请加入 <a href="%{resource_path}">%{user_group_name}</a> 群组。请检查您的个人资料中的 <a href="%{groups_profile_tab_path}">群组页面</a> 以获得批准！
-        join_request_accepted:
-          email_intro: 恭喜！ <a href="%{resource_url}">%{user_group_name}</a> 组的管理员接受了您的加入请求。
-          email_outro: 您收到此通知是因为您的加入请求已更新。
-          email_subject: 您已被 %{user_group_name} 组接受！
-          notification_title: 您已接受了 <a href="%{resource_path}">%{user_group_name}</a> 组。
-        join_request_created:
-          email_intro: 有人请求加入 %{user_group_name} 小组。您可以从 <a href="%{resource_url}">小组成员页面</a> 接受或拒绝它。
-          email_outro: 您收到此通知是因为您可以管理 %{user_group_name} 组。
-          email_subject: 有人请求加入 %{user_group_name} 小组！
-          notification_title: 有人请求加入 %{user_group_name} 小组。您可以从 <a href="%{resource_path}">小组成员页面</a> 接受或拒绝它。
-        join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}的管理员</a> 组拒绝了您加入该组的请求。
-          email_outro: 您收到此通知是因为您的加入请求已更新。
-          email_subject: 您加入 %{user_group_name} 组的请求已被拒绝！
-          notification_title: 您加入 <a href="%{resource_path}">%{user_group_name}</a> 组的请求已被拒绝。
-        promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员已经给予您该组管理员权限。
-          email_outro: 您收到此通知是因为您是该小组的成员。
-          email_subject: 您现在是 %{user_group_name} 组的管理员！
-          notification_title: 您现在是 <a href="%{resource_path}">%{user_group_name}</a> 组的管理员。
-        removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员已经将您从它中删除。
-          email_outro: 您收到此通知是因为您是该小组的成员。
-          email_subject: 您已经从 %{user_group_name} 组中被删除！
-          notification_title: 您已经从 <a href="%{resource_path}">%{user_group_name}</a> 组中删除。
-        user_group_created:
-          email_intro: 一个新的用户群组已经创建，名称为 %{user_group_name}。您现在可以在 <a href="%{groups_admin_url}">管理面板</a> 中验证它。
-          email_outro: 您收到此通知是因为您是平台的管理员。
-          email_subject: 已创建一个新的用户组
-          notification_title: '%{user_group_name} 用户群组已创建。您现在可以在 <a href="%{groups_admin_path}">管理面板</a> 中验证它。'
-        user_group_updated:
-          email_intro: 名为 %{user_group_name} 的用户组已更新其个人资料，未验证。 您现在可以在 <a href="%{groups_admin_url}">管理面板</a> 中验证它。
-          email_outro: 您收到此通知是因为您是平台的管理员。
-          email_subject: 用户组更新了它的个人资料
-          notification_title: '%{user_group_name} 用户群组更新了它的个人资料，未验证。您现在可以在 <a href="%{groups_admin_path}">管理面板</a> 中验证它。'
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, 你正在关注, 刚刚支持"%{resource_title}", 我们认为它对你可能很感兴趣。 查看并贡献：'
         email_outro: 您收到此通知是因为您正在关注 %{endorser_nickname}。您可以停止收到跟随上一个链接的通知。
@@ -548,50 +493,7 @@ zh-CN:
           title: 徽章
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
-    group_admins:
-      actions:
-        demote_admin: 删除管理员
-      index:
-        current_admins: '当前管理员：'
-        manage_admins: 管理管理员
-    group_invites:
-      accept_invitation: 接受
-      accept_or_reject_group_invitations: '以下群组邀请您加入他们。接受或拒绝他们的请求：'
-      index:
-        invite: 邀请
-        invite_user: 邀请参与者
-      reject_invitation: 拒绝
-    group_members:
-      actions:
-        are_you_sure: 您确定吗？
-        promote_to_admin: 设为管理员
-        remove_from_group: Remove participant
-      index:
-        current_members_without_admins: '当前成员 (无管理员)：'
-        manage_members: 管理成员
     groups:
-      actions:
-        are_you_sure: 您确定吗？
-      edit:
-        edit_user_group: 编辑组
-        update_user_group: 更新组
-      form:
-        email_help: 您的组织、协会、集体、群组等的电子邮件。
-        fill_in_for_verification: '如果你想要验证你的组, 请填写这些字段:'
-        name_help: 您的组织、协会、集体、团体等的名称
-        nickname_help: 您的组织、社团、集体、群组等的昵称。请不要使用空格，也不要重音。
-      join:
-        success: 加入请求已成功创建。管理员将在接受您加入群组之前审查您的请求。
-      leave:
-        success: 群组已成功放弃。
-      members:
-        accept_or_reject_join_requests: '以下用户已申请加入此组。接受或拒绝他们的请求：'
-        accept_request: 接受
-        reject_request: 拒绝
-      new:
-        create_user_group: 创建组
-        new_user_group: 新建组
-        subtitle: 创建一个小组并邀请其他用户加入集体级别。
       roles:
         admin: 管理员
         member: 成员
@@ -637,30 +539,10 @@ zh-CN:
       home: 首页
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: 您收到这是因为您是 %{group} 的管理员。
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} 以 %{group}的名字开始了新的对话。点击这里查看："
-          subject: "%{manager} 以 %{group} 身份开始了新的对话"
-        comanagers_new_message:
-          admin_in_group: 您收到这是因为您是 %{group} 的管理员。
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} 在 %{group}的对话中发布了新消息。点击这里查看："
-          subject: "%{manager} 已发送新消息为 %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已开始与您进行新的对话。点击这里查看："
           subject: "%{sender} 已开始了与您的对话"
-        new_group_conversation:
-          admin_in_group: 您收到这是因为您是 %{group} 的管理员。
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} 已经开始了与组 %{group}的新对话。点击这里查看："
-          subject: "%{sender} 已开始与 %{group} 的对话"
-        new_group_message:
-          admin_in_group: 您收到这是因为您是 %{group} 的管理员。
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} 在与组 %{group}的对话中发布了新消息。点击这里查看："
-          subject: "%{group} 有来自 %{sender} 的新消息"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已在您的对话中发布新消息。点击这里查看："
@@ -680,25 +562,14 @@ zh-CN:
           new_conversation: 新建对话
           next: 下一个
           title: 对话
+        reply_form:
+          placeholder: 您的回复...
         show:
           back: 回到所有对话
           chat_with: 对话
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-    metrics:
-      followers:
-        description: 跟随此参与空间的参与者数量
-        object: 关注者
-        title: 关注者
-      participants:
-        description: 组织中的活跃参与者人数
-        object: 参与者
-        title: 参加者
-      users:
-        description: 参加组织的人数
-        object: 参与者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
@@ -780,10 +651,6 @@ zh-CN:
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
-      participatory_space:
-        metrics:
-          headline: 指标
-          link: 显示所有指标
     profile:
       deleted: 删除参与者
     profiles:
@@ -793,23 +660,11 @@ zh-CN:
         conversations: 对话
         followers: 关注者
         following: 关注的问题
-        groups: 群組
-        members: 成员
         officialized: 官方参与者
-      sidebar:
-        badges:
-          info: 徽章是通过在平台上执行特定活动赚取的。
-          title: 徽章
       user:
-        create_user_group: 创建组
-        edit_profile: 编辑配置文件
-        edit_user_group: 编辑群组资料
-        invite_user: Invite participant
-        join_user_group: 加入组的请求
-        leave_user_group: 离开组
-        manage_user_group_admins: 管理管理员
-        manage_user_group_users: 管理成员
-        resend_email_confirmation_instructions: 重新发送电子邮件确认说明
+        actions:
+          edit_profile: 编辑配置文件
+          resend_email_confirmation_instructions: 重新发送电子邮件确认说明
     reported_mailer:
       hide:
         hello: 您好 %{name}，
@@ -837,7 +692,6 @@ zh-CN:
       prompt: 选择范围
     search:
       results: 搜索结果
-      results_found_for_term: '搜索的%{count} 结果: "%{term}"'
       term_input_placeholder: 搜索
     searches:
       filters:
@@ -880,9 +734,6 @@ zh-CN:
         help: 帮助
       reference:
         reference: '引用: %{reference}'
-      represent_user_group:
-        represent_user_group: 我代表一个组
-        select_user_group: 选择一个组
       results_per_page:
         label: '每页结果：'
         title: 选择每页结果数
@@ -897,18 +748,8 @@ zh-CN:
       show_translated: 显示自动翻译的文本
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
-      create:
-        existing_error: 无法创建消息。对话已经存在，请现在重试。
-        success: 对话已成功启动！
       index:
-        conversations_info: 对话是私密的。没有其他人可以看到他们。对话可以与在平台上注册的任何参与者或群组开始。
-        no_conversations_warning: 还没有对话。
         time_ago: "%{time} 前"
-      reply:
-        placeholder: 您的回复...
-        send: 发送
-      update:
-        error: 消息发送失败，请稍后再试
     version:
       show:
         back_to_resource: 后退
@@ -1089,7 +930,6 @@ zh-CN:
         my_data: 我的数据
         notifications_settings: 通知设置
         title: 参与者设置
-        user_groups: 群組
   locale:
     name: 中文
     name_with_error: 中文(错误!)

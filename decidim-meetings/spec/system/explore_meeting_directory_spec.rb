@@ -123,20 +123,6 @@ describe "Explore meeting directory" do
       end
     end
 
-    context "with 'groups' origin" do
-      let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
-
-      it "lists the filtered meetings" do
-        visit directory
-
-        within "#panel-dropdown-menu-origin" do
-          click_filter_item "Groups"
-        end
-
-        expect(page).to have_css(meetings_selector, count: 1)
-      end
-    end
-
     context "with 'participants' origin" do
       it "lists the filtered meetings" do
         visit directory
@@ -216,6 +202,8 @@ describe "Explore meeting directory" do
         within "#panel-dropdown-menu-type" do
           click_filter_item "Hybrid"
         end
+
+        expect(page).to have_content(online_meeting.title["en"])
       end
     end
   end

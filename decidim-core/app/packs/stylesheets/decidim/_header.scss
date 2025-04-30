@@ -41,6 +41,10 @@ header {
   .main-bar {
     @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
 
+    &--focus-mode-back-button {
+      @apply h-16 lg:h-24;
+    }
+
     &__container {
       @apply relative w-full;
     }
@@ -73,12 +77,20 @@ header {
       }
     }
 
+    &__back-button {
+      @apply col-span-2 text-secondary;
+
+      svg {
+        @apply fill-current;
+      }
+    }
+
     &__menu-mobile {
       @apply lg:hidden flex flex-row-reverse items-center;
     }
 
     &__links-desktop,
-    > *:last-child {
+    > *:last-child:not(.main-bar__back-button) {
       @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
     }
 
@@ -167,7 +179,7 @@ header {
       }
 
       &__item {
-        @apply relative;
+        @apply flex relative;
       }
 
       &__search {
@@ -450,7 +462,31 @@ header {
       }
 
       &__title {
-        @apply h4 md:h3 pb-6;
+        @apply h4 md:h3;
+      }
+
+      nav {
+        @apply w-full md:w-1/4;
+      }
+
+      &__menu {
+        @apply w-full bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+
+        > * {
+          @apply py-3 md:py-3.5;
+        }
+
+        a {
+          @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+
+          span {
+            @apply min-w-0 truncate;
+          }
+
+          svg {
+            @apply flex-none fill-current;
+          }
+        }
       }
 
       &__metadata {

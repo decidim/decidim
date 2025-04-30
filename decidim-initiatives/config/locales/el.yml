@@ -2,7 +2,6 @@ el:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Συντάκτης
         description: Περιγραφή
         offline_votes: Υπογραφές αυτοπροσώπως
         scope_id: Πεδίο εφαρμογής
@@ -24,7 +23,6 @@ el:
         collect_user_extra_fields: Συλλογή προσωπικών δεδομένων των συμμετεχόντων κατά την υπογραφή
         custom_signature_end_date_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τη λήξη της περιόδου συλλογής υπογραφών
         description: Περιγραφή
-        document_number_authorization_handler: Εξουσιοδότηση για την επαλήθευση του αριθμού εγγράφου στις υπογραφές
         extra_fields_legal_information: Νομικές πληροφορίες σχετικά με τη συλλογή προσωπικών δεδομένων
         minimum_committee_members: Ελάχιστος αριθμός μελών επιτροπής
         online_signature_enabled: Η ηλεκτρονική υπογραφή ενεργοποιήθηκε
@@ -214,7 +212,6 @@ el:
           update: "Ο χρήστης %{user_name} ενημέρωσε την πρωτοβουλία %{resource_name}"
       admin_states:
         accepted: Αρκετές υπογραφές
-        created: Δημιουργήθηκε
         discarded: Απορρίφθηκε
         rejected: Δεν υπάρχουν αρκετές υπογραφές
         validating: Τεχνική επικύρωση
@@ -238,28 +235,18 @@ el:
           name: Επισημασμένες πρωτοβουλίες
       create_initiative:
         fill_data:
-          back: Πίσω
           continue: Συνέχεια
-          more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής
         finish:
           back: Πίσω
-          back_to_initiatives: Επιστροφή στις πρωτοβουλίες
-          go_to_my_initiatives: Μετάβαση στις πρωτοβουλίες μου
-          more_information: "(Περισσότερες πληροφορίες)"
         previous_form:
           back: Πίσω
-          continue: Συνέχεια
-        promotal_committee:
-          more_information: "(Περισσότερες πληροφορίες)"
         select_initiative_type:
           back: Πίσω
           choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
           more_information: (Περισσότερες πληροφορίες)
           select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
-        share_committee_link:
-          invite_to_committee_help: Σύνδεσμος για να προσκαλέσετε άτομα που θα είναι μέλη της επιτροπής προώθησης
       events:
         create_initiative_event:
           email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα πρωτοβουλία. Δείτε την και συνεισφέρετε:"
@@ -272,20 +259,11 @@ el:
           email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
           notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Συνέχεια
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία
-        sms_code:
-          continue: Έλεγχος κωδικού και συνέχεια
-          help: Ελέγξτε το SMS που λάβατε στο τηλέφωνό σας
-        sms_phone_number:
-          continue: Αποστολή SMS σε μένα
       initiative_votes:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την υπογραφή της πρωτοβουλίας.
-        personal_data:
-          invalid: Τα προσωπικά στοιχεία δεν συμφωνούν με τα στοιχεία που παρείχατε για εξουσιοδότηση.
         sms_phone:
           invalid: Ο αριθμός τηλεφώνου δεν είναι έγκυρος ή εκκρεμεί εξουσιοδότηση. Ελέγξτε τις εξουσιοδοτήσεις σας.
       initiatives:
@@ -348,7 +326,6 @@ el:
       show:
         badge_name:
           accepted: Αρκετές υπογραφές
-          created: Δημιουργήθηκε
           discarded: Απορρίφθηκε
           rejected: Δεν υπάρχουν αρκετές υπογραφές
           validating: Τεχνική επικύρωση
@@ -362,20 +339,11 @@ el:
       initiatives_type:
         actions:
           title: Ενέργειες
-          vote: Υπογραφή
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Δημιουργία
-        finish: Τέλος
-        promotal_committee: Επιτροπή προώθησης
         select_initiative_type: Επιλέξτε
-      initiative_signature_creation_header:
-        fill_personal_data: Συμπληρώστε τα στοιχεία σας
-        finish: Τέλος
-        sms_code: Επαλήθευση κωδικού μέσω SMS
-        sms_phone_number: Αριθμός κινητού τηλεφώνου
-        title: Υπογραφή πρωτοβουλίας %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Δεν υπάρχουν ακόμη πρωτοβουλίες!

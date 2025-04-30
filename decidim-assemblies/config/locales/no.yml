@@ -165,7 +165,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-            valuator: Verdivurdering
       titles:
         assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper
@@ -277,11 +276,6 @@
           not_found: 'Forsamlingstypen ble ikke funnet i databasen (ID: %{id})'
     menu:
       assemblies: Forsamlinger
-    metrics:
-      assemblies:
-        description: Antall forsmalinger opprettet
-        object: forsamlinger
-        title: Forsamlinger
     participatory_processes:
       show:
         related_assemblies: Relaterte forsamlinger

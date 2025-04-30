@@ -2,7 +2,6 @@ pt:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Descrição
         offline_votes: Assinaturas presenciais
         offline_votes_for_scope: Assinaturas presenciais para %{scope_name}
@@ -26,7 +25,6 @@ pt:
         collect_user_extra_fields: Coletar dados pessoais do participante na assinatura
         custom_signature_end_date_enabled: Permitir que os autores escolham o fim do período de recolha de assinaturas
         description: Descrição
-        document_number_authorization_handler: Autorização para verificar o número do documento nas assinaturas
         extra_fields_legal_information: Informação legal sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo de membros do comité
         online_signature_enabled: Assinatura on-line ativada
@@ -71,7 +69,6 @@ pt:
             label: Estado
             values:
               accepted: Assinaturas suficientes
-              created: Criado
               discarded: Abandonado
               rejected: Assinaturas insuficientes
               validating: Validação técnica
@@ -235,7 +232,6 @@ pt:
           edit:
             update: Atualizar
           form:
-            authorizations: Definições de autorização
             options: Opções
           initiative_type_scopes:
             title: Âmbitos para o tipo de iniciativa
@@ -250,7 +246,6 @@ pt:
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
-        created: Criado
         discarded: Descartado
         rejected: Assinaturas insuficientes
         validating: Validação técnica
@@ -278,37 +273,19 @@ pt:
           name: Iniciativas realçadas
       create_initiative:
         fill_data:
-          back: Retroceder
           continue: Continuar
           fill_data_help: "<ul><li>Reveja o conteúdo da sua iniciativa. O título é fácil de entender? O objectivo da sua iniciativa é claro?</li> <li>Tem que escolher o tipo de assinatura. Presencialmente, on-line, ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da sua iniciativa?</li> </ul>"
-          more_information: "(Mais informações)"
           select_area: Selecionar uma área
           select_scope: Selecione um âmbito
         finish:
           back: Retroceder
-          back_to_initiatives: Retroceder para as iniciativas
-          callout_text: Parabéns! A sua iniciativa foi criada com êxito.
-          confirm: Vai enviar esta iniciativa para que um administrador a possa rever e publicar. Assim que esteja publicada não a poderá editar. Tem a certeza?
-          edit_my_initiative: Editar a minha iniciativa
-          go_to_my_initiatives: Ir para as minhas iniciativas
-          more_information: "(Mais informações)"
-          send_my_initiative: Enviar a minha iniciativa para validação técnica
-        finish_help:
-          publish_helper_text: Lembre-se que para que a sua iniciativa seja publicada deve completar a informação requerida e <strong>enviá-la para validação técnica</strong> para que um administrador a possa rever.
         previous_form:
           back: Retroceder
-          continue: Continuar
-        promotal_committee:
-          individual_help_text: Este tipo de iniciativa requer uma Comissão Promotora constituída por pelo menos %{committee_size} pessoas (certificadores). Precisa de partilhar a ligação seguinte com outras pessoas que são parte de iniciativa. Quando os seus contactos receberem esta ligação irão ter que seguir os passos indicados.
-          more_information: "(Mais informações)"
         select_initiative_type:
           back: Retroceder
           choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: (Mais informações)
           select: Eu quero promover essa iniciativa
-          select_initiative_type_help: Iniciativas são meios pelos quais os participantes podem intervir no sentido de levar a organização a levar a cabo determinadas acções em defesa do interesse geral. Qual é a iniciativa que quer lançar?
-        share_committee_link:
-          invite_to_committee_help: Hiperligação para convidar pessoas que farão parte do comité promotor
       edit:
         accept: Aceitar a iniciativa
         back: Retroceder
@@ -346,20 +323,11 @@ pt:
           email_subject: "%{applicant_nickname} quer juntar-se à sua iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a>  candidatou-se para a comissão promotora da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar clique <a href="%{resource_url}/edit">aqui</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continuar
         finish:
           back_to_initiative: Retroceder para a iniciativa
-        sms_code:
-          continue: Verifique o código e continue
-          help: Verifique o SMS recebido no seu telefone
-        sms_phone_number:
-          continue: Enviar-me um SMS
       initiative_votes:
         create:
           error: Ocorreu um problema ao assinar a iniciativa.
-        personal_data:
-          invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
         sms_phone:
           invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique as suas autorizações.
       initiatives:
@@ -455,7 +423,6 @@ pt:
       show:
         badge_name:
           accepted: Assinaturas suficientes
-          created: Criado
           discarded: Eliminado
           rejected: Assinaturas insuficientes
           validating: Verificação técnica
@@ -472,20 +439,11 @@ pt:
       initiatives_type:
         actions:
           title: Ações
-          vote: Assinar
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Criar
-        finish: Terminar
-        promotal_committee: Comité Promotor
         select_initiative_type: Escolher
-      initiative_signature_creation_header:
-        fill_personal_data: Complete os seus dados
-        finish: Terminar
-        sms_code: Verificação de código SMS
-        sms_phone_number: Número de telemóvel
-        title: Assinar %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nenhuma iniciativa ainda!

@@ -12,7 +12,7 @@ describe Decidim::OpenDataExporter do
     create(:budgets_component, organization:, published_at: Time.current)
   end
   let!(:resource) { create(:project, component:) }
-  let(:resource_title) { "## projects" }
+  let(:resource_title) { "## projects (1 resource)" }
   let(:help_lines) do
     [
       "* id: The unique identifier of the project"

@@ -1,19 +1,11 @@
 hu:
   activemodel:
     attributes:
-      answer:
-        body: Válasz
       question:
         max_choices: Maximális választási lehetőségek száma
         question_type: Típus
       questionnaire_question:
         mandatory: Kötelező
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: nem teljesek
   decidim:
     forms:
       admin:
@@ -22,11 +14,6 @@ hu:
             description: Leírás
             tos: Szolgáltatás feltételei
         questionnaires:
-          answer_option:
-            answer_option: Válasz opció
-            free_text: Szabadszöveg
-            remove: Eltávolít
-            statement: Nyilatkozat
           edit:
             save: Mentés
           form:
@@ -37,7 +24,6 @@ hu:
             remove: Eltávolít
             statement: Nyilatkozat
           question:
-            add_answer_option: Válasz opció hozzáadása
             any: Bármilyen
             collapse: Összecsukás
             description: Leírás
@@ -62,26 +48,15 @@ hu:
         processors:
           resize_to_fit: 'A kép át lesz méretezve erre a méretre: %{dimensions}.'
       question_types:
-        long_answer: Hosszú válasz
         multiple_option: Több választási lehetőség
-        short_answer: Rövid válasz
         single_option: Egy választási lehetőség
         sorting: Válogatás
         title_and_description: Cím és leírás
       questionnaires:
-        answer:
-          invalid: Hiba történt a kérdőív megválaszolásakor.
-          success: A kérdőívre sikeresen válaszoltál.
         question:
           max_choices: 'Max választás: %{n}'
         show:
-          answer_questionnaire:
-            title: Válaszoljon a kérdőívre
-          questionnaire_answered:
-            body: Már megválaszoltad ezt a kérdőívet.
-            title: Már megválaszolt
           questionnaire_closed:
-            body: A kérdőív zárva van, és nem lehet megválaszolni.
             title: A kérdőív lezárult
           questionnaire_for_private_users:
             body: A kérdőív csak magán felhasználók számára áll rendelkezésre
@@ -91,9 +66,3 @@ hu:
         show:
           continue: Folytatás
           submit: Beküldés
-      user_answers_serializer:
-        created_at: Válaszolt
-        id: Válasz azonosító
-        registered: Regisztrált
-        unregistered: Nem regisztrált
-        user_status: Felhasználó státusza

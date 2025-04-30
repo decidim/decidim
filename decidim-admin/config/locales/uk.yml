@@ -93,8 +93,6 @@ uk:
         browse: Переглянути
         manage: Керувати
         permissions: Права
-        reject: Відхилити
-        verify: Підтвердити
       area_types:
         create:
           error: При спробі додати новий різновид дільниці сталася помилка.
@@ -258,7 +256,6 @@ uk:
         scopes: Обсяги
         settings: Налаштування
         static_pages: Сторінки
-        user_groups: Гурти учасників
         users: Учасники
       models:
         area:
@@ -319,15 +316,6 @@ uk:
               admin: Адміністратор
               user_manager: Розпорядник учасників
           name: учасника
-        user_group:
-          fields:
-            actions: Дії
-            created_at: 'Створено:'
-            document_number: Номер документа
-            name: Ім'я
-            phone: Телефон
-            state: Стан
-            users_count: Кількість учасників
       moderations:
         report:
           reasons:
@@ -472,18 +460,6 @@ uk:
         dashboard: Приладна дошка
         scope_types: Різновиди обсягу
         scopes: Обсяги
-        user_groups: Гурти учасників
-      user_group:
-        reject:
-          invalid: При відхиленні цього гурту учасників сталася помилка.
-        verify:
-          invalid: При підтвердженні цього гурту учасників сталася помилка.
-      user_groups:
-        index:
-          state:
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.

@@ -62,7 +62,6 @@ module Decidim
             location: { I18n.locale => form.location },
             location_hints: { I18n.locale => form.location_hints },
             author: current_user,
-            decidim_user_group_id: form.user_group_id,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
             available_slots: form.available_slots,

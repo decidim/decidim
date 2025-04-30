@@ -9,7 +9,6 @@ it:
         scope_id: Ambito
         state: Stato
         title: Titolo
-        user_group_id: Crea una bozza collaborativa come
       proposal:
         address: Indirizzo
         answer: Risposta
@@ -22,7 +21,6 @@ it:
         state: Stato
         suggested_hashtags: Hashtag consigliati
         title: Titolo
-        user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
         cost: Costo
@@ -34,9 +32,6 @@ it:
         import_proposals: Importa proposte
         keep_answers: Mantieni stato e risposte
         keep_authors: Mantieni gli autori originali
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome del valutatore
     errors:
       models:
         proposal:
@@ -93,8 +88,6 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-          valuator_role_ids_has:
-            label: Assegnato al valutatore
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
     components:
@@ -163,7 +156,6 @@ it:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
@@ -234,19 +226,6 @@ it:
           name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_own: Non hai ancora creato alcuna proposta.
-    metrics:
-      accepted_proposals:
-        description: Numero di proposte accettate dagli utenti
-        object: proposte
-        title: Proposte accettate
-      endorsements:
-        description: Numero di approvazioni generate nelle proposte
-        object: Mi piace
-        title: Mi piace
-      proposals:
-        description: Numero di proposte generate
-        object: proposte
-        title: proposte
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto
@@ -315,8 +294,6 @@ it:
             select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
-            assign_to_valuator: Assegna al valutatore
-            assign_to_valuator_button: Assegna
             cancel: Annulla
             merge: Unisci a uno nuovo
             publish: Pubblica
@@ -326,15 +303,12 @@ it:
             split: Proposte divise
             split_button: Diviso
             title: Proposte
-            unassign_from_valuator: Annulla assegnazione al valutatore
-            unassign_from_valuator_button: Disassegna
             update: Aggiornare
           new:
             create: Crea
             title: Crea una proposta
           show:
             amendments_count: Numero di emendamenti
-            assigned_valuators: Valutatori assegnati
             body: Corpo
             comments_count: Conteggio dei Commenti
             documents: Documenti
@@ -347,8 +321,6 @@ it:
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
-            remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
-            valuators: Valutatori
         proposals_imports:
           new:
             create: Importa proposte
@@ -368,9 +340,6 @@ it:
           update: "%{user_name} aggiornato la %{resource_name} proposta ufficiale sul %{space_name} spazio"
         proposal_note:
           create: "%{user_name} ha lasciato una nota privata sulla proposta %{resource_name} sullo spazio %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} ha assegnato la proposta %{resource_name} ad un valutatore"
-          delete: "%{user_name} ha rimosso l'assegnazione di un valutatore alla proposta %{proposal_title}"
       answers:
         accepted: Accettata
         evaluating: Valutare
@@ -383,7 +352,6 @@ it:
           meetings: Incontri
           official: Ufficiale
           participants: Utenti
-          user_groups: Gruppi di utenti
         filter_state_values:
           all: Tutti
           not_answered: Non risposto
@@ -491,8 +459,6 @@ it:
             published_at: Pubblicato a
             state: Stato
             title: Titolo
-            valuator: Valutatore
-            valuators: Valutatori
             votes: Voti
       participatory_text_proposal:
         alternative_title: Al momento non ci sono testi di partecipazione
@@ -573,7 +539,6 @@ it:
         update:
           title: Aggiorna proposta
         vote_button:
-          already_voted: Già votata
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione

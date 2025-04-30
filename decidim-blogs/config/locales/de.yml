@@ -69,11 +69,15 @@ de:
             body: Haupttext
             official_blog_post: Offizieller Post
             published_at: Veröffentlicht am
+            taxonomies: Klassifizierungen
             title: Titel
       posts:
         edit:
+          add_attachments: Anhänge hinzufügen
+          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück zum Beitrag
           button: Aktualisieren
+          edit_attachments: Anhänge bearbeiten
           title: Beitrag bearbeiten
         form:
           author_id: Autor*in
@@ -105,9 +109,14 @@ de:
         settings:
           global:
             announcement: Ankündigung
+            attachments_allowed: Anhänge zulassen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmende können Beiträge erstellen
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -133,7 +142,6 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         posts:
           author: Die Informationen des Autors
           body: Der Inhalt des Beitrags

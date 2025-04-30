@@ -4,7 +4,6 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommenter svar
-      decidim/comments/user_group_mentioned_event: Omtal
       decidim/comments/user_mentioned_event: Omtal
   activerecord:
     models:
@@ -15,6 +14,10 @@
         one: Stemme
         other: Stemmer
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Kommentarer
     comments:
       admin:
         shared:
@@ -36,8 +39,6 @@
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          user_group_id:
-            label: Kommenter som
         opinion:
           label: Din mening om dette temaet
           negative: Negativ
@@ -107,11 +108,6 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_name}. Du kan slutte å følge denne brukeren fra dems profil side.
           email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} har lagt igjen en kommentar i %{resource_title}. Du kan lese den på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{author_name}. Du kan slutte å følge denne brukeren fra deres profilside.
-          email_subject: Det er en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det er en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har blitt kommentert. Du kan lese kommentaren på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" eller dens forfatter. Du kan slutte å følge den fra den forrige lenken.
@@ -132,18 +128,8 @@
           email_outro: Du har mottatt denne varslingen fordi din kommentar er besvart.
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svart kommentaren din i <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: En gruppe du er medlem av har blitt nevnt
-          email_outro: Du får denne varslingen fordi du er medlem av gruppen %{group_name}, som har blitt nevnt i%{resource_title}.
-          email_subject: Du har blitt nevnt i %{resource_title} som medlem av %{group_name}
-          notification_title: Du har blitt nevnt i <a href="%{resource_path}"> %{resource_title} av <a href="%{author_path}">%{author_name}%{author_nickname} som medlem av <a href="%{group_path}">%{group_name}%{group_nickname}
         user_mentioned:
           email_intro: Du har blitt nevnt
           email_outro: Du har mottatt denne varslingen fordi du er nevnt i %{resource_title}.
           email_subject: Du har blitt nevnt i %{resource_title}
           notification_title: Du har blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antall kommenterer generert av deltakerne
-        object: kommentarer
-        title: Kommentarer

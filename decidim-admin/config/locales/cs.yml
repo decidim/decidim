@@ -33,8 +33,6 @@ cs:
       help_section:
         content: Obsah
       id: ID
-      import:
-        user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
         send_to_all_users: Odeslat všem uživatelům
@@ -96,7 +94,6 @@ cs:
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
         twitter_handler: X handler
-        user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
@@ -201,7 +198,6 @@ cs:
           new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
         permissions: Oprávnění
-        reject: Odmítnout
         restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
@@ -209,7 +205,6 @@ cs:
         soft_delete: Skrýt
         user:
           new: Nový administrátor
-        verify: Ověřit
         view_deleted_components: Zobrazit odstraněné komponenty
       admin_terms_of_service:
         accept:
@@ -484,6 +479,10 @@ cs:
             explanation: 'Pokyny pro soubor:'
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
+          import_csv:
+            explanation: 'Pokyny pro soubor:'
+            message_1: CSV soubory jsou podporovány
+            message_2: ".csv soubor s e-maily"
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
@@ -613,11 +612,7 @@ cs:
         static_pages: Stránky
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie
-        user_groups: Skupiny
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobrazit více metrik
       models:
         area:
           fields:
@@ -686,16 +681,6 @@ cs:
               admin: Správce
               user_manager: Správce účastníků
           name: Účastník
-        user_group:
-          fields:
-            actions: Akce
-            created_at: Vytvořeno v
-            document_number: Číslo dokumentu
-            name: Název
-            nickname: Přezdívka
-            phone: Telefon
-            state: Stav
-            users_count: Počet účastníků
       moderated_users:
         index:
           actions:
@@ -1110,7 +1095,7 @@ cs:
           title: Upravit téma
           update: Aktualizovat téma
         new:
-          create: Vytvořit téma
+          create: Nové téma
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
@@ -1134,7 +1119,7 @@ cs:
         index:
           last_notable_change: Poslední významná změna
         new:
-          create: Vytvořit stránku
+          create: Nová stránka
           title: Nová stránka
         topic:
           empty: V tomto tématu nejsou žádné stránky.
@@ -1266,7 +1251,6 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
-        metrics: Metriky
         page_topics: Témata
         pages: Stránky
         panel: Admin
@@ -1276,7 +1260,6 @@ cs:
         statistics: Aktivita
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
-        user_groups: Skupiny
         users: Administrátoři
       tooltips:
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
@@ -1287,32 +1270,6 @@ cs:
         soft_delete:
           invalid: Při odstraňování %{resource_name} došlo k chybě.
           success: "%{resource_name} byl úspěšně smazán."
-      user_group:
-        csv_verify:
-          invalid: Při čtení souboru CSV došlo k chybě.
-          success: CSV soubor byl úspěšně nahrán, ověřujeme skupiny odpovídající kritériím. To může chvíli trvat.
-        reject:
-          invalid: Při odmítnutí této skupiny došlo k chybě.
-          success: Skupina byla úspěšně zamítnuta.
-        verify:
-          invalid: Při ověřování této skupiny došlo k chybě.
-          success: Skupina byla úspěšně ověřena.
-      user_groups:
-        index:
-          state:
-            pending: Čekající
-            rejected: Odmítnuto
-            verified: Ověřeno
-          verify_via_csv: Ověřit pomocí CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Příklad souboru:'
-          explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Nahrát soubor CSV
-          upload: nahrát
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.
@@ -1339,22 +1296,13 @@ cs:
       errors:
         impersonate_user:
           reason: Musíte uvést důvod pro správu neřízeného účastníka.
-    metrics:
-      blocked_users:
-        object: blokovaní uživatelé
-        title: Blokovaní uživatelé
-      reported_users:
-        object: nahlášení uživatelé
-        title: Nahlášení uživatelé
-      user_reports:
-        object: uživatelská hlášení
-        title: Uživatelská hlášení
     moderations:
       actions:
         expand: Rozbalit
         hidden: Skrytý
         hide: Skrýt
         not_hidden: Neskrytý
+        parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Odkrýt
         unreport: Zrušit nahlášení
@@ -1381,6 +1329,7 @@ cs:
             success: Zdroj byl úspěšně skryt.
           unhide:
             invalid: Došlo k potížím s odkrytím zdroje.
+            parent_invalid: Při odkrytí zdroje došlo k chybě. Nadřazená položka není viditelná.
             success: Zdroj byl úspěšně odkryt.
           unreport:
             invalid: Při oznamování zdroje došlo k problému.

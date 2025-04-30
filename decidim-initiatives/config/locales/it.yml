@@ -2,7 +2,6 @@ it:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autore
         description: Descrizione
         offline_votes: Firme in presenza
         offline_votes_for_scope: Firme in presenza per %{scope_name}
@@ -26,7 +25,6 @@ it:
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta delle firme
         description: Descrizione
-        document_number_authorization_handler: Autorizzazione a verificare il numero del documento sui voti
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
@@ -53,6 +51,9 @@ it:
               needs_to_be_reattached: Necessita di essere riallegato
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
@@ -71,7 +72,6 @@ it:
             label: Stato
             values:
               accepted: Numero di firme sufficiente
-              created: Creato
               discarded: Rifiutato
               rejected: Firme non sufficienti
               validating: Validazione tecnica
@@ -235,7 +235,6 @@ it:
           edit:
             update: Aggiornare
           form:
-            authorizations: Impostazioni di autorizzazione
             options: Opzioni
           initiative_type_scopes:
             title: Ambiti per il tipo di iniziativa
@@ -250,7 +249,6 @@ it:
           update: "%{user_name} ha aggiornato l'iniziativa %{resource_name}"
       admin_states:
         accepted: Firme sufficienti
-        created: Creato
         discarded: Discarded
         rejected: Firme non sufficienti
         validating: Convalida tecnica
@@ -278,37 +276,19 @@ it:
           name: Iniziative evidenziate
       create_initiative:
         fill_data:
-          back: Indietro
           continue: Continua
           fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambe</li> <li>Qual è l'ambito territoriale dell'iniziativa? Città, municipio, quartiere?</li> </ul>"
-          more_information: "(Maggiori informazioni)"
           select_area: Seleziona un'area
           select_scope: Seleziona un ambito
         finish:
           back: Indietro
-          back_to_initiatives: Torna alle iniziative
-          callout_text: Complimenti! La tua iniziativa è stata creata con successo.
-          confirm: Stai per inviare l'iniziativa per un amministratore per la revisione e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
-          edit_my_initiative: Modifica la mia iniziativa
-          go_to_my_initiatives: Vai alle mie iniziative
-          more_information: "(Maggiori informazioni)"
-          send_my_initiative: Invia la mia iniziativa alla convalida tecnica
-        finish_help:
-          publish_helper_text: Ricorda che affinché la tua iniziativa sia pubblicata, devi completare le informazioni richieste e <strong>inviarle alla convalida tecnica</strong> per un amministratore per rivederle.
         previous_form:
           back: Indietro
-          continue: Continua
-        promotal_committee:
-          individual_help_text: Questo tipo di iniziativa richiede una commissione promotrice composta da almeno %{committee_size} persone (valutatori). Devi condividere il seguente link con gli altri partecipanti all'iniziativa. Quando i tuoi contatti riceveranno il link, dovranno seguire la procedura indicata.
-          more_information: "(Maggiori informazioni)"
         select_initiative_type:
           back: Indietro
           choose_html: Voglio creare uno <strong>%{title}</strong>
           more_information: (Maggiori informazioni)
           select: Voglio promuovere questa iniziativa
-          select_initiative_type_help: Le iniziative sono un mezzo attraverso il quale i partecipanti possono intervenire in modo che l'organizzazione possa intraprendere azioni in difesa dell'interesse generale. Quale iniziativa vuoi lanciare?
-        share_committee_link:
-          invite_to_committee_help: Link per invitare persone che faranno parte del comitato promotore
       edit:
         accept: Accetta l'iniziativa
         back: Indietro
@@ -346,20 +326,11 @@ it:
           email_subject: "%{applicant_nickname} vuole unirsi alla tua iniziativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continua
         finish:
           back_to_initiative: Ritorno all'iniziativa
-        sms_code:
-          continue: Controlla il codice e continua
-          help: Controlla gli SMS ricevuti sul tuo telefono
-        sms_phone_number:
-          continue: Mandami un sms
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
-        personal_data:
-          invalid: I dati personali non sono coerenti con i dati forniti per l'autorizzazione.
         sms_phone:
           invalid: Il numero di telefono non è valido o è in attesa di autorizzazione. Per favore, controlla le tue autorizzazioni.
       initiatives:
@@ -455,7 +426,6 @@ it:
       show:
         badge_name:
           accepted: Firme sufficienti
-          created: Creata
           discarded: Scartato
           rejected: Firme non sufficienti
           validating: Convalida tecnica
@@ -472,20 +442,11 @@ it:
       initiatives_type:
         actions:
           title: Azioni
-          vote: Firma
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Creare
-        finish: finire
-        promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
-      initiative_signature_creation_header:
-        fill_personal_data: Completa i tuoi dati
-        finish: finire
-        sms_code: Verifica del codice SMS
-        sms_phone_number: Numero di cellulare
-        title: Firma %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nessuna iniziativa ancora!

@@ -12,7 +12,7 @@ module Decidim
 
       def editor
         author = Decidim.traceability.version_editor(object)
-        author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
+        author if author.is_a?(Decidim::User)
       end
 
       delegate :changeset, to: :object

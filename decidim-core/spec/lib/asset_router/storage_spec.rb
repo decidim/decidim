@@ -97,7 +97,7 @@ module Decidim::AssetRouter
           before { asset.processed }
 
           it "creates the route to the variant through the storage service" do
-            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
 
           # Note that this situation should not normally happen but it is
@@ -129,7 +129,7 @@ module Decidim::AssetRouter
             before { asset.processed }
 
             it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
 
             context "and when passing incompatible URL options" do
@@ -157,7 +157,7 @@ module Decidim::AssetRouter
             before { asset.processed }
 
             it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+              expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
             end
           end
 
@@ -172,7 +172,7 @@ module Decidim::AssetRouter
               before { asset.processed }
 
               it "creates the route to the variant through the storage service" do
-                expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
+                expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
               end
             end
           end
@@ -189,8 +189,7 @@ module Decidim::AssetRouter
 
       context "when the CDN host is defined" do
         before do
-          allow(Rails.application.secrets).to receive(:dig).and_call_original
-          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return("https://cdn.example.org")
+          allow(Decidim).to receive(:storage_cdn_host).and_return("https://cdn.example.org")
         end
 
         it "creates the route to the CDN blob" do

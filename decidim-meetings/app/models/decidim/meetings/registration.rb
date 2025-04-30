@@ -8,7 +8,6 @@ module Decidim
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
       validates :user, uniqueness: { scope: :meeting }
       validates :code, uniqueness: { allow_blank: true, scope: :meeting }
@@ -16,7 +15,12 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
-      scope :public_participant, -> { where(decidim_user_group_id: nil, public_participation: true) }
+      enum status: { registered: "registered", waiting_list: "waiting_list" }
+
+      scope :on_waiting_list, -> { waiting_list.order(:created_at) }
+      scope :public_participant, -> { where(public_participation: true) }
+
+      delegate :component, :organization, to: :meeting
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)
@@ -26,16 +30,24 @@ module Decidim
         Decidim::Meetings::DownloadYourDataRegistrationSerializer
       end
 
-      # Pluck all Decidim::UserGroup ID's
-      def self.user_group_ids
-        pluck(:decidim_user_group_id)
-      end
-
       # Public: Checks if the registration has been validated.
       #
       # Returns Boolean.
       def validated?
         validated_at?
+      end
+
+      def presenter
+        Decidim::Meetings::RegistrationPresenter.new(self)
+      end
+
+      def validation_code_short_link
+        Decidim::ShortLink.to(
+          self,
+          meeting.component.mounted_admin_engine,
+          route_name: :qr_mark_as_attendee_meeting_registrations_attendee,
+          params: { meeting_id: meeting.id, id: code }
+        )
       end
 
       private

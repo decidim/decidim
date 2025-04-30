@@ -2,10 +2,10 @@
 <% if meeting.poll&.has_questions? %>
   <section class="layout-aside__section layout-aside__buttons<%= extra_classes %>">
     <% reply_text = meeting.poll.has_open_questions? ? t("reply_poll", scope: "decidim.meetings.meetings.meeting") : t("view_poll", scope: "decidim.meetings.meetings.meeting") %>
-    <%= action_authorized_link_to :reply_poll, reply_text, meeting_polls_answers_path(meeting), class: "button button__xl button__secondary w-full", data: { "redirect_url" => meeting_polls_answers_path(meeting) }, resource: meeting %>
+    <%= action_authorized_link_to :reply_poll, reply_text, meeting_polls_responses_path(meeting), class: "button button__xl button__secondary w-full", data: { "redirect_url" => meeting_polls_responses_path(meeting) }, resource: meeting %>
     <% if !allowed_to?(:reply_poll, :meeting, meeting:) && allowed_to?(:update, :poll, meeting:) %>
-      <%= link_to admin_meeting_polls_answers_path(meeting), class: "button button__sm button__transparent-secondary w-full" do %>
-        <span><%= t("administrate", scope: "decidim.meetings.polls.answers.index") %></span>
+      <%= link_to admin_meeting_polls_responses_path(meeting), class: "button button__sm button__transparent-secondary w-full" do %>
+        <span><%= t("administrate", scope: "decidim.meetings.polls.responses.index") %></span>
       <% end %>
     <% end %>
   </section>

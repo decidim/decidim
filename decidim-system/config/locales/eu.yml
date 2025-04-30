@@ -19,12 +19,12 @@ eu:
           admin: Administrazio-panelaren MIME motak
           default: MIME motak, lehenetsita
         allowed_file_extensions:
-          admin: "\nAdministrazio-panelaren artxibo-luzapenak"
-          default: Artxibo-luzapenak, erantsita
+          admin: Administrazio-panelaren fitxategi-luzapenak
+          default: Fitxategi-luzapenak, erantsita
           image: Irudien artxibo-luzapenak
         maximum_file_size:
-          avatar: Avatar-artxiboaren tamaina
-          default: Artxibo-tamaina, lehenetsita
+          avatar: Abatar-fitxategiaren tamaina
+          default: Fitxategi-tamaina, lehenetsita
     errors:
       models:
         oauth_application:
@@ -71,8 +71,8 @@ eu:
       default_pages:
         placeholders:
           content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
-          summary: Mesedez, gehitu laburpen esanguratsua %{page} orri estatikoari administrazio-panelean.
-          title: 'Izenburu lehenetsia orri honetarako: %{page}'
+          summary: Gehitu laburpen adierazgarri %{page} orri estatikoari administrazio-panelean.
+          title: 'Orri honetarako izenburu lehenetsia: %{page}'
         terms-of-service: Zerbitzu-baldintzak
       devise:
         passwords:
@@ -84,8 +84,8 @@ eu:
             send_me_reset_password_instructions: Bidali jarraibideak pasahitza berrezartzeko
         shared:
           links:
-            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko instrukziorik jaso?
-            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
+            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko jarraibiderik jaso?
+            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko jarraibiderik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
             sign_up: Sortu kontu bat
@@ -200,17 +200,17 @@ eu:
           title: Editatu erakundea
         file_upload_settings:
           content_types:
-            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, fitxategien igoeretan zuhurragoak izatea espero daiteke.
             default_hint: MIME mota hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
             intro_html: 'Gehitu izartxoa duten komodinak MIME motetarako, adibidez: <code>image/*</code>.'
             title: Baimendutako MIME motak
           file_extensions:
-            admin_hint: Artxibo-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
-            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
-            image_hint: Artxibo-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
+            admin_hint: Fitxategi-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: Fitxategi-luzapen hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
+            image_hint: Fitxategi-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
             title: Baimendutako fitxategi-luzapenak
           file_sizes:
-            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da avatar-irudiak igotzeko.
+            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da abatar-irudiak igotzeko.
             default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
             title: Gehieneko fitxategi tamaina
           intro: |

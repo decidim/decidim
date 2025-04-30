@@ -26,8 +26,6 @@ lb:
         published_at: Veröffentlicht unter
         weight: Bestellposition
       id: ID
-      import:
-        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         subject: Betreff
@@ -83,7 +81,6 @@ lb:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
@@ -155,9 +152,7 @@ lb:
           new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
-        reject: Ablehnen
         share: Teilen
-        verify: Überprüfen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -415,11 +410,7 @@ lb:
         scopes: Bereiche
         settings: die Einstellungen
         static_pages: Seiten
-        user_groups: Benutzergruppen
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -484,15 +475,6 @@ lb:
               admin: Administrator
               user_manager: Benutzer Manager
           name: Benutzer
-        user_group:
-          fields:
-            actions: Aktionen
-            created_at: Hergestellt in
-            document_number: Dokumentnummer
-            name: Name
-            phone: Telefon
-            state: Zustand
-            users_count: Benutzer zählen
       moderated_users:
         index:
           actions:
@@ -659,6 +641,8 @@ lb:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       resource_permissions:
         edit:
@@ -710,7 +694,6 @@ lb:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
-          create: Thema erstellen
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -731,7 +714,6 @@ lb:
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
-          create: Seite erstellen
           title: Neue Seite
         topic:
           without_topic: Seiten ohne Thema
@@ -745,32 +727,11 @@ lb:
         dashboard: Instrumententafel
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
-        metrics: Kriterien
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Aktivität
-        user_groups: Benutzergruppen
-      user_group:
-        csv_verify:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-        reject:
-          invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-        verify:
-          invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-      user_groups:
-        index:
-          state:
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
-          verify_via_csv: Überprüfen Sie über CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
-          title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -791,16 +752,6 @@ lb:
           last_month: Letzter Monat
           last_week: Letzte Woche
           participants: Teilnehmer
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen

@@ -6,17 +6,20 @@ module Decidim
     class AssemblyType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::AttachableCollectionInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::CategoriesContainerInterface
       implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::ReferableInterface
+      implements Decidim::Core::FollowableInterface
 
       description "An assembly"
 
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
-      field :area, Decidim::Core::AreaApiType, "Area of this assembly", null: true
-      field :assembly_type, Decidim::Assemblies::AssembliesTypeType, "Type of the assembly", null: true
       field :banner_image, String, "The banner image for this assembly", null: true
+      field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
       field :children_count, Integer, "Number of children assemblies", null: true
       field :closing_date, Decidim::Core::DateType, "Closing date of the assembly", null: true
       field :closing_date_reason, Decidim::Core::TranslatedFieldType, "Closing date reason of this assembly", null: true
@@ -31,7 +34,6 @@ module Decidim
       field :github_handler, String, "GitHub handler", null: true
       field :hashtag, String, "The hashtag for this assembly", null: true
       field :hero_image, String, "The hero image for this assembly", null: true
-      field :id, ID, "The internal ID for this assembly", null: false
       field :included_at, Decidim::Core::DateType, "Included at", null: true
       field :instagram_handler, String, "Instagram handler", null: true
       field :internal_organisation, Decidim::Core::TranslatedFieldType, "Internal organisation of this assembly", null: true
@@ -46,7 +48,6 @@ module Decidim
       field :promoted, Boolean, "If this assembly is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :purpose_of_action, Decidim::Core::TranslatedFieldType, "Purpose of action", null: true
-      field :reference, String, "Reference for this assembly", null: false
       field :scopes_enabled, Boolean, "If this assembly has scopes enabled", null: true
       field :short_description, Decidim::Core::TranslatedFieldType, "The sort description of this assembly", null: true
       field :slug, String, "The slug of this assembly", null: false
@@ -54,9 +55,13 @@ module Decidim
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this assembly", null: true
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this assembly", null: true
       field :twitter_handler, String, "Twitter handler", null: true
+      field :url, GraphQL::Types::String, "The URL of this assembly", null: true
+      field :weight, GraphQL::Types::Int, "The weight for this object", null: false
       field :youtube_handler, String, "YouTube handler", null: true
 
-      field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
+      def url
+        EngineRouter.main_proxy(object).assembly_url(object)
+      end
 
       def hero_image
         object.attached_uploader(:hero_image).url

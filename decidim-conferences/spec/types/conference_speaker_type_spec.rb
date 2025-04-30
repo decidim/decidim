@@ -8,7 +8,9 @@ module Decidim
     describe ConferenceSpeakerType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:conference_speaker) }
+      let(:model) { create(:conference_speaker, :published) }
+
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -31,6 +33,14 @@ module Decidim
 
         it "returns the position field" do
           expect(response["position"]["translation"]).to eq(model.position["en"])
+        end
+      end
+
+      describe "publishedAt" do
+        let(:query) { "{ publishedAt }" }
+
+        it "returns when the conference was published" do
+          expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
         end
       end
 
@@ -82,26 +92,10 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the conference partner was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the conference partner was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
       context "when there is a user" do
         let(:conference) { create(:conference) }
         let(:user) { create(:user, :confirmed, organization: conference.organization) }
-        let(:model) { create(:conference_speaker, user:, conference:) }
+        let(:model) { create(:conference_speaker, :published, user:, conference:) }
 
         describe "user" do
           let(:query) { "{ user { name } }" }

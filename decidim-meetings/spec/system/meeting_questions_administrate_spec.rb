@@ -91,20 +91,20 @@ describe "Meeting poll administration" do
       within ".meeting-polls__admin-action-question" do
         click_on "Send"
         expect(page).to have_content("Sent")
-        expect(page).to have_content("0 received answers")
+        expect(page).to have_content("0 received responses")
       end
       expect(page).to have_css("[data-question='#{question_multiple_option.id}']", text: "Sent (open)")
     end
   end
 
-  context "when there is a published question with answers" do
+  context "when there is a published question with responses" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
 
-    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user:, questionnaire:) }
-    let!(:answer_user2) { create(:meetings_poll_answer, question: question_multiple_option, user: user2, questionnaire:) }
+    let!(:response_user1) { create(:meetings_poll_response, question: question_multiple_option, user:, questionnaire:) }
+    let!(:response_user2) { create(:meetings_poll_response, question: question_multiple_option, user: user2, questionnaire:) }
 
-    let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1, answer_option: question_multiple_option.answer_options.first) }
-    let!(:answer_choice_user2) { create(:meetings_poll_answer_choice, answer: answer_user2, answer_option: question_multiple_option.answer_options.first) }
+    let!(:response_choice_user1) { create(:meetings_poll_response_choice, response: response_user1, response_option: question_multiple_option.response_options.first) }
+    let!(:response_choice_user2) { create(:meetings_poll_response_choice, response: response_user2, response_option: question_multiple_option.response_options.first) }
 
     before do
       visit meeting_path
@@ -115,7 +115,7 @@ describe "Meeting poll administration" do
       click_link_or_button "Administrate"
     end
 
-    it "allows to see question answers" do
+    it "allows to see question responses" do
       open_first_question
 
       expect(page).to have_content("0%")

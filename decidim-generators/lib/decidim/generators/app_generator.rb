@@ -181,7 +181,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(ai conferences design initiatives templates collaborative_texts).each do |component|
+        %w(ai conferences design initiatives templates collaborative_texts elections).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -191,14 +191,14 @@ module Decidim
       end
 
       def add_storage_provider
-        template "storage.yml.erb", "config/storage.yml", force: true
+        copy_file "storage.yml", "config/storage.yml", force: true
 
         providers = options[:storage].split(",")
 
         abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
-                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+                  %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
@@ -337,8 +337,8 @@ module Decidim
                   /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
                   "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
-                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+                  /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
+                  "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
       end
 
       def dev_performance_config
@@ -387,6 +387,17 @@ module Decidim
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
+      def initiative_signatures_workflows
+        return unless options[:demo]
+
+        copy_file "dummy_signature_handler.rb", "app/services/dummy_signature_handler.rb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature/_form.html.erb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/ephemeral_dummy_signature/_form.html.erb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature_with_personal_data/_form.html.erb"
+        copy_file "dummy_sms_mobile_phone_validator.rb", "app/services/dummy_sms_mobile_phone_validator.rb"
+        copy_file "initiatives_initializer.rb", "config/initializers/decidim_initiatives.rb"
+      end
+
       def ai_toolkit
         return unless options[:demo]
 
@@ -406,7 +417,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.pdf_signature_service = "MyPDFSignatureService"/,
-                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
+                  "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
       end
 
       def machine_translation_service

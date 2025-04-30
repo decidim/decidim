@@ -14,7 +14,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+      <% if proposal_voted_by_user?(proposal) %>
         <%= action_authorized_button_to(
           :vote,
           proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:),
@@ -38,7 +38,7 @@
         <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_votes_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
           <%= content_tag :span, t("decidim.proposals.proposals.vote_button.maximum_votes_reached"), class: "column button light button--sc disabled", disabled: true %>
         <% else %>
-          <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
+          <% if vote_limit_enabled? && remaining_votes_count_for_user == 0 %>
             <%= content_tag :span, t("decidim.proposals.proposals.vote_button.no_votes_remaining"), class: "column button light button--sc", disabled: true %>
           <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
             <%= content_tag :span, t("decidim.proposals.proposals.vote_button.votes_blocked"), class: "column button light button--sc disabled", disabled: true %>

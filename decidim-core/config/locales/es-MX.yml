@@ -5,6 +5,7 @@ es-MX:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -52,8 +53,12 @@ es-MX:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
-      user_group:
-        avatar: Imagen de perfil
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: El alias o apodo debe estar en minúsculas y no contener espacios
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -69,7 +74,6 @@ es-MX:
       decidim/removed_from_group: Eliminado del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -97,9 +101,6 @@ es-MX:
       decidim/user:
         one: No hay usuarios
         other: Usuarios
-      decidim/user_group:
-        one: Grupo de usuarios
-        other: Grupos de usuarios
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -116,7 +117,7 @@ es-MX:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -171,6 +172,7 @@ es-MX:
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
+      secondary_menu: Menú secundario
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -185,6 +187,7 @@ es-MX:
         leaving_authorizations_behind: Algunos datos vinculados a tu autorización serán guardados por seguridad. Si creas otra cuenta y autoriza de nuevo, estos datos serán recuperados en tu nueva cuenta.
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
+        inactive_account_removal_reason: Cuenta eliminada después de %{inactivity_period} días de inactividad
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
@@ -384,7 +387,6 @@ es-MX:
             ha sido retirada por el autor.
       name: Enmienda
       new:
-        amendment_author: Autor de la enmienda
         send: Crear
         title: Crear borrador de enmienda
       preview_draft:
@@ -611,10 +613,6 @@ es-MX:
         name: Datos principales
       metadata:
         name: Metadatos
-      metrics:
-        name: Métricas de la organización
-      participatory_space_metrics:
-        name: Métricas
       participatory_space_stats:
         name: Estadísticas
       social_networks_metadata:
@@ -767,12 +765,6 @@ es-MX:
           moderation: La moderación que tiene este informe
           reason: Los motivos de este informe de moderación
           updated_at: La fecha y hora de la última actualización de este informe de moderación
-        user_groups:
-          document_number: El número de documento de este grupo de usuarias
-          id: El identificador único de este grupo de usuarias
-          name: El nombre de este grupo de usuarias
-          phone: El número de teléfono de este grupo de usuarias
-          verified_at: La fecha y hora en que se verificó este grupo de usuarias
         users:
           about: La biografía de esta usuaria
           accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
@@ -838,10 +830,6 @@ es-MX:
     endorsement_buttons_cell:
       already_endorsed: Deshacer el "Me gusta"
       endorse: Me gusta
-    endorsements:
-      identities:
-        done: Hecho
-        select_identity: Seleccionar identidad
     endorsers_list:
       endorsed_by:
         one: Le gusta a %{visible}
@@ -950,57 +938,21 @@ es-MX:
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia "%{badge_name}"!'
           notification_title: "¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} de la insignia \n <a href=\"%{resource_path}\">%{badge_name}</a> \"!"
-      groups:
-        demoted_membership:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
-          email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: Ya no eres administrador del grupo %{user_group_name}
-          notification_title: Ya no eres administrador del grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
-          email_outro: Has recibido esta notificación porque te han invitado a un grupo. Por favor, revisa la pestaña Grupos en tu perfil para aceptar la invitación.
-          email_subject: Te han invitado a unirte al grupo %{user_group_name}
-          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación.
-        join_request_accepted:
-          email_intro: '¡Felicidades! Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada
-          notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido aceptada.
-        join_request_created:
-          email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Has recibido esta notificación porque eres administrador/a del grupo %{user_group_name}.
-          email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
-          notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
-        join_request_rejected:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada
-          notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
-        promoted_to_admin:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha otorgado permisos de administración para ese grupo.
-          email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: '¡Ahora eres administrador/a del grupo %{user_group_name}!'
-          notification_title: Ahora eres administrador/a del grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha eliminado del mismo.
-          email_outro: Has recibido esta notificación porque eras miembro de ese grupo.
-          email_subject: '¡Has sido eliminado del grupo %{user_group_name}!'
-          notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Se ha creado un nuevo grupo de usuarias con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Se ha creado un nuevo grupo de usuarias
-          notification_title: Se ha creado el grupo de usuarias %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
-        user_group_updated:
-          email_intro: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Un grupo de usuarias ha actualizado su perfil
-          notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
         notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+          email_outro: Has recibido esta notificación porque es autora del/de la %{resource_type}.
+          email_subject: Tu %{resource_type} ya no es visible
+          notification_title: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
           email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
@@ -1145,92 +1097,11 @@ es-MX:
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
       title: '¿Qué son las insignias?'
-    group_admins:
-      actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
-        demote_admin: Eliminar permisos de administración
-      demote:
-        error: Se ha producido un error al eliminar esta participante de la lista de administradoras.
-        success: Permisos de administración eliminados correctamente.
-      index:
-        current_admins: 'Administradores actuales:'
-        manage_admins: Gestionar administradores
-    group_invites:
-      accept:
-        error: Se ha producido un error al aceptar esta invitación.
-        success: Se ha aceptado la invitación correctamente.
-      accept_invitation: Aceptar
-      accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
-      index:
-        invite: Invitación
-        invite_user: Invitar a un usuario
-      invite:
-        error: Se ha producido un error al invitar a esta participante.
-        success: Participante invitada correctamente.
-      pending_invitations: Solicitudes pendientes
-      reject:
-        error: Se ha producido un error al rechazar esta invitación.
-        success: Invitación rechazada correctamente.
-      reject_invitation: Rechazar
-    group_members:
-      accept:
-        error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo.
-        success: Solicitud de unirse correctamente aceptada.
-      actions:
-        are_you_sure: '¿Estás seguro?'
-        promote_to_admin: Hacer administrador
-        remove_from_group: Eliminar usuario
-      index:
-        current_members_without_admins: 'Miembros actuales (sin administradores):'
-        manage_members: Gestionar miembros
-      promote:
-        error: Se ha producido un error al promocionar a esta participante.
-        success: Participante promocionada correctamente.
-      reject:
-        error: Se ha producido un error al rechazar esta solicitud de incorporación al grupo.
-        success: Solicitud de unirse rechazada correctamente.
-      remove:
-        error: Se ha producido un error al eliminar a esta participante del grupo.
-        success: Participante eliminada correctamente del grupo.
     groups:
-      actions:
-        are_you_sure: '¿Estás seguro?'
-      create:
-        error: Se ha producido un error al crear el grupo.
-        success: Grupo creado correctamente.
-      edit:
-        edit_user_group: Editar grupo
-        update_user_group: Actualizar grupo
-      form:
-        document_number_help: No utilices guiones ni espacios.
-        email_help: Correo electrónico de tu organización, asociación, colectivo, grupo, etc.
-        fill_in_for_verification: 'Rellena estos campos si deseas que se verifique tu grupo:'
-        name_help: Nombre de tu organización, asociación, colectivo, grupo, etc.
-        nickname_help: Nombre de usuario de su organización, asociación, colectivo, grupo, etc. No uses espacios ni tildes.
-        phone_help: No utilices guiones ni espacios.
-      join:
-        error: Se ha producido un error al unirte al grupo.
-        success: Solicitud enviada correctamente. Un administrador la revisará antes de aceptarte en el grupo.
-      leave:
-        error: Se ha producido un error al dejar el grupo.
-        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra miembro para poder abandonar el grupo.
-        success: Has dejado el grupo correctamente.
-      members:
-        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
-        accept_request: Aceptar
-        reject_request: Rechazar
-      new:
-        create_user_group: Crear un grupo
-        new_user_group: Nuevo grupo
-        subtitle: Crea un grupo e invita a otros usuarios a unirse para participar a nivel colectivo.
-      no_user_groups: Aún no pertenece a ningún grupo.
       roles:
         admin: Administrador
         creator: Administradora
         member: Miembro
-      update:
-        error: Se ha producido un error al actualizar el grupo.
-        success: El grupo se ha actualizado correctamente.
     help:
       main_topic:
         default_page:
@@ -1291,42 +1162,16 @@ es-MX:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Este grupo aún no tiene ningún miembro.
     menu:
       help: Ayuda
       home: Inicio
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
-          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta de la plataforma!'
-          subject: "%{manager} ha iniciado una nueva conversación como %{group}"
-        comanagers_new_message:
-          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta de la plataforma!'
-          subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una conversación contigo"
-        new_group_conversation:
-          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta de la plataforma!'
-          subject: "%{sender} ha iniciado una nueva conversación con %{group}"
-        new_group_message:
-          admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta de la plataforma!'
-          subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
@@ -1339,6 +1184,8 @@ es-MX:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante no quiere recibir mensajes privados.
+          participants:
+            title: Participantes
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
@@ -1371,27 +1218,6 @@ es-MX:
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Número de participantes bloqueadas
-      download:
-        csv: Descargar datos (CSV)
-      followers:
-        description: Número de usuarios que siguen este espacio de participación.
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de usuarios activos en la organización.
-        object: participantes
-        title: Participantes
-      reported_users:
-        description: Número de participantes reportadas
-      user_reports:
-        description: Número de denuncias realizadas por participantes
-      users:
-        description: Número de usuarios en la organización.
-        object: usuarios
-        title: Usuarios
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
@@ -1471,6 +1297,7 @@ es-MX:
         assigned_to_proposal: Quiero recibir un correo electrónico cuando alguien me asigne una propuesta para evaluar
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
+        evaluators: Evaluadoras
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
         newsletters: Boletines de noticias
@@ -1487,7 +1314,6 @@ es-MX:
         push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones sobre
         update_notifications_settings: Guardar cambios
-        valuators: Evaluadoras
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
@@ -1512,14 +1338,13 @@ es-MX:
         core:
           components: Componentes
           description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          generated_on_date: Generado el %{date}
           main: Núcleo
+          resources:
+            one: "%{count} recurso"
+            other: "%{count} recursos"
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
-        metrics:
-          cumulative: El número total de métricas en este día
-          day: La fecha en la que se creó esta métrica
-          metric_type: El tipo de métrica
-          quantity: El número de métricas en este día
         moderated_users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           block_reasons: La razón por la que administradora bloqueó a la usuaria
@@ -1550,16 +1375,6 @@ es-MX:
           taxonomizations_count: El recuento de los recursos (debates, proyectos, propuestas, encuentros, resultados, etc.) que utilizan esta taxonomía
           updated_at: La fecha en que esta taxonomía fue actualizada por última vez
           weight: El orden en el que se muestra esta taxonomía
-        user_groups:
-          avatar_url: El avatar del grupo de usuarias
-          badge: La insignia del grupo de usuarias
-          deleted: Si el grupo de usuarias fue eliminado o no
-          id: El identificador único del grupo de usuarias
-          members: El ID y el nombre de las usuarias que pertenecen al grupo
-          members_count: El número de miembros que forman parte del grupo de usuarias
-          name: El nombre que se muestra del grupo de usuarias
-          nickname: El nombre de usuaria del grupo de usuarias
-          profile_url: La URL del perfil del grupo de usuarias
         users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           avatar_url: El avatar de la usuaria
@@ -1652,10 +1467,6 @@ es-MX:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en cifras
-          link: Mostrar todas las estadísticas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1673,6 +1484,26 @@ es-MX:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
           body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
           title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection</strong></p>}.
+          <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+        greetings_html: |
+          Atentamente,<br>
+          %{organization_name}
+        hello_html: Estimado/a <strong>%{username}</strong>,
+        log_in: entra
+        never_logged_in: nunca ha iniciado sesión
+        subject: Aviso de cuenta inactiva
+      removal_notification:
+        body: Tu cuenta en %{organization_name} ha sido eliminada por inactividad.
+        greetings_html: |
+          Atentamente,<br>
+          %{organization_name}
+        hello: Estimado/a %{username},
+        subject: Aviso de cuenta inactiva
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1681,7 +1512,6 @@ es-MX:
       deleted: Usuario eliminado
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de términos y condiciones de uso!'
     profiles:
-      default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
       default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales.
       show:
         activity: Actividad
@@ -1689,45 +1519,26 @@ es-MX:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        group_admins: Gestionar administradoras
-        group_members: Gestionar miembros
-        groups: Grupos
-        members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-      sidebar:
-        badges:
-          info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
-          title: Distintivos
       user:
         actions:
-          create_user_group: Crear un grupo
           disabled_message: Mensaje
           edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
-          manage_user_group: Gestionar el grupo
-          manage_user_group_admins: Gestionar administradoras
-          manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
-        confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
-        create_user_group: Crear un grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar el perfil del grupo
-        fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
-        invite_user: Invitar al usuario
-        join_user_group: Solicitar unirse al grupo
-        leave_user_group: Dejar el grupo
-        manage_user_group_admins: Gestionar los administradores
-        manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
+    qr:
+      show:
+        scan: Escanea el código QR
+        title: Código QR para %{resource_title}
     reported_mailer:
       hide:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
@@ -1751,6 +1562,8 @@ es-MX:
         report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
+    resource_autocomplete:
+      help: Escribe aquí para buscar entre las propuestas
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -1760,7 +1573,7 @@ es-MX:
     search:
       name: Buscar
       results: Resultados de la búsqueda
-      results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
+      results_found_for_term: '%{count} resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
@@ -1781,6 +1594,10 @@ es-MX:
       selfxss_warning:
         description: Esta función de navegador está pensada para desarrolladores y no deberías pegar nada aquí si se te ha pedido que lo hagas. Pegar contenido en esta ventana puede comprometer tu privacidad y dar acceso a hackers a tu cuenta.
         title: Detener!
+    share_widget:
+      download: Descargar
+      print: Imprimir el cartel
+      qr_code: Código QR
     shared:
       confirm_modal:
         cancel: Cancelar
@@ -1811,14 +1628,13 @@ es-MX:
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Eliminar a esta participante
-        close: Cerrar
-        description: '¿Qué es inapropiado de la usuaria?'
+        description: '¿Qué tiene de inapropiado esta participante?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
-        title: Reportar usuaria inapropiada
+        title: Reportar participante inapropiada
       floating_help:
         help: Ayuda
       follow_button:
@@ -1833,9 +1649,6 @@ es-MX:
         public_participation: Mostrar mi asistencia públicamente
       reference:
         reference: 'Referencia: %{reference}'
-      represent_user_group:
-        represent_user_group: Yo represento a un grupo
-        select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
         title: Seleccionar el número de resultados por página
@@ -1843,6 +1656,7 @@ es-MX:
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
+        copy_share_link_cta: O copiar el enlace
         copy_share_link_message: Se ha copiado el enlace al portapapeles correctamente.
         share: Compartir
         share_link: Compartir enlace
@@ -1870,19 +1684,28 @@ es-MX:
         no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
-      create:
-        error: El mensaje no se ha podido crear. Vuelve a intentarlo más tarde.
-        existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
-        success: '¡Conversación iniciada correctamente!'
       index:
-        conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
-        no_conversations_warning: Aún no hay ninguna conversación.
         time_ago: "Hace %{time}"
-      reply:
-        placeholder: Tu respuesta...
-        send: Enviar
-      update:
-        error: Mensaje no enviado. Inténtalo de nuevo más tarde
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Nos ponemos en contacto contigo para informarte sobre una importante actualización del Grupo de Usuarias: <strong>%{group_name}</strong> del que eres miembro.'
+        body_2: Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones, la función "Grupos de usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo de Usuarias se ha convertido en un perfil de participante al uso.
+        greeting: Estimado/a %{name},
+        instructions_1: Si tienes acceso a esa cuenta de correo electrónico, por favor, revisa tu bandeja de entrada para ver las instrucciones.
+        instructions_intro: Hemos enviado instrucciones para establecer una nueva contraseña para el perfil, en el correo electrónico asociado a la cuenta.
+        instructions_title: "<strong>¿Qué significa esto para ti?</strong>"
+        subject: Notificación importante sobre un grupo de usuarias del que formas parte
+      notify_deprecation_to_owner:
+        body_1: Nos ponemos en contacto contigo para informarte sobre una importante actualización respecto al Grupo de usuarias %{organization_name} del que formas parte.
+        body_2: 'Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones como la tuya, la función "Grupos de Usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo: <strong>%{name}</strong>, se ha convertido en un perfil de participante al uso.'
+        body_3: Para continuar accediendo a tu cuenta, necesitamos que establezcas una contraseña.
+        greeting: Estimado/a %{name},
+        instructions_1: 'Haz clic en el enlace de abajo para iniciar el proceso de configuración la contraseña:'
+        instructions_2: En el formulario, introduce la dirección de correo electrónico donde recibiste este mensaje y envía la solicitud.
+        instructions_3: Revisa tu bandeja de entrada en busca de un correo electrónico con más instrucciones para establecer tu nueva contraseña.
+        instructions_title: "<strong>¿Qué necesitas hacer?</strong>"
+        set_password: Iniciar el proceso de configuración de la contraseña
+        subject: Actualización importante del grupo de usuarias
     user_report_mailer:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
@@ -2247,8 +2070,11 @@ es-MX:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        back: Volver al listado
+        cancel: Cancelar
         close: Cerrar
-        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
+        confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
+        confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
@@ -2294,7 +2120,6 @@ es-MX:
         notifications_settings: Configuracion de notificaciones
         profile: Perfil
         title: Ajustes de usuario
-        user_groups: Grupos
   locale:
     name: Español
     name_with_error: Español (¡error!)

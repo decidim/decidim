@@ -5,7 +5,6 @@ ar:
       decidim/comments/comment_created_event: تعليق
       decidim/comments/comment_upvoted_event: تم التصويت للتعليق
       decidim/comments/reply_created_event: تعليق الرد
-      decidim/comments/user_group_mentioned_event: أشير
       decidim/comments/user_mentioned_event: أشير
   activerecord:
     models:
@@ -24,6 +23,10 @@ ar:
         many: الأصوات
         other: الأصوات
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: تعليقات
     comments:
       admin:
         shared:
@@ -45,8 +48,6 @@ ar:
           body:
             label: تعليق
             placeholder: ما رأيك بهذا؟
-          user_group_id:
-            label: التعليق باسم
         opinion:
           label: رأيك حول هذا الموضوع
           negative: سلبي
@@ -121,11 +122,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء تتبع هذا المستخدم من صفحة ملفه الشخصي.
           email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
           notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'المجموعة %{author_name} تركت تعليقا في %{resource_title}. يمكنك قراءته على هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء متابعة هذه المجموعة من صفحتها الأساسية.
-          email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
-          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} تم التعليق. يمكنك قراءة التعليق في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}" أو مؤلفه. يمكنك إلغاء تتبعه من الرابط السابق.
@@ -146,18 +142,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنه تم الرد على تعليقك.
           email_subject: "%{author_name} رد على تعليقك في %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> رد على تعليقك في <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: تم ذكر مجموعة تنتمي إليها
-          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في المجموعة %{group_name} التي ذكرت في %{resource_title}.
-          email_subject: تم ذكرك في %{resource_title} كعضو في %{group_name}
-          notification_title: لقد ذكرت في <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a> كعضو في <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: لقد ذكرت
           email_outro: لقد تلقيت هذا الإشعار لأنك ذكرت في %{resource_title}.
           email_subject: لقد ذكرت في %{resource_title}
           notification_title: لقد ذكرت في <a href="%{resource_path}">%{resource_title}</a> من <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: عدد التعليقات الناتجة عن المشاركين
-        object: تعليقات
-        title: تعليقات

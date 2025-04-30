@@ -2,7 +2,6 @@ gl:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Descrición
         offline_votes: Soportes cara a cara
         scope_id: Alcance
@@ -21,7 +20,6 @@ gl:
         banner_image: Imaxe do banner
         collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
-        document_number_authorization_handler: Autorización para verificar o número do documento nos votos
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
@@ -186,7 +184,6 @@ gl:
           unpublish: "%{user_name} eliminou a iniciativa %{resource_name}"
           update: "%{user_name} actualizou a iniciativa %{resource_name}"
       admin_states:
-        created: Creada
         discarded: Descartou
         validating: Validación técnica
       application_helper:
@@ -203,27 +200,17 @@ gl:
           name: Iniciativas destacadas
       create_initiative:
         fill_data:
-          back: De volta
           continue: Continuar
-          more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
           back: De volta
-          back_to_initiatives: Volver a iniciativas
-          go_to_my_initiatives: Vaia ás miñas iniciativas
-          more_information: "(Máis información)"
         previous_form:
           back: De volta
-          continue: Continuar
-        promotal_committee:
-          more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
           more_information: (Máis información)
           select: Quero promocionar esta iniciativa
-        share_committee_link:
-          invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, quen está seguindo, creou unha nova iniciativa, revisa e contribúe:"
@@ -236,20 +223,11 @@ gl:
           email_subject: Iniciativa aprobada por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continuar
         finish:
           back_to_initiative: Volver á iniciativa
-        sms_code:
-          continue: Comprobe o código e continúe
-          help: Comprobe o SMS recibido no seu teléfono
-        sms_phone_number:
-          continue: Envíame un SMS
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
-        personal_data:
-          invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
         sms_phone:
           invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
@@ -316,20 +294,11 @@ gl:
       initiatives_type:
         actions:
           title: Accións
-          vote: Vota
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Rematar
-        promotal_committee: Comité de promoción
         select_initiative_type: Elixe
-      initiative_signature_creation_header:
-        fill_personal_data: Completa os teus datos
-        finish: Finalizar
-        sms_code: Verificación do código SMS
-        sms_phone_number: Número de teléfono
-        title: Rexistrar %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Non hai iniciativas aínda.

@@ -2,7 +2,6 @@ is-IS:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Höfundur
         description: Lýsing
         scope_id: Umfang
         signature_type_values:
@@ -87,7 +86,6 @@ is-IS:
           unpublish: "%{user_name} henti %{resource_name} frumkvæði"
           update: "%{user_name} uppfært %{resource_name} frumkvæði"
       admin_states:
-        created: Búið til
         discarded: Fargað
         validating: Tæknilegar staðfestingar
       application_helper:
@@ -101,20 +99,12 @@ is-IS:
           success: Beiðni þín hefur verið send til frumkvöðull höfundar.
       create_initiative:
         fill_data:
-          back: Til baka
           continue: Haltu áfram
-          more_information: "(Meiri upplýsingar)"
           select_scope: Veldu umfang
         finish:
           back: Til baka
-          back_to_initiatives: Aftur á frumkvæði
-          go_to_my_initiatives: Farið að verkefnum mínum
-          more_information: "(Meiri upplýsingar)"
         previous_form:
           back: Til baka
-          continue: Haltu áfram
-        promotal_committee:
-          more_information: "(Meiri upplýsingar)"
         select_initiative_type:
           back: Til baka
           more_information: (Meiri upplýsingar)
@@ -168,7 +158,6 @@ is-IS:
     decidim:
       initiative_creation_header:
         fill_data: Búa til
-        finish: Klára
         select_initiative_type: Veldu
       initiatives:
         no_initiatives_yet:

@@ -19,7 +19,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:second_resource) { create(:debate, :closed, component: second_component) }
 
-    let(:resource_title) { "## debates" }
+    let(:resource_title) { "## debates (2 resources)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the debate",
@@ -48,7 +48,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:second_resource) { create(:debate, :closed, component: second_component, author: deleted_user) }
 
-    let(:resource_title) { "## debates" }
+    let(:resource_title) { "## debates (2 resources)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the debate",
@@ -70,7 +70,7 @@ describe Decidim::OpenDataExporter do
     end
     let(:debate) { create(:debate, component:) }
     let!(:resource) { create(:comment, commentable: debate) }
-    let(:resource_title) { "## debate_comments" }
+    let(:resource_title) { "## debate_comments (1 resource)" }
     let(:help_lines) do
       [
         "* id: The id for this comment"

@@ -9,7 +9,7 @@ describe Decidim::OpenDataExporter do
 
   let(:resource_file_name) { "participatory_processes" }
   let!(:resource) { create(:participatory_process, organization:) }
-  let(:resource_title) { "## participatory_processes" }
+  let(:resource_title) { "## participatory_processes (1 resource)" }
   let(:help_lines) do
     [
       "id: The unique identifier of this process"

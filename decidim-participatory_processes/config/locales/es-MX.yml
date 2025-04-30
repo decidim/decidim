@@ -151,8 +151,8 @@ es-MX:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día
@@ -210,7 +210,7 @@ es-MX:
             body_html: |-
               La configuración del CTA a través de la Fase del proceso participativo está obsoleta con el nuevo diseño.
               Ahora esto se hace en la <b>Página de Inicio</b>, usando el bloque de contenido <b>Imagen principal y botón de acción</b> .
-              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del acción</i> y
+              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
           title: Editar fase de proceso participativo
@@ -343,11 +343,6 @@ es-MX:
           not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
-    metrics:
-      participatory_processes:
-        description: Número de procesos participativos en esta organización
-        object: procesos participativos
-        title: Procesos participativos
     open_data:
       help:
         participatory_processes:
@@ -397,7 +392,7 @@ es-MX:
         html_3:
           name: Tercer bloque HTML
         main_data:
-          name: Titulo y descripción
+          name: Título y descripción
         participatory_processes:
           active: Procesos participativos activos
           name: Procesos participativos
@@ -408,6 +403,8 @@ es-MX:
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
+      related_processes:
+        help: Todos los procesos seleccionados serán asignados a este grupo, incluyendo los que ya están asignados a otros grupos.
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -473,9 +470,6 @@ es-MX:
           highlighted_processes:
             active_spaces: Procesos activos
             see_all_spaces: Ver todos los procesos
-      participatory_process_steps:
-        index:
-          back_to_process: Volver a la página del proceso
       participatory_processes:
         description:
           area_name: Área

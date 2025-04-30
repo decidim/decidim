@@ -21,7 +21,10 @@ module Decidim
 
     validates :name, presence: true, format: { with: Decidim::User::REGEXP_NAME }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
-    validates :nickname, presence: true, format: { with: Decidim::User::REGEXP_NICKNAME }
+    validates :nickname,
+              presence: true,
+              format: { with: Decidim::User::REGEXP_NICKNAME, message: :format },
+              length: { maximum: Decidim::User.nickname_max_length }
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
@@ -66,7 +69,7 @@ module Decidim
 
     def unique_nickname
       return true if Decidim::UserBaseEntity.where(
-        "decidim_organization_id = ? AND LOWER(nickname) = ? ",
+        "decidim_organization_id = ? AND nickname = ? ",
         context.current_organization.id,
         nickname.downcase
       ).where.not(id: context.current_user.id).empty?

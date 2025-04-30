@@ -69,10 +69,6 @@
     }
   }
 
-  &__projects__container {
-    @apply -mt-12 sm:mt-0;
-  }
-
   &__card__list-project {
     @apply ml-auto rounded py-3 px-4 bg-background w-[30%] min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:place-items-center;
   }
@@ -134,7 +130,7 @@
   }
 
   &__list--header {
-    @apply flex items-center -ml-2 md:ml-0;
+    @apply flex items-center justify-between;
   }
 
   &-list {

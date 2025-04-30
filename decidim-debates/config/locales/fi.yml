@@ -10,7 +10,6 @@ fi:
         instructions: Osallistumisohjeet
         start_time: Alkamisaika
         title: Otsikko
-        user_group_id: Luo keskustelu käyttäjänä
     models:
       decidim/debates/close_debate_event: Keskustelu suljettu
       decidim/debates/create_debate_event: Keskustelu
@@ -147,13 +146,12 @@ fi:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_group: Ryhmät
         index:
           new_debate: Uusi keskustelu
         new:
           back: Takaisin
           create: Luo
-          title: Uusi keskustelu
+          title: Luo uusi keskustelu
         orders:
           commented: Eniten kommentoidut
           label: Järjestä keskustelut
@@ -166,7 +164,6 @@ fi:
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa
-          groups_count: Ryhmiä
           open: Avoin keskustelu
           participants_count: Osallistujia
         update:
@@ -239,11 +236,6 @@ fi:
           next_level_in: Osallistu vielä %{score} keskusteluun päästäksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään keskusteluun.
           unearned_own: Et ole vielä osallistunut yhteenkään keskusteluun.
-    metrics:
-      debates:
-        description: Keskustelujen määrä
-        object: keskustelut
-        title: Keskustelut
     open_data:
       help:
         debate_comments:
@@ -257,7 +249,6 @@ fi:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         debates:
           author: Keskustelun laatijan tiedot
           closed_at: Keskustelun sulkemisaika

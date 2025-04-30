@@ -33,8 +33,6 @@ ar:
       help_section:
         content: المحتوى
       id: المعرف ID
-      import:
-        user_group_id: إنشاء الاستيرادات ك
       newsletter:
         body: النص
         send_to_all_users: إرسال إلى كافة المستخدمين
@@ -96,7 +94,6 @@ ar:
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
         twitter_handler: X handler
-        user_groups_enabled: تمكين المجموعات
         users_registration_mode: وضع تسجيل المستخدمين
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -199,11 +196,9 @@ ar:
           new: رسالة إخبارية جديدة
         per_page: في كل صفحة
         permissions: تصريحات
-        reject: رفض
         share: مشاركة
         user:
           new: مدير جديد
-        verify: التحقق
       admin_terms_of_service:
         actions:
           accept: أوافق على هذه الشروط
@@ -484,7 +479,6 @@ ar:
         settings: الإعدادات
         static_page_topics: المواضيع
         static_pages: صفحات
-        user_groups: المجموعات
         users: المشاركون
       models:
         area:
@@ -550,16 +544,6 @@ ar:
               admin: مشرف
               user_manager: مدير مشارك
           name: مشارك
-        user_group:
-          fields:
-            actions: أفعال
-            created_at: أنشئت في
-            document_number: رقم المستند
-            name: اسم
-            nickname: الاسم المستعار
-            phone: هاتف
-            state: حالة
-            users_count: عدد المشاركين
       moderated_users:
         index:
           actions:
@@ -720,6 +704,8 @@ ar:
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: قم بتحميل ملف CSV الخاص بك
           destroy:
             button: حذف جميع المشاركين الخاصين
             empty: ليس لديك أي مشاركين خاصين.
@@ -786,7 +772,6 @@ ar:
           title: تحرير الموضوع
           update: تحديث الموضوع
         new:
-          create: إنشاء موضوع
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
@@ -807,7 +792,6 @@ ar:
         index:
           last_notable_change: آخر تغيير ملحوظ
         new:
-          create: إنشاء صفحة
           title: صفحة جديدة
         topic:
           without_topic: صفحات بدون موضوع
@@ -843,27 +827,7 @@ ar:
         scope_types: أنواع النطاق
         scopes: مجالات
         statistics: النشاط
-        user_groups: المجموعات
         users: المدراء
-      user_group:
-        csv_verify:
-          invalid: حدثت مشكلة في قراءة ملف CSV.
-        reject:
-          invalid: حدثت مشكلة في رفض هذه المجموعة.
-        verify:
-          invalid: حدثت مشكلة أثناء التحقق من هذه المجموعة.
-      user_groups:
-        index:
-          state:
-            pending: قيد الانتظار
-            rejected: مرفوض
-            verified: التحقق
-          verify_via_csv: تحقق عبر CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: قم بتحميل ملف CSV الخاص بك. يجب أن يحتوي على رسائل البريد الإلكتروني الرسمية للمجموعات في مؤسستك في العمود الأول من الملف ، بدون رؤوس. سيتم التحقق من صحة المجموعات التي أكدت بريدها الإلكتروني والتي تحتوي على بريد إلكتروني ظاهر في ملف CSV.
-          title: قم بتحميل ملف CSV الخاص بك
-          upload: رفع
       users:
         create:
           error: كانت هناك مشكلة في دعوة هذا المشرف.
@@ -885,15 +849,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-    metrics:
-      blocked_users:
-        title: المستخدمين المحظورين
-      reported_users:
-        object: المستخدمين المبلغ عنهم
-        title: المستخدمون المبلغ عنهم
-      user_reports:
-        object: تقارير المستخدم
-        title: تقارير المستخدم
     moderations:
       actions:
         hidden: مخفي

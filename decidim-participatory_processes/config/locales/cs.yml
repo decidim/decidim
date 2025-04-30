@@ -157,8 +157,8 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
-            valuator: Hodnotitel
         user:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na
@@ -349,11 +349,6 @@ cs:
           not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
-    metrics:
-      participatory_processes:
-        description: Počet participativních procesů v této organizaci
-        object: participativní procesy
-        title: Participativní procesy
     open_data:
       help:
         participatory_processes:
@@ -481,9 +476,6 @@ cs:
           highlighted_processes:
             active_spaces: Aktivní procesy
             see_all_spaces: Zobrazit všechny procesy
-      participatory_process_steps:
-        index:
-          back_to_process: Zpět na stránku procesu
       participatory_processes:
         description:
           area_name: Oblast

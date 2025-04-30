@@ -39,14 +39,6 @@ Decidim::Core::Engine.routes.draw do
     get :cancel
   end
 
-  devise_for :user_groups,
-             class_name: "Decidim::UserGroup",
-             module: :devise,
-             router_name: :decidim,
-             controllers: {
-               confirmations: "decidim/devise/confirmations"
-             }
-
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
@@ -82,7 +74,6 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
-    resources :own_user_groups, only: [:index]
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
@@ -101,24 +92,6 @@ Decidim::Core::Engine.routes.draw do
       to: "free_resource_authorization_modals#show",
       as: :free_resource_authorization_modal
     )
-
-    resources :groups, except: [:destroy, :index, :show] do
-      resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
-      resources :invites, only: [:index, :create, :update, :destroy], controller: "group_invites"
-      resources :users, only: [:destroy], controller: "group_members", as: "manage_users" do
-        member do
-          post :promote
-        end
-        member do
-          post :demote
-        end
-      end
-      resource :email_confirmation, only: [:create], controller: "group_email_confirmations"
-
-      member do
-        delete :leave
-      end
-    end
   end
 
   resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
@@ -126,13 +99,7 @@ Decidim::Core::Engine.routes.draw do
     get "following", to: "profiles#following", as: "profile_following"
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
-    get "groups", to: "profiles#groups", as: "profile_groups"
-    get "members", to: "profiles#members", as: "profile_members"
-    get "group_members", to: "profiles#group_members", as: "profile_group_members"
-    get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    get "tooltip", to: "profiles#tooltip", as: "profile_tooltip"
-    resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
   scope :timeouts do
@@ -143,6 +110,7 @@ Decidim::Core::Engine.routes.draw do
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
+  get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
   get "/qr-code", to: "qr#show", as: :qr
@@ -160,9 +128,7 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
   resource :report_user, only: [:create]
-  resources :endorsements, only: [:create, :destroy] do
-    get :identities, on: :member
-  end
+  resources :endorsements, only: [:create, :destroy]
   resources :amends, only: [:new, :reject, :accept], controller: :amendments do
     collection do
       post :create

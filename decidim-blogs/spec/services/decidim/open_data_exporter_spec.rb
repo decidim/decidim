@@ -19,7 +19,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:second_resource) { create(:post, component: second_component) }
 
-    let(:resource_title) { "## posts" }
+    let(:resource_title) { "## posts (2 resources)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of this post",
@@ -54,7 +54,7 @@ describe Decidim::OpenDataExporter do
     end
     let!(:second_resource) { create(:post, component: second_component, author: deleted_user) }
 
-    let(:resource_title) { "## posts" }
+    let(:resource_title) { "## posts (2 resources)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of this post",
@@ -76,7 +76,7 @@ describe Decidim::OpenDataExporter do
     end
     let(:post) { create(:post, component:) }
     let!(:resource) { create(:comment, commentable: post) }
-    let(:resource_title) { "## post_comments" }
+    let(:resource_title) { "## post_comments (1 resource)" }
     let(:help_lines) do
       [
         "* id: The id for this comment"

@@ -3,6 +3,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -34,6 +36,12 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Smeknamnet ska vara små bokstäver utan mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -49,7 +57,6 @@ sv:
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Innehållet gillas
       decidim/resource_hidden_event: Dolt innehåll
-      decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -77,9 +84,6 @@ sv:
       decidim/user:
         one: Deltagare
         other: Deltagare
-      decidim/user_group:
-        one: Grupp
-        other: Grupper
   booleans:
     'false': 'Nej'
     'true': 'Ja'
@@ -363,7 +367,6 @@ sv:
             Detta ändringsförslag till %{amendable_type} %{proposal_link} har dragits tillbaka av författaren.
       name: Ändringsförslag
       new:
-        amendment_author: Förslagsställare
         send: Skapa
         title: Skapa utkast till ändringsförslag
       preview_draft:
@@ -590,10 +593,6 @@ sv:
         name: Viktig information
       metadata:
         name: Metadata
-      metrics:
-        name: Organisationsdata
-      participatory_space_metrics:
-        name: Mätvärden
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
@@ -730,12 +729,6 @@ sv:
           moderation: Moderering av rapporteringen
           reason: Anledning till rapporteringen
           updated_at: Datum och tid för när rapporteringen senast uppdaterades
-        user_groups:
-          document_number: Dokumentnumret för denna användargrupp
-          id: Unikt id för användargruppen
-          name: Namn på användargruppen
-          phone: Telefonnummer till användargruppen
-          verified_at: Datum och tid för när användargruppen verifierades
         users:
           about: Presentation av användaren
           accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
@@ -766,10 +759,6 @@ sv:
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
     endorsement_buttons_cell:
       endorse: Gilla
-    endorsements:
-      identities:
-        done: Klar
-        select_identity: Välj identitet
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
@@ -865,57 +854,21 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
           email_subject: Du har nått nivå %{current_level} på märket %{badge_name}!
           notification_title: Gratulerar! Du har nått nivå %{current_level} på märket <a href="%{resource_path}">%{badge_name}</a>!
-      groups:
-        demoted_membership:
-          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
-          email_outro: Du har fått det här meddelandet eftersom du är medlem i den gruppen.
-          email_subject: Du är inte längre en administratör för gruppen %{user_group_name}!
-          notification_title: Du är inte längre en administratör för gruppen <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har bjudit in dig att gå med i den.
-          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till en grupp. Godkänn inbjudan under fliken Grupper i din profil.
-          email_subject: Du har fått en inbjudan till gruppen %{user_group_name}!
-          notification_title: Du har fått en inbjudan till gruppen <a href="%{resource_path}">%{user_group_name}</a>. Godkänn inbjudan på <a href="%{groups_profile_tab_path}">sidan Grupper</a> i din profil!
-        join_request_accepted:
-          email_intro: Grattis! En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har godkänt din förfrågan om att gå med i den.
-          email_outro: Du får detta meddelande eftersom din förfrågan att gå med har uppdaterats.
-          email_subject: Du har blivit antagen till gruppen %{user_group_name}!
-          notification_title: Du har blivit antagen till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Någon ansökte att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa ansökan från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
-          email_outro: Du har fått det här meddelandet eftersom du kan hantera gruppen %{user_group_name}.
-          email_subject: Någon ansökte om att gå med i gruppen %{user_group_name}!
-          notification_title: Någon ansökte om att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa den från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
-        join_request_rejected:
-          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din förfrågan om att gå med i den.
-          email_outro: Du har fått det här meddelandet eftersom din förfrågan att gå med har uppdaterats.
-          email_subject: Din förfrågan om att gå med i gruppen %{user_group_name} har avvisats!
-          notification_title: Din förfrågan om att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> har avvisats.
-        promoted_to_admin:
-          email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har gett dig administratörsrättigheter till den gruppen.
-          email_outro: Du har fått det här meddelandet eftersom du är medlem i den gruppen.
-          email_subject: Du är nu en administratör för gruppen %{user_group_name}!
-          notification_title: Du är nu en administratör för gruppen<a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dig från den.
-          email_outro: Du har fått det här meddelandet eftersom du var medlem i den gruppen.
-          email_subject: Du har tagits bort från gruppen %{user_group_name}!
-          notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: En ny användargrupp har skapats med namnet %{user_group_name}. Du kan nu verifiera den i <a href="%{groups_admin_url}">admin-panelen</a>.
-          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
-          email_subject: En ny användargrupp har skapats
-          notification_title: Användargruppen %{user_group_name} har skapats. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.
-        user_group_updated:
-          email_intro: En användargrupp med namnet %{user_group_name} har uppdaterat sin profil, vilket gör gruppen overifierad. Du kan nu verifiera den i <a href="%{groups_admin_url}">administratörspanelen</a>.
-          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
-          email_subject: En användargrupp har uppdaterat sin profil
-          notification_title: Användargruppen %{user_group_name} har uppdaterat sin profil, vilket gör den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.
       nickname_event:
         notification_body: Vi har ändrat reglerna för användarnamn för att undvika dubbletter och har tagit bort regeln om skriftlägeskänsliga namn. <br/> Ditt användarnamn skapades efter ett annat med samma namn, så vi har automatiskt bytt namn på det. Du kan ändra det i <a href="%{link_to_account_settings}">dina kontoinställningar</a>.
       notification_event:
         notification_title: Något inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_subject: Din %{resource_type} är inte längre synlig
+          notification_title: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände på grund av att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar att återställas automatiskt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
           email_outro: Du har fått det här meddelandet eftersom du är en författare till det här innehållet.
@@ -1054,92 +1007,11 @@ sv:
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
       title: Vilka är märkena?
-    group_admins:
-      actions:
-        are_you_sure: Är du säker? Detta tar inte bort deltagaren från gruppen.
-        demote_admin: Ta bort administratör
-      demote:
-        error: Det gick inte att ta bort den här deltagaren från administratörslistan.
-        success: Användaren är inte längre administratör.
-      index:
-        current_admins: 'Nuvarande administratörer:'
-        manage_admins: Hantera administratörer
-    group_invites:
-      accept:
-        error: Det gick inte att godkänna den här inbjudan.
-        success: Inbjudan har godkänts.
-      accept_invitation: Godkänn
-      accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
-      index:
-        invite: Inbjudan
-        invite_user: Bjud in en deltagare
-      invite:
-        error: Det gick inte att bjuda in deltagaren.
-        success: Deltagaren har bjudits in.
-      pending_invitations: Väntande förfrågningar
-      reject:
-        error: Det gick inte att avvisa denna inbjudan.
-        success: Inbjudan har avvisats.
-      reject_invitation: Avvisa
-    group_members:
-      accept:
-        error: Det gick inte att godkänna denna förfrågan att gå med.
-        success: Förfrågan att gå med har godkänts.
-      actions:
-        are_you_sure: Är du säker?
-        promote_to_admin: Gör till administratör
-        remove_from_group: Ta bort deltagaren
-      index:
-        current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
-        manage_members: Hantera medlemmar
-      promote:
-        error: Det gick inte att befordra deltagaren.
-        success: Användaren befodrades.
-      reject:
-        error: Det gick inte att avvisa denna förfrågan att gå med.
-        success: Förfrågan att gå med avvisades.
-      remove:
-        error: Det gick inte att ta bort den här deltagaren från gruppen.
-        success: Deltagaren har tagits bort från gruppen.
     groups:
-      actions:
-        are_you_sure: Är du säker?
-      create:
-        error: Det gick inte att skapa gruppen.
-        success: Gruppen har skapats.
-      edit:
-        edit_user_group: Redigera grupp
-        update_user_group: Uppdatera grupp
-      form:
-        document_number_help: Använd inte bindestreck eller mellanslag.
-        email_help: E-post till din organisation, förening, kollektiv, grupp, och så vidare.
-        fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
-        name_help: Namn på din organisation, förening, kollektiv, grupp eller motsvarande.
-        nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
-        phone_help: Använd inte bindestreck eller mellanslag.
-      join:
-        error: Det gick inte att gå med i gruppen.
-        success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
-      leave:
-        error: Det gick inte att lämna gruppen.
-        last_admin: Du kan inte ta bort dig själv från denna grupp eftersom du är den sista administratören. Gör en annan medlem till administratör för att lämna gruppen.
-        success: Du har lämnat gruppen.
-      members:
-        accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
-        accept_request: Godkänn
-        reject_request: Avvisa
-      new:
-        create_user_group: Skapa grupp
-        new_user_group: Ny grupp
-        subtitle: Skapa en grupp och bjud in andra användare att delta som ett kollektiv.
-      no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
         creator: Administratör
         member: Medlem
-      update:
-        error: Det gick inte att uppdatera gruppen.
-        success: Gruppen har uppdaterats.
     help:
       main_topic:
         default_page:
@@ -1196,42 +1068,16 @@ sv:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Gruppen har inte några medlemmar än.
     menu:
       help: Hjälp
       home: Hem
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} har startat en ny konversation som %{group}. Klicka här för att se den:"
-          outro: Ha det så kul!
-          subject: "%{manager} har startat en ny konversation som %{group}"
-        comanagers_new_message:
-          admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} har postat nya meddelanden i en konversation som %{group}. Klicka här för att se dem:"
-          outro: Ha det så kul!
-          subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
           greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{sender} har startat en konversation med dig"
-        new_group_conversation:
-          admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Ha det så kul!
-          subject: "%{sender} har startat en konversation med %{group}"
-        new_group_message:
-          admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Ha det så kul!
-          subject: "%{group} har fått nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
@@ -1244,6 +1090,8 @@ sv:
           modal_title: Nytt samtal
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
+          participants:
+            title: Deltagare
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
@@ -1276,21 +1124,6 @@ sv:
         finished: 'Färdig: %{end_date}'
         not_started: Inte påbörjad
         remaining: "%{time_distance} kvar"
-    metrics:
-      download:
-        csv: Ladda ner data (CSV)
-      followers:
-        description: Antal deltagare som följer detta deltagarområde
-        object: följare
-        title: Följare
-      participants:
-        description: Antal aktiva deltagare i organisationen
-        object: deltagare
-        title: Deltagare
-      users:
-        description: Antal användare i organisationen
-        object: användare
-        title: Deltagare
     newsletter_mailer:
       newsletter:
         no_reply_notice: Det här e-postmeddelandet har skickats från en adress som inte accepterar inkommande e-post. Du kan inte svara på detta meddelande.
@@ -1368,6 +1201,7 @@ sv:
         assigned_to_proposal: Jag vill få ett e-postmeddelande när någon tilldelar mig ett förslag att utvärdera
         direct_messages: Ta emot direktmeddelanden från alla
         email_on_moderations: Jag vill få ett e-postmeddelande varje gång något eller någon rapporteras för moderering.
+        evaluators: Utvärderare
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
@@ -1384,7 +1218,6 @@ sv:
         push_notifications_reminder: För att få aviseringar från plattformen måste du först tillåta dem i webbläsarens inställningar.
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
-        valuators: Utvärderare
       update:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
         success: Dina meddelandeinställningar har uppdaterats.
@@ -1395,6 +1228,12 @@ sv:
         message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
+      help:
+        core:
+          generated_on_date: Skapad den %{date}
+          resources:
+            one: "%{count} Resurs"
+            other: "%{count} Resurser"
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -1429,10 +1268,6 @@ sv:
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
         topics: Ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa allt
       terms_of_service:
         accept:
           error: Det gick inte att acceptera användarvillkoren.
@@ -1450,6 +1285,9 @@ sv:
           alert: Vi har uppdaterat våra användarvillkor, vänligen granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
+    participants_account_mailer:
+      removal_notification:
+        subject: Inaktivt konto raderat
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1458,7 +1296,6 @@ sv:
       deleted: Raderad deltagare
       inaccessible_message: Denna profil kan inte ses på grund av brott mot användarvillkoren!
     profiles:
-      default_officialization_text_for_user_groups: Den här gruppen är offentligt verifierad, namnet har kontrollerats att överensstämma med dess riktiga namn.
       default_officialization_text_for_users: Den här deltagaren är offentligt verifierad, hans/hennes namn och roll har bekräftats överensstämma med hans/hennes riktiga namn och roll.
       show:
         activity: Aktivitet
@@ -1466,41 +1303,14 @@ sv:
         conversations: Konversationer
         followers: Följare
         following: Följer
-        group_admins: Hantera administratörer
-        group_members: Hantera medlemmar
-        groups: Grupper
-        members: Medlemmar
         officialized: Officiell deltagare
         send_private_message: Skicka privat meddelande
-      sidebar:
-        badges:
-          info: Man får märken genom att utföra olika aktiviteter på plattformen.
-          title: Märken
       user:
         actions:
-          create_user_group: Skapa grupp
           disabled_message: Meddelande
           edit_profile: Redigera profil
-          edit_user_group: Redigera gruppens profil
-          invite_user: Bjud in deltagare
-          join_user_group: Ansök om att gå med i grupp
-          leave_user_group: Lämna grupp
-          manage_user_group: Hantera grupp
-          manage_user_group_admins: Hantera administratörer
-          manage_user_group_users: Hantera medlemmar
           message: Meddelande
           resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
-        confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
-        create_user_group: Skapa grupp
-        edit_profile: Redigera profil
-        edit_user_group: Redigera grupprofil
-        fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
-        invite_user: Bjud in deltagare
-        join_user_group: Begäran att gå med i grupp
-        leave_user_group: Lämna grupp
-        manage_user_group_admins: Hantera administratörer
-        manage_user_group_users: Hantera medlemmar
-        resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -1524,6 +1334,8 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+    resource_autocomplete:
+      help: Sök efter förslag
     resource_endorsements:
       create:
         error: Det gick inte att gilla.
@@ -1533,7 +1345,6 @@ sv:
     search:
       name: Sök
       results: Sökresultat
-      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
@@ -1584,14 +1395,11 @@ sv:
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         block: Blockera användaren
-        close: Stäng
-        description: Vad är olämpligt med användaren?
         does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
         hide: Dölj allt innehåll
         offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller botar.
-        title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
       follow_button:
@@ -1606,9 +1414,6 @@ sv:
         public_participation: Visa mitt deltagande offentligt
       reference:
         reference: 'Referens: %{reference}'
-      represent_user_group:
-        represent_user_group: Jag representerar en grupp
-        select_user_group: Välj en grupp
       results_per_page:
         label: 'Resultat per sida:'
         title: Välj antal resultat per sida
@@ -1635,19 +1440,8 @@ sv:
       show_translated: Visa maskinöversatt text
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
-      create:
-        error: Meddelandet kunde inte skapas. Försök igen senare.
-        existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
-        success: Konversationen har startat!
       index:
-        conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
-        no_conversations_warning: Det finns inga konversationer än.
         time_ago: "%{time} sedan"
-      reply:
-        placeholder: Ditt svar...
-        send: Skicka
-      update:
-        error: Meddelandet skickades inte. Försök igen senare
     user_report_mailer:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
@@ -2015,6 +1809,8 @@ sv:
         sign_up: Skapa ett konto
         terms_of_service: Användarvillkor
       header:
+        back: Tillbaka till listan
+        cancel: Avbryt
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
@@ -2058,7 +1854,6 @@ sv:
         notifications_settings: Meddelandeinställningar
         profile: Profil
         title: Deltagarinställningar
-        user_groups: Grupper
   locale:
     name: Svenska
     name_with_error: Svenska (fel!)

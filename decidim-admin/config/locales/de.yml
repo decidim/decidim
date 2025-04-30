@@ -33,8 +33,6 @@ de:
       help_section:
         content: Inhalt
       id: ID
-      import:
-        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         send_to_all_users: An alle Benutzenden senden
@@ -77,8 +75,8 @@ de:
         machine_translation_display_priority_original: Originaltext zuerst
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
-        official_img_footer: Offizielles Logo Fußzeile
-        official_url: Offizielle Organisations-URL
+        official_img_footer: Offizielles Footer-Logo
+        official_url: Offizielle URL der Organisation
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
@@ -96,7 +94,6 @@ de:
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: X-Handler
-        user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
@@ -201,7 +198,6 @@ de:
           new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
-        reject: Ablehnen
         restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
@@ -209,7 +205,6 @@ de:
         soft_delete: Vorläufiges Löschen
         user:
           new: Neuer Administrator
-        verify: Überprüfen
         view_deleted_components: Gelöschte Komponenten ansehen
       admin_terms_of_service:
         accept:
@@ -482,6 +477,10 @@ de:
             explanation: 'Hinweise für die Datei:'
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
+          import_csv:
+            explanation: 'Hinweise für die Datei:'
+            message_1: CSV-Dateien werden unterstützt
+            message_2: "CSV-Datei mit E-Mail-Daten"
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
@@ -603,11 +602,7 @@ de:
         static_pages: Seiten
         taxonomies: Taxonomien
         taxonomy_filters: Taxonomie-Filter
-        user_groups: Benutzergruppen
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -676,16 +671,6 @@ de:
               admin: Administrator
               user_manager: Benutzer Manager
           name: Benutzer
-        user_group:
-          fields:
-            actions: Aktionen
-            created_at: Erstellt am
-            document_number: Dokumentnummer
-            name: Name
-            nickname: Spitzname
-            phone: Telefon
-            state: Status
-            users_count: Benutzer zählen
       moderated_users:
         index:
           actions:
@@ -923,7 +908,7 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
-            layout_appearance_title: Layout-Layout bearbeiten
+            layout_appearance_title: Layout-Aussehen bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_allowlist:
@@ -933,7 +918,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Hoch
+          up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
@@ -1098,7 +1083,7 @@ de:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
-          create: Thema erstellen
+          create: Neues Thema
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -1122,7 +1107,7 @@ de:
         index:
           last_notable_change: Letzte signifikante Änderung
         new:
-          create: Seite erstellen
+          create: Neue Seite
           title: Neue Seite
         topic:
           empty: Es gibt keine Seite zu diesem Thema.
@@ -1252,7 +1237,6 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         menu: Menü
-        metrics: Kriterien
         page_topics: Themen
         pages: Seiten
         panel: Admin
@@ -1262,7 +1246,6 @@ de:
         statistics: Aktivität
         taxonomies: Klassifizierungen
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
-        user_groups: Benutzergruppen
         users: Administratoren
       tooltips:
         deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
@@ -1273,32 +1256,6 @@ de:
         soft_delete:
           invalid: Es gab ein Problem beim Löschen von %{resource_name}.
           success: "%{resource_name} erfolgreich gelöscht."
-      user_group:
-        csv_verify:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, welche Gruppen den Kriterien entsprechen. Das kann eine Weile dauern.
-        reject:
-          invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Gruppe erfolgreich abgelehnt.
-        verify:
-          invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Gruppe erfolgreich verifiziert.
-      user_groups:
-        index:
-          state:
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
-          verify_via_csv: Überprüfen Sie über CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Beispieldatei:'
-          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -1325,22 +1282,13 @@ de:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
+        parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
         unhide: Einblenden
         unreport: Nicht melden
@@ -1367,6 +1315,7 @@ de:
             success: Ressource erfolgreich ausgeblendet
           unhide:
             invalid: Es gab ein Problem beim Verstecken der Ressource.
+            parent_invalid: Es gab ein Problem beim Anzeigen der Ressource. Übergeordnete Ressource ist nicht sichtbar.
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.

@@ -2,19 +2,21 @@
 en:
   activemodel:
     attributes:
-      answer:
-        body: Answer
-        choices: Choices
-        selected_choices: Selected choices
       question:
         max_choices: Maximum number of choices
         question_type: Type
       questionnaire_question:
         mandatory: Mandatory
         max_characters: Character limit (leave to 0 if no limit)
+      response:
+        body: Response
+        choices: Choices
+        selected_choices: Selected choices
     errors:
       models:
-        answer:
+        questionnaire:
+          request_invalid: There was a problem handling the request. Please try again.
+        response:
           attributes:
             add_documents:
               needs_to_be_reattached: Needs to be reattached
@@ -23,81 +25,57 @@ en:
             choices:
               missing: are not complete
               too_many: You can choose a maximum of %{count}.
-        questionnaire:
-          request_invalid: There was a problem handling the request. Please try again.
   decidim:
     download_your_data:
       help:
-        answers:
-          answer: The answer to the question
-          id: The unique identifier of the answer
-          question: The question that was answered
-          questionnaire: The questionnaire that was answered
-          user: The user who answered the questionnaire
+        responses:
+          id: The unique identifier of the response
+          question: The question that was responded
+          questionnaire: The questionnaire that was responded
+          response: The response to the question
+          user: The user who responded the questionnaire
       show:
-        answers: Answers export
-        survey_user_answers: Survey user answers
+        responses: Responses export
+        survey_user_responses: Survey user responses
     forms:
       admin:
         models:
           components:
-            allow_answers: Allow answers
-            allow_editing_answers: Allow registered users to edit own survey answers
-            allow_unregistered: Allow unregistered users to answer the survey
-            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
+            allow_editing_responses: Allow registered users to edit own survey responses
+            allow_responses: Allow responses
+            allow_unregistered: Allow unregistered users to response the survey
+            allow_unregistered_help: If active, no login will be required in order to response the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could response the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
-            clean_after_publish: Delete answers when publishing the survey
+            clean_after_publish: Delete responses when publishing the survey
             description: Description
-            ends_at: Answers accepted until
+            ends_at: Responses accepted until
             ends_at_help: Leave blank for no specific date
-            starts_at: Answers accepted from
+            starts_at: Responses accepted from
             starts_at_help: Leave blank for no specific date
             tos: Terms of service
         questionnaires:
           actions:
             back: Back to questions
-            publish_answers: Publish answers
+            publish_responses: Publish responses
             show: Responses
-          answer_option:
-            answer_option: Answer option
-            free_text: Free text
-            remove: Remove
-            statement: Statement
-          answers:
-            actions:
-              back: Back to responses
-              export: Export
-              next: Next &rsaquo;
-              previous: "&lsaquo; Prev"
-              show: Show answers
-            empty: No answers yet
-            export:
-              answer:
-                title: 'Response #%{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "%{total} total responses"
-            show:
-              title: 'Answer #%{number}'
           display_condition:
-            answer_option: Answer option
             condition_question: Question
             condition_type: Condition
             condition_types:
-              answered: Answered
               equal: Equal
               match: Includes text
-              not_answered: Not answered
               not_equal: Not equal
+              not_responded: Not responded
+              responded: Responded
             condition_value: Included text
             display_condition: Display condition
             mandatory: This condition needs to be satisfied always regardless the status of other conditions
             remove: Remove
+            response_option: Response option
             save_warning: Remember to save the form before configuring display conditions
-            select_answer_option: Select answer option
             select_condition_question: Select a question
             select_condition_type: Select a condition type
+            select_response_option: Select response option
           edit:
             save: Save
             title: Edit questionnaire
@@ -118,10 +96,10 @@ en:
             remove: Remove
             statement: Statement
           question:
-            add_answer_option: Add answer option
             add_display_condition: Add display condition
             add_display_condition_info: Save the form to configure display conditions
             add_matrix_row: Add row
+            add_response_option: Add response option
             any: Any
             collapse: Collapse
             description: Description
@@ -132,12 +110,34 @@ en:
             statement: Statement
             up: Up
           questions_form:
-            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            already_responded_warning: The form is already responded by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
-            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
+            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current responses.
             update:
               success: Survey questions successfully saved.
+          response_option:
+            free_text: Free text
+            remove: Remove
+            response_option: Response option
+            statement: Statement
+          responses:
+            actions:
+              back: Back to responses
+              export: Export
+              next: Next &rsaquo;
+              previous: "&lsaquo; Prev"
+              show: Show responses
+            empty: No responses yet
+            export:
+              response:
+                title: 'Response #%{number}'
+            export_response:
+              title: survey_user_responses_%{token}
+            index:
+              title: "%{total} total responses"
+            show:
+              title: 'Response #%{number}'
           separator:
             down: Down
             remove: Remove
@@ -157,12 +157,12 @@ en:
             success: Form successfully saved.
       admin_log:
         question:
-          publish_answers: "%{user_name} published the %{resource_name} question's answers on the %{space_name} space"
-          unpublish_answers: "%{user_name} unpublished the %{resource_name} question's answers on the %{space_name} space"
+          publish_responses: "%{user_name} published the %{resource_name} question's responses on the %{space_name} space"
+          unpublish_responses: "%{user_name} unpublished the %{resource_name} question's responses on the %{space_name} space"
         questionnaire:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
-        answer:
+        response:
           body: Body cannot be blank
       images:
         dimensions: "%{width} x %{height} px"
@@ -171,41 +171,29 @@ en:
           resize_to_fit: This image will be resized to fit %{dimensions}.
       question_types:
         files: Files
-        long_answer: Long answer
+        long_response: Long response
         matrix_multiple: Matrix (Multiple option)
         matrix_single: Matrix (Single option)
         multiple_option: Multiple option
-        short_answer: Short answer
+        short_response: Short response
         single_option: Single option
         sorting: Sorting
         title_and_description: Title and description
-      questionnaire_answer_presenter:
+      questionnaire_response_presenter:
         download_attachment: Download attachment
       questionnaires:
-        answer:
-          invalid: There was a problem answering the form.
-          max_choices_alert: There are too many choices selected
-          success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'
+        response:
+          invalid: There was a problem responding the form.
+          max_choices_alert: There are too many choices selected
+          success: Form successfully responded.
         show:
-          answer_questionnaire:
-            already_have_an_account?: Already have an account?
-            are_you_new?: New user?
-            sign_in_description: Log in to take the survey
-            sign_up_description: Create a participant account to take the survey
-            title: Answer the form
           current_step: Step %{step}
           empty: No questions configured for this form yet.
           of_total_steps: of %{total_steps}
-          questionnaire_answered:
-            body: You have already answered this form.
-            title: Already answered
-          questionnaire_answered_edit:
-            body: You have already answered this form. %{link}
-            edit: Edit your answers
           questionnaire_closed:
-            body: The form is closed and cannot be answered.
+            body: The form is closed and cannot be responded.
             title: Form closed
           questionnaire_for_private_users:
             body: The form is available only for private users
@@ -215,20 +203,32 @@ en:
             title: JavaScript is disabled
           questionnaire_not_published:
             body: This form is not published yet.
+          questionnaire_responded:
+            body: You have already responded this form.
+            title: Already responded
+          questionnaire_responded_edit:
+            body: You have already responded this form. %{link}
+            edit: Edit your responses
+          response_questionnaire:
+            already_have_an_account?: Already have an account?
+            are_you_new?: New user?
+            sign_in_description: Log in to take the survey
+            sign_up_description: Create a participant account to take the survey
+            title: Response the form
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
-          are_you_sure_edit_guest: If you want to be able to edit your answers afterwards, then you need to log in or create an account.
-          are_you_sure_no_edit: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          are_you_sure_edit_guest: If you want to be able to edit your responses afterwards, then you need to log in or create an account.
+          are_you_sure_no_edit: This action cannot be undone and you will not be able to edit your responses. Are you sure?
           back: Back
           continue: Continue
-          disallowed: You are not allowed to edit your answers.
+          disallowed: You are not allowed to edit your responses.
           submit: Submit
-      user_answers_serializer:
-        body: Answer
+      user_responses_serializer:
+        body: Response
         completion: Completion
-        created_at: Answered on
-        id: Answer ID
+        created_at: Responded on
+        id: Response ID
         ip_hash: IP Hash
         question: Question
         registered: Registered

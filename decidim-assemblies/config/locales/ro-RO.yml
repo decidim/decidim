@@ -180,8 +180,8 @@ ro:
           roles:
             admin: Administrator
             collaborator: Colaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Evaluator
       titles:
         assemblies: Grupuri de lucru
         assemblies_types: Tipuri de grupuri de lucru
@@ -321,11 +321,6 @@ ro:
           not_found: 'Tipul de grup de lucru nu a fost găsit în baza de date (ID: %{id})'
     menu:
       assemblies: Grupuri de lucru
-    metrics:
-      assemblies:
-        description: Număr de grupuri de lucru create
-        object: grupuri de lucru
-        title: Grupuri de lucru
     participatory_processes:
       show:
         related_assemblies: Grupuri de lucru asociate

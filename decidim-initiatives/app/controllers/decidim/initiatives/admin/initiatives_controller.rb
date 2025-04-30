@@ -172,7 +172,7 @@ module Decidim
 
           @votes = current_initiative.votes
 
-          serializer = Decidim::Forms::UserAnswersSerializer
+          serializer = Decidim::Forms::UserResponsesSerializer
           pdf_export = Decidim::Exporters::InitiativeVotesPDF.new(@votes, current_initiative, serializer).export
 
           output = if pdf_signature_service

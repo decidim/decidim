@@ -7,7 +7,7 @@ module Decidim
         # This controller allows the user create and edit questionnaires for Surveys.
         class SurveysController < Admin::ApplicationController
           include Decidim::Forms::Admin::Concerns::HasQuestionnaire
-          include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
+          include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponsesUrlHelper
 
           helper_method :surveys
 
@@ -24,10 +24,10 @@ module Decidim
           end
 
           def questionnaire_participants_url
-            Decidim::EngineRouter.admin_proxy(survey.component).survey_answers_path(survey)
+            Decidim::EngineRouter.admin_proxy(survey.component).survey_responses_path(survey)
           end
 
-          # Specify the public url from which the survey can be viewed and answered
+          # Specify the public url from which the survey can be viewed and responded
           def public_url
             Decidim::EngineRouter.main_proxy(current_component).survey_path(survey)
           end

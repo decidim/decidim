@@ -33,8 +33,6 @@ bg:
       help_section:
         content: Съдържание
       id: ID
-      import:
-        user_group_id: Създаване на импорта като
       newsletter:
         body: Тяло
         send_to_all_users: Изпращане до всички потребители
@@ -96,7 +94,6 @@ bg:
         time_zone: Часова зона
         tos_version: Версия на условия за ползване
         twitter_handler: X манипулатор
-        user_groups_enabled: Разреши групи
         users_registration_mode: Режим на регистрация на потребители
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието
@@ -192,12 +189,10 @@ bg:
           new: Нов частен потребител на пространство за участие
         per_page: За страница
         permissions: Разрешения
-        reject: Откажи
         send_me_a_test_email: Изпратете ми тестов e-mail
         share: Сподели
         user:
           new: Нов администратор
-        verify: Провери
       admin_terms_of_service:
         accept:
           error: Възникна проблем при приемането на условията за ползване на администратора.
@@ -578,11 +573,7 @@ bg:
         static_pages: Страници
         taxonomies: Категоризации
         taxonomy_filters: Класификационни филтри
-        user_groups: Групи
         users: Участници
-      metrics:
-        metrics:
-          see_more_metrics: Показване на повече индикатори
       models:
         area:
           fields:
@@ -648,16 +639,6 @@ bg:
               admin: Администратор
               user_manager: Мениджър на участника
           name: Участник
-        user_group:
-          fields:
-            actions: Активности
-            created_at: Създадено на
-            document_number: Номер на документ
-            name: Име
-            nickname: Псевдоним
-            phone: Телефон
-            state: Състояние
-            users_count: Брой участници
       moderated_users:
         index:
           actions:
@@ -950,7 +931,6 @@ bg:
           title: Редактиране на темата
           update: Актуализиране на темата
         new:
-          create: Създаване на тема
           title: Нова тема
         update:
           error: Възникна проблем при актуализирането на тази тема.
@@ -974,7 +954,6 @@ bg:
         index:
           last_notable_change: Последна значима промяна
         new:
-          create: Създаване на страница
           title: Нова страница
         topic:
           empty: Няма страници с тази тема.
@@ -1027,7 +1006,6 @@ bg:
         impersonatable_users: Управляеми участници
         impersonations: Управление на участниците
         menu: Меню
-        metrics: Метрики
         page_topics: Tеми
         pages: Страници
         panel: Администратор
@@ -1035,34 +1013,7 @@ bg:
         scope_types: Типове на обхвата
         scopes: Обхвати
         statistics: Активност
-        user_groups: Групи
         users: Администратори
-      user_group:
-        csv_verify:
-          invalid: Възникна проблем при прочитането на CSV файла.
-          success: CSV файлът беше качен успешно, проверяваме групите, които отговарят на критериите. Това може да отнеме известно време.
-        reject:
-          invalid: Възникна проблем с отхвърлянето на тази група.
-          success: Групата беше отхвърлена успешно.
-        verify:
-          invalid: Възникна проблем с проверката на тази група.
-          success: Групата беше проверена успешно.
-      user_groups:
-        index:
-          state:
-            pending: Изчакване
-            rejected: Отхвърлено
-            verified: Проверен
-          verify_via_csv: Проверка чрез CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа официалните електронни пощи на групите в организацията Ви в първата колона от файла, без заглавки. Ще бъдат валидирани само групите с потвърдена електронна поща и с адрес на електронната поща във файла във формат CSV.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Качете своя CSV файл
-          upload: Качване
       users:
         create:
           error: Възникна проблем с поканата на този администратор.
@@ -1089,16 +1040,6 @@ bg:
       errors:
         impersonate_user:
           reason: Необходимо е да предоставите причина, когато управлявате участник, който не е управляван.
-    metrics:
-      blocked_users:
-        object: блокирани потребители
-        title: Блокирани потребители
-      reported_users:
-        object: докладвани потребители
-        title: Докладвани потребители
-      user_reports:
-        object: доклади на потребители
-        title: Доклади на потребители
     moderations:
       actions:
         expand: Разтваряне

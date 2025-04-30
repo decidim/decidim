@@ -141,13 +141,6 @@ module Decidim
           end
         end
 
-        context "when proposal is from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
-          let(:proposal) { create(:proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group]) }
-
-          it { is_expected.to be_editable_by(author) }
-        end
-
         context "when user is not the author" do
           let(:proposal) { create(:proposal, component:, updated_at: Time.current) }
 
@@ -256,15 +249,15 @@ module Decidim
         it { is_expected.not_to be_published_state }
       end
 
-      describe "#with_valuation_assigned_to" do
+      describe "#with_evaluation_assigned_to" do
         let(:user) { create(:user, organization:) }
         let(:space) { component.participatory_space }
-        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
+        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }
-        let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
+        let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
 
         it "only returns the assigned proposals for the given space" do
-          results = described_class.with_valuation_assigned_to(user, space)
+          results = described_class.with_evaluation_assigned_to(user, space)
 
           expect(results).to eq([assigned_proposal])
         end

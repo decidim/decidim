@@ -119,7 +119,6 @@ sk:
             admin: Správca
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotiteľ
         user:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
@@ -266,11 +265,6 @@ sk:
           title: Čo je participatívny proces?
     menu:
       processes: Procesy
-    metrics:
-      participatory_processes:
-        description: Počet participatívnych procesov v tejto organizácii
-        object: participatívne procesy
-        title: Participatívne procesy
     participatory_process_groups:
       content_blocks:
         stats:

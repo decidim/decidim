@@ -33,8 +33,6 @@ fr-CA:
       help_section:
         content: Contenu
       id: ID
-      import:
-        user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
         send_to_all_users: Envoyer à tous les utilisateurs
@@ -96,7 +94,6 @@ fr-CA:
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire X (ancien Twitter)
-        user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
@@ -201,7 +198,6 @@ fr-CA:
           new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Autorisations
-        reject: Rejeter
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
@@ -209,7 +205,6 @@ fr-CA:
         soft_delete: Placer dans la corbeille
         user:
           new: Nouvel administrateur
-        verify: Vérifier
         view_deleted_components: Voir les composants supprimés
       admin_terms_of_service:
         accept:
@@ -481,6 +476,8 @@ fr-CA:
             explanation: 'Instructions concernant le fichier:'
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
+          import_csv:
+            message_1: Les fichiers CSV sont pris en charge
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -602,11 +599,7 @@ fr-CA:
         static_pages: Pages
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
-        user_groups: Groupes d'utilisateurs
         users: Utilisateurs
-      metrics:
-        metrics:
-          see_more_metrics: Voir plus d'indicateurs
       models:
         area:
           fields:
@@ -675,16 +668,6 @@ fr-CA:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
           name: Utilisateur
-        user_group:
-          fields:
-            actions: Actions
-            created_at: Créé le
-            document_number: Numéro de document
-            name: Nom
-            nickname: Pseudonyme
-            phone: Téléphone
-            state: État
-            users_count: Nombre d'utilisateurs
       moderated_users:
         index:
           actions:
@@ -721,6 +704,19 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
+          actions:
+            actions_dropdown: Actions
+            hide:
+              title: Masquer
+              update_moderation_button: Masquer les ressources sélectionnées
+            unhide:
+              title: Afficher
+              update_moderation_button: Afficher les ressources sélectionnées
+            unreport:
+              title: Annuler le signalement
+              update_moderation_button: Annuler le signalement des ressources sélectionnées
+          cancel: Annuler
+          selected: sélectionné
           title: Contenu signalé
         report:
           reasons:
@@ -800,16 +796,20 @@ fr-CA:
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          private_members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces privés participatifs sélectionnés.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           select_assemblies: Choisissez les assemblées
           select_conferences: Choisissez les conférences
+          select_initiatives: Choisir des pétitions
           select_participatory_processes: Choisissez les processus participatifs
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
           select_users_for_participatory_space: Envoyer la newsletter à un ou plusieurs espaces participatifs
+          select_users_general: Envoyer la newsletter générale
           select_verification_types: Choisissez les méthodes de vérification
           send_to_all_users: Envoyer à tous
           send_to_verified_users: Envoyer aux utilisateurs vérifiés
           title: Sélectionner les destinataires
+          verified_users_help: Envoie une newsletter à tous les utilisateurs confirmés et vérifiés via n'importe quelle méthode de vérification sélectionnée.
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
           no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire.
@@ -827,6 +827,13 @@ fr-CA:
         block:
           error: Une erreur s'est produite lors du blocage du participant.
           success: Participant bloqué avec succès.
+        bulk_action:
+          block:
+            invalid: Une erreur s'est produite lors du blocage du participant.
+            success: Participants bloqués avec succès.
+          unblock:
+            invalid: Une erreur s'est produite lors du déblocage des participants.
+            success: Participants débloqués avec succès.
         create:
           success: Utilisateur validé avec succès.
         destroy:
@@ -994,6 +1001,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
+        deprecated: Gardez à l'esprit que les secteurs sont dépréciés et seront supprimés dans les versions futures. Veuillez utiliser des taxonomies à la place. Le seul module actuellement en utilisant des portées est le module des pétitions.
         destroy:
           success: Le secteur a été supprimé avec succès.
         edit:
@@ -1072,7 +1080,7 @@ fr-CA:
           title: Modifier le sujet
           update: Mettre à jour le sujet
         new:
-          create: Créer un sujet
+          create: Nouveau sujet
           title: Nouveau sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
@@ -1096,7 +1104,7 @@ fr-CA:
         index:
           last_notable_change: Dernier changement notable
         new:
-          create: Créer une page
+          create: Nouvelle page
           title: Nouvelle page
         topic:
           empty: Il n'y a aucune page dans ce sujet.
@@ -1107,7 +1115,13 @@ fr-CA:
       taxonomies:
         actions:
           actions: Actions
+          destroy: Supprimer la taxonomie et les éléments
+          edit: Modifier la taxonomie et les éléments
           filters: Gérer les filtres
+        breadcrumb:
+          edit: Modifier la taxonomie
+          new: Nouvelle taxonomie
+        count: Ressources associées
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1156,7 +1170,6 @@ fr-CA:
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         menu: Menu
-        metrics: Indicateurs
         page_topics: Sujets
         pages: Page(s)
         panel: Administrateur
@@ -1164,7 +1177,6 @@ fr-CA:
         scope_types: Types de secteur
         scopes: Périmètres d'application
         statistics: Activité
-        user_groups: Groupes d'utilisateurs
         users: Administrateurs
       tooltips:
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
@@ -1175,32 +1187,6 @@ fr-CA:
         soft_delete:
           invalid: Il y a eu un problème lors de la suppression de %{resource_name}.
           success: "%{resource_name} supprimé(e) avec succès."
-      user_group:
-        csv_verify:
-          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants.
-        reject:
-          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs refusé avec succès.
-        verify:
-          invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs vérifié avec succès.
-      user_groups:
-        index:
-          state:
-            pending: En attente
-            rejected: Non validés
-            verified: Vérifié
-          verify_via_csv: Vérifier via CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Fichier d''exemple :'
-          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
-          explanation_example: |
-            acme@exemple.org
-            bubba.gump@exemple.org
-          title: Téléchargez votre fichier CSV
-          upload: Télécharger
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
@@ -1227,22 +1213,13 @@ fr-CA:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
-    metrics:
-      blocked_users:
-        object: utilisateurs bloqués
-        title: Utilisateurs bloqués
-      reported_users:
-        object: utilisateurs signalés
-        title: Utilisateurs signalés
-      user_reports:
-        object: signalements d'utilisateurs
-        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
+        parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
         unhide: Afficher
         unreport: Annuler le signalement
@@ -1253,6 +1230,7 @@ fr-CA:
             success: Contenu masqué avec succès.
           unhide:
             invalid: Il y a eu un problème pour découvrir la ressource.
+            parent_invalid: Un problème est survenu lors du démasquage de la ressource. Le parent n'est pas visible.
             success: Ressource non cachée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.

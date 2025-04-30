@@ -4,8 +4,8 @@ This gem encapsulates the logic to create and manage forms, so it can be reused 
 
 A `Decidim::Forms::Question` must be of one of the types:
 
-- short_answer
-- long_answer
+- short_response
+- long_response
 - single_option
 - multiple_option
 - sorting
@@ -13,15 +13,15 @@ A `Decidim::Forms::Question` must be of one of the types:
 Here are the relations between the classes of a `Decidim::Questionnaire`:
 
 ```plantuml
-                  1..* +----------+         1..* +--------------+
-        +------------->| Question |------------->| AnswerOption |
-        |              +-----+----+              +------+-------+
+                  1..* +----------+         1..* +----------------+
+        +------------->| Question |------------->| ResponseOption |
+        |              +-----+----+              +-------+--------+
         |                    ^ 1..1                     ^ 1..*
         |                    |                          |
         |                    |                          |
-+-------+-------+   1..* +---+----+ 1..*         +------+-------+
-| Questionnaire +------->| Answer |<-------------+ AnswerChoice |
-+---------------+        +---+----+              +--------------+
++-------+-------+   1..* +----+-----+ 1..*         +--------+-------+
+| Questionnaire +------->| Response |<-------------+ ResponseChoice |
++---------------+        +----+0----+              +----------------+
                              |
                              |
                              v 1..1
@@ -71,7 +71,7 @@ Decidim::Forms::Questionnaire.new(
 
 Decidim::Surveys::Survey.create!(component: component, questionnaire: questionnaire)
 
-%w(short_answer long_answer).each do |text_question_type|
+%w(short_response long_response).each do |text_question_type|
   Decidim::Forms::Question.create!(
     questionnaire: questionnaire,
     body: Decidim::Faker::Localized.paragraph,
@@ -87,7 +87,7 @@ end
   )
 
   3.times do
-    question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+    question.response_options.create!(body: Decidim::Faker::Localized.sentence)
   end
 end
 ```

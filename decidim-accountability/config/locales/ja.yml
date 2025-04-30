@@ -267,6 +267,8 @@ ja:
         home_header:
           global_status: 全体の実行状況
         no_results: プロジェクトがありません
+        root_taxonomies:
+          title: '表示：'
         search:
           search: アクションを検索
         show:
@@ -291,6 +293,8 @@ ja:
             clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            default_taxonomy: デフォルトのタクソノミー
+            default_taxonomy_help: デフォルトで表示するタクソノミーを選択します。タクソノミーが選択されていない場合、結果はリスト形式で表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             display_progress_enabled: 進行状況を表示
             geocoding_enabled: 地図は有効です
@@ -300,6 +304,7 @@ ja:
             taxonomy_filters_add: フィルターを追加
           step:
             comments_blocked: コメントをブロック
+          visualization: ビジュアリゼーション
     download_your_data:
       show:
         result_comments: 結果コメントのエクスポート
@@ -316,11 +321,6 @@ ja:
           email_outro: '"%{proposal_title}" をフォローしているため、この通知を受け取りました。この提案は結果 "%{resource_title}" に含まれています。 前のリンクに続く通知の受信を停止できます。'
           email_subject: '%{resource_title} の進捗状況の更新'
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> <a href="%{proposal_path}">%{proposal_title}</a>を含む結果 , が %{progress}%完了しました。
-    metrics:
-      results:
-        description: 生成した結果の数
-        object: 結果
-        title: 結果
     open_data:
       help:
         result_comments:
@@ -334,7 +334,6 @@ ja:
           id: このコメントのID
           locale: このコメントを残すときに参加者が使っていたロケール（言語）
           root_commentable_url: このコメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         results:
           address: 結果のアドレス (もしあれば)
           children_count: 子の結果の数

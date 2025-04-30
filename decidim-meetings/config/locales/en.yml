@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      answer:
-        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -19,7 +17,6 @@ en:
         customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
-        decidim_user_group_id: User group
         description: Description
         end_time: End time
         id: ID
@@ -53,6 +50,8 @@ en:
       meeting_registration_invite:
         email: Email
         name: Name
+      response:
+        add_documents: Add documents
       validate_registration_code:
         code: Code
     errors:
@@ -123,7 +122,6 @@ en:
             values:
               official: Official
               participants: Participant
-              user_group: User Groups
           with_any_type:
             label: Type of meeting
             values:
@@ -168,7 +166,7 @@ en:
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
             no_taxonomy_filters_found: No taxonomy filters found.
-            registration_code_enabled: Registration code enabled
+            registration_code_enabled: Registration code and QR enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
@@ -177,7 +175,6 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
-            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
       help:
         invites:
@@ -227,15 +224,27 @@ en:
           email_subject: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%
           notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> meeting are over %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_intro: 'The "%{resource_title}" meeting has been updated with changes to %{changed_fields}. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          field_names:
+            address: the address
+            end_time: the end time
+            location: the location
+            start_time: the start time
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: You have been added to the waiting list for the <a href="%{resource_url}">%{resource_title}</a> meeting.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
           email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
           notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
+        registration_marked_as_attendee:
+          email_intro: Your registration for the "%{resource_title}" meeting has been marked as attendee.
+          email_outro: You have received this notification because your registration for the "%{resource_title}" meeting has been marked as attendee.
+          email_subject: Your registration for the "%{resource_title}" meeting has been marked as attendee
+          notification_title: Your registration for the <a href="%{resource_path}">%{resource_title}</a> meeting has been marked as attendee.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -275,6 +284,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
+        mark_as_attendee: Mark as attendee
         new_meeting: New meeting
         preview: Preview
         registrations: Registrations
@@ -312,10 +322,10 @@ en:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
         exports:
-          answers: Answers
           meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations
+          responses: Responses
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
@@ -409,15 +419,13 @@ en:
         poll:
           form:
             announcement_html:
-            - When a question receives answers or is published/closed, it can no longer be edited.
+            - When a question receives responses or is published/closed, it can no longer be edited.
             - You can add a question at any time.
             - The poll will be closed when the results of all created questions have been published.
             - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
         registrations:
           edit:
             save: Save
-            validate: Validate
-            validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
@@ -425,6 +433,7 @@ en:
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
+            registrations: View registrations
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
@@ -434,6 +443,14 @@ en:
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+        registrations_attendees:
+          index:
+            title: Registrations
+            validate: Validate
+            validate_registration_code: Validate registration code
+          mark_attendee:
+            invalid: Registration already marked as attended.
+            success: Registration marked as attended successfully.
           validate_registration_code:
             invalid: This registration code is invalid.
             success: Registration code successfully validated.
@@ -547,7 +564,6 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -558,7 +574,6 @@ en:
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
-          create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
@@ -587,7 +602,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create Your Meeting
+          title: Create new meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -595,8 +610,11 @@ en:
           attendees: Attendees count
           contributions: Contributions count
           join: Register
+          join_waitlist: Join waitlist
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
+          leave_waitlist: Leave waitlist
+          leave_waitlist_confirmation: Are you sure you want to leave the waitlist for this meeting?
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
@@ -604,8 +622,11 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          pending_address: The location will be announced soon.
           redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Your registration code
+          registration_and_qr_code: Registration and QR Code
+          registration_code: 'Registration code: %{code}'
+          registration_code_help_text: Your registration and QR code
           registration_state:
             validated: VALIDATED
             validation_pending: VALIDATION PENDING
@@ -613,6 +634,9 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           visit_finished: View past meeting
+          waitlist:
+            description: If a spot becomes available, we well process your registration automatically and notify you via email.
+            status: You are on the waitlist
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_meeting: Withdraw
@@ -640,27 +664,28 @@ en:
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
+        registration:
+          actions: Actions
+          fields:
+            email: Email
+            name: Name
+            status: Status
+          status:
+            attended: Attended
+            not_attended: Not attended
       polls:
-        answers:
-          index:
-            administrate: Administrate
-            title: Poll
-          index_admin:
-            back_to_meeting: Back to meeting
-            title: Administrate poll
-            view_poll: View poll
         questions:
           closed_question:
             announcement: The replies for this question have been closed.
             question: Question
             question_results: Results
           index:
-            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to respond them. They will be displayed here.
           index_admin:
             edit: Edit in the admin panel
             question: Question
-            received_answer: received answer
-            received_answers: received answers
+            received_response: received response
+            received_responses: received responses
             results: Results
             send: Send
             sent: Sent
@@ -673,8 +698,15 @@ en:
             question: Question
             question_replied: Question replied
             reply_question: Reply question
+        responses:
+          index:
+            administrate: Administrate
+            title: Poll
+          index_admin:
+            back_to_meeting: Back to meeting
+            title: Administrate poll
+            view_poll: View poll
       public_participants_list:
-        attending_organizations: Organizations
         attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
@@ -684,7 +716,7 @@ en:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
-          registration_code: Your registration code is %{code}.
+          registration_code: Your registration code is %{code}. Please, show the following QR code to an administrator to validate your attendance.
       registration_type:
         on_different_platform: On a different platform
         on_this_platform: On this platform
@@ -699,6 +731,9 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+        waitlist:
+          invalid: There was a problem joining the waitlist.
+          success: You have joined the meeting waitlist successfully. You will be notified if your registration is successfully secured.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In person
@@ -710,11 +745,6 @@ en:
       withdraw:
         error: There was a problem withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
-    metrics:
-      meetings:
-        description: Number of meetings created
-        object: meetings
-        title: Meetings
     open_data:
       help:
         meeting_comments:
@@ -725,11 +755,10 @@ en:
           commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
           comments: The comments data of the meeting
           created_at: The date when this comment was created
-          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          depth: The place where this comment is in the three of comments (if it is a response or a response of a response)
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         meetings:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
@@ -747,7 +776,6 @@ en:
           created_at: The date at which the meeting was created
           customize_registration_email: The ability to allow a custom email at registration
           decidim_author_type: Author type of the meeting's author
-          decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
           follows_count: The number of follows the meeting has

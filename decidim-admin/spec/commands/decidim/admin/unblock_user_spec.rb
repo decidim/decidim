@@ -9,7 +9,7 @@ module Decidim::Admin
     let(:extended_data) { { user_name: } }
     let(:current_user) { create(:user, :admin) }
 
-    shared_examples "unblocking a user or group" do
+    shared_examples "unblocking a user" do
       context "when the blocking is valid" do
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)
@@ -49,14 +49,7 @@ module Decidim::Admin
       let(:user_to_unblock) { create(:user, :blocked, extended_data:) }
       let(:user_name) { "Testing user" }
 
-      it_behaves_like "unblocking a user or group"
-    end
-
-    context "with a user group" do
-      let(:user_to_unblock) { create(:user_group, :blocked, extended_data:) }
-      let(:user_name) { "Testing user group" }
-
-      it_behaves_like "unblocking a user or group"
+      it_behaves_like "unblocking a user"
     end
   end
 end

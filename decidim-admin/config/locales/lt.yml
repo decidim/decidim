@@ -33,8 +33,6 @@ lt:
       help_section:
         content: Turinys
       id: ID
-      import:
-        user_group_id: Sukurti importus kaip
       newsletter:
         body: Pagrindinė dalis
         subject: Tema
@@ -92,7 +90,6 @@ lt:
         tertiary_color: Tretinis
         time_zone: Laiko zona
         tos_version: Paslaugų teikimo sąlygų versija
-        user_groups_enabled: Įjungti grupes
         users_registration_mode: Vartotojo registracijos tipas
         warning_color: Perspėjimas
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
@@ -187,12 +184,10 @@ lt:
           new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
         permissions: Leidimai
-        reject: Atmesti
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
         user:
           new: Naujas administratorius
-        verify: Patikrinti
       admin_terms_of_service:
         accept:
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
@@ -536,11 +531,7 @@ lt:
         scopes: Apimtys
         settings: Nustatymai
         static_pages: Puslapiai
-        user_groups: Grupės
         users: Dalyviai
-      metrics:
-        metrics:
-          see_more_metrics: Žiūrėti daugiau rodiklių
       models:
         area:
           fields:
@@ -605,16 +596,6 @@ lt:
               admin: Administratorius
               user_manager: Dalyvių tvarkytojas
           name: Dalyvis
-        user_group:
-          fields:
-            actions: Veiksmai
-            created_at: Sukurta
-            document_number: Dokumento numeris
-            name: Vardas
-            nickname: Slapyvardis
-            phone: Telefonas
-            state: Būsena
-            users_count: Dalyvių skaičius
       moderated_users:
         index:
           actions:
@@ -808,6 +789,8 @@ lt:
           invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
           success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
           destroy:
             button: Ištrinti visus privačius dalyvius
             confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
@@ -885,7 +868,6 @@ lt:
           title: Redaguoti temą
           update: Atnaujinti temą
         new:
-          create: Sukurti temą
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
@@ -907,7 +889,6 @@ lt:
         index:
           last_notable_change: Paskutinis pastebimas pakeitimas
         new:
-          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           empty: Šioje temoje puslapių nėra.
@@ -925,41 +906,13 @@ lt:
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
-        metrics: Duomenys
         pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
         scope_types: Apimties tipai
         scopes: Apimtys
         statistics: Veikla
-        user_groups: Grupės
         users: Administratoriai
-      user_group:
-        csv_verify:
-          invalid: Skaitant CSV rinkmeną iškilo problema.
-          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
-        reject:
-          invalid: Atmetant šią grupę iškilo problema.
-          success: Grupė atmesta.
-        verify:
-          invalid: Verifikuojant šią grupę iškilo problema.
-          success: Grupė patikrinta.
-      user_groups:
-        index:
-          state:
-            pending: Laukiama
-            rejected: Atmesta
-            verified: Patvirtinta
-          verify_via_csv: Patvirtinti naudojant CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Pavyzdinė rinkmena:'
-          explanation: Įkelkite savo CSV rinkmeną. Pirmoje rinkmenos skiltyje turi būti pateikti oficialūs jūsų organizacijos grupių el. pašto adresai, be antraščių. Bus patvirtintos tik tos grupės, kurios patvirtino savo el. pašto adresą ir kurių el. pašto adresai yra matomi CSV rinkmenoje.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Įkelkite savo CSV rinkmeną
-          upload: Įkelti
       users:
         create:
           error: Kviečiant šį administratorių iškilo problema.
@@ -986,16 +939,6 @@ lt:
       errors:
         impersonate_user:
           reason: Tvarkydami dalyvio, kurio duomenys netvarkomi, duomenis, turite nurodyti priežastį.
-    metrics:
-      blocked_users:
-        object: užblokuoti naudotojai
-        title: Užblokuoti naudotojai
-      reported_users:
-        object: raportuoti naudotojai
-        title: Raportuoti naudotojai
-      user_reports:
-        object: vartotojo pranešimai
-        title: Naudotojo pranešimai
     moderations:
       actions:
         expand: Išplėsti

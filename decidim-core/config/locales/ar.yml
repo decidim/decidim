@@ -40,8 +40,6 @@ ar:
         password_confirmation: أكد كلمتك السرية
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
-      user_group:
-        avatar: الصورة الرمزية
     models:
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
@@ -56,7 +54,6 @@ ar:
       decidim/removed_from_group: تمت إزالته من المجموعة
       decidim/resource_endorsed_event: المورد المدعُوم
       decidim/resource_hidden_event: تم إخفاء المورد
-      decidim/user_group_created_event: تم إنشاء مجموعة المستخدم
       decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
     attributes:
@@ -91,13 +88,6 @@ ar:
         few: المشاركين
         many: المشاركين
         other: المشاركين
-      decidim/user_group:
-        zero: المجموعات
-        one: مجموعة
-        two: المجموعات
-        few: المجموعات
-        many: المجموعات
-        other: المجموعات
   booleans:
     'false': 'لا'
     'true': 'نعم'
@@ -294,7 +284,6 @@ ar:
             من قبل المؤلف.
       name: تعديل
       new:
-        amendment_author: مؤلف التعديل
         send: إنشاء
         title: إنشاء مسودة تعديل
       preview_draft:
@@ -484,10 +473,6 @@ ar:
         view_all: عرض الكل
       metadata:
         name: البيانات الوصفية
-      metrics:
-        name: مقاييس المنظمة
-      participatory_space_metrics:
-        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -557,10 +542,6 @@ ar:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsement_buttons_cell:
       endorse: يعجبني
-    endorsements:
-      identities:
-        done: تم
-        select_identity: حدد الهوية
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -650,52 +631,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
         level_up:
           email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
-      groups:
-        demoted_membership:
-          email_intro: أزال مشرف المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول الخاصة بك إلى هذه المجموعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
-          email_subject: أنت لم تعد مشرفًا على المجموعة %{user_group_name}!
-          notification_title: لم تعد مشرفًا لمجموعة <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: دعاك مسؤول في مجموعة <a href="%{resource_url}">%{user_group_name}</a> للانضمام إليها.
-          email_outro: لقد تلقيت هذا الإشعار لأنك دعيت إلى مجموعة. يرجى التحقق من علامة تبويب المجموعات في ملفك الشخصي للموافقة عليها.
-          email_subject: لقد تمت دعوتك للانضمام إلى المجموعة %{user_group_name}!
-          notification_title: لقد تمت دعوتك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a> . تحقق من <a href="%{groups_profile_tab_path}">مجموعات صفحة</a> في ملفك الشخصي للموافقة عليها!
-        join_request_accepted:
-          email_intro: تهانينا! قبل مشرف من مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
-          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
-          email_subject: لقد تم قبولك في المجموعة %{user_group_name}!
-          notification_title: لقد تم قبولك في المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_url}">أعضاء المجموعة</a>.
-          email_outro: لقد تلقيت هذا الإشعار لأنه يمكنك إدارة المجموعة %{user_group_name}.
-          email_subject: طلب شخص ما الانضمام إلى المجموعة %{user_group_name}!
-          notification_title: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_path}">أعضاء المجموعة</a>.
-        join_request_rejected:
-          email_intro: رفض أحد مسؤولي مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
-          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
-          email_subject: تم رفض طلبك للانضمام إلى المجموعة %{user_group_name}!
-          notification_title: تم رفض طلبك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
-        promoted_to_admin:
-          email_intro: منحك مسؤول المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول لهذه المجموعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
-          email_subject: أنت الآن مشرف على المجموعة %{user_group_name}!
-          notification_title: أنت الآن مسؤول عن مجموعة <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: قام مسؤول من مجموعة <a href="%{resource_url}">%{user_group_name}</a> بإزالتك منه.
-          email_outro: لقد تلقيت هذا الإشعار لأنك كنت عضوًا في هذه المجموعة.
-          email_subject: لقد تمت إزالتك من المجموعة %{user_group_name}!
-          notification_title: لقد تمت إزالتك من المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: تم إنشاء مجموعة مستخدم جديدة بالاسم %{user_group_name}. يمكنك الآن التحقق من ذلك على <a href="%{groups_admin_url}">لوحة المدير</a>.
-          email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
-          email_subject: تم إنشاء مجموعة مستخدم جديدة
-          notification_title: تم إنشاء مجموعة المستخدم %{user_group_name}. يمكنك الآن التحقق منها وتأكيدها في <a href="%{groups_admin_path}">لوحة المشرف</a>.
-        user_group_updated:
-          email_intro: قامت مجموعة من المستخدمين تحمل اسم %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_url}">المشرف</a>.
-          email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
-          email_subject: قامت مجموعة من المستخدمين بتحديث ملفاتها الشخصية
-          notification_title: قامت مجموعة المستخدمين %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_path}">المشرف</a>.
       reports:
         resource_hidden:
           email_intro: قام مسؤول بحذف %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.
@@ -825,50 +760,7 @@ ar:
       description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة.
       level: المستوى %{level}
       title: ماهي الشارات؟
-    group_admins:
-      actions:
-        demote_admin: إزالة المشرف
-      index:
-        current_admins: 'المشرفون الحاليون:'
-        manage_admins: إدارة المشرفين
-    group_invites:
-      accept_invitation: قبول
-      accept_or_reject_group_invitations: 'لقد دَعتك المجموعات التالية للانضمام إليهم. يمكنك قبول أو رفض طلباتهم:'
-      index:
-        invite: دعا
-        invite_user: دعوة مشارك
-      reject_invitation: رفض
-    group_members:
-      actions:
-        are_you_sure: هل أنت واثق؟
-        promote_to_admin: جعل المشرف
-        remove_from_group: إزالة المشارك
-      index:
-        current_members_without_admins: 'الأعضاء الحاليون (بدون مدراء):'
-        manage_members: إدارة الأعضاء
     groups:
-      actions:
-        are_you_sure: هل أنت واثق؟
-      edit:
-        edit_user_group: تعديل المجموعة
-        update_user_group: تحديث المجموعة
-      form:
-        email_help: البريد الإلكتروني لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ
-        fill_in_for_verification: 'املأ هذه الحقول إذا كنت تريد التحقق من مجموعتك:'
-        name_help: اسم مؤسستك أو جمعيتك أو جماعتك أو جماعتك ، إلخ.
-        nickname_help: الاسم المستعار لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ. لا تستخدم مسافات أو لهجات.
-      join:
-        success: انضمام طلب تم إنشاؤه بنجاح. سيقوم المشرف بمراجعة طلبك قبل قبولك في المجموعة.
-      leave:
-        success: تم التخلي عن المجموعة بنجاح.
-      members:
-        accept_or_reject_join_requests: 'تقدم المستخدمون التاليون بطلب للانضمام إلى هذه المجموعة. قبول أو رفض طلباتهم:'
-        accept_request: قبول
-        reject_request: رفض
-      new:
-        create_user_group: إنشاء مجموعة
-        new_user_group: مجموعة جديدة
-        subtitle: قم بإنشاء مجموعة ودعوة مستخدمين آخرين للانضمام للمشاركة في المستوى الجماعي.
       roles:
         admin: مدير
         creator: مدير
@@ -927,30 +819,10 @@ ar:
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
-          intro: "بدأ %{manager} محادثة جديدة باسم %{group}. انقر هنا لرؤيتها:"
-          subject: "بدأ %{manager} محادثة جديدة كـ %{group}"
-        comanagers_new_message:
-          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
-          intro: "قام %{manager} بنشر رسائل جديدة في المحادثة ذات اسم %{group}. انقر هنا لرؤيتها:"
-          subject: "%{manager} أرسل رسائل جديدة كـ %{group}"
         new_conversation:
           greeting: مرحبًا ، %{recipient}!
           intro: "%{sender} بدأ محادثة جديدة معك. انقر هنا لرؤيتها:"
           subject: "%{sender} بدأ محادثة معك"
-        new_group_conversation:
-          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
-          intro: "بدأ %{sender} محادثة جديدة مع المجموعة %{group}. انقر هنا لرؤيتها:"
-          subject: "بدأ %{sender} محادثة جديدة مع %{group}"
-        new_group_message:
-          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
-          intro: "قام %{sender} بنشر رسائل جديدة في المحادثة مع المجوعة %{group}. انقر هنا لرؤيتها:"
-          subject: "%{group} لديها رسائل جديدة من %{sender}"
         new_message:
           greeting: مرحبًا ، %{recipient}!
           intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
@@ -981,27 +853,6 @@ ar:
         start:
           placeholder: رسالتك...
           send: إرسال
-    metrics:
-      blocked_users:
-        description: عدد المشاركين المحظورين
-      download:
-        csv: تحميل البيانات (CSV)
-      followers:
-        description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
-        object: متابعون
-        title: متابعون
-      participants:
-        description: عدد المشاركين النشطين في المنظمة
-        object: المشاركين
-        title: المشاركين
-      reported_users:
-        description: عدد المشاركين المبلّغ عنهم
-      user_reports:
-        description: عدد التقارير التي قدمها المشاركون
-      users:
-        description: عدد المشاركين في المنظمة
-        object: المشاركين
-        title: المشاركين
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
@@ -1120,10 +971,6 @@ ar:
         subheading: انتقل من خلال صفحات المساعدة من %{name}
         title: المساعدة
         topics: المواضيع
-      participatory_space:
-        metrics:
-          headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
       terms_of_service:
         form:
           agreement: أوافق على هذه الشروط
@@ -1136,35 +983,13 @@ ar:
         conversations: محادثات
         followers: متابعون
         following: يتبع
-        groups: المجموعات
-        members: أفراد
         officialized: مشارك رسمي
         send_private_message: ارسال رسالة خاصة
-      sidebar:
-        badges:
-          info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
-          title: شارات
       user:
         actions:
-          create_user_group: إنشاء مجموعة
           edit_profile: تعديل الملف الشخصي
-          edit_user_group: تعديل الملف الشخصي للمجموعة
-          invite_user: دعوة مشارك
-          join_user_group: طلب الانضمام للمجموعة
-          leave_user_group: مغادرة الفريق
-          manage_user_group: إدارة الفريق
-          manage_user_group_admins: إدارة المدراء
-          manage_user_group_users: إدارة الاعضاء
           message: الرسالة
-        create_user_group: إنشاء مجموعة
-        edit_profile: تعديل الملف الشخصي
-        edit_user_group: تحرير ملف تعريف المجموعة
-        invite_user: دعوة مشارك
-        join_user_group: طلب الانضمام إلى المجموعة
-        leave_user_group: غادر المجموعة
-        manage_user_group_admins: إدارة المشرفين
-        manage_user_group_users: إدارة الأعضاء
-        resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
+          resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
       hide:
         hello: مرحبا %{name}،
@@ -1196,7 +1021,6 @@ ar:
     search:
       name: البحث
       results: نتائج البحث
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:
@@ -1241,12 +1065,9 @@ ar:
         title: الإبلاغ عن مشكلة
       flag_user_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
-        close: إغلاق
-        description: ما هو الأمر الغير مناسب بخصوص هذا المستخدم؟
         offensive: يتضمن العنصرية أو التحيز الجنسي أو الشتائم أو الهجمات الشخصية أو التهديد بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
         report: إبلاغ
         spam: يحتوي على طعم النقر(clickbaiting) أو إعلان، أو احتيال، أو روبوتات سكريبتة.
-        title: الإبلاغ عن مستخدم مخل
       floating_help:
         help: المساعدة
       login_modal:
@@ -1257,9 +1078,6 @@ ar:
         public_participation: إبراز حضوري علنا
       reference:
         reference: 'المرجع: %{reference}'
-      represent_user_group:
-        represent_user_group: أنا أمثل مجموعة
-        select_user_group: اختر فريقا
       results_per_page:
         label: 'نتائج لكل صفحة:'
         title: حدد عدد النتائج لكل صفحة
@@ -1286,18 +1104,8 @@ ar:
       show_translated: إظهار النص المترجم تلقائياً
     user_contact_disabled: هذا المشارك لا يقبل الرسائل المباشرة.
     user_conversations:
-      create:
-        existing_error: تعذر إنشاء الرسالة. المحادثة موجودة بالفعل، الرجاء المحاولة مرة أخرى الآن.
-        success: تم بدء المحادثة بنجاح!
       index:
-        conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
-        no_conversations_warning: لا توجد نقاشات بعد.
         time_ago: "منذ %{time}"
-      reply:
-        placeholder: ردك...
-        send: إرسال
-      update:
-        error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_report_mailer:
       notify:
         body_1: تم الإبلاغ عن المستخدم %{user} من قبل %{token}
@@ -1601,7 +1409,6 @@ ar:
         notifications_settings: إعدادات الإخطارات
         profile: الملف الشخصي
         title: إعدادات المشارك
-        user_groups: المجموعات
   locale:
     name: العربية
     name_with_error: الإنجليزية (خطأ!)

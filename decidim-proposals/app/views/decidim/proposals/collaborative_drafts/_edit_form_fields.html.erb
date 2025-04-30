@@ -39,7 +39,3 @@
                       help_text: t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit"),
                       help_i18n_scope: "decidim.forms.file_help.file" %>
 <% end %>
-
-<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-  <%= user_group_select_field form, :user_group_id %>
-<% end %>

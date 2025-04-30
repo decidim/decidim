@@ -10,7 +10,6 @@ pt-BR:
         instructions: Instruções para participar
         start_time: Começa em
         title: Título
-        user_group_id: Criar debate como
     models:
       decidim/debates/close_debate_event: Debate encerrado
       decidim/debates/create_debate_event: Debate
@@ -113,13 +112,11 @@ pt-BR:
           state_values:
             closed: Fechado
             open: Aberto
-          user_group: Grupos
         index:
           new_debate: Novo debate
         new:
           back: Voltar
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por
@@ -130,7 +127,6 @@ pt-BR:
           debate_closed: Fechado
           debate_conclusions_are: 'O debate foi encerrado em %{date} com estas conclusões:'
           edit_conclusions: Editar conclusões
-          groups_count: Grupos
           open: Debate aberto
           participants_count: Participantes
         update:
@@ -198,10 +194,5 @@ pt-BR:
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
           unearned_own: Você ainda não participou de nenhum debate ainda.
-    metrics:
-      debates:
-        description: Número de debates criados
-        object: debates
-        title: Debates
     statistics:
       debates_count: Debates

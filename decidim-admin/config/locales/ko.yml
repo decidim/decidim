@@ -73,7 +73,6 @@ ko:
         time_zone: 시간대
         tos_version: 서비스 버전 용어
         twitter_handler: X handler
-        user_groups_enabled: 그룹 활성화
         warning_color: 경고
         youtube_handler: YouTube handler
       participatory_space_private_user:
@@ -160,12 +159,10 @@ ko:
           new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
         permissions: 권한
-        reject: 거절
         send_me_a_test_email: 나에게 테스트 메일 보내기
         share: 공유
         user:
           new: 새 관리자
-        verify: 인증
       admin_terms_of_service:
         accept:
           success: 좋습니다! 관리자 서비스 약관을 수락했습니다.
@@ -413,7 +410,6 @@ ko:
         settings: 설정
         static_page_topics: 주제
         static_pages: 페이지
-        user_groups: 그룹
         users: 참여자
       models:
         area:
@@ -635,7 +631,6 @@ ko:
           none: 없음
           slug_help_html: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
         new:
-          create: 페이지 생성
           title: 새 페이지
         topic:
           empty: 이 주제 아래에 페이지가 없습니다.
@@ -661,23 +656,7 @@ ko:
         scope_types: 범위 종류
         scopes: 범위
         statistics: 활동
-        user_groups: 그룹
         users: 관리자
-      user_group:
-        csv_verify:
-          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
-          success: CSV 파일 업로드가 완료되었습니다. 기준과 일치하는 그룹을 확인 중입니다. 시간이 좀 걸릴 수 있습니다.
-        reject:
-          invalid: 이 그룹을 거부하는 동안 문제가 발생했습니다.
-          success: 그룹이 거부되었습니다.
-        verify:
-          invalid: 이 그룹을 인증하는 동안 문제가 발생했습니다.
-          success: 그룹이 성공적으로 인증되었습니다.
-      user_groups:
-        index:
-          state:
-            rejected: 거부됨
-            verified: 확인됨
       users:
         form:
           email: 이메일
@@ -692,16 +671,6 @@ ko:
           last_month: 지난 달
           last_week: 지난 주
           participants: 참가자
-    metrics:
-      blocked_users:
-        object: 차단된 사용자
-        title: 차단된 사용자
-      reported_users:
-        object: 신고된 사용자
-        title: 신고된 사용자
-      user_reports:
-        object: 사용자 신고
-        title: 사용자 신고
     moderations:
       actions:
         expand: 확장

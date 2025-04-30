@@ -56,11 +56,6 @@ sk:
         few: Účastníci
         many: Účastníci
         other: Účastníci
-      decidim/user_group:
-        one: Skupina
-        few: Skupiny
-        many: Skupiny
-        other: Skupiny
   booleans:
     'false': 'Nie'
     'true': 'Áno'
@@ -178,7 +173,6 @@ sk:
           withdrawn: |-
             | - Táto zmena pre číslo %{amendable_type} %{amendable_link} bola autorom stiahnutá.
       new:
-        amendment_author: Autor zmien
         send: Vytvoriť
         title: Vytvoriť pozmeňovací návrh
       preview_draft:
@@ -327,8 +321,6 @@ sk:
         name: Posledná aktivita
         title: Posledná aktivita
         view_all: Zobraziť všetko
-      metrics:
-        name: Štatistika organizácie
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -373,10 +365,6 @@ sk:
     download_your_data:
       export:
         ready: Pripravený
-    endorsements:
-      identities:
-        done: Hotovo
-        select_identity: Zvoliť identitu
     errors:
       internal_server_error:
         title: Vyskytol sa problém s naším serverom
@@ -451,44 +439,6 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože ste aktivovali činnosť na našich webových stránkach.
         level_up:
           email_outro: Toto oznámenie ste dostali, pretože ste aktivovali činnosť na našich webových stránkach.
-      groups:
-        demoted_membership:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name} </a> odobral vaše práva administrátora do tejto skupiny.
-          email_outro: Toto oznámenie ste dostali, pretože ste členom tejto skupiny.
-          email_subject: Už nie ste správcom skupiny%{user_group_name}!
-          notification_title: Už nie ste správcom skupiny <a href="%{resource_path}">%{user_group_name} </a>.
-        invited_to_group:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name} </a> vás pozval, aby ste sa k nemu pripojili.
-          email_outro: Toto oznámenie ste dostali, pretože ste boli pozvaní do skupiny. Označte kartu Skupiny vo svojom profile.
-          email_subject: Boli ste pozvaní, aby ste sa pripojili k skupine %{user_group_name}!
-          notification_title: Boli ste pozvaní, aby ste sa pripojili k skupine <a href="%{resource_path}">%{user_group_name} </a>. Zaškrtnite <a href="%{groups_profile_tab_path}"> Skupiny strana </a> vo svojom profile, aby ju schváliť!
-        join_request_accepted:
-          email_intro: Gratulujeme! Administrátor skupiny <a href="%{resource_url}">%{user_group_name} </a> prijal vašu žiadosť o pripojenie.
-          email_outro: Toto oznámenie ste dostali, pretože vaša žiadosť o spojenie bola aktualizovaná.
-          email_subject: Boli ste prijatí do skupiny%{user_group_name}!
-          notification_title: Boli ste prijatí do skupiny <a href="%{resource_path}">%{user_group_name} </a>.
-        join_request_created:
-          email_intro: Niekto požiadal o pripojenie k skupine %{user_group_name}. Môžete ho prijať alebo odmietnuť od <a href="%{resource_url}"> člena skupiny strana </a>.
-          email_outro: Toto oznámenie ste dostali, pretože môžete spravovať skupinu%{user_group_name}.
-          email_subject: Niekto požiadal o zaradenie do skupiny%{user_group_name}!
-          notification_title: Niekto požiadal o pripojenie k skupine %{user_group_name}. Môžete ho prijať alebo odmietnuť od <a href="%{resource_path}"> člena skupiny strana </a>.
-        join_request_rejected:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name} </a> odmietol vašu žiadosť o pripojenie.
-          email_outro: Toto oznámenie ste dostali, pretože vaša žiadosť o spojenie bola aktualizovaná.
-          email_subject: Vaša žiadosť o zaradenie do skupiny%{user_group_name} bola zamietnutá!
-          notification_title: Vaša žiadosť o zaradenie do skupiny <a href="%{resource_path}">%{user_group_name} </a> bola zamietnutá.
-        promoted_to_admin:
-          email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name} </a> vám dal administrátorské práva do tejto skupiny.
-          email_outro: Toto oznámenie ste dostali, pretože ste členom tejto skupiny.
-          email_subject: Teraz ste správcom skupiny%{user_group_name}!
-          notification_title: Teraz ste správcom skupiny <a href="%{resource_path}">%{user_group_name} </a>.
-        removed_from_group:
-          email_intro: Administrátor zo skupiny <a href="%{resource_url}">%{user_group_name} </a> vás z nej odobral.
-          email_outro: Toto oznámenie ste dostali, pretože ste boli členom tejto skupiny.
-          email_subject: Boli ste odstránení zo skupiny%{user_group_name}!
-          notification_title: Boli ste odstránení zo skupiny <a href="%{resource_path}">%{user_group_name} </a>.
-        user_group_created:
-          email_outro: Toto oznámenie ste dostali, pretože ste administrátorom platformy.
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, ktorého sledujete, práve podporill %{resource_title} a myslíme, že by vás to mohlo zaujímať. Pozrite sa a prispejte aj vy:'
         email_outro: Túto notifikáciu ste dostali, pretože sledujete %{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -552,50 +502,7 @@ sk:
           title: Odznaky
       description: Odznaky sú uznanie akciou účastníkov a pokrok v platforme. Akonáhle začnete objavovať, zúčastniť sa a spolupracovať v platforme, získate rôzne odznaky.
       level: Úroveň%{level}
-    group_admins:
-      actions:
-        demote_admin: Odstrániť admin
-      index:
-        current_admins: 'Aktuálni administrátori:'
-        manage_admins: Správa administrátorov
-    group_invites:
-      accept_invitation: Akceptovať
-      accept_or_reject_group_invitations: 'Nasledujúce skupiny vás pozvali, aby ste sa k nim pripojili. Prijať alebo odmietnuť ich požiadavky: '
-      index:
-        invite: Pozvať
-        invite_user: Pozvať užívateľa
-      reject_invitation: Odmietnuť
-    group_members:
-      actions:
-        are_you_sure: Ste si istí?
-        promote_to_admin: Urobiť adminom
-        remove_from_group: Odstrániť užívateľa
-      index:
-        current_members_without_admins: 'Aktuálne členovia (bez administrátorov):'
-        manage_members: Správa členov
     groups:
-      actions:
-        are_you_sure: Ste si istí?
-      edit:
-        edit_user_group: Upraviť skupinu
-        update_user_group: Aktualizovať skupinu
-      form:
-        email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
-        fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
-        name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
-        nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
-      join:
-        success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
-      leave:
-        success: Skupina úspěšně opustila.
-      members:
-        accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
-        reject_request: Odmítnout
-      new:
-        create_user_group: Vytvořit skupinu
-        new_user_group: Nová skupina
-        subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
       roles:
         admin: Správca
         member: Člen
@@ -657,19 +564,6 @@ sk:
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-    metrics:
-      followers:
-        description: Počet účastníkov, ktorí sledujú tento participatívny priestor
-        object: sledujúci
-        title: Sledujúci
-      participants:
-        description: Počet aktívnych účastníkov v organizácii
-        object: účastníci
-        title: Účastníci
-      users:
-        description: Počet účastníkov v organizácii
-        object: účastníci
-        title: Účastníci
     newsletter_mailer:
       newsletter:
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
@@ -751,10 +645,6 @@ sk:
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
         topics: Témy
-      participatory_space:
-        metrics:
-          headline: Metriky
-          link: Zobraziť všetky metriky
     profile:
       deleted: Vymazaný účastník
     profiles:
@@ -763,22 +653,10 @@ sk:
         badges: Odznaky
         followers: Sledujúci
         following: Nasleduje
-        groups: Skupiny
-        members: Členovia
-      sidebar:
-        badges:
-          info: Odznaky získate za určité aktivity a účasť na platforme.
-          title: Odznaky
       user:
-        create_user_group: Vytvoriť skupinu
-        edit_profile: Editovať profil
-        edit_user_group: Upraviť profil skupiny
-        invite_user: Pozvať užívateľa
-        join_user_group: Žiadosť o pripojenie k skupine
-        leave_user_group: Opustiť skupinu
-        manage_user_group_admins: Správa administrátorov
-        manage_user_group_users: Správa členov
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        actions:
+          edit_profile: Editovať profil
+          resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -799,7 +677,6 @@ sk:
       global: Globální oblast působnosti
       prompt: Vyberte oblast
     search:
-      results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
     searches:
       filters:
@@ -830,9 +707,6 @@ sk:
         help: Pomoc
       reference:
         reference: 'Odkaz: %{reference}'
-      represent_user_group:
-        represent_user_group: Zastupujem skupinu
-        select_user_group: Vyberte skupinu
       results_per_page:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledkov na stránku
@@ -842,9 +716,6 @@ sk:
     statistics:
       comments_count: Komentáre
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
-    user_conversations:
-      update:
-        error: Zpráva nebyla odeslána. Zkuste to později znovu
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -1008,7 +879,6 @@ sk:
         my_data: Moje dáta
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
-        user_groups: Skupiny
   locale:
     name: Slovenčina
     name_with_error: Slovenčina (chyba!)

@@ -46,9 +46,9 @@ describe Decidim::Surveys::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when answering a survey" do
+  context "when responding a survey" do
     let(:action) do
-      { scope: :public, action: :answer, subject: :questionnaire }
+      { scope: :public, action: :respond, subject: :questionnaire }
     end
 
     context "when user is authorized" do

@@ -78,11 +78,6 @@ module Decidim
         end_time
       end
 
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
-      end
-
       # Public: Overrides the `reported_attributes` Reportable concern method.
       def reported_attributes
         [:title, :description]
@@ -207,7 +202,7 @@ module Decidim
 
         update_columns(
           last_comment_at: last_comment&.created_at,
-          last_comment_by_id: last_comment&.decidim_user_group_id || last_comment&.decidim_author_id,
+          last_comment_by_id: last_comment&.decidim_author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
           comments_count:,
           updated_at: Time.current

@@ -13,7 +13,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_admin) { create(:process_admin, participatory_process: process) }
   let(:process_collaborator) { create(:process_collaborator, participatory_process: process) }
   let(:process_moderator) { create(:process_moderator, participatory_process: process) }
-  let(:process_valuator) { create(:process_valuator, participatory_process: process) }
+  let(:process_evaluator) { create(:process_evaluator, participatory_process: process) }
 
   shared_examples "allows any action on subject" do |action_subject|
     context "when action subject is #{action_subject}" do
@@ -59,10 +59,10 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "access for role", access[:moderator]
     end
 
-    context "when user is a space valuator" do
-      let(:user) { process_valuator }
+    context "when user is a space evaluator" do
+      let(:user) { process_evaluator }
 
-      it_behaves_like "access for role", access[:valuator]
+      it_behaves_like "access for role", access[:evaluator]
     end
   end
 
@@ -78,7 +78,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: true,
         moderator: true,
-        valuator: true
+        evaluator: true
       )
     end
 
@@ -95,7 +95,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        valuator: false
+        evaluator: false
       )
     end
 
@@ -189,7 +189,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -204,7 +204,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -219,7 +219,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      evaluator: false
     )
   end
 
@@ -236,7 +236,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: true
+        evaluator: true
       )
     end
 
@@ -252,7 +252,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
   end
@@ -268,7 +268,23 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
+    )
+  end
+
+  context "when uploading editor images" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :editor_image }
+    end
+    let(:context) { { current_participatory_space: process } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      evaluator: true
     )
   end
 
@@ -284,7 +300,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -300,7 +316,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
@@ -315,7 +331,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      valuator: false
+      evaluator: false
     )
   end
 
@@ -333,7 +349,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: true,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
 
@@ -348,7 +364,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
 
@@ -363,7 +379,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
 
@@ -439,8 +455,8 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
     end
 
-    context "when user is a valuator" do
-      let(:user) { process_valuator }
+    context "when user is a evaluator" do
+      let(:user) { process_evaluator }
 
       context "when reading a component" do
         let(:action) do

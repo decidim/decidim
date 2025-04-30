@@ -15,11 +15,11 @@ module Decidim
       class QuestionPresenter < Decidim::Log::BasePresenter
         private
 
-        # i18n-tasks-use t("decidim.forms.admin_log.question.publish_answers")
-        # i18n-tasks-use t("decidim.forms.admin_log.question.unpublish_answers")
+        # i18n-tasks-use t("decidim.forms.admin_log.question.publish_responses")
+        # i18n-tasks-use t("decidim.forms.admin_log.question.unpublish_responses")
         def action_string
           case action
-          when "publish_answers", "unpublish_answers"
+          when "publish_responses", "unpublish_responses"
             "decidim.forms.admin_log.question.#{action}"
           else
             super

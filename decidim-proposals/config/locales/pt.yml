@@ -9,7 +9,6 @@ pt:
         scope_id: Âmbito
         state: Estado
         title: Título
-        user_group_id: Criar rascunho colaborativo como
       proposal:
         address: Endereço
         answer: Responder
@@ -22,7 +21,6 @@ pt:
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
-        user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
         cost: Custo
@@ -34,9 +32,6 @@ pt:
         import_proposals: Importar propostas
         keep_answers: Guardar estado e respostas
         keep_authors: Manter os autores originais
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Nome do avaliador
     errors:
       models:
         proposal:
@@ -93,8 +88,6 @@ pt:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-          valuator_role_ids_has:
-            label: Atribuído a avaliador
         search_placeholder:
           id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
     components:
@@ -175,7 +168,6 @@ pt:
       proposals:
         admin:
           proposal_note_created:
-            email_outro: Recebeu esta notificação pois pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceite para aceder como contribuidor de %{resource_title}."
@@ -246,19 +238,6 @@ pt:
           name: Propostas
           next_level_in: Criar mais %{score} propostas para alcançar o próximo nível!
           unearned_own: Ainda não criou alguma proposta.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceites
-        object: propostas
-        title: Propostas aceites
-      endorsements:
-        description: Número de endossos nas propostas
-        object: endossos
-        title: Endossos
-      proposals:
-        description: Número de propostas
-        object: propostas
-        title: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -327,8 +306,6 @@ pt:
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
-            assign_to_valuator: Atribuir a avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
             publish: Publicar
@@ -338,15 +315,12 @@ pt:
             split: Dividir propostas
             split_button: Dividir
             title: Propostas
-            unassign_from_valuator: Remover atribuição ao avaliador
-            unassign_from_valuator_button: Remover atribuição
             update: Atualizar
           new:
             create: Criar
             title: Criar proposta
           show:
             amendments_count: Contagem de modificações
-            assigned_valuators: Avaliadores atribuídos
             body: Corpo
             comments_count: Contagem de comentários
             documents: Documentos
@@ -359,8 +333,6 @@ pt:
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover atribuição
-            remove_assignment_confirmation: Tem a certeza de que pretende remover o avaliador desta proposta?
-            valuators: Avaliadores
         proposals_imports:
           new:
             create: Importar propostas
@@ -380,9 +352,6 @@ pt:
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} atribuiu a proposta %{resource_name} a um avaliador"
-          delete: "%{user_name} removeu a atribuição de um avaliador à proposta %{proposal_title}"
       answers:
         accepted: Aceites
         evaluating: Avaliando
@@ -394,7 +363,6 @@ pt:
           all: Todos
           meetings: Reuniões
           official: Oficial
-          user_groups: Grupos
         filter_state_values:
           all: Todos
           not_answered: Não respondido
@@ -502,8 +470,6 @@ pt:
             published_at: Publicado em
             state: Estado
             title: Título
-            valuator: Avaliador
-            valuators: Avaliadores
             votes: Votos
       participatory_text_proposal:
         alternative_title: Não há textos participativos neste momento

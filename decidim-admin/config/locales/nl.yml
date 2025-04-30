@@ -26,8 +26,6 @@ nl:
         published_at: Gepubliceerd op
         weight: Bestelpositie
       id: ID
-      import:
-        user_group_id: Import maken als
       newsletter:
         body: Body
         subject: Onderwerp
@@ -83,7 +81,6 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
-        user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
@@ -155,11 +152,9 @@ nl:
           new: Nieuwe privégebruiker van de inspraakruimte
         per_page: Per pagina
         permissions: Permissies
-        reject: Weigeren
         share: Deel
         user:
           new: Nieuwe admin
-        verify: Verifiëren
       area_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
@@ -463,11 +458,7 @@ nl:
         scopes: Scopes
         settings: Instellingen
         static_pages: Pagina's
-        user_groups: groepen
         users: Deelnemers
-      metrics:
-        metrics:
-          see_more_metrics: Bekijk meer statistieken
       models:
         area:
           fields:
@@ -532,15 +523,6 @@ nl:
               admin: Beheerder
               user_manager: Deelnemersmanager
           name: Deelnemer
-        user_group:
-          fields:
-            actions: acties
-            created_at: Aangemaakt op
-            document_number: Documentnummer
-            name: Naam
-            phone: Telefoon
-            state: Staat
-            users_count: Aantal deelnemers
       moderated_users:
         index:
           actions:
@@ -708,6 +690,8 @@ nl:
           title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Upload uw CSV-bestand
           destroy:
             button: Verwijder alle privé deelnemers
             empty: Je hebt geen privé deelnemers.
@@ -773,7 +757,6 @@ nl:
           title: Onderwerp bewerken
           update: Onderwerp bijwerken
         new:
-          create: Maak een onderwerp aan
           title: Nieuw onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
@@ -794,7 +777,6 @@ nl:
         index:
           last_notable_change: Laatste opvallende verandering
         new:
-          create: Creëer pagina
           title: Nieuwe pagina
         topic:
           without_topic: Pagina's zonder onderwerp
@@ -808,33 +790,12 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
-        metrics: Cijfers
         panel: Admin
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         statistics: Activiteit
-        user_groups: groepen
         users: Beheerders
-      user_group:
-        csv_verify:
-          invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
-        reject:
-          invalid: Er was een probleem met het afwijzen van deze groep.
-        verify:
-          invalid: Er is een probleem opgetreden bij het verifiëren van deze groep.
-      user_groups:
-        index:
-          state:
-            pending: In afwachting
-            rejected: Geweigerd
-            verified: Geverifieerd
-          verify_via_csv: Controleer via CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Upload uw CSV-bestand. De officiële e-mails van de groepen in uw organisatie moeten in de eerste kolom van het bestand staan, zonder kopteksten. Alleen groepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
-          title: Upload uw CSV-bestand
-          upload: Uploaden
       users:
         create:
           error: Er is een probleem opgetreden bij het uitnodigen van deze beheerder.
@@ -856,16 +817,6 @@ nl:
           last_month: Vorige maand
           last_week: Vorige week
           participants: Deelnemers
-    metrics:
-      blocked_users:
-        object: geblokkeerde gebruikers
-        title: Geblokkeerde gebruikers
-      reported_users:
-        object: gerapporteerde gebruikers
-        title: Gerapporteerde gebruikers
-      user_reports:
-        object: gebruikersrapporten
-        title: Gebruikersrapporten
     moderations:
       actions:
         expand: Tonen

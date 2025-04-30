@@ -34,8 +34,6 @@ en:
       help_section:
         content: Content
       id: ID
-      import:
-        user_group_id: Create imports as
       newsletter:
         body: Body
         send_to_all_users: Send to all users
@@ -97,7 +95,6 @@ en:
         time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: X handler
-        user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
@@ -202,7 +199,6 @@ en:
           new: New participatory space private user
         per_page: Per page
         permissions: Permissions
-        reject: Reject
         restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
@@ -210,7 +206,6 @@ en:
         soft_delete: Soft delete
         user:
           new: New admin
-        verify: Verify
         view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
@@ -483,6 +478,10 @@ en:
             explanation: 'Guidance for file:'
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
+          import_csv:
+            explanation: 'Guidance for file:'
+            message_1: CSV files are supported
+            message_2: ".csv file with emails data"
       help_sections:
         error: There was a problem updating the help sections.
         form:
@@ -604,11 +603,7 @@ en:
         static_pages: Pages
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
-        user_groups: Groups
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -677,16 +672,6 @@ en:
               admin: Admin
               user_manager: Participant manager
           name: Participant
-        user_group:
-          fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            nickname: Nickname
-            phone: Phone
-            state: State
-            users_count: Participants count
       moderated_users:
         index:
           actions:
@@ -1253,7 +1238,6 @@ en:
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu
-        metrics: Metrics
         page_topics: Topics
         pages: Pages
         panel: Admin
@@ -1263,7 +1247,6 @@ en:
         statistics: Activity
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters for "%{taxonomy}"
-        user_groups: Groups
         users: Administrators
       tooltips:
         deleted_component_info: This component can only be deleted if status is 'Unpublished'.
@@ -1274,32 +1257,6 @@ en:
         soft_delete:
           invalid: There was a problem deleting %{resource_name}.
           success: "%{resource_name} successfully deleted."
-      user_group:
-        csv_verify:
-          invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.
-        reject:
-          invalid: There was a problem rejecting this group.
-          success: Group successfully rejected.
-        verify:
-          invalid: There was a problem verifying this group.
-          success: Group successfully verified.
-      user_groups:
-        index:
-          state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          verify_via_csv: Verify via CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Example file:'
-          explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Upload your CSV file
-          upload: Upload
       users:
         create:
           error: There was a problem inviting this admin.
@@ -1326,22 +1283,13 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non-managed participant.
-    metrics:
-      blocked_users:
-        object: blocked users
-        title: Blocked users
-      reported_users:
-        object: reported users
-        title: Reported users
-      user_reports:
-        object: user reports
-        title: User reports
     moderations:
       actions:
         expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
+        parent_hidden: You cannot unhide this resource because its parent is still hidden.
         title: Actions
         unhide: Unhide
         unreport: Unreport
@@ -1368,6 +1316,7 @@ en:
             success: Resource successfully hidden.
           unhide:
             invalid: There was a problem unhiding the resource.
+            parent_invalid: There was a problem unhiding the resource. Parent is not visible.
             success: Resource successfully unhidden.
           unreport:
             invalid: There was a problem unreporting the resource.

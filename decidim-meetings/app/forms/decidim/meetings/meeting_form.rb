@@ -2,14 +2,13 @@
 
 module Decidim
   module Meetings
-    # This class holds a Form to create/update meetings for Participants and UserGroups.
+    # This class holds a Form to create/update meetings for Participants
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       attribute :title, String
       attribute :description, String
       attribute :location, String
       attribute :location_hints, String
 
-      attribute :user_group_id, Integer
       attribute :registration_type, String
       attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String
@@ -18,6 +17,8 @@ module Decidim
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
 
+      validates :address, presence: true, if: ->(form) { form.needs_address? }
+      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true, etiquette: true
       validates :description, presence: true, etiquette: true

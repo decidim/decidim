@@ -9,7 +9,9 @@ sv:
         scope_id: Indelning
         state: Status
         title: Titel
-        user_group_id: Skapa gemensamt utkast som
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Utvärderarens namn
       import_participatory_text:
         document: Dokument
       proposal:
@@ -27,7 +29,6 @@ sv:
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
-        user_group_id: Skapa förslag som
       proposal_answer:
         answer: Svar
         cost: Kostnad
@@ -55,9 +56,6 @@ sv:
         import_proposals: Importera förslag
         keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Handläggarens namn
     errors:
       models:
         participatory_text:
@@ -123,6 +121,8 @@ sv:
           proposals: Förslag
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Tilldelad utvärderare
           is_emendation_true:
             label: Typ
             values:
@@ -142,8 +142,6 @@ sv:
               withdrawn: Återkallade
           taxonomies_part_of_contains:
             label: Kategori
-          valuator_role_ids_has:
-            label: Tilldelad till handläggare
           with_any_state:
             label: Besvarade
             values:
@@ -269,14 +267,8 @@ sv:
         accepted_coauthorship:
           notification_title: Du har lagts till som medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: Du har gjorts till handläggare för förslaget "%{resource_title}". Det innebär att du har fått förtroendet att ge feedback och ett uppföljande svar under de kommande dagarna. Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>.
-            email_outro: Du har fått det här meddelandet eftersom du kan sätta pris på förslaget.
-            email_subject: Du har gjorts till handläggare för att värdera förslaget %{resource_title}.
-            notification_title: Du har gjorts till handläggare för att värdera förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det <a href="%{admin_proposal_info_path}">i adminpanelen</a>.
           proposal_note_created:
             email_intro: '%{author_name} har skapat en privat anteckning till %{resource_title}. Kolla in den i <a href="%{admin_proposal_info_url}">adminpanelen</a>.'
-            email_outro: Du har fått det här meddelandet eftersom du kan sätta pris på förslaget.
             email_subject: Någon skrev en anteckning till förslaget %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har gjort en privat anteckning till <a href="%{resource_path}">%{resource_title}</a>. Kolla in den i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
           proposal_note_mentioned:
@@ -415,23 +407,6 @@ sv:
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
           unearned_another: Den här deltagaren har inte skapat några förslag än.
           unearned_own: Du har inte skapat några förslag än.
-    metrics:
-      accepted_proposals:
-        description: Antal accepterade förslag
-        object: förslag
-        title: Accepterade förslag
-      endorsements:
-        description: Antal gilla-markeringar för förslag
-        object: gilla-markeringar
-        title: Gilla-markeringar
-      proposals:
-        description: Antal förslag
-        object: förslag
-        title: Förslag
-      votes:
-        description: Antal röster på förslag
-        object: röster
-        title: Röster
     open_data:
       help:
         proposal_comments:
@@ -445,10 +420,8 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:
@@ -575,22 +548,17 @@ sv:
           index:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
-            assign_to_valuator: Tilldela till handläggare
-            assign_to_valuator_button: Tilldela
             cancel: Avbryt
             merge: Slå samman till ett nytt
             no_templates_available: Ingen mall tillgänglig
             publish: Publicera
             publish_answers: Publicera svar
             select_component: Välj en komponent
-            select_valuators: Välj en eller flera handläggare
             selected: valda
             split: Dela upp förslag
             split_button: Dela upp
             statuses: Statusar
             title: Förslag
-            unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
           new:
             create: Skapa
@@ -600,7 +568,6 @@ sv:
             select_a_proposal: Välj ett förslag.
           show:
             amendments_count: Antal ändringsförslag
-            assigned_valuators: Tilldelade handläggare
             body: Innehåll
             comments_count: Antal kommentarer
             documents: Dokument
@@ -614,13 +581,10 @@ sv:
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterade möten
             remove_assignment: Ta bort tilldelning
-            remove_assignment_confirmation: Vill du ta bort handläggaren från förslaget?
-            valuators: Handläggare
             votes_count: Antal röster
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen.
-            success: "%{number} förslag har importerats."
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
@@ -635,23 +599,15 @@ sv:
           create:
             invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
-        valuation_assignments:
-          create:
-            invalid: Det gick inte att tilldela förslagen till en handläggare.
-            success: Förslagen har tilldelats en handläggare.
-          delete:
-            invalid: Det gick inte att ta bort tilldelningen av förslag från en handläggare.
-            success: Handläggaren är inte längre tilldelad förslagen.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} tilldelade förslaget %{resource_name} till en utvärderare"
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           publish_answer: "%{user_name} publicerade svaret på förslaget %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade det officiella förslaget %{resource_name} på utrymmet %{space_name}"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på utrymmet %{space_name}"
-        valuation_assignment:
-          create: "%{user_name} tilldelade förslaget %{resource_name} till en värderare"
-          delete: "%{user_name} tog bort en handläggare från förslaget %{proposal_title}"
       answers:
         accepted: Accepterat
         evaluating: Utvärderas
@@ -664,7 +620,6 @@ sv:
           meetings: Möten
           official: Officiella
           participants: Deltagare
-          user_groups: Grupper
         filter_state_values:
           all: Alla
           not_answered: Ej besvarade
@@ -782,7 +737,6 @@ sv:
           success: Inbjudan till medförfattare har avbrutits.
         create:
           error: Det gick inte att bjuda in medförfattaren.
-          success: "%{author_name} har bjudits in som medförfattare."
         destroy:
           error: Det gick inte att avböja inbjudan.
           success: Inbjudan har avvisats.
@@ -803,8 +757,6 @@ sv:
             published_at: Publicerad
             state: Status
             title: Titel
-            valuator: Handläggare
-            valuators: Handläggare
             votes: Röster
         proposal_state:
           css_class: CSS-klass
@@ -860,7 +812,7 @@ sv:
           text_banner: Du visar förslag som dragits tillbaka av sin författare. %{go_back_link}.
         new:
           send: Fortsätt
-          title: Skapa ditt förslag
+          title: Skapa ett nytt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
@@ -908,7 +860,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan röstat
+          already_voted: Röstade
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar

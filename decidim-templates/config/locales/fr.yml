@@ -80,15 +80,17 @@ fr:
             select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
-            create_from_template: Créer depuis un modèle
-            description: Vous êtes sur le point de créer un nouveau questionnaire. Vous pouvez choisir un modèle prédéfini et le modifier par la suite.
+            continue: Continuer
+            description: Vous pouvez créer un nouveau questionnaire ou vous pouvez choisir un modèle prédéfini et le modifier plus tard. Sélectionnez une option.
             label: Choisir un modèle
+            options:
+              create_new_form: Créer un nouveau formulaire
+              select_template: Sélectionner un modèle
             placeholder: Choisir un modèle
-            skip_template: Passer
           edit:
             edit: Modifier
             empty: Il n'y a pas encore de question.
-            manage_questions: Gérer les questions
+            manage_questions: Questions
             questionnaire: Questionnaire
             title: Modifier le modèle de questionnaire
           edit_questions:

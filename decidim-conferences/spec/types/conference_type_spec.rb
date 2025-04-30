@@ -8,7 +8,8 @@ module Decidim
     describe ConferenceType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:conference) }
+      let(:registrations_enabled) { true }
+      let(:model) { create(:conference, registrations_enabled:) }
       let!(:published_speaker) { create(:conference_speaker, :published, conference: model) }
       let!(:unpublished_speaker) { create(:conference_speaker, conference: model) }
       let(:organization) { model.organization }
@@ -16,12 +17,25 @@ module Decidim
       include_examples "attachable interface"
       include_examples "categories container interface"
       include_examples "taxonomizable interface"
+      include_examples "referable interface"
+      include_examples "attachable collection interface with attachment"
+      include_examples "followable interface"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns the id field" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(EngineRouter.main_proxy(model).conference_url(model))
         end
       end
 
@@ -81,35 +95,11 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the conference was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the conference was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
       describe "publishedAt" do
         let(:query) { "{ publishedAt }" }
 
         it "returns when the conference was published" do
           expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the conference' reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 
@@ -198,6 +188,41 @@ module Decidim
 
         it "returns the list of published speakers" do
           expect(response["speakers"].count).to eq(1)
+        end
+      end
+
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the Conference's weight" do
+          expect(response["weight"]).to eq(model.weight)
+        end
+      end
+
+      describe "registration_types" do
+        let(:query) { " { registrationTypes { id } } " }
+        let!(:registration_type) { create(:registration_type, conference: model) }
+
+        context "when registrations are enabled" do
+          it "does not return any registration type" do
+            expect(response["registrationTypes"]).to eq([{ "id" => registration_type.id.to_s }])
+          end
+        end
+
+        context "when registrations are disabled" do
+          let(:registrations_enabled) { false }
+
+          it "does not return any registration type" do
+            expect(response["registrationTypes"]).to eq([nil])
+          end
+        end
+
+        context "when registrations are not published" do
+          let!(:registration_type) { create(:registration_type, conference: model, published_at: nil) }
+
+          it "does not return any registration type" do
+            expect(response["registrationTypes"]).to eq([])
+          end
         end
       end
     end

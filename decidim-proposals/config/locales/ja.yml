@@ -9,7 +9,11 @@ ja:
         scope_id: 対象範囲
         state: 状態
         title: タイトル
-        user_group_id: 共同草案として作成します
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: 評価者名
+      import_participatory_text:
+        document: ドキュメント
       proposal:
         address: 住所
         answer: 回答
@@ -19,11 +23,12 @@ ja:
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
+        latitude: 緯度
+        longitude: 経度
         scope_id: 対象範囲
         state: 状態
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
-        user_group_id: 次のように提案を作成
       proposal_answer:
         answer: 回答
         cost: コスト
@@ -45,13 +50,12 @@ ja:
       proposals_copy:
         copy_proposals: この操作は選択したコンポーネントにあるすべての提案を現在のコンポーネントにインポートし、元に戻せないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
+      proposals_file_import:
+        file: ファイル
       proposals_import:
         import_proposals: 提案をインポート
         keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: 評価者名
     errors:
       models:
         participatory_text:
@@ -92,8 +96,11 @@ ja:
         proposals:
           proposal:
             budget_text: 提案 %{link} が作成されました
+            import_from_proposal_text: 'この提案になりました： %{link}'
             import_to_proposal_text: この提案 %{link} が作成されました
+            merge_from_proposal_text: 'この提案になりました： %{link}'
             merge_to_proposal_text: 'この提案が作成されました: %{link}'
+            split_from_proposal_text: 'この提案になりました： %{link}'
             split_to_proposal_text: 'この提案が作成されました: %{link}'
       decidim/proposals/collaborative_draft:
         other: 共同草案
@@ -105,8 +112,13 @@ ja:
         other: 投票
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: 提案
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: 評価者に割り当てられました
           is_emendation_true:
             label: タイプ
             values:
@@ -126,8 +138,6 @@ ja:
               withdrawn: 撤回
           taxonomies_part_of_contains:
             label: タクソノミー
-          valuator_role_ids_has:
-            label: 評価者にアサインされました
           with_any_state:
             label: 回答済み
             values:
@@ -253,11 +263,11 @@ ja:
         accepted_coauthorship:
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の共著者として追加されました。
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: 提案「%{resource_title}」の評価者として割り当てられました。これは、今後数日以内にフィードバックや適切な対応を行うために信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。
-            email_outro: 提案の評価者のため、この通知を受け取りました。
-            email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
-            notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
+          proposal_assigned_to_evaluator:
+            email_intro: あなたは提案「%{resource_title}」の評価者に任命されました。これは、今後数日以内にフィードバックと適切な対応を行う役割を信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>でご確認ください。
+            email_outro: 提案を評価できるため、この通知を受け取りました。
+            email_subject: あなたは提案 %{resource_title}の評価者として割り当てられています。
+            notification_title: あなたは提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: 提案を評価できるため、この通知を受け取りました。
@@ -330,6 +340,11 @@ ja:
           email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
           email_subject: あなたの提案 "%{mentioned_proposal_title}" がメンションされました
           notification_title: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_path}">のコメント欄で</a> に言及されました。
+        proposal_merged:
+          email_intro: 'あなたの提案「%{resource_title}」を管理者がマージしました。このページで確認してください：'
+          email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
+          email_subject: 提案 %{resource_title} がマージされました
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> は管理者によってマージされました。
         proposal_published:
           email_intro: 'あなたがフォローしている%{author_name} %{author_nickname}は、「%{resource_title}」という新しい提案を公開しました。チェックして貢献してください：'
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -352,6 +367,11 @@ ja:
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
             notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
+        proposal_update_taxonomies:
+          email_intro: '管理者があなたの提案 "%{resource_title}" のタクソノミーを更新しました。このページでチェックしてください：'
+          email_outro: あなたが提案の作成者であるため、この通知を受け取りました。
+          email_subject: 提案 %{resource_title} のタクソノミーが更新されました
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のタクソノミーは管理者によって更新されました。
         rejected_coauthorship:
           notification_title: <a href="%{author_path}">%{author_name}</a> からの提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を拒否しました。
         voting_enabled:
@@ -394,23 +414,6 @@ ja:
           next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
           unearned_another: この参加者はまだ提案を作成していません．
           unearned_own: 提案はまだ作成されていません。
-    metrics:
-      accepted_proposals:
-        description: 提案数が承認されました
-        object: 提案
-        title: 承認された提案
-      endorsements:
-        description: 提案へのオススメ数
-        object: オススメ
-        title: オススメ
-      proposals:
-        description: 提案数
-        object: 提案
-        title: 提案
-      votes:
-        description: 提案への投票数
-        object: 投票
-        title: 投票
     open_data:
       help:
         proposal_comments:
@@ -424,7 +427,6 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         proposals:
           address: 提案に物理的な場所がある場合の提案の所在地
           answer: 回答済みの提案に対する回答
@@ -432,9 +434,16 @@ ja:
           attachments: 提案の添付ファイル数
           author: 提案の作者に関するデータ
           body: 提案本文
+          coauthorships_count: 提案が表す共同作成者の数
           comments: 提案のコメント数
           component: 提案が属するコンポーネント
+          cost: 問題の提案の総コスト
+          cost_report: 提案のコストのレポート
+          created_at: 提案の作成日時
+          created_in_meeting: 提案がミーティングで作成されたかどうか
           endorsements: この提案のオススメ(「いいね」) の数
+          execution_period: 提案の開始から終了までの期間
+          follows_count: この提案のフォロワー数
           id: 提案の固有ID
           is_amend: この提案が別の提案の修正版かどうか
           latitude: 提案に物理的な場所がある場合の提案の緯度
@@ -446,15 +455,16 @@ ja:
           reference: このプラットフォームでのリソースの固有ID
           related_proposals: この提案に関連する提案
           state: 'この提案のステータス (例: "承認済み")'
+          state_published_at: 提案の公開日時のタイムスタンプ
           taxonomies: この提案が属しているタクソノミー
           title: 提案のタイトル
+          updated_at: 提案の最終更新日時
           url: この提案が見つかるURL
           votes: 提案の投票数
           withdrawn: この提案が撤回されたかどうか
           withdrawn_at: この提案が撤回された日時
     participatory_spaces:
       highlighted_proposals:
-        last: 最近の提案
         see_all: すべての提案を見る
     proposals:
       actions:
@@ -475,12 +485,45 @@ ja:
         title: アクション
       admin:
         actions:
+          confirm_delete_proposal: この提案を削除してもよろしいですか？
+          deleted_proposals_info: 削除された提案はゴミ箱から復元することができます。
           preview: プレビュー
           view_deleted_proposals: 削除された提案を表示
+        evaluation_assignments:
+          create:
+            invalid: 評価者に提案を割り当てる際に問題が発生しました。
+            success: 評価者に提案を割り当てました。
+          delete:
+            invalid: 評価者から提案の割り当てを解除する際に問題が発生しました。
+            success: 評価者への提案の割り当てを解除しました。
         exports:
           proposal_comments: コメント
           proposals: 提案
+        import_proposals_mailer:
+          notify_failure:
+            body: '%{origin_component_name} コンポーネントから %{target_component_name} コンポーネントに提案をインポート中に問題が発生しました。'
+            subject: 提案のインポート中にエラーが発生しました
+          notify_success:
+            added_proposals:
+              other: "%{count} 件の提案がインポートされました。"
+            body: '%{origin_component_name} コンポーネントから %{target_component_name} コンポーネントにインポートされた提案が成功しました。管理インターフェイスで結果を確認できます。'
+            subject: 提案は正常にインポートされました
         imports:
+          help:
+            answers: |
+              インポートドキュメントには、CSVやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が含まれている必要があります (他のカラムは無視されます):
+              <ul>
+              <li><b>id:</b> 回答する提案のID</li>
+              <li><b>state:</b> "accepted", "evaluating", "rejected"のうちのどれか</li>
+              <li><b>answer/en:</b> 英語での回答。これはプラットフォームの言語設定に依存します。</li>
+              </ul>
+            proposals: |
+              CSVファイルやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が必要です:
+              <ul>
+              <li><b>title/en:</b> 英語でのタイトル。これはプラットフォームの言語設定に依存します。</li>
+              <li><b>body/en:</b> 英語での本文。これはプラットフォームの言語設定に依存します。</li>
+              <li><b>taxonomies/ids:</b> タクソノミーのID (複数の場合はカンマ区切り)</li>
+              </ul>
           label:
             answers: ファイルから回答をインポート
             proposals: ファイルから提案をインポート
@@ -580,23 +623,24 @@ ja:
           index:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
-            assign_to_valuator: 評価者に割り当てる
-            assign_to_valuator_button: 割り当て
+            assign_to_evaluator: 評価者に割り当て
+            assign_to_evaluator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
+            merge_button: 作成
             no_templates_available: 利用可能なテンプレートはありません
             publish: 公開
             publish_answers: 回答を公開
             select_component: コンポーネントを選択
-            select_valuators: 1人以上の評価者を選択してください
+            select_evaluators: 1人以上の評価者を選択してください
             selected: 選択済み
             split: 提案を分割
             split_button: 分割
             statuses: ステータス
             title: 提案
-            unassign_from_valuator: 評価者からの割り当てを解除
-            unassign_from_valuator_button: 割り当ての解除
+            unassign_from_evaluator: 評価者の割り当てを解除
+            unassign_from_evaluator_button: 割り当ての解除
             update: 更新
           manage_trash:
             title: 削除された提案
@@ -608,12 +652,13 @@ ja:
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
-            assigned_valuators: 割り当てられた評価者
+            assigned_evaluators: 評価者に割り当てられました
             body: 本文
             comments_count: コメント数
             documents: ドキュメント
             endorsements_count: オススメ数
             endorsers: オススメしている人
+            evaluators: 評価者
             link: 提案を見る
             n_more_endorsers:
               other: 他 %{count} 名
@@ -622,15 +667,16 @@ ja:
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
-            valuators: 評価者
             votes_count: 投票数
           update_taxonomies:
+            invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
             select_a_proposal: 提案を選択してください。
             select_a_taxonomy: タクソノミーを選択してください。
+            success: '提案が %{taxonomies} タクソノミーに更新されました: %{proposals}。'
         proposals_imports:
           create:
             invalid: 提案のインポート中に問題が発生しました。
-            success: "%{number} 件の提案は正常にインポートされました。"
+            success: インポート処理が開始されました。完了次第、お知らせします。
           new:
             create: 提案をインポート
             no_components: この参加スペースには他の提案コンポーネントはありません。
@@ -641,27 +687,28 @@ ja:
           create:
             invalid: '選択された提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
+          form:
+            created_in_meeting: この提案はミーティングから来ています
+            select_a_meeting: ミーティングを選択
+          new:
+            title: 新しいものにマージ
         proposals_splits:
           create:
             invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
-        valuation_assignments:
-          create:
-            invalid: 評価者に提案を割り当てる際に問題が発生しました。
-            success: 評価者に提案を割り当てました。
-          delete:
-            invalid: 評価者からの提案の割り当てを解除する際に問題が発生しました。
-            success: 評価者への提案の割り当てを解除しました。
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} は %{resource_name} の提案を評価者に割り当てました"
+          delete: "%{user_name} が %{proposal_title} 提案から評価者の割り当てを解除しました"
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
+          create: "%{user_name} が %{resource_name} 提案を %{space_name} での %{merged_count} 件の提案をマージして作成しました"
           publish_answer: "%{user_name} が %{resource_name} の提案に対する回答を %{space_name} スペースに公開しました"
+          restore: "%{user_name} は %{resource_name} 提案を %{space_name} スペースに復元しました"
+          soft_delete: "%{user_name} が %{resource_name} スペースの %{space_name} 提案をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
         proposal_note:
           create: "%{user_name} が %{resource_name} スペースに %{space_name} 提案にプライベートノートを残しました"
-        valuation_assignment:
-          create: "%{user_name} は、評価者に %{resource_name} の提案を割り当てました"
-          delete: "%{user_name} が %{proposal_title} の提案から評価者を解除しました"
       answers:
         accepted: 承認済み
         evaluating: 評価
@@ -674,7 +721,6 @@ ja:
           meetings: ミーティング
           official: 事務局
           participants: 参加者
-          user_groups: グループ
         filter_state_values:
           all: すべて
           not_answered: 応答がありません
@@ -704,6 +750,7 @@ ja:
           error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
+          attachment_legend: ドキュメントまたは画像を追加
           back: 戻る
           send: 送信
           title: 共同草案を編集
@@ -783,10 +830,18 @@ ja:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。草案として保存されました。
       creation:
+        imported_text: この提案になりました
+        merged_text: この提案になりました
+        splitted_text: この提案になりました
         text: この提案が作成されました
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
+      exit_modal:
+        cancel: キャンセル
+        exit: 続ける
+        message: あなたの投票が考慮されるためには、あと %{number} 件の異なる提案に投票する必要があります。
+        title: '%{number} 票残っていることを忘れないでください'
       forms:
         errors:
           device_not_supported:
@@ -798,7 +853,7 @@ ja:
           success: 共同執筆者の招待を取り消しました。
         create:
           error: 共同執筆者を招待する際に問題が発生しました。
-          success: "%{author_name} を共同執筆者として招待しました。"
+          success: "%{author_name} は共同執筆者として正常に招待されました。"
         destroy:
           error: 招待を却下するのに問題が発生しました。
           success: 招待は拒否されました。
@@ -812,6 +867,8 @@ ja:
         proposal:
           fields:
             comments: コメント
+            evaluator: 評価者
+            evaluators: 評価者
             id: ID
             notes: メモ
             official_proposal: 事務局の提案
@@ -820,8 +877,6 @@ ja:
             state: ステータス
             taxonomies: タクソノミー
             title: タイトル
-            valuator: 評価者
-            valuators: 評価者
             votes: 投票
         proposal_state:
           css_class: CSS クラス
@@ -841,7 +896,10 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
           back: 戻る
+          edit_attachments: 添付ファイルを編集
           send: 送信
           title: 提案を編集
         edit_draft:
@@ -877,7 +935,7 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
-          title: 提案を作成
+          title: 新しい提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
@@ -925,7 +983,7 @@ ja:
         update:
           title: 提案を更新
         vote_button:
-          already_voted: すでに投票済みです
+          already_voted: 投票済
           already_voted_hover: 投票を撤回する
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
@@ -935,12 +993,20 @@ ja:
           count:
             other: 投票
         voting_rules:
+          already_vote:
+            description: あなたのサポートが考慮されるためには、異なる提案に対してあと %{number} 件のサポートを与える必要があります。
+            see_other_proposals: 他の提案を見る
+            title: '%{number} 件のサポートが残っています'
           can_accumulate_votes_beyond_threshold:
             description: 各提案は %{limit} 票を超えることができます
+          minimum_votes_per_user:
+            description: あなたのサポートが考慮されるためには、異なる提案に対して最低あと %{votes} 件のサポートを配分する必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
+          success: あなたの投票は正常に受理されました
           threshold_per_proposal:
             description: 提案が検証されるためには、 %{limit} 票に到達する必要があります。
+          title: 参加ルール
           vote_limit:
             description: 最大 %{limit} 件の提案をサポートできます。
             votes: 残り %{number} 票

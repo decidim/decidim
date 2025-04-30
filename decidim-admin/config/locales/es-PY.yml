@@ -33,8 +33,6 @@ es-PY:
       help_section:
         content: Contenido
       id: ID
-      import:
-        user_group_id: Importar como
       newsletter:
         body: Cuerpo
         send_to_all_users: Enviar a todas las usuarias
@@ -96,7 +94,6 @@ es-PY:
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de usuaria en X
-        user_groups_enabled: Habilitar grupos de usuarios
         users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
@@ -201,7 +198,6 @@ es-PY:
           new: Nuevo usuario privado del espacio participativo
         per_page: Por página
         permissions: Permisos
-        reject: Rechazar
         restore: Restaurar
         send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
@@ -209,7 +205,6 @@ es-PY:
         soft_delete: Enviar a la papelera
         user:
           new: Nueva administradora
-        verify: Verificar
         view_deleted_components: Ver los componentes eliminados
       admin_terms_of_service:
         accept:
@@ -482,6 +477,10 @@ es-PY:
             explanation: 'Instrucciones para el archivo:'
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
+          import_csv:
+            explanation: 'Instrucciones para el archivo:'
+            message_1: Se admiten archivos CSV
+            message_2: "archivo .csv con datos de correos electrónicos"
       help_sections:
         error: Hubo un problema al actualizar las secciones de ayuda.
         form:
@@ -603,11 +602,7 @@ es-PY:
         static_pages: Páginas
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía
-        user_groups: Grupos de usuarios
         users: Usuarios
-      metrics:
-        metrics:
-          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -676,16 +671,6 @@ es-PY:
               admin: Administrador
               user_manager: Administrador de usuarios
           name: Usuario
-        user_group:
-          fields:
-            actions: Acciones
-            created_at: Fecha de creación
-            document_number: Número del documento
-            name: Nombre
-            nickname: Alias
-            phone: Teléfono
-            state: Estado
-            users_count: Número de usuarios
       moderated_users:
         index:
           actions:
@@ -1098,7 +1083,7 @@ es-PY:
           title: Editar tema
           update: Actualizar tema
         new:
-          create: Crear tema
+          create: Nuevo tema
           title: Nuevo tema
         update:
           error: Se ha producido un error al actualizar este tema.
@@ -1122,7 +1107,7 @@ es-PY:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear página
+          create: Nueva página
           title: Nueva página
         topic:
           empty: No hay ninguna página sobre este tema.
@@ -1252,7 +1237,6 @@ es-PY:
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
         menu: Menú
-        metrics: Métricas
         page_topics: Temas
         pages: Páginas
         panel: Administradora
@@ -1262,7 +1246,6 @@ es-PY:
         statistics: Actividad
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
-        user_groups: Grupos de usuarios
         users: Administradoras
       tooltips:
         deleted_component_info: Este componente solo se puede eliminar si el estado es 'Despublicado'.
@@ -1273,32 +1256,6 @@ es-PY:
         soft_delete:
           invalid: Hubo un problema al eliminar %{resource_name}.
           success: "%{resource_name} se ha eliminado correctamente."
-      user_group:
-        csv_verify:
-          invalid: Se produjo un error al leer el archivo CSV.
-          success: El archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
-        reject:
-          invalid: Se ha producido un error al rechazar este grupo de usuarios.
-          success: Grupo rechazado correctamente.
-        verify:
-          invalid: Se ha producido un error al verificar este grupo de usuarios.
-          success: Grupo verificado correctamente.
-      user_groups:
-        index:
-          state:
-            pending: Pendiente
-            rejected: Rechazado
-            verified: Verificado
-          verify_via_csv: Verificar a través de CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Fichero de ejemplo:'
-          explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Sube tu archivo CSV
-          upload: Subir
       users:
         create:
           error: Hubo un error al invitar a este usuario.
@@ -1325,22 +1282,13 @@ es-PY:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada.
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuarias reportadas
-        title: Usuarias reportadas
-      user_reports:
-        object: reportes de usuaria
-        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
+        parent_hidden: No se puede mostrar este recurso porque está incluido dentro de otro recurso ("padre") que sigue oculto.
         title: Acciones
         unhide: Ocultar
         unreport: Cancelar denuncia
@@ -1367,6 +1315,7 @@ es-PY:
             success: Contenido ocultado con éxito.
           unhide:
             invalid: Ha habido un problema al no encontrar el recurso.
+            parent_invalid: Ha habido un problema desocultando el recurso. El recurso en el que este está incluido ("padre") no está visible.
             success: Recurso exitosamente no oculto.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.

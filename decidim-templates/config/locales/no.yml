@@ -41,11 +41,8 @@
             save: Lagre
         questionnaire_templates:
           choose:
-            create_from_template: Opprett fra mal
-            description: Du holder på å opprette et nytt spørreskjema. Du kan velge en forhåndsdefinert mal og endre den etterpå.
             label: Velg mal
             placeholder: Velg mal
-            skip_template: Hopp over
           edit:
             edit: Rediger
             questionnaire: Spørreskjema

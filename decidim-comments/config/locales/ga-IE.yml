@@ -3,7 +3,6 @@ ga:
     models:
       decidim/comments/comment_by_followed_user_event: Trácht
       decidim/comments/comment_created_event: Trácht
-      decidim/comments/user_group_mentioned_event: Luaigh
       decidim/comments/user_mentioned_event: Luaigh
   activerecord:
     models:
@@ -14,6 +13,10 @@ ga:
         many: Vótaí
         other: Vótaí
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Tráchtanna
     components:
       add_comment_form:
         form:
@@ -42,7 +45,3 @@ ga:
           body:
             label: Trácht
           submit: Seol
-    metrics:
-      comments:
-        object: tráchtanna
-        title: Tráchtanna

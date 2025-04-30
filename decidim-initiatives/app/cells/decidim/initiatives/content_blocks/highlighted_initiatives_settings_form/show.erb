@@ -1,4 +1,9 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.number_field :max_results, label: max_results_label %>
-  <%= settings_fields.select :order, order_select, prompt: "", label: order_label %>
+  <div class="row column">
+    <%= settings_fields.number_field :max_results, label: max_results_label %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.select :order, order_select, prompt: "", label: order_label %>
+  </div>
 <% end %>

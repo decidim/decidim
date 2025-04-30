@@ -65,6 +65,8 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -217,8 +219,8 @@ ro:
           roles:
             admin: Administrator
             collaborator: Colaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Evaluator
         media_link:
           fields:
             date: Data

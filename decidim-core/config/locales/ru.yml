@@ -39,12 +39,6 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
-    models:
-      decidim/user_group:
-        one: Группа участников
-        few: Группы участников
-        many: Групп участников
-        other: Групп участников
   booleans:
     'false': 'Нет'
     'true': 'Да'
@@ -239,8 +233,6 @@ ru:
         name: Последняя активность
         title: Последняя активность
         view_all: Посмотреть всё
-      metrics:
-        name: Метрики организации
       stats:
         name: Статистика организации
       sub_hero:
@@ -359,33 +351,6 @@ ru:
           how: Как вы можете его получить
           title: Значки
       level: Уровень %{level}
-    group_admins:
-      actions:
-        demote_admin: Удалить админа
-      index:
-        current_admins: 'Текущие администраторы:'
-        manage_admins: Управление админами
-    group_invites:
-      accept_invitation: Принять
-      index:
-        invite: Пригласить
-      reject_invitation: Отклонить
-    group_members:
-      actions:
-        are_you_sure: Вы уверены?
-        remove_from_group: Удалить участника
-      index:
-        manage_members: Управление участниками
-    groups:
-      actions:
-        are_you_sure: Вы уверены?
-      edit:
-        edit_user_group: Изменить группу
-        update_user_group: Обновить группу
-      form:
-        email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
-      join:
-        success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
     last_activities:
       all: Все виды активности
       index:
@@ -485,15 +450,9 @@ ru:
         conversations: Беседы
         followers: Читают
         following: Следит за
-      sidebar:
-        badges:
-          info: Значки заработаны за выполнение определенных действий на платформе.
-          title: Значки
       user:
-        create_user_group: Создать группу
-        edit_profile: Редактировать профиль
-        edit_user_group: Изменить профиль группы
-        invite_user: Пригласить участника
+        actions:
+          edit_profile: Редактировать профиль
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -511,7 +470,6 @@ ru:
       global: Всеобщий охват
       prompt: Выбрать охват
     search:
-      results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
       filters:
@@ -539,9 +497,6 @@ ru:
         share_link: Поделиться ссылкой
     statistics:
       comments_count: Комментариев
-    user_conversations:
-      update:
-        error: Сообщение не отправлено. Попробуйте позже
     wizard_step_form:
       wizard_aside:
         back: Назад

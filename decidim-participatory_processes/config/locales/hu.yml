@@ -141,7 +141,6 @@ hu:
             admin: Admin
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
         user:
           fields:
             invitation_accepted_at: Meghívó elfogadva
@@ -308,11 +307,6 @@ hu:
           not_found: 'A folyamat típusa nem található az adatbázisban (ID: %{id}).'
     menu:
       processes: Folyamatok
-    metrics:
-      participatory_processes:
-        description: A részvételi folyamatok száma ebben a szervezetben
-        object: részvételi folyamatok
-        title: Részvételi folyamatok
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -367,9 +361,6 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
-      participatory_process_steps:
-        index:
-          back_to_process: Vissza a folyamatok oldalára
       participatory_processes:
         filters:
           all_types: Minden típus

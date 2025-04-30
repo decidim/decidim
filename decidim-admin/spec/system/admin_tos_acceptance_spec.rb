@@ -96,7 +96,6 @@ describe "AdminTosAcceptance" do
       it "allows accepting the terms" do
         click_on "I agree with the terms"
         expect(page).to have_content("Activity")
-        expect(page).to have_content("Metrics")
 
         within ".layout-nav" do
           expect(page).to have_content("Newsletters")

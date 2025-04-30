@@ -5,7 +5,6 @@ pl:
       decidim/comments/comment_created_event: Komentarz
       decidim/comments/comment_upvoted_event: Polubiono komentarz
       decidim/comments/reply_created_event: Odpowiedź na komentarz
-      decidim/comments/user_group_mentioned_event: Wzmianka
       decidim/comments/user_mentioned_event: Wzmianka
   activerecord:
     models:
@@ -20,6 +19,10 @@ pl:
         many: Głosy
         other: Głosy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarze
     comments:
       admin:
         shared:
@@ -49,8 +52,6 @@ pl:
           form_error: Tekst jest wymagany i nie może być dłuższy niż %{length} znaków.
           submit_reply: Opublikuj odpowiedź
           submit_root_comment: Opublikuj komentarz
-          user_group_id:
-            label: Komentuj jako
         opinion:
           label: Twoja opinia na ten temat
           negative: Negatywna
@@ -133,11 +134,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz usunąć użytkownika z obserwowanych na jego stronie profilowej.
           email_subject: Jest nowy komentarz dodany przez %{author_name} do %{resource_title}
           notification_title: Pojawił się nowy komentarz dodany przez <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Grupa %{author_name} dodała komentarz do %{resource_title}. Możesz go przeczytać na tej stronie:'
-          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tę grupę z poziomu jej strony profilowej.
-          email_subject: Jest nowy komentarz dodany przez %{author_name} do %{resource_title}
-          notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "Nowy komentarz: %{resource_title}. Możesz go przeczytać na tej stronie:"
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować po kliknięciu w poprzedni link.
@@ -158,21 +154,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ odpowiedziano na Twój komentarz.
           email_subject: "%{author_name} odpowiedział(a) na Twój komentarz do %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział(a) na Twój komentarz do <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Wspomniano o grupie, do której należysz
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś członkiem grupy %{group_name}, o której wspomniano w %{resource_title}.
-          email_subject: Wspomniano o Tobie w %{resource_title} jako o członku %{group_name}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> jako o członku <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Wspomniano o Tobie
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o Tobie w %{resource_title}.
           email_subject: Wspomniano o Tobie w %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> 
-    metrics:
-      comments:
-        description: Liczba komentarzy wygenerowanych przez użytkowników
-        object: komentarze
-        title: Komentarze
   errors:
     messages:
       cannot_have_comments: nie może mieć komentarzy

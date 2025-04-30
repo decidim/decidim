@@ -8,14 +8,24 @@ fr-CA:
       decidim/surveys/survey:
         one: Enquête
         other: Enquêtes
-      decidim/surveys/survey_answer:
+      decidim/surveys/survey_response:
         one: Réponse
         other: Réponses
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enquêtes
+      menu:
+        surveys_menu:
+          main: Principal
+          questions: Questions
+          responses: Réponses
+          settings: Paramètres
     components:
       surveys:
         actions:
-          answer: Réponse
+          response: Réponse
         name: Enquêtes
         settings:
           announcement: Annonce
@@ -35,43 +45,42 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-    metrics:
-      survey_answers:
-        description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
-        object: réponses aux enquêtes
-        title: Réponses aux enquêtes
     statistics:
-      answers_count: Réponses
+      responses_count: Réponses
     surveys:
       actions:
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
         destroy: Détruire
         edit: Modifier
-        manage_questions: Gérer les questions
+        manage_questions: Questions
         new_survey: Nouvelle enquête
         preview: Aperçu
+        responses_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement %{responses_count} réponses qui seront supprimées si vous continuez.
         title: Actions
       admin:
-        answers:
+        publish_responses:
           index:
-            title: "%{total} réponses totales"
-          show:
-            title: 'Réponse #%{number}'
-        exports:
-          survey_user_answers: Réponses des participants à l'enquête
-        publish_answers:
-          index:
-            answers:
+            responses:
               one: "%{count} réponse"
               other: "%{count} réponses"
-            description: |-
-              En publiant les réponses aux questions, vous lez rendrez publiquement visibles.
-              Vous pouvez sélectionner les réponses que vous voulez publier en cochant la case en regard de chaque question.
-              Vous ne pouvez uniquement publier que les types de question suivants : "Choix unique", "Choix multiple", "Matrice (choix unique)", "Matrice (choix multiple)" et "Tri".
             status:
-              not_published: Non publié
-              published: Publié
+              not_published: Non publiées
+              published: Publiées
             title: Publier les réponses
+        questions:
+          surveys:
+            edit:
+              title: Questions
+        responses:
+          index:
+            no_responses: Il n'y a pas encore de réponses
+            title: "%{total} réponses au total"
+          show:
+            title: 'Réponse #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: Paramètres
         surveys:
           create:
             invalid: Un problème est survenu lors de la création de l’enquête.
@@ -79,9 +88,11 @@ fr-CA:
           destroy:
             success: Enquête supprimée avec succès.
           edit:
-            title: Modifier l’enquête
+            title: Principal
           index:
             title: Enquêtes
+          new:
+            title: Principal
           publish:
             invalid: Une erreur s'est produite lors de la publication de cette enquête.
             success: Enquête publiée avec succès.
@@ -107,23 +118,16 @@ fr-CA:
       models:
         survey:
           fields:
-            answers: Réponses
             questions: Questions
+            responses: Réponses
             status: État 
             title: Titre
           status:
             closed: Fermée
             open: Ouverte
       survey_confirmation_mailer:
-        confirmation:
-          body: Vous avez répondu avec succès à l'enquête %{questionnaire_title} dans %{participatory_space}
-          subject: Vous avez bien répondu au questionnaire %{questionnaire_title}
-        export_name: Réponses au questionnaire
+        export_name: Réponses à l'enquête
       surveys:
-        answer:
-          invalid: Votre réponse à l'enquête comporte des erreurs.
-          spam_detected: Une erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?
-          success: Votre réponse à l'enquête a bien été enregistrée.
         filters:
           all: Toutes
           state_values:

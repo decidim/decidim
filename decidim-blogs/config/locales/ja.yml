@@ -68,11 +68,15 @@ ja:
             body: 本文
             official_blog_post: 公式ポスト
             published_at: 公開時刻
+            taxonomies: タクソノミー
             title: タイトル
       posts:
         edit:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
           back: 投稿に戻る
           button: 更新
+          edit_attachments: 添付ファイルを編集
           title: 投稿を編集
         form:
           author_id: 作成者
@@ -103,9 +107,14 @@ ja:
         settings:
           global:
             announcement: お知らせ
+            attachments_allowed: 添付ファイルを許可
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             creation_enabled_for_participants: 参加者は投稿を作成できます
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
@@ -131,7 +140,6 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         posts:
           author: 作者の情報
           body: 投稿の本文

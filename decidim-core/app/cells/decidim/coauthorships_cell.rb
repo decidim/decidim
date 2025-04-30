@@ -39,7 +39,7 @@ module Decidim
       if official?
         "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
       else
-        authorable.user_group&.presenter || authorable.author.presenter
+        authorable.author.presenter
       end
     end
 

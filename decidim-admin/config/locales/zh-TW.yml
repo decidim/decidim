@@ -33,8 +33,6 @@ zh-TW:
       help_section:
         content: 內容
       id: 編號
-      import:
-        user_group_id: 建立匯入成
       newsletter:
         body: 內容
         subject: 主旨
@@ -91,7 +89,6 @@ zh-TW:
         success_color: 成功
         time_zone: 時區
         tos_version: 服務條款版本
-        user_groups_enabled: 啟用群組功能
         users_registration_mode: 使用者註冊模式
         warning_color: 警告
         welcome_notification_body: 歡迎通知內容
@@ -186,11 +183,9 @@ zh-TW:
           new: 新參與空間私有使用者
         per_page: 每頁
         permissions: 權限
-        reject: 拒絕
         share: 分享
         user:
           new: 新增管理員
-        verify: 驗證
       admin_terms_of_service:
         accept:
           success: 太好了，已經同意管理員服務條款！
@@ -521,11 +516,7 @@ zh-TW:
         scopes: 範圍
         settings: 設定
         static_pages: 頁
-        user_groups: 群組
         users: 參與者
-      metrics:
-        metrics:
-          see_more_metrics: 查看更多指標
       models:
         area:
           fields:
@@ -590,16 +581,6 @@ zh-TW:
               admin: 管理員
               user_manager: 參與者管理者
           name: 參與者
-        user_group:
-          fields:
-            actions: 操作
-            created_at: 建立於
-            document_number: 文件編號
-            name: 名稱
-            nickname: 暱稱
-            phone: 電話號碼
-            state: 狀態
-            users_count: 參與者數目
       moderated_users:
         index:
           actions:
@@ -784,6 +765,8 @@ zh-TW:
           invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
           success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
+          csv_upload:
+            title: 請上傳您的 CSV 檔案。
           destroy:
             button: 刪除所有私人參與者
             confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
@@ -858,7 +841,6 @@ zh-TW:
           title: 編輯主題
           update: 更新主題
         new:
-          create: 建立主題
           title: 新增主題
         update:
           error: 更新主題時發生問題。
@@ -880,7 +862,6 @@ zh-TW:
         index:
           last_notable_change: 最後重要更改
         new:
-          create: 建立頁面
           title: 新頁面
         topic:
           empty: 這個主題下沒有頁面.
@@ -896,40 +877,12 @@ zh-TW:
         dashboard: 儀表板
         impersonatable_users: 可管理的參與者
         impersonations: 參與者管理
-        metrics: 指標
         panel: 管理員
         participants: 參與者
         scope_types: 範圍類型
         scopes: 範圍
         statistics: 啟動
-        user_groups: 群組
         users: 管理員
-      user_group:
-        csv_verify:
-          invalid: 讀取 CSV 檔案時發生問題。
-          success: CSV檔案上傳成功，我們正在驗證符合條件的群組。這可能需要一些時間。
-        reject:
-          invalid: 拒絕此群組時發生問題。
-          success: 群組已成功拒絕.
-        verify:
-          invalid: 驗證此群組時發生問題。
-          success: 群組驗證成功.
-      user_groups:
-        index:
-          state:
-            pending: 等待中
-            rejected: 已拒絕
-            verified: 已驗證
-          verify_via_csv: 通過 CSV 驗證
-      user_groups_csv_verifications:
-        new:
-          example_file: '示例文件:'
-          explanation: 請上傳您的 CSV 檔案。檔案的第一欄應包含您組織中的群組官方電子郵件，不包含標頭。只有已確認其電子郵件並且在 CSV 檔案中出現的群組將被驗證。
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: 請上傳您的 CSV 檔案。
-          upload: 上傳
       users:
         create:
           error: 邀請此管理員時出現問題。
@@ -956,16 +909,6 @@ zh-TW:
       errors:
         impersonate_user:
           reason: 你需要在管理非管理的參與者時提供一個原因.
-    metrics:
-      blocked_users:
-        object: 已封鎖的使用者
-        title: 已封鎖的使用者
-      reported_users:
-        object: 被舉報的使用者
-        title: 被舉報的使用者
-      user_reports:
-        object: 使用者報告
-        title: 使用者報告
     moderations:
       actions:
         expand: 展開

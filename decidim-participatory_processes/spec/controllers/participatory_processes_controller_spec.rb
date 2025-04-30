@@ -133,22 +133,6 @@ module Decidim
           end
         end
       end
-
-      describe "GET statistics" do
-        let!(:active) { create(:participatory_process, :published, :active, organization:) }
-
-        before do
-          request.env["decidim.current_organization"] = organization
-        end
-
-        context "when the process can show statistics" do
-          it "shows them" do
-            get :all_metrics, params: { slug: active.slug }
-
-            expect(response).to be_successful
-          end
-        end
-      end
     end
   end
 end

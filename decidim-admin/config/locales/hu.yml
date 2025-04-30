@@ -33,8 +33,6 @@ hu:
       help_section:
         content: Tartalom
       id: ID
-      import:
-        user_group_id: Az importáltak létrehozása mint
       newsletter:
         body: Szöveg
         send_to_all_users: Küldés az összes felhasználónak
@@ -96,7 +94,6 @@ hu:
         time_zone: Időzóna
         tos_version: Használati feltételek
         twitter_handler: X kezelő
-        user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
@@ -192,12 +189,10 @@ hu:
           new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
         permissions: Engedélyek
-        reject: Elutasít
         send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
         user:
           new: Új adminisztrátor
-        verify: Ellenőrzés
       admin_terms_of_service:
         accept:
           success: Nagyszerű! Ön elfogadta az adminisztrátori felhasználási feltételeket.
@@ -556,11 +551,7 @@ hu:
         settings: Beállítások
         static_page_topics: Témák
         static_pages: Oldalak
-        user_groups: Felhasználói csoportok
         users: Résztvevők
-      metrics:
-        metrics:
-          see_more_metrics: Több mérési eredmény megtekintése
       models:
         area:
           fields:
@@ -626,16 +617,6 @@ hu:
               admin: Admin
               user_manager: Résztvevők menedzsere
           name: Résztvevő
-        user_group:
-          fields:
-            actions: Műveletek
-            created_at: Létrehozva
-            document_number: Dokumentum száma
-            name: Név
-            nickname: Felhasználónév
-            phone: Telefon
-            state: Állapot
-            users_count: Résztvevők száma
       moderated_users:
         index:
           actions:
@@ -919,7 +900,6 @@ hu:
           title: Téma szerkesztése
           update: Téma frissítése
         new:
-          create: Téma létrehozása
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
@@ -941,7 +921,6 @@ hu:
         index:
           last_notable_change: Utolsó jelentős változás
         new:
-          create: Oldal létrehozása
           title: Új oldal
         topic:
           empty: Ebben a témakörben nincsenek oldalak.
@@ -961,7 +940,6 @@ hu:
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         menu: Menü
-        metrics: Mérőszámok
         page_topics: Témák
         pages: Oldalak
         panel: Admin
@@ -969,34 +947,7 @@ hu:
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         statistics: Tevékenység
-        user_groups: Csoportok
         users: Adminisztrátorok
-      user_group:
-        csv_verify:
-          invalid: Hiba történt a CSV fájl olvasásában.
-          success: A CSV fájl feltöltése sikeres volt, most ellenőrizzük a kritériumoknak megfelelő csoportokat. Ez eltarthat egy ideig.
-        reject:
-          invalid: Hiba történt a felhasználói csoport elutasításakor.
-          success: Csoport sikeresen elutasítva.
-        verify:
-          invalid: Hiba történt a felhasználói csoport ellenőrzésekor.
-          success: Csoport sikeresen ellenőrizve.
-      user_groups:
-        index:
-          state:
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
-          verify_via_csv: Ellenőrizze a CSV használatát
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Példa fájl:'
-          explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
-          explanation_example: |
-            naez@azemailcim.hu
-            pelda.janos@peldaul.hu
-          title: Töltse fel a CSV fájlját
-          upload: Feltöltés
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.
@@ -1023,16 +974,6 @@ hu:
       errors:
         impersonate_user:
           reason: Nem kezelt résztvevő kezelése esetén indoklást kell adnia.
-    metrics:
-      blocked_users:
-        object: letiltott felhasználók
-        title: Letiltott felhasználók
-      reported_users:
-        object: jelentett felhasználók
-        title: Jelentett felhasználók
-      user_reports:
-        object: felhasználói jelentések
-        title: Felhasználói jelentések
     moderations:
       actions:
         expand: Kibont

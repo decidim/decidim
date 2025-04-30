@@ -5,7 +5,7 @@ class DisplayCondition {
     this.wrapperField = options.wrapperField;
     this.type = options.type;
     this.conditionQuestion = options.conditionQuestion;
-    this.answerOption = options.answerOption;
+    this.responseOption = options.responseOption;
     this.mandatory = options.mandatory;
     this.value = options.value;
     this.onFulfilled = options.onFulfilled;
@@ -34,7 +34,7 @@ class DisplayCondition {
       if (checked) {
         const text = $(el).find("input[name$=\\[custom_body\\]]").val();
         const value = $input.val();
-        const id = $(el).find("input[name$=\\[answer_option_id\\]]").val();
+        const id = $(el).find("input[name$=\\[response_option_id\\]]").val();
 
         multipleInput.push({ id, value, text });
       }
@@ -54,7 +54,7 @@ class DisplayCondition {
     return $conditionWrapperField.find(".js-collection-input").find("input:not([type='hidden'])");
   }
 
-  checkAnsweredCondition(value) {
+  checkRespondedCondition(value) {
     if (typeof (value) !== "object") {
       return Boolean(value);
     }
@@ -62,20 +62,20 @@ class DisplayCondition {
     return Boolean(value.some((it) => it.value));
   }
 
-  checkNotAnsweredCondition(value) {
-    return !this.checkAnsweredCondition(value);
+  checkNotRespondedCondition(value) {
+    return !this.checkRespondedCondition(value);
   }
 
   checkEqualCondition(value) {
     if (value.length) {
-      return value.some((it) => it.id === this.answerOption.toString());
+      return value.some((it) => it.id === this.responseOption.toString());
     }
     return false;
   }
 
   checkNotEqualCondition(value) {
     if (value.length) {
-      return value.every((it) => it.id !== this.answerOption.toString());
+      return value.every((it) => it.id !== this.responseOption.toString());
     }
     return false;
   }
@@ -99,11 +99,11 @@ class DisplayCondition {
     let fulfilled = false;
 
     switch (this.type) {
-    case "answered":
-      fulfilled = this.checkAnsweredCondition(value);
+    case "responded":
+      fulfilled = this.checkRespondedCondition(value);
       break;
-    case "not_answered":
-      fulfilled = this.checkNotAnsweredCondition(value);
+    case "not_responded":
+      fulfilled = this.checkNotRespondedCondition(value);
       break;
     case "equal":
       fulfilled = this.checkEqualCondition(value);
@@ -143,7 +143,7 @@ class DisplayConditionsComponent {
         wrapperField: this.wrapperField,
         type: $condition.data("type"),
         conditionQuestion: $condition.data("condition"),
-        answerOption: $condition.data("option"),
+        responseOption: $condition.data("option"),
         mandatory: $condition.data("mandatory"),
         value: $condition.data("value"),
         onFulfilled: (fulfilled) => {

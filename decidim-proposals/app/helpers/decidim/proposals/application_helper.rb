@@ -17,8 +17,6 @@ module Decidim
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
 
-      delegate :minimum_votes_per_user, to: :component_settings
-
       # Public: The state of a proposal in a way a human can understand.
       #
       # state - The String state of the proposal.
@@ -85,10 +83,6 @@ module Decidim
         proposal_limit.present?
       end
 
-      def minimum_votes_per_user_enabled?
-        minimum_votes_per_user.positive?
-      end
-
       def not_from_collaborative_draft(proposal)
         proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
       end
@@ -138,13 +132,6 @@ module Decidim
         component_settings.proposal_limit
       end
 
-      def votes_given
-        @votes_given ||= ProposalVote.where(
-          proposal: Proposal.where(component: current_component),
-          author: current_user
-        ).count
-      end
-
       def layout_item_classes
         if show_voting_rules?
           "layout-item lg:pt-4"
@@ -184,7 +171,6 @@ module Decidim
       # Explicitly commenting the used I18n keys so their are not flagged as unused
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.participants')
-      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.user_groups')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
@@ -193,7 +179,6 @@ module Decidim
         origin_values = []
         origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
         origin_values << TreePoint.new("participants", t("participants", scope:))
-        origin_values << TreePoint.new("user_group", t("user_groups", scope:)) if current_organization.user_groups_enabled?
         origin_values << TreePoint.new("meeting", t("meetings", scope:))
 
         TreeNode.new(

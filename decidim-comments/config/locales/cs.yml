@@ -5,7 +5,6 @@ cs:
       decidim/comments/comment_created_event: Komentář
       decidim/comments/comment_upvoted_event: Komentář podpořen výše
       decidim/comments/reply_created_event: Odpověď na komentář
-      decidim/comments/user_group_mentioned_event: Zmínka
       decidim/comments/user_mentioned_event: Zmínka
   activerecord:
     models:
@@ -55,9 +54,6 @@ cs:
           form_error: Text je povinný a nemůže být delší než %{length} znaků.
           submit_reply: Publikovat odpověď
           submit_root_comment: Publikovat komentář
-          user_group_id:
-            label: Komentovat jako
-            your_profile: Váš profil
         opinion:
           label: Váš názor na toto téma
           negative: Negativní
@@ -167,17 +163,11 @@ cs:
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} zanechal komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_name}. Tento uživatel můžete zrušit ze své profilové stránky.
-          email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
-          notification_title: Je tu nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Skupina %{author_name} zanechala komentář v %{resource_title}. Můžete si jej přečíst na této stránce:'
-          email_outro: Obdrželi jste toto oznámení, protože sledujete %{author_name}. Můžete zrušit sledování této skupiny na její profilové stránce.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
           notification_title: Je tu nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -200,21 +190,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože váš komentář byl zodpovězen.
           email_subject: "%{author_name} odpověděl váš komentář v %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl na váš komentář v <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Byla zmíněna skupina, do které patříte
-          email_outro: Obdrželi jste toto oznámení, protože jste členem skupiny %{group_name}, která byla zmíněna v %{resource_title}.
-          email_subject: Byl jste zmíněn v %{resource_title} jako člen %{group_name}
-          notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a> jako člen <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Byl jste zmíněn
           email_outro: Toto oznámení jste obdrželi, protože jste byli uvedeni v %{resource_title}.
           email_subject: Byl jste zmíněn v %{resource_title}
           notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Počet komentářů generovaných uživateli
-        object: komentáře
-        title: Komentáře
   errors:
     messages:
       cannot_have_comments: nelze komentovat

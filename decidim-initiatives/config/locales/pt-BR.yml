@@ -2,7 +2,6 @@ pt-BR:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Descrição
         offline_votes: Suporte face a face
         offline_votes_for_scope: Assinaturas presenciais para %{scope_name}
@@ -27,7 +26,6 @@ pt-BR:
         comments_enabled: Permitir comentários
         custom_signature_end_date_enabled: Permitir aos autores escolher o fim do período de coleta de assinaturas
         description: Descrição
-        document_number_authorization_handler: Autorização para verificar o número do documento nos votos
         extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
@@ -77,7 +75,6 @@ pt-BR:
             label: Estado
             values:
               accepted: Assinaturas suficientes
-              created: Criado
               discarded: Descartado
               rejected: Não há assinaturas suficientes
               validating: Validação técnica
@@ -252,7 +249,6 @@ pt-BR:
           edit:
             update: Atualizar
           form:
-            authorizations: Opções de autorização
             child_scope_threshold_enabled_help_html: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Filhos. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives" target="_blank">link</a>.'
             only_global_scope_enabled_help_html: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opções
@@ -275,7 +271,6 @@ pt-BR:
           update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
-        created: Criada
         discarded: Descartado
         rejected: Não há assinaturas suficientes
         validating: Validação técnica
@@ -303,38 +298,20 @@ pt-BR:
           name: Iniciativas destacadas
       create_initiative:
         fill_data:
-          back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
-          more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
         finish:
           back: Costas
-          back_to_initiatives: De volta às iniciativas
-          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
-          confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
-          edit_my_initiative: Editar minha iniciativa
-          go_to_my_initiatives: Vá para minhas iniciativas
-          more_information: "(Mais Informações)"
-          send_my_initiative: Enviar minha iniciativa para validação técnica
-        finish_help:
-          publish_helper_text: Lembre-se de que para que sua iniciativa seja publicada, você precisa preencher as informações necessárias e <strong>enviá-las à validação técnica</strong> para que um administrador as analise.
         previous_form:
           back: Costas
-          continue: Continuar
-        promotal_committee:
-          individual_help_text: Este tipo de iniciativa requer uma Comissão Promover composta por pelo menos %{committee_size} pessoas (atestadores). Têm de partilhar o seguinte link com as outras pessoas que fazem parte desta iniciativa. Quando seus contatos receberem este link eles terão que seguir os passos indicados.
-          more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: (Mais Informações)
           new: Criar iniciativa
           select: Eu quero promover essa iniciativa
-          select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
-        share_committee_link:
-          invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
       edit:
         accept: Aceitar a iniciativa
         back: Voltar
@@ -378,20 +355,11 @@ pt-BR:
       index:
         uninitialized: As iniciativas ainda não estão configuradas por um administrador.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continuar
         finish:
           back_to_initiative: De volta à iniciativa
-        sms_code:
-          continue: Verifique o código e continue
-          help: Verifique o SMS recebido no seu telefone
-        sms_phone_number:
-          continue: Envie-me um SMS
       initiative_votes:
         create:
           error: Houve erros ao assinar a iniciativa.
-        personal_data:
-          invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
         sms_phone:
           invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique suas autorizações.
       initiatives:
@@ -500,7 +468,6 @@ pt-BR:
       show:
         badge_name:
           accepted: Assinaturas suficientes
-          created: Criado
           discarded: Descartado
           rejected: Não há assinaturas suficientes
           validating: Validação técnica
@@ -514,20 +481,11 @@ pt-BR:
       initiatives_type:
         actions:
           title: Ações
-          vote: Voto
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Criar
-        finish: Finalizar
-        promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
-      initiative_signature_creation_header:
-        fill_personal_data: Complete seus dados
-        finish: Terminar
-        sms_code: Verificação de código SMS
-        sms_phone_number: número de celular
-        title: Assinar %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nenhuma iniciativa ainda!

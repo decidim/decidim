@@ -19,11 +19,7 @@ module Decidim
           profile_url: presented.profile_url,
           direct_messages_enabled: (resource.direct_message_types != "followed-only"),
           deleted: presented.deleted?,
-          badge: presented.badge,
-          groups: {
-            id: resource.accepted_user_groups.collect(&:id),
-            name: resource.accepted_user_groups.collect(&:name)
-          }
+          badge: presented.badge
         }
       end
 

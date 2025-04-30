@@ -12,8 +12,6 @@ RSpec.describe "Initiative search" do
   let(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
   let(:user1) { create(:user, :confirmed, organization:, name: "John McDoggo", nickname: "john_mcdoggo") }
   let(:user2) { create(:user, :confirmed, organization:, nickname: "doggotrainer") }
-  let(:group1) { create(:user_group, :confirmed, organization:, name: "The Doggo House", nickname: "the_doggo_house") }
-  let(:group2) { create(:user_group, :confirmed, organization:, nickname: "thedoggokeeper") }
   let(:area1) { create(:area, organization:) }
   let(:area2) { create(:area, organization:) }
 
@@ -24,8 +22,6 @@ RSpec.describe "Initiative search" do
   let!(:area2_initiative) { create(:initiative, organization:, area: area2) }
   let!(:user1_initiative) { create(:initiative, organization:, author: user1) }
   let!(:user2_initiative) { create(:initiative, organization:, author: user2) }
-  let!(:group1_initiative) { create(:initiative, organization:, author: group1) }
-  let!(:group2_initiative) { create(:initiative, organization:, author: group2) }
   let!(:closed_initiative) { create(:initiative, :acceptable, organization:) }
   let!(:accepted_initiative) { create(:initiative, :accepted, organization:) }
   let!(:rejected_initiative) { create(:initiative, :rejected, organization:) }
@@ -53,8 +49,6 @@ RSpec.describe "Initiative search" do
     expect(subject).to include(decidim_escape_translated(area2_initiative.title))
     expect(subject).to include(decidim_escape_translated(user1_initiative.title))
     expect(subject).to include(decidim_escape_translated(user2_initiative.title))
-    expect(subject).to include(decidim_escape_translated(group1_initiative.title))
-    expect(subject).to include(decidim_escape_translated(group2_initiative.title))
     expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
     expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
     expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -75,8 +69,6 @@ RSpec.describe "Initiative search" do
       expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
       expect(subject).to include(decidim_escape_translated(user1_initiative.title))
       expect(subject).to include(decidim_escape_translated(user2_initiative.title))
-      expect(subject).to include(decidim_escape_translated(group1_initiative.title))
-      expect(subject).to include(decidim_escape_translated(group2_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -96,8 +88,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -122,8 +112,6 @@ RSpec.describe "Initiative search" do
         expect(subject).to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -144,8 +132,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).to include(decidim_escape_translated(rejected_initiative.title))
@@ -166,8 +152,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -188,8 +172,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).to include(decidim_escape_translated(rejected_initiative.title))
@@ -210,8 +192,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -232,8 +212,6 @@ RSpec.describe "Initiative search" do
         expect(subject).to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).to include(decidim_escape_translated(rejected_initiative.title))
@@ -258,8 +236,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -280,8 +256,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -316,8 +290,6 @@ RSpec.describe "Initiative search" do
         expect(subject).to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).to include(decidim_escape_translated(rejected_initiative.title))
@@ -338,8 +310,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -362,8 +332,6 @@ RSpec.describe "Initiative search" do
       expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-      expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-      expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
       expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -383,8 +351,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -409,8 +375,6 @@ RSpec.describe "Initiative search" do
         expect(subject).not_to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))
@@ -431,8 +395,6 @@ RSpec.describe "Initiative search" do
         expect(subject).to include(decidim_escape_translated(area2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user1_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(user2_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group1_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(group2_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(closed_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(accepted_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(rejected_initiative.title))

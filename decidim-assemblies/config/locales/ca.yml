@@ -200,8 +200,8 @@ ca:
           roles:
             admin: Administradora
             collaborator: Col·laboradora
+            evaluator: Avaluadora
             moderator: Moderadora
-            valuator: Avaluadora
       taxonomy_filters:
         space_filter_for:
           assemblies: Totes les assemblees
@@ -376,11 +376,6 @@ ca:
           not_found: 'El tipus d''assemblea no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
-    metrics:
-      assemblies:
-        description: Nombre d'assemblees creades
-        object: assemblees
-        title: Assemblees
     open_data:
       help:
         assemblies:

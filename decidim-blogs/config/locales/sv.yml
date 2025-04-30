@@ -133,7 +133,6 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
         posts:
           author: Uppgifter om författaren
           body: Inläggets text

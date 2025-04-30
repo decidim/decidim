@@ -19,7 +19,7 @@ module Decidim
           participant.ip_hash || "-"
         end
 
-        def answered_at
+        def responded_at
           participant.created_at
         end
 
@@ -30,23 +30,23 @@ module Decidim
         end
 
         def status
-          I18n.t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
+          I18n.t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_responses_serializer")
         end
 
-        def answers
-          siblings.map { |answer| QuestionnaireAnswerPresenter.new(answer:) }
+        def responses
+          siblings.map { |response| QuestionnaireResponsePresenter.new(response:) }
         end
 
-        def first_short_answer
-          short = siblings.where(decidim_forms_questions: { question_type: %w(short_answer) })
+        def first_short_response
+          short = siblings.where(decidim_forms_questions: { question_type: %w(short_response) })
           short.first
         end
 
         def completion
-          with_body = siblings.where(decidim_forms_questions: { question_type: %w(short_answer long_answer) })
+          with_body = siblings.where(decidim_forms_questions: { question_type: %w(short_response long_response) })
                               .where.not(body: "").count
-          with_choices = siblings.where.not(decidim_forms_questions: { question_type: %w(short_answer long_answer) })
-                                 .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
+          with_choices = siblings.where.not(decidim_forms_questions: { question_type: %w(short_response long_response) })
+                                 .where("decidim_forms_responses.id IN (SELECT decidim_response_id FROM decidim_forms_response_choices)").count
 
           (with_body + with_choices).to_f / questionnaire.questions.not_separator.not_title_and_description.count * 100
         end
@@ -54,10 +54,10 @@ module Decidim
         private
 
         def siblings
-          Answer.not_separator
-                .not_title_and_description
-                .where(questionnaire:, session_token: participant.session_token)
-                .joins(:question).order("decidim_forms_questions.position ASC")
+          Response.not_separator
+                  .not_title_and_description
+                  .where(questionnaire:, session_token: participant.session_token)
+                  .joins(:question).order("decidim_forms_questions.position ASC")
         end
       end
     end

@@ -6,8 +6,7 @@ describe "User creates proposal", type: :system do
   let(:form) do
     Decidim::Proposals::ProposalForm.from_params(
       title:,
-      body:,
-      user_group_id: user_group.try(:id)
+      body:
     ).with_context(
       current_user: author,
       current_organization: organization,

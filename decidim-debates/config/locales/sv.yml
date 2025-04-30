@@ -10,7 +10,6 @@ sv:
         instructions: Instruktioner för att delta
         start_time: Startdatum
         title: Titel
-        user_group_id: Skapa debatt som
     models:
       decidim/debates/close_debate_event: Debatten avslutades
       decidim/debates/create_debate_event: Debatt
@@ -113,13 +112,11 @@ sv:
           state_values:
             closed: Avslutade
             open: Öppna
-          user_group: Grupper
         index:
           new_debate: Ny debatt
         new:
           back: Tillbaka
           create: Skapa
-          title: Ny debatt
         orders:
           commented: Mest kommenterade
           label: Sortera debater efter
@@ -130,7 +127,6 @@ sv:
           debate_closed: Avslutade
           debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
-          groups_count: Grupper
           open: Öppen debatt
           participants_count: Deltagare
         update:
@@ -198,10 +194,5 @@ sv:
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i någon debatt än.
-    metrics:
-      debates:
-        description: Antal skapade debatter
-        object: debatter
-        title: Debatter
     statistics:
       debates_count: Debatter

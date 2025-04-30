@@ -39,6 +39,44 @@ describe "Social shares" do
   it_behaves_like "a social share widget"
   it_behaves_like "a social share via QR code" do
     let(:card_image) { "city3.jpeg" }
+
+    context "when the resource is not published" do
+      let(:meeting) { create(:meeting, component:, description:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: meeting.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource is moderated" do
+      let(:meeting) { create(:meeting, :published, component:, description:) }
+
+      before do
+        create(:moderation, reportable: meeting, hidden_at: 1.day.ago)
+      end
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: meeting.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource's component is not published" do
+      let(:component) { create(:meeting_component, :unpublished, participatory_space: participatory_process) }
+      let(:meeting) { create(:meeting, :published, component:, description:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: meeting.to_sgid.to_s) }
+      end
+    end
+
+    context "when the resource's space is not published" do
+      let(:participatory_process) { create(:participatory_process, :unpublished, hero_image:, organization:) }
+      let(:meeting) { create(:meeting, :published, component:, description:) }
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim.qr_path(resource: meeting.to_sgid.to_s) }
+      end
+    end
   end
 
   context "when no attachment images" do
@@ -64,7 +102,7 @@ describe "Social shares" do
     let!(:poll) { create(:poll, meeting:) }
     let!(:meetings_poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
     let!(:meeting_polls_question) { create(:meetings_poll_question, :published, questionnaire: meetings_poll_questionnaire) }
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_polls_answers_path(meeting) }
+    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_polls_responses_path(meeting) }
 
     it_behaves_like "a social share meta tag", "city3.jpeg"
   end

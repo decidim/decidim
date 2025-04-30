@@ -242,8 +242,8 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
-            valuator: Hodnotitel
         media_link:
           fields:
             date: Datum

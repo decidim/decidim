@@ -15,19 +15,19 @@ module Decidim
       def call
         component = create_component!
 
-        2.times do
+        number_of_records.times do
           create_meeting!(component:, type: :online)
           create_meeting!(component:, type: :online_live_event)
           create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:, type: :in_person)
 
-          2.times do
+          number_of_records.times do
             create_service!(meeting:)
           end
 
           create_questionnaire_for!(meeting:)
 
-          2.times do |_n|
+          number_of_records.times do |_n|
             create_meeting_registration!(meeting:)
           end
 
@@ -35,7 +35,6 @@ module Decidim
         end
 
         create_meeting!(component:, type: [:in_person, :online, :hybrid].sample, author_type: :user)
-        create_meeting!(component:, type: [:in_person, :online, :hybrid].sample, author_type: :user_group)
       end
 
       def create_component!
@@ -132,14 +131,6 @@ module Decidim
           params.merge(
             author: Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
           )
-        when :user_group
-          user_group = Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
-          author = user_group.users.sample
-
-          params.merge(
-            author:,
-            user_group:
-          )
         else
           params # official
         end
@@ -149,7 +140,7 @@ module Decidim
       #
       # @param component [Decidim::Component] The component where this class will be created
       # @param type [:in_person, :hybrid, :online, :online_live_event] The meeting type
-      # @param author_type [:official, :user, :user_group] Which type the author of the meeting will be
+      # @param author_type [:official, :user] Which type the author of the meeting will be
       #
       # @return [Decidim::Meeting]
       def create_meeting!(component:, type: :in_person, author_type: :official)

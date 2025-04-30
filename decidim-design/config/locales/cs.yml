@@ -185,7 +185,6 @@ cs:
         conference_s: Konference S
         conferences: Konference
         context: Kontext
-        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
         context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
         debate_l: Debata L
         debate_s: Debata S
@@ -294,6 +293,7 @@ cs:
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
+        usage_typography_5: Vypnutá karta
         value: Hodnota
         variations: Variace
         variations_cards_description: Každá karta bude vypadat jinak než s ohledem na vlastnosti zobrazeného dokumentu. Toto chování můžete přepsat v konkrétní buňce.

@@ -1,6 +1,93 @@
 ---
 es-PY:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Cuerpo del texto
+          title: Título
+          version_number: Número de versión
+        version:
+          body: Cuerpo del texto
+          version_number: Número de versión
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: '¿Seguro que quieres eliminar este documento?'
+        deleted_document_info: Los documentos eliminados se pueden restaurar desde papelera.
+        edit: Editar
+        manage: Gestionar
+        new: Nuevo texto
+        title: Acciones
+        view_deleted_documents: Ver los documentos eliminados
+      admin:
+        documents:
+          create:
+            invalid: Se ha producido un error al crear el documento.
+            success: Documento creaado correctamente.
+          edit:
+            title: Editar el texto colaborativo
+            update: Actualizar
+          edit_settings:
+            title: Configurar los textos colaborativos
+            update: Actualizar
+          index:
+            title: Textos colaborativos
+          manage_trash:
+            title: Documentos borrados
+          new:
+            create: Crear
+            title: Crear textos colaborativos
+          publish:
+            invalid: Se ha producido un error al publicar este documento.
+            success: Documento publicado con éxito.
+          unpublish:
+            invalid: Ha habido un problema al despublicar este documento.
+            success: El documento se ha despublicado correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar el documento.
+            success: Documento actualizado correctamente.
+          update_settings:
+            invalid: Se ha producido un error al actualizar el documento.
+            success: Documento actualizado correctamente.
+        settings:
+          form:
+            allow_suggestions: Permitir a las participantes hacer sugerencias
+      admin_log:
+        document:
+          create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          delete: "%{user_name} eliminó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          publish: "%{user_name} publicó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          restore: "%{user_name} restauró el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          soft_delete: "%{user_name} movió a la papelera el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          unpublish: "%{user_name} despublicó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+        version:
+          delete: "%{user_name} eliminó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+          update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+      document:
+        cancel: Cancelar
+        save: Enviar sugerencia
+        suggest: Sugerir cambios
+      documents:
+        index:
+          count:
+            one: "%{count} texto colaborativo"
+            other: "%{count} textos colaborativos"
+          empty: Todavía no hay ningún texto colaborativo.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Aceptar la(s) sugerencia(s)
+            title: Título
     components:
       collaborative_texts:
         name: Textos colaborativos
+        settings:
+          global:
+            announcement: Aviso
+            comments_blocked: Comentarios bloqueados
+          step:
+            announcement: Aviso
+    statistics:
+      collaborative_texts_count: Textos colaborativos

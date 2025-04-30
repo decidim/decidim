@@ -33,8 +33,6 @@ fi-pl:
       help_section:
         content: Sisältö
       id: ID
-      import:
-        user_group_id: Tuo käyttäjänä
       newsletter:
         body: Runko
         send_to_all_users: Lähetä kaikille käyttäjille
@@ -96,7 +94,6 @@ fi-pl:
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: X käsittelijä
-        user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
@@ -201,7 +198,6 @@ fi-pl:
           new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Oikeudet
-        reject: Hylkää
         restore: Palauta
         send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
@@ -209,7 +205,6 @@ fi-pl:
         soft_delete: Siirrä roskakoriin
         user:
           new: Uusi hallintakäyttäjä
-        verify: Vahvista
         view_deleted_components: Näytä poistetut komponentit
       admin_terms_of_service:
         accept:
@@ -603,11 +598,7 @@ fi-pl:
         static_pages: Sivut
         taxonomies: Luokittelut
         taxonomy_filters: Luokitteluiden suodattimet
-        user_groups: Käyttäjäryhmät
         users: Käyttäjät
-      metrics:
-        metrics:
-          see_more_metrics: Näytä lisää tilastomittareita
       models:
         area:
           fields:
@@ -676,16 +667,6 @@ fi-pl:
               admin: Ylläpitäjä
               user_manager: Käyttäjien hallinnoija
           name: Käyttäjä
-        user_group:
-          fields:
-            actions: Toiminnot
-            created_at: Luonnin ajankohta
-            document_number: Dokumentin numero
-            name: Nimi
-            nickname: Nimimerkki
-            phone: Puhelinnumero
-            state: Tila
-            users_count: Käyttäjämäärä
       moderated_users:
         index:
           actions:
@@ -1098,7 +1079,7 @@ fi-pl:
           title: Muokkaa aihetta
           update: Päivitä aihe
         new:
-          create: Luo aihe
+          create: Uusi aihe
           title: Uusi aihe
         update:
           error: Tämän aiheen päivittämisessä tapahtui virhe.
@@ -1122,7 +1103,7 @@ fi-pl:
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
-          create: Luo sivu
+          create: Uusi sivu
           title: Uusi sivu
         topic:
           empty: Tämän aiheen alla ei ole sivuja.
@@ -1252,7 +1233,6 @@ fi-pl:
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         menu: Valikko
-        metrics: Tilastomittarit
         page_topics: Aiheet
         pages: Sivut
         panel: Hallintakäyttäjä
@@ -1262,7 +1242,6 @@ fi-pl:
         statistics: Toiminta
         taxonomies: Luokittelut
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
-        user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
       tooltips:
         deleted_component_info: Komponentti voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
@@ -1273,32 +1252,6 @@ fi-pl:
         soft_delete:
           invalid: Kohteen %{resource_name} poisto epäonnistui.
           success: "Kohteen %{resource_name} poisto onnistui."
-      user_group:
-        csv_verify:
-          invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
-          success: CSV-tiedosto on ladattu onnistuneesti. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää hetken.
-        reject:
-          invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
-          success: Käyttäjäryhmän hylkäys onnistui.
-        verify:
-          invalid: Käyttäjäryhmän vahvistuksessa tapahtui virhe.
-          success: Käyttäjäryhmän vahvistaminen onnistui.
-      user_groups:
-        index:
-          state:
-            pending: Odottaa
-            rejected: Hylätty
-            verified: Vahvistettu
-          verify_via_csv: Vahvista CSV-tiedoston avulla
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Esimerkkitiedosto:'
-          explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
-          explanation_example: |
-            acme@esimerkki.fi
-            bubba.gump@esimerkki.fi
-          title: Lataa CSV-tiedosto
-          upload: Lähetä
       users:
         create:
           error: Tämän käyttäjän kutsumisessa tapahtui virhe.
@@ -1325,16 +1278,6 @@ fi-pl:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy, kun hallitset osallistujaa, joka ei ole hallittu osallistuja.
-    metrics:
-      blocked_users:
-        object: estetyt käyttäjät
-        title: Estetyt käyttäjät
-      reported_users:
-        object: ilmoitetut käyttäjät
-        title: Ilmoitetut käyttäjät
-      user_reports:
-        object: ilmoitukset käyttäjistä
-        title: Ilmoitukset käyttäjistä
     moderations:
       actions:
         expand: Avaa

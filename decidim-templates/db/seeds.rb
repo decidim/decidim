@@ -33,7 +33,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     end
   )
 
-  %w(short_answer long_answer).each_with_index do |text_question_type, index|
+  %w(short_response long_response).each_with_index do |text_question_type, index|
     Decidim::Forms::Question.create!(
       questionnaire:,
       body: Decidim::Faker::Localized.paragraph,
@@ -51,13 +51,13 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     )
 
     3.times do
-      question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+      question.response_options.create!(body: Decidim::Faker::Localized.sentence)
     end
 
     question.display_conditions.create!(
       condition_question: questionnaire.questions.find_by(position: question.position - 2),
       question:,
-      condition_type: :answered,
+      condition_type: :responded,
       mandatory: true
     )
   end
@@ -71,7 +71,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     )
 
     3.times do |idx|
-      question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+      question.response_options.create!(body: Decidim::Faker::Localized.sentence)
       question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position: idx)
     end
   end

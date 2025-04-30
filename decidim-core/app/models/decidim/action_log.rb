@@ -157,15 +157,7 @@ module Decidim
 
     def self.publicable_public_resource_types
       @publicable_public_resource_types ||= public_resource_types
-                                            .select { |klass| klass.constantize.column_names.include?("published_at") } - publicable_exceptions
-    end
-
-    def self.publicable_exceptions
-      @publicable_exceptions = %w(
-        Decidim::Blogs::Post
-      ).select do |klass|
-        klass.safe_constantize.present?
-      end
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") }
     end
 
     def self.ransackable_scopes(auth_object = nil)
@@ -255,7 +247,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes([:moderation, :root_commentable, :user_group])
+                  scope.where(id: relation_ids).includes([:moderation, :root_commentable])
                 else
                   scope
                 end

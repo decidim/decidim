@@ -5,10 +5,6 @@
   <%= decidim_form_for(@form, url: update_draft_amend_path(amendment), method: :patch) do |form| %>
     <div class="form__wrapper">
       <%= render partial: "edit_form_fields", locals: { form:, original: :emendation } %>
-
-      <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
-        <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
-      <% end %>
     </div>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
