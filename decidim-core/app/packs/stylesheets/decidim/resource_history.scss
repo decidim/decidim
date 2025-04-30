@@ -23,10 +23,16 @@
 
   &_text {
     @apply flex flex-col relative max-w-[250px] lg:max-w-[400px];
+  }
 
-    a {
+  &_text:has(.resource-link) {
+    .resource-link {
       @apply lg:ml-[-106px];
     }
+  }
+
+  &_text:not(:has(.resource-link)) a {
+    @apply lg:ml-[-106px];
   }
 
   &__line {
