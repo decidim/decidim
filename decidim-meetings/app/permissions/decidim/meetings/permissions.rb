@@ -3,8 +3,6 @@
 module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
