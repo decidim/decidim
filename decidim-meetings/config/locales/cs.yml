@@ -2,6 +2,8 @@
 cs:
   activemodel:
     attributes:
+      answer:
+        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -384,6 +386,8 @@ cs:
         registrations:
           edit:
             save: Uložit
+            validate: Ověřit
+            validate_registration_code: Ověřit registrační kód
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
@@ -401,6 +405,9 @@ cs:
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
+          validate_registration_code:
+            invalid: Tento registrační kód je neplatný.
+            success: Kód registrace byl úspěšně ověřen.
       admin_log:
         invite:
           create: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
@@ -554,6 +561,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
+          title: Vytvořit novou schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -610,6 +618,7 @@ cs:
         answers:
           index:
             administrate: Spravovat
+            title: Anketa
           index_admin:
             back_to_meeting: Zpět na schůzku
             title: Správa ankety
