@@ -188,7 +188,7 @@ describe "Meeting registrations" do
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
 
           expect(page).to have_text("Stop following")
@@ -210,7 +210,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_content("successfully")
 
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
           expect(page).to have_text("Stop following")
           expect(page).to have_text("Participants")
@@ -238,7 +238,7 @@ describe "Meeting registrations" do
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
           expect(page).to have_text("Stop following")
         end

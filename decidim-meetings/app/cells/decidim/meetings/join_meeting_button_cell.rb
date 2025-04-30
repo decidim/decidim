@@ -36,6 +36,10 @@ module Decidim
         options[:show_remaining_slots] && model.available_slots.positive?
       end
 
+      def participant_registered_for_meeting?
+        registration.present?
+      end
+
       def i18n_join_text
         return I18n.t("join", scope: "decidim.meetings.meetings.show") if model.has_available_slots?
 
