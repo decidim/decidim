@@ -10,14 +10,7 @@ module Decidim
       def new
         enforce_permission_to :create, :reminder
 
-        step = current_component.participatory_space.active_step # TODO participatory_space que sea proceso si no se comprueba
-        if step.start_date.nil? || step.end_date.nil?
-          flash[:alert] = "Algo fué mal en el formulario"
-          redirect_to request.referer || manage_component_path(current_component) and return
-        end
-
-        #byebug
-        @form = reminder_form_from_params(name: reminder_manifest.name) # manifest.nam del componenet
+        @form = reminder_form_from_params(name: reminder_manifest.name)
         render :new
       end
 
