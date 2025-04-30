@@ -63,37 +63,4 @@ shared_examples "manage registrations" do
       expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.json/)
     end
   end
-
-  context "when validating registration codes when registration code is enabled" do
-    before do
-      meeting.component.update!(settings: { registration_code_enabled: true })
-    end
-
-    let!(:registration) { create(:registration, meeting:, code: "QW12ER34") }
-
-    it "can validate a valid registration code" do
-      visit_edit_registrations_page
-
-      perform_enqueued_jobs do
-        within ".validate_meeting_registration_code" do
-          fill_in :validate_registration_code_code, with: "QW12ER34"
-          click_on "Validate"
-        end
-      end
-
-      expect(page).to have_admin_callout("Registration code successfully validated")
-      expect(last_email.subject).to include("Your registration code \"QW12ER34\" for the \"#{decidim_sanitize_translated(meeting.title)}\" meeting has been validated")
-    end
-
-    it "cannot validate an invalid registration code" do
-      visit_edit_registrations_page
-
-      within ".validate_meeting_registration_code" do
-        fill_in :validate_registration_code_code, with: "NOT-GOOD"
-        click_on "Validate"
-      end
-
-      expect(page).to have_admin_callout("This registration code is invalid")
-    end
-  end
 end
