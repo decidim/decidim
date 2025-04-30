@@ -79,18 +79,10 @@ lv:
         start_exploring: sāciet izpētīt
       csv_census:
         admin:
-          destroy:
-            title: Dzēst visus skaitīšanas datus
           index:
-            empty: Nav skaitīšanas datu. Izmantojiet turpmāk esošo veidlapu, lai tos importētu, lietojot CSV failu.
             title: Pašreizējie skaitīšanas dati
           instructions:
             body: Lai to izdarītu, jums jāizmanto administratora pilnvaras un organizācijai jāpievieno csv_census pilnvaras
-          new:
-            file: ".csv fails ar e-pasta datiem"
-            info: 'Failam jābūt CSV formātā, kurā ir tikai viena kolonna ar e-pasta adresi:'
-            submit: Augšupielādēt failu
-            title: Augšupielādēt jaunu skaitīšanu
         authorizations:
           new:
             error: Mēs nevarējām verificēt jūsu kontu, vai arī jūs nepiedalāties organizācijas skaitīšanā.

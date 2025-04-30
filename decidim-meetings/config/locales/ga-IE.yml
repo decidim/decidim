@@ -158,9 +158,5 @@ ga:
             question: Ceist
       type_of_meeting:
         online: Ar líne
-    metrics:
-      meetings:
-        object: cruinnithe
-        title: Cruinnithe
     statistics:
       meetings_count: Cruinnithe

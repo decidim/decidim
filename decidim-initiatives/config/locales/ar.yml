@@ -2,7 +2,6 @@ ar:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: مؤلف
         description: وصف
         offline_votes: التوقيعات الشخصية
         scope_id: نطاق
@@ -21,7 +20,6 @@ ar:
         banner_image: صورة بانر
         collect_user_extra_fields: جمع البيانات الشخصية للمشاركين عند التوقيع
         description: وصف
-        document_number_authorization_handler: إذن للتحقق من رقم الوثيقة على التوقيعات
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
         minimum_committee_members: الحد الأدنى من أعضاء اللجنة
         online_signature_enabled: تم تمكين التوقيع عبر الإنترنت
@@ -244,20 +242,11 @@ ar:
         attachment_legend: إضافة مستند أو صورة
         edit_attachments: تعديل المرفقات
       initiative_signatures:
-        fill_personal_data:
-          continue: استمر
         finish:
           back_to_initiative: العودة إلى المبادرة
-        sms_code:
-          continue: التحقق من الرمز والمتابعة
-          help: تحقق من الرسائل القصيرة المستلمة على هاتفك
-        sms_phone_number:
-          continue: ارسل لي رسالة
       initiative_votes:
         create:
           error: كانت هناك مشكلة في توقيع المبادرة.
-        personal_data:
-          invalid: البيانات الشخصية لا تتفق مع البيانات المقدمة للترخيص.
         sms_phone:
           invalid: رقم الهاتف غير صالح أو قيد التفويض. من فضلك ، تحقق من التراخيص الخاصة بك.
       initiatives:
@@ -354,18 +343,11 @@ ar:
       initiatives_type:
         actions:
           title: أفعال
-          vote: إشارة
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: إنشاء
         select_initiative_type: أختر
-      initiative_signature_creation_header:
-        fill_personal_data: أكمل بياناتك
-        finish: إنهاء
-        sms_code: التحقق من رمز SMS
-        sms_phone_number: رقم الهاتف الجوال
-        title: تسجيل %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: لا توجد مبادرات حتى الآن!

@@ -355,8 +355,6 @@ pt:
         name: Última atividade
         title: Última atividade
         view_all: Ver tudo
-      metrics:
-        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -647,21 +645,6 @@ pt:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-    metrics:
-      download:
-        csv: Descarregar dados (CSV)
-      followers:
-        description: Número de participantes que seguem este espaço de participação
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de participantes ativos na organização
-        object: participantes
-        title: Participantes
-      users:
-        description: Número de participantes na organização
-        object: participantes
-        title: Participantes
     newsletter_mailer:
       newsletter:
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
@@ -744,10 +727,6 @@ pt:
         subheading: Navegar pelas páginas de ajuda de %{name}
         title: Ajuda
         topics: Tópicos
-      participatory_space:
-        metrics:
-          headline: Métricas
-          link: Mostrar todas as métricas
     profile:
       deleted: Participante eliminado
     profiles:
@@ -793,7 +772,6 @@ pt:
       prompt: Selecionar um âmbito
     search:
       results: Resultados da pesquisa
-      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisar
     searches:
       filters:

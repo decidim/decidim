@@ -194,7 +194,7 @@ shared_examples "manage moderations" do
     it "user can review them" do
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")
+          expect(page).to have_css("a[href='#{moderation.reload.reportable.reported_content_url}']")
         end
       end
     end

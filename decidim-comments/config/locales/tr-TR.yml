@@ -14,6 +14,10 @@ tr:
         one: Oy ver
         other: oy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Yorumlar
     comments:
       comments:
         create:
@@ -92,8 +96,3 @@ tr:
           email_outro: Bu bildirimi, sizden %{resource_title} alanında bahsedildiği için aldınız.
           email_subject: '%{resource_title} alanında bahsedildiniz'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> alanında <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından bahsedildi
-    metrics:
-      comments:
-        description: Katılımcılar tarafından oluşturulan yorum sayısı
-        object: yorumlar
-        title: Yorumlar

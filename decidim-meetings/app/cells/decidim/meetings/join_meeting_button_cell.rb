@@ -12,12 +12,20 @@ module Decidim
         render
       end
 
+      def render_waitlist_button?
+        model.waitlist_enabled? && !model.has_available_slots? && model.can_be_joined_by?(current_user) && !model.has_registration_for?(current_user)
+      end
+
       private
 
       delegate :current_user, to: :controller, prefix: false
 
       def current_component
         model.component
+      end
+
+      def available_slots?
+        @available_slots ||= model.has_available_slots?
       end
 
       def button_classes
@@ -34,6 +42,10 @@ module Decidim
         I18n.t("no_slots_available", scope: "decidim.meetings.meetings.show")
       end
 
+      def i18n_join_waitlist_text
+        I18n.t("join_waitlist", scope: "decidim.meetings.meetings.show")
+      end
+
       def i18n_confirm_text
         I18n.t("confirm", scope: "decidim.meetings.meetings.registration_confirm")
       end
@@ -48,6 +60,18 @@ module Decidim
 
       def registration_form
         @registration_form ||= Decidim::Meetings::JoinMeetingForm.new
+      end
+
+      def registration_action
+        @registration_action ||= model.has_available_slots? ? "registration" : "waitlist"
+      end
+
+      def registration_path
+        model.has_available_slots? ? meeting_registration_path(model) : join_waitlist_meeting_registration_path(model)
+      end
+
+      def registration_translation_key
+        model.has_available_slots? ? :join : :join_waitlist
       end
     end
   end

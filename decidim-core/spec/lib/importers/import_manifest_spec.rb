@@ -100,7 +100,7 @@ module Decidim
             end
           end
 
-          subject.message(:foo, ctx)
+          expect { subject.message(:foo, ctx) }.not_to raise_error
         end
       end
 
@@ -141,7 +141,7 @@ module Decidim
             end
           end
 
-          subject.message(:foo, ctx, a: "A", b: "B")
+          expect { subject.message(:foo, ctx, a: "A", b: "B") }.not_to raise_error
         end
       end
     end

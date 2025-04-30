@@ -411,9 +411,6 @@ lb:
         settings: die Einstellungen
         static_pages: Seiten
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -730,7 +727,6 @@ lb:
         dashboard: Instrumententafel
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
-        metrics: Kriterien
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
@@ -756,16 +752,6 @@ lb:
           last_month: Letzter Monat
           last_week: Letzte Woche
           participants: Teilnehmer
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen

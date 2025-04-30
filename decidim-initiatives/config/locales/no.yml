@@ -2,7 +2,6 @@
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Forfatter
         description: Beskrivelse
         offline_votes: Personlige underskrifter
         offline_votes_for_scope: Signatur ved fysisk oppmøte for %{scope_name}
@@ -26,7 +25,6 @@
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
         description: Beskrivelse
-        document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
         online_signature_enabled: Online signatur aktivert
@@ -245,7 +243,6 @@
           edit:
             update: Oppdater
           form:
-            authorizations: Innstillinger for autorisasjon
             options: Valg
           initiative_type_scopes:
             title: Tema for initiativtypen
@@ -332,20 +329,11 @@
           email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avviste søknaden din om å være en del av promotørutvalget i følgende initiativ <a href="%{resource_url}">%{resource_title}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Fortsett
         finish:
           back_to_initiative: Tilbake til initiativ
-        sms_code:
-          continue: Sjekk kode og fortsett
-          help: Sjekk SMS mottatt på telefonen
-        sms_phone_number:
-          continue: Send meg en meldig
       initiative_votes:
         create:
           error: Det oppstod et problem med å signere initiativet.
-        personal_data:
-          invalid: Personopplysninger samsvar ikke med informasjonen som er gitt for autorisering.
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
@@ -457,18 +445,11 @@
       initiatives_type:
         actions:
           title: Handlinger
-          vote: Signer
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Opprett
         select_initiative_type: Velg
-      initiative_signature_creation_header:
-        fill_personal_data: Fullfør dataene dine
-        finish: Fullfør
-        sms_code: SMS-kode verifisering
-        sms_phone_number: Mobiltelefon number
-        title: Signer %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ingen intiativer ennå!

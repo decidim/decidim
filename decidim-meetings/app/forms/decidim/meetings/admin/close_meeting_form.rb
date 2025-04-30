@@ -11,7 +11,7 @@ module Decidim
         attribute :video_url, String
         attribute :audio_url, String
         attribute :closing_visible, Boolean, default: true
-        attribute :attendees_count, Integer, default: 0
+        attribute :attendees_count, Integer
         attribute :contributions_count, Integer, default: 0
         attribute :attending_organizations, String
         attribute :proposal_ids, Array[Integer]
@@ -27,6 +27,7 @@ module Decidim
         # Returns nothing.
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
+          self.attendees_count = model.attendees_count || model.registrations.where.not(validated_at: nil).count
         end
 
         def proposals

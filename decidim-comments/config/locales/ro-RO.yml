@@ -28,6 +28,8 @@ ro:
             enabled: Comentarii activate
             end_time: Comentarii activate până la
             start_time: Comentarii activate de la
+      comment_thread:
+        accessibility_label: Comentariile au fost inițiate de %{full_name} începând cu %{date}
       comments:
         create:
           error: A apărut o problemă la crearea comentariului.
@@ -189,11 +191,6 @@ ro:
           email_outro: Ați primit această notificare deoarece ați fost menționat(ă) în %{resource_title}.
           email_subject: Ați fost menționat(ă) în %{resource_title}
           notification_title: Ați fost menționat(ă) în <a href="%{resource_path}">%{resource_title}</a> de către <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Numărul de comentarii generate de participanți
-        object: comentarii
-        title: Comentarii
   errors:
     messages:
       cannot_have_comments: nu poate avea comentarii

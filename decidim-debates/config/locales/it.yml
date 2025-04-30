@@ -175,10 +175,5 @@ it:
           name: Dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
-    metrics:
-      debates:
-        description: Numero di dibattiti creati
-        object: dibattiti
-        title: dibattiti
     statistics:
       debates_count: Dibattiti

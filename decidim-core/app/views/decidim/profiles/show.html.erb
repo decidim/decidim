@@ -2,7 +2,7 @@
 <% add_decidim_page_title(profile_holder.name) %>
 
 <% content_for :header_snippets do %>
-  <meta name="robots" content="noindex">
+  <%= tag :meta, name: "robots", content: "noindex" %>
 <% end %>
 
 <%# NOTE: this page does not use a regular layout %>

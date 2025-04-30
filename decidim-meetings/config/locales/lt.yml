@@ -137,7 +137,6 @@ lt:
             default_registration_terms: Numatytos registracijos sąlygos
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             maps_enabled: Žemėlapiai įjungti
-            registration_code_enabled: Registracijos kodas įjungtas
             resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
             terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
           step:
@@ -171,10 +170,8 @@ lt:
           email_subject: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%
           notification_title: Susitikimui <a href="%{resource_path}">%{resource_title}</a> skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
         meeting_updated:
-          email_intro: '"%{resource_title}" susitikimas buvo atnaujintas. Naująją versiją galite perskaityti susitikimo puslapyje:'
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" susitikimas buvo atnaujintas'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> susitikimas buvo atnaujintas.
         registration_code_validated:
           email_intro: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas.
           email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ susitikimo registracijos kodas buvo patvirtintas.
@@ -334,8 +331,6 @@ lt:
         registrations:
           edit:
             save: Išsaugoti
-            validate: Patvirtinti
-            validate_registration_code: Patvirtinti registracijos kodą
           form:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
@@ -354,9 +349,6 @@ lt:
           update:
             invalid: Išsaugant registracijos nuostatas iškilo problema.
             success: Susirinkimo registracijų nuostatos išsaugotos.
-          validate_registration_code:
-            invalid: Šis registracijos kodas negalioja.
-            success: Registracijos kodas patvirtintas.
       admin_log:
         invite:
           create: "%{user_name} pakvietė %{attendee_name} į susirinkimą %{resource_name} %{space_name} erdvėje"
@@ -511,7 +503,6 @@ lt:
           micro_camera_permissions_warning: Kai paspausite ant žemiau esančio mygtuko, Jūsų paprašys leidimo naudoti mikrofoną ir kamerą, bei prisijungsite prie susirinkimo
           no_slots_available: Nebėra vietų
           organizations: Dalyvaujančios organizacijos
-          registration_code_help_text: Jūsų registracijos kodas
           registration_state:
             validated: PATIKRINTA
             validation_pending: VYKSTA PATIKRINIMAS
@@ -571,7 +562,6 @@ lt:
         confirmation:
           confirmed_html: Jūsų registracija į susirinkimą <a href="%{url}">%{title}</a> buvo patvirtinta.
           details: Išsamią susirinkimo informaciją rasite priede.
-          registration_code: Jūsų registracijos kodas yra %{code}.
       registration_type:
         on_different_platform: Kitoje platformoje
         on_this_platform: Šioje platformoje
@@ -596,11 +586,6 @@ lt:
         withdraw: Atsiimta
       withdraw:
         success: Susirinkimas sėkmingai išimtas.
-    metrics:
-      meetings:
-        description: Sukurtų susirinkimų skaičius
-        object: susirinkimai
-        title: Susirinkimai
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Įvykę susirinkimai

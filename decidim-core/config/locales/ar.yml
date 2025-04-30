@@ -473,10 +473,6 @@ ar:
         view_all: عرض الكل
       metadata:
         name: البيانات الوصفية
-      metrics:
-        name: مقاييس المنظمة
-      participatory_space_metrics:
-        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -857,27 +853,6 @@ ar:
         start:
           placeholder: رسالتك...
           send: إرسال
-    metrics:
-      blocked_users:
-        description: عدد المشاركين المحظورين
-      download:
-        csv: تحميل البيانات (CSV)
-      followers:
-        description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
-        object: متابعون
-        title: متابعون
-      participants:
-        description: عدد المشاركين النشطين في المنظمة
-        object: المشاركين
-        title: المشاركين
-      reported_users:
-        description: عدد المشاركين المبلّغ عنهم
-      user_reports:
-        description: عدد التقارير التي قدمها المشاركون
-      users:
-        description: عدد المشاركين في المنظمة
-        object: المشاركين
-        title: المشاركين
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
@@ -996,10 +971,6 @@ ar:
         subheading: انتقل من خلال صفحات المساعدة من %{name}
         title: المساعدة
         topics: المواضيع
-      participatory_space:
-        metrics:
-          headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
       terms_of_service:
         form:
           agreement: أوافق على هذه الشروط
@@ -1050,7 +1021,6 @@ ar:
     search:
       name: البحث
       results: نتائج البحث
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:

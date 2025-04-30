@@ -23,6 +23,19 @@ module Decidim
         CGI.unescapeHTML html_truncate(description, max_length:, tail:)
       end
 
+      def waitlist_status_block(registration)
+        return unless registration.waiting_list?
+
+        render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "ticket-line" } do
+          content_tag(:div) do
+            safe_join([
+                        content_tag(:h3, t("waitlist.status", scope: "decidim.meetings.meetings.show"), class: "meeting__aside-block__title"),
+                        content_tag(:p, t("waitlist.description", scope: "decidim.meetings.meetings.show"), class: "text-sm")
+                      ])
+          end
+        end
+      end
+
       # Public: The css class applied based on the meeting type to
       #         the css class.
       #

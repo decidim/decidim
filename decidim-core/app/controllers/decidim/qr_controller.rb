@@ -16,7 +16,7 @@ module Decidim
     def show
       respond_to do |format|
         format.html
-        format.png { send_data(qr_code.as_png(size: 480), filename: "qr-#{organization_name}-#{parametrized_title}.png") }
+        format.png { send_data(qr_code.as_png(size: 500), filename: "qr-#{organization_name}-#{parametrized_title}.png") }
       end
     end
 

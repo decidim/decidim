@@ -157,10 +157,5 @@ nl:
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
-    metrics:
-      debates:
-        description: Aantal debatten gemaakt
-        object: debatten
-        title: debatten
     statistics:
       debates_count: Debatten

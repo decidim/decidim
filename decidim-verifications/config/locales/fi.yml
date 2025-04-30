@@ -160,30 +160,11 @@ fi:
         start_exploring: aloittaa palveluun tutustumisen
       csv_census:
         admin:
-          census:
-            create:
-              error: Henkilötietorekisterin tuonti epäonnistui.
-              success: '%{count} kohteen tuonti onnistui (%{errors} virhettä).'
-            destroy_all:
-              success: Kaikki henkilötietorekisterin tiedot on poistettu.
-          destroy:
-            confirm: Henkilötietorekisterin tietojen poistoa ei voi perua. Haluatko varmasti jatkaa?
-            title: Poista kaikki rekisteritiedot
           index:
-            data: Ladattuja tietueita on yhteensä %{count}. Viimeisin latauspäivä oli %{due_date}.
-            empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
             title: Nykyiset rekisteritiedot
           instructions:
             body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
-          new:
-            example: |
-              matti.meikalainen@esimerkki.fi
-              minna.meikalainen@esimerkki.fi
-            file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
-            info: 'On oltava CSV-tiedosto, jossa on vain yksi sarake sähköpostiosoitteille:'
-            submit: Lataa tiedosto
-            title: Lataa uusi rekisteri
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.

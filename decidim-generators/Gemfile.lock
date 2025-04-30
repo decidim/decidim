@@ -155,6 +155,9 @@ PATH
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
+    decidim-elections (0.31.0.dev)
+      decidim-admin (= 0.31.0.dev)
+      decidim-core (= 0.31.0.dev)
     decidim-forms (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
     decidim-generators (0.31.0.dev)
@@ -834,6 +837,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-design!
   decidim-dev!
+  decidim-elections!
   decidim-initiatives!
   decidim-templates!
   letter_opener_web (~> 2.0)

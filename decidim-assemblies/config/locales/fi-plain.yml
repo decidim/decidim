@@ -376,11 +376,6 @@ fi-pl:
           not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
-    metrics:
-      assemblies:
-        description: Ryhmien määrä
-        object: ryhmät
-        title: Ryhmät
     open_data:
       help:
         assemblies:
