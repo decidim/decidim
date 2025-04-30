@@ -9,16 +9,6 @@ module Decidim
 
         new(participatory_space).query
       end
-
-      private
-
-      def participatory_space_ids
-        @participatory_space_ids ||= (participatory_space.id if participatory_space.is_a?(Decidim::Conferences))
-      end
-
-      def participatory_space_class
-        Decidim::Conference
-      end
     end
   end
 end

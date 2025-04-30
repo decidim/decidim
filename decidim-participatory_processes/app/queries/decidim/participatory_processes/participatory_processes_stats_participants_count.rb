@@ -15,18 +15,6 @@ module Decidim
 
       private
 
-      def participatory_space_ids
-        @participatory_space_ids ||= if participatory_space.is_a?(Decidim::ParticipatoryProcess)
-                                       participatory_space.id
-                                     else
-                                       participatory_space.participatory_processes.pluck(:id)
-                                     end
-      end
-
-      def participatory_space_class
-        Decidim::ParticipatoryProcess
-      end
-
       def space_components
         @space_components ||= if participatory_space.is_a?(Decidim::ParticipatoryProcess)
                                 participatory_space.components

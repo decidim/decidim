@@ -27,8 +27,7 @@ module Decidim
       return [] unless Decidim.module_installed?(:comments)
 
       Decidim::Comments::Comment
-        .where(decidim_participatory_space_type: participatory_space_class.name)
-        .where(decidim_participatory_space_id: participatory_space_ids)
+        .where(participatory_space:)
         .pluck(:decidim_author_id)
         .uniq
     end
@@ -90,14 +89,6 @@ module Decidim
 
     def survey_response_query
       Decidim::Forms::Response.newsletter_participant_ids(space_components)
-    end
-
-    def participatory_space_ids
-      raise NotImplementedError
-    end
-
-    def participatory_space_class
-      raise NotImplementedError
     end
 
     def space_components
