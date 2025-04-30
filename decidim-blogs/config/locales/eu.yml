@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -66,7 +66,7 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Gorputza
+            body: Testua
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
             taxonomies: Taxonomiak
@@ -81,7 +81,7 @@ eu:
           title: Editatu sarrera
         form:
           author_id: Egilea
-          body: Gorputza
+          body: Testua
           title: Izenburua
         index:
           count:
@@ -144,7 +144,7 @@ eu:
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
         posts:
           author: Egilearen informazioa
-          body: Argitaratuaren gorputza
+          body: Argitaratuaren testua
           comments_count: Argitalpen honek duen iruzkin kopurua
           component: Zein osagairi dagokion argitalpena
           created_at: Zein datatan sortu zen argitalpen hau
