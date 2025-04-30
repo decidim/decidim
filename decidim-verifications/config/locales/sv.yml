@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      census_data:
+        file: Fil
       config:
         available_methods: Tillgängliga alternativ
         offline: Offline

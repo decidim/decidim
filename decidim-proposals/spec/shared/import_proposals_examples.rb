@@ -9,7 +9,7 @@ shared_examples "import proposals" do
   it "imports proposals from one component to another" do
     fill_form
 
-    confirm_flash_message_enqueued_jobs
+    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
     perform_enqueued_jobs
     visit current_path
 
@@ -17,13 +17,13 @@ shared_examples "import proposals" do
       expect(page).to have_content(proposal.title["en"])
     end
 
-    confirm_current_path
+    expect(page).to have_current_path(manage_component_path(current_component))
   end
 
   it "imports proposals from one component to another by keeping the authors" do
     fill_form(keep_authors: true)
 
-    confirm_flash_message_enqueued_jobs
+    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
     perform_enqueued_jobs
     visit current_path
 
@@ -31,7 +31,7 @@ shared_examples "import proposals" do
       expect(page).to have_content(proposal.title["en"])
     end
 
-    confirm_current_path
+    expect(page).to have_current_path(manage_component_path(current_component))
   end
 
   describe "import proposals" do
@@ -44,8 +44,8 @@ shared_examples "import proposals" do
       dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_current_path(manage_component_path(current_component))
     end
 
     it "imports from a json file" do
@@ -53,8 +53,8 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_current_path(manage_component_path(current_component))
     end
 
     it "imports from a excel file" do
@@ -62,8 +62,8 @@ shared_examples "import proposals" do
 
       click_on "Import"
 
-      confirm_flash_message
-      confirm_current_path
+      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_current_path(manage_component_path(current_component))
     end
   end
 
@@ -79,17 +79,5 @@ shared_examples "import proposals" do
     end
 
     click_on "Import proposals"
-  end
-
-  def confirm_flash_message_enqueued_jobs
-    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
-  end
-
-  def confirm_flash_message
-    expect(page).to have_content("3 proposals successfully imported")
-  end
-
-  def confirm_current_path
-    expect(page).to have_current_path(manage_component_path(current_component))
   end
 end

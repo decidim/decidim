@@ -95,7 +95,6 @@ ar:
           ok: حسنا
         budget_summary:
           are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
-          cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
             title: اكتمال التصويت في الميزانية
         count:

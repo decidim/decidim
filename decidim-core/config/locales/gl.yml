@@ -618,7 +618,6 @@ gl:
       global: Alcance global
       prompt: Seleccione un alcance
     search:
-      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
       filters:

@@ -1175,7 +1175,6 @@ pl:
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
-      results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:

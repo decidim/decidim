@@ -165,6 +165,7 @@ eu:
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            registration_code_enabled: Izena emateko kodea eta QR aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
@@ -231,11 +232,18 @@ eu:
             location: kokapena
             start_time: hasiera-ordua
           notification_title: '%<a href="%{resource_path}">{resources ce_title}</a> bilera eguneratu egin da zenbait aldaketa sartzeko: %{changed_fields}.'
+        meeting_waitlist_added:
+          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">% {resources ce_title}</a> bilerarako.
         registration_code_validated:
           email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
           email_subject: '"%{resource_title}" topaketarako zure "%{registration_code}" erregistro kodea baliozkotu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako zure "%{registration_code}" erregistro kodea balioztatu da.
+        registration_marked_as_attendee:
+          email_intro: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
+          email_subject: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako zure izen-ematea egiaztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketan izena emateko epea ireki da. Izena eman ahal duzu bere orrian:'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
@@ -275,6 +283,7 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
+        mark_as_attendee: Baieztatu etorriko zarela
         new_meeting: Beste topaketa bat
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -423,6 +432,7 @@ eu:
             recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs. decidim. org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
+            registrations: Ikusi inskripzioak
             registrations_count:
               one: Izen-emate bat izan da.
               other: '%{count} izen-emate izan dira.'
@@ -432,6 +442,17 @@ eu:
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
+        registrations_attendees:
+          index:
+            title: Izen-emateak
+            validate: Balioztatu
+            validate_registration_code: Balidatu inskripzio-kodea
+          mark_attendee:
+            invalid: Inskripzio hau dagoeneko markatu da parte-hartzaile gisa.
+            success: Inskripzio hori zuzen markatu da parte-hartzaile gisa.
+          validate_registration_code:
+            invalid: Izena emateko kode hau baliogabea da.
+            success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
         invite:
           create: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
@@ -588,8 +609,11 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           join: Izena eman
+          join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
+          leave_waitlist: Utzi itxarote-zerrenda
+          leave_waitlist_confirmation: Ziur zaude topaketa honetarako itxarote-zerrenda utzi nahi duzula?
           link_available_soon: Esteka hau laster izango da eusukagarri
           link_closed: Bideokonferentziarako esteka hasi baino minutu batzuk lehenago egongo da eskuragarri
           live_event: Topaketa hau oraintxe gertatzen ari da
@@ -599,6 +623,9 @@ eu:
           organizations: Bertaratutako erakundeak
           pending_address: Kokapena laster adieraiko da.
           redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
+          registration_and_qr_code: Inskripzioa eta QR kodea
+          registration_code: 'Inskripzio-kodea: %{code}'
+          registration_code_help_text: Zure inskripzioa eta QR kodea
           registration_state:
             validated: BALIDATUA
             validation_pending: BALIOZKOTZEKO ZAIN
@@ -606,6 +633,9 @@ eu:
             one: "Slot %{count} geratzen da"
             other: "%{count} slot geratzen dira"
           visit_finished: Ikusi egindako topaketa
+          waitlist:
+            description: Leku bat libre geratzen bada, zure erregistroa automatikoki prozesatuko dugu eta posta elektronikoz jakinaraziko dizugu.
+            status: Itzrote-zerrendan zaude
           withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_meeting: Kendu
@@ -633,6 +663,15 @@ eu:
             start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Titulua
+        registration:
+          actions: Ekintzak
+          fields:
+            email: Helbide elektronkoa
+            name: Izena
+            status: Egoera
+          status:
+            attended: Atenditua
+            not_attended: Ez du parte hartu
       polls:
         questions:
           closed_question:
@@ -676,6 +715,7 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
+          registration_code: Zure erregistro-kodea %{code} da. Mesedez, erakutsi QR kode hau administratzaile bati zure asistentzia balidatzeko.
       registration_type:
         on_different_platform: Plataforma desberdin batean
         on_this_platform: Plataforma honetan
@@ -690,6 +730,9 @@ eu:
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
+        waitlist:
+          invalid: Arazo bat egon da itxarote-zerrendara lotzean.
+          success: Zuzen sartu zara bileraren itxarote-zerrendan. Zure erregistroa behar bezala ziurtatuz gero, jakinaraziko dizute.
       type_of_meeting:
         hybrid: Hibridoa
         in_person: Aurrez aurre

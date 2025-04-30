@@ -3,6 +3,8 @@ eu:
     attributes:
       authorization:
         verification_attachment: Egiaztapen-eranskina
+      census_data:
+        file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline
@@ -123,6 +125,9 @@ eu:
       admin_log:
         csv_datum:
           create: "%{user_name} -k sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
+          delete: "%{user_name} -k ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          import: "%{user_name} -k %{imported_count} errolda-erregistroak inportatu ditu"
+          update: "%{user_name} -k eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'
@@ -164,14 +169,18 @@ eu:
       csv_census:
         admin:
           actions:
+            confirm_destroy: Ziur zaude erroldako datuen erregistro hau ezabatu nahi duzula?
             destroy: Suntsitu
             edit: Editatu
           census:
             create_import:
               error: Arazo bat izan da erroldak inportatzean.
               no_user: Ez da aurkitu parte-hartzailea
+              success: Zuzen inportatu dira %{count} elementu. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
+            destroy:
+              success: Errolda-datuen erregistroa ezabatu da.
             index:
-              empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV artxibo bat.
+              empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV fitxategi bat.
               no_sign_in: Saioa inoiz ez hasia
               no_user: Ez da aurkitu parte-hartzailerik
             last_login:
@@ -183,7 +192,7 @@ eu:
               example: |
                 john.doe@example.org
                 jane.doe@example.org
-              info: 'CSV formatudun artxiboa izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
+              info: 'CSV formatudun fitxategia izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
               submit: Igo fitxategia
               title: Inportatu errolda-datuak
               upload_new_census: Igo beste errolda bat
@@ -229,7 +238,7 @@ eu:
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
       errors:
         invalid_emails: 'Hurrengo helbide elektronikoak ez dira baliozkoak: %{invalid_emails}.'
-        no_emails: Artxiboak helbide elektronikoak eduki behar ditu
+        no_emails: Fitxategiak helbide elektronikoak eduki behar ditu
         wrong_number_columns: "%{expected} zutabe espero zen, baina %{actual} aurkitu zuten."
       id_documents:
         admin:

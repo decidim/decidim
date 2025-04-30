@@ -5,6 +5,7 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       attachment:
         documents: Dokumente
+        image: Bild
         photos: Fotos
       common:
         created_at: Erstellt am
@@ -52,6 +53,12 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Der Spitzname muss Kleinbuchstaben sein und keine Leerzeichen enthalten
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -1545,6 +1552,8 @@ de:
         report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
       controls_label: Ressourcensteuerung
+    resource_autocomplete:
+      help: Tippen, um Vorschläge zu durchsuchen
     resource_endorsements:
       create:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
@@ -1554,7 +1563,6 @@ de:
     search:
       name: Suchen
       results: Suchergebnisse
-      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
@@ -1673,7 +1681,20 @@ de:
         body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
+        instructions_intro: Wir haben Anweisungen an die mit dem Konto verknüpfte E-Mail-Adresse gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
         subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
+      notify_deprecation_to_owner:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
+        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3: Um weiterhin auf Ihr Konto zuzugreifen, müssen Sie ein Passwort setzen.
+        greeting: Hallo %{name},
+        instructions_1: 'Klicken Sie auf den Link unten, um den Passwortaufsetzungsprozess zu starten:'
+        instructions_2: Geben Sie in das Formular die E-Mail-Adresse ein, unter der Sie diese Nachricht erhalten haben, und senden Sie die Anfrage ab.
+        instructions_3: Überprüfen Sie Ihren Posteingang für eine E-Mail mit weiteren Anweisungen, um Ihr neues Passwort festzulegen.
+        instructions_title: "<strong>Was Sie tun müssen</strong>"
+        set_password: Starte Passwortsetzungsprozess
+        subject: Wichtiges Update zur Gruppenfunktion
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2042,7 +2063,11 @@ de:
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
+        back: Zurück zur Liste
+        cancel: Abbrechen
         close: Schliessen
+        confirm_close_ephemeral_session: Wenn Sie wegnavigieren, wird Ihre temporäre Sitzung geschlossen. Allerdings werden alle Fortschritte und Aktivitäten gespeichert. Wenn Sie Ihre Aktivität beendet haben, klicken Sie auf OK.
+        confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü

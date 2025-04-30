@@ -3,6 +3,8 @@ ca:
     attributes:
       authorization:
         verification_attachment: Arxiu adjunt de la verificació
+      census_data:
+        file: Fitxer
       config:
         available_methods: Mètodes disponibles
         offline: Sense connexió
