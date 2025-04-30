@@ -15,7 +15,13 @@ module Decidim
         @organization = user.organization
         @notifications_digest = Decidim::NotificationsDigestPresenter.new(user)
         @display_see_more_message = notifications.size > SIZE_LIMIT
-        @notifications = notifications[0...SIZE_LIMIT].map { |notification| Decidim::NotificationToMailerPresenter.new(notification) }
+        # Note that this could be improved by adding a "type" column to the notifications table
+        # This fix can generate lists of notifications that are below the SIZE_LIMIT
+        @notifications = notifications[0...SIZE_LIMIT].filter_map do |notification|
+          next unless notification.event_class_instance.respond_to?(:email_intro)
+
+          Decidim::NotificationToMailerPresenter.new(notification)
+        end
 
         mail(to: user.email, subject: @notifications_digest.subject)
       end
