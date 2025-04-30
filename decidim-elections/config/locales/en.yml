@@ -27,15 +27,12 @@ en:
             title: Edit election
             update: Update election
           form:
-            add_attachments: Add images
+            add_images: Add images
             attachment_legend: Add an image gallery (optional)
-            attachments: Attachments
             basic_title: Basic info
             calendar: Calendar
             calendar_description: Check that the organization time zone is correct in the organization settings. The current configuration is %{timezone}.
-            description: Description
             edit_attachments: Edit attachments
-            end_at: End time
             manual_start: Manual start
             results_availability:
               after_end: After elections end
@@ -45,11 +42,7 @@ en:
               real_time: Real time
               real_time_help: Results are shown live as votes come in
               title: Results availability
-            start_at: Start time
-            title: Title
           index:
-            fields:
-              title: Title
             title: Elections
           manage_trash:
             title: Deleted elections
@@ -59,11 +52,9 @@ en:
           publish:
             invalid: There was a problem publishing the election.
             success: Election published successfully.
-            title: Publish election
           unpublish:
             invalid: There was a problem unpublishing the election.
             success: Election unpublished successfully.
-            title: Unpublish election
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
@@ -78,7 +69,6 @@ en:
       models:
         election:
           fields:
-            description: Description
             end_at: End time
             start_at: Start time
             title: Title

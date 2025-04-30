@@ -18,7 +18,7 @@ module Decidim
 
         it "returns the develop branch" do
           # change back to "develop" once PR is accepted
-          expect(subject.edge_git_branch).to eq("feature/new-elections-module")
+          expect(subject.edge_git_branch).to eq("feature/new-elections-model")
         end
       end
 
