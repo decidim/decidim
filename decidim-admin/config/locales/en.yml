@@ -1103,12 +1103,15 @@ en:
           reason: You need to provide a reason when managing a non-managed participant.
     metrics:
       blocked_users:
+        description: Blocked users are those who have blocked by the admin.
         object: blocked users
         title: Blocked users
       reported_users:
+        description: Reported users are those who have been reported by other users pending to be moderated.
         object: reported users
         title: Reported users
       user_reports:
+        description: User reports detail information regarding users in a space.
         object: user reports
         title: User reports
     moderations:
