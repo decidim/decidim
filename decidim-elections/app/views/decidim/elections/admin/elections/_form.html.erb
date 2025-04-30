@@ -2,12 +2,14 @@
 <div class="form__wrapper">
   <div class="card-section election-fields">
     <div class="card form-basic" data-component="accordion" id="accordion-basic">
-      <button type="button" class="card-divider-button" data-controls="panel-basic" data-open="true">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title">
-          <%= t("basic_title", scope: "decidim.elections.admin.elections.form") %>
-        </h2>
-      </button>
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-basic" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("basic_title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
       <div id="panel-basic">
         <div class="row column">
           <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
@@ -33,16 +35,20 @@
     </div>
 
     <div class="card form-calendar" data-component="accordion" id="accordion-calendar">
-      <button type="button" class="card-divider-button" data-controls="panel-calendar" data-open="true">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title">
-          <%= t("calendar", scope: "decidim.elections.admin.elections.form") %>
-        </h2>
-      </button>
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-calendar" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("calendar", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
       <div id="panel-calendar">
-        <%= cell "decidim/announcement", t("decidim.elections.admin.elections.form.calendar_description",
-                                           timezone: "#{current_organization.time_zone} (#{l(Time.current.in_time_zone(current_organization.time_zone), format: :long)})"
-                                          ), callout_class: "warning" %>
+        <div class="row column">
+          <%= cell "decidim/announcement", t("decidim.elections.admin.elections.form.calendar_description",
+                                             timezone: "#{current_organization.time_zone} (#{l(Time.current.in_time_zone(current_organization.time_zone), format: :long)})"
+          ), callout_class: "warning" %>
+        </div>
         <div class="row column">
           <%= form.check_box :manual_start, label: t("decidim.elections.admin.elections.form.manual_start") %>
         </div>
@@ -60,12 +66,14 @@
     </div>
 
     <div class="card form-results" data-component="accordion" id="accordion-results">
-      <button type="button" class="card-divider-button" data-controls="panel-results" data-open="true">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title">
-          <%= t("results_availability.title", scope: "decidim.elections.admin.elections.form") %>
-        </h2>
-      </button>
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-results" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("results_availability.title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
       <div id="panel-results">
         <div class="row column">
           <%= form.collection_radio_buttons :results_availability,
