@@ -311,6 +311,7 @@ sv:
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade gruppen av deltagandeprocesser %{resource_name}"
         update: "%{user_name} uppdaterade gruppen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i processen %{space_name}"

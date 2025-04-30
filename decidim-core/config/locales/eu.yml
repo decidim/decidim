@@ -4,10 +4,19 @@ eu:
     attributes:
       account:
         delete_reason: Zure kontua ezabatzeko arrazoia
+      attachment:
+        documents: Dokumentuak
+        image: Irudia
+        photos: Argazkiak
       common:
         created_at: Sortze-data
+      content_block_attachment:
+        background_image: Atzeko planoko irudia
+        main_image: Irudi nagusia
       conversation:
         body: Testua
+      editor_image:
+        file: Fitxategia
       group:
         about: Honi buruz
         avatar: Abatarra
@@ -16,12 +25,15 @@ eu:
         name: Izena
         nickname: Goitizena
         phone: Telefonoa
+      import:
+        file: Fitxategia
       message:
         body: Testua
       report:
         details: Iruzkin gehigarriak
       user:
         about: Honi buruz
+        avatar: Abatarra
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
@@ -33,6 +45,8 @@ eu:
         personal_url: URL pertsonala
         remove_avatar: Kendu abatarra
         tos_agreement: Erabilera-terminoak eta -baldintzak
+      user_group:
+        avatar: Abatarra
     errors:
       models:
         user:
@@ -745,6 +759,11 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '%{emendation_author_nickname} k baztertu du %{amendable_title} aldaketa'
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
+        emendation_promoted:
+          follower:
+            email_intro: 'Zuzenketa bat argitaratu da honetarako: %{amendable_title}. Orrialde honetatik ikus dezakezu:'
+            email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
+            email_subject: 'Hemendik: %{emendation_author_nickname} zuzenketa bat argitaratu da %{amendable_type} berri gisa'
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde honetan ikusi dezakezu:'
@@ -1186,6 +1205,8 @@ eu:
         not_started: Oraindik ez da hasi
         remaining: "%{time_distance} falta da"
     metrics:
+      blocked_users:
+        description: Blokeatutako parte-hartzaile kopurua
       download:
         csv: Deskargatu datuak (CSV)
       followers:
@@ -1196,6 +1217,10 @@ eu:
         description: Erakundekoparte-hartzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
+      reported_users:
+        description: Erreportatuko parte-hartzaile kopurua
+      user_reports:
+        description: Parte-hartzaileek egindako txosten kopurua
       users:
         description: Parte-hartzaile kopurua erakundean
         object: parte-hartzaileak
@@ -1261,10 +1286,12 @@ eu:
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
+        real_time: Denbora erreala
         weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       intro:
         daily: 'Hauek dira azken eguneko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
+        real_time: 'Jarraitzen ari zaren jarduerari buruzko jakinarazpena dago:'
         weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       outro: Jakinarazpen hau jaso duzu eduki hau edo bere egileak jarraitzen dituzulako. Jarraitzeari utzi ahal diozu euren orrialdeetan.
       see_more: Ikusi jakinarazpen gehiago
@@ -1397,8 +1424,11 @@ eu:
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
+        details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
+        participatory_space: Partaidetza-espazioa
+        reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       report:

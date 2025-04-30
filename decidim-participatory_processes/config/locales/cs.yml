@@ -318,6 +318,7 @@ cs:
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
         create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
+        unpublish: "%{user_name} zrušil publikaci účastníků %{resource_name} participačního procesu"
         update: "%{user_name} aktualizoval skupinu %{resource_name} na participační proces"
       participatory_process_step:
         activate: "%{user_name} aktivoval %{resource_name} krok %{space_name} participaci"

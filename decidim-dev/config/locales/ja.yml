@@ -2,6 +2,9 @@
 ja:
   activemodel:
     attributes:
+      dummy:
+        image: 画像
+      dummy_attribute: ダミー属性
       dummy_resource:
         created_at: 作成日時
         decidim_scope_id: スコープ

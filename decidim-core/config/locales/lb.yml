@@ -29,6 +29,8 @@ lb:
         password_confirmation: Bestäteg däi Passwuert
         personal_url: Perséinlech URL
         remove_avatar: Avatar läschen
+      user_group:
+        avatar: Profil-Bild
     models:
       decidim/attachment_created_event: Unhang
       decidim/component_published_event: Aktiv Komponent

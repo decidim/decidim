@@ -2,6 +2,9 @@
 fr:
   activemodel:
     attributes:
+      dummy:
+        image: Image
+      dummy_attribute: Attribut factice
       dummy_resource:
         created_at: Créé le
         decidim_scope_id: Secteur

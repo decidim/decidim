@@ -4,10 +4,19 @@ ca-IT:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        image: Imatge
+        photos: Fotos
       common:
         created_at: Creat el
+      content_block_attachment:
+        background_image: Imatge de fons
+        main_image: Imatge principal
       conversation:
         body: Cos
+      editor_image:
+        file: Arxiu
       group:
         about: Quant a
         avatar: Avatar
@@ -16,12 +25,15 @@ ca-IT:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      import:
+        file: Arxiu
       message:
         body: Cos
       report:
         details: Comentaris addicionals
       user:
         about: Quant a
+        avatar: Imatge de perfil
         email: El teu correu electrònic
         encrypted_password: Contrasenya
         locale: Configuració regional
@@ -33,6 +45,8 @@ ca-IT:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -354,7 +368,7 @@ ca-IT:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
-        error: S'ha produït un error en retirar l'esmena.
+        error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
@@ -659,7 +673,7 @@ ca-IT:
         download_data: Descarrega't les dades
         download_data_description_html: |-
           S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>.
-          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). 
+          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS).
           Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     editor_images:
@@ -668,7 +682,7 @@ ca-IT:
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsement_buttons_cell:
-      already_endorsed: No m'agrada
+      already_endorsed: Desfer el "M'agrada"
       endorse: M'agrada
     endorsements:
       identities:
@@ -743,6 +757,11 @@ ca-IT:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè és autora de %{amendable_title}.
+            email_subject: Una esmena de %{emendation_author_nickname} s'ha publicat com un nou %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
@@ -1185,6 +1204,8 @@ ca-IT:
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participants bloquejades
       download:
         csv: Descarregar les dades (csv)
       followers:
@@ -1195,6 +1216,10 @@ ca-IT:
         description: Nombre de participants actives a l'organització
         object: participants
         title: Participants
+      reported_users:
+        description: Número de participants reportades
+      user_reports:
+        description: Número de denúncies realitzades per participants
       users:
         description: Nombre de participants a l'organització
         object: participants
@@ -1260,10 +1285,12 @@ ca-IT:
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
+        real_time: En temps real
         weekly: Resum setmanal de notificacions
       hello: Hola %{name},
       intro:
         daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        real_time: 'Aquesta és una notificació sobre l''activitat que segueixes:'
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions
@@ -1396,8 +1423,12 @@ ca-IT:
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
     reported_mailer:
       hide:
+        content: Contingut reportat
+        details: Detalls
         hello: Hola %{name},
         manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
       report:

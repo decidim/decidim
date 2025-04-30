@@ -24,6 +24,8 @@ es-MX:
             enabled: Comentarios habilitados
             end_time: Comentarios habilitados hasta
             start_time: Comentarios habilitados desde
+      comment_thread:
+        accessibility_label: Hilo de comentario iniciado por %{full_name} el %{date}
       comments:
         create:
           error: Se ha producido un error al crear el comentario.

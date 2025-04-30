@@ -12,6 +12,8 @@ cs:
         state: Stav
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adresa
         answer: Odpovědět
@@ -22,6 +24,8 @@ cs:
         decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
+        latitude: Zeměpisná šířka
+        longitude: Zeměpisná délka
         scope_id: Oblast působnosti
         state: Stav
         suggested_hashtags: Navrhované hashtagy
@@ -48,6 +52,8 @@ cs:
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
+      proposals_file_import:
+        file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
         keep_answers: Zachovat stav a odpovědi
@@ -385,7 +391,6 @@ cs:
         title: Hlasy
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:

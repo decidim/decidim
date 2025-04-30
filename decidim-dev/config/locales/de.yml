@@ -2,6 +2,9 @@
 de:
   activemodel:
     attributes:
+      dummy:
+        image: Bild
+      dummy_attribute: Dummy-Attribut
       dummy_resource:
         created_at: Erstellt am
         decidim_scope_id: Umfang

@@ -31,6 +31,8 @@ lt:
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
         tos_agreement: Paslaugos sutarties sąlygos
+      user_group:
+        avatar: Avataras
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas

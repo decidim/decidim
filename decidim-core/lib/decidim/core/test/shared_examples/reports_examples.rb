@@ -33,13 +33,6 @@ shared_examples "higher user role hides" do
     before do
       login_as user, scope: :user
     end
-    around do |example|
-      previous = Capybara.raise_server_errors
-
-      Capybara.raise_server_errors = false
-      example.run
-      Capybara.raise_server_errors = previous
-    end
 
     it "reports the resource" do
       visit reportable_path
@@ -53,6 +46,10 @@ shared_examples "higher user role hides" do
         click_on "Hide"
       end
 
+      sleep(1)
+
+      expect(page).to have_current_path(reportable_index_path, ignore_query: true)
+
       expect(reportable.reload).to be_hidden
     end
   end
@@ -64,14 +61,6 @@ shared_examples "higher user role hides resource with comments" do
 
     before do
       login_as user, scope: :user
-    end
-    around do |example|
-      previous = Capybara.raise_server_errors
-
-      # Disabling server errors to that we can test page not found error.
-      Capybara.raise_server_errors = false
-      example.run
-      Capybara.raise_server_errors = previous
     end
 
     it "hides the resource" do
@@ -92,6 +81,10 @@ shared_examples "higher user role hides resource with comments" do
         find(:css, "input[name='report[hide]']").set(true)
         click_on "Hide"
       end
+
+      sleep(1)
+
+      expect(page).to have_current_path(reportable_index_path, ignore_query: true)
 
       perform_enqueued_jobs
 

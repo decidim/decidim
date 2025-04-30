@@ -4,6 +4,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -33,6 +35,8 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+      user_group:
+        avatar: Profilbild
     errors:
       models:
         user:

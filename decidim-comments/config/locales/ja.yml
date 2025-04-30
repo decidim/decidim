@@ -22,6 +22,8 @@ ja:
             enabled: コメントを有効にする
             end_time: 次の時点までのコメントを有効にする
             start_time: 次の時点からコメントを有効にする
+      comment_thread:
+        accessibility_label: '%{full_name} が %{date} に開始したコメントスレッド'
       comments:
         create:
           error: コメントの登録に問題がありました。

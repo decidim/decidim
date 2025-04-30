@@ -106,6 +106,8 @@ ja:
       participatory_space_private_user:
         email: Eメールアドレス
         name: 名前
+      participatory_space_private_user_csv_import:
+        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -716,6 +718,11 @@ ja:
             report_language: 報告の言語
             report_reason: '理由:'
             title: 報告の詳細
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: プレビュー

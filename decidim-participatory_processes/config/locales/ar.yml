@@ -249,6 +249,8 @@ ar:
         publish: "%{user_name} نشر عملية المشاركة %{resource_name}"
         unpublish: "%{user_name} لم تنشر العملية التشاركية %{resource_name}"
         update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
+      participatory_process_group:
+        unpublish: "المستخدم %{user_name} قام بإلغاء نشر مجموعة عملية المشاركة %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} تفعيل المرحلة %{resource_name} في عملية المشاركة %{space_name}"
         create: "%{user_name} خلق المرحلة %{resource_name} في العملية التشاركية %{space_name}"

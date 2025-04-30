@@ -106,6 +106,8 @@ es-MX:
       participatory_space_private_user:
         email: Correo electrónico
         name: Nombre
+      participatory_space_private_user_csv_import:
+        file: Archivo
       scope:
         code: Código
         name: Nombre
@@ -721,6 +723,11 @@ es-MX:
             report_language: Idioma del informe
             report_reason: Motivo
             title: Detalles del informe
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Previsualizar

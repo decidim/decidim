@@ -12,6 +12,8 @@ ja:
         state: 状態
         title: タイトル
         user_group_id: 共同草案として作成します
+      import_participatory_text:
+        document: ドキュメント
       proposal:
         address: 住所
         answer: 回答
@@ -22,6 +24,8 @@ ja:
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
+        latitude: 緯度
+        longitude: 経度
         scope_id: 対象範囲
         state: 状態
         suggested_hashtags: 推奨ハッシュタグ
@@ -48,6 +52,8 @@ ja:
       proposals_copy:
         copy_proposals: この操作は選択したコンポーネントにあるすべての提案を現在のコンポーネントにインポートし、元に戻せないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
+      proposals_file_import:
+        file: ファイル
       proposals_import:
         import_proposals: 提案をインポート
         keep_answers: ステータスと回答を保持
@@ -373,7 +379,6 @@ ja:
         title: 投票
     participatory_spaces:
       highlighted_proposals:
-        last: 最近の提案
         see_all: すべての提案を見る
     proposals:
       actions:

@@ -31,6 +31,8 @@ zh-TW:
         personal_url: 個人 URL
         remove_avatar: 刪除頭像
         tos_agreement: 同意服務條款
+      user_group:
+        avatar: 頭像
     models:
       decidim/attachment_created_event: 附件
       decidim/component_published_event: 啟用組件

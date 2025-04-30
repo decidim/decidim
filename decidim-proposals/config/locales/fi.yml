@@ -12,6 +12,8 @@ fi:
         state: Tila
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
+      import_participatory_text:
+        document: Asiakirja
       proposal:
         address: Osoite
         answer: Vastaus
@@ -22,6 +24,8 @@ fi:
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
+        latitude: Leveysaste
+        longitude: Pituusaste
         scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
@@ -48,6 +52,8 @@ fi:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi perua.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_file_import:
+        file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
         keep_answers: Säilytä tilat ja vastaukset
@@ -377,7 +383,6 @@ fi:
         title: Äänet
     participatory_spaces:
       highlighted_proposals:
-        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
