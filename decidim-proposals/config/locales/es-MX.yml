@@ -418,23 +418,6 @@ es-MX:
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
-    metrics:
-      accepted_proposals:
-        description: Número de propuestas aceptadas por los usuarios
-        object: propuestas
-        title: Propuestas aceptadas
-      endorsements:
-        description: Número de adhesiones generadas en las propuestas
-        object: adhesiones
-        title: Adhesiones
-      proposals:
-        description: Número de propuestas generadas
-        object: propuestas
-        title: Propuestas
-      votes:
-        description: Número de apoyos a propuestas
-        object: Apoyos
-        title: Apoyos
     open_data:
       help:
         proposal_comments:
@@ -486,7 +469,6 @@ es-MX:
           withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todo
     proposals:
       actions:
@@ -1014,7 +996,7 @@ es-MX:
         update:
           title: Actualizar propuesta
         vote_button:
-          already_voted: Ya has dado tu apoyo
+          already_voted: Ya le has dado apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay apoyos restantes

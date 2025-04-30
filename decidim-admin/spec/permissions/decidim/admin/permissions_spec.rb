@@ -118,6 +118,13 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "editor image upload" do
+    let(:action_subject) { :editor_image }
+    let(:action_name) { :create }
+
+    it { is_expected.to be true }
+  end
+
   describe "static pages" do
     let(:action_subject) { :static_page }
     let(:page) { build(:static_page, :default) }

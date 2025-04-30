@@ -22,10 +22,11 @@ module Decidim
     end
 
     def date_time
+      created_at_in_time_zone = created_at.in_time_zone(resource.organization.time_zone)
       if frequency == :daily
-        created_at.strftime("%H:%M")
+        I18n.l(created_at_in_time_zone, format: :time_of_day)
       else
-        I18n.l(created_at, format: :decidim_short)
+        I18n.l(created_at_in_time_zone, format: :decidim_short)
       end
     end
 

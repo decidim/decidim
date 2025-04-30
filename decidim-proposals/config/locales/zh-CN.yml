@@ -195,19 +195,6 @@ zh-CN:
           name: 建议
           next_level_in: 再创建 %{score} 个建议以达到下一关！
           unearned_own: 您尚未创建任何提案。
-    metrics:
-      accepted_proposals:
-        description: 接受的建议数
-        object: 提议
-        title: 已接受的提议
-      endorsements:
-        description: 建议认可次数
-        object: 核准
-        title: 授权
-      proposals:
-        description: 建议数
-        object: 提议
-        title: 建议
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议

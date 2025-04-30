@@ -106,7 +106,6 @@ zh-CN:
           ok: 好的
         budget_summary:
           are_you_sure: 您确定要取消您的投票吗？
-          cancel_order: 删除您的投票并开始
           checked_out:
             title: 预算投票完成
         count:

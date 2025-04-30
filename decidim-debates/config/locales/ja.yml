@@ -149,6 +149,7 @@ ja:
         new:
           back: 戻る
           create: 作成
+          title: 新しいディベートを作成
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'
@@ -233,11 +234,6 @@ ja:
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
           unearned_own: まだどのディベートにも参加していません。
-    metrics:
-      debates:
-        description: 作成されたディベート数
-        object: ディベート
-        title: ディベート
     open_data:
       help:
         debate_comments:

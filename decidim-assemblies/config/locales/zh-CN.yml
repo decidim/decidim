@@ -261,11 +261,6 @@ zh-CN:
           not_found: '在数据库中找不到程序集类型 (ID: %{id})'
     menu:
       assemblies: 程序集
-    metrics:
-      assemblies:
-        description: 创建的集合数
-        object: 程序集
-        title: 程序集
     participatory_processes:
       show:
         related_assemblies: 相关的会议

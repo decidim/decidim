@@ -35,7 +35,7 @@ en:
         comments_enabled: Enable comments
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
         description: Description
-        document_number_authorization_handler: Authorization to verify document number on signatures
+        document_number_authorization_handler: Signature workflow
         extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
@@ -319,10 +319,10 @@ en:
           edit:
             update: Update
           form:
-            authorizations: Authorization settings
             child_scope_threshold_enabled_help_html: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
             only_global_scope_enabled_help_html: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
+            signature_workflow_settings: Signature workflow settings
           initiative_type_scopes:
             title: Scopes for the initiative type
           new:
@@ -469,24 +469,46 @@ en:
       index:
         uninitialized: Initiatives are not yet configured by an administrator.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Date of birth
+              document_number:
+                placeholder: Document number
+              document_type:
+                prompt: Document type
+              document_type_and_number:
+                help_text: The document number corresponds to the document used in the census verification.
+                label: Document type and number
+              gender:
+                options:
+                  man: Man
+                  non_binary: Non binary
+                  woman: Woman
         fill_personal_data:
-          continue: Continue
+          continue: Validate your data
           help: Please, fill the following fields with your personal data to sign the initiative.
+          invalid_authorization: The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization.
+          invalid_data: Some of the personal data provided to verify your identity is not valid.
         finish:
           back_to_initiative: Back to initiative
-        sms_code:
-          continue: Check code and continue
-          help: Check the SMS received at your phone
+          title: You have signed the initiative
         sms_phone_number:
-          continue: Send me an SMS
-          help: Fill the form with your verified phone number to request your verification code.
+          confirmed_data: You have confirmed your data.
+          continue: Sign initiative
+          help_enter_your_number: Please enter your phone number. You will then receive an SMS with a validation code.
+          receive_code: Receive code
+          resend_code_html: Have not received the code? <a href="%{new_code_path}">Try again</a>
+          your_code_is_correct: Your code is correct.
+          your_code_is_incorrect: The code is not correct. Review it or <a href="%{new_code_path}">try again</a>.
+          your_confirmation_code: Your confirmation code
       initiative_votes:
         create:
+          already_voted: Your signature had already been registered with your data.
           error: There was a problem signing the initiative.
           invalid: The data provided to sign the initiative is not valid.
           success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed.
-        personal_data:
-          invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
           invalid: Your verification code does not match ours. Please double-check the SMS we sent you.
         sms_phone:
@@ -613,6 +635,23 @@ en:
           open: Open
           rejected: Not enough signatures
           validating: Technical validation
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Signature which takes personal information from user, validates authorization and checks SMS code
+            name: Dummy Signature Handler
+          dummy_signature_with_personal_data_handler:
+            description: Signature which only takes personal information from user and validates it
+            name: Dummy Signature Handler With Personal Data
+          dummy_signature_with_sms_handler:
+            description: Signature which only validates phone number looking for an existing authorization associated and checks SMS code
+            name: Dummy Signature Handler With Only SMS
+          ephemeral_dummy_signature_handler:
+            description: Ephemeral signature which takes personal information from user, validates authorization and checks SMS code
+            name: Ephemeral Dummy Signature Handler
+          legacy_signature_handler:
+            description: Signature handler based on the old signature feature including the collection of personal data, the SMS step and validating the authorization with dummy_authorization_handler. Modify any parameter to adapt to the configuration used
+            name: Legacy Signature Handler
       states:
         accepted: Accepted
         expired: Expired
@@ -659,7 +698,6 @@ en:
         actions:
           create: Create an initiative
           title: Actions
-          vote: Sign
   layouts:
     decidim:
       initiative_creation_header:
@@ -668,11 +706,8 @@ en:
         promotal_committee: Look for promoters
         select_initiative_type: Choose
       initiative_signature_creation_header:
-        fill_personal_data: Complete your data
-        finish: Finish
-        sms_code: SMS code verification
-        sms_phone_number: Mobile phone number
-        title: Sign %{initiative_title}
+        help_information_html: To sign the initiative <strong>%{initiative_title}</strong> promoted by %{initiative_author} you need to provide some information that will make the initiative signing legally binding. No information about you will be made public.
+        verify_your_identity: Verify your identity
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!

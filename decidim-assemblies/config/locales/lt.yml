@@ -334,11 +334,6 @@ lt:
           not_found: 'Asamblėjos tipas duomenų bazėje nerastas (ID: %{id})'
     menu:
       assemblies: Asamblėjos
-    metrics:
-      assemblies:
-        description: Sukurtų asamblėjų skaičius
-        object: asamblėjos
-        title: Asamblėjos
     participatory_processes:
       show:
         related_assemblies: Susijusios asamblėjos

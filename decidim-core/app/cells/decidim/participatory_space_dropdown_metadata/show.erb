@@ -3,7 +3,9 @@
     <%= render :metadata %>
     <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", model, hide_participatory_space: true %>
   </div>
-  <ul class="menu-bar__secondary-dropdown__menu">
-    <%= render :links %>
-  </ul>
+  <nav role="navigation" aria-label="<%= t("decidim.accessibility.secondary_menu") %>">
+    <ul class="menu-bar__secondary-dropdown__menu">
+      <%= render :links %>
+    </ul>
+  </nav>
 </div>

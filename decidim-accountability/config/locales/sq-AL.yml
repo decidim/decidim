@@ -213,11 +213,6 @@ sq:
           email_outro: Kw njoftim iu vjen sepse ndiqni %{proposal_title} dhe ky propozim është i përfshirë në rezultatin %{resource_title}. Mund t'i ndalosh njoftimet duke ndejkur linkun e mëparshëm.
           email_subject: Një përditësim për ecurinë e %{resource_title}
           notification_title: Rezultati <a href="%{resource_path}">%{resource_title}</a> që përfshinë <a href="%{proposal_path}">%{proposal_title}</a> tani është %{progress} % i kompletuar.
-    metrics:
-      results:
-        description: Numri i rezultateve të gjeneruara
-        object: rezultatet
-        title: Rezultatet
     participatory_spaces:
       highlighted_results:
         see_all: Shiko të gjitha rezultatet

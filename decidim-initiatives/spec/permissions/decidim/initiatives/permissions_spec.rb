@@ -43,42 +43,6 @@ describe Decidim::Initiatives::Permissions do
 
       it { is_expected.to be false }
     end
-
-    context "when the initiative type has permissions to vote" do
-      before do
-        initiative.type.create_resource_permission(
-          permissions: {
-            "vote" => {
-              "authorization_handlers" => {
-                "dummy_authorization_handler" => { "options" => {} },
-                "another_dummy_authorization_handler" => { "options" => {} }
-              }
-            }
-          }
-        )
-      end
-
-      context "when user is not verified" do
-        it { is_expected.to be false }
-      end
-
-      context "when user is not fully verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
-        end
-
-        it { is_expected.to be false }
-      end
-
-      context "when user is fully verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
-          create(:authorization, name: "another_dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
-        end
-
-        it { is_expected.to be true }
-      end
-    end
   end
 
   context "when the action is for the admin part" do

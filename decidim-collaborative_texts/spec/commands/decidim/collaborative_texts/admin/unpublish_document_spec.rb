@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe UnpublishDocument, type: :command do
         let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:document) { create(:collaborative_text_document, published_at: Time.current, title: "This is and original document test title") }
+        let(:document) { create(:collaborative_text_document, :with_body, published_at: Time.current, title: "This is and original document test title") }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:command) { described_class.new(document, current_user) }
 

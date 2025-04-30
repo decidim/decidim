@@ -404,6 +404,8 @@ en:
           participatory_processes:
             one: 1 process
             other: "%{count} processes"
+      related_processes:
+        help: All the selected processes will be assigned to this group, including the ones that are already assigned to other groups.
       show:
         title: Participatory process groups
     participatory_process_steps:

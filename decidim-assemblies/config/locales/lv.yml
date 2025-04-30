@@ -254,11 +254,6 @@ lv:
           not_found: 'Asamblejas veids netika atrasts datubāzē (ID: %{id})'
     menu:
       assemblies: Asambleja
-    metrics:
-      assemblies:
-        description: Izveidoto asambleju skaits
-        object: asambleja
-        title: Asambleja
     participatory_processes:
       show:
         related_assemblies: Saistītās asamblejas

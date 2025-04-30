@@ -6,6 +6,7 @@ en:
         delete_reason: Reason to delete your account
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Created at
@@ -53,6 +54,12 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: The nickname must be lowercase and contain no spaces
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -166,6 +173,7 @@ en:
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
+      secondary_menu: Secondary menu
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -940,6 +948,16 @@ en:
       notification_event:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+          email_outro: You have received this notification because you are an author of the affected %{resource_type}.
+          email_subject: Your %{resource_type} is no longer visible
+          notification_title: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.
@@ -1520,8 +1538,12 @@ en:
         title: QR Code for %{resource_title}
     reported_mailer:
       hide:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
@@ -1545,6 +1567,8 @@ en:
         report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
+    resource_autocomplete:
+      help: Type to search proposals
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -1554,7 +1578,7 @@ en:
     search:
       name: Search
       results: Search results
-      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      results_found_for_term: '%{count} results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
@@ -1673,10 +1697,20 @@ en:
         body_2: As part of our efforts to simplify the experience for organizations, the "User Groups" feature is being deprecated. Your User Group profile has now been converted into a regular participant profile.
         greeting: Dear %{name},
         instructions_1: If you have access to that email account, please check your inbox for the instructions.
-        instructions_2: If not, one of your colleagues who has access will need to set the password and share the login credentials with you.
-        instructions_intro: Group members will now share access to this profile using shared login credentials (email and password). We have sent instructions to <strong>%{group_email}</strong> to set a new password for the profile.
-        instructions_title: "<strong>What this means to you?</strong>"
+        instructions_intro: We have sent instructions to the email associated with the account to set a new password for the profile.
+        instructions_title: "<strong>What This Means for You</strong>"
         subject: User group you are member of important update
+      notify_deprecation_to_owner:
+        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
+        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
+        body_3: To continue accessing your account, we need you to set a password.
+        greeting: Dear %{name},
+        instructions_1: 'Click the link below to start the password setup process:'
+        instructions_2: On the form, enter the email address where you received this message and submit the request.
+        instructions_3: Check your inbox for an email with further instructions to set your new password.
+        instructions_title: "<strong>What You Need to Do</strong>"
+        set_password: Start Password Setting Process
+        subject: User group important update
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -1798,16 +1832,6 @@ en:
         instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
-      user_group_reset_password_instructions:
-        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
-        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
-        body_3: To continue accessing your account and share access, we need you to set a password. Once set, you can share the login credentials (email and password) with anyone.
-        greeting: Dear %{name},
-        instructions_1: 'Click the link below to set your password:'
-        instructions_2: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
-        instructions_title: "<strong>What you need to do</strong>"
-        set_password: Set your password
-        subject: User group important update
     omniauth_callbacks:
       add_tos_errors: Terms of service must be accepted in order to create an account.
       failure: Could not authenticate you from %{kind} because "%{reason}".
@@ -2055,8 +2079,11 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        back: Back to list
+        cancel: Cancel
         close: Close
-        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
+        confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
+        confirm_title_close_ephemeral_session: Before leaving this page…
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu

@@ -148,6 +148,7 @@ ja:
           roles:
             admin: 管理者
             collaborator: コラボレーター
+            evaluator: 評価者
             moderator: モデレーター
         user:
           fields:
@@ -338,11 +339,6 @@ ja:
           not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})。'
     menu:
       processes: 参加型プロセス
-    metrics:
-      participatory_processes:
-        description: この組織の参加型プロセス数
-        object: 参加型プロセス
-        title: 参加型プロセス
     open_data:
       help:
         participatory_processes:
@@ -402,6 +398,8 @@ ja:
           meta_scope: スコープ
           participatory_processes:
             other: "%{count} 個のプロセス"
+      related_processes:
+        help: 選択されたすべてのプロセスがこのグループに割り当てられます。他のグループにすでに割り当てられているプロセスも含まれます。
       show:
         title: 参加型プロセスグループ
     participatory_process_steps:
@@ -467,9 +465,6 @@ ja:
           highlighted_processes:
             active_spaces: アクティブなプロセス
             see_all_spaces: すべてのプロセスを見る
-      participatory_process_steps:
-        index:
-          back_to_process: 参加型プロセスのページに戻る
       participatory_processes:
         description:
           area_name: エリア

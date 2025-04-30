@@ -302,8 +302,6 @@ zh-CN:
         name: 上次活动
         title: 上次活动
         view_all: 查看全部
-      metrics:
-        name: 组织指标
       stats:
         name: 组织统计
       sub_hero:
@@ -572,19 +570,6 @@ zh-CN:
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-    metrics:
-      followers:
-        description: 跟随此参与空间的参与者数量
-        object: 关注者
-        title: 关注者
-      participants:
-        description: 组织中的活跃参与者人数
-        object: 参与者
-        title: 参加者
-      users:
-        description: 参加组织的人数
-        object: 参与者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
@@ -666,10 +651,6 @@ zh-CN:
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
-      participatory_space:
-        metrics:
-          headline: 指标
-          link: 显示所有指标
     profile:
       deleted: 删除参与者
     profiles:
@@ -711,7 +692,6 @@ zh-CN:
       prompt: 选择范围
     search:
       results: 搜索结果
-      results_found_for_term: '搜索的%{count} 结果: "%{term}"'
       term_input_placeholder: 搜索
     searches:
       filters:

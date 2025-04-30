@@ -179,6 +179,8 @@ pt-BR:
       order:
         status:
           title: Seu voto foi aceito com sucesso
+      order_pdf:
+        title: Seu voto foi aceito com sucesso.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os projetos que você selecionou são:'
@@ -202,7 +204,6 @@ pt-BR:
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
-          cancel_order: exclua seu voto e comece de novo
           checked_out:
             description: Você já votou no orçamento. Se você mudou de ideia, você pode apagar seu voto %{cancel_link}.
             title: Votação do orçamento concluída
@@ -232,14 +233,6 @@ pt-BR:
             minimum_reached: Você atingiu o mínimo para poder votar
             start_adding_projects: Começar a adicionar projetos
           minimum: Mínimo
-          minimum_projects_rule:
-            description: Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-          projects_rule:
-            description: Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-          projects_rule_maximum_only:
-            description: Selecione até %{maximum_number} projetos que você desejar e vote de acordo com suas preferências para definir o orçamento.
-          vote_threshold_percent_rule:
-            description: Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
         orders:
           highest_cost: Custo mais alto
           label: Ordenar projetos por
@@ -264,7 +257,6 @@ pt-BR:
           added: Adicionado
           all: Todos
         projects_for: Projetos para %{name}
-        select_projects: Selecionar projetos
         show:
           budget: Orçamento
       prompt: Selecione o orçamento

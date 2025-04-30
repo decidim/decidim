@@ -24,6 +24,22 @@ module Decidim
           expect(helper.component_name).to eq(I18n.t("decidim.components.collaborative_texts.name"))
         end
       end
+
+      describe "#document_i18n" do
+        it "returns the expected i18n keys with translations" do
+          allow(helper).to receive(:t).with("decidim.collaborative_texts.document.suggest").and_return("Suggest Translation")
+          allow(helper).to receive(:t).with("decidim.collaborative_texts.document.cancel").and_return("Cancel Translation")
+          allow(helper).to receive(:t).with("decidim.collaborative_texts.document.save").and_return("Save Translation")
+
+          expect(helper.document_i18n).to eq(
+            {
+              suggest: "Suggest Translation",
+              cancel: "Cancel Translation",
+              save: "Save Translation"
+            }
+          )
+        end
+      end
     end
   end
 end

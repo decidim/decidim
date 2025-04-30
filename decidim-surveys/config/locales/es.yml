@@ -45,11 +45,6 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-    metrics:
-      survey_responses:
-        description: Número de encuestas respondidas por las participantes
-        object: respuestas a encuestas
-        title: Respuestas a encuestas
     statistics:
       responses_count: Respuestas
     surveys:

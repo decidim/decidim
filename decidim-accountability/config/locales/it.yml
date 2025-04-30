@@ -310,11 +310,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{proposal_title}" e questa proposta è inclusa nel risultato "%{resource_title}". È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Un aggiornamento dell'avanzamento di %{resource_title}
           notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che include la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
-    metrics:
-      results:
-        description: Numero di risultati generati
-        object: risultati
-        title: Risultati
     open_data:
       help:
         result_comments:

@@ -102,8 +102,8 @@ eu:
           selected_proposals: Aukeratutako proposamenak
         orders:
           label: 'Zozketak honen arabera ordenatu:'
-          random: Ausaz
-          recent: Berrienak
+          random: Ausazko ordena
+          recent: Berrienetatik zaharrenetara
         results_count:
           count:
             one: Hautatutako proposamena

@@ -1,5 +1,15 @@
 ---
 en:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Body
+          title: Title
+          version_number: Version number
+        version:
+          body: Body
+          version_number: Version number
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ en:
         settings:
           form:
             allow_suggestions: Allow participants to make suggestions
+      admin_log:
+        document:
+          create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
+          delete: "%{user_name} deleted the %{resource_name} collaborative text from %{space_name}"
+          publish: "%{user_name} published the %{resource_name} collaborative text in %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} collaborative text in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} collaborative text in %{space_name} to the trash"
+          unpublish: "%{user_name} unpublished the %{resource_name} collaborative text in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} collaborative text in %{space_name}"
+        version:
+          delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
+          update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
+      document:
+        cancel: Cancel
+        save: Send suggestion
+        suggest: Suggest changes
       documents:
         index:
           count:
