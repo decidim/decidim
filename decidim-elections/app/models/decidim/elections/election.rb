@@ -29,6 +29,10 @@ module Decidim
         D: :description,
         participatory_space: { component: :participatory_space }
       )
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Elections::AdminLog::ElectionPresenter
+      end
     end
   end
 end

@@ -67,6 +67,14 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
+      admin_log:
+        election:
+          create: "%{user_name} created the %{resource_name} election in %{space_name}"
+          publish: "%{user_name} published the %{resource_name} election in %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} election in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} election in %{space_name} to the trash"
+          unpublish: "%{user_name} unpublished the %{resource_name} election in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} election in %{space_name}"
       models:
         election:
           fields:
