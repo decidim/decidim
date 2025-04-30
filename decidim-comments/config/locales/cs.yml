@@ -28,6 +28,8 @@ cs:
             enabled: Komentáře povoleny
             end_time: Komentáře povoleny do
             start_time: Komentáře povoleny od
+      comment_thread:
+        accessibility_label: Komentář začal %{full_name} na %{date}
       comments:
         create:
           error: Při vytváření komentáře došlo k chybě.
