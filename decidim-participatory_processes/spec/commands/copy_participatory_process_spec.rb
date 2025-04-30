@@ -13,6 +13,7 @@ module Decidim::ParticipatoryProcesses
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let!(:content_block) { create(:content_block, manifest_name: :hero, organization: participatory_process.organization, scope_name: :participatory_process_homepage, scoped_resource_id: participatory_process.id) }
+    let(:current_user) { create(:user, organization:) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
     let(:form) do
       instance_double(
