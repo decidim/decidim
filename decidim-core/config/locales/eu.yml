@@ -1247,7 +1247,7 @@ eu:
         body: Testua
         cta_text: Ekintza-botoiaren testua
         cta_url: Ekintza-botoiaren URLa
-        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, gorputzaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez parte-hartzailearen izena agertuko da.'
+        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, tetsuaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez parte-hartzailearen izena agertuko da.'
         introduction: Sarrera
         main_image: Irudi nagusia
     newsletters:
@@ -1424,6 +1424,7 @@ eu:
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
+        content: Jakinarazitako edukia
         details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
