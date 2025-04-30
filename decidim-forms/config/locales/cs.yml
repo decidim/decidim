@@ -49,8 +49,13 @@ cs:
               previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
+            export:
+              answer:
+                title: 'Odpověď č.%{number}'
             export_response:
               title: survey_user_answers_%{token}
+            index:
+              title: "%{total} odpovědí celkem"
             show:
               title: 'Odpověď č.%{number}'
           display_condition:
@@ -122,6 +127,9 @@ cs:
       admin_log:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
+      errors:
+        answer:
+          body: Tělo textu nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -142,13 +150,16 @@ cs:
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.
+          max_choices_alert: Je vybráno příliš mnoho možností
           success: Dotazník úspěšně odpověděl.
         question:
           max_choices: 'Max možnosti: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Již máte účet?
             are_you_new?: Nový uživatel?
             sign_in_description: Přihlaste se k provedení průzkumu
+            sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
             title: Odpovězte na dotazník
           current_step: Krok %{step}
           empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
