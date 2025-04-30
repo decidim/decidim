@@ -4,10 +4,18 @@ fi:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      attachment:
+        documents: Asiakirjat
+        photos: Kuvat
       common:
         created_at: Luontiaika
+      content_block_attachment:
+        background_image: Taustakuva
+        main_image: Pääkuva
       conversation:
         body: Viestin teksti
+      editor_image:
+        file: Tiedosto
       group:
         about: Tietoja
         avatar: Avatar
@@ -16,12 +24,15 @@ fi:
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      import:
+        file: Tiedosto
       message:
         body: Viestin teksti
       report:
         details: Lisätiedot
       user:
         about: Profiilikuvaus
+        avatar: Profiilikuva
         email: Sähköpostiosoitteesi
         encrypted_password: Salasana
         locale: Kieli
@@ -33,6 +44,8 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -85,6 +98,9 @@ fi:
       file_size_too_large: Tiedoston koko on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
+    buttons:
+      close: Sulje
+      select: Valitse
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -92,6 +108,10 @@ fi:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+      help:
+        date_format: 'Muoto: pp.kk.vvvv'
+      order: d-m-y
+      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -734,6 +754,11 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> laatima <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Muutos on julkaistu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Laatijan %{emendation_author_nickname} muutos on julkaistu uutena kohteena %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen sivulta:'
@@ -1170,6 +1195,8 @@ fi:
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
     metrics:
+      blocked_users:
+        description: Estettyjen osallistujien määrä
       download:
         csv: Lataa tiedot (CSV)
       followers:
@@ -1180,6 +1207,10 @@ fi:
         description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujat
         title: Osallistujaa
+      reported_users:
+        description: Ilmoitettujen osallistujien määrä
+      user_reports:
+        description: Osallistujien lähettämien ilmoitusten määrä
       users:
         description: Organisaation käyttäjien määrä
         object: käyttäjät
@@ -1244,10 +1275,12 @@ fi:
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
+        real_time: Reaaliajassa
         weekly: Viikottainen ilmoitusyhteenveto
       hello: Hei %{name},
       intro:
         daily: 'Tässä on lista edellisen päivän ilmoituksista niistä asioista, joita seuraat:'
+        real_time: 'Tämä on ilmoitus seuraamistasi alustalla tapahtuneista asioista:'
         weekly: 'Tässä on lista edellisen viikon ilmoituksista niistä asioista, joita seuraat:'
       outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ilmoitukseen liittyviä sisältöjä tai niiden tekijöitä. Voit lopettaa seuraamisen näiden sisältöjen sivuilta.
       see_more: Näytä lisää ilmoituksia

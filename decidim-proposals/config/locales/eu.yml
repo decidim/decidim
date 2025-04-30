@@ -12,6 +12,8 @@ eu:
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
+      import_participatory_text:
+        document: Dokumentua
       proposal:
         address: Helbidea
         answer: Erantzuna
@@ -21,6 +23,8 @@ eu:
         category_id: Kategoria
         decidim_scope_id: Eremua
         has_address: Helbidea du
+        latitude: Latitudea
+        longitude: Longitudea
         scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
@@ -34,6 +38,8 @@ eu:
       proposals_copy:
         copy_proposals: Ulertzen dut ekintza honek proposamen guztiak hautatutako osagaira inportatuko dituela eta hori egin ondoren ezin dela atzera egin.
         origin_component_id: Proposamenak kopiatzeko osagaia
+      proposals_file_import:
+        file: Fitxategia
       proposals_import:
         import_proposals: Proposamenak inportatu
         keep_answers: Mantendu egoera eta erantzunak
@@ -387,7 +393,6 @@ eu:
         title: Babesak
     participatory_spaces:
       highlighted_proposals:
-        last: Azken proposamenak
         see_all: Ikusi proposamenak
     proposals:
       actions:

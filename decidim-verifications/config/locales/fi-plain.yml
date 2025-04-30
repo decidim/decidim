@@ -2,6 +2,8 @@
 fi-pl:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Vahvistuksen liitetiedosto
       config:
         available_methods: Käytettävissä olevat menetelmät
         offline: Offline

@@ -2,6 +2,8 @@
 eu:
   activemodel:
     attributes:
+      answer:
+        add_documents: Gehitu dokumentuak
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'

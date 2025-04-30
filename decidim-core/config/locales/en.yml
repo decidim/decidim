@@ -10,8 +10,13 @@ en:
         photos: Photos
       common:
         created_at: Created at
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -20,12 +25,15 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      import:
+        file: File
       message:
         body: Body
       report:
         details: Additional comments
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -37,6 +45,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     errors:
       models:
         user:
@@ -95,6 +105,9 @@ en:
       file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
+    buttons:
+      close: Close
+      select: Select
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -102,6 +115,10 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -751,6 +768,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1188,6 +1210,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1198,6 +1222,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1262,10 +1290,12 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications

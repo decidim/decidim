@@ -44,6 +44,8 @@ id:
     'false': 'Tidak'
     'true': 'iya nih'
   date:
+    buttons:
+      select: Memilih
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"

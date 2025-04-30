@@ -12,6 +12,8 @@ sv:
         state: Status
         title: Titel
         user_group_id: Skapa gemensamt utkast som
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adress
         answer: Svar
@@ -21,6 +23,8 @@ sv:
         category_id: Kategori
         decidim_scope_id: Indelning
         has_address: Har adress
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Indelning
         state: Status
         suggested_hashtags: Föreslagna hashtags
@@ -34,6 +38,8 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att det här importerar alla förslag från den valda komponenten till den aktuella komponenten och att det inte går att ångra.
         origin_component_id: Komponent att kopiera förslagen från
+      proposals_file_import:
+        file: Fil
       proposals_import:
         import_proposals: Importera förslag
         keep_answers: Behåll status och svar
@@ -386,7 +392,6 @@ sv:
         title: Stöd
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:

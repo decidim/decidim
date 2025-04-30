@@ -106,6 +106,8 @@ sv:
       participatory_space_private_user:
         email: E-post
         name: Namn
+      participatory_space_private_user_csv_import:
+        file: Fil
       scope:
         code: Kod
         name: Namn
@@ -717,6 +719,11 @@ sv:
             report_language: Språk för anmälan
             report_reason: Anledning
             title: Motivering
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Förhandsvisa

@@ -23,6 +23,8 @@ sk:
         password_confirmation: Potvrdenie hesla
         personal_url: Osobné adresa URL
         remove_avatar: Odstrániť avatara
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Príloha
       decidim/component_published_event: Aktívna súčasť
@@ -67,6 +69,8 @@ sk:
     'false': 'Nie'
     'true': 'Áno'
   date:
+    buttons:
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"

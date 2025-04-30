@@ -12,6 +12,8 @@ de:
         state: Status
         title: Titel
         user_group_id: Kollaborativen Entwurf erstellen als
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adresse
         answer: Antworten
@@ -21,6 +23,8 @@ de:
         category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        latitude: Breitengrad
+        longitude: Längengrad
         scope_id: Bereich
         state: Status
         suggested_hashtags: Vorgeschlagene Hashtags
@@ -34,6 +38,8 @@ de:
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
+      proposals_file_import:
+        file: Datei
       proposals_import:
         import_proposals: Vorschläge importieren
         keep_answers: Status und Antworten behalten
@@ -387,7 +393,6 @@ de:
         title: Unterstützer
     participatory_spaces:
       highlighted_proposals:
-        last: Letzte Vorschläge
         see_all: Alle anzeigen
     proposals:
       actions:

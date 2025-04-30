@@ -314,6 +314,7 @@ fr:
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
+        unpublish: "%{user_name} a dépublié le groupe de processus participatifs %{resource_name}"
         update: "%{user_name} a mis à jour le groupe de concertations %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"

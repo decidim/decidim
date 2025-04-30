@@ -12,6 +12,8 @@ fr-CA:
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
+      import_participatory_text:
+        document: Document
       proposal:
         address: Adresse
         answer: Répondre
@@ -21,6 +23,8 @@ fr-CA:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Périmètre d'application
         state: État
         suggested_hashtags: Hashtags suggérés
@@ -34,6 +38,8 @@ fr-CA:
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+      proposals_file_import:
+        file: Fichier
       proposals_import:
         import_proposals: Importer des propositions
         keep_answers: Garder l'état et les réponses
@@ -385,7 +391,6 @@ fr-CA:
         title: Votes
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:

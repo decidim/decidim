@@ -2,6 +2,8 @@
 ar:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: مرفق التحقق
       config:
         available_methods: الطرق المتاحة
         offline: غير متصل على الانترنت

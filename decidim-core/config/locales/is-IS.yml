@@ -23,6 +23,8 @@ is:
     'false': 'Nei'
     'true': 'Já'
   date:
+    buttons:
+      select: Veldu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"

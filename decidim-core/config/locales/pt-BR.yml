@@ -33,6 +33,8 @@ pt-BR:
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
         tos_agreement: Acordo de Termos de Serviço
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -85,6 +87,9 @@ pt-BR:
       file_size_too_large: O tamanho do arquivo é grande demais
       not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
+    buttons:
+      close: Fechar
+      select: Selecionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -92,6 +97,10 @@ pt-BR:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formato: dd/mm/aaaa'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:

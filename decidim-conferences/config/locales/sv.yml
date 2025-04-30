@@ -69,6 +69,8 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+      partner:
+        logo: Logotyp
     errors:
       models:
         conference_registration_invite:

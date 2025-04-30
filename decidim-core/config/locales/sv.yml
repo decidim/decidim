@@ -4,6 +4,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -33,6 +35,8 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+      user_group:
+        avatar: Profilbild
     errors:
       models:
         user:
@@ -91,6 +95,9 @@ sv:
       file_size_too_large: Filen är för stor
       not_inside_organization: Filen är inte kopplad till någon organisation
   date:
+    buttons:
+      close: Stäng
+      select: Välj
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -98,6 +105,10 @@ sv:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/åååå'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:

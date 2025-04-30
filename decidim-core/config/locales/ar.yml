@@ -4,10 +4,18 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      attachment:
+        documents: المستندات
+        photos: الصور
       common:
         created_at: تم إنشاؤها في
+      content_block_attachment:
+        background_image: صورة الخلفية
+        main_image: الصورة الرئيسية
       conversation:
         body: المحتوى
+      editor_image:
+        file: ملف
       group:
         about: عن
         avatar: الصورة الرمزية
@@ -16,12 +24,15 @@ ar:
         name: الإسم
         nickname: الاسم المستعار
         phone: الهاتف
+      import:
+        file: ملف
       message:
         body: المحتوى
       report:
         details: تعليقات إضافية
       user:
         about: عن
+        avatar: الصورة الرمزية
         email: بريدك الإلكتروني
         locale: اللغة
         name: اسمك
@@ -30,6 +41,8 @@ ar:
         password_confirmation: أكد كلمتك السرية
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
+      user_group:
+        avatar: الصورة الرمزية
     models:
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
@@ -94,6 +107,8 @@ ar:
     errors:
       file_size_too_large: حجم الملف أكبر من المسموح به
   date:
+    buttons:
+      select: تحديد
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -642,6 +657,11 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
             email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
             notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'تم نشر تعديل لـ %{amendable_title}. يمكنك رؤيته من هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف %{amendable_title}.
+            email_subject: تم نشر تعديل من قبل %{emendation_author_nickname} كـ %{amendable_type} جديد
       attachments:
         attachment_created:
           email_intro: 'تمت إضافة مستند جديد إلى %{resource_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
@@ -1005,6 +1025,8 @@ ar:
           placeholder: رسالتك...
           send: إرسال
     metrics:
+      blocked_users:
+        description: عدد المشاركين المحظورين
       download:
         csv: تحميل البيانات (CSV)
       followers:
@@ -1015,6 +1037,10 @@ ar:
         description: عدد المشاركين النشطين في المنظمة
         object: المشاركين
         title: المشاركون
+      reported_users:
+        description: عدد المشاركين المبلّغ عنهم
+      user_reports:
+        description: عدد التقارير التي قدمها المشاركون
       users:
         description: عدد المشاركين في المنظمة
         object: المشاركين
@@ -1069,10 +1095,12 @@ ar:
     notifications_digest_mailer:
       header:
         daily: ملخص التنبيهات اليومية
+        real_time: مزامنة آنيّة
         weekly: ملخص التنبيهات الأسبوعية
       hello: مرحبا %{name}،
       intro:
         daily: 'هذه هي إخطارات اليوم الأخير بناءً على النشاط الذي تتابعه:'
+        real_time: 'هذا تنبيه عن النشاط الذي تتبعّه:'
         weekly: 'هذه هي إخطارات الأسبوع الأخير بناءً على النشاط الذي تتابعه:'
       outro: لقد تلقيت هذه الإشعارات لأنك تتبع هذا المحتوى أو مؤلفيه. يمكنك إلغاء متابعتها من صفحات كل منهم.
       see_more: عرض المزيد من الإشعارات

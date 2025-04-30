@@ -53,8 +53,12 @@ module Decidim
       # Public: The reported content url
       #
       # Returns String
-      def reported_content_url
-        raise NotImplementedError
+      def reported_content_url(options = {})
+        if hidden?
+          ResourceLocatorPresenter.new(self).index(options)
+        else
+          ResourceLocatorPresenter.new(self).url(options)
+        end
       end
 
       # Public: The collection of attribute names that are considered

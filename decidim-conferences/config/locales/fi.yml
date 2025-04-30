@@ -69,6 +69,8 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:

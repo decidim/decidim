@@ -12,6 +12,8 @@ ca-IT:
         state: Estat
         title: Títol
         user_group_id: Crea un esborrany col·laboratiu com a
+      import_participatory_text:
+        document: Document
       proposal:
         address: Adreça
         answer: Respondre
@@ -21,6 +23,8 @@ ca-IT:
         category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
@@ -34,6 +38,8 @@ ca-IT:
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
+      proposals_file_import:
+        file: Arxiu
       proposals_import:
         import_proposals: Importar propostes
         keep_answers: Manté l'estat i les respostes
@@ -387,7 +393,6 @@ ca-IT:
         title: Suports
     participatory_spaces:
       highlighted_proposals:
-        last: Propostes més recents
         see_all: Veure totes les propostes
     proposals:
       actions:

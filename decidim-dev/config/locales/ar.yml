@@ -2,6 +2,9 @@
 ar:
   activemodel:
     attributes:
+      dummy:
+        image: صورة
+      dummy_attribute: متغير وهمي
       dummy_resource:
         created_at: أنشئت في
         decidim_scope_id: نطاق

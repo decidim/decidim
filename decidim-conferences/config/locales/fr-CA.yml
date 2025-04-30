@@ -69,6 +69,8 @@ fr-CA:
         email: Email
         name: Nom
         role: Rôle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:

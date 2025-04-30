@@ -314,6 +314,7 @@ ca-IT:
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
         create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el grup de processos participatius: %{resource_name}"
         update: "%{user_name} ha actualitzat el grup de processos participatius %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"

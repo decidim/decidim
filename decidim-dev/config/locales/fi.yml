@@ -2,6 +2,9 @@
 fi:
   activemodel:
     attributes:
+      dummy:
+        image: Kuva
+      dummy_attribute: Esimerkkitietue
       dummy_resource:
         created_at: Luontiaika
         decidim_scope_id: Teema
