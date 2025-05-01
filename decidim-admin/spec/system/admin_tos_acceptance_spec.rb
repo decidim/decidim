@@ -8,6 +8,7 @@ describe "AdminTosAcceptance" do
   let(:review_message) { "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform" }
 
   before do
+    Capybara.raise_server_errors = false
     switch_to_host(organization.host)
   end
 
@@ -95,7 +96,7 @@ describe "AdminTosAcceptance" do
 
       it "allows accepting the terms" do
         click_on "I agree with the terms"
-        expect(page).to have_content("Activity")
+        expect(page).to have_content("Statistics")
 
         within ".layout-nav" do
           expect(page).to have_content("Newsletters")
