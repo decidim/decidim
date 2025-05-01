@@ -469,7 +469,6 @@ eu:
           withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
-        last: Azken proposamenak
         see_all: Ikusi proposamenak
     proposals:
       actions:

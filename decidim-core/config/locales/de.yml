@@ -1563,7 +1563,6 @@ de:
     search:
       name: Suchen
       results: Suchergebnisse
-      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:

@@ -15,12 +15,12 @@ module Decidim
       def call
         component = create_component!
 
-        rand(1...3).times do
+        number_of_records.times do
           create_budget!(component:)
         end
 
         Decidim::Budgets::Budget.where(component:).each do |budget|
-          rand(2...4).times do
+          number_of_records.times do
             project = create_project!(budget:)
 
             create_attachments!(attached_to: project)
