@@ -8,28 +8,28 @@ module Decidim
       def call
         create_content_block!
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           conference = create_conference!
 
           create_conference_user_roles!(conference:)
 
           create_attachments!(attached_to: conference)
 
-          5.times do
+          number_of_records.times do
             create_conference_speaker!(conference:)
           end
 
           Decidim::Conferences::Partner::TYPES.map do |type|
-            4.times do
+            number_of_records.times do
               create_conference_partner!(conference:, type:)
             end
           end
 
-          5.times do
+          number_of_records.times do
             create_conference_media_link!(conference:)
           end
 
-          5.times do
+          number_of_records.times do
             create_conference_registration_type!(conference:)
           end
 

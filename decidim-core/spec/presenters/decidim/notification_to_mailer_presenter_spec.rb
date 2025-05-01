@@ -16,6 +16,33 @@ module Decidim
           expect(subject.date_time).to eq("21:00")
         end
       end
+
+      describe "#resource_title" do
+        it "returns the resource title sanitized" do
+          expect(subject.resource_title).to eq(decidim_sanitize_translated(notification.resource.title))
+        end
+      end
+
+      describe "#resource_url" do
+        it "returns the resource url" do
+          expect(subject.resource_url).to eq(resource_locator(notification.resource).url)
+          expect(subject.resource_path).to eq(resource_locator(notification.resource).path)
+        end
+      end
+
+      describe "#email_intro" do
+        it "returns the email intro" do
+          expect(subject.email_intro).to include(decidim_sanitize_translated(notification.resource.title))
+        end
+
+        context "when the notification event does not send emails" do
+          let(:notification) { create(:notification, event_class: "Decidim::Dev::DummyNotificationOnlyResourceEvent") }
+
+          it "returns nil" do
+            expect(subject.email_intro).to be_nil
+          end
+        end
+      end
     end
 
     context "with a daily frequency in different timezone" do
