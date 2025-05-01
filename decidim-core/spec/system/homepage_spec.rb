@@ -363,7 +363,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{translated(organization.name)}")
+              expect(page).to have_content("Statistics")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end

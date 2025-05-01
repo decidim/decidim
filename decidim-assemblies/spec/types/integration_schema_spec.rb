@@ -210,7 +210,7 @@ describe "Decidim::Api::QueryType" do
         %(
           assemblies{
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }
@@ -353,15 +353,15 @@ describe "Decidim::Api::QueryType" do
     it_behaves_like "implements stats type" do
       let(:assemblies) do
         %(
-          assembly(id: #{assembly.id}){
+          assemblies {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
         )
       end
-      let(:stats_response) { response["assembly"]["stats"] }
+      let(:stats_response) { response["assemblies"].first["stats"] }
     end
   end
 end

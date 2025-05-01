@@ -39,6 +39,9 @@ module Decidim
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "line-chart", icon: "line-chart-line", category: "system", description: "Line chart", engine: :admin)
+        Decidim.icons.register(name: "bar-chart-box-line", icon: "bar-chart-box-line", category: "system", description: "Bar chart box line", engine: :admin)
+        Decidim.icons.register(name: "earth-line", icon: "earth-line", category: "system", description: "Earth line", engine: :admin)
 
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
@@ -64,6 +67,7 @@ module Decidim
         Decidim::Admin::Menu.register_workflows_menu!
         Decidim::Admin::Menu.register_impersonate_menu!
         Decidim::Admin::Menu.register_admin_static_pages_menu!
+        Decidim::Admin::Menu.register_admin_insights_menu!
         Decidim::Admin::Menu.register_admin_user_menu!
         Decidim::Admin::Menu.register_admin_scopes_menu!
         Decidim::Admin::Menu.register_admin_areas_menu!
