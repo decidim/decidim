@@ -155,7 +155,7 @@ describe "Decidim::Api::QueryType" do
         %(
           initiatives {
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }
@@ -249,7 +249,7 @@ describe "Decidim::Api::QueryType" do
         %(
           initiative(id: #{initiative.id}){
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

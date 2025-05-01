@@ -34,13 +34,9 @@ module Decidim
       def stats
         return if object.respond_to?(:show_statistics) && !object.show_statistics
 
-        published_components = Component.where(participatory_space: object).published
-
-        stats = Decidim.component_manifests.map do |component_manifest|
-          component_manifest.stats.with_context(published_components).map { |name, data| [name, data] }.flatten
+        Decidim::ParticipatoryProcesses::ParticipatoryProcessStatsPresenter.new(participatory_process: object).collection.map do |stat|
+          [object.organization, stat]
         end
-
-        stats.reject(&:empty?)
       end
 
       def self.resolve_type(obj, _ctx)
