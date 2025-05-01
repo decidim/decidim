@@ -328,7 +328,6 @@ pl:
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     participatory_spaces:
       highlighted_proposals:
-        last: Ostatnie propozycje
         see_all: Zobacz wszystkie propozycje
     proposals:
       actions:

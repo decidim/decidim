@@ -275,7 +275,6 @@ lt:
           unearned_own: Jūs dar neparengėte jokių pasiūlymų.
     participatory_spaces:
       highlighted_proposals:
-        last: Paskutiniai pasiūlymai
         see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:

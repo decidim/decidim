@@ -185,7 +185,7 @@ ca-IT:
         conference_s: Jornada S
         conferences: Jornadas
         context: Context
-        context_description: Aquesta cel·la mostra informació al voltant d'una usuària. És una ajuda visual per a identificar la creadora d'un recurs/contingut. En passar per sobre el cursor, es mostra una descripció amb més informació i enllaços al seu perfil.
+        context_description: Aquesta cel·la mostra informació sobre una usuària. És una ajuda visual per identificar la creadora de recursos/continguts.
         context_description_2: Pels recursos, aquesta cel·la apareix sota l'encapçalament principal. Per altres continguts, apareix al costat del mateix contingut.
         debate_l: Debat L
         debate_s: Debat S

@@ -1183,7 +1183,6 @@ bg:
     search:
       name: Търсене
       results: Резултати от търсенето
-      results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:

@@ -1394,8 +1394,12 @@ fr:
         title: QR Code pour %{resource_title}
     reported_mailer:
       hide:
+        content: Contenu signalé
+        details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
         report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
         subject: Une ressource a été cachée automatiquement
       report:
@@ -1428,7 +1432,7 @@ fr:
     search:
       name: Rechercher
       results: Résultats de recherche
-      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
+      results_found_for_term: '%{count} résultat(s) pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
