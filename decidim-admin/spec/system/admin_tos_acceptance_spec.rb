@@ -8,7 +8,6 @@ describe "AdminTosAcceptance" do
   let(:review_message) { "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform" }
 
   before do
-    Capybara.raise_server_errors = false
     switch_to_host(organization.host)
   end
 
