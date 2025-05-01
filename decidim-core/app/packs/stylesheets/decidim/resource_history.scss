@@ -22,17 +22,17 @@
   }
 
   &_text {
-    @apply flex flex-col relative max-w-[250px] lg:max-w-[400px];
+    @apply flex flex-col relative max-w-[250px] md:max-w-[600px] lg:max-w-[400px];
   }
 
   &_text:has(.resource-link) {
     .resource-link {
-      @apply lg:ml-[-106px];
+      @apply md:ml-[-1px] lg:ml-[-106px];
     }
   }
 
   &_text:not(:has(.resource-link)) a {
-    @apply lg:ml-[-106px];
+    @apply md:ml-[-1px] lg:ml-[-106px];
   }
 
   &__line {
