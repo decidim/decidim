@@ -17,7 +17,7 @@ module Decidim
         let(:test_version) { "0.27.0.dev" }
 
         it "returns the develop branch" do
-          expect(subject.edge_git_branch).to eq("feature/demographics-skeleton")
+          expect(subject.edge_git_branch).to eq("feature/demographics")
         end
       end
 
