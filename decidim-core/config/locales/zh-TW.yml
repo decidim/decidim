@@ -1050,7 +1050,6 @@ zh-TW:
       prompt: 選擇一個範圍
     search:
       results: 搜尋結果
-      results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
       term_input_placeholder: 搜尋
     searches:
       filters:
