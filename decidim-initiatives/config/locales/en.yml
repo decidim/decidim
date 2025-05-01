@@ -698,6 +698,9 @@ en:
         actions:
           create: Create an initiative
           title: Actions
+    statistics:
+      initiatives_count: Initiatives
+      initiatives_count_tooltip: The number of published citizen initiatives.
   layouts:
     decidim:
       initiative_creation_header:

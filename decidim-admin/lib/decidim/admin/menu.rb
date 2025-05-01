@@ -74,6 +74,17 @@ module Decidim
         end
       end
 
+      def self.register_admin_insights_menu!
+        Decidim.menu :admin_insights_menu do |menu|
+          menu.add_item :statistics,
+                        I18n.t("menu.statistics", scope: "decidim.admin"),
+                        decidim_admin.statistics_path,
+                        icon_name: "bar-chart-box-line",
+                        position: 1,
+                        active: is_active_link?(decidim_admin.statistics_path)
+        end
+      end
+
       def self.register_admin_user_menu!
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
@@ -284,6 +295,11 @@ module Decidim
                         position: 10,
                         active: [%w(decidim/admin/logs), []],
                         if: allowed_to?(:read, :admin_log)
+          menu.add_item :insights,
+                        I18n.t("menu.insights", scope: "decidim.admin"),
+                        decidim_admin.statistics_path,
+                        icon_name: "line-chart",
+                        position: 11
         end
       end
     end

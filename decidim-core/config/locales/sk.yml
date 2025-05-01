@@ -677,7 +677,6 @@ sk:
       global: Globální oblast působnosti
       prompt: Vyberte oblast
     search:
-      results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
     searches:
       filters:

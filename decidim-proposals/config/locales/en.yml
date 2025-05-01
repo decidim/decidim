@@ -470,7 +470,6 @@ en:
           withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
@@ -1064,6 +1063,9 @@ en:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
     statistics:
+      participatory_space_proposals_count: Proposals
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
+      proposals_count_tooltip: The total number of submitted proposals and votes cast on them.
+      votes: 'Votes:'
       votes_count: Votes

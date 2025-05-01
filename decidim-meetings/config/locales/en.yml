@@ -825,6 +825,8 @@ en:
     statistics:
       attendees_count: Meeting attendees
       meetings_count: Meetings
+      meetings_count_tooltip: The number of meetings that have taken place, both online and in person.
+      participatory_space_meetings_count: Meetings
   devise:
     mailer:
       join_meeting:

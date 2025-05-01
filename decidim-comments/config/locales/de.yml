@@ -26,6 +26,8 @@ de:
             enabled: Kommentare aktiviert
             end_time: Kommentare aktiviert bis
             start_time: Kommentare aktiviert von
+      comment_thread:
+        accessibility_label: Kommentar-Thread gestartet von %{full_name} am %{date}
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.

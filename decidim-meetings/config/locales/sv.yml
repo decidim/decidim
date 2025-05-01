@@ -211,6 +211,8 @@ sv:
         meeting_updated:
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
+        meeting_waitlist_added:
+          notification_title: Du har lagts till i väntelistan för <a href="%{resource_url}">%{resource_title}</a> mötet.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
@@ -584,8 +586,11 @@ sv:
           attendees: Antal deltagare
           contributions: Antal bidrag
           join: Anmäl dig
+          join_waitlist: Gå med i väntelistan
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
+          leave_waitlist: Lämna väntelistan
+          leave_waitlist_confirmation: Är du säker på att du vill lämna väntelistan för detta möte?
           link_available_soon: Länk kommer snart
           link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
           live_event: Mötet pågår just nu
@@ -605,6 +610,9 @@ sv:
             one: "%{count} plats kvar"
             other: "%{count} platser kvar"
           visit_finished: Visa tidigare möten
+          waitlist:
+            description: Om en plats blir ledig behandlar vi din registrering automatiskt och meddelar dig via e-post.
+            status: Du är på väntelistan
           withdraw_btn_hint: Du kan ställa in mötet om du ändrar dig. Mötet raderas inte utan kommer att synas i en lista med inställda möten.
           withdraw_confirmation_html: Är du säker på att du vill ställa in mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
           withdraw_meeting: Dra tillbaka
@@ -687,6 +695,9 @@ sv:
         destroy:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
+        waitlist:
+          invalid: Det gick inte att gå med i väntelistan.
+          success: Du har gått med i väntelistan för mötet. Du kommer att meddelas om din registrering är säkrad.
       type_of_meeting:
         hybrid: Hybrid
         in_person: Fysiska

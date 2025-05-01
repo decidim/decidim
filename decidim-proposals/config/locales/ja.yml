@@ -465,7 +465,6 @@ ja:
           withdrawn_at: この提案が撤回された日時
     participatory_spaces:
       highlighted_proposals:
-        last: 最近の提案
         see_all: すべての提案を見る
     proposals:
       actions:

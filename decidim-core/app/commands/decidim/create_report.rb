@@ -34,7 +34,7 @@ module Decidim
       send_report_notification_to_moderators
 
       if hideable?
-        hide!
+        @tool.hide!
         send_hide_notification_to_moderators
       end
 
@@ -70,11 +70,6 @@ module Decidim
 
     def hideable?
       hidden_by_admin? || (!@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding)
-    end
-
-    def hide!
-      @tool.hide!
-      @tool.send_notification_to_author
     end
 
     def send_hide_notification_to_moderators

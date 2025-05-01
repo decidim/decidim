@@ -1,0 +1,182 @@
+zh-CN:
+  activemodel:
+    attributes:
+      answer:
+        description: 描述
+        image: 图片
+        proposals: 有关提议
+        title: 标题
+      election:
+        description: 描述
+        end_time: 投票结束于
+        start_time: 投票开始于
+        title: 标题
+      question:
+        max_selections: 最大选择数
+        min_selections: 上面没有一个选项
+        title: 标题
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 需要重新连接
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 需要重新连接
+  activerecord:
+    models:
+      decidim/elections/answer:
+        other: 答案
+      decidim/elections/election:
+        other: 选举
+      decidim/elections/question:
+        other: 问 题
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: 投票
+        name: 选举
+        settings:
+          global:
+            announcement: 通 知
+          step:
+            announcement: 通 知
+    elections:
+      actions:
+        confirm_destroy: 您确定吗？
+        destroy: 破坏的
+        edit: 编辑
+        import: 导入建议以答案
+        preview: 预览
+        publish: 发布
+        title: 行动
+        unpublish: 取消发布
+      admin:
+        answers:
+          edit:
+            title: 编辑答案
+            update: 更新答案
+          index:
+            title: 答案
+          new:
+            create: 创建答案
+            title: 新答案
+        elections:
+          edit:
+            title: 编辑选择
+            update: 更新选择
+          index:
+            no_bulletin_board: 没有配置 <a href="https://github.com/decidim/decidim-bulletin-board">公告栏服务器</a> ，需要使用此模块。此任务应由系统管理员完成。
+            title: 选举
+          new:
+            create: 创建选择
+            title: 新的选举
+          publish:
+            success: 选举已成功发布。
+          unpublish:
+            success: 选举已成功取消发布。
+        models:
+          answer:
+            name: 答案
+        proposals_imports:
+          new:
+            create: 导入建议以答案
+            no_components: 在这个参与性空间中，没有其他提案组成部分可以将提案引入答案。
+            select_component: 请选择一个组件
+        questions:
+          edit:
+            title: 编辑问题
+            update: 更新问题
+          index:
+            title: 问 题
+          new:
+            create: 创建问题
+            title: 新问题
+      election_m:
+        badge_name:
+          finished: 已完成
+          ongoing: 已启用
+          upcoming: 即将到来的
+        end_date: 结束
+        footer:
+          view: 查看
+          vote: 投票
+        label:
+          date: 日期
+        questions: 问题 %{count}
+        start_date: 开始
+        unspecified: 未指定
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 次选择"
+        filters:
+          active: 已启用
+          all: 所有的
+          finished: 已完成
+          upcoming: 即将到来的
+        show:
+          preview: 预览
+          voting_period_status:
+            finished: 投票开始于 %{start_time} ，结束于 %{end_time}
+            upcoming: 投票开始于 %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: 建议
+            title: 标题
+        election:
+          fields:
+            end_time: 结束于
+            start_time: 开始于
+            title: 标题
+        question:
+          fields:
+            answers: 答案
+            max_selections: 最大选择
+            title: 标题
+      orders:
+        label: 排序选举方式
+        older: 更旧的
+        recent: 最近的
+      votes:
+        confirm:
+          answer_number: 答案 %{number}
+          confirm: 确认
+          edit: 编辑
+          header: 确认您的投票
+          intro: 这是您要投的票的摘要。 <br> 请确认您的投票或编辑您的答案。
+          nota_option: 空白
+        confirmed:
+          back: 回到选举
+          experience: 您的体验如何？
+          feedback: 给我们一些反馈
+          header: 已确认投票
+          text: '您可以检查您的投票是否已成功地添加到选票箱，其标识符如下： <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        header:
+          confirm: 确认您的投票
+        messages:
+          not_allowed: 此时您无权投票于此次选举。
+        modal:
+          close: 关闭
+          proposal_header: '建议：'
+        new:
+          answer_choices: 您最多可以选择 %{choices} 个答案
+          more_information: 更多信息
+          nota_option: 空白/上面没有内容
+          preview_alert: 这是投票站的预览。
+          question_steps: '%{current_step} 的 %{total_steps} 问题'
+          selections: "%{selected} 的 %{max_selections}<br> 选择"
+        voting_step:
+          back: 后退
+          continue: 下一个
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} 的选择现在对 %{participatory_space_title}生效。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
