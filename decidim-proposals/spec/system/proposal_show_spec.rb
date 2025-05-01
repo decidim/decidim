@@ -52,6 +52,22 @@ describe "Show a Proposal" do
           end
         end
       end
+
+      describe "when participant is deleted" do
+        let(:user) { create(:user, :confirmed, organization:) }
+        let!(:author) { create(:user, :deleted, organization: component.organization) }
+        let!(:proposal) { create(:proposal, component:, users: [author]) }
+
+        before do
+          visit_proposal
+          login_as user, scope: :user
+          visit current_path
+        end
+
+        it "successfully shows the page" do
+          expect(page).to have_content("Deleted participant")
+        end
+      end
     end
 
     context "when proposal author is a meeting" do

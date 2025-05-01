@@ -772,7 +772,6 @@ pt:
       prompt: Selecionar um âmbito
     search:
       results: Resultados da pesquisa
-      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisar
     searches:
       filters:

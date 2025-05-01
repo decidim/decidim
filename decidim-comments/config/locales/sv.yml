@@ -26,6 +26,8 @@ sv:
             enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.

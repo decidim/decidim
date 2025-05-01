@@ -2,7 +2,7 @@
                                 budget_order_line_item_path(model.budget, project_id: model, show_only_added: options[:show_only_added]),
                                 method: vote_button_method,
                                 remote: true,
-                                resource: model,
+                                resource: model.budget,
                                 class: "button #{vote_button_classes}",
                                 id: "project-vote-button-#{model.id}",
                                 data: {
@@ -10,8 +10,8 @@
                                   disable: true,
                                   budget: model.budget_amount,
                                   allocation: resource_allocation,
-                                  "redirect-url": resource_path,
-                                  onboarding_redirect_path: resource_index_path
+                                  "redirect-url": authorization_redirect_path,
+                                  onboarding_redirect_path: authorization_redirect_path
                                 },
                                 disabled: vote_button_disabled?,
                                 title: vote_button_label do %>

@@ -162,6 +162,7 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             maps_enabled: 地図が有効
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            registration_code_enabled: 登録コードとQRコードを有効化
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
@@ -228,11 +229,18 @@ ja:
             location: 場所
             start_time: 開始時刻
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングは、 %{changed_fields} への変更により更新されました。
+        meeting_waitlist_added:
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> ミーティングの順番待ちリストに追加されました。
         registration_code_validated:
           email_intro: '「%{registration_code}」ミーティングの登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" ミーティングの登録コードが検証されたため、この通知を受け取りました。'
           email_subject: あなたの "%{registration_code}" ミーティングの登録コード "%{resource_title}" が検証されました
           notification_title: ミーティング <a href="%{resource_path}">%{resource_title} </a> に対するあなたの登録コード "%{registration_code}" が認証されました。
+        registration_marked_as_attendee:
+          email_intro: '「%{resource_title}」ミーティングへの登録が出席者としてマークされました。'
+          email_outro: '「%{resource_title}」ミーティングへの登録が出席者としてマークされたため、この通知を受け取りました。'
+          email_subject: '「%{resource_title}」ミーティングへの登録が出席者としてマークされました'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングへの登録が出席者としてマークされました。
         registrations_enabled:
           email_intro: '"%{resource_title}" ミーティングは登録を有効にしました．あなた自身をそのページに登録することができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
@@ -271,6 +279,7 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
+        mark_as_attendee: 出席者としてマーク
         new_meeting: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -419,6 +428,7 @@ ja:
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
+            registrations: 登録を表示
             registrations_count:
               other: '%{count} 件の登録がありました。'
             reserved_slots_help: 予約スロットがない場合は0にしておいてください。
@@ -427,6 +437,17 @@ ja:
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
+        registrations_attendees:
+          index:
+            title: 登録
+            validate: 検証
+            validate_registration_code: 登録コードを検証する
+          mark_attendee:
+            invalid: 登録は既に出席済みになっています。
+            success: 登録が出席者になりました。
+          validate_registration_code:
+            invalid: この登録コードは無効です。
+            success: 登録コードを検証しました。
       admin_log:
         invite:
           create: "%{user_name} が %{attendee_name} を %{resource_name} スペースの %{space_name} ミーティングに招待しました"
@@ -582,8 +603,11 @@ ja:
           attendees: 出席者数
           contributions: コントリビューション数
           join: ミーティングに参加
+          join_waitlist: 順番待ちリストに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
+          leave_waitlist: 順番待ちリストから抜ける
+          leave_waitlist_confirmation: このミーティングの順番待ちリストから退出しますか？
           link_available_soon: 間もなくリンクが利用可能です
           link_closed: ミーティングに参加するリンクは開始数分前に利用可能になります
           live_event: このミーティングは現在開催中です
@@ -593,12 +617,18 @@ ja:
           organizations: 組織に参加
           pending_address: 場所はまもなく発表されます。
           redirect_notice: このミーティングは別のスペースの一部であるため、あなたは %{current_space_name} に移動されました。<br> ご希望の場合は、 <a href="%{previous_space_url}">%{previous_space_name}</a> に戻ることができます。
+          registration_and_qr_code: 登録コードとQR コード
+          registration_code: '登録コード: %{code}'
+          registration_code_help_text: 登録コードとQR コード
           registration_state:
             validated: 有効化
             validation_pending: 保留中
           remaining_slots:
             other: "残り%{count} スロット"
           visit_finished: 過去のミーティングを表示
+          waitlist:
+            description: 空きが出た場合は、自動的に登録を処理し、メールでお知らせします。
+            status: 順番待ちリストにいます
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
           withdraw_meeting: 撤回する
@@ -626,6 +656,15 @@ ja:
             start_time: 開始日
             taxonomies: タクソノミー
             title: タイトル
+        registration:
+          actions: アクション
+          fields:
+            email: メールアドレス
+            name: 名前
+            status: ステータス
+          status:
+            attended: 出席済み
+            not_attended: 不参加
       polls:
         questions:
           closed_question:
@@ -668,6 +707,7 @@ ja:
         confirmation:
           confirmed_html: ミーティング <a href="%{url}">%{title}</a> の登録が確認されました。
           details: ミーティングの詳細は添付ファイルにあります。
+          registration_code: あなたの登録コードは %{code} です。出席を確認するために、以下のQRコードを管理者に提示してください。
       registration_type:
         on_different_platform: 異なるプラットフォーム
         on_this_platform: このプラットフォーム
@@ -682,6 +722,9 @@ ja:
         destroy:
           invalid: このミーティングから出発する問題があった。
           success: ミーティングを正常に退会しました。
+        waitlist:
+          invalid: 順番待ちリストに参加中に問題が発生しました。
+          success: ミーティングの順番待ちリストへの登録が完了しました。登録が確定した場合は通知されます。
       type_of_meeting:
         hybrid: ハイブリッド
         in_person: 対面

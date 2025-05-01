@@ -9,7 +9,7 @@ module Decidim
         subject { helper.render_meeting_body(meeting) }
 
         before do
-          allow(helper).to receive(:present).with(meeting).and_return(Decidim::Meetings::MeetingPresenter.new(meeting))
+          allow(helper).to receive(:present).with(meeting, presenter_class: nil).and_return(Decidim::Meetings::MeetingPresenter.new(meeting))
           allow(helper).to receive(:current_organization).and_return(meeting.organization)
           helper.instance_variable_set(:@meeting, meeting)
         end

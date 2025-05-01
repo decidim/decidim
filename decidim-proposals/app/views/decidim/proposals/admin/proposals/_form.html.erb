@@ -5,7 +5,7 @@
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
       <div class="row column">
-        <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
+        <%= form.translated :editor, :body, resource_mentionable: true, hashtaggable: true, aria: { label: :body } %>
       </div>
       <% if @form.component_automatic_hashtags.any? %>
         <div>

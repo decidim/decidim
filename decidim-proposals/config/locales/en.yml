@@ -470,7 +470,6 @@ en:
           withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
