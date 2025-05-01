@@ -213,6 +213,8 @@ fr-CA:
             location: l'emplacement
             start_time: l'heure de début
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été mise à jour avec les modifications apportées à %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Vous avez été ajouté à la liste d'attente pour la réunion <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé.
           email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé.
@@ -575,8 +577,11 @@ fr-CA:
           attendees: Nombre de participants
           contributions: Décompte des contributions
           join: Participer à la rencontre
+          join_waitlist: Rejoindre la liste d'attente
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
+          leave_waitlist: Quitter la liste d'attente
+          leave_waitlist_confirmation: Êtes-vous sûr(e) de vouloir quitter la liste d'attente pour cette réunion ?
           link_available_soon: Lien bientôt disponible
           link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
           live_event: Cette réunion se déroule en ce moment
@@ -596,6 +601,9 @@ fr-CA:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
           visit_finished: Consulter l’historique des rencontres
+          waitlist:
+            description: Si une place devient disponible, nous traiterons automatiquement votre inscription et vous en aviserons par courriel.
+            status: Vous êtes sur la liste d'attente
           withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette réunion ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_meeting: Retirer
@@ -689,6 +697,9 @@ fr-CA:
         destroy:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
+        waitlist:
+          invalid: Il y a eu un problème pour rejoindre la liste d'attente.
+          success: Vous avez rejoint la liste d'attente de la réunion avec succès. Vous serez notifié si votre inscription a été sécurisée avec succès.
       type_of_meeting:
         hybrid: Hybride
         in_person: En présentiel

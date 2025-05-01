@@ -75,8 +75,8 @@ de:
         machine_translation_display_priority_original: Originaltext zuerst
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
-        official_img_footer: Offizielles Logo Fußzeile
-        official_url: Offizielle Organisations-URL
+        official_img_footer: Offizielles Footer-Logo
+        official_url: Offizielle URL der Organisation
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
@@ -908,7 +908,7 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
-            layout_appearance_title: Layout-Layout bearbeiten
+            layout_appearance_title: Layout-Aussehen bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_allowlist:

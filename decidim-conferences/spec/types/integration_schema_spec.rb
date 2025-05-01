@@ -150,7 +150,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conferences {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
@@ -252,7 +252,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conference(id: #{conference.id}){
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

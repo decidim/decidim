@@ -233,6 +233,8 @@ en:
             location: the location
             start_time: the start time
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has been updated with changes to %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: You have been added to the waiting list for the <a href="%{resource_url}">%{resource_title}</a> meeting.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
@@ -608,8 +610,11 @@ en:
           attendees: Attendees count
           contributions: Contributions count
           join: Register
+          join_waitlist: Join waitlist
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
+          leave_waitlist: Leave waitlist
+          leave_waitlist_confirmation: Are you sure you want to leave the waitlist for this meeting?
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
@@ -629,6 +634,9 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           visit_finished: View past meeting
+          waitlist:
+            description: If a spot becomes available, we well process your registration automatically and notify you via email.
+            status: You are on the waitlist
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_meeting: Withdraw
@@ -723,6 +731,9 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+        waitlist:
+          invalid: There was a problem joining the waitlist.
+          success: You have joined the meeting waitlist successfully. You will be notified if your registration is successfully secured.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In person
@@ -814,6 +825,8 @@ en:
     statistics:
       attendees_count: Meeting attendees
       meetings_count: Meetings
+      meetings_count_tooltip: The number of meetings that have taken place, both online and in person.
+      participatory_space_meetings_count: Meetings
   devise:
     mailer:
       join_meeting:

@@ -77,7 +77,10 @@ module Decidim
 
     # Public: Returns the value of the registered primary stat.
     def primary_stat
-      @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
+      @primary_stat ||= begin
+        data = manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.first&.[](:data)
+        data.respond_to?(:first) ? data.first : data
+      end
     end
 
     # Public: Returns the component's name as resource title

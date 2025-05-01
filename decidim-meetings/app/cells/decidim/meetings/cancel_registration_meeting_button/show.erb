@@ -7,6 +7,6 @@
   class: button_classes,
   data: { "dialog-open": "meeting-cancelation-confirm-#{model.id}" }
 ) do %>
-  <%= t("leave", scope: "decidim.meetings.meetings.show") %>
+  <%= cancel_button_text %>
   <%= icon icon_name %>
 <% end %>

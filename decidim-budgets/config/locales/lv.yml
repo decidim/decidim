@@ -68,7 +68,6 @@ lv:
           ok: Labi
         budget_summary:
           are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
-          cancel_order: izdzēsiet savu balsojumu un sāciet no jauna
           checked_out:
             title: Balsojums par budžetu pabeigts
         count:
