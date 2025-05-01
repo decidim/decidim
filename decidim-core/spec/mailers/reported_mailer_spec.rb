@@ -156,7 +156,7 @@ module Decidim
       end
     end
 
-    describe "#hidden_by_admin" do
+    describe "#hidden_manually" do
       let(:mail) { described_class.hidden_manually(user, report, user) }
 
       let(:mail_subject) { "Un contingut s'ha ocultat automàticament" }
