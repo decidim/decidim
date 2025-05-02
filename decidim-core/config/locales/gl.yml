@@ -580,8 +580,6 @@ gl:
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        statistics:
-          headline: Estado actual de %{organization}
         sub_hero:
           register: Rexistrarse
       index:
