@@ -44,6 +44,7 @@ ja:
           email_subject: '%{participatory_space_title} での新しい調査'
           notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}の調査</a> が公開されました。
     statistics:
+      responses: '応答：'
       responses_count: 回答
     surveys:
       actions:
