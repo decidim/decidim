@@ -1455,8 +1455,6 @@ eu:
           participate: Hartu parte
           participate_title: Parte hartu plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
-        statistics:
-          headline: '%{organization} erakundearen egungo egoera'
         sub_hero:
           register: Erregistroa
           register_title: Sortu kontu bat
