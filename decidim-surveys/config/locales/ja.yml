@@ -7,13 +7,23 @@ ja:
     models:
       decidim/surveys/survey:
         other: 調査
+      decidim/surveys/survey_response:
+        other: 回答
   decidim:
     admin:
       admin_log:
         changeset:
           surveys: 調査
+      menu:
+        surveys_menu:
+          main: メイン
+          questions: 質問
+          responses: 回答
+          settings: 設定
     components:
       surveys:
+        actions:
+          response: 回答
         name: 調査
         settings:
           announcement: お知らせ
@@ -33,23 +43,59 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} での新しい調査'
           notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}の調査</a> が公開されました。
+    statistics:
+      responses_count: 回答
     surveys:
       actions:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 破棄
         edit: 編集
+        manage_questions: 質問
         new_survey: 新しいアンケート
         preview: プレビュー
+        responses_alert: このアンケートでは、公開時に回答を削除する設定が有効になっています。現在%{responses_count}件の回答があり、続行するとそれらは削除されます。
         title: アクション
       admin:
+        exports:
+          survey_user_responses: アンケート参加者の回答
+        publish_responses:
+          index:
+            description: |-
+              質問への回答を公開すると、それらが一般に表示されるようになります。
+              各質問の横にあるチェックボックスをクリックすることで、公開したい回答を選択できます。
+              公開できる質問の種類は、「単一選択」「複数選択」「マトリックス（単一選択）」「マトリックス（複数選択）」「並べ替え」です。
+            responses:
+              other: "%{count} 回答"
+            status:
+              not_published: 未公開
+              published: 公開済み
+            title: 回答を公開
+        questions:
+          surveys:
+            edit:
+              title: 質問
+        responses:
+          index:
+            no_responses: 回答はまだありません
+            title: "総回答数 %{total} 件"
+          show:
+            title: '応答 #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: 設定
         surveys:
           create:
             invalid: アンケートの作成中に問題が発生しました。
             success: アンケートを作成しました。
           destroy:
             success: アンケートを削除しました。
+          edit:
+            title: メイン
           index:
             title: 調査
+          new:
+            title: メイン
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
@@ -76,11 +122,17 @@ ja:
         survey:
           fields:
             questions: 質問
+            responses: 回答
             status: ステータス
             title: タイトル
           status:
             closed: 終了済
             open: 公開
+      survey_confirmation_mailer:
+        confirmation:
+          body: '%{participatory_space} 内のアンケート %{questionnaire_title} に回答しました'
+          subject: アンケート %{questionnaire_title} 回答確認
+        export_name: アンケートの回答
       surveys:
         count:
           surveys_count:
@@ -91,6 +143,10 @@ ja:
             closed: 終了済
             open: 公開
         no_surveys_warning: アンケートが検索条件に一致していないか、アンケートが公開されていません。
+        response:
+          invalid: アンケートに回答する際に問題が発生しました。
+          spam_detected: フォームに回答する際に問題が発生しました。早すぎるかもしれません。もう一度やり直していただけますか？
+          success: アンケートに回答しました。
         show:
           closed: 終了済
           open: 公開

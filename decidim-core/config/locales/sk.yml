@@ -321,8 +321,6 @@ sk:
         name: Posledná aktivita
         title: Posledná aktivita
         view_all: Zobraziť všetko
-      metrics:
-        name: Štatistika organizácie
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -566,19 +564,6 @@ sk:
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-    metrics:
-      followers:
-        description: Počet účastníkov, ktorí sledujú tento participatívny priestor
-        object: sledujúci
-        title: Sledujúci
-      participants:
-        description: Počet aktívnych účastníkov v organizácii
-        object: účastníci
-        title: Účastníci
-      users:
-        description: Počet účastníkov v organizácii
-        object: účastníci
-        title: Účastníci
     newsletter_mailer:
       newsletter:
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
@@ -660,10 +645,6 @@ sk:
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
         topics: Témy
-      participatory_space:
-        metrics:
-          headline: Metriky
-          link: Zobraziť všetky metriky
     profile:
       deleted: Vymazaný účastník
     profiles:
@@ -696,7 +677,6 @@ sk:
       global: Globální oblast působnosti
       prompt: Vyberte oblast
     search:
-      results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
     searches:
       filters:

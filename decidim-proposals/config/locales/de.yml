@@ -9,6 +9,9 @@ de:
         scope_id: Bereich
         state: Status
         title: Titel
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Name der bewertenden Person
       import_participatory_text:
         document: Dokument
       proposal:
@@ -118,6 +121,8 @@ de:
           proposals: Vorschläge
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Zur Bewertung zugewiesen
           is_emendation_true:
             label: Art
             values:
@@ -262,8 +267,14 @@ de:
         accepted_coauthorship:
           notification_title: Sie wurden als Co-AutorIn zum Vorschlag <a href="%{resource_path}">%{resource_title}</a> hinzugefügt.
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie den Vorschlag bewerten können.
+            email_subject: Der Vorschlag %{resource_title} wurde Ihnen zur Bewertung zugewiesen.
+            notification_title: Ihnen wurde der Vorschlag <a href="%{resource_path}">%{resource_title}</a> zur Bewertung zugewiesen. Jetzt <a href="%{admin_proposal_info_path}">Admin-Panel</a> anschauen.
           proposal_note_created:
             email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie den Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
             notification_title: <a href="%{author_path}">%{author_name}</a> hat eine private Notiz unter <a href="%{resource_path}">%{resource_title}</a> erstellt. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
           proposal_note_mentioned:
@@ -407,23 +418,6 @@ de:
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Teilnehmer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
-    metrics:
-      accepted_proposals:
-        description: Anzahl der von den Benutzern akzeptierten Vorschläge
-        object: Vorschläge
-        title: Akzeptierte Vorschläge
-      endorsements:
-        description: Anzahl der in Vorschlägen generierten Vermerke
-        object: Änderungsvorschläge
-        title: Änderungsvorschläge
-      proposals:
-        description: Anzahl der Vorschläge
-        object: Vorschläge
-        title: Vorschläge
-      votes:
-        description: Anzahl Stimmen über Vorschläge
-        object: Stimmen
-        title: Abstimmungen
     open_data:
       help:
         proposal_comments:
@@ -475,7 +469,6 @@ de:
           withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
-        last: Letzte Vorschläge
         see_all: Alle anzeigen
     proposals:
       actions:
@@ -500,6 +493,13 @@ de:
           deleted_proposals_info: Gelöschte Vorschläge können aus dem Papierkorb wiederhergestellt werden.
           preview: Vorschau
           view_deleted_proposals: Gelöschte Vorschläge anzeigen
+        evaluation_assignments:
+          create:
+            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
+          delete:
+            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
+            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
@@ -674,6 +674,7 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den Bewerter dieses Vorschlags entfernen möchten?
             votes_count: Anzahl Stimmen
           update_taxonomies:
             invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
@@ -704,6 +705,9 @@ de:
             invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} hat den %{resource_name} Vorschlag einem Bewerter zugewiesen"
+          delete: "%{user_name} hat die Zuweisung eines Bewerters zum %{proposal_title} Vorschlag aufgehoben"
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den Vorschlag %{resource_name} aus dem Zusammenführen von %{merged_count} Vorschlägen in %{space_name} erstellt"
@@ -859,6 +863,7 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.
@@ -872,6 +877,8 @@ de:
         proposal:
           fields:
             comments: Bemerkungen
+            evaluator: Bewertende Person
+            evaluators: Bewertende Personen
             id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
@@ -939,6 +946,7 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
@@ -988,7 +996,7 @@ de:
         update:
           title: Vorschlag aktualisieren
         vote_button:
-          already_voted: Bereits abgestimmt
+          already_voted: Abgestimmt
           already_voted_hover: Stimme zurückziehen
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen

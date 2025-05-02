@@ -27,22 +27,43 @@ Decidim.register_component(:meetings) do |component|
     resource.searchable = true
   end
 
-  component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :meetings_count,
+                          primary: true,
+                          admin: false,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "map-pin-line",
+                          tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
     meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
     meetings.count
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :participatory_space_meetings_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "map-pin-line",
+                          tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
+    meetings.count
+  end
+
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
     meetings.sum(:comments_count)
   end
 
-  component.register_stat :attendees_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :attendees_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     meetings = Decidim::Meetings::Meeting.closed.not_hidden.published.where(component: components, closing_visible: true)
     meetings = meetings.where(closed_at: start_at..) if start_at.present?
     meetings = meetings.where(closed_at: ..end_at) if end_at.present?

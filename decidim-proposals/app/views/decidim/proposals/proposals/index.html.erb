@@ -43,12 +43,7 @@
   <% end %>
 
   <%= render partial: "decidim/shared/component_announcement" %>
-
-  <% if show_voting_rules? %>
-    <section class="layout-main__section">
-      <%= render partial: "voting_rules" %>
-    </section>
-  <% end %>
+  <%= render partial: "voting_rules" %>
 
   <section id="proposals" class="layout-main__section layout-main__heading">
     <%= render partial: "proposals" %>

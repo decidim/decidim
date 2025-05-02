@@ -1,0 +1,355 @@
+tr:
+  activemodel:
+    attributes:
+      answer:
+        description: Açıklama
+        image: Resim
+        proposals: İlgili teklifler
+        title: Başlık
+      election:
+        description: Açıklama
+        end_time: Oylama bitişi
+        start_time: Oylama başlangıcı
+        title: Başlık
+      question:
+        max_selections: Maksimum seçim sayısı
+        min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Toplam yanıt sayısı geçerli/boş/boş dağılımıyla eşleşmiyor.
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Boş cevapların toplam sayısı, boş oyların toplamından fazla olamaz.
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Cevap
+        other: Cevaplar
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
+      decidim/elections/question:
+        one: Soru
+        other: Sorular
+  decidim:
+    admin:
+      voting_publications:
+        create:
+          error: Bu oylama yayınlanırken bir sorun oluştu.
+          success: Soru/oylama başarıyla yayınlandı.
+        destroy:
+          error: Bu soru/Oylama yayından kaldırılırken bir hata oluştu.
+          success: Soru başarıyla yayından kaldırıldı
+    components:
+      elections:
+        actions:
+          vote: Oy ver
+        name: Seçimler
+        settings:
+          global:
+            announcement: Duyuru
+          step:
+            announcement: Duyuru
+    elections:
+      actions:
+        confirm_destroy: Emin misin?
+        destroy: Yok et
+        edit: Düzenle
+        feedback: Seçmen geri bildirimi
+        import: Teklifleri yanıtlara aktarın
+        manage_answers: Cevapları yönet
+        manage_questions: Soruları yönet
+        new_answer: Yeni Yanıt
+        new_election: Yeni seçim
+        new_question: Yeni soru
+        new_trustee: Yeni Vekil
+        preview: Önizleme
+        publish: Yayınla
+        title: Eylemler
+        unpublish: Yayımdan Kaldır
+      admin:
+        answers:
+          edit:
+            title: Cevabı düzenle
+            update: Cevabı güncelle
+          index:
+            title: Cevaplar
+          new:
+            create: Cevap oluştur
+            title: Yeni cevap
+          select:
+            disable: Cevabın seçimini kaldır
+            enable: Cevabı seçildi olarak işaretle
+        elections:
+          edit:
+            title: Seçimi düzenle
+            update: Seçimi güncelle
+          index:
+            no_bulletin_board: Bu modülü kullanmak için gerekli olan yapılandırılmış bir <a href="https://github.com/decidim/decidim-bulletin-board"> Bulletin Board sunucusu </a> yok. Bu görev Sistem Yöneticisi tarafından yapılmalıdır.
+            title: Seçimler
+          new:
+            create: Seçim oluştur
+            title: Yeni seçim
+          publish:
+            success: Seçim başarıyla yayınlandı.
+          unpublish:
+            success: Seçim başarılı bir şekilde yayınlanmadı.
+        exports:
+          elections: Seçimler
+          feedback_form_answers: Cevapların geri bildirimi
+        models:
+          answer:
+            name: Cevap
+        proposals_imports:
+          new:
+            create: Teklifleri yanıtlara aktarın
+            no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
+            select_component: Lütfen modülü bileşeni seçin
+            title: Teklifleri içe aktar
+        questions:
+          edit:
+            title: Soruyu Düzenle
+            update: Soruyu güncelle
+          index:
+            title: Sorular
+          new:
+            create: Soru Oluştur
+            title: Yeni soru
+        trustees_participatory_spaces:
+          actions:
+            disable: Devre dışı
+            enable: Dikkate al
+          form:
+            select_user: Kullanıcı seçin
+          index:
+            title: Vekiller
+          new:
+            create: Vekil Oluşturun
+            title: Yeni Vekil
+      election_m:
+        badge_name:
+          finished: Bitti
+          ongoing: Aktif
+          upcoming: Yakında
+        end_date: Son
+        footer:
+          view: Görünüm
+          vote: Seçim
+        label:
+          date: Tarihler
+        questions: '%{count} soru'
+        start_date: Başlangıç
+        unspecified: Belirtilmemiş
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          active: Aktif
+          all: Tümü
+          finished: Bitti
+          upcoming: Yakında
+        preview:
+          title: Seçim soruları
+        results:
+          selected: Seçili
+          title: Seçim sonuçları
+          votes:
+            one: "%{count} oy"
+            other: "%{count} oy"
+        show:
+          preview: Önizleme
+          voting_period_status:
+            finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
+            upcoming: Oylama %{start_time} tarihinde başlıyor
+      feedback:
+        answer:
+          success: Geri bildirim başarıyla gönderildi.
+      models:
+        answer:
+          fields:
+            proposals: Teklifler
+            title: Başlık
+        election:
+          fields:
+            end_time: Bitiyor
+            start_time: Başlıyor
+            title: Başlık
+        question:
+          fields:
+            answers: Cevaplar
+            max_selections: Maks. Alan sayısı seçimler
+            title: Başlık
+        trustees_participatory_space:
+          fields:
+            considered: dikkate al
+            email: E-posta
+            inactive: aktif değil
+            name: Adı
+            notification: Bildirim gönderildi
+            public_key: Herkese açık anahtar
+            status: Statü
+      orders:
+        label: Seçimleri şuna göre sırala
+        older: Daha eski
+        recent: En son
+      trustee_zone:
+        menu:
+          trustee_zone: Vekil bölgesi
+        trustees:
+          show:
+            elections:
+              list:
+                election: Seçim
+                voting_period: Oylama süresi
+              title: Seçimler
+            identification_keys:
+              cancel: İptal Et
+              generate: Kimlik anahtarları oluşturun
+              generate_error: Kimlik anahtarları oluşturulurken bir hata meydana geldi.
+              generate_legend: Vekil olarak seçimlere katılmak için bir kimlik anahtarı çifti oluşturmanız gerekir.
+              generate_legend_1: Düğmeye bastıktan sonra, oluşturulan tanımlama anahtarları ile dosyayı indirmelisiniz.
+              generate_legend_2: İndirilen dosyayı temiz bir USB cihazına kopyalayın
+              generate_legend_4: Dosyanın başka bir kopyasını farklı bir harici cihazda oluşturun ve çok güvenli bir yerde saklayın.
+              submit: Gönder
+              submit_title: Genel kimlik anahtarını gönderin
+              title: Vekil kimlik anahtarları
+              upload: Kimlik anahtarlarınızı yükleyin
+            not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
+          update:
+            success: Tanımlama genel anahtarınız başarıyla saklandı.
+      votes:
+        ballot_decision:
+          audit: Oy kontrolü
+        confirm:
+          answer_number: '%{number} cevap'
+          confirm: Onayla
+          edit: düzenle
+          header: Oyunu onayla
+          intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
+          nota_option: Boş
+        confirmed:
+          back: Seçimlere dön
+          experience: Şu ana kadarki deneyiminiz nasıl?
+          feedback: Bize geri bildirim verin
+          header: Oy onaylandı
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+        header:
+          ballot_decision: Kullanmak
+          confirm: Oyunu onayla
+          election: Seçim
+          register: Kayıt Olmak
+          vote_for: Oy vermek
+        messages:
+          not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
+        modal:
+          close: Kapat
+          proposal_header: 'Teklifler:'
+        new:
+          answer_choices: En fazla %{choices} cevap seçebilirsiniz
+          more_information: Daha fazla bilgi
+          nota_option: Yukarıdakilerin hiçbiri
+          preview_alert: Bu, oylama kabininin bir önizlemesidir.
+          question_steps: Soru %{current_step}/%{total_steps}
+          selections: "%{selected}/%{max_selections} <br> seçim"
+        voting_step:
+          back: Geri
+          continue: Sonraki
+      warnings:
+        empty_filters: Bu kriterlere göre seçim yapılmaz.
+        no_scheduled_elections: Şu anda planlanmış bir seçim yok, ancak burada geçmiş seçimlerin tamamını listelenmiş olarak bulabilirsiniz.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi artık %{participatory_space_title} için aktif.
+        trustees:
+          new_election:
+            email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
+          new_trustee:
+            email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
+            email_subject: '%{resource_name} için vekil birisiniz.'
+    participatory_spaces:
+      related_elections:
+        see_all: Tüm seçimleri görünüz
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            actions:
+              new: Yeni oylama Yöntemi
+        content_blocks:
+          attachments_and_folders:
+            name: Oylama ekleri ve klasörleri
+          header:
+            name: Oylama Başlığı
+          html_block_1:
+            name: Oylama html bloğu 1
+          html_block_2:
+            name: Oylama html bloğu 2
+          html_block_3:
+            name: Oylama html bloğu 3
+          main_data:
+            name: Başlık ve Açıklama
+          metrics:
+            name: Oylama Metrikleri
+          polling_stations:
+            name: Oy kullanma yeri
+          related_elections:
+            name: Seçim ve Seçmenler
+          stats:
+            name: Oylama istatistikleri
+          timeline:
+            name: Oylama Zaman Çizelgesi
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Aktif oylamalar
+            see_all_spaces: Tüm Oylamaları Görün
+      polling_officer_zone:
+        closures:
+          certify:
+            add_photos: Fotoğraf Ekle
+            edit_photos: Fotoğrafları Düzenle
+            upload_photos: Seçim Kapatma Belgesinin resmini yükleyin
+          completed:
+            sub_heading: Bu yeniden sayım onaylandı ve artık düzenlenemez.
+          destroy:
+            error: Kapatma işlemi silinirken bir hata oluştu.
+          edit:
+            confirm_start_over: Bu işlem toplam oy sayısını ve ekli notları kaldıracaktır. Emin misin?
+            info_text: Lütfen her soru için toplam cevap sayısını detaylandırın. Bu, önceki adımda verilen toplam yanıt sayısıyla (toplam {toplam} yanıt) eşleşmelidir.
+            modal_ballots_results_count_error:
+              total: Beklenen toplam %{beklenen} dir. ancak geçerli, boş ve boş oyların toplamı %{current}. dir.
+              valid: Beklenen geçerli oy toplamı %{expected} dır. Ancak geçerli soruların toplamı %{current}.'dir.
+            start_over: Toplam sayıda hata varsa her şeyi silip baştan başlayabilirsiniz.
+          show:
+            edit_count_votes: Yanlış numaralar mı? Bunları hâlâ düzenleyebilirsiniz.
+            sub_heading: Yeniden sayımın bir sertifika yüklenerek kapatılması gerekiyor. Bu yapıldıktan sonra yeniden sayım mühürlenecek ve artık düzenlenemeyecektir.
+      polling_officers:
+        actions:
+          new: Yeni Oylama Memuru
+      polling_station_closure_certificate:
+        current_certificate: 'Mevcut sertifika:'
+      polling_stations:
+        actions:
+          new: Oy verme yeri
+      votings:
+        show:
+          title: Bu Oylama Hakkında

@@ -494,6 +494,9 @@ end
 #       config.print_enabled = Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").present?
 #     end
 #     config.do_not_require_authorization = Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
+#     if Decidim::Env.new("INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET").present?
+#       config.signature_handler_encryption_secret = Decidim::Env.new("INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET")
+#     end
 #   end
 # end
 

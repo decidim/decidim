@@ -1,12 +1,12 @@
 <%= alert_box(
   message(
     content_tag(:div, class: "") do
-      concat content_tag(:strong, t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_minimum_votes_count_for(current_user)))
-      concat content_tag(:p, t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_minimum_votes_count_for(current_user)))
+      concat content_tag(:strong, t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_minimum_votes_count_for_user))
+      concat content_tag(:p, t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_minimum_votes_count_for_user))
       concat link_to(t("already_vote.see_other_proposals", scope: "decidim.proposals.proposals.voting_rules"), proposals_path, class: "no-modal")
     end
   ),
   :secondary,
   true,
-  { id: "remaining-votes-notification", class: "flash secondary #{"hidden" unless remaining_minimum_votes_count_for(current_user).positive?}" }
+  { id: "remaining-votes-notification", class: "flash secondary #{"hidden" unless remaining_minimum_votes_count_for_user.positive?}" }
 ) %>

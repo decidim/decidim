@@ -5,6 +5,7 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       attachment:
         documents: Documents
+        image: Imatge
         photos: Fotos
       common:
         created_at: Creat el
@@ -52,6 +53,12 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: L'àlies o sobrenom s'ha d'escriure en minúscules i no ha de tenir cap espai
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -165,6 +172,7 @@ ca:
       front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Obrir en una pestanya nova
+      secondary_menu: Menú secundari
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels termes i condicions d'ús
@@ -602,10 +610,6 @@ ca:
         name: Dades principals
       metadata:
         name: Metadades
-      metrics:
-        name: Mètriques de l'organització
-      participatory_space_metrics:
-        name: Mètriques
       participatory_space_stats:
         name: Estadístiques
       social_networks_metadata:
@@ -936,6 +940,16 @@ ca:
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+          email_outro: Has rebut aquesta notificació perquè és autora del/ de la %{resource_type}.
+          email_subject: El teu/la teva %{resource_type} ja no és visible
+          notification_title: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè s'ha eliminiat un contingut que havies creat.
@@ -1167,6 +1181,8 @@ ca:
           modal_title: Nova conversa
           no_results: No hi ha resultats
           participant_with_disabled_message_reception: Aquesta participant no vol rebre missatges privats.
+          participants:
+            title: Participants
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
@@ -1199,27 +1215,6 @@ ca:
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Número de participants bloquejades
-      download:
-        csv: Descarregar les dades (csv)
-      followers:
-        description: Nombre de participants que segueixen aquest espai de participació
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Nombre de participants actives a l'organització
-        object: participants
-        title: Participants
-      reported_users:
-        description: Número de participants reportades
-      user_reports:
-        description: Número de denúncies realitzades per participants
-      users:
-        description: Nombre de participants a l'organització
-        object: participants
-        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
@@ -1347,11 +1342,6 @@ ca:
             other: "%{count} recursos"
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
-        metrics:
-          cumulative: El número total de mètriques en aquest dia
-          day: La data en què es va crear aquesta mètrica
-          metric_type: El tipus de mètrica
-          quantity: El número de mètriques en aquest dia
         moderated_users:
           about: El text "Quant a" inclòs al perfil d'usuària
           block_reasons: El motiu pel qual l'administradora va bloquejar a la usuària
@@ -1474,10 +1464,6 @@ ca:
         subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
         topics: Temes
-      participatory_space:
-        metrics:
-          headline: Mètriques
-          link: Mostra totes les mètriques
       terms_of_service:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions d'ús.
@@ -1498,9 +1484,9 @@ ca:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Els nostres registres indiquen que vas creas un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat activa des de <strong>%{date_last_connection</strong></p>}.
+          <p>Els nostres registres indiquen que vas crear un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat actiu des de <strong>%{date_last_connection</strong></p>}.
           <p>Per protegir la teva privacitat, l'eliminació automàtica d'aquest compte s'ha programat en <strong>%{days} dies</strong>.</p>
-          <p>Si vols conservar el teu compte %{organization_name}, simplement %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
+          <p>Si vols conservar el teu compte %{organization_name}, simplement inicia sessió %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
         greetings_html: |
           Atentament,<br>
           %{organization_name}
@@ -1544,8 +1530,12 @@ ca:
         title: Codi QR per %{resource_title}
     reported_mailer:
       hide:
+        content: Contingut reportat
+        details: Detalls
         hello: Hola %{name},
         manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
       report:
@@ -1569,6 +1559,8 @@ ca:
         report_details: El recurs principal estava amagat
     resource:
       controls_label: Controls de recursos
+    resource_autocomplete:
+      help: Escriu aquí per cercar entre les propostes
     resource_endorsements:
       create:
         error: S'ha produït un error durant l'acció d'adhesió.
@@ -1578,7 +1570,7 @@ ca:
     search:
       name: Cercar
       results: Resultat de la cerca
-      results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
+      results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cercar
     searches:
       filters:
@@ -1697,10 +1689,20 @@ ca:
         body_2: Com a part dels nostres esforços per simplificar l'experiència de les organitzacions, la funció "Grups d'usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup d'Usuàries ha esdevingut un perfil de participant en ús.
         greeting: Benvolgut/da %{name},
         instructions_1: Si tens accés a aquest compte de correu electrònic, si us plau, revisa la safata d'entrada per veure les instruccions.
-        instructions_2: Si no, algun membre del grup amb accés al correu haurà d'establir la contrasenya i compartir les credencials d'inici de sessió amb tu.
-        instructions_intro: Els membres del grup ara compartiran l'accés a aquest perfil usant credencials d'accés compartides (email i contrasenya). Hem enviat instruccions a <strong>%{group_email}</strong> per establir una contrasenya nova per al perfil.
+        instructions_intro: Hem enviat instruccions per establir una nova contrasenya pel perfil, al correu electrònic associat al compte.
         instructions_title: "<strong>Què vol dir això per a tu?</strong>"
         subject: Actualització important sobre un grup d'usuaris del que formeu part
+      notify_deprecation_to_owner:
+        body_1: Ens posem en contacte amb tu per informar-te sobre una important actualització respecte al Grup d'usuaris %{organization_name} del qual formes part.
+        body_2: 'Com a part dels nostres esforços per simplificar l''experiència de les organitzacions com la vostra, la funció "Grups d''Usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup: <strong>%{name}</strong> s''ha convertit en un perfil de participant a l''ús.'
+        body_3: Per poder seguir accedint al teu compte, necessitem que estableixis una contrasenya.
+        greeting: Benvolgut/da %{name},
+        instructions_1: 'Clica a l''enllaç que trobaràs a continuació per iniciar el procés per configurar la contrasenya:'
+        instructions_2: Al formulari, introdueix l'adreça de correu electrònic on vas rebre aquest missatge i envia la sol·licitud.
+        instructions_3: Revisa la teva safata d'entrada a la recerca d'un correu electrònic amb més instruccions per establir la contrasenya nova.
+        instructions_title: "<strong>Què cal que facis?</strong>"
+        set_password: Iniciar el procés de configuració de la contrasenya
+        subject: Actualització important del grup d'usuàries
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
@@ -1821,16 +1823,6 @@ ca:
         instruction: 'Fes clic a l''enllaç següent per desbloquejar el teu compte:'
         message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents fallits d'inici de sessió.
         subject: Desbloqueja les instruccions
-      user_group_reset_password_instructions:
-        body_1: Ens posem en contacte amb tu per informar-te sobre una important actualització respecte al Grup d'usuaris %{organization_name} del qual formes part.
-        body_2: 'Com a part dels nostres esforços per simplificar l''experiència de les organitzacions com la vostra, la funció "Grups d''Usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup: <strong>%{name}</strong> s''ha convertit en un perfil de participant a l''ús.'
-        body_3: Per continuar accedint al grup i compartir l'accés, cal que defineixis una contrasenya. Un cop configurada, pots compartir les credencials d'inici de sessió (email i contrasenya) amb qui consideris oportú. Aquesta/es persona/es podrà realitzar diferents accions a la plataforma amb el nom de l'organització.
-        greeting: Benvolgut/da %{name},
-        instructions_1: 'Fes clic a l''enllaç següent per establir una contrasenya:'
-        instructions_2: 'Comparteix les credencials d''inici de sessió (correu electrònic: %{email} i la nova contrasenya) amb qui consideris oportú. Recorda: aquesta/es persona/es podrà realitzar diferents accions a la plataforma amb el perfil de l''organització.'
-        instructions_title: "<strong>Què cal que facis?</strong>"
-        set_password: Estableix la teva contrasenya
-        subject: Actualització important del grup d'usuàries
     omniauth_callbacks:
       add_tos_errors: S'ha d'acceptar els termes i condicions d'ús per crear un compte.
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
@@ -2078,8 +2070,11 @@ ca:
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús
       header:
+        back: Tornar al llistat
+        cancel: Cancel·lar
         close: Tancar
-        confirm_close_ephemeral_session: Si navegues fora d'aquesta pàgina, la teva sessió es tancarà. Segur que vols sortir d'aquesta pàgina?
+        confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
+        confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari

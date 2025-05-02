@@ -276,3 +276,4 @@ en:
           url: The URL where this debate can be found
     statistics:
       debates_count: Debates
+      debates_count_tooltip: The number of discussions held.

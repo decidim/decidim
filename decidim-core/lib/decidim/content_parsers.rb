@@ -11,5 +11,6 @@ module Decidim
     autoload :InlineImagesParser, "decidim/content_parsers/inline_images_parser"
     autoload :ResourceParser, "decidim/content_parsers/resource_parser"
     autoload :TagParser, "decidim/content_parsers/tag_parser"
+    autoload :MentionResourceParser, "decidim/content_parsers/mention_resource_parser"
   end
 end

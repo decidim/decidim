@@ -18,6 +18,10 @@ sk:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentáre
     comments:
       votes:
         create:
@@ -82,8 +86,3 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože ste boli spomenutí na %{resource_title}.
           email_subject: Boli ste spomenutí na %{resource_title}
           notification_title: Boli ste spomenutí <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Počet komentárov všetkých účastníkov
-        object: komentáre
-        title: Komentáre

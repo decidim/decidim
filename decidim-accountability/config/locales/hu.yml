@@ -213,11 +213,6 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert "%{proposal_title}" -t követed, és ez a javaslat szerepel a "%{resource_title}" eredményben. Leállíthatod az értesítések fogadását követve az előző linket.
           email_subject: '%{resource_title} frissítése folyamatban'
           notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%-ban teljes.
-    metrics:
-      results:
-        description: A keletkezett eredmények száma
-        object: eredmények
-        title: Eredmények
     participatory_spaces:
       highlighted_results:
         see_all: Eredmények megtekintése (%{count})

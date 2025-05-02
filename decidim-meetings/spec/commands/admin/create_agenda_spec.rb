@@ -46,7 +46,8 @@ module Decidim::Meetings
           )
         ],
         current_user:,
-        meeting:
+        meeting:,
+        current_organization: organization
       )
     end
 

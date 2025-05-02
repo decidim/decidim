@@ -136,6 +136,8 @@ ignore_unused:
   - decidim.admin.actions.share
   - decidim.admin.participatory_process_steps.default_title
   - decidim.admin.admin_log.changeset.*
+  - decidim.verifications.admin_log.csv_datum.*
+  - decidim.admin.forms.file_help.import_csv.*
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
   - decidim.application.documents.component_documents.*
@@ -177,6 +179,9 @@ ignore_unused:
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
+  - decidim.verifications.csv_census.admin.census.create_import.no_user
+  - decidim.verifications.csv_census.admin.census.index.no_sign_in
+  - decidim.verifications.csv_census.admin.census.index.no_user
   - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
   - errors.messages.*

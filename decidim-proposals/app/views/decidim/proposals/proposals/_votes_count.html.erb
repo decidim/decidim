@@ -1,4 +1,4 @@
-<% if !current_settings.votes_hidden? && current_component.participatory_space.can_participate?(current_user) %>
+<% if !current_settings.votes_hidden? && (current_component.participatory_space.can_participate?(current_user) || current_user.admin?) %>
   <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
     <%= render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count", locals: { proposal:, from_proposals_list: true } %>
   <% else %>

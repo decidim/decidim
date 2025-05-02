@@ -140,3 +140,4 @@ en:
     statistics:
       all_collaborative_texts_count: All collaborative texts
       collaborative_texts_count: Collaborative texts
+      collaborative_texts_count_tooltip: Number of collaborative texts

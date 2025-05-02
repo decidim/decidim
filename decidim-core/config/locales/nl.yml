@@ -356,8 +356,6 @@ nl:
         name: Laatste activiteit
         title: Laatste activiteit
         view_all: Bekijk alles
-      metrics:
-        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -644,21 +642,6 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-    metrics:
-      download:
-        csv: Gegevens downloaden (csv)
-      followers:
-        description: Aantal deelnemers dat deze participatieruimte volgt
-        object: volgers
-        title: Volgers
-      participants:
-        description: Aantal actieve deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
-      users:
-        description: Aantal deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
     newsletter_mailer:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
@@ -751,10 +734,6 @@ nl:
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
         topics: Onderwerpen
-      participatory_space:
-        metrics:
-          headline: Deelname in cijfers
-          link: Toon alle statistieken
     profile:
       deleted: Verwijderde deelnemer
     profiles:
@@ -799,7 +778,6 @@ nl:
       prompt: Selecteer een scope
     search:
       results: Zoek resultaten
-      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:

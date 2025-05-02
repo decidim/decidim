@@ -263,7 +263,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
-          within "[data-statistic]" do
+          within "[data-statistic][class*=proposals]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
             expect(page).to have_no_css(".statistic__title", text: "Meetings")

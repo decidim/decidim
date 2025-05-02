@@ -69,7 +69,6 @@ tr:
             creation_enabled_for_participants: Katılımcılar toplantı oluşturabilir
             default_registration_terms: Varsayılan kayıt şartları
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
-            registration_code_enabled: Kayıt kodu etkinleştirildi
             resources_permissions_enabled: Her toplantı için işlem izinleri ayarlanabilir
             terms_and_conditions_url_for_meeting_creators: Toplantı oluşturucuları için şartlar ve koşullar URL'si
           step:
@@ -102,10 +101,8 @@ tr:
           email_subject: '"%{resource_title}" toplantısı için ayrılan zaman aralıkları % %{percentage}''nin üzerinde'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> toplantısı için ayrılan zaman aralıkları % %{percentage}'nin üzerinde.
         meeting_updated:
-          email_intro: '"%{resource_title}" toplantısı güncellendi. Yeni sürümü kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
           email_subject: '"%{resource_title}" toplantısı güncellendi'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı güncellendi.
         registration_code_validated:
           email_intro: '"%{resource_title}" toplantısı için "%{registration_code}" kayıt kodunuz onaylandı.'
           email_outro: '"%{resource_title}" toplantısı için kayıt kodunuz onaylandığından bu bildirimi aldınız.'
@@ -228,8 +225,6 @@ tr:
         registrations:
           edit:
             save: Kaydet
-            validate: Doğrula
-            validate_registration_code: Kayıt kodunu doğrula
           form:
             available_slots_help: Mevcut sınırsız yuvaya sahipseniz 0'a bırakın.
             invites: Davetiyeler
@@ -243,9 +238,6 @@ tr:
           update:
             invalid: Kayıt ayarları kaydedilirken bir sorun oluştu.
             success: Toplantı kayıtları ayarları başarıyla kaydedildi.
-          validate_registration_code:
-            invalid: Bu kayıt kodu geçersiz.
-            success: Kayıt kodu başarıyla doğrulandı.
       admin_log:
         invite:
           create: "%{user_name}, %{attendee_name} adlı kişiyi %{space_name} alanındaki %{resource_name} toplantısına katılmaya davet etti"
@@ -339,7 +331,6 @@ tr:
           meeting_minutes: Görüşme süreleri
           no_slots_available: Kullanılabilir yer yok
           organizations: Katılan kuruluşlar
-          registration_code_help_text: Kayıt kodunuz
           registration_state:
             validated: DOĞRULANDI
             validation_pending: DOĞRULAMA BEKLİYOR
@@ -373,7 +364,6 @@ tr:
         confirmation:
           confirmed_html: Toplantı için kaydınız <a href="%{url}">%{title}</a> onaylandı.
           details: Toplantı detaylarını ekte bulabilirsiniz.
-          registration_code: Kayıt kodunuz %{code}.
       registration_type:
         on_different_platform: Farklı bir platformda
         on_this_platform: Bu platformu kullanın
@@ -393,11 +383,6 @@ tr:
       types:
         private_meeting: Özel toplantı
         transparent: Şeffaf
-    metrics:
-      meetings:
-        description: Oluşturulan toplantı sayısı
-        object: toplantılar
-        title: Toplantılar
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar

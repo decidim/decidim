@@ -15,11 +15,11 @@ module Decidim
       def call
         component = create_component!
 
-        3.times do
+        number_of_records.times do
           create_document!(component:)
         end
 
-        2.times do
+        number_of_records.times do
           create_document!(component:, published_at: nil)
         end
       end
@@ -60,6 +60,22 @@ module Decidim
           visibility: "all"
         )
 
+        # Create some versions
+        number_of_records.times do |num|
+          params = {
+            document:,
+            body: create_body,
+            created_at: num.seconds.from_now
+          }
+          Decidim.traceability.create!(
+            Decidim::CollaborativeTexts::Version,
+            admin_user,
+            params,
+            visibility: "all"
+          )
+        end
+
+        # Create some suggestions
         random_positions = (0...body_blocks.size).to_a.sample(5)
         random_positions.each do |position|
           changeset = {
@@ -69,6 +85,8 @@ module Decidim
           }
           create_suggestion!(document_version: document.current_version, changeset:)
         end
+
+        document
       end
 
       def create_suggestion!(document_version:, changeset:)

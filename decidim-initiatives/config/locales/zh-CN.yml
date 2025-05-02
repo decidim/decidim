@@ -2,7 +2,6 @@ zh-CN:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: 作者
         description: 描述
         offline_votes: 本人签名
         offline_votes_for_scope: '%{scope_name} 的本人签名'
@@ -26,7 +25,6 @@ zh-CN:
         collect_user_extra_fields: 在签名时收集参与者个人数据
         custom_signature_end_date_enabled: 允许作者选择签名收集期的结束
         description: 描述
-        document_number_authorization_handler: 验证签名上的文档编号的授权
         extra_fields_legal_information: 关于收集个人数据的法律信息
         minimum_committee_members: 委员会成员的最低人数
         online_signature_enabled: 启用在线签名
@@ -216,7 +214,6 @@ zh-CN:
           edit:
             update: 更新
           form:
-            authorizations: 授权设置
             options: 备选方案
           initiative_type_scopes:
             title: 倡议类型的范围
@@ -278,20 +275,11 @@ zh-CN:
           email_subject: '%{author_nickname} 认可的倡议'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
       initiative_signatures:
-        fill_personal_data:
-          continue: 继续
         finish:
           back_to_initiative: 回到倡议
-        sms_code:
-          continue: 检查代码并继续
-          help: 检查手机收到的短信
-        sms_phone_number:
-          continue: 给我发送短信
       initiative_votes:
         create:
           error: 在签署该倡议时遇到了问题。
-        personal_data:
-          invalid: 个人资料与批准数据不一致。
         sms_phone:
           invalid: 电话号码无效或正在等待授权。请检查您的授权。
       initiatives:
@@ -370,18 +358,11 @@ zh-CN:
       initiatives_type:
         actions:
           title: 行动
-          vote: 签名
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: 创建
         select_initiative_type: 选择
-      initiative_signature_creation_header:
-        fill_personal_data: 完成您的数据
-        finish: 完成
-        sms_code: 短信代码验证
-        sms_phone_number: 手机号码
-        title: 签名 %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: 还没有倡议！

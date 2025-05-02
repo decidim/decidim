@@ -44,7 +44,11 @@
       <%= icon_link_to "eye-line", hide_moderation_path(id: moderation), t("actions.hide", scope: "decidim.moderations"), class: "action-icon--hide", method: :put %>
     <% end %>
     <% if moderation.reportable.hidden? && allowed_to?(:unhide, authorization_scope) %>
-      <%= icon_link_to "eye-line", unhide_moderation_path(id: moderation), t("actions.unhide", scope: "decidim.moderations"), method: :put %>
+      <% if moderation.reportable.respond_to?(:commentable) && moderation.reportable.commentable.try(:hidden?) %>
+        <%= icon_with_tooltip "eye-line", t("actions.parent_hidden", scope: "decidim.moderations"), class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.parent_hidden", scope: "decidim.moderations") %>
+      <% else %>
+        <%= icon_link_to "eye-line", unhide_moderation_path(id: moderation), t("actions.unhide", scope: "decidim.moderations"), method: :put %>
+      <% end %>
     <% end %>
   </td>
 </tr>
