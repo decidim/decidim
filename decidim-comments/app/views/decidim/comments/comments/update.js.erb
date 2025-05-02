@@ -2,8 +2,8 @@ $(() => {
   var rootCommentableId = <%== "comments-for-#{@commentable.class.name.demodulize}-#{@commentable.id}".to_json %>;
   var $comments = $("#" + rootCommentableId);
   var config = $comments.data("decidim-comments");
+  var component = $comments.data("comments");
 
-  component = new Decidim.CommentsComponent($comments, config);
   component.unmountComponent();
 
   var commentHtml = '<%== j(render partial: "edited_comment", locals: { comment: @comment }).strip %>';
@@ -19,9 +19,7 @@ $(() => {
   $comment.replaceWith(commentHtml);
 
   // Re-create the component
-  component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));
   component.mountComponent();
-  $comments.data("comments", component);
 
   Rails.fire(document, "comments:loaded", {
     commentsIds: [commentId]
