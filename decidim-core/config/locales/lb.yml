@@ -714,8 +714,6 @@ lb:
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        statistics:
-          headline: Aktuellen Stand vun %{organization}
         sub_hero:
           register: Registréieren
       index:
