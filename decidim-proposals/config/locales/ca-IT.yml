@@ -98,9 +98,7 @@ ca-IT:
       decidim:
         proposals:
           proposal:
-            budget_text: S'ha creat la proposta %{link}
             import_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
-            import_to_proposal_text: S'ha creat la proposta %{link}
             merge_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
             merge_to_proposal_text: 'Es va crear aquesta proposta: %{link}'
             split_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
