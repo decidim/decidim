@@ -131,3 +131,4 @@ sv:
             other: "%{count} tilldelningar"
     statistics:
       sortitions_count: Lottningar
+      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslutsfattandet.
