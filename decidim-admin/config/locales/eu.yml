@@ -1243,7 +1243,6 @@ eu:
         participants: Parte-hartzaileak
         scope_types: Eremu motak
         scopes: Eremuak
-        statistics: Jarduera
         taxonomies: Taxonomiak
         taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
         users: Administratzaileak
