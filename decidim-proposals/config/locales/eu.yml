@@ -98,9 +98,7 @@ eu:
       decidim:
         proposals:
           proposal:
-            budget_text: '%{link} proposamena sortu da'
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            import_to_proposal_text: '%{link} proposamena sortu da'
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
