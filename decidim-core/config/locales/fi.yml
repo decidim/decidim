@@ -1438,8 +1438,6 @@ fi:
           participate: Osallistu
           participate_title: Osallistu prosesseihin alustalla
           welcome: Tervetuloa organisaatioon %{organization}!
-        statistics:
-          headline: '%{organization} numeroina'
         sub_hero:
           register: Rekisteröidy
           register_title: Luo tili
