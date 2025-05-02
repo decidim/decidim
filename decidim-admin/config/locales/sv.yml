@@ -1240,7 +1240,6 @@ sv:
         participants: Deltagare
         scope_types: Typer av indelningar
         scopes: Indelningar
-        statistics: Aktivitet
         taxonomies: Kategorier
         taxonomy_filters: Kategorifilter för "%{taxonomy}"
         users: Administratörer
