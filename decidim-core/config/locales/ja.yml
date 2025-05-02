@@ -1437,6 +1437,8 @@ ja:
           participate: 参加
           participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
+        statistics:
+          headline: 統計情報
         sub_hero:
           register: 登録
           register_title: アカウントを作成
