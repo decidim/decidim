@@ -621,8 +621,6 @@ lv:
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        statistics:
-          headline: '%{organization} pašreizējais stāvoklis'
         sub_hero:
           register: Reģistrēties
       index:
