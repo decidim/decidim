@@ -44,7 +44,7 @@ fi:
         models:
           sortition:
             fields:
-              category: Luokka
+              category: Aihepiiri
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
               dice: Noppa
