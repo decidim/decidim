@@ -1454,8 +1454,6 @@ es:
           participate: Participa
           participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenida a %{organization}!
-        statistics:
-          headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
           register_title: Crea una cuenta
