@@ -1461,8 +1461,6 @@ de:
           participate: Teilnehmen
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
-        statistics:
-          headline: Starea curentă a %{organization}
         sub_hero:
           register: Registrieren
           register_title: Konto erstellen
