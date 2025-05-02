@@ -27,9 +27,13 @@ tr:
       id: İD
       newsletter:
         body: Vücut
+        send_to_all_users: Bütün kullanıcılara gönder
+        send_to_followers: Takipçilere gönder
+        send_to_participants: Katılımcılara gönder
         subject: konu
       organization:
         alert_color: Alarm
+        available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
         comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
@@ -38,8 +42,10 @@ tr:
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
+        enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
+        from: Gönderenin eposta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
         highlight_alternative_color: Vurgu, alternatif
@@ -663,7 +669,6 @@ tr:
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
-        statistics: Aktivite
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.
