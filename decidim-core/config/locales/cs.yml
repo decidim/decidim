@@ -1491,8 +1491,6 @@ cs:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
           welcome: Vítejte na %{organization}!
-        statistics:
-          headline: Aktuální stav %{organization}
         sub_hero:
           register: Registrovat
           register_title: Vytvořit účet
