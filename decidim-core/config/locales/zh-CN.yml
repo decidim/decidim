@@ -642,8 +642,6 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        statistics:
-          headline: 当前状态 %{organization}
         sub_hero:
           register: 注册
       index:
