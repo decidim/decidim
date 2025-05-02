@@ -3,7 +3,6 @@ fr-CA:
     attributes:
       sortition:
         additional_info: Information sur le tirage au sort
-        decidim_category_id: Catégories des propositions sur lesquelles vous souhaitez appliquer le tirage au sort
         decidim_proposals_component_id: Ensemble de propositions
         dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat.
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez tirer au sort parmi celles du groupe de propositions que vous avez choisi précédemment)
@@ -24,8 +23,11 @@ fr-CA:
         name: Tirages au sort
         settings:
           global:
+            clear_all: Effacer tout
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            taxonomy_filters: Sélectionner les filtres pour le composant
+            taxonomy_filters_add: Ajouter un filtre
     events:
       sortitions:
         sortition_created:
@@ -43,7 +45,6 @@ fr-CA:
         models:
           sortition:
             fields:
-              category: Catégorie
               created_at: Date de création
               decidim_proposals_component: Module de propositions
               dice: Dé
@@ -67,7 +68,6 @@ fr-CA:
             title: Mettre à jour les informations sur le tirage au sort
             update: Mettre à jour
           form:
-            all_categories: Toutes les catégories
             select_proposal_component: Sélectionnez un ensemble de propositions
           index:
             title: Tirages au sort
@@ -110,11 +110,8 @@ fr-CA:
             other: propositions sélectionnées
         show:
           algorithm: Code de l'algorithme de tirage au sort
-          any_category: toutes les catégories
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
-          candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
-          category: de la catégorie %{category}
           dice_result: (1) Résultat du tirage de dé
           introduction: 'Cette page contient le résultat du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} éléments ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus du résultat, cette page fournit toutes les informations nécessaires pour maximiser les garanties et permettre de reproduire le résultat. Le tirage au sort résulte d''un double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La variable temporelle pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "infalsifiable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
