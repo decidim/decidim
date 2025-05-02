@@ -509,6 +509,7 @@ sv:
         related_processes: Relaterade processer
     statistics:
       processes_count: Processer
+      processes_count_tooltip: Antalet deltagande processer som är allmänt tillgängliga.
   layouts:
     decidim:
       participatory_process_groups:
