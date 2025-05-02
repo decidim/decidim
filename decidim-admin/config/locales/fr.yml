@@ -1176,7 +1176,6 @@ fr:
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Secteurs
-        statistics: Activité
         users: Administrateurs
       tooltips:
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
