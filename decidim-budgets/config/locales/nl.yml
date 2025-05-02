@@ -244,6 +244,5 @@ nl:
         project_proposal: Voorstellen opgenomen in dit project
     statistics:
       orders_count: Aantal keer gesteund
-      projects_count: Projecten
   index:
     confirmed_orders_count: Aantal stemmen
