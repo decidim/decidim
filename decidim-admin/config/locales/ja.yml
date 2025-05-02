@@ -583,6 +583,7 @@ ja:
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
+        insights: インサイト
         manage: 管理
         moderation: グローバルモデレーション
         newsletters: ニュースレター
@@ -595,6 +596,7 @@ ja:
         share_tokens: アクセスリンク
         static_page_topics: トピック
         static_pages: ページ
+        statistics: 統計情報
         taxonomies: タクソノミー
         taxonomy_filters: タクソノミーフィルター
         users: 参加者
@@ -1235,6 +1237,7 @@ ja:
         participants: 参加者
         scope_types: スコープ種別
         scopes: スコープ
+        statistics: 統計情報
         taxonomies: タクソノミー
         taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
         users: 管理者
@@ -1337,5 +1340,7 @@ ja:
       admin:
         global_moderations:
           title: グローバルモデレーション
+        insights:
+          title: インサイト
         taxonomy_filters_selector:
           title: フィルター
