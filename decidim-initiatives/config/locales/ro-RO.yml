@@ -574,6 +574,9 @@ ro:
       initiatives_type:
         actions:
           title: Acțiuni
+    statistics:
+      initiatives_count: Inițiative
+      initiatives_count_tooltip: Numărul de inițiative cetățenești publicate.
   layouts:
     decidim:
       initiative_creation_header:
