@@ -98,9 +98,7 @@ es:
       decidim:
         proposals:
           proposal:
-            budget_text: Se creó la propuesta %{link}
             import_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
-            import_to_proposal_text: Se creó la propuesta %{link}
             merge_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
             merge_to_proposal_text: 'Esta propuesta fue creada: %{link}'
             split_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
