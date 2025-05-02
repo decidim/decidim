@@ -689,6 +689,8 @@ ja:
         actions:
           create: イニシアチブを作成
           title: アクション
+    statistics:
+      initiatives_count: イニシアチブ
   layouts:
     decidim:
       initiative_creation_header:
