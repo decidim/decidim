@@ -91,3 +91,4 @@ sv:
             announcement: Meddelande
     statistics:
       collaborative_texts_count: Kollaborativa texter
+      collaborative_texts_count_tooltip: Antal gemensamma texter
