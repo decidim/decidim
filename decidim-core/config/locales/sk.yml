@@ -636,8 +636,6 @@ sk:
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        statistics:
-          headline: Aktuálny stav %{organization}
         sub_hero:
           register: Registrovať
       index:
