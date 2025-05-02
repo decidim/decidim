@@ -440,6 +440,5 @@ ca-IT:
         project_proposal: Propostes incloses en aquest projecte
     statistics:
       orders_count: Suports
-      projects_count: Projectes
   index:
     confirmed_orders_count: Recompte de vots
