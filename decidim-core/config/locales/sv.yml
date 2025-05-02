@@ -1258,6 +1258,8 @@ sv:
           participate: Delta
           participate_title: Delta i plattformens processer
           welcome: Välkommen till %{organization}!
+        statistics:
+          headline: Statistik
         sub_hero:
           register: Registrera
           register_title: Skapa ett konto
@@ -1425,13 +1427,17 @@ sv:
         share_to: Dela till %{service}
     statistics:
       comments_count: Kommentarer
+      comments_count_tooltip: Det totala antalet kommentarer postade i detta utrymme.
       endorsements_count: Gilla-markeringar
       followers_count: Följare
+      followers_count_tooltip: Antalet användare som följer någon del av detta utrymme för att hålla sig uppdaterad.
       headline: Statistik
       no_stats: Det finns ingen statistik ännu.
       pages_count: Sidor
       participants_count: Deltagare
+      participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
       users_count: Deltagare
+      users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
