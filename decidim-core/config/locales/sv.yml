@@ -1258,8 +1258,6 @@ sv:
           participate: Delta
           participate_title: Delta i plattformens processer
           welcome: Välkommen till %{organization}!
-        statistics:
-          headline: Aktuellt läge för %{organization}
         sub_hero:
           register: Registrera
           register_title: Skapa ett konto
