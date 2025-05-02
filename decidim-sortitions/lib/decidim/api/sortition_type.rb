@@ -22,7 +22,12 @@ module Decidim
       field :selected_proposals, [GraphQL::Types::Int, { null: true }], "The selected proposals for this sortition", null: true
       field :target_items, GraphQL::Types::Int, "The target items for this sortition", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this sortition", null: true
+      field :url, GraphQL::Types::String, "The URL for this sortition", null: false
       field :witnesses, Decidim::Core::TranslatedFieldType, "The witnesses for this sortition", null: true
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
 
       def self.authorized?(object, context)
         context[:sortition] = object
