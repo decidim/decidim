@@ -3,7 +3,6 @@ it:
     attributes:
       sortition:
         additional_info: Informazioni di ordinamento
-        decidim_category_id: Categorie dell'insieme di proposte in cui si desidera applicare l'estrazione
         decidim_proposals_component_id: Proposte impostate
         dice: Risultato del tiro di dado. Tira un dado a 6 facce, o cerca un altro modo casuale per generare un numero da 1 a 6, e inserisci qui il numero risultante davanti ad alcuni testimoni. Ciò contribuisce alla qualità e alle garanzie della casualità del risultato
         target_items: Numero di proposte da selezionare (indica il numero di proposte che si desidera selezionare tracciando lotti del gruppo di proposte che si è scelto in precedenza)
@@ -42,7 +41,6 @@ it:
         models:
           sortition:
             fields:
-              category: Categoria
               created_at: Data di creazione
               decidim_proposals_component: Componente delle proposte
               dice: Dado
@@ -62,7 +60,6 @@ it:
             title: Aggiorna le informazioni sulla sortizione
             update: Aggiornare
           form:
-            all_categories: Tutte le categorie
             select_proposal_component: Seleziona il set di proposte
           index:
             title: Sorteggi
@@ -101,11 +98,8 @@ it:
             other: proposte selezionate
         show:
           algorithm: Il codice dell'algoritmo di sorteggio
-          any_category: da tutte le categorie
           cancelled: Ordinamento annullato
           candidate_proposal_ids: Ordine e ID delle proposte da sorteggiare
-          candidate_proposals_info: 'Il sorteggio è stato effettuato tra le seguenti proposte (%{category_label}), con i seguenti ID (in grassetto le proposte selezionate)  '
-          category: dalla categoria %{category}
           dice_result: (1) Risultato dei dadi
           introduction: 'Questa pagina contiene i risultati del sorteggio %{reference}. Per mezzo di questo sorteggio, %{target_items} risultati sono stati selezionati casualmente e con una distribuzione di probabilità uguale dall''insieme di proposte visualizzate sotto. Insieme ai risultati, le informazioni visualizzate in questa pagina forniscono tutte le informazioni necessarie per massimizzare le garanzie e riprodurre i risultati. La chiave per la qualità di questo sorteggio è la doppia casualità fornita da un lancio di un dado (verificato da testimoni) e il tempo preciso del sorteggio, che fornisce l''input per un algoritmo che genera una selezione casuale. L''origine del tempo per il sorteggio è così preciso (secondi) che è impossibile controllarlo per gli umani, fornendo così un doppio input "incontrollabile" per garantire un risultato equo.  '
           mathematical_result: Risultato (1) x (2)
