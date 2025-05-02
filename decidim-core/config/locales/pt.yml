@@ -718,8 +718,6 @@ pt:
         hero:
           participate: Participar
           welcome: Bem-vindo a %{organization}!
-        statistics:
-          headline: Estado atual de %{organization}
         sub_hero:
           register: Registar
       index:
