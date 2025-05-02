@@ -1002,8 +1002,6 @@ hu:
           participate: Részvétel
           participate_title: Részvétel a platform folyamataiban
           welcome: Üdvözöl a(z) %{organization}!
-        statistics:
-          headline: A %{organization} jelenlegi állapota
         sub_hero:
           register: Regisztráció
       index:
