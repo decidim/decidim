@@ -398,6 +398,5 @@ fr-CA:
         project_proposal: Propositions incluses dans ce projet
     statistics:
       orders_count: Votes
-      projects_count: Projets
   index:
     confirmed_orders_count: Nombre de votes
