@@ -430,5 +430,7 @@ ja:
         project_proposal: このプロジェクトに含まれる提案
     statistics:
       orders_count: サポート
+      projects_count: 予算
+      projects_count_tooltip: 参加型予算プロジェクトの数と、それらに対して投票された総投票数です。
   index:
     confirmed_orders_count: 投票数
