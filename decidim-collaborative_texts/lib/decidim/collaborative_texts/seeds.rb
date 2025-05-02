@@ -64,7 +64,7 @@ module Decidim
         number_of_records.times do |num|
           params = {
             document:,
-            body: create_body,
+            body: create_body_blocks.join("\n"),
             created_at: num.seconds.from_now
           }
           Decidim.traceability.create!(
