@@ -1046,6 +1046,8 @@ ja:
         proposal_project: 'これらのプロジェクトに表示される提案'
         proposal_result: 'これらの結果に提案が表示されます:'
     statistics:
+      participatory_space_proposals_count: 提案
       proposals_accepted: 承認された提案
       proposals_count: 提案
+      votes: '投票：'
       votes_count: 投票
