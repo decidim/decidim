@@ -1243,7 +1243,6 @@ de:
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        statistics: Aktivität
         taxonomies: Klassifizierungen
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         users: Administratoren
