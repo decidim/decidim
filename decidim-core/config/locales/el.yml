@@ -824,8 +824,6 @@ el:
           participate: Συμμετοχή
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
           welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
-        statistics:
-          headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
         sub_hero:
           register: Εγγραφή
       index:
