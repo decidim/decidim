@@ -440,6 +440,5 @@ sv:
         project_proposal: Förslag som ingår i projektet
     statistics:
       orders_count: Stöd
-      projects_count: Projekt
   index:
     confirmed_orders_count: Antal röster
