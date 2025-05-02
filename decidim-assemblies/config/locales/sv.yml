@@ -430,6 +430,7 @@ sv:
         related_assemblies: Relaterade samråd
     statistics:
       assemblies_count: Samråd
+      assemblies_count_tooltip: Antalet offentliga församlingar där kollektiva beslut fattas.
   layouts:
     decidim:
       assemblies:
