@@ -1235,7 +1235,6 @@ ja:
         participants: 参加者
         scope_types: スコープ種別
         scopes: スコープ
-        statistics: アクティビティ
         taxonomies: タクソノミー
         taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
         users: 管理者
