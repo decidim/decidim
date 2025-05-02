@@ -92,3 +92,4 @@ ro:
             announcement: Anunț
     statistics:
       collaborative_texts_count: Texte colaborative
+      collaborative_texts_count_tooltip: Numărul de texte colaborative
