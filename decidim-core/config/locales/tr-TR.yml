@@ -726,8 +726,6 @@ tr:
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        statistics:
-          headline: Mevcut durum %{organization}
         sub_hero:
           register: Kayıt Ol
       index:
