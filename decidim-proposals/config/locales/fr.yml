@@ -91,11 +91,6 @@ fr:
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
-      decidim:
-        proposals:
-          proposal:
-            budget_text: La proposition %{link} a été créée
-            import_to_proposal_text: La proposition %{link} a été créée
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
