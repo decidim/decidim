@@ -440,6 +440,5 @@ es:
         project_proposal: Propuestas incluidas en este proyecto
     statistics:
       orders_count: Apoyos
-      projects_count: Proyectos
   index:
     confirmed_orders_count: Número de votos
