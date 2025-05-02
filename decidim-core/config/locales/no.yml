@@ -738,8 +738,6 @@
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        statistics:
-          headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
       index:
