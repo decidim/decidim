@@ -439,8 +439,6 @@ ru:
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
-        statistics:
-          headline: Текущее состояние %{organization}
         sub_hero:
           register: Зарегистрироваться
     profile:
