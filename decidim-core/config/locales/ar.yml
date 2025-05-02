@@ -962,8 +962,6 @@ ar:
           participate: مشاركة
           participate_title: المشاركة في مسارات المنصة
           welcome: مرحبًا بكم على %{organization}!
-        statistics:
-          headline: الحالة الحالية لـ %{organization}
         sub_hero:
           register: تسجيل
       index:
