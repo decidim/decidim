@@ -915,6 +915,9 @@ sv:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
     statistics:
+      participatory_space_proposals_count: Förslag
       proposals_accepted: Godkända förslag
       proposals_count: Förslag
+      proposals_count_tooltip: Det totala antalet inlämnade förslag och röster för dem.
+      votes: 'Röster:'
       votes_count: Röster
