@@ -1227,7 +1227,7 @@ ro:
           participate_title: Participați la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
-          headline: Starea curentă a %{organization}
+          headline: Statistici
         sub_hero:
           register: Inregistrare
           register_title: Creați un cont
@@ -1390,13 +1390,17 @@ ro:
         share_link: Distribuie link-ul
     statistics:
       comments_count: Comentarii
+      comments_count_tooltip: Numărul total de comentarii postate în acest spațiu.
       endorsements_count: Susțineri
       followers_count: Urmăritori
+      followers_count_tooltip: Numărul de utilizatori care urmăresc orice parte a acestui spațiu pentru a rămâne la curent.
       headline: Statistici
       no_stats: Încă nu există statistici.
       pages_count: Pagini
       participants_count: Participanți
+      participants_count_tooltip: Numărul de utilizatori unici care au interacționat în acest spațiu prin prezentarea de propuneri, participarea la întâlniri, votarea sau participarea la discuții.
       users_count: Participanți
+      users_count_tooltip: Numărul total de utilizatori care s-au înregistrat și și-au confirmat contul prin e-mail.
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
