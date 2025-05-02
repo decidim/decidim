@@ -1243,7 +1243,6 @@ es-MX:
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        statistics: Actividad
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         users: Administradoras
