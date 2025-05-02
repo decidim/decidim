@@ -427,6 +427,5 @@ fi:
         project_proposal: Tähän projektiin liittyvät ehdotukset
     statistics:
       orders_count: Kannatusta
-      projects_count: Projektia
   index:
     confirmed_orders_count: Äänten määrä
