@@ -972,8 +972,6 @@ zh-TW:
           participate: 參與
           participate_title: 參與平台的流程
           welcome: 歡迎來到 %{organization}！
-        statistics:
-          headline: '%{organization} 的目前狀態'
         sub_hero:
           register: 註冊
       index:
