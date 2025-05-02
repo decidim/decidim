@@ -725,8 +725,6 @@ nl:
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        statistics:
-          headline: Huidige stand van %{organization}
         sub_hero:
           register: Registreren
       index:
