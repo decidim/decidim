@@ -1454,8 +1454,6 @@ ca-IT:
           participate: Participa
           participate_title: Participa en els processos de la plataforma
           welcome: Benvinguda a %{organization}!
-        statistics:
-          headline: Estat actual de %{organization}
         sub_hero:
           register: Registra't
           register_title: Crea un compte
