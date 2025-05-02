@@ -430,6 +430,5 @@ ja:
         project_proposal: このプロジェクトに含まれる提案
     statistics:
       orders_count: サポート
-      projects_count: プロジェクト
   index:
     confirmed_orders_count: 投票数
