@@ -737,6 +737,8 @@ sv:
     statistics:
       attendees_count: Mötesdeltagare
       meetings_count: Möten
+      meetings_count_tooltip: Antalet möten som har ägt rum, både online och personligen.
+      participatory_space_meetings_count: Möten
   devise:
     mailer:
       join_meeting:
