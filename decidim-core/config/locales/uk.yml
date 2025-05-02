@@ -366,8 +366,6 @@ uk:
         hero:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
-        statistics:
-          headline: Поточний стан %{organization}
         sub_hero:
           register: Зареєструватися
     profile:
