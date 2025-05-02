@@ -440,6 +440,5 @@ eu:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
     statistics:
       orders_count: Aldeko babesak
-      projects_count: Proiektuak
   index:
     confirmed_orders_count: Babesen zenbaketa
