@@ -1094,8 +1094,6 @@ pl:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
-        statistics:
-          headline: Aktualny stan %{organization}
         sub_hero:
           register: Zarejestruj się
           register_title: Utwórz konto
