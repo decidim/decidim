@@ -1243,7 +1243,6 @@ ca:
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
-        statistics: Activitat
         taxonomies: Taxonomies
         taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
         users: Administradores
