@@ -440,5 +440,7 @@ sv:
         project_proposal: Förslag som ingår i projektet
     statistics:
       orders_count: Stöd
+      projects_count: Budgetar
+      projects_count_tooltip: Antalet deltagande budgeteringsprojekt och de totala rösterna på dem.
   index:
     confirmed_orders_count: Antal röster
