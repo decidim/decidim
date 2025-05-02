@@ -1457,8 +1457,6 @@ es-MX:
           participate: Participar
           participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenido/a a %{organization}!
-        statistics:
-          headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
           register_title: Crea una cuenta
