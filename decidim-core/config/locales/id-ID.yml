@@ -521,8 +521,6 @@ id:
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        statistics:
-          headline: Keadaan saat ini %{organization}
         sub_hero:
           register: Daftar
       index:
