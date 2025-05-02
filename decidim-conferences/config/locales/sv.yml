@@ -617,6 +617,7 @@ sv:
           id: Unikt id för konferensen
     statistics:
       conferences_count: Konferenser
+      conferences_count_tooltip: Antalet publicerade konferenser.
   devise:
     mailer:
       join_conference:
