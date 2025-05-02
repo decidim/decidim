@@ -95,9 +95,7 @@ sv:
       decidim:
         proposals:
           proposal:
-            budget_text: Förslaget %{link} skapades
             import_from_proposal_text: 'Det blev det här förslaget: %{link}'
-            import_to_proposal_text: Förslaget %{link} skapades
             merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
             merge_to_proposal_text: 'Förslaget skapades: %{link}'
             split_from_proposal_text: 'Det blev det här förslaget: %{link}'
