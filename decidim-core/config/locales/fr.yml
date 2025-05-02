@@ -1318,8 +1318,6 @@ fr:
           participate: Participez
           participate_title: Participer aux concertations de la plateforme
           welcome: Bienvenue sur %{organization} !
-        statistics:
-          headline: État actuel de %{organization}
         sub_hero:
           register: S'inscrire
           register_title: Créer un compte
