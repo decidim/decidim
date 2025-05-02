@@ -1103,8 +1103,6 @@ bg:
           participate: Участвайте
           participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
-        statistics:
-          headline: Текущо състояние на %{organization}
         sub_hero:
           register: Регистрация
       index:
