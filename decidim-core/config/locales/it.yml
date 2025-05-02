@@ -733,8 +733,6 @@ it:
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        statistics:
-          headline: Statistiche su %{organization}
         sub_hero:
           register: Registrati
       index:
