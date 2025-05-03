@@ -40,7 +40,7 @@ module Decidim
         let(:query) { "{ requestTimestamp }" }
 
         it "returns when the sortition was created" do
-          expect(response["requestTimestamp"]).to eq(model.request_timestamp.to_date.iso8601)
+          expect(response["requestTimestamp"]).to eq(model.request_timestamp.to_time.iso8601)
         end
       end
 
