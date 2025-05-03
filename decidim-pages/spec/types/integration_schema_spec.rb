@@ -18,6 +18,7 @@ describe "Decidim::Api::QueryType" do
             translation(locale:"#{locale}")
           }
           updatedAt
+          url
         }
       }
 )
@@ -33,7 +34,8 @@ describe "Decidim::Api::QueryType" do
       "createdAt" => page.created_at.to_time.iso8601,
       "id" => page.id.to_s,
       "title" => { "translation" => page.title[locale] },
-      "updatedAt" => page.updated_at.to_time.iso8601
+      "updatedAt" => page.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(page).url
     }
   end
 
@@ -69,6 +71,7 @@ describe "Decidim::Api::QueryType" do
                 translation(locale:"#{locale}")
               }
               updatedAt
+              url
             }
           }
         }
