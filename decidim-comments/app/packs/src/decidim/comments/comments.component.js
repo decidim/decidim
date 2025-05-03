@@ -436,7 +436,7 @@ export default class CommentsComponent {
     mobileOrderSelect.addEventListener("change", function(event) {
       const selectedOption = mobileOrderSelect.querySelector(`[value=${event.target.value}]`);
       const orderUrl = selectedOption.dataset.orderCommentUrl;
-      component.order = selectedOption.value;
+
       Rails.ajax({
         url: orderUrl,
         type: "GET",
