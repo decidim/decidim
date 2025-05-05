@@ -32,14 +32,26 @@ describe "Admin publish and unpublish documents" do
     expect(page).to have_admin_callout "Document successfully unpublished"
   end
 
-  context "when unpublish document" do
+  context "when unpublished document" do
     before do
-      switch_to_host(organization.host)
       visit_component
     end
 
-    it "does not display unpublish documents in public view" do
-      expect(page).to have_no_content(title)
+    it "displays unpublished documents in public view" do
+      expect(page).to have_content(title)
+    end
+
+    context "and non-admin user" do
+      let(:regular_user) { create(:user, :confirmed, organization:) }
+
+      before do
+        login_as regular_user, scope: :user
+        visit_component
+      end
+
+      it "does not display unpublished documents in public view" do
+        expect(page).to have_no_content(title)
+      end
     end
   end
 

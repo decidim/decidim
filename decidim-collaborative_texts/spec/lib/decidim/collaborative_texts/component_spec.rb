@@ -8,7 +8,7 @@ describe "CollaborativeTexts component" do # rubocop:disable RSpec/DescribeClass
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "stats" do
-    subject { current_stat[2] }
+    subject { current_stat[1][:data] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -25,7 +25,7 @@ describe "CollaborativeTexts component" do # rubocop:disable RSpec/DescribeClass
     let!(:another_document) { create(:collaborative_text_document, component:) }
     let!(:published_document) { create(:collaborative_text_document, :published, component:) }
 
-    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
 
     describe "all_collaborative_texts_count" do
       let(:stats_name) { :all_collaborative_texts_count }
