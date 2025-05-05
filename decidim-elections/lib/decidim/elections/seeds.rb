@@ -42,10 +42,10 @@ module Decidim
 
       def create_election!(component:)
         params = {
-          title: Decidim::Components::Namer.new(
-            participatory_space.organization.available_locales,
-            :elections
-          ).i18n_name,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
           component:,
           start_at: Time.current,
           end_at: 1.day.from_now
