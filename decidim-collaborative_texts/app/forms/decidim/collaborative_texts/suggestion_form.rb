@@ -18,9 +18,7 @@ module Decidim
 
       validate :changes_exists
 
-      def author
-        context[:current_user]
-      end
+      alias author current_user
 
       def document
         @document ||= ::Decidim::CollaborativeTexts::Document.find(document_id)
