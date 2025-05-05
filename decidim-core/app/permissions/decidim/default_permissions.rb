@@ -5,8 +5,6 @@ module Decidim
   # actions by any kind of user. Also works as a default implementation so other
   # components can inherit from it and get some convenience methods.
   class DefaultPermissions
-    include Decidim::UserRoleChecker
-
     def initialize(user, permission_action, context = {})
       @user = user
       @permission_action = permission_action
