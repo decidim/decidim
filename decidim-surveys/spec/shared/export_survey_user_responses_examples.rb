@@ -77,7 +77,7 @@ shared_examples "export survey user responses" do
 
   private
 
-  # there is a chance of a flaky spec here, as sometimes the jobs are not enqueued in the corect order
+  # There is a chance of a flaky spec here, as sometimes the jobs are not enqueued in the correct order
   # causing user's confirmations to be sent after the export is ready
   def perform_and_wait_for_enqueued_jobs(only: nil, except: nil, queue: nil, at: nil, &block)
     while enqueued_jobs.size.positive?
