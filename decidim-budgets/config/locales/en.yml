@@ -441,6 +441,7 @@ en:
         project_proposal: Proposals included in this project
     statistics:
       orders_count: Supports
-      projects_count: Projects
+      projects_count: Budgets
+      projects_count_tooltip: The number of participatory budgeting projects and the total votes cast on them.
   index:
     confirmed_orders_count: Votes count

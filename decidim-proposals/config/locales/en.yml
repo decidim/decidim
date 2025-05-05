@@ -96,9 +96,9 @@ en:
       decidim:
         proposals:
           proposal:
-            budget_text: The proposal %{link} was created
+            budget_text: The proposal <span class="resource-link">%{link} was created</span>
             import_from_proposal_text: 'It became this proposal: %{link}'
-            import_to_proposal_text: This proposal %{link} was created
+            import_to_proposal_text: This proposal <span "resource-link">%{link} was created</span>
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
             split_from_proposal_text: 'It became this proposal: %{link}'
@@ -1063,6 +1063,9 @@ en:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
     statistics:
+      participatory_space_proposals_count: Proposals
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
+      proposals_count_tooltip: The total number of submitted proposals and votes cast on them.
+      votes: 'Votes:'
       votes_count: Votes
