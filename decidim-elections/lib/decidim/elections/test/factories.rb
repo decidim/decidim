@@ -22,6 +22,8 @@ FactoryBot.define do
     end
     title { generate_localized_title(:election_title, skip_injection:) }
     description { generate_localized_description(:election_description, skip_injection:) }
+    start_at { nil }
+    end_at { 30.days.from_now }
 
     component { create(:elections_component, skip_injection:) }
 
