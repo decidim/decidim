@@ -3,8 +3,6 @@
 module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         user_can_enter_processes_space_area?
         user_can_enter_process_groups_space_area?
