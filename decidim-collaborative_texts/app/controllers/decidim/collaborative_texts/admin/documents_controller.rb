@@ -52,7 +52,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update.invalid", scope: "decidim.collaborative_texts.admin")
-              # This is a safe-guard in case there's no body coming from the POST request (as this attribute is read-only in certain cases)
+              # This is a safe-guard in case there is no body coming from the POST request (as this attribute is read-only in certain cases)
               @form.body = document.body if @form.body.blank?
               render action: "edit"
             end
