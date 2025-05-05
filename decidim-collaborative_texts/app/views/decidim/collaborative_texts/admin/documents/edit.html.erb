@@ -9,35 +9,17 @@
     <%= decidim_form_for(@form, url: document_path(document), html: { class: "form-defaults form edit_document" }) do |f| %>
       <%= render partial: "form", object: f, locals: { has_suggestions: document.has_suggestions? } %>
 
-      <% if document.draft? %>
-        <div class="form__wrapper">
-          <div class="card">
-            <div class="card-section">
-              <div class="row column">
-                <%= f.check_box :draft, help_text: t(".draft_help_html"), label: t(".draft") %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :accepting_suggestions, help_text: t(".accepting_suggestions_help"), label: t(".accepting_suggestions") %>
-              </div>
-            </div>
+      <div class="form__wrapper">
+        <div class="card">
+          <div class="card-section">
+            <% if document.draft? %>
+              <%= render "draft_options", form: f %>
+            <% else %>
+              <%= render "non_draft_options", form: f %>
+            <% end %>
           </div>
         </div>
-      <% else %>
-        <div class="form__wrapper">
-          <div class="card">
-            <div class="card-section">
-              <% if document.has_suggestions? %>
-                <div class="row column">
-                  <%= f.check_box :draft, help_text: t(".draft_help_html"), label: t(".create_draft") %>
-                </div>
-              <% end %>
-              <div class="row column">
-                <%= f.check_box :accepting_suggestions, help_text: t(".enable_suggestions_help"), label: t(".enable_suggestions") %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      </div>
 
       <%= render partial: "versions" %>
 

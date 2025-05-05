@@ -31,15 +31,14 @@ en:
           create:
             invalid: There was a problem creating the document.
             success: Document successfully created.
-          edit:
+          draft_options:
             accepting_suggestions: Enable suggestions in the next version
             accepting_suggestions_help: Enabling suggestions will start a new round of suggestions for this document. The current suggestions will not be visible in the new version.
-            create_draft: Discard suggestions and create a new draft version
-            document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
             draft: Draft version
             draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will see the previous version and they will not be able to make suggestions.</strong>
-            enable_suggestions: Enable suggestions
-            enable_suggestions_help: Enabling suggestions will allow participants to make suggestions on this version.
+          edit:
+            document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
+            draft: Draft version
             previous_versions: Previous versions
             public_version: Public version
             title: Edit collaborative texts
@@ -55,6 +54,11 @@ en:
           new:
             create: Create
             title: Create collaborative texts
+          non_draft_options:
+            create_draft: Discard suggestions and create a new draft version
+            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will see the previous version and they will not be able to make suggestions.</strong>
+            enable_suggestions: Enable suggestions
+            enable_suggestions_help: Enabling suggestions will allow participants to make suggestions on this version.
           publish:
             invalid: There was a problem publishing this document.
             success: Document successfully published.
