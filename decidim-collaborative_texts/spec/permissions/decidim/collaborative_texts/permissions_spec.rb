@@ -8,7 +8,8 @@ describe Decidim::CollaborativeTexts::Permissions do
   let(:user) { create(:user, organization: collaborative_text_component.organization) }
   let(:context) do
     {
-      current_component: collaborative_text_component
+      current_component: collaborative_text_component,
+      document: document
     }
   end
   let(:collaborative_text_component) { create(:collaborative_text_component) }
