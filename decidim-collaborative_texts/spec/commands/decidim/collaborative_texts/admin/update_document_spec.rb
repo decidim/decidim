@@ -23,7 +23,8 @@ module Decidim
             body:,
             draft?: draft,
             draft: draft,
-            accepting_suggestions:
+            accepting_suggestions:,
+            coauthorships: [Decidim::Coauthorship.new(author: organization)]
           )
         end
         let(:invalid) { false }
@@ -138,6 +139,18 @@ module Decidim
 
         context "when everything is ok" do
           it_behaves_like "updates the same version"
+
+          context "and there are no coauthorships" do
+            before do
+              Decidim::Coauthorship.destroy_all
+              document.reload
+            end
+
+            it "creates a new coauthorship" do
+              expect { subject.call }.to change(Decidim::Coauthorship, :count).by(1)
+              expect(Decidim::Coauthorship.last.author).to eq organization
+            end
+          end
 
           context "and we want draft" do
             let(:draft) { true }

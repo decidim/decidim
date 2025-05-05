@@ -21,6 +21,7 @@ module Decidim
         def create
           enforce_permission_to :create, :collaborative_text
           @form = form(DocumentForm).from_params(params)
+
           CreateDocument.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.create.success", scope: "decidim.collaborative_texts.admin")
@@ -51,6 +52,8 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update.invalid", scope: "decidim.collaborative_texts.admin")
+              # This is a safe-guard in case there's no body coming from the POST request (as this attribute is read-only in certain cases)
+              @form.body = document.body if @form.body.blank?
               render action: "edit"
             end
           end

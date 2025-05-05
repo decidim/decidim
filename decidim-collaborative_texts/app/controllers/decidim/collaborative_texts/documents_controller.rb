@@ -43,9 +43,9 @@ module Decidim
 
       def documents
         @documents ||= if current_user&.admin?
-                         Document.where(component: current_component).published
+                         Document.where(component: current_component)
                        else
-                         Document.published.where(component: current_component).published
+                         Document.published.where(component: current_component)
                        end
       end
 

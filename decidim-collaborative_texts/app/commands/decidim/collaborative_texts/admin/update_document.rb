@@ -26,6 +26,9 @@ module Decidim
         def update_document_record!
           return unless form.title != resource.title || form.accepting_suggestions != resource.accepting_suggestions
 
+          # this is a safe-guard in case there are no coauthors
+          resource.coauthorships = form.coauthorships if resource.coauthorships.blank?
+
           Decidim.traceability.update!(
             resource,
             current_user,
