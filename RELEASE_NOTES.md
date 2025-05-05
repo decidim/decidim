@@ -1,7 +1,7 @@
 # Release Notes
 
-NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, we recommend
-checking out the last version of this document in the GitHub page for the releases of this branch:
+NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, you need to follow
+the instructions for all the patch releases in GitHub:
 
 - https://github.com/decidim/decidim/releases/tag/v0.29.0
 - https://github.com/decidim/decidim/releases/tag/v0.29.1
