@@ -182,6 +182,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
