@@ -61,6 +61,7 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
+
         return if maybe_show_redirect_notice!
       end
 
