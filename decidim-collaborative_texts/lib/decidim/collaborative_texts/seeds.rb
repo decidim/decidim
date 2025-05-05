@@ -15,11 +15,11 @@ module Decidim
       def call
         component = create_component!
 
-        3.times do
+        number_of_records.times do
           create_document!(component:)
         end
 
-        2.times do
+        number_of_records.times do
           create_document!(component:, published_at: nil)
         end
       end
@@ -59,7 +59,7 @@ module Decidim
         )
 
         # Create some versions
-        rand(1..3).times do |num|
+        number_of_records.times do |num|
           params = {
             document:,
             body: create_body,

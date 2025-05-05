@@ -16,6 +16,7 @@ on:
       - "decidim-dev/**"
 
 env:
+  FAST_SEEDS: "true"
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 3.3.4
