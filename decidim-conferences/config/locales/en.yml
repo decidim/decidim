@@ -635,6 +635,7 @@ en:
           url: The URL of the space
     statistics:
       conferences_count: Conferences
+      conferences_count_tooltip: The number of published conferences.
   devise:
     mailer:
       join_conference:

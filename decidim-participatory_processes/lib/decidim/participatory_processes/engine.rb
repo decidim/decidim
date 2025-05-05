@@ -50,6 +50,8 @@ module Decidim
       initializer "decidim_participatory_processes.register_icons" do
         Decidim.icons.register(name: "Decidim::ParticipatoryProcess", icon: "treasure-map-line", description: "Participatory Process", category: "activity",
                                engine: :participatory_process)
+        Decidim.icons.register(name: "Decidim::ParticipatoryProcessGroup", icon: "treasure-map-line", description: "Participatory Process Group", category: "activity",
+                               engine: :participatory_process)
         Decidim.icons.register(name: "archive-line", icon: "archive-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "grid-line", icon: "grid-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "globe-line", icon: "globe-line", category: "system", description: "", engine: :participatory_process)
@@ -75,12 +77,29 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
+        Decidim.stats.register :processes_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "treasure-map-line",
+                               tooltip_key: "processes_count_tooltip" do |organization, start_at, end_at|
+          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
+          processes = processes.where(created_at: start_at..) if start_at.present?
+          processes = processes.where(created_at: ..end_at) if end_at.present?
+          processes.count
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
+        Decidim.stats.register :followers_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-follow-line",
+                               tooltip_key: "followers_count_tooltip" do |participatory_space|
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesStatsFollowersCount.for(participatory_space)
+        end
+
+        Decidim.stats.register :participants_count,
+                               priority: StatsRegistry::MEDIUM_PRIORITY,
+                               icon_name: "user-line",
+                               tooltip_key: "participants_count_tooltip" do |participatory_space|
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesStatsParticipantsCount.for(participatory_space)
         end
       end
 

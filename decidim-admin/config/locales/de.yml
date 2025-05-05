@@ -75,8 +75,8 @@ de:
         machine_translation_display_priority_original: Originaltext zuerst
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
-        official_img_footer: Offizielles Logo Fußzeile
-        official_url: Offizielle Organisations-URL
+        official_img_footer: Offizielles Footer-Logo
+        official_url: Offizielle URL der Organisation
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
@@ -477,6 +477,10 @@ de:
             explanation: 'Hinweise für die Datei:'
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
+          import_csv:
+            explanation: 'Hinweise für die Datei:'
+            message_1: CSV-Dateien werden unterstützt
+            message_2: "CSV-Datei mit E-Mail-Daten"
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
@@ -599,9 +603,6 @@ de:
         taxonomies: Taxonomien
         taxonomy_filters: Taxonomie-Filter
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -907,7 +908,7 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
-            layout_appearance_title: Layout-Layout bearbeiten
+            layout_appearance_title: Layout-Aussehen bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_allowlist:
@@ -1236,7 +1237,6 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         menu: Menü
-        metrics: Kriterien
         page_topics: Themen
         pages: Seiten
         panel: Admin
@@ -1282,22 +1282,13 @@ de:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
+        parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
         unhide: Einblenden
         unreport: Nicht melden
@@ -1324,6 +1315,7 @@ de:
             success: Ressource erfolgreich ausgeblendet
           unhide:
             invalid: Es gab ein Problem beim Verstecken der Ressource.
+            parent_invalid: Es gab ein Problem beim Anzeigen der Ressource. Übergeordnete Ressource ist nicht sichtbar.
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.

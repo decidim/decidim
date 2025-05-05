@@ -422,8 +422,6 @@ el:
         name: Τελευταία δραστηριότητα
         title: Τελευταία δραστηριότητα
         view_all: Προβολή όλων
-      metrics:
-        name: Μετρικά οργανισμού
       static_page:
         section:
           name: Ενότητα
@@ -744,19 +742,6 @@ el:
           title: Συνομιλία με τους χρήστες %{usernames}
         start:
           send: Αποστολή
-    metrics:
-      followers:
-        description: Αριθμός συμμετεχόντων που ακολουθούν αυτόν τον χώρο συμμετοχής
-        object: ακόλουθοι
-        title: Ακόλουθοι
-      participants:
-        description: Αριθμός ενεργών συμμετεχόντων στον οργανισμό
-        object: συμμετέχοντες
-        title: Συμμετέχοντες
-      users:
-        description: Αριθμός συμμετεχόντων στον οργανισμό
-        object: συμμετέχοντες
-        title: Συμμετέχοντες
     newsletter_mailer:
       newsletter:
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
@@ -848,10 +833,6 @@ el:
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
         title: Βοήθεια
         topics: Θέματα
-      participatory_space:
-        metrics:
-          headline: Μετρικά
-          link: Εμφάνιση όλων των μετρικών
       terms_of_service:
         accept:
           error: Παρουσιάστηκε πρόβλημα κατά την αποδοχή των όρων υπηρεσίας.
@@ -921,7 +902,6 @@ el:
       prompt: Επιλέξτε πεδίο εφαρμογής
     search:
       results: Αποτελέσματα αναζήτησης
-      results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
       term_input_placeholder: Αναζήτηση
     searches:
       filters:

@@ -100,30 +100,55 @@ Decidim.register_component(:proposals) do |component|
     resource.reported_content_cell = "decidim/proposals/collaborative_drafts/reported_content"
   end
 
-  component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :proposals_count,
+                          primary: true,
+                          admin: false,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-new-line",
+                          tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden.count
   end
 
-  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :participatory_space_proposals_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "votes",
+                          icon_name: "chat-new-line",
+                          tooltip_key: "proposals_count_tooltip" do |components, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden
+    [
+      proposals.count,
+      Decidim::Proposals::ProposalVote.where(proposal: proposals).count
+    ]
+  end
+
+  component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :votes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
     proposals.sum(:endorsements_count)
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     proposals.sum(:comments_count)
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals_ids = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
   end

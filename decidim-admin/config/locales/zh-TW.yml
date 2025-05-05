@@ -517,9 +517,6 @@ zh-TW:
         settings: 設定
         static_pages: 頁
         users: 參與者
-      metrics:
-        metrics:
-          see_more_metrics: 查看更多指標
       models:
         area:
           fields:
@@ -880,7 +877,6 @@ zh-TW:
         dashboard: 儀表板
         impersonatable_users: 可管理的參與者
         impersonations: 參與者管理
-        metrics: 指標
         panel: 管理員
         participants: 參與者
         scope_types: 範圍類型
@@ -913,16 +909,6 @@ zh-TW:
       errors:
         impersonate_user:
           reason: 你需要在管理非管理的參與者時提供一個原因.
-    metrics:
-      blocked_users:
-        object: 已封鎖的使用者
-        title: 已封鎖的使用者
-      reported_users:
-        object: 被舉報的使用者
-        title: 被舉報的使用者
-      user_reports:
-        object: 使用者報告
-        title: 使用者報告
     moderations:
       actions:
         expand: 展開

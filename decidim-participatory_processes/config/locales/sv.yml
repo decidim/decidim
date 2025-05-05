@@ -342,11 +342,6 @@ sv:
           not_found: 'Typen av process hittades inte i databasen (ID: %{id}).'
     menu:
       processes: Processer
-    metrics:
-      participatory_processes:
-        description: Antal deltagandeprocesser i organisationen
-        object: deltagandeprocesser
-        title: Deltagandeprocesser
     open_data:
       help:
         participatory_processes:
@@ -464,9 +459,6 @@ sv:
           highlighted_processes:
             active_spaces: Pågående processer
             see_all_spaces: Visa alla processer
-      participatory_process_steps:
-        index:
-          back_to_process: Tillbaka till processen
       participatory_processes:
         description:
           area_name: Område

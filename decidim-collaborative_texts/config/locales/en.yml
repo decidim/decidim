@@ -91,3 +91,4 @@ en:
             announcement: Announcement
     statistics:
       collaborative_texts_count: Collaborative texts
+      collaborative_texts_count_tooltip: Number of collaborative texts

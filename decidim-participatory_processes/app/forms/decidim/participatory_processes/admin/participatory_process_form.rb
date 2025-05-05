@@ -56,6 +56,8 @@ module Decidim
         def map_model(model)
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
+          self.description = model.presenter.editor_description(all_locales: true)
+          self.short_description = model.presenter.editor_short_description(all_locales: true)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 

@@ -1,5 +1,15 @@
 ---
 fr-CA:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Corps de texte
+          title: Titre
+          version_number: Numéro de version
+        version:
+          body: Corps de texte
+          version_number: Numéro de version
   decidim:
     collaborative_texts:
       actions:
@@ -43,6 +53,22 @@ fr-CA:
         settings:
           form:
             allow_suggestions: Autoriser les participants à faire des suggestions
+      admin_log:
+        document:
+          create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le texte collaboratif %{resource_name} de %{space_name}"
+          publish: "%{user_name} a publié le texte collaboratif %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré le texte collaboratif %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le texte collaboratif %{resource_name} en %{space_name} dans la corbeille"
+          unpublish: "%{user_name} a dépublié le texte collaboratif %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le texte collaboratif %{resource_name} dans %{space_name}"
+        version:
+          delete: "%{user_name} a supprimé la version du texte collaboratif %{resource_name} de %{space_name}"
+          update: "%{user_name} a mis à jour la version du texte collaboratif %{resource_name} dans %{space_name}"
+      document:
+        cancel: Annuler
+        save: Envoyer une suggestion
+        suggest: Suggérer des modifications
       documents:
         index:
           count:

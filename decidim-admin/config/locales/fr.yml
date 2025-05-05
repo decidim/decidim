@@ -476,6 +476,8 @@ fr:
             explanation: 'Instructions concernant le fichier:'
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
+          import_csv:
+            message_1: Les fichiers CSV sont pris en charge
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -598,9 +600,6 @@ fr:
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
         users: Utilisateurs
-      metrics:
-        metrics:
-          see_more_metrics: Voir plus d'indicateurs
       models:
         area:
           fields:
@@ -1171,7 +1170,6 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
-        metrics: Indicateurs
         page_topics: Sujets
         pages: Page(s)
         panel: Administrateur
@@ -1215,22 +1213,13 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
-    metrics:
-      blocked_users:
-        object: utilisateurs bloqués
-        title: Utilisateurs bloqués
-      reported_users:
-        object: utilisateurs signalés
-        title: Utilisateurs signalés
-      user_reports:
-        object: signalements d'utilisateurs
-        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
+        parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
         unhide: Afficher
         unreport: Annuler le signalement
@@ -1241,6 +1230,7 @@ fr:
             success: Contenu masqué avec succès.
           unhide:
             invalid: Il y a eu un problème pour découvrir la ressource.
+            parent_invalid: Un problème est survenu lors du démasquage de la ressource. Le parent n'est pas visible.
             success: Ressource non cachée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.

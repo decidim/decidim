@@ -258,7 +258,7 @@ en:
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
-          cancel_order: delete your vote
+          cancel_order: Delete your vote
           checked_out:
             description: You have already voted for the budget. If you have changed your mind, you can delete your vote.
             title: Budget vote completed
@@ -289,13 +289,13 @@ en:
             start_adding_projects: Start adding projects
           minimum: Minimum
           minimum_projects_rule:
-            description: Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select at least %{minimum_number} projects you want and vote according to your preferences.
           projects_rule:
-            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences.
           projects_rule_maximum_only:
-            description: Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select up to %{maximum_number} projects you want and vote according to your preferences.
           vote_threshold_percent_rule:
-            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
+            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences.
         orders:
           highest_cost: Highest cost
           label: Order projects by
@@ -320,9 +320,10 @@ en:
           added: Added
           all: All
         projects_for: Projects for %{name}
-        select_projects: Select projects
+        select_projects: Add projects
         show:
           budget: Budget
+        start_voting: Start voting
       prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:
@@ -440,6 +441,7 @@ en:
         project_proposal: Proposals included in this project
     statistics:
       orders_count: Supports
-      projects_count: Projects
+      projects_count: Budgets
+      projects_count_tooltip: The number of participatory budgeting projects and the total votes cast on them.
   index:
     confirmed_orders_count: Votes count

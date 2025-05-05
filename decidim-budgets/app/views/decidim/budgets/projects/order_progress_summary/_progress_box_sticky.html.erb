@@ -1,0 +1,25 @@
+<div class="budget-summary__progressbox layout-item__main">
+  <div class="budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+    <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+    </div>
+    <div class="budget-summary__progressbar--meter bg-success" style="width: <%= current_order_budget_percent %>%">
+    </div>
+  </div>
+  <div class="budget-summary__progressbar-marks">
+    <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
+      <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
+      <strong id="order-total-budget-sticky" class="budget-summary__progressbar-legend-strong">
+        <%= render partial: "decidim/budgets/projects/order_total_budget" %>
+      </strong>
+    </span>
+    <% if current_order.minimum_budget > 0 %>
+    <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
+      <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
+      <strong class="budget-summary__progressbar-legend-strong">
+        <%= budget_to_currency(current_order.minimum_budget) %>
+      </strong>
+    </span>
+    <% end %>
+    <%= render partial: "decidim/budgets/projects/order_progress_summary/progressbar_marks_right" %>
+  </div>
+</div>

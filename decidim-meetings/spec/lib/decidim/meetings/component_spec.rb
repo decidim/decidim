@@ -8,7 +8,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
   let!(:current_user) { create(:user, :admin, organization:) }
 
   describe "statistics" do
-    subject { current_stat[2] }
+    subject { current_stat[1][:data] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -26,7 +26,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
     let!(:hidden_meeting) { create(:meeting, :published, component:) }
     let!(:moderation) { create(:moderation, reportable: hidden_meeting, hidden_at: 1.day.ago) }
 
-    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
 
     describe "meetings_count" do
       let(:stats_name) { :meetings_count }

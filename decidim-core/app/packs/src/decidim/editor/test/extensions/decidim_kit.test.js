@@ -78,6 +78,7 @@ describe("DecidimKit", () => {
     image: { uploadDialogSelector: "#upload_dialog", uploadImagesPath: "/upload" },
     hashtag: true,
     mention: true,
+    mentionResource: true,
     emoji: true
   };
   Object.keys(extensionSettings).forEach((extensionKey) => {

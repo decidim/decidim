@@ -295,11 +295,6 @@ zh-TW:
           not_found: '在資料庫中找不到該大會類型 (ID: %{id})'
     menu:
       assemblies: 大會
-    metrics:
-      assemblies:
-        description: 建立的大會數量
-        object: 大會
-        title: 大會
     participatory_processes:
       show:
         related_assemblies: 相關大會

@@ -242,6 +242,7 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
         media_link:
           fields:

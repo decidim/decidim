@@ -206,11 +206,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση «%{proposal_title}» και αυτή η πρόταση περιλαμβάνεται στο αποτέλεσμα «%{resource_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Μια ενημέρωση στην πρόοδο %{resource_title}
           notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, που περιλαμβάνει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει τώρα ολοκληρωθεί κατά %{progress}%.
-    metrics:
-      results:
-        description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
-        object: αποτελέσματα
-        title: Αποτελέσματα
     participatory_spaces:
       highlighted_results:
         see_all: Δείτε όλα τα αποτελέσματα (%{count})

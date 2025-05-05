@@ -407,23 +407,6 @@ sv:
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
           unearned_another: Den här deltagaren har inte skapat några förslag än.
           unearned_own: Du har inte skapat några förslag än.
-    metrics:
-      accepted_proposals:
-        description: Antal accepterade förslag
-        object: förslag
-        title: Accepterade förslag
-      endorsements:
-        description: Antal gilla-markeringar för förslag
-        object: gilla-markeringar
-        title: Gilla-markeringar
-      proposals:
-        description: Antal förslag
-        object: förslag
-        title: Förslag
-      votes:
-        description: Antal röster på förslag
-        object: röster
-        title: Röster
     open_data:
       help:
         proposal_comments:
@@ -439,7 +422,6 @@ sv:
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:
@@ -878,7 +860,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan röstat
+          already_voted: Röstade
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
