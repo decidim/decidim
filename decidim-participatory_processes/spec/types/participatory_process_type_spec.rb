@@ -62,6 +62,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model).participatory_process_url(model))
+        end
+      end
+
       describe "publishedAt" do
         let(:query) { "{ publishedAt }" }
 
