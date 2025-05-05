@@ -6,7 +6,6 @@ module Decidim
       class Permissions < Decidim::DefaultPermissions
         def permissions
           return permission_action if permission_action.scope != :admin
-          return permission_action unless user&.admin?
           return permission_action if permission_action.subject != :election
 
           case permission_action.subject
@@ -15,7 +14,7 @@ module Decidim
             when :create, :read
               allow!
             when :update
-              allow! if election.present?
+              toggle_allow(election.present?)
             end
           end
 

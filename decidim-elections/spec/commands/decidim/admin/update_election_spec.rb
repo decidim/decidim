@@ -59,8 +59,8 @@ module Decidim
           it "sets times when manual_start is false" do
             subject.call
             election.reload
-            expect(election.start_at).to eq start_at
-            expect(election.end_at).to eq end_at
+            expect(election.start_at.to_i).to eq start_at.to_i
+            expect(election.end_at.to_i).to eq end_at.to_i
           end
 
           context "when manual_start is true" do
@@ -70,7 +70,7 @@ module Decidim
               subject.call
               election.reload
               expect(election.start_at).to be_nil
-              expect(election.end_at).to eq(end_at)
+              expect(election.end_at.to_i).to eq end_at.to_i
             end
           end
 
