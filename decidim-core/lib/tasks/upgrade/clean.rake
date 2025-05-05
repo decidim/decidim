@@ -12,7 +12,7 @@ namespace :decidim do
         :"decidim:upgrade:clean:action_logs",
         :"decidim:upgrade:clean:clean_deleted_users",
         :"decidim:upgrade:clean:fix_blocked_user_notification",
-        :"decidim:upgrade:clean:clean_wrong_downloads"
+        :"decidim:upgrade:clean:invalid_private_exports"
       ]
 
       desc "Remove data from deleted users"
@@ -142,9 +142,10 @@ namespace :decidim do
       end
 
       desc "Removes all the invalid records from private downloads"
-      task clean_wrong_downloads: :environment do
-        logger.info("=== Removing wrong download types")
-        Decidim::PrivateExport.where("export_type LIKE 'survey_user_responses_%'").destroy_all
+      task invalid_private_exports: :environment do
+        invalid_private_exports = Decidim::PrivateExport.where("export_type LIKE 'survey_user_responses_%'")
+        logger.info("=== Removing #{invalid_private_exports.length} private exports")
+        invalid_private_exports.destroy_all
       end
 
       def logger

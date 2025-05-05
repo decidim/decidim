@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-describe "rake decidim:upgrade:clean:clean_wrong_downloads", type: :task do
+describe "rake decidim:upgrade:clean:invalid_private_exports", type: :task do
   context "when executing task" do
     it "does not throw exceptions keys" do
       expect do
-        Rake::Task[:"decidim:upgrade:clean:clean_wrong_downloads"].invoke
+        Rake::Task[:"decidim:upgrade:clean:invalid_private_exports"].invoke
       end.not_to raise_exception
     end
   end

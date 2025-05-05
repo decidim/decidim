@@ -316,7 +316,7 @@ We have noticed an edge case when using private export functionality, in which t
 You can run the following rake task to ensure your system is not corrupted.
 
 ```bash
-./bin/rails decidim:upgrade:clean:clean_wrong_downloads
+./bin/rails decidim:upgrade:clean:invalid_private_exports
 ```
 
 For ease of in operations, we also added the above command to the main `decidim:upgrade:clean:invalid_records` rake task.
