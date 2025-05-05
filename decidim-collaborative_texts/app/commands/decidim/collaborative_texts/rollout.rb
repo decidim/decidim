@@ -33,7 +33,7 @@ module Decidim
       def process_accepted_suggestions
         affected_users = []
         form.accepted_suggestions.each do |suggestion|
-          suggestion.update!(status: "accepted")
+          suggestion.accepted!
           resource.document.add_coauthor suggestion.author
           affected_users << suggestion.author
         end

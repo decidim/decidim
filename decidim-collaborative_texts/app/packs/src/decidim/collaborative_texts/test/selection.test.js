@@ -19,9 +19,9 @@ describe("Selection", () => {
          data-collaborative-texts-suggestions-editor-template="#collaborative-texts-editor-template"
          data-collaborative-texts-suggestions-box-template="#collaborative-texts-suggestions-box-template"
          data-collaborative-texts-suggestions-box-item-template="#collaborative-texts-suggestions-box-item-template"
-          data-collaborative-texts-i18n='${JSON.stringify(i18n)}'
-          data-collaborative-texts-suggestions-url="${suggestionsUrl}"
-          data-collaborative-texts-rollout-url="${rolloutUrl}">
+         data-collaborative-texts-i18n='${JSON.stringify(i18n)}'
+         data-collaborative-texts-suggestions-url="${suggestionsUrl}"
+         data-collaborative-texts-rollout-url="${rolloutUrl}">
         <h2>This is a collaborative text</h2>
         <p>Some content</p>
         <h2>This is another title</h2>

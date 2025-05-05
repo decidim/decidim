@@ -27,12 +27,9 @@ module Decidim
       end
 
       def space_allows_admin_access?
-        Decidim.participatory_space_manifests.any? do |manifest|
-          Decidim.find_participatory_space_manifest(manifest.name)
-                 .participatory_spaces.call(user.organization)&.any? do |space|
-            space.admins.exists?(id: user.id)
-          end
-        end
+        return false unless document.participatory_space.respond_to?(:admins)
+
+        document.participatory_space.admins.exists?(id: user.id)
       end
     end
   end

@@ -25,7 +25,6 @@ module Decidim
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
-      delegate :body, :body=, to: :current_version
 
       delegate :organization, :participatory_space, to: :component
       delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version

@@ -22,10 +22,6 @@ module Decidim
         def document
           @document ||= context.fetch(:document, nil)
         end
-
-        def space_admin?
-          true
-        end
       end
     end
   end
