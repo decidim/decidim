@@ -33,6 +33,11 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::AgendaItemPresenter
       end
+
+      # Returns the presenter for this model
+      def presenter
+        Decidim::Meetings::AgendaItemPresenter.new(self)
+      end
     end
   end
 end

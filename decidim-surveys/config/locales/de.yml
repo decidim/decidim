@@ -8,13 +8,24 @@ de:
       decidim/surveys/survey:
         one: Umfrage
         other: Umfragen
+      decidim/surveys/survey_response:
+        one: Antwort
+        other: Antworten
   decidim:
     admin:
       admin_log:
         changeset:
           surveys: Umfragen
+      menu:
+        surveys_menu:
+          main: Umfrage
+          questions: Fragen
+          responses: Antworten
+          settings: Einstellungen
     components:
       surveys:
+        actions:
+          response: Antwort
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -34,23 +45,60 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    statistics:
+      responses_count: Antworten
     surveys:
       actions:
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
         destroy: Löschen
         edit: Bearbeiten
+        manage_questions: Fragen
         new_survey: Neue Umfrage
         preview: Vorschau
+        responses_alert: Das Löschen der Antworten bei der Veröffentlichung dieser Umfrage aktiv. Derzeit gibt es %{responses_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
         title: Aktionen
       admin:
+        exports:
+          survey_user_responses: Antworten des Umfrageteilnehmenden
+        publish_responses:
+          index:
+            description: |-
+              Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
+              Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
+              Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
+            responses:
+              one: "%{count} Antwort"
+              other: "%{count} Antworten"
+            status:
+              not_published: Nicht veröffentlicht
+              published: Veröffentlicht
+            title: Antworten veröffentlichen
+        questions:
+          surveys:
+            edit:
+              title: Fragen
+        responses:
+          index:
+            no_responses: Es sind noch keine Antworten vorhanden
+            title: "%{total} Antworten insgesamt"
+          show:
+            title: 'Antwort #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: Einstellungen
         surveys:
           create:
             invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich erstellt.
           destroy:
             success: Umfrage erfolgreich gelöscht.
+          edit:
+            title: Umfrage
           index:
             title: Umfragen
+          new:
+            title: Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.
@@ -86,6 +134,8 @@ de:
       survey_confirmation_mailer:
         confirmation:
           body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
+          subject: 'Umfrage "%{questionnaire_title}": Bestätigung Ihrer Antwort'
+        export_name: Umfrageantworten
       surveys:
         count:
           surveys_count:
@@ -97,6 +147,10 @@ de:
             closed: Geschlossen
             open: Offen
         no_surveys_warning: Keine Umfragen entsprechen Ihren Suchkriterien oder es ist keine Umfrage geöffnet.
+        response:
+          invalid: Es gab ein Problem bei der Beantwortung der Umfrage.
+          spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Können Sie es erneut versuchen?
+          success: Umfrage erfolgreich beantwortet.
         show:
           closed: Geschlossen
           open: Offen

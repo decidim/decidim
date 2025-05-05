@@ -1,0 +1,27 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+<div class="card-section">
+  <div class="row column  font-semibold pb-4"><%= t(".upload_new_census") %></div>
+  <div class="row column">
+    <p><%= t(".info") %></p>
+    <pre class="code-block"><%= t(".example") %></pre>
+  </div>
+
+  <div class="row column">
+    <%= decidim_form_for @form, url: create_import_census_logs_path, multipart: true do |form| %>
+      <div class="font-semibold">
+        <%= form.upload :file, help_i18n_scope: "decidim.admin.forms.file_help.import_csv", button_class: "button button__sm button__transparent-secondary" %>
+      </div>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= submit_tag t("census.new_import.submit", scope: "decidim.verifications.csv_census.admin"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

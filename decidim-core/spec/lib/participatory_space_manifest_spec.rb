@@ -53,7 +53,7 @@ module Decidim
       let(:user) { Decidim::User.new }
 
       it "can be invoked even when is nil" do
-        subject.invoke_on_destroy_account(user)
+        expect { subject.invoke_on_destroy_account(user) }.not_to raise_error
       end
 
       it "can be set and invoked" do

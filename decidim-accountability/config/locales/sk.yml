@@ -151,11 +151,6 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete návrh %{proposal_title}, a tento návrh je zahrnutý vo výsledku "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Aptualizácia postupu v %{resource_title}
           notification_title: Výsledok <a href="%{resource_path}">%{resource_title}</a>, ktorý zahŕňa návrh <a href="%{proposal_path}">%{proposal_title}</a>, je teraz z %{progress} % hotový.
-    metrics:
-      results:
-        description: Počet vytvorených výsledkov
-        object: výsledky
-        title: Výsledky
     resource_links:
       included_projects:
         result_project: Projekty, zahrnutý vo výsledku

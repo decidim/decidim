@@ -27,6 +27,8 @@ module Decidim
         "decidim/proposals/proposal_vote"
       end
 
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def cache_hash
         @cache_hash ||= begin
           hash = []
@@ -44,9 +46,12 @@ module Decidim
           hash << Digest::SHA256.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
           hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
           hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
+          hash << (current_user&.id || 0)
 
           hash.join(Decidim.cache_key_separator)
         end
+        # rubocop:enable Metrics/PerceivedComplexity
+        # rubocop:enable Metrics/CyclomaticComplexity
       end
     end
   end

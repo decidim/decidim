@@ -1,0 +1,352 @@
+ca-IT:
+  activemodel:
+    attributes:
+      authorization:
+        verification_attachment: Arxiu adjunt de la verificació
+      census_data:
+        file: Fitxer
+      config:
+        available_methods: Mètodes disponibles
+        offline: Sense connexió
+        offline_explanation: Instruccions per a la verificació presencial
+        online: En línia
+      confirmation:
+        verification_code: Codi de verificació
+      id_document_information:
+        document_number: Número de document (amb lletra)
+        document_type: Tipus del document
+      id_document_upload:
+        document_number: Número de document (amb lletra)
+        document_type: Tipus del teu document
+        user: Participant
+        verification_attachment: Còpia escanejada del teu document
+      mobile_phone:
+        mobile_phone_number: Número de telèfon mòbil
+      offline_confirmation:
+        email: Correu electrònic de la participant
+      postal_letter_address:
+        full_address: Adreça completa
+      postal_letter_confirmation:
+        verification_code: Codi de verificació
+      postal_letter_postage:
+        full_address: Adreça completa
+        verification_code: Codi de verificació
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Útil si el procés ja ha començat i vols revocar els permisos del procés anterior.
+          button: Revocar tot
+          button_before: Revocar abans de la data
+          destroy:
+            confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
+            confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
+          destroy_nok: S'ha produït un error en revocar les autoritzacions.
+          destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament.
+          info: Hi ha un total de %{count} participants verificades.
+          no_data: No hi ha participants verificades.
+          title: Revocació d'autoritzacions
+        authorization_workflows: Autoritzacions
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} ha actualitzat la configuració de Documents d'Identitat"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant una autorització offline de Documents d'identitat"
+    authorization_handlers:
+      admin:
+        another_dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - Verifica't introduint un número de passaport que comenci per "A".
+        csv_census:
+          help:
+            - Les administradores carreguen un CSV amb els correus electrònics de les participants acceptades.
+            - Només es poden verificar les participants amb un correu electrònic que consti en aquest arxiu CSV.
+        default:
+          help:
+            - L'ajuda sobre el gestor d'autorització no està definida.
+            - Una desenvolupadora necessita definir l'ajuda a la clau de traducció (i18n) %{authorization_handler}
+        dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - Verifica't introduint un número de document que finalitzi amb "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - És una còpia de l'Autorització d'exemple.
+            - Verifica't introduint un número de document que finalitzi amb "X".
+        id_documents:
+          help:
+            - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
+            - Completa la informació que es mostra a la imatge pujada.
+            - La informació ha de coincidir amb el que hagi omplert la persona participant.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud perquè la participant la pugui corregir.
+        postal_letter:
+          help:
+            - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Enviar la carta a la seva adreça amb el codi de verificació.
+            - Marcar la carta com a enviada.
+            - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
+        sms:
+          help:
+            - Les participants sol·liciten un codi de verificació que s'enviarà al seu telèfon.
+            - Cal que introdueixin el codi per a ser verificades.
+            - Si no reben el codi, poden tornar a demanar-lo.
+      csv_census:
+        explanation: Verifica't mitjançant el cens de l'organització.
+        name: Cens de l'organització
+      direct: Directe
+      help: Ajuda
+      id_documents:
+        explanation: Puja els teus documents d'identitat perquè puguem comprovar-la.
+        name: Documents d'identitat
+      multistep: Amb múltiples passos
+      name: Nom
+      postal_letter:
+        explanation: T'enviarem una carta postal amb un codi que hauràs d'introduir perquè puguem verificar la teva adreça.
+        name: Codi per carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: La participant <a href="%{resource_url}">%{resource_title}</a> ha intentat verificar-se amb les dades d'una altra participant (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Comprova la <a href="%{conflicts_url}">llista de conflictes de verificacions</a> i posa't en contacte amb la participant per a verificar els seus detalls i resoldre el problema.
+          email_subject: Error en intentar verificar-se contra una altra participant
+          notification_title: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades d'una altra participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
+    verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} ha creat un nou registre de dades censals amb correu electrònic: %{resource_email}"
+          delete: "%{user_name} ha eliminado un nou registre de dades censals amb correu electrònic: %{resource_email}"
+          import: "%{user_name} ha importat: %{imported_count} registre(s) censal(s)"
+          update: "%{user_name} ha actualitzat el registre de dades censals amb correu electrònic: %{resource_email}"
+      authorizations:
+        authorization_metadata:
+          info: 'Aquestes són les dades de la verificació actual:'
+          no_data_stored: No hi ha dades emmagatzemades.
+        create:
+          error: S'ha produït un error en crear l'autorització.
+          success: Se t'ha autoritzat correctament.
+          transferred: 'S''han recuperat les següents dades de participació a partir de la teva autorització:'
+          unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
+        destroy:
+          error: S'ha produït un error en esborrar la verificació.
+          success: Has esborrat l'autorització correctament.
+        index:
+          expired_verification: La verificació ha caducat
+          granted_verification: Autorització atorgada
+          introduce_code: Introdueix el codi
+          pending_verification: Pendent de verificació
+          show_renew_info: Clica aquí per a renovar la verificació
+          subscribe: Subscriure’s
+          unauthorized_methods: Mètodes de verificació
+        new:
+          authorize: Enviar
+          authorize_with: Verifica amb %{authorizer}
+          tos_agreement: En verificar la teva identitat, acceptes els %{link}.
+        onboarding_pending:
+          completed_verifications: El teu perfil s'ha verificat amb èxit, ara pots %{action} a %{resource_name}
+          granted_verifications: Verificacions concedides
+          onboarding_message_html: Manquen uns passos previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:.
+          pending_admin_approval_verifications: Verificacions pendents de l'aprovació d'una administradora
+          pending_verifications: Verificacions pendents
+          unauthorized: No tens l'autorització corresponent per a %{action} en aquest recurs
+        renew_modal:
+          cancel: Cancel·lar
+          continue: Continua
+          info_renew: Si vols actualitzar les dades, continua amb la renovació.
+          title: Renova la verificació
+        skip_verification: Pots ometre-ho per ara i %{link}
+        start_exploring: comença a explorar
+      csv_census:
+        admin:
+          actions:
+            confirm_destroy: Segur que vols esborrar aquest registre de dades censals?
+            destroy: Destruir
+            edit: Editar
+          census:
+            create_import:
+              error: S'ha produït un error en importar del cens.
+              no_user: No s'ha trobat la usuària
+              success: S'han importat amb èxit %{count} elements. S'estan processant les dades. Actualitza la pàgina en uns minuts per veure els canvis.
+            destroy:
+              success: S'ha eliminat el registre de dades censals.
+            index:
+              empty: No hi ha dades del cens. Utilitza %{import_csv} per importar-lo mitjançant un fitxer CSV.
+              no_sign_in: Mai no ha iniciat sessió
+              no_user: No s'ha trobat cap usuària
+            last_login:
+              no_sign_in: Mai no ha iniciat sessió
+              no_user: Cap usuària
+            new_import:
+              errors:
+                email_exists: L'adreça de correu electrònic %{email} ja existeix a l'organització %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
+              submit: Puja arxiu
+              title: Importar dades censals
+              upload_new_census: Puja un nou cens
+          census_records:
+            create_record:
+              success: Registre de dades censals afegides amb èxit. S'estan processant les dades. Actualitza la pàgina, en uns minuts, per veure els canvis.
+            edit_record:
+              save: Desar
+              title: Editar el registre censal
+            form:
+              email: Correu electrònic
+            new_record:
+              save: Desar
+              title: Afegir un nou registre censal
+            update_record:
+              invalid: Hi ha hagut un problema en actualitzar el registre de dades del cens.
+              success: S'ha actualitzat correctament el registre de dades censals.
+          index:
+            add_new_record_button: Afegir nou registre
+            authorized: Usuària actualitzada
+            fields:
+              actions: Accions
+              created_at: Creat el
+              email: Correu electrònic
+              user_authorized: Usuària autoritzada?
+            import_csv: Importar CSV
+            no_authorized: Usuària no actualitzada
+            title: Dades censals actuals
+          instructions:
+            body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
+            title: Necessites activar el cens csv d'aquesta organització
+        authorizations:
+          new:
+            error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
+            success: El teu compte s'ha verificat correctament.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
+            other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
+          user_postal_codes:
+            one: La participació està restringida a participants amb el codi postal %{postal_codes}, i el teu codi postal és %{user_postal_code}.
+            other: 'La participació està restringida a participants amb qualsevol dels codis postals següents: %{postal_codes}. El teu codi postal és %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Les adreces de correu electrònic següents no són vàlides: %{invalid_emails}.'
+        no_emails: El fitxer ha de contenir adreces de correu electrònic
+        wrong_number_columns: "S'esperava una columna %{expected}, però es van trobar %{actual}."
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configuració de documents d'identitat
+              update: Actualitzar
+            update:
+              error: S'ha produït un error en actualitzar la configuració.
+              success: La configuració s'ha actualitzat correctament.
+          confirmations:
+            create:
+              error: La verificació no coincideix. Si us plau, torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la.
+              success: Participant convidada correctament.
+            new:
+              introduce_user_data: Introdueix les dades de la imatge
+              reject: Rebutjar
+              verify: Verificar
+          offline_confirmations:
+            create:
+              error: La verificació no coincideix. Si us plau, torna-ho a provar o digues-li a la participant que la modifiqui.
+              success: Participant verificada correctament.
+            new:
+              cancel: Cancel·lar
+              introduce_user_data: Introdueix el correu electrònic de la participant i les dades del document
+              verify: Verificar
+          pending_authorizations:
+            index:
+              config: Configurar
+              offline_verification: Verificació presencial
+              title: Verificacions online pendents
+              verification_number: 'Verificació #%{n}'
+          rejections:
+            create:
+              success: S'ha rebutjat la verificació. Es demanarà a la participant que modifiqui els seus documents.
+        authorizations:
+          choose:
+            choose_a_type: 'Si us plau selecciona com et vols verificar:'
+            offline: Presencial
+            online: Online
+            title: Verifica't utilitzant el teu document d'identitat
+          create:
+            error: S'ha produït un problema en pujar el teu document.
+            success: El document s'ha carregat correctament.
+          edit:
+            being_reviewed: Estem revisant els teus documents. Seràs verificada en breu.
+            offline: Utilitzar la verificació presencial
+            online: Utilitzar la verificació online
+            rejection_clarity: Assegura't que la informació sigui clarament visible a la imatge carregada.
+            rejection_correctness: Assegura't que la informació introduïda sigui correcta.
+            rejection_notice: S'ha produït un problema amb la teva verificació. Si us plau, torna-ho a provar.
+            send: Sol·licita la verificació de nou
+          new:
+            send: Sol·licita la verificació
+            title: Puja el document d'identitat
+          update:
+            error: S'ha produït un problema en tornar a carregar el document.
+            success: El document s'ha tornat a carregar correctament.
+        identification_number: Número d'identificació
+        passport: Passaport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adreça
+              letter_sent_at: Carta enviada el
+              mark_as_sent: Marca com a enviada
+              not_yet_sent: Encara no s'ha enviat
+              title: Verificacions en curs
+              username: Àlies
+              verification_code: Codi de verificació
+          postages:
+            create:
+              error: S'ha produït un error en marcar la carta com a enviada.
+              success: La carta s'ha marcat correctament com a enviada.
+        authorizations:
+          create:
+            error: S'ha produït un problema amb la teva sol·licitud.
+            success: Gràcies! Enviarem un codi de verificació a la teva adreça.
+          edit:
+            send: Confirmar
+            title: Introdueix el codi de verificació que has rebut.
+            waiting_for_letter: Ben aviat enviarem una carta a la teva adreça amb el teu codi de verificació.
+          new:
+            send: Envia'm una carta
+            title: Sol·licita el teu codi de verificació
+          update:
+            error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat.
+            success: Felicitats. T'has verificat correctament.
+      sms:
+        authorizations:
+          create:
+            error: S'ha produït un problema amb la teva sol·licitud.
+            success: Gràcies! Hem enviat un SMS al teu telèfon.
+          destroy:
+            success: S'ha restablert el codi de verificació amb correctament. Torna a introduir el teu número de telèfon.
+          edit:
+            confirm_destroy: Segur que vols restablir el codi de verificació?
+            destroy: Restableix el codi de verificació
+            resend: No has rebut el codi de verificació?
+            send: Confirmar
+            title: Introdueix el codi de verificació que has rebut
+          new:
+            send: Envia'm un SMS
+            title: Sol·licita el teu codi de verificació
+          update:
+            error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
+            success: Felicitats. T'has verificat correctament.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres

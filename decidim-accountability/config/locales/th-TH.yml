@@ -142,11 +142,6 @@ th:
           email_outro: คุณได้รับการแจ้งเตือนนี้เนื่องจากคุณกำลังติดตาม "%{proposal_title}" และข้อเสนอนี้รวมอยู่ในผลลัพธ์ "%{resource_title}" คุณสามารถหยุดรับการแจ้งเตือนได้ตามลิงก์ก่อนหน้า
           email_subject: การอัปเดตความคืบหน้าของ %{resource_title}
           notification_title: ผลลัพธ์ <a href="%{resource_path}">%{resource_title}</a> ซึ่งรวมถึงข้อเสนอ <a href="%{proposal_path}">%{proposal_title}</a> อยู่ในขณะนี้ %{ ความคืบหน้า}% เสร็จสมบูรณ์
-    metrics:
-      results:
-        description: จำนวนผลลัพธ์ที่สร้างขึ้น
-        object: ผลลัพธ์
-        title: ผลลัพธ์
     participatory_spaces:
       highlighted_results:
         see_all: ดูผลทั้งหมด

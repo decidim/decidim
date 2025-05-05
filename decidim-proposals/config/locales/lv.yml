@@ -187,19 +187,6 @@ lv:
           name: Priekšlikumi
           next_level_in: Izveidojiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
           unearned_own: Jūs vēl neesat izveidojis nevienu priekšlikumu.
-    metrics:
-      accepted_proposals:
-        description: Pieņemto priekšlikumu skaits
-        object: priekšlikumi
-        title: Pieņemtie priekšlikumi
-      endorsements:
-        description: Atbalstīto priekšlikumu skaits
-        object: atbalsti
-        title: Atbalsts
-      proposals:
-        description: Priekšlikumu skaits
-        object: priekšlikumi
-        title: Priekšlikumi
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums

@@ -26,6 +26,8 @@ de:
             enabled: Kommentare aktiviert
             end_time: Kommentare aktiviert bis
             start_time: Kommentare aktiviert von
+      comment_thread:
+        accessibility_label: Kommentar-Thread gestartet von %{full_name} am %{date}
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
@@ -183,11 +185,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
           email_subject: Sie wurden in %{resource_title} erwähnt
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt
-    metrics:
-      comments:
-        description: Anzahl der von Benutzern generierten Kommentare
-        object: Bemerkungen
-        title: Bemerkungen
   errors:
     messages:
       cannot_have_comments: kann keine Kommentare haben

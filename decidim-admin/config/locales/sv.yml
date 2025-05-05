@@ -477,6 +477,10 @@ sv:
             explanation: 'Instruktioner för fil:'
             message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
             message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
+          import_csv:
+            explanation: 'Instruktioner för fil:'
+            message_1: CSV-filer stöds
+            message_2: ".csv-fil med e-postuppgifter"
       help_sections:
         error: Det gick inte att uppdatera hjälpsidorna.
         form:
@@ -599,9 +603,6 @@ sv:
         taxonomies: Kategorisering
         taxonomy_filters: Kategorifilter
         users: Deltagare
-      metrics:
-        metrics:
-          see_more_metrics: Se fler mätvärden
       models:
         area:
           fields:
@@ -1233,7 +1234,6 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         menu: Meny
-        metrics: Deltagande i siffror
         page_topics: Ämnesområden
         pages: Sidor
         panel: Administratör
@@ -1279,16 +1279,6 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning för att hantera av en icke-hanterad användare.
-    metrics:
-      blocked_users:
-        object: blockerade användare
-        title: Blockerade användare
-      reported_users:
-        object: rapporterade användare
-        title: Rapporterade användare
-      user_reports:
-        object: användarrapporter
-        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
@@ -1321,6 +1311,7 @@ sv:
             success: Innehållet har dolts.
           unhide:
             invalid: Det gick inte att sluta dölja innehållet.
+            parent_invalid: Det gick inte att visa resursen. Föräldern är inte synlig.
             success: Innehållet är inte längre dolt.
           unreport:
             invalid: Det gick inte att ta bort rapporten om innehållet.

@@ -2,7 +2,6 @@ tr:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Yazar
         description: Açıklama
         offline_votes: Şahsen imzalar
         offline_votes_for_scope: '%{scope_name} için şahsen imzalar'
@@ -26,7 +25,6 @@ tr:
         collect_user_extra_fields: İmzada katılımcıya ait kişisel verileri toplayın
         custom_signature_end_date_enabled: Yazarların imza toplama süresinin sonunu seçmesine izin ver
         description: Açıklama
-        document_number_authorization_handler: İmzalardaki belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
@@ -225,7 +223,6 @@ tr:
           edit:
             update: Güncelle
           form:
-            authorizations: Yetkilendirme ayarları
             options: Seçenekler
           initiative_type_scopes:
             title: Girişim türü için kapsamlar
@@ -298,20 +295,11 @@ tr:
           email_subject: Girişim %{author_nickname} tarafından onaylandı
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       initiative_signatures:
-        fill_personal_data:
-          continue: Devam et
         finish:
           back_to_initiative: Girişime geri dön
-        sms_code:
-          continue: Kodu kontrol et ve devam et
-          help: Telefonunuza gelen SMS'i kontrol edin
-        sms_phone_number:
-          continue: Bana bir sms gönder
       initiative_votes:
         create:
           error: Girişimi imzalarken bir hata oluştu.
-        personal_data:
-          invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
         sms_phone:
           invalid: Telefon numarası geçersiz veya yetki bekleniyor. Lütfen yetkilerinizi kontrol edin.
       initiatives:
@@ -422,18 +410,11 @@ tr:
       initiatives_type:
         actions:
           title: Eylemler
-          vote: İmza
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Oluştur
         select_initiative_type: Seç
-      initiative_signature_creation_header:
-        fill_personal_data: Verilerinizi tamamlayın
-        finish: Bitiş
-        sms_code: SMS kodu doğrulama
-        sms_phone_number: Cep telefonu numarası
-        title: İşaret %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Henüz girişim yok!

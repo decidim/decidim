@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        3.times do |_n|
+        number_of_records.times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|

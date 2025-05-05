@@ -479,6 +479,10 @@ cs:
             explanation: 'Pokyny pro soubor:'
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
+          import_csv:
+            explanation: 'Pokyny pro soubor:'
+            message_1: CSV soubory jsou podporovány
+            message_2: ".csv soubor s e-maily"
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
@@ -609,9 +613,6 @@ cs:
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobrazit více metrik
       models:
         area:
           fields:
@@ -1094,6 +1095,7 @@ cs:
           title: Upravit téma
           update: Aktualizovat téma
         new:
+          create: Nové téma
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
@@ -1117,6 +1119,7 @@ cs:
         index:
           last_notable_change: Poslední významná změna
         new:
+          create: Nová stránka
           title: Nová stránka
         topic:
           empty: V tomto tématu nejsou žádné stránky.
@@ -1248,7 +1251,6 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
-        metrics: Metriky
         page_topics: Témata
         pages: Stránky
         panel: Admin
@@ -1294,22 +1296,13 @@ cs:
       errors:
         impersonate_user:
           reason: Musíte uvést důvod pro správu neřízeného účastníka.
-    metrics:
-      blocked_users:
-        object: blokovaní uživatelé
-        title: Blokovaní uživatelé
-      reported_users:
-        object: nahlášení uživatelé
-        title: Nahlášení uživatelé
-      user_reports:
-        object: uživatelská hlášení
-        title: Uživatelská hlášení
     moderations:
       actions:
         expand: Rozbalit
         hidden: Skrytý
         hide: Skrýt
         not_hidden: Neskrytý
+        parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Odkrýt
         unreport: Zrušit nahlášení
@@ -1336,6 +1329,7 @@ cs:
             success: Zdroj byl úspěšně skryt.
           unhide:
             invalid: Došlo k potížím s odkrytím zdroje.
+            parent_invalid: Při odkrytí zdroje došlo k chybě. Nadřazená položka není viditelná.
             success: Zdroj byl úspěšně odkryt.
           unreport:
             invalid: Při oznamování zdroje došlo k problému.

@@ -303,9 +303,6 @@ sk:
         settings: Nastavenia
         static_pages: Stránky
         users: Účastníci
-      metrics:
-        metrics:
-          see_more_metrics: Zobraziť viac metrík
       models:
         area:
           fields:
@@ -572,7 +569,6 @@ sk:
         dashboard: Hlavný panel
         impersonatable_users: Spravovateľní účastníci
         impersonations: Správa účastníkov
-        metrics: Metriky
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy

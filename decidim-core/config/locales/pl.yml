@@ -519,10 +519,6 @@ pl:
         name: Dane główne
       metadata:
         name: Metadane
-      metrics:
-        name: Partycypacja w liczbach
-      participatory_space_metrics:
-        name: Partycypacja w liczbach
       participatory_space_stats:
         name: Statystyki
       social_networks_metadata:
@@ -972,21 +968,6 @@ pl:
         finished: 'Zakończono: %{end_date}'
         not_started: Jeszcze nie rozpoczęto
         remaining: "Pozostało %{time_distance}"
-    metrics:
-      download:
-        csv: Pobierz dane (CSV)
-      followers:
-        description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
-        object: obserwujący
-        title: Obserwujący
-      participants:
-        description: Liczba aktywnych użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
-      users:
-        description: Liczba użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
@@ -1123,10 +1104,6 @@ pl:
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
         title: Pomoc
         topics: Tematy
-      participatory_space:
-        metrics:
-          headline: Partycypacja w liczbach
-          link: Pokaż wszystkie statystyki
       terms_of_service:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -1198,7 +1175,6 @@ pl:
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
-      results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:

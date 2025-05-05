@@ -47,15 +47,6 @@ module Decidim
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
           @proposals = @proposals.includes(:component, :coauthorships, :attachments)
-
-          @voted_proposals = if current_user
-                               ProposalVote.where(
-                                 author: current_user,
-                                 proposal: @proposals.pluck(:id)
-                               ).pluck(:decidim_proposal_id)
-                             else
-                               []
-                             end
         end
       end
 

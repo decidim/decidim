@@ -236,11 +236,6 @@ ca:
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha participat en cap debat.
           unearned_own: Encara no has participat a cap debat.
-    metrics:
-      debates:
-        description: Nombre de debats creats
-        object: debats
-        title: Debats
     open_data:
       help:
         debate_comments:

@@ -23,8 +23,14 @@ Gem::Specification.new do |s|
   s.summary = "A Decidim module for creating Collaborative Texts"
   s.description = "A module that aims to provide step by step collaborative texts in Decidim."
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "decidim-core", Decidim::CollaborativeTexts.version
+
   s.add_development_dependency "decidim-dev", Decidim::CollaborativeTexts.version
 end

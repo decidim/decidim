@@ -5,6 +5,7 @@ require "decidim/initiatives/api"
 require "decidim/initiatives/engine"
 require "decidim/initiatives/admin_engine"
 require "decidim/initiatives/participatory_space"
+require "decidim/initiatives/signatures"
 
 module Decidim
   module Exporters
@@ -14,6 +15,7 @@ module Decidim
   # Base module for the initiatives engine.
   module Initiatives
     autoload :ApplicationFormPDF, "decidim/initiatives/application_form_pdf"
+    autoload :ValidatableAuthorizations, "decidim/initiatives/validatable_authorizations"
 
     include ActiveSupport::Configurable
 
@@ -87,6 +89,11 @@ module Decidim
     # This flag allows creating authorizations to unauthorized users.
     config_accessor :do_not_require_authorization do
       Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
+    end
+
+    # Encryption secret to use with signatures metadata
+    config_accessor :signature_handler_encryption_secret do
+      Decidim::Env.new("INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET", "personal user metadata").to_s
     end
   end
 end

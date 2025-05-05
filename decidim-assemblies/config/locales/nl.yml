@@ -284,11 +284,6 @@ nl:
           not_found: 'Dit type groep is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Groepen
-    metrics:
-      assemblies:
-        description: Aantal aangemaakte groepen
-        object: groepen
-        title: Groepen
     participatory_processes:
       show:
         related_assemblies: Verwante groepen

@@ -180,10 +180,5 @@ hu:
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.
           unearned_own: Még nem vett részt a vitákban.
-    metrics:
-      debates:
-        description: A létrehozott viták száma
-        object: viták
-        title: Viták
     statistics:
       debates_count: Viták

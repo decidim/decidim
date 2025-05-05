@@ -53,9 +53,5 @@ ga:
       badges:
         commented_debates:
           name: Díospóireachtaí
-    metrics:
-      debates:
-        object: díospóireachtaí
-        title: Díospóireachtaí
     statistics:
       debates_count: Díospóireachtaí

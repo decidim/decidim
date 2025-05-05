@@ -307,8 +307,6 @@ lv:
         name: Pēdējā aktivitāte
         title: Pēdējā aktivitāte
         view_all: Skatīt visu
-      metrics:
-        name: Organizācijas rādītāji
       stats:
         name: Organizācijas statistika
       sub_hero:
@@ -553,19 +551,6 @@ lv:
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
-    metrics:
-      followers:
-        description: Dalībnieku skaits, kas seko šai līdzdalības telpai
-        object: sekotāji
-        title: Sekotāji
-      participants:
-        description: Aktīvo dalībnieku skaits organizācijā
-        object: dalībnieki
-        title: Dalībnieki
-      users:
-        description: Dalībnieku skaits organizācijā
-        object: dalībnieki
-        title: Dalībnieki
     newsletter_mailer:
       newsletter:
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
@@ -645,10 +630,6 @@ lv:
         subheading: Pārvietojieties %{name} palīdzības lapās
         title: Palīdzība
         topics: Tēmas
-      participatory_space:
-        metrics:
-          headline: Rādītāji
-          link: Rādīt visus rādītājus
     profile:
       deleted: Dzēsts dalībnieks
     profiles:
@@ -682,7 +663,6 @@ lv:
       global: Globālais darbības tvērums
       prompt: Izvēlēties darbības tvērumu
     search:
-      results_found_for_term: '%{count} Meklēšanas rezultāti: "%{term}"'
       term_input_placeholder: Meklēt
     searches:
       filters:

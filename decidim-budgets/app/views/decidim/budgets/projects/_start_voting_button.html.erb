@@ -1,0 +1,9 @@
+<%= action_authorized_link_to "vote",
+                              budget_focus_projects_path(budget, start_voting: true),
+                              resource: budget,
+                              data: {
+                                "redirect-url": budget_focus_projects_path(budget)
+                              },
+                              class: button_classes do %>
+  <%= t("start_voting", scope: "decidim.budgets.projects") %>
+<% end %>

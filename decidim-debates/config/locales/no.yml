@@ -175,10 +175,5 @@
           name: Innspillstråder
           next_level_in: Delta i %{score} flere innspillstråder for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i noen innspillstråder ennå.
-    metrics:
-      debates:
-        description: Antall innspillstråder opprettet
-        object: innspillstråder
-        title: Innspillstråder
     statistics:
       debates_count: Debatter

@@ -321,11 +321,6 @@ ja:
           email_outro: '"%{proposal_title}" をフォローしているため、この通知を受け取りました。この提案は結果 "%{resource_title}" に含まれています。 前のリンクに続く通知の受信を停止できます。'
           email_subject: '%{resource_title} の進捗状況の更新'
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> <a href="%{proposal_path}">%{proposal_title}</a>を含む結果 , が %{progress}%完了しました。
-    metrics:
-      results:
-        description: 生成した結果の数
-        object: 結果
-        title: 結果
     open_data:
       help:
         result_comments:

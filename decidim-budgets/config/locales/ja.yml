@@ -217,12 +217,16 @@ ja:
           download_vote: 投票のダウンロード
           pending_to_vote_budgets:
             other: 他の予算に投票できます
+          share_text: "%{space_name}でお気に入りのプロジェクトに投票しました! 🎉 今すぐ投票: %{component_url}"
           share_vote: 投票を共有する
           title: 投票は正常に承認されました
           view_votes:
             other: 投票を表示
           votes_count:
             other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
+      order_pdf:
+        text: '%{space_name}で、以下のプロジェクトに投票しました'
+        title: 投票が正常に受理されました。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
@@ -246,7 +250,7 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
-          cancel_order: 投票を削除してやり直してください
+          cancel_order: 投票を取り消す
           checked_out:
             description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
@@ -276,13 +280,13 @@ ja:
             start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
           minimum_projects_rule:
-            description: 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
           projects_rule:
-            description: 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
           projects_rule_maximum_only:
-            description: 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+            description: 最大で%{maximum_number}件までプロジェクトを選び、あなたの希望に沿って投票してください。
           vote_threshold_percent_rule:
-            description: 希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_budget}の予算をプロジェクトに割り当て、あなたの希望に沿って投票してください。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -306,9 +310,10 @@ ja:
           added: 追加済
           all: すべて
         projects_for: '%{name} のプロジェクト'
-        select_projects: プロジェクトを選択
+        select_projects: プロジェクトを追加
         show:
           budget: 予算
+        start_voting: 投票を開始
       prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:

@@ -329,11 +329,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour à %{resource_title} progress
           notification_title: Le résultat <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevé à %{progress}%.
-    metrics:
-      results:
-        description: Nombre de résultats générés
-        object: résultats
-        title: Résultats
     open_data:
       help:
         result_comments:

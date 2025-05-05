@@ -50,5 +50,38 @@ module Decidim::Admin
         expect { command.call }.to broadcast(:invalid)
       end
     end
+
+    context "when the resource parent is hidden" do
+      let!(:comment) { create(:comment, commentable: reportable, author: current_user) }
+      let!(:comment_moderation) { create(:moderation, reportable: comment, report_count: 1, hidden_at: Time.current) }
+
+      let(:command) { described_class.new(comment, current_user) }
+
+      it "broadcasts parent_invalid" do
+        expect { command.call }.to broadcast(:parent_invalid)
+      end
+
+      it "does not unhide the resource" do
+        command.call
+        expect(comment.reload).to be_hidden
+      end
+    end
+
+    context "when the resource parent is not hidden" do
+      let(:moderation) { create(:moderation, reportable:, report_count: 1, hidden_at: nil) }
+      let!(:comment) { create(:comment, commentable: reportable, author: current_user) }
+      let!(:comment_moderation) { create(:moderation, reportable: comment, report_count: 1, hidden_at: Time.current) }
+
+      let(:command) { described_class.new(comment, current_user) }
+
+      it "broadcasts ok" do
+        expect { command.call }.to broadcast(:ok)
+      end
+
+      it "unhides the resource" do
+        command.call
+        expect(comment.reload).not_to be_hidden
+      end
+    end
   end
 end

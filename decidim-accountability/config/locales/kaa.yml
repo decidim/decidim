@@ -89,10 +89,6 @@ kaa:
         results:
           status_id_eq:
             label: Jaǵday
-    metrics:
-      results:
-        object: nátiyjeler
-        title: Nátiyjeler
     participatory_spaces:
       highlighted_results:
         see_all: Barlıq nátiyjelerdi kóriw

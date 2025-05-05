@@ -148,6 +148,10 @@
       &__list {
         @apply ml-4 list-disc text-gray-2 text-sm;
       }
+
+      &__item {
+        @apply items-center gap-2;
+      }
     }
 
     &-actions {

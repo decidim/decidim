@@ -89,7 +89,6 @@
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
             maps_enabled: Kart aktivert
-            registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
           step:
@@ -123,10 +122,8 @@
           email_subject: De tildelte plassene for "%{resource_title}" møtet er over %{percentage}%
           notification_title: De tildelte plassene for <a href="%{resource_path}">%{resource_title}</a> møtet er over %{percentage}%.
         meeting_updated:
-          email_intro: 'Møtet "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Møtet "%{resource_title}" ble oppdatert
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble oppdatert.
         registration_code_validated:
           email_intro: Din registreringskode "%{registration_code}" for "%{resource_title}" møtet er blitt validert.
           email_outro: Du har mottatt denne varslingen fordi registreringskoden din for "%{resource_title}" møtet er blitt validert.
@@ -255,8 +252,6 @@
         registrations:
           edit:
             save: Lagre
-            validate: Valider
-            validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
@@ -271,9 +266,6 @@
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
-          validate_registration_code:
-            invalid: Denne registreringskoden er ugyldig.
-            success: Registreringskoden ble validert.
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
@@ -385,7 +377,6 @@
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
-          registration_code_help_text: Din registreringskode
           registration_state:
             validated: VALIDERT
             validation_pending: VALIDERING VENTER
@@ -430,7 +421,6 @@
         confirmation:
           confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
           details: Du finner møtets detaljer i vedlegget.
-          registration_code: Registreringskoden din er %{code}.
       registrations:
         create:
           invalid: Det oppstod et problem med å bli med på dette møtet.
@@ -443,11 +433,6 @@
       types:
         private_meeting: Privat møte
         transparent: Privat
-    metrics:
-      meetings:
-        description: Antall møter opprettet
-        object: møter
-        title: Møter
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidligere møter

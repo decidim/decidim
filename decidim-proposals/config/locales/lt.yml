@@ -273,22 +273,8 @@ lt:
           next_level_in: Parenkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar neparengė jokių pasiūlymų.
           unearned_own: Jūs dar neparengėte jokių pasiūlymų.
-    metrics:
-      accepted_proposals:
-        description: Priimtų pasiūlymų skaičius
-        object: pasiūlymai
-        title: Priimti pasiūlymai
-      endorsements:
-        description: Pritarimų pasiūlymams skaičius
-        object: pritarimai
-        title: Pritarimai
-      proposals:
-        description: Pasiūlymų skaičius
-        object: pasiūlymai
-        title: Pasiūlymai
     participatory_spaces:
       highlighted_proposals:
-        last: Paskutiniai pasiūlymai
         see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:

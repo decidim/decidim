@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Автор
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
