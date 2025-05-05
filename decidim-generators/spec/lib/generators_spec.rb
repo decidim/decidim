@@ -17,8 +17,7 @@ module Decidim
         let(:test_version) { "0.27.0.dev" }
 
         it "returns the develop branch" do
-          # change back to "develop" once PR is accepted
-          expect(subject.edge_git_branch).to eq("feature/new-elections-model")
+          expect(subject.edge_git_branch).to eq("develop")
         end
       end
 
