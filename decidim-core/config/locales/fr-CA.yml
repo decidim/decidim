@@ -1431,9 +1431,9 @@ fr-CA:
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
-        reason: Motif
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        reason: Raison
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
       report:
         authors: Auteurs
         content: Contenu signalé
