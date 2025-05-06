@@ -1217,9 +1217,6 @@ ar:
     reported_mailer:
       hide:
         hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
-        subject: تم إخفاء المورد تلقائيًا
       report:
         authors: المؤلفون
         content: محتوى تم الإبلاغ عنه
