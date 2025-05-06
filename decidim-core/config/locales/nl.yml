@@ -904,10 +904,11 @@ nl:
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
       hide:
+        content: Gerapporteerde inhoud
+        details: Beschrijving
         hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
-        report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
-        subject: Een bron is automatisch verborgen
+        participatory_space: Participatieve ruimte
+        reason: Reden
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
