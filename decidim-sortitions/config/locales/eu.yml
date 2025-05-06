@@ -142,3 +142,4 @@ eu:
             other: "%{count} zozketa"
     statistics:
       sortitions_count: Zozketak
+      sortitions_count_tooltip: Erabakiak hartzeko egindako ausazko selekzioen kopurua.
