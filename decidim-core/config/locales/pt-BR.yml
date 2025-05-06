@@ -1313,10 +1313,11 @@ pt-BR:
         fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar.
     reported_mailer:
       hide:
+        content: Conteúdo denunciado
+        details: Detalhes
         hello: Olá %{name},
-        manage_moderations: Gerenciar moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi escondido automaticamente
+        participatory_space: Espaço participativo
+        reason: Motivo
       report:
         authors: Autores
         content: Conteúdo denunciado
