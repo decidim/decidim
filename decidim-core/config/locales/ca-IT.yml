@@ -1454,6 +1454,8 @@ ca-IT:
           participate: Participa
           participate_title: Participa en els processos de la plataforma
           welcome: Benvinguda a %{organization}!
+        statistics:
+          headline: Estadístiques
         sub_hero:
           register: Registra't
           register_title: Crea un compte
@@ -1527,7 +1529,7 @@ ca-IT:
         scan: Escaneja el codi QR
         title: Codi QR per %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contingut reportat
         details: Detalls
         hello: Hola %{name},
@@ -1536,6 +1538,15 @@ ca-IT:
         reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
+      hidden_manually:
+        content: Contingut reportat
+        details: Detalls
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
+        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
+        subject: Un recurs ha estat amagat per %{moderator}
       report:
         authors: Autores
         content: Contingut reportat
@@ -1658,14 +1669,18 @@ ca-IT:
         share_to: Compartir a %{service}
     statistics:
       comments_count: Comentaris
+      comments_count_tooltip: El número total de comentaris publicats en aquest espai.
       endorsements_count: Adhesions
       followers_count: Seguidores
+      followers_count_tooltip: El nombre d'usuàries que segueixen qualsevol part d'aquest espai per mantenir actualitzades.
       headline: Estadístiques
       no_stats: Encara no hi ha estadístiques.
       pages_count: Pàgines
       participants_count: Participants
+      participants_count_tooltip: El nombre d'usuàries úniques que han interactuat en aquest espai presentant propostes, assistint a trobades, donant suport a propostes, votant projectes o unint-se a debats.
       surveys_count: Enquestes
       users_count: Participants
+      users_count_tooltip: El nombre total d'usuàries que s'han registrat i confirmat el vostre compte per correu electrònic.
     tags:
       filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
     taxonomies:
