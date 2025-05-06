@@ -1775,11 +1775,8 @@ cs:
         content: Nahlášený obsah
         details: Detaily
         hello: Zdravím %{name},
-        manage_moderations: Správa moderování
-        participatory_space: Participativní prostor
+        participatory_space: Účastnický prostor
         reason: Důvod
-        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
-        subject: Zdroj byl automaticky skryt
       report:
         authors: Autoři
         content: Nahlášený obsah
