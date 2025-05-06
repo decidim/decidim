@@ -1733,8 +1733,11 @@ eu:
         content: Erreportatutako edukia
         details: Xehetasunak
         hello: Kaixo, %{name},
+        manage_moderations: Kudeatu moderazioak
         participatory_space: Partaidetza-espazioa
         reason: Arrazoia
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
+        subject: Eduki bat automatikoki ezkutatu da
       report:
         authors: Egileak
         content: Erreportatutako edukia
