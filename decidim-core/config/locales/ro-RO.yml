@@ -1308,9 +1308,6 @@ ro:
     reported_mailer:
       hide:
         hello: Bună ziua %{name},
-        manage_moderations: Gestionați moderările
-        report_html: <p>Următorul <a href="%{url}">conținut</a> a fost ascuns automat.</p>
-        subject: O resursă a fost ascunsă automat
       report:
         authors: Autori
         content: Conținut raportat
