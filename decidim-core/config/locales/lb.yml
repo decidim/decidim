@@ -947,9 +947,6 @@ lb:
     reported_mailer:
       hide:
         hello: Moien %{name}
-        manage_moderations: Moderatiounen verwalten
-        report_html: <p>Den folgenden Inhalt <a href="%{url}">Inhalt</a> gouf automatesch ausgeblent.</p>
-        subject: Eng Ressource gouf automatesch ausgeblent
       report:
         authors: Auteuren
         content: Inhalt gouf gemellt
