@@ -142,3 +142,4 @@ es-MX:
             other: "%{count} clasificaciones"
     statistics:
       sortitions_count: Sorteos
+      sortitions_count_tooltip: El número de selecciones aleatorias realizadas para la toma de decisiones.
