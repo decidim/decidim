@@ -1713,10 +1713,11 @@ fi-pl:
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
     reported_mailer:
       hide:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
         hello: Hei %{name},
-        manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
-        subject: Resurssi on piilotettu automaattisesti
+        participatory_space: Osallistumistila
+        reason: Syy
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
