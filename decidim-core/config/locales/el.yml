@@ -871,11 +871,6 @@ el:
           message: Μήνυμα
           resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
     reported_mailer:
-      hide:
-        hello: Γεια σας %{name},
-        manage_moderations: Διαχείριση εποπτεύσεων
-        report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αποκρύφτηκε αυτόματα.</p>
-        subject: Ένας πόρος αποκρύφτηκε αυτόματα
       report:
         authors: Συγγραφείς
         content: Αναφερόμενο περιεχόμενο
