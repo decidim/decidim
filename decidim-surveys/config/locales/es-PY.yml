@@ -46,7 +46,9 @@ es-PY:
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     statistics:
+      responses: 'Respuestas:'
       responses_count: Respuestas
+      surveys_count_tooltip: El número de encuestas realizadas y de respuestas recogidas.
     surveys:
       actions:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
