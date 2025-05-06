@@ -91,3 +91,4 @@ eu:
             announcement: Oharra
     statistics:
       collaborative_texts_count: Testu kolaboratzaileak
+      collaborative_texts_count_tooltip: Lankidetzan idatzitako testuen kopurua
