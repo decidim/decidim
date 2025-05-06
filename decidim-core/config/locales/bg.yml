@@ -1357,10 +1357,11 @@ bg:
         fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
     reported_mailer:
       hide:
+        content: Докладвано съдържание
+        details: Детайли
         hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
+        participatory_space: Пространство за участници
+        reason: Причина
       report:
         authors: Автори
         content: Докладвано съдържание
