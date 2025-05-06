@@ -5,6 +5,8 @@ require "decidim/api/test"
 require "decidim/proposals/test/factories"
 
 describe "Decidim::Api::QueryType" do
+  include ActiveSupport::NumberHelper
+
   include_context "with a graphql decidim component" do
     let(:component_fragment) do
       %(
@@ -38,6 +40,10 @@ describe "Decidim::Api::QueryType" do
           body {
             translation(locale:"#{locale}")
           }
+          cost
+          costReport {
+            translation(locale:"#{locale}")
+          }
           taxonomies {
             id
           }
@@ -57,10 +63,13 @@ describe "Decidim::Api::QueryType" do
             deleted
              name
             nickname
-            organizationName { translation(locale: "en") }
+            organizationName { translation(locale: "#{locale}") }
             profilePath
           }
           endorsementsCount
+          executionPeriod {
+            translation(locale:"#{locale}")
+          }
           fingerprint{
             source
             value
@@ -73,6 +82,14 @@ describe "Decidim::Api::QueryType" do
           official
           participatoryTextLevel
           position
+          proposalState {
+            announcementTitle { translation(locale: "#{locale}") }
+            bgColor
+            id
+            proposalsCount
+            textColor
+            title { translation(locale: "#{locale}") }
+          }
           publishedAt
           reference
           state
@@ -101,10 +118,26 @@ describe "Decidim::Api::QueryType" do
     end
   end
   let(:component_type) { "Proposals" }
-  let(:organization) { participatory_process.organization }
-  let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
-  let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
+  let(:active_step) { current_component.participatory_space.respond_to?(:active_step) && current_component.participatory_space.active_step.present? }
+  let(:cost) do
+    number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_step
+  end
+  let(:cost_report) do
+    { "translation" => translated(proposal.cost_report) } if active_step
+  end
+  let(:execution_period) do
+    { "translation" => translated(proposal.execution_period) } if active_step
+  end
+  let(:proposal_state) do
+    {
+      "announcementTitle" => { "translation" => translated(proposal.proposal_state.announcement_title) },
+      "bgColor" => proposal.proposal_state.bg_color,
+      "id" => proposal.proposal_state.id.to_s,
+      "proposalsCount" => proposal.proposal_state.proposals_count,
+      "textColor" => proposal.proposal_state.text_color,
+      "title" => { "translation" => translated(proposal.proposal_state.title) }
+    }
+  end
 
   let(:proposal_single_result) do
     proposal.reload
@@ -122,8 +155,8 @@ describe "Decidim::Api::QueryType" do
           "state" => a.state
         }
       end,
-      "answer" => nil,
-      "answeredAt" => nil,
+      "answer" => { "translation" => translated(proposal.answer) },
+      "answeredAt" => proposal.answered_at.to_time.iso8601,
       "attachments" => [],
       "author" => { "id" => proposal.authors.first.id.to_s },
       "authors" => proposal.authors.map { |a| { "id" => a.id.to_s } },
@@ -134,6 +167,8 @@ describe "Decidim::Api::QueryType" do
       "commentsHaveAlignment" => proposal.comments_have_alignment?,
       "commentsHaveVotes" => proposal.comments_have_votes?,
       "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
+      "cost" => cost,
+      "costReport" => cost_report,
       "createdAt" => proposal.created_at.to_time.iso8601,
       "createdInMeeting" => proposal.created_in_meeting?,
       "endorsements" => proposal.endorsements.map do |e|
@@ -145,6 +180,7 @@ describe "Decidim::Api::QueryType" do
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
       "endorsementsCount" => proposal.endorsements.size,
+      "executionPeriod" => execution_period,
       "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
       "hasComments" => proposal.comment_threads.size.positive?,
       "id" => proposal.id.to_s,
@@ -152,6 +188,7 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
+      "proposalState" => proposal_state,
       "publishedAt" => proposal.published_at.to_time.iso8601,
       "reference" => proposal.reference,
       "state" => proposal.state,
@@ -167,7 +204,6 @@ describe "Decidim::Api::QueryType" do
       "withdrawnAt" => proposal.withdrawn_at&.to_time&.iso8601
     }
   end
-
   let(:proposals_data) do
     {
       "__typename" => "Proposals",
@@ -182,6 +218,24 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+  let(:organization) { participatory_process.organization }
+  let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
+  let!(:proposal) { create(:proposal, :with_answer, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
+  let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
+
+  before do
+    if active_step
+      current_component.update!(
+        settings: { proposal_answering_enabled: true },
+        step_settings: {
+          current_component.participatory_space.active_step.id => {
+            proposal_answering_enabled: true,
+            answers_with_costs: true
+          }
+        }
+      )
+    end
   end
 
   describe "commentable" do
@@ -273,6 +327,14 @@ describe "Decidim::Api::QueryType" do
               official
               participatoryTextLevel
               position
+              proposalState {
+                announcementTitle { translation(locale: "#{locale}") }
+                bgColor
+                id
+                proposalsCount
+                textColor
+                title { translation(locale: "#{locale}") }
+              }
               publishedAt
               reference
               state
