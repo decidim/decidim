@@ -1364,10 +1364,11 @@ lt:
         fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
     reported_mailer:
       hide:
+        content: Turinys, apie kurį pranešta
+        details: Išsamiau
         hello: Sveiki %{name},
-        manage_moderations: Tvarkyti vedamas diskusijas
-        report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
-        subject: Išteklius paslėptas automatiškai
+        participatory_space: Dalyvaujamoji erdvė
+        reason: Priežastis
       report:
         authors: Autoriai
         content: Turinys, apie kurį pranešta
