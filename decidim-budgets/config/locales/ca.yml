@@ -440,5 +440,7 @@ ca:
         project_proposal: Propostes incloses en aquest projecte
     statistics:
       orders_count: Suports
+      projects_count: Pressupostos
+      projects_count_tooltip: El número de pressupostos participatius i el total de vots emesos en aquests.
   index:
     confirmed_orders_count: Recompte de vots
