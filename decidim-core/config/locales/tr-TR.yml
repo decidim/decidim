@@ -926,10 +926,11 @@ tr:
           resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
       hide:
+        content: İçeriği bildir
+        details: Ayrıntılar
         hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
-        report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> otomatik olarak gizlendi.</p>
-        subject: Bir kaynak otomatik olarak gizlendi
+        participatory_space: Katılımcı alanı
+        reason: Nedeni
       report:
         authors: Yazarlar
         content: İçeriği bildir
