@@ -1534,15 +1534,6 @@ de:
         scan: QR-Code scannen
         title: QR-Code für %{resource_title}
     reported_mailer:
-      hide:
-        content: Gemeldeter Inhalt
-        details: Details
-        hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
-        participatory_space: Beteiligungsbereich
-        reason: Begründung
-        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
-        subject: Eine Ressource wurde automatisch ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
