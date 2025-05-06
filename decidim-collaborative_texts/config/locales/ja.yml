@@ -90,3 +90,4 @@ ja:
             announcement: お知らせ
     statistics:
       collaborative_texts_count: コラボレーションテキスト
+      collaborative_texts_count_tooltip: コラボレーションテキストの数
