@@ -1511,10 +1511,14 @@ sv:
         fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
     reported_mailer:
       hide:
+        content: Rapporterat innehåll
+        details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
-        report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
-        subject: En resurs har döljts automatiskt
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har dolts automatiskt.</p>
+        subject: En resurs har dolts automatiskt
       report:
         authors: Författare
         content: Rapporterat innehåll
