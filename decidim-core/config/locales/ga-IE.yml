@@ -211,6 +211,9 @@ ga:
         groups: Grúpaí
         members: Baill
     reported_mailer:
+      hide:
+        details: Sonraí
+        reason: Cúis
       report:
         authors: Údair
         details: Sonraí
