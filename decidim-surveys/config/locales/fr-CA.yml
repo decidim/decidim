@@ -46,7 +46,9 @@ fr-CA:
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     statistics:
+      responses: 'Réponses:'
       responses_count: Réponses
+      surveys_count_tooltip: Le nombre de sondages disponibles et de réponses recueillies.
     surveys:
       actions:
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
