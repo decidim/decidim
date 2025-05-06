@@ -970,9 +970,6 @@
     reported_mailer:
       hide:
         hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
-        subject: En ressurs var automatisk skjult
       report:
         authors: Forfattere
         content: Rapportert innhold
