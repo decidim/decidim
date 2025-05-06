@@ -1440,7 +1440,7 @@ es-PY:
     reported_mailer:
       hide:
         hello: Hola %{name},
-        manage_moderations: Gestionar moderaciones
+        manage_moderations: Gestiona moderaciones
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
