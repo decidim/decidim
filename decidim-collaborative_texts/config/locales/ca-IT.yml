@@ -91,3 +91,4 @@ ca-IT:
             announcement: Avís
     statistics:
       collaborative_texts_count: Textos col·laboratius
+      collaborative_texts_count_tooltip: El número textos col·laboratius
