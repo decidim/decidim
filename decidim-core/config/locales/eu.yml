@@ -1424,7 +1424,7 @@ eu:
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
-        content: Jakinarazitako edukia
+        content: Erreportatutako edukia
         details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
