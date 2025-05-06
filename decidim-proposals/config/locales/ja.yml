@@ -95,7 +95,9 @@ ja:
       decidim:
         proposals:
           proposal:
+            budget_text: 提案 <span class="resource-link">%{link} が作成されました</span>
             import_from_proposal_text: 'この提案になりました： %{link}'
+            import_to_proposal_text: 提案 <span "resource-link">%{link} が作成されました</span>
             merge_from_proposal_text: 'この提案になりました： %{link}'
             merge_to_proposal_text: 'この提案が作成されました: %{link}'
             split_from_proposal_text: 'この提案になりました： %{link}'
@@ -1049,5 +1051,6 @@ ja:
       participatory_space_proposals_count: 提案
       proposals_accepted: 承認された提案
       proposals_count: 提案
+      proposals_count_tooltip: 提出された提案のと、それらに対して投票された総数です。
       votes: '投票：'
       votes_count: 投票
