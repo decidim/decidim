@@ -1559,15 +1559,6 @@ cs:
         scan: Naskenujte QR kód
         title: QR kód pro %{resource_title}
     reported_mailer:
-      hide:
-        content: Nahlášený obsah
-        details: Detaily
-        hello: Zdravím %{name},
-        manage_moderations: Správa moderování
-        participatory_space: Participativní prostor
-        reason: Důvod
-        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
-        subject: Zdroj byl automaticky skryt
       report:
         authors: Autoři
         content: Nahlášený obsah
