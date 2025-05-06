@@ -46,6 +46,7 @@ ja:
     statistics:
       responses: '応答：'
       responses_count: 回答
+      surveys_count_tooltip: 利用可能なアンケート数と、収集された回答数です。
     surveys:
       actions:
         confirm_destroy: 削除してもよろしいですか？
