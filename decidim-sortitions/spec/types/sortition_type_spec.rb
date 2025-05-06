@@ -44,6 +44,15 @@ module Decidim
         end
       end
 
+      describe "proposals" do
+        let(:query) { "{ proposals { id } }" }
+
+        it "returns all the required fields" do
+          response_ids = response["proposals"].map { |selected_proposal| selected_proposal }
+          expect(response_ids).to eq(model.proposals.map { |s| { "id" => s.id.to_s } })
+        end
+      end
+
       describe "selectedProposals" do
         let(:query) { "{ selectedProposals }" }
 

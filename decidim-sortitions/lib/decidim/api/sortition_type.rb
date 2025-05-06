@@ -7,6 +7,7 @@ module Decidim
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::ReferableInterface
 
       description "A sortition"
 
@@ -17,9 +18,9 @@ module Decidim
       field :candidate_proposals, [GraphQL::Types::Int, { null: true }], "The candidate proposal for this sortition", null: true
       field :dice, GraphQL::Types::Int, "The dice for this sortition", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this sortition", null: false
-      field :reference, GraphQL::Types::String, "The reference for this sortition", null: true
+      field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The selected proposal ids for this sortition", null: true
       field :request_timestamp, Decidim::Core::DateTimeType, "The request time stamp for this request", null: true
-      field :selected_proposals, [GraphQL::Types::Int, { null: true }], "The selected proposals for this sortition", null: true
+      field :selected_proposals, [GraphQL::Types::Int, { null: true }], "The selected proposal ids for this sortition", null: true
       field :target_items, GraphQL::Types::Int, "The target items for this sortition", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this sortition", null: true
       field :witnesses, Decidim::Core::TranslatedFieldType, "The witnesses for this sortition", null: true

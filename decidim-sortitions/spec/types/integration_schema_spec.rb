@@ -25,6 +25,10 @@ describe "Decidim::Api::QueryType" do
           dice
           hasComments
           id
+          proposals {
+            id
+            title { translation(locale: "#{locale}") }
+          }
           reference
           requestTimestamp
           selectedProposals
@@ -63,6 +67,7 @@ describe "Decidim::Api::QueryType" do
       "dice" => sortition.dice,
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
+      "proposals" => sortition.proposals.map { |proposal| { "id" => proposal.id.to_s, "title" => { "translation" => translated(proposal.title) } } },
       "reference" => sortition.reference,
       "requestTimestamp" => sortition.request_timestamp.to_time.iso8601,
       "selectedProposals" => sortition.selected_proposals,
@@ -133,6 +138,10 @@ describe "Decidim::Api::QueryType" do
                 dice
                 hasComments
                 id
+                proposals {
+                  id
+                  title { translation(locale: "#{locale}") }
+                }
                 reference
                 requestTimestamp
                 selectedProposals
