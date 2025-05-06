@@ -585,6 +585,7 @@ fr-CA:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        insights: Aperçus
         manage: Gérer
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
@@ -597,6 +598,7 @@ fr-CA:
         share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
+        statistics: Statistiques
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
         users: Utilisateurs
@@ -1176,6 +1178,7 @@ fr-CA:
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
+        statistics: Statistiques
         users: Administrateurs
       tooltips:
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
@@ -1260,5 +1263,7 @@ fr-CA:
       admin:
         global_moderations:
           title: Modération globale
+        insights:
+          title: Aperçus
         taxonomy_filters_selector:
           title:
