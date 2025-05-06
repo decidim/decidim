@@ -1,4 +1,5 @@
 <%= append_stylesheet_pack_tag "decidim_elections_admin" %>
+<%= append_javascript_pack_tag "decidim_elections_admin" %>
 <div class="form__wrapper">
   <div class="card-section election-fields">
     <div class="card form-basic" data-component="accordion" id="accordion-basic">
@@ -23,10 +24,11 @@
           <%= form.attachment :photos,
                               multiple: true,
                               label: false,
+                              extension_allowlist: Decidim.organization_settings(current_organization).upload_allowed_file_extensions_image, # need to be fixed
                               button_label: t("decidim.elections.admin.elections.form.add_images"),
                               button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
                               button_class: "button button__sm button__transparent-secondary",
-                              help_i18n_scope: "decidim.forms.file_help.file",
+                              help_i18n_scope: "decidim.forms.file_help.image",
                               help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
         </div>
       </div>
@@ -52,7 +54,7 @@
         </div>
         <div class="row column election-fields--time">
           <div class="md:flex w-100">
-            <div class="row column">
+            <div class="row column election_start_time">
               <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
             </div>
             <div class="row column">

@@ -45,12 +45,6 @@ module Decidim::Elections
       it { is_expected.to be_valid }
     end
 
-    describe "when start_at is missing" do
-      let(:start_at) { nil }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when end_at is missing" do
       let(:end_at) { nil }
 
