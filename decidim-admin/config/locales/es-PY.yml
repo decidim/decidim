@@ -600,6 +600,7 @@ es-PY:
         share_tokens: Enlaces de acceso
         static_page_topics: Temas
         static_pages: Páginas
+        statistics: Estadísticas
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía
         users: Usuarios
@@ -1243,6 +1244,7 @@ es-PY:
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
+        statistics: Estadísticas
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         users: Administradoras
