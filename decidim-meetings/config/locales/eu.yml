@@ -824,6 +824,8 @@ eu:
     statistics:
       attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
+      meetings_count_tooltip: Zenbat topaketa egin diren, online zein aurrez aurre.
+      participatory_space_meetings_count: Topaketak
   devise:
     mailer:
       join_meeting:
