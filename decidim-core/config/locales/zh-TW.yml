@@ -1281,9 +1281,6 @@ zh-TW:
     reported_mailer:
       hide:
         hello: 哈囉，%{name},
-        manage_moderations: 管理版主
-        report_html: <p>以下<a href="%{url}">內容</a>已自動隱藏。</p>
-        subject: 一個資源已被自動隱藏。
       report:
         authors: 作者
         content: 已檢舉內容
