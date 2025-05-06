@@ -939,10 +939,11 @@ it:
           resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
       hide:
+        content: Contenuto segnalato
+        details: Dettagli
         hello: Ciao %{name},
-        manage_moderations: Gestire le moderazioni
-        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
-        subject: Un contenuto è stato cancellato automaticamente
+        participatory_space: Spazio partecipativo
+        reason: Motivazione
       report:
         authors: Autori
         content: Contenuto segnalato
