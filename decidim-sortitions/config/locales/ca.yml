@@ -142,3 +142,4 @@ ca:
             other: "%{count} classificacions"
     statistics:
       sortitions_count: Sortejos
+      sortitions_count_tooltip: El nombre de seleccions aleatòries realitzades per a la presa de decisions.
