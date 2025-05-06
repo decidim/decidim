@@ -836,10 +836,11 @@ zh-CN:
           resend_email_confirmation_instructions: 重新发送电子邮件确认说明
     reported_mailer:
       hide:
+        content: 报告的内容
+        details: 详细信息
         hello: 您好 %{name}，
-        manage_moderations: 管理版面
-        report_html: <p>以下 <a href="%{url}">内容</a> 已被自动隐藏。</p>
-        subject: 资源已自动隐藏
+        participatory_space: 参与空间
+        reason: 原因
       report:
         authors: 作者
         content: 报告的内容
