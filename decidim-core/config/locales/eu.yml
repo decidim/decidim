@@ -1455,6 +1455,8 @@ eu:
           participate: Hartu parte
           participate_title: Parte hartu plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
+        statistics:
+          headline: Estatistikak
         sub_hero:
           register: Erregistroa
           register_title: Sortu kontu bat
@@ -1528,15 +1530,24 @@ eu:
         scan: Eskaneatu QR kodea
         title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
-      hide:
-        content: Jakinarazitako edukia
+      hidden_automatically:
+        content: Erreportatutako edukia
         details: Xehetasunak
-        hello: Kaixo, %{name},
+        hello: 'Kaixo, %{name}:'
         manage_moderations: Kudeatu moderazioak
-        participatory_space: Partaidetza-espazioa
+        participatory_space: Espazio parte-hartzailea
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
+      hidden_manually:
+        content: Erreportatutako edukia
+        details: Xehetasunak
+        hello: 'Kaixo, %{name}:'
+        manage_moderations: Kudeatu moderazioak
+        participatory_space: Espazio parte-hartzailea
+        reason: Arrazoia
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
+        subject: '%{moderator} -k baliabidea ezkutatu du'
       report:
         authors: Egileak
         content: Erreportatutako edukia
@@ -1659,14 +1670,18 @@ eu:
         share_to: 'Partekatu honekin: %{service}'
     statistics:
       comments_count: Iruzkinak
+      comments_count_tooltip: Espazio honetan dauden iruzkin guztiak.
       endorsements_count: Atxikimenduak
       followers_count: Jarraitzaileak
+      followers_count_tooltip: Zenbat erabiltzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Parte-hartzaileak
+      participants_count_tooltip: Espazio honetan proposamenak aurkeztuz, bileretara joanez, bozkatuz edo eztabaidetan parte hartuz elkarreragin duten erabiltzaile bakarren kopurua.
       surveys_count: Inkestak
       users_count: Parte-hartzaileak
+      users_count_tooltip: Posta elektronikoz izena eman eta kontua baieztatu duten erabiltzaileen kopurua.
     tags:
       filter_results_for_taxonomy: '%{resource} hautaketaren emaitzak'
     taxonomies:
