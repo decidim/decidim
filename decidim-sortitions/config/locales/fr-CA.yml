@@ -134,3 +134,4 @@ fr-CA:
             other: "%{count} tirages au sort"
     statistics:
       sortitions_count: Tirages au sort
+      sortitions_count_tooltip: Le nombre de tirages au sort réalisés dans le cadre du processus décisionnel.
