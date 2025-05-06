@@ -1480,9 +1480,6 @@ cs:
     reported_mailer:
       hide:
         hello: Zdravím %{name},
-        manage_moderations: Správa moderování
-        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
-        subject: Zdroj byl automaticky skryt
       report:
         authors: Autoři
         content: Nahlášený obsah
