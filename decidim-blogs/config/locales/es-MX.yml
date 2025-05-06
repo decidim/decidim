@@ -158,3 +158,4 @@ es-MX:
           url: La URL para esta publicación
     statistics:
       posts_count: Publicaciones
+      posts_count_tooltip: El número de actualizaciones publicadas o entradas del blog.
