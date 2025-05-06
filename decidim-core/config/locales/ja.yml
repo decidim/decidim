@@ -1272,8 +1272,8 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
-        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
+        weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
       subject: あなたのメールダイジェストです
@@ -1405,13 +1405,13 @@ ja:
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
       hide:
-        content: 通報されたコンテンツ
+        content: 報告されたコンテンツ
         details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
         participatory_space: 参加型スペース
-        reason: 理由
-        report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
+        reason: 理由：
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は自動的に非表示にされました。</p>
         subject: リソースは自動的に非表示になりました
       report:
         authors: 著者
