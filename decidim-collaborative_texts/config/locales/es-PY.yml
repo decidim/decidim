@@ -91,3 +91,4 @@ es-PY:
             announcement: Aviso
     statistics:
       collaborative_texts_count: Textos colaborativos
+      collaborative_texts_count_tooltip: El número de textos colaborativos
