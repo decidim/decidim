@@ -1218,10 +1218,11 @@ zh-TW:
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
     reported_mailer:
       hide:
+        content: 已檢舉內容
+        details: 詳細資料
         hello: 哈囉，%{name},
-        manage_moderations: 管理版主
-        report_html: <p>以下<a href="%{url}">內容</a>已自動隱藏。</p>
-        subject: 一個資源已被自動隱藏。
+        participatory_space: 參與空間
+        reason: 理由
       report:
         authors: 作者
         content: 已檢舉內容
