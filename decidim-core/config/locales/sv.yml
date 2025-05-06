@@ -1312,11 +1312,24 @@ sv:
           message: Meddelande
           resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Rapporterat innehåll
+        details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
-        report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
-        subject: En resurs har döljts automatiskt
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har dolts automatiskt.</p>
+        subject: En resurs har dolts automatiskt
+      hidden_manually:
+        content: Rapporterat innehåll
+        details: Detaljer
+        hello: Hej %{name},
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">-innehåll</a> har dolts av %{moderator}.</p>
+        subject: En resurs har dolts av %{moderator}
       report:
         authors: Författare
         content: Rapporterat innehåll
