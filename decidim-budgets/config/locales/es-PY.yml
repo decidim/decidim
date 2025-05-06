@@ -440,5 +440,7 @@ es-PY:
         project_proposal: Propuestas incluidas en este proyecto
     statistics:
       orders_count: Apoyos
+      projects_count: Presupuestos
+      projects_count_tooltip: El número de presupuestos participativos y el total de votos emitidos en ellos.
   index:
     confirmed_orders_count: Número de votos
