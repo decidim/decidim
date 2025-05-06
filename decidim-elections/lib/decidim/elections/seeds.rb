@@ -24,10 +24,7 @@ module Decidim
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name,
           published_at: Time.current,
           manifest_name: :elections,
-          participatory_space:,
-          settings: {
-            attachments_allowed: true
-          }
+          participatory_space:
         }
 
         Decidim.traceability.perform_action!(

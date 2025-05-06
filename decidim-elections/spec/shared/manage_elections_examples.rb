@@ -19,6 +19,7 @@ RSpec.shared_examples "manage elections" do
       fill_in_i18n_editor(:election_description, "#election-description-tabs", **attributes[:description].except("machine_translations"))
       fill_in_datepicker :election_end_at_date, with: end_time.strftime("%d/%m/%Y")
       fill_in_timepicker :election_end_at_time, with: end_time.strftime("%H:%M")
+      check "Manual start"
       choose "Real time"
 
       find("*[type=submit]").click

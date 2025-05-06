@@ -41,7 +41,7 @@ module Decidim
       context "without a description" do
         let(:election) { build(:election, description: nil) }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
       end
 
       describe "#manual_start?" do

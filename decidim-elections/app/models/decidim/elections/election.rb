@@ -23,7 +23,6 @@ module Decidim
       translatable_fields :title, :description
 
       validates :title, presence: true
-      validates :description, presence: true
 
       scope :published, -> { where(published_at: ..Time.current) }
 

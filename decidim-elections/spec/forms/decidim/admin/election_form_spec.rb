@@ -42,7 +42,7 @@ module Decidim::Elections
     describe "when description is missing" do
       let(:attributes) { super().merge(description_en: nil) }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
     end
 
     describe "when start_at is missing" do

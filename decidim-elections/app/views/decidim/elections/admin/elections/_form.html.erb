@@ -19,18 +19,16 @@
           <%= form.translated :editor, :description, resource_mentionable: true, hashtaggable: true, aria: { label: :description } %>
         </div>
 
-        <% if component_settings.attachments_allowed? %>
-          <div class="row column">
-            <%= form.attachment :photos,
-                                multiple: true,
-                                label: false,
-                                button_label: t("decidim.elections.admin.elections.form.add_images"),
-                                button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
-                                button_class: "button button__sm button__transparent-secondary",
-                                help_i18n_scope: "decidim.forms.file_help.file",
-                                help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
-          </div>
-        <% end %>
+        <div class="row column">
+          <%= form.attachment :photos,
+                              multiple: true,
+                              label: false,
+                              button_label: t("decidim.elections.admin.elections.form.add_images"),
+                              button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
+                              button_class: "button button__sm button__transparent-secondary",
+                              help_i18n_scope: "decidim.forms.file_help.file",
+                              help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
+        </div>
       </div>
     </div>
 
@@ -55,10 +53,10 @@
         <div class="row column election-fields--time">
           <div class="md:flex w-100">
             <div class="row column">
-              <%= form.datetime_field :start_at %>
+              <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
             </div>
             <div class="row column">
-              <%= form.datetime_field :end_at %>
+              <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at") %>
             </div>
           </div>
         </div>

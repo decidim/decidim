@@ -7,7 +7,6 @@ en:
         settings:
           global:
             announcement: Announcement
-            attachments_allowed: Allow attachments
           step:
             announcement: Announcement
     elections:
@@ -33,15 +32,17 @@ en:
             calendar: Calendar
             calendar_description: Check that the organization time zone is correct in the organization settings. The current configuration is %{timezone}.
             edit_attachments: Edit attachments
+            end_at: End time
             manual_start: Manual start
             results_availability:
               after_end: After elections end
-              after_end_help: Results are revealed after the elections end
+              after_end_help: Show results only when the election is ended
               questions_by_questions: Questions by questions
-              questions_by_questions_help: Results are shown after each question
+              questions_by_questions_help: Show results per question as they are finalized
               real_time: Real time
-              real_time_help: Results are shown live as votes come in
+              real_time_help: Show results as soon as the first vote in submitted
               title: Results availability
+            start_at: Start time
           index:
             title: Elections
           manage_trash:
