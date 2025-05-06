@@ -95,7 +95,9 @@ eu:
       decidim:
         proposals:
           proposal:
+            budget_text: <span class="resource-link">% {link} proposamena sortu zen</span>
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
+            import_to_proposal_text: <span class="resource-link">% {link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
@@ -1060,6 +1062,9 @@ eu:
         proposal_project: 'Proiektu hauetatik sortutako proposamena:'
         proposal_result: 'Emaitza hauetatik sortutako proposamena:'
     statistics:
+      participatory_space_proposals_count: Proposamenak
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
+      proposals_count_tooltip: Aurkeztutako proposamenen eta emandako botoen kopurua, guztira.
+      votes: 'Botoak:'
       votes_count: Babesak
