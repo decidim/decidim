@@ -91,3 +91,4 @@ fr:
             announcement: Message d'annonce
     statistics:
       collaborative_texts_count: Textes collaboratifs
+      collaborative_texts_count_tooltip: Nombre de textes collaboratifs
