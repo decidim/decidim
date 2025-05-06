@@ -1038,11 +1038,6 @@ hu:
           message: Üzenet
           resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
     reported_mailer:
-      hide:
-        hello: Helló %{name}!
-        manage_moderations: Moderálódások kezelése
-        report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
-        subject: Egy erőforrás automatikusan elrejtve
       report:
         authors: Szerzők
         content: Jelentett tartalom
