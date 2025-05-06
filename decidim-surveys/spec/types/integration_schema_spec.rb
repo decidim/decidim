@@ -10,8 +10,16 @@ describe "Decidim::Api::QueryType" do
       %(
       fragment fooComponent on Surveys {
         survey(id: #{survey.id}){
+          allowResponses
+          allowEditingResponses
+          allowUnregistered
+          announcement {
+            translation(locale:"#{locale}")
+          }
+          endsAt
           createdAt
           id
+          publishedAt
           questionnaire{
             createdAt
             description {
@@ -43,6 +51,7 @@ describe "Decidim::Api::QueryType" do
             }
             updatedAt
           }
+          startsAt
           updatedAt
         }
       }
@@ -58,8 +67,14 @@ describe "Decidim::Api::QueryType" do
   let(:survey_single_result) do
     survey.reload
     {
+      "allowEditingResponses" => survey.allow_editing_responses,
+      "allowResponses" => survey.allow_responses,
+      "allowUnregistered" => survey.allow_unregistered,
+      "announcement" => translated(survey.announcement),
       "createdAt" => survey.created_at.to_time.iso8601,
+      "endsAt" => survey.ends_at&.to_time&.iso8601,
       "id" => survey.id.to_s,
+      "publishedAt" => survey.published_at&.to_time&.iso8601,
       "questionnaire" => {
         "createdAt" => survey.questionnaire.created_at.to_time.iso8601,
         "description" => { "translation" => survey.questionnaire.description[locale] },
@@ -89,6 +104,7 @@ describe "Decidim::Api::QueryType" do
         "tos" => { "translation" => survey.questionnaire.tos[locale] },
         "updatedAt" => survey.questionnaire.updated_at.to_time.iso8601
       },
+      "startsAt" => survey.starts_at&.to_time&.iso8601,
       "updatedAt" => survey.updated_at.to_time.iso8601
     }
   end
@@ -116,17 +132,21 @@ describe "Decidim::Api::QueryType" do
         surveys{
           edges{
             node{
+              allowResponses
+              allowEditingResponses
+              allowUnregistered
+              announcement {
+                translation(locale:"#{locale}")
+              }
+              endsAt
               createdAt
               id
+              publishedAt
               questionnaire{
                 createdAt
                 description {
                   translation(locale:"#{locale}")
                 }
-                # forEntity {
-                #   id
-                #   __typename
-                # }
                 forType
                 id
                 questions {
@@ -151,6 +171,7 @@ describe "Decidim::Api::QueryType" do
                 }
                 updatedAt
               }
+              startsAt
               updatedAt
             }
           }

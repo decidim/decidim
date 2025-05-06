@@ -7,8 +7,15 @@ module Decidim
 
       description "A survey"
 
+      field :allow_editing_responses, GraphQL::Types::Boolean, "Whether this survey accepts editing responses or not.", null: true
+      field :allow_responses, GraphQL::Types::Boolean, "Whether this survey accepts responses or not.", null: true
+      field :allow_unregistered, GraphQL::Types::Boolean, "Whether this survey accepts answers or not.", null: true
+      field :announcement, Decidim::Core::TranslatedFieldType, "The announcement info for this survey", null: true
+      field :ends_at, Decidim::Core::DateTimeType, "The time this survey ends accepting answers", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this survey", null: false
+      field :published_at, Decidim::Core::DateTimeType, description: "The date and time this survey was published", null: true
       field :questionnaire, Decidim::Forms::QuestionnaireType, "The questionnaire for this survey", null: true
+      field :starts_at, Decidim::Core::DateTimeType, "The time this survey starts accepting answers", null: true
 
       def self.authorized?(object, context)
         context[:survey] = object
