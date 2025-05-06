@@ -1442,9 +1442,6 @@ de:
     reported_mailer:
       hide:
         hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
-        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
-        subject: Eine Ressource wurde automatisch ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
