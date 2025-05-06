@@ -2,6 +2,7 @@
 
 module Decidim
   # Exposes the report resource so users can report a reportable.
+  # Unless the reportable is marked as hideable, the resource notice will change accordingly.
   class ReportsController < Decidim::ApplicationController
     include FormFactory
     include NeedsPermission
