@@ -1730,14 +1730,11 @@ eu:
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
-        content: Jakinarazitako edukia
+        content: Erreportatutako edukia
         details: Xehetasunak
         hello: Kaixo, %{name},
-        manage_moderations: Kudeatu moderazioak
         participatory_space: Partaidetza-espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
-        subject: Eduki bat automatikoki ezkutatu da
       report:
         authors: Egileak
         content: Erreportatutako edukia
