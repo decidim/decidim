@@ -15,7 +15,11 @@ module Decidim
 
       CreateReport.call(@form, reportable) do
         on(:ok) do
-          flash[:notice] = I18n.t("decidim.reports.create.success")
+          flash[:notice] = if hideable?
+                             I18n.t("decidim.reports.hide.success")
+                           else
+                             I18n.t("decidim.reports.create.success")
+                           end
           redirect_to reportable.reload.reported_content_url
         end
 
