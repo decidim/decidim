@@ -1737,13 +1737,10 @@ de:
     reported_mailer:
       hide:
         content: Gemeldeter Inhalt
-        details: Details
+        details: Einzelheiten
         hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
         participatory_space: Beteiligungsbereich
-        reason: Begründung
-        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
-        subject: Eine Ressource wurde automatisch ausgeblendet
+        reason: Grund
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
