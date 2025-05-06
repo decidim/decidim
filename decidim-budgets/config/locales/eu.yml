@@ -440,5 +440,7 @@ eu:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
     statistics:
       orders_count: Aldeko babesak
+      projects_count: Aurrekontuak
+      projects_count_tooltip: Aurrekontu parte-hartzaileen kopurua eta emandako boto guztiak.
   index:
     confirmed_orders_count: Babesen zenbaketa
