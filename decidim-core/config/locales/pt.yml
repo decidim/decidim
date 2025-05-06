@@ -898,10 +898,11 @@ pt:
           resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
       hide:
+        content: Conteúdo reportado
+        details: Detalhes
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
-        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi ocultado automaticamente
+        participatory_space: Espaço participativo
+        reason: Razão
       report:
         authors: Autores
         content: Conteúdo reportado
