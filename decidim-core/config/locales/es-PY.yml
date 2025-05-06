@@ -1457,6 +1457,8 @@ es-PY:
           participate: Participar
           participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenido a %{organization}!
+        statistics:
+          headline: Estadísticas
         sub_hero:
           register: Regístrate
           register_title: Crea una cuenta
@@ -1530,15 +1532,24 @@ es-PY:
         scan: Escanea el código QR
         title: Código QR para %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenido reportado
         details: Detalles
         hello: Hola %{name},
-        manage_moderations: Gestionar moderaciones
+        manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
@@ -1661,14 +1672,18 @@ es-PY:
         share_to: Compartir en %{service}
     statistics:
       comments_count: Comentarios
+      comments_count_tooltip: El número total de comentarios publicados en este espacio.
       endorsements_count: Adhesiones
       followers_count: Seguidoras
+      followers_count_tooltip: El número de usuarias que siguen cualquier parte de este espacio para mantenerse actualizadas.
       headline: Estadísticas
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes
+      participants_count_tooltip: El número de usuarios únicos que han interactuado en este espacio presentando propuestas, asistiendo a encuentros, dando apoyo a propuestas, votando a proyectos o uniéndose a debates.
       surveys_count: Encuestas
       users_count: Participantes
+      users_count_tooltip: El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico.
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
     taxonomies:
