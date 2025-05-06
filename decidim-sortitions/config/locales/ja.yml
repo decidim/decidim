@@ -137,3 +137,4 @@ ja:
             other: "%{count} ソート数"
     statistics:
       sortitions_count: 並べ替え
+      sortitions_count_tooltip: 意思決定のために実施されたランダム抽選の数です。
