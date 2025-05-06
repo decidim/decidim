@@ -158,3 +158,4 @@ eu:
           url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak
+      posts_count_tooltip: Argitaratutako eguneratzeen edo blogeko argitalpenen kopurua.
