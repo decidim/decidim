@@ -742,9 +742,6 @@ gl:
     reported_mailer:
       hide:
         hello: Ola %{name},
-        manage_moderations: Xestionar moderacións
-        report_html: <p> O seguinte <a href="%{url}">content</a> ocultouse automaticamente.</p>
-        subject: Ocultouse un recurso automaticamente
       report:
         hello: Ola %{name},
         report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
