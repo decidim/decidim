@@ -9,6 +9,22 @@ shared_examples "manage results" do
     it_behaves_like "having a rich text editor", "new_result", "full"
   end
 
+  it "displays the proposals picker" do
+    expect(page).to have_content("Proposals")
+  end
+
+  context "when proposal linking is disabled" do
+    before do
+      allow(Decidim).to receive(:module_installed?).and_call_original
+      # Reload the page with the updated settings
+      visit current_path
+    end
+
+    it "does not display the proposal picker" do
+      expect(page).to have_no_content "Choose proposals"
+    end
+  end
+
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
