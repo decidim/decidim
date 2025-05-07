@@ -41,6 +41,7 @@ en:
           modal_question: All your demographic data will be removed.
           modal_title: Delete data
           submit: Save data
+          terms_of_service: terms of service
           tos_agreement: By participating you accept the %{link}.
         show:
           page_title: Demographic data donation

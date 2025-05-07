@@ -7,9 +7,6 @@
 <% end %>
 
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form response-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
-  <%= form_required_explanation %>
-
-  <%= form.hidden_field :allow_editing_responses %>
 
   <%= invisible_captcha %>
 
@@ -43,7 +40,7 @@
     <% end %>
     <div class="response-questionnaire__footer">
       <div class="response-questionnaire__tos">
-        <%= form.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), decidim.page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
+        <%= form.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms_of_service"), decidim.page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
 
         <div>
           <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>

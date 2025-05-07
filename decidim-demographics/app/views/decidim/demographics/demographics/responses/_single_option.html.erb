@@ -4,7 +4,10 @@
                                       response.question.response_options,
                                       :id,
                                       ->(response_option) { translated_attribute(response_option.body) },
-                                      { label: false },
+                                      {
+                                        selected: response.choices.first.try(:response_option_id),
+                                        label: false
+                                      },
                                       {
                                         name: "questionnaire[responses][#{response_idx}][choices][][response_option_id]",
                                         id: field_id,
