@@ -63,6 +63,19 @@ shared_examples "manage projects" do
         end
       end
     end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim).to receive(:module_installed?).and_call_original
+
+        # Reload the page with the updated settings
+        visit current_path
+      end
+
+      it "does not display the proposal picker" do
+        expect(page).to have_no_content "Choose proposals"
+      end
+    end
   end
 
   it "updates a project" do
