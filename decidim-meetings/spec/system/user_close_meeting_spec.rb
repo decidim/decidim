@@ -153,6 +153,26 @@ describe "User edit meeting" do
         expect(meeting.reload.closed_at).not_to be_nil
       end
     end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim).to receive(:module_installed?).and_call_original
+      end
+
+      it "does not display the proposal picker" do
+        visit_component
+
+        click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Close"
+
+        expect(page).to have_content "Close meeting"
+
+        within "form.edit_close_meeting" do
+          expect(page).to have_no_content "Proposals"
+        end
+      end
+    end
   end
 
   describe "closing someone else's meeting" do
