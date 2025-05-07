@@ -1455,6 +1455,8 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+      hide:
+        success: This resource has been hidden.
       parent_hidden:
         report_details: The parent resource was hidden
     resource_endorsements:
