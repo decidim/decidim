@@ -1754,6 +1754,8 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+      hide:
+        success: Aquest recurs s'ha amagat.
       parent_hidden:
         report_details: El recurs principal estava amagat
     resource:
