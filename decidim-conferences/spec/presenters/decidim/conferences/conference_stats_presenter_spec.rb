@@ -19,7 +19,7 @@ module Decidim
       end
 
       before do
-        manifest.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
+        manifest.stats.register :foo, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 10 }
 
         I18n.backend.store_translations(
           :en,
@@ -36,7 +36,7 @@ module Decidim
       end
 
       it "renders a collection of stats including users and processes" do
-        expect(subject.collection).to include({ stat_number: 10, stat_title: :foo })
+        expect(subject.collection).to include({ admin: true, data: [10], name: :foo, icon_name: nil, sub_title: nil, tooltip_key: nil })
       end
     end
 
@@ -60,9 +60,9 @@ module Decidim
       end
 
       before do
-        manifest_meetings.stats.register :comments_count, tag: :comments, &proc { 10 }
-        manifest_debates.stats.register :comments_count, tag: :comments, &proc { 5 }
-        manifest_budgets.stats.register :comments_count, tag: :comments, &proc { 3 }
+        manifest_meetings.stats.register :comments_count, tag: :comments, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 10 }
+        manifest_debates.stats.register :comments_count, tag: :comments, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
+        manifest_budgets.stats.register :comments_count, tag: :comments, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 3 }
 
         I18n.backend.store_translations(
           :en,
@@ -81,8 +81,8 @@ module Decidim
       it "return the sum of all the comments from debates, meetings and budgets" do
         data = subject.collection.first
         expect(data).not_to be_nil
-        expect(data[:stat_title]).to eq :comments_count
-        expect(data[:stat_number]).to eq 18
+        expect(data[:name]).to eq :comments_count
+        expect(data[:data][0]).to eq 18
       end
 
       it "contains only one stat" do
