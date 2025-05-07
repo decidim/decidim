@@ -466,6 +466,17 @@ module Decidim::Meetings
         expect(subject.authored_proposals.count).to eq(5)
         expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
       end
+
+      context "when proposal linking is disabled" do
+        before do
+          allow(Decidim).to receive(:module_installed?).and_call_original
+        end
+
+        it "returns an empty array and does not call authored_proposals" do
+          expect(Decidim::Proposals::Proposal).not_to receive(:where)
+          expect(subject.authored_proposals).to eq([])
+        end
+      end
     end
   end
 end
