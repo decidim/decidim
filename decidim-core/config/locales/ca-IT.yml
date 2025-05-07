@@ -1448,6 +1448,8 @@ ca-IT:
       create:
         error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+      hide:
+        success: Aquest recurs s'ha amagat.
       parent_hidden:
         report_details: El recurs principal estava amagat
     resource_endorsements:
