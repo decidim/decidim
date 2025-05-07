@@ -1448,6 +1448,8 @@ es:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+      hide:
+        success: Se ha ocultado este recurso.
       parent_hidden:
         report_details: El recurso principal estaba oculto
     resource_endorsements:
