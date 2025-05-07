@@ -1757,6 +1757,8 @@ es-MX:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+      hide:
+        success: Se ha ocultado este recurso.
       parent_hidden:
         report_details: El recurso principal estaba oculto
     resource:
