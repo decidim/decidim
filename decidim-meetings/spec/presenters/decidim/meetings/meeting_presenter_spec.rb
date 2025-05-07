@@ -31,6 +31,17 @@ module Decidim::Meetings
       it "has at least one proposal" do
         expect(subject.size.positive?).to be true
       end
+
+      context "when proposal linking is disabled" do
+        before do
+          allow(Decidim).to receive(:module_installed?).and_call_original
+        end
+
+        it "returns an empty array and does not call authored_proposals" do
+          expect(meeting).not_to receive(:authored_proposals)
+          expect(subject).to be_nil
+        end
+      end
     end
 
     describe "#formatted_proposals_titles" do
