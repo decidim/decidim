@@ -711,7 +711,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is installed" do
       before do
         allow(Decidim).to receive(:module_installed?).and_call_original
       end

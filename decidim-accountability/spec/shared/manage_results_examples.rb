@@ -13,7 +13,7 @@ shared_examples "manage results" do
     expect(page).to have_content("Proposals")
   end
 
-  context "when proposal linking is disabled" do
+  context "when the proposal module is installed" do
     before do
       allow(Decidim).to receive(:module_installed?).and_call_original
 

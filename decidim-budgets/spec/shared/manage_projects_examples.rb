@@ -64,7 +64,7 @@ shared_examples "manage projects" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is installed" do
       before do
         allow(Decidim).to receive(:module_installed?).and_call_original
 
