@@ -15,6 +15,10 @@ fr:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: commentaires
     comments:
       admin:
         shared:
@@ -22,6 +26,8 @@ fr:
             enabled: Commentaires activés
             end_time: Commentaires activés jusqu'à
             start_time: Commentaires activés depuis
+      comment_thread:
+        accessibility_label: Fil de commentaires démarré par %{full_name} le %{date}
       comments:
         create:
           error: Une erreur s'est produite lors de la création du commentaire.
@@ -157,11 +163,6 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été mentionné dans %{resource_title}
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Nombre de commentaires générés par les utilisateurs
-        object: commentaires
-        title: commentaires
   errors:
     messages:
       cannot_have_comments: ne peut pas avoir de commentaires

@@ -79,18 +79,10 @@ sk:
         start_exploring: začať skúmať
       csv_census:
         admin:
-          destroy:
-            title: Zmazať všetky dáta sčítania
           index:
-            empty: Neexistujú údaje o sčítaní. Pomocou nižšie uvedeného formulára ho importujte pomocou súboru CSV.
             title: Aktuálne údaje o sčítaní
           instructions:
             body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
-          new:
-            file: ".CSV súbor s dátami e-mailov"
-            info: 'Must byť súborom vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
-            submit: Nahrať súbor
-            title: Nahrajte nové sčítanie
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.

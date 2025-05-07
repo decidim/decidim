@@ -3,6 +3,8 @@ fr-CA:
     attributes:
       authorization:
         verification_attachment: Pièce jointe de vérification
+      census_data:
+        file: Fichier
       config:
         available_methods: Méthodes disponibles
         offline: Hors ligne
@@ -160,28 +162,13 @@ fr-CA:
       csv_census:
         admin:
           census:
-            create:
-              success: '%{count} éléments importés avec succès (%{errors} erreurs).'
-            destroy_all:
-              success: Toutes les données du recensement ont été supprimées.
-          destroy:
-            confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
-            title: Supprimer toutes les données du recensement
+            new_import:
+              submit: Déposer un fichier
           index:
-            data: Il y a %{count} enregistrements chargés au total. La dernière date de téléchargement était le %{due_date}.
-            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
             title: Données de recensement actuelles
           instructions:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
-          new:
-            example: |
-              john.doe@exemple.org
-              jane.doe@exemple.org
-            file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
-            submit: Téléverser un fichier
-            title: Télécharger un nouveau recensement
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.

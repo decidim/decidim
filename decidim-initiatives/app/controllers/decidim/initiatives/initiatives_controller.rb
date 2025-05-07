@@ -26,6 +26,7 @@ module Decidim
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
+      include HasSignatureWorkflow
       include SingleInitiativeType
       include Decidim::IconHelper
 
@@ -33,6 +34,7 @@ module Decidim
       helper_method :initiative_type, :available_initiative_types
 
       before_action :authorize_participatory_space, only: [:show]
+      skip_before_action :check_ephemeral_user_session, only: [:index, :show]
 
       # GET /initiatives
       def index

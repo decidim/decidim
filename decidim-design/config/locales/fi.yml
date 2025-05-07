@@ -185,7 +185,6 @@ fi:
         conference_s: Konferenssi S
         conferences: Konferenssit
         context: Asiayhteys
-        context_description: Tämä solu näyttää tietoja käyttäjästä. Se on visuaalinen tapa tunnistaa tietueen sisältöä tai sen laatija. Hiiren osoittaminen elementin päällä näyttää sivun päälle avautuvan työkaluvinkin, jossa on lisätietoa ja linkkejä profiiliin.
         context_description_2: Tämä solu näytetään pääotsikon alapuolella tietueille. Muilla sisällöillä se näytetään sisällön vieressä.
         debate_l: Keskustelu L
         debate_s: Keskustelu S

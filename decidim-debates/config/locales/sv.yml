@@ -194,10 +194,5 @@ sv:
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i någon debatt än.
-    metrics:
-      debates:
-        description: Antal skapade debatter
-        object: debatter
-        title: Debatter
     statistics:
       debates_count: Debatter

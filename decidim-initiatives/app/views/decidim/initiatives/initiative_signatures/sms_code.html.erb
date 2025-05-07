@@ -1,11 +1,9 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_code.help"), callout_class: "secondary") %>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.confirmed_data"), callout_class: "secondary") %>
 
-<%= decidim_form_for(@form, url: sms_code_initiative_signatures_path, method: :put) do |f| %>
-  <div class="form__wrapper">
-    <%= f.text_field :verification_code %>
-  </div>
+<%= decidim_form_for(@phone_number_form, url: sms_phone_number_initiative_signatures_path, method: :put) do |f| %>
+  <%= render partial: "sms_phone_number_form", object: f, locals: { disabled: true } %>
+<% end %>
 
-  <div class="form__wrapper-block">
-    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
-  </div>
+<%= decidim_form_for(@sms_code_form, url: sms_code_initiative_signatures_path, method: :put) do |form| %>
+  <%= render partial: "sms_code_form", locals: { handler: @sms_code_form, form: } %>
 <% end %>

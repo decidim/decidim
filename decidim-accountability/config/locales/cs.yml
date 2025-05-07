@@ -342,11 +342,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{proposal_title}" a tento návrh je zahrnut ve výsledku "%{resource_title}". Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace postupu %{resource_title}
           notification_title: Výsledek <a href="%{resource_path}">%{resource_title}</a>, který zahrnuje návrh <a href="%{proposal_path}">%{proposal_title}</a>, je nyní %{progress}% dokončen.
-    metrics:
-      results:
-        description: Počet vygenerovaných výsledků
-        object: výsledky
-        title: Výsledky
     open_data:
       help:
         result_comments:

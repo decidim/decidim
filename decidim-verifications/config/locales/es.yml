@@ -3,6 +3,8 @@ es:
     attributes:
       authorization:
         verification_attachment: Archivo adjunto de la verificación
+      census_data:
+        file: Archivo
       config:
         available_methods: Metodos disponibles
         offline: Sin conexión
@@ -120,6 +122,12 @@ es:
           email_subject: Error al intentar verificarse contra otra participante
           notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} ha creado un nuevo registro de datos censales con email: %{resource_email}"
+          delete: "%{user_name} ha eliminat un nuevo registro de datos censales con email: %{resource_email}"
+          import: "%{user_name} ha importado: %{imported_count} registro(s) censal(es)"
+          update: "%{user_name} ha actualizado el registro de datos censales con email: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Estos son los datos de la verificación actual:'
@@ -160,30 +168,62 @@ es:
         start_exploring: empezar a explorar
       csv_census:
         admin:
+          actions:
+            confirm_destroy: '¿Seguro que quieres borrar este registro de datos censales?'
+            destroy: Destruir
+            edit: Editar
           census:
-            create:
+            create_import:
               error: Se ha producido un error al importar el censo.
-              success: '%{count} ítems importados correctamente (%{errors} errores).'
-            destroy_all:
-              success: Todos los datos del censo han sido eliminados.
-          destroy:
-            confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
-            title: Borrar todos los datos del censo
+              no_user: No se encontró la usuaria
+              success: Se han Importado con éxito %{count} elementos. Se están procesando los datos. Actualiza la página en unos minutos para ver los cambios.
+            destroy:
+              success: Se ha eliminado el registro de datos censales.
+            index:
+              empty: No hay datos del censo. Utiliza %{import_csv} para importarlo usando un archivo CSV.
+              no_sign_in: Nunca ha iniciado sesión
+              no_user: No se ha encontrado ninguna usuaria
+            last_login:
+              no_sign_in: Nunca ha iniciado sesión
+              no_user: Ninguna usuaria
+            new_import:
+              errors:
+                email_exists: La dirección de correo electrónico %{email} ya existe en la organización %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
+              submit: Subir archivo
+              title: Importar datos de censales
+              upload_new_census: Subir un nuevo censo
+          census_records:
+            create_record:
+              success: Registro de datos censales añadidos con éxito. Se están procesando los datos. Actualiza la página, en unos minutos, para ver los cambios.
+            edit_record:
+              save: Guardar
+              title: Editar el registro censal
+            form:
+              email: Correo electrónico
+            new_record:
+              save: Guardar
+              title: Añadir un nuevo registro censal
+            update_record:
+              invalid: Ha habido un problema al actualizar el registro de datos del censo.
+              success: Se ha actualizado correctamente el registro de datos censales.
           index:
-            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
-            empty: No hay datos del censo. Utiliza el siguiente formulario para importarlo usando un archivo CSV.
+            add_new_record_button: Añadir nuevo registro
+            authorized: Usuaria autorizada
+            fields:
+              actions: Acciones
+              created_at: Creado el
+              email: Correo electrónico
+              user_authorized: '¿Usuaria autorizada?'
+            import_csv: Importar CSV
+            no_authorized: Usuaria no autorizada
             title: Datos censales actuales
           instructions:
             body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "archivo .csv con datos de correos electrónicos"
-            info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
-            submit: Subir archivo
-            title: Subir un nuevo censo
         authorizations:
           new:
             error: No pudimos verificar tu cuenta o no estás en el censo de la organización.
@@ -196,6 +236,10 @@ es:
           user_postal_codes:
             one: La participación está restringida a las participantes con el código postal %{postal_codes} y tu código postal es %{user_postal_code}.
             other: 'La participación está restringida a las participantes con cualquiera de los siguientes códigos postales: %{postal_codes}. Tu código postal es %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Las siguientes direcciones de correo electrónico no son válidas: %{invalid_emails}.'
+        no_emails: El archivo debe contener direcciones de correo electrónico
+        wrong_number_columns: "Se esperaba una columna %{expected}, pero se encontraron %{actual}."
       id_documents:
         admin:
           config:

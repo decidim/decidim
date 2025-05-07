@@ -671,16 +671,6 @@ ko:
           last_month: 지난 달
           last_week: 지난 주
           participants: 참가자
-    metrics:
-      blocked_users:
-        object: 차단된 사용자
-        title: 차단된 사용자
-      reported_users:
-        object: 신고된 사용자
-        title: 신고된 사용자
-      user_reports:
-        object: 사용자 신고
-        title: 사용자 신고
     moderations:
       actions:
         expand: 확장

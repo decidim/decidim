@@ -143,29 +143,11 @@ pl:
         start_exploring: zacznij odkrywać
       csv_census:
         admin:
-          census:
-            create:
-              success: Pomyślnie zaimportowano %{count} elementów (%{errors} błędów).
-            destroy_all:
-              success: Wszystkie dane spisu zostały usunięte.
-          destroy:
-            confirm: Operacji usunięcia całości spisu nie można cofnąć. Czy na pewno chcesz kontynuować?
-            title: Usuń wszystkie dane spisu
           index:
-            data: Łącznie załadowano %{count} rekordów. Ostatnia data przesyłki to %{due_date}.
-            empty: Brak danych spisu. Użyj poniższego formularza, aby zaimportować spis za pomocą pliku CSV.
             title: Aktualne dane spisu
           instructions:
             body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
             title: Musisz aktywować spis CSV dla tej organizacji
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "plik .csv z danymi e-maili"
-            info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'
-            submit: Prześlij plik
-            title: Prześlij nowy spis
         authorizations:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.

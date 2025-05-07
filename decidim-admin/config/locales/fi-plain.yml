@@ -599,9 +599,6 @@ fi-pl:
         taxonomies: Luokittelut
         taxonomy_filters: Luokitteluiden suodattimet
         users: Käyttäjät
-      metrics:
-        metrics:
-          see_more_metrics: Näytä lisää tilastomittareita
       models:
         area:
           fields:
@@ -1236,7 +1233,6 @@ fi-pl:
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         menu: Valikko
-        metrics: Tilastomittarit
         page_topics: Aiheet
         pages: Sivut
         panel: Hallintakäyttäjä
@@ -1282,16 +1278,6 @@ fi-pl:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy, kun hallitset osallistujaa, joka ei ole hallittu osallistuja.
-    metrics:
-      blocked_users:
-        object: estetyt käyttäjät
-        title: Estetyt käyttäjät
-      reported_users:
-        object: ilmoitetut käyttäjät
-        title: Ilmoitetut käyttäjät
-      user_reports:
-        object: ilmoitukset käyttäjistä
-        title: Ilmoitukset käyttäjistä
     moderations:
       actions:
         expand: Avaa

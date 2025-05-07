@@ -135,11 +135,6 @@ bs:
           email_intro: 'Rezultat "%{resource_title}", u koji je uključen predlog "%{proposal_title}", je sada %{progress} gotov. Možete ga videti na ovoj stranici:'
           email_outro: Dobili ste ovo obaveštenje jer pratite "%{proposal_title}", a ovaj predlog je uključen u rezultat "%{resource_title}". Možete da prekinete da dobijate obaveštenja ako pratite prethodni link.
           email_subject: Ažuriranje napretka %{resource_title}
-    metrics:
-      results:
-        description: Broj generisanih rezultata
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_projects:
         result_project: Projekti koji su deo ovog rezultata

@@ -7,6 +7,7 @@ module Decidim
     module ApplicationHelper
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
+      include Decidim::AnimationsHelper
       include ProjectsHelper
       include Decidim::CheckBoxesTreeHelper
 

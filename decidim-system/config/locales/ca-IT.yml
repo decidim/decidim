@@ -1,0 +1,286 @@
+ca-IT:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nom de l'aplicació OAuth
+        organization_logo: Logo de l'organització (quadrat)
+        organization_name: Organització
+        organization_url: URL de l'organització
+        redirect_uri: URI de redirecció
+      organization:
+        address: Nom del servidor SMTP
+        from_email: Adreça de correu electrònic
+        from_label: Etiqueta
+        password: Contrasenya
+        port: Port
+        user_name: Nom d'usuari
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipus MIME del panell de administració
+          default: Tipus MIME per defecte
+        allowed_file_extensions:
+          admin: Extensions d'arxiu del panell d'administració
+          default: Extensions d'arxiu per defecte
+          image: Extensions d'arxiu d'imatge
+        maximum_file_size:
+          avatar: Mida d'imatge de l'avatar
+          default: Mida d'arxiu per defecte
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Cal que defineixis la variable d'entorn SECRET_KEY_BASE per a poder guardar aquest camp
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Segur que ho vols eliminar això?
+        destroy: Suprimeix
+        edit: Edita
+        new_admin: Afegir administradora
+        new_oauth_application: Afegir aplicació OAUTH
+        new_organization: Afegir organització
+        save: Desa
+        title: Accions
+      admins:
+        create:
+          error: S'ha produït un error en crear una nova administradora.
+          success: Administradora creada correctament.
+        destroy:
+          success: Administradora eliminada correctament.
+        edit:
+          title: Editar administradora
+          update: Actualitza
+        index:
+          title: Administradores
+        new:
+          create: Crea
+          title: Nova administradora
+        update:
+          error: S'ha produït un error en actualitzar aquesta administradora.
+          success: L'administradora s'ha actualitzat correctament.
+      dashboard:
+        show:
+          admins: Administradores
+          current_organizations: Organitzacions actuals
+          system_checks: Comprovació del sistema
+      default_pages:
+        placeholders:
+          content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
+          summary: Si us plau, afegeix un resum significatiu a la pàgina estàtica %{page} dins el panell d'administració.
+          title: Títol predeterminat per %{page}
+        terms-of-service: Termes i condicions d'ús
+      devise:
+        passwords:
+          edit:
+            change_your_password: Canvia la teva contrasenya
+            minimum_characters: "(%{minimum} caràcters com a mínim)"
+          new:
+            forgot_your_password: Has oblidat la teva contrasenya?
+            send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: No has rebut instruccions de confirmació?
+            did_not_receive_unlock_instructions?: No has rebut les instruccions de desbloqueig?
+            forgot_your_password?: Has oblidat la teva contrasenya?
+            log_in: Iniciar sessió
+            sign_up: Crea un compte
+      menu:
+        admins: Administradores
+        dashboard: Tauler d'administració
+        oauth_applications: Aplicacions OAuth
+        organizations: Organitzacions
+      models:
+        admin:
+          fields:
+            created_at: Data de creació
+            email: Correu electrònic
+          validations:
+            email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
+        oauth_application:
+          fields:
+            created_at: Creat el
+            name: Nom de l'aplicació OAuth
+            organization_name: Organització
+        organization:
+          actions:
+            save_and_invite: Crear organització i convidar l'administradora
+          fields:
+            content_security_policy: Política de seguretat dels continguts
+            created_at: Data de creació
+            file_upload_settings: Configuració de pujada d'arxius
+            name: Nom
+            omniauth_settings: Configuració de l'Omniauth
+            smtp_settings: Configuració d'SMTP
+      oauth_applications:
+        create:
+          error: S'ha produït un error en crear aquesta aplicació.
+          success: L'aplicació s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta aplicació.
+          success: S'ha eliminat l'aplicació correctament.
+        edit:
+          save: Guardar
+          title: Editar aplicació
+        form:
+          select_organization: Seleccionar una organització
+        index:
+          confirm_delete: Segur que vols eliminar aquesta aplicació?
+          title: Aplicacions OAuth
+        new:
+          save: Guardar
+          title: Nova aplicació
+        update:
+          error: S'ha produït un error en actualitzar aquesta aplicació.
+          success: S'ha actualitzat l'aplicació correctament.
+      organizations:
+        advanced_settings:
+          hide: Amagar la configuració avançada
+          show: Mostra la configuració avançada
+        create:
+          error: S'ha produït un error en crear una nova organització.
+          error_invitation: Hi ha hagut un problema en crear una nova organització. Revisa el nom de l'administradora de l'organització.
+          success_html: |
+            <p>
+            Organitzció creada correctament.
+            </p>
+            <ol>
+            <li>És possible que hagis d'actualitzar el codi de la teva aplicació, per tal d'autoritzar peticions al %{host} caldrà afegir això a la teva configuració d'entron (p.e <code>config/environment/production.rb</code>) o el teu <code>config/application.rb</code>:
+            <p>config.hosts << "%{host}" </p>
+            </li>
+            <li>
+            Un cop fet, hauries de tenir accés a la teva plataforma via <a href="http://%{host}">http://%{host}</a>
+            </li>
+            <li>
+            T'hem enviat un correu a <b>%{email}</b> que cal que confirmis.
+            </li>
+            </ol>
+        csp_settings:
+          connect_src: Adreces de connexió (connect-src)
+          connect_src_hint: |
+            Les adreces de connexió (connect-src) delimiten els URL que es poden carregar als elements <script>.
+            Decidim afegeix automàticament el valor 'self', però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          default_src: SRC per defecte
+          default_src_hint: |
+            Default-src és la convenció predeterminada per a tot el contingut extern, com ara JavaScript, imatges, CSS, fonts, trucades asincròniques, marcs i arxius multimèdia HTML5.
+            Decidim afegeix automàticament el valor 'self' 'unsafe-inline'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          font_src: Adreces de tipus de lletra (font-src)
+          font_src_hint: |
+            La directiva font-src restringeix els URL que es poden carregar amb @font-face.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          frame_src: Adreces de marc (frame-src)
+          frame_src_hint: |
+            La directiva frame-src restringeix els URL que es poden carregar amb elements <frame>, <iframe> i <object>.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          img_src: Adreces d'imatge (Img src)
+          img_src_hint: |
+            Els URL d'imatge (img-src) delimiten els URL que es poden carregar usant els elements <img>, <image>, <picture> i <svg>.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          media_src: Adreces multimèdia (media-src)
+          media_src_hint: |
+            Les adreces multimèdia (media-src) delimiten els URL que es poden carregar als elements <video>, <audio> i <source>.
+            Decidim afegeix automàticament el valor 'self', però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          script_src: Adreces d'script (script-src)
+          script_src_hint: |
+            Les adreces d'script (script-src) delimiten els URL que es poden carregar als elements <script>.
+            Decidim afegeix automàticament el valor '"self' 'unsafe-inline' 'unsafe-eval'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          style_src: Adreces d'estil (style-src)
+          style_src_hint: |
+            Les adreces d'estil (style-src) limiten els URL que es poden carregar als elements <style>.
+            Decidim afegeix automàticament el valor "'self' 'unsafe-inline'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+        edit:
+          confirm_resend_invitation: Segur que vols reenviar la invitació?
+          resend_invitation: Reenviar la invitació
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          title: Editar l'organització
+        file_upload_settings:
+          content_types:
+            admin_hint: Aquests tipus MIME estan permesos per a pujar-se des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
+            default_hint: Aquests tipus MIME estan permesos per defecte per a totes les usuàries.
+            intro_html: Pots afegir comodins amb el caràcter asterisc per als tipus MIME, per exemple, <code>image/*</code>.
+            title: Tipus MIME permesos
+          file_extensions:
+            admin_hint: Aquestes extensions d'arxiu estan permeses per pujades des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
+            default_hint: Aquestes extensions d'arxiu estan permeses per defecte per a totes les usuàries.
+            image_hint: Aquestes extensions d'arxiu estan permeses per a qualsevol pujada d'imatges.
+            title: Extensions d'arxiu permeses
+          file_sizes:
+            avatar_hint: Megabytes (MB). Aquest límit de mida d'arxiu s'utilitza per pujar imatges d'avatar.
+            default_hint: Megabytes (MB). Aquest límit de mida d'arxiu és el predeterminat que s'utilitza per a totes les pujades d'arxius tret que s'especifiqui el contrari.
+            title: Mida màxima d'arxius
+          intro: |
+            Si us plau, vés en compte en considerar canviar aquests ajustos. Com menys opcions permetis, millor.
+            Permetre extensions d'arxius específiques o tipus MIME pot exposar a les usuàries del sistema a riscos de seguretat i també pot afectar l'accessibilitat del lloc web.
+        index:
+          title: Organitzacions
+        new:
+          default: Per defecte?
+          enabled: Habilitat
+          locale: Configuració regional
+          organization_admin_email_hint: T'enviarem un correu electrònic a aquesta adreça perquè puguis confirmar-la i configurar la teva contrasenya.
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
+          title: Nova organització
+        omniauth_settings:
+          decidim:
+            client_id: ID del client
+            client_secret: Secret del client
+            site_url: URL del lloc web
+          enabled: Habilitat
+          enabled_by_default: Aquest proveïdor està habilitat per defecte. Es pot editar però no es pot desactivar.
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: ID del Client
+            client_secret: Client secret
+          icon: Icona
+          icon_path: Ruta de la icona
+          twitter:
+            api_key: Clau de l'API
+            api_secret: Clau secreta de l'API
+        resend_invitation:
+          error: S'ha produït un error en reenviar la invitació.
+          success: Invitació reenviada amb èxit.
+        smtp_settings:
+          fieldsets:
+            sender: Remitent
+          instructions:
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a fer servir el mateix nom que el que ja està definit al nom de l''organització.'
+          placeholder:
+            from_email: la-teva-organitzacio@example.org
+            from_label: el-nom-de-la-vostra-organitzacio
+        update:
+          error: S'ha produït un error en actualitzar aquesta organització.
+          success: L'organització s'ha actualitzat correctament.
+        users_registration_mode:
+          disabled: Només es port accedir amb comptes externs
+          enabled: Permetre a les participants crear un compte i iniciar sessió
+          existing: No permetre a les participants crear un compte, però permetre iniciar sessió a les participants existents
+      shared:
+        notices:
+          no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
+          our_getting_started_guide: la nostra guia d'introducció
+        organizations_list:
+          confirm_resend_invitation: Segur que vols reenviar la invitació?
+          resend_invitation: Reenviar la invitació
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentació sobre Decidim
+          error: La cua d'ActiveJob no està configurada. Aquesta no és una configuració recomanable per l'entorn de producció. Llegir més a %{error_extra}.
+          success: La cua d'ActiveJob està configurada correctament.
+        secret_key:
+          error: 'La clau secreta no està definida correctament. Si us plau, guarda-la a la variable d''entorn: SECRET_KEY_BASE, i reinicia el servidor: llegir més a %{error_extra}.'
+          success: La clau secreta està configurada correctament.
+      titles:
+        dashboard: Tauler de control
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Tancar sessió

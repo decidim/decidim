@@ -418,23 +418,6 @@ fi-pl:
           next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
-    metrics:
-      accepted_proposals:
-        description: Hyväksyttyjen ehdotusten määrä
-        object: ehdotukset
-        title: Hyväksytyt ehdotukset
-      endorsements:
-        description: Ehdotuksiin kohdistuneiden suositusten määrä
-        object: suositukset
-        title: Suositukset
-      proposals:
-        description: Ehdotusten määrä
-        object: ehdotukset
-        title: Ehdotukset
-      votes:
-        description: Ehdotuksiin kohdistuneiden äänten määrä
-        object: äänet
-        title: Äänet
     open_data:
       help:
         proposal_comments:
@@ -486,7 +469,6 @@ fi-pl:
           withdrawn_at: Ajankohta, jolloin ehdotus peruttiin
     participatory_spaces:
       highlighted_proposals:
-        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
@@ -1014,7 +996,6 @@ fi-pl:
         update:
           title: Muokkaa ehdotusta
         vote_button:
-          already_voted: Jo äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä

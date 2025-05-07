@@ -15,6 +15,7 @@ module Decidim
         read_public_initiative?
         search_initiative_types_and_scopes?
         request_membership?
+        ephemeral_vote_initiative?
 
         return permission_action unless user
 
@@ -149,6 +150,14 @@ module Decidim
         toggle_allow(can_vote?)
       end
 
+      def ephemeral_vote_initiative?
+        return unless permission_action.action == :vote &&
+                      permission_action.subject == :initiative &&
+                      user.blank?
+
+        toggle_allow(ephemeral_signature_workflow?)
+      end
+
       def authorized?(permission_action, resource: nil, permissions_holder: nil)
         return unless resource || permissions_holder
 
@@ -161,8 +170,7 @@ module Decidim
 
         can_unvote = initiative.accepts_online_unvotes? &&
                      initiative.organization&.id == user.organization&.id &&
-                     initiative.votes.where(author: user).any? &&
-                     authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
+                     initiative.votes.where(author: user).any?
 
         toggle_allow(can_unvote)
       end
@@ -187,8 +195,7 @@ module Decidim
       def can_vote?
         initiative.votes_enabled? &&
           initiative.organization&.id == user.organization&.id &&
-          initiative.votes.where(author: user).empty? &&
-          authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
+          initiative.votes.where(author: user).empty?
       end
 
       def can_user_support?(initiative)
@@ -233,6 +240,10 @@ module Decidim
 
       def authorship_or_admin?
         initiative&.has_authorship?(user) || user.admin?
+      end
+
+      def ephemeral_signature_workflow?
+        initiative.type.signature_workflow_manifest&.ephemeral?
       end
     end
   end

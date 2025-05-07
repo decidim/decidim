@@ -160,30 +160,11 @@ cs:
         start_exploring: začít zkoumat
       csv_census:
         admin:
-          census:
-            create:
-              error: Při importu členů organizace došlo k chybě.
-              success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
-            destroy_all:
-              success: Všechna data seznamu členů byly smazány.
-          destroy:
-            confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
-            title: Smazat všechna data členství organizace
           index:
-            data: Celkem je načteno %{count} záznamů. Poslední datum nahrávání bylo %{due_date}.
-            empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
             title: Musíte aktivovat CSV s kontakty členů organizace
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv soubor s daty e-mailů"
-            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
-            submit: Nahrát soubor
-            title: Nahrajte nové členy organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.

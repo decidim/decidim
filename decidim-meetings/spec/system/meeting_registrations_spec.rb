@@ -76,10 +76,10 @@ describe "Meeting registrations" do
         create(:registration, meeting:, user:)
       end
 
-      it "the registration button is disabled" do
+      it "shows the waitlist button" do
         visit_meeting
 
-        expect(page).to have_css("button[disabled]", text: "No slots available")
+        expect(page).to have_text("Join waitlist")
         expect(page).to have_text("0 slots remaining")
       end
 
@@ -188,7 +188,7 @@ describe "Meeting registrations" do
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
 
           expect(page).to have_text("Stop following")
@@ -210,7 +210,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_content("successfully")
 
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
           expect(page).to have_text("Stop following")
           expect(page).to have_text("Participants")
@@ -238,7 +238,7 @@ describe "Meeting registrations" do
           end
 
           expect(page).to have_css(".button", text: "Cancel your registration")
-          expect(page).to have_text("19 slots remaining")
+          expect(page).to have_no_text("19 slots remaining")
           find("#dropdown-trigger-resource-#{meeting.id}").click
           expect(page).to have_text("Stop following")
         end
@@ -351,10 +351,10 @@ describe "Meeting registrations" do
           component.update!(settings: { registration_code_enabled: true })
         end
 
-        it "shows the registration code" do
+        it "allows user to see the registration code" do
           visit_meeting
 
-          expect(page).to have_content("Your registration code")
+          click_on("Your registration and QR code")
           expect(page).to have_content(registration.code)
         end
       end
@@ -369,60 +369,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_no_css(".registration_code")
           expect(page).to have_no_content(registration.code)
-        end
-      end
-
-      context "when showing the registration code validation state with registration code enabled" do
-        before do
-          component.update!(settings: { registration_code_enabled: true })
-        end
-
-        it "shows validation pending if not validated" do
-          visit_meeting
-
-          expect(registration.validated_at).to be_nil
-          expect(page).to have_content("VALIDATION PENDING")
-        end
-      end
-
-      context "when not showing the registration code validation state with registration code disabled" do
-        before do
-          component.update!(settings: { registration_code_enabled: false })
-        end
-
-        it "shows validation pending if not validated" do
-          visit_meeting
-
-          expect(registration.validated_at).to be_nil
-          expect(page).to have_no_content("VALIDATION PENDING")
-        end
-      end
-
-      context "when showing the registration code validated for registration code enabled" do
-        before do
-          component.update!(settings: { registration_code_enabled: true })
-        end
-
-        it "shows validated if validated" do
-          registration.update validated_at: Time.current
-          visit_meeting
-
-          expect(registration.validated_at).not_to be_nil
-          expect(page).to have_content("VALIDATED")
-        end
-      end
-
-      context "when not showing the registration code validated for registration code disabled" do
-        before do
-          component.update!(settings: { registration_code_enabled: false })
-        end
-
-        it "shows validated if validated" do
-          registration.update validated_at: Time.current
-          visit_meeting
-
-          expect(registration.validated_at).not_to be_nil
-          expect(page).to have_no_content("VALIDATED")
+          expect(page).to have_no_content("Your registration and QR code")
         end
       end
 

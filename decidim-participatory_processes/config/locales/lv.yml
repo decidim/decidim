@@ -267,11 +267,6 @@ lv:
           title: Kas ir līdzdalības process?
     menu:
       processes: Procesi
-    metrics:
-      participatory_processes:
-        description: Līdzdalības procesu skaits šajā organizācijā
-        object: līdzdalības procesi
-        title: Līdzdalības procesi
     participatory_process_groups:
       content_blocks:
         stats:

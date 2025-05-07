@@ -690,6 +690,23 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
     end
 
+    context "when there are existing validated registrations" do
+      let!(:not_attended_registrations) { create_list(:registration, 3, meeting:, validated_at: nil) }
+      let!(:attended_registrations) { create_list(:registration, 2, meeting:, validated_at: Time.current) }
+
+      before do
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+          page.click_on "Close"
+        end
+      end
+
+      it "displays by default the number of validated registrations" do
+        within "form.edit_close_meeting" do
+          expect(page).to have_field :close_meeting_attendees_count, with: "2"
+        end
+      end
+    end
+
     context "when a meeting has already been closed" do
       let!(:meeting) { create(:meeting, :closed, component: current_component) }
 

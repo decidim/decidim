@@ -1,1 +1,93 @@
+---
 sv:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Brödtext
+          title: Titel
+          version_number: Version nummer
+        version:
+          body: Text
+          version_number: Version
+  decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Är du säker på att du vill ta bort det här dokumentet?
+        deleted_document_info: Raderat dokument kan återställas från papperskorgen.
+        edit: Redigera
+        manage: Hantera
+        new: Ny text
+        title: Handlingar
+        view_deleted_documents: Visa raderade dokument
+      admin:
+        documents:
+          create:
+            invalid: Det gick inte att skapa dokumentet.
+            success: Dokumentet har skapats.
+          edit:
+            title: Redigera kollaborativa texter
+            update: Uppdatera
+          edit_settings:
+            title: Konfigurera kollaborativa texter
+            update: Uppdatera
+          index:
+            title: Kollaborativa texter
+          manage_trash:
+            title: Borttagna dokument
+          new:
+            create: Skapa
+            title: Skapa kollaborativa texter
+          publish:
+            invalid: Det gick inte att publicera detta dokument.
+            success: Dokumentet har publicerats.
+          unpublish:
+            invalid: Det gick inte att ta bort detta dokument.
+            success: Dokumentet har tagits bort.
+          update:
+            invalid: Det gick inte att uppdatera dokumentet.
+            success: Dokumentet har uppdaterats.
+          update_settings:
+            invalid: Det gick inte att uppdatera dokumentet.
+            success: Dokumentet har uppdaterats.
+        settings:
+          form:
+            allow_suggestions: Tillåt deltagare att komma med förslag
+      admin_log:
+        document:
+          create: "%{user_name} Skapade samarbetsprojektet %{resource_name} i %{space_name}"
+          delete: "%{user_name} Raderade samarbetsprojektet %{resource_name} i %{space_name}"
+          publish: "%{user_name} Publicerade samarbetsprojektet %{resource_name} i %{space_name}"
+          restore: "%{user_name} Återställde samarbetsprojektet %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} Flyttade samarbetsprojektet %{resource_name} i %{space_name} till papperskorgen"
+          unpublish: "%{user_name} Tog bort samarbetsprojektet %{resource_name} i %{space_name}"
+          update: "%{user_name} Uppdaterade samarbetsprojektet %{resource_name} i %{space_name}"
+        version:
+          delete: "%{user_name} Raderade samarbetsprojektets version %{resource_name} i %{space_name}"
+          update: "%{user_name} Uppdaterade samarbetsprojektets version %{resource_name} i %{space_name}"
+      document:
+        cancel: Avbryt
+        save: Lämna förslag
+        suggest: Föreslå ändringar
+      documents:
+        index:
+          count:
+            one: "%{count} Kollaborativ text"
+            other: "%{count} Kollaborativa texter"
+          empty: Det finns inga kollaborativa texter än.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Acceptera förslag
+            title: Titel
+    components:
+      collaborative_texts:
+        name: Kollaborativa texter
+        settings:
+          global:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerade
+          step:
+            announcement: Meddelande
+    statistics:
+      collaborative_texts_count: Kollaborativa texter
