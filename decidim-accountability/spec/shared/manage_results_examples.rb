@@ -16,6 +16,7 @@ shared_examples "manage results" do
   context "when proposal linking is disabled" do
     before do
       allow(Decidim).to receive(:module_installed?).and_call_original
+
       # Reload the page with the updated settings
       visit current_path
     end
