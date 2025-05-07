@@ -1,14 +1,16 @@
 <div>
+  <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][][body]", translated_attribute(response.question.response_options.first.body) %>
   <%= response_form.collection_select :body,
                                       response.question.response_options,
                                       :id,
                                       ->(response_option) { translated_attribute(response_option.body) },
                                       { label: false },
                                       {
-                                        name: field_id,
+                                        name: "questionnaire[responses][#{response_idx}][choices][][response_option_id]",
                                         id: field_id,
                                         disabled:,
                                         maxlength:,
-                                        class: "w-full"
+                                        class: "w-full",
+                                        onchange: "setFormFieldValue('#{field_id}', 'questionnaire[responses][#{response_idx}][choices][][body]')"
                                       } %>
 </div>
