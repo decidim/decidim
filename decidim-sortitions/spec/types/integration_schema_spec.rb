@@ -64,7 +64,7 @@ describe "Decidim::Api::QueryType" do
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
       "reference" => sortition.reference,
-      "requestTimestamp" => sortition.request_timestamp.to_date.to_s,
+      "requestTimestamp" => sortition.request_timestamp.to_time.iso8601,
       "selectedProposals" => sortition.selected_proposals,
       "targetItems" => sortition.target_items,
       "title" => { "translation" => sortition.title[locale] },
