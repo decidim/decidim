@@ -710,6 +710,24 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         expect(page).to have_admin_callout("Meeting successfully closed")
       end
     end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim).to receive(:module_installed?).and_call_original
+      end
+
+      it "does not display the proposal picker" do
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+          page.click_on "Close"
+        end
+
+        expect(page).to have_content "Close meeting"
+
+        within "form.edit_close_meeting" do
+          expect(page).to have_no_content "Proposals"
+        end
+      end
+    end
   end
 
   private
