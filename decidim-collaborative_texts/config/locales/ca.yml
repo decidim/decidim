@@ -50,9 +50,6 @@ ca:
           update_settings:
             invalid: S'ha produït un error en actualitzar el document.
             success: Document actualitzat correctament.
-        settings:
-          form:
-            allow_suggestions: Permetre a les participants fer suggeriments
       admin_log:
         document:
           create: "%{user_name} ha creat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
@@ -67,8 +64,6 @@ ca:
           update: "%{user_name} ha actualitzat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
       document:
         cancel: Cancel·lar
-        save: Enviar suggeriment
-        suggest: Suggerir canvis
       documents:
         index:
           count:
