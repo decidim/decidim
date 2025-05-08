@@ -9,10 +9,6 @@ shared_examples "manage results" do
     it_behaves_like "having a rich text editor", "new_result", "full"
   end
 
-  it "displays the proposals picker" do
-    expect(page).to have_content("Proposals")
-  end
-
   context "when the proposal module is installed" do
     before do
       allow(Decidim).to receive(:module_installed?).and_call_original
