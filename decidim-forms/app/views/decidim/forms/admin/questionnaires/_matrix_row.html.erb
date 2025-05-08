@@ -7,7 +7,7 @@
     <% if editable %>
       <button class="button button__xs button__transparent-secondary small alert remove-matrix-row button--title mb-2">
         <%= icon("delete-bin-line") %>
-        <%= t(".remove") %>
+        <span class="hidden md:block"><%= t(".remove") %></span>
       </button>
     <% end %>
     </h2>
