@@ -56,7 +56,7 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
-### 5.4. [[TITLE OF THE CHANGE]]
+### 5.1. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
