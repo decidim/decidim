@@ -1755,6 +1755,8 @@ eu:
       create:
         error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+      hide:
+        success: Baliabide hau ezkutatu egin da.
       parent_hidden:
         report_details: Baliabide nagusia ezkutatu egin zen
     resource:
