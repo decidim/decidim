@@ -1347,6 +1347,8 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+      hide:
+        success: Denna resurs har gömts.
     resource_autocomplete:
       help: Sök efter förslag
     resource_endorsements:
