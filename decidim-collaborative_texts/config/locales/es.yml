@@ -50,9 +50,6 @@ es:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
-        settings:
-          form:
-            allow_suggestions: Permitir a las participantes hacer sugerencias
       admin_log:
         document:
           create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
@@ -67,8 +64,6 @@ es:
           update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
       document:
         cancel: Cancelar
-        save: Enviar sugerencia
-        suggest: Sugerir cambios
       documents:
         index:
           count:
