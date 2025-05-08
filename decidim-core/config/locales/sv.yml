@@ -1422,6 +1422,8 @@ sv:
       create:
         error: Det uppstod ett fel när rapporten skulle skapas. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+      hide:
+        success: Denna resurs har gömts.
     resource_endorsements:
       create:
         error: Det gick inte att gilla.
