@@ -5,10 +5,16 @@ eu:
       collaborative_texts:
         document:
           body: Testua
+          draft: Zirriborroa
           title: Izenburua
           version_number: Bertsio zenbakia
+        suggestion:
+          nodes: DOM nodoak
+          original: Jatorrizko testua
+          replace: Ordezkapena
         version:
           body: Gorputza
+          draft: Zirriborroa
           version_number: Bertsio zenbakia
   decidim:
     collaborative_texts:
@@ -25,9 +31,19 @@ eu:
           create:
             invalid: Arazo bat egon da dokumentua sortzean.
             success: Dokumentua zuzen sortua.
+          draft_options:
+            accepting_suggestions: Egin iradokizunak hurrengo bertsioan
+            accepting_suggestions_help: Iradokizun egokiek dokumentu honetarako iradokizun sorta berri bat hasiko dute. Oraingo iradokizunak ez dira ikusiko bertsio berrian.
+            draft: Zirriborro-bertsioa
+            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Kendu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">Dokumentu honek iradokizunak ditu</a> eta ezin da zuzenean editatu. Mesedez, onartu edo baztertu iradokizunak, editatu daitekeen bertsio berri bat sortzeko.
+            draft: Zirriborro-bertsioa
+            previous_versions: Aurreko bertsioak
+            public_version: Bertsio publikoa
             title: Editatu testu kolaboratzaileak
             update: Eguneratu
+            version: '%{created_at} -ean sortutako %{version_number} bertsioak %{suggestions_count} iradokizun ditu.'
           edit_settings:
             title: Konfiguratu testu kolaboratzaileak
             update: Eguneratu
@@ -38,6 +54,11 @@ eu:
           new:
             create: Sortu
             title: Sortu testu kolaboratzaileak
+          non_draft_options:
+            create_draft: Baztertu iradokizunak eta sortu bertsio berri bat
+            draft_help_html: Zirriborro-bertsio bat ez da publikoa eta administratuek edita dezakete. Kendu zirriborro-egoera bertsio publikoan egiteko eduki hau. <strong>Kontuan izan zirriborroa aktibo dagoen bitartean, parte-hartzaileek aurreko bertsioa ikusiko dutela eta ezin izango dutela iradokizunik egin.</strong>
+            enable_suggestions: Egin iradokizunak
+            enable_suggestions_help: Iradokizun egokiei esker, parte-hartzaileek bertsio honi buruzko iradokizunak egin ahal izango dituzte.
           publish:
             invalid: Arazo bat egon da dokumentu hau argitaratzean.
             success: Dokumentua zuzen argitaratua.
@@ -50,9 +71,6 @@ eu:
           update_settings:
             invalid: Arazo bat egon da dokumentua eguneratzean.
             success: Dokumentua zuzen eguneratua.
-        settings:
-          form:
-            allow_suggestions: Utzi erabiltzaileei iradokinak egiten
       admin_log:
         document:
           create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa sortu du %{space_name} espazioan"
@@ -62,24 +80,58 @@ eu:
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa mugitu du %{space_name} espazioan"
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
+        suggestion:
+          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboan aldaketak iradoki ditu %{space_name} espazioan"
         version:
           delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
       document:
+        apply: Aplikatu
         cancel: Utzi
-        save: Bidali iradokizuna
-        suggest: Aldaketak iradoki
+        consolidate:
+          confirm: Ekintza honek dokumentuaren bertsio berri batean finkatuko ditu onartutako iradokizun guztiak. Onartu ez diren iradokizunak bertsio berrira eramango dira berrikusi ahal izateko. Ekintza honek baimendutako iradokizunei eutsiko die.
+          new: Sendotu onartutako iradokizunak
+        consolidate_counter: Finkatzeak bat egingo du %{applied} aplikatutako iradokizunekin eta %{pending} egiteke dauden iradokizunak bertsio berrira eramango ditu.
+        controls_label: Iradokizunen kontrolak
+        draft_counter: Zirriborroak bat egingo du %{applied} aplikatutako iradokizunekin eta baztertuko ditu %{pending} egiteke dauden iradokizunak.
+        index: Aurkibidea
+        restore: Berreskuratu
+        rollout:
+          confirm: Ekintza honek dokumentuaren zirriborro-bertsio berri bat sortuko du eta editorialera bideratuko zaituzte azken finkapenak egiteko. Oraingo bertsioa publikoa izango da eta iradokizunak desaktibatuko dira.
+          invalid: Arazo bat egon da (%{errors}) dokumentuaren bertsio berri bat sortzean.
+          new: Idatzi beste bertsio bat
+        save: Iradoki aldaketak
+        status:
+          accepting_suggestions: Aldaketak iradokitzeko, hautatu edo bi klik egin editatu nahi duzun testuan, eta, ondoren, sakatu "Iradoki aldaketak" botoia.
+          draft: Administratzaileak dokumentu hori berrikusten ari dira. Une honetan ezin da iradokizunik egin, baina beste parte-hartzaile batzuek egindako iradokizunak ikus daitezke.
+          not_accepting_suggestions: Une honetan ez dago iradokizunik.
+          selection_active: Hautaketa aktibo dago. Mesedez, utzi bertan behera oraingo aukeraketa beste bat egiteko.
+        suggestions_count: "%{count} iradokizun"
+        toggle: Erakutsi/ezkutatu iradokizunak
       documents:
         index:
           count:
             one: "%{count} testu kolaboratzaile"
             other: "%{count} testu kolaboratzaile"
           empty: Oraindik ez dago testu kolaboratzailerik.
+        show:
+          contributors: Laguntzaileak
       models:
         collaborative_text:
           fields:
             suggestions: Onartu iradokina(k)
             title: Izenburua
+      suggestion:
+        add_html: <span class="type">Erantsi:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Kendu:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Ordezkatu:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Arazo bat egon da iradokizuna sortzean.
+          success: Iradokizuna zuzen sortua.
+        errors:
+          blank_changeset: Ezin da hutsik egon.
+          invalid_nodes: Hautatutako nodoak ez dira baliozkoak.
     components:
       collaborative_texts:
         name: Testu kolaboratiboak
@@ -90,5 +142,6 @@ eu:
           step:
             announcement: Oharra
     statistics:
+      all_collaborative_texts_count: Testu kolaboratzaile guztiak
       collaborative_texts_count: Testu kolaboratzaileak
       collaborative_texts_count_tooltip: Lankidetzan idatzitako testuen kopurua
