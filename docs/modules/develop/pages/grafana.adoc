@@ -56,17 +56,15 @@ So, taking into account the last limitation from the Grafana Infinity GraphQL co
 
 ## Examples
 
-### CSV example
+As a starting point to check-out the possibilities of this integration, we have provided some examples with the two methods.
 
-For working with this, we've prepared an example as a starting point.
+### CSV example
 
 ++++
 <a href="_attachments/grafana/metadecidim-csv.json" download>Download the example for CSV integration</a>
 ++++
 
 ### GraphQL example
-
-For working with this, we've prepared an example as a starting point.
 
 ++++
 <a href="_attachments/grafana/metadecidim-graphql.json" download>Download the example for GraphQL integration</a>
