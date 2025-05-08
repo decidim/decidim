@@ -50,9 +50,6 @@ ja:
           update_settings:
             invalid: ドキュメントの更新中に問題が発生しました。
             success: ドキュメントを更新しました。
-        settings:
-          form:
-            allow_suggestions: 参加者に提案を許可する
       admin_log:
         document:
           create: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストを作成しました"
@@ -67,8 +64,6 @@ ja:
           update: "%{user_name}が%{space_name}で%{resource_name}のコレボレーションテキストバージョンを更新しました"
       document:
         cancel: キャンセル
-        save: 提案を送信
-        suggest: 変更の提案
       documents:
         index:
           count:
