@@ -29,7 +29,7 @@ image::grafana/create_account_setup.png[Create an account form - setup step]
 
 ## Methods
 
-Then, you have two options for connecting to any Decidim instance. 
+Then, you have two options for connecting to any Decidim instance.
 
 a. CSV (Comma-Separated Values): A simple file format used to store tabular data, such as spreadsheets or databases. Each line in a CSV file represents a row, with values separated by commas or other separators (semi colons in the case of Decidim).
 
