@@ -35,7 +35,7 @@
     &-month,
     &-day,
     &-year {
-      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
+      @apply inline-flex items-center justify-evenly empty:[&>p]:hidden;
     }
 
     &-separator {
