@@ -77,7 +77,7 @@ For importing any of these methods, follow these instructions:
 . Go to the "Dashboards" page and in the "New" button click in the "Import" option
 
 +
-image::grafana/dashboards.png[Dasboards page]
+image::grafana/dashboards.png[Dashboards page]
 
 . In the text area, paste the contents of any of the examples provided (see below).
 
@@ -87,14 +87,14 @@ image::grafana/dashboard_import.png[Import a dashboard page]
 . Click in the "Import" button
 
 +
-image::grafana/dashboard_import_csv.png[Dasboards page]
+image::grafana/dashboard_import_csv.png[Dashboards page]
 
 . Then you will see the imported Dashboard. Even though the examples are based on Metadecidim, are a good starting point to understand how to connect any Decidim API with Grafana.
 
 +
-image::grafana/dashboard_example_csv.png[Dasboard CSV example page]
+image::grafana/dashboard_example_csv.png[Dashboard CSV example page]
 
 +
-image::grafana/dashboard_example_graphql.png[Dasboard GraphQL API example page]
+image::grafana/dashboard_example_graphql.png[Dashboard GraphQL API example page]
 
 😊⌨️✨Happy hacking!
