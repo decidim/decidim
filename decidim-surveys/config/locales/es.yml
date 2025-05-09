@@ -13,6 +13,8 @@ es:
         other: Respuestas
   decidim:
     admin:
+      actions:
+        see_survey: Ver encuesta
       admin_log:
         changeset:
           surveys: Encuestas
