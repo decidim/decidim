@@ -13,6 +13,8 @@ fr-CA:
         other: Réponses
   decidim:
     admin:
+      actions:
+        see_survey: Voir le sondage
       admin_log:
         changeset:
           surveys: enquêtes
