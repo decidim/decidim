@@ -37,7 +37,7 @@ describe "Admin manages surveys" do
 
     it "allows to preview survey" do
       visit manage_questions_path
-      expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
+      expect(page).to have_link("See survey", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
     end
 
     it "shows a warning message" do
