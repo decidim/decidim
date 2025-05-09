@@ -42,7 +42,7 @@ module Decidim
           proposal.component.current_settings.votes_hidden?),
           likes: {
             total_count: proposal.likes.size,
-            user_endorsements:
+            user_likes:
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
@@ -89,7 +89,7 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(proposal).url
       end
 
-      def user_endorsements
+      def user_likes
         proposal.likes.for_listing.map { |identity| identity.author&.name }
       end
 

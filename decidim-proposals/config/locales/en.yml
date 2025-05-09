@@ -87,7 +87,7 @@ en:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposal taxonomies changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
-      decidim/proposals/endorsing_enabled_event: Proposal liking enabled
+      decidim/proposals/liking_enabled_event: Proposal liking enabled
       decidim/proposals/proposal_mentioned_event: Proposal mentioned
       decidim/proposals/publish_proposal_event: Proposal published
       decidim/proposals/voting_enabled_event: Proposal voting enabled
@@ -182,7 +182,7 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_endorsed: Most liked
+              most_liked: Most liked
               most_followed: Most followed
               most_voted: Most voted
               random: Random
@@ -244,14 +244,14 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_endorsed: Most liked
+              most_liked: Most liked
               most_followed: Most followed
               most_voted: Most voted
               random: Random
               recent: Recent
               with_more_authors: With more authors
-            endorsements_blocked: Likes blocked
-            endorsements_enabled: Likes enabled
+            likes_blocked: Likes blocked
+            likes_enabled: Likes enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
             publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
@@ -335,7 +335,7 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
           notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
+        liking_enabled:
           email_intro: 'You can like proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals liking has started for %{participatory_space_title}
@@ -664,11 +664,11 @@ en:
             body: Body
             comments_count: Comments count
             documents: Documents
-            endorsements_count: Likes count
+            likes_count: Likes count
             likes: Likes
             evaluators: Evaluators
             link: See proposal
-            n_more_endorsers:
+            n_more_likes:
               one: and 1 more
               other: and %{count} more
             photos: Photos
@@ -951,7 +951,7 @@ en:
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
-          most_endorsed: Most liked
+          most_liked: Most liked
           most_followed: Most followed
           most_voted: Most voted
           random: Random
@@ -979,7 +979,7 @@ en:
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit
           estimated_cost: Estimated cost
-          hidden_endorsers_count:
+          hidden_likes_count:
             one: and %{count} more person
             other: and %{count} more people
           link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history

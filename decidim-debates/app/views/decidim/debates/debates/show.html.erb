@@ -69,7 +69,7 @@ edit_link(
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <% if allowed_to?(:like, :debate, debate: debate) %>
-      <%= cell("decidim/endorsement_block", debate) %>
+      <%= cell("decidim/like_block", debate) %>
     <% end %>
 
     <%= cell "decidim/comments_button", nil %>

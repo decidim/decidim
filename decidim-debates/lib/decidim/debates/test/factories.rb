@@ -21,7 +21,7 @@ FactoryBot.define do
     comments_layout { "single_column" }
     deleted_at { nil }
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |post, evaluator|
         5.times.collect do
           create(:like,
@@ -102,29 +102,29 @@ FactoryBot.define do
       # Needed for likes tests
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            endorsements_enabled: true,
-            endorsements_blocked: true
+            likes_enabled: true,
+            likes_blocked: true
           }
         }
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end

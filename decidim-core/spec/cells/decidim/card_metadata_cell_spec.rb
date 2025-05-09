@@ -33,13 +33,13 @@ describe Decidim::CardMetadataCell, type: :cell do
   context "with items enabled" do
     let(:items_list) { [] }
     let(:comments_count) { 0 }
-    let(:endorsements_count) { 0 }
+    let(:likes_count) { 0 }
     let(:start_date) { nil }
     let(:end_date) { nil }
 
     before do
       allow(model).to receive(:comments_count).and_return(comments_count)
-      allow(model).to receive(:endorsements_count).and_return(endorsements_count)
+      allow(model).to receive(:likes_count).and_return(likes_count)
       allow(my_cell).to receive(:start_date).and_return(start_date)
       allow(my_cell).to receive(:end_date).and_return(end_date)
       my_cell.instance_variable_set(:@items, items_list.map { |name| my_cell.send(name) })
@@ -63,8 +63,8 @@ describe Decidim::CardMetadataCell, type: :cell do
       end
     end
 
-    context "when endorsements_count enabled" do
-      let(:items_list) { [:endorsements_count_item] }
+    context "when likes_count enabled" do
+      let(:items_list) { [:likes_count_item] }
 
       context "and likes count is zero" do
         it "displays 0" do
@@ -73,7 +73,7 @@ describe Decidim::CardMetadataCell, type: :cell do
       end
 
       context "and likes count is positive" do
-        let(:endorsements_count) { 123 }
+        let(:likes_count) { 123 }
 
         it "displays the count of likes" do
           expect(cell_html).to have_content("123")

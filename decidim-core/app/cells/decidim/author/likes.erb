@@ -1,4 +1,4 @@
-<%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements", count: from_context.endorsements_count), class: "author__metadata" do %>
+<%= link_to "#{resource_locator(from_context).path}#list-of-likes", title: t("decidim.author.likes", count: from_context.likes_count), class: "author__metadata" do %>
   <%= icon "like" if show_icons? %>
-  <%= from_context.endorsements_count %> <%= t("decidim.author.endorsements", count: from_context.endorsements_count) %>
+  <%= from_context.likes_count %> <%= t("decidim.author.likes", count: from_context.likes_count) %>
 <% end %>

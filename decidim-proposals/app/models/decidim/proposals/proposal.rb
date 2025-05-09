@@ -207,13 +207,13 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Like.where(resource: proposals)
-                                                            .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                            .pluck(:decidim_author_id).to_a.compact.uniq
+        likes_participants_ids = Decidim::Like.where(resource: proposals)
+                                              .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                              .pluck(:decidim_author_id).to_a.compact.uniq
 
         commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
 
-        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
+        (likes_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.

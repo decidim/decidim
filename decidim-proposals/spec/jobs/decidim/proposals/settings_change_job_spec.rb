@@ -116,29 +116,29 @@ module Decidim
       describe "liking enabled" do
         let(:previous_settings) do
           {
-            endorsements_enabled: previously_allowing_endorsements,
-            endorsements_blocked: previously_blocking_endorsements
+            likes_enabled: previously_allowing_likes,
+            likes_blocked: previously_blocking_likes
           }
         end
         let(:current_settings) do
           {
-            endorsements_enabled: currently_allowing_endorsements,
-            endorsements_blocked: currently_blocking_endorsements
+            likes_enabled: currently_allowing_likes,
+            likes_blocked: currently_blocking_likes
           }
         end
 
         context "when liking is enabled and unlocked" do
-          let(:previously_allowing_endorsements) { false }
-          let(:previously_blocking_endorsements) { false }
-          let(:currently_allowing_endorsements) { true }
-          let(:currently_blocking_endorsements) { false }
+          let(:previously_allowing_likes) { false }
+          let(:previously_blocking_likes) { false }
+          let(:currently_allowing_likes) { true }
+          let(:currently_blocking_likes) { false }
 
           it "notifies the space followers about it" do
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.proposals.endorsing_enabled",
-                event_class: Decidim::Proposals::EndorsingEnabledEvent,
+                event: "decidim.events.proposals.liking_enabled",
+                event_class: Decidim::Proposals::LikingEnabledEvent,
                 resource: component,
                 followers: [user]
               )
@@ -148,10 +148,10 @@ module Decidim
         end
 
         context "when likes are not enabled" do
-          let(:previously_allowing_endorsements) { true }
-          let(:previously_blocking_endorsements) { false }
-          let(:currently_allowing_endorsements) { false }
-          let(:currently_blocking_endorsements) { false }
+          let(:previously_allowing_likes) { true }
+          let(:previously_blocking_likes) { false }
+          let(:currently_allowing_likes) { false }
+          let(:currently_blocking_likes) { false }
 
           it "does not notify the space followers about it" do
             expect(Decidim::EventsManager)
@@ -162,10 +162,10 @@ module Decidim
         end
 
         context "when likes are blocked" do
-          let(:previously_allowing_endorsements) { false }
-          let(:previously_blocking_endorsements) { false }
-          let(:currently_allowing_endorsements) { true }
-          let(:currently_blocking_endorsements) { true }
+          let(:previously_allowing_likes) { false }
+          let(:previously_blocking_likes) { false }
+          let(:currently_allowing_likes) { true }
+          let(:currently_blocking_likes) { true }
 
           it "does not notify the space followers about it" do
             expect(Decidim::EventsManager)

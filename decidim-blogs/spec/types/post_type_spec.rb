@@ -8,7 +8,7 @@ module Decidim
     describe PostType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:post, :with_endorsements) }
+      let(:model) { create(:post, :with_likes) }
 
       include_examples "attachable interface"
       include_examples "authorable interface"

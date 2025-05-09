@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A resource can have an endorsement for each user.
-  class Endorsement < ApplicationRecord
+  # A resource can have an like for each user.
+  class Like < ApplicationRecord
     include Decidim::Authorable
 
     belongs_to :resource,

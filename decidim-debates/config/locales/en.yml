@@ -48,8 +48,8 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Participants can create debates
-            endorsements_blocked: Likes blocked
-            endorsements_enabled: Likes enabled
+            likes_blocked: Likes blocked
+            likes_enabled: Likes enabled
     debates:
       actions:
         close: Close
@@ -260,7 +260,7 @@ en:
           created_at: The date and time when the debate was created
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
-          endorsements_count: The number of likes the debate has
+          likes_count: The number of likes the debate has
           follows_count: The number of followers this debate has
           id: The unique identifier of the debate
           information_updates: The updates that the author has made to the debate

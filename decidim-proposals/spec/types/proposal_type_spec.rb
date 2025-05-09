@@ -8,7 +8,7 @@ module Decidim
     describe ProposalType, type: :graphql do
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
+      let(:model) { create(:proposal, :with_votes, :with_likes, :with_amendments, component:) }
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"

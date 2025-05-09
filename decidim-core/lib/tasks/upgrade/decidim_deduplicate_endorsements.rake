@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :upgrade do
     desc "Removes duplicated likes"
-    task fix_duplicate_endorsements: :environment do
+    task fix_duplicate_likes: :environment do
       logger = Logger.new($stdout)
       logger.info("Removing duplicate likes...")
       has_count = 0

@@ -444,7 +444,7 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: New initiative by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
+        like_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has liked the following initiative, maybe you want to contribute to the conversation:"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative liked by %{author_nickname}

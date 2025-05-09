@@ -6,7 +6,7 @@
 
 When liking an element the likes counter for this element is increased and a notification to all the followers of the participant is sent.
 
-Participants can endorse with their own identity. Each liking identity on its own will increment the likes counter by one.
+Participants can like with their own identity. Each liking identity on its own will increment the likes counter by one.
 
 == Data model
 
@@ -19,7 +19,7 @@ For performance, an likeable has a counter cache of likes.
 |  Decidim::Likeable |
 |   ((Proposal,...))   |
 +----------------------+  0..N +--------------------+
-|-has_many likes|-------+Decidim::Endorsement|
+|-has_many likes|-------+Decidim::Like|
 |#counter cache column |       +--------------------+   +-------------+
 |-likes_counter |       |-author: a user     |<--+Decidim::User|
 +----------------------+       +--------------------+   +-------------+
@@ -29,7 +29,7 @@ This is an example migration to add the likes counter cache column to a resource
 
 [source,ruby]
 ----
-class AddEndorsementsCounterCacheToProposals < ActiveRecord::Migration[5.2]
+class AddLikesCounterCacheToProposals < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_proposals_proposals, :likes_count, :integer, null: false, default: 0
   end
@@ -38,7 +38,7 @@ end
 
 == Administration Panel
 
-It is a good practice to give the opportunity to the admin to switch Endorsements on and off.
+It is a good practice to give the opportunity to the admin to switch Likes on and off.
 
 There are two switches that are normally defined in the manifest of the element in the following way (usually this would be at component.rb in a Decidim engine):
 
@@ -53,21 +53,21 @@ There are two switches that are normally defined in the manifest of the element 
 
 == Permissions
 
-In some cases, it may be interesting to require the user to be verified in order to be able to endorse. To do so, add the endorse action to the component manifest:
+In some cases, it may be interesting to require the user to be verified in order to be able to like. To do so, add the like action to the component manifest:
 
 [source,ruby]
 ----
-  component.actions = %w(endorse vote create withdraw amend)
+  component.actions = %w(like vote create withdraw amend)
 ----
 
-Given that some settings have been defined in the Administration Panel, for the user to have permissions to endorse likes should be enabled and not blocked.
+Given that some settings have been defined in the Administration Panel, for the user to have permissions to like likes should be enabled and not blocked.
 
 == Public view
 
-=== The "Endorse" buttons cell
+=== The "Like" buttons cell
 
 It normally appears in the resource detail view (show), at the bottom of the resource content, but above the comments when comments are enabled.
-It allows users to endorse with any of their personal identity.
+It allows users to like with any of their personal identity.
 It also shows the current number of likes for this resource.
 
 To render this button, `decidim-core` offers the `decidim/like_buttons` cell. It is strongly recommended to use this cell to make new resources likeable.
@@ -77,7 +77,7 @@ To render this button, `decidim-core` offers the `decidim/like_buttons` cell. It
 cell("decidim/like_buttons", resource)
 ----
 
-This cell will render the like buttons depending on whether user endorsed the resource or not. The likes are labeled as *Likes*.
+This cell will render the like buttons depending on whether user liked the resource or not. The likes are labeled as *Likes*.
 
 [source,ruby]
 ----
@@ -92,14 +92,14 @@ This cell will render the like buttons depending on whether user endorsed the re
 cell("decidim/like_buttons", resource)
 ----
 
-=== The list of endorsers
+=== The list of likes
 
-The `Decidim::EndorsersListCell` renders the list of endorsers of a resource. It is usually rendered in the show page of the resource, just upside the comments. Additionally, this cell also renders the pop-up required to view the endorsers of a certain resource.
+The `Decidim::LikesListCell` renders the list of likes of a resource. It is usually rendered in the show page of the resource, just upside the comments. Additionally, this cell also renders the pop-up required to view the likes of a certain resource.
 
 [source,ruby]
 ----
-# to render the list of endorsers, the cell requires the likeable resource, and the current user
-cell "decidim/endorsers_list", resource
+# to render the list of likes, the cell requires the likeable resource, and the current user
+cell "decidim/likes_list", resource
 # or using the helper
-endorsers_list_cell(resource)
+likes_list_cell(resource)
 ----

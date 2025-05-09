@@ -145,7 +145,7 @@ module Decidim
 
         it "serializes the likes" do
           expect(serialized[:likes]).to include(total_count: proposal.likes.count)
-          expect(serialized[:likes]).to include(user_endorsements: proposal.likes.for_listing.map { |identity| identity.author&.name })
+          expect(serialized[:likes]).to include(user_likes: proposal.likes.for_listing.map { |identity| identity.author&.name })
         end
 
         it "serializes related proposals" do

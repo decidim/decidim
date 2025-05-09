@@ -168,7 +168,7 @@ module Decidim
 
     seed_gamification_badges!
 
-    seed_endorsements!
+    seed_likes!
 
     I18n.available_locales = original_locale
   end
@@ -198,7 +198,7 @@ module Decidim
     end
   end
 
-  def self.seed_endorsements!
+  def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
                              .select { |resource| resource.constantize.include? Decidim::Likable }

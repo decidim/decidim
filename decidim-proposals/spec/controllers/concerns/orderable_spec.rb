@@ -24,7 +24,7 @@ module Decidim
                votes_enabled?: votes_enabled,
                votes_blocked?: votes_blocked,
                votes_hidden?: votes_hidden,
-               endorsements_enabled?: endorsements_enabled,
+               likes_enabled?: likes_enabled,
                comments_enabled?: comments_enabled)
       end
       let(:component_default_sort_order) { "automatic" }
@@ -32,7 +32,7 @@ module Decidim
       let(:votes_enabled) { nil }
       let(:votes_blocked) { nil }
       let(:votes_hidden) { nil }
-      let(:endorsements_enabled) { nil }
+      let(:likes_enabled) { nil }
       let(:comments_enabled) { nil }
       let(:view) { controller.view_context }
 
@@ -44,7 +44,7 @@ module Decidim
       end
 
       describe "#default_order" do
-        let(:all_sort_orders) { %w(random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
+        let(:all_sort_orders) { %w(random recent most_liked most_voted most_commented most_followed with_more_authors) }
         let(:comments_enabled) { true }
 
         context "with default settings" do
@@ -106,9 +106,9 @@ module Decidim
             end
           end
 
-          describe "most_endorsed" do
-            let(:default_sort_order) { "most_endorsed" }
-            let(:endorsements_enabled) { true }
+          describe "most_liked" do
+            let(:default_sort_order) { "most_liked" }
+            let(:likes_enabled) { true }
 
             it "default_order is random" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
@@ -172,18 +172,18 @@ module Decidim
         end
 
         context "with likes enabled" do
-          let(:endorsements_enabled) { true }
+          let(:likes_enabled) { true }
 
-          it "shows most_endorsed option to sort" do
-            expect(view.available_orders).to include("most_endorsed")
+          it "shows most_liked option to sort" do
+            expect(view.available_orders).to include("most_liked")
           end
         end
 
         context "with likes disabled" do
-          let(:endorsements_enabled) { false }
+          let(:likes_enabled) { false }
 
-          it "does not show most_endorsed option to sort" do
-            expect(view.available_orders).not_to include("most_endorsed")
+          it "does not show most_liked option to sort" do
+            expect(view.available_orders).not_to include("most_liked")
           end
         end
 

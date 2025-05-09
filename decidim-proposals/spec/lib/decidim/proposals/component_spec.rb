@@ -64,8 +64,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "endorsements_count" do
-      let(:stats_name) { :endorsements_count }
+    describe "likes_count" do
+      let(:stats_name) { :likes_count }
 
       before do
         2.times do

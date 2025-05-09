@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This concern contains the logic related with resources that can be endorsed.
+  # This concern contains the logic related with resources that can be liked.
   # Thus, it is expected to be included into a resource that is wanted to be likeable.
-  # This resource will have many `Decidim::Endorsement`s.
+  # This resource will have many `Decidim::Like`s.
   module Likeable
     extend ActiveSupport::Concern
 
     included do
-      has_many :endorsements,
+      has_many :likes,
                as: :resource,
                dependent: :destroy,
-               counter_cache: "endorsements_count"
+               counter_cache: "likes_count"
 
-      # Public: Check if the user has endorsed the resource.
+      # Public: Check if the user has liked the resource.
       #
       # Returns Boolean.
-      def endorsed_by?(user)
-        endorsements.where(author: user).any?
+      def liked_by?(user)
+        likes.where(author: user).any?
       end
     end
   end

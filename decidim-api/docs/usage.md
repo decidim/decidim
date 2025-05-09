@@ -404,7 +404,7 @@ Consider this query:
         translation(locale: "en")
       }
       ... on Proposals {
-        proposals(order: {endorsementCount: "desc"}, first: 2) {
+        proposals(order: {likeCount: "desc"}, first: 2) {
           edges {
             node {
               id

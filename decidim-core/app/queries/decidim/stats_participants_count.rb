@@ -11,7 +11,7 @@ module Decidim
         comments_query,
         debates_query,
         meetings_query,
-        endorsements_query,
+        likes_query,
         project_votes_query,
         proposals_query,
         proposal_votes_query,
@@ -52,7 +52,7 @@ module Decidim
       [registrations, organizers].flatten.uniq
     end
 
-    def endorsements_query
+    def likes_query
       Decidim::Like
         .where(resource: space_components)
         .pluck(:decidim_author_id)

@@ -65,8 +65,8 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.initiatives.initiative_endorsed",
-                event_class: Decidim::Initiatives::EndorseInitiativeEvent,
+                event: "decidim.events.initiatives.initiative_liked",
+                event_class: Decidim::Initiatives::LikeInitiativeEvent,
                 resource: initiative,
                 followers: [follower]
               )

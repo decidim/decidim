@@ -25,8 +25,8 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :endorsements_enabled, type: :boolean, default: true
-    settings.attribute :endorsements_blocked, type: :boolean
+    settings.attribute :likes_enabled, type: :boolean, default: true
+    settings.attribute :likes_blocked, type: :boolean
     settings.attribute :creation_enabled, type: :boolean, default: false
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -57,7 +57,7 @@ Decidim.register_component(:debates) do |component|
     Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
+  component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
     debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
     Decidim::Like.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
   end

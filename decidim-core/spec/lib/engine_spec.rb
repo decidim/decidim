@@ -132,14 +132,14 @@ module Decidim::Core
       end
       let(:transferred_amendments) { Decidim::Amendment.where(amender: target_user).order(:id) }
       let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user).order(:id) }
-      let(:transferred_endorsements) { Decidim::Like.where(author: target_user).order(:id) }
+      let(:transferred_likes) { Decidim::Like.where(author: target_user).order(:id) }
 
       it "handles authorization transfer correctly" do
         expect(transferred_amendments.count).to eq(3)
         expect(transferred_coauthorships.count).to eq(5)
-        expect(transferred_endorsements.count).to eq(10)
+        expect(transferred_likes.count).to eq(10)
         expect(transfer.records.count).to eq(18)
-        expect(transferred_resources).to eq(transferred_amendments + transferred_coauthorships + transferred_endorsements)
+        expect(transferred_resources).to eq(transferred_amendments + transferred_coauthorships + transferred_likes)
       end
     end
 

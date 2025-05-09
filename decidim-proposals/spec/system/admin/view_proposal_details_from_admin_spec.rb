@@ -144,13 +144,13 @@ describe "Admin views proposal details from admin" do
         expect(page).to have_css("[data-likes] [data-ranking]", text: "1 of ")
       end
 
-      it "has a link to each endorser profile" do
+      it "has a link to each liker profile" do
         go_to_admin_proposal_page(proposal)
 
         within "#proposal-likes-list" do
           proposal.likes.for_listing.each do |like|
-            endorser = like.author
-            expect(page).to have_css("a", text: endorser.name)
+            liker = like.author
+            expect(page).to have_css("a", text: liker.name)
           end
         end
       end

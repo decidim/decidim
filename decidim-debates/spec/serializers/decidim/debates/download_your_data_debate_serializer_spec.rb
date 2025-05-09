@@ -110,7 +110,7 @@ module Decidim
       end
 
       it "serializes the likes" do
-        expect(serialized).to include(endorsements_count: debate.endorsements_count)
+        expect(serialized).to include(likes_count: debate.likes_count)
       end
 
       describe "conclusions and closed at" do

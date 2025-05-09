@@ -73,7 +73,7 @@ en:
       decidim/promote_to_admin: Promoted to group admin
       decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resource liked
+      decidim/resource_liked_event: Resource liked
       decidim/resource_hidden_event: Resource hidden
       decidim/welcome_notification_event: Welcome message
   activerecord:
@@ -832,11 +832,11 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsement_buttons_cell:
-      already_endorsed: Undo the like
+    like_buttons_cell:
+      already_liked: Undo the like
       like: Like
     likes_list:
-      endorsed_by:
+      liked_by:
         one: Liked by %{visible}
         other: Liked by %{visible} and %{others}
       others: "%{count} more"
@@ -965,11 +965,11 @@ en:
           notification_title: |-
             An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just liked "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
-        email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
-        email_subject: "%{endorser_nickname} has performed a new like"
-        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been liked by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, who you are following, has just liked "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{liker_nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{liker_nickname} has performed a new like"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been liked by <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
@@ -1580,7 +1580,7 @@ en:
       controls_label: Resource controls
     resource_autocomplete:
       help: Type to search proposals
-    resource_endorsements:
+    resource_likes:
       create:
         error: There was a problem during the like action.
     scopes:
@@ -1680,7 +1680,7 @@ en:
     statistics:
       comments_count: Comments
       comments_count_tooltip: The total number of comments posted in this space.
-      endorsements_count: Likes
+      likes_count: Likes
       followers_count: Followers
       followers_count_tooltip: The number of users following any part of this space to stay updated.
       headline: Statistics
