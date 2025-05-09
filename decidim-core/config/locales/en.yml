@@ -73,8 +73,8 @@ en:
       decidim/promote_to_admin: Promoted to group admin
       decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_liked_event: Resource liked
       decidim/resource_hidden_event: Resource hidden
+      decidim/resource_liked_event: Resource liked
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
@@ -832,16 +832,6 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    like_buttons_cell:
-      already_liked: Undo the like
-      like: Like
-    likes_list:
-      liked_by:
-        one: Liked by %{visible}
-        other: Liked by %{visible} and %{others}
-      others: "%{count} more"
-      title: Liked by
-      you: you
     ephemeral_user: Visitor
     errors:
       files:
@@ -1120,6 +1110,16 @@ en:
         last_activity: Last activity
       name: Last activities
       no_activities_warning: There are no entries to show for this activity type.
+    like_buttons_cell:
+      already_liked: Undo the like
+      like: Like
+    likes_list:
+      liked_by:
+        one: Liked by %{visible}
+        other: Liked by %{visible} and %{others}
+      others: "%{count} more"
+      title: Liked by
+      you: you
     linked_resource_from:
       included_in: Included in
     links:
@@ -1680,10 +1680,10 @@ en:
     statistics:
       comments_count: Comments
       comments_count_tooltip: The total number of comments posted in this space.
-      likes_count: Likes
       followers_count: Followers
       followers_count_tooltip: The number of users following any part of this space to stay updated.
       headline: Statistics
+      likes_count: Likes
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants

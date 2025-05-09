@@ -149,9 +149,9 @@ en:
           comments_count: The number of comments this post has
           component: The component that the post belongs to
           created_at: The date this post was created
-          likes_count: The number of likes this post has
           follows_count: The number of follows this post has
           id: The unique identifier of this post
+          likes_count: The number of likes this post has
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this post belongs to
           published_at: The date this post was published
           title: The title of the post

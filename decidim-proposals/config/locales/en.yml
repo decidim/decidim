@@ -182,8 +182,8 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_liked: Most liked
               most_followed: Most followed
+              most_liked: Most liked
               most_voted: Most voted
               random: Random
               recent: Recent
@@ -244,8 +244,8 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_liked: Most liked
               most_followed: Most followed
+              most_liked: Most liked
               most_voted: Most voted
               random: Random
               recent: Recent
@@ -446,12 +446,12 @@ en:
           cost_report: A report of costs for the proposal
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
-          likes: The number of likes ("likes") this proposal has
           execution_period: The period at which the proposal ran from beginning to end
           follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
           latitude: The latitude of the proposal in case it has a physical location
+          likes: The number of likes ("likes") this proposal has
           longitude: The longitude of the proposal in case it has a physical location
           meeting_urls: The URLs of the meetings where this proposal was presented or discussed in
           original_proposal: The reference of the original proposal if this is an amendment
@@ -664,9 +664,9 @@ en:
             body: Body
             comments_count: Comments count
             documents: Documents
-            likes_count: Likes count
-            likes: Likes
             evaluators: Evaluators
+            likes: Likes
+            likes_count: Likes count
             link: See proposal
             n_more_likes:
               one: and 1 more
@@ -951,8 +951,8 @@ en:
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
-          most_liked: Most liked
           most_followed: Most followed
+          most_liked: Most liked
           most_voted: Most voted
           random: Random
           recent: Recent
