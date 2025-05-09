@@ -13,7 +13,7 @@ module Decidim
                              ::Decidim::Demographics::Admin::Permissions,
                              ::Decidim::Admin::Permissions)
 
-        layout "decidim/admin/settings"
+        layout "decidim/admin/insights"
 
         add_breadcrumb_item_from_menu :admin_settings_menu
 

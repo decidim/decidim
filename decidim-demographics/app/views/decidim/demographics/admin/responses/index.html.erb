@@ -4,9 +4,9 @@
   <div>
     <% if allowed_to? :index, :demographics_responses %>
       <% if @participants.count.zero? %>
-        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), "#", class: "button button__xs button__secondary h-8", disabled: true %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), "#", class: "main-tabs-menu__cta-button", disabled: true %>
       <% else %>
-        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), publish_responses_path, class: "button button__xs button__secondary h-8" %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), publish_responses_path, class: "main-tabs-menu__cta-button" %>
       <% end %>
     <% end %>
   </div>

@@ -28,11 +28,11 @@ en:
             collect_data: Enable demographic data collection
             collect_data_help: Enabling this setting will enable users to donate their data to the platform.
             save: Save
-            title: Demographics Settings
+            title: Demographics
           update:
             invalid: There was an error saving demographic data
             success: Demographic data successfully saved
-        title: Demographics Settings
+        title: Demographics
       demographics:
         questionnaire:
           delete_my_data: Delete data

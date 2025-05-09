@@ -14,7 +14,8 @@ describe "Admin manages demographics" do
 
   context "and managing settings" do
     before do
-      visit decidim_admin.edit_organization_path
+      visit decidim_admin.root_path
+      click_on "Insights"
       click_on "Demographics Settings"
     end
 

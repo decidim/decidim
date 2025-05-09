@@ -40,7 +40,7 @@ module Decidim
       end
 
       initializer "decidim_admin_demographics.user_menu" do
-        Decidim.menu :admin_settings_menu do |menu|
+        Decidim.menu :admin_insights_menu do |menu|
           menu.add_item :demographics,
                         I18n.t("title", scope: "decidim.demographics.admin"),
                         decidim_admin_demographics.settings_path,

@@ -6,6 +6,7 @@ module Decidim
       include FormFactory
       register_permissions(::Decidim::Demographics::ApplicationController,
                            ::Decidim::Demographics::Permissions,
+                           ::Decidim::Admin::Permissions,
                            ::Decidim::Permissions)
 
       def permission_class_chain
