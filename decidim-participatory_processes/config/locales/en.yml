@@ -837,6 +837,7 @@ en:
           title: Democratic quality indicators
     statistics:
       processes_count: Processes
+      processes_count_tooltip: The number of participatory processes that are publicly available.
   layouts:
     decidim:
       participatory_process_groups:

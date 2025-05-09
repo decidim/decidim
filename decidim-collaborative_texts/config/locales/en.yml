@@ -5,10 +5,16 @@ en:
       collaborative_texts:
         document:
           body: Body
+          draft: Draft
           title: Title
           version_number: Version number
+        suggestion:
+          nodes: DOM nodes
+          original: Original text
+          replace: Replacement
         version:
           body: Body
+          draft: Draft
           version_number: Version number
   decidim:
     collaborative_texts:
@@ -25,9 +31,19 @@ en:
           create:
             invalid: There was a problem creating the document.
             success: Document successfully created.
+          draft_options:
+            accepting_suggestions: Enable suggestions in the next version
+            accepting_suggestions_help: Enabling suggestions will start a new round of suggestions for this document. The current suggestions will not be visible in the new version.
+            draft: Draft version
+            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will see the previous version and they will not be able to make suggestions.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
+            draft: Draft version
+            previous_versions: Previous versions
+            public_version: Public version
             title: Edit collaborative texts
             update: Update
+            version: Version %{version_number}, created on %{created_at} got %{suggestions_count} suggestions.
           edit_settings:
             title: Configure collaborative texts
             update: Update
@@ -38,6 +54,11 @@ en:
           new:
             create: Create
             title: Create collaborative texts
+          non_draft_options:
+            create_draft: Discard suggestions and create a new draft version
+            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will see the previous version and they will not be able to make suggestions.</strong>
+            enable_suggestions: Enable suggestions
+            enable_suggestions_help: Enabling suggestions will allow participants to make suggestions on this version.
           publish:
             invalid: There was a problem publishing this document.
             success: Document successfully published.
@@ -50,9 +71,6 @@ en:
           update_settings:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
-        settings:
-          form:
-            allow_suggestions: Allow participants to make suggestions
       admin_log:
         document:
           create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
@@ -62,24 +80,58 @@ en:
           soft_delete: "%{user_name} moved the %{resource_name} collaborative text in %{space_name} to the trash"
           unpublish: "%{user_name} unpublished the %{resource_name} collaborative text in %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text in %{space_name}"
+        suggestion:
+          create: "%{user_name} suggested changes to the %{resource_name} collaborative text in %{space_name}"
         version:
           delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
+        apply: Apply
         cancel: Cancel
-        save: Send suggestion
-        suggest: Suggest changes
+        consolidate:
+          confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
+          new: Consolidate accepted suggestions
+        consolidate_counter: Consolidate will merge the %{applied} applied suggestions and move the %{pending} pending suggestions to the new version.
+        controls_label: Suggestion controls
+        draft_counter: Draft will merge the %{applied} applied suggestions and discard the %{pending} pending suggestions.
+        index: Index
+        restore: Restore
+        rollout:
+          confirm: This action will create a new draft version of the document and you will be redirected to the edit page for final refinements. The current version will remain public and suggestions will be disabled.
+          invalid: There was a problem creating a new version of the document (%{errors}).
+          new: Draft a new version
+        save: Suggest changes
+        status:
+          accepting_suggestions: To suggest changes, select or double-click on the text you want to edit, then click the 'Suggest changes' button.
+          draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
+          not_accepting_suggestions: Suggestions are not allowed at this time.
+          selection_active: A selection is active. Please cancel the current selection to make a new one.
+        suggestions_count: "%{count} suggestions"
+        toggle: Show/hide suggestions
       documents:
         index:
           count:
             one: "%{count} collaborative text"
             other: "%{count} collaborative texts"
           empty: There are no collaborative texts yet.
+        show:
+          contributors: Contributors
       models:
         collaborative_text:
           fields:
             suggestions: Accept suggestions
             title: Title
+      suggestion:
+        add_html: <span class="type">Add:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Remove:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Replace:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: There was a problem creating the suggestion.
+          success: Suggestion successfully created.
+        errors:
+          blank_changeset: Changeset cannot be blank.
+          invalid_nodes: Invalid selected nodes.
     components:
       collaborative_texts:
         name: Collaborative Texts
@@ -90,4 +142,6 @@ en:
           step:
             announcement: Announcement
     statistics:
+      all_collaborative_texts_count: All collaborative texts
       collaborative_texts_count: Collaborative texts
+      collaborative_texts_count_tooltip: Number of collaborative texts
