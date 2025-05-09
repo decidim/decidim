@@ -5,8 +5,8 @@
 
   <div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <%= cell "decidim/participatory_processes/indicator", nil, metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.name"), metric_value: stats[:global_score], metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.name") %>
-      <div class="text-md col-span-3 text-gray-2 prose prose-a:underline">
+      <%= cell "decidim/participatory_processes/indicator", nil, metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.name"), metric_value: stats[:global_score], metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.tooltip") %>
+      <div class="text-md col-span-3 text-gray-2 prose-a:underline">
         <p><%= t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.description_html", info_url:) %></p>
         <p class="text-sm mt-4 text-gray">
           <%= t("decidim.participatory_processes.content_blocks.democratic_quality_stats.global_score.note") %>

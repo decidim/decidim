@@ -550,18 +550,19 @@ en:
             description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
             name: Global score
             note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest participation quality."
+            tooltip: Calculated as the average of all the dimensions
           name: Participation quality
           qualitative_metrics:
             description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
             indicators:
               accessibility: Accessibility
-              accessibility_tooltip: Accessibility tooltip
+              accessibility_tooltip: The process has been communicated in the languages spoken in the community and the venues have been accessible to people with reduced mobility.
               citizen_influence: Citizen influence
-              citizen_influence_tooltip: Citizen influence tooltip
+              citizen_influence_tooltip: Measures the level of participant impact on decision-making.
               inclusiveness: Inclusiveness
-              inclusiveness_tooltip: Inclusiveness tooltip
+              inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented
               relevance: Relevance
-              relevance_tooltip: Relevance tooltip
+              relevance_tooltip: Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.
             name: Self-assessment metrics
         extra_data:
           name: Phase & duration
