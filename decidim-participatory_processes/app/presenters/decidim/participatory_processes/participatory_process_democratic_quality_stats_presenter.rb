@@ -91,15 +91,15 @@ module Decidim
 
       # @return [Float]
       def approved_citizen_proposals_relative_score
-        approved_citizen_proposals_count = all_proposals.accepted.where(author_type: "Decidim::User").count
-        total_citizen_proposals_count = all_proposals.where(author_type: "Decidim::User").count
+        approved_citizen_proposals_count = all_proposals.accepted.with_participants_origin.count
+        total_citizen_proposals_count = all_proposals.with_participants_origin.count
 
         percentage_to_scale(approved_citizen_proposals_count, total_citizen_proposals_count)
       end
 
       # @return [Float]
       def approved_citizen_proposals_absolute_score
-        approved_citizen_proposals_count = all_proposals.accepted.where(author_type: "Decidim::User").count
+        approved_citizen_proposals_count = all_proposals.accepted.with_participants_origin.count
 
         percentage_to_scale(approved_citizen_proposals_count, all_proposals.accepted.count)
       end
@@ -107,9 +107,9 @@ module Decidim
       # @return [Float]
       def citizen_linked_results_score
         citizen_results = all_proposals
+                          .with_participants_origin
                           .joins(:resource_links_from)
                           .where(
-                            author_type: "Decidim::User",
                             decidim_resource_links: {
                               name: "linked_results",
                               to_type: "Decidim::Accountability::Result"
