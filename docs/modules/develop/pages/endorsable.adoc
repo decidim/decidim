@@ -23,6 +23,7 @@ For performance, an likeable has a counter cache of likes.
 |#counter cache column |       +--------------------+   +-------------+
 |-likes_counter |       |-author: a user     |<--+Decidim::User|
 +----------------------+       +--------------------+   +-------------+
+----
 
 Thus, each likeable must have the likes counter cache column.
 This is an example migration to add the likes counter cache column to a resource:
@@ -103,3 +104,4 @@ cell "decidim/likes_list", resource
 # or using the helper
 likes_list_cell(resource)
 ----
+
