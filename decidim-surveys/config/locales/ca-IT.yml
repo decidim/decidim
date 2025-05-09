@@ -13,6 +13,8 @@ ca-IT:
         other: Respostes
   decidim:
     admin:
+      actions:
+        see_survey: Veure enquesta
       admin_log:
         changeset:
           surveys: enquestes
