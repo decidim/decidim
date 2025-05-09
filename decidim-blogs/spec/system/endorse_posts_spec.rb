@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "endorse posts" do
+describe "like posts" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
   let(:organization) { create(:organization) }
@@ -17,5 +17,5 @@ describe "endorse posts" do
            participatory_space:)
   end
 
-  it_behaves_like "Endorse resource system specs"
+  it_behaves_like "Like resource system specs"
 end

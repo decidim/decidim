@@ -59,7 +59,7 @@ Decidim.register_component(:debates) do |component|
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
     debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
-    Decidim::Endorsement.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
+    Decidim::Like.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
   end
 
   component.register_resource(:debate) do |resource|
@@ -67,10 +67,10 @@ Decidim.register_component(:debates) do |component|
     resource.card = "decidim/debates/debate"
     resource.reported_content_cell = "decidim/debates/reported_content"
     resource.searchable = true
-    resource.actions = %w(create endorse comment)
+    resource.actions = %w(create like comment)
   end
 
-  component.actions = %w(create endorse comment)
+  component.actions = %w(create like comment)
 
   component.exports :debates do |exports|
     exports.collection do |component_instance|

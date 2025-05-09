@@ -2,14 +2,14 @@
 
 require "spec_helper"
 
-shared_examples_for "resource endorsed event" do
+shared_examples_for "resource liked event" do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.resource_endorsed" }
   let(:author) { create(:user, organization: resource.organization) }
 
   let(:extra) { { endorser_id: author.id } }
-  let(:endorsement) { create(:endorsement, resource:, author:) }
+  let(:like) { create(:like, resource:, author:) }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
   let(:follow) { create(:follow, followable: author, user: follower) }
@@ -30,7 +30,7 @@ shared_examples_for "resource endorsed event" do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{author_presenter.nickname} has performed a new endorsement")
+      expect(subject.email_subject).to eq("#{author_presenter.nickname} has performed a new like")
     end
   end
 
@@ -39,7 +39,7 @@ shared_examples_for "resource endorsed event" do
     it "is generated correctly" do
       expect(subject.email_intro)
         .to eq("#{author.name} #{author_presenter.nickname}, who you are following, " \
-               "has just endorsed \"#{resource_title}\" and we think it may be interesting to you. Check it out and contribute:")
+               "has just liked \"#{resource_title}\" and we think it may be interesting to you. Check it out and contribute:")
     end
   end
 
@@ -48,7 +48,7 @@ shared_examples_for "resource endorsed event" do
 
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> #{resource_type} has been endorsed by ")
+        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> #{resource_type} has been liked by ")
 
       expect(subject.notification_title)
         .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")

@@ -3,19 +3,19 @@
 require "spec_helper"
 
 # users of this test should declare the `subject` variable.
-shared_examples "with endorsable permissions can perform actions related to endorsable" do
-  let(:action_subject) { :endorsement }
+shared_examples "with likable permissions can perform actions related to likable" do
+  let(:action_subject) { :like }
   let(:resource) { create(:dummy_resource, component:) }
   before do
     context[:current_settings] = double(current_settings)
     context[:resource] = resource
   end
 
-  describe "endorsing" do
-    describe "when endorsing" do
+  describe "liking" do
+    describe "when liking" do
       let(:action_name) { :create }
 
-      context "when endorsements are disabled" do
+      context "when likes are disabled" do
         let(:current_settings) do
           {
             endorsements_enabled: false,
@@ -26,7 +26,7 @@ shared_examples "with endorsable permissions can perform actions related to endo
         it { is_expected.to eq false }
       end
 
-      context "when endorsements are blocked" do
+      context "when likes are blocked" do
         let(:current_settings) do
           {
             endorsements_enabled: true,
@@ -50,10 +50,10 @@ shared_examples "with endorsable permissions can perform actions related to endo
     end
   end
 
-  describe "unendorsing" do
-    let(:action_name) { :unendorse }
+  describe "unliking" do
+    let(:action_name) { :unlike }
 
-    context "when endorsements are disabled" do
+    context "when likes are disabled" do
       let(:current_settings) do
         {
           endorsements_enabled: false,
@@ -64,7 +64,7 @@ shared_examples "with endorsable permissions can perform actions related to endo
       it { is_expected.to eq false }
     end
 
-    context "when endorsements are blocked" do
+    context "when likes are blocked" do
       let(:current_settings) do
         {
           endorsements_enabled: true,

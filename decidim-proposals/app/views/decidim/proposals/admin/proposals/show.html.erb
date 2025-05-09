@@ -53,7 +53,7 @@
 
         <% presented_endorsers = endorsers_presenters_for(proposal) %>
         <% if presented_endorsers.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/endorsers", locals: { presented_endorsers:, proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/likes", locals: { presented_endorsers:, proposal: } %>
         <% end %>
 
         <% if proposal.documents.any? %>
@@ -118,7 +118,7 @@
         </div>
 
         <div class="card-section">
-          <div class="row column" data-endorsements>
+          <div class="row column" data-likes>
             <span class="component__show-title"><%= t ".endorsements_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
               <%= icon "like", class: "fill-gray" %>

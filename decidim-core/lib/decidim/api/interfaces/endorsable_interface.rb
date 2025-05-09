@@ -2,17 +2,17 @@
 
 module Decidim
   module Core
-    # This interface represents an object capable of endorsements.
+    # This interface represents an object capable of likes.
     module EndorsableInterface
       include Decidim::Api::Types::BaseInterface
-      description "An interface that can be used in objects with endorsements"
+      description "An interface that can be used in objects with likes"
 
-      field :endorsements, [Decidim::Core::AuthorInterface, { null: true }], "The endorsements of this object.", null: false
+      field :likes, [Decidim::Core::AuthorInterface, { null: true }], "The likes of this object.", null: false
 
-      field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
+      field :endorsements_count, Integer, description: "The total amount of likes the object has received", null: true
 
-      def endorsements
-        object.endorsements.map(&:author)
+      def likes
+        object.likes.map(&:author)
       end
     end
   end

@@ -445,10 +445,10 @@ en:
           email_subject: New initiative by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has liked the following initiative, maybe you want to contribute to the conversation:"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: Initiative endorsed by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: Initiative liked by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was liked by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rejected your application to be part of the promoter committee for the following initiative %{resource_title}."
           email_outro: 'You received this notification because you applied to this initiative: %{resource_title}.'

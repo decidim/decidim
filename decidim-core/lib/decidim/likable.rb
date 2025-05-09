@@ -2,9 +2,9 @@
 
 module Decidim
   # This concern contains the logic related with resources that can be endorsed.
-  # Thus, it is expected to be included into a resource that is wanted to be endorsable.
+  # Thus, it is expected to be included into a resource that is wanted to be likeable.
   # This resource will have many `Decidim::Endorsement`s.
-  module Endorsable
+  module Likeable
     extend ActiveSupport::Concern
 
     included do

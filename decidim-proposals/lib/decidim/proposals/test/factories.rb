@@ -433,7 +433,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |proposal, evaluator|
         5.times.collect do
-          create(:endorsement, resource: proposal,
+          create(:like, resource: proposal,
                                author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
                                skip_injection: evaluator.skip_injection)
         end

@@ -28,7 +28,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |resource, evaluator|
         5.times.collect do
-          create(:endorsement, resource:, skip_injection: evaluator.skip_injection,
+          create(:like, resource:, skip_injection: evaluator.skip_injection,
                                author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
       end

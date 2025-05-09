@@ -230,12 +230,12 @@ module Decidim
           create(:amendment, amendable:, emendation: create(:dummy_resource, author: user, component: amendable.component))
         end.flatten
       end
-      let(:endorsements) do
-        dummy_resources.map { |endorsable| create(:endorsement, resource: endorsable, author: user) }.flatten
+      let(:likes) do
+        dummy_resources.map { |likable| create(:like, resource: likable, author: user) }.flatten
       end
 
       before do
-        (dummy_resources + amendments + endorsements).each do |r|
+        (dummy_resources + amendments + likes).each do |r|
           create(:authorization_transfer_record, transfer:, resource: r)
         end
         coauthorable_dummy_resources.each do |r|
@@ -253,9 +253,9 @@ module Decidim
             class: Decidim::Dev::CoauthorableDummyResource,
             count: coauthorable_dummy_resources.count
           },
-          "Decidim::Endorsement" => {
-            class: Decidim::Endorsement,
-            count: endorsements.count
+          "Decidim::Like" => {
+            class: Decidim::Like,
+            count: likes.count
           }
         )
       end

@@ -113,7 +113,7 @@ module Decidim
         end
       end
 
-      describe "endorsing enabled" do
+      describe "liking enabled" do
         let(:previous_settings) do
           {
             endorsements_enabled: previously_allowing_endorsements,
@@ -127,7 +127,7 @@ module Decidim
           }
         end
 
-        context "when endorsing is enabled and unlocked" do
+        context "when liking is enabled and unlocked" do
           let(:previously_allowing_endorsements) { false }
           let(:previously_blocking_endorsements) { false }
           let(:currently_allowing_endorsements) { true }
@@ -147,7 +147,7 @@ module Decidim
           end
         end
 
-        context "when endorsements are not enabled" do
+        context "when likes are not enabled" do
           let(:previously_allowing_endorsements) { true }
           let(:previously_blocking_endorsements) { false }
           let(:currently_allowing_endorsements) { false }
@@ -161,7 +161,7 @@ module Decidim
           end
         end
 
-        context "when endorsements are blocked" do
+        context "when likes are blocked" do
           let(:previously_allowing_endorsements) { false }
           let(:previously_blocking_endorsements) { false }
           let(:currently_allowing_endorsements) { true }

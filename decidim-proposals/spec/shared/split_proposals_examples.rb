@@ -60,7 +60,7 @@ shared_examples "split proposals" do
             it "does not create a new proposal and displays a validation fail message" do
               expect(page).to have_content("There was a problem splitting the selected proposals")
               expect(page).to have_content("Are not official")
-              expect(page).to have_content("Have received votes or endorsements")
+              expect(page).to have_content("Have received votes or likes")
             end
           end
         end

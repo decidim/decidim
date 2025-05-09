@@ -13,7 +13,7 @@ module Decidim::Blogs
     let(:post) { create(:post, component: current_component, author: current_user, published_at:) }
     let(:published_at) { nil }
 
-    include_examples "endorsable"
+    include_examples "likable"
     include_examples "has component"
     include_examples "resourceable"
 

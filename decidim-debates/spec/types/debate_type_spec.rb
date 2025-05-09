@@ -19,7 +19,7 @@ module Decidim
       include_examples "referable interface"
       include_examples "attachable interface"
       include_examples "traceable interface"
-      include_examples "endorsable interface" do
+      include_examples "likable interface" do
         let(:model) { create(:debate, :open_ama, :with_endorsements) }
       end
 

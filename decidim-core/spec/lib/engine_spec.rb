@@ -120,19 +120,19 @@ module Decidim::Core
 
       let(:component) { create(:component, organization:) }
       let(:coauthorables) { build_list(:dummy_resource, 5, component:) }
-      let(:endorsables) { build_list(:dummy_resource, 10, component:) }
+      let(:likeables) { build_list(:dummy_resource, 10, component:) }
       let(:amendable) { build(:dummy_resource, component:) }
       let(:emendation) { build(:dummy_resource, component:) }
       let(:original_records) do
         {
           amendments: create_list(:amendment, 3, amendable:, emendation:, amender: original_user),
           coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable:, author: original_user) },
-          endorsements: endorsables.map { |endorsable| create(:endorsement, resource: endorsable, author: original_user) }
+          likes: likeables.map { |likable| create(:like, resource: likable, author: original_user) }
         }
       end
       let(:transferred_amendments) { Decidim::Amendment.where(amender: target_user).order(:id) }
       let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user).order(:id) }
-      let(:transferred_endorsements) { Decidim::Endorsement.where(author: target_user).order(:id) }
+      let(:transferred_endorsements) { Decidim::Like.where(author: target_user).order(:id) }
 
       it "handles authorization transfer correctly" do
         expect(transferred_amendments.count).to eq(3)

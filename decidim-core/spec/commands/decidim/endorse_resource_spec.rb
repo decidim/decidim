@@ -15,13 +15,13 @@ module Decidim
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "creates a new endorsement for the resource" do
+        it "creates a new like for the resource" do
           expect do
             command.call
-          end.to change(Endorsement, :count).by(1)
+          end.to change(Like, :count).by(1)
         end
 
-        it "notifies all followers of the endorser that the resource has been endorsed" do
+        it "notifies all followers of the endorser that the resource has been liked" do
           follower = create(:user, organization: resource.organization)
           create(:follow, followable: current_user, user: follower)
           author_follower = create(:user, organization: resource.organization)
@@ -43,7 +43,7 @@ module Decidim
         end
       end
 
-      context "when the endorsement is not valid" do
+      context "when the like is not valid" do
         before do
           resource.decidim_component_id = nil
         end
@@ -52,10 +52,10 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "does not create a new endorsement for the resource" do
+        it "does not create a new like for the resource" do
           expect do
             command.call
-          end.not_to change(Endorsement, :count)
+          end.not_to change(Like, :count)
         end
       end
     end

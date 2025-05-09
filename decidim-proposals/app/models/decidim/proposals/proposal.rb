@@ -24,7 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
-      include Decidim::Endorsable
+      include Decidim::Likable
       include Decidim::Proposals::Evaluable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
@@ -193,7 +193,7 @@ module Decidim
 
       def self.retrieve_proposals_for(component)
         Decidim::Proposals::Proposal.where(component:).joins(:coauthorships)
-                                    .includes(:votes, :endorsements)
+                                    .includes(:votes, :likes)
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
                                     .published
@@ -207,7 +207,7 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Endorsement.where(resource: proposals)
+        endorsements_participants_ids = Decidim::Like.where(resource: proposals)
                                                             .where(decidim_author_type: "Decidim::UserBaseEntity")
                                                             .pluck(:decidim_author_id).to_a.compact.uniq
 

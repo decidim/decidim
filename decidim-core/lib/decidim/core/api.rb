@@ -50,7 +50,7 @@ module Decidim
 
     autoload :BaseInputSort, "decidim/api/input_sorts/base_input_sort"
     autoload :ComponentInputSort, "decidim/api/input_sorts/component_input_sort"
-    autoload :HasEndorsableInputSort, "decidim/api/input_sorts/has_endorsable_input_sort"
+    autoload :HasEndorsableInputSort, "decidim/api/input_sorts/has_likeable_input_sort"
     autoload :HasLocalizedInputSort, "decidim/api/input_sorts/has_localized_input_sort"
     autoload :HasPublishableInputSort, "decidim/api/input_sorts/has_publishable_input_sort"
     autoload :HasTimestampInputSort, "decidim/api/input_sorts/has_timestamp_input_sort"
@@ -75,7 +75,7 @@ module Decidim
     autoload :AmendableEntityInterface, "decidim/api/interfaces/amendable_entity_interface"
     autoload :TraceableInterface, "decidim/api/interfaces/traceable_interface"
     autoload :TimestampsInterface, "decidim/api/interfaces/timestamps_interface"
-    autoload :EndorsableInterface, "decidim/api/interfaces/endorsable_interface"
+    autoload :EndorsableInterface, "decidim/api/interfaces/likeable_interface"
     autoload :LocalizableInterface, "decidim/api/interfaces/localizable_interface"
     autoload :FollowableInterface, "decidim/api/interfaces/followable_interface"
     autoload :ReferableInterface, "decidim/api/interfaces/referable_interface"

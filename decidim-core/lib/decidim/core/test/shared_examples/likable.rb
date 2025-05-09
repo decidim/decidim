@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-shared_examples_for "endorsable" do
-  context "when endorsable" do
+shared_examples_for "likeable" do
+  context "when likeable" do
     let(:user) { create(:user, organization: subject.organization) }
 
     describe "#endorsed_by?" do

@@ -19,7 +19,7 @@ module Decidim
       include_examples "amendable proposals interface"
       include_examples "traceable interface"
       include_examples "timestamps interface"
-      include_examples "endorsable interface"
+      include_examples "likable interface"
 
       describe "id" do
         let(:query) { "{ id }" }

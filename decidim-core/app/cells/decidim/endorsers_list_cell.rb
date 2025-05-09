@@ -3,11 +3,11 @@
 require "cell/partial"
 
 module Decidim
-  # This cell renders the list of endorsers.
+  # This cell renders the list of likes.
   #
   # Example:
   #
-  #    cell("decidim/endorsers_list", my_component)
+  #    cell("decidim/likes_list", my_component)
   class EndorsersListCell < Decidim::ViewModel
     include ApplicationHelper
 
@@ -30,7 +30,7 @@ module Decidim
       options[:layout] == :full
     end
 
-    # Finds the correct author for each endorsement.
+    # Finds the correct author for each like.
     #
     # Returns an Array of presented Users
     def visible_endorsers
@@ -48,7 +48,7 @@ module Decidim
     end
 
     def base_relation
-      @base_relation ||= model.endorsements.for_listing.includes(:author)
+      @base_relation ||= model.likes.for_listing.includes(:author)
     end
 
     def voted_by_me?

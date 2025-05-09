@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the endorsement button and the endorsements count.
+  # This cell renders the like button and the likes count.
   # It only supports one row of buttons per page due to current tag ids used by javascript.
   class EndorsementButtonsCell < Decidim::ViewModel
     include CellsHelper
     include EndorsableHelper
     include ResourceHelper
 
-    # Renders the "Endorse" button.
+    # Renders the "Like" button.
     # Contains all the logic about how the button should be rendered
     # and which actions the button must trigger.
     #
     # It takes into account:
-    # - if endorsements are enabled
+    # - if likes are enabled
     # - if users are logged in
     # - if users require verification
     def show
@@ -29,17 +29,17 @@ module Decidim
       "button button__sm button__transparent-secondary"
     end
 
-    # The resource being un/endorsed is the Cell's model.
+    # The resource being un/liked is the Cell's model.
     def resource
       model
     end
 
-    # produce the path to endorsements from the engine routes as the cell does not have access to routes
+    # produce the path to likes from the engine routes as the cell does not have access to routes
     def endorsements_path(*)
       decidim.endorsements_path(*)
     end
 
-    # produce the path to an endorsement from the engine routes as the cell does not have access to routes
+    # produce the path to an like from the engine routes as the cell does not have access to routes
     def endorsement_path(*)
       decidim.endorsement_path(*)
     end
@@ -59,11 +59,11 @@ module Decidim
     end
 
     def endorse_allowed?
-      allowed_to?(:create, :endorsement, resource:)
+      allowed_to?(:create, :like, resource:)
     end
 
     def endorse_translated
-      @endorse_translated ||= resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : t("decidim.endorsement_buttons_cell.endorse")
+      @endorse_translated ||= resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : t("decidim.endorsement_buttons_cell.like")
     end
 
     def endorse_icon

@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Endorse Proposal" do
-  include_context "with resources to be endorsed or not"
+describe "Like Proposal" do
+  include_context "with resources to be liked or not"
 
   let(:manifest_name) { "proposals" }
   let!(:resources) { create_list(:proposal, 3, component:) }
@@ -16,5 +16,5 @@ describe "Endorse Proposal" do
            participatory_space: participatory_process)
   end
 
-  it_behaves_like "Endorse resource system specs"
+  it_behaves_like "Like resource system specs"
 end

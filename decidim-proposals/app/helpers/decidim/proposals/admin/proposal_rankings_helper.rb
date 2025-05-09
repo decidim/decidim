@@ -26,7 +26,7 @@ module Decidim
           { ranking: ranked_ids.index(proposal.id) + 1, total: ranked_ids.count }
         end
 
-        # Public: Gets the ranking for a given proposal, ordered by endorsements.
+        # Public: Gets the ranking for a given proposal, ordered by likes.
         def endorsements_ranking_for(proposal)
           ranking_for(proposal, endorsements_count: :desc)
         end

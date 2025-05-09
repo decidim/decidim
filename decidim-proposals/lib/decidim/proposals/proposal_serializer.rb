@@ -40,8 +40,8 @@ module Decidim
           answered_at: proposal.answered_at,
           votes: (proposal.proposal_votes_count unless
           proposal.component.current_settings.votes_hidden?),
-          endorsements: {
-            total_count: proposal.endorsements.size,
+          likes: {
+            total_count: proposal.likes.size,
             user_endorsements:
           },
           comments: proposal.comments_count,
@@ -90,7 +90,7 @@ module Decidim
       end
 
       def user_endorsements
-        proposal.endorsements.for_listing.map { |identity| identity.author&.name }
+        proposal.likes.for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url

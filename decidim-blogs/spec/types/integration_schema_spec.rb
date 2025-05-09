@@ -25,7 +25,7 @@ describe "Decidim::Api::QueryType" do
           commentsHaveAlignment
           commentsHaveVotes
           createdAt
-          endorsements {
+          likes {
             id
             avatarUrl
             badge
@@ -77,7 +77,7 @@ describe "Decidim::Api::QueryType" do
       "commentsHaveAlignment" => true,
       "commentsHaveVotes" => true,
       "createdAt" => post.created_at.to_time.iso8601,
-      "endorsements" => post.endorsements.map do |endo|
+      "likes" => post.likes.map do |endo|
         {
           "__typename" => "User",
           "avatarUrl" => endo.author.attached_uploader(:avatar).variant_url(:thumb),
@@ -170,7 +170,7 @@ describe "Decidim::Api::QueryType" do
               commentsHaveAlignment
               commentsHaveVotes
               createdAt
-              endorsements {
+              likes {
                 id
                 avatarUrl
                 badge

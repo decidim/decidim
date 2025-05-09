@@ -13,7 +13,7 @@ module Decidim
       let(:coauthorable) { proposal }
 
       include_examples "coauthorable"
-      include_examples "endorsable"
+      include_examples "likable"
       include_examples "has component"
       include_examples "has taxonomies"
       include_examples "has reference"

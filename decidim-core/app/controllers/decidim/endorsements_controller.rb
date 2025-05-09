@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Exposes the `Endorsements` so that users can endorse resources.
+  # Exposes the `Likes` so that users can like resources.
   class EndorsementsController < Decidim::Components::BaseController
     # we need to +include+ to be able to call :endorsement_button from the view
     include Decidim::EndorsableHelper
@@ -13,7 +13,7 @@ module Decidim
     before_action :authenticate_user!
 
     def create
-      enforce_permission_to(:create, :endorsement, resource:)
+      enforce_permission_to(:create, :like, resource:)
 
       EndorseResource.call(resource, current_user) do
         on(:ok) do
@@ -28,7 +28,7 @@ module Decidim
     end
 
     def destroy
-      enforce_permission_to(:withdraw, :endorsement, resource:)
+      enforce_permission_to(:withdraw, :like, resource:)
 
       UnendorseResource.call(resource, current_user) do
         on(:ok) do

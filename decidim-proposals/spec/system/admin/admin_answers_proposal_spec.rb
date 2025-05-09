@@ -74,7 +74,7 @@ describe "Admin answers proposals" do
 
       it_behaves_like "successful handling of proposal answers"
 
-      context "when proposal has endorsers" do
+      context "when proposal has likes" do
         let!(:proposals) { create_list(:proposal, 3, :with_endorsements, component:, cost_report: {}) }
 
         it_behaves_like "successful handling of proposal answers"

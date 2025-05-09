@@ -69,15 +69,15 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       before do
         2.times do
-          create(:endorsement, resource: proposal, author: build(:user, organization:))
+          create(:like, resource: proposal, author: build(:user, organization:))
         end
         3.times do
-          create(:endorsement, resource: hidden_proposal, author: build(:user, organization:))
+          create(:like, resource: hidden_proposal, author: build(:user, organization:))
         end
       end
 
-      it "counts the endorsements from visible proposals" do
-        expect(Decidim::Endorsement.count).to eq 5
+      it "counts the likes from visible proposals" do
+        expect(Decidim::Like.count).to eq 5
         expect(subject).to eq 2
       end
     end

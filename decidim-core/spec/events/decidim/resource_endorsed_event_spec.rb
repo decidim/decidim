@@ -7,5 +7,5 @@ describe Decidim::ResourceEndorsedEvent do
   let(:resource_type) { "Dummy resource" }
   let(:resource_text) { resource.body }
 
-  it_behaves_like "resource endorsed event"
+  it_behaves_like "resource liked event"
 end

@@ -104,7 +104,7 @@ en:
           comment: Comment
           create: Create
           destroy: Delete
-          endorse: Endorse
+          like: Like
           update: Update
         name: Blog
         settings:
@@ -121,8 +121,8 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
+            endorsements_blocked: Likes blocked
+            endorsements_enabled: Likes enabled
     events:
       blogs:
         post_created:
@@ -149,7 +149,7 @@ en:
           comments_count: The number of comments this post has
           component: The component that the post belongs to
           created_at: The date this post was created
-          endorsements_count: The number of endorsements this post has
+          endorsements_count: The number of likes this post has
           follows_count: The number of follows this post has
           id: The unique identifier of this post
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this post belongs to

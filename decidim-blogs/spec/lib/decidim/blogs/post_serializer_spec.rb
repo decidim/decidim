@@ -74,7 +74,7 @@ module Decidim
           expect(serialized).to include(comments_count: post.comments_count)
         end
 
-        it "serializes the endorsements count" do
+        it "serializes the likes count" do
           expect(serialized).to include(endorsements_count: post.endorsements_count)
         end
 

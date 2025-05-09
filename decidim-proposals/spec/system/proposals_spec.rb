@@ -624,14 +624,14 @@ describe "Proposals" do
 
     context "when ordering by 'most_endorsed'" do
       let!(:most_endorsed_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
-      let!(:endorsements) do
+      let!(:likes) do
         3.times.collect do
-          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization:))
+          create(:like, resource: most_endorsed_proposal, author: build(:user, organization:))
         end
       end
       let!(:less_endorsed_proposal) { create(:proposal, component:) }
 
-      it_behaves_like "ordering proposals by selected option", "Most endorsed" do
+      it_behaves_like "ordering proposals by selected option", "Most liked" do
         let(:first_proposal) { most_endorsed_proposal }
         let(:last_proposal) { less_endorsed_proposal }
       end

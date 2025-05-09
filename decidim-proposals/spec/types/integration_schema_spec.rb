@@ -52,7 +52,7 @@ describe "Decidim::Api::QueryType" do
           }
           createdAt
           createdInMeeting
-          endorsements {
+          likes {
             id
             deleted
              name
@@ -136,7 +136,7 @@ describe "Decidim::Api::QueryType" do
       "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
       "createdAt" => proposal.created_at.to_time.iso8601,
       "createdInMeeting" => proposal.created_in_meeting?,
-      "endorsements" => proposal.endorsements.map do |e|
+      "likes" => proposal.likes.map do |e|
         { "deleted" => e.author.deleted?,
           "id" => e.author.id.to_s,
           "name" => e.author.name,
@@ -144,7 +144,7 @@ describe "Decidim::Api::QueryType" do
           "organizationName" => { "translation" => translated(e.author.organization.name) },
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
-      "endorsementsCount" => proposal.endorsements.size,
+      "endorsementsCount" => proposal.likes.size,
       "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
       "hasComments" => proposal.comment_threads.size.positive?,
       "id" => proposal.id.to_s,
@@ -252,7 +252,7 @@ describe "Decidim::Api::QueryType" do
               }
               createdAt
               createdInMeeting
-              endorsements {
+              likes {
                 id
                 deleted
                  name

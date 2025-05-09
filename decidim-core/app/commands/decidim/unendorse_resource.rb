@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with all the business logic to unendorse a resource.
+  # A command with all the business logic to unlike a resource.
   class UnendorseResource < Decidim::Command
     # Public: Initializes the command.
     #
-    # resource     - A Decidim::Endorsable object.
+    # resource     - A Decidim::Likable object.
     # current_user - The current user.
     def initialize(resource, current_user)
       @resource = resource
@@ -26,7 +26,7 @@ module Decidim
     private
 
     def destroy_resource_endorsement
-      query = @resource.endorsements.where(author: @current_user)
+      query = @resource.likes.where(author: @current_user)
 
       query.destroy_all
     end

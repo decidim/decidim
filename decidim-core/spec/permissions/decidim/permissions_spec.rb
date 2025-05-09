@@ -331,7 +331,7 @@ describe Decidim::Permissions do
       end
     end
 
-    it_behaves_like "with endorsable permissions can perform actions related to endorsable"
+    it_behaves_like "with likable permissions can perform actions related to likable"
 
     context "when action is on notifications" do
       let(:action_subject) { :notification }

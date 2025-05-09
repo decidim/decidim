@@ -13,7 +13,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
-      include Decidim::Endorsable
+      include Decidim::Likable
       include Decidim::Followable
       include Decidim::Reportable
       include Decidim::Publicable

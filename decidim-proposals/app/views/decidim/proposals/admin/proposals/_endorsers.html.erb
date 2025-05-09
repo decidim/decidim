@@ -1,7 +1,7 @@
 <div class="card-section">
   <div class="row column">
-    <span class="component__show-title"><%= t "endorsers", scope: "decidim.proposals.admin.proposals.show" %></span>
-    <ul id="proposal-endorsers-list">
+    <span class="component__show-title"><%= t "likes", scope: "decidim.proposals.admin.proposals.show" %></span>
+    <ul id="proposal-likes-list">
       <% presented_endorsers.first(5).each do |presented_endorser| %>
         <li>
           <%= link_to_if(

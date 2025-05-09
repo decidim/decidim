@@ -109,7 +109,7 @@ shared_examples_for "connection has endorsement_count sort" do |connection|
   describe "ASC" do
     let(:query) { %[{ #{connection}(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
 
-    it "returns the most endorsed last" do
+    it "returns the most liked last" do
       expect(response[connection]["edges"].count).to eq(4)
       expect(response[connection]["edges"].last["node"]["id"]).to eq(most_endorsed.id.to_s)
     end
@@ -118,7 +118,7 @@ shared_examples_for "connection has endorsement_count sort" do |connection|
   describe "DESC" do
     let(:query) { %[{ #{connection}(order: {endorsementCount: "DESC"}) { edges { node { id } } } }] }
 
-    it "returns the most endorsed first" do
+    it "returns the most liked first" do
       expect(response[connection]["edges"].count).to eq(4)
       expect(response[connection]["edges"].first["node"]["id"]).to eq(most_endorsed.id.to_s)
     end

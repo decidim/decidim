@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with all the business logic related with a user endorsing a resource.
-  # This is a user creates and endorsement.
+  # A command with all the business logic related with a user liking a resource.
+  # This is a user creates and like.
   class EndorseResource < Decidim::Command
     # Public: Initializes the command.
     #
-    # resource     - An instance of Decidim::Endorsable.
+    # resource     - An instance of Decidim::Likable.
     # current_user - The current user.
     def initialize(resource, current_user)
       @resource = resource
@@ -20,10 +20,10 @@ module Decidim
     #
     # Returns nothing.
     def call
-      endorsement = build_resource_endorsement
-      if endorsement.save
+      like = build_resource_endorsement
+      if like.save
         notify_endorser_followers
-        broadcast(:ok, endorsement)
+        broadcast(:ok, like)
       else
         broadcast(:invalid)
       end
@@ -34,7 +34,7 @@ module Decidim
     private
 
     def build_resource_endorsement
-      @resource.endorsements.build(author: @current_user)
+      @resource.likes.build(author: @current_user)
     end
 
     def notify_endorser_followers

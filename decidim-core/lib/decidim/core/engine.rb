@@ -691,7 +691,7 @@ module Decidim
         config.to_prepare do
           Decidim::AuthorizationTransfer.register(:core) do |transfer|
             transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
-            transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+            transfer.move_records(Decidim::Like, :decidim_author_id)
             transfer.move_records(Decidim::Amendment, :decidim_user_id)
           end
         end

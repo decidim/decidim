@@ -20,7 +20,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw amend comment vote_comment)
+  component.actions = %w(like vote create withdraw amend comment vote_comment)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
@@ -90,7 +90,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.reported_content_cell = "decidim/proposals/reported_content"
-    resource.actions = %w(endorse vote amend comment vote_comment)
+    resource.actions = %w(like vote amend comment vote_comment)
     resource.searchable = true
   end
 

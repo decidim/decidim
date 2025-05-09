@@ -951,7 +951,7 @@ FactoryBot.define do
     user { create(:user, :confirmed) }
   end
 
-  factory :endorsement, class: "Decidim::Endorsement" do
+  factory :like, class: "Decidim::Like" do
     transient do
       skip_injection { false }
     end

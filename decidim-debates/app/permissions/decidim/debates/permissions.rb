@@ -19,7 +19,7 @@ module Decidim
           allow!
         when :edit
           can_edit_debate?
-        when :endorse
+        when :like
           can_endorse_debate?
         when :close
           can_close_debate?

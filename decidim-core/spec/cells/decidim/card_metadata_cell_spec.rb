@@ -66,16 +66,16 @@ describe Decidim::CardMetadataCell, type: :cell do
     context "when endorsements_count enabled" do
       let(:items_list) { [:endorsements_count_item] }
 
-      context "and endorsements count is zero" do
+      context "and likes count is zero" do
         it "displays 0" do
           expect(cell_html).to have_content("0")
         end
       end
 
-      context "and endorsements count is positive" do
+      context "and likes count is positive" do
         let(:endorsements_count) { 123 }
 
-        it "displays the count of endorsements" do
+        it "displays the count of likes" do
           expect(cell_html).to have_content("123")
         end
       end

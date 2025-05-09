@@ -171,7 +171,7 @@ module Decidim
           end
         end
 
-        context "with endorsements enabled" do
+        context "with likes enabled" do
           let(:endorsements_enabled) { true }
 
           it "shows most_endorsed option to sort" do
@@ -179,7 +179,7 @@ module Decidim
           end
         end
 
-        context "with endorsements disabled" do
+        context "with likes disabled" do
           let(:endorsements_enabled) { false }
 
           it "does not show most_endorsed option to sort" do

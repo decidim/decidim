@@ -53,7 +53,7 @@ module Decidim
     end
 
     def endorsements_query
-      Decidim::Endorsement
+      Decidim::Like
         .where(resource: space_components)
         .pluck(:decidim_author_id)
         .uniq

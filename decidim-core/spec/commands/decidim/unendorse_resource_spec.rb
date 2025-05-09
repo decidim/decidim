@@ -4,25 +4,25 @@ require "spec_helper"
 
 module Decidim
   describe UnendorseResource do
-    describe "user unendorse resource" do
-      let(:endorsement) { create(:endorsement) }
-      let(:command) { described_class.new(endorsement.resource, endorsement.author) }
+    describe "user unlike resource" do
+      let(:like) { create(:like) }
+      let(:command) { described_class.new(like.resource, like.author) }
 
       it "broadcasts ok" do
-        expect(endorsement).to be_valid
+        expect(like).to be_valid
         expect { command.call }.to broadcast :ok
       end
 
-      it "removes the endorsement" do
-        expect(endorsement).to be_valid
+      it "removes the like" do
+        expect(like).to be_valid
         expect do
           command.call
-        end.to change(Endorsement, :count).by(-1)
+        end.to change(Like, :count).by(-1)
       end
 
-      it "decreases the endorsements counter by one" do
-        resource = endorsement.resource
-        expect(Endorsement.count).to eq(1)
+      it "decreases the likes counter by one" do
+        resource = like.resource
+        expect(Like.count).to eq(1)
         expect do
           command.call
           resource.reload
