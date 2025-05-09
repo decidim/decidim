@@ -40,7 +40,10 @@ module Decidim
 
       def interpolate_custom_message(template)
         title = translated_attribute(resource.title).to_s
-        template.gsub("{{meeting_title}}", title)
+        hours = resource.send_reminders_before_hours.to_s
+        template
+          .gsub("{{meeting_title}}", title)
+          .gsub("{{reminders_before_hours}}", hours)
       end
     end
   end

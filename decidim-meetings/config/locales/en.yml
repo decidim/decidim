@@ -251,7 +251,7 @@ en:
           email_subject: The "%{resource_title}" meeting has enabled registrations.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          default_body: The "{{meeting_title}}" meeting will start in less than 48h.
+          default_body: The "{{meeting_title}}" meeting will start in less than {{reminders_before_hours}}h.
           email_intro: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
           email_outro: You have received this notification because you are following the %{resource_title} meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
