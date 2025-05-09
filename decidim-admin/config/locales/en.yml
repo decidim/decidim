@@ -589,6 +589,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        insights: Insights
         manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
@@ -601,6 +602,7 @@ en:
         share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
         users: Participants
@@ -1245,7 +1247,7 @@ en:
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        statistics: Activity
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters for "%{taxonomy}"
         users: Administrators
@@ -1348,5 +1350,7 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        insights:
+          title: Insights
         taxonomy_filters_selector:
           title: Filters

@@ -18,10 +18,10 @@ module Decidim
 
         if organization.taxonomies.none?
           taxonomy = create_taxonomy!(name: "Scopes", parent: nil)
-          3.times do
+          number_of_records.times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Address.state, parent: taxonomy)
 
-            5.times do
+            number_of_records.times do
               create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
             end
           end
@@ -32,12 +32,12 @@ module Decidim
 
           taxonomy = create_taxonomy!(name: "Areas", parent: nil)
           sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
-          3.times do
+          number_of_records.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
 
           sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
-          5.times do
+          number_of_records.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
           # filters for all participatory except conferences
@@ -46,10 +46,10 @@ module Decidim
                                   participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name) - [:conferences])
 
           taxonomy = create_taxonomy!(name: "Categories", parent: nil)
-          3.times do
+          number_of_records.times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: taxonomy)
 
-            5.times do
+            number_of_records.times do
               create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
             end
           end
@@ -62,10 +62,10 @@ module Decidim
           province = create_scope_type!(name: "province", plural: "provinces")
           municipality = create_scope_type!(name: "municipality", plural: "municipalities")
 
-          3.times do
+          number_of_records.times do
             parent = create_scope!(scope_type: province, parent: nil)
 
-            5.times do
+            number_of_records.times do
               create_scope!(scope_type: municipality, parent:)
             end
           end
@@ -74,11 +74,11 @@ module Decidim
         territorial = create_area_type!(name: "territorial", plural: "territorials")
         sectorial = create_area_type!(name: "sectorials", plural: "sectorials")
 
-        3.times do
+        number_of_records.times do
           create_area!(area_type: territorial)
         end
 
-        5.times do
+        number_of_records.times do
           create_area!(area_type: sectorial)
         end
 

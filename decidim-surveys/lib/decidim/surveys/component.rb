@@ -29,19 +29,24 @@ Decidim.register_component(:surveys) do |component|
     resource.actions = %w(response)
   end
 
-  component.register_stat :surveys_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :surveys_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          sub_title: "responses",
+                          icon_name: "survey-line",
+                          tooltip_key: "surveys_count_tooltip" do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)
     surveys = surveys.where(created_at: start_at..) if start_at.present?
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
-    surveys.count
-  end
-
-  component.register_stat :responses_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    responses = Decidim::Forms::Response.where(questionnaire: surveys.map(&:questionnaire))
+    first = surveys.count
+    participatory_space_surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
+    responses = Decidim::Forms::Response.where(questionnaire: participatory_space_surveys.map(&:questionnaire))
     responses = responses.where(created_at: start_at..) if start_at.present?
     responses = responses.where(created_at: ..end_at) if end_at.present?
-    responses.group(:session_token).count.size
+    [
+      first,
+      responses.group(:session_token).count.size
+    ]
   end
 
   # These actions permissions can be configured in the admin panel

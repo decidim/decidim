@@ -78,7 +78,45 @@ module Decidim
 
       # @return [Float]
       def calculate_automatic_influence
+        (approved_proposals_score +
+          approved_citizen_proposals_relative_score +
+          approved_citizen_proposals_absolute_score +
+          citizen_linked_results_score) / 4.0
+      end
+
+      # @return [Float]
+      def approved_proposals_score
         percentage_to_scale(all_proposals.accepted.count, all_proposals.count)
+      end
+
+      # @return [Float]
+      def approved_citizen_proposals_relative_score
+        approved_citizen_proposals_count = all_proposals.accepted.where(author_type: "Decidim::User").count
+        total_citizen_proposals_count = all_proposals.where(author_type: "Decidim::User").count
+
+        percentage_to_scale(approved_citizen_proposals_count, total_citizen_proposals_count)
+      end
+
+      # @return [Float]
+      def approved_citizen_proposals_absolute_score
+        approved_citizen_proposals_count = all_proposals.accepted.where(author_type: "Decidim::User").count
+
+        percentage_to_scale(approved_citizen_proposals_count, all_proposals.accepted.count)
+      end
+
+      # @return [Float]
+      def citizen_linked_results_score
+        citizen_results = all_proposals
+                          .joins(:resource_links_from)
+                          .where(
+                            author_type: "Decidim::User",
+                            decidim_resource_links: {
+                              name: "linked_results",
+                              to_type: "Decidim::Accountability::Result"
+                            }
+                          )
+
+        percentage_to_scale(citizen_results.count, all_accountability_results.count)
       end
 
       # Hybridization
