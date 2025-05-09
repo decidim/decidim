@@ -1,7 +1,7 @@
 <div class="questionnaire-questions form__wrapper">
   <div class="row column text-center my-4">
-    <button type="button" class="button button__sm button__transparent-secondary collapse-all"><%= t(".collapse") %></button>
-    <button type="button" class="button button__sm button__transparent-secondary expand-all"><%= t(".expand") %></button>
+    <button type="button" class="button button__xs button__transparent-secondary collapse-all"><%= t(".collapse") %></button>
+    <button type="button" class="button button__xs button__transparent-secondary expand-all"><%= t(".expand") %></button>
   </div>
 
   <%= fields_for "questions[questions][#{blank_question.to_param}]", blank_question do |question_form| %>

@@ -16,7 +16,7 @@ describe "Admin manages demographics" do
     before do
       visit decidim_admin.root_path
       click_on "Insights"
-      click_on "Demographics Settings"
+      click_on "Demographics"
     end
 
     context "and not collecting data" do
