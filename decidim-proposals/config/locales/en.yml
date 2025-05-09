@@ -96,9 +96,9 @@ en:
       decidim:
         proposals:
           proposal:
-            budget_text: The proposal %{link} was created
+            budget_text: The proposal <span class="resource-link">%{link} was created</span>
             import_from_proposal_text: 'It became this proposal: %{link}'
-            import_to_proposal_text: This proposal %{link} was created
+            import_to_proposal_text: This proposal <span "resource-link">%{link} was created</span>
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
             split_from_proposal_text: 'It became this proposal: %{link}'

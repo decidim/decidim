@@ -1,24 +1,26 @@
 <div class="statistic <%= stat_dom_class %>" data-statistic>
   <div class="statistic__header">
     <div class="statistic__metric">
-      <span class="statistic__title" title="<%= stat_title %>">
+      <div class="statistic__title" title="<%= stat_title %>">
         <%= stat_title %>
-      </span>
-      <span class="statistic__tooltip">
+      </div>
+      <div class="statistic__tooltip">
         <%= information_tooltip %>
-      </span>
+      </div>
     </div>
-    <span class="statistic__icon">
+    <div class="statistic__icon">
       <%= stat_icon %>
-    </span>
+    </div>
   </div>
   <% if second_stat_number %>
-    <span class="statistic__second-number">
+    <div class="statistic__second-number">
       <%= stat_sub_title %>
       <span class="font-semibold"><%= second_stat_number %></span>
-    </span>
+    </div>
+  <% else %>
+    <p class="h-[21px]"></p>
   <% end %>
-  <span class="statistic__number">
+  <div class="statistic__number">
     <%= stat_number %>
-  </span>
+  </div>
 </div>

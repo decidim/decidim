@@ -1,0 +1,20 @@
+<div data-component="accordion" id="collaborative-texts-box-{{ID}}">
+  <button class="button button__sm button__text-secondary mt-2 mb-4 px-2" data-controls="panel-box-{{ID}}" aria-label="<%= t("decidim.collaborative_texts.document.toggle") %>" aria-expanded="false">
+    <span>
+      <%= icon("award-line", class: "icon icon-pending") %>
+      <%= icon("check-line", class: "icon icon-hover") %>
+      <%= icon("check-double-fill", class: "icon icon-applied") %>
+
+      <%= counter = t("decidim.collaborative_texts.document.suggestions_count", count: '<span class="collaborative-texts-suggestions-box-items-count"></span>').html_safe %>
+    </span>
+    <%= icon "arrow-down-s-line" %>
+    <span>
+      <%= icon("award-line", class: "icon icon-pending") %>
+      <%= icon("check-line", class: "icon icon-hover") %>
+      <%= icon("check-double-fill", class: "icon icon-applied") %>
+      <%= counter %>
+    </span>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+  <div class="collaborative-texts-suggestions-box-items" id="panel-box-{{ID}}" aria-hidden="true"></div>
+</div>
