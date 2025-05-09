@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Document from the admin
       # panel.
       class CreateDocument < Decidim::Commands::CreateResource
-        fetch_form_attributes :title, :body, :component
+        fetch_form_attributes :title, :body, :coauthorships, :component
 
         private
 
