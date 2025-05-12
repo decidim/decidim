@@ -156,7 +156,7 @@ describe "User edit meeting" do
 
     context "when the proposal module is installed" do
       before do
-        allow(Decidim).to receive(:module_installed?).and_call_original
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do
