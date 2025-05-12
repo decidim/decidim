@@ -5,12 +5,9 @@ module Decidim
     module Admin
       class Permissions < Decidim::DefaultPermissions
         def permissions
-          return permission_action unless user
-
-          # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          return permission_action if permission_action.subject != :document
+          return permission_action if permission_action.subject != :collaborative_text
 
           case permission_action.action
           when :update, :read, :create, :destroy

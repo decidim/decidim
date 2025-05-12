@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <% if allowed_to? :update, :collaborative_text_document, document: document %>
+    <% if allowed_to? :update, :collaborative_text, document: document %>
       <%= link_to translated_attribute(document.title), edit_document_path(document) %><br>
     <% else %>
       <%= translated_attribute(document.title) %><br>
