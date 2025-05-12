@@ -37,6 +37,11 @@ module Decidim
       field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this process.", null: false
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process.", null: true
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process.", null: true
+      field :url, GraphQL::Types::String, "The URL of this participatory process.", null: true
+
+      def url
+        Decidim::EngineRouter.main_proxy(object).participatory_process_url(object)
+      end
 
       def hero_image
         object.attached_uploader(:hero_image).url

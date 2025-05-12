@@ -140,6 +140,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
+
       context "when is answered" do
         before do
           model.answer = { en: "Some answer" }

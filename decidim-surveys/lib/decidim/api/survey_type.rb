@@ -16,6 +16,11 @@ module Decidim
       field :published_at, Decidim::Core::DateTimeType, description: "The date and time this survey was published", null: true
       field :questionnaire, Decidim::Forms::QuestionnaireType, "The questionnaire for this survey", null: true
       field :starts_at, Decidim::Core::DateTimeType, "The time this survey starts accepting answers", null: true
+      field :url, GraphQL::Types::String, "The URL for this survey", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
 
       def self.authorized?(object, context)
         context[:survey] = object

@@ -23,19 +23,21 @@ $(() => {
       radio.addEventListener("change", function() {
         switch (radio.value) {
         case "create_new_form":
+          disabledContinueButton.classList.add("!hidden");
+          withTemplateButton.classList.add("!hidden");
+          createNewFormButton.classList.remove("!hidden");
+
           chooseTemplateWrapper.classList.add("hidden");
-          disabledContinueButton.classList.add("hidden");
-          withTemplateButton.classList.add("hidden");
+
           questionnaireTemplatePreview.classList.add("hidden");
-          createNewFormButton.classList.remove("hidden");
           break;
 
         case "select_template":
+          disabledContinueButton.classList.remove("!hidden");
+          createNewFormButton.classList.add("!hidden");
+
           chooseTemplateWrapper.classList.remove("hidden");
-          disabledContinueButton.classList.remove("hidden");
           questionnaireTemplatePreview.classList.remove("hidden");
-          createNewFormButton.classList.add("hidden");
-          // withTemplateButton.classList.add("hidden");
 
           // Clean-up old values in case the admin is changing between the options after filling 'Select template'
           // chooseTemplateWrapper.classList.add("hide");
@@ -67,8 +69,8 @@ $(() => {
       error: (data) => (console.error(data))
     });
 
-    disabledContinueButton.classList.add("hidden");
-    withTemplateButton.classList.remove("hidden");
+    disabledContinueButton.classList.add("!hidden");
+    withTemplateButton.classList.remove("!hidden");
   }
 
   datalistSelect(chooseTemplateWrapper, preview)

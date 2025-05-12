@@ -41,8 +41,8 @@ describe "Decidim::Api::QueryType" do
       "state" => initiative.state,
       "title" => { "translation" => initiative.title[locale] },
       "type" => initiative.class.name,
-      "updatedAt" => initiative.updated_at.to_time.iso8601
-
+      "updatedAt" => initiative.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(initiative).initiative_url(initiative)
     }
   end
   let(:initiative_type_data) do
@@ -126,6 +126,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
       }
     )
   end
@@ -229,6 +230,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
       }
     )
     end
