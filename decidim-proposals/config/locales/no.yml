@@ -233,19 +233,6 @@
           name: Forslag
           next_level_in: Opprett %{score} flere forslag for å nå neste nivå!
           unearned_own: Du har ikke opprettet noen forslag ennå.
-    metrics:
-      accepted_proposals:
-        description: Antall forslag akseptert
-        object: forslag
-        title: Godkjente forslag
-      endorsements:
-        description: Antall påtegnelser til forslag
-        object: påtegnelser
-        title: Påtegnelser
-      proposals:
-        description: Antall forslag
-        object: forslag
-        title: Forslag
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle

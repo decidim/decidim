@@ -32,7 +32,7 @@ module Decidim
       end
 
       def display_map?
-        maps_enabled? && !online?
+        maps_enabled? && !online? && model.address.present?
       end
     end
   end

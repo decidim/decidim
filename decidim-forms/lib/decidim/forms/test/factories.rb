@@ -145,7 +145,7 @@ FactoryBot.define do
     questionnaire
     question { create(:questionnaire_question, questionnaire:, skip_injection:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
-    session_token { Digest::MD5.hexdigest(user.id.to_s) }
+    session_token { Digest::SHA256.hexdigest(user.id.to_s) }
 
     trait :with_attachments do
       after(:create) do |response, evaluator|

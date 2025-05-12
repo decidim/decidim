@@ -229,11 +229,6 @@ id:
           not_found: 'Perakitan tidak ditemukan di database (ID: %{id})'
     menu:
       assemblies: Assemblies
-    metrics:
-      assemblies:
-        description: Jumlah rakitan dibuat
-        object: majelis
-        title: Assemblies
   layouts:
     decidim:
       assemblies:

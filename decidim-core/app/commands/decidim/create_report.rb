@@ -34,7 +34,7 @@ module Decidim
       send_report_notification_to_moderators
 
       if hideable?
-        hide!
+        @tool.hide!
         send_hide_notification_to_moderators
       end
 
@@ -72,16 +72,15 @@ module Decidim
       hidden_by_admin? || (!@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding)
     end
 
-    def hide!
-      @tool.hide!
-      @tool.send_notification_to_author
-    end
-
     def send_hide_notification_to_moderators
       participatory_space_moderators.each do |moderator|
         next unless moderator.email_on_moderations
 
-        ReportedMailer.hide(moderator, @report).deliver_later
+        if hidden_by_admin?
+          ReportedMailer.hidden_manually(moderator, @report, current_user).deliver_later
+        else
+          ReportedMailer.hidden_automatically(moderator, @report).deliver_later
+        end
       end
     end
   end

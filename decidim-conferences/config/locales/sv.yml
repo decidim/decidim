@@ -236,6 +236,7 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
+            evaluator: Utvärderare
             moderator: Moderator
         media_link:
           fields:

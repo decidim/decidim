@@ -10,7 +10,6 @@ zh-CN:
         instructions: 参与说明
         start_time: 开始于
         title: 标题
-        user_group_id: 创建辩论为
     models:
       decidim/debates/close_debate_event: 辩论结束
       decidim/debates/create_debate_event: B. 辩论
@@ -103,7 +102,6 @@ zh-CN:
         new:
           back: 后退
           create: 创建
-          title: 新的辩论
         orders:
           commented: 最多评论
           label: 排序由
@@ -114,7 +112,6 @@ zh-CN:
           debate_closed: 已关闭
           debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
           edit_conclusions: 编辑结论
-          groups_count: 群組
           participants_count: 参加者
         update:
           invalid: 有人在更新辩论时遇到问题。
@@ -167,8 +164,3 @@ zh-CN:
           name: 辩论
           next_level_in: 参加更多的 %{score} 次辩论，以达到下一级！
           unearned_another: 这位与会者尚未参加任何辩论。
-    metrics:
-      debates:
-        description: 创建的辩论数
-        object: 辩论情况
-        title: 辩论

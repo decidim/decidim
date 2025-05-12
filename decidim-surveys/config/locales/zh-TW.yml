@@ -7,13 +7,9 @@ zh-TW:
     models:
       decidim/surveys/survey:
         other: 調查
-      decidim/surveys/survey_answer:
-        other: 回答
   decidim:
     components:
       surveys:
-        actions:
-          answer: 回答
         settings:
           global:
             announcement: 公告
@@ -31,25 +27,11 @@ zh-TW:
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
           email_subject: 在%{participatory_space_title} 中的新調查
           notification_title: 現在開放在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中的<a href="%{resource_path}">%{resource_title}</a>調查。
-    metrics:
-      survey_answers:
-        description: 參與者回答調查的數量
-        object: 參與調查的回答
-        title: 參與調查的回答
-    statistics:
-      answers_count: 回答
     surveys:
       admin:
-        exports:
-          survey_user_answers: 參與者問卷回答
         surveys:
           update:
             invalid: 儲存問卷時出現問題。
             success: 問卷成功儲存
       last_activity:
         new_survey: '新問卷調查'
-      surveys:
-        answer:
-          invalid: 回答問卷時出現問題。
-          spam_detected: 回答表單時出現問題。也許您回答太快了，可以再試一次嗎?
-          success: 問卷回答成功。

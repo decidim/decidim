@@ -87,7 +87,7 @@ es-PY:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
-          empty: Aún no hay ninguna publicación.
+          empty: Aún no hay publicaciones.
           new_post: Nueva publicación
         menu_actions:
           button_destroy: Eliminar la publicación

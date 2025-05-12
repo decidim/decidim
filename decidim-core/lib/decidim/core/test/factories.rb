@@ -865,6 +865,18 @@ FactoryBot.define do
     scopes { "public" }
   end
 
+  factory :private_export, class: "Decidim::PrivateExport" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    expires_at { 1.week.from_now }
+    attached_to { create(:user, organization:, skip_injection:) }
+    export_type { "dummy" }
+    content_type { "application/zip" }
+    file_size { 10.kilobytes }
+  end
+
   factory :searchable_resource, class: "Decidim::SearchableResource" do
     transient do
       skip_injection { false }
@@ -901,20 +913,6 @@ FactoryBot.define do
     end
     name { generate(:hashtag_name) }
     organization
-  end
-
-  factory :metric, class: "Decidim::Metric" do
-    transient do
-      skip_injection { false }
-    end
-    organization
-    day { Time.zone.today }
-    metric_type { "random_metric" }
-    cumulative { 2 }
-    quantity { 1 }
-    category { create(:category) }
-    participatory_space { create(:participatory_process, organization:, skip_injection:) }
-    related_object { create(:component, participatory_space:, skip_injection:) }
   end
 
   factory :amendment, class: "Decidim::Amendment" do

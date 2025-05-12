@@ -105,17 +105,31 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing and type of meeting is in_person" do
+    describe "address and location" do
       let(:type_of_meeting) { "in_person" }
-      let(:location) { { en: nil } }
 
-      it { is_expected.not_to be_valid }
-    end
+      context "when both location and address are blank" do
+        let(:address) { nil }
+        let(:location) { { "en" => "" } }
 
-    describe "when address is missing" do
-      let(:address) { nil }
+        it { is_expected.to be_valid }
+      end
 
-      it { is_expected.not_to be_valid }
+      context "when both location and address are present" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when location is present but address is blank" do
+        let(:address) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when address is present but location is blank" do
+        let(:location) { { "en" => "" } }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
     describe "when start_time is missing" do

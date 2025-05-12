@@ -4,6 +4,13 @@
       <div class="row column">
         <%= form.text_field :title, autofocus: true, aria: { label: :title } %>
       </div>
+
+      <div class="row column">
+        <% if local_assigns[:has_suggestions] %>
+          <%= cell("decidim/announcement", t("decidim.collaborative_texts.admin.documents.edit.document_has_suggestions_html", url: resource_locator(document).path), callout_class: "warning") %>
+        <% end %>
+        <%= form.editor :body, lines: 40, aria: { label: :body }, disabled: local_assigns[:has_suggestions] %>
+      </div>
     </div>
   </div>
 </div>

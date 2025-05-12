@@ -33,6 +33,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           witnesses { translation(locale: "#{locale}") }
         }
@@ -64,13 +65,14 @@ describe "Decidim::Api::QueryType" do
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
       "reference" => sortition.reference,
-      "requestTimestamp" => sortition.request_timestamp.to_date.to_s,
+      "requestTimestamp" => sortition.request_timestamp.to_time.iso8601,
       "selectedProposals" => sortition.selected_proposals,
       "targetItems" => sortition.target_items,
       "title" => { "translation" => sortition.title[locale] },
       "totalCommentsCount" => sortition.comments_count,
       "type" => "Decidim::Sortitions::Sortition",
       "updatedAt" => sortition.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(sortition).url,
       "userAllowedToComment" => sortition.user_allowed_to_comment?(current_user),
       "witnesses" => { "translation" => sortition.witnesses[locale] }
     }
@@ -88,6 +90,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -141,6 +144,7 @@ describe "Decidim::Api::QueryType" do
                 totalCommentsCount
                 type
                 updatedAt
+                url
                 userAllowedToComment
                 witnesses { translation(locale: "#{locale}") }
               }

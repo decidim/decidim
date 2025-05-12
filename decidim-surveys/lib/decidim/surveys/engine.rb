@@ -29,23 +29,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_surveys.register_metrics" do
-        Decidim.metrics_registry.register(:survey_responses) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Surveys::Metrics::ResponsesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(participatory_process)
-            settings.attribute :weight, type: :integer, default: 5
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :surveys) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Surveys::Metrics::SurveyParticipantsMetricMeasure"
-        end
-      end
-
       initializer "decidim_surveys.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end

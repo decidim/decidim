@@ -80,9 +80,5 @@ ga:
         settings:
           global:
             intro: Réamhrá
-    metrics:
-      results:
-        object: torthaí
-        title: Torthaí
     statistics:
       results_count: Torthaí

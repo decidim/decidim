@@ -62,7 +62,7 @@ es:
           edit:
             title: Editar la plantilla de respuesta a la propuesta
           form:
-            component_constraint_help: Tenga en cuenta que solo se listarán los espacios de participación que tengan componentes del tipo "propuestas".
+            component_constraint_help: Ten en cuenta que solo se listarán los espacios de participación que tengan componentes del tipo "propuestas".
             hint1_html: "<strong>%{organization}</strong> será reemplazado por el nombre de la organización"
             hint2_html: "<strong>%{name}</strong> será reemplazado por el nombre de la autora"
             hint3_html: "<strong>%{admin}</strong> será reemplazado por el nombre de la administradora (la que responde a la propuesta)"
@@ -75,7 +75,7 @@ es:
             proposal_state_id: Estado interno
             title: Respuestas a propuestas
           new:
-            title: Nueva la plantilla de respuesta a propuesta
+            title: Nueva plantilla de respuesta a propuesta
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:

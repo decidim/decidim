@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      answer:
-        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -18,7 +16,6 @@ ja:
         customize_registration_email: 登録メールのカスタマイズ
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
-        decidim_user_group_id: ユーザーグループ
         description: 説明
         end_time: 終了時間
         id: ID
@@ -52,6 +49,8 @@ ja:
       meeting_registration_invite:
         email: Eメールアドレス
         name: 名前
+      response:
+        add_documents: ドキュメントを追加
       validate_registration_code:
         code: コード
     errors:
@@ -119,7 +118,6 @@ ja:
             values:
               official: 公式
               participants: 参加者
-              user_group: ユーザーグループ
           with_any_type:
             label: ミーティングの種類
             values:
@@ -164,7 +162,7 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             maps_enabled: 地図が有効
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            registration_code_enabled: 登録コードが有効
+            registration_code_enabled: 登録コードとQRコードを有効化
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
@@ -173,14 +171,25 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
-            creation_enabled_for_user_groups: ユーザーグループによるミーティングの作成が有効です
     download_your_data:
       help:
+        invites:
+          accepted_at: この招待の承認日時
+          created_at: この招待の作成日時
+          id: この招待の固有ID
+          meeting: この招待が行われたミーティング
+          rejected_at: この招待の拒否日時
+          sent_at: この招待の送信日時
+          updated_at: この招待の最終更新日時
         registrations:
           code: 参加登録コード
+          created_at: この登録の作成日時
           id: 参加登録の固有ID
           meeting: ユーザーが参加登録したミーティング
+          public_participation: この参加状況を公開するか
+          updated_at: この登録の最終更新日時
           user: 参加登録したユーザー
+          validated_at: この登録の承認日時
       show:
         meeting_comments: ミーティングコメントのエクスポート
         meetings: ミーティングのエクスポート
@@ -211,15 +220,27 @@ ja:
           email_subject: '「%{resource_title}」ミーティングに割り当てられたスロットは %{percentage} %を超えています'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングに割り当てられたスロットは %{percentage}%を超えています。
         meeting_updated:
-          email_intro: '"%{resource_title}" ミーティングが更新されました．新しいバージョンはそのページから読むことができます:'
+          email_intro: '"%{resource_title}" ミーティングは %{changed_fields}への変更により更新されました．このページから新しいバージョンを読むことができます：'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングが更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングを更新しました。
+          field_names:
+            address: アドレス
+            end_time: 終了時刻
+            location: 場所
+            start_time: 開始時刻
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングは、 %{changed_fields} への変更により更新されました。
+        meeting_waitlist_added:
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> ミーティングの順番待ちリストに追加されました。
         registration_code_validated:
           email_intro: '「%{registration_code}」ミーティングの登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" ミーティングの登録コードが検証されたため、この通知を受け取りました。'
           email_subject: あなたの "%{registration_code}" ミーティングの登録コード "%{resource_title}" が検証されました
           notification_title: ミーティング <a href="%{resource_path}">%{resource_title} </a> に対するあなたの登録コード "%{registration_code}" が認証されました。
+        registration_marked_as_attendee:
+          email_intro: '「%{resource_title}」ミーティングへの登録が出席者としてマークされました。'
+          email_outro: '「%{resource_title}」ミーティングへの登録が出席者としてマークされたため、この通知を受け取りました。'
+          email_subject: '「%{resource_title}」ミーティングへの登録が出席者としてマークされました'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングへの登録が出席者としてマークされました。
         registrations_enabled:
           email_intro: '"%{resource_title}" ミーティングは登録を有効にしました．あなた自身をそのページに登録することができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
@@ -258,6 +279,7 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
+        mark_as_attendee: 出席者としてマーク
         new_meeting: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -295,10 +317,10 @@ ja:
             invalid: アジェンダの更新に問題がありました。
             success: アジェンダが正常に更新されました。
         exports:
-          answers: 回答
           meeting_comments: コメント
           meetings: ミーティング
           registrations: 登録
+          responses: 応答
         invite_join_meeting_mailer:
           invite:
             decline: 招待を拒否
@@ -392,15 +414,13 @@ ja:
         poll:
           form:
             announcement_html:
-              - 質問が回答を受信または公開/閉じた場合、編集できなくなります。
+              - 質問が回答を受信または公開/閉鎖した場合は、編集できなくなります。
               - 質問はいつでも追加できます。
               - 作成されたすべての質問の結果が公開されると、投票は終了します。
               - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
         registrations:
           edit:
             save: 保存
-            validate: 検証
-            validate_registration_code: 登録コードを検証する
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
@@ -408,6 +428,7 @@ ja:
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
+            registrations: 登録を表示
             registrations_count:
               other: '%{count} 件の登録がありました。'
             reserved_slots_help: 予約スロットがない場合は0にしておいてください。
@@ -416,6 +437,14 @@ ja:
           update:
             invalid: 登録設定の保存中に問題が発生しました。
             success: ミーティングの登録設定を保存しました。
+        registrations_attendees:
+          index:
+            title: 登録
+            validate: 検証
+            validate_registration_code: 登録コードを検証する
+          mark_attendee:
+            invalid: 登録は既に出席済みになっています。
+            success: 登録が出席者になりました。
           validate_registration_code:
             invalid: この登録コードは無効です。
             success: 登録コードを検証しました。
@@ -528,7 +557,6 @@ ja:
             all: すべて
             official: 事務局
             participants: 参加者
-            user_group: グループ
           search: 検索
           type: 種別
           type_values:
@@ -539,7 +567,6 @@ ja:
         form:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           available_slots_help: 無制限の場合は0のままにしてください
-          create_as: 次のユーザとしてミーティングを作成：
           disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
           iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           location_help: '場所: ユーザーにメッセージが表示されます。'
@@ -568,7 +595,7 @@ ja:
         new:
           back: 戻る
           create: 作成
-          title: ミーティングを作成
+          title: 新しいミーティングを作成
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -576,8 +603,11 @@ ja:
           attendees: 出席者数
           contributions: コントリビューション数
           join: ミーティングに参加
+          join_waitlist: 順番待ちリストに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
+          leave_waitlist: 順番待ちリストから抜ける
+          leave_waitlist_confirmation: このミーティングの順番待ちリストから退出しますか？
           link_available_soon: 間もなくリンクが利用可能です
           link_closed: ミーティングに参加するリンクは開始数分前に利用可能になります
           live_event: このミーティングは現在開催中です
@@ -585,14 +615,20 @@ ja:
           micro_camera_permissions_warning: 下のボタンをクリックすると、マイクおよび/またはカメラの権限を求められ、ビデオ会議に参加できます
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
+          pending_address: 場所はまもなく発表されます。
           redirect_notice: このミーティングは別のスペースの一部であるため、あなたは %{current_space_name} に移動されました。<br> ご希望の場合は、 <a href="%{previous_space_url}">%{previous_space_name}</a> に戻ることができます。
-          registration_code_help_text: 登録コード
+          registration_and_qr_code: 登録コードとQR コード
+          registration_code: '登録コード: %{code}'
+          registration_code_help_text: 登録コードとQR コード
           registration_state:
             validated: 有効化
             validation_pending: 保留中
           remaining_slots:
             other: "残り%{count} スロット"
           visit_finished: 過去のミーティングを表示
+          waitlist:
+            description: 空きが出た場合は、自動的に登録を処理し、メールでお知らせします。
+            status: 順番待ちリストにいます
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
           withdraw_meeting: 撤回する
@@ -620,15 +656,16 @@ ja:
             start_time: 開始日
             taxonomies: タクソノミー
             title: タイトル
+        registration:
+          actions: アクション
+          fields:
+            email: メールアドレス
+            name: 名前
+            status: ステータス
+          status:
+            attended: 出席済み
+            not_attended: 不参加
       polls:
-        answers:
-          index:
-            administrate: 管理
-            title: 投票
-          index_admin:
-            back_to_meeting: ミーティングに戻る
-            title: 投票を管理
-            view_poll: 投票を表示
         questions:
           closed_question:
             announcement: この質問への回答はクローズされました。
@@ -639,8 +676,8 @@ ja:
           index_admin:
             edit: 管理画面で編集
             question: 質問
-            received_answer: 受理した回答
-            received_answers: 受理した回答
+            received_response: 受信した回答
+            received_responses: 受信した回答
             results: 結果
             send: 送信
             sent: 送信済み
@@ -653,8 +690,15 @@ ja:
             question: 質問
             question_replied: 質問に回答しました
             reply_question: 質問に返信する
+        responses:
+          index:
+            administrate: 管理
+            title: 投票
+          index_admin:
+            back_to_meeting: ミーティングに戻る
+            title: 投票を管理
+            view_poll: 投票を表示
       public_participants_list:
-        attending_organizations: 組織
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
@@ -663,7 +707,7 @@ ja:
         confirmation:
           confirmed_html: ミーティング <a href="%{url}">%{title}</a> の登録が確認されました。
           details: ミーティングの詳細は添付ファイルにあります。
-          registration_code: 登録コードは %{code} です。
+          registration_code: あなたの登録コードは %{code} です。出席を確認するために、以下のQRコードを管理者に提示してください。
       registration_type:
         on_different_platform: 異なるプラットフォーム
         on_this_platform: このプラットフォーム
@@ -678,6 +722,9 @@ ja:
         destroy:
           invalid: このミーティングから出発する問題があった。
           success: ミーティングを正常に退会しました。
+        waitlist:
+          invalid: 順番待ちリストに参加中に問題が発生しました。
+          success: ミーティングの順番待ちリストへの登録が完了しました。登録が確定した場合は通知されます。
       type_of_meeting:
         hybrid: ハイブリッド
         in_person: 対面
@@ -689,11 +736,6 @@ ja:
       withdraw:
         error: ミーティングを取り消す際に問題がありました。
         success: ミーティングは正常に取り下げられました。
-    metrics:
-      meetings:
-        description: 作成されたミーティング数
-        object: ミーティング
-        title: ミーティング
     open_data:
       help:
         meeting_comments:
@@ -702,33 +744,62 @@ ja:
           body: コメント本体
           commentable_id: コメント対象の固有ID
           commentable_type: コメント対象の種別 (結果、提案など)
+          comments: ミーティングのコメントデータ
           created_at: このコメントが作成された日時
-          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
           id: このコメントのID
           locale: このコメントを残すときに参加者が使っていたロケール（言語）
           root_commentable_url: このコメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         meetings:
           address: ミーティングの場所、対面で行われ物理的な場所がある場合の所在地
           attachments: このミーティングの添付ファイル数
           attendees: このミーティングに出席する人数
+          attending_organizations: このミーティングに参加している組織
+          audio_url: ミーティングの音声録音
           author: このミーティングの作者のデータ
+          available_slots: ミーティングで利用可能なスロット数
+          closed_at: ミーティングの終了日時
+          closing_report: 終了したミーティングのレポート
+          closing_visible: ミーティングの可視性
+          comments: ミーティングのコメントデータ
           component: ミーティングが属しているコンポーネント
           contributions: このミーティングの参加者による貢献数
+          created_at: ミーティングの作成日時
+          customize_registration_email: 登録時にカスタムメールを許可する機能
+          decidim_author_type: ミーティング作成者の投稿者タイプ
           description: ミーティングの説明
           end_time: このミーティングの終了日時
+          follows_count: ミーティングのフォロー数
           id: ミーティングの固有ID
+          iframe_access_level: ミーティングのiframeアクセスレベル
+          iframe_embed_type: ミーティングに埋め込まれた iframe のタイプ
+          latitude: ミーティングの緯度
           location: ミーティングの場所
+          location_hints: ミーティングが行われている場所のヒント
+          longitude: ミーティングの経度
+          online_meeting_url: オンラインミーティングのURL
           organizations: このミーティングに参加している組織
           participatory_space: このミーティングが所属するスペース（例えば参加型プロセス、参加スペース）
+          private_meeting: ミーティングが非公開かどうかの表示
           published: ミーティングが公開された日時
           reference: このプラットフォームでのリソースの固有ID
+          registration_form_enabled: 登録フォームが有効かどうか
+          registration_terms: ミーティング参加前に合意された規約
+          registration_type: ミーティングの登録の種別
+          registration_url: ミーティング参加登録のURL
+          registrations_enabled: 登録が許可されたかどうか
           related_proposals: このミーティングに関連する提案
           related_results: このミーティングに関連する結果
+          reserved_slots: ミーティングの予約済みスロット数
           start_time: このミーティングの開始日時
           taxonomies: このミーティングが属しているタクソノミー
           title: ミーティングのタイトル
+          transparent: 非メンバーのためのミーティングの可視性
+          type_of_meeting: ミーティングの種別
+          updated_at: ミーティングの最終更新日時
           url: ミーティングのURL
+          video_url: ミーティングのビデオ録画
+          withdrawn: このミーティングが撤回されたかどうか
           withdrawn_at: このミーティングが撤回された日時
     participatory_spaces:
       highlighted_meetings:

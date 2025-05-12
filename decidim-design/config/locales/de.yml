@@ -185,7 +185,6 @@ de:
         conference_s: Konferenz S
         conferences: Konferenzen
         context: Kontext
-        context_description: Diese Zelle zeigt einige Informationen über einen Benutzer an. Es ist eine visuelle Hilfe um den Ressourcen-/Inhalts-Ersteller zu identifizieren. Mit der Maus bewegen zeigt einen Tooltip mit weiteren Informationen und Links zu seinem Profil.
         context_description_2: Für Ressourcen erscheint diese Zelle unterhalb der Hauptüberschrift. Für andere Inhalte erscheint sie neben dem Inhalt selbst.
         debate_l: Debatte L
         debate_s: Debatte S
@@ -294,6 +293,7 @@ de:
         usage_typography_2: Inline-Text
         usage_typography_3: Text über dunklem Hintergrund
         usage_typography_4: Links und Schaltflächen
+        usage_typography_5: Deaktivierter Tab
         value: Wert
         variations: Variationen
         variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.

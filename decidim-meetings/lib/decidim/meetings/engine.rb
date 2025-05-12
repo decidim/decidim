@@ -26,6 +26,8 @@ module Decidim
               get :decline_invitation
               get :join, action: :show
               post :respond
+              get :join_waitlist, action: :show
+              post :join_waitlist
             end
           end
           resources :versions, only: [:show]
@@ -71,6 +73,7 @@ module Decidim
         Decidim.icons.register(name: "bill-line", icon: "bill-line", category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "add-box-line", icon: "add-box-line", category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "calendar-close-line", icon: "calendar-close-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :meetings)
       end
 
       initializer "decidim_meetings.content_processors" do |_app|
@@ -123,23 +126,6 @@ module Decidim
           badge.reset = lambda do |user|
             Decidim::Meetings::Registration.where(user:).count
           end
-        end
-      end
-
-      initializer "decidim_meetings.register_metrics" do
-        Decidim.metrics_registry.register(:meetings) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Meetings::Metrics::MeetingsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 5
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
         end
       end
 

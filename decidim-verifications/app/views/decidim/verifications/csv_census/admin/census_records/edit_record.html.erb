@@ -1,0 +1,14 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+<div>
+  <%= decidim_form_for(@form, url: update_record_census_log_path, remote: true, html: { class: "form-defaults form edit_record form_census_record" }) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="flex items-center gap-x-4">
+      <%= f.submit t(".save"), class: "button button__sm button__secondary absolute top-5 right-6" %>
+    </div>
+  <% end %>
+</div>

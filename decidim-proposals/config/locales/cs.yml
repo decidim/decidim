@@ -9,6 +9,9 @@ cs:
         scope_id: Oblast působnosti
         state: Stav
         title: Titul
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Název hodnotitele
       import_participatory_text:
         document: Dokument
       proposal:
@@ -126,6 +129,8 @@ cs:
           proposals: Návrhy
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Přiřazeno hodnotiteli
           is_emendation_true:
             label: Typ
             values:
@@ -415,23 +420,6 @@ cs:
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
-    metrics:
-      accepted_proposals:
-        description: Počet návrhů přijatých uživateli
-        object: návrhy
-        title: Přijaté návrhy
-      endorsements:
-        description: Počet schvalování k návrhům
-        object: schvalování
-        title: Schvalování
-      proposals:
-        description: Počet vytvořených návrhů
-        object: návrhy
-        title: Návrhy
-      votes:
-        description: Počet hlasů pro návrhy
-        object: hlasy
-        title: Hlasy
     open_data:
       help:
         proposal_comments:
@@ -483,7 +471,6 @@ cs:
           withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:
@@ -638,6 +625,8 @@ cs:
           index:
             actions: Akce
             apply_answer_template: Použít šablonu odpovědi
+            assign_to_evaluator: Přiřadit hodnotiteli
+            assign_to_evaluator_button: Přiřadit
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
@@ -646,11 +635,14 @@ cs:
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
+            select_evaluators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
             statuses: Statusy
             title: Návrhy
+            unassign_from_evaluator: Odebrat hodnotiteli
+            unassign_from_evaluator_button: Zrušit přiřazení
             update: Aktualizace
           manage_trash:
             title: Smazané návrhy
@@ -662,11 +654,13 @@ cs:
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
+            assigned_evaluators: Přiřazení hodnotitelé
             body: Tělo
             comments_count: Počet komentářů
             documents: Dokumenty
             endorsements_count: Počet schvalování
             endorsers: Schvalující
+            evaluators: Hodnotitelé
             link: Zobrazit návrh
             n_more_endorsers:
               one: a další 1
@@ -879,6 +873,8 @@ cs:
         proposal:
           fields:
             comments: Komentáře
+            evaluator: Hodnotitel
+            evaluators: Hodnotitelé
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -948,7 +944,7 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
-          title: Vytvořte svůj návrh
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
@@ -1002,7 +998,7 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
-          already_voted: Již hlasovalo
+          already_voted: Hlasováno
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy

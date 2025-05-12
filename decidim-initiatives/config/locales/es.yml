@@ -6,7 +6,6 @@ es:
         answer_url: URL de la respuesta
         area_id: Área
         decidim_scope_id: Ámbito
-        decidim_user_group_id: Autoria
         description: Descripción
         hashtag: Etiqueta (hashtag)
         offline_votes: Firmas presenciales
@@ -35,7 +34,7 @@ es:
         comments_enabled: Habilitar comentarios
         custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de recogida de firmas
         description: Descripción
-        document_number_authorization_handler: Autorización para verificar el número de documento en las firmas
+        document_number_authorization_handler: Proceso para firmar
         extra_fields_legal_information: Información legal sobre la recogida de datos personales
         minimum_committee_members: Mínimo de miembros del comité
         online_signature_enabled: Firma digital habilitada
@@ -319,10 +318,10 @@ es:
           edit:
             update: Actualizar
           form:
-            authorizations: Ajustes de autorización
             child_scope_threshold_enabled_help_html: 'Este ajuste de configuración no admite las votaciones sin conexión. Este habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre la administración de iniciativas</a>.'
             only_global_scope_enabled_help_html: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta la<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentación sobre la administración de iniciativas</a>.
             options: Opciones
+            signature_workflow_settings: Configuración del proceso para firmar
           initiative_type_scopes:
             title: Ámbitos del tipo de iniciativa
           new:
@@ -465,28 +464,50 @@ es:
         attachment_legend: Añadir un documento o una imagen
         edit_attachments: Editar los archivos adjuntos
         edit_image: Editar imagen
-        image_legend: "(Opcional) Añadir una imágen"
+        image_legend: "(Opcional) Añadir una imagen"
       index:
         uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Fecha de nacimiento
+              document_number:
+                placeholder: Número de documento
+              document_type:
+                prompt: Tipo de documento
+              document_type_and_number:
+                help_text: El número de documento corresponde al documento utilizado en la verificación del censo.
+                label: Tipo y número del documento
+              gender:
+                options:
+                  man: Hombre
+                  non_binary: No binario
+                  woman: Mujer
         fill_personal_data:
-          continue: Continuar
+          continue: Validar tus datos
           help: Por favor, rellena los siguientes campos con tus datos personales para firmar la iniciativa.
+          invalid_authorization: Los datos proporcionados para proceder con la acción no son compatibles con tus autorizaciones existentes o debes obtener una nueva autorización.
+          invalid_data: Alguno de los datos personales proporcionados para verificar tu identidad no son válidos.
         finish:
           back_to_initiative: Volver a la iniciativa
-        sms_code:
-          continue: Comprueba el código y continúa
-          help: Consulta el SMS recibido en tu móvil
+          title: Has firmado la iniciativa
         sms_phone_number:
-          continue: Envíame un SMS
-          help: Rellena el formulario con tu número de teléfono verificado para solicitar tu código de verificación.
+          confirmed_data: Has confirmado tus datos.
+          continue: Firmar la iniciativa
+          help_enter_your_number: Por favor, introduce tu número de teléfono. Recibirás un SMS con un código de validación.
+          receive_code: Recibir código
+          resend_code_html: '¿No has recibido el código? <a href="%{new_code_path}">Inténtalo de nuevo</a>'
+          your_code_is_correct: Tu código es correcto.
+          your_code_is_incorrect: El código no es correcto. Revísalo o <a href="%{new_code_path}">inténtalo de nuevo</a>.
+          your_confirmation_code: Tu código de confirmación
       initiative_votes:
         create:
+          already_voted: Tu firma ya ha sido registrada con tus datos.
           error: Se ha producido un error al firmar la iniciativa.
           invalid: Los datos proporcionados para firmar la iniciativa no son válidos.
           success_html: '¡Enhorabuena! Has firmado la iniciativa <strong> %{title}</strong> correctamente.'
-        personal_data:
-          invalid: Los datos personales no son coherentes con los datos proporcionados para la autorización.
         sms_code:
           invalid: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
         sms_phone:
@@ -561,13 +582,13 @@ es:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
           area: Área
-          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa de validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
+          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa a validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
           initiative_data: Datos sobre la iniciativa
           scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
-          send_to_technical_validation_announcement: Si todo parece correcto, haga clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
+          send_to_technical_validation_announcement: Si está todo correcto, haz clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
           signature_collection: Firmas recogidas
           state: Estado
           type: Tipo
@@ -613,6 +634,23 @@ es:
           open: Abiertas
           rejected: No ha conseguido las firmas
           validating: Validación técnica
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: La firma recoge la información personal de la usuaria, valida la autorización y comprueba el código SMS
+            name: Gestor de firmas simulado
+          dummy_signature_with_personal_data_handler:
+            description: La firma solo recoge información personal de la usuaria y la valida
+            name: Gestor simulado de firma con datos personales
+          dummy_signature_with_sms_handler:
+            description: La firma solo revisa el número de teléfono validándolo con una autorización existente y revisa el código SMS
+            name: Gestor simulado de firma solo son SMS
+          ephemeral_dummy_signature_handler:
+            description: Firma efímera que recoge la información personal de la usuaria, valida la autorización y comprueba el código SMS
+            name: Gestor simulado de firma efímera
+          legacy_signature_handler:
+            description: Gestor de firmas basado en las características antiguas de firma, incluyendo datos personales, el paso de SMS y la validación de la autorización con dummy_authorization_handler. Modifica cualquier parámetro para adaptarlo a la configuración definida
+            name: Gestor heredado de firmas
       states:
         accepted: Aceptada
         expired: Caducada
@@ -659,7 +697,6 @@ es:
         actions:
           create: Crear una iniciativa
           title: Acciones
-          vote: Firmar
   layouts:
     decidim:
       initiative_creation_header:
@@ -668,11 +705,8 @@ es:
         promotal_committee: Buscar promotoras
         select_initiative_type: Escoger
       initiative_signature_creation_header:
-        fill_personal_data: Completa tus datos
-        finish: Terminar
-        sms_code: Verificación por código SMS
-        sms_phone_number: Número de teléfono móvil
-        title: Firmar %{initiative_title}
+        help_information_html: Para firmar la iniciativa <strong>%{initiative_title}</strong> promovida por %{initiative_author} es necesario que facilites cierta información para que tu firma sea legalmente vinculante. No se hará público ninguno de tus datos.
+        verify_your_identity: Verifica tu identidad
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: '¡No hay iniciativas todavía!'

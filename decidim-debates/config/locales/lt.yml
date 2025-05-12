@@ -10,7 +10,6 @@ lt:
         instructions: Dalyvavimo instrukcija
         start_time: Prasideda
         title: Pavadinimas
-        user_group_id: Sukurti diskusiją kaip
     models:
       decidim/debates/close_debate_event: Diskusija uždaryta
       decidim/debates/create_debate_event: Diskusija
@@ -113,13 +112,11 @@ lt:
           state_values:
             closed: Uždaryta
             open: Atidaryta
-          user_group: Grupės
         index:
           new_debate: Nauja diskusija
         new:
           back: Atgal
           create: Sukurti
-          title: Nauja diskusija
         orders:
           commented: Labiausiai komentuota
           label: Rikiuoti debatus pagal
@@ -130,7 +127,6 @@ lt:
           debate_closed: Uždaryta
           debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
           edit_conclusions: Keisti išvadas
-          groups_count: Grupės
           open: Atverti diskusiją
           participants_count: Dalyviai
         update:
@@ -191,10 +187,5 @@ lt:
           next_level_in: Įsitraukite į %{score} daugiau diskusijų ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nedalyvavo nė vienoje diskusijoje.
           unearned_own: Jūs dar nedalyvavote nė vienoje diskusijoje.
-    metrics:
-      debates:
-        description: Sukurtų diskusijų skaičius
-        object: diskusijos
-        title: Diskusijos
     statistics:
       debates_count: Diskusijos

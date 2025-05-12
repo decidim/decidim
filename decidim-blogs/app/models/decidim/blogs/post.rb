@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Followable
       include Decidim::Reportable
+      include Decidim::Publicable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
@@ -60,7 +61,7 @@ module Decidim
       end
 
       def published?
-        published_at <= Time.current
+        super && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -88,11 +89,6 @@ module Decidim
 
       def attachment_context
         :admin
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

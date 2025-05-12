@@ -5,14 +5,6 @@ require "spec_helper"
 describe "User prints the initiative" do
   include_context "when admins initiative"
 
-  def submit_and_validate
-    within("[data-content]") do
-      find("*[type=submit]").click
-    end
-
-    expect(page).to have_admin_callout "The initiative has been successfully updated."
-  end
-
   context "when initiative update" do
     context "and user is admin" do
       let(:attributes) { attributes_for(:initiative, organization:) }
@@ -28,7 +20,11 @@ describe "User prints the initiative" do
         within ".edit_initiative" do
           fill_in :initiative_hashtag, with: "#hashtag"
         end
-        submit_and_validate
+        within("[data-content]") do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "The initiative has been successfully updated."
       end
 
       it "updates the initiative" do
@@ -44,8 +40,12 @@ describe "User prints the initiative" do
           "#initiative-description-tabs",
           **attributes[:description].except("machine_translations")
         )
-        submit_and_validate
 
+        within("[data-content]") do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "The initiative has been successfully updated."
         visit decidim_admin.root_path
         expect(page).to have_content("updated the #{translated(attributes[:title])} initiative")
       end
@@ -62,7 +62,12 @@ describe "User prints the initiative" do
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
-          submit_and_validate
+
+          within("[data-content]") do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_admin_callout "The initiative has been successfully updated."
         end
 
         it "displays initiative attachments" do
@@ -84,7 +89,12 @@ describe "User prints the initiative" do
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
-          submit_and_validate
+
+          within("[data-content]") do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_admin_callout "The initiative has been successfully updated."
         end
 
         it "displays initiative attachments" do

@@ -15,12 +15,21 @@ module Decidim
       include_examples "traceable interface"
       include_examples "timestamps interface"
       include_examples "endorsable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns all the required fields" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
         end
       end
 

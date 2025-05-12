@@ -26,6 +26,8 @@ eu:
             enabled: Iruzkinak gaituta
             end_time: Iruzkinak noiz arte gaituta
             start_time: Iruzkinak noiztik aktibatuta
+      comment_thread:
+        accessibility_label: '%{full_name} -k %{date} -(e)an hasitako iruzkin-haria'
       comments:
         create:
           error: Arazo bat egon da iruzkina sortzean.
@@ -114,7 +116,7 @@ eu:
         comment_details_title: Iruzkinaren xehetasunak
         in_favor: Alde
         loading: Iruzkinak kargatzen...
-        single_comment_warning: <a href="%{url}">k erakusten ditu iruzkin guztiak</a>
+        single_comment_warning: <a href="%{url}"> iruzkin guztiak ikusgai </a>
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
         title:
           one: "Iruzkin bat"
@@ -175,7 +177,7 @@ eu:
           notification_title: Zure <a href="%{resource_path}">iruzkina </a> "%{resource_title}"-an norbaiten gustukoa izan da. Orain guztira %{upvotes} atsegin eta %{downvotes} ezatsegin dituzu.
         reply_created:
           email_intro: "%{author_name} egileak zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
-          email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
+          email_outro: Jakinarazpen hau jaso duzu zure iruzkinak erantzuna izan duelako.
           email_subject: "%{author_name} parte-hartzaileak zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio hemen <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
@@ -183,11 +185,6 @@ eu:
           email_outro: 'Jakinarazpen hau jaso duzu hemen: %{resource_title} aipatu zaituztelako.'
           email_subject: 'Hemen: %{resource_title} aipatu zaituzte'
           notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
-    metrics:
-      comments:
-        description: Parte-hatzaileek sortutako iruzkin kopurua
-        object: iruzkinak
-        title: Iruzkinak
   errors:
     messages:
       cannot_have_comments: ezin zaio iruzkinik egin

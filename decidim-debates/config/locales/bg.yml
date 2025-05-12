@@ -10,7 +10,6 @@ bg:
         instructions: Инструкции за участие
         start_time: Започва в
         title: Заглавие
-        user_group_id: Създаване на дебат като
     models:
       decidim/debates/close_debate_event: Дебатът е затворен
       decidim/debates/create_debate_event: Дебат
@@ -113,13 +112,11 @@ bg:
           state_values:
             closed: Затворен
             open: Отворен
-          user_group: Групи
         index:
           new_debate: Нов дебат
         new:
           back: Назад
           create: Създаване
-          title: Нов дебат
         orders:
           commented: Най-коментирани
           label: Подреждане на дебатите по
@@ -130,7 +127,6 @@ bg:
           debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
-          groups_count: Групи
           open: Отворен дебат
           participants_count: Участници
         update:
@@ -198,10 +194,5 @@ bg:
           next_level_in: Участвайте в още %{score} дебата, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е участвал в нито един дебат.
           unearned_own: Все още не сте участвали в нито един дебат.
-    metrics:
-      debates:
-        description: Брой създадени дебати
-        object: дебати
-        title: Дебати
     statistics:
       debates_count: Дебати

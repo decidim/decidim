@@ -314,11 +314,6 @@ lt:
           not_found: 'Proceso tipas duomenų bazėje nerastas (ID: %{id}).'
     menu:
       processes: Procesai
-    metrics:
-      participatory_processes:
-        description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
-        object: dalyvaujamieji procesai
-        title: Dalyvaujamieji procesai
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -400,9 +395,6 @@ lt:
           highlighted_processes:
             active_spaces: Aktyvūs procesai
             see_all_spaces: Žiūrėti visus procesus
-      participatory_process_steps:
-        index:
-          back_to_process: Grįžti į procesų puslapį
       participatory_processes:
         description:
           area_name: Aplinka

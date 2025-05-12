@@ -25,9 +25,9 @@ describe "AdminTosAcceptance" do
         expect(page).to have_content(review_message)
       end
 
-      it "has the main navigation empty" do
+      it "has the main navigation not empty" do
         within ".layout-nav" do
-          expect(page).to have_no_css("li a")
+          expect(page).to have_css("li a")
         end
       end
     end
@@ -95,8 +95,7 @@ describe "AdminTosAcceptance" do
 
       it "allows accepting the terms" do
         click_on "I agree with the terms"
-        expect(page).to have_content("Activity")
-        expect(page).to have_content("Metrics")
+        expect(page).to have_content("Statistics")
 
         within ".layout-nav" do
           expect(page).to have_content("Newsletters")

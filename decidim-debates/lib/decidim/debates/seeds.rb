@@ -33,7 +33,7 @@ module Decidim
           Decidim::Component.create!(params)
         end
 
-        5.times do |x|
+        number_of_records.times do |x|
           finite = x != 2
           if finite
             start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample

@@ -12,6 +12,8 @@ describe "Decidim::Api::QueryType" do
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
   let!(:conference) { create(:conference, :diploma, organization: current_organization, taxonomies: [taxonomy]) }
+  let!(:follows) { create_list(:follow, 3, followable: conference) }
+
   let(:conference_data) do
     {
       "attachments" => [],
@@ -21,6 +23,7 @@ describe "Decidim::Api::QueryType" do
       "createdAt" => conference.created_at.to_time.iso8601,
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
+      "followsCount" => 3,
       "hashtag" => conference.hashtag,
       "id" => conference.id.to_s,
       "location" => conference.location,
@@ -38,10 +41,12 @@ describe "Decidim::Api::QueryType" do
       "slogan" => { "translation" => conference.slogan[locale] },
       "slug" => conference.slug,
       "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
-      "startDate" => conference.start_date.to_date.to_s,
+      "startDate" => conference.start_date.iso8601,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
-      "updatedAt" => conference.updated_at.to_time.iso8601
+      "updatedAt" => conference.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(conference).conference_url(conference),
+      "weight" => conference.weight
     }
   end
 
@@ -64,6 +69,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
+        followsCount
         hashtag
         heroImage
         id
@@ -113,6 +119,8 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
+        weight
       }
     )
   end
@@ -142,7 +150,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conferences {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
@@ -172,6 +180,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
+        followsCount
         hashtag
         heroImage
         id
@@ -221,6 +230,8 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
+        weight
       }
     )
     end
@@ -241,7 +252,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conference(id: #{conference.id}){
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

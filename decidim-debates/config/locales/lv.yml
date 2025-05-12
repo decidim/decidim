@@ -8,7 +8,6 @@ lv:
         instructions: Norādījumi dalībai
         start_time: Sākas plkst.
         title: Nosaukums
-        user_group_id: Izveidojiet debates kā
     models:
       decidim/debates/create_debate_event: Debates
       decidim/debates/creation_disabled_event: Debates ir atspējotas
@@ -60,7 +59,6 @@ lv:
         new:
           back: Atpakaļ
           create: Izveidot
-          title: Jaunas debates
       models:
         debate:
           fields:
@@ -96,6 +94,3 @@ lv:
           description_own: Jūs esat piedalījies %{score} debatēs.
           next_level_in: Piedalieties %{score} debatēs vēlreiz, lai sasniegtu nākamo līmeni!
           unearned_another: Šis dalībnieks vēl nav piedalījies nevienās debatēs.
-    metrics:
-      debates:
-        description: Izveidoto debašu skaits

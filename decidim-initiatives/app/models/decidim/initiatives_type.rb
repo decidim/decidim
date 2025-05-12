@@ -27,7 +27,6 @@ module Decidim
     enum signature_type: [:online, :offline, :any], _suffix: true
 
     validates :title, :description, :signature_type, presence: true
-    validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
     has_one_attached :banner_image
     validates_upload :banner_image, uploader: Decidim::BannerImageUploader
@@ -52,6 +51,10 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativesTypePresenter
+    end
+
+    def signature_workflow_manifest
+      Decidim::Initiatives::Signatures.find_workflow_manifest(document_number_authorization_handler)
     end
   end
 end

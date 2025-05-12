@@ -478,6 +478,10 @@ en:
             explanation: 'Guidance for file:'
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
+          import_csv:
+            explanation: 'Guidance for file:'
+            message_1: CSV files are supported
+            message_2: ".csv file with emails data"
       help_sections:
         error: There was a problem updating the help sections.
         form:
@@ -585,6 +589,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        insights: Insights
         manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
@@ -597,12 +602,10 @@ en:
         share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -1237,14 +1240,13 @@ en:
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu
-        metrics: Metrics
         page_topics: Topics
         pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        statistics: Activity
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters for "%{taxonomy}"
         users: Administrators
@@ -1283,22 +1285,13 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non-managed participant.
-    metrics:
-      blocked_users:
-        object: blocked users
-        title: Blocked users
-      reported_users:
-        object: reported users
-        title: Reported users
-      user_reports:
-        object: user reports
-        title: User reports
     moderations:
       actions:
         expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
+        parent_hidden: You cannot unhide this resource because its parent is still hidden.
         title: Actions
         unhide: Unhide
         unreport: Unreport
@@ -1325,6 +1318,7 @@ en:
             success: Resource successfully hidden.
           unhide:
             invalid: There was a problem unhiding the resource.
+            parent_invalid: There was a problem unhiding the resource. Parent is not visible.
             success: Resource successfully unhidden.
           unreport:
             invalid: There was a problem unreporting the resource.
@@ -1355,5 +1349,7 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        insights:
+          title: Insights
         taxonomy_filters_selector:
           title: Filters

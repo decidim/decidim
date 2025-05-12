@@ -13,6 +13,10 @@ ga:
         many: Vótaí
         other: Vótaí
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Tráchtanna
     components:
       add_comment_form:
         form:
@@ -41,7 +45,3 @@ ga:
           body:
             label: Trácht
           submit: Seol
-    metrics:
-      comments:
-        object: tráchtanna
-        title: Tráchtanna

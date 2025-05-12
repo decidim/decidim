@@ -237,11 +237,6 @@ en:
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
           unearned_own: You have not participated in any debates yet.
-    metrics:
-      debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:
@@ -281,3 +276,4 @@ en:
           url: The URL where this debate can be found
     statistics:
       debates_count: Debates
+      debates_count_tooltip: The number of discussions held.

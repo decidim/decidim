@@ -45,6 +45,12 @@ module Decidim
             toggle_allow(meeting.present?)
           when :invite_attendee
             toggle_allow(meeting.present? && meeting.registrations_enabled?)
+          when :validate_registration_code
+            toggle_allow(
+              meeting.present? &&
+              meeting.registrations_enabled? &&
+              meeting.component.settings.registration_code_enabled
+            )
           when :create
             allow!
           end

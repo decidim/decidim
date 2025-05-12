@@ -7,9 +7,10 @@ module Decidim
         # A command with the business logic to create census data for a
         # organization.
         class CreateCensusData < Decidim::Command
-          def initialize(form, organization)
+          def initialize(form, current_user)
             @form = form
-            @organization = organization
+            @current_user = current_user
+            @organization = current_user.organization
           end
 
           # Executes the command. Broadcast this events:
@@ -21,13 +22,13 @@ module Decidim
             return broadcast(:invalid) unless @form.file
 
             data = @form.data
-            return broadcast(:invalid) unless data
+            return broadcast(:invalid) if data.blank? || data.values.empty?
 
             # rubocop:disable Rails/SkipsModelValidations
             CsvDatum.insert_all(@organization, data.values)
             # rubocop:enable Rails/SkipsModelValidations
-            RemoveDuplicatesJob.perform_later(@organization)
 
+            ProcessCensusDataJob.perform_later(data.values, @current_user)
             broadcast(:ok)
           end
         end

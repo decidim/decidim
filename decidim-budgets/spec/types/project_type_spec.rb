@@ -13,12 +13,83 @@ module Decidim
 
       include_examples "taxonomizable interface"
       include_examples "attachable interface"
+      include_examples "attachable collection interface with attachment"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "commentable interface"
+      include_examples "localizable interface"
+      include_examples "referable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns the id field" do
           expect(response["id"]).to eq(model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(model.resource_locator.url)
+        end
+      end
+
+      describe "selected_at" do
+        let(:model) { create(:project, :selected) }
+
+        let(:query) { "{ selectedAt }" }
+
+        it "returns all the required fields" do
+          expect(response["selectedAt"]).to eq(model.selected_at.to_time.iso8601)
+        end
+      end
+
+      describe "proposals" do
+        let(:query) { "{ relatedProposals { id } }" }
+        let!(:proposal_component) { create(:proposal_component, :published, participatory_space: model.participatory_space) }
+        let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
+
+        before do
+          model.link_resources(proposals, "included_proposals")
+        end
+
+        it "returns the proposal urls" do
+          expect(response["relatedProposals"].length).to eq(2)
+          expect(response["relatedProposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
+        end
+      end
+
+      describe "confirmed_votes" do
+        let(:query) { "{ confirmedVotes }" }
+
+        let(:budget) { create(:budget, component:) }
+        let(:model) { create(:project, budget:) }
+
+        context "when show_votes is false" do
+          let(:component) { create(:budgets_component) }
+
+          it "does not return all the required fields" do
+            expect(response["confirmedVotes"]).to be_nil
+          end
+        end
+
+        context "when show_votes is true" do
+          let(:component) { create(:budgets_component, :with_show_votes_enabled) }
+
+          it "returns all the required fields" do
+            expect(response["confirmedVotes"]).to eq(model.confirmed_orders_count)
+          end
+        end
+      end
+
+      describe "budget_url" do
+        let(:query) { "{ budgetUrl }" }
+
+        it "returns all the required fields" do
+          expect(response["budgetUrl"]).to eq(Decidim::EngineRouter.main_proxy(model.component).budget_url(model.budget))
         end
       end
 
@@ -61,30 +132,6 @@ module Decidim
           it "returns false" do
             expect(response["selected"]).to be_falsey
           end
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the resource was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the resource was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 

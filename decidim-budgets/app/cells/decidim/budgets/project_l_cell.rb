@@ -14,7 +14,11 @@ module Decidim
       private
 
       def resource_path
-        resource_locator([project.budget, project]).path(url_extra_params)
+        if focus_mode?
+          resource_locator([project.budget, "focus", project]).path(url_extra_params)
+        else
+          resource_locator([project.budget, project]).path(url_extra_params)
+        end
       end
 
       def resource_added?
@@ -25,8 +29,16 @@ module Decidim
         @current_order ||= controller.try(:current_order)
       end
 
+      def focus_mode?
+        options[:focus_mode]
+      end
+
       def show_only_added
         options[:show_only_added]
+      end
+
+      def hide_vote_button?
+        options[:hide_vote_button]
       end
 
       def resource_id = "project-#{project.id}-item"

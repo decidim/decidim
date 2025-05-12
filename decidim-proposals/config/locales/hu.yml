@@ -235,25 +235,8 @@ hu:
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
           unearned_another: A résztvevő még nem hozott létre egy javaslatot sem.
           unearned_own: Még nem hoztál létre javaslatokat.
-    metrics:
-      accepted_proposals:
-        description: Az elfogadott javaslatok száma
-        object: javaslatok
-        title: Elfogadott javaslatok
-      endorsements:
-        description: A javaslatokhoz kapcsolódó támogatások száma
-        object: támogatások
-        title: Támogatások
-      proposals:
-        description: A létrehozott javaslatok száma
-        object: javaslatok
-        title: javaslatok
-      votes:
-        object: szavazat
-        title: szavazatok
     participatory_spaces:
       highlighted_proposals:
-        last: Legutóbbi javaslatok
         see_all: Összes
     proposals:
       actions:
@@ -550,7 +533,6 @@ hu:
           see_all_withdrawn: Összes visszavont javaslat
         new:
           send: Tovább
-          title: Javaslat létrehozása
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
@@ -584,7 +566,6 @@ hu:
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
         vote_button:
-          already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás

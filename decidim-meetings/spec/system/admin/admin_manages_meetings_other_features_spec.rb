@@ -10,6 +10,7 @@ describe "Admin manages meetings other features" do
 
   it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage registrations"
+  it_behaves_like "manage registrations attendees"
   it_behaves_like "manage announcements"
   it_behaves_like "manage agenda"
   it_behaves_like "manage invites"

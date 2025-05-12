@@ -96,9 +96,9 @@ en:
       decidim:
         proposals:
           proposal:
-            budget_text: The proposal %{link} was created
+            budget_text: The proposal <span class="resource-link">%{link} was created</span>
             import_from_proposal_text: 'It became this proposal: %{link}'
-            import_to_proposal_text: This proposal %{link} was created
+            import_to_proposal_text: This proposal <span "resource-link">%{link} was created</span>
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
             split_from_proposal_text: 'It became this proposal: %{link}'
@@ -419,23 +419,6 @@ en:
           next_level_in: Create %{score} more proposals to reach the next level!
           unearned_another: This participant has not created any proposals yet.
           unearned_own: You have created no proposals yet.
-    metrics:
-      accepted_proposals:
-        description: Number of proposals accepted
-        object: proposals
-        title: Accepted proposals
-      endorsements:
-        description: Number of endorsements to proposals
-        object: endorsements
-        title: Endorsements
-      proposals:
-        description: Number of proposals
-        object: proposals
-        title: Proposals
-      votes:
-        description: Number of votes to proposals
-        object: votes
-        title: Votes
     open_data:
       help:
         proposal_comments:
@@ -487,7 +470,6 @@ en:
           withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
@@ -1015,7 +997,7 @@ en:
         update:
           title: Update proposal
         vote_button:
-          already_voted: Already voted
+          already_voted: Voted
           already_voted_hover: Withdraw vote
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
@@ -1081,6 +1063,9 @@ en:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
     statistics:
+      participatory_space_proposals_count: Proposals
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
+      proposals_count_tooltip: The total number of submitted proposals and votes cast on them.
+      votes: 'Votes:'
       votes_count: Votes

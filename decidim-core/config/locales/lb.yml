@@ -355,8 +355,6 @@ lb:
         name: Lescht Aktivitéit
         title: Lescht Aktivitéit
         view_all: Alles gesinn
-      metrics:
-        name: Organisations-Metriken
       stats:
         name: Organisations-Statistiken
       sub_hero:
@@ -643,21 +641,6 @@ lb:
           title: Konversatioun mam %{usernames}
         start:
           send: Senden
-    metrics:
-      download:
-        csv: Daten am (CSV) eroflueden
-      followers:
-        description: Zuel vun den Teilnehmer, déi dësem Konversatiouns-Espace nofollegen
-        object: Follower
-        title: Follower
-      participants:
-        description: Zuel vun den aktiven Teilnehmer an dëser Organisatioun
-        object: Teilnehmer
-        title: Teilnehmer
-      users:
-        description: Zuel vun den Teilnehmer an dëser Organisatioun
-        object: Teilnehmer
-        title: Teilnehmer
     newsletter_mailer:
       newsletter:
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
@@ -740,10 +723,6 @@ lb:
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Statistiken
-          link: All Statistiken uweisen
     profile:
       deleted: Teilnehmer geläscht
     profiles:
@@ -789,7 +768,6 @@ lb:
       prompt: Wiel en Themeberäich
     search:
       results: Resultater vun der Sich
-      results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
       term_input_placeholder: Sich
     searches:
       filters:

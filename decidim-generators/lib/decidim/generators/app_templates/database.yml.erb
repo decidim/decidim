@@ -65,9 +65,9 @@ test:
   <<: *default
   database: <%= app_name %>_test<%%= ENV.fetch('TEST_ENV_NUMBER', "") %>
 
-# As with config/secrets.yml, you never want to store sensitive information,
-# like your database password, in your source code. If your source code is
-# ever seen by anyone, they now have access to your database.
+# You never want to store sensitive information, like your database password,
+# in your source code. If your source code is ever seen by anyone,
+# they now have access to your database.
 #
 # Instead, provide the password as a unix environment variable when you boot
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database

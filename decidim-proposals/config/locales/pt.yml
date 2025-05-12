@@ -238,19 +238,6 @@ pt:
           name: Propostas
           next_level_in: Criar mais %{score} propostas para alcançar o próximo nível!
           unearned_own: Ainda não criou alguma proposta.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceites
-        object: propostas
-        title: Propostas aceites
-      endorsements:
-        description: Número de endossos nas propostas
-        object: endossos
-        title: Endossos
-      proposals:
-        description: Número de propostas
-        object: propostas
-        title: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos

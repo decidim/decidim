@@ -282,11 +282,6 @@ tr:
           title: Katılımcı bir süreç nedir?
     menu:
       processes: Süreçler
-    metrics:
-      participatory_processes:
-        description: Bu kuruluştaki katılımcı süreçlerin sayısı
-        object: katılımcı süreçler
-        title: Katılımcı süreçler
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -342,9 +337,6 @@ tr:
           name: Vurgulanan süreçler
       index:
         title: Katılımcı süreçler
-      participatory_process_steps:
-        index:
-          back_to_process: Süreç sayfasına geri dön
       participatory_processes:
         filters:
           counters:

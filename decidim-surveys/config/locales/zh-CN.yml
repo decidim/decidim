@@ -7,13 +7,9 @@ zh-CN:
     models:
       decidim/surveys/survey:
         other: 调查
-      decidim/surveys/survey_answer:
-        other: 答案
   decidim:
     components:
       surveys:
-        actions:
-          answer: 答案
         settings:
           global:
             announcement: 通 知
@@ -31,20 +27,9 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{participatory_space_title} 的新调查'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 中的调查现已打开。
-    metrics:
-      survey_answers:
-        description: 参与者回答的调查次数
-        object: 调查答案
-        title: 对调查的答复
     surveys:
       admin:
-        exports:
-          survey_user_answers: 调查参与者答案
         surveys:
           update:
             invalid: 保存调查时出现问题。
             success: 调查保存成功。
-      surveys:
-        answer:
-          invalid: 回答调查时出现问题。
-          success: 调查回答成功。

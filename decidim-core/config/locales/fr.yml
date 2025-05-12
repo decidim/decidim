@@ -5,6 +5,7 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Créé le
@@ -45,6 +46,12 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Le pseudo doit être en minuscules et ne contenir aucun espace
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -99,7 +106,7 @@ fr:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: j-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -154,6 +161,7 @@ fr:
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
+      secondary_menu: Menu secondaire
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -168,6 +176,7 @@ fr:
         leaving_authorizations_behind: Certaines données liées à votre autorisation seront enregistrées pour des raisons de sécurité. Si vous créez un autre compte et que vous l'autorisez à nouveau, ces données seront récupérées sur votre nouveau compte.
       destroy:
         error: Une erreur s'est produite lors de la suppression de votre compte.
+        inactive_account_removal_reason: Compte supprimé après %{inactivity_period} jours d'inactivité
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
@@ -570,10 +579,6 @@ fr:
         name: Données principales
       metadata:
         name: Métadonnées
-      metrics:
-        name: Historique des statistiques de participation
-      participatory_space_metrics:
-        name: Métriques
       participatory_space_stats:
         name: Statistiques
       social_networks_metadata:
@@ -1067,6 +1072,8 @@ fr:
           modal_title: Nouvelle conversation
           no_results: Aucun résultat
           participant_with_disabled_message_reception: Cet utilisateur ne veut pas recevoir de messages privés.
+          participants:
+            title: Participants
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
@@ -1099,27 +1106,6 @@ fr:
         finished: 'Terminé : %{end_date}'
         not_started: Pas encore commencé
         remaining: "%{time_distance} restant"
-    metrics:
-      blocked_users:
-        description: Nombre de participants bloqués
-      download:
-        csv: Télécharger les données (CSV)
-      followers:
-        description: Nombre d'utilisateurs qui suivent cet espace de participation
-        object: suiveurs
-        title: Suiveurs
-      participants:
-        description: Nombre d'utilisateurs actifs dans l'organisation
-        object: les participants
-        title: Participants
-      reported_users:
-        description: Nombre de participants signalés
-      user_reports:
-        description: Nombre de signalements effectués par les participants
-      users:
-        description: Nombre d'utilisateurs dans l'organisation
-        object: utilisateurs
-        title: Utilisateurs
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
@@ -1238,11 +1224,11 @@ fr:
       help:
         core:
           components: Fonctionnalités
+          generated_on_date: Généré le %{date}
+          resources:
+            one: "%{count} ressource"
+            other: "%{count} ressources"
           spaces: Espaces
-        metrics:
-          day: Le jour de la création de cette métrique
-          metric_type: Le type de métrique
-          quantity: Le nombre de métriques pour ce jour
         moderated_users:
           about: Le champ "A propos" de l'utilisateur
           block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
@@ -1342,10 +1328,6 @@ fr:
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
         topics: Thématiques
-      participatory_space:
-        metrics:
-          headline: Participation en chiffres
-          link: Tout afficher
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1363,6 +1345,26 @@ fr:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en mesure d'utiliser la plateforme.
           title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Nos journaux indiquent que vous avez créé un compte %{organization_name} en date du <strong>%{date_account_creation}</strong> et que vous n'avez pas été actif depuis le <strong>%{date_last_connection}</strong>.</p>
+          <p>Pour protéger votre vie privée, ce compte a été programmé pour être automatiquement supprimé dans <strong>%{days} jours</strong>.</p>
+          <p>Si vous souhaitez conserver votre compte %{organization_name}, connectez-vous sur %{login_url} avant ce délai, et votre compte sera préservée.</p>
+        greetings_html: |
+          Cordialement,<br>
+          %{organization_name}
+        hello_html: Cher(ère) <strong>%{username}</strong>,
+        log_in: se connecter
+        never_logged_in: jamais connecté
+        subject: Avertissement de compte inactif
+      removal_notification:
+        body: Votre compte %{organization_name} a été supprimé en raison de son inactivité.
+        greetings_html: |
+          Cordialement,<br>
+          %{organization_name}
+        hello: Cher(ère) %{username},
+        subject: Compte inactif supprimé
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
@@ -1392,8 +1394,12 @@ fr:
         title: QR Code pour %{resource_title}
     reported_mailer:
       hide:
+        content: Contenu signalé
+        details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
         report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
         subject: Une ressource a été cachée automatiquement
       report:
@@ -1415,6 +1421,8 @@ fr:
         success: Le contenu a été signalé, il sera examiné par un administrateur.
       parent_hidden:
         report_details: La ressource parente a été masquée
+    resource_autocomplete:
+      help: Tapez pour rechercher des propositions
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action de soutien.
@@ -1424,7 +1432,7 @@ fr:
     search:
       name: Rechercher
       results: Résultats de recherche
-      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
+      results_found_for_term: '%{count} résultat(s) pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
@@ -1541,10 +1549,20 @@ fr:
         body_2: Dans le cadre de nos efforts pour simplifier l'expérience des organisations, la fonctionnalité "Groupes d'utilisateurs" est dépréciée. Votre profil de groupe d'utilisateurs a maintenant été converti en un profil de simple participant.
         greeting: Cher(ère) %{name},
         instructions_1: Si vous avez accès à ce compte de messagerie, veuillez vérifier votre boîte de réception pour les instructions.
-        instructions_2: Sinon, l'un de vos collègues qui a accès devra définir le mot de passe et partager les identifiants de connexion avec vous.
-        instructions_intro: Les membres du groupe partageront désormais l'accès à ce profil en utilisant les identifiants de connexion partagés (courriel et mot de passe). Nous avons envoyé des instructions à <strong>%{group_email}</strong> pour définir un nouveau mot de passe pour le profil.
-        instructions_title: "<strong>Qu'est-ce que ça signifie pour vous ?</strong>"
+        instructions_intro: Nous avons envoyé des instructions à l'adresse e-mail associée au compte pour définir un nouveau mot de passe pour le profil.
+        instructions_title: "<strong>Cce que ça signifie pour vous</strong>"
         subject: Mise à jour importante à propos du groupe d'utilisateurs dont vous êtes membre
+      notify_deprecation_to_owner:
+        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3: Pour continuer à accéder à votre compte, nous avons besoin que vous définissiez un mot de passe.
+        greeting: Cher(ère) %{name},
+        instructions_1: 'Cliquez sur le lien ci-dessous pour démarrer le processus de définition du mot de passe :'
+        instructions_2: Dans le formulaire, entrez l'adresse e-mail à laquelle vous avez reçu ce message et soumettez la demande.
+        instructions_3: Consultez votre boîte de réception afin d'obtenir des instructions supplémentaires pour définir votre nouveau mot de passe.
+        instructions_title: "<strong>Ce que vous devez faire</strong>"
+        set_password: Démarrer le processus de définition du mot de passe
+        subject: Mise à jour importante à propos du groupe d'utilisateurs
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -1665,16 +1683,6 @@ fr:
         instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte :'
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
-      user_group_reset_password_instructions:
-        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
-        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
-        body_3: .
-        greeting: Cher(ère) %{name},
-        instructions_1: 'Cliquez sur le lien ci-dessous pour réinitialiser votre mot de passe :'
-        instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
-        instructions_title: "<strong>Ce que vous devez faire</strong>"
-        set_password: Définir votre mot de passe
-        subject: Mise à jour importante à propos du groupe d'utilisateurs
     omniauth_callbacks:
       add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
@@ -1922,8 +1930,10 @@ fr:
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        back: Retour à la liste
+        cancel: Annuler
         close: Fermer
-        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
+        confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur

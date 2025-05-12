@@ -10,16 +10,9 @@ sk:
         few: Prieskumy
         many: Prieskumy
         other: Prieskumy
-      decidim/surveys/survey_answer:
-        one: Odpoveď
-        few: Odpovede
-        many: Odpovede
-        other: Odpovede
   decidim:
     components:
       surveys:
-        actions:
-          answer: Odpovedať
         settings:
           global:
             announcement: Oznámenie
@@ -37,20 +30,9 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Nový prieskum v %{participatory_space_title}
           notification_title: Prieskum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> bol práve otvorený.
-    metrics:
-      survey_answers:
-        description: Počet prieskumov, na ktoré odpovedali účastníci
-        object: odpovede na prieskumy
-        title: Odpovede na prieskumy
     surveys:
       admin:
-        exports:
-          survey_user_answers: Odpovede účastníkov prieskumu
         surveys:
           update:
             invalid: Vyskytol sa problém s ukladaním prieskumu.
             success: Prieskum úspešne uložený.
-      surveys:
-        answer:
-          invalid: Vyskytol sa problém s odpovedaním na prieskum.
-          success: Odpoveď úspešne zaznamenaná.

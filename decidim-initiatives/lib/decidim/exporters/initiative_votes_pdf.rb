@@ -148,7 +148,7 @@ module Decidim
       end
 
       def encryptor
-        @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
+        @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
       end
 
       def truncate(text, length = 50)

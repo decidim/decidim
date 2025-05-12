@@ -8,14 +8,9 @@
       decidim/surveys/survey:
         one: Undersøkelse
         other: Undersøkelse
-      decidim/surveys/survey_answer:
-        one: Svar
-        other: Svar
   decidim:
     components:
       surveys:
-        actions:
-          answer: Svar
         settings:
           global:
             announcement: Kunngjøring
@@ -33,22 +28,9 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: En ny undersøkelse i %{participatory_space_title}
           notification_title: Undersøkelsen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> er nå åpen.
-    metrics:
-      survey_answers:
-        description: Antall undersøkelser besvart av deltakerne
-        object: svar på undersøkelser
-        title: Svar på undersøkelser
-    statistics:
-      answers_count: Svar
     surveys:
       admin:
-        exports:
-          survey_user_answers: Undersøkelsens deltaker svar
         surveys:
           update:
             invalid: Det oppstod et problem med å lagre undersøkelsen.
             success: Undersøkelsen ble lagret.
-      surveys:
-        answer:
-          invalid: Det oppstod et problem med å svare på undersøkelsen.
-          success: Undersøkelsen ble besvart.

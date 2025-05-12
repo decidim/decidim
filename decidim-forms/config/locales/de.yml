@@ -1,19 +1,21 @@
 de:
   activemodel:
     attributes:
-      answer:
-        body: Antworten
-        choices: Auswahl
-        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
       questionnaire_question:
         mandatory: Verpflichtend
         max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
+      response:
+        body: Antwort
+        choices: Optionen
+        selected_choices: Ausgewählte Optionen
     errors:
       models:
-        answer:
+        questionnaire:
+          request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
+        response:
           attributes:
             add_documents:
               needs_to_be_reattached: Muss erneut angehängt werden
@@ -21,82 +23,58 @@ de:
               too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
-              too_many: Sie können ein Maximum von %{count} auswählen.
-        questionnaire:
-          request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
+              too_many: Sie können maximal %{count} auswählen.
   decidim:
     download_your_data:
       help:
-        answers:
-          answer: Die Antwort auf die Frage
+        responses:
           id: Die eindeutige Bezeichnung der Antwort
           question: Die Frage, die beantwortet wurde
           questionnaire: Der Fragebogen, der beantwortet wurde
+          response: Die Antwort auf die Frage
           user: Der Benutzer, der den Fragebogen beantwortet hat
       show:
-        answers: Antworten exportieren
-        survey_user_answers: Antworten zur Benutzerumfrage
+        responses: Antworten exportieren
+        survey_user_responses: Umfrageantworten
     forms:
       admin:
         models:
           components:
-            allow_answers: Antworten zulassen
-            allow_editing_answers: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
+            allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
+            allow_responses: Antworten erlauben
             allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
             allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
-            clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
+            clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
             description: Beschreibung
-            ends_at: Antworten akzeptiert bis
+            ends_at: Beantwortung geöffnet bis
             ends_at_help: Leer lassen für unbestimmtes Datum
-            starts_at: Antworten akzeptiert von
+            starts_at: Beantwortung geöffnet von
             starts_at_help: Leer lassen für unbestimmtes Datum
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
             back: Zurück zu Fragen
-            publish_answers: Antworten veröffentlichen
+            publish_responses: Antworten veröffentlichen
             show: Antworten
-          answer_option:
-            answer_option: Antwortoption
-            free_text: Freier Text
-            remove: Löschen
-            statement: Aussage
-          answers:
-            actions:
-              back: Zurück zu Antworten
-              export: Exportieren
-              next: Nächste &rsaquo;
-              previous: "&lsaquo; Vorherige"
-              show: Antworten anzeigen
-            empty: Noch keine Antworten
-            export:
-              answer:
-                title: 'Antwort #%{number}'
-            export_response:
-              title: Umfrage_Benutzer_Antworten_%{token}
-            index:
-              title: "%{total} Antworten insgesamt"
-            show:
-              title: 'Antwort #%{number}'
           display_condition:
-            answer_option: Antwortoption
             condition_question: Frage
             condition_type: Bedingung
             condition_types:
-              answered: Beantwortet
               equal: Gleich
               match: Beinhaltet Text
-              not_answered: Unbeantwortet
               not_equal: Nicht gleich
+              not_responded: Nicht beantwortet
+              responded: Beantwortet
             condition_value: Enthaltener Text
             display_condition: Bedingung anzeigen
             mandatory: Diese Bedingung muss immer erfüllt werden, unabhängig vom Status anderer Bedingungen
             remove: Löschen
+            response_option: Antwort-Option
             save_warning: Vergessen Sie nicht, das Formular zu speichern, bevor Sie die Anzeigebedingungen konfigurieren
-            select_answer_option: Antwortoption auswählen
             select_condition_question: Eine Frage
             select_condition_type: Wählen Sie einen Bedingungstyp
+            select_response_option: Antwort-Option auswählen
           edit:
             save: Speichern
             title: Fragebogen bearbeiten
@@ -117,10 +95,10 @@ de:
             remove: Löschen
             statement: Aussage
           question:
-            add_answer_option: Antwortoption hinzufügen
             add_display_condition: Anzeigebedingung hinzufügen
             add_display_condition_info: Speichern Sie das Formular, um die Anzeigebedingungen zu konfigurieren
             add_matrix_row: Zeile hinzufügen
+            add_response_option: Antwort-Option hinzufügen
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
@@ -131,12 +109,34 @@ de:
             statement: Aussage
             up: Oben
           questions_form:
-            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+            already_responded_warning: Das Formular wird von einigen Benutzern bereits beantwortet, weshalb Sie die Fragen nicht mehr ändern können.
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             unpublished_warning: Das Formular ist nicht veröffentlicht. Sie können die Fragen ändern, aber dadurch werden die aktuellen Antworten gelöscht.
             update:
               success: Umfrage erfolgreich gespeichert.
+          response_option:
+            free_text: Freier Text
+            remove: Entfernen
+            response_option: Antwort-Option
+            statement: Aussage
+          responses:
+            actions:
+              back: Zurück zu den Antworten
+              export: Exportieren
+              next: Nächste &rsaquo;
+              previous: "&lsaquo; Vorherige"
+              show: Antworten anzeigen
+            empty: Noch keine Antworten
+            export:
+              response:
+                title: 'Antwort #%{number}'
+            export_response:
+              title: Umfrage_Benutzer_Antworten_%{token}
+            index:
+              title: "%{total} Antworten insgesamt"
+            show:
+              title: 'Antwort #%{number}'
           separator:
             down: Runter
             remove: Löschen
@@ -156,12 +156,12 @@ de:
             success: Formular erfolgreich gespeichert.
       admin_log:
         question:
-          publish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
-          unpublish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} verborgen"
+          publish_responses: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
+          unpublish_responses: "%{user_name} hat die Veröffentlichung der Antworten zu den Fragen %{resource_name} im Bereich %{space_name} zurückgezogen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
-        answer:
+        response:
           body: Textkörper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
@@ -170,41 +170,29 @@ de:
           resize_to_fit: Dieses Bild wird auf %{dimensions} skaliert.
       question_types:
         files: Dateien
-        long_answer: Lange Antwort
+        long_response: Lange Antwort
         matrix_multiple: Matrix (Mehrfachoption)
         matrix_single: Matrix (Einzelne Option)
         multiple_option: Mehrfachoption
-        short_answer: Kurze Antwort
+        short_response: Kurze Antwort
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
-      questionnaire_answer_presenter:
+      questionnaire_response_presenter:
         download_attachment: Anhang herunterladen
       questionnaires:
-        answer:
-          invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
-          max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
-          success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
+        response:
+          invalid: Es gab ein Problem beim Antworten auf das Formular.
+          max_choices_alert: Es sind zu viele Optionen ausgewählt
+          success: Formular erfolgreich beantwortet.
         show:
-          answer_questionnaire:
-            already_have_an_account?: Haben Sie bereits ein Konto?
-            are_you_new?: Neue Teilnehmer*in?
-            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
-            sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
-            title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           empty: Für dieses Formular wurden noch keine Fragen eingestellt.
           of_total_steps: von %{total_steps}
-          questionnaire_answered:
-            body: Sie haben diesen Fragebogen bereits beantwortet.
-            title: Schon beantwortet
-          questionnaire_answered_edit:
-            body: Sie haben dieses Formular bereits beantwortet. %{link}
-            edit: Antworten bearbeiten
           questionnaire_closed:
-            body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
+            body: Das Formular ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
           questionnaire_for_private_users:
             body: Der Fragebogen ist nur für Privatanwender verfügbar
@@ -214,20 +202,32 @@ de:
             title: JavaScript ist deaktiviert
           questionnaire_not_published:
             body: Dieses Formular ist noch nicht veröffentlicht.
+          questionnaire_responded:
+            body: Sie haben dieses Formular bereits beantwortet.
+            title: Bereits beantwortet
+          questionnaire_responded_edit:
+            body: Sie haben dieses Formular bereits beantwortet. %{link}
+            edit: Antworten bearbeiten
+          response_questionnaire:
+            already_have_an_account?: Haben Sie bereits ein Konto?
+            are_you_new?: Neue Teilnehmer*in?
+            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
+            sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
+            title: Formularbeantwortung
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
           are_you_sure_edit_guest: Wenn Sie Ihre Antworten nachträglich bearbeiten möchten, müssen Sie sich anmelden oder ein Konto erstellen.
-          are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht mehr bearbeiten. Sind Sie sicher?
+          are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden, und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
           disallowed: Sie dürfen Ihre Antworten nicht bearbeiten.
           submit: einreichen
-      user_answers_serializer:
+      user_responses_serializer:
         body: Antwort
         completion: Abschluss
         created_at: Beantwortet am
-        id: ID beantworten
+        id: Antwort ID
         ip_hash: IP-Hash
         question: Frage
         registered: Registriert

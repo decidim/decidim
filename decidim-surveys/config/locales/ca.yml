@@ -8,24 +8,24 @@ ca:
       decidim/surveys/survey:
         one: Enquesta
         other: Enquestes
-      decidim/surveys/survey_answer:
+      decidim/surveys/survey_response:
         one: Resposta
         other: Respostes
   decidim:
     admin:
       admin_log:
         changeset:
-          surveys: Enquestes
+          surveys: enquestes
       menu:
         surveys_menu:
-          answers: Respostes
           main: Principal
           questions: Preguntes
+          responses: Respostes
           settings: Configuració
     components:
       surveys:
         actions:
-          answer: Respondre
+          response: Resposta
         name: Enquestes
         settings:
           announcement: Avís
@@ -45,49 +45,44 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
-    metrics:
-      survey_answers:
-        description: Nombre d'enquestes contestades per les participants
-        object: respostes a enquestes
-        title: Respostes a enquestes
     statistics:
-      answers_count: Respostes
+      responses_count: Respostes
     surveys:
       actions:
-        answers_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{answers_count} existents actualment.
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
         edit: Editar
         manage_questions: Preguntes
         new_survey: Nova enquesta
         preview: Previsualitzar
+        responses_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{responses_count} existents actualment.
         title: Accions
       admin:
-        answers:
-          index:
-            no_answers: Encara no hi ha respostes
-            title: "%{total} respostes totals"
-          show:
-            title: 'Resposta #%{number}'
         exports:
-          survey_user_answers: Respostes de les participants de l'enquesta
-        publish_answers:
+          survey_user_responses: Respostes de les participants de l'enquesta
+        publish_responses:
           index:
-            answers:
-              one: "%{count} resposta"
-              other: "%{count} respuestas"
             description: |-
-              Publicant les respostes a les preguntes de l'enquesta, aquestes seran visibles per a les visitants.
-              Pots seleccionar les preguntes de les que vols publicar les respostes marcant el "checkbox" de cadascuna d'elles.
+              Publicant les respostes a les repostes de l'enquesta, aquestes seran visibles per a les visitants.
+              Pots seleccionar les repostes que vols publicar marcant el "checkbox" de cadascuna d'elles.
               Només pots publicar les respostes de les preguntes que són del tipus de resposta: "Opció única", "Opció múltiple", "Matriu (opció única)", "Matriu (opció múltiple), i "Ordenació".
+            responses:
+              one: "%{count} resposta"
+              other: "%{count} respostes"
             status:
               not_published: No publicades
               published: Publicades
-            title: Publicar respostes
+            title: Publicar les respostes
         questions:
           surveys:
             edit:
               title: Preguntes
+        responses:
+          index:
+            no_responses: Encara no hi ha cap resposta
+            title: "%{total} respostes en total"
+          show:
+            title: 'Resposta #%{number}'
         settings:
           surveys:
             edit:
@@ -129,8 +124,8 @@ ca:
       models:
         survey:
           fields:
-            answers: Respostes
             questions: Preguntes
+            responses: Respostes
             status: Estat
             title: Títol
           status:
@@ -140,12 +135,8 @@ ca:
         confirmation:
           body: Has respost amb èxit a l'enquesta %{questionnaire_title} dins de %{participatory_space}
           subject: Confirmació de resposta al qüestionari %{questionnaire_title}
-        export_name: Respostes a l'enquesta
+        export_name: Respuestas a l'encuesta
       surveys:
-        answer:
-          invalid: S'ha produït un error en respondre l'enquesta.
-          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
-          success: Enquesta resposta correctament.
         count:
           surveys_count:
             one: "%{count} enquesta"
@@ -156,6 +147,10 @@ ca:
             closed: Tancada
             open: Obertes
         no_surveys_warning: No hi ha enquestes que coincideixin amb el teu criteri de cerca o no hi ha cap enquesta.
+        response:
+          invalid: S'ha produït un error en respondre l'enquesta.
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
+          success: L'enquesta s'ha respost correctament.
         show:
           closed: Tancada
           open: Oberta

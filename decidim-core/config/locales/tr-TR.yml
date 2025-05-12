@@ -350,8 +350,6 @@ tr:
         name: Son Aktivite
         title: Son Aktivite
         view_all: Tümünü görüntüle
-      metrics:
-        name: Organizasyon metrikleri
       static_page:
         section:
           name: Bölüm
@@ -654,21 +652,6 @@ tr:
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-    metrics:
-      download:
-        csv: Veri indir (csv)
-      followers:
-        description: Bu katılım alanını takip eden kullanıcı sayısı
-        object: takipçiler
-        title: Takipçiler
-      participants:
-        description: Kuruluştaki aktif kullanıcı sayısı
-        object: katılımcılar
-        title: Katılımcılar
-      users:
-        description: Kuruluştaki katılımcı sayısı
-        object: katılımcılar
-        title: Katılımcılar
     newsletter_mailer:
       newsletter:
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
@@ -752,10 +735,6 @@ tr:
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
         topics: Başlıklar
-      participatory_space:
-        metrics:
-          headline: Metrikler
-          link: Bütün istatistikleri göster
     profile:
       deleted: Silinmiş kullanıcı
     profiles:
@@ -800,7 +779,6 @@ tr:
       prompt: Bir kapsam seçin
     search:
       results: Arama sonuçları
-      results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
       filters:

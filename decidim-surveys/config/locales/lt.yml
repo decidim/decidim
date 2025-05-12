@@ -10,16 +10,9 @@ lt:
         few: Apklausos
         many: Apklausos
         other: Apklausos
-      decidim/surveys/survey_answer:
-        one: Atsakyti
-        few: Atsakymai
-        many: Atsakymai
-        other: Atsakymai
   decidim:
     components:
       surveys:
-        actions:
-          answer: Atsakyti
         settings:
           global:
             announcement: Pranešimas
@@ -37,25 +30,11 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Nauja apklausa %{participatory_space_title}
           notification_title: Apklausa <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> dabar vyksta.
-    metrics:
-      survey_answers:
-        description: Apklausų, į kurių klausimus atsakė dalyviai, skaičius
-        object: atsakymai į apklausų klausimus
-        title: Atsakymai į apklausų klausimus
-    statistics:
-      answers_count: Atsakymai
     surveys:
       admin:
-        exports:
-          survey_user_answers: Apklausos dalyvių atsakymai
         surveys:
           update:
             invalid: Išsaugant šią apklausą iškilo problema.
             success: Apklausa išsaugota.
       last_activity:
         new_survey: 'Nauja apklausa:'
-      surveys:
-        answer:
-          invalid: Atsakant į šios apklausos klausimus iškilo problema.
-          spam_detected: Atsakant į šią formą iškilo problema. Galbūt paskubėjote? Ar galite pabandyti dar kartą?
-          success: Į apklausos klausimus atsakyta.

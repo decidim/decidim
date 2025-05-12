@@ -27,7 +27,7 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Hasierako orriko irudia
-        import_attachments: Inportatu erantsitako artxiboak
+        import_attachments: Inportatu erantsitako fitxategiak
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         included_at: 'Honen barne:'
@@ -376,11 +376,6 @@ eu:
           not_found: 'Batzar mota ez da aurkitu (ID: %{id}) datu-basean'
     menu:
       assemblies: Batzarrak
-    metrics:
-      assemblies:
-        description: Sortutako batzar kopurua
-        object: batzarrak
-        title: Batzarrak
     open_data:
       help:
         assemblies:

@@ -251,11 +251,6 @@ lb:
           title: Was ist ein partizipativer Prozess?
     menu:
       processes: Bedeelegungsprozesser
-    metrics:
-      participatory_processes:
-        description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: Bedeelegungsprozesser
-        title: Bedeelegungsprozesser
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -284,9 +279,6 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
-      participatory_process_steps:
-        index:
-          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
           counters:

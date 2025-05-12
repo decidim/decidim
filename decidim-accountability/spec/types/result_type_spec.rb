@@ -12,12 +12,27 @@ module Decidim
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
+      include_examples "attachable interface"
+      include_examples "attachable collection interface with attachment"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "commentable interface"
+      include_examples "localizable interface"
+      include_examples "referable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns the id field" do
           expect(response["id"]).to eq(model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
         end
       end
 
@@ -34,14 +49,6 @@ module Decidim
 
         it "returns the description field" do
           expect(response["description"]["translation"]).to eq(model.description["en"])
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the reference field" do
-          expect(response["reference"]).to eq(model.reference.to_s)
         end
       end
 
@@ -69,19 +76,18 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      describe "proposals" do
+        let(:query) { "{ proposals { id } } " }
 
-        it "returns the createdAt" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
+        let!(:proposal_component) { create(:proposal_component, participatory_space: model.participatory_space) }
+        let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
+
+        before do
+          model.link_resources(proposals, "included_proposals")
         end
-      end
 
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns the updatedAt" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns the proposal urls" do
+          expect(response["proposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
         end
       end
 

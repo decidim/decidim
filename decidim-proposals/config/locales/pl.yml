@@ -326,26 +326,8 @@ pl:
           next_level_in: Stwórz %{score} kolejnych propozycji, aby awansować na kolejny poziom!
           unearned_another: Ten uczestnik nie utworzył jeszcze żadnych propozycji.
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
-    metrics:
-      accepted_proposals:
-        description: Liczba zaakceptowanych propozycji
-        object: propozycje
-        title: Zaakceptowane propozycje
-      endorsements:
-        description: Liczba rekomendacji propozycji
-        object: rekomendacje
-        title: Rekomendacje
-      proposals:
-        description: Liczba propozycji
-        object: propozycje
-        title: Propozycje
-      votes:
-        description: Liczba głosów na propozycje
-        object: głosów
-        title: Głosy
     participatory_spaces:
       highlighted_proposals:
-        last: Ostatnie propozycje
         see_all: Zobacz wszystkie propozycje
     proposals:
       actions:
@@ -713,7 +695,6 @@ pl:
           text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
@@ -765,7 +746,6 @@ pl:
         update:
           title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już głosował
           already_voted_hover: Wycofaj głos
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów

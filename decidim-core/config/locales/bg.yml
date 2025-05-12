@@ -85,7 +85,7 @@ bg:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Формат: дд/мм/гггг'
-      order: д-м-г
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -528,10 +528,6 @@ bg:
         name: Основни данни
       metadata:
         name: Метаданни
-      metrics:
-        name: Показатели за организацията
-      participatory_space_metrics:
-        name: Метрики
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
@@ -981,21 +977,6 @@ bg:
         finished: 'Приключило: %{end_date}'
         not_started: Още не е започнало
         remaining: "Остават %{time_distance}"
-    metrics:
-      download:
-        csv: Изтегляне на данни (CSV)
-      followers:
-        description: Брой участници, които следват това пространство
-        object: последователи
-        title: Последователи
-      participants:
-        description: Брой активни участници в организацията
-        object: участници
-        title: Участници
-      users:
-        description: Брой участници в организацията
-        object: участници
-        title: Участници
     newsletter_mailer:
       newsletter:
         no_reply_notice: Този имейл е изпратен от имейл адрес за уведомяване, който не може да приема входящи имейли. Моля, не отговаряйте на това съобщение.
@@ -1131,10 +1112,6 @@ bg:
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
         topics: Tеми
-      participatory_space:
-        metrics:
-          headline: Индикатори
-          link: Покажи всички индикатори
       terms_of_service:
         accept:
           error: Възникна проблем при приемането на Условията за ползване.
@@ -1206,7 +1183,6 @@ bg:
     search:
       name: Търсене
       results: Резултати от търсенето
-      results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:

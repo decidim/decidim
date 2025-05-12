@@ -458,8 +458,6 @@ zh-TW:
         name: 最後活動
         title: 最後活動
         view_all: 檢視全部
-      metrics:
-        name: 組織指標
       static_page:
         section:
           name: 節
@@ -855,21 +853,6 @@ zh-TW:
           send: 發送
         update:
           error: 由於錯誤，訊息未能傳送.
-    metrics:
-      download:
-        csv: 下載資料(CSV)
-      followers:
-        description: 追蹤此參與空間的參與者數量
-        object: 追隨者
-        title: 追隨者
-      participants:
-        description: 組織中活躍參與者的數量
-        object: 參與者
-        title: 參與者
-      users:
-        description: 組織中參與者的數量
-        object: 參與者
-        title: 參與者
     newsletter_mailer:
       newsletter:
         no_reply_notice: 此封郵件是由無法接收傳入郵件的通知郵件地址發送的。請不要回覆此訊息。
@@ -998,10 +981,6 @@ zh-TW:
         subheading: 瀏覽 %{name} 的幫助頁面
         title: 幫助
         topics: 主題
-      participatory_space:
-        metrics:
-          headline: 指標
-          link: 顯示所有指標
       terms_of_service:
         accept:
           error: 接受服務條款時出現問題。
@@ -1071,7 +1050,6 @@ zh-TW:
       prompt: 選擇一個範圍
     search:
       results: 搜尋結果
-      results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
       term_input_placeholder: 搜尋
     searches:
       filters:

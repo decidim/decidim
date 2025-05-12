@@ -1,27 +1,12 @@
 bg:
   activemodel:
     attributes:
-      answer:
-        body: Отговор
-        choices: Възможности
-        selected_choices: Избрани възможности
       question:
         max_choices: Максимален брой възможности
         question_type: Тип
       questionnaire_question:
         mandatory: Задължително
         max_characters: Ограничение на знаците (оставете 0, за неограничено)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Необходимо е да се прикачи отново
-            body:
-              too_long: твърде дълъг
-            choices:
-              missing: не са завършени
-              too_many: Можете да изберете максимум %{count}.
   decidim:
     forms:
       admin:
@@ -32,44 +17,18 @@ bg:
         questionnaires:
           actions:
             back: Назад към въпросите
-          answer_option:
-            answer_option: Възможност за отговор
-            free_text: Свободен текст
-            remove: Премахни
-            statement: Изявление
-          answers:
-            actions:
-              back: Назад към отговорите
-              export: Експортиране
-              next: Следваща &rsaquo;
-              previous: "&lsaquo; Предна"
-              show: Показване на отговорите
-            empty: Все още няма отговори
-            export:
-              answer:
-                title: 'Отговор № %{number}'
-            export_response:
-              title: survey_user_answers_%{token}
-            index:
-              title: "Общ брой отговори: %{total}"
-            show:
-              title: 'Отговор № %{number}'
           display_condition:
-            answer_option: Възможност за отговор
             condition_question: Въпрос
             condition_type: Условие
             condition_types:
-              answered: Отговорено
               equal: Равно
               match: Включва текст
-              not_answered: Неотговорено
               not_equal: Не е равно
             condition_value: Включен текст
             display_condition: Условие за показване
             mandatory: Това условие винаги трябва да бъде удовлетворено, независимо от състоянието на другите условия
             remove: Премахни
             save_warning: Не забравяйте да запазите формуляра, преди да конфигурирате условията за показване
-            select_answer_option: Изберете вариант за отговор
             select_condition_question: Изберете въпрос
             select_condition_type: Изберете тип условие
           edit:
@@ -86,7 +45,6 @@ bg:
             remove: Премахни
             statement: Изявление
           question:
-            add_answer_option: Добавяне на възможност за отговор
             add_display_condition: Добавяне на условие за показване
             add_display_condition_info: Запазете формуляра, за да конфигурирате условията за показване
             add_matrix_row: Добавяне на ред
@@ -99,6 +57,9 @@ bg:
             remove: Премахни
             statement: Изявление
             up: Горе
+          responses:
+            actions:
+              show: Показване на отговорите
           separator:
             down: Долу
             remove: Премахни
@@ -119,9 +80,6 @@ bg:
       admin_log:
         questionnaire:
           update: "%{user_name} актуализира въпросника %{resource_name}"
-      errors:
-        answer:
-          body: Основният текст не може да бъде празен
       images:
         dimensions: "%{width} x %{height} пиксела"
         processors:
@@ -129,37 +87,20 @@ bg:
           resize_to_fit: Това изображение ще бъде преоразмерено и уплътнено до %{dimensions}.
       question_types:
         files: Файлове
-        long_answer: Дълъг отговор
         matrix_multiple: Матрица (множество опции)
         matrix_single: Матрица (единична опция)
         multiple_option: Множество опции
-        short_answer: Кратък отговор
         single_option: Единична опция
         sorting: Сортиране
         title_and_description: Заглавие и описание
-      questionnaire_answer_presenter:
-        download_attachment: Изтегляне на прикачени файлове
       questionnaires:
-        answer:
-          invalid: Възникна проблем при попълването на отговорите във формуляра.
-          max_choices_alert: Избрани са прекалено много варианти
-          success: Отговорите са попълнени успешно във формуляра.
         question:
           max_choices: 'Максимален брой избрани варианти: %{n}'
         show:
-          answer_questionnaire:
-            already_have_an_account?: Вече имате профил?
-            are_you_new?: Нов потребител?
-            sign_up_description: Създайте акаунт на участник, за да участвате в анкетата
-            title: Попълване на отговори във формуляра
           current_step: Стъпка %{step}
           empty: Все още няма конфигурирани въпроси за този формуляр.
           of_total_steps: от %{total_steps}
-          questionnaire_answered:
-            body: Вече сте попълнили отговорите в този формуляр.
-            title: Вече сте отговорили
           questionnaire_closed:
-            body: Формулярът е затворен и не можете да попълните отговорите си.
             title: Формулярът е затворен
           questionnaire_for_private_users:
             body: Формулярът е налице само за частни потребители
@@ -175,14 +116,3 @@ bg:
           back: Назад
           continue: Продължи
           submit: Изпрати
-      user_answers_serializer:
-        body: Отговор
-        completion: Завършване
-        created_at: Отговорено на
-        id: ID на отговора
-        ip_hash: IP хеширане
-        question: Въпрос
-        registered: Регистриран
-        session_token: Идентификатор на потребителя
-        unregistered: Нерегистриран
-        user_status: Статус на потребителя

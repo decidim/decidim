@@ -87,7 +87,7 @@ pt-BR:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: dia-mês-ano
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -527,10 +527,6 @@ pt-BR:
         name: Dados principais
       metadata:
         name: Metadados
-      metrics:
-        name: Métricas da organização
-      participatory_space_metrics:
-        name: Métricas
       participatory_space_stats:
         name: Estatísticas
       social_networks_metadata:
@@ -959,21 +955,6 @@ pt-BR:
         active: Ativo
         finished: 'Concluído: %{end_date}'
         not_started: Não iniciado ainda
-    metrics:
-      download:
-        csv: Download de dados (CSV)
-      followers:
-        description: Número de usuários que seguem este espaço de participação
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de usuários ativos na organização
-        object: participantes
-        title: Participantes
-      users:
-        description: Número de usuários na organização
-        object: usuários
-        title: Usuários
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este email foi enviado de uma caixa postal que não pode receber emails. Favor não responder esta mensagem.
@@ -1103,10 +1084,6 @@ pt-BR:
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Ajuda
         topics: Tópicos
-      participatory_space:
-        metrics:
-          headline: Participação em números
-          link: Mostrar todas as estatísticas
       terms_of_service:
         form:
           agreement: Concordo com estes termos
@@ -1172,7 +1149,6 @@ pt-BR:
     search:
       name: Pesquisar
       results: Procurar resultados
-      results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisa
     searches:
       filters:
