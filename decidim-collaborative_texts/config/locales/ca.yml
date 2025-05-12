@@ -5,6 +5,7 @@ ca:
       collaborative_texts:
         document:
           body: Cos del text
+          draft: Esborrany
           title: Títol
           version_number: Número de versió
         version:
