@@ -5,6 +5,11 @@ module Decidim
     # A cell to display a comments section for a commentable object.
     class CommentsCell < Decidim::ViewModel
       delegate :user_signed_in?, to: :controller
+
+      def inline
+        render :inline
+      end
+
       def add_comment
         return if single_comment?
         return if comments_blocked?
