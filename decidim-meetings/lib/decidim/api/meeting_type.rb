@@ -18,7 +18,7 @@ module Decidim
       implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true
-      field :attendee_count, GraphQL::Types::Int, "Amount of attendees to this meeting", method: :attendees_count, null: true
+      field :attendees_count, GraphQL::Types::Int, "Amount of attendees to this meeting", null: true
       field :attending_organizations, GraphQL::Types::String, "list of attending organizations", null: true
       field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
       field :closed, GraphQL::Types::Boolean, "Whether this meeting is closed or not.", method: :closed?, null: false
@@ -34,7 +34,6 @@ module Decidim
       field :id, GraphQL::Types::ID, "ID of this meeting", null: false
       field :iframe_access_level, GraphQL::Types::String, "The iframe access level of the meeting ", null: true
       field :iframe_embed_type, GraphQL::Types::String, "The type of displaying of the online meeting URL", null: true
-      field :is_withdrawn, GraphQL::Types::Boolean, "Whether this meeting is withdrawn or not.", method: :withdrawn?, null: false
       field :location, Decidim::Core::TranslatedFieldType, "The location of this meeting (free format)", null: true
       field :location_hints, Decidim::Core::TranslatedFieldType, "The location of this meeting (free format)", null: true
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
