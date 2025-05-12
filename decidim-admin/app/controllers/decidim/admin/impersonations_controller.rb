@@ -99,7 +99,7 @@ module Decidim
           managed: true,
           name: params.dig(:impersonate_user, :name)
         ) do |u|
-          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, organization: current_organization)
+          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, current_organization.id)
           u.admin = false
           u.tos_agreement = true
         end
