@@ -43,7 +43,7 @@ module Decidim
         hours = resource.send_reminders_before_hours.to_s
         template
           .gsub("{{meeting_title}}", title)
-          .gsub("{{reminders_before_hours}}", hours)
+          .gsub("{{before_hours}}", hours)
       end
     end
   end

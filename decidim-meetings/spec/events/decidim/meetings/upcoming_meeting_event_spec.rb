@@ -29,7 +29,7 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
              title: { en: "Custom Meeting" },
              reminder_enabled: true,
              send_reminders_before_hours: 25,
-             reminder_message_custom_content: { en: "Reminder for the {{meeting_title}} meeting. Meeting will start in {{reminders_before_hours}}h" })
+             reminder_message_custom_content: { en: "Reminder for the {{meeting_title}} meeting. Meeting will start in {{before_hours}}h" })
     end
 
     it "interpolates the meeting title into the custom message" do
