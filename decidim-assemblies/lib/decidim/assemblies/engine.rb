@@ -59,7 +59,10 @@ module Decidim
       end
 
       initializer "decidim_assemblies.stats" do
-        Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+        Decidim.stats.register :assemblies_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "government-line",
+                               tooltip_key: "assemblies_count_tooltip" do |organization, _start_at, _end_at|
           Decidim::Assembly.where(organization:).public_spaces.count
         end
       end
