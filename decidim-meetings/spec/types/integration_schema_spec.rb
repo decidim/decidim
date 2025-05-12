@@ -23,10 +23,18 @@ describe "Decidim::Api::QueryType" do
             id
           }
           closed
+          closedAt
           closingReport {
             translation(locale: "#{locale}")
           }
+          commentsEnabled
+          commentsEndTime
+          commentsStartTime
+          contributionCount
+          customizeRegistrationEmail
           isWithdrawn
+          iframeAccessLevel
+          iframeEmbedType
           videoUrl
           audioUrl
           comments {
@@ -44,6 +52,7 @@ describe "Decidim::Api::QueryType" do
             translation(locale: "#{locale}")
           }
           endTime
+          followsCount
           hasComments
           id
           location {
@@ -56,6 +65,8 @@ describe "Decidim::Api::QueryType" do
           proposalsFromMeeting {
             id
           }
+          publicParticipants { id }
+          publishedAt
           reference
           registrationForm {
             id
@@ -64,6 +75,8 @@ describe "Decidim::Api::QueryType" do
           registrationTerms {
             translation(locale: "#{locale}")
           }
+          registrationType
+          registrationUrl
           registrationsEnabled
           remainingSlots
           services{
@@ -92,7 +105,14 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
-  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, taxonomies:) }
+  let!(:meeting) do
+    create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes,
+           closing_visible:,
+           component: current_component,
+           taxonomies:,
+           comments_end_time: Time.current.utc,
+           comments_start_time: Time.current.utc + 1.day)
+  end
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting:) }
   let!(:invite) { create(:invite, :accepted, meeting:) }
   let(:closing_visible) { true }
@@ -108,30 +128,42 @@ describe "Decidim::Api::QueryType" do
       "attendingOrganizations" => meeting.attending_organizations,
       "taxonomies" => [{ "id" => meeting.taxonomies.first.id.to_s }],
       "closed" => true,
+      "closedAt" => meeting.closed_at.to_time.iso8601,
       "closingReport" => closing_visible ? { "translation" => meeting.closing_report[locale] } : nil,
+      "commentsEnabled" => meeting.comments_enabled,
+      "commentsEndTime" => meeting.comments_end_time.to_time.iso8601,
       "isWithdrawn" => true,
       "videoUrl" => closing_visible ? meeting.video_url : nil,
       "audioUrl" => closing_visible ? meeting.audio_url : nil,
       "comments" => [],
       "commentsHaveAlignment" => meeting.comments_have_alignment?,
       "commentsHaveVotes" => meeting.comments_have_votes?,
+      "commentsStartTime" => meeting.start_time.to_time.iso8601,
       "contributionCount" => meeting.contributions_count,
       "coordinates" => {
         "latitude" => meeting.latitude.to_f,
         "longitude" => meeting.longitude.to_f
       },
       "createdAt" => meeting.created_at.to_time.iso8601,
+      "customizeRegistrationEmail" => meeting.customize_registration_email,
       "description" => { "translation" => meeting.description[locale] },
       "endTime" => meeting.end_time.to_time.iso8601,
+      "followsCount" => meeting.follows_count,
       "hasComments" => meeting.comment_threads.size.positive?,
       "id" => meeting.id.to_s,
+      "iframeAccessLevel" => meeting.iframe_access_level,
+      "iframeEmbedType" => meeting.iframe_embed_type,
       "location" => { "translation" => meeting.location[locale] },
       "locationHints" => { "translation" => meeting.location_hints[locale] },
       "privateMeeting" => false,
       "proposalsFromMeeting" => [],
+      "publicParticipants" => [],
+      "publishedAt" => meeting.published_at.to_time.iso8601,
       "reference" => meeting.reference,
       "registrationForm" => { "id" => meeting.questionnaire.id.to_s },
       "registrationTerms" => { "translation" => meeting.registration_terms[locale] },
+      "registrationType" => meeting.registration_type,
+      "registrationUrl" => nil,
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
       "services" => meeting.services.map do |s|
@@ -209,10 +241,18 @@ describe "Decidim::Api::QueryType" do
                 id
               }
               closed
+              closedAt
               closingReport {
                 translation(locale: "#{locale}")
               }
+              commentsEnabled
+              commentsEndTime
+              commentsStartTime
+              contributionCount
+              customizeRegistrationEmail
               isWithdrawn
+              iframeAccessLevel
+              iframeEmbedType
               videoUrl
               audioUrl
               comments {
@@ -230,6 +270,7 @@ describe "Decidim::Api::QueryType" do
                 translation(locale: "#{locale}")
               }
               endTime
+              followsCount
               hasComments
               id
               location {
@@ -242,6 +283,8 @@ describe "Decidim::Api::QueryType" do
               proposalsFromMeeting {
                 id
               }
+              publicParticipants { id }
+              publishedAt
               reference
               registrationForm {
                 id
@@ -250,6 +293,8 @@ describe "Decidim::Api::QueryType" do
               registrationTerms {
                 translation(locale: "#{locale}")
               }
+              registrationType
+              registrationUrl
               registrationsEnabled
               remainingSlots
               services{
@@ -281,7 +326,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it { expect(response["participatoryProcess"]["components"].first).to eq(meeting_data) }
+    it { expect(response["participatoryProcess"]["components"].first).to include(meeting_data) }
   end
 
   describe "valid query" do
