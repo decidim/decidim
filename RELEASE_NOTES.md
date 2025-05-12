@@ -90,4 +90,3 @@ You need to change it to:
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
-
