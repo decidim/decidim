@@ -5,6 +5,7 @@ es:
       collaborative_texts:
         document:
           body: Cuerpo del texto
+          draft: Borrador
           title: Título
           version_number: Número de versión
         version:
