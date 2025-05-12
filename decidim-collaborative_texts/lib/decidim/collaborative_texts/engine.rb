@@ -6,7 +6,9 @@ module Decidim
       isolate_namespace Decidim::CollaborativeTexts
 
       routes do
-        resources :documents
+        resources :documents do
+          resources :suggestions
+        end
         scope "/documents" do
           root to: "documents#index"
         end

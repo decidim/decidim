@@ -41,7 +41,7 @@ describe "Decidim::Api::QueryType" do
       "slogan" => { "translation" => conference.slogan[locale] },
       "slug" => conference.slug,
       "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
-      "startDate" => conference.start_date.to_date.to_s,
+      "startDate" => conference.start_date.iso8601,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
       "updatedAt" => conference.updated_at.to_time.iso8601,
