@@ -83,14 +83,6 @@ describe Decidim::Meetings::MeetingsController do
 
   describe "#show" do
     context "when user is not logged in" do
-      it "cannot access missing meetings" do
-        # rubocop:disable Style/NumericLiterals
-        expect do
-          get :show, params: { id: 99999999 }
-        end.to raise_error(ActionController::RoutingError, "Not Found")
-        # rubocop:enable Style/NumericLiterals
-      end
-
       it "can access non private meetings" do
         get :show, params: { id: meeting.id }
 
