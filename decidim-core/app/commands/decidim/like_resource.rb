@@ -6,7 +6,7 @@ module Decidim
   class LikeResource < Decidim::Command
     # Public: Initializes the command.
     #
-    # resource     - An instance of Decidim::Likable.
+    # resource     - An instance of Decidim::Likeable.
     # current_user - The current user.
     def initialize(resource, current_user)
       @resource = resource

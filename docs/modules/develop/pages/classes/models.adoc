@@ -45,7 +45,7 @@ Most commonly used concerns are:
 - `xref:develop:authorable.adoc[Decidim::Authorable]`
 - `xref:develop:authorable.adoc[Decidim::Coauthorable]`
 - `Decidim::DownloadYourData`
-- `xref:develop:likable.adoc[Decidim::Likable]`
+- `xref:develop:likeable.adoc[Decidim::likeable]`
 - `Decidim::FilterableResource`
 - `Decidim::Fingerprintable`
 - `xref:develop:followable.adoc[Decidim::Followable]`

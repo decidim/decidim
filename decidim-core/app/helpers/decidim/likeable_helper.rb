@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper for views with Likable resources.
+  # A Helper for views with likeable resources.
   module LikeableHelper
     # Public: Checks if like are enabled in this step.
     #

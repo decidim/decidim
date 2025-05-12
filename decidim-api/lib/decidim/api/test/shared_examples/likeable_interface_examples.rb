@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples_for "likable interface" do
+shared_examples_for "likeable interface" do
   describe "likesCount" do
     let(:query) { "{ likesCount }" }
 

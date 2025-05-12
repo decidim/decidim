@@ -92,7 +92,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :Likable, "decidim/likable"
+  autoload :likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
@@ -201,7 +201,7 @@ module Decidim
   def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
-                             .select { |resource| resource.constantize.include? Decidim::Likable }
+                             .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
       resource_type.constantize.find_each do |resource|

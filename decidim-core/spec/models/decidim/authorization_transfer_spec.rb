@@ -231,7 +231,7 @@ module Decidim
         end.flatten
       end
       let(:likes) do
-        dummy_resources.map { |likable| create(:like, resource: likable, author: user) }.flatten
+        dummy_resources.map { |likeable| create(:like, resource: likeable, author: user) }.flatten
       end
 
       before do

@@ -22,7 +22,7 @@ module Decidim
         end.flatten
       end
       let(:likes) do
-        proposals.map { |likable| create(:like, resource: likable) }.flatten
+        proposals.map { |likeable| create(:like, resource: likeable) }.flatten
       end
 
       let!(:records) do

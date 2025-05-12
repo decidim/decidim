@@ -5,7 +5,7 @@ module Decidim
   class UnlikeResource < Decidim::Command
     # Public: Initializes the command.
     #
-    # resource     - A Decidim::Likable object.
+    # resource     - A Decidim::Likeable object.
     # current_user - The current user.
     def initialize(resource, current_user)
       @resource = resource

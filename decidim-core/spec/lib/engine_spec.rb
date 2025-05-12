@@ -127,7 +127,7 @@ module Decidim::Core
         {
           amendments: create_list(:amendment, 3, amendable:, emendation:, amender: original_user),
           coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable:, author: original_user) },
-          likes: likeables.map { |likable| create(:like, resource: likable, author: original_user) }
+          likes: likeables.map { |likeable| create(:like, resource: likeable, author: original_user) }
         }
       end
       let(:transferred_amendments) { Decidim::Amendment.where(amender: target_user).order(:id) }

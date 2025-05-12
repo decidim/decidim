@@ -3,7 +3,7 @@
 require "spec_helper"
 
 # users of this test should declare the `subject` variable.
-shared_examples "with likable permissions can perform actions related to likable" do
+shared_examples "with likeable permissions can perform actions related to likeable" do
   let(:action_subject) { :like }
   let(:resource) { create(:dummy_resource, component:) }
   before do

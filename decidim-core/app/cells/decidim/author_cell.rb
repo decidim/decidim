@@ -65,7 +65,7 @@ module Decidim
         list << :date if creation_date?
         list << :cancelled_on if cancelable?
         list << :comments if commentable?
-        list << :likes if likable?
+        list << :likes if likeable?
         list << :withdraw if withdrawable?
       end
       return actions unless has_context_actions_options?
@@ -86,7 +86,7 @@ module Decidim
       hash.push(current_user.try(:id))
       hash.push(current_user.present?)
       hash.push(commentable?)
-      hash.push(likable?)
+      hash.push(likeable?)
       hash.push(actionable?)
       hash.push(withdrawable?)
       hash.push(profile_path?)
@@ -132,8 +132,8 @@ module Decidim
       from_context && from_context.respond_to?(:cancelled_on)
     end
 
-    def likable?
-      from_context && from_context.class.include?(Decidim::Likable)
+    def likeable?
+      from_context && from_context.class.include?(Decidim::Likeable)
     end
 
     def actionable?
