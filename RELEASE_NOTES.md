@@ -56,7 +56,27 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. Require organization in nicknamize method
+
+In order to avoid potential performance issues, we have changed the `nicknamize` method by requiring the organization as a parameter.
+
+If you have used code as such:
+
+```ruby
+# We were including the organization in an optional scope
+Decidim::UserBaseEntity.nicknamize(nickname, decidim_organization_id: user.decidim_organization_id)
+```
+
+You need to change it, to something like:
+
+```ruby
+# Now the organization is the required second parameter of the method
+Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
+```
+
+You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
