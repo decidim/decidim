@@ -28,16 +28,16 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
       create(:meeting,
              title: { en: "Custom Meeting" },
              reminder_enabled: true,
-             send_reminders_before_hours: 24,
-             reminder_message_custom_content: { en: "Reminder for the {{meeting_title}} meeting" })
+             send_reminders_before_hours: 25,
+             reminder_message_custom_content: { en: "Reminder for the {{meeting_title}} meeting. Meeting will start in {{reminders_before_hours}}h" })
     end
 
     it "interpolates the meeting title into the custom message" do
-      expect(subject.email_intro).to eq "Reminder for the Custom Meeting meeting"
+      expect(subject.email_intro).to eq "Reminder for the Custom Meeting meeting. Meeting will start in 25h"
     end
 
     it "generates the email subject with correct hours" do
-      expect(subject.email_subject).to eq("The \"#{resource_title}\" meeting will start in less than 24h.")
+      expect(subject.email_subject).to eq("The \"#{resource_title}\" meeting will start in less than 25h.")
     end
   end
 end
