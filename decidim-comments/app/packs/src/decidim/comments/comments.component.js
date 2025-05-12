@@ -55,6 +55,7 @@ export default class CommentsComponent {
     if (this.mounted) {
       this.mounted = false;
       this._stopPolling();
+      this.lastCommentId = null;
 
       $(".add-comment [data-opinion-toggle] button", this.$element).off("click.decidim-comments");
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
