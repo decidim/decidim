@@ -49,21 +49,21 @@ module Decidim
 
       shared_examples "resolves existing conflicts" do |factory|
         it "resolves conflicts with current nicknames" do
-          create(factory, nickname: "ana_pastor")
+          create(factory, nickname: "ana_pastor", organization:)
 
           expect(subject.nicknamize("ana_pastor", organization.id)).to eq("ana_pastor_2")
         end
 
         it "resolves conflicts with long current nicknames" do
-          create(factory, nickname: "felipe_rocks_so_much")
+          create(factory, nickname: "felipe_rocks_so_much", organization:)
 
           expect(subject.nicknamize("Felipe Rocks So Much", organization.id)).to eq("felipe_rocks_so_mu_2")
         end
 
         it "resolves conflicts with other existing nicknames" do
-          create(factory, nickname: "existing")
-          create(factory, nickname: "existing_1")
-          create(factory, nickname: "existing_2")
+          create(factory, nickname: "existing", organization:)
+          create(factory, nickname: "existing_1", organization:)
+          create(factory, nickname: "existing_2", organization:)
 
           expect(subject.nicknamize("existing", organization.id)).to eq("existing_3")
         end
