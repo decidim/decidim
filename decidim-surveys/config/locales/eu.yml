@@ -13,6 +13,8 @@ eu:
         other: Erantzunak
   decidim:
     admin:
+      actions:
+        see_survey: Ikusi inkesta
       admin_log:
         changeset:
           surveys: inkestak
