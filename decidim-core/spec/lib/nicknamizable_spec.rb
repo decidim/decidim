@@ -25,7 +25,7 @@ module Decidim
           another_user = create(:user, nickname: "ana_pastor")
           another_org_id = another_user.decidim_organization_id
 
-          expect(subject.nicknamize("ana_pastor",another_org_id + 1)).to eq("ana_pastor")
+          expect(subject.nicknamize("ana_pastor", another_org_id + 1)).to eq("ana_pastor")
         end
       end
 
