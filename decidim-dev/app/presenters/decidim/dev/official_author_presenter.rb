@@ -8,7 +8,7 @@ module Decidim
       end
 
       def nickname
-        ""
+        "decidim_dev_official"
       end
 
       def deleted?
