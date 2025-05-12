@@ -38,7 +38,7 @@ module Decidim
       field :location_hints, Decidim::Core::TranslatedFieldType, "The location of this meeting (free format)", null: true
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
       field :private_meeting, GraphQL::Types::Boolean, "Whether the meeting is private or not (it can only be true if transparent)", null: false
-      field :public_participants, [Decidim::Core::UserType, { null: true }], "The object's services", null: false
+      field :public_participants, [Decidim::Core::UserType, { null: true }], "The list of users participating to this meeting", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :registration_form, Decidim::Forms::QuestionnaireType, description: "If registration requires to fill a form, this is the questionnaire", null: true
       field :registration_form_enabled, GraphQL::Types::Boolean, "Whether the registrations have a form or not", null: false
