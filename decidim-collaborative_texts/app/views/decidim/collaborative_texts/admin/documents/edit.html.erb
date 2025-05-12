@@ -7,7 +7,22 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: document_path(document), html: { class: "form-defaults form edit_document" }) do |f| %>
-      <%= render partial: "form", object: f %>
+      <%= render partial: "form", object: f, locals: { has_suggestions: document.has_suggestions? } %>
+
+      <div class="form__wrapper">
+        <div class="card">
+          <div class="card-section">
+            <% if document.draft? %>
+              <%= render "draft_options", form: f %>
+            <% else %>
+              <%= render "non_draft_options", form: f %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%= render partial: "versions" %>
+
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
