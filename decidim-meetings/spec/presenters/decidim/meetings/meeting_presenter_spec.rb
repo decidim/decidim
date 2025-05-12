@@ -32,7 +32,7 @@ module Decidim::Meetings
         expect(subject.size.positive?).to be true
       end
 
-      context "when the proposal module is installed" do
+      context "when the proposal module is not installed" do
         before do
           allow(Decidim).to receive(:module_installed?).and_call_original
         end
