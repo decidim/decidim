@@ -110,12 +110,12 @@ describe "Admin manages proposals states" do
       {
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
-        token: "editable",
+        token: "editable_state",
         bg_color: "#EBF9FF",
         text_color: "#0851A6"
       }
     end
-    let!(:state) { create(:proposal_state, component: current_component, **state_params) }
+    let!(:proposal_state) { create(:proposal_state, component: current_component, **state_params) }
     let(:attributes) { attributes_for(:proposal_state) }
 
     before do
@@ -127,7 +127,7 @@ describe "Admin manages proposals states" do
     end
 
     it "updates a proposal state" do
-      within "tr", text: translated(state.title) do
+      within "tr", text: translated(proposal_state.title) do
         click_on "Edit"
       end
 
@@ -159,7 +159,7 @@ describe "Admin manages proposals states" do
     end
 
     it "updates the label and announcement previews" do
-      within "tr", text: translated(state.title) do
+      within "tr", text: translated(proposal_state.title) do
         click_on "Edit"
       end
 
