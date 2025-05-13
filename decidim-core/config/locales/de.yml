@@ -1461,6 +1461,8 @@ de:
           participate: Teilnehmen
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
+        statistics:
+          headline: Statistiken
         sub_hero:
           register: Registrieren
           register_title: Konto erstellen
@@ -1534,6 +1536,24 @@ de:
         scan: QR-Code scannen
         title: QR-Code für %{resource_title}
     reported_mailer:
+      hidden_automatically:
+        content: Gemeldeter Inhalt
+        details: Details
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
+        subject: Eine Ressource wurde automatisch ausgeblendet
+      hidden_manually:
+        content: Gemeldeter Inhalt
+        details: Details
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde durch %{moderator} ausgeblendet.</p>
+        subject: Eine Ressource wurde durch %{moderator} ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
@@ -1551,6 +1571,8 @@ de:
       create:
         error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+      hide:
+        success: Diese Ressource wurde ausgeblendet.
       parent_hidden:
         report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
@@ -1656,8 +1678,10 @@ de:
         share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
+      comments_count_tooltip: Die Summe der in diesem Bereich geposteten Kommentare.
       endorsements_count: Befürwortungen
       followers_count: Follower
+      followers_count_tooltip: Die Anzahl der Nutzenden, die einen beliebigen Teil dieses Bereichs folgen, um auf dem Laufenden zu bleiben.
       headline: Statistik
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
