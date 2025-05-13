@@ -1242,12 +1242,6 @@ hu:
         confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
     reported_mailer:
-      hide:
-        content: Jelentett tartalom
-        details: Részletek
-        hello: Hello %{name}!
-        participatory_space: Részvételi tér
-        reason: Ok
       report:
         authors: Szerzők
         content: Jelentett tartalom
