@@ -257,8 +257,6 @@ is:
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
     reported_mailer:
-      hide:
-        hello: Halló %{name},
       report:
         hello: Halló %{name},
         report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið tilkynnt.</p>
