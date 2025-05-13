@@ -509,8 +509,6 @@ ru:
           manage_user_group_admins: Управление админами
           manage_user_group_users: Управление участниками
     reported_mailer:
-      hide:
-        hello: Здравствуйте, %{name}!
       report:
         hello: Здравствуйте, %{name}!
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
