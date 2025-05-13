@@ -76,7 +76,11 @@ module Decidim
       participatory_space_moderators.each do |moderator|
         next unless moderator.email_on_moderations
 
-        ReportedMailer.hide(moderator, @report).deliver_later
+        if hidden_by_admin?
+          ReportedMailer.hidden_manually(moderator, @report, current_user).deliver_later
+        else
+          ReportedMailer.hidden_automatically(moderator, @report).deliver_later
+        end
       end
     end
   end

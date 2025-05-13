@@ -17,7 +17,7 @@ module Decidim
     end
 
     def nickname
-      super || User.nicknamize(name)
+      super || User.nicknamize("#{name}_#{SecureRandom.alphanumeric(8)}", organization.id)
     end
   end
 end

@@ -8,7 +8,7 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create(:collaborative_texts_component, organization:) }
+    let(:current_component) { create(:collaborative_text_component, organization:) }
 
     let!(:resource) do
       create(
