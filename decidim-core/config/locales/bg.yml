@@ -1384,12 +1384,6 @@ bg:
         confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
         fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
     reported_mailer:
-      hide:
-        content: Докладвано съдържание
-        details: Детайли
-        hello: Здравейте %{name},
-        participatory_space: Пространство за участници
-        reason: Причина
       report:
         authors: Автори
         content: Докладвано съдържание
