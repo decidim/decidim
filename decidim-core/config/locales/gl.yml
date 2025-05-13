@@ -740,8 +740,6 @@ gl:
           manage_user_group_users: Xestionar membros
           resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
-      hide:
-        hello: Ola %{name},
       report:
         hello: Ola %{name},
         report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
