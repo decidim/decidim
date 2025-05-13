@@ -48,7 +48,7 @@ sv:
       conference_registration_invite:
         email: E-post
         name: Namn
-        registration_type_id: Typ av registrering
+        registration_type_id: Typ av anmälan
         user_id: Användare
       conference_registration_type:
         description: Beskrivning
@@ -205,7 +205,7 @@ sv:
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
-          registration_types: Typer av registrering
+          registration_types: Typer av anmälan
           registrations: Registreringar
           see_conference: Visa konferens
           user_registrations: Användarregistreringar
