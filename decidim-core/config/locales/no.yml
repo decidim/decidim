@@ -917,12 +917,6 @@
           manage_user_group_users: Administrere medlemmer
           resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
-      hide:
-        content: Rapportert innhold
-        details: Detaljer
-        hello: Hei %{name},
-        participatory_space: Deltakerområde
-        reason: Årsak
       report:
         authors: Forfattere
         content: Rapportert innhold
