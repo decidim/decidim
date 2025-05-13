@@ -1771,12 +1771,6 @@ cs:
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
-      hide:
-        content: Nahlášený obsah
-        details: Detaily
-        hello: Zdravím %{name},
-        participatory_space: Účastnický prostor
-        reason: Důvod
       report:
         authors: Autoři
         content: Nahlášený obsah
