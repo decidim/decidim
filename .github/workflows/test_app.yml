@@ -41,7 +41,7 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "134.0.6998.165"
+        default: "136.0.7103.92"
         type: string
 
 jobs:
