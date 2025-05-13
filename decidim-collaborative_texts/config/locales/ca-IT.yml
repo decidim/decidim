@@ -5,10 +5,16 @@ ca-IT:
       collaborative_texts:
         document:
           body: Cos del text
+          draft: Esborrany
           title: Títol
           version_number: Número de versió
+        suggestion:
+          nodes: Nodes DOM
+          original: Text original
+          replace: Substitució
         version:
           body: Cos del text
+          draft: Esborrany
           version_number: Número de versió
   decidim:
     collaborative_texts:
@@ -25,9 +31,19 @@ ca-IT:
           create:
             invalid: S'ha produït un error en crear el comentari.
             success: Document creat correctament.
+          draft_options:
+            accepting_suggestions: Habilitar suggeriments a la pròxima versió
+            accepting_suggestions_help: Habilitar els suggeriments iniciarà una nova ronda de suggeriments per a aquest document. Els suggeriments existents no seran visibles a la nova versió.
+            draft: Versió de l'esborrany
+            draft_help_html: 'Una versió esborrany no és pública i les administradores poden editar-la. Per fer publica la versió d''aquest contingut: suprimeix l''estat d''esborrany. <strong>Tingues en compte que mentre la versió esborrany estigui activa, les participants veuran la versió anterior i no podran fer suggeriments.</strong>'
           edit:
+            document_has_suggestions_html: <a href="%{url}">Aquest document té suggeriments</a> i no es pot editar directament. Si us plau, accepta o rebutja els suggeriments per generar una nova versió d'esborrany que es pugui editar.
+            draft: Versió de l'esborrany
+            previous_versions: Versions prèvies
+            public_version: Versió pública
             title: Editar el text col·laboratiu
             update: Actualitzar
+            version: Versió %{version_number}, creada a %{created_at} ha rebut suggeriments %{suggestions_count}.
           edit_settings:
             title: Configurar els textos col·laboratius
             update: Actualitzar
@@ -38,6 +54,11 @@ ca-IT:
           new:
             create: Crear
             title: Crea textos col·laboratius
+          non_draft_options:
+            create_draft: Descartar suggeriments i crear una nova versió d'esborrany
+            draft_help_html: 'Una versió esborrany no és pública i les administradores poden editar-la. Per fer publica la versió d''aquest contingut: suprimeix l''estat d''esborrany. <strong>Tingues en compte que mentre la versió esborrany estigui activa, les participants veuran la versió anterior i no podran fer suggeriments.</strong>'
+            enable_suggestions: Activa els suggeriments
+            enable_suggestions_help: Habilitar els suggeriments permetrà a les participants fer suggeriments sobre aquesta versió.
           publish:
             invalid: S'ha produït un error en publicar aquest document.
             success: Document publicat amb èxit.
@@ -59,22 +80,58 @@ ca-IT:
           soft_delete: "%{user_name} ha mogut a la paperera el text col·laboratiu \"%{resource_name}\" a %{space_name}"
           unpublish: "%{user_name} ha despublicat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
           update: "%{user_name} ha actualitzat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
+        suggestion:
+          create: "%{user_name} va suggerir canvis al text col·laboratiu: \"%{resource_name}\" a %{space_name}"
         version:
           delete: "%{user_name} ha eliminat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
           update: "%{user_name} ha actualitzat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
       document:
+        apply: Aplicar
         cancel: Cancel·lar
+        consolidate:
+          confirm: Aquesta acció consolidarà tots els suggeriments acceptats en una nova versió del document. Els suggeriments no acceptats seran transferits a la nova versió per a la posterior revisió. Aquesta acció mantindrà els suggeriments habilitats.
+          new: Consolidar suggeriments acceptats
+        consolidate_counter: En consolidar es combinaran els %{applied} suggeriments aplicats i es mouran els %{pending} suggeriments pendents a la nova versió.
+        controls_label: Controls dels suggeriments
+        draft_counter: L'esborrany combinarà els suggeriments aplicats a %{applied} i descartarà els suggeriments pendents a %{pending}.
+        index: Índex
+        restore: Restaurar
+        rollout:
+          confirm: Aquesta acció crearà una nova versió d'esborrany del document i se us redirigirà a la pàgina d'edició per als refinaments finals. La versió actual continuarà sent pública i es desactivaran els suggeriments.
+          invalid: Hi ha hagut un problema en crear una nova versió del document (%{errors}).
+          new: Esborrany d'una nova versió
+        save: Suggerir canvis
+        status:
+          accepting_suggestions: Per suggerir canvis, selecciona o fes doble clic al text que vols editar, després fes clic al botó 'Suggerir canvis'.
+          draft: Actualment, aquest document està sent revisat per les administradores. No es poden fer suggeriments en aquest moment, però pots veure suggeriments fets per altres participants.
+          not_accepting_suggestions: Els suggeriments no estan permesos en aquest moment.
+          selection_active: Una selecció és activa. Si us plau, cancel·leu la selecció actual per crear-ne una de nova.
+        suggestions_count: "%{count} suggeriments"
+        toggle: Mostrar o amagar els suggeriments
       documents:
         index:
           count:
             one: "%{count} text col·laboratiu"
             other: "%{count} textos col·laboratius"
           empty: Encara no hi ha cap text col·laboratiu.
+        show:
+          contributors: Contribuïdores
       models:
         collaborative_text:
           fields:
             suggestions: Accepta el(s) suggeriment(s)
             title: Títol
+      suggestion:
+        add_html: <span class="type">Afegir:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Eliminar:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Reemplaçar:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: S'ha produït un error en crear aquest suggeriment.
+          success: Suggeriment creat amb èxit.
+        errors:
+          blank_changeset: El conjunt de canvis no poden estar en blanc.
+          invalid_nodes: Nodes seleccionats invàlids.
     components:
       collaborative_texts:
         name: Textos col·laboratius
@@ -85,5 +142,6 @@ ca-IT:
           step:
             announcement: Avís
     statistics:
+      all_collaborative_texts_count: Tots els textos col·laboratius
       collaborative_texts_count: Textos col·laboratius
       collaborative_texts_count_tooltip: El número textos col·laboratius
