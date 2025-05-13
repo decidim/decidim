@@ -1,0 +1,5 @@
+<div class="form__wrapper">
+  <ul class="draggable-list js-connect js-list-questions" data-sort-url="<%= reorder_election_questions_path(election) %>">
+    <%= render partial: "question", locals: { form:, election: } %>
+  </ul>
+</div>

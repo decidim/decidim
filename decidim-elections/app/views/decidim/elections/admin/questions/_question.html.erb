@@ -1,0 +1,34 @@
+<li class="draggable-item js-question-block" draggable="true">
+  <div class="draggable-content form-new-question">
+    <div class="card-divider service-divider">
+      <h2 class="card-title mb-4">
+        <%= icon "drag-move-2-line" %>
+        <span><%= t("edit_questions.new_question", scope: "decidim.elections.admin.questions") %></span>
+        <div class="ml-auto flex gap-x-4">
+          <button class="button button__sm button__transparent-secondary small alert remove-service button--title">
+            <%= t("remove", scope: "decidim.elections.admin.questions.form") %>
+          </button>
+        </div>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row column">
+    <%= form.translated :text_field, :statement, autofocus: true %>
+  </div>
+
+  <div class="row column">
+    <%= form.translated :editor, :description %>
+  </div>
+
+  <div class="row column">
+    <%= form.check_box :mandatory, label: t("decidim.elections.admin.questions.form.mandatory") %>
+  </div>
+
+  <div class="row column cell">
+    <%= form.select :question_type,
+                    options_for_select(@form.question_types_for_select),
+                    { include_blank: false },
+                    { multiple: false, class: "chosen-select" } %>
+  </div>
+</li>

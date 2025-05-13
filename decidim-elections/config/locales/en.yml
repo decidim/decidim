@@ -47,6 +47,7 @@ en:
               real_time: Real time
               real_time_help: Show results as soon as the first vote is submitted
               title: Results availability
+            save: Save and continue
             start_at: Start time
           index:
             title: Elections
@@ -64,6 +65,17 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
+        questions:
+          edit_questions:
+            new_question: New question
+            title: Questions
+          form:
+            form_description: Question must have at least two answers in order go to the next step.
+            mandatory: Mandatory
+            question_types:
+              multiple_option: Multiple option
+              single_option: Single option
+            remove: Remove
       admin_log:
         election:
           create: "%{user_name} created the %{resource_name} election in %{space_name}"
