@@ -925,12 +925,6 @@ tr:
           manage_user_group_users: Üyeleri yönet
           resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
-      hide:
-        content: İçeriği bildir
-        details: Ayrıntılar
-        hello: Merhaba %{name}
-        participatory_space: Katılımcı alanı
-        reason: Nedeni
       report:
         authors: Yazarlar
         content: İçeriği bildir
