@@ -1735,12 +1735,24 @@ de:
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
         fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Gemeldeter Inhalt
-        details: Einzelheiten
+        details: Details
         hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
         participatory_space: Beteiligungsbereich
-        reason: Grund
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
+        subject: Eine Ressource wurde automatisch ausgeblendet
+      hidden_manually:
+        content: Gemeldeter Inhalt
+        details: Details
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde durch %{moderator} ausgeblendet.</p>
+        subject: Eine Ressource wurde durch %{moderator} ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
@@ -1758,6 +1770,8 @@ de:
       create:
         error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+      hide:
+        success: Diese Ressource wurde ausgeblendet.
       parent_hidden:
         report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
