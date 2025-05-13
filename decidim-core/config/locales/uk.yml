@@ -408,8 +408,6 @@ uk:
         actions:
           edit_profile: Редагувати профіль
     reported_mailer:
-      hide:
-        hello: Доброго дня, %{name}%!
       report:
         hello: Доброго дня, %{name}%!
         report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>
