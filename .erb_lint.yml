@@ -1859,7 +1859,6 @@ linters:
           - tech-info
           - tech-info--text-left
           - text-compact
-          - text-ellipsis
           - text-highlight
           - text-info
           - text-justify
