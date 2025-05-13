@@ -29,7 +29,7 @@ describe "Admin manages participatory process soft delete" do
       visit admin_resource_path
     end
 
-    it "doesn't allow collaborators to view deleted processes" do
+    it "does not allow collaborators to view deleted processes" do
       expect(page).to have_content("Processes")
       expect(page).to have_no_content("View deleted processes")
     end

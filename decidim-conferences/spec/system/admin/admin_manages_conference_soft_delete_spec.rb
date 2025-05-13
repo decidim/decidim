@@ -29,7 +29,7 @@ describe "Admin manages conference soft delete" do
       visit admin_resource_path
     end
 
-    it "doesn't allow collaborators to view deleted conferences" do
+    it "does not allow collaborators to view deleted conferences" do
       expect(page).to have_content("Conferences")
       expect(page).to have_no_content("View deleted conferences")
     end
