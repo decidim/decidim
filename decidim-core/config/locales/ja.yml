@@ -1404,15 +1404,24 @@ ja:
         confirmation_instructions_sent: メール確認の手順を送信しました。
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
-      hide:
-        content: 報告されたコンテンツ
+      hidden_automatically:
+        content: 通報されたコンテンツ
         details: 詳細
-        hello: こんにちは、 %{name} さん。
+        hello: こんにちは %{name} さん、
         manage_moderations: モデレーションの管理
         participatory_space: 参加型スペース
-        reason: 理由：
+        reason: 理由
         report_html: <p>以下の<a href="%{url}">コンテンツ</a>は自動的に非表示にされました。</p>
         subject: リソースは自動的に非表示になりました
+      hidden_manually:
+        content: 通報されたコンテンツ
+        details: 詳細
+        hello: こんにちは %{name} さん、
+        manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は %{moderator} によって非表示にされました。</p>
+        subject: リソースは%{moderator}によって非表示にされました
       report:
         authors: 著者
         content: 報告されたコンテンツ
