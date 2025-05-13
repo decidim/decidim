@@ -914,12 +914,6 @@ lb:
           manage_user_group_users: Memberen verwalten
           resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
     reported_mailer:
-      hide:
-        content: Inhalt gouf gemellt
-        details: Detailer
-        hello: Moien %{name}
-        participatory_space: Espace fir d'Bedeelegung
-        reason: Grond
       report:
         authors: Auteuren
         content: Inhalt gouf gemellt
