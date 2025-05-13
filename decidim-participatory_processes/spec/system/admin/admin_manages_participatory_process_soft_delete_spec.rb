@@ -12,4 +12,17 @@ describe "Admin manages participatory process soft delete" do
 
   it_behaves_like "manage soft deletable component or space", "participatory process"
   it_behaves_like "manage trashed resource", "participatory process"
+
+  describe "trashed participatory process" do
+    let(:trashed_resource) { create(:participatory_process, :trashed, title:, organization:) }
+    let!(:collaborator_role) { create(:participatory_process_user_role, role: :collaborator) }
+
+    before do
+      visit current_path
+    end
+
+    it "doesn't show the deleted processes path" do
+      expect(page).to have_no_content(translated(trashed_resource.title))
+    end
+  end
 end
