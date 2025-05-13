@@ -25,7 +25,7 @@ module Decidim
     end
 
     def normalized_nickname
-      UserBaseEntity.nicknamize(nickname || name, organization: current_organization)
+      UserBaseEntity.nicknamize(nickname || name, current_organization.id)
     end
   end
 end
