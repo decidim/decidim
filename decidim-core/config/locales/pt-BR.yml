@@ -1312,12 +1312,6 @@ pt-BR:
         confirmation_instructions_sent: Reenviar instruções de confirmação.
         fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar.
     reported_mailer:
-      hide:
-        content: Conteúdo denunciado
-        details: Detalhes
-        hello: Olá %{name},
-        participatory_space: Espaço participativo
-        reason: Motivo
       report:
         authors: Autores
         content: Conteúdo denunciado
