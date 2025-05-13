@@ -469,7 +469,7 @@ module Decidim::Meetings
 
       context "when the proposal module is installed" do
         before do
-          allow(Decidim).to receive(:module_installed?).and_call_original
+          allow(Decidim).to receive(:module_installed?).and_return(false)
         end
 
         it "returns an empty array and does not call authored_proposals" do
