@@ -1377,12 +1377,6 @@ pl:
         confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
         fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
     reported_mailer:
-      hide:
-        content: Zgłoszona zawartość
-        details: Szczegóły
-        hello: Witaj %{name},
-        participatory_space: Przestrzeń partycypacyjna
-        reason: Powód
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
