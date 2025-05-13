@@ -795,8 +795,6 @@ lv:
           manage_user_group_users: Pārvaldīt biedrus
           resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
     reported_mailer:
-      hide:
-        hello: Sveiki, %{name}!
       report:
         hello: Sveiki, %{name}!
         report_html: <p> Par šo <a href="%{url}"> saturu </a> ir ziņots.</p>
