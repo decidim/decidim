@@ -903,12 +903,6 @@ nl:
           manage_user_group_users: Leden beheren
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
-      hide:
-        content: Gerapporteerde inhoud
-        details: Beschrijving
-        hello: Hallo %{name},
-        participatory_space: Participatieve ruimte
-        reason: Reden
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
