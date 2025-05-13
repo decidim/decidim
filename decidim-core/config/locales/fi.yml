@@ -1712,12 +1712,6 @@ fi:
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
     reported_mailer:
-      hide:
-        content: Ilmoitettu sisältö
-        details: Tarkemmat tiedot
-        hello: Hei %{name},
-        participatory_space: Osallistumistila
-        reason: Syy
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
