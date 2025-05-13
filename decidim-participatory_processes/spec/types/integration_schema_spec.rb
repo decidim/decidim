@@ -141,6 +141,7 @@ describe "Decidim::Api::QueryType" do
           }
         type
         updatedAt
+        url
       }
     )
   end
@@ -182,7 +183,8 @@ describe "Decidim::Api::QueryType" do
       "target" => { "translation" => participatory_process.target[locale] },
       "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
-      "updatedAt" => participatory_process.updated_at.to_time.iso8601
+      "updatedAt" => participatory_process.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(participatory_process).participatory_process_url(participatory_process)
     }
   end
   let(:query) do
@@ -209,7 +211,7 @@ describe "Decidim::Api::QueryType" do
         %(
           participatoryProcess{
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

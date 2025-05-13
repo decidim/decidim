@@ -142,7 +142,7 @@ ro:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
-          cancel_order: șterge votul și reia procesul
+          cancel_order: Ștergeți votul dumneavoastră
           checked_out:
             title: Votul pentru buget a fost finalizat
         count:
@@ -162,6 +162,15 @@ ro:
             all: Toate
             not_selected: Neselectate
             selected: Selectate
+        order_progress:
+          minimum_projects_rule:
+            description: Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
+          projects_rule:
+            description: Selectați cel puțin %{minimum_number} și până la %{maximum_number} proiectele pe care le doriți și votați în funcție de preferințele dvs.
+          projects_rule_maximum_only:
+            description: Selectați până la %{maximum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
+          vote_threshold_percent_rule:
+            description: Atribuiți cel puțin %{minimum_budget} proiectelor pe care le doriți și votați în funcție de preferințele dvs.
         orders:
           highest_cost: Cel mai mare cost
           label: Ordonează proiectele după
@@ -179,8 +188,10 @@ ro:
           add: Adaugă la votul tău
           added: Adăugat la votul tău
         projects_for: Proiecte pentru %{name}
+        select_projects: Adaugați proiecte
         show:
           budget: Buget
+        start_voting: Începeți să votați
     components:
       budgets:
         actions:

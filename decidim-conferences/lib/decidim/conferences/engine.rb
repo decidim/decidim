@@ -72,7 +72,10 @@ module Decidim
       end
 
       initializer "decidim_conferences.stats" do
-        Decidim.stats.register :conferences_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+        Decidim.stats.register :conferences_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "user-voice-line",
+                               tooltip_key: "conferences_count_tooltip" do |organization, _start_at, _end_at|
           Decidim::Conference.where(organization:).public_spaces.count
         end
       end

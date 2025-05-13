@@ -422,7 +422,6 @@ sv:
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:

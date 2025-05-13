@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/dev/test/rspec_support/tom_select"
 
-describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true do
+describe "Admin manages meetings" do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, services: [], component: current_component, start_time: base_date + 1.day, end_time: base_date + 26.hours) }
   let(:address) { "Some address" }
@@ -169,7 +169,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
   end
 
-  it "updates a meeting", :serves_geocoding_autocomplete do
+  it "updates a meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_on "Edit"
     end
@@ -235,7 +235,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(meeting.reload.registrations_enabled).to be false
   end
 
-  it "adds a few services to the meeting", :serves_geocoding_autocomplete do
+  it "adds a few services to the meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_on "Edit"
     end
@@ -296,7 +296,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete do
+  it "creates a new meeting" do
     click_on "New meeting"
 
     fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
@@ -399,7 +399,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
   end
 
-  context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+  context "when using the front-end geocoder" do
     it_behaves_like(
       "a record with front-end geocoding address field",
       Decidim::Meetings::Meeting,

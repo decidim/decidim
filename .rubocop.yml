@@ -7,33 +7,6 @@ inherit_mode:
   merge:
     - Exclude
 
-RSpec/NoExpectationExample:
-  Exclude:
-    - decidim-admin/spec/system/participatory_space_private_user_spec.rb
-    - decidim-comments/spec/services/decidim/comments/comment_creation_spec.rb
-    - decidim-conferences/spec/cells/decidim/conferences/conference_speaker_cell_spec.rb
-    - decidim-core/spec/cells/decidim/date_range_cell_spec.rb
-    - decidim-core/spec/commands/decidim/unsubscribe_settings_spec.rb
-    - decidim-core/spec/controllers/registrations_controller_spec.rb
-    - decidim-core/spec/lib/importers/import_manifest_spec.rb
-    - decidim-core/spec/lib/map/geocoding_spec.rb
-    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
-    - decidim-core/spec/services/decidim/events_manager_spec.rb
-    - decidim-core/spec/services/decidim/settings_change_spec.rb
-    - decidim-core/spec/services/decidim/zip_stream/zip_stream_writer_spec.rb
-    - decidim-core/spec/tasks/decidim_tasks_right_to_be_forgotten_spec.rb
-    - decidim-initiatives/spec/system/admin/update_initiative_spec.rb
-    - decidim-initiatives/spec/system/initiative_signing_spec.rb
-    - decidim-meetings/spec/commands/admin/export_meeting_registrations_spec.rb
-    - decidim-meetings/spec/system/explore_meeting_directory_spec.rb
-    - decidim-meetings/spec/system/explore_meetings_spec.rb
-    - decidim-proposals/spec/lib/decidim/proposals/markdown_to_proposals_spec.rb
-    - decidim-proposals/spec/shared/import_proposals_examples.rb
-    - decidim-proposals/spec/shared/proposals_wizards_examples.rb
-    - decidim-proposals/spec/system/admin/admin_manages_participatory_texts_spec.rb
-    - decidim-proposals/spec/system/participatory_texts_spec.rb
-    - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
-
 Style/SafeNavigationChainLength:
   Exclude:
     - decidim-verifications/db/migrate/20171030133426_move_authorizations_to_new_api.rb

@@ -1,6 +1,8 @@
 ro:
   activemodel:
     attributes:
+      census_data:
+        file: Fișier
       config:
         available_methods: Metode disponibile
         offline: Offline

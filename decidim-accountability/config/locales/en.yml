@@ -375,3 +375,4 @@ en:
         result_proposal: Proposals included in this result
     statistics:
       results_count: Results
+      results_count_tooltip: The number of decisions or outcomes generated from this space.

@@ -779,7 +779,6 @@ tr:
       prompt: Bir kapsam seçin
     search:
       results: Arama sonuçları
-      results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
       filters:

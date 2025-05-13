@@ -232,6 +232,8 @@ ca-IT:
             location: la ubicació
             start_time: l'hora d'inici
           notification_title: S'ha actualitzat la trobada <a href="%{resource_path}">%{resource_title}</a> amb canvis a %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Se t'ha afegit a la llista d'espera per a la reunió <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: S'ha validat el teu codi d'inscripció "%{registration_code}" per a la trobada "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
@@ -607,8 +609,11 @@ ca-IT:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
           join: Inscriu-te
+          join_waitlist: Apuntar-se a la llista d'espera
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
+          leave_waitlist: Abandonar la llista d'espera
+          leave_waitlist_confirmation: Segur que vols cancel·lar la llista d'espera per a aquesta trobada?
           link_available_soon: Enllaç disponible pròximament
           link_closed: L'enllaç a la sala de videoconferència estarà disponible uns minuts abans que comenci
           live_event: Aquesta trobada està succeint ara mateix
@@ -628,6 +633,9 @@ ca-IT:
             one: "%{count} plaça restant"
             other: "%{count} places restants"
           visit_finished: Veure trobada passada
+          waitlist:
+            description: Si queda alguna plaça lliure, es tramitarà la teva inscripció automàticament i t'ho notificarem per correu electrònic.
+            status: Ets a la llista d'espera
           withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
           withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
           withdraw_meeting: Retirar
@@ -722,6 +730,9 @@ ca-IT:
         destroy:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
+        waitlist:
+          invalid: S'ha produït un error en incorporar-te a la llista d'espera.
+          success: T'has inscrit correctament a la llista d'espera de la reunió. Si s'alliberen places, se't notificarà la teva inscripció automàticament.
       type_of_meeting:
         hybrid: Híbrida
         in_person: Presencial

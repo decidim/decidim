@@ -476,6 +476,10 @@ ja:
             explanation: 'ファイルのガイダンス:'
             message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
             message_2: CSV ファイルの場合、列間の区切り文字はセミコロン(";") でなければなりません。
+          import_csv:
+            explanation: 'ファイルのガイダンス:'
+            message_1: CSVファイルがサポートされています
+            message_2: "電子メールデータを含む.csvファイル"
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました。
         form:

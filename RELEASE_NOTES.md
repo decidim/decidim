@@ -61,17 +61,7 @@ bin/rails decidim:verifications:revoke:sms
 
 ## 2. General notes
 
-### 2.1. Hiding comments of moderated resources
-
-We have noticed that when a resource (ex: Proposal, Meeting) is being moderated, the associated comments are left visible in the search. We have added a task that would allow you to automatically remove from search any comment belonging to moderated content:
-
-```bash
-bin/rails decidim:upgrade:clean:hidden_resources
-```
-
-You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
-
-### 2.2. User Groups removal
+### 2.1. User Groups removal
 
 As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
 
@@ -115,7 +105,7 @@ bin/rails decidim:upgrade:user_groups:remove_groups_notifications
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
-### 2.3. Automatic deletion of inactive accounts
+### 2.2. Automatic deletion of inactive accounts
 
 To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
 
@@ -152,7 +142,7 @@ If you want to enable this, make sure your `sidekiq.yml` includes the `delete_in
 
 You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).
 
-### 2.5. Removal of Metrics
+### 2.3. Removal of Metrics
 
 The **Metrics** feature has been completely removed
 
@@ -162,7 +152,7 @@ If your application includes the `metrics` queue in `config/sidekiq.yml` or sche
 
 You can read more about this change on PR [#14387](https://github.com/decidim/decidim/pull/14387)
 
-### 2.6. SMS authorization changes
+### 2.4. SMS authorization changes
 
 As we have changed the authorization signature method for SMS, you will need to remove any authorizations that you may have. We are asking you to do this, in order to force your user base to reauthorize.
 
@@ -174,7 +164,7 @@ bin/rails decidim:verifications:revoke:sms
 
 You can read more about this change on PR [#14426](https://github.com/decidim/decidim/pull/14426)
 
-### 2.7. Initiatives digital signature process change
+### 2.5. Initiatives digital signature process change
 
 The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
 
@@ -223,7 +213,7 @@ In the process to extract the old initiatives vote form to a base handler a new 
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
-### 2.8. [[TITLE OF THE ACTION]]
+### 2.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -319,7 +309,21 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Removal of invalid user exports
+
+We have noticed an edge case when using private export functionality, in which the page becomes inaccessible if the user in question is using export single survey answer functionality.
+
+You can run the following rake task to ensure your system is not corrupted.
+
+```bash
+./bin/rails decidim:upgrade:clean:invalid_private_exports
+```
+
+For ease of in operations, we also added the above command to the main `decidim:upgrade:clean:invalid_records` rake task.
+
+You can read more about this change on PR [#14638](https://github.com/decidim/decidim/pull/14638).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -357,3 +361,23 @@ result = 1 + 1 if after
 ### 5.2. Add force_api_authentication configuration options
 
 There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
+
+### 5.3. Require organization in nicknamize method
+
+In order to avoid potential performance issues, we have changed the `nicknamize` method by requiring the organization as a parameter.
+
+If you have used code as such:
+
+```ruby
+# We were including the organization in an optional scope
+Decidim::UserBaseEntity.nicknamize(nickname, decidim_organization_id: user.decidim_organization_id)
+```
+
+You need to change it, to something like:
+
+```ruby
+# Now the organization is the required second parameter of the method
+Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
+```
+
+You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).

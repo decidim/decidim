@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 
 <%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
-  <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__xs button__secondary h-8", form: "survey-form" %>
+  <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
 <% end %>
 
 <div class="item_show__header">
@@ -10,7 +10,7 @@
   </h1>
 </div>
 
-<div class="item__edit item__edit-1col">
+<div class="grid-cols-1">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: survey_path(@survey), html: { id: "survey-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
       <%= render "decidim/forms/admin/questionnaires/form", form: %>

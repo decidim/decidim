@@ -1,12 +1,44 @@
 .statistic {
-  @apply flex flex-col items-start gap-2 p-4 rounded border-[3px] border-background;
+  @apply flex flex-col items-start gap-1.5 p-4 rounded border-[3px] border-background bg-background;
 
   &__container {
-    @apply grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(0,120px))] gap-4;
+    @apply grid grid-cols-[repeat(auto-fit,minmax(345px,1fr))] md:grid-cols-4 gap-4;
+  }
+
+  &__dashboard-container {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] md:grid-cols-3 gap-4;
+  }
+
+  &__header {
+    @apply w-full flex flex-row justify-between items-center;
+  }
+
+  &__icon {
+    @apply text-gray-2;
+
+    svg {
+      @apply w-[24px] h-[24px] fill-current;
+    }
+  }
+
+  &__metric {
+    @apply flex flex-row justify-start items-center gap-1.5;
   }
 
   &__title {
-    @apply w-full truncate text-gray-2 font-normal text-sm;
+    @apply w-full max-w-[135px] truncate text-gray-2 font-semibold text-[20px]/[26px] overflow-hidden whitespace-nowrap;
+  }
+
+  &__tooltip {
+    @apply text-secondary;
+
+    svg {
+      @apply w-4 h-4 fill-current;
+    }
+  }
+
+  &__second-number {
+    @apply text-[16px]/[22px] text-gray-2;
   }
 
   &__number {

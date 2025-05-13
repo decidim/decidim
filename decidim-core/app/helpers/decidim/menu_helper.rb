@@ -39,7 +39,7 @@ module Decidim
       @breadcrumb_root_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
         :menu,
         self,
-        container_options: { class: "menu-bar__main-dropdown__menu" }
+        container_options: { class: "menu-bar__dropdown-menu" }
       )
     end
 
@@ -47,7 +47,7 @@ module Decidim
       @mobile_breadcrumb_root_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
         :mobile_menu,
         self,
-        container_options: { class: "menu-bar__main-dropdown__menu" }
+        container_options: { class: "menu-bar__main-dropdown__top-menu" }
       )
     end
 

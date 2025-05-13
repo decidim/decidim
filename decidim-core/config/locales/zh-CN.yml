@@ -692,7 +692,6 @@ zh-CN:
       prompt: 选择范围
     search:
       results: 搜索结果
-      results_found_for_term: '搜索的%{count} 结果: "%{term}"'
       term_input_placeholder: 搜索
     searches:
       filters:

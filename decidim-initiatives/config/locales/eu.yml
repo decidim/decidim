@@ -62,7 +62,7 @@ eu:
           attributes:
             attachment:
               file: Fitxategia ez da baliozkoa
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
               title: Izenburua ezin da hutsik egon
   activerecord:
     models:
