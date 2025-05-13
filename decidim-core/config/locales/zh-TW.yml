@@ -1241,12 +1241,6 @@ zh-TW:
         confirmation_instructions_sent: 電子郵件確認指示已發送.
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
     reported_mailer:
-      hide:
-        content: 已檢舉內容
-        details: 詳細資料
-        hello: 哈囉，%{name},
-        participatory_space: 參與空間
-        reason: 理由
       report:
         authors: 作者
         content: 已檢舉內容
