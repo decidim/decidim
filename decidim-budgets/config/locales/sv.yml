@@ -232,7 +232,7 @@ sv:
             one: Din röst på %{budget_name} har redan registrerats.
             other: Dina %{count} röster för %{budget_name} har redan registrerats.
       order_pdf:
-        text: Du har röstat i %{space_name} för följande projekt
+        text: Du har röstat på följande projekt i %{space_name}
         title: Din röst har tagits emot.
       order_summary_mailer:
         order_summary:
@@ -288,9 +288,9 @@ sv:
             start_adding_projects: Börja lägga till projekt
           minimum: Minst
           minimum_projects_rule:
-            description: Välj minst %{minimum_number} projekt som du vill är intresserad av och vill rösta om.
+            description: Välj minst %{minimum_number} projekt att rösta på.
           projects_rule:
-            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt som du vill är intresserad av och vill rösta om.
+            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
           projects_rule_maximum_only:
             description: Välj upp till %{maximum_number} projekt som du är intresserad av och vill rösta om.
           vote_threshold_percent_rule:
@@ -299,7 +299,7 @@ sv:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
           lowest_cost: Lägst kostnad
-          most_voted: Mest röster
+          most_voted: Flest röster
           random: Slumpvis ordning
           selected: Valda
         project:
