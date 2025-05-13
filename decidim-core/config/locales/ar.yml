@@ -1181,12 +1181,6 @@ ar:
           message: الرسالة
           resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
-      hide:
-        content: محتوى تم الإبلاغ عنه
-        details: التفاصيل
-        hello: مرحبا %{name}،
-        participatory_space: المساحة التشاركية
-        reason: السبب
       report:
         authors: المؤلفون
         content: محتوى تم الإبلاغ عنه
