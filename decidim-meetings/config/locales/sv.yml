@@ -21,7 +21,7 @@ sv:
         id: ID
         iframe_access_level: Åtkomstnivå för Iframe
         iframe_embed_type: Typ av inbäddad iframe
-        iframe_embed_type_html: Endast ett fåtal tjänster tillåter "Bädda in på mötessidan" eller "Öppna i live-event". Observera att med alternativet "Bädda in på mötessidan" kommer det ändå att fungera som "Öppna i live-event" på mobiltelefoner.
+        iframe_embed_type_html: Endast ett fåtal tjänster tillåter "Bädda in på mötessidan" eller att länka till videomötet. Observera att med alternativet "Bädda in på mötessidan" kommer det ändå att visas som "Gå till videomötet" på mobiltelefoner.
         location: Plats
         location_hints: Vägbeskrivning
         online_meeting_url: Länk till digitalt möte
@@ -219,12 +219,12 @@ sv:
           email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
           notification_title: Din anmälningskod "%{registration_code}" till mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registration_marked_as_attendee:
-          email_intro: Du har registrerats som deltagare i mötet "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom din anmälning till mötet "%{resource_title}" har registrerats.
-          email_subject: Du har registrerats som deltagare i mötet "%{resource_title}"
+          email_intro: Din anmälan till "%{resource_title}" har registrerats.
+          email_outro: Du har fått det här meddelandet eftersom din anmälan till "%{resource_title}" har registrerats.
+          email_subject: Din anmälan till "%{resource_title}" har registrerats
           notification_title: Din anmälan till <a href="%{resource_path}">%{resource_title}</a> mötet har registrerats.
         registrations_enabled:
-          email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
+          email_intro: 'Mötet "%{resource_title}" tar emot anmälningar. Du kan anmäla dig på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
@@ -240,7 +240,7 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Anmäl dig till de möten som du vill delta i
+            - Anmäl dig till de möten du vill delta i
           description: Du får detta märke när du har deltagit i flera fysiska möten.
           description_another: Deltagaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
@@ -346,7 +346,7 @@ sv:
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Ytterligare vägbeskrivning. Till exempel till en lokal eller lösenord till ett digitalt möte.'
             online_meeting_url_help: 'Länk: låt deltagare ansluta sig direkt till mötet'
-            registration_url_help: 'Länk: låt deltagare registrera sig via en extern tjänst'
+            registration_url_help: 'Länk: låt deltagare anmäla sig via en extern tjänst'
             select_a_meeting_type: Välj typ av möte
             select_a_registration_type: Välj sätt att registrera sig
             select_an_iframe_access_level: Välj vem får tillgång till iframe
@@ -427,7 +427,7 @@ sv:
             validate_registration_code: Bekräfta registreringskod
           mark_attendee:
             invalid: Anmälan är redan registrerad.
-            success: Närvaron är registrerad.
+            success: Anmälan är registrerad.
           validate_registration_code:
             invalid: Registreringskoden är ogiltig.
             success: Registreringskoden validerades.
@@ -486,7 +486,7 @@ sv:
       iframe_embed_type:
         embed_in_meeting_page: Bädda in på mötessidan
         none: Ingen
-        open_in_live_event_page: Öppna på live-eventsidan
+        open_in_live_event_page: Gå till videomötet
         open_in_new_tab: Öppna länk i ny flik
       last_activity:
         meeting_updated: 'Möte uppdaterades:'
