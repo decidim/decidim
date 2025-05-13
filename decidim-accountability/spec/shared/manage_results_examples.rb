@@ -11,7 +11,7 @@ shared_examples "manage results" do
 
   context "when the proposal module is installed" do
     before do
-      allow(Decidim).to receive(:module_installed?).and_call_original
+      allow(Decidim).to receive(:module_installed?).and_return(false)
 
       # Reload the page with the updated settings
       visit current_path
