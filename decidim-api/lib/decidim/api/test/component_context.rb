@@ -22,6 +22,7 @@ shared_context "with a graphql decidim component" do
           name {
             translation(locale: "#{locale}")
           }
+          url
           weight
           __typename
           ...fooComponent
