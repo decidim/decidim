@@ -1,4 +1,9 @@
 <% add_decidim_page_title(t(".title")) %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "main-tabs-menu__cta-button", form: "election-form" %>
+<% end %>
+
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= t(".title") %>

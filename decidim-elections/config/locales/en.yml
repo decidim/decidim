@@ -1,6 +1,11 @@
 ---
 en:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Main
+          election_questions: Questions
     components:
       elections:
         name: Elections

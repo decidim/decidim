@@ -18,9 +18,30 @@ module Decidim
             put :unpublish
             patch :soft_delete
             patch :restore
+
+            namespace :questions do
+              get :edit_questions
+              patch :update_questions
+              get :edit
+              patch :update
+            end
           end
         end
         root to: "elections#index"
+      end
+
+      initializer "decidim_elections_admin.menu" do
+        Decidim.menu :admin_elections_menu do |menu|
+          menu.add_item :basic_elections,
+                        I18n.t("basic_elections", scope: "decidim.admin.menu.elections_menu"),
+                        @election.nil? ? new_selection_path : Decidim::EngineRouter.admin_proxy(@election.component).edit_election_path(@election),
+                        icon_name: "bill-line"
+
+          menu.add_item :election_questions_edit,
+                        I18n.t("election_questions", scope: "decidim.admin.menu.elections_menu"),
+                        @election.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@election.component).edit_questions_questions_election_path(@election),
+                        icon_name: "question-answer-line"
+        end
       end
 
       def load_seed
