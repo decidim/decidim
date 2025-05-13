@@ -588,6 +588,7 @@ de:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        insights: Einblicke
         manage: Verwalten
         moderation: Globale Moderationen
         newsletters: Newsletter
@@ -600,6 +601,7 @@ de:
         share_tokens: Zugangslinks
         static_page_topics: Themen
         static_pages: Seiten
+        statistics: Statistiken
         taxonomies: Taxonomien
         taxonomy_filters: Taxonomie-Filter
         users: Benutzer
@@ -1243,6 +1245,7 @@ de:
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
+        statistics: Statistiken
         taxonomies: Klassifizierungen
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         users: Administratoren
@@ -1345,5 +1348,7 @@ de:
       admin:
         global_moderations:
           title: Globale Moderationen
+        insights:
+          title: Einblicke
         taxonomy_filters_selector:
           title: Filter
