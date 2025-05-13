@@ -12,4 +12,26 @@ describe "Admin manages conference soft delete" do
 
   it_behaves_like "manage soft deletable component or space", "conference"
   it_behaves_like "manage trashed resource", "conference"
+
+  context "when a user is collaborator" do
+    let!(:conference) { create(:conference, organization: organization) }
+    let!(:collaborator_user) { create(:user, :admin_terms_accepted, :confirmed, organization: organization) }
+    let!(:collaborator_role) do
+      create(:conference_user_role,
+             user: collaborator_user,
+             conference: conference,
+             role: :collaborator)
+    end
+
+    before do
+      switch_to_host(organization.host)
+      login_as collaborator_user, scope: :user
+      visit admin_resource_path
+    end
+
+    it "doesn't allow collaborators to view deleted conferences" do
+      expect(page).to have_content("Conferences")
+      expect(page).to have_no_content("View deleted conferences")
+    end
+  end
 end
