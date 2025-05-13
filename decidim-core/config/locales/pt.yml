@@ -917,12 +917,6 @@ pt:
           manage_user_group_users: Gerir membros
           resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
-      hide:
-        content: Conteúdo reportado
-        details: Detalhes
-        hello: Olá %{name},
-        participatory_space: Espaço participativo
-        reason: Razão
       report:
         authors: Autores
         content: Conteúdo reportado
