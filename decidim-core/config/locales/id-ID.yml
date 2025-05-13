@@ -665,8 +665,6 @@ id:
           manage_user_group_users: Kelola anggota
           resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
-      hide:
-        hello: Halo %{name},
       report:
         hello: Halo %{name},
         report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
