@@ -790,8 +790,6 @@ sk:
           manage_user_group_users: Správa členov
           resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
     reported_mailer:
-      hide:
-        hello: Zdravím %{name},
       report:
         hello: Zdravím %{name},
         report_html: <p> Bol nahlásený nasledujúce <a href="%{url}"> obsah </a>. </ p>
