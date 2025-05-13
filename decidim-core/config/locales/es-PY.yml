@@ -1425,7 +1425,7 @@ es-PY:
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenido reportado
         details: Detalles
         hello: Hola %{name},
@@ -1434,6 +1434,15 @@ es-PY:
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
