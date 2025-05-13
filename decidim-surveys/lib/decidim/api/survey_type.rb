@@ -9,6 +9,11 @@ module Decidim
 
       field :id, GraphQL::Types::ID, "The internal ID for this survey", null: false
       field :questionnaire, Decidim::Forms::QuestionnaireType, "The questionnaire for this survey", null: true
+      field :url, GraphQL::Types::String, "The URL for this survey", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
 
       def self.authorized?(object, context)
         context[:survey] = object

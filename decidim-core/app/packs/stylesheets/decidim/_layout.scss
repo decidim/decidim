@@ -48,6 +48,18 @@
   &__reverse &__main {
     @apply pl-0 md:pr-16;
   }
+
+  &__large {
+    @apply md:block lg:grid;
+  }
+
+  &__large &__aside {
+    @apply lg:grid md:pr-0 md:gap-6 lg:col-span-3 lg:pr-16 py-0 md:py-6 lg:py-12 gap-6 lg:gap-12 md:before:bg-transparent lg:before:bg-background;
+  }
+
+  &__large &__main {
+    @apply md:pl-0 lg:pl-16 py-6;
+  }
 }
 
 .layout-item {

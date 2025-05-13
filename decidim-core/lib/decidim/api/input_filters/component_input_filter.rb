@@ -54,7 +54,7 @@ module Decidim
       end
 
       def self.prepare_type(value, _ctx)
-        { manifest_name: value.downcase }
+        { manifest_name: value.underscore }
       end
     end
   end

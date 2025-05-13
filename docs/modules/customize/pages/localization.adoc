@@ -28,8 +28,8 @@ The following keys are relevant to time and date format:
 
 If you need to change the format to comply with the United States of America standard, you must do the following:
 
-1. Create or update the file `config/locales/en.yml` in your generated application.
-2. Add the following snippet:
+. Create or update the file `config/locales/en.yml` in your generated application.
+. Add the following snippet:
 ```yaml
 en:
   date:
@@ -45,7 +45,7 @@ en:
       order: m-d-y
       separator: "/"
 ```
-3. Restart your application server.
+. Restart your application server.
 
 Note that in the case of the `order` value, currently it only supports two values:
 
@@ -54,4 +54,4 @@ Note that in the case of the `order` value, currently it only supports two value
 
 == Currency unit
 
-If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
+If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:admin:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
