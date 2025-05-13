@@ -1087,7 +1087,7 @@ sv:
         add_conversation_users:
           add_max_users: 'Lägg till användare i samtalet: högst 9'
           add_users_placeholder: Sök...
-          modal_title: Nytt samtal
+          modal_title: Ny konversation
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
           participants:
@@ -1100,10 +1100,10 @@ sv:
           intro: 'Det fanns följande fel med ditt meddelande:'
           ok: Ok
         index:
-          new_conversation: Nytt samtal
+          new_conversation: Ny konversation
           next: Nästa
           no_conversations: Du har inga konversationer än.
-          title: Samtal
+          title: Konversationer
         reply_form:
           placeholder: Ditt svar...
           send: Skicka
@@ -1112,7 +1112,7 @@ sv:
           chat_with: Konversation med
           deleted_accounts: Du kan inte ha en konversation med raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
-          title: Samtal med %{usernames}
+          title: Konversation med %{usernames}
         start:
           placeholder: Ditt meddelande...
           send: Skicka
