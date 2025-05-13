@@ -107,7 +107,7 @@ describe "User edit meeting" do
       expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
     end
 
-    context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+    context "when using the front-end geocoder" do
       it_behaves_like(
         "a record with front-end geocoding address field",
         Decidim::Meetings::Meeting,

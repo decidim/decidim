@@ -4,6 +4,8 @@ en:
     attributes:
       authorization:
         verification_attachment: Verification attachment
+      census_data:
+        file: File
       config:
         available_methods: Available methods
         offline: Offline

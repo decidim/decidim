@@ -459,9 +459,6 @@ nl:
         settings: Instellingen
         static_pages: Pagina's
         users: Deelnemers
-      metrics:
-        metrics:
-          see_more_metrics: Bekijk meer statistieken
       models:
         area:
           fields:
@@ -793,7 +790,6 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
-        metrics: Cijfers
         panel: Admin
         participants: Deelnemers
         scope_types: Scope types
@@ -821,16 +817,6 @@ nl:
           last_month: Vorige maand
           last_week: Vorige week
           participants: Deelnemers
-    metrics:
-      blocked_users:
-        object: geblokkeerde gebruikers
-        title: Geblokkeerde gebruikers
-      reported_users:
-        object: gerapporteerde gebruikers
-        title: Gerapporteerde gebruikers
-      user_reports:
-        object: gebruikersrapporten
-        title: Gebruikersrapporten
     moderations:
       actions:
         expand: Tonen

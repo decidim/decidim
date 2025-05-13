@@ -12,7 +12,7 @@
       <span><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
     </h3>
 
-    <div class="meeting__agenda-item__description editor-content"><%= decidim_sanitize_translated(agenda_item.description).html_safe %></div>
+    <div class="meeting__agenda-item__description editor-content"><%= render_meeting_sanitize_field(agenda_item, :description) %></div>
 
     <% if agenda_item.agenda_item_children.presence %>
       <% parent_start_time = agenda_items_times[index][:start_time] %>
@@ -24,7 +24,7 @@
             <span><%= translated_attribute(agenda_item_child.title) %></span>
             <span><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
           </h4>
-          <div class="meeting__agenda-item__description"><%= decidim_sanitize_translated(agenda_item_child.description).html_safe %></div>
+          <div class="meeting__agenda-item__description"><%= render_meeting_sanitize_field(agenda_item_child, :description) %></div>
         </div>
       <% end %>
     <% end %>

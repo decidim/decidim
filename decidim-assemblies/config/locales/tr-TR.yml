@@ -279,11 +279,6 @@ tr:
           not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
       assemblies: Kurullar
-    metrics:
-      assemblies:
-        description: Oluşturulan kurul sayısı
-        object: kurullar
-        title: Kurullar
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar

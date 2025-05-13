@@ -227,19 +227,6 @@ nl:
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
           unearned_own: U hebt nog geen voorstellen gemaakt.
-    metrics:
-      accepted_proposals:
-        description: Aantal geaccepteerde voorstellen
-        object: voorstellen
-        title: Aanvaarde voorstellen
-      endorsements:
-        description: Aantal goedkeuringen van voorstellen
-        object: goedkeuringen
-        title: Goedkeuringen
-      proposals:
-        description: Aantal voorstellen
-        object: voorstellen
-        title: voorstellen
     participatory_spaces:
       highlighted_proposals:
         see_all: Alles zien
@@ -564,7 +551,6 @@ nl:
         update:
           title: Update voorstel
         vote_button:
-          already_voted: Al gestemd
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem

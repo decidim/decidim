@@ -574,9 +574,6 @@ bg:
         taxonomies: Категоризации
         taxonomy_filters: Класификационни филтри
         users: Участници
-      metrics:
-        metrics:
-          see_more_metrics: Показване на повече индикатори
       models:
         area:
           fields:
@@ -1009,7 +1006,6 @@ bg:
         impersonatable_users: Управляеми участници
         impersonations: Управление на участниците
         menu: Меню
-        metrics: Метрики
         page_topics: Tеми
         pages: Страници
         panel: Администратор
@@ -1044,16 +1040,6 @@ bg:
       errors:
         impersonate_user:
           reason: Необходимо е да предоставите причина, когато управлявате участник, който не е управляван.
-    metrics:
-      blocked_users:
-        object: блокирани потребители
-        title: Блокирани потребители
-      reported_users:
-        object: докладвани потребители
-        title: Докладвани потребители
-      user_reports:
-        object: доклади на потребители
-        title: Доклади на потребители
     moderations:
       actions:
         expand: Разтваряне

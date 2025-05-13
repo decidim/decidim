@@ -261,8 +261,6 @@ gl:
         name: Última actividade
         title: Última actividade
         view_all: Ver todo
-      metrics:
-        name: Métricas da organización
       stats:
         name: Estatísticas da organización
       sub_hero:
@@ -521,19 +519,6 @@ gl:
           title: Conversa con %{usernames}
         start:
           send: Enviar
-    metrics:
-      followers:
-        description: Número de usuarios que seguen este espazo de participación
-        object: seguidores
-        title: Seguidores
-      participants:
-        description: Número de usuarios activos na organización
-        object: participantes
-        title: Participantes
-      users:
-        description: Número de usuarios da organización
-        object: usuarios
-        title: Usuarios
     newsletter_mailer:
       newsletter:
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
@@ -604,10 +589,6 @@ gl:
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Participación en números
-          link: Mostrar todas as estatísticas
     profile:
       deleted: Usuario eliminado
     profiles:
@@ -637,7 +618,6 @@ gl:
       global: Alcance global
       prompt: Seleccione un alcance
     search:
-      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
       filters:

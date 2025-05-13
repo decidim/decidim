@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
 <%= csrf_meta_tags %>
 <%= legacy_favicon %>
 <%= favicon %>
@@ -7,3 +7,5 @@
 <%= stylesheet_pack_tag "decidim_core", "decidim_admin", media: "all" %>
 <%= javascript_pack_tag "decidim_core", "decidim_admin", defer: false %>
 <%= snippets.display(:head) %>
+
+<%= render partial: "layouts/decidim/meta_tags_context" %>

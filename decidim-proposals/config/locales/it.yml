@@ -226,19 +226,6 @@ it:
           name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_own: Non hai ancora creato alcuna proposta.
-    metrics:
-      accepted_proposals:
-        description: Numero di proposte accettate dagli utenti
-        object: proposte
-        title: Proposte accettate
-      endorsements:
-        description: Numero di approvazioni generate nelle proposte
-        object: Mi piace
-        title: Mi piace
-      proposals:
-        description: Numero di proposte generate
-        object: proposte
-        title: proposte
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto
@@ -552,7 +539,6 @@ it:
         update:
           title: Aggiorna proposta
         vote_button:
-          already_voted: Già votata
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione

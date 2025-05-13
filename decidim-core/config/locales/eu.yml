@@ -5,6 +5,7 @@ eu:
         delete_reason: Zure kontua ezabatzeko arrazoia
       attachment:
         documents: Dokumentuak
+        image: Irudia
         photos: Argazkiak
       common:
         created_at: Sortze-data
@@ -26,7 +27,7 @@ eu:
         nickname: Goitizena
         phone: Telefonoa
       import:
-        file:
+        file: Fitxategia
       message:
         body: Testua
       report:
@@ -52,8 +53,14 @@ eu:
         personal_url: URL pertsonala
         remove_avatar: Kendu abatarra
         tos_agreement: Erabilera-terminoak eta -baldintzak
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Goitizenak minuskulaz egon behar du, eta ez du tarterik izan behar
     models:
-      decidim/attachment_created_event: eranskina
+      decidim/attachment_created_event: Eranskina
       decidim/component_published_event: Osagai erabilgarria
       decidim/demoted_membership: Ez da talde administratzaile gehiagorik
       decidim/gamification/badge_earned_event: Irabazitako dominak
@@ -79,7 +86,7 @@ eu:
         name: Ezizena
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
-        remember_me: Gogoratu
+        remember_me: Gogoratu ni
     models:
       decidim:
         history:
@@ -165,6 +172,7 @@ eu:
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
+      secondary_menu: Bigarren mailako menua
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
@@ -331,7 +339,7 @@ eu:
         verify: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} txostena"
     admin_terms_of_service:
       default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -588,7 +596,7 @@ eu:
         orders:
           label: 'Ordenatu elementuak honen arabera:'
           random: Ausazkoa
-          recent: Azkenak
+          recent: Berrienetatik zaharrenetara
       how_to_participate:
         name: Nola hartu parte
       html:
@@ -604,10 +612,6 @@ eu:
         name: Datu nagusiak
       metadata:
         name: Metadatuak
-      metrics:
-        name: Erakundearen metrika
-      participatory_space_metrics:
-        name: Metrikak
       participatory_space_stats:
         name: Estatistikak
       social_networks_metadata:
@@ -718,8 +722,8 @@ eu:
         ready: Prest
       help:
         core:
-          description: Hauek dira %{user_name} parte-hartzaileren datu pertsonalak, ekarpenak eta jarduera dituzten artxiboak
-          title: 'Deskargatu zure datuen artxiboak hemendik: %{organization}'
+          description: Hauek dira %{user_name} parte-hartzaileren datu pertsonalak, ekarpenak eta jarduera dituzten fitxategiak
+          title: 'Deskargatu zure datuen fitxategiak hemendik: %{organization}'
         follows:
           created_at: Zein datatan eta zein ordutan sortu zen jarraipena
           followable: Jarraitzen ari den baliabidea edo espazioa
@@ -754,12 +758,12 @@ eu:
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
         reports:
           created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
-          details: Erreporte honen xehetasunak
-          id: Erreporte honen identifikatzaile bakarra
-          locale: Erreporte honen hizkuntza
-          moderation: Erreporte honek duen moderazioa
-          reason: Erreporte honen arrazoia
-          updated_at: Zein datatan eta zein ordutan eguneratu zen erreporte hau azken aldiz
+          details: Txosten honen xehetasunak
+          id: Txosten honen identifikatzaile bakarra
+          locale: Txosten honen hizkuntza
+          moderation: Txosten honek duen moderazioa
+          reason: Txosten honen arrazoia
+          updated_at: Zein datatan eta zein ordutan eguneratu zen txosten hau azken aldiz
         users:
           about: Erabiltzaile honen biografia
           accepted_tos_version: Zein datatan onartu zituen parte-hartzaileak plataforma honen zerbitzu-baldintzak
@@ -813,13 +817,13 @@ eu:
         explanation:
           body_1: Fitxategi hauek zure jardueratik plataforma honetan esportatutako datuak dira, adibidez, proposamenak edo iruzkinak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak
           body_2: Fitxategi hauek CSV formatuan daude (Comma-Separated Values). Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
-          title: Zer dira artxibo hauek?
-        files_to_download: Deskargatu beharreko artxiboak
+          title: Zer dira fitxategi hauek?
+        files_to_download: Deskargatu beharreko fitxategiak
         request_data: Eskaera
         type: Deskarga mota
     editor_images:
       create:
-        error: Errore bat egon da irudia eguneratzean.
+        error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
@@ -837,7 +841,7 @@ eu:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
-        not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
+        not_inside_organization: Fitxategia ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Errore-mezua arbelean kopiatuta
@@ -938,6 +942,16 @@ eu:
       notification_event:
         notification_title: 'Ekintza bat izan da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
+        parent_hidden:
+          email_intro: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+          email_outro: Jakinarazpen hau jaso duzu eragindako %{resource_type}-ren egilea zarelako.
+          email_subject: Zure %{resource_type} ez da dagoeneko ikusten
+          notification_title: |-
+            Zure %{resource_type} ez da ikusgai egongo.<br>
+            Hori gertatu da zuk erantzun duzun proposamena, bilera, eztabaida edo iruzkina moderatu egin delako. Berriro erabilgarri jartzen bada, zure iruzkina automatikoki leheneratuko da.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
@@ -966,7 +980,7 @@ eu:
     export_mailer:
       download_your_data_export:
         click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
-        download: Deskarga
+        download: Deskargatu
       export:
         click_button_html: Zure deskarga prest dago. <br/> fitxategia deskargatu ahal izango da %{date} arte.
         download: Deskargatu
@@ -1021,7 +1035,7 @@ eu:
         error: Errore bat dago datu-eremu honetan.
       file_help:
         file:
-          explanation: 'Jarraibideak artxiborako:'
+          explanation: 'Fitxategirako jarraibideak:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
           message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Zerbitzuak irudia lantzen du.
         icon:
@@ -1034,8 +1048,8 @@ eu:
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
-        max_file_dimension: 'Artxiboaren gehieneko neurriak: %{resolution} pixel'
-        max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
+        max_file_dimension: 'Fitxategiaren gehieneko neurriak: %{resolution} pixel'
+        max_file_size: 'Fitxategiaren gehieneko tamaina: %{megabytes}MB'
       files:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
@@ -1054,10 +1068,10 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Balioztatze-akatsa! Egiaztatu artxiboak luzapen edo tamaina baimendua duela.
+          validation_error: Balioztatze-akatsa! Egiaztatu fitxategiak luzapen edo tamaina baimendua duela.
         select_file: Hautatu fitxategia
       upload_help:
-        dropzone: Bota artxiboak hona edo egin klik igotzeko
+        dropzone: Bota fitxategiak hona edo egin klik igotzeko
         explanation: Gida honetarako %{attribute}
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -1168,6 +1182,8 @@ eu:
           modal_title: Beste elkarrizketa bat
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Parte-hartzaile honek ez du mezu pribaturik jaso nahi.
+          participants:
+            title: Parte-hartzaileak
         create:
           error: Elkarrizketa ez da hasi. Saiatu berriro geroago.
         error_modal:
@@ -1200,27 +1216,6 @@ eu:
         finished: 'Noiz amaitua: %{end_date}'
         not_started: Oraindik ez da hasi
         remaining: "%{time_distance} falta da"
-    metrics:
-      blocked_users:
-        description: Blokeatutako parte-hartzaile kopurua
-      download:
-        csv: Deskargatu datuak (CSV)
-      followers:
-        description: Partaidetza-espazio hau jarraitzen duten parte-hartzaile kopurua
-        object: jarraitzaileak
-        title: Jarraitzaileak
-      participants:
-        description: Erakundekoparte-hartzaile aktiboen kopurua
-        object: parte-hartzaileak
-        title: Parte-hartzaileak
-      reported_users:
-        description: Erreportatuko parte-hartzaile kopurua
-      user_reports:
-        description: Parte-hartzaileek egindako txosten kopurua
-      users:
-        description: Parte-hartzaile kopurua erakundean
-        object: parte-hartzaileak
-        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali da, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
@@ -1348,11 +1343,6 @@ eu:
             other: "%{count} emaitza"
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
-        metrics:
-          cumulative: Metrikaren kopuru osoa gaur egun
-          day: Metrika hau sortu zen eguna
-          metric_type: Metrika mota
-          quantity: Metriken kopurua egun honetarako
         moderated_users:
           about: Parte-hartzailearen eremua
           block_reasons: Administratzaileak zergatik blokeatu du parte-hartzailea
@@ -1385,7 +1375,7 @@ eu:
           weight: Zein ordenatan erakusten den taxonomia hau
         users:
           about: Parte-hartzailearen testuari buruzkoa
-          avatar_url: Parte-hartzailearen avatarra
+          avatar_url: Parte-hartzailearen abatarra
           badge: Parte-hartzailearen garaikurra
           deleted: Parte-hartzailea ezabatuta dagoen ala ez
           direct_messages_enabled: Parte-hartzaileak mezu zuzenak bidaltzeko aukera ematen duen
@@ -1411,11 +1401,11 @@ eu:
         explanation:
           body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
           body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
-          title: Zer dira artxibo hauek?
+          title: Zer dira fitxategi hauek?
         how_to:
           step_1:
             body_html: Sakatu CSV fitxategiak zure ordenagailura deskargatzeko esteketan.
-            title: 1. Deskargatu artxiboak
+            title: 1. Deskargatu fitxategiak
           step_2:
             body_html: |-
               <ul>
@@ -1423,7 +1413,7 @@ eu:
               <li><b>Testu-editoreak</b>: CSV fitxategiak edozein testu-editoretan ere ireki daitezke, hala nola Notepad edo Sublime Text. Honek datu gordinak erakutsiko ditu, lerro bakoitzak lerro bat eta balio bakoitza koma batez bereizita.</li>
               <li><b>Datuak analizatzeko tresnak</b>:: Datuak analizatzeko tresnak ezagutzen badituzu, hala nola Python (pandekin), R, edo SQL datu-baseak, CSV fitxategi horiek inporta ditzakezu zuzenean tratatzeko eta aztertzeko.</li>
               </ul>
-            title: 2. Ireki artxiboak
+            title: 2. Ireki fitxategiak
           step_3:
             body_html: |-
               <ul>
@@ -1475,10 +1465,6 @@ eu:
         subheading: Nabigatu %{name} gunearen laguntza-orrietan
         title: Laguntza
         topics: Gaiak
-      participatory_space:
-        metrics:
-          headline: Metrikak
-          link: Erakutsi guztia
       terms_of_service:
         accept:
           error: Arazo bat egon da zerbitzuaren baldintzak onartzean.
@@ -1545,8 +1531,11 @@ eu:
         title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
       hide:
+        details: Xehetasunak
         hello: Kaixo, %{name},
         manage_moderations: Kudeatu moderazioak
+        participatory_space: Partaidetza-espazioa
+        reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       report:
@@ -1560,7 +1549,7 @@ eu:
         participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
-        see_report: Ikusi erreportea
+        see_report: Txostena ikusi
         subject: Eduki bat salatua izan da
     reports:
       create:
@@ -1570,6 +1559,8 @@ eu:
         report_details: Baliabide nagusia ezkutatu egin zen
     resource:
       controls_label: Baliabideen kontrolak
+    resource_autocomplete:
+      help: Bilatu beharreko proposamen-mota
     resource_endorsements:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
@@ -1579,7 +1570,6 @@ eu:
     search:
       name: Bilatu
       results: Bilatu emaitzak
-      results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Bilatu
     searches:
       filters:
@@ -1698,10 +1688,20 @@ eu:
         body_2: Erakundeentzako esperientzia sinplifikatzeko egiten ari garen ahaleginen artean, "Erabiltzaile-taldeak" ezaugarria kentzen ari gara. Zure Erabiltzaile Taldearen profila ohiko parte-hartzaile profil bihurtu da.
         greeting: "%{name}, agurgarria:\n"
         instructions_1: Sarbidea baduzu posta elektronikoko kontu horretarako, mesedez, kontsultatu zure sarrera-erretilua argibideetarako.
-        instructions_2: Horrela ez bada, zure lankideetako batek, pasahitza duenak, jarri beharko du eta kredentzialak zurekin partekatu.
-        instructions_intro: Taldekideek orain profil honetarako sarbidea partekatuko dute login kredentzial partekatuak erabiliz (posta elektronikoa eta pasahitza). Jarraibideak bidali dizkiegu <strong>%{group_email}</strong> -ri profilerako pasahitz berri bat ezartzeko.
-        instructions_title: "<strong>Zer esan nahi du zuretzat?</strong>"
+        instructions_intro: Jarraibideak bidali ditugu profilerako beste pasahitz bat ezartzeko, kontuari lotutako posta elektronikoan.
+        instructions_title: "<strong>Zer esan nahi du honek zuretzat?</strong>"
         subject: Eguneratze garrantzitsuko kide zaren erabiltzaile-taldea
+      notify_deprecation_to_owner:
+        body_1: Zurekin harremanetan jartzen gara eguneratze garrantzitsu bati buruz informatzeko, parte zaren %{organization_name} erabiltzaile-taldeari dagokionez.
+        body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>% {name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_3: Zure kontuan sartzen jarraitzeko, pasahitz bat jartzea behar dugu.
+        greeting: '%{name}, agurgarria:'
+        instructions_1: 'Egin klik beheko estekan pasahitzak konfiguratzeko prozesuari ekiteko:'
+        instructions_2: Formularioan, idatzi helbide elektronikoa non mezu hau jaso zenuen, eta bidali eskaera.
+        instructions_3: Kontsultatu zure sarrera-erretiluan bilatzeko zure pasahitz berria ezartzeko jarraibideak dituen mezu elektroniko bat.
+        instructions_title: "<strong>Zer egin behar duzu?</strong>"
+        set_password: Hasi pasahitza konfiguratzeko prozesua
+        subject: Erabiltzaile-taldearen eguneratze garrantzitsua
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
@@ -1822,16 +1822,6 @@ eu:
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
         message: Kontua blokeatu zaizu gehiegitan saitu zarelako, lortu gabe, saioa hasten.
         subject: Desblokeatu argibideak
-      user_group_reset_password_instructions:
-        body_1: 'Zure taldearen profilari buruzko eguneratze garrantzitsu baten berri emango dizugu hemen: %{organization_name}.'
-        body_2: Zurea bezalako erakundeentzako esperientzia sinplifikatzeko eta hobetzeko ahaleginen barruan, "Erabiltzaile-taldeak" ezaugarria depredikatzen ari gara. Zure taldea, <strong>% {name}</strong>, kontu arrunt bihurtu da.
-        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezarri behar dizugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edonorekin parteka ditzakezu.
-        greeting: "%{name}, agurgarria:\n"
-        instructions_1: 'Egin klik beheko estekan zure pasahitza ezartzeko:'
-        instructions_2: 'Partekatu zure lankideekin hastapeneko kredentzialak (posta elektronikoa: %{email} eta pasahitz berria).'
-        instructions_title: "<strong>Hori egiteko behar duzuna</strong>"
-        set_password: Idatzi zure pasahitza
-        subject: Erabiltzaile-taldearen eguneratze garrantzitsua
     omniauth_callbacks:
       add_tos_errors: Zerbitzuaren baldintzak onartu behar dira kontu bat sortzeko.
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
@@ -2079,8 +2069,11 @@ eu:
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
       header:
+        back: Itzuli zerrendara
+        cancel: Utzi
         close: Itxi
-        confirm_close_ephemeral_session: Orri honetatik kanpo nabigatzen baduzu, saioa itxita egongo da. Ziur zaude?
+        confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
+        confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
         log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Parte-hartzailearen menua
@@ -2155,7 +2148,7 @@ eu:
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
-    hacker_news: hacker News
+    hacker_news: Hacker berriak
     linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone

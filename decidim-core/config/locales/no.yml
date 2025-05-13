@@ -362,8 +362,6 @@
         name: Siste aktivitet
         title: Siste aktivitet
         view_all: Vis alle
-      metrics:
-        name: Organisasjonens målinger
       stats:
         name: Organisasjonsstatistikk
       sub_hero:
@@ -658,21 +656,6 @@
           title: Samtale med %{usernames}
         start:
           send: Send
-    metrics:
-      download:
-        csv: Last ned data (CSV)
-      followers:
-        description: Antall deltakere som følger dette deltakerområdet
-        object: følgere
-        title: Følgere
-      participants:
-        description: Antall aktive deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
-      users:
-        description: Antall deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
     newsletter_mailer:
       newsletter:
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
@@ -764,10 +747,6 @@
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
-      participatory_space:
-        metrics:
-          headline: Deltakelse i tall
-          link: Vis all statistikk
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -813,7 +792,6 @@
       prompt: Velg et tema
     search:
       results: Søkeresultater
-      results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
       filters:

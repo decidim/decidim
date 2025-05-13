@@ -477,6 +477,10 @@ es:
             explanation: 'Instrucciones para el archivo:'
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
+          import_csv:
+            explanation: 'Instrucciones para el archivo:'
+            message_1: Se admiten archivos CSV
+            message_2: "archivo .csv con datos de correos electrónicos"
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda.
         form:
@@ -599,9 +603,6 @@ es:
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía
         users: Participantes
-      metrics:
-        metrics:
-          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -1236,7 +1237,6 @@ es:
         impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestión de participantes
         menu: Menú
-        metrics: Métricas
         page_topics: Temas
         pages: Páginas
         panel: Administradora
@@ -1282,22 +1282,13 @@ es:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada.
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuarias reportadas
-        title: Usuarias reportadas
-      user_reports:
-        object: reportes de usuaria
-        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
+        parent_hidden: No se puede mostrar este recurso porque está incluido dentro de otro recurso ("padre") que sigue oculto.
         title: Acciones
         unhide: Vuelve a mostrar
         unreport: Deshacer denuncia
@@ -1324,6 +1315,7 @@ es:
             success: Contenido ocultado correctamente.
           unhide:
             invalid: Se ha producido un error volviendo a mostrar el contenido.
+            parent_invalid: Ha habido un problema desocultando el recurso. El recurso en el que este está incluido ("padre") no está visible.
             success: Contenido exitosamente desocultado.
           unreport:
             invalid: Se ha producido un error al cancelar la denuncia.

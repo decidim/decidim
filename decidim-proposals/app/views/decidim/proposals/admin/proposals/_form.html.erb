@@ -5,7 +5,7 @@
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
       <div class="row column">
-        <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
+        <%= form.translated :editor, :body, resource_mentionable: true, hashtaggable: true, aria: { label: :body } %>
       </div>
       <% if @form.component_automatic_hashtags.any? %>
         <div>
@@ -63,7 +63,7 @@
                               label: t("decidim.proposals.proposals.edit.add_attachments"),
                               button_label: t("decidim.proposals.proposals.edit.add_attachments"),
                               button_edit_label: t("decidim.proposals.proposals.edit.edit_attachments"),
-                              button_class: "button button__lg button__transparent-secondary w-full",
+                              button_class: "button button__sm button__transparent-secondary mt-2 md:w-auto w-full",
                               help_i18n_scope: "decidim.forms.file_help.file",
                               help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
         </div>

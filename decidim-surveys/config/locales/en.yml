@@ -14,6 +14,8 @@ en:
         other: Responses
   decidim:
     admin:
+      actions:
+        see_survey: See survey
       admin_log:
         changeset:
           surveys: surveys
@@ -47,7 +49,9 @@ en:
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     statistics:
+      responses: 'Responses:'
       responses_count: Responses
+      surveys_count_tooltip: The number of available surveys and responses collected.
     surveys:
       actions:
         confirm_destroy: Are you sure you want to delete this?

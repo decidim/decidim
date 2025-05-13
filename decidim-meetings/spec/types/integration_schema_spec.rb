@@ -82,6 +82,7 @@ describe "Decidim::Api::QueryType" do
           transparent
           type
           updatedAt
+          url
           userAllowedToComment
         }
       }
@@ -145,6 +146,7 @@ describe "Decidim::Api::QueryType" do
       "transparent" => meeting.transparent?,
       "type" => "Decidim::Meetings::Meeting",
       "updatedAt" => meeting.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(meeting).url,
       "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user)
     }
   end
@@ -161,6 +163,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -265,6 +268,7 @@ describe "Decidim::Api::QueryType" do
               transparent
               type
               updatedAt
+              url
               userAllowedToComment
             }
           }

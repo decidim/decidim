@@ -5,6 +5,7 @@ ja:
         delete_reason: アカウントを削除する理由
       attachment:
         documents: ドキュメント
+        image: 画像
         photos: 写真
       common:
         created_at: 作成日時
@@ -52,6 +53,12 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: ニックネームは小文字でスペースを含まない必要があります
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -152,6 +159,7 @@ ja:
       front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
       opens_in_new_tab: 新しいタブで開く
+      secondary_menu: セカンダリメニュー
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約に違反しているためブロックされています
@@ -166,6 +174,7 @@ ja:
         leaving_authorizations_behind: 認証に紐付けられたデータがセキュリティのために保存されます。 別のアカウントを作成して再度認証すると、このデータは新しいアカウントで復元されます。
       destroy:
         error: アカウントの削除中に問題が発生しました。
+        inactive_account_removal_reason: '%{inactivity_period} 日後にアカウントが削除されました'
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
@@ -587,10 +596,6 @@ ja:
         name: メインデータ
       metadata:
         name: メタデータ
-      metrics:
-        name: 組織の指標
-      participatory_space_metrics:
-        name: メトリクス
       participatory_space_stats:
         name: 統計情報
       social_networks_metadata:
@@ -626,7 +631,7 @@ ja:
         create:
           email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
-          complete_profile: プロファイルを完了
+          complete_profile: プロフィールを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
           subtitle: アカウントの作成を完了するため、次のフォームに記入してください
@@ -727,7 +732,19 @@ ja:
           id: この通知の固有ID
           resource_type: 通知に関連するリソースの種類
           updated_at: 通知の最終更新日時
+        participatory_space_private_users:
+          created_at: プライベートユーザーの作成日時
+          id: このプライベートユーザーの固有ID
+          privatable_to: このプライベートユーザーが所属する領域：
+          published: このプライベートユーザーが公開されているか否か
+          role: このプライベートユーザーが持つ役割
+          updated_at: プライベートユーザーの最終更新日時
         reports:
+          created_at: レポートの作成日時
+          details: レポートの詳細
+          id: レポートの固有ID
+          locale: レポートの言語
+          moderation: レポートのモデレーション
           reason: レポートの理由
           updated_at: レポートの最終更新日時
         users:
@@ -742,6 +759,12 @@ ja:
           delete_reason: このユーザーの削除理由
           deleted_at: このユーザーの削除日時
           email: このユーザーのメールアドレス
+          followers_count: このユーザーをフォローしている参加者の数
+          following_count: このユーザーがフォローしている参加者数
+          id: ユーザーの固有ID
+          invitation_accepted_at: 招待の承認日時
+          invitation_created_at: このユーザーの招待日時
+          invitation_sent_at: 招待の送信日時
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
           last_sign_in_at: 最終ログイン日時
@@ -749,13 +772,22 @@ ja:
           locale: このユーザーが選択したロケール（言語）
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
+          newsletter_notifications_at: このユーザーが最後にニュースレターを受信した日時
+          nickname: ユーザーのニックネーム
           notification_settings: このユーザーが選択した通知設定
+          notifications_sending_frequency: このユーザーが受け取る通知の頻度
+          officialized_as: 正式名称（参事官、市長等）
+          officialized_at: このユーザーの公式化日時
+          organization: このユーザーが所属する組織
+          password_updated_at: パスワードの最終更新日時
           personal_url: このユーザーの個人URL
           remember_created_at: ユーザーが記憶するように選択した日時
           reset_password_sent_at: パスワードリセットの送信日時
           roles: このユーザーが持っている役割
           sign_in_count: このユーザーがログインした回数
           type: このユーザーが持っているタイプ
+          unconfirmed_email: このユーザーのまだ確認されていないメールアドレス
+          updated_at: ユーザーの最終更新日時
       show:
         action: アクション
         download: ダウンロードファイル
@@ -766,6 +798,8 @@ ja:
         expiration: 有効期限
         expired: 有効期限が切れています
         explanation:
+          body_1: これらのファイルは、このプラットフォームでのあなたの提案やコメントなどの活動からエクスポートされたデータセットです。分析や研究、他のツールとの連携に活用できる、生の構造化データが含まれています
+          body_2: ファイルはCSV(カンマ区切り) 形式です。これは広く使われているファイル形式で、表計算プログラム、テキストエディタ、データ分析ツールなど、様々なソフトウェア・アプリケーションで開いて処理できます。
           title: これらのファイルは何ですか?
         files_to_download: ダウンロードするファイル
         request_data: リクエスト
@@ -852,6 +886,11 @@ ja:
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正が却下されました'
             notification_title: <a href="%{emendation_path}">修正</a> <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> によって作成された <a href="%{amendable_path}">%{amendable_title}</a> は拒否されました。
+        emendation_promoted:
+          follower:
+            email_intro: '%{amendable_title}に対する修正案が公開されました。このページから確認できます：'
+            email_outro: あなたは %{amendable_title}の作者であるため、この通知を受け取りました。
+            email_subject: '%{emendation_author_nickname}による修正案が新しい%{amendable_type}として公開されました'
       attachments:
         attachment_created:
           email_intro: '%{resource_title}に新しいドキュメントが追加されました。このページから見ることができます：'
@@ -885,6 +924,18 @@ ja:
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
+        parent_hidden:
+          email_intro: |-
+            あなたの%{resource_type}は表示されなくなりました。<br>
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。
+          email_outro: この通知は、影響を受けた%{resource_type}の作成者であるために送信されました。
+          email_subject: '%{resource_type} は表示されなくなりました'
+          notification_title: |-
+            あなたの%{resource_type}は表示されなくなりました。<br>
+            これは、あなたが返信した提案、ミーティング、討論、またはコメントがモデレーションされたためです。 
+            元の投稿が再び表示可能になった場合、あなたのコメントも自動的に復元されます。 
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: '%{report_reasons} として報告されたため、管理者が %{resource_type} を削除しました。'
           email_outro: 削除されたコンテンツの作成者であるため、この通知を受け取りました。
@@ -969,6 +1020,7 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、文字の入っていない横長の画像が望ましいです。サービス側で画像をトリミングします。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1113,6 +1165,8 @@ ja:
           modal_title: 新しい会話
           no_results: 結果がありません
           participant_with_disabled_message_reception: この参加者はプライベートメッセージの受信を希望していません．
+          participants:
+            title: 参加者
         create:
           error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
@@ -1145,27 +1199,6 @@ ja:
         finished: '完了: %{end_date}'
         not_started: まだ開始していません
         remaining: "残り %{time_distance}"
-    metrics:
-      blocked_users:
-        description: ブロックされた参加者数
-      download:
-        csv: ダウンロードデータ(CSV)
-      followers:
-        description: この参加スペースに従う参加者数
-        object: フォロワー
-        title: フォロワー
-      participants:
-        description: 組織内のアクティブな参加者数
-        object: 参加者
-        title: 参加者
-      reported_users:
-        description: 報告された参加者数
-      user_reports:
-        description: 参加者によって行われた報告数
-      users:
-        description: 組織の参加者数
-        object: 参加者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
@@ -1245,6 +1278,7 @@ ja:
         assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: モデレーションの報告がなされたたびに毎回メールを受け取りたい
+        evaluators: 評価者
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1285,21 +1319,19 @@ ja:
         core:
           components: コンポーネント
           description: ZIPファイルには、この参加型プラットフォームについての研究や研究のためのファイルが含まれています。
+          generated_on_date: '%{date} に生成'
           main: コア
+          resources:
+            other: "%{count} リソース"
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
-        metrics:
-          cumulative: この日のメトリックの合計数
-          day: このメトリックの作成日時
-          metric_type: メトリックの種類
-          quantity: この日のメトリック数
         moderated_users:
           about: 利用者の紹介フィールド
           block_reasons: 管理者ユーザーがユーザーをブロックした理由
           blocked_at: ユーザーがブロックされた日時
           blocking_user: ブロックを実行したユーザーの名前
           details: レポートの詳細
-          reasons: プロファイルが報告された理由のリスト
+          reasons: プロフィールが報告された理由のリスト
           user_id: 報告されたユーザーの固有ID
         moderations:
           hidden_at: コンテンツが非表示になった日時
@@ -1333,7 +1365,7 @@ ja:
           id: ユーザーの固有ID
           name: ユーザーの表示名
           nickname: ユーザーのユーザー名
-          profile_url: プロファイルURL
+          profile_url: プロフィールURL
       index:
         description: '%{organization_name} オープンデータページへようこそ。ここでは、 %{organization_name} 内のさまざまな審議およびガバナンスプロセスから定期的に生成されるデータファイルを提供しています。これらのファイルは、透明性、アクセス性、および協力を促進するために公開されています。以下に、これらのファイルが何であるか、どのように開いて使用するか、各ファイルの内容と構造についての詳細な情報を記載しています。'
         detailed:
@@ -1415,10 +1447,6 @@ ja:
         subheading: '%{name} のヘルプページをナビゲートします'
         title: ヘルプ
         topics: トピック
-      participatory_space:
-        metrics:
-          headline: 指標
-          link: すべての指標を表示
       terms_of_service:
         accept:
           error: 利用規約に同意する際に問題が発生しました。
@@ -1436,13 +1464,32 @@ ja:
           alert: 利用規約を更新しました。ご確認ください。
           body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
           title: '必須: 利用規約の更新を確認する'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>記録によると、あなたは<strong>%{date_account_creation}</strong>に%{organization_name}のアカウントを作成しましたが、<strong>%{date_last_connection}</strong>以降は利用されていないようです。</p> <p>プライバシー保護のため、このアカウントは<strong>%{days}日後</strong>に自動削除される予定です。</p> 
+          <p>%{organization_name}のアカウントを保持したい場合は、それまでに%{login_url}にアクセスするだけでアカウントは維持されます。</p>
+        greetings_html: |
+          よろしくお願いいたします。<br>
+          %{organization_name}
+        hello_html: こんにちは <strong>%{username}</strong>さん、
+        log_in: ログイン
+        never_logged_in: ログインしたことがない
+        subject: 非アクティブなアカウントの警告
+      removal_notification:
+        body: あなたの %{organization_name} アカウントは非アクティブのため削除されました。
+        greetings_html: |
+          よろしくお願いいたします。<br>
+          %{organization_name}
+        hello: こんにちは %{username} さん、
+        subject: 非アクティブなアカウントが削除されました
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
       deleted: 参加者を削除しました
-      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
+      inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
       show:
@@ -1459,10 +1506,18 @@ ja:
           edit_profile: プロフィールを編集
           message: メッセージ
           resend_email_confirmation_instructions: 確認メールを再送する
+    qr:
+      show:
+        scan: QRコードをスキャン
+        title: '%{resource_title} の QR コード'
     reported_mailer:
       hide:
+        content: 通報されたコンテンツ
+        details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
         subject: リソースは自動的に非表示になりました
       report:
@@ -1486,6 +1541,8 @@ ja:
         report_details: 親リソースは非表示
     resource:
       controls_label: リソースコントロール
+    resource_autocomplete:
+      help: 提案を検索するには入力してください
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
@@ -1495,7 +1552,7 @@ ja:
     search:
       name: 検索
       results: 検索結果
-      results_found_for_term: '%{count} 検索結果: "%{term}"'
+      results_found_for_term: '検索「%{term}」の結果：%{count}件'
       term_input_placeholder: 検索
     searches:
       filters:
@@ -1516,6 +1573,10 @@ ja:
       selfxss_warning:
         description: このブラウザー機能は開発者向けのもので、もし要求されてもこの中身をどこにも公開しないでください。 この中身が漏れると、あなたのプライバシーが侵害され、ハッカーがあなたのアカウントにアクセスできるようになります。
         title: 停止
+    share_widget:
+      download: ダウンロード
+      print: ポスターを印刷
+      qr_code: QR コード
     shared:
       confirm_modal:
         cancel: キャンセル
@@ -1546,11 +1607,13 @@ ja:
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         block: この参加者をブロック
+        description: この参加者の不適切な点は何ですか？
         does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
+        title: 不適切な参加者を報告する
       floating_help:
         help: ヘルプ
       follow_button:
@@ -1572,6 +1635,7 @@ ja:
         copy_share_link: コピー
         copy_share_link_clarification: 共有リンクをクリップボードにコピー
         copy_share_link_copied: コピーしました
+        copy_share_link_cta: またはリンクをコピー
         copy_share_link_message: リンクをクリップボードにコピーしました。
         share: 共有
         share_link: リンクを共有
@@ -1601,6 +1665,26 @@ ja:
     user_conversations:
       index:
         time_ago: "%{time} 前"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'あなたがメンバーになっている<strong>%{group_name}</strong> ユーザーグループへの重要なアップデートについてお知らせいたします。'
+        body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
+        greeting: こんにちは %{name} さん、
+        instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
+        instructions_intro: プロファイルの新しいパスワードを設定するために、アカウントに関連付けられているメールアドレスに指示を送信しました。
+        instructions_title: "<strong>これがあなたにとって何を意味するか</strong>"
+        subject: あなたが所属しているユーザーグループに関する重要な更新
+      notify_deprecation_to_owner:
+        body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
+        body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
+        body_3: アカウントに引き続きアクセスするために、パスワードの設定をお願いします。
+        greeting: こんにちは %{name} さん、
+        instructions_1: '以下のリンクをクリックして、パスワードの設定を開始してください：'
+        instructions_2: フォームに、このメッセージを受け取ったメールアドレスを入力し、リクエストを送信してください。
+        instructions_3: 新しいパスワードを設定するための詳しい手順が記載されたメールが届いているか、受信トレイをご確認ください。
+        instructions_title: "<strong>あなたが行うべきこと</strong>"
+        set_password: パスワード設定を開始
+        subject: ユーザーグループの重要なアップデート
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -1965,8 +2049,11 @@ ja:
         sign_up: アカウントを作成
         terms_of_service: 利用規約
       header:
+        back: リストに戻る
+        cancel: キャンセル
         close: 閉じる
-        confirm_close_ephemeral_session: このページから移動すると、セッションは閉じられます。よろしいですか？
+        confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
+        confirm_title_close_ephemeral_session: このページから離れる前に…
         log_in: ログイン
         main_menu: メインメニュー
         user_menu: ユーザーメニュー

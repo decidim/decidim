@@ -261,11 +261,6 @@ zh-CN:
           title: 什么是参与性进程？
     menu:
       processes: 进程
-    metrics:
-      participatory_processes:
-        description: 本组织参与进程的数目
-        object: 参与进程
-        title: 参与进程
     participatory_process_groups:
       content_blocks:
         stats:
@@ -300,9 +295,6 @@ zh-CN:
           name: 高亮的进程
       index:
         title: 参与进程
-      participatory_process_steps:
-        index:
-          back_to_process: 返回进程页面
       participatory_processes:
         filters:
           counters:

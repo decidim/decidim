@@ -265,11 +265,6 @@ he:
           email_outro: קיבלת הודעה זו מכיוון שאת.ה עוקב.ת אחר "%{proposal_title}", וההצעה הזו כלולה בתוצאה "%{resource_title}". ניתן להפסיק לקבל התראות באמצעות הקישור הקודם.
           email_subject: עדכון ל-%{resource_title} התקדמות
           notification_title: התוצאה <a href="%{resource_path}">%{resource_title}</a>, הכוללת את ההצעה <a href="%{proposal_path}">%{proposal_title}</a>, היא כעת %{ התקדמות}% הושלמה.
-    metrics:
-      results:
-        description: מספר התוצאות שנוצרו
-        object: תוצאות
-        title: תוצאות
     participatory_spaces:
       highlighted_results:
         see_all: הצגת כל התוצאות

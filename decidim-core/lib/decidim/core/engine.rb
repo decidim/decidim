@@ -419,16 +419,11 @@ module Decidim
       end
 
       initializer "decidim_core.stats" do
-        Decidim.stats.register :users_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
+        Decidim.stats.register :users_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "user-line",
+                               tooltip_key: "users_count_tooltip" do |organization, start_at, end_at|
           StatsUsersCount.for(organization, start_at, end_at)
-        end
-
-        Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
-          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
-
-          processes = processes.where(created_at: start_at..) if start_at.present?
-          processes = processes.where(created_at: ..end_at) if end_at.present?
-          processes.count
         end
       end
 
@@ -453,7 +448,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
         end
       end
 

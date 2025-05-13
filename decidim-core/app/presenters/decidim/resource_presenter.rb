@@ -35,7 +35,8 @@ module Decidim
       handle_locales(data, all_locales) do |content|
         [
           Decidim::ContentRenderers::HashtagRenderer,
-          Decidim::ContentRenderers::UserRenderer
+          Decidim::ContentRenderers::UserRenderer,
+          Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|
           renderer = renderer_class.new(content)
           content = renderer.render(links: false, editor: true, extras:).html_safe

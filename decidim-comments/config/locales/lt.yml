@@ -19,6 +19,10 @@ lt:
         many: Balsai
         other: Balsai
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarai
     comments:
       admin:
         shared:
@@ -152,11 +156,6 @@ lt:
           email_outro: Gavote šį pranešimą nes buvote paminėta(-s) %{resource_title}.
           email_subject: Buvote paminėta(-s) %{resource_title}
           notification_title: Buvote paminėta(-s) <a href="%{resource_path}"> %{resource_title}</a><a href="%{author_path}">%{author_name}%{author_nickname}</a>
-    metrics:
-      comments:
-        description: Komentarų sugeneruotų dalyvių skaičius
-        object: komentarai
-        title: Komentarai
   errors:
     messages:
       cannot_have_comments: negali turėti komentarų

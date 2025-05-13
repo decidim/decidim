@@ -476,6 +476,10 @@ ja:
             explanation: 'ファイルのガイダンス:'
             message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
             message_2: CSV ファイルの場合、列間の区切り文字はセミコロン(";") でなければなりません。
+          import_csv:
+            explanation: 'ファイルのガイダンス:'
+            message_1: CSVファイルがサポートされています
+            message_2: "電子メールデータを含む.csvファイル"
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました。
         form:
@@ -594,9 +598,6 @@ ja:
         taxonomies: タクソノミー
         taxonomy_filters: タクソノミーフィルター
         users: 参加者
-      metrics:
-        metrics:
-          see_more_metrics: さらに指標を見る
       models:
         area:
           fields:
@@ -1075,6 +1076,7 @@ ja:
           title: トピックを編集
           update: トピックを更新
         new:
+          create: 新しいトピック
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
@@ -1098,6 +1100,7 @@ ja:
         index:
           last_notable_change: 前回の注目すべき変更
         new:
+          create: 新しいページ
           title: 新しいページ
         topic:
           empty: このトピックのページはありません。
@@ -1226,7 +1229,6 @@ ja:
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         menu: メニュー
-        metrics: 指標
         page_topics: トピック
         pages: ページ
         panel: 管理者
@@ -1272,22 +1274,13 @@ ja:
       errors:
         impersonate_user:
           reason: 管理対象ではない参加者を管理する場合は、理由を入力する必要があります。
-    metrics:
-      blocked_users:
-        object: ブロックされたユーザー
-        title: ブロックされたユーザー
-      reported_users:
-        object: 報告されたユーザー
-        title: 報告したユーザー
-      user_reports:
-        object: ユーザーの報告
-        title: ユーザーの報告
     moderations:
       actions:
         expand: 展開
         hidden: 非表示
         hide: 非表示にする
         not_hidden: 表示
+        parent_hidden: 親がまだ非表示になっているため、このリソースを表示できません。
         title: アクション
         unhide: 非表示解除
         unreport: 報告解除
@@ -1314,6 +1307,7 @@ ja:
             success: リソースを非表示にしました。
           unhide:
             invalid: リソースの非表示解除中に問題が発生しました。
+            parent_invalid: リソースの非表示を解除する際に問題が発生しました。親が表示されません。
             success: リソースの非表示を解除しました。
           unreport:
             invalid: リソースの報告解除中に問題が発生しました。

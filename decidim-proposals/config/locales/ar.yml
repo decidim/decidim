@@ -273,21 +273,6 @@ ar:
           name: اقتراحات
           next_level_in: إنشاء %{score} المزيد من المقترحات للوصول إلى المستوى التالي!
           unearned_own: لم تنشئ اقتراحات بعد.
-    metrics:
-      accepted_proposals:
-        description: عدد المقترحات المقبولة
-        object: اقتراحات
-        title: مقترحات مقبولة
-      endorsements:
-        description: عدد موافقات المقترحات
-        object: موافقات
-        title: موافقات
-      proposals:
-        description: عدد المقترحات
-        object: اقتراحات
-        title: اقتراحات
-      votes:
-        object: أصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل
