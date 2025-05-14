@@ -634,6 +634,7 @@ ca:
           url: L'URL de la jornada
     statistics:
       conferences_count: Jornades
+      conferences_count_tooltip: El número de jornades publicades.
   devise:
     mailer:
       join_conference:

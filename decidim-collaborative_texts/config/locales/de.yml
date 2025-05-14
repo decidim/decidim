@@ -50,9 +50,6 @@ de:
           update_settings:
             invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
             success: Dokument erfolgreich aktualisiert.
-        settings:
-          form:
-            allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
       admin_log:
         document:
           create: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} erstellt"
@@ -67,8 +64,6 @@ de:
           update: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} in %{space_name} aktualisiert"
       document:
         cancel: Abbrechen
-        save: Anmerkung absenden
-        suggest: Änderung vorschlagen
       documents:
         index:
           count:

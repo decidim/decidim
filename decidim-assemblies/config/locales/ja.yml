@@ -427,6 +427,7 @@ ja:
         related_assemblies: 関連する参加スペース
     statistics:
       assemblies_count: 参加スペース
+      assemblies_count_tooltip: 集団的な意思決定が行われた公開参加スペースの数です。
   layouts:
     decidim:
       assemblies:

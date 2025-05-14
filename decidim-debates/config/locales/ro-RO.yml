@@ -201,3 +201,4 @@ ro:
           unearned_own: Nu ați participat la nicio dezbatere încă.
     statistics:
       debates_count: Dezbateri
+      debates_count_tooltip: Numărul de discuții care au avut loc.

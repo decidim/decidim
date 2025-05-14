@@ -50,9 +50,6 @@ ro:
           update_settings:
             invalid: A apărut o eroare la actualizarea documentului.
             success: Document actualizat cu succes.
-        settings:
-          form:
-            allow_suggestions: Permiteți participanților să facă sugestii
       admin_log:
         document:
           create: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
@@ -67,8 +64,6 @@ ro:
           update: "%{user_name} a actualizat versiunea text colaborativ %{resource_name} în %{space_name}"
       document:
         cancel: Anulează
-        save: Trimite propunere
-        suggest: Sugerează modificări
       documents:
         index:
           count:
@@ -92,3 +87,4 @@ ro:
             announcement: Anunț
     statistics:
       collaborative_texts_count: Texte colaborative
+      collaborative_texts_count_tooltip: Numărul de texte colaborative

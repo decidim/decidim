@@ -3,7 +3,6 @@ hu:
     attributes:
       sortition:
         additional_info: Sorsolás információk
-        decidim_category_id: Azon javaslatok kategóriája, amelyekben a sorsolást alkalmazni kívánjuk
         decidim_proposals_component_id: Beállított javaslatok
         dice: Dobókocka feldobása. Használj hat oldalú dobókockát vagy találj más megoldást arra, hogy egy véletlen számot produkálj 1 és 6 között. Szemtanúk előtt írd be ide a számot. Ez a módszer garantálja majd a kimenet tényleges véletlenszerűségét
         target_items: Kijelölni kívánt javaslatok száma (azt jelzi, hogy hány javaslatot szeretnél kiválasztani a már korábban kijelölt ajánlatok csoportja alapján)
@@ -39,7 +38,6 @@ hu:
         models:
           sortition:
             fields:
-              category: Kategória
               created_at: Létrehozás dátuma
               decidim_proposals_component: Javaslatok elem
               dice: Dobókocka
@@ -59,7 +57,6 @@ hu:
             title: Sorsolással kapcsolatos információk frissítése
             update: Frissítés
           form:
-            all_categories: Összes kategória
             select_proposal_component: Válassz beállított javaslatokat
           index:
             title: Sorsolások
@@ -98,11 +95,8 @@ hu:
             other: kiválasztott javaslatok
         show:
           algorithm: Sorsolás algoritmus kódja
-          any_category: minden kategóriából
           cancelled: Törölt sorsolás
           candidate_proposal_ids: Sorsolásos javaslatok sorrendje és azonosítói
-          candidate_proposals_info: 'Sorsolásos módszer végrehajtva a következő javaslatokon: (%{category_label}), ilyen azonosítókkal (kiválasztott javaslatok vastagon kiemelve)  '
-          category: a(z) %{category} kategóriából
           dice_result: (1) dobókocka eredmény
           introduction: 'Ez az oldal a következő sorsolás eredményeit tartalmazza: %{reference}. A módszer segítségével %{target_items} véletlenszerű eredményt kaptunk az alábbi javaslatokhoz, az egyenlő valószínűségi eloszlás elvét követve. Az oldalon található adatok - az eredményekkel együtt - minden olyan információt tartalmaznak, amelyek garantálják az eljárás megbízhatóságát és reprodukálhatóságát. Ennek a sorsolásos módszernek az egyik erőssége a kétlépcsős véletlenszerűségben rejlik, amelyet egyfelől a dobókocka feldobása, másfelől a sorsolás pontos időpontjának rögzítése biztosít. Ez utóbbiak ráadásul olyannyira pontosak, hogy azt emberek nem tudják ellenőrizni. Ez a dupla véletlenszerűség garantálja tehát a megbízható eredményeket.  '
           mathematical_result: Eredmény (1) x (2)

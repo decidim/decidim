@@ -946,7 +946,6 @@ hu:
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        statistics: Tevékenység
         users: Adminisztrátorok
       users:
         create:

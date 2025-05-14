@@ -794,7 +794,6 @@ nl:
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        statistics: Activiteit
         users: Beheerders
       users:
         create:

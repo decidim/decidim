@@ -275,3 +275,4 @@ es:
           url: La URL donde se puede encontrar este debate
     statistics:
       debates_count: Debates
+      debates_count_tooltip: El número de debates celebrados.
