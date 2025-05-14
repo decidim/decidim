@@ -134,6 +134,6 @@ ar:
             votes_choices:
               enabled: تم تمكين التصويت
     statistics:
-      projects_count: المشاريع
+      projects_count: مشاريع
   index:
     confirmed_orders_count: عدد الأصوات

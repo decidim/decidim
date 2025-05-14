@@ -98,9 +98,7 @@ cs:
       decidim:
         proposals:
           proposal:
-            budget_text: Návrh %{link} byl vytvořen
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
-            import_to_proposal_text: Tento návrh %{link} byl vytvořen
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
             split_from_proposal_text: 'Stal se z něj tento návrh: %{link}'

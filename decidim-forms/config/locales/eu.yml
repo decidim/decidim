@@ -163,7 +163,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         answer:
-          body: Gorputza ezin da hutsik egon
+          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:

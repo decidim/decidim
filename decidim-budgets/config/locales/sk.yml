@@ -113,5 +113,7 @@ sk:
             show_votes: Zobraziť hlasy
             votes_choices:
               enabled: Hlasovanie povolené
+    statistics:
+      projects_count: Projekty
   index:
     confirmed_orders_count: Počet hlasov

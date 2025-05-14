@@ -1340,11 +1340,6 @@ lt:
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
         fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
     reported_mailer:
-      hide:
-        hello: Sveiki %{name},
-        manage_moderations: Tvarkyti vedamas diskusijas
-        report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
-        subject: Išteklius paslėptas automatiškai
       report:
         authors: Autoriai
         content: Turinys, apie kurį pranešta

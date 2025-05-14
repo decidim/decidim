@@ -1728,7 +1728,7 @@ ca:
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contingut reportat
         details: Detalls
         hello: Hola %{name},
@@ -1737,6 +1737,15 @@ ca:
         reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
+      hidden_manually:
+        content: Contingut reportat
+        details: Detalls
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
+        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
+        subject: Un recurs ha estat amagat per %{moderator}
       report:
         authors: Autores
         content: Contingut reportat
@@ -1754,6 +1763,8 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+      hide:
+        success: Aquest recurs s'ha amagat.
       parent_hidden:
         report_details: El recurs principal estava amagat
     resource:

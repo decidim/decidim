@@ -67,6 +67,11 @@ ro:
       decidim/proposals/voting_enabled_event: Votare propunerii este activată
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Propunerea <span class="resource-link">%{link} a fost creată</span>
+            import_to_proposal_text: Această propunere <span "resource-link">%{link} a fost creată</span>
       decidim/proposals/collaborative_draft:
         one: Ciornă colaborativă
         few: Ciorne colaborative

@@ -1350,11 +1350,6 @@ pl:
         confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
         fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
     reported_mailer:
-      hide:
-        hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość

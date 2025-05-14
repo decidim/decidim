@@ -44,7 +44,7 @@ sv:
         user:
           attributes:
             nickname:
-              format: Smeknamnet ska vara små bokstäver utan mellanslag
+              format: Användarnamnet måste ha små bokstäver inga mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -661,7 +661,7 @@ sv:
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
+          username_help: Offentligt namn som visas vid dina inlägg. Använd ett påhittat namn om du vill vara anonym.
       sessions:
         new:
           are_you_new?: Inte registrerad än?
@@ -1262,7 +1262,7 @@ sv:
         add_conversation_users:
           add_max_users: 'Lägg till användare i samtalet: högst 9'
           add_users_placeholder: Sök...
-          modal_title: Nytt samtal
+          modal_title: Ny konversation
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
         create:
@@ -1273,10 +1273,10 @@ sv:
           intro: 'Det fanns följande fel med ditt meddelande:'
           ok: Ok
         index:
-          new_conversation: Nytt samtal
+          new_conversation: Ny konversation
           next: Nästa
           no_conversations: Du har inga konversationer än.
-          title: Samtal
+          title: Konversationer
         reply_form:
           placeholder: Ditt svar...
           send: Skicka
@@ -1285,7 +1285,7 @@ sv:
           chat_with: Konversation med
           deleted_accounts: Du kan inte ha en konversation med raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
-          title: Samtal med %{usernames}
+          title: Konversation med %{usernames}
         start:
           placeholder: Ditt meddelande...
           send: Skicka
@@ -1327,7 +1327,7 @@ sv:
         interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i innehållet eller ämnet och det kommer att ersättas av mottagarens namn.'
       image_text_cta:
         body_preview: 'Dummy text för innehåll: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
-        cta_text_preview: Uppmaningens text
+        cta_text_preview: Text på knapp
         introduction_preview: 'Dummy text för introduktion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Bild, text och knapp
       image_text_cta_settings_form:
@@ -1418,7 +1418,7 @@ sv:
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
-      disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
+      disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       explanation: Använd den här anteckningsytan för att gemensamt ta anteckningar under mötet så att det går lättare att skriva protokollet efteråt.
       pad: Memo
     pages:
@@ -1510,11 +1510,24 @@ sv:
         confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
         fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Rapporterat innehåll
+        details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
-        report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
-        subject: En resurs har döljts automatiskt
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har dolts automatiskt.</p>
+        subject: En resurs har dolts automatiskt
+      hidden_manually:
+        content: Rapporterat innehåll
+        details: Detaljer
+        hello: Hej %{name},
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">-innehåll</a> har dolts av %{moderator}.</p>
+        subject: En resurs har dolts av %{moderator}
       report:
         authors: Författare
         content: Rapporterat innehåll
@@ -1532,6 +1545,8 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+      hide:
+        success: Denna resurs har gömts.
     resource_endorsements:
       create:
         error: Det gick inte att gilla.

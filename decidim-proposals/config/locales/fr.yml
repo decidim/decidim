@@ -97,8 +97,8 @@ fr:
       decidim:
         proposals:
           proposal:
-            budget_text: La proposition %{link} a été créée
-            import_to_proposal_text: La proposition %{link} a été créée
+            budget_text: La proposition <span class="resource-link">%{link} a été créée</span>
+            import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs

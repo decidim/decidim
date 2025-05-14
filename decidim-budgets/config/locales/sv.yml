@@ -296,7 +296,7 @@ sv:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
           lowest_cost: Lägst kostnad
-          most_voted: Mest röster
+          most_voted: Flest röster
           random: Slumpvis ordning
           selected: Valda
         project:

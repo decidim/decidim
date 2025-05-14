@@ -1731,15 +1731,24 @@ es-MX:
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenido reportado
         details: Detalles
         hello: Hola %{name},
-        manage_moderations: Gestionar moderaciones
+        manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
@@ -1757,6 +1766,8 @@ es-MX:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+      hide:
+        success: Se ha ocultado este recurso.
       parent_hidden:
         report_details: El recurso principal estaba oculto
     resource:

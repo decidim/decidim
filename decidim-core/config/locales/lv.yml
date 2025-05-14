@@ -795,11 +795,6 @@ lv:
           manage_user_group_users: Pārvaldīt biedrus
           resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
     reported_mailer:
-      hide:
-        hello: Sveiki, %{name}!
-        manage_moderations: Pārvaldiet moderāciju
-        report_html: <p> Šis <a href="%{url}"> saturs </a> ir paslēpts automātiski.</p>
-        subject: Vienums ir automātiski paslēpts
       report:
         hello: Sveiki, %{name}!
         report_html: <p> Par šo <a href="%{url}"> saturu </a> ir ziņots.</p>

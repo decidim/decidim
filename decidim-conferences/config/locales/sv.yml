@@ -46,7 +46,7 @@ sv:
       conference_registration_invite:
         email: E-post
         name: Namn
-        registration_type_id: Typ av registrering
+        registration_type_id: Typ av anmälan
         user_id: Användare
       conference_registration_type:
         description: Beskrivning
@@ -212,7 +212,7 @@ sv:
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
-          registration_types: Typer av registrering
+          registration_types: Typer av anmälan
           registrations: Registreringar
           see_conference: Visa konferens
           user_registrations: Användarregistreringar
@@ -437,11 +437,11 @@ sv:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
-          details_1: 'Du är registrerad till konferensen med registreringstypen %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
+          details_1: 'Du är anmäld till konferensen med anmälningstyp %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
           details_2: Du hittar konferensens detaljer i bilagan.
         pending_validation:
           confirmation_pending: Du kommer snart att få bekräftelsen
-          details: 'Du har registrerat dig med registreringstypen %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
+          details: 'Du har anmält dig med %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
           pending_html: Väntar på bekräftelse för din registrering till konferensen <a href="%{url}">%{title}</a>.
       conference_registrations:
         create:
@@ -480,7 +480,7 @@ sv:
           login_as: Du är inloggad som %{name} <%{email}>
           make_conference_registration: Anmäl dig till konferensen
           manage_registration: Hantera anmälan
-          register: Registrering
+          register: Anmälan
           sign_in_description: Logga in för att anmäla dig till konferensen
           sign_up_description: Skapa ett konto för att anmäla dig till konferensen
       content_blocks:
@@ -532,7 +532,7 @@ sv:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
           no_registrations: Inga anmälningar
-          register: Registrera
+          register: Anmälan
           title: Registreringstyper
       show:
         details: Detaljer
@@ -576,7 +576,7 @@ sv:
           email_subject: Konferensen "%{resource_title}" har uppdaterats
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har uppdaterats.
         registrations_enabled:
-          email_intro: 'Konferensen "%{resource_title}" har tar nu emot registreringar. Du kan själv registrera dig på denna sida:'
+          email_intro: 'Konferensen "%{resource_title}" har tar nu emot anmälningar. Du kan själv anmäla dig på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den via föregående länk.
           email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
@@ -625,7 +625,7 @@ sv:
   layouts:
     decidim:
       conference_hero:
-        register: Registrera
+        register: Anmäl dig
       conferences:
         conference:
           more_info: Mer information

@@ -906,11 +906,6 @@ tr:
           manage_user_group_users: Üyeleri yönet
           resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
-      hide:
-        hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
-        report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> otomatik olarak gizlendi.</p>
-        subject: Bir kaynak otomatik olarak gizlendi
       report:
         authors: Yazarlar
         content: İçeriği bildir

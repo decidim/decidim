@@ -6,6 +6,7 @@ cs:
         delete_reason: Důvod odstranění vašeho účtu
       attachment:
         documents: Dokumenty
+        image: Obrázek
         photos: Fotky
       common:
         created_at: Vytvořeno v
@@ -1053,6 +1054,8 @@ cs:
       notification_event:
         notification_title: Objevila se událost na <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
         resource_hidden:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
@@ -1768,11 +1771,6 @@ cs:
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
-      hide:
-        hello: Zdravím %{name},
-        manage_moderations: Správa moderování
-        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
-        subject: Zdroj byl automaticky skryt
       report:
         authors: Autoři
         content: Nahlášený obsah

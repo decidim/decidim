@@ -75,7 +75,7 @@ eu:
               cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
             title:
-              identical: ETA gorputza ezin da berdina izan
+              identical: ETA testua ezin da berdina izan
         proposals_merge:
           attributes:
             base:
@@ -98,9 +98,9 @@ eu:
       decidim:
         proposals:
           proposal:
-            budget_text: '%{link} proposamena sortu da'
+            budget_text: <span class="resource-link">% {link} proposamena sortu zen</span>
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            import_to_proposal_text: '%{link} proposamena sortu da'
+            import_to_proposal_text: <span class="resource-link">% {link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
@@ -453,7 +453,7 @@ eu:
           answered_at: Zein datatan erantzun zen proposamen hau
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
-          body: Proposamenaren gorputza
+          body: Proposamenaren testua
           coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
           comments: Proposamen honek duen babes kopurua
           component: Proposamena osagai honen barruan dago
@@ -669,7 +669,7 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
@@ -1028,7 +1028,7 @@ eu:
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
-            description: '%{limit} proposamen sortu ditzakezu.'
+            description: Proposamen(ak) sortu ditzakezu.
           success: Zure babesak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} babes izatera iritsi behar da.
