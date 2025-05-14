@@ -225,11 +225,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes.
           notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
-        upcoming_meeting:
-          email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
       meetings:
         attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou hybride.
