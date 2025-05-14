@@ -3,8 +3,6 @@
 module Decidim
   module Conferences
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         user_can_enter_space_area?
 
