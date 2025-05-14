@@ -711,9 +711,9 @@ describe "Admin manages meetings" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do
