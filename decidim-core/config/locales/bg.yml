@@ -1405,9 +1405,6 @@ bg:
     reported_mailer:
       hide:
         hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
       report:
         authors: Автори
         content: Докладвано съдържание

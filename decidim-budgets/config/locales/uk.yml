@@ -99,5 +99,7 @@ uk:
             show_votes: Показати голоси
             votes_choices:
               enabled: Голосування увімкнене
+    statistics:
+      projects_count: Проекти
   index:
     confirmed_orders_count: Кількість голосів

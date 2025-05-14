@@ -1392,9 +1392,6 @@ pl:
     reported_mailer:
       hide:
         hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość

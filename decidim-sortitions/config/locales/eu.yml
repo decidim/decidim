@@ -4,7 +4,7 @@ eu:
     attributes:
       sortition:
         additional_info: Zozketari buruzko informazioa
-        decidim_category_id: Zozketatu nahi duzun proposamen taldearen kategoriak
+        decidim_category_id: Zozketatu nahi dituzun proposamenen taldearen kategoriak
         decidim_proposals_component_id: Proposamen taldea
         dice: Dadoen emaitza. Bota 6 aldeko dado bat edo bilatu beste eraren bat 1etik 6ra bitarteko ausazko zenbaki bat sortzeko eta sartu hemen zenbaki hori hainbat lekukoren aurrean. Horrek emaitzen ausazkotasunaren kalitatea eta bermea lagunduko ditu
         target_items: Aukeratu nahi duzun proposamen kopurua (adierazitako proposamen taldetik zozketaren bidez aukeratu nahi duzun proposamen kopurua ezarri)

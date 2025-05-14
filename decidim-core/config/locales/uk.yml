@@ -418,9 +418,6 @@ uk:
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
-        manage_moderations: Керувати діями з модерації
-        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
-        subject: Ресурс було автоматично приховано
       report:
         hello: Доброго дня, %{name}%!
         report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>

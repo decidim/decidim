@@ -37,13 +37,13 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Testu-gorputza
+        body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
-        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
+        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testua
         alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
@@ -100,7 +100,7 @@ eu:
         user_groups_enabled: Gaitu parte-hartzaileen taldeak
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
-        welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
+        welcome_notification_body: Ongietorri-jakinarazpenaren testua
         welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:

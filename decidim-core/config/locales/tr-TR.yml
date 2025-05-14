@@ -954,9 +954,6 @@ tr:
     reported_mailer:
       hide:
         hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
-        report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> otomatik olarak gizlendi.</p>
-        subject: Bir kaynak otomatik olarak gizlendi
       report:
         authors: Yazarlar
         content: İçeriği bildir

@@ -869,19 +869,19 @@ sv:
             other: STÖDER
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Varje förslag kan samla mer än %{limit} stöd
+            description: Förslag kan få fler stöd än gränsen på %{limit}
           minimum_votes_per_user:
-            description: Du måste fördela minst %{votes} stöd mellan olika förslag.
-            given_enough_votes: Du har gett så mycket stöd du kan.
-            supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
+            description: Du kan stödja minst %{votes} förslag.
+            given_enough_votes: Du har gett minsta antalet stöd.
+            supports_remaining: Du behöver stödja %{remaining_votes} till förslag för att din röst ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
-            description: Förslag behöver få stöd från minst %{limit} deltagare för accepteras.
-          title: 'Stöd är föremål för följande regler:'
+            description: Förslag behöver få minst %{limit} stöd för att gå vidare.
+          title: 'Röstning på förslag fungerar så här:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
-            votes: Saknar %{number} stöd
+            votes: '%{number} stöd kvar'
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag

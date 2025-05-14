@@ -28,9 +28,13 @@ tr:
       id: İD
       newsletter:
         body: Vücut
+        send_to_all_users: Bütün kullanıcılara gönder
+        send_to_followers: Takipçilere gönder
+        send_to_participants: Katılımcılara gönder
         subject: konu
       organization:
         alert_color: Alarm
+        available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
         comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
@@ -39,8 +43,10 @@ tr:
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
+        enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
+        from: Gönderenin eposta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
         highlight_alternative_color: Vurgu, alternatif
@@ -78,7 +84,10 @@ tr:
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
       participatory_space_private_user:
+        email: E-Posta
         name: Adı
+      participatory_space_private_user_csv_import:
+        file: Dosya
       scope:
         code: kod
         name: isim
@@ -100,14 +109,20 @@ tr:
         show_in_footer: Altbilgiyi göster
         slug: URL sümüklü böcek
         title: Başlık
+        topic_id: Konu
       static_page_topic:
         description: Açıklama
+        name: Konu adı
         show_in_footer: Altbilgiyi göster
         title: Başlık
       user_group_csv_verification:
         file: Dosya
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: En az bir katılımcı alan seçin.
         organization:
           attributes:
             official_img_footer:
@@ -130,7 +145,14 @@ tr:
     admin:
       actions:
         add: Eklemek
+        attachment:
+          new: Yeni ek
+        attachment_collection:
+          new: Yeni ek dosyası
         browse: Araştır
+        export: Tümünü dışa aktar
+        export-selection: Seçimi dışa aktar
+        import: İçe aktar
         manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
