@@ -7,18 +7,6 @@
     }
   }
 
-  .dropdown .is-dropdown-submenu a {
-    @apply w-full inline-block;
-  }
-
-  .dropdown .is-dropdown-submenu li {
-    @apply w-full relative;
-  }
-
-  .dropdown {
-    @apply relative p-0 border-0;
-  }
-
   .button,
   .input-group {
     @apply mb-0;
@@ -34,35 +22,6 @@
 
   .input-group-button {
     @apply absolute right-4 top-0 h-full top-1;
-  }
-
-  .dropdown.menu {
-    z-index: 5;
-
-    li {
-      @apply p-0;
-    }
-
-    .button {
-      @apply drop-shadow-none;
-    }
-
-    & > li.is-dropdown-submenu-parent > a {
-      @apply px-4 py-1 text-white bg-secondary flex items-center gap-x-2;
-
-      &:hover {
-        @apply text-white bg-secondary;
-      }
-    }
-
-    li.is-active > a,
-    li.is-active li.is-submenu-item > a:hover {
-      @apply text-white bg-secondary;
-    }
-
-    .dropdown-filter-icon {
-      @apply fill-white w-5 h-5 p-0;
-    }
   }
 }
 

@@ -1,14 +1,12 @@
 <div class="filters__section">
   <div class="fcell">
-    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-      <li>
-        <a href="#" class="dropdown button button__sm button__secondary">
-          <%= t("filter_label", scope: "decidim.admin.filters") %>
-          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-        </a>
-        <%= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
-      </li>
-    </ul>
+    <% dropdown_id = "top-#{SecureRandom.uuid}" %>
+    <a href="#" class="button button__xs button__transparent-secondary" data-component="dropdown" data-target="dropdown-filters-<%= dropdown_id %>">
+      <%= t("filter_label", scope: "decidim.admin.filters") %>
+      <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+      <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    </a>
+    <%= dropdown_submenu(submenu_options_tree(i18n_ctx), dropdown_id) %>
   </div>
   <div class="fcell search">
     <%= search_form_for(query, url: url_for) do |form| %>

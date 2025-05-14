@@ -52,18 +52,38 @@ module Decidim
 
       # Produces the html for the dropdown submenu from the options tree.
       # Returns a ActiveSupport::SafeBuffer.
-      def dropdown_submenu(options)
-        content_tag(:ul, class: "vertical menu", "aria-hidden": true) do
+      #
+      def dropdown_submenu(options, menu_id)
+        css_classes = menu_id.starts_with?("top-") ? "dropdown" : "dropdown dropdown__right z-#{options.length * 10}"
+
+        content_tag(:ul, id: "dropdown-filters-#{menu_id}", class: css_classes, "aria-hidden": true) do
           options.map do |key, value|
             if value.nil?
-              content_tag(:li, key)
+              content_tag(:li) do
+                concat content_tag(:span, class: "dropdown__item") { key }
+              end
             elsif value.is_a?(Hash)
-              content_tag(:li, class: "is-dropdown-submenu-parent") do
-                key + dropdown_submenu(value)
+              child_id = SecureRandom.uuid
+              content_tag(:li) do
+                dropdown_link(key, child_id) + dropdown_submenu(value, child_id)
               end
             end
           end.join.html_safe
         end
+      end
+
+      def dropdown_link(key, menu_id)
+        link_to("#", class: "dropdown__item", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
+          safe_join([
+                      extract_html_value(key),
+                      icon("arrow-right-s-line", class: "fill-secondary"),
+                      icon("arrow-right-s-line", class: "fill-secondary")
+                    ])
+        end
+      end
+
+      def extract_html_value(html_string)
+        Nokogiri::HTML.fragment(html_string).at('a').text
       end
 
       def filter_link_label(filter, i18n_scope)

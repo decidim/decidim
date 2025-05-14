@@ -7,7 +7,7 @@
 }
 
 [data-target*="dropdown"] {
-  @apply w-full md:hidden flex items-center justify-between gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  @apply w-full md:hidden flex items-center justify-between first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
   & > span {
     @apply hidden font-semibold text-secondary;
@@ -70,23 +70,14 @@
 }
 
 .dropdown {
-  @apply absolute border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
-
-  /*
-    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
-    - offset position: 20%
-    - arrow size: 1.5rem
-  */
-  --arrow-offset: 20%;
-  --arrow-size: 1.5rem;
-  --arrow-visible-size: var(--arrow-size) * 0.5;
+  @apply absolute border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
 
   & > * {
     @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
   }
 
   &__item {
-    @apply gap-x-2 flex items-center text-secondary;
+    @apply gap-x-2 flex items-center text-secondary font-normal;
 
     font-size: 14px;
 
@@ -100,6 +91,10 @@
   }
 
   &__bottom {
-    @apply top-full right-0 mt-3 translate-x-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:content-[''] before:absolute before:right-[var(--arrow-offset)] before:-top-2 before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-white before:rounded before:border-2 before:border-gray-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
+    @apply top-full right-0;
+  }
+
+  &__right {
+    @apply top-0 left-24;
   }
 }
