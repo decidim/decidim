@@ -199,7 +199,7 @@ pl:
           notification_title: Otwarto rejestracje na spotkanie <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować po kliknięciu w poprzedni link.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
     forms:
