@@ -229,7 +229,7 @@ sv:
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
           email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
-          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta att följa det via föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar om mindre än 48 timmar.
     forms:
