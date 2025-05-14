@@ -151,7 +151,7 @@ hu:
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozóra mostantól regisztrálhatsz.
         upcoming_meeting:
           email_intro: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
-          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az értesítésről az előző linken.
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
     gamification:
