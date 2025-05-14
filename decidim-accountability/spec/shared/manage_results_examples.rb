@@ -9,7 +9,7 @@ shared_examples "manage results" do
     it_behaves_like "having a rich text editor", "new_result", "full"
   end
 
-  context "when the proposal module is installed" do
+  context "when the proposal module is not installed" do
     before do
       allow(Decidim).to receive(:module_installed?).and_return(false)
 
