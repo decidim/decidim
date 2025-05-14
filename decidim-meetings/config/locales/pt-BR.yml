@@ -193,7 +193,7 @@ pt-BR:
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
         upcoming_meeting:
           email_intro: A reunião "%{resource_title}" começará em menos de 48h.
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     forms:
