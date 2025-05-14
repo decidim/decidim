@@ -114,7 +114,7 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when geocoding is enabled", :serves_geocoding_autocomplete do
+        context "when geocoding is enabled" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
