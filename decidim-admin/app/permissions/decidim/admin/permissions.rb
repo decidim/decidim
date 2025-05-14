@@ -3,8 +3,6 @@
 module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         return permission_action if managed_user_action?
 
