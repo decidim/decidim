@@ -131,9 +131,8 @@ describe "Private meetings" do
           visit resource_locator(private_meeting).path
         end
 
-        it "redirects to index page" do
-          expect(page).to have_current_path main_component_path(component).to_s
-          expect(page).to have_content "You are not allowed to view this meeting"
+        it "declines access to view the meeting" do
+          expect(page).to have_content "You are not authorized to perform this action"
         end
       end
     end
