@@ -195,7 +195,7 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
           email_intro: En menos de 48 horas empezará el encuentro "%{resource_title}".
-          email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el encuentro "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: En menos de 48 horas empezará el encuentro "%{resource_title}".
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
     forms:
