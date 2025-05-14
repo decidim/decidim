@@ -1,5 +1,36 @@
 <div class="form__wrapper">
-  <ul class="draggable-list js-connect js-list-questions" data-sort-url="<%= reorder_election_questions_path(election) %>">
-    <%= render partial: "question", locals: { form:, election: } %>
-  </ul>
+  <div class="questionnaire-questions">
+
+
+    <!-- Empty question template -->
+    <%= form.fields_for :questions, blank_question do |question_form| %>
+      <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
+        <%= render partial: "decidim/elections/admin/questions/question", locals: { form: question_form, id: "new-question", editable: true } %>
+      </script>
+    <% end %>
+
+    <!-- List of questions -->
+    <ul class="draggable-list js-connect js-list-questions">
+      <% form.object.questions.each_with_index do |question_form, index| %>
+        <%= form.fields_for :questions, question_form do |q_form| %>
+          <%= render partial: "decidim/elections/admin/questions/question", locals: { form: q_form, id: "question-#{index}", editable: true } %>
+        <% end %>
+      <% end %>
+
+    </ul>
+
+    <div class="mt-4">
+      <button type="button" class="button button__sm button__transparent-secondary">
+        <%= t("add_question", scope: "decidim.elections.admin.questions.form") %>
+      </button>
+    </div>
+  </div>
+
+  <%= append_javascript_pack_tag "decidim_forms_admin" %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.Decidim.createEditableForm()
+    })
+  </script>
 </div>

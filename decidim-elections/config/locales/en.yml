@@ -23,6 +23,9 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
+        answers:
+          form:
+            remove: Remove
         elections:
           create:
             invalid: There was a problem creating the election.
@@ -67,11 +70,15 @@ en:
             success: Election updated successfully.
         questions:
           edit_questions:
+            answer_option: Answer option
             new_question: New question
             title: Questions
           form:
+            add_answer: Add answer
+            add_question: Add question
             form_description: Question must have at least two answers in order go to the next step.
             mandatory: Mandatory
+            question: Question
             question_types:
               multiple_option: Multiple option
               single_option: Single option

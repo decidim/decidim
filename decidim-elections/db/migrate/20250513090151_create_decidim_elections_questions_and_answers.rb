@@ -3,7 +3,7 @@
 class CreateDecidimElectionsQuestionsAndAnswers < ActiveRecord::Migration[7.0]
   def change
     create_table :decidim_elections_questions do |t|
-      t.references :election, null: false, foreign_key: { to_table: :decidim_elections_elections }, index: true
+      t.references :questionnaire, null: false, foreign_key: { to_table: :decidim_elections_questionnaires }, index: { name: "index_questions_on_questionnaire_id" }
 
       t.jsonb :statement, null: false, default: {}
       t.jsonb :description, default: {}

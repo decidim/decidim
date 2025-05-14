@@ -29,7 +29,7 @@ module Decidim
           CreateElection.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.create.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to edit_questions_election_path(election)
             end
 
             on(:invalid) do

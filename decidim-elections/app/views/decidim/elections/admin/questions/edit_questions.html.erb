@@ -16,8 +16,8 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for([election, @form], html: { class: "form-defaults form edit_questions" }) do |f| %>
-      <%= render partial: "form", object: f, locals: { election: } %>
+    <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+      <%= render partial: "decidim/elections/admin/questions/form", object: form, election: %>
     <% end %>
   </div>
 </div>
