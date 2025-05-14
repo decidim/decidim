@@ -108,11 +108,6 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Открылась регистрация на встречу «%{resource_title}».
           notification_title: Открыта регистрация на встречу <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
-          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
-          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
-          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
     gamification:
       badges:
         attended_meetings:
