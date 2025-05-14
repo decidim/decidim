@@ -17,7 +17,9 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        (5..30).to_a.sample.times do |n|
+        number_of_records = fast_seeds? ? 10 : rand(25..50)
+
+        (5..number_of_records).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?

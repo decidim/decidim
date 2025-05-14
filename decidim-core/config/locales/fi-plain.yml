@@ -179,6 +179,7 @@ fi-pl:
         leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
         error: Tilin poistossa tapahtui virhe.
+        inactive_account_removal_reason: Tili on poistettu %{inactivity_period} päivän käyttämättömyyden jälkeen
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
@@ -604,10 +605,6 @@ fi-pl:
         name: Olennaisimmat tiedot
       metadata:
         name: Metatiedot
-      metrics:
-        name: Organisaation mittarit
-      participatory_space_metrics:
-        name: Tilastomittarit
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -1168,6 +1165,8 @@ fi-pl:
           modal_title: Uusi keskustelu
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä käyttäjä ei halua vastaanottaa yksityisiä viestejä.
+          participants:
+            title: Osallistujia
         create:
           error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudelleen.
         error_modal:
@@ -1200,27 +1199,6 @@ fi-pl:
         finished: 'Päättynyt: %{end_date}'
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
-    metrics:
-      blocked_users:
-        description: Estettyjen osallistujien määrä
-      download:
-        csv: Lataa tiedot (CSV)
-      followers:
-        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
-        object: seuraajat
-        title: Seuraajat
-      participants:
-        description: Organisaation aktiivisten käyttäjien määrä
-        object: osallistujat
-        title: Osallistujat
-      reported_users:
-        description: Ilmoitettujen osallistujien määrä
-      user_reports:
-        description: Osallistujien lähettämien ilmoitusten määrä
-      users:
-        description: Organisaation käyttäjien määrä
-        object: käyttäjät
-        title: Käyttäjät
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
@@ -1300,6 +1278,7 @@ fi-pl:
         assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
+        evaluators: Arvioijat
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
@@ -1340,14 +1319,13 @@ fi-pl:
         core:
           components: Komponentit
           description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          generated_on_date: Luontipäivä %{date}
           main: Ydin
+          resources:
+            one: "%{count} asia"
+            other: "%{count} asiaa"
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
-        metrics:
-          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
-          day: Tilastomittarin luontipäivä
-          metric_type: Tilastomittarin tyyppi
-          quantity: Tilastomittarien määrä tälle päivälle
         moderated_users:
           about: Käyttäjän henkilökohtainen kuvaus
           block_reasons: Syy, miksi käyttäjä estettiin
@@ -1470,10 +1448,6 @@ fi-pl:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
-      participatory_space:
-        metrics:
-          headline: Osallistuminen lukuina
-          link: Näytä kaikki tilastot
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
@@ -1491,6 +1465,26 @@ fi-pl:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Tietojemme mukaan olet luonut tilin <strong>%{date_account_creation}</strong> palveluun %{organization_name}, eikä kyseistä tiliä ole käytetty <strong>%{date_last_connection}</strong> jälkeen.</p>
+          <p>Suojellaksemme yksityisyyttäsi, tämä tili poistetaan automaattisesti <strong>%{days} päivän</strong> päästä.</p>
+          <p>Mikäli haluat säilyttää tilisi palvelussa %{organization_name}, %{login_url} ennen kyseistä hetkeä, jotta tilisi säilytetään.<p>
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello_html: Hei <strong>%{username}</strong>,
+        log_in: kirjaudu sisään
+        never_logged_in: et ole koskaan kirjautunut palveluun
+        subject: Varoitus passiivisesta käyttäjätilistä
+      removal_notification:
+        body: Tilisi palvelussa %{organization_name} on poistettu, koska tiliä ei ole käytetty pitkään aikaan.
+        greetings_html: |
+          Terveisin,<br>
+          %{organization_name}
+        hello: Hei %{username},
+        subject: Käyttämättä ollut tili on poistettu
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
@@ -1554,7 +1548,6 @@ fi-pl:
     search:
       name: Hae
       results: Hakutulokset
-      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
@@ -1673,9 +1666,6 @@ fi-pl:
         body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
         greeting: Hei %{name},
         instructions_1: Mikäli sinulla on pääsy kyseiselle sähköpostitilille, tarkasta kyseiseen sähköpostiin saapuneet ohjeet.
-        instructions_2: Mikäli sinulla ei ole pääsyä kyseiselle sähköpostitilille, pyydä kolleegaasi, jolla on pääsy kyseiselle tilille, asettamaan profiilille salasana ja jakamaan se kanssasi.
-        instructions_intro: Ryhmän jäsenet jakavat pääsyn tähän profiiliin jaetuilla kirjautumistunnuksilla (sähköpostiosoite ja salasana). Olemme lähettäneet ohjeet profiilin salasanan asettamiseen sähköpostiin <strong>%{group_email}</strong>.
-        instructions_title: "<strong>Mitä tämä tarkoittaa sinulle?</strong>"
         subject: Tärkeä ilmoitus koskien käyttäjäryhmää, jonka jäsen olet
     user_report_mailer:
       notify:
@@ -1798,16 +1788,6 @@ fi-pl:
         instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
-      user_group_reset_password_instructions:
-        body_1: 'Tämä viesti koskee tärkeää päivitystä käyttäjäryhmässä, jonka jäsen olet: %{organization_name}.'
-        body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi <strong>%{name}</strong> profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
-        body_3: Jatkaaksesi jaetun tilin käyttämistä, tilille tulee asettaa salasana. Salasanan asettamisen jälkeen voit jakaa kirjautumistunnukset (sähköpostiosoite ja salasana) kenen tahansa ryhmän jäsenen kanssa.
-        greeting: Hei %{name},
-        instructions_1: 'Määritä tilille salasana seuraavan linkin avulla:'
-        instructions_2: 'Jaa kirjautumistunnukset (sähköpostiosoite %{email} ja asettamasi salasana) kolleegoillesi.'
-        instructions_title: "<strong>Mitä sinun täytyy tehdä?</strong>"
-        set_password: Määritä salasana
-        subject: Tärkeä ilmoitus koskien käyttäjäryhmää
     omniauth_callbacks:
       add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
@@ -2053,7 +2033,6 @@ fi-pl:
         terms_of_service: Käyttöehdot
       header:
         close: Sulje
-        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko

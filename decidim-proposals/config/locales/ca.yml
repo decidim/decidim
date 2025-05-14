@@ -9,6 +9,9 @@ ca:
         scope_id: Àmbit
         state: Estat
         title: Títol
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Nom de l'avaluadora
       import_participatory_text:
         document: Document
       proposal:
@@ -118,6 +121,8 @@ ca:
           proposals: Propostes
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Assignada a avaluadora
           is_emendation_true:
             label: Tipus
             values:
@@ -262,15 +267,21 @@ ca:
         accepted_coauthorship:
           notification_title: Se t'ha afegit com a coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Has estat assignada com a avaluadora de la proposta "%{resource_title}". Això vol dir que es confia en tu per donar la teva opinió i per donar una resposta adequada en els pròxims dies. Pots veure la proposta al <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
+            email_subject: Has estat assignada com a avaluadora de la proposta "%{resource_title}".
+            notification_title: Has estat assignada com a avaluadora de la proposta "<a href="%{resource_path}">%{resource_title}</a>". Pots veure la proposta al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_created:
             email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_mentioned:
             email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
@@ -407,23 +418,6 @@ ca:
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha creat cap proposta.
           unearned_own: Encara no has creat cap proposta.
-    metrics:
-      accepted_proposals:
-        description: Nombre de propostes acceptades
-        object: propostes
-        title: Propostes acceptades
-      endorsements:
-        description: Nombre d'adhesions a propostes
-        object: adhesions
-        title: Adhesions
-      proposals:
-        description: Nombre de propostes
-        object: propostes
-        title: Propostes
-      votes:
-        description: Nombre de suports a les propostes
-        object: suports
-        title: Suports
     open_data:
       help:
         proposal_comments:
@@ -475,13 +469,12 @@ ca:
           withdrawn_at: Quan va ser retirada aquesta proposta
     participatory_spaces:
       highlighted_proposals:
-        last: Propostes més recents
         see_all: Veure totes les propostes
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
         cancel_coauthor_invitation: Cancel·lar la invitació de coautoria
-        cancel_coauthor_invitation_confirm: Segur que vols cancel·lar la invitació de coaturia?
+        cancel_coauthor_invitation_confirm: Segur que vols cancel·lar la invitació de coautoria?
         delete_proposal_state_confirm: Segur que vols esborrar aquest estat?
         destroy: Esborrar estat
         edit_proposal: Edita la proposta
@@ -500,6 +493,13 @@ ca:
           deleted_proposals_info: Les propostes eliminades es poden restaurar des de la paperera.
           preview: Previsualitzar
           view_deleted_proposals: Veure les propostes eliminades
+        evaluation_assignments:
+          create:
+            invalid: S'ha produït un error en assignar propostes a una avaluadora.
+            success: Propostes assignades correctament a una avaluadora.
+          delete:
+            invalid: S'ha produït un error en desfer l'assignació de propostes d'una avaluadora.
+            success: Avaluadora desassignada correctament.
         exports:
           proposal_comments: Comentaris
           proposals: Propostes
@@ -518,7 +518,7 @@ ca:
             answers: |
               El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON (s'ignoraran altres columnes):
               <ul>
-              <li><b>id:</b> ID de la proposta a responder</li>
+              <li><b>id:</b> ID de la proposta a respondre</li>
               <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
               <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               </ul>
@@ -630,6 +630,8 @@ ca:
           index:
             actions: Accions
             apply_answer_template: Aplicar la plantilla de resposta
+            assign_to_evaluator: Assignar a avaluadora
+            assign_to_evaluator_button: Assignar
             cancel: Cancel·lar
             change_taxonomies: Canviar taxonomies
             merge: Fusionar a una nova
@@ -638,11 +640,14 @@ ca:
             publish: Publica
             publish_answers: Publica respostes
             select_component: Selecciona un component
+            select_evaluators: Selecciona una o més avaluadores
             selected: seleccionat
             split: Dividir propostes
             split_button: Dividir
             statuses: Estats
             title: Propostes
+            unassign_from_evaluator: Desfer assignació com a avaluadora
+            unassign_from_evaluator_button: Desfer l'assignació
             update: Actualitza
           manage_trash:
             title: Propostes eliminades
@@ -654,11 +659,13 @@ ca:
             select_a_proposal: Si us plau, selecciona una proposta.
           show:
             amendments_count: Número d'esmenes
+            assigned_evaluators: Avaluadores assignades
             body: Cos
             comments_count: Comptador de comentaris
             documents: Documents
             endorsements_count: Número d'esmenes
             endorsers: Adherides
+            evaluators: Avaluadores
             link: Veure la proposta
             n_more_endorsers:
               one: i 1 més
@@ -667,6 +674,7 @@ ca:
             ranking: "%{ranking} de %{total}"
             related_meetings: Trobades relacionades
             remove_assignment: Desfer assignació
+            remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
             votes_count: Nombre de suports
           update_taxonomies:
             invalid: 'Aquestes propostes ja tenien les taxonomies %{taxonomies}: %{proposals}.'
@@ -697,6 +705,9 @@ ca:
             invalid: 'S''ha produït un error en dividir les propostes seleccionades doncs alguna d''elles:'
             success: Les propostes s'han dividit en d'altres de noves correctament.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
+          delete: "%{user_name} ha desfet l'assignació d'una de les avaluadores de la proposta %{proposal_title}"
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} va crear la proposta %{resource_name} a partir de la fusió de %{merged_count} proposades a %{space_name}"
@@ -866,6 +877,8 @@ ca:
         proposal:
           fields:
             comments: Comentaris
+            evaluator: Avaluadora
+            evaluators: Avaluadores
             id: Identificador
             notes: Notes
             official_proposal: Proposta oficial
@@ -933,7 +946,7 @@ ca:
           text_banner: Estàs veient un llistat de propostes retirades per les seves autores. %{go_back_link}.
         new:
           send: Continua
-          title: Crea la teva proposta
+          title: Crea una nova proposta
         orders:
           label: 'Ordenar propostes:'
           most_commented: Més comentades

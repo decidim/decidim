@@ -23,7 +23,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]
     end
-    resources :metrics, only: [:index]
+    resources :statistics, only: [:index]
     resources :logs, only: [:index]
     resources :area_types, except: [:show]
     resources :areas, except: [:show]

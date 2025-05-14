@@ -200,11 +200,6 @@ module Decidim
       type.comments_enabled?
     end
 
-    # Public: Overrides the `reported_content_url` Reportable concern method.
-    def reported_content_url
-      ResourceLocatorPresenter.new(self).url
-    end
-
     # Public: Overrides the `reported_attributes` Reportable concern method.
     def reported_attributes
       [:title, :description]

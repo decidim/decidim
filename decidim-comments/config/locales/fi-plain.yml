@@ -183,11 +183,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Käyttäjien kirjoittamien kommenttien määrä
-        object: kommentit
-        title: Kommentit
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja

@@ -79,26 +79,6 @@ describe Decidim::OpenDataExporter do
       end
     end
 
-    describe "with metrics" do
-      let(:resource_file_name) { "metrics" }
-      let(:resource_title) { "### metrics" }
-      let!(:resource) { create(:metric, organization:) }
-      let(:help_lines) do
-        [
-          "* day: The day this metric was created",
-          "* metric_type: The type of the metric"
-        ]
-      end
-
-      include_examples "default open data exporter"
-
-      it "includes the resource data" do
-        expect(data).to include(resource.quantity.to_s)
-        expect(data).to include(resource.cumulative.to_s)
-        expect(data).to include(resource.day.to_s)
-      end
-    end
-
     describe "with taxonomies" do
       let(:resource_file_name) { "taxonomies" }
       let(:resource_title) { "### taxonomies" }

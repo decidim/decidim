@@ -231,20 +231,6 @@ bin/rails decidim:taxonomies:import_all_plans
 
 This command will look for all the plan files in the `tmp/taxonomies` directory
 
-==== Updating metrics
-
-Internal metrics can be assigned to a category. However as this table can be very large, it is not included in the import process.
-To update the metrics, you can use the `decidim:taxonomies:update_metrics[tmp/taxonomies/example.com_result.json]` rake task. This task will convert the old categorization metrics to the new taxonomy metrics.
-
-You can also update all the metrics for all organizations at once by running the following command:
-
-[source,bash]
-----
-bin/rails decidim:taxonomies:update_all_metrics
-----
-
-This command will look for all the result files in the `tmp/taxonomies` directory.
-
 [NOTE]
 ----
 **IMPORTANT NOTES**

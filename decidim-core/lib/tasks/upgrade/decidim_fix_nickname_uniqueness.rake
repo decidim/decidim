@@ -7,7 +7,7 @@ namespace :decidim do
       logger.info("Fixing user nicknames case...")
 
       has_changed = []
-      Decidim::User.not_deleted.find_each do |user|
+      Decidim::UserBaseEntity.not_deleted.find_each do |user|
         user.nickname.downcase!
 
         begin
@@ -15,11 +15,11 @@ namespace :decidim do
             user.save!
             has_changed << user.id
           end
-        rescue ActiveRecord::RecordInvalid
-          update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, organization: user.organization))
+        rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+          update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, user.decidim_organization_id))
           has_changed << user.id
         rescue ActiveRecord::RecordInvalid # rubocop:disable Lint/DuplicateRescueException
-          logger.warn("User ID (#{similar_user.id}) : #{e}")
+          logger.warn("User ID (#{user.id}) : #{e}")
         end
       end
       logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")

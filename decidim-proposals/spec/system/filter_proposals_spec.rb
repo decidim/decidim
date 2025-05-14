@@ -448,6 +448,7 @@ describe "Filter Proposals", :slow do
                 }
               )
               login_as user, scope: :user
+              sleep 1
               visit_component
             end
 

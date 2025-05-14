@@ -107,9 +107,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 # Remove expired download your data files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 
-# Compute metrics
-1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all
-
 # Compute open data
 2 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:open_data:export
 
@@ -187,7 +184,7 @@ Note that the system panel admin user you created earlier is also separated from
 * *System admin* - Manages the organizations on the same platform, does not necessarily have to be involved in any organization
 * *Organization admin* - Administers a single organization, i.e. manages its content, sets up processes, adds components, manages user accounts, etc.
 
-You can read the xref:admin:system.adoc[System panel] documentation for more info on what are organizations and how they work.
+You can read the xref:configure:system.adoc[System panel] documentation for more info on what are organizations and how they work.
 
 == Checklist
 

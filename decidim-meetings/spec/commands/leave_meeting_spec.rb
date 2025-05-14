@@ -48,5 +48,58 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when a user is on the waitlist and a slot becomes free" do
+      let(:user_on_waitlist) { create(:user, :confirmed, organization: meeting.organization) }
+
+      before do
+        create(:registration, meeting:, user: user_on_waitlist, status: :waiting_list)
+        clear_enqueued_jobs
+      end
+
+      it "promotes the user on waitlist" do
+        expect do
+          perform_enqueued_jobs { subject.call }
+        end.to change { meeting.registrations.waiting_list.count }.by(-1)
+
+        expect do
+          perform_enqueued_jobs { subject.call }
+        end.not_to(change { meeting.registrations.registered.count })
+
+        promoted = meeting.registrations.find_by(user: user_on_waitlist)
+        expect(promoted.status).to eq("registered")
+      end
+    end
+
+    context "when there are no remaining slots" do
+      before do
+        allow(meeting).to receive(:remaining_slots).and_return(0)
+      end
+
+      it "does not enqueue PromoteFromWaitlistJob" do
+        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
+        subject.call
+      end
+    end
+
+    context "when available_slots is unlimited (0)" do
+      let(:available_slots) { 0 }
+
+      before do
+        create(:registration, meeting:, user: create(:user, :confirmed, organization: meeting.organization), status: :waiting_list)
+      end
+
+      it "does not enqueue PromoteFromWaitlistJob" do
+        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
+        subject.call
+      end
+    end
+
+    context "when there are no users on the waitlist" do
+      it "does not enqueue PromoteFromWaitlistJob" do
+        expect(PromoteFromWaitlistJob).not_to receive(:perform_later)
+        subject.call
+      end
+    end
   end
 end

@@ -406,23 +406,6 @@ fr-CA:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
-    metrics:
-      accepted_proposals:
-        description: Nombre de propositions acceptées par les utilisateurs
-        object: propositions
-        title: Propositions Acceptées
-      endorsements:
-        description: Nombre d'avenants générés dans les propositions
-        object: soutiens
-        title: Soutiens
-      proposals:
-        description: Nombre de propositions générées
-        object: propositions
-        title: Propositions
-      votes:
-        description: Nombre de votes sur des propositions
-        object: votes
-        title: Votes
     open_data:
       help:
         proposals:
@@ -437,7 +420,6 @@ fr-CA:
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
@@ -879,7 +861,7 @@ fr-CA:
           text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
         new:
           send: Continuer
-          title: Créer une proposition
+          title: Créer une nouvelle proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
@@ -929,7 +911,7 @@ fr-CA:
         update:
           title: Mettre à jour la proposition
         vote_button:
-          already_voted: Déjà votée
+          already_voted: Votée
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant

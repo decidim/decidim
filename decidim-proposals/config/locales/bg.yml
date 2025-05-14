@@ -323,26 +323,8 @@ bg:
           next_level_in: Създайте още %{score} предложения, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е създал нито едно предложение.
           unearned_own: Все още не сте създали нито едно предложение.
-    metrics:
-      accepted_proposals:
-        description: Брой на приетите предложения
-        object: предложения
-        title: Приети предложения
-      endorsements:
-        description: Брой одобрения на предложения
-        object: одобрения
-        title: Одобрения
-      proposals:
-        description: Брой предложения
-        object: предложения
-        title: Предложения
-      votes:
-        description: Брой гласове за предложения
-        object: гласове
-        title: Гласове
     participatory_spaces:
       highlighted_proposals:
-        last: Позледни предложения
         see_all: Виж всички предложения
     proposals:
       actions:
@@ -703,7 +685,6 @@ bg:
           text_banner: Разглеждате списъка с предложения, оттеглени от своите автори. %{go_back_link}.
         new:
           send: Продължи
-          title: Създайте Ваше предложение
         orders:
           label: 'Подреждане на предложенията по:'
           most_commented: Най-коментирани
@@ -751,7 +732,6 @@ bg:
         update:
           title: Актуализиране на предложението
         vote_button:
-          already_voted: Вече гласувано
           already_voted_hover: Оттегляне на гласа
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове

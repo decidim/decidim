@@ -1,0 +1,30 @@
+<div data-order-progress-responsive="false" class="budget-summary__content">
+  <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box" %>
+  <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box_buttons" %>
+
+  <div class="budget-summary__button-modal">
+    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs underline font-bold">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    </button>
+  </div>
+
+  <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
+    <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
+      <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box_sticky" %>
+
+      <div class="layout-item__aside budget-summary__progressbox-buttons hidden lg:block">
+        <% if !current_order_checked_out? && voting_open? %>
+          <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+            <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
+          </button>
+        <% end %>
+        <% if current_order_checked_out? %>
+          <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full mt-2 md:mt-0", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+            <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+            <%= icon "delete-bin-line" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

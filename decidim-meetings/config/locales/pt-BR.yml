@@ -16,7 +16,6 @@ pt-BR:
         customize_registration_email: Personalizar e-mail de registro
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
-        decidim_user_group_id: Grupo de usuários
         description: Descrição
         end_time: Data Final
         id: ID
@@ -111,7 +110,6 @@ pt-BR:
             values:
               official: Oficial
               participants: Participante
-              user_group: Grupo de Usuários
           with_any_type:
             label: Tipo de reunião
             values:
@@ -152,14 +150,12 @@ pt-BR:
             default_registration_terms: Termos de registro padrão
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas ativados
-            registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
-            creation_enabled_for_user_groups: Criação de reunião por grupos de usuários habilitados
     events:
       meetings:
         meeting_closed:
@@ -187,10 +183,8 @@ pt-BR:
           email_subject: Os espaços de ocupação ocupados com "%{resource_title}" estão acima de %{percentage}%
           notification_title: Os <a href="%{resource_path}">%{resource_title}</a> atendimento ocupados são mais de %{percentage}%.
         meeting_updated:
-          email_intro: 'A reunião "%{resource_title}" foi atualizada. Você pode ler a nova versão da sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" foi atualizada
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
           email_intro: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
           email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
@@ -269,7 +263,6 @@ pt-BR:
             invalid: Houve um problema ao atualizar esta agenda.
             success: Agenda atualizada com sucesso.
         exports:
-          answers: Respostas
           meeting_comments: Comentários
           meetings: Reuniões
           registrations: Inscrições
@@ -351,8 +344,6 @@ pt-BR:
         registrations:
           edit:
             save: Salvar
-            validate: Confirmar
-            validate_registration_code: Confirmar código de registro
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
@@ -369,9 +360,6 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
-          validate_registration_code:
-            invalid: Este código de registro é inválido.
-            success: Código de registro confirmado com sucesso.
       admin_log:
         invite:
           create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
@@ -478,7 +466,6 @@ pt-BR:
             all: Tudo
             official: Oficial
             participants: Participantes
-            user_group: Grupos
           search: Pesquisa
           type: Tipo
           type_values:
@@ -489,7 +476,6 @@ pt-BR:
         form:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
-          create_as: Criar reunião como
           disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
           iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
@@ -514,7 +500,6 @@ pt-BR:
         new:
           back: Voltar
           create: Criar
-          title: Criar uma reunião
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -531,7 +516,6 @@ pt-BR:
           micro_camera_permissions_warning: Quando você clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e participará na videoconferência
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
-          registration_code_help_text: Seu código de registro
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDAÇÃO PENDENTE
@@ -566,13 +550,9 @@ pt-BR:
             title: Título
       polls:
         questions:
-          index:
-            empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             edit: Editar no painel de administração
             question: Pergunta
-            received_answer: resposta recebida
-            received_answers: respostas recebidas
             results: Resultados
             send: Enviar
             sent: Enviado
@@ -582,7 +562,6 @@ pt-BR:
             question_replied: Pergunta respondida
             reply_question: Responder pergunta
       public_participants_list:
-        attending_organizations: Organizações
         attending_participants: Participantes presentes
         hidden_participants_count:
           one: e mais %{count} pessoa
@@ -592,7 +571,6 @@ pt-BR:
         confirmation:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Você encontrará os detalhes da reunião no anexo.
-          registration_code: Seu código de registro é %{code}.
       registration_type:
         on_different_platform: Em uma plataforma diferente
         on_this_platform: Nesta plataforma
@@ -617,11 +595,6 @@ pt-BR:
         withdraw: Retirado
       withdraw:
         success: A reunião foi retirada com sucesso.
-    metrics:
-      meetings:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores

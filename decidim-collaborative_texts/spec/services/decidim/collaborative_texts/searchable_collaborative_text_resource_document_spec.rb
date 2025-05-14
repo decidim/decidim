@@ -8,14 +8,15 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create(:collaborative_texts_component, organization:) }
+    let(:current_component) { create(:collaborative_text_component, organization:) }
 
     let!(:resource) do
       create(
         :collaborative_text_document,
         :published,
         component: current_component,
-        title: "A basic collaborative text! Ow!"
+        title: "A basic collaborative text! Ow!",
+        body: "A basic collaborative body!"
       )
     end
 
@@ -73,9 +74,11 @@ module Decidim
             :collaborative_text_document,
             :published,
             component: current_component,
-            title: "Waiting for the sun, Ow!"
+            title: "Waiting for the sun!",
+            body: "The sun is shining, the weather is sweet! Ow!"
           )
         end
+        let!(:draft_version) { create(:collaborative_text_version, :draft, document: resource2) }
 
         it "returns resource results" do
           Decidim::Search.call("Ow", organization, resource_type: resource.class.name) do
@@ -114,10 +117,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(resource, locale)
       {
-        "content_a" => I18n.transliterate(translated(resource.title, locale:)),
+        "content_a" => I18n.transliterate(resource.title),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => "",
+        "content_d" => I18n.transliterate(resource.consolidated_body),
         "locale" => locale,
 
         "decidim_organization_id" => resource.component.organization.id,

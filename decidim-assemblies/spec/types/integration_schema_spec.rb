@@ -12,37 +12,31 @@ describe "Decidim::Api::QueryType" do
   let!(:taxonomy) { create(:taxonomy, :with_parent, organization: current_organization) }
   let!(:assembly) { create(:assembly, organization: current_organization, assembly_type:, taxonomies: [taxonomy]) }
   let(:assembly_type) { create(:assemblies_type, organization: current_organization) }
-
+  let!(:follows) { create_list(:follow, 3, followable: assembly) }
   let(:assembly_data) do
     {
-      "area" => nil,
-      "assemblyType" => {
-        "assemblies" => assembly.assembly_type.assemblies.map { |a| { "id" => a.id.to_s } },
-        "createdAt" => assembly.assembly_type.created_at.to_time.iso8601,
-        "id" => assembly.assembly_type.id.to_s,
-        "title" => { "translation" => assembly.assembly_type.title[locale] },
-        "updatedAt" => assembly.assembly_type.updated_at.to_time.iso8601
-      },
       "attachments" => [],
+      "attachmentCollections" => [],
       "categories" => [],
       "children" => [],
       "childrenCount" => 0,
-      "closingDate" => assembly.closing_date.to_date.to_s,
+      "closingDate" => assembly.closing_date.iso8601,
       "closingDateReason" => { "translation" => assembly.closing_date_reason[locale] },
       "components" => [],
       "composition" => { "translation" => assembly.composition[locale] },
       "createdAt" => assembly.created_at.to_time.iso8601,
       "createdBy" => assembly.created_by,
       "createdByOther" => { "translation" => assembly.created_by_other[locale] },
-      "creationDate" => assembly.creation_date.to_date.to_s,
+      "creationDate" => assembly.creation_date.iso8601,
       "description" => { "translation" => assembly.description[locale] },
       "developerGroup" => { "translation" => assembly.developer_group[locale] },
       "duration" => assembly.duration.to_s,
       "facebookHandler" => assembly.facebook_handler,
+      "followsCount" => 3,
       "githubHandler" => assembly.github_handler,
       "hashtag" => assembly.hashtag,
       "id" => assembly.id.to_s,
-      "includedAt" => assembly.included_at.to_date.to_s,
+      "includedAt" => assembly.included_at.iso8601,
       "instagramHandler" => assembly.instagram_handler,
       "internalOrganisation" => { "translation" => assembly.internal_organisation[locale] },
       "isTransparent" => assembly.is_transparent?,
@@ -68,42 +62,21 @@ describe "Decidim::Api::QueryType" do
       "twitterHandler" => assembly.twitter_handler,
       "type" => assembly.class.name,
       "updatedAt" => assembly.updated_at.to_time.iso8601,
-      "youtubeHandler" => assembly.youtube_handler
-
+      "url" => Decidim::EngineRouter.main_proxy(assembly).assembly_url(assembly),
+      "youtubeHandler" => assembly.youtube_handler,
+      "weight" => assembly.weight
     }
   end
   let(:assemblies) do
     %(
       assemblies{
-        area {
-          id
-          areaType {
-            id
-            name{
-              translation(locale:"#{locale}")
-            }
-            plural{
-              translation(locale:"#{locale}")
-            }
-          }
-          name{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
-        assemblyType {
-          id
-          assemblies {
-            id
-          }
-          createdAt
-          title{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
         attachments {
           thumbnail
+        }
+        attachmentCollections {
+          name {
+            translation(locale:"#{locale}")
+          }
         }
         bannerImage
         categories {
@@ -137,6 +110,7 @@ describe "Decidim::Api::QueryType" do
         }
         duration
         facebookHandler
+        followsCount
         githubHandler
         hashtag
         heroImage
@@ -204,6 +178,8 @@ describe "Decidim::Api::QueryType" do
         twitterHandler
         type
         updatedAt
+        url
+        weight
         youtubeHandler
       }
     )
@@ -234,7 +210,7 @@ describe "Decidim::Api::QueryType" do
         %(
           assemblies{
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }
@@ -248,35 +224,13 @@ describe "Decidim::Api::QueryType" do
     let(:assemblies) do
       %(
       assembly(id: #{assembly.id}){
-        area {
-          id
-          areaType {
-            id
-            name{
-              translation(locale:"#{locale}")
-            }
-            plural{
-              translation(locale:"#{locale}")
-            }
-          }
-          name{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
-        assemblyType {
-          id
-          assemblies {
-            id
-          }
-          createdAt
-          title{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
         attachments {
           thumbnail
+        }
+        attachmentCollections {
+          name {
+            translation(locale:"#{locale}")
+          }
         }
         bannerImage
         categories {
@@ -310,6 +264,7 @@ describe "Decidim::Api::QueryType" do
         }
         duration
         facebookHandler
+        followsCount
         githubHandler
         hashtag
         heroImage
@@ -377,6 +332,8 @@ describe "Decidim::Api::QueryType" do
         twitterHandler
         type
         updatedAt
+        url
+        weight
         youtubeHandler
       }
     )
@@ -396,15 +353,15 @@ describe "Decidim::Api::QueryType" do
     it_behaves_like "implements stats type" do
       let(:assemblies) do
         %(
-          assembly(id: #{assembly.id}){
+          assemblies {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
         )
       end
-      let(:stats_response) { response["assembly"]["stats"] }
+      let(:stats_response) { response["assemblies"].first["stats"] }
     end
   end
 end

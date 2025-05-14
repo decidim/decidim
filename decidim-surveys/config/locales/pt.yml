@@ -8,14 +8,9 @@ pt:
       decidim/surveys/survey:
         one: Inquérito
         other: Inquéritos
-      decidim/surveys/survey_answer:
-        one: Resposta
-        other: Respostas
   decidim:
     components:
       surveys:
-        actions:
-          answer: Responder
         settings:
           global:
             announcement: Anúncio
@@ -33,22 +28,9 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Um novo inquérito em %{participatory_space_title}
           notification_title: O inquérito <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberto.
-    metrics:
-      survey_answers:
-        description: Número de inquéritos respondidos por participantes
-        object: respostas aos questionários
-        title: Respostas aos questionários
-    statistics:
-      answers_count: Respostas
     surveys:
       admin:
-        exports:
-          survey_user_answers: Respostas dos participantes aos inquéritos
         surveys:
           update:
             invalid: Ocorreu um problema ao guardar o inquérito.
             success: Inquérito guardado corretamente.
-      surveys:
-        answer:
-          invalid: Ocorreu um problema ao responder ao inquérito.
-          success: Inquérito respondido corretamente.

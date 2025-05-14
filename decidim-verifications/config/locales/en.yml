@@ -4,6 +4,8 @@ en:
     attributes:
       authorization:
         verification_attachment: Verification attachment
+      census_data:
+        file: File
       config:
         available_methods: Available methods
         offline: Offline
@@ -121,6 +123,12 @@ en:
           email_subject: Failed verification attempt against another participant
           notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify themselves with the data of another participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} created a new census data record with email %{resource_email}"
+          delete: "%{user_name} deleted the census data record with email %{resource_email}"
+          import: "%{user_name} imported %{imported_count} Census records"
+          update: "%{user_name} updated the census data record with email %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'This is the data of the current verification:'
@@ -161,30 +169,62 @@ en:
         start_exploring: start exploring
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Are you sure you want to delete this census data record?
+            destroy: Destroy
+            edit: Edit
           census:
-            create:
+            create_import:
               error: There was a problem importing census.
-              success: Successfully imported %{count} items (%{errors} errors).
-            destroy_all:
-              success: All census data have been deleted.
-          destroy:
-            confirm: Delete all the census cannot be undone. Are you sure you want to continue?
-            title: Delete all census data
+              no_user: No user found
+              success: Successfully imported %{count} items. We are processing the data. Refresh the page in a few minutes to see the changes.
+            destroy:
+              success: Census data record have been deleted.
+            index:
+              empty: There are no census data. Use %{import_csv} to import a CSV file.
+              no_sign_in: Never signed in
+              no_user: No user found
+            last_login:
+              no_sign_in: Never signed in
+              no_user: No user
+            new_import:
+              errors:
+                email_exists: The email address %{email} already exists in organization %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Must be a file in CSV format with only one column with the email address:'
+              submit: Upload file
+              title: Import census data
+              upload_new_census: Upload a new census
+          census_records:
+            create_record:
+              success: Successfully added census data record. We are processing the data. Refresh the page in a few minutes to see the changes.
+            edit_record:
+              save: Save
+              title: Edit census record
+            form:
+              email: Email
+            new_record:
+              save: Save
+              title: Add new census record
+            update_record:
+              invalid: There was a problem updating the census data record.
+              success: Successfully updated census data record.
           index:
-            data: There are %{count} records loaded in total. Last upload date was on %{due_date}.
-            empty: There are no census data. Use the form below to import it using a CSV file.
+            add_new_record_button: Add new record
+            authorized: User authorized
+            fields:
+              actions: Actions
+              created_at: Created At
+              email: Email
+              user_authorized: User authorized?
+            import_csv: Import CSV
+            no_authorized: User unauthorized
             title: Current census data
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv file with emails data"
-            info: 'Must be a file in CSV format with only one column with the email address:'
-            submit: Upload file
-            title: Upload a new census
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.
@@ -197,6 +237,10 @@ en:
           user_postal_codes:
             one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
+      errors:
+        invalid_emails: 'The following email addresses are invalid: %{invalid_emails}.'
+        no_emails: The file must contain emails
+        wrong_number_columns: "%{expected} column were expected, but %{actual} were found."
       id_documents:
         admin:
           config:

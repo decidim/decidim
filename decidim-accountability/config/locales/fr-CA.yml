@@ -64,6 +64,9 @@ fr-CA:
           create:
             invalid: Il y a eu un problème lors de l'importation des résultats, veuillez suivre attentivement les instructions et assurez-vous que vous avez sélectionné les projets à mettre en œuvre.
           filters:
+            new_items_projects:
+              one: 1 projet sélectionné sera importé
+              other: "%{count} projets sélectionnés seront importés"
             new_items_proposals:
               one: 1 proposition sera importée
               other: "%{count} propositions seront importées"
@@ -83,6 +86,27 @@ fr-CA:
           new:
             download_export: Télécharger l'export au format CSV
             import: Importer
+            info: |
+              <p>Nous vous recommandons les étapes suivantes:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Créer les Status pour les résultats</a> que vous voulez ajouter</li>
+              <li><a href='%{link_new_result}' target='_blank'>Créer au moins un résultat manuellement</a> via ce panneau admin avant d'utiliser l'import, pour mieux comprendre le format et ce que vous devrez compléter.</li>
+              <li>%{link_export_csv}</li>
+              <li>Faites les changements directement sur le fichier. Vous ne pouvez changer que les colonnes suivantes du CSV:
+                <ul>
+                <li><b>category/id:</b> ID de la catégorie</li>
+                <li><b>scope/id:</b> ID du secteur</li>
+                <li><b>parent/id:</b> ID du résultat parent (résultat liés). Facultatif</li>
+                <li><b>title/en:</b> Titre en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
+                <li><b>description/en:</b> Description en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
+                <li><b>start_date:</b> date à partir de laquelle le résultat est mis en œuvre (format AAAA-MM-JJ)</li>
+                <li><b>end_date:</b> date à laquelle se termine la mise en œuvre du résultat (format AAAA-MM-JJ)</li>
+                <li><b>status/id:</b> ID du statut de ce résultat</li>
+                <li><b>progress:</b> Pourcentage d'exécution (de 0 à 100)</li>
+                <li><b>proposals_ids:</b> IDs des propositions liées (séparés par une virgule). Ces ID seront automatiquement converti en <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importer les résultats depuis un fichier CSV
         imports:
           create:
@@ -305,11 +329,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour à %{resource_title} progress
           notification_title: Le résultat <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevé à %{progress}%.
-    metrics:
-      results:
-        description: Nombre de résultats générés
-        object: résultats
-        title: Résultats
     open_data:
       help:
         result_comments:

@@ -552,9 +552,6 @@ hu:
         static_page_topics: Témák
         static_pages: Oldalak
         users: Résztvevők
-      metrics:
-        metrics:
-          see_more_metrics: Több mérési eredmény megtekintése
       models:
         area:
           fields:
@@ -943,7 +940,6 @@ hu:
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         menu: Menü
-        metrics: Mérőszámok
         page_topics: Témák
         pages: Oldalak
         panel: Admin
@@ -978,16 +974,6 @@ hu:
       errors:
         impersonate_user:
           reason: Nem kezelt résztvevő kezelése esetén indoklást kell adnia.
-    metrics:
-      blocked_users:
-        object: letiltott felhasználók
-        title: Letiltott felhasználók
-      reported_users:
-        object: jelentett felhasználók
-        title: Jelentett felhasználók
-      user_reports:
-        object: felhasználói jelentések
-        title: Felhasználói jelentések
     moderations:
       actions:
         expand: Kibont

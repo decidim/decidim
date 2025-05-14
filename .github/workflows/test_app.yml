@@ -115,6 +115,7 @@ jobs:
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
           DISPLAY: ":99"
           CI: "true"
+          FAST_SEEDS: "true"
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"

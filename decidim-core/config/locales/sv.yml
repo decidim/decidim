@@ -3,6 +3,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -34,6 +36,12 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Smeknamnet ska vara små bokstäver utan mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -585,10 +593,6 @@ sv:
         name: Viktig information
       metadata:
         name: Metadata
-      metrics:
-        name: Organisationsdata
-      participatory_space_metrics:
-        name: Mätvärden
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
@@ -855,6 +859,16 @@ sv:
       notification_event:
         notification_title: Något inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_subject: Din %{resource_type} är inte längre synlig
+          notification_title: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände på grund av att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar att återställas automatiskt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
           email_outro: Du har fått det här meddelandet eftersom du är en författare till det här innehållet.
@@ -1076,6 +1090,8 @@ sv:
           modal_title: Nytt samtal
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
+          participants:
+            title: Deltagare
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
@@ -1108,21 +1124,6 @@ sv:
         finished: 'Färdig: %{end_date}'
         not_started: Inte påbörjad
         remaining: "%{time_distance} kvar"
-    metrics:
-      download:
-        csv: Ladda ner data (CSV)
-      followers:
-        description: Antal deltagare som följer detta deltagarområde
-        object: följare
-        title: Följare
-      participants:
-        description: Antal aktiva deltagare i organisationen
-        object: deltagare
-        title: Deltagare
-      users:
-        description: Antal användare i organisationen
-        object: användare
-        title: Deltagare
     newsletter_mailer:
       newsletter:
         no_reply_notice: Det här e-postmeddelandet har skickats från en adress som inte accepterar inkommande e-post. Du kan inte svara på detta meddelande.
@@ -1200,6 +1201,7 @@ sv:
         assigned_to_proposal: Jag vill få ett e-postmeddelande när någon tilldelar mig ett förslag att utvärdera
         direct_messages: Ta emot direktmeddelanden från alla
         email_on_moderations: Jag vill få ett e-postmeddelande varje gång något eller någon rapporteras för moderering.
+        evaluators: Utvärderare
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
@@ -1226,6 +1228,12 @@ sv:
         message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
+      help:
+        core:
+          generated_on_date: Skapad den %{date}
+          resources:
+            one: "%{count} Resurs"
+            other: "%{count} Resurser"
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -1260,10 +1268,6 @@ sv:
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
         topics: Ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa allt
       terms_of_service:
         accept:
           error: Det gick inte att acceptera användarvillkoren.
@@ -1281,6 +1285,9 @@ sv:
           alert: Vi har uppdaterat våra användarvillkor, vänligen granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
+    participants_account_mailer:
+      removal_notification:
+        subject: Inaktivt konto raderat
     passwords:
       update:
         error: Det gick inte att uppdatera lösenordet.
@@ -1327,6 +1334,8 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
+    resource_autocomplete:
+      help: Sök efter förslag
     resource_endorsements:
       create:
         error: Det gick inte att gilla.
@@ -1336,7 +1345,6 @@ sv:
     search:
       name: Sök
       results: Sökresultat
-      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
@@ -1801,6 +1809,8 @@ sv:
         sign_up: Skapa ett konto
         terms_of_service: Användarvillkor
       header:
+        back: Tillbaka till listan
+        cancel: Avbryt
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny

@@ -43,8 +43,6 @@ If you want to enable geocoding in your app:
 
 . Select a service provider for the maps functionality and register an account with that provider
 . Uncomment or add the code under the selected service provider in your `config/initializers/decidim.rb`.
-. Make sure your `config/secrets.yml` file has the needed section (it should be added by the generator automatically).
-. Configure the service provider credentials in `config/secrets.yml` and refer to them from your `config/initializers/decidim.rb`.
 . If you had your Rails server running, restart it so the changes apply.
 
 === Configuring HERE Maps
@@ -59,19 +57,9 @@ Use the following configuration for HERE Maps:
 # == HERE Maps ==
 config.maps = {
   provider: :here,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
 }
-----
-
-`config/secrets.yml`:
-
-[source,yaml]
-----
-default: &default
-  # ...
-  maps:
-    api_key: <%= ENV["MAPS_API_KEY"] %>
 ----
 
 `.env`:
@@ -94,7 +82,7 @@ Use the following configuration for Open Street Maps based service providers:
 # == OpenStreetMap (OSM) services ==
 config.maps = {
   provider: :osm,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   dynamic: {
     tile_layer: {
       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}",
@@ -110,16 +98,6 @@ config.maps = {
   geocoding: { host: "nominatim.example.org", use_https: true },
   autocomplete: { url: "https://photon.example.org/api/" }
 }
-----
-
-`config/secrets.yml`:
-
-[source,yaml]
-----
-default: &default
-  # ...
-  maps:
-    api_key: <%= ENV["MAPS_API_KEY"] %>
 ----
 
 `.env`:
@@ -144,22 +122,12 @@ config.maps = {
   provider: :osm,
   dynamic: {
     provider: :here,
-    api_key: Rails.application.secrets.maps[:here_api_key]
+    api_key: ENV["MAPS_API_KEY"]
   },
   static: { url: "https://staticmap.example.org/" },
   geocoding: { host: "nominatim.example.org", use_https: true },
   autocomplete: { url: "https://photon.example.org/api/" }
 }
-----
-
-`config/secrets.yml`:
-
-[source,yaml]
-----
-default: &default
-  # ...
-  maps:
-    here_api_key: <%= ENV["MAPS_HERE_API_KEY"] %>
 ----
 
 `.env`:
@@ -181,7 +149,7 @@ For example, if you want to use HERE Maps as your default but disable the static
 ----
 config.maps = {
   provider: :here,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   static: false,
   autocomplete: false
 }

@@ -559,9 +559,6 @@ pt-BR:
         static_page_topics: Tópicos
         static_pages: Páginas
         users: Usuários
-      metrics:
-        metrics:
-          see_more_metrics: Ver mais métricas
       models:
         area:
           fields:
@@ -986,7 +983,6 @@ pt-BR:
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         menu: Menu
-        metrics: Métricas
         page_topics: Tópicos
         pages: Páginas
         panel: Administrador
@@ -1021,16 +1017,6 @@ pt-BR:
       errors:
         impersonate_user:
           reason: Você precisa fornecer um motivo ao representar um participante não gerenciado.
-    metrics:
-      blocked_users:
-        object: usuários bloqueados
-        title: Usuários bloqueados
-      reported_users:
-        object: usuários denunciados
-        title: Usuários denunciados
-      user_reports:
-        object: reports do usuário
-        title: Reports do usuário
     moderations:
       actions:
         expand: Expandir

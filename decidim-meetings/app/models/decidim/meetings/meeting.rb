@@ -200,18 +200,26 @@ module Decidim
         false
       end
 
+      def waitlist_enabled?
+        Decidim::Meetings.waiting_list_enabled
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
-        (available_slots - reserved_slots) > registrations.count
+        (available_slots - reserved_slots) > registrations.registered.count
       end
 
       def remaining_slots
-        available_slots - reserved_slots - registrations.count
+        available_slots - reserved_slots - registrations.registered.count
       end
 
       def has_registration_for?(user)
         registrations.where(user:).any?
+      end
+
+      def pending_location?
+        !online? && location.except("machine_translations").values.all?(&:blank?)
       end
 
       def maps_enabled?
@@ -320,11 +328,6 @@ module Decidim
               decidim_author_id: id
             }
           )
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

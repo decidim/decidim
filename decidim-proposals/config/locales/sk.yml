@@ -187,19 +187,6 @@ sk:
           name: Návrhy
           next_level_in: Vytvorte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
           unearned_own: Zatiaľ ste nevytvorili žiadny návrh.
-    metrics:
-      accepted_proposals:
-        description: Počet prijatých návrhov
-        object: návrhy
-        title: Prijaté návrhy
-      endorsements:
-        description: Počet schválení návrhov
-        object: schválenia
-        title: Schválenia
-      proposals:
-        description: Počet návrhov
-        object: návrhy
-        title: Návrhy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobraziť všetky

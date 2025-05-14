@@ -15,7 +15,7 @@ on:
       - "decidim-core/**"
       - "decidim-dev/**"
       - "decidim-forms/**"
-      - "decidim-module-templates/**"
+      - "decidim-proposals/**"
       - "decidim-templates/**"
 
 concurrency:

@@ -59,7 +59,10 @@ module Decidim
       end
 
       initializer "decidim_assemblies.stats" do
-        Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+        Decidim.stats.register :assemblies_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "government-line",
+                               tooltip_key: "assemblies_count_tooltip" do |organization, _start_at, _end_at|
           Decidim::Assembly.where(organization:).public_spaces.count
         end
       end
@@ -94,18 +97,6 @@ module Decidim
 
       initializer "decidim_assemblies.content_blocks" do
         Decidim::Assemblies::ContentBlocks::RegistryManager.register!
-      end
-
-      initializer "decidim_assemblies.register_metrics" do
-        Decidim.metrics_registry.register(:assemblies) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Assemblies::Metrics::AssembliesMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 1
-          end
-        end
       end
 
       initializer "decidim_assemblies.query_extensions" do

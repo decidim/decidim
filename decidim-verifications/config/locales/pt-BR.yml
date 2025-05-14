@@ -93,19 +93,11 @@ pt-BR:
         start_exploring: comece a explorar
       csv_census:
         admin:
-          destroy:
-            title: Excluir todos os dados do censo
           index:
-            empty: Não há dados do censo. Use o formulário abaixo para importá-lo usando um arquivo CSV.
             title: Dados do censo atual
           instructions:
             body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
             title: Você precisa ativar o censo CSV para esta organização
-          new:
-            file: "arquivo .csv com dados de e-mails"
-            info: 'Deve ser um arquivo no formato CSV com apenas uma coluna com o endereço de e-mail:'
-            submit: Subir arquivo
-            title: Carregar um novo censo
         authorizations:
           new:
             error: Não foi possível confirmar sua conta ou você não está no censo da organização.

@@ -1,8 +1,6 @@
 eu:
   activemodel:
     attributes:
-      answer:
-        add_documents: Gehitu dokumentuak
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
@@ -14,11 +12,10 @@ eu:
         video_url: Bideoaren URLa
       meeting:
         address: Helbidea
-        available_slots: Topaketa honetarako toki erabilgarriak
+        available_slots: Libre dauden plazak
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
-        decidim_user_group_id: Partaide-taldea
         description: Deskribapena
         end_time: Bukaera ordua
         id: ID
@@ -37,7 +34,7 @@ eu:
         registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
         registrations_enabled: Izen-emateak gaituta
-        reserved_slots: Topaketa honetarako toki erabilgarriak
+        reserved_slots: Erreserbatuta dauden plazak
         start_time: Hasiera ordua
         title: Titulua
         transparent: Gardena
@@ -52,6 +49,8 @@ eu:
       meeting_registration_invite:
         email: Helbide elektronikoa
         name: Izena
+      response:
+        add_documents: Gehitu dokumentuak
       validate_registration_code:
         code: Kodea
     errors:
@@ -122,7 +121,6 @@ eu:
             values:
               official: Ofiziala
               participants: Parte-hartzailea
-              user_group: Partaide-taldeak
           with_any_type:
             label: Topaketa mota
             values:
@@ -167,7 +165,7 @@ eu:
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            registration_code_enabled: Izena emateko kodea aktibatuta
+            registration_code_enabled: Izena emateko kodea eta QR aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
@@ -176,7 +174,6 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu dizatkete
-            creation_enabled_for_user_groups: Parte-hartzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
       help:
         invites:
@@ -203,13 +200,13 @@ eu:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
+            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak bere orrian irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa antolatu duzulako.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
+            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak bere orrien irakur ditzakezu:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
@@ -219,27 +216,39 @@ eu:
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
           notification_title: '<a href="%{resource_path}">%{resource_title}</a> topaketa hona gehitu da: %{participatory_space_title}'
         meeting_registration_confirmed:
-          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketan izena eman duzu. Zure erregistroaren kodea %{registration_code} da.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
           email_outro: Topaketako partaidetza-espazioaren administratzaile zarelako jaso duzu jakinarazpen hau.
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
-          email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
+          email_intro: '"%{resources ce_title}" bilera eguneratu da zenbait aldaketa sartzeko %{changed_fields}. Bertsio berria hemen:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: '"%{resource_title}" topaketa eguneratu egin da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu egin da.
+          field_names:
+            address: helbidea
+            end_time: amaiera-ordua
+            location: kokapena
+            start_time: hasiera-ordua
+          notification_title: '%<a href="%{resource_path}">{resources ce_title}</a> bilera eguneratu egin da zenbait aldaketa sartzeko: %{changed_fields}.'
+        meeting_waitlist_added:
+          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">% {resources ce_title}</a> bilerarako.
         registration_code_validated:
-          email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
-          email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
-          email_subject: Zure "%{registration_code}" izen-emate kodea "%{resource_title}" topaketarako baliozkotu egin da
-          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> topaketarako balioztatu da.
+          email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
+          email_subject: '"%{resource_title}" topaketarako zure "%{registration_code}" erregistro kodea baliozkotu egin da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako zure "%{registration_code}" erregistro kodea balioztatu da.
+        registration_marked_as_attendee:
+          email_intro: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
+          email_subject: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako zure izen-ematea egiaztatu da.
         registrations_enabled:
-          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure izena eman dezakezu bere orrialdean:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
-          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketaren izen-emateak zabalik.
+          email_intro: '"%{resource_title}" topaketan izena emateko epea ireki da. Izena eman ahal duzu bere orrian:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
+          email_subject: '"%{resource_title}" topaketan izena emateko epea ireki da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketan izena emateko epea ireki da.
         upcoming_meeting:
           email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
@@ -274,6 +283,7 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
+        mark_as_attendee: Baieztatu etorriko zarela
         new_meeting: Beste topaketa bat
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -311,10 +321,10 @@ eu:
             invalid: Arazo bat egon da agenda hau eguneratzean.
             success: Agenda ondo eguneratua.
         exports:
-          answers: Erantzunak
           meeting_comments: Iruzkinak
           meetings: Topaketak
           registrations: Izen-emateak
+          responses: Erantzunak
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
@@ -415,8 +425,6 @@ eu:
         registrations:
           edit:
             save: Gorde
-            validate: Balioztatu
-            validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
@@ -424,6 +432,7 @@ eu:
             recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs. decidim. org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
+            registrations: Ikusi inskripzioak
             registrations_count:
               one: Izen-emate bat izan da.
               other: '%{count} izen-emate izan dira.'
@@ -433,6 +442,14 @@ eu:
           update:
             invalid: Arazo bat egon da izen-ematearen konfigurazioa gordetzean.
             success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
+        registrations_attendees:
+          index:
+            title: Izen-emateak
+            validate: Balioztatu
+            validate_registration_code: Balidatu inskripzio-kodea
+          mark_attendee:
+            invalid: Inskripzio hau dagoeneko markatu da parte-hartzaile gisa.
+            success: Inskripzio hori zuzen markatu da parte-hartzaile gisa.
           validate_registration_code:
             invalid: Izena emateko kode hau baliogabea da.
             success: Izen-ematearen kodea behar bezala balioztatu da.
@@ -546,7 +563,6 @@ eu:
             all: Denak
             official: Ofiziala
             participants: Parte-hartzaileak
-            user_group: Taldeak
           search: Bilatu
           type: Mota
           type_values:
@@ -556,8 +572,7 @@ eu:
             online: Online
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
-          available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
-          create_as: Sortu topaketa honela
+          available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
@@ -586,7 +601,7 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Sortu zure topaketa
+          title: Sortu topaketa
         registration_confirm:
           cancel: Ezeztatu
           confirm: Berretsi
@@ -594,8 +609,11 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           join: Izena eman
+          join_waitlist: Sartu itxarote-zerrendan
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
+          leave_waitlist: Utzi itxarote-zerrenda
+          leave_waitlist_confirmation: Ziur zaude topaketa honetarako itxarote-zerrenda utzi nahi duzula?
           link_available_soon: Esteka hau laster izango da eusukagarri
           link_closed: Bideokonferentziarako esteka hasi baino minutu batzuk lehenago egongo da eskuragarri
           live_event: Topaketa hau oraintxe gertatzen ari da
@@ -603,8 +621,11 @@ eu:
           micro_camera_permissions_warning: Beheko botoia sakatzen duzunean, mikrofono eta/edo kamerarako baimena eskatuko zaizu eta bideohitzaldian sartuko zara
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          pending_address: Kokapena laster adieraiko da.
           redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
-          registration_code_help_text: Zure izena emateko kodea
+          registration_and_qr_code: Inskripzioa eta QR kodea
+          registration_code: 'Inskripzio-kodea: %{code}'
+          registration_code_help_text: Zure inskripzioa eta QR kodea
           registration_state:
             validated: BALIDATUA
             validation_pending: BALIOZKOTZEKO ZAIN
@@ -612,6 +633,9 @@ eu:
             one: "Slot %{count} geratzen da"
             other: "%{count} slot geratzen dira"
           visit_finished: Ikusi egindako topaketa
+          waitlist:
+            description: Leku bat libre geratzen bada, zure erregistroa automatikoki prozesatuko dugu eta posta elektronikoz jakinaraziko dizugu.
+            status: Itzrote-zerrendan zaude
           withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_meeting: Kendu
@@ -639,15 +663,16 @@ eu:
             start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Titulua
+        registration:
+          actions: Ekintzak
+          fields:
+            email: Helbide elektronkoa
+            name: Izena
+            status: Egoera
+          status:
+            attended: Atenditua
+            not_attended: Ez du parte hartu
       polls:
-        answers:
-          index:
-            administrate: Administratu
-            title: Inkesta
-          index_admin:
-            back_to_meeting: Itzuli topaketara
-            title: Administratu inkesta
-            view_poll: Ikusi inkesta
         questions:
           closed_question:
             announcement: Galdera honetarako erantzunak itxi egin dira.
@@ -658,8 +683,8 @@ eu:
           index_admin:
             edit: Editatu administrazio-panelean
             question: Galdera
-            received_answer: jasotako erantzuna
-            received_answers: jasotako erantzunak
+            received_response: erantzuna jasota
+            received_responses: erantzunak jasota
             results: Emaitzak
             send: Bidali
             sent: Bidalita
@@ -672,8 +697,15 @@ eu:
             question: Galdera
             question_replied: Galdera erantzunda
             reply_question: Erantzun galdera
+        responses:
+          index:
+            administrate: Administratu
+            title: Inkesta
+          index_admin:
+            back_to_meeting: Itzuli topaketara
+            title: Administratu inkesta
+            view_poll: Ikusi inkesta
       public_participants_list:
-        attending_organizations: Erakundeak
         attending_participants: Parte-hartzaileak
         hidden_participants_count:
           one: eta pertsona bat ehiago
@@ -683,7 +715,7 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
-          registration_code: Zure izena emateko kodea %{code}.
+          registration_code: Zure erregistro-kodea %{code} da. Mesedez, erakutsi QR kode hau administratzaile bati zure asistentzia balidatzeko.
       registration_type:
         on_different_platform: Plataforma desberdin batean
         on_this_platform: Plataforma honetan
@@ -698,6 +730,9 @@ eu:
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
+        waitlist:
+          invalid: Arazo bat egon da itxarote-zerrendara lotzean.
+          success: Zuzen sartu zara bileraren itxarote-zerrendan. Zure erregistroa behar bezala ziurtatuz gero, jakinaraziko dizute.
       type_of_meeting:
         hybrid: Hibridoa
         in_person: Aurrez aurre
@@ -709,11 +744,6 @@ eu:
       withdraw:
         error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
-    metrics:
-      meetings:
-        description: Sortutako topaketa kopurua
-        object: topaketak
-        title: Topaketak
     open_data:
       help:
         meeting_comments:
@@ -724,11 +754,10 @@ eu:
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
           comments: Topaketaren iruzkinen datua
           created_at: Zein datatan sortu zen iruzkin hau
-          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
+          depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
@@ -736,7 +765,7 @@ eu:
           attending_organizations: Topaketan izan diren erakundeak
           audio_url: Topaketaren audiograbazioa
           author: Topaketa honen egilearen data
-          available_slots: Topaketa batean leku libre kopurua
+          available_slots: Topaketarako plaza kopurua
           closed_at: Zein datatan itxi zen topaketa
           closing_report: Itxitako topaketaren txostena
           closing_visible: Topaketaren ikusgarritasuna
@@ -746,7 +775,6 @@ eu:
           created_at: Zein datatan sortu zen topaketa
           customize_registration_email: Posta elektroniko pertsonalizatua erregistratzeko aukera
           decidim_author_type: Topaketaren egile mota
-          decidim_user_group_id: Topaketan parte hartu duten parte-hartzaileen taldearen identifikazioa
           description: Topaketaren deskribapena
           end_time: Zein datatan eta ordutan amaituko da topaketa hau?
           follows_count: Topaketa honek duen jarraitzaile kopurua
@@ -770,7 +798,7 @@ eu:
           registrations_enabled: Erregistroak baimenduta zeuden ala ez
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
-          reserved_slots: Topaketak duen erreserbatutako ordu-tarte kopurua
+          reserved_slots: Topaketak erreserbatutako plaza-kopurua
           start_time: Zein data eta ordutan hasi da topaketa hau
           taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua

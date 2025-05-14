@@ -37,7 +37,7 @@ describe "Admin manages surveys" do
 
     it "allows to preview survey" do
       visit manage_questions_path
-      expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
+      expect(page).to have_link("See survey", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
     end
 
     it "shows a warning message" do
@@ -75,7 +75,7 @@ describe "Admin manages surveys" do
         click_on "Save"
         expect(page).to have_admin_callout "Survey questions successfully saved"
 
-        click_on translated_attribute(component.name)
+        all("a", text: translated_attribute(component.name))[0].click
         click_on "Unpublish"
         expect(page).to have_admin_callout "Survey successfully unpublished"
 
@@ -100,14 +100,14 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to true" do
           context "when deletes previous responses after publishing" do
             it "show popup with an alert" do
-              click_on translated_attribute(component.name)
+              all("a", text: translated_attribute(component.name))[0].click
               click_on "Unpublish"
               click_on "Publish"
               expect(page).to have_content("Confirm")
             end
 
             it "deletes previous responses" do
-              click_on translated_attribute(component.name)
+              all("a", text: translated_attribute(component.name))[0].click
               click_on "Edit"
               expect(survey.clean_after_publish).to be true
 

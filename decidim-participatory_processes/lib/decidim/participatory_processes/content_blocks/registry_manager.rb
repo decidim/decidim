@@ -125,11 +125,6 @@ module Decidim
             content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
           end
 
-          Decidim.content_blocks.register(:participatory_process_homepage, :metrics) do |content_block|
-            content_block.cell = "decidim/participatory_processes/content_blocks/metrics"
-            content_block.public_name_key = "decidim.content_blocks.participatory_space_metrics.name"
-          end
-
           Decidim.content_blocks.register(:participatory_process_homepage, :related_processes) do |content_block|
             content_block.cell = "decidim/participatory_processes/content_blocks/related_processes"
             content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"

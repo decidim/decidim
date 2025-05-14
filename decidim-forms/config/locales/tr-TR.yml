@@ -1,21 +1,11 @@
 tr:
   activemodel:
     attributes:
-      answer:
-        body: Cevap
-        choices: Seçenekler
-        selected_choices: Seçilmiş seçenekler
       question:
         max_choices: Maksimum seçenek sayısı
         question_type: tip
       questionnaire_question:
         mandatory: Zorunlu
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: tamamlanmadı
   decidim:
     forms:
       admin:
@@ -26,42 +16,18 @@ tr:
         questionnaires:
           actions:
             back: Sorulara geri dön
-          answer_option:
-            answer_option: Cevap seçeneği
-            free_text: Ücretsiz Metin
-            remove: Kaldır
-            statement: Beyan
-          answers:
-            actions:
-              back: Yanıtlara dön
-              export: Dışa aktar
-              show: Cevapları göster
-            empty: Henüz cevap bulunmuyor
-            export:
-              answer:
-                title: '#%{number} yanıt'
-            export_response:
-              title: survey_user_answers _%{token}
-            index:
-              title: "%{total} toplam yanıt"
-            show:
-              title: '%{number} cevap'
           display_condition:
-            answer_option: Cevap seçeneği
             condition_question: Soru
             condition_type: Durum
             condition_types:
-              answered: Cevaplanmış
               equal: Eşittir
               match: Metin içerir
-              not_answered: Cevaplanmadı
               not_equal: Eşit değil
             condition_value: Metin içerir
             display_condition: Görüntüleme koşulları
             mandatory: Bu koşul, diğer koşulların durumuna bakılmaksızın her zaman yerine getirilmelidir
             remove: Kaldır
             save_warning: Görüntüleme koşullarını yapılandırmadan önce formu kaydetmeyi unutmayın
-            select_answer_option: Cevap seçeneğini seçin
             select_condition_question: Bir soru seçin
             select_condition_type: Bir koşul türü seçin
           edit:
@@ -78,7 +44,6 @@ tr:
             remove: Kaldır
             statement: Beyan
           question:
-            add_answer_option: Cevap seçeneği ekle
             add_display_condition: Görüntü koşulu ekle
             add_display_condition_info: Görüntüleme koşullarını yapılandırmak için formu kaydedin
             add_matrix_row: Satır ekle
@@ -91,6 +56,9 @@ tr:
             remove: Kaldır
             statement: Beyan
             up: yukarı
+          responses:
+            actions:
+              show: Yanıtları göster
           separator:
             down: Aşağı
             remove: Kaldır
@@ -102,31 +70,19 @@ tr:
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
-        long_answer: Uzun cevap
         matrix_multiple: Matris (Çoklu seçenek)
         matrix_single: Matris (Tek seçenek)
         multiple_option: Çoklu seçenek
-        short_answer: Kısa cevap
         single_option: Tek seçenek
         sorting: Sıralama
       questionnaires:
-        answer:
-          invalid: Formu yanıtlarken bir sorun oluştu.
-          max_choices_alert: Çok fazla seçenek seçilmiş
-          success: Form başarıyla cevaplandı.
         question:
           max_choices: 'Maksimum seçenek: %{n}'
         show:
-          answer_questionnaire:
-            title: Formu cevapla
           current_step: '%{step} adım'
           empty: Bu form için henüz hazırlanmış bir soru yok.
           of_total_steps: '%{total_steps}'
-          questionnaire_answered:
-            body: Bu formu zaten cevapladınız.
-            title: Zaten cevaplandı
           questionnaire_closed:
-            body: Form kapalı ve cevaplanamıyor.
             title: Form kapatıldı
           questionnaire_for_private_users:
             body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
@@ -142,14 +98,3 @@ tr:
           back: Geri
           continue: Devam et
           submit: Gönder
-      user_answers_serializer:
-        body: Cevap
-        completion: Tamamlanma
-        created_at: Yanıtlandı
-        id: Cevap kimliği
-        ip_hash: IP Hash
-        question: Soru
-        registered: Kayıtlı
-        session_token: Kullanıcı tanımlayıcı
-        unregistered: Kayıtlı değil
-        user_status: Kullanıcı durumu

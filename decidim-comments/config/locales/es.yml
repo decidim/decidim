@@ -26,6 +26,8 @@ es:
             enabled: Comentarios habilitados
             end_time: Comentarios habilitados hasta
             start_time: Comentarios habilitados desde
+      comment_thread:
+        accessibility_label: Hilo de comentario iniciado por %{full_name} el %{date}
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
@@ -183,11 +185,6 @@ es:
           email_outro: Has recibido esta notificación porque te han mencionado en el comentario "%{resource_title}".
           email_subject: Has sido mencionada en %{resource_title}
           notification_title: Has sido mencionada en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Número de comentarios generados por las participantes
-        object: comentarios
-        title: Comentarios
   errors:
     messages:
       cannot_have_comments: no se pueden hacer comentarios

@@ -9,6 +9,9 @@ es-MX:
         scope_id: Ámbito
         state: Estado
         title: Título
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Nombre de la evaluadora
       import_participatory_text:
         document: Documento
       proposal:
@@ -118,6 +121,8 @@ es-MX:
           proposals: Propuestas
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Asignada a evaluadora
           is_emendation_true:
             label: Tipo
             values:
@@ -262,8 +267,14 @@ es-MX:
         accepted_coauthorship:
           notification_title: Se te ha añadido como coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
+            email_outro: Has recibido esta notificación porque puedes valorar la propuesta.
+            email_subject: Has sido asignada como evaluadora de la propuesta "%{resource_title}".
+            notification_title: Se te ha asignado como evaluadora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>". Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_created:
             email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque puedes valorar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_mentioned:
@@ -407,23 +418,6 @@ es-MX:
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
-    metrics:
-      accepted_proposals:
-        description: Número de propuestas aceptadas por los usuarios
-        object: propuestas
-        title: Propuestas aceptadas
-      endorsements:
-        description: Número de adhesiones generadas en las propuestas
-        object: adhesiones
-        title: Adhesiones
-      proposals:
-        description: Número de propuestas generadas
-        object: propuestas
-        title: Propuestas
-      votes:
-        description: Número de apoyos a propuestas
-        object: Apoyos
-        title: Apoyos
     open_data:
       help:
         proposal_comments:
@@ -475,7 +469,6 @@ es-MX:
           withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todo
     proposals:
       actions:
@@ -500,6 +493,13 @@ es-MX:
           deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
           view_deleted_proposals: Ver las propuestas eliminadas
+        evaluation_assignments:
+          create:
+            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
+            success: Propuestas asignadas correctamente a una evaluadora.
+          delete:
+            invalid: Se ha producido un error al deshacer la asignación de propuestas a una evaluadora.
+            success: Evaluadora desasignada correctamente.
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
@@ -630,6 +630,8 @@ es-MX:
           index:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
+            assign_to_evaluator: Asignar a evaluadora
+            assign_to_evaluator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
@@ -638,11 +640,14 @@ es-MX:
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Selecciona un componente
+            select_evaluators: Selecciona una o más evaluadoras
             selected: seleccionado
             split: Propuestas divididas
             split_button: Dividir
             statuses: Estados
             title: Propuestas
+            unassign_from_evaluator: Deshacer la asignación como evaluadora
+            unassign_from_evaluator_button: Deshacer la asignación
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas
@@ -654,11 +659,13 @@ es-MX:
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
+            assigned_evaluators: Evaluadoras asignadas
             body: Cuerpo
             comments_count: Número de comentarios
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsers: Se han adherido
+            evaluators: Evaluadoras
             link: Ver la propuesta
             n_more_endorsers:
               one: y 1 más
@@ -667,6 +674,7 @@ es-MX:
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
+            remove_assignment_confirmation: '¿Seguro que quieres deshacer la asignación a la evaluadora de esta propuesta?'
             votes_count: Número de apoyos
           update_taxonomies:
             invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
@@ -682,7 +690,7 @@ es-MX:
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifica los estados de las propuestas para importar
-            title: Importar proyectos desde otro componente
+            title: Importar propuestas desde otro componente
         proposals_merges:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -697,6 +705,9 @@ es-MX:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Las propuestas se han dividido en otras nuevas con éxito.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
+          delete: "%{user_name} deshizo la asignación de una de las evaluadoras de la propuesta %{proposal_title}"
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} a partir de la fusión de %{merged_count} propuestas en %{space_name}"
@@ -752,7 +763,7 @@ es-MX:
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay un borrador de colaboración con este criterio
+        empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
@@ -866,6 +877,8 @@ es-MX:
         proposal:
           fields:
             comments: Comentarios
+            evaluator: Evaluadora
+            evaluators: Evaluadoras
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
@@ -933,7 +946,7 @@ es-MX:
           text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
         new:
           send: Continuar
-          title: Crea tu propuesta
+          title: Crear una nueva propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
@@ -983,7 +996,7 @@ es-MX:
         update:
           title: Actualizar propuesta
         vote_button:
-          already_voted: Ya has dado tu apoyo
+          already_voted: Ya le has dado apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay apoyos restantes

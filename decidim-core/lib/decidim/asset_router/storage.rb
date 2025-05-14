@@ -52,8 +52,13 @@ module Decidim
         when ActiveStorage::Blob
           blob_url(**)
         else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
-          ensure_current_host(nil, **)
-          representation_url(**)
+          if blob && blob.attachments.any?
+            ensure_current_host(blob.attachments.first&.record, **)
+            representation_url(**)
+          else
+            ensure_current_host(nil, **)
+            representation_url(**, only_path: true)
+          end
         end
       end
 
@@ -103,9 +108,7 @@ module Decidim
       #
       # @return [Hash] The remote storage options hash
       def remote_storage_options
-        @remote_storage_options ||= {
-          host: Rails.application.secrets.dig(:storage, :cdn_host)
-        }.compact
+        @remote_storage_options ||= { host: Decidim.storage_cdn_host }.compact_blank
       end
 
       # Most of the times the current host should be set through the controller

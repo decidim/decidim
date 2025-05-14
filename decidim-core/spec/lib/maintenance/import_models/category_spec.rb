@@ -17,9 +17,6 @@ module Decidim::Maintenance::ImportModels
     let!(:another_category) { described_class.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
 
     let!(:categorizable) { Categorization.create!(categorizable: dummy_resource, category:) }
-    let!(:metric) { create(:metric, participatory_space: assembly, related_object: nil, decidim_category_id: subcategory.id) }
-    # a wrongly categorized metric
-    let!(:another_metric) { create(:metric, participatory_space: participatory_process, related_object: nil, decidim_category_id: subcategory.id) }
     # a wrongly categorized resource
     let(:another_component) { create(:dummy_component, name: { "en" => "Another Dummy Component" }, participatory_space: participatory_process) }
     let!(:another_resource) { create(:dummy_resource, title: { "en" => "Another Dummy Resource" }, component: another_component, scope: nil) }
@@ -50,7 +47,6 @@ module Decidim::Maintenance::ImportModels
 
     before do
       described_class.add_resource_class("Decidim::Dev::DummyResource")
-      allow_any_instance_of(Decidim::Metric).to receive(:to_s).and_return("Metric") # rubocop:disable RSpec/AnyInstance
     end
 
     describe "#name" do

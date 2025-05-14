@@ -232,19 +232,6 @@ tr:
           name: Teklif
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklif daha oluşturun!
           unearned_own: Henüz hiç teklif oluşturmadınız.
-    metrics:
-      accepted_proposals:
-        description: Kabul edilen teklif sayısı
-        object: teklifler
-        title: Kabul edilen teklifler
-      endorsements:
-        description: Tekliflere verilen onay sayısı
-        object: onaylar
-        title: Onaylar
-      proposals:
-        description: Teklif sayısı
-        object: teklifler
-        title: Teklifler
     participatory_spaces:
       highlighted_proposals:
         see_all: Tüm teklifleri görün

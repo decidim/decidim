@@ -20,6 +20,8 @@ export default function icon(iconKey, attributes = {}) {
     const newKey = key.replace(/([A-Z])/g, (ucw) => `-${ucw[0].toLowerCase()}`);
     if (typeof htmlAttributes[key] === "undefined") {
       htmlAttributes[newKey] = iconAttributes[key];
+    } else if (iconAttributes[key] === null) {
+      Reflect.deleteProperty(htmlAttributes, newKey);
     } else {
       htmlAttributes[newKey] = `${htmlAttributes[newKey]} ${iconAttributes[key]}`;
     }

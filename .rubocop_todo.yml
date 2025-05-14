@@ -44,18 +44,10 @@ Rails/RedundantActiveRecordAllMethod:
     - 'decidim-assemblies/spec/commands/copy_assembly_spec.rb'
     - 'decidim-conferences/spec/commands/copy_conference_spec.rb'
     - 'decidim-core/lib/decidim/core.rb'
-    - 'decidim-core/lib/tasks/decidim_metrics_tasks.rake'
     - 'decidim-core/spec/lib/reminder_registry_spec.rb'
-    - 'decidim-core/spec/tasks/decidim_tasks_metrics_spec.rb'
     - 'decidim-participatory_processes/spec/commands/copy_participatory_process_spec.rb'
     - 'decidim-proposals/db/migrate/20200120215928_move_proposal_endorsements_to_core_endorsements.rb'
     - 'decidim-system/app/controllers/decidim/system/oauth_applications_controller.rb'
-
-# Offense count: 2
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Rails/SelectMap:
-  Exclude:
-    - 'decidim-comments/app/queries/decidim/comments/metrics/comments_metric_manage.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).

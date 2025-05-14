@@ -10,7 +10,6 @@ cs:
         instructions: Pokyny k účasti
         start_time: Začíná v
         title: Titul
-        user_group_id: Vytvořte debatu jako
     models:
       decidim/debates/close_debate_event: Debata byla uzavřena
       decidim/debates/create_debate_event: Debata
@@ -151,13 +150,12 @@ cs:
           state_values:
             closed: Uzavřeno
             open: Otevřeno
-          user_group: Skupiny
         index:
           new_debate: Nová debata
         new:
           back: Zpět
           create: Vytvořit
-          title: Nová debata
+          title: Vytvořit novou debatu
         orders:
           commented: Nejvíce komentované
           label: Řazení debat podle
@@ -170,7 +168,6 @@ cs:
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
           edit_debate: Upravit
-          groups_count: Skupiny
           open: Otevřená diskuse
           participants_count: Účastníci
         update:
@@ -243,11 +240,6 @@ cs:
           next_level_in: Zúčastněte se dalších %{score} debat, abyste dosáhli další úrovně!
           unearned_another: Tento účastník se dosud nezúčastnil žádné debaty.
           unearned_own: Zatím jste se nezúčastnili žádné debaty.
-    metrics:
-      debates:
-        description: Počet vytvořených debat
-        object: debaty
-        title: Debaty
     open_data:
       help:
         debate_comments:
@@ -261,7 +253,6 @@ cs:
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         debates:
           author: Data pro autora této debaty
           closed_at: Datum, kdy byla tato debata uzavřena

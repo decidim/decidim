@@ -69,7 +69,6 @@ sk:
           ok: OK
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoj hlas?
-          cancel_order: vymažte svoj hlas a začnite odznova
           checked_out:
             title: Hlasovanie o rozpočte dokončené
         count:

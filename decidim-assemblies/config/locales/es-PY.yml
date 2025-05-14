@@ -200,6 +200,7 @@ es-PY:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
       taxonomy_filters:
         space_filter_for:
@@ -375,11 +376,6 @@ es-PY:
           not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
-    metrics:
-      assemblies:
-        description: Número de ensamblajes creados
-        object: asambleas
-        title: Asambleas
     open_data:
       help:
         assemblies:

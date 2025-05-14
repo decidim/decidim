@@ -17,6 +17,8 @@ module Decidim
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
 
+      validates :address, presence: true, if: ->(form) { form.needs_address? }
+      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true, etiquette: true
       validates :description, presence: true, etiquette: true

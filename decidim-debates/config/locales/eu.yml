@@ -10,7 +10,6 @@ eu:
         instructions: Parte hartzeko argibideak
         start_time: Hasi da
         title: Izenburua
-        user_group_id: Sortu eztabaida honela
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
       decidim/debates/create_debate_event: Eztabaida
@@ -55,7 +54,7 @@ eu:
         close: Itxi
         confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
-        edit: Editatu
+        edit: Aldatu
         new: Beste eztabaida bat
         title: Ekintzak
         view_deleted_debates: Ikusi ezabatutako eztabaidak
@@ -117,7 +116,7 @@ eu:
         close_debate_modal:
           cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
-          send: Itxi eztabaida
+          send: Eztabaida itxi
         count:
           debates_count:
             one: "%{count} eztabaida"
@@ -134,31 +133,30 @@ eu:
           title: Editatu eztabaida
         filters:
           activity: Nire jarduera
-          all: guztiak
+          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
-          origin: Origin
+          origin: Jatorria
           participants: Parte-hartzaileak
           search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
             open: Ireki
-          user_group: Taldeak
         index:
           new_debate: Beste eztabaida bat
         new:
           back: Atzera
           create: Sortu
-          title: Beste eztabaida bat
+          title: Sortu eztabaida berri bat
         orders:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
           random: Ausazko ordena
-          recent: Azkenak
+          recent: Berrienetatik zaharrenetara
           updated: Orain dela gutxi eguneratuak
         show:
           close_debate: Itxi
@@ -166,7 +164,6 @@ eu:
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
-          groups_count: Taldeak
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
         update:
@@ -239,11 +236,6 @@ eu:
           next_level_in: Hartu parte %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
-    metrics:
-      debates:
-        description: Sortutako eztabaida kopurua
-        object: eztabaidak
-        title: Eztabaidak
     open_data:
       help:
         debate_comments:
@@ -257,7 +249,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         debates:
           author: Eztabaida honen egilearen data
           closed_at: Zein datatan itxi zen eztabaida hau

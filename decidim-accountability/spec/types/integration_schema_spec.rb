@@ -10,9 +10,7 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Accountability {
         result(id: #{result.id}) {
           acceptsNewComments
-          taxonomies {
-            id
-          }
+          address
           children {
             id
           }
@@ -22,6 +20,10 @@ describe "Decidim::Api::QueryType" do
           }
           commentsHaveAlignment
           commentsHaveVotes
+          coordinates{
+            latitude
+            longitude
+          }
           createdAt
           description {
             translation(locale:"#{locale}")
@@ -34,6 +36,7 @@ describe "Decidim::Api::QueryType" do
             id
           }
           progress
+          proposals { id }
           reference
           startDate
           status {
@@ -51,6 +54,9 @@ describe "Decidim::Api::QueryType" do
               id
             }
             updatedAt
+          }
+          taxonomies {
+            id
           }
           timelineEntries {
             id
@@ -73,6 +79,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           weight
         }
@@ -81,19 +88,19 @@ describe "Decidim::Api::QueryType" do
     end
   end
   let(:component_type) { "Accountability" }
-  let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-  let!(:result) { create(:result, component: current_component, taxonomies:) }
-  let!(:timeline_entry) { create(:timeline_entry, result:) }
-
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
-      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
+      "address" => result.address.to_s,
       "children" => [],
       "childrenCount" => result.children.size,
       "comments" => [],
       "commentsHaveAlignment" => result.comments_have_alignment?,
       "commentsHaveVotes" => result.comments_have_votes?,
+      "coordinates" => {
+        "latitude" => result.latitude,
+        "longitude" => result.longitude
+      },
       "createdAt" => result.created_at.to_time.iso8601,
       "description" => { "translation" => result.description[locale] },
       "endDate" => result.end_date.to_s,
@@ -102,6 +109,7 @@ describe "Decidim::Api::QueryType" do
       "id" => result.id.to_s,
       "parent" => result.parent,
       "progress" => result.progress.to_f,
+      "proposals" => proposals.sort_by(&:id).map { |proposal| { "id" => proposal.id.to_s } },
       "reference" => result.reference,
       "startDate" => result.start_date.to_s,
       "status" => {
@@ -114,6 +122,7 @@ describe "Decidim::Api::QueryType" do
         "results" => [{ "id" => result.id.to_s }],
         "updatedAt" => result.status.updated_at.to_time.iso8601
       },
+      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
       "timelineEntries" => [
         {
           "createdAt" => result.timeline_entries.first.created_at.to_time.iso8601,
@@ -128,12 +137,12 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => result.title[locale] },
       "totalCommentsCount" => result.comments_count,
       "type" => "Decidim::Accountability::Result",
+      "url" => Decidim::ResourceLocatorPresenter.new(result).url,
       "updatedAt" => result.updated_at.to_time.iso8601,
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
       "weight" => result.weight.to_i
     }
   end
-
   let(:accountability_data) do
     {
       "__typename" => "Accountability",
@@ -146,8 +155,18 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
+  end
+  let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+  let!(:result) { create(:result, component: current_component, taxonomies:) }
+  let!(:timeline_entry) { create(:timeline_entry, result:) }
+  let!(:proposal_component) { create(:proposal_component, participatory_space: result.participatory_space) }
+  let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
+
+  before do
+    result.link_resources(proposals, "included_proposals")
   end
 
   describe "commentable" do
@@ -178,9 +197,7 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
-              taxonomies {
-                id
-              }
+              address
               children {
                 id
               }
@@ -190,6 +207,10 @@ describe "Decidim::Api::QueryType" do
               }
               commentsHaveAlignment
               commentsHaveVotes
+              coordinates{
+                latitude
+                longitude
+              }
               createdAt
               description {
                 translation(locale:"#{locale}")
@@ -202,6 +223,7 @@ describe "Decidim::Api::QueryType" do
                 id
               }
               progress
+              proposals { id }
               reference
               startDate
               status {
@@ -219,6 +241,9 @@ describe "Decidim::Api::QueryType" do
                   id
                 }
                 updatedAt
+              }
+              taxonomies {
+                id
               }
               timelineEntries {
                 id
@@ -241,6 +266,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               weight
             }

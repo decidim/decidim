@@ -25,12 +25,6 @@ module Decidim
         argument :name, GraphQL::Types::String, "The name of the hashtag", required: false
       end
 
-      type.field :metrics, type: [Decidim::Core::MetricType], null: true do
-        argument :names, [GraphQL::Types::String], "The names of the metrics you want to retrieve", camelize: false, required: false
-        argument :space_type, GraphQL::Types::String, "The type of ParticipatorySpace you want to filter with", camelize: false, required: false
-        argument :space_id, GraphQL::Types::Int, "The ID of ParticipatorySpace you want to filter with", camelize: false, required: false
-      end
-
       type.field :user,
                  type: Core::AuthorInterface, null: true,
                  description: "A participant (user or group) in the current organization" do
@@ -65,25 +59,6 @@ module Decidim
 
     def hashtags(name: nil)
       Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
-    end
-
-    def metrics(names: [], space_type: nil, space_id: nil)
-      manifests = if names.blank?
-                    Decidim.metrics_registry.all
-                  else
-                    Decidim.metrics_registry.all.select do |manifest|
-                      names.include?(manifest.metric_name.to_s)
-                    end
-                  end
-      filters = {}
-      if space_type.present? && space_id.present?
-        filters[:participatory_space_type] = space_type
-        filters[:participatory_space_id] = space_id
-      end
-
-      manifests.map do |manifest|
-        Decidim::Core::MetricResolver.new(manifest.metric_name, context[:current_organization], filters)
-      end
     end
 
     def user(id: nil, nickname: nil)

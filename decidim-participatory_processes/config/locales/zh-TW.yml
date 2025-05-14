@@ -304,11 +304,6 @@ zh-TW:
           not_found: '未在資料庫(ID：%{id}) 中找到此流程類型'
     menu:
       processes: 程序
-    metrics:
-      participatory_processes:
-        description: 此組織中的參與式過程數量
-        object: 參與程序
-        title: 參與程序
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -362,9 +357,6 @@ zh-TW:
           name: 精選程序
       index:
         title: 參與程序
-      participatory_process_steps:
-        index:
-          back_to_process: 返回程序頁
       participatory_processes:
         filters:
           all_types: 所有類型

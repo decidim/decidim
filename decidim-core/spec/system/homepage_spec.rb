@@ -363,7 +363,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{translated(organization.name)}")
+              expect(page).to have_content("Statistics")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end
@@ -376,64 +376,6 @@ describe "Homepage" do
 
             within ".processes_count" do
               expect(page).to have_content("2")
-            end
-          end
-        end
-      end
-
-      describe "includes metrics" do
-        context "when organization does not have the metrics content block" do
-          let(:organization) { create(:organization) }
-
-          it "does not show the statistics block" do
-            expect(page).to have_no_content("Participation in figures")
-          end
-        end
-
-        context "when organization does have the metrics content block" do
-          let(:organization) { create(:organization) }
-          let(:metrics) do
-            Decidim.metrics_registry.all.each do |metric_registry|
-              create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization:, cumulative: 5, quantity: 2)
-            end
-          end
-
-          context "and have metric records" do
-            before do
-              metrics
-              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
-              visit current_path
-            end
-
-            it "shows the metrics block" do
-              within "[data-metrics]" do
-                expect(page).to have_content("Metrics")
-                Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
-                end
-                Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
-                end
-              end
-            end
-          end
-
-          context "and does not have metric records" do
-            before do
-              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
-              visit current_path
-            end
-
-            it "shows the metrics block empty" do
-              within "[data-metrics]" do
-                expect(page).to have_content("Metrics")
-                Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
-                end
-                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
-                end
-              end
             end
           end
         end

@@ -35,7 +35,7 @@
     &-month,
     &-day,
     &-year {
-      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
+      @apply inline-flex items-center justify-evenly empty:[&>p]:hidden;
     }
 
     &-separator {
@@ -147,6 +147,10 @@
 
       &__list {
         @apply ml-4 list-disc text-gray-2 text-sm;
+      }
+
+      &__item {
+        @apply items-center gap-2;
       }
     }
 

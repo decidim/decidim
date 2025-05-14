@@ -200,6 +200,7 @@ de:
           roles:
             admin: Administrator
             collaborator: Mitarbeiter
+            evaluator: Bewertende Person
             moderator: Moderator
       taxonomy_filters:
         space_filter_for:
@@ -375,11 +376,6 @@ de:
           not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
-    metrics:
-      assemblies:
-        description: Anzahl der erstellten Gremien
-        object: Gremien
-        title: Gremien
     open_data:
       help:
         assemblies:

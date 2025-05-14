@@ -30,6 +30,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
       include Decidim::SoftDeletable
+      include Decidim::Publicable
 
       def assign_state(token)
         proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
@@ -94,7 +95,6 @@ module Decidim
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
 
       scope :drafts, -> { where(published_at: nil) }
-      scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
       scope :with_availability, lambda { |state_key|
@@ -232,13 +232,6 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Checks if the proposal has been published or not.
-      #
-      # Returns Boolean.
-      def published?
-        published_at.present?
-      end
-
       # Public: Returns the published state of the proposal.
       #
       # Returns Boolean.
@@ -301,11 +294,6 @@ module Decidim
       # Returns Boolean.
       def evaluating?
         state == "evaluating"
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Returns the presenter for this author, to be used in the views.

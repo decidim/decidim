@@ -2,7 +2,6 @@ lb:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
@@ -26,7 +25,6 @@ lb:
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
-        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
@@ -282,20 +280,11 @@ lb:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Fortsetzen
         finish:
           back_to_initiative: Zurück zur Initiative
-        sms_code:
-          continue: Code überprüfen und fortfahren
-          help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
-        sms_phone_number:
-          continue: Senden Sie mir eine SMS
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-        personal_data:
-          invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
@@ -357,18 +346,11 @@ lb:
       initiatives_type:
         actions:
           title: Aktionen
-          vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
         select_initiative_type: Wählen
-      initiative_signature_creation_header:
-        fill_personal_data: Ergänzen Sie Ihre Daten
-        finish: Fertig
-        sms_code: SMS-Code-Bestätigung
-        sms_phone_number: Handynummer
-        title: Zeichen %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

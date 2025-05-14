@@ -17,7 +17,7 @@ module Decidim
 
         # A mobile phone can only be verified once but it should be private.
         def unique_id
-          Digest::MD5.hexdigest(
+          Digest::SHA256.hexdigest(
             "#{mobile_phone_number}-#{Rails.application.secret_key_base}"
           )
         end
@@ -57,7 +57,7 @@ module Decidim
         end
 
         def generated_code
-          @generated_code ||= SecureRandom.random_number(1_000_000).to_s
+          @generated_code ||= format("%06d", SecureRandom.random_number(1_000_000))
         end
       end
     end

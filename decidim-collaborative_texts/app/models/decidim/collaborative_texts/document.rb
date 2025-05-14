@@ -10,20 +10,69 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::HasComponent
       include Decidim::Publicable
+      include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Searchable
+      include Decidim::Coauthorable
 
       component_manifest_name "collaborative_texts"
+
+      after_save :save_version
+
+      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", inverse_of: :document, dependent: :destroy
+      has_many :suggestions, through: :document_versions
 
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
 
+      delegate :organization, :participatory_space, to: :component
+      delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version
+
       searchable_fields(
         participatory_space: { component: :participatory_space },
         A: :title,
+        D: :consolidated_body,
         datetime: :published_at
       )
+
+      def self.log_presenter_class_for(_log)
+        Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
+      end
+
+      # Returns the current version of the document. Currently, the last one
+      def current_version
+        document_versions.last || document_versions.build
+      end
+
+      def consolidated_version
+        document_versions.consolidated.last
+      end
+
+      def consolidated_body
+        consolidated_version&.body
+      end
+
+      # The paranoia gem (used in soft-delete) applies the removed status to the "document_versions" association
+      # but it does not recursively restore them by default.
+      # This model needs to have the document_versions synchronized always
+      def restore
+        super(recursive: true)
+      end
+
+      def has_suggestions?
+        current_version.suggestions.any?
+      end
+
+      def suggestions_enabled?
+        published? && accepting_suggestions? && !draft?
+      end
+
+      private
+
+      def save_version
+        current_version.save if current_version.changed?
+      end
     end
   end
 end

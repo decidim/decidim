@@ -1,8 +1,13 @@
 <p class="email-instructions"><%= t(".confirmed_html", title: present(@meeting).title, url: @locator.url) %></p>
 
-<% if @registration.meeting.component.settings.registration_code_enabled %>
+<% if @registration_code_enabled %>
   <p><%= t(".registration_code", code: @registration.code) %></p>
+
+  <center>
+    <%= image_tag attachments[@qr_filename].url %>
+  </center>
 <% end %>
+
 <% if @meeting.customize_registration_email? %>
   <p><%= present(@meeting).registration_email_custom_content %></p>
 <% end %>

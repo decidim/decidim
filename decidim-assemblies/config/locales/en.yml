@@ -377,11 +377,6 @@ en:
           not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
-    metrics:
-      assemblies:
-        description: Number of assemblies created
-        object: assemblies
-        title: Assemblies
     open_data:
       help:
         assemblies:
@@ -436,6 +431,7 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
+      assemblies_count_tooltip: The number of public assemblies where collective decisions are made.
   layouts:
     decidim:
       assemblies:

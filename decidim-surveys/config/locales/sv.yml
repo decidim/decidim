@@ -8,14 +8,9 @@ sv:
       decidim/surveys/survey:
         one: Enkät
         other: Enkäter
-      decidim/surveys/survey_answer:
-        one: Svar
-        other: Svar
   decidim:
     components:
       surveys:
-        actions:
-          answer: Svar
         settings:
           global:
             announcement: Meddelande
@@ -33,30 +28,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
-    metrics:
-      survey_answers:
-        description: Antal enkäter besvarade av deltagarna
-        object: svar på enkäter
-        title: Svar på enkäter
-    statistics:
-      answers_count: Svar
     surveys:
       admin:
-        exports:
-          survey_user_answers: Svar från enkätdeltagarna
         surveys:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
       last_activity:
         new_survey: 'Ny enkät:'
-      survey_confirmation_mailer:
-        confirmation:
-          body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}
-          subject: Svarsbekräftelse för formuläret %{questionnaire_title}
-        export_name: Enkätsvar
-      surveys:
-        answer:
-          invalid: Det gick inte att besvara enkäten.
-          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
-          success: Enkäten har besvarats.

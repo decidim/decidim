@@ -348,9 +348,6 @@ tr:
         settings: Ayarlar
         static_pages: Sayfalar
         users: Kullanıcılar
-      metrics:
-        metrics:
-          see_more_metrics: Daha fazla metrik gör
       models:
         area:
           fields:
@@ -661,7 +658,6 @@ tr:
         edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
-        metrics: Metrik
         pages: Sayfalar
         panel: Yönetici
         participants: Kullanıcılar

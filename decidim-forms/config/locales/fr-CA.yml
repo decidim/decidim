@@ -1,40 +1,47 @@
 fr-CA:
   activemodel:
     attributes:
-      answer:
-        body: Répondre
-        choices: Choix
-        selected_choices: Choix sélectionnés
       question:
         max_choices: Nombre maximum de choix
         question_type: Type
       questionnaire_question:
         mandatory: Obligatoire
         max_characters: Limite de caractères (laisser à 0 si aucune limite)
+      response:
+        body: Réponse
+        choices: Choix
+        selected_choices: Choix sélectionnés
     errors:
       models:
-        answer:
+        questionnaire:
+          request_invalid: Une erreur s'est produite lors du traitement de la requête. Veuillez essayer à nouveau.
+        response:
           attributes:
             add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+              needs_to_be_reattached: Doit être ré-attaché
             body:
               too_long: est trop long
             choices:
               missing: ne sont pas complets
               too_many: Vous pouvez choisir un maximum de %{count}.
-        questionnaire:
-          request_invalid: Une erreur s'est produite lors du traitement de la requête. Veuillez essayer à nouveau.
   decidim:
     download_your_data:
+      help:
+        responses:
+          id: L'identifiant unique de la réponse
+          question: La question à laquelle on a répondu
+          questionnaire: Le questionnaire auquel on a répondu
+          response: La réponse à la question
+          user: L'utilisateur qui a répondu au questionnaire
       show:
-        answers: Export des réponses
-        survey_user_answers: Réponses à l'enquête
+        responses: Export des réponses
+        survey_user_responses: Réponses de l'utilisateur à l'enquête
     forms:
       admin:
         models:
           components:
-            allow_answers: Autoriser les réponses
-            allow_editing_answers: Autoriser les utilisateurs enregistrés à modifier leurs propres réponses à l'enquête
+            allow_editing_responses: Autoriser les utilisateurs enregistrés à modifier leurs propres réponses à l'enquête
+            allow_responses: Autoriser les réponses
             allow_unregistered: Autoriser les utilisateurs non enregistrés à répondre à l'enquête
             announcement: Annonce
             clean_after_publish: Supprimer les réponses lors de la publication de l’enquête
@@ -47,48 +54,26 @@ fr-CA:
         questionnaires:
           actions:
             back: Retour aux questions
-            publish_answers: Publier les réponses
+            publish_responses: Publier les réponses
             show: Réponses
-          answer_option:
-            answer_option: Option de réponse
-            free_text: Texte libre
-            remove: Retirer
-            statement: Déclaration
-          answers:
-            actions:
-              back: Retour aux réponses
-              export: Exporter
-              next: Suivant &rsaquo;
-              previous: "&lsaquo; Précédent"
-              show: Afficher les réponses
-            empty: Pas encore de réponses
-            export:
-              answer:
-                title: 'Réponse n°%{number}'
-            export_response:
-              title: réponses_utilisateur_sondage_%{token}
-            index:
-              title: "%{total} réponses totales"
-            show:
-              title: 'Réponse n°%{number}'
           display_condition:
-            answer_option: Option de réponse
             condition_question: Question
             condition_type: Condition
             condition_types:
-              answered: Répondu
               equal: Égale
               match: Inclus le texte
-              not_answered: Pas de réponse
               not_equal: Pas égal à
+              not_responded: Non répondu
+              responded: Répondu
             condition_value: Texte inclus
             display_condition: Condition d'affichage
             mandatory: Cette condition doit toujours être satisfaite indépendamment du statut des autres conditions
             remove: Retirer
+            response_option: Option de réponse
             save_warning: N'oubliez pas d'enregistrer le formulaire avant de configurer les conditions d'affichage
-            select_answer_option: Sélectionnez l'option de réponse
             select_condition_question: Sélectionnez une question
             select_condition_type: Sélectionnez un type de condition
+            select_response_option: Sélectionnez l'option de réponse
           edit:
             save: sauvegarder
             title: Modifier le questionnaire
@@ -109,10 +94,10 @@ fr-CA:
             remove: Retirer
             statement: Déclaration
           question:
-            add_answer_option: Ajouter une option de réponse
             add_display_condition: Ajouter une condition d'affichage
             add_display_condition_info: Enregistrer le formulaire pour configurer les conditions d'affichage
             add_matrix_row: Ajouter une ligne
+            add_response_option: Ajouter une option de réponse
             any: Tout
             collapse: Réduire
             description: Description
@@ -123,12 +108,32 @@ fr-CA:
             statement: Déclaration
             up: Monter
           questions_form:
-            already_answered_warning: Certains utilisateurs ont déjà répondu au formulaire, vous ne pouvez donc pas modifier ses questions.
+            already_responded_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Replier toutes les questions
             expand: Déplier toutes les questions
             unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
             update:
               success: Les questions de l'enquête ont été sauvegardées avec succès.
+          response_option:
+            free_text: Texte libre
+            remove: Retirer
+            response_option: Option de réponse
+            statement: Déclaration
+          responses:
+            actions:
+              back: Retour aux réponses
+              export: Exporter
+              next: Suivant &rsaquo;
+              previous: "&lsaquo; Précédent"
+              show: Afficher les réponses
+            empty: Pas encore de réponse
+            export:
+              response:
+                title: 'Réponse #%{number}'
+            index:
+              title: "%{total} réponses au total"
+            show:
+              title: 'Réponse #%{number}'
           separator:
             down: Bas
             remove: Retirer
@@ -148,13 +153,13 @@ fr-CA:
             success: Le formulaire a bien été sauvegardé.
       admin_log:
         question:
-          publish_answers: "%{user_name} a publié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
-          unpublish_answers: "%{user_name} a dépublié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
+          publish_responses: "%{user_name} a publié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
+          unpublish_responses: "%{user_name} a dépublié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
         questionnaire:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
-        answer:
-          body: ne peut être vide
+        response:
+          body: Le corps ne peut pas être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -162,39 +167,25 @@ fr-CA:
           resize_to_fit: Cette image sera redimensionnée pour s'adapter à %{dimensions}.
       question_types:
         files: Fichiers
-        long_answer: Longue réponse
+        long_response: Réponse longue
         matrix_multiple: Matrice (choix multiples)
         matrix_single: Matrice (choix unique)
         multiple_option: Option multiple
-        short_answer: Réponse courte
+        short_response: Réponse courte
         single_option: Option unique
         sorting: Tri
         title_and_description: Titre et description
-      questionnaire_answer_presenter:
+      questionnaire_response_presenter:
         download_attachment: Télécharger la pièce jointe
       questionnaires:
-        answer:
-          invalid: Il y a eu des erreurs en répondant au questionnaire.
-          max_choices_alert: Il y a trop de choix sélectionnés
-          success: Questionnaire répondu avec succès.
         question:
           max_choices: 'Choix maximum: %{n}'
+        response:
+          max_choices_alert: Il y a trop de choix sélectionnés
         show:
-          answer_questionnaire:
-            already_have_an_account?: Vous avez déjà un compte ?
-            are_you_new?: Nouvel utilisateur ?
-            sign_in_description: Connectez-vous pour répondre à l'enquête
-            sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
-            title: Répondez au questionnaire
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.
           of_total_steps: de %{total_steps}
-          questionnaire_answered:
-            body: Vous avez déjà répondu à ce questionnaire.
-            title: Déjà répondu
-          questionnaire_answered_edit:
-            body: Vous avez déjà répondu à ce formulaire. %{link}
-            edit: Modifier vos réponses
           questionnaire_closed:
             body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
             title: Questionnaire fermé
@@ -206,23 +197,35 @@ fr-CA:
             title: JavaScript est désactivé
           questionnaire_not_published:
             body: Ce formulaire n'est pas encore publié.
+          questionnaire_responded:
+            body: Vous avez déjà répondu à ce questionnaire.
+            title: Déjà répondu
+          questionnaire_responded_edit:
+            body: Vous avez déjà répondu à ce questionnaire. %{link}
+            edit: Modifier vos réponses
+          response_questionnaire:
+            already_have_an_account?: Vous avez déjà un compte?
+            are_you_new?: Nouvel utilisateur ?
+            sign_in_description: Connectez-vous pour répondre à l'enquête
+            sign_up_description: Créer un compte utilisateur pour répondre à l'enquête
+            title: Répondre au formulaire
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
       step_navigation:
         show:
           are_you_sure_edit_guest: Si vous voulez pouvoir modifier vos réponses par la suite, vous devez vous connecter ou créer un compte.
-          are_you_sure_no_edit: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr(e) ?
+          are_you_sure_no_edit: Cette action est irréversible et vous ne pourrez pas modifier vos réponses. Vous êtes sûr(e)?
           back: Revenir en arrière
           continue: Continuer
           disallowed: Vous n'êtes pas autorisé(e) à modifier vos réponses.
           submit: Soumettre
-      user_answers_serializer:
-        body: Répondre
-        completion: Achèvement
+      user_responses_serializer:
+        body: Réponse
+        completion: Avancement
         created_at: Répondu le
-        id: ID de réponse
+        id: ID de la réponse
         ip_hash: Hachage IP
         question: Question
         registered: Enregistré
         session_token: Identifiant de l'utilisateur
         unregistered: Non enregistré
-        user_status: Statut de l'utilisateur
+        user_status: Etat de l'utilisateur

@@ -41,7 +41,7 @@ eu:
     accountability:
       actions:
         attachment_collections: Karpetak
-        attachments: Erantsitako artxiboak
+        attachments: Erantsitako fitxategiak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
@@ -328,11 +328,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako, eta proposamen hori "%{resource_title}" emaitzaren barruan dago. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
           email_subject: Eguneraketa bat %{resource_title} bilakaeran
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza, % %{progress}% osatu da.
-    metrics:
-      results:
-        description: Sortutako emaitza kopurua
-        object: emaitzak
-        title: Emaitzak
     open_data:
       help:
         result_comments:

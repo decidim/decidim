@@ -35,7 +35,10 @@ module Decidim
       end
 
       initializer "decidim_comments.stats" do
-        Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
+        Decidim.stats.register :comments_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "chat-1-line",
+                               tooltip_key: "comments_count" do |organization|
           Decidim.component_manifests.sum do |component|
             component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
           end
@@ -54,23 +57,6 @@ module Decidim
         Decidim.icons.register(name: "thumb-down-line", icon: "thumb-down-line", description: "Downvote comment button", **common_parameters)
         Decidim.icons.register(name: "thumb-down-fill", icon: "thumb-down-fill", description: "User downvoted comment", **common_parameters)
         Decidim.icons.register(name: "edit-line", icon: "edit-line", description: "Edit comment button", **common_parameters)
-      end
-
-      initializer "decidim_comments.register_metrics" do
-        Decidim.metrics_registry.register(:comments) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
-            settings.attribute :weight, type: :integer, default: 6
-            settings.attribute :stat_block, type: :string, default: "small"
-          end
-        end
-
-        Decidim.metrics_operation.register(:participants, :comments) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
-        end
       end
 
       initializer "decidim_comments.register_resources" do

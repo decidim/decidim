@@ -236,6 +236,7 @@ ca:
           roles:
             admin: Administradora
             collaborator: Col·laboradora
+            evaluator: Avaluadora
             moderator: Moderadora
         media_link:
           fields:

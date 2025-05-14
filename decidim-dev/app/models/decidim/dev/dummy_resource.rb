@@ -46,10 +46,6 @@ module Decidim
         Decidim::Dev::DummyResourcePresenter.new(self)
       end
 
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
-      end
-
       def reported_attributes
         [:title]
       end

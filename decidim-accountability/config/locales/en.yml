@@ -331,11 +331,6 @@ en:
           email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title} progress
           notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
-    metrics:
-      results:
-        description: Number of results generated
-        object: results
-        title: Results
     open_data:
       help:
         result_comments:
@@ -380,3 +375,4 @@ en:
         result_proposal: Proposals included in this result
     statistics:
       results_count: Results
+      results_count_tooltip: The number of decisions or outcomes generated from this space.

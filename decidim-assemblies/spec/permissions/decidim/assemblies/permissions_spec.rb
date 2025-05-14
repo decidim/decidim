@@ -247,6 +247,22 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
+  context "when uploading editor images" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :editor_image }
+    end
+    let(:context) { { assembly: } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      evaluator: true
+    )
+  end
+
   context "when reading an assembly" do
     let(:action) do
       { scope: :admin, action: :read, subject: :assembly }

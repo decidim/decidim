@@ -131,10 +131,6 @@ module Decidim
         false
       end
 
-      def has_tooltip?
-        false
-      end
-
       def proposals
         return unless Decidim::Meetings.enable_proposal_linking
         return unless meeting

@@ -12,8 +12,8 @@ module Decidim::CollaborativeTexts
     let(:cell_html) { my_cell.call }
     let(:created_at) { 1.month.ago }
     let(:published_at) { Time.current }
-    let(:component) { create(:collaborative_texts_component) }
-    let!(:document) { create(:collaborative_text_document, component:, published_at:) }
+    let(:component) { create(:collaborative_text_component) }
+    let!(:document) { create(:collaborative_text_document, :with_body, component:, published_at:) }
     let(:model) { document }
     let(:user) { create(:user, organization: document.participatory_space.organization) }
 

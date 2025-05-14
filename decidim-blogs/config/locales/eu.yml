@@ -74,7 +74,7 @@ eu:
       posts:
         edit:
           add_attachments: Gehitu eranskinak
-          attachment_legend: Gehitu dokumentu bat edo irudi bat
+          attachment_legend: Gehitu dokumentu edo irudi bat
           back: Itzuli sarrerara
           button: Eguneratu
           edit_attachments: Editatu eranskinak
@@ -115,7 +115,7 @@ eu:
             creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
             define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk partaidetza-espazio honetarako eszenatoki hau erabili aurretik.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            taxonomy_filters: Aukeratu iragazkiak osagairako
+            taxonomy_filters: Aukeratu osagairako filtroak
             taxonomy_filters_add: Erantsi iragazkia
           step:
             announcement: Iragarpena
