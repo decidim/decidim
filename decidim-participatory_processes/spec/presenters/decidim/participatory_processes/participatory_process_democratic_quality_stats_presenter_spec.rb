@@ -60,8 +60,8 @@ module Decidim
                   end
                 end
 
-                it "returns score 2.0" do
-                  expect(subject.stats[:automatic][:influence]).to eq(2.0)
+                it "returns score 2.5" do
+                  expect(subject.stats[:automatic][:influence]).to eq(2.5)
                 end
               end
 
@@ -73,8 +73,8 @@ module Decidim
                   end
                 end
 
-                it "returns score 4.0" do
-                  expect(subject.stats[:automatic][:influence]).to eq(4.0)
+                it "returns score 3.5" do
+                  expect(subject.stats[:automatic][:influence]).to eq(3.5)
                 end
               end
             end
