@@ -249,11 +249,6 @@ ca-IT:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
-        upcoming_meeting:
-          email_intro: En menys de 48 hores començarà la trobada "%{resource_title}".
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
-          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
-          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     forms:
       meetings:
         attendees_count_help_text: No t'oblidis d'afegir el número total d'assistents a la trobada, sigui presencial, en línia o híbrida.
