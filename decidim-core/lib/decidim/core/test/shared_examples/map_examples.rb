@@ -203,8 +203,8 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
     # geocoding should be bypassed in this situation which is why these match
     # what was returned by the front-end geocoding. These values are returned by
     # the dummy test geocoding API defined at
-    # `decidim-dev/lib/decidim/dev/test/rspec_support/geocoder.rb`. Search for
-    # `:serves_geocoding_autocomplete`.
+    # `decidim-dev/lib/decidim/dev/test/map_server.rb`. Search for
+    # `serve_autocomplete`.
     expect(page).to have_content("successfully")
     final = if geocoded_record
               geocoded_model.find(geocoded_record.id)

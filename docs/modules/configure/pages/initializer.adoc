@@ -113,7 +113,7 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 
 == Custom resource reference
 
-Custom resource reference generator method. See the See xref:admin:system.adoc[System panel docs] for more information.
+Custom resource reference generator method. See the See xref:configure:system.adoc[System panel docs] for more information.
 
 [source,ruby]
 ....

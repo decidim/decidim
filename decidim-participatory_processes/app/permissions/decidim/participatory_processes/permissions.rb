@@ -3,8 +3,6 @@
 module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         user_can_enter_processes_space_area?
         user_can_enter_process_groups_space_area?
@@ -135,7 +133,7 @@ module Decidim
         return true unless process.private_space
         return false unless user
 
-        user.admin || process.users.include?(user)
+        user.admin || user_has_any_role?(user, process, broad_check: true) || process.users.include?(user)
       end
 
       # Only organization admins can enter the process groups space area.
@@ -156,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || user_has_any_role?(user, process, broad_check: true) || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
