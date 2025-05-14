@@ -6,7 +6,7 @@ module Decidim
       # A form object used to copy a conferences from the admin
       # dashboard.
       #
-      class ConferenceCopyForm < Form
+      class ConferenceDuplicateForm < Form
         include TranslatableAttributes
 
         translatable_attribute :title, String
