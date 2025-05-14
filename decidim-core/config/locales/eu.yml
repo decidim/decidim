@@ -1885,7 +1885,7 @@ eu:
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_time_zone: ordu-zona ez da baliozkoa
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
-      must_start_with_caps: letra maiuskulaz hasi behar da
+      must_start_with_caps: letra larriz hasi behartu
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Aldez aurretik erregistratu zara?
       not_locked: ez zen blokeatuta
