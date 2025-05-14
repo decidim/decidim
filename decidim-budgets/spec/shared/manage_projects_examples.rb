@@ -14,7 +14,7 @@ shared_examples "manage projects" do
       expect(page).to have_content("Proposals")
     end
 
-    context "when geocoding is enabled", :serves_geocoding_autocomplete do
+    context "when geocoding is enabled" do
       let(:address) { "Some address" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }

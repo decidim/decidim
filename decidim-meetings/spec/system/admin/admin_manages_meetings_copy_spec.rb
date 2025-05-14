@@ -71,14 +71,14 @@ describe "Admin copies meetings" do
     end
   end
 
-  context "when hybrid", serves_geocoding_autocomplete: true, serves_map: true do
+  context "when hybrid" do
     let(:type_of_meeting) { :hybrid }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new hybrid meeting", :serves_geocoding_autocomplete, :slow do
+    it "creates a new hybrid meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_on "Duplicate"
       end
@@ -132,14 +132,14 @@ describe "Admin copies meetings" do
     end
   end
 
-  context "when in person", serves_geocoding_autocomplete: true, serves_map: true do
+  context "when in person" do
     let(:type_of_meeting) { :in_person }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new In person meeting", :serves_geocoding_autocomplete, :slow do
+    it "creates a new In person meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_on "Duplicate"
       end

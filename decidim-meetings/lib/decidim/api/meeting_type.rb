@@ -42,9 +42,14 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title of this meeting.", null: false
       field :transparent, GraphQL::Types::Boolean, "For private meetings, information is public if transparent", null: false
       field :type_of_meeting, GraphQL::Types::String, "The type of the meeting (online or in-person)", null: false
+      field :url, GraphQL::Types::String, "The URL for this meeting", null: false
       field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
       field :withdrawn, GraphQL::Types::Boolean, "Whether this meeting has been withdrawn or not", method: :withdrawn?, null: true
       field :withdrawn_at, Decidim::Core::DateTimeType, description: "The date and time this meeting was withdrawn", null: true
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
 
       def registration_form
         object.questionnaire if object.registration_form_enabled?
