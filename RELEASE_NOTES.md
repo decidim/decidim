@@ -331,6 +331,10 @@ The rhetoric reasoning of this removal is due to extending and improving the set
 
 You can read more about this change on PR [#14453](https://github.com/decidim/decidim/pull/14453).
 
+### 3.8. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
