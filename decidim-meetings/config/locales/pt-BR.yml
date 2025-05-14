@@ -195,11 +195,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" permitiu registos.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
-        upcoming_meeting:
-          email_intro: A reunião "%{resource_title}" começará em menos de 48h.
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
-          email_subject: A reunião "%{resource_title}" começará em menos de 48h.
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     forms:
       meetings:
         attendees_count_help_text: Não se esqueça de incluir o número total de participantes na sua reunião, seja presencial, on-line ou híbrida.
