@@ -58,6 +58,7 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
+
         enforce_permission_to(:read, :meeting, meeting:)
 
         maybe_show_redirect_notice!
