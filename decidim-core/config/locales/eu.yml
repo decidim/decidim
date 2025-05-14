@@ -1247,7 +1247,7 @@ eu:
         body: Testua
         cta_text: Ekintza-botoiaren testua
         cta_url: Ekintza-botoiaren URLa
-        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, gorputzaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez parte-hartzailearen izena agertuko da.'
+        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, tetsuaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez parte-hartzailearen izena agertuko da.'
         introduction: Sarrera
         main_image: Irudi nagusia
     newsletters:
@@ -1423,14 +1423,24 @@ eu:
         confirmation_instructions_sent: Berresteko jarraibideak helbide elektronikoz bidalita.
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Erreportatutako edukia
         details: Xehetasunak
-        hello: Kaixo, %{name},
+        hello: 'Kaixo, %{name}:'
         manage_moderations: Kudeatu moderazioak
-        participatory_space: Partaidetza-espazioa
+        participatory_space: Espazio parte-hartzailea
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
+      hidden_manually:
+        content: Erreportatutako edukia
+        details: Xehetasunak
+        hello: 'Kaixo, %{name}:'
+        manage_moderations: Kudeatu moderazioak
+        participatory_space: Espazio parte-hartzailea
+        reason: Arrazoia
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
+        subject: '%{moderator} -k baliabidea ezkutatu du'
       report:
         authors: Egileak
         content: Erreportatutako edukia
@@ -1448,6 +1458,8 @@ eu:
       create:
         error: Errore bat egon da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+      hide:
+        success: Baliabide hau ezkutatu egin da.
       parent_hidden:
         report_details: Baliabide nagusia ezkutatu egin zen
     resource_endorsements:

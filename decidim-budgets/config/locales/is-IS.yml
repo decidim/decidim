@@ -78,5 +78,7 @@ is:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst
             show_votes: Sýna atkvæði
+    statistics:
+      projects_count: Verkefni
   index:
     confirmed_orders_count: Atkvæðagreiðsla telja

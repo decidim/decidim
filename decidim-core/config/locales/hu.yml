@@ -1264,11 +1264,6 @@ hu:
         confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
     reported_mailer:
-      hide:
-        hello: Helló %{name}!
-        manage_moderations: Moderálódások kezelése
-        report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
-        subject: Egy erőforrás automatikusan elrejtve
       report:
         authors: Szerzők
         content: Jelentett tartalom

@@ -54,7 +54,7 @@ sv:
         target: Vem deltar
         title: Titel
       participatory_process_step:
-        cta_path: Sökväg för knapp
+        cta_path: Knappens länk
         cta_text: Text till knapp
         description: Beskrivning
         end_date: Slutdatum

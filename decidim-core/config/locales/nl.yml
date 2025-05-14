@@ -925,11 +925,6 @@ nl:
           manage_user_group_users: Leden beheren
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
-      hide:
-        hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
-        report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
-        subject: Een bron is automatisch verborgen
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud

@@ -917,11 +917,6 @@ pt:
           manage_user_group_users: Gerir membros
           resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
-      hide:
-        hello: Olá %{name},
-        manage_moderations: Gerir moderações
-        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi ocultado automaticamente
       report:
         authors: Autores
         content: Conteúdo reportado

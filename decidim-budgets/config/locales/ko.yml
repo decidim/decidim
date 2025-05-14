@@ -64,3 +64,5 @@ ko:
         settings:
           global:
             scope_id: 범위
+    statistics:
+      projects_count: 프로젝트

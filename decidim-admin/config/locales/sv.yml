@@ -48,8 +48,8 @@ sv:
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
         comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-        cta_button_path: Uppmaningens knappsökväg
-        cta_button_text: Uppmaningens knapptext
+        cta_button_path: Knappens länk
+        cta_button_text: Text på knapp
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning

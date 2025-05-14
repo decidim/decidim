@@ -1384,11 +1384,6 @@ bg:
         confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
         fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
     reported_mailer:
-      hide:
-        hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
       report:
         authors: Автори
         content: Докладвано съдържание

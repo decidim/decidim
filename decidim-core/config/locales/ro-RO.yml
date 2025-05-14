@@ -1286,15 +1286,6 @@ ro:
           message: Mesaj
           resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
     reported_mailer:
-      hide:
-        content: Conținut raportat
-        details: Detalii
-        hello: Bună ziua %{name},
-        manage_moderations: Gestionați moderările
-        participatory_space: Spaţiu participativ
-        reason: Motiv
-        report_html: <p>Următorul <a href="%{url}">conținut</a> a fost ascuns automat.</p>
-        subject: O resursă a fost ascunsă automat
       report:
         authors: Autori
         content: Conținut raportat

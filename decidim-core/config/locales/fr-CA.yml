@@ -1425,15 +1425,24 @@ fr-CA:
         confirmation_instructions_sent: Instructions de confirmation d'email envoyées.
         fill_in_email_to_confirm_it: Veuillez compléter le mail de votre groupe pour confirmer celui-ci.
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenu signalé
         details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
         reason: Motif
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
+      hidden_manually:
+        content: Contenu signalé
+        details: Détails
+        hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée par %{moderator}
       report:
         authors: Auteurs
         content: Contenu signalé
@@ -1451,6 +1460,8 @@ fr-CA:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      hide:
+        success: Cette ressource a été masquée.
       parent_hidden:
         report_details: La ressource parente a été masquée
     resource_endorsements:

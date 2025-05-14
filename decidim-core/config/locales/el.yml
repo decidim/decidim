@@ -1082,11 +1082,6 @@ el:
         confirmation_instructions_sent: Στάλθηκαν οι οδηγίες επιβεβαίωσης email.
         fill_in_email_to_confirm_it: Συμπληρώστε τη διεύθυνση email της ομάδας σας για να την επιβεβαιώσετε.
     reported_mailer:
-      hide:
-        hello: Γεια σας %{name},
-        manage_moderations: Διαχείριση εποπτεύσεων
-        report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αποκρύφτηκε αυτόματα.</p>
-        subject: Ένας πόρος αποκρύφτηκε αυτόματα
       report:
         authors: Συγγραφείς
         content: Αναφερόμενο περιεχόμενο
