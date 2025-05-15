@@ -3,24 +3,27 @@
   <h1 class="item_show__header-title">
     <%= t("title", scope: "decidim.meetings.admin.registrations_attendees.index") %>
     <div class="flex items-center gap-x-4 ml-auto">
-      <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
+      <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__transparent-secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
       <% if allowed_to? :export_registrations, :meeting, meeting: meeting %>
-            <span class="exports button button__sm button__secondary button--title" data-toggle="export-dropdown">
-              <%= t "actions.export", scope: "decidim.admin" %>
-              <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-            </span>
-        <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
-          <ul class="vertical menu add-components">
+        <div class="relative">
+          <span class="exports button button__sm button__transparent-secondary button--title" data-component="dropdown" data-target="export-dropdown">
+            <%= t "actions.export", scope: "decidim.admin" %>
+            <%= icon "arrow-down-s-line" %>
+            <%= icon "arrow-down-s-line" %>
+          </span>
+          <ul class="dropdown dropdown__bottom" id="export-dropdown" aria-hidden="true">
             <% %w(CSV JSON Excel).each do |format| %>
-              <%= link_to export_meeting_registrations_path(meeting_id: meeting, format:) do %>
-                <li class="exports--format--<%= format.downcase %> exports--registrations"><%= t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format) %></li>
-              <% end %>
+              <li>
+                <%= link_to export_meeting_registrations_path(meeting_id: meeting, format:), class: "dropdown__item" do %>
+                  <%= t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format) %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
       <% end %>
-      <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
-      <%= link_to t("manage_questions" , scope: "decidim.meetings.admin.registrations.form"), edit_questions_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
+      <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__transparent-secondary" %>
+      <%= link_to t("manage_questions" , scope: "decidim.meetings.admin.registrations.form"), edit_questions_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__transparent-secondary" %>
     </div>
   </h1>
 </div>
@@ -45,7 +48,7 @@
                   <%= f.text_field :code, label: false %>
                 </div>
                 <div class="row column">
-                  <%= f.submit t(".validate"), class: "button button__sm button__secondary" %>
+                  <%= f.submit t(".validate"), class: "button button__sm button__transparent-secondary" %>
                 </div>
               </div>
             </div>
