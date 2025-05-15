@@ -3,26 +3,27 @@
   <h1 class="item_show__header-title">
     <%= import_manifest.message(:title, self) %>
 
-    <div id="js-other-actions-wrapper">
+    <div class="flex align-middle gap-x-4 ml-auto">
       <% if import_manifest.has_example? %>
-        <span class="imports-example button button__sm button__secondary mr-2" data-toggle="example-dropdown">
-          <%= t(".download_example") %>
-          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-        </span>
-        <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
-          <ul class="vertical menu add-components">
+        <div class="relative">
+          <a class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="example-dropdown">
+            <%= t(".download_example") %>
+            <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+            <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+          </a>
+          <ul class="dropdown dropdown__component" id="example-dropdown" aria-hidden="true">
             <% mime_types.each do |format, name| %>
-              <%= link_to admin_imports_example_path(@current_component, name: import_manifest.name, format:) do %>
-                <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
+              <li>
+                <%= link_to admin_imports_example_path(@current_component, name: import_manifest.name, format:), class: "dropdown__item" do %>
                   <%= t(".download_example_format", name:) %>
-                </li>
-              <% end %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
       <% end %>
 
-      <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary hollow button--simple" %>
+      <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary" %>
     </div>
   </h1>
 </div>
