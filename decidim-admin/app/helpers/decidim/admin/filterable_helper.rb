@@ -83,7 +83,7 @@ module Decidim
       end
 
       def extract_html_value(html_string)
-        Nokogiri::HTML.fragment(html_string).at('a').text
+        Nokogiri::HTML.fragment(html_string).at("a").text
       end
 
       def filter_link_label(filter, i18n_scope)
