@@ -1,63 +1,59 @@
-<div id="js-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper" class="relative">
   <button
     id="js-bulk-actions-button"
     class="button button__sm button__transparent-secondary"
     type="button"
-    data-toggle="js-bulk-actions-dropdown">
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown">
     <%= t("decidim.proposals.admin.proposals.index.actions") %>
-    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
   </button>
 
-  <div
+  <ul
     id="js-bulk-actions-dropdown"
-    class="dropdown-pane dropdown-pane--buttons"
-    data-position="bottom"
-    data-alignment="right"
-    data-dropdown="dropdown"
-    data-auto-focus="false"
-    data-events="resize">
-    <ul>
-      <% if current_component_taxonomy_filters&.any? %>
-        <li>
-          <button type="button" data-action="taxonomy-change-proposals">
-            <%= t("decidim.proposals.admin.proposals.index.change_taxonomies") %>
-          </button>
-        </li>
-      <% end %>
+    class="dropdown dropdown__bottom"
+    aria-hidden="true"
+    <% if current_component_taxonomy_filters&.any? %>
       <li>
-        <button type="button" data-action="merge-proposals" data-merge-dialog="merge-proposals_drawer" data-merge-url="<%= new_proposals_merge_path %>">
-          <%= t("decidim.proposals.admin.proposals.index.merge") %>
+        <button type="button" data-action="taxonomy-change-proposals" class="dropdown__item">
+          <%= t("decidim.proposals.admin.proposals.index.change_taxonomies") %>
         </button>
       </li>
+    <% end %>
+    <li>
+      <button type="button" data-action="merge-proposals" data-merge-dialog="merge-proposals_drawer" data-merge-url="<%= new_proposals_merge_path %>" class="dropdown__item">
+        <%= t("decidim.proposals.admin.proposals.index.merge") %>
+      </button>
+    </li>
+    <li>
+      <button type="button" data-action="split-proposals" class="dropdown__item">
+        <%= t("decidim.proposals.admin.proposals.index.split") %>
+      </button>
+    </li>
+    <li>
+      <button type="button" data-action="assign-proposals-to-evaluator" class="dropdown__item">
+        <%= t("decidim.proposals.admin.proposals.index.assign_to_evaluator") %>
+      </button>
+    </li>
+    <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: current_user %>
       <li>
-        <button type="button" data-action="split-proposals">
-          <%= t("decidim.proposals.admin.proposals.index.split") %>
+        <button type="button" data-action="unassign-proposals-from-evaluator" class="dropdown__item">
+          <%= t("decidim.proposals.admin.proposals.index.unassign_from_evaluator") %>
         </button>
       </li>
+    <% end %>
+    <% if templates_available? %>
       <li>
-        <button type="button" data-action="assign-proposals-to-evaluator">
-          <%= t("decidim.proposals.admin.proposals.index.assign_to_evaluator") %>
+        <button type="button" data-action="apply-answer-template" class="dropdown__item">
+          <%= t("decidim.proposals.admin.proposals.index.apply_answer_template") %>
         </button>
       </li>
-      <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: current_user %>
-        <li>
-          <button type="button" data-action="unassign-proposals-from-evaluator">
-            <%= t("decidim.proposals.admin.proposals.index.unassign_from_evaluator") %>
-          </button>
-        </li>
-      <% end %>
-      <% if templates_available? %>
-        <li>
-          <button type="button" data-action="apply-answer-template">
-            <%= t("decidim.proposals.admin.proposals.index.apply_answer_template") %>
-          </button>
-        </li>
-      <% end %>
-      <li>
-        <button type="button" data-action="publish-answers">
-          <%= t("decidim.proposals.admin.proposals.index.publish_answers") %>
-        </button>
-      </li>
-    </ul>
-  </div>
+    <% end %>
+    <li>
+      <button type="button" data-action="publish-answers" class="dropdown__item">
+        <%= t("decidim.proposals.admin.proposals.index.publish_answers") %>
+      </button>
+    </li>
+  </ul>
 </div>
