@@ -1,40 +1,36 @@
-<div id="js-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper" class="relative">
   <button
     id="js-bulk-actions-button"
     class="button button__sm button__transparent-secondary hide"
     type="button"
-    data-toggle="js-bulk-actions-dropdown"
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown"
     data-action-button>
     <%= t(".actions") %>
-    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
   </button>
 
-  <div
+  <ul
     id="js-bulk-actions-dropdown"
-    class="dropdown-pane dropdown-pane--buttons"
-    data-position="bottom"
-    data-alignment="right"
-    data-dropdown="dropdown"
-    data-auto-focus="false"
-    data-events="resize">
-    <ul>
-      <% if current_component_taxonomy_filters&.any? %>
-        <li>
-          <button type="button" data-action="change-taxonomies">
-            <%= t(".change_taxonomies") %>
-          </button>
-        </li>
-      <% end %>
+    class="dropdown dropdown__bottom"
+    aria-hidden="true">
+    <% if current_component_taxonomy_filters&.any? %>
       <li>
-        <button type="button" data-action="change-dates">
-          <%= t(".change_dates") %>
+        <button type="button" data-action="change-taxonomies" class="dropdown__item">
+          <%= t(".change_taxonomies") %>
         </button>
       </li>
-      <li>
-        <button type="button" data-action="change-status">
-          <%= t(".change_status") %>
-        </button>
-      </li>
-    </ul>
-  </div>
+    <% end %>
+    <li>
+      <button type="button" data-action="change-dates" class="dropdown__item">
+        <%= t(".change_dates") %>
+      </button>
+    </li>
+    <li>
+      <button type="button" data-action="change-status" class="dropdown__item">
+        <%= t(".change_status") %>
+      </button>
+    </li>
+  </ul>
 </div>

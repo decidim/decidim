@@ -15,18 +15,18 @@
         <%= export_dropdowns(query) %>
         <%= import_dropdown do %>
           <% if allowed_to?(:create, :result) && parent_result.nil? %>
-            <%= link_to new_import_component_path do %>
-              <li class="imports--component imports--results">
+            <li>
+              <%= link_to new_import_component_path, class: "dropdown__item" do %>
                 <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
-              </li>
-            <% end %>
+              <% end %>
+            </li>
           <% end %>
           <% if allowed_to? :create, :result %>
-            <%= link_to import_results_path do %>
-              <li class="imports--component imports--results">
+            <li>
+              <%= link_to import_results_path, class: "dropdown__item" do %>
                 <%= t("actions.import_csv", scope: "decidim.accountability") %>
-              </li>
-            <% end %>
+              <% end %>
+            </li>
           <% end %>
         <% end %>
         <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
