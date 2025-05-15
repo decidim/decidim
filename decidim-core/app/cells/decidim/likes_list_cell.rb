@@ -40,7 +40,7 @@ module Decidim
                            end + [present(current_user)]
                          else
                            base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.author) }
-                             end
+                         end
     end
 
     def full_likes
