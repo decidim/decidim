@@ -92,7 +92,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :likeable, "decidim/likeable"
+  autoload :Likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
