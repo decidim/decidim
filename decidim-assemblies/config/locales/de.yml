@@ -430,6 +430,7 @@ de:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
+      assemblies_count_tooltip: Die Anzahl der öffentlichen Gremien, in denen kollektive Entscheidungen getroffen werden.
   layouts:
     decidim:
       assemblies:

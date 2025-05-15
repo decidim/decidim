@@ -35,6 +35,12 @@ module Decidim
       field :withdrawn, GraphQL::Types::Boolean, "Whether this proposal has been withdrawn or not", method: :withdrawn?, null: true
       field :withdrawn_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was withdrawn", null: true
 
+      field :url, GraphQL::Types::String, "The URL for this proposal", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
+
       def coordinates
         [object.latitude, object.longitude]
       end

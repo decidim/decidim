@@ -289,6 +289,5 @@ el:
         project_proposal: Προτάσεις που περιλαμβάνονται στο παρόν έργο
     statistics:
       orders_count: Υποστηρίξεις
-      projects_count: Έργα
   index:
     confirmed_orders_count: Πλήθος ψήφων

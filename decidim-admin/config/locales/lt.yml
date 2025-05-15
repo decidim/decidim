@@ -911,7 +911,6 @@ lt:
         participants: Dalyviai
         scope_types: Apimties tipai
         scopes: Apimtys
-        statistics: Veikla
         users: Administratoriai
       users:
         create:

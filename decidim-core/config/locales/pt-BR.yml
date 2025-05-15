@@ -1074,8 +1074,6 @@ pt-BR:
           participate: Participar
           participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
-        statistics:
-          headline: Estado atual de %{organization}
         sub_hero:
           register: Registrar-se
           register_title: Criar uma conta
@@ -1119,11 +1117,6 @@ pt-BR:
           message: Mensagem
           resend_email_confirmation_instructions: Reenviar instruções de confirmação
     reported_mailer:
-      hide:
-        hello: Olá %{name},
-        manage_moderations: Gerenciar moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi escondido automaticamente
       report:
         authors: Autores
         content: Conteúdo denunciado

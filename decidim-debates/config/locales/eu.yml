@@ -275,3 +275,4 @@ eu:
           url: Eztabaida hau URL honetan aurki daiteke
     statistics:
       debates_count: Eztabaidak
+      debates_count_tooltip: Zenbat eztabaida izan diren.

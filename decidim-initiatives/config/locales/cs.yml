@@ -34,6 +34,7 @@ cs:
         comments_enabled: Povolit komentáře
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
+        document_number_authorization_handler: Pracovní postup podpisu
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
@@ -326,6 +327,7 @@ cs:
             child_scope_threshold_enabled_help_html: 'Tento příznak konfigurace nepodporuje offline hlasování. Umožňuje podřazené rozsahy a pracuje s autorizačním handlerem, který přiřazuje rozsah k uživateli. Ujistěte se, že jste zvolili toto autorizaci, níže v nastavení autorizace. Aby fungoval, je třeba nastavit rozsahy hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete v <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">administrátorské dokumentaci</a>.'
             only_global_scope_enabled_help_html: Zaškrtněte tento příznak, pokud jste povolili "Podřazený rozsah" a nakonfigurovali globální rozsah jako váš nadřazený rozsah. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak funguje tato konfigurace, naleznete v tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
+            signature_workflow_settings: Nastavení pracovního postupu podpisu
           initiative_type_scopes:
             title: Oblasti působnosti pro tento druh iniciativ
           new:
@@ -489,10 +491,15 @@ cs:
                   non_binary: Nebinární
                   woman: Žena
         fill_personal_data:
+          continue: Ověřit vaše data
           help: Chcete-li iniciativu podepsat, vyplňte své osobní údaje do následujících polí.
+          invalid_authorization: Poskytnutá data k provedení akce nejsou kompatibilní s vašimi existujícími autorizacemi nebo musíte vytvořit udělenou autorizaci.
+          invalid_data: Některé osobní údaje poskytnuté k ověření Vaší totožnosti nejsou platné.
         finish:
           back_to_initiative: Zpět na iniciativu
+          title: Podepsali jste iniciativu
         sms_phone_number:
+          confirmed_data: Potvrdili jste svá data.
           continue: Podepsat iniciativu
           help_enter_your_number: Zadejte své telefonní číslo. Poté obdržíte SMS s ověřovacím kódem.
           receive_code: Přijmout kód
@@ -502,6 +509,7 @@ cs:
           your_confirmation_code: Váš potvrzovací kód
       initiative_votes:
         create:
+          already_voted: Váš podpis byl již zaregistrován s vašimi daty.
           error: Při podpisu iniciativy došlo k chybám.
           invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné.
           success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla úspěšně podepsána.
@@ -641,6 +649,19 @@ cs:
           open: Otevřeno
           rejected: Nedostatek podpisů
           validating: Technické ověření
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Podpis, který přijímá osobní údaje od uživatele, potvrzuje autorizaci a kontroluje SMS kód
+            name: Zpracovatel podpisu
+          dummy_signature_with_personal_data_handler:
+            description: Podpis, který od uživatele přijímá pouze osobní údaje a potvrzuje je
+            name: Zpracovatel podpisu s osobními údaji
+          dummy_signature_with_sms_handler:
+            description: Podpis, který ověřuje pouze telefonní číslo, které vyhledává existující autorizaci a kontroluje SMS kód
+            name: Zpracovatel podpisu pouze s SMS
+          legacy_signature_handler:
+            name: Zastaralý zpracovatel podpisu
       states:
         accepted: Přijato
         expired: Platnost vypršela
@@ -694,6 +715,8 @@ cs:
         finish: Technické ověření
         promotal_committee: Hledat propagátory
         select_initiative_type: Vybrat
+      initiative_signature_creation_header:
+        verify_your_identity: Ověřte svou identitu
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Zatím žádné iniciativy!

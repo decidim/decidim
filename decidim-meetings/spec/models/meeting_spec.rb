@@ -467,9 +467,9 @@ module Decidim::Meetings
         expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
       end
 
-      context "when proposal linking is disabled" do
+      context "when the proposal module is not installed" do
         before do
-          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+          allow(Decidim).to receive(:module_installed?).and_return(false)
         end
 
         it "returns an empty array and does not call authored_proposals" do

@@ -40,9 +40,6 @@ fi:
           update_settings:
             invalid: Asiakirjan päivittäminen epäonnistui.
             success: Asiakirjan päivittäminen onnistui.
-        settings:
-          form:
-            allow_suggestions: Salli osallistujille muutosten esittäminen
       documents:
         index:
           count:

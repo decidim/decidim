@@ -572,7 +572,6 @@ sk:
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
-        statistics: Aktivita
       users:
         create:
           error: Pri pozývaní administrátora nastal problém.

@@ -50,9 +50,6 @@ sv:
           update_settings:
             invalid: Det gick inte att uppdatera dokumentet.
             success: Dokumentet har uppdaterats.
-        settings:
-          form:
-            allow_suggestions: Tillåt deltagare att komma med förslag
       admin_log:
         document:
           create: "%{user_name} Skapade samarbetsprojektet %{resource_name} i %{space_name}"
@@ -67,8 +64,6 @@ sv:
           update: "%{user_name} Uppdaterade samarbetsprojektets version %{resource_name} i %{space_name}"
       document:
         cancel: Avbryt
-        save: Lämna förslag
-        suggest: Föreslå ändringar
       documents:
         index:
           count:
@@ -91,3 +86,4 @@ sv:
             announcement: Meddelande
     statistics:
       collaborative_texts_count: Kollaborativa texter
+      collaborative_texts_count_tooltip: Antal gemensamma texter

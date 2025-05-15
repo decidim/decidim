@@ -762,7 +762,6 @@ pt:
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        statistics: Atividade
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).
