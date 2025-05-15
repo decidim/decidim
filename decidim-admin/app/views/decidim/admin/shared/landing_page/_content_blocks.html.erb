@@ -1,22 +1,24 @@
 <% add_decidim_page_title(t("edit_landing_page", scope: "decidim.admin.titles")) %>
+
 <div class="card edit_content_blocks">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= content_blocks_title %>
 
-      <div>
+      <div class="relative">
         <button class="button button__sm button__secondary" data-component="dropdown" data-target="add-content-block-dropdown">
           <%= add_content_block_text %>
           <%= icon "arrow-down-s-line", class: "!fill-white" %>
           <%= icon "arrow-down-s-line", class: "!fill-white" %>
         </button>
+
         <ul class="dropdown" id="add-content-block-dropdown" aria-hidden="true">
           <% available_manifests.each do |manifest| %>
             <li>
               <%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), method: :post, class: "dropdown__item" %>
-              </li>
+            </li>
           <% end %>
-        </div>
+        </ul>
       </div>
     </h1>
   </div>
