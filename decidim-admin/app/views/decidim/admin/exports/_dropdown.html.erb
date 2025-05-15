@@ -1,20 +1,23 @@
-<a class="button button__xs button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= dropdown_id(filters) %>">
-  <% if filters.present? %>
-    <%= t("actions.export-selection", scope: "decidim.admin") %>
-  <% else %>
-    <%= t("actions.export", scope: "decidim.admin") %>
-  <% end %>
-  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-</a>
-<ul id="dropdown-exports-<%= dropdown_id(filters) %>" class="dropdown mt-10" aria-hidden="true">
-  <% component.manifest.export_manifests.each do |manifest| %>
-    <% manifest.formats.each do |format| %>
-      <%= link_to exports_path(component, id: manifest.name, format:, resource_id:, filters:), class: "dropdown__item", method: :post do %>
-        <li>
-          <%= t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")) %>
-        </li>
-        <% end %>
+<div class="relative">
+  <% menu_id = "top-#{SecureRandom.uuid}" %>
+  <a class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(filters) %>">
+    <% if filters.present? %>
+      <%= t("actions.export-selection", scope: "decidim.admin") %>
+    <% else %>
+      <%= t("actions.export", scope: "decidim.admin") %>
     <% end %>
-  <% end %>
-</ul>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
+  </a>
+  <ul id="dropdown-exports-<%= menu_id %>-<%= dropdown_id(filters) %>" class="dropdown dropdown__bottom" aria-hidden="true">
+    <% component.manifest.export_manifests.each do |manifest| %>
+      <% manifest.formats.each do |format| %>
+        <%= link_to exports_path(component, id: manifest.name, format:, resource_id:, filters:), class: "dropdown__item", method: :post do %>
+          <li>
+            <%= t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")) %>
+          </li>
+          <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
