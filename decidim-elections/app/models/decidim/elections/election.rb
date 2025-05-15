@@ -24,7 +24,7 @@ module Decidim
 
       validates :title, presence: true
 
-      scope :published, -> { where(published_at: ..Time.current) }
+      scope :published, -> { where.not(published_at: nil) }
 
       enum results_availability: [:real_time, :questions_by_questions, :after_end].index_with(&:to_s), _prefix: true
 

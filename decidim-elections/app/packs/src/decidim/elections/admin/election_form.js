@@ -1,19 +1,17 @@
-$(() => {
-  const $manualStart = $("#election_manual_start");
-  const $datepickerRow = $(".election_start_time");
+document.addEventListener("DOMContentLoaded", () => {
+  const manualStart = document.getElementById("election_manual_start");
+  const datepickerRow = document.querySelector(".election_start_time");
 
-  if ($manualStart.length === 0 || $datepickerRow.length === 0) {
-    return;
-  }
+  if (!manualStart || !datepickerRow) return;
 
   const toggleVisibility = () => {
-    if ($manualStart.is(":checked")) {
-      $datepickerRow.hide();
+    if (manualStart.checked) {
+      datepickerRow.style.display = "none";
     } else {
-      $datepickerRow.show();
+      datepickerRow.style.display = "";
     }
   };
 
-  $manualStart.on("change", toggleVisibility);
+  manualStart.addEventListener("change", toggleVisibility);
   toggleVisibility();
 });

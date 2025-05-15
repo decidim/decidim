@@ -22,7 +22,7 @@ module Decidim
       def create_component!
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name,
-          published_at: Time.current,
+          published_at: nil,
           manifest_name: :elections,
           participatory_space:
         }

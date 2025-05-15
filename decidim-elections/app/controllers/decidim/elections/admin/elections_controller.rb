@@ -117,7 +117,7 @@ module Decidim
         end
 
         def election
-          @election ||= Election.find_by(component: current_component, id: params[:id])
+          @election ||= elections.find(params[:id])
         end
       end
     end

@@ -18,8 +18,6 @@ module Decidim
               .not_hidden
               .where(component: current_component)
               .order(start_at: :desc)
-              .page(params[:page])
-              .per(15)
           end
         end
       end
