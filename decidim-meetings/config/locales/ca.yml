@@ -249,6 +249,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
+        upcoming_meeting:
+          default_body: La trobada "%{meeting_title}" començarà en menys de {{before_hours}}h.
+          email_intro: La trobada "%{meeting_title}" començarà en menys de %{reminders_before_hours}h.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: La trobada "%{resource_title}" començarà en menys de %{reminders_before_hours}h.
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: No t'oblidis d'afegir el número total d'assistents a la trobada, sigui presencial, en línia o híbrida.
@@ -388,6 +394,13 @@ ca:
           publish:
             invalid: S'ha produït un error en publicar la trobada.
             success: La trobada s'ha publicat correctament.
+          reminders:
+            reminder_enabled: Enviar un recordatori per aquesta trobada
+            reminder_message: Contingut del correu electrònic recordatori
+            reminder_message_help_text: Personalitza el missatge com necessitis. Fes servir {{meeting_title}} per mostrar el títol de la trobada.
+            send_reminder: Correu electrònic de recordatori programat
+            send_reminder_help_text: Temps en hores per al recordatori abans de la trobada.
+            title: Recordatoris
           service:
             description: Descripció
             down: Baixar
