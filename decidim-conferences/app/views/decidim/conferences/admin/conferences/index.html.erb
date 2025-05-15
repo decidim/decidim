@@ -12,16 +12,16 @@
       </tbody>
     </table>
   </div>
-  <div class="card mt-4">
   <% if allowed_to? :read, :conference, trashable_deleted_resource: @conferences, user: :collaborator %>
-    <%= link_to manage_trash_conferences_path, class: "flex items-center underline text-secondary" do %>
-      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
-      <%= t("decidim.admin.actions.view_deleted_conferences") %>
-      <span class="ml-2">
-        <%= icon_with_tooltip("information-line", t("decidim.admin.tooltips.deleted_conferences_info")) %>
-      </span>
-    <% end %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_conferences_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("decidim.admin.actions.view_deleted_conferences") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("decidim.admin.tooltips.deleted_conferences_info")) %>
+        </span>
+      <% end %>
+    </div>
   <% end %>
-  </div>
   <%= decidim_paginate @conferences %>
 </div>

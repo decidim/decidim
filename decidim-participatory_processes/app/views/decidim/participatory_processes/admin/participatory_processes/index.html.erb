@@ -16,8 +16,8 @@
     </tbody>
   </table>
 </div>
-<div class="card mt-4">
-  <% if allowed_to? :read, :process, trashable_deleted_resource: @participatory_processes, user: :collaborator %>
+<% if allowed_to? :read, :process, trashable_deleted_resource: @participatory_processes, user: :collaborator %>
+  <div class="card mt-4">
     <%= link_to manage_trash_participatory_processes_path, class: "flex items-center underline text-secondary" do %>
       <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
       <%= t("actions.view_deleted_processes", scope: "decidim.admin") %>
@@ -25,7 +25,7 @@
         <%= icon_with_tooltip("information-line", t("tooltips.deleted_processes_info", scope: "decidim.admin")) %>
       </span>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= decidim_paginate @participatory_processes %>
