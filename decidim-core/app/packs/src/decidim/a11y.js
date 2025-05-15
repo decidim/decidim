@@ -49,6 +49,41 @@ const createAccordion = (component) => {
   Accordions.render(component.id, accordionOptions);
 }
 
+/*
+ * Changes the Child Menu dropdown position when there are multiple children Dropdowns.
+ * This is used when there is a tree of dropdowns, such as in the Filters feature with Taxonomies.
+ * It changs the position of the child menu taking into account the width of the parent
+ * (that it is not the same always).
+ */
+const changeChildMenuDropdownPosition = (component) => {
+  const target = component.dataset["target"];
+  const childMenu = document.getElementById(target);
+  const parentMenu = component.parentNode.parentNode;
+
+  const observer = new MutationObserver(() => {
+    if (childMenu.style.display != "none" && parentMenu.offsetWidth != 0) {
+      const positionLeft = parentMenu.offsetWidth - 10;
+
+      childMenu.style.left = `${positionLeft}px`;
+    }
+  });
+
+  observer.observe(childMenu, { attributes: true, childList: true });
+}
+
+/*
+ * Changes the style of the selected element when tehre are children Dropdowns
+ */
+const changeStyleOfSelectedElement = (component) => {
+  component.addEventListener("click", function(event){
+    this.parentNode.parentNode.querySelectorAll("a").forEach(link => {
+      link.style.fontWeight = "normal";
+    })
+
+    this.style.fontWeight = 600;
+  })
+}
+
 /**
  * Create dropdown from a component
  *
@@ -112,6 +147,13 @@ const createDropdown = (component) => {
 
       window.scrollTo({ top: heightToScroll, behavior: "smooth" });
     });
+  }
+
+  // Fixes styles for dropdowns with child dropdowns
+  const hasChildMenu = component.classList.contains("dropdown__item")
+  if (hasChildMenu) {
+    changeChildMenuDropdownPosition(component);
+    changeStyleOfSelectedElement(component);
   }
 
   Dropdowns.render(component.id, dropdownOptions);

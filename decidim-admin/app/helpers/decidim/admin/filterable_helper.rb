@@ -65,7 +65,7 @@ module Decidim
             elsif value.is_a?(Hash)
               child_id = SecureRandom.uuid
               content_tag(:li) do
-                dropdown_link(key, child_id) + dropdown_submenu(value, child_id)
+                dropdown_submenu(value, child_id) + dropdown_link(key, child_id)
               end
             end
           end.join.html_safe
@@ -77,7 +77,7 @@ module Decidim
           safe_join([
                       extract_html_value(key),
                       icon("arrow-right-s-line", class: "fill-secondary"),
-                      icon("arrow-right-s-line", class: "fill-secondary")
+                      icon("arrow-down-s-line", class: "!fill-current !text-secondary")
                     ])
         end
       end
