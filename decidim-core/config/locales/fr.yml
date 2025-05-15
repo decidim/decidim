@@ -1319,7 +1319,7 @@ fr:
           participate_title: Participer aux concertations de la plateforme
           welcome: Bienvenue sur %{organization} !
         statistics:
-          headline: État actuel de %{organization}
+          headline: Statistiques
         sub_hero:
           register: S'inscrire
           register_title: Créer un compte
@@ -1393,15 +1393,24 @@ fr:
         scan: Scannez le code QR
         title: QR Code pour %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenu signalé
         details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
         reason: Motif
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
+      hidden_manually:
+        content: Contenu signalé
+        details: Détails
+        hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée par %{moderator}
       report:
         authors: Auteurs
         content: Contenu signalé
@@ -1419,6 +1428,8 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      hide:
+        success: Cette ressource a été masquée.
       parent_hidden:
         report_details: La ressource parente a été masquée
     resource_autocomplete:
@@ -1522,14 +1533,18 @@ fr:
         share_to: Partager sur %{service}
     statistics:
       comments_count: Commentaires
+      comments_count_tooltip: Le nombre total de commentaires déposés dans cet espace.
       endorsements_count: Soutiens
       followers_count: Abonnés
+      followers_count_tooltip: Le nombre d'utilisateurs qui suivent tout ou partie de cet espace pour rester à jour.
       headline: Statistiques
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participants
+      participants_count_tooltip: Le nombre d'utilisateurs uniques qui ont interagi dans cet espace en soumettant des propositions, en assistant à des réunions, en votant ou en participant à des discussions.
       surveys_count: Enquêtes
       users_count: Participants
+      users_count_tooltip: Le nombre total d'utilisateurs qui se sont inscrits et ont confirmé leur compte par e-mail.
     taxonomies:
       prompt: Veuillez sélectionner une option
     translation_bar:

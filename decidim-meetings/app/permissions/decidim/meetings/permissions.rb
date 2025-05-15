@@ -9,7 +9,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :meeting && permission_action.action == :read
-          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+          toggle_allow(user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)))
           return permission_action
         end
 

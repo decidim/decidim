@@ -1257,7 +1257,6 @@ cs:
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
-        statistics: Aktivita
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         users: Administrátoři

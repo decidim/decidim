@@ -824,6 +824,8 @@ ca:
     statistics:
       attendees_count: Assistents a la reunió
       meetings_count: Trobades
+      meetings_count_tooltip: El nombre de trobades que han tingut lloc, tant si van ser presencials, digitals o mixtes.
+      participatory_space_meetings_count: Trobades
   devise:
     mailer:
       join_meeting:

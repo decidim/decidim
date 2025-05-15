@@ -634,6 +634,7 @@ es-MX:
           url: La URL de la jornada
     statistics:
       conferences_count: Jornadas
+      conferences_count_tooltip: El número de jornadas publicadas.
   devise:
     mailer:
       join_conference:

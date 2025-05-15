@@ -28,6 +28,9 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+    statistics:
+      responses: 'Svar:'
+      surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.
     surveys:
       admin:
         surveys:

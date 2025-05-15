@@ -430,6 +430,7 @@ es-MX:
         related_assemblies: Asambleas relacionadas
     statistics:
       assemblies_count: Asambleas
+      assemblies_count_tooltip: El número de asambleas públicas donde se toman las decisiones colectivas.
   layouts:
     decidim:
       assemblies:

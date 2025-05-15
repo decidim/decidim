@@ -733,8 +733,6 @@ it:
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        statistics:
-          headline: Statistiche su %{organization}
         sub_hero:
           register: Registrati
       index:
@@ -758,11 +756,6 @@ it:
           edit_profile: Modifica Profilo
           resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
-      hide:
-        hello: Ciao %{name},
-        manage_moderations: Gestire le moderazioni
-        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
-        subject: Un contenuto è stato cancellato automaticamente
       report:
         authors: Autori
         content: Contenuto segnalato

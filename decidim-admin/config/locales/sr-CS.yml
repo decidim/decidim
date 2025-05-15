@@ -472,8 +472,6 @@ sr:
         gallery:
           add_images: Dodaj slike
           gallery_legend: Dodaj galeriju slika (opciono)
-      titles:
-        statistics: Aktivnost
       users_statistics:
         users_count:
           last_day: Poslednji dan

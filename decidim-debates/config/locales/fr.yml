@@ -246,3 +246,4 @@ fr:
           updated_at: La date de la dernière mise à jour du débat
     statistics:
       debates_count: Débats
+      debates_count_tooltip: Le nombre de discussions tenues.

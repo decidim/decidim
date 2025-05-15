@@ -11,7 +11,7 @@ module Decidim
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface
-      implements Decidim::Meetings::LinkedResourcesInterface if Decidim::Meetings.enable_proposal_linking
+      implements Decidim::Meetings::LinkedResourcesInterface if Decidim.module_installed?(:proposals)
       implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :address, GraphQL::Types::String, "The physical address of this meeting (used for geolocation)", null: true
