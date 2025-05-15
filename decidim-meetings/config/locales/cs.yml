@@ -49,6 +49,8 @@ cs:
       meeting_registration_invite:
         email: E-mail
         name: Jméno
+      response:
+        add_documents: Přidat dokumenty
       validate_registration_code:
         code: Kód
     errors:
@@ -228,11 +230,22 @@ cs:
         meeting_updated:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" byla aktualizována
+          field_names:
+            address: adresa
+            end_time: čas ukončení
+            location: umístění
+            start_time: čas zahájení
+        meeting_waitlist_added:
+          notification_title: Byli jste přidáni do fronty na schůzku <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen.
           email_outro: Toto oznámení jste obdrželi, protože byl ověřen váš registrační kód pro schůzku "%{resource_title}".
           email_subject: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen
           notification_title: Váš registrační kód "%{registration_code}" pro schůzku <a href="%{resource_path}">%{resource_title}</a> byl ověřen.
+        registration_marked_as_attendee:
+          email_intro: Vaše registrace na schůzku "%{resource_title}" byla označena jako účastník.
+          email_outro: Obdrželi jste toto oznámení, protože vaše registrace na schůzku "%{resource_title}" byla označena jako účastník.
+          email_subject: Vaše registrace na schůzku "%{resource_title}" byla označena jako účastník
         registrations_enabled:
           email_intro: 'Schůzka "%{resource_title}" povolila registrace. Můžete se zaregistrovat na své stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
@@ -274,6 +287,7 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
+        mark_as_attendee: Označit jako účastníka
         new_meeting: Nová schůzka
         preview: Náhled
         registrations: Registrace
@@ -314,6 +328,7 @@ cs:
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
+          responses: Odpovědi
         invite_join_meeting_mailer:
           invite:
             decline: Odmítnout pozvánku
@@ -432,6 +447,17 @@ cs:
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
+        registrations_attendees:
+          index:
+            title: Registrace
+            validate: Ověřit
+            validate_registration_code: Ověřit registrační kód
+          mark_attendee:
+            invalid: Registrace již byla označena jako přítomná.
+            success: Registrace byla úspěšně označena.
+          validate_registration_code:
+            invalid: Tento registrační kód je neplatný.
+            success: Kód registrace byl úspěšně ověřen.
       admin_log:
         invite:
           create: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
@@ -582,6 +608,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
+          title: Vytvořit novou schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -589,8 +616,10 @@ cs:
           attendees: Počet účastníků
           contributions: Počet příspěvků
           join: Připojte se k setkání
+          join_waitlist: Zapsat se do pořadníku
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
+          leave_waitlist: Opustit pořadník
           link_available_soon: Odkaz bude brzy k dispozici
           link_closed: Odkaz pro připojení se ke schůzce bude k dispozici několik minut před jejím spuštěním
           live_event: Tato schůzka se děje právě teď
@@ -644,6 +673,8 @@ cs:
           index_admin:
             edit: Upravit v panelu administrace
             question: Otázka
+            received_response: přijatá odpověď
+            received_responses: přijaté odpovědi
             results: Výsledky
             send: Odeslat
             sent: Odesláno
@@ -659,6 +690,7 @@ cs:
         responses:
           index:
             administrate: Spravovat
+            title: Anketa
           index_admin:
             back_to_meeting: Zpět na schůzku
             title: Správa ankety
@@ -689,6 +721,9 @@ cs:
         destroy:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
+        waitlist:
+          invalid: Při připojení k frontě došlo k chybě.
+          success: Úspěšně jste se připojili do fronty. Budete upozorněni, zda je vaše registrace úspěšně zabezpečena.
       type_of_meeting:
         hybrid: Hybridní
         in_person: Osobně

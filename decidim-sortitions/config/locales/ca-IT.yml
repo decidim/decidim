@@ -3,7 +3,6 @@ ca-IT:
     attributes:
       sortition:
         additional_info: Informació del sorteig
-        decidim_category_id: Categories del conjunt de propostes en què vols aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
         dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de l'u al sis i introdueix-lo aquí davant d'algunes testimonies. Això contribueix en la qualitat i garantia de l'aletorietat del resultat
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que vols seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
@@ -24,8 +23,13 @@ ca-IT:
         name: Sortejos
         settings:
           global:
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
     events:
       sortitions:
         sortition_created:
@@ -43,7 +47,6 @@ ca-IT:
         models:
           sortition:
             fields:
-              category: Categoria
               created_at: Data de creació
               decidim_proposals_component: Component de Propostes
               dice: Dau
@@ -51,6 +54,7 @@ ca-IT:
               request_timestamp: Temps de dibuixar
               seed: Llavor
               target_items: Elements a seleccionar
+              taxonomies: Taxonomies
               title: Títol
         sortitions:
           confirm_destroy:
@@ -67,8 +71,9 @@ ca-IT:
             title: Actualitza la informació sobre el sorteig
             update: Actualitzar
           form:
-            all_categories: Totes les categories
+            all_taxonomies: Totes les taxonomies
             select_proposal_component: Selecciona el grup de propostes
+            select_taxonomies: Taxonomies del conjunt de propostes del qual vols aplicar per dibuixar. Deixar buit per aplicar a totes les propostes de la taxonomia.
           index:
             title: Sortejos
           new:
@@ -110,16 +115,16 @@ ca-IT:
             other: propostes seleccionades
         show:
           algorithm: Codi d'algoritme del sorteig
-          any_category: de totes les categories
+          any_taxonomy: de totes les taxonomies
           cancelled: Sorteig cancel·lat
           candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
-          candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{category_label}), amb les següents IDs (en negreta, les propostes seleccionades)  '
-          category: de la categoria %{category}
+          candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{taxonomy_labels}), amb les següents IDs (en negreta, les propostes seleccionades)  '
           dice_result: (1) Resultat de la tirada de daus
           introduction: 'Aquesta pàgina conté els resultats del sorteig %{reference}. Mitjançant aquest sorteig, %{target_items} nombre de resultats han estat seleccionats aleatòriament i amb una distribució de probabilitat igual al conjunt de propostes que es mostra a continuació. Juntament amb els resultats, la informació que es mostra en aquesta pàgina proporciona tota la informació necessària per maximitzar les garanties i reproduir els resultats. La clau per a la qualitat d''aquest sorteig és l''aleatorietat doble proporcionada per una tirada d''un dau (verificat pels testimonis) i el temps precís de l''assentament que proporciona entrada per a un algorisme que genera una selecció aleatòria. El llindar de temps per a l''assaig és tan precís (segons) que és impossible de controlar pels humans, oferint així una doble entrada "incontrolable" per garantir un resultat just.  '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Propostes seleccionades pel sorteig
           sortition_reproducibility_details: Detalls de la reproductibilitat del sorteig
+          taxonomies: de les taxonomies %{taxonomies}
           time_seed: (2) Llavor de temps
           witnesses: Testimonis
         sortition:
@@ -137,3 +142,4 @@ ca-IT:
             other: "%{count} classificacions"
     statistics:
       sortitions_count: Sortejos
+      sortitions_count_tooltip: El nombre de seleccions aleatòries realitzades per a la presa de decisions.

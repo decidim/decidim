@@ -373,3 +373,4 @@ es-PY:
         result_proposal: Propuestas incluidas en este resultado
     statistics:
       results_count: Resultados
+      results_count_tooltip: Número de acuerdos o actuaciones resultado de este espacio de participación.

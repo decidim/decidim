@@ -214,6 +214,5 @@ it:
         project_proposal: Proposte incluse in questo progetto
     statistics:
       orders_count: Supporti
-      projects_count: Progetti
   index:
     confirmed_orders_count: Computo dei voti

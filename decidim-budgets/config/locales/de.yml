@@ -440,6 +440,7 @@ de:
         project_proposal: Vorschläge in diesem Projekt
     statistics:
       orders_count: Projektauswahlen
-      projects_count: Projekte
+      projects_count: Budgets
+      projects_count_tooltip: Die Anzahl Projekte in Budgetkomponenten und die Summe der abgegebenen Stimmen.
   index:
     confirmed_orders_count: Anzahl Stimmen

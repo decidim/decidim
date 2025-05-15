@@ -95,9 +95,7 @@ fi:
       decidim:
         proposals:
           proposal:
-            budget_text: Ehdotus %{link} luotiin
             import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
-            import_to_proposal_text: Tämä ehdotus %{link} luotiin
             merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
             merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
             split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'

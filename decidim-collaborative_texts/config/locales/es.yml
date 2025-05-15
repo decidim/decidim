@@ -5,10 +5,16 @@ es:
       collaborative_texts:
         document:
           body: Cuerpo del texto
+          draft: Borrador
           title: Título
           version_number: Número de versión
+        suggestion:
+          nodes: Nodos DOM
+          original: Texto original
+          replace: Sustitución
         version:
           body: Cuerpo del texto
+          draft: Borrador
           version_number: Número de versión
   decidim:
     collaborative_texts:
@@ -25,9 +31,19 @@ es:
           create:
             invalid: Se ha producido un error al crear el documento.
             success: Documento creaado correctamente.
+          draft_options:
+            accepting_suggestions: Habilitar sugerencias en la próxima versión
+            accepting_suggestions_help: Habilitar las sugerencias iniciará una nueva ronda de sugerencias para este documento. Las sugerencias existentes no serán visibles en la nueva versión.
+            draft: Versión del borrador
+            draft_help_html: 'Una versión borrador no es pública y las administradoras pueden editarla. Para hacer publica la versión de este contenido: elimina el estado de borrador. <strong>Ten en cuenta que mientras la versión borrador esté activa, las participantes verán la versión anterior y no podrán hacer sugerencias.</strong>'
           edit:
+            document_has_suggestions_html: <a href="%{url}">Este documento tiene sugerencias</a> y no puede ser editado directamente. Por favor, acepta o rechaza las sugerencias para generar una nueva versión de borrador que pueda ser editada.
+            draft: Versión del borrador
+            previous_versions: Versiones previas
+            public_version: Versión pública
             title: Editar el texto colaborativo
             update: Actualizar
+            version: Versión %{version_number}, creada en %{created_at} ha recibido sugerencias %{suggestions_count}.
           edit_settings:
             title: Configurar los textos colaborativos
             update: Actualizar
@@ -38,6 +54,11 @@ es:
           new:
             create: Crear
             title: Crear textos colaborativos
+          non_draft_options:
+            create_draft: Descartar sugerencias y crear una nueva versión de borrador
+            draft_help_html: 'Una versión borrador no es pública y las administradoras pueden editarla. Para hacer publica la versión de este contenido: elimina el estado de borrador. <strong>Ten en cuenta que mientras la versión borrador esté activa, las participantes verán la versión anterior y no podrán hacer sugerencias.</strong>'
+            enable_suggestions: Activar las sugerencias
+            enable_suggestions_help: Habilitar las sugerencias permitirá a las participantes hacer sugerencias sobre esta versión.
           publish:
             invalid: Se ha producido un error al publicar este documento.
             success: Documento publicado con éxito.
@@ -50,9 +71,6 @@ es:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
-        settings:
-          form:
-            allow_suggestions: Permitir a las participantes hacer sugerencias
       admin_log:
         document:
           create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
@@ -62,24 +80,58 @@ es:
           soft_delete: "%{user_name} movió a la papelera el texto colaborativo \"%{resource_name}\" en %{space_name}"
           unpublish: "%{user_name} despublicó el texto colaborativo \"%{resource_name}\" en %{space_name}"
           update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
+        suggestion:
+          create: "%{user_name} sugirió cambios en el texto colaborativo: \"%{resource_name}\" en %{space_name}"
         version:
           delete: "%{user_name} eliminó el texto colaborativo \"%{resource_name}\" en %{space_name}"
           update: "%{user_name} actualizó el texto colaborativo \"%{resource_name}\" en %{space_name}"
       document:
+        apply: Aplicar
         cancel: Cancelar
-        save: Enviar sugerencia
-        suggest: Sugerir cambios
+        consolidate:
+          confirm: Esta acción consolidará todas las sugerencias aceptadas en una nueva versión del documento. Las sugerencias no aceptadas serán transferidas a la nueva versión para su posterior revisión. Esta acción mantendrá las sugerencias habilitadas.
+          new: Consolidar sugerencias aceptadas
+        consolidate_counter: Al consolidar se combinarán las %{applied} sugerencias aplicadas y se moverán las %{pending} sugerencias pendientes a la nueva versión.
+        controls_label: Controles de las sugerencias
+        draft_counter: El borrador combinará las sugerencias aplicadas a %{applied} y descartará las sugerencias pendientes a %{pending}.
+        index: Índice
+        restore: Restaurar
+        rollout:
+          confirm: Esta acción creará una nueva versión de borrador del documento y se te redirigirá a la página de edición para los refinamientos finales. La versión actual seguirá siendo pública y se desactivarán las sugerencias.
+          invalid: Hubo un problema al crear una nueva versión del documento (%{errors}).
+          new: Borrador de una nueva versión
+        save: Sugerir cambios
+        status:
+          accepting_suggestions: Para sugerir cambios, selecciona o haz doble clic en el texto que desea editar, luego haz clic en el botón 'Sugerir cambios'.
+          draft: Actualmente, este documento está siendo revisado por las administradoras. No se pueden hacer sugerencias en este momento, pero puedes ver sugerencias hechas por otras participantes.
+          not_accepting_suggestions: Las sugerencias no están permitidas en este momento.
+          selection_active: Una selección está activa. Por favor, cancela la selección actual para crear una nueva.
+        suggestions_count: "%{count} sugerencias"
+        toggle: Mostrar u ocultar las sugerencias
       documents:
         index:
           count:
             one: "%{count} texto colaborativo"
             other: "%{count} textos colaborativos"
           empty: Todavía no hay ningún texto colaborativo.
+        show:
+          contributors: Contribuidoras
       models:
         collaborative_text:
           fields:
             suggestions: Aceptar la(s) sugerencia(s)
             title: Título
+      suggestion:
+        add_html: <span class="type">Añadir:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Eliminar:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Reemplazar:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Se ha producido un error al crear esta sugerencia.
+          success: Sugerencia creada con éxito.
+        errors:
+          blank_changeset: El conjunto de cambios no puede estar en blanco.
+          invalid_nodes: Nodos seleccionados inválidos.
     components:
       collaborative_texts:
         name: Textos colaborativos
@@ -90,4 +142,6 @@ es:
           step:
             announcement: Aviso
     statistics:
+      all_collaborative_texts_count: Todos los textos colaborativos
       collaborative_texts_count: Textos colaborativos
+      collaborative_texts_count_tooltip: El número de textos colaborativos

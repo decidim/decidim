@@ -697,6 +697,9 @@ es-PY:
         actions:
           create: Crear una iniciativa
           title: Comportamiento
+    statistics:
+      initiatives_count: Iniciativas
+      initiatives_count_tooltip: El número de iniciativas ciudadanas publicadas.
   layouts:
     decidim:
       initiative_creation_header:

@@ -580,6 +580,9 @@ fr-CA:
       initiatives_type:
         actions:
           title: Actions
+    statistics:
+      initiatives_count: Pétitions
+      initiatives_count_tooltip: Le nombre de pétitions citoyennes publiées.
   layouts:
     decidim:
       initiative_creation_header:

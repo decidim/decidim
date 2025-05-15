@@ -329,6 +329,5 @@ pl:
         project_proposal: Propozycje zawarte w tym projekcie
     statistics:
       orders_count: Wsparcia
-      projects_count: Projekty
   index:
     confirmed_orders_count: Liczba głosów

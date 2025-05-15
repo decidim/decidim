@@ -876,7 +876,6 @@ el:
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
-        statistics: Δραστηριότητα
         users: Διαχειριστές
       users:
         create:

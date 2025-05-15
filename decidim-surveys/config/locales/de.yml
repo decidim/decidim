@@ -13,6 +13,8 @@ de:
         other: Antworten
   decidim:
     admin:
+      actions:
+        see_survey: Umfrage anzeigen
       admin_log:
         changeset:
           surveys: Umfragen
@@ -47,6 +49,7 @@ de:
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
     statistics:
       responses_count: Antworten
+      surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:
       actions:
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?

@@ -490,6 +490,7 @@ fr:
         related_processes: Concertations liées
     statistics:
       processes_count: Concertations
+      processes_count_tooltip: Le nombre de processus participatifs qui sont accessibles au public.
   layouts:
     decidim:
       participatory_process_groups:

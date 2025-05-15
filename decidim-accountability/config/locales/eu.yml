@@ -372,3 +372,4 @@ eu:
         result_proposal: Emaitza honetan sartutako proiektuak
     statistics:
       results_count: Emaitzak
+      results_count_tooltip: Espazio honetatik sortutako erabaki edo emaitza kopurua.

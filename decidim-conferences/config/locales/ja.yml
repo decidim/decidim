@@ -629,6 +629,7 @@ ja:
           url: スペースのURL
     statistics:
       conferences_count: カンファレンス
+      conferences_count_tooltip: 公開されたカンファレンス数です。
   devise:
     mailer:
       join_conference:
