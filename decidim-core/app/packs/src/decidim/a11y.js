@@ -56,12 +56,12 @@ const createAccordion = (component) => {
  * (that it is not the same always).
  */
 const changeChildMenuDropdownPosition = (component) => {
-  const target = component.dataset["target"];
+  const target = component.dataset.target;
   const childMenu = document.getElementById(target);
   const parentMenu = component.parentNode.parentNode;
 
   const observer = new MutationObserver(() => {
-    if (childMenu.style.display != "none" && parentMenu.offsetWidth != 0) {
+    if (childMenu.style.display !== "none" && parentMenu.offsetWidth !== 0) {
       const positionLeft = parentMenu.offsetWidth - 10;
 
       childMenu.style.left = `${positionLeft}px`;
@@ -75,12 +75,12 @@ const changeChildMenuDropdownPosition = (component) => {
  * Changes the style of the selected element when there are children Dropdowns
  */
 const changeStyleOfSelectedElement = (component) => {
-  component.addEventListener("click", function(event){
-    this.parentNode.parentNode.querySelectorAll("a").forEach(link => {
+  component.addEventListener("click", function() {
+    component.parentNode.parentNode.querySelectorAll("a").forEach((link) => {
       link.style.fontWeight = "normal";
     })
 
-    this.style.fontWeight = 600;
+    component.style.fontWeight = 600;
   })
 }
 
