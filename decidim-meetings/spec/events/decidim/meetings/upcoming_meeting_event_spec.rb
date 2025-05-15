@@ -20,7 +20,7 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
   describe "default_email_intro" do
     context "when custom message is unset" do
       it "is generated correctly" do
-        allow(subject).to receive(:custom_message).and_return(nil)
+        resource.reminder_message_custom_content = nil
         expect(subject.email_intro).to eq("The \"#{resource_title}\" meeting will start in less than 48h.")
       end
     end
@@ -35,7 +35,7 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
     context "when custom message has a customized time interval" do
       it "is generated correctly" do
         resource.send_reminders_before_hours = 2
-        allow(subject).to receive(:custom_message).and_return(nil)
+        resource.reminder_message_custom_content = nil
         expect(subject.email_intro).to eq("The \"#{resource_title}\" meeting will start in less than 2h.")
       end
     end
