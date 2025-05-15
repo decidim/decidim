@@ -72,7 +72,7 @@ const changeChildMenuDropdownPosition = (component) => {
 }
 
 /*
- * Changes the style of the selected element when tehre are children Dropdowns
+ * Changes the style of the selected element when there are children Dropdowns
  */
 const changeStyleOfSelectedElement = (component) => {
   component.addEventListener("click", function(event){
