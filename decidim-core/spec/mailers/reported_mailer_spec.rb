@@ -135,8 +135,7 @@ module Decidim
       let(:default_body) { "has been hidden" }
       let(:locale) { nil }
 
-      # Temporary disabled as we are missing the translations for new actions
-      # include_examples "localised email"
+      include_examples "localised email"
 
       it "includes the participatory space name" do
         expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
