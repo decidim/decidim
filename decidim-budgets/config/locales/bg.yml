@@ -333,6 +333,5 @@ bg:
         project_proposal: Предложения, включени в този проект
     statistics:
       orders_count: Подкрепа
-      projects_count: Проекти
   index:
     confirmed_orders_count: Брой гласове

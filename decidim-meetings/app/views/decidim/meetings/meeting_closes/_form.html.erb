@@ -2,6 +2,6 @@
 
 <%= form.number_field :attendees_count, min: 0, help_text: t("decidim.forms.meetings.attendees_count_help_text") %>
 
-<% if Decidim::Meetings.enable_proposal_linking %>
+<% if Decidim.module_installed?(:proposals) %>
   <%= render partial: "decidim/proposals/proposals/proposals_picker", locals: { form:, field: :proposals } %>
 <% end %>

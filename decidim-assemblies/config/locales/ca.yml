@@ -430,6 +430,7 @@ ca:
         related_assemblies: Assemblees relacionades
     statistics:
       assemblies_count: Assemblees
+      assemblies_count_tooltip: El número d'assemblees públiques on es prenen les decisions col·lectives.
   layouts:
     decidim:
       assemblies:

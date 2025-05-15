@@ -655,7 +655,6 @@ ko:
         participants: 참가자
         scope_types: 범위 종류
         scopes: 범위
-        statistics: 활동
         users: 관리자
       users:
         form:

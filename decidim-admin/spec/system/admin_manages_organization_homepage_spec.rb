@@ -23,6 +23,7 @@ describe "Admin manages organization homepage" do
           find("a", text: "Hero image").click
         end
       end
+      sleep 1
 
       expect(Decidim::ContentBlock.count).to eq 1
     end
@@ -40,6 +41,7 @@ describe "Admin manages organization homepage" do
       )
 
       click_on "Update"
+      sleep 1
       visit decidim.root_path
       expect(page).to have_content("Custom welcome text!")
     end
@@ -50,6 +52,7 @@ describe "Admin manages organization homepage" do
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
       click_on "Update"
+      sleep 1
       visit decidim.root_path
       expect(page.html).to include("city2.jpeg")
     end

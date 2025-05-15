@@ -233,6 +233,5 @@
         project_proposal: Forslag inkludert i dette prosjektet
     statistics:
       orders_count: Støtter
-      projects_count: Prosjekter
   index:
     confirmed_orders_count: Stemmer teller

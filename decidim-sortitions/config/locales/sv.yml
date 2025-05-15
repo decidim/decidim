@@ -3,7 +3,6 @@ sv:
     attributes:
       sortition:
         additional_info: Information om lottningen
-        decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
         decidim_proposals_component_id: Förslagen
         dice: Tärningskast. Slå en sexsidig tärning inför vittnen, eller använd ett annat sätt att slumpmässigt skapa ett tal från 1 till 6, och skriv in resultatet. Detta bidrar till kvalitén och garanterar resultatets slumpmässighet
         target_items: Antal förslag som ska väljas (anger hur många förslag som ska väljas genom lottdragning från den utvalda gruppen av förslag)
@@ -43,7 +42,6 @@ sv:
         models:
           sortition:
             fields:
-              category: Kategori
               created_at: Skapelsedatum
               decidim_proposals_component: Förslagskomponent
               dice: Tärningar
@@ -67,7 +65,6 @@ sv:
             title: Uppdatera informationen om tilldelningen
             update: Uppdatera
           form:
-            all_categories: Alla kategorier
             select_proposal_component: Välj förslagen som ska behandlas
           index:
             title: Lottningar
@@ -110,11 +107,8 @@ sv:
             other: Valda förslag
         show:
           algorithm: Tilldelningens algoritmkod
-          any_category: från alla kategorier
           cancelled: Avbruten tilldelning
           candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
-          candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
-          category: från kategorin %{category}
           dice_result: Tärningsresultat
           introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (tärning x dragning)
@@ -137,3 +131,4 @@ sv:
             other: "%{count} tilldelningar"
     statistics:
       sortitions_count: Lottningar
+      sortitions_count_tooltip: Antalet slumpmässiga val som görs för beslutsfattandet.

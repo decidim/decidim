@@ -3,7 +3,6 @@ ja:
     attributes:
       sortition:
         additional_info: 並べ替え情報
-        decidim_category_id: 図面を適用したい提案のセット
         decidim_proposals_component_id: 提案セット
         dice: ダイロールの結果。 6面ダイをロールするか、1から6まで数字を生成する別のランダムな方法を探します そして目撃者の前にナンバーを入力します。 これにより、品質と結果のランダム性を保証します
         target_items: 選択される提案の数 (選択した提案のグループをたくさん描画して選択したい提案の数を示します)
@@ -23,8 +22,13 @@ ja:
         name: 並べ替え
         settings:
           global:
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
     events:
       sortitions:
         sortition_created:
@@ -42,7 +46,6 @@ ja:
         models:
           sortition:
             fields:
-              category: カテゴリ
               created_at: 作成日
               decidim_proposals_component: 提案コンポーネント
               dice: ダイス
@@ -50,6 +53,7 @@ ja:
               request_timestamp: ドロー時間
               seed: Seed
               target_items: 選択するアイテム
+              taxonomies: タクソノミー
               title: タイトル
         sortitions:
           confirm_destroy:
@@ -66,8 +70,9 @@ ja:
             title: 並べ替えに関する情報を更新する
             update: 更新
           form:
-            all_categories: すべてのカテゴリ
+            all_taxonomies: すべてのタクソノミー
             select_proposal_component: 提案セットを選択
+            select_taxonomies: 抽選を適用したい提案のセットに関連するタクソノミー。空のままにすると、そのタクソノミー内のすべての提案に抽選が適用されます。
           index:
             title: 並べ替え
           new:
@@ -107,16 +112,16 @@ ja:
             other: 選択された提案
         show:
           algorithm: 並べ替えのアルゴリズム コード
-          any_category: すべてのカテゴリから
+          any_taxonomy: すべてのタクソノミーから
           cancelled: キャンセルされた並べ替え
           candidate_proposal_ids: 並べ替え提案の順序とID
-          candidate_proposals_info: '次の提案の中でソートが行われました (%{category_label}), 以下のIDを持つ(選択した提案を太字で)  '
-          category: '%{category} カテゴリから'
+          candidate_proposals_info: '抽選は次の提案（%{taxonomy_labels}）の中で実施され、以下の ID の提案が対象となりました（太字が選ばれた提案）  '
           dice_result: (1)サイコロ結果
           introduction: 'このページには、ソート %{reference} の結果が含まれています。このソートにより、%{target_items} の数の結果が、以下に表示されている提案の集合から同確率でランダムに選択されています。結果とともにこのページに表示される情報は、保証を最大化し、結果を再現するために必要なすべての情報を提供します。このソートの品質の鍵となるのは、転がるサイコロ(目撃者による検証) による二重のランダム性と、ランダムな選択を生成するアルゴリズムの入力となるソートの正確な時間です。ソートのタイムシードは、人間がコントロールすることが不可能な正確さ(秒単位) を持っているため、公平な結果を保証するための二重の「コントロール不可能な」入力を提供しています。  '
           mathematical_result: 結果 (1) x (2)
           proposals_selected_by_sortition: 並べ替えによって選択された提案
           sortition_reproducibility_details: 並べ替え再現性の詳細
+          taxonomies: '%{taxonomies} タクソノミーから'
           time_seed: (2) 時間の種
           witnesses: 目撃者
         sortition:
@@ -132,3 +137,4 @@ ja:
             other: "%{count} ソート数"
     statistics:
       sortitions_count: 並べ替え
+      sortitions_count_tooltip: 意思決定のために実施されたランダム抽選の数です。

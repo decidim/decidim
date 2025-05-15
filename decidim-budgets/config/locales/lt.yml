@@ -317,6 +317,5 @@ lt:
         project_proposal: Į šį projektą įtraukti pasiūlymai
     statistics:
       orders_count: Palaikymai
-      projects_count: Projektai
   index:
     confirmed_orders_count: Balsų skaičius

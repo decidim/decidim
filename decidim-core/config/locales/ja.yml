@@ -1265,8 +1265,8 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
-        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
+        weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
       subject: あなたのメールダイジェストです
@@ -1438,7 +1438,7 @@ ja:
           participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
         statistics:
-          headline: '%{organization} の現在の状態'
+          headline: 統計情報
         sub_hero:
           register: 登録
           register_title: アカウントを作成
@@ -1511,15 +1511,24 @@ ja:
         scan: QRコードをスキャン
         title: '%{resource_title} の QR コード'
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: 通報されたコンテンツ
         details: 詳細
-        hello: こんにちは、 %{name} さん。
+        hello: こんにちは %{name} さん、
         manage_moderations: モデレーションの管理
         participatory_space: 参加型スペース
         reason: 理由
-        report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は自動的に非表示にされました。</p>
         subject: リソースは自動的に非表示になりました
+      hidden_manually:
+        content: 通報されたコンテンツ
+        details: 詳細
+        hello: こんにちは %{name} さん、
+        manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は %{moderator} によって非表示にされました。</p>
+        subject: リソースは%{moderator}によって非表示にされました
       report:
         authors: 著者
         content: 報告されたコンテンツ
@@ -1642,14 +1651,18 @@ ja:
         share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
+      comments_count_tooltip: このスペースに投稿されたコメントの合計数。
       endorsements_count: オススメ
       followers_count: フォロワー
+      followers_count_tooltip: このスペースのいずれかの部分をフォローしているユーザー数が更新されます。
       headline: 統計情報
       no_stats: 統計情報はまだありません。
       pages_count: ページ
       participants_count: 参加者
+      participants_count_tooltip: 提案の提出、会議への参加、投票、ディスカッションへの参加などを通じて、このスペースで何らかのやり取りを行ったユニークユーザーの数です。
       surveys_count: 調査
       users_count: 参加者
+      users_count_tooltip: メールでアカウントを確認してサインアップを完了したユーザーの総数です。
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
     taxonomies:

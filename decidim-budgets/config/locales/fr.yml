@@ -398,6 +398,7 @@ fr:
         project_proposal: Propositions incluses dans ce projet
     statistics:
       orders_count: Votes
-      projects_count: Projets
+      projects_count: Budgets
+      projects_count_tooltip: Le nombre de projets de budgets participatifs et le total des votes exprimés pour chacun d'eux.
   index:
     confirmed_orders_count: Nombre de votes

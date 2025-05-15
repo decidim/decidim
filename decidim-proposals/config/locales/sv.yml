@@ -95,9 +95,7 @@ sv:
       decidim:
         proposals:
           proposal:
-            budget_text: Förslaget %{link} skapades
             import_from_proposal_text: 'Det blev det här förslaget: %{link}'
-            import_to_proposal_text: Förslaget %{link} skapades
             merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
             merge_to_proposal_text: 'Förslaget skapades: %{link}'
             split_from_proposal_text: 'Det blev det här förslaget: %{link}'
@@ -917,6 +915,9 @@ sv:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
     statistics:
+      participatory_space_proposals_count: Förslag
       proposals_accepted: Godkända förslag
       proposals_count: Förslag
+      proposals_count_tooltip: Det totala antalet inlämnade förslag och röster för dem.
+      votes: 'Röster:'
       votes_count: Röster

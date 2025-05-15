@@ -317,6 +317,19 @@ describe "Admin manages meetings" do
     fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
     fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
+    expect(page).to have_content("Send a reminder for this meeting")
+    expect(page).to have_content("Scheduled reminder email")
+    expect(page).to have_content("Reminder email content")
+
+    fill_in :meeting_send_reminders_before_hours, with: 24
+    fill_in_i18n(
+      :meeting_reminder_message_custom_content,
+      "#meeting-reminder_message_custom_content-tabs",
+      en: "Custom message for the {{meeting_title}} meeting",
+      es: "Custom message for the {{meeting_title}} meeting",
+      ca: "Custom message for the {{meeting_title}} meeting"
+    )
+
     select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
     within ".new_meeting" do
@@ -711,9 +724,9 @@ describe "Admin manages meetings" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do

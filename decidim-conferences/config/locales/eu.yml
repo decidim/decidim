@@ -634,6 +634,7 @@ eu:
           url: Espazioaren URLa
     statistics:
       conferences_count: Jardunaldiak
+      conferences_count_tooltip: Argitaratutako hitzaldien kopurua.
   devise:
     mailer:
       join_conference:

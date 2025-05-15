@@ -9,7 +9,8 @@ module Decidim
         fetch_form_attributes :end_time, :start_time, :online_meeting_url, :registration_type,
                               :registration_url, :address, :latitude, :longitude, :location, :location_hints,
                               :private_meeting, :transparent, :registrations_enabled, :component, :iframe_embed_type,
-                              :comments_enabled, :taxonomizations, :comments_start_time, :comments_end_time, :iframe_access_level
+                              :comments_enabled, :taxonomizations, :comments_start_time, :comments_end_time, :iframe_access_level,
+                              :reminder_enabled
 
         protected
 
@@ -22,13 +23,16 @@ module Decidim
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+
           super.merge({
                         title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
                         author: form.current_organization,
                         registration_terms: form.current_component.settings.default_registration_terms,
-                        questionnaire: Decidim::Forms::Questionnaire.new
+                        questionnaire: Decidim::Forms::Questionnaire.new,
+                        send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
+                        reminder_message_custom_content: form.reminder_enabled ? form.reminder_message_custom_content : ""
                       })
         end
 
