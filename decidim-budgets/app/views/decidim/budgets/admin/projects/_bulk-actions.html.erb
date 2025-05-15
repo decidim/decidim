@@ -1,22 +1,20 @@
-<div class="flex items-center gap-x-4">
-  <div class="bulk-actions-budgets">
-    <%= render partial: "decidim/budgets/admin/projects/bulk_actions/dropdown" %>
+<div class="flex align-middle gap-x-4 ml-auto">
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/dropdown" %>
 
-    <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
-    <%= render partial: "decidim/budgets/admin/projects/bulk_actions/budget-change" %>
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/budget-change" %>
 
-    <% if allowed_to? :export, :budget %>
-      <%= export_dropdowns(query, current_component, budget.id) %>
-    <% end %>
-    <% if allowed_to? :import_proposals, :project %>
-      <%= import_dropdown do %>
-        <%= link_to new_budget_proposals_import_path(budget) do %>
-          <li class="imports--component">
-            <%= t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")) %>
-          </li>
+  <% if allowed_to? :export, :budget %>
+    <%= export_dropdowns(query, current_component, budget.id) %>
+  <% end %>
+  <% if allowed_to? :import_proposals, :project %>
+    <%= import_dropdown do %>
+      <li class="imports--component">
+        <%= link_to new_budget_proposals_import_path(budget), class: "dropdown__item" do %>
+          <%= t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")) %>
         <% end %>
-      <% end %>
+      </li>
     <% end %>
-    <%= link_to t("actions.new_project", scope: "decidim.budgets"), new_budget_project_path, class: "button button__sm button__secondary new" if allowed_to? :create, :project %>
-  </div>
+  <% end %>
+  <%= link_to t("actions.new_project", scope: "decidim.budgets"), new_budget_project_path, class: "button button__sm button__secondary new" if allowed_to? :create, :project %>
 </div>

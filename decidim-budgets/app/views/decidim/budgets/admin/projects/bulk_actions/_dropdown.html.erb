@@ -1,39 +1,32 @@
-<div id="js-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper" class="relative">
   <button
     id="js-bulk-actions-button"
     class="button button__sm button__transparent-secondary"
     type="button"
-    data-toggle="js-bulk-actions-dropdown">
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown">
     <%= t("decidim.budgets.admin.projects.index.actions") %>
-    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
   </button>
 
-  <div
-    id="js-bulk-actions-dropdown"
-    class="dropdown-pane"
-    data-position="bottom"
-    data-alignment="right"
-    data-dropdown="dropdown"
-    data-auto-focus="false"
-    data-events="resize">
-    <ul>
-      <% if current_component_taxonomy_filters&.any? %>
-        <li>
-          <button type="button" data-action="taxonomy-change-projects">
-            <%= t("decidim.budgets.admin.projects.index.change_taxonomies") %>
-          </button>
-        </li>
-      <% end %>
+  <ul id="js-bulk-actions-dropdown" class="dropdown dropdown__bottom" aria-hidden="true">
+    <% if current_component_taxonomy_filters&.any? %>
       <li>
-        <button type="button" data-action="change-selected-projects">
-          <%= t("decidim.budgets.admin.projects.index.change_selected") %>
+        <button type="button" data-action="taxonomy-change-projects" class="dropdown__item">
+          <%= t("decidim.budgets.admin.projects.index.change_taxonomies") %>
         </button>
       </li>
-      <li>
-        <button type="button" data-action="budget-change-projects">
-          <%= t("decidim.budgets.admin.projects.index.change_budget") %>
-        </button>
-      </li>
-    </ul>
-  </div>
+    <% end %>
+    <li>
+      <button type="button" data-action="change-selected-projects" class="dropdown__item">
+        <%= t("decidim.budgets.admin.projects.index.change_selected") %>
+      </button>
+    </li>
+    <li>
+      <button type="button" data-action="budget-change-projects" class="dropdown__item">
+        <%= t("decidim.budgets.admin.projects.index.change_budget") %>
+      </button>
+    </li>
+  </ul>
 </div>
