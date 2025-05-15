@@ -152,6 +152,8 @@ commentvotes
 conferenceinvites
 conferenceregistrations
 confirmada
+confirmado
+confirmat
 Consolas
 constantized
 contingut
@@ -615,6 +617,7 @@ nodistro
 nodoc
 nok
 nomargin
+nombre
 nominatim
 noopen
 nopadding
@@ -765,6 +768,8 @@ reddit
 refactorings
 regexes
 regexps
+registrado
+registrat
 reivindicate
 relogin
 remindable
@@ -990,6 +995,7 @@ uploaders
 upvoted
 upvotes
 upvoting
+usuarias
 usecase
 usename
 usergroup
@@ -1018,6 +1024,7 @@ vkontakte
 vml
 vnd
 voner
+vostre
 votar
 votings
 VPAGQ
