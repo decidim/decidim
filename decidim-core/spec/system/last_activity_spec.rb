@@ -18,10 +18,10 @@ describe "Last activity" do
            organization:)
   end
   let!(:action_log_for_withdrawn_proposal) do
-    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: withdrawn_proposal, organization:, participatory_space: comment.participatory_space,)
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: withdrawn_proposal, organization:, participatory_space: comment.participatory_space)
   end
   let!(:action_log_for_proposal) do
-    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: proposal, organization:, participatory_space: comment.participatory_space,)
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: proposal, organization:, participatory_space: comment.participatory_space)
   end
   let!(:another_action_log) do
     create(:action_log,
@@ -80,7 +80,6 @@ describe "Last activity" do
       expect(page).to have_content(long_body_comment[0..79])
       expect(page).to have_no_content(another_comment.translated_body)
       expect(page).to have_no_content(withdrawn_proposal.title)
-
     end
 
     context "when there is a deleted comment" do
