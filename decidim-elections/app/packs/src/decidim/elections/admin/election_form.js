@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const manualStart = document.getElementById("election_manual_start");
   const datepickerRow = document.querySelector(".election_start_time");
 
-  if (!manualStart || !datepickerRow) return;
+  if (!manualStart || !datepickerRow) {
+    return;
+  }
 
   const toggleVisibility = () => {
     if (manualStart.checked) {
