@@ -28,7 +28,7 @@
     </table>
   </div>
 
- <% if allowed_to? :read, :assembly, trashable_deleted_resource: @assemblies, user: :collaborator %>
+  <% if allowed_to? :read, :assembly, trashable_deleted_resource: @assemblies, user: :collaborator %>
     <div class="mt-4">
       <% if allowed_to? :read, :assembly, trashable_deleted_resource: @assemblies, user: :collaborator %>
         <%= link_to manage_trash_assemblies_path, class: "flex items-center underline text-secondary" do %>
