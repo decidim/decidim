@@ -1,4 +1,4 @@
-<% answer_option = form.object %>
+<% response_option = form.object %>
 
 <div class="card questionnaire-question-response-option">
   <div class="card-divider">
@@ -19,7 +19,7 @@
         form.translated(
           :text_field,
           :body,
-          tabs_id: tabs_id_for_question_response_option(question, answer_option),
+          tabs_id: tabs_id_for_question_response_option(question, response_option),
           label: t("statement", scope: "decidim.forms.admin.questionnaires.response_option"),
           disabled: !editable
         )
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <% if answer_option.persisted? %>
+  <% if response_option.persisted? %>
     <%= form.hidden_field :id, disabled: !editable %>
   <% end %>
 

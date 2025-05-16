@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      class AnswerForm < Decidim::Form
+      class ResponseOptionForm < Decidim::Form
         mimic :answer
 
         include TranslatableAttributes

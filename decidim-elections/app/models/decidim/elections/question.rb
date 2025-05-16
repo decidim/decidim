@@ -9,13 +9,25 @@ module Decidim
 
       belongs_to :questionnaire, class_name: "Decidim::Elections::Questionnaire", inverse_of: :questions
 
-      has_many :answers, class_name: "Decidim::Elections::Answer", inverse_of: :question, dependent: :destroy
+      has_many :response_options,
+               class_name: "Decidim::Elections::ResponseOption",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
 
-      delegate :organization, to: :questionnaire
+      validates :question_type, inclusion: { in: QUESTION_TYPES }
 
       translatable_fields :body, :description
 
       validates :body, presence: true
+
+      def translated_body
+        Decidim::Forms::QuestionPresenter.new(self).translated_body
+      end
+
+      def number_of_options
+        response_options.size
+      end
     end
   end
 end

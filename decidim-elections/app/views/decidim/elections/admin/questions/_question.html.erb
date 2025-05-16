@@ -1,20 +1,19 @@
 <% question = form.object %>
 <% is_expanded = question.errors.any? %>
-<!--<div class="draggable-item js-question-block" draggable="true">-->
-  <div class="card questionnaire-question" id="<%= id %>-field">
-    <div class="form__wrapper" data-component="accordion">
-      <div class="card-divider my-4">
-        <h2 class="card-title">
-          <span>
-            <% if editable %>
-              <%== icon("drag-move-2-fill") %>
-            <% else %>
-              <%== icon("lock-line") %>
-            <% end %>
-            <%= dynamic_title(t("edit_questions.new_question", scope: "decidim.elections.admin.questions"), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("question", scope: "decidim.forms.admin.questionnaires.question")) %>
-            <%#= t("edit_questions.new_question", scope: "decidim.elections.admin.questions") %>
-          </span>
-          <span class="ml-auto flex flex-row-reverse items-center gap-2">
+<div class="card questionnaire-question" id="<%= id %>-field">
+  <div class="form__wrapper" data-component="accordion">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <span>
+          <% if editable %>
+            <%== icon("drag-move-2-fill") %>
+          <% else %>
+            <%== icon("lock-line") %>
+          <% end %>
+          <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("question", scope: "decidim.forms.admin.questionnaires.question")) %>
+        </span>
+
+        <span class="ml-auto flex flex-row-reverse items-center gap-2">
           <button id="<%= id %>-button" type="button" class="question--collapse <%= "question-error" if is_expanded %>" data-controls="panel-<%= id %>-question-card">
             <span class="icon-collapse">
               <%== icon "arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
@@ -35,65 +34,72 @@
             <span class="hidden md:block"><%= t("down", scope: "decidim.forms.admin.questionnaires.question") %></span>
           </button>
 
-            <% if editable %>
+          <% if editable %>
             <button class="button button__xs button__transparent-secondary small alert remove-question button--title">
               <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %></span>
             </button>
-            <% end %>
-          </span>
-        </h2>
+          <% end %>
+        </span>
+      </h2>
+    </div>
+
+    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
+      <div class="row column">
+        <%=
+          form.translated(
+            :text_field,
+            :body,
+            tabs_id: id,
+            label: t("statement", scope: "decidim.forms.admin.questionnaires.question"),
+            disabled: !editable
+          )
+        %>
       </div>
 
-      <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
-        <div class="row column">
-          <%=
-            form.translated(
-              :text_field,
-              :body,
-              tabs_id: id,
-              label: t("statement", scope: "decidim.forms.admin.questionnaires.question"),
-              disabled: !editable
-            )
-          %>
-        </div>
+      <div class="row column">
+        <%=
+          form.translated(
+            :editor,
+            :description,
+            tabs_id: id,
+            label: t("description", scope: "decidim.forms.admin.questionnaires.question"),
+            disabled: !editable
+          )
+        %>
+      </div>
 
-        <div class="row column">
-          <%= form.translated :editor, :description %>
-        </div>
+      <div class="row column">
+        <%=
+          form.select(
+            :question_type,
+            options_from_collection_for_select(question_types, :first, :last, question.question_type),
+            {},
+            disabled: !editable
+          )
+        %>
+      </div>
 
-        <div class="row column">
-          <%=
-            form.select(
-              :question_type,
-              options_from_collection_for_select(question_types, :first, :last, question.question_type),
-              {},
-              disabled: !editable
-            )
-          %>
-        </div>
+      <% if question.persisted? %>
+        <%= form.hidden_field :id %>
+      <% end %>
 
-        <% if question.persisted? %>
-          <%= form.hidden_field :id %>
-        <% end %>
+      <%= form.hidden_field :position, value: question.position || 0 %>
+      <%= form.hidden_field :deleted, disabled: !editable %>
 
-        <%= form.hidden_field :position, value: question.position || 0 %>
-        <%= form.hidden_field :deleted, disabled: !editable %>
-
-        <div class="questionnaire-question-response-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= response_option_template_selector %>">
-          <div class="questionnaire-question-response-options-list">
-            <% question.answers.each do |response_option| %>
-              <%= fields_for "questionnaire[questions][#{question.to_param}][answers][]", response_option do |response_option_form| %>
-                <%= render "decidim/elections/admin/questions/answer_option", form: response_option_form, question:, editable: question.editable? %>
-              <% end %>
+      <div class="questionnaire-question-response-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= response_option_template_selector %>">
+        <div class="questionnaire-question-response-options-list">
+          <% question.response_options.each do |response_option| %>
+            <%= fields_for "questionnaire[questions][#{question.to_param}][response_options][]", response_option do |response_option_form| %>
+              <%= render "decidim/elections/admin/questions/response_option", form: response_option_form, question:, editable: question.editable? %>
             <% end %>
-          </div>
-          <% if editable %>
-            <div class="row column">
-              <button type="button" class="button button__sm button__secondary mt-4 add-response-option"><%= t("add_response_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
-            </div>
           <% end %>
         </div>
+        <% if editable %>
+          <div class="row column">
+            <button type="button" class="button button__sm button__secondary mt-4 add-response-option"><%= t("add_response_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-<!--</div>-->
+</div>

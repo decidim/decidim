@@ -1,7 +1,0 @@
-<% question = form.object %>
-
-<script type="text/template" class="decidim-response-option-template decidim-template" id="<%= template_id %>">
-  <%= fields_for "questionnaire[questions][#{question.to_param}][answers][]", blank_answer_option do |answer_option_form| %>
-    <%= render "decidim/elections/admin/questions/answer_option", form: answer_option_form, question:, editable: question.editable? %>
-  <% end %>
-</script>
