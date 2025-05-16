@@ -7,9 +7,9 @@ module Decidim
 
       belongs_to :question, class_name: "Decidim::Elections::Question", inverse_of: :answers
 
-      translatable_fields :statement
+      translatable_fields :body
 
-      validates :statement, presence: true
+      validates :body, presence: true
     end
   end
 end

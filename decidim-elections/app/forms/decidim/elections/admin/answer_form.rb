@@ -8,9 +8,11 @@ module Decidim
 
         include TranslatableAttributes
 
-        translatable_attribute :statement, String
+        attribute :deleted, Boolean, default: false
 
-        validates :statement, translatable_presence: true
+        translatable_attribute :body, String
+
+        validates :body, translatable_presence: true, unless: :deleted
 
         def election
           @election ||= context[:election]
@@ -18,6 +20,12 @@ module Decidim
 
         def question
           @question ||= context[:question]
+        end
+
+        def to_param
+          return id if id.present?
+
+          "questionnaire-question-response-option-id"
         end
       end
     end

@@ -4,17 +4,19 @@ module Decidim
   module Elections
     module Admin
       class QuestionsController < Admin::ApplicationController
-        helper_method :election, :questionnaire_for, :questionnaire, :update_url, :blank_question
+        helper_method :election, :questionnaire_for, :questionnaire, :update_url, :blank_question, :question_types, :blank_answer_option, :answer_options_url
+
+        helper Decidim::Forms::Admin::ApplicationHelper
 
         def edit_questions
           # enforce_permission_to(:update, :election_question, election:, questions:)
           @form = form(Decidim::Elections::Admin::QuestionnaireForm).from_model(questionnaire)
 
-          if @form.questions.empty?
-            question = Decidim::Elections::Admin::QuestionForm.new
-            2.times { question.answers << Decidim::Elections::Admin::AnswerForm.new }
-            @form.questions << question
-          end
+          # if @form.questions.empty?
+          #   question = Decidim::Elections::Admin::QuestionForm.new
+          #   2.times { question.answers << Decidim::Elections::Admin::AnswerForm.new }
+          #   @form.questions << question
+          # end
 
           render template: "decidim/elections/admin/questions/edit_questions"
         end
@@ -36,18 +38,32 @@ module Decidim
           # end
         end
 
-        private
+        def answer_options
+          respond_to do |format|
+            format.json do
+              question_id = params["id"]
+              question = Decidim::Elections::Question.find_by(id: question_id)
+              render json: question.answers.map { |answer_option| Decidim::Forms::ResponseOptionPresenter.new(answer_option).as_json } if question.present?
+            end
+          end
+        end
 
-        def questionnaire
-          @questionnaire ||= Decidim::Elections::Questionnaire.find_or_initialize_by(questionnaire_for:)
+        def answer_options_url(params)
+          url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
         end
 
         def questionnaire_for
           election
         end
 
+        private
+
+        def questionnaire
+          @questionnaire ||= Decidim::Elections::Questionnaire.find_or_initialize_by(questionnaire_for:)
+        end
+
         def question_types
-          @question_types ||= Decidim::Elections::Questionnaire::QUESTION_TYPES.map do |question_type|
+          @question_types ||= Decidim::Elections::Question::QUESTION_TYPES.map do |question_type|
             [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
           end
         end
@@ -60,8 +76,16 @@ module Decidim
           update_questions_election_path(election)
         end
 
+        # def blank_question
+        #   @blank_question ||= Decidim::Elections::Admin::QuestionForm.new
+        # end
+
         def blank_question
           @blank_question ||= Decidim::Elections::Admin::QuestionForm.new
+        end
+
+        def blank_answer_option
+          @blank_answer_option ||= Decidim::Elections::Admin::AnswerForm.new
         end
       end
     end

@@ -13,9 +13,9 @@ module Decidim
 
       delegate :organization, to: :questionnaire
 
-      translatable_fields :statement, :description
+      translatable_fields :body, :description
 
-      validates :statement, presence: true
+      validates :body, presence: true
     end
   end
 end

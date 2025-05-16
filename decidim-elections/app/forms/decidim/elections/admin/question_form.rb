@@ -12,11 +12,13 @@ module Decidim
         attribute :question_type, String, default: "multiple_option"
         attribute :position, Integer
         attribute :answers, Array[AnswerForm]
+        attribute :deleted, Boolean, default: false
 
-        translatable_attribute :statement, String
+        translatable_attribute :body, String
         translatable_attribute :description, String
 
-        validates :statement, translatable_presence: true
+        validates :body, translatable_presence: true
+        validates :position, numericality: { greater_than_or_equal_to: 0 }
 
         def election
           @election ||= context[:election]
@@ -28,13 +30,9 @@ module Decidim
           "questionnaire-question-id"
         end
 
-        def question_types_for_select
-          Decidim::Elections::Question::QUESTION_TYPES.map do |type|
-            [
-              I18n.t(type.downcase, scope: "decidim.elections.admin.questions.form.question_types"),
-              type
-            ]
-          end
+        def editable?
+          # TODO: Needs to be changed
+          @editable ||= id.blank? || Decidim::Elections::Question.where(id: id)
         end
       end
     end
