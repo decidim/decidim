@@ -511,6 +511,7 @@ ja:
         related_processes: 関連する参加型プロセス
     statistics:
       processes_count: プロセス
+      processes_count_tooltip: 公開されている参加型プロセスの数です。
   layouts:
     decidim:
       participatory_process_groups:

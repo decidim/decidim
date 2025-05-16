@@ -159,3 +159,4 @@ en:
           url: The URL for this post
     statistics:
       posts_count: Posts
+      posts_count_tooltip: The number of published updates or blog posts.

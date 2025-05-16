@@ -34,13 +34,13 @@ eu:
         content: Edukia
       id: ID
       newsletter:
-        body: Testu-gorputza
+        body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
-        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
+        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testua
         alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
@@ -96,7 +96,7 @@ eu:
         twitter_handler: X sarerako kudeatzailea
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
-        welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
+        welcome_notification_body: Ongietorri-jakinarazpenaren testua
         welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:
@@ -588,6 +588,7 @@ eu:
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
+        insights: Pertzepzioak
         manage: Kudeatu
         moderation: Moderazio globalak
         newsletters: Buletinak
@@ -600,6 +601,7 @@ eu:
         share_tokens: Sarbide-estekak
         static_page_topics: Gaiak
         static_pages: Orriak
+        statistics: Estatistikak
         taxonomies: Taxonomiak
         taxonomy_filters: Taxonomia-iragazkiak
         users: Parte-hartzaileak 
@@ -1243,7 +1245,7 @@ eu:
         participants: Parte-hartzaileak
         scope_types: Eremu motak
         scopes: Eremuak
-        statistics: Jarduera
+        statistics: Estatistikak
         taxonomies: Taxonomiak
         taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
         users: Administratzaileak
@@ -1346,5 +1348,7 @@ eu:
       admin:
         global_moderations:
           title: Moderazio globalak
+        insights:
+          title: Pertzepzioak
         taxonomy_filters_selector:
           title: Iragazkiak

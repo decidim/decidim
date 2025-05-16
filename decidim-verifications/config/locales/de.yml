@@ -3,6 +3,8 @@ de:
     attributes:
       authorization:
         verification_attachment: Anhang zur Verifizierung
+      census_data:
+        file: Datei
       config:
         available_methods: Verfügbare Methoden
         offline: Offline

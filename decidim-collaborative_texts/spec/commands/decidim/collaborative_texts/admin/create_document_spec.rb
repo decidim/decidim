@@ -10,8 +10,9 @@ module Decidim
 
         let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
         let(:participatory_process) { create(:participatory_process, organization:) }
-        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "collaborative_texts") }
+        let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "collaborative_texts") }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:coauthorship) { build(:coauthorship, coauthorable: nil, organization:) }
         let!(:title) { "This is my document new title" }
         let(:body) { "This is my document body" }
         let(:form) do
@@ -20,9 +21,10 @@ module Decidim
             current_user: user,
             title:,
             body:,
-            current_component:,
-            component: current_component,
-            current_organization: organization
+            component:,
+            current_component: component,
+            current_organization: organization,
+            coauthorships: [coauthorship]
           )
         end
         let(:invalid) { false }
@@ -42,9 +44,32 @@ module Decidim
             expect { subject.call }.to change(Decidim::CollaborativeTexts::Document, :count).by(1)
           end
 
+          it "sets the body & title" do
+            subject.call
+            expect(document.title).to eq title
+            expect(document.body).to eq body
+          end
+
           it "sets the component" do
             subject.call
-            expect(document.component).to eq current_component
+            expect(document.component).to eq component
+          end
+
+          it "sets the author" do
+            subject.call
+            expect(document.creator.author).to eq coauthorship.author
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:create!)
+              .with(Decidim::CollaborativeTexts::Document, user, { title:, body:, coauthorships: [coauthorship], component: }, { extra: { body: } })
+              .and_call_original
+
+            expect { subject.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.extra["extra"]).to eq({ "body" => body })
           end
         end
       end

@@ -3,7 +3,6 @@ nl:
     attributes:
       sortition:
         additional_info: Informatie over de loting
-        decidim_category_id: Categorieën van de set voorstellen waarin u de trekking wilt toepassen
         decidim_proposals_component_id: Voorstellen geplaatst
         dice: Resultaat van de worp. Rol een 6-zijdige dobbelsteen uit, of zoek naar een andere willekeurige manier om een ​​getal van 1 tot 6 te genereren, en voer hier het resulterende getal in voor sommige getuigen. Dit draagt ​​bij aan de kwaliteit en garanties van de willekeurigheid van het resultaat
         target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat je wil selecteren door groepsvoorstellen te selecteren die je eerder hebt gekozen)
@@ -42,7 +41,6 @@ nl:
         models:
           sortition:
             fields:
-              category: Categorie
               created_at: Aangemaakt op
               decidim_proposals_component: Voorstellen component
               dice: Dobbelsteen
@@ -62,7 +60,6 @@ nl:
             title: Update de informatie over de loting
             update: Bijwerken
           form:
-            all_categories: Alle categorieën
             select_proposal_component: Selecteer de voorgestelde set
           index:
             title: Lotingen
@@ -101,11 +98,8 @@ nl:
             other: geselecteerde voorstellen
         show:
           algorithm: De algoritme-code van de loting
-          any_category: alle categorieën
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
-          candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
-          category: van de %{category} categorie
           dice_result: (1) Resultaat dobbelsteen
           introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door middel van deze loting is het %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke kansverdeling uit de set weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de precieze tijd van de loting die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijdsbestek voor de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en biedt dus een dubbele "oncontroleerbare" invoer om een ​​rechtvaardig resultaat te garanderen.  '
           mathematical_result: Resultaat (1) x (2)

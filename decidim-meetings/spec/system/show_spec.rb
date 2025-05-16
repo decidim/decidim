@@ -19,6 +19,16 @@ describe "show" do
       expect(page).to have_content meeting.title[I18n.locale.to_s]
     end
 
+    it_behaves_like "a 404 page" do
+      let(:target_path) do
+        decidim_participatory_process_meetings.meeting_path(
+          participatory_process_slug: component.participatory_space.slug,
+          component_id: component.id,
+          id: 999_999
+        )
+      end
+    end
+
     it "shows correct the time zone" do
       expect(page).to have_content("UTC")
     end

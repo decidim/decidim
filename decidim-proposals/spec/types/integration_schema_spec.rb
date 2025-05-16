@@ -82,6 +82,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           versions {
             id
@@ -159,6 +160,7 @@ describe "Decidim::Api::QueryType" do
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
       "updatedAt" => proposal.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(proposal).url,
       "userAllowedToComment" => proposal.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0,
@@ -180,6 +182,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -282,6 +285,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               versions {
                 id

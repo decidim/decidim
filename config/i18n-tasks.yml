@@ -145,6 +145,7 @@ ignore_unused:
   - decidim.components.*
   - decidim.collaborative_texts.admin_log.document.*
   - decidim.collaborative_texts.admin_log.version.*
+  - decidim.collaborative_texts.admin_log.suggestion.*
   - decidim.filters.linked_classes.*
   - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space

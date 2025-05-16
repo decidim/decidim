@@ -131,7 +131,5 @@ ar:
             show_votes: إظهار الأصوات
             votes_choices:
               enabled: تم تمكين التصويت
-    statistics:
-      projects_count: المشاريع
   index:
     confirmed_orders_count: عدد الأصوات

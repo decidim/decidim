@@ -738,8 +738,6 @@
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        statistics:
-          headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
       index:
@@ -763,11 +761,6 @@
           edit_profile: Rediger profil
           resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
-      hide:
-        hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
-        subject: En ressurs var automatisk skjult
       report:
         authors: Forfattere
         content: Rapportert innhold

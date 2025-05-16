@@ -1,0 +1,19 @@
+<div class="card" data-component="accordion" id="accordion-reminders">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-reminders" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="reminders"><%= t(".title") %></h2>
+    </button>
+  </div>
+  <div id="panel-reminders" class="card-section">
+    <div class="meeting-reminders">
+      <div class="row column">
+        <%= form.check_box :reminder_enabled, label: t(".reminder_enabled"), "data-toggle": "customize_reminder_times" %>
+      </div>
+      <div id="customize_reminder_times" data-toggler=".hide" class="row column <%= @form.reminder_enabled ? nil : "hide" %>">
+        <%= form.number_field :send_reminders_before_hours, label: t(".send_reminder"), help_text: t(".send_reminder_help_text"), min: 1, step: 1, class: "mb-2" %>
+        <%= form.translated :text_area, :reminder_message_custom_content, label: t(".reminder_message"), hashtaggable: true, help_text: t(".reminder_message_help_text") %>
+      </div>
+    </div>
+  </div>
+</div>

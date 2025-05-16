@@ -759,6 +759,8 @@ fr-CA:
     statistics:
       attendees_count: Participants à la réunion
       meetings_count: Rencontres
+      meetings_count_tooltip: Le nombre de réunions qui ont eu lieu, à la fois en ligne et en personne.
+      participatory_space_meetings_count: Réunions
   devise:
     mailer:
       join_meeting:

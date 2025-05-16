@@ -135,7 +135,7 @@ shared_examples "manage proposals" do
             end
           end
 
-          context "when geocoding is enabled", :serves_geocoding_autocomplete do
+          context "when geocoding is enabled" do
             before do
               current_component.update!(settings: { geocoding_enabled: true, taxonomy_filters: [taxonomy_filter.id] })
             end

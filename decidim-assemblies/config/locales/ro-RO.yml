@@ -326,6 +326,7 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
+      assemblies_count_tooltip: Numărul adunărilor publice în care se iau decizii colective.
   layouts:
     decidim:
       assemblies:

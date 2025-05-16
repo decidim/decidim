@@ -27,19 +27,16 @@ module Decidim
       # * Disambiguates it so it is unique.
       #
       # name - the String to nicknamize
-      # scope - a Hash with extra values to scope the nickname to
+      # organization_id - the organization id we are using as scope for the uniqueness
       #
       # Example to nicknamize a user name, scoped to the organization:
       #
-      #    nicknamize(user_name, organization: current_organization)
+      #    nicknamize(user_name, organization_id)
       #
-      def nicknamize(name, scope = {})
+      def nicknamize(name, organization_id)
         return unless name
 
-        disambiguate(
-          name.parameterize(separator: "_")[nickname_length_range],
-          scope
-        )
+        disambiguate(name.parameterize(separator: "_")[nickname_length_range], organization_id)
       end
 
       private
@@ -48,11 +45,11 @@ module Decidim
         (0...nickname_max_length)
       end
 
-      def disambiguate(name, scope)
+      def disambiguate(name, organization_id)
         candidate = name
 
         2.step do |n|
-          return candidate if Decidim::UserBaseEntity.where(nickname: candidate.downcase).where(scope).empty?
+          return candidate if Decidim::UserBaseEntity.where(nickname: candidate.downcase).where(decidim_organization_id: organization_id).empty?
 
           candidate = numbered_variation_of(name, n)
         end

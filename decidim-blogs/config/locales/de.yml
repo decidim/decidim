@@ -158,3 +158,4 @@ de:
           url: Die URL für diesen Beitrag
     statistics:
       posts_count: Beiträge
+      posts_count_tooltip: Die Anzahl der veröffentlichten Updates oder Blog-Beiträge.

@@ -715,9 +715,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |2
 |No
 
-|MEETINGS_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between meetings and proposals. By default is active if Proposals are active (which is true always at the moment).
-
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
 |No
@@ -732,15 +729,9 @@ Additional context: This has been revealed as an issue during a security audit o
 |true
 |No
 
-|BUDGETS_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between budgets and proposals. By default is active if Proposals are active (which is true always at the moment).
-
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
 |No
-
-|ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between the accountability module and proposals. By default is active if Proposals are active (which is true always at the moment).
 
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
@@ -818,7 +809,7 @@ After this time the initiative will be moved to discarded state.
 
 |===
 
-.Optional Env Vars for extra Rails configuration
+.Optional Env Vars for extra configuration
 [%autowidth.stretch]
 |===
 |Name |Value |Default value|Multitenant's System configurable
@@ -860,6 +851,11 @@ Note that this only applies to production environments.
 |REDIS_URL
 |If using Sidekiq as a queue adapter for processing background jobs, a Redis database is needed. Sidekiq uses this env var if defined, if not defaults to `localhost:6379`. Please refer to https://github.com/mperham/sidekiq/wiki/Using-Redis[Sidekiq documentation] for more information.
 |5
+|No
+
+|FAST_SEEDS
+|If seeding various environment that needs to be fast (like gitpod). Please use `FAST_SEEDS` environment variable to reduce the seeding time.
+|false
 |No
 
 |===
