@@ -610,6 +610,7 @@ cs:
         share_tokens: Přístupové odkazy
         static_page_topics: Témata
         static_pages: Stránky
+        statistics: Statistiky
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie
         users: Účastníci
@@ -1257,6 +1258,7 @@ cs:
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
+        statistics: Statistiky
         taxonomies: Taxonomie
         taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         users: Administrátoři
