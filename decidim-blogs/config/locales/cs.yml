@@ -162,3 +162,4 @@ cs:
           url: URL pro tento příspěvek
     statistics:
       posts_count: Příspěvky
+      posts_count_tooltip: Počet publikovaných aktualizací nebo blogových příspěvků.
