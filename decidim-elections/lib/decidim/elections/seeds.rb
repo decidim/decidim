@@ -14,7 +14,7 @@ module Decidim
       def call
         component = create_component!
 
-        2.times do
+        number_of_records.times do
           create_election!(component:)
         end
       end
