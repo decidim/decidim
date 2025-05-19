@@ -249,6 +249,9 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: '"%{resource_title}" topaketan izena emateko epea ireki da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketan izena emateko epea ireki da.
+        upcoming_meeting:
+          default_body: '"{{meeting_title}}" topaketa {{before_hours}} ordu baino lehen hasiko da.'
+          email_intro: '"%{resource_title}" topaketa %{reminders_before_hours} ordu baino lehen hasiko da.'
     forms:
       meetings:
         attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, online edo hibridoan.
