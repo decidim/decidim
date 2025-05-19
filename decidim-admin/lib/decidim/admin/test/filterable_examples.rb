@@ -9,9 +9,9 @@ shared_context "with filterable context" do
 
   def apply_filter(options, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(options).hover
-      within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(options).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
         click_on(filter)
       end
     end
@@ -19,11 +19,11 @@ shared_context "with filterable context" do
 
   def apply_sub_filter(option1, option2, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(option1).hover
-      within ".submenu > .is-active > .submenu" do
-        find_link(option2).hover
-        within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(option1).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
+        find_link(option2).click
+        within ".dropdown .dropdown__right[aria-hidden='false']" do
           click_on(filter)
         end
       end
