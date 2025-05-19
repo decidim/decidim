@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimElectionsQuestionnaires < ActiveRecord::Migration[7.0]
   def change
     create_table :decidim_elections_questionnaires do |t|

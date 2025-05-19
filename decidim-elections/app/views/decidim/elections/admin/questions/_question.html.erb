@@ -25,7 +25,7 @@
           </button>
 
           <% if editable %>
-            <button class="button--title remove-question underline text-secondary">
+            <button class="button--title remove-question underline text-secondary" data-confirm="<%= t('remove_question_confirm', scope: 'decidim.elections.admin.questions.edit_questions') %>">
               <%= icon "delete-bin-line", class: "w-4 h-4" %>
               <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %></span>
             </button>
