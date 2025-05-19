@@ -21,8 +21,8 @@ describe "rake decidim:upgrade:clean:invalid_private_exports", type: :task do
 
   context "when there are errored entries" do
     let!(:exports) { create_list(:private_export, 5) }
-    let!(:invalid_entry) { create(:private_export, export_type: "survey_user_responses_88ca03fab3b71024a7d97639bc10d62b771d69ae2c89d748055762e6b41d3e4d") }
-    let!(:some_valid_entry) { create(:private_export, export_type: "survey_user_responses_88") }
+    let!(:invalid_entry) { create(:private_export, export_type: "survey_user_answers_88ca03fab3b71024a7d97639bc10d62b771d69ae2c89d748055762e6b41d3e4d") }
+    let!(:some_valid_entry) { create(:private_export, export_type: "survey_user_answers_88") }
 
     it "removes the entries" do
       expect { task.execute }.to change(Decidim::PrivateExport, :count).by(-1)
