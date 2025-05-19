@@ -16,17 +16,22 @@
   <% end %>
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
-    <% @form.questions.each_with_index do |question, index| %>
-      <%= fields_for "questionnaire[questions][]", question do |question_form| %>
-        <%= render "decidim/elections/admin/questions/question",
-                   form: question_form,
-                   id: tabs_id_for_question(question),
-                   editable: question.editable?,
-                   response_option_template_selector: "#response-option-template-#{index}" %>
-        <%= render "decidim/elections/admin/questions/response_option_template", form: question_form, editable: question.editable?, template_id: "response-option-template-#{index}" %>
+    <ul class="draggable-list js-connect js-list-questions" data-sort-url="<%= reorder_election_questions_path(@election) %>">
+      <% @form.questions.each_with_index do |question, index| %>
+        <%= fields_for "questionnaire[questions][]", question do |question_form| %>
+          <li class="draggable-item js-question-block" draggable="true">
+            <%= render "decidim/elections/admin/questions/question",
+                       form: question_form,
+                       id: tabs_id_for_question(question),
+                       editable: question.editable?,
+                       response_option_template_selector: "#response-option-template-#{index}" %>
+          </li>
+          <%= render "decidim/elections/admin/questions/response_option_template", form: question_form, editable: question.editable?, template_id: "response-option-template-#{index}" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </ul>
   </div>
+
 
   <button class="button button__sm button__secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
 </div>
@@ -36,5 +41,14 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     window.Decidim.createEditableForm()
+
+    document.querySelectorAll(".draggable-list").forEach(list => {
+      list.addEventListener("sortupdate", function() {
+        list.querySelectorAll("li").forEach((item, idx) => {
+          const input = item.querySelector('input[name$="[position]"]');
+          if (input) input.value = idx;
+        });
+      });
+    });
   })
 </script>

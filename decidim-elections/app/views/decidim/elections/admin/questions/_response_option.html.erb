@@ -2,13 +2,15 @@
 
 <div class="card questionnaire-question-response-option">
   <div class="card-divider">
-    <h2 class="card-title">
-      <span><%= t("response_option", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
+    <h2 class="card-title mb-2">
+      <span><%= t("answer_option", scope: "decidim.elections.admin.questions.edit_questions") %></span>
       <% if editable %>
-        <button class="button button__xs button__transparent-secondary small alert remove-response-option button--title mb-2">
-          <%= icon("delete-bin-line") %>
-          <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
-        </button>
+        <span class="ml-auto flex flex-row-reverse items-center gap-2">
+          <button class="button--title underline text-secondary alert remove-response-option">
+            <%= icon("delete-bin-line", class: "w-4 h-4") %>
+            <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
+          </button>
+        </span>
       <% end %>
     </h2>
   </div>

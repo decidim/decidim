@@ -10,7 +10,7 @@
           <% else %>
             <%== icon("lock-line") %>
           <% end %>
-          <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("question", scope: "decidim.forms.admin.questionnaires.question")) %>
+          <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("new_question", scope: "decidim.elections.admin.questions.edit_questions")) %>
         </span>
 
         <span class="ml-auto flex flex-row-reverse items-center gap-2">
@@ -24,18 +24,9 @@
             </span>
           </button>
 
-          <button class="button button__xs button__transparent-secondary small alert move-up-question button--title">
-            <%= icon "arrow-up-line" %>
-            <span class="hidden md:block"><%= t("up", scope: "decidim.forms.admin.questionnaires.question") %></span>
-          </button>
-
-          <button class="button button__xs button__transparent-secondary small alert move-down-question button--title">
-            <%= icon "arrow-down-line" %>
-            <span class="hidden md:block"><%= t("down", scope: "decidim.forms.admin.questionnaires.question") %></span>
-          </button>
-
           <% if editable %>
-            <button class="button button__xs button__transparent-secondary small alert remove-question button--title">
+            <button class="button--title remove-question underline text-secondary">
+              <%= icon "delete-bin-line", class: "w-4 h-4" %>
               <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %></span>
             </button>
           <% end %>
