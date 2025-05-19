@@ -879,6 +879,9 @@ en:
           title: Edit organization
           update: Update
         form:
+          admin_terms_of_service: Admin terms of service
+          basic_configuration: Basic configuration
+          extra_features: Extra features
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -887,6 +890,7 @@ en:
           twitter: X
           url: URL
           youtube: YouTube
+          welcome_notification: Welcome notification
         update:
           error: There was a problem updating this organization.
           success: Organization updated successfully.
