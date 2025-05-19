@@ -16,7 +16,7 @@
     </tbody>
   </table>
 </div>
-<% if allowed_to? :read, :process, trashable_deleted_resource: @participatory_processes, user: :collaborator %>
+<% if allowed_to? :read, :process, trashable_deleted_resource: @participatory_processes %>
   <div class="card mt-4">
     <%= link_to manage_trash_participatory_processes_path, class: "flex items-center underline text-secondary" do %>
       <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
