@@ -70,11 +70,11 @@ en:
             success: Election updated successfully.
         questions:
           edit_questions:
+            add_answer_option: Add answer option
             answer_option: Answer option
             new_question: New question
             title: Questions
           form:
-            add_answer: Add answer
             add_question: Add question
             form_description: Question must have at least two answers in order go to the next step.
             mandatory: Mandatory
