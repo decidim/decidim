@@ -205,7 +205,7 @@ describe "Edit proposals" do
         stub_geocoding(new_address, [latitude, longitude])
       end
 
-      it "can be updated with address", :serves_geocoding_autocomplete do
+      it "can be updated with address" do
         visit_component
 
         click_on translated(proposal.title)
