@@ -53,7 +53,7 @@ module Decidim
 
               selected_response = answers.select { |a| a.first.session_token == session_token }
 
-              Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, file_name, selected_response, :survey_user_responses)
+              Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, file_name, selected_response, :survey_user_answers)
 
               flash[:notice] = t("decidim.admin.exports.notice")
 

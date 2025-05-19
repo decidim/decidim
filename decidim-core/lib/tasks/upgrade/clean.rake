@@ -143,7 +143,7 @@ namespace :decidim do
 
       desc "Removes all the invalid records from private downloads"
       task invalid_private_exports: :environment do
-        invalid_private_exports = Decidim::PrivateExport.where("export_type ~ '^survey_user_responses_[0-9a-f]{64}$'")
+        invalid_private_exports = Decidim::PrivateExport.where("export_type ~ '^survey_user_answers_[0-9a-f]{64}$'")
         logger.info("=== Removing #{invalid_private_exports.length} private exports")
         invalid_private_exports.delete_all
       end

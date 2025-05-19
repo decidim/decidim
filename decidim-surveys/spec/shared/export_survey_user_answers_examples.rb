@@ -52,7 +52,7 @@ shared_examples "export survey user answers" do
 
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
-    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_responses")
+    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
   end
 
   it "exports a single response" do
