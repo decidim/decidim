@@ -1094,8 +1094,6 @@ pl:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
-        statistics:
-          headline: Aktualny stan %{organization}
         sub_hero:
           register: Zarejestruj się
           register_title: Utwórz konto
@@ -1145,11 +1143,6 @@ pl:
           message: Wiadomość
           resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
-      hide:
-        hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość

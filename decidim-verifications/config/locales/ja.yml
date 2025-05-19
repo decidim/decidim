@@ -208,6 +208,7 @@ ja:
               save: 保存
               title: 新しいセンサスレコードを追加
             update_record:
+              invalid: センサスデータのレコードを更新する際に問題が発生しました。
               success: センサスデータのレコードを更新しました。
           index:
             add_new_record_button: 新しいレコードを追加

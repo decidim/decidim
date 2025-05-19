@@ -49,9 +49,11 @@ module Decidim
               responses = QuestionnaireUserResponses.for(questionnaire)
 
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.responses.export_response.title")
-              title = t("export_response.title", scope: i18n_scope, token: session_token)
+              file_name = t("export_response.title", scope: i18n_scope, token: session_token)
 
-              Decidim::Forms::ExportQuestionnaireResponsesJob.perform_later(current_user, title, responses.select { |a| a.first.session_token == session_token })
+              selected_response = responses.select { |a| a.first.session_token == session_token }
+
+              Decidim::Forms::ExportQuestionnaireResponsesJob.perform_later(current_user, file_name, selected_response, :survey_user_responses)
 
               flash[:notice] = t("decidim.admin.exports.notice")
 

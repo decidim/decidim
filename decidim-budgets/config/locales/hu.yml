@@ -316,6 +316,5 @@ hu:
         project_proposal: A projekt részét képező javaslatok
     statistics:
       orders_count: Támogatja
-      projects_count: Projektek
   index:
     confirmed_orders_count: Szavazatok száma

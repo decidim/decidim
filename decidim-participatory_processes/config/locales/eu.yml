@@ -520,6 +520,7 @@ eu:
         related_processes: Elkarrekin lotutako prozesuak
     statistics:
       processes_count: Prozesuak
+      processes_count_tooltip: Publikoki eskuragarri dauden partaidetza-prozesuen kopurua.
   layouts:
     decidim:
       participatory_process_groups:

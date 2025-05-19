@@ -623,6 +623,8 @@ ro:
         proposal_meeting: 'Întâlniri asociate:'
     statistics:
       meetings_count: Întâlniri
+      meetings_count_tooltip: Numărul de întâlniri care au avut loc atât online, cât și în persoană.
+      participatory_space_meetings_count: Întâlniri
   devise:
     mailer:
       join_meeting:

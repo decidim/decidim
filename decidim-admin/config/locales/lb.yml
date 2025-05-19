@@ -731,7 +731,6 @@ lb:
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        statistics: Aktivität
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.

@@ -1,12 +1,12 @@
 <% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
 <div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
-  <span>
-    <% breadcrumb_items.last(2).each_with_index do |item, i| %>
-      <% item_label = decidim_escape_translated(item[:label]).html_safe %>
-      <% if i.positive? %>
+  <span class="inline-block w-full overflow-hidden text-ellipsis align-middle">
+    <% breadcrumb_items.last(2).each_with_index do |item, idx| %>
+      <% item_label = decidim_escape_translated(item[:label]) %>
+      <% if idx.positive? %>
         <span>/</span>
       <% end %>
-      <span class="cursor-pointer <%= "truncate" if i.positive? %>" <%== 'aria-current="page"' if item[:active] %>>
+      <span class="cursor-pointer truncate" <%== 'aria-current="page"' if item[:active] %>>
         <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
           <%= link_to(item_label, item[:url]) %>
         <% else %>

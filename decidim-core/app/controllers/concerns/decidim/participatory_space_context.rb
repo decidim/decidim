@@ -9,6 +9,7 @@ module Decidim
 
     included do
       include Decidim::NeedsOrganization
+      include Decidim::UserRoleChecker
 
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
@@ -81,8 +82,10 @@ module Decidim
       return true unless current_participatory_space.try(:private_space?) &&
                          !current_participatory_space.try(:is_transparent?)
       return false unless current_user
+      return true if current_user.admin?
+      return true if user_has_any_role?(current_user, current_participatory_space, broad_check: true)
 
-      current_user.admin || current_participatory_space.users.include?(current_user)
+      current_participatory_space.users.include?(current_user)
     end
 
     def help_section

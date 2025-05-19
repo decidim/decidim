@@ -240,11 +240,8 @@ shared_context "with application env vars" do
       "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => "6",
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
-      "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
       "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
-      "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
-      "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
@@ -355,10 +352,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 4,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
-      %w(decidim meetings enable_proposal_linking) => "auto",
       %w(decidim meetings embeddable_services) => [],
-      %w(decidim budgets enable_proposal_linking) => "auto",
-      %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
@@ -451,10 +445,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 6,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
-      %w(decidim meetings enable_proposal_linking) => false,
       %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
-      %w(decidim budgets enable_proposal_linking) => false,
-      %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim initiatives creation_enabled) => false,
       %w(decidim initiatives minimum_committee_members) => 3,
       %w(decidim initiatives default_signature_time_period_length) => 133,
@@ -645,7 +636,6 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_off) do
     {
       "upcoming_meeting_notification" => 172_800, # 2.days
-      "enable_proposal_linking" => true,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si)
     }
   end
@@ -653,32 +643,7 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_on) do
     {
       "upcoming_meeting_notification" => 259_200, # 3.days
-      "enable_proposal_linking" => false,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc)
-    }
-  end
-
-  let(:budgets_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:budgets_initializer_on) do
-    {
-      "enable_proposal_linking" => false
-    }
-  end
-
-  let(:accountability_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:accountability_initializer_on) do
-    {
-      "enable_proposal_linking" => false
     }
   end
 
@@ -786,34 +751,6 @@ shared_examples_for "an application with configurable env vars" do
     meetings_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Budgets module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Budgets")
-    budgets_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Budgets module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Budgets")
-    budgets_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Accountability module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
-    accountability_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Accountability module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
-    accountability_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto some extra Rails configs when ENV vars are empty or undefined

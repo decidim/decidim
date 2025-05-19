@@ -569,7 +569,6 @@ lv:
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
-        statistics: Aktivitāte
       users:
         create:
           error: Šī administratora uzaicināšanas laikā radās problēma.

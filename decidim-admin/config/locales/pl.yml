@@ -972,7 +972,6 @@ pl:
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
-        statistics: Aktywność
         users: Administratorzy
       users:
         create:

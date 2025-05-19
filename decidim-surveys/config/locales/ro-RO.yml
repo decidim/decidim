@@ -35,6 +35,9 @@ ro:
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Un nou sondaj în %{participatory_space_title}
           notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> este acum deschis.
+    statistics:
+      responses: 'Răspunsuri:'
+      surveys_count_tooltip: Numărul de sondaje disponibile și răspunsuri care au fost colectate.
     surveys:
       actions:
         manage_questions: Întrebări

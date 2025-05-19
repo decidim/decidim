@@ -372,3 +372,4 @@ de:
         result_proposal: Vorschläge in diesem Ergebnis enthalten
     statistics:
       results_count: Ergebnisse
+      results_count_tooltip: Die Anzahl der Entscheidungen oder Ergebnisse, die in diesem Bereich generiert wurden.

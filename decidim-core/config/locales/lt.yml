@@ -1089,8 +1089,6 @@ lt:
           participate: Dalyvauti
           participate_title: Dalyvauti platformos procesuose
           welcome: Sveiki atvykę į %{organization}!
-        statistics:
-          headline: Dabartinė %{organization} padėtis
         sub_hero:
           register: Registruotis
       index:
@@ -1139,11 +1137,6 @@ lt:
           message: Pranešimas
           resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
     reported_mailer:
-      hide:
-        hello: Sveiki %{name},
-        manage_moderations: Tvarkyti vedamas diskusijas
-        report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
-        subject: Išteklius paslėptas automatiškai
       report:
         authors: Autoriai
         content: Turinys, apie kurį pranešta
