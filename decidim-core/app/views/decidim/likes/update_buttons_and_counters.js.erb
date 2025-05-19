@@ -10,7 +10,7 @@ function updateLikeBlock() {
     $likesModal.remove();
   }
 
-  $likeListGrid.outerHTML = '<%= j(cell("decidim/likes_list", resource)).strip.html_safe %>';
+  $likeListGrid.outerHTML = '<%= j(cell("decidim/likers_list", resource)).strip.html_safe %>';
 
   $likeButton.outerHTML = '<%= j(cell("decidim/like_buttons", resource).show).strip.html_safe %>';
 

@@ -7,7 +7,7 @@ module Decidim
   #
   # Example:
   #
-  #    cell("decidim/likes_list", my_component)
+  #    cell("decidim/likers_list", my_component)
   class LikersListCell < Decidim::ViewModel
     include ApplicationHelper
 
