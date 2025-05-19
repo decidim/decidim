@@ -14,13 +14,13 @@ module Decidim
     MAX_ITEMS_STACKED = 8
 
     def show
-      return render :empty if visible_likes.count.zero?
+      return render :empty if visible_likers.count.zero?
       return render :full if full_list?
 
       render
     end
 
-    def likes_count
+    def likers_count
       base_relation.count
     end
 
@@ -33,18 +33,18 @@ module Decidim
     # Finds the correct author for each like.
     #
     # Returns an Array of presented Users
-    def visible_likes
-      @visible_likes ||= if voted_by_me?
-                           base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
-                             present(identity.author)
-                           end + [present(current_user)]
-                         else
-                           base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.author) }
-                         end
+    def visible_likers
+      @visible_likers ||= if voted_by_me?
+                            base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
+                              present(identity.author)
+                            end + [present(current_user)]
+                          else
+                            base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.author) }
+                          end
     end
 
-    def full_likes
-      @full_likes ||= base_relation.map { |identity| present(identity.author) }
+    def full_likers
+      @full_likers ||= base_relation.map { |identity| present(identity.author) }
     end
 
     def base_relation
