@@ -44,6 +44,7 @@ describe "Decidim::Api::QueryType" do
             updatedAt
           }
           updatedAt
+          url
         }
       }
 )
@@ -89,7 +90,8 @@ describe "Decidim::Api::QueryType" do
         "tos" => { "translation" => survey.questionnaire.tos[locale] },
         "updatedAt" => survey.questionnaire.updated_at.to_time.iso8601
       },
-      "updatedAt" => survey.updated_at.to_time.iso8601
+      "updatedAt" => survey.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(survey).url
     }
   end
 
@@ -105,6 +107,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -152,6 +155,7 @@ describe "Decidim::Api::QueryType" do
                 updatedAt
               }
               updatedAt
+              url
             }
           }
         }

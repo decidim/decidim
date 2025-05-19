@@ -1,3 +1,5 @@
+@import "stylesheets/decidim/_buttons.scss";
+
 .layout-wrapper {
   &.is-nav-open {
     .layout-nav {
@@ -87,14 +89,14 @@
     }
 
     .sidebar-menu__item-disabled {
-      @apply text-neutral-400 border-none;
+      @apply w-full flex gap-2 justify-center items-center text-md text-neutral-400 leading-9 border-none pb-0 rounded-t cursor-not-allowed;
 
       & .component-counter {
         @apply hidden;
       }
 
       svg {
-        @apply fill-neutral-400;
+        @apply fill-neutral-400 w-4 h-4 mb-0;
       }
     }
 
@@ -109,5 +111,57 @@
         @apply no-underline bg-secondary;
       }
     }
+  }
+}
+
+.main-tabs-menu {
+  @apply flex flex-col sm:flex-row items-center border-b-2 border-neutral-300 mb-4 relative;
+
+  &__tabs {
+    @apply w-full sm:w-2/3;
+
+    .main-nav {
+      ul.tab-x-container {
+        @apply mb-0;
+
+        li {
+          @apply pb-0;
+
+          a {
+            @apply border-b-0;
+          }
+        }
+
+        span.sidebar-menu__item-disabled {
+          @apply pt-0;
+        }
+      }
+    }
+
+    .tab-item {
+      @apply relative pb-1;
+    }
+
+    .is-active {
+      @apply font-medium text-secondary;
+
+      a {
+        @apply relative inline-block pb-1;
+
+        &::after {
+          @apply absolute left-0 -bottom-[0.10rem] h-px w-full bg-secondary;
+
+          content: "";
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    @apply w-1/3 sm:w-auto sm:-mt-4 sm:ml-auto;
+  }
+
+  &__cta-button {
+    @apply button button__xs button__secondary h-6;
   }
 }

@@ -358,7 +358,21 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Removal of invalid user exports
+
+We have noticed an edge case when using private export functionality, in which the page becomes inaccessible if the user in question is using export single survey answer functionality.
+
+You can run the following rake task to ensure your system is not corrupted.
+
+```bash
+./bin/rails decidim:upgrade:clean:invalid_private_exports
+```
+
+For ease of in operations, we also added the above command to the main `decidim:upgrade:clean:invalid_records` rake task.
+
+You can read more about this change on PR [#14638](https://github.com/decidim/decidim/pull/14638).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -396,3 +410,23 @@ result = 1 + 1 if after
 ### 5.2. Add force_api_authentication configuration options
 
 There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
+
+### 5.3. Require organization in nicknamize method
+
+In order to avoid potential performance issues, we have changed the `nicknamize` method by requiring the organization as a parameter.
+
+If you have used code as such:
+
+```ruby
+# We were including the organization in an optional scope
+Decidim::UserBaseEntity.nicknamize(nickname, decidim_organization_id: user.decidim_organization_id)
+```
+
+You need to change it, to something like:
+
+```ruby
+# Now the organization is the required second parameter of the method
+Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
+```
+
+You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).
