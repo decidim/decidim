@@ -41,12 +41,12 @@ FactoryBot.define do
     end
   end
 
-  factory :elections_questionnaire, class: "Decidim::Elections::Questionnaire" do
+  factory :election_questionnaire, class: "Decidim::Elections::Questionnaire" do
     questionnaire_for { association(:election) }
   end
 
-  factory :elections_question, class: "Decidim::Elections::Question" do
-    association :questionnaire, factory: :elections_questionnaire
+  factory :election_question, class: "Decidim::Elections::Question" do
+    association :questionnaire, factory: :election_questionnaire
     body { generate_localized_title(:question_body) }
     description { generate_localized_description(:question_description) }
     mandatory { false }
@@ -54,12 +54,12 @@ FactoryBot.define do
     position { 0 }
 
     after :create do |question|
-      create_list(:elections_response_option, 2, question:)
+      create_list(:election_response_option, 2, question:)
     end
   end
 
-  factory :elections_response_option, class: "Decidim::Elections::ResponseOption" do
-    association :question, factory: :elections_question
+  factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
+    association :question, factory: :election_question
     body { generate_localized_title(:response_option_body) }
   end
 end

@@ -12,10 +12,10 @@ module Decidim
         let(:organization) { component.organization }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
         let!(:election) { create(:election, component:) }
-        let!(:questionnaire) { create(:elections_questionnaire, questionnaire_for: election) }
-        let!(:question) { create(:elections_question, questionnaire:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
-        let!(:response_option1) { create(:elections_response_option, question:, body: { "en" => "Option 1" }) }
-        let!(:response_option2) { create(:elections_response_option, question:, body: { "en" => "Option 2" }) }
+        let!(:questionnaire) { create(:election_questionnaire, questionnaire_for: election) }
+        let!(:question) { create(:election_question, questionnaire:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
+        let!(:response_option1) { create(:election_response_option, question:, body: { "en" => "Option 1" }) }
+        let!(:response_option2) { create(:election_response_option, question:, body: { "en" => "Option 2" }) }
 
         before do
           request.env["decidim.current_organization"] = organization

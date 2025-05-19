@@ -11,13 +11,13 @@ module Decidim
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:elections_component, participatory_space: participatory_process) }
         let(:election) { create(:election, component:) }
-        let(:questionnaire) { create(:elections_questionnaire, questionnaire_for: election) }
+        let(:questionnaire) { create(:election_questionnaire, questionnaire_for: election) }
 
         let!(:first_question) do
-          create(:elections_question, questionnaire:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
+          create(:election_question, questionnaire:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
         end
         let!(:second_question) do
-          create(:elections_question, questionnaire:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
+          create(:election_question, questionnaire:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
         end
 
         let(:first_question_first_option) { first_question.response_options[0] }
