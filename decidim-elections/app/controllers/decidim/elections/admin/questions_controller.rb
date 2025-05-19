@@ -12,30 +12,33 @@ module Decidim
           # enforce_permission_to(:update, :election_question, election:, questions:)
           @form = form(Decidim::Elections::Admin::QuestionnaireForm).from_model(questionnaire)
 
-          # if @form.questions.empty?
-          #   question = Decidim::Elections::Admin::QuestionForm.new
-          #   2.times { question.answers << Decidim::Elections::Admin::AnswerForm.new }
-          #   @form.questions << question
-          # end
-
           render template: "decidim/elections/admin/questions/edit_questions"
         end
 
         def update
           # enforce_permission_to(:create, :question, election:)
-          # @form = form(QuestionForm).from_params(params, election:)
-          #
-          # UpdateQuestion.call(@form) do
-          #   on(:ok) do |question|
-          #     flash[:notice] = I18n.t("questions.update.success", scope: "decidim.elections.admin")
-          #     redirect_to election_question_answers_path(election, question)
-          #   end
-          #
-          #   on(:invalid) do
-          #     flash.now[:alert] = I18n.t("questions.update.invalid", scope: "decidim.elections.admin")
-          #     render action: "edit_questions"
-          #   end
-          # end
+          current_questions_forms = form(Admin::QuestionnaireForm).from_model(questionnaire).questions
+          @form = form(Admin::QuestionnaireForm).from_params(params)
+
+          @form.questions = @form.questions.map do |question_form|
+            next question_form if question_form.editable?
+
+            full_question_form = current_questions_forms.find { |form| form.id.to_s == question_form.id.to_s }
+            full_question_form.position = question_form.position
+            full_question_form
+          end
+
+          Admin::UpdateQuestionnaire.call(@form, questionnaire) do
+            on(:ok) do
+              flash[:notice] = I18n.t("update.success", scope: "decidim.elections.admin.questions")
+              redirect_to edit_questions_election_path(election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.elections.admin.questions")
+              render template: "decidim/elections/admin/questions/edit_questions"
+            end
+          end
         end
 
         def response_options
@@ -75,10 +78,6 @@ module Decidim
         def update_url
           update_questions_election_path(election)
         end
-
-        # def blank_question
-        #   @blank_question ||= Decidim::Elections::Admin::QuestionForm.new
-        # end
 
         def blank_question
           @blank_question ||= Decidim::Elections::Admin::QuestionForm.new

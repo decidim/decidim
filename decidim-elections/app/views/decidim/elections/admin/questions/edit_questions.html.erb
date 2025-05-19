@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "election-form" %>
+  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "questions-election-form" %>
 <% end %>
 
 <div class="item_show__header">
@@ -16,7 +16,7 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+    <%= decidim_form_for(@form, url: update_url, method: :put, html: {  id: "questions-election-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
       <%= render partial: "decidim/elections/admin/questions/form", object: form %>
     <% end %>
   </div>

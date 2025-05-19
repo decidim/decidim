@@ -20,16 +20,12 @@ module Decidim
             patch :restore
 
             get "edit_questions", to: "questions#edit_questions"
-            patch "update_questions", to: "questions#update_questions"
+            put "update_questions", to: "questions#update"
           end
 
-          resources :questions, controller: "questions" do
+          resources :questions, only: [:edit_question, :update], controller: "questions" do
             collection do
               post :reorder
-            end
-
-            resources :answers, controller: "answers" do
-              post :reorder, on: :collection
             end
           end
         end

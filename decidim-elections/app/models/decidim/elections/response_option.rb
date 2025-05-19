@@ -10,11 +10,6 @@ module Decidim
       translatable_fields :body
 
       belongs_to :question, class_name: "Decidim::Elections::Question", foreign_key: "decidim_question_id"
-      has_many :choices,
-               class_name: "ResponseChoice",
-               foreign_key: "decidim_response_option_id",
-               dependent: :destroy,
-               inverse_of: :response_option
 
       def translated_body
         Decidim::Forms::ResponseOptionPresenter.new(self).translated_body
