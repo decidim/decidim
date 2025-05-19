@@ -95,13 +95,12 @@ cell("decidim/like_buttons", resource)
 
 === The list of likes
 
-The `Decidim::LikesListCell` renders the list of likes of a resource. It is usually rendered in the show page of the resource, just upside the comments. Additionally, this cell also renders the pop-up required to view the likes of a certain resource.
+The `Decidim::LikersListCell` renders the list of likes of a resource. It is usually rendered in the show page of the resource, just upside the comments. Additionally, this cell also renders the pop-up required to view the likes of a certain resource.
 
 [source,ruby]
 ----
 # to render the list of likes, the cell requires the likeable resource, and the current user
-cell "decidim/likes_list", resource
+cell "decidim/likers_list", resource
 # or using the helper
-likes_list_cell(resource)
+likers_list_cell(resource)
 ----
-
