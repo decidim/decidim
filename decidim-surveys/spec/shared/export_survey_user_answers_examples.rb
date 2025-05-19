@@ -57,8 +57,8 @@ shared_examples "export survey user answers" do
 
   it "exports a single response" do
     visit_component_admin
-    click_on "Questions"
-    click_on "Responses"
+    click_on "Manage questions"
+    click_on "Show responses"
 
     expect(Decidim::PrivateExport.count).to eq(0)
 
