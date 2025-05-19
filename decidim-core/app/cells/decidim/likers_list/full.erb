@@ -3,7 +3,7 @@
     <%= icon "like" %>
     <h2 id="dialog-title-likesModal" tabindex="-1" data-dialog-title><%= t("decidim.likes_list.title") %></h2>
     <div>
-      <% full_likes.each do |author| %>
+      <% full_likers.each do |author| %>
         <div class="list-item__author">
           <div>
             <%= cell "decidim/author", author, has_actions: true, skip_profile_link: true %>
