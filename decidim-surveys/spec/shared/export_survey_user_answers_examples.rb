@@ -16,7 +16,7 @@ shared_examples "export survey user answers" do
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    perform_enqueued_jobs { click_on "CSV" }
+    perform_and_wait_for_enqueued_jobs { click_on "CSV" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
@@ -32,7 +32,7 @@ shared_examples "export survey user answers" do
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    perform_enqueued_jobs { click_on "JSON" }
+    perform_and_wait_for_enqueued_jobs { click_on "JSON" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
@@ -47,12 +47,45 @@ shared_examples "export survey user answers" do
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    perform_enqueued_jobs { click_on "PDF" }
+    perform_and_wait_for_enqueued_jobs { click_on "PDF" }
+    expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+
+    expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
+  end
+
+  it "exports a single response" do
+    visit_component_admin
+    click_on "Manage questions"
+    click_on "Show responses"
+
+    expect(Decidim::PrivateExport.count).to eq(0)
+
+    perform_and_wait_for_enqueued_jobs { find(".action-icon--data-transfer-download", match: :first).click }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
+  end
+
+  private
+
+  # There is a chance of a flaky spec here, as sometimes the jobs are not enqueued in the correct order
+  # causing user's confirmations to be sent after the export is ready
+  def perform_and_wait_for_enqueued_jobs(only: nil, except: nil, queue: nil, at: nil, &block)
+    while enqueued_jobs.size.positive?
+      perform_enqueued_jobs
+      sleep 0.5
+    end
+
+    perform_enqueued_jobs(only:, except:, queue:, at:, &block)
+
+    while enqueued_jobs.size.positive?
+      perform_enqueued_jobs
+      sleep 0.5
+    end
   end
 end

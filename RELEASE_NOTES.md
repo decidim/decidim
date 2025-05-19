@@ -34,7 +34,21 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 3. One time actions
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Removal of invalid user exports
+
+We have noticed an edge case when using private export functionality, in which the page becomes inaccessible if the user in question is using export single survey answer functionality.
+
+You can run the following rake task to ensure your system is not corrupted.
+
+```bash
+./bin/rails decidim:upgrade:clean:invalid_private_exports
+```
+
+For ease of in operations, we also added the above command to the main `decidim:upgrade:clean:invalid_records` rake task.
+
+You can read more about this change on PR [#14638](https://github.com/decidim/decidim/pull/14638).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
