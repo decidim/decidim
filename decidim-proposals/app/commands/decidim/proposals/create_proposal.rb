@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -74,10 +73,10 @@ module Decidim
           ) do
             proposal = Proposal.new(
               title: {
-                I18n.locale => title_with_hashtags
+                I18n.locale => form.title
               },
               body: {
-                I18n.locale => body_with_hashtags
+                I18n.locale => form.body
               },
               component: form.component
             )

@@ -19,7 +19,6 @@ module Decidim
         attribute :position, Integer
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
-        attribute :suggested_hashtags, Array[String]
 
         attachments_attribute :photos
 
@@ -29,8 +28,7 @@ module Decidim
         validate :notify_missing_attachment_if_errored
 
         def map_model(model)
-          body = translated_attribute(model.body)
-          @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
+          translated_attribute(model.body)
         end
 
         alias component current_component
@@ -68,27 +66,6 @@ module Decidim
           meeting_as_author
         end
 
-        def extra_hashtags
-          @extra_hashtags ||= (component_automatic_hashtags + suggested_hashtags).uniq
-        end
-
-        def suggested_hashtags
-          downcased_suggested_hashtags = super.to_set(&:downcase)
-          component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
-        end
-
-        def suggested_hashtag_checked?(hashtag)
-          suggested_hashtags.member?(hashtag)
-        end
-
-        def component_automatic_hashtags
-          @component_automatic_hashtags ||= ordered_hashtag_list(current_component.current_settings.automatic_hashtags)
-        end
-
-        def component_suggested_hashtags
-          @component_suggested_hashtags ||= ordered_hashtag_list(current_component.current_settings.suggested_hashtags)
-        end
-
         private
 
         # This method will add an error to the `attachment` field only if there is
@@ -98,10 +75,6 @@ module Decidim
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
           errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
-        end
-
-        def ordered_hashtag_list(string)
-          string.to_s.split.compact_blank.uniq.sort_by(&:parameterize)
         end
       end
     end

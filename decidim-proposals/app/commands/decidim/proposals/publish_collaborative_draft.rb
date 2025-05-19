@@ -56,8 +56,8 @@ module Decidim
       def proposal_attributes
         fields = {}
 
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(@collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(@collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
 
         fields[:title] = { I18n.locale => parsed_title }
         fields[:body] = { I18n.locale => parsed_body }
