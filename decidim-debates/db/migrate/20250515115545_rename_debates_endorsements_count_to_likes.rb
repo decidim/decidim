@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameDebatesEndorsementsCountToLikes < ActiveRecord::Migration[7.0]
   def change
     rename_column :decidim_debates_debates, :endorsements_count, :likes_count

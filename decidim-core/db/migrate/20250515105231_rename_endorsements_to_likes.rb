@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameEndorsementsToLikes < ActiveRecord::Migration[7.0]
   disable_ddl_transaction!
 
@@ -52,7 +54,7 @@ class RenameEndorsementsToLikes < ActiveRecord::Migration[7.0]
   end
 
   def index_exists_by_name?(index_name)
-    index = select_value <<~SQL
+    index = select_value <<~SQL.squish
       SELECT to_regclass('#{index_name}')
     SQL
     index.present?
