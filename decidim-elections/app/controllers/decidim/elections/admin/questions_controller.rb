@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       class QuestionsController < Admin::ApplicationController
-        helper_method :election, :questionnaire_for, :questionnaire, :update_url, :blank_question, :question_types, :blank_response_option, :response_options_url
+        helper_method :election, :questionnaire_for, :questionnaire, :update_url, :blank_question, :question_types, :blank_response_option
 
         helper Decidim::Forms::Admin::ApplicationHelper
 
@@ -39,20 +39,6 @@ module Decidim
               render template: "decidim/elections/admin/questions/edit_questions"
             end
           end
-        end
-
-        def response_options
-          respond_to do |format|
-            format.json do
-              question_id = params["id"]
-              question = Decidim::Elections::Question.find_by(id: question_id)
-              render json: question.response_options.map { |response_option| Decidim::Forms::ResponseOptionPresenter.new(response_option).as_json } if question.present?
-            end
-          end
-        end
-
-        def response_options_url(params)
-          url_for([questionnaire.questionnaire_for, { action: :response_options, format: :json, **params }])
         end
 
         def questionnaire_for
