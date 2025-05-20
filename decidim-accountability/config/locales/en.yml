@@ -195,7 +195,7 @@ en:
             title: Edit entry
             update: Update entry
           index:
-            title: Milestones entries
+            title: Milestone entries
           new:
             create: Create entry
             title: New entry
