@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
+require "decidim/seeds"
 
 module Decidim
   module Elections
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)

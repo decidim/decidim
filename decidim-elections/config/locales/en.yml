@@ -68,6 +68,9 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
+        questionnaire_form:
+          errors:
+            at_least_one_question: At least one question is required.
         questions:
           edit_questions:
             add_answer_option: Add answer option
@@ -87,9 +90,6 @@ en:
           update:
             invalid: There was a problem updating the questions.
             success: Questions updated successfully.
-        questionnaire_form:
-          errors:
-            at_least_one_question: At least one question is required.
       admin_log:
         election:
           create: "%{user_name} created the %{resource_name} election in %{space_name}"
