@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hideBulkActionForms();
     bulkActionsButton.classList.add("hide");
 
-    document.querySelectorAll("#js-bulk-actions-dropdown ul li button").forEach((button) => {
+    document.querySelectorAll("#js-bulk-actions-dropdown li button").forEach((button) => {
       button.addEventListener("click", (event) => {
         const bulkActionsDropdown = document.getElementById("js-bulk-actions-dropdown");
         bulkActionsDropdown.classList.remove("is-open");

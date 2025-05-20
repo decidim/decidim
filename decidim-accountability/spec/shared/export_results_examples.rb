@@ -25,7 +25,7 @@ end
 shared_examples "export as CSV" do
   it "exports a CSV" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find("span.exports", text: export_type).click
+    find(:xpath, "//a[contains(text(), '#{export_type}')]").click
     perform_enqueued_jobs { click_on "Results as CSV" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
@@ -38,7 +38,7 @@ end
 shared_examples "export as JSON" do
   it "exports a JSON" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find("span.exports", text: export_type).click
+    find(:xpath, "//a[contains(text(), '#{export_type}')]").click
     perform_enqueued_jobs { click_on "Results as JSON" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
