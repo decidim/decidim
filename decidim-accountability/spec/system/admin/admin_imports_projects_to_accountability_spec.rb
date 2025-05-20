@@ -20,7 +20,7 @@ describe "Admin imports projects to accountability" do
 
   context "when there are no budgets components to import" do
     before do
-      find("span", text: "Import").click
+      find("a", text: "Import").click
       click_on "Import results from another component"
     end
 
@@ -34,7 +34,7 @@ describe "Admin imports projects to accountability" do
 
     before do
       visit current_path
-      find("span", text: "Import").click
+      find("a", text: "Import").click
     end
 
     it "link exists only in main list" do
@@ -49,7 +49,7 @@ describe "Admin imports projects to accountability" do
     let!(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
 
     before do
-      find("span", text: "Import").click
+      find("a", text: "Import").click
       click_on "Import results from another component"
     end
 

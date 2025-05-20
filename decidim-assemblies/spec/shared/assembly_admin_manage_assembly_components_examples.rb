@@ -10,7 +10,7 @@ shared_examples "assembly admin manage assembly components" do
     before do
       visit decidim_admin_assemblies.components_path(assembly)
 
-      find("button[data-toggle=add-component-dropdown]").click
+      find("button[data-target=add-component-dropdown]").click
 
       within "#add-component-dropdown" do
         find(".dummy").click
