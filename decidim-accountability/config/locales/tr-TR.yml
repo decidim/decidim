@@ -13,6 +13,7 @@ tr:
         project_ids: Dahil edilen projeler
         proposals: Dahil edilen teklifler
         start_date: Başlangıç tarihi
+        subresults:
         title: Başlık
         updated_at: Adresinde güncellendi
       status:
