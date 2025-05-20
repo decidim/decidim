@@ -20,6 +20,12 @@ describe "Admin manages organization" do
 
       fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
 
+      fill_in_i18n_editor :organization_description,
+                    "#organization-description-tabs",
+                    en: "My own super description",
+                    es: "Mi gran descripción",
+                    ca: "La meva gran descripció"
+
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
           click_on network

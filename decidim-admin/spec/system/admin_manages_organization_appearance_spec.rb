@@ -59,12 +59,6 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_appearance_path
 
-      fill_in_i18n_editor :organization_description,
-                          "#organization-description-tabs",
-                          en: "My own super description",
-                          es: "Mi gran descripción",
-                          ca: "La meva gran descripció"
-
       fill_in "Official organization URL", with: "http://www.example.com"
 
       dynamically_attach_file(:organization_logo, Decidim::Dev.asset("city2.jpeg"))

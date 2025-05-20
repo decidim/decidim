@@ -11,6 +11,7 @@ module Decidim::Admin
         {
           organization: {
             name: { en: "My super organization" },
+            description: { en: "My super description" },
             reference_prefix: "MSO",
             time_zone: "Hawaii",
             default_locale: "en",
@@ -74,6 +75,7 @@ module Decidim::Admin
           organization.reload
 
           expect(translated(organization.name)).to eq("My super organization")
+          expect(translated(organization.description)).to eq("My super description")
           expect(organization.rich_text_editor_in_public_views).to be(true)
           expect(organization.enable_machine_translations).to be(true)
         end

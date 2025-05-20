@@ -14,6 +14,10 @@
       </div>
 
       <div class="row column">
+        <%= form.translated :editor, :description, aria: { label: :description } %>
+      </div>
+
+      <div class="row column">
         <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
       </div>
 
