@@ -46,7 +46,7 @@ describe "Admin manages accountability" do
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
-        click_on "Project evolution"
+        click_on "Milestones"
       end
     end
 
