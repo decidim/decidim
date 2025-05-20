@@ -24,7 +24,6 @@
           <%= form.attachment :photos,
                               multiple: true,
                               label: false,
-                              extension_allowlist: Decidim.organization_settings(current_organization).upload_allowed_file_extensions_image, # need to be fixed
                               button_label: t("decidim.elections.admin.elections.form.add_images"),
                               button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
                               button_class: "button button__sm button__transparent-secondary",
