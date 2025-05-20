@@ -697,6 +697,9 @@ eu:
         actions:
           create: Sortu ekimen bat
           title: Ekintzak
+    statistics:
+      initiatives_count: Ekimenak
+      initiatives_count_tooltip: Argitaratutako herri-ekimenen kopurua.
   layouts:
     decidim:
       initiative_creation_header:

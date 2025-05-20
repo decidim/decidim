@@ -3,7 +3,6 @@ cs:
     attributes:
       sortition:
         additional_info: Informace o volbě losem
-        decidim_category_id: Kategorie sady návrhů, ve kterých chcete použít remízu
         decidim_proposals_component_id: Návrhy jsou nastaveny
         dice: Výsledek hodu kostkou. Hoďte šestistrannou kostkou nebo najděte jiný náhodný způsob, jak získat číslo od 1 do 6, a výsledné číslo sem před svědky vložte. To přispěje ke kvalitě a zaručí nahodilost výsledku
         target_items: Počet návrhů, které mají být vybrány (udává počet návrhů, které chcete vybrat, čerpáním ze skupiny návrhů, které jste předtím vybrali)
@@ -26,8 +25,13 @@ cs:
         name: Losování
         settings:
           global:
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
     events:
       sortitions:
         sortition_created:
@@ -45,7 +49,6 @@ cs:
         models:
           sortition:
             fields:
-              category: Kategorie
               created_at: Datum vytvoření
               decidim_proposals_component: Součást návrhů
               dice: Kostky
@@ -53,6 +56,7 @@ cs:
               request_timestamp: Čas vržení kostek
               seed: Založení
               target_items: Položky k výběru
+              taxonomies: Taxonomie
               title: Název
         sortitions:
           confirm_destroy:
@@ -69,8 +73,9 @@ cs:
             title: Aktualizovat informace o volbě losem
             update: Aktualizace
           form:
-            all_categories: Všechny kategorie
+            all_taxonomies: Všechny taxonomie
             select_proposal_component: Vyberte sadu návrhů
+            select_taxonomies: Taxonomie sady návrhů, ve kterých chcete losování použít. Chcete-li použít losování na všechny návrhy v dané taxonomii, ponechte prázdné.
           index:
             title: Losování
           new:
@@ -116,16 +121,16 @@ cs:
             other: vybrané návrhy
         show:
           algorithm: Kód algoritmu losování
-          any_category: ze všech kategorií
+          any_taxonomy: ze všech taxonomií
           cancelled: Zrušené losování
           candidate_proposal_ids: Pořadí a ID návrhů k losování
-          candidate_proposals_info: 'Losování bylo provedeno mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybrané návrhy)  '
-          category: z kategorie %{category}
+          candidate_proposals_info: 'Losování bylo provedeno mezi následujícími návrhy (%{taxonomy_labels}), s následujícími ID (označené tučně vybrané návrhy)  '
           dice_result: (1) Výsledek hodu kostkou
           introduction: "Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. \n\nSpolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. \n\nČasový základ pro losování je tak přesný (na sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý \"nekontrolovatelný\" vstup, který zaručí spravedlivý výsledek.  "
           mathematical_result: Výsledek (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané losováním
           sortition_reproducibility_details: Detaily reprodukovatelnosti losování
+          taxonomies: z taxonomií %{taxonomies}
           time_seed: (2) Časový základ
           witnesses: Svědci
         sortition:

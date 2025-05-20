@@ -824,6 +824,8 @@ es:
     statistics:
       attendees_count: Asistentes a la reunión
       meetings_count: Encuentros
+      meetings_count_tooltip: El número de encuentros que han tenido lugar, tanto si fueron presenciales, digitales o mixtas.
+      participatory_space_meetings_count: Encuentros
   devise:
     mailer:
       join_meeting:

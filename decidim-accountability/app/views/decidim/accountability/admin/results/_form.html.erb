@@ -57,7 +57,7 @@
         </div>
       </div>
 
-    <% if Decidim::Accountability.enable_proposal_linking %>
+    <% if Decidim.module_installed?(:proposals) %>
       <div class="row column">
         <%= render partial: "decidim/proposals/proposals/proposals_picker", locals: { form:, field: :proposals } %>
       </div>

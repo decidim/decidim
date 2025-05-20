@@ -697,6 +697,9 @@ ca:
         actions:
           create: Crear una iniciativa
           title: Accions
+    statistics:
+      initiatives_count: Iniciatives
+      initiatives_count_tooltip: El número d'iniciatives ciutadanes publicades.
   layouts:
     decidim:
       initiative_creation_header:

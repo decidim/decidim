@@ -715,9 +715,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |2
 |No
 
-|MEETINGS_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between meetings and proposals. By default is active if Proposals are active (which is true always at the moment).
-
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
 |No
@@ -732,15 +729,9 @@ Additional context: This has been revealed as an issue during a security audit o
 |true
 |No
 
-|BUDGETS_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between budgets and proposals. By default is active if Proposals are active (which is true always at the moment).
-
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
 |No
-
-|ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING
-|If true, enables several relationships between the accountability module and proposals. By default is active if Proposals are active (which is true always at the moment).
 
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto

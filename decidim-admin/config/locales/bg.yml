@@ -1012,7 +1012,6 @@ bg:
         participants: Участници
         scope_types: Типове на обхвата
         scopes: Обхвати
-        statistics: Активност
         users: Администратори
       users:
         create:

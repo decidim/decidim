@@ -43,14 +43,19 @@ cs:
             allow_editing_responses: Povolit registrovaným uživatelům upravovat vlastní odpovědi z průzkumu
             allow_responses: Povolit odpovědi
             allow_unregistered: Povolit neregistrovaným uživatelům odpovědět na průzkum
+            allow_unregistered_help: Pokud je aktivní, pro odpověď na dotazník nebude vyžadováno žádné přihlášení. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum vícekrát, použitím různých prohlížečů nebo funkce "soukromého prohlížeče" svého webového prohlížeče.
             announcement: Oznámení
+            clean_after_publish: Odstranit odpovědi při publikování ankety
             description: Popis
+            ends_at: Reakce přijímány do
             ends_at_help: Ponechte prázdné pro žádné konkrétní datum
+            starts_at: Reakce přijímány od
             starts_at_help: Ponechte prázdné pro žádné konkrétní datum
             tos: Podmínky služby
         questionnaires:
           actions:
             back: Zpět na otázky
+            publish_responses: Publikovat odpovědi
             show: Odpovědi
           display_condition:
             condition_question: Otázka
@@ -60,13 +65,16 @@ cs:
               match: Zahrnuje text
               not_equal: Není rovno
               not_responded: Neodpověděl
+              responded: Zodpovězeno
             condition_value: Zahrnuje text
             display_condition: Stav zobrazení
             mandatory: Tato podmínka musí být splněna vždy bez ohledu na stav ostatních podmínek
             remove: Odebrat
+            response_option: Možnost odpovědi
             save_warning: Nezapomeňte uložit formulář před nastavením podmínek zobrazení
             select_condition_question: Vyberte otázku
             select_condition_type: Vyberte typ podmínky
+            select_response_option: Vyberte možnost odpovědi
           edit:
             save: Uložit
             title: Upravit dotazník
@@ -90,6 +98,7 @@ cs:
             add_display_condition: Přidat podmínku zobrazení
             add_display_condition_info: Uložit formulář pro nastavení podmínek zobrazení
             add_matrix_row: Přidat řádek
+            add_response_option: Přidat možnost odpovědi
             any: Žádný
             collapse: Sbalit
             description: Popis
@@ -100,8 +109,10 @@ cs:
             statement: Prohlášení
             up: Nahoru
           questions_form:
+            already_responded_warning: Formulář už obsahuje odpovědi od některých uživatelů, takže nemůžete upravovat jeho otázky.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
+            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
             update:
               success: Otázky ankety byly úspěšně uloženy.
           response_option:
@@ -117,6 +128,15 @@ cs:
               previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
+            export:
+              response:
+                title: 'Odpověď č.%{number}'
+            export_response:
+              title: pruzkum_user_odpovedi_%{token}
+            index:
+              title: "%{total} odpovědí celkem"
+            show:
+              title: 'Odpověď č.%{number}'
           separator:
             down: Dolů
             remove: Odebrat
@@ -137,6 +157,9 @@ cs:
       admin_log:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
+      errors:
+        response:
+          body: Tělo textu nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +167,7 @@ cs:
           resize_to_fit: Tento obrázek bude změněn a vyplněn na %{dimensions}.
       question_types:
         files: Soubory
+        long_response: Dlouhá odpověď
         matrix_multiple: Matice (Více možností)
         matrix_single: Matice (Jedna možnost)
         multiple_option: Více možností
@@ -158,11 +182,13 @@ cs:
           max_choices: 'Max možnosti: %{n}'
         response:
           invalid: Při odpovídání formuláře došlo k chybě.
+          max_choices_alert: Je vybráno příliš mnoho možností
         show:
           current_step: Krok %{step}
           empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
           of_total_steps: z %{total_steps}
           questionnaire_closed:
+            body: Formulář je uzavřen a nelze jej odpovědět.
             title: Dotazník byl uzavřen
           questionnaire_for_private_users:
             body: Dotazník je k dispozici pouze pro soukromé uživatele
@@ -172,18 +198,30 @@ cs:
             title: JavaScript je zakázán
           questionnaire_not_published:
             body: Tento formulář zatím není zveřejněn.
+          questionnaire_responded:
+            title: Již jste odpověděli
+          questionnaire_responded_edit:
+            edit: Upravte své odpovědi
           response_questionnaire:
+            already_have_an_account?: Již máte účet?
             are_you_new?: Nový uživatel?
             sign_in_description: Přihlaste se k provedení průzkumu
+            sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
+            title: Odpověď na formulář
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
+          are_you_sure_edit_guest: Pokud chcete být schopni následně upravit své odpovědi, musíte se přihlásit nebo vytvořit účet.
+          are_you_sure_no_edit: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
+          disallowed: Nemáte oprávnění upravovat své odpovědi.
           submit: Odeslat
       user_responses_serializer:
         body: Odpověď
         completion: Dokončení
+        created_at: Odpověděl dne
+        id: ID odpovědi
         ip_hash: IP Hash
         question: Otázka
         registered: Registrován

@@ -415,6 +415,7 @@ ro:
         related_processes: Procese asociate
     statistics:
       processes_count: Procese
+      processes_count_tooltip: Numărul de procese participative publice.
   layouts:
     decidim:
       participatory_process_groups:

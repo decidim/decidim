@@ -160,3 +160,4 @@ ro:
           url: URL-ul pentru această postare
     statistics:
       posts_count: Postări
+      posts_count_tooltip: Numărul de actualizări publicate sau postări de blog.

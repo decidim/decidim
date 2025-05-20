@@ -634,6 +634,7 @@ de:
           url: Die URL des Bereichs
     statistics:
       conferences_count: Konferenzen
+      conferences_count_tooltip: Die Anzahl der veröffentlichten Konferenzen.
   devise:
     mailer:
       join_conference:

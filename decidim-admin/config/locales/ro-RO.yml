@@ -526,6 +526,7 @@ ro:
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
+        insights: Perspective
         manage: Gestionează
         moderation: Moderări globale
         newsletters: Buletine informative
@@ -535,6 +536,7 @@ ro:
         scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
+        statistics: Statistici
         taxonomy_filters: Filtre taxonomie
         users: Participanți
       models:
@@ -937,7 +939,7 @@ ro:
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
-        statistics: Activitate
+        statistics: Statistici
         users: Administratori
       users:
         create:
@@ -1013,3 +1015,5 @@ ro:
       admin:
         global_moderations:
           title: Moderare globală
+        insights:
+          title: Perspective

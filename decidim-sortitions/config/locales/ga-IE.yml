@@ -15,7 +15,6 @@ ga:
         models:
           sortition:
             fields:
-              category: Catagóir
               dice: Dísle
               seed: Síol
               title: Teideal

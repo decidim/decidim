@@ -196,3 +196,4 @@ sv:
           unearned_own: Du har inte deltagit i någon debatt än.
     statistics:
       debates_count: Debatter
+      debates_count_tooltip: Antalet diskussioner som hållits.

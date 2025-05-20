@@ -48,8 +48,8 @@ describe "Decidim::Api::QueryType" do
                  "description" => {
                    "translations" => [
                      { "locale" => "en", "text" => "The total number of users who have signed up and confirmed their account via email." },
-                     { "locale" => "ca", "text" => "The total number of users who have signed up and confirmed their account via email." },
-                     { "locale" => "es", "text" => "The total number of users who have signed up and confirmed their account via email." }
+                     { "locale" => "ca", "text" => "El nombre total d'usuàries que s'han registrat i confirmat el vostre compte per correu electrònic." },
+                     { "locale" => "es", "text" => "El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico." }
                    ]
                  }
                }])

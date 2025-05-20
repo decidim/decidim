@@ -3,7 +3,6 @@ ro:
     attributes:
       sortition:
         additional_info: Informații privind tragerea la sorți
-        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați tragerea la sorți
         decidim_proposals_component_id: Set de propuneri
         dice: Rezultat pe baza aruncării cu zarul. Folosește un zar cu 6 fețe sau caută o altă modalitate aleatorie de a genera un număr de la 1 la 6 și introdu aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și garanția unui rezultat aleatoriu
         target_items: Numărul de propuneri de selectat (indică numărul de propuneri pe care dorești să fie selectat prin tragere la sorți a grupului de propuneri pe care le-ai ales anterior)
@@ -25,8 +24,13 @@ ro:
         name: Trageri la sorți
         settings:
           global:
+            clear_all: Ștergeți toate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
     events:
       sortitions:
         sortition_created:
@@ -43,7 +47,6 @@ ro:
         models:
           sortition:
             fields:
-              category: Categorie
               created_at: Data creării
               decidim_proposals_component: Componenta propuneri
               dice: Zar
@@ -51,6 +54,7 @@ ro:
               request_timestamp: Ora tragerii la sorți
               seed: Valoare aleatorie
               target_items: Articole de selectat
+              taxonomies: Taxonomii
               title: Titlu
         sortitions:
           confirm_destroy:
@@ -67,8 +71,9 @@ ro:
             title: Actualizează informațiile despre tragerea la sorți
             update: Actualizează
           form:
-            all_categories: Toate categoriile
+            all_taxonomies: Toate taxonomiile
             select_proposal_component: Selectează setul de propuneri
+            select_taxonomies: Taxonomii ale setului de propuneri în care doriți să aplicați extragerea. Lăsați gol pentru a aplica tragerea la toate propunerile privind taxonomia respectivă.
           index:
             title: Trageri la sorți
           new:
@@ -109,16 +114,15 @@ ro:
             other: propuneri selectate
         show:
           algorithm: Codul algoritmului tragerii la sorți
-          any_category: din toate categoriile
+          any_taxonomy: din toate taxonomiile
           cancelled: Tragere la sorți anulată
           candidate_proposal_ids: Ordinea și ID-ul propunerilor din tragerea la sorți
-          candidate_proposals_info: 'Tragerea la sorți a fost efectuată între următoarele propuneri (%{category_label}), având următoarele ID-uri (propunerile selectate apar cu caractere îngroșate)  '
-          category: din categoria %{category}
           dice_result: (1) Rezultatul aruncării zarului
           introduction: 'Această pagină conține rezultatele tragerii la sorți %{reference}. Prin intermediul acestei trageri la sorți, un număr de %{target_items} rezultate au fost selectate în mod aleatoriu și cu o distribuție egală a probabilității, din setul de propuneri afișate mai jos. Împreună cu rezultatele, informațiile afișate pe această pagină oferă toate informațiile necesare pentru o garanție maximă și pentru a reproduce rezultatele. Cheia pentru calitatea acestei trageri la sorți este caracterul aleatoriu dublu asigurat de aruncarea zarului (verificată de martori) și de ora exactă a tragerii la sorți, care oferă input pentru un algoritm care generează o selecție aleatorie. Valoarea inițială a timpului pentru tragerea la sorți este atât de precisă (secunde) încât este imposibil de controlat de către om, asigurându-se astfel un dublu input „incontrolabil” pentru a se garanta un rezultat echitabil.  '
           mathematical_result: Rezultatul (1) x (2)
           proposals_selected_by_sortition: Propuneri selectate prin tragere la sorți
           sortition_reproducibility_details: Detalii privind replicarea tragerii la sorți
+          taxonomies: din %{taxonomies} taxonomii
           time_seed: (2) Data și ora
           witnesses: Martori
         sortition:
@@ -138,3 +142,4 @@ ro:
             other: "%{count} trageri la sorți"
     statistics:
       sortitions_count: Trageri la sorți
+      sortitions_count_tooltip: Numărul de selecții aleatorii efectuate pentru luarea deciziilor.

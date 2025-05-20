@@ -373,3 +373,4 @@ ca-IT:
         result_proposal: Propostes incloses en aquest resultat
     statistics:
       results_count: Resultats
+      results_count_tooltip: Nombre d'acords o actuacions resultat d'aquest espai de participació.

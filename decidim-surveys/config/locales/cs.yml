@@ -61,10 +61,14 @@ cs:
             status:
               not_published: Nezveřejněno
               published: Zveřejněno
+            title: Publikovat odpovědi
         questions:
           surveys:
             edit:
               title: Otázky
+        responses:
+          index:
+            no_responses: Zatím nejsou žádné odpovědi
         settings:
           surveys:
             edit:
@@ -113,6 +117,8 @@ cs:
           status:
             closed: Uzavřeno
             open: Otevřeno
+      survey_confirmation_mailer:
+        export_name: Odpovědi na dotazník
       surveys:
         count:
           surveys_count:
@@ -126,6 +132,9 @@ cs:
             closed: Uzavřeno
             open: Otevřeno
         no_surveys_warning: Žádné ankety neodpovídají zadaným kritériím nebo není žádná anketa otevřena.
+        response:
+          invalid: Při odpovědi na dotazník došlo k chybě.
+          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
         show:
           closed: Uzavřeno
           open: Otevřeno

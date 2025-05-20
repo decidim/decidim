@@ -547,6 +547,7 @@ ro:
       conferences: Conferințe
     statistics:
       conferences_count: Conferințe
+      conferences_count_tooltip: Numărul conferinţelor publicate.
   devise:
     mailer:
       join_conference:
