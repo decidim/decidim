@@ -42,7 +42,7 @@ describe "Admin manages assembly soft delete" do
       create(:assembly_user_role,
              user: evaluator_user,
              assembly: assembly,
-             role: :evaluator)
+             role: :valuator)
     end
 
     before do

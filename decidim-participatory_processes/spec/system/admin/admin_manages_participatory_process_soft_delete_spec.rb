@@ -42,7 +42,7 @@ describe "Admin manages participatory process soft delete" do
       create(:participatory_process_user_role,
              user: evaluator_user,
              participatory_process: participatory_process,
-             role: :evaluator)
+             role: :valuator)
     end
 
     before do

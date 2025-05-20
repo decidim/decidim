@@ -42,7 +42,7 @@ describe "Admin manages conference soft delete" do
       create(:conference_user_role,
              user: evaluator_user,
              conference: conference,
-             role: :evaluator)
+             role: :valuator)
     end
 
     before do
