@@ -12,6 +12,13 @@ module Decidim
       end
 
       let(:name) { { ca: "", en: "My super organization", es: "" } }
+      let(:description) do
+        {
+          en: "Description, awesome description",
+          es: "Descripción",
+          ca: "Descripció"
+        }
+      end
       let(:reference_prefix) { "MSO" }
       let(:time_zone) { "UTC" }
       let(:twitter_handler) { "My twitter awesome handler" }
@@ -35,6 +42,9 @@ module Decidim
         {
           "organization" => {
             "name" => name,
+            "description_en" => description[:en],
+            "description_es" => description[:es],
+            "description_ca" => description[:ca],
             "reference_prefix" => reference_prefix,
             "time_zone" => time_zone,
             "default_locale" => default_locale,
