@@ -9,14 +9,16 @@ module Decidim
         helper Decidim::Forms::Admin::ApplicationHelper
 
         def edit_questions
-          # enforce_permission_to(:update, :election_question, election:, questions:)
+          enforce_permission_to(:update, :election_question, election:)
+
           @form = form(Decidim::Elections::Admin::QuestionnaireForm).from_model(questionnaire)
 
           render template: "decidim/elections/admin/questions/edit_questions"
         end
 
         def update
-          # enforce_permission_to(:create, :question, election:)
+          enforce_permission_to(:update, :election_question, election:)
+
           current_questions_forms = form(Admin::QuestionnaireForm).from_model(questionnaire).questions
           @form = form(Admin::QuestionnaireForm).from_params(params)
 
