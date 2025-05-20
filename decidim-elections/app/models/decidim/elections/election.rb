@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
 
-      RESULTS_AVAILABILITY_OPTIONS = %w(real_time questions_by_questions after_end).freeze
+      RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
       component_manifest_name "elections"
 
@@ -26,7 +26,7 @@ module Decidim
 
       validates :title, presence: true
 
-      enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: true
+      enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: "results"
 
       searchable_fields(
         A: :title,

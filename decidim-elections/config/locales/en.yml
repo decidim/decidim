@@ -37,8 +37,8 @@ en:
             results_availability:
               after_end: After elections end
               after_end_help: Show results only when the election is ended
-              questions_by_questions: Question by question
-              questions_by_questions_help: Show results per question as they are finalized
+              per_question: Question by question
+              per_question_help: Show results per question as they are finalized
               real_time: Real time
               real_time_help: Show results as soon as the first vote is submitted
               title: Results availability
