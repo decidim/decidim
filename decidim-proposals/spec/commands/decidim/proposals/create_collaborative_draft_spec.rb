@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe CreateCollaborativeDraft do
       let(:form_klass) { CollaborativeDraftForm }
-      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
+      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, :with_creation_enabled) }
       let(:organization) { component.organization }
       let(:user) { create(:user, :confirmed, organization:) }
       let(:form) do
