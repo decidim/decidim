@@ -627,6 +627,7 @@ tr:
         file:
           explanation: 'Dosya kılavuzu:'
           message_1: Bir resim veya bir belge olmalı.
+          message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar.
         image:
           explanation: 'Dosya kılavuzu:'
           message_2: Bu servis görüntüyü kırpar.
