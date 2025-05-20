@@ -77,15 +77,10 @@
       <div id="panel-results">
         <div class="row column">
           <%= form.collection_radio_buttons :results_availability,
-                                            [
-                                              ["real_time", t("decidim.elections.admin.elections.form.results_availability.real_time")],
-                                              ["per_question", t("decidim.elections.admin.elections.form.results_availability.per_question")],
-                                              ["after_end", t("decidim.elections.admin.elections.form.results_availability.after_end")]
-                                            ],
+                                            @form.results_availability_labels,
                                             :first,
                                             :last,
                                             {}, class: "radio-buttons" do |b| %>
-
             <div class="radio-button">
               <%= b.label do %>
                 <%= b.radio_button %>

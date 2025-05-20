@@ -32,6 +32,12 @@ module Decidim
         def map_model(election)
           self.manual_start = election.start_at.blank?
         end
+
+        def results_availability_labels
+          Decidim::Elections::Election::RESULTS_AVAILABILITY_OPTIONS.map do |type|
+            [type, I18n.t("decidim.elections.admin.elections.form.results_availability.#{type}")]
+          end
+        end
       end
     end
   end
