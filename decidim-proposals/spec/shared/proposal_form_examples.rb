@@ -25,7 +25,6 @@ shared_examples "a proposal form" do |options|
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }
-  let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
   let(:taxonomies) { [] }
@@ -39,8 +38,7 @@ shared_examples "a proposal form" do |options|
       author:,
       address:,
       meeting_as_author:,
-      attachment: attachment_params,
-      suggested_hashtags:
+      attachment: attachment_params
     }
   end
 
@@ -209,7 +207,6 @@ shared_examples "a proposal form" do |options|
         :taxonomies => taxonomies,
         :address => address,
         :meeting_as_author => meeting_as_author,
-        :suggested_hashtags => suggested_hashtags,
         attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end

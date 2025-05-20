@@ -27,7 +27,6 @@ module Decidim
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
       let(:attachment_params) { nil }
-      let(:suggested_hashtags) { [] }
 
       describe "call" do
         let(:form_params) do
@@ -38,8 +37,7 @@ module Decidim
             has_address:,
             latitude:,
             longitude:,
-            add_documents: attachment_params,
-            suggested_hashtags:
+            add_documents: attachment_params
           }
         end
 
