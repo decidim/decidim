@@ -1439,6 +1439,8 @@ ja:
       create:
         error: レポートの作成中にエラーが発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      hide:
+        success: このリソースは非表示になっています。
       parent_hidden:
         report_details: 親リソースは非表示
     resource_endorsements:
