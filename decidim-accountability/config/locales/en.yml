@@ -52,9 +52,9 @@ en:
         import_csv: Import results from CSV file
         new_result: New result
         new_status: New status
-        new_timeline_entry: New timeline entry
+        new_timeline_entry: New milestone
         preview: Preview
-        timeline_entries: Project evolution
+        timeline_entries: Milestones
         title: Actions
         view_deleted_results: View deleted results
       admin:
@@ -195,7 +195,7 @@ en:
             title: Edit entry
             update: Update entry
           index:
-            title: Project timeline entries
+            title: Milestones entries
           new:
             create: Create entry
             title: New entry
