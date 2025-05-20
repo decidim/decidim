@@ -889,8 +889,8 @@ en:
           social_handlers: Social
           twitter: X
           url: URL
-          youtube: YouTube
           welcome_notification: Welcome notification
+          youtube: YouTube
         update:
           error: There was a problem updating this organization.
           success: Organization updated successfully.
