@@ -7,6 +7,8 @@ module Decidim
   module Elections
     module Admin
       describe ElectionsController do
+        routes { Decidim::Elections::AdminEngine.routes }
+
         let(:component) { create(:elections_component) }
         let(:organization) { component.organization }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
@@ -28,15 +30,13 @@ module Decidim
           request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
           sign_in current_user
-
-          allow(controller).to receive(:elections_path).and_return("/elections")
         end
 
         describe "POST create" do
           it "creates the election and redirects" do
             post :create, params: { election: election_params }
 
-            expect(response).to redirect_to("/elections")
+            expect(response).to redirect_to(edit_questions_election_path(Decidim::Elections::Election.last))
             expect(flash[:notice]).to be_present
           end
 
@@ -52,7 +52,7 @@ module Decidim
           it "updates the election and redirects" do
             patch :update, params: { id: election.id, election: election_params.merge(title: { en: "Updated title" }) }
 
-            expect(response).to redirect_to("/elections")
+            expect(response).to redirect_to(edit_questions_election_path(election))
             expect(flash[:notice]).to be_present
           end
 

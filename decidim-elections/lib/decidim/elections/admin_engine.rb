@@ -22,12 +22,6 @@ module Decidim
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"
           end
-
-          resources :questions, only: [:edit_question, :update], controller: "questions" do
-            collection do
-              post :reorder
-            end
-          end
         end
         root to: "elections#index"
       end
