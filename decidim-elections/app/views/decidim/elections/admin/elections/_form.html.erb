@@ -1,0 +1,98 @@
+<%= append_stylesheet_pack_tag "decidim_elections_admin" %>
+<%= append_javascript_pack_tag "decidim_elections_admin" %>
+<div class="form__wrapper">
+  <div class="card-section election-fields">
+    <div class="card form-basic" data-component="accordion" id="accordion-basic">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-basic" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("basic_title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-basic">
+        <div class="row column">
+          <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+        </div>
+
+        <div class="row column">
+          <%= form.translated :editor, :description, resource_mentionable: true, hashtaggable: true, aria: { label: :description } %>
+        </div>
+
+        <div class="row column">
+          <%= form.attachment :photos,
+                              multiple: true,
+                              label: false,
+                              button_label: t("decidim.elections.admin.elections.form.add_images"),
+                              button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
+                              button_class: "button button__sm button__transparent-secondary",
+                              help_i18n_scope: "decidim.forms.file_help.image",
+                              help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card form-calendar" data-component="accordion" id="accordion-calendar">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-calendar" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("calendar", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-calendar">
+        <div class="row column">
+          <%= cell "decidim/announcement", t("decidim.elections.admin.elections.form.calendar_description",
+                                             timezone: "#{current_organization.time_zone} (#{l(Time.current.in_time_zone(current_organization.time_zone), format: :long)})"
+          ), callout_class: "warning" %>
+        </div>
+        <div class="row column">
+          <%= form.check_box :manual_start, label: t("decidim.elections.admin.elections.form.manual_start") %>
+        </div>
+        <div class="row column election-fields--time">
+          <div class="md:flex w-100">
+            <div class="row column election_start_time">
+              <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
+            </div>
+            <div class="row column">
+              <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card form-results" data-component="accordion" id="accordion-results">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-results" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("results_availability.title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-results">
+        <div class="row column">
+          <%= form.collection_radio_buttons :results_availability,
+                                            @form.results_availability_labels,
+                                            :first,
+                                            :last,
+                                            {}, class: "radio-buttons" do |b| %>
+            <div class="radio-button">
+              <%= b.label do %>
+                <%= b.radio_button %>
+                <%= b.text %>
+              <% end %>
+
+              <span class="help-text">
+                <%= t("decidim.elections.admin.elections.form.results_availability.#{b.value}_help") %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

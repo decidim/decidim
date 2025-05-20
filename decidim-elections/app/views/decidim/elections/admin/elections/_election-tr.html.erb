@@ -1,0 +1,24 @@
+<tr data-id="<%= election.id %>">
+  <td>
+    <% if allowed_to? :update, :election, election: election %>
+      <%= link_to present(election).title(html_escape: true), edit_election_path(election) %>
+    <% else %>
+      <%= present(election).title(html_escape: true) %><br>
+    <% end %>
+  </td>
+  <td>
+    <% if election.start_at %>
+      <%= l election.start_at, format: :long %>
+      <% else %>
+      <%= t("decidim.elections.admin.elections.form.manual_start") %>
+    <% end %>
+  </td>
+  <td>
+    <% if election.end_at %>
+      <%= l election.end_at, format: :long %>
+    <% end %>
+  </td>
+  <td class="table-list__actions">
+    <%= render partial: "decidim/elections/admin/elections/actions", locals: { election:, view: } %>
+  </td>
+</tr>
