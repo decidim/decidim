@@ -18,15 +18,15 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
 
+      RESULTS_AVAILABILITY_OPTIONS = %w(real_time questions_by_questions after_end).freeze
+
       component_manifest_name "elections"
 
       translatable_fields :title, :description
 
       validates :title, presence: true
 
-      scope :published, -> { where.not(published_at: nil) }
-
-      enum results_availability: [:real_time, :questions_by_questions, :after_end].index_with(&:to_s), _prefix: true
+      enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: true
 
       searchable_fields(
         A: :title,
