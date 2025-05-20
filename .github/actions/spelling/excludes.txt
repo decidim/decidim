@@ -114,4 +114,6 @@
 ^\Qdecidim-ai/data/sms-spam.csv\E$
 ^\Qdecidim-ai/data/spam_comments.csv\E$
 ^\Qdecidim-ai/spec/support/test.csv\E$
+^\Qdocs/modules/develop/assets/attachments/grafana/metadecidim-graphql.json\E$
+^\Qdocs/modules/develop/assets/attachments/grafana/metadecidim-csv.json\E$
 ignore$
