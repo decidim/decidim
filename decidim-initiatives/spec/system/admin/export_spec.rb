@@ -36,7 +36,7 @@ describe "Admin exports initiatives" do
     end
 
     it "shows the export formats" do
-      find("span", text: "Export all").click
+      find("a", text: "Export all").click
 
       expect(page).to have_content("Initiatives as CSV")
       expect(page).to have_content("Initiatives as JSON")
@@ -46,7 +46,7 @@ describe "Admin exports initiatives" do
   context "when clicking the export link" do
     before do
       visit decidim_admin_initiatives.initiatives_path
-      find("span", text: "Export all").click
+      find("a", text: "Export all").click
     end
 
     it "displays success message" do
@@ -74,7 +74,7 @@ describe "Admin exports initiatives" do
       end
 
       it "shows the export formats" do
-        find("span", text: "Export selection").click
+        find("a", text: "Export selection").click
 
         expect(page).to have_content("Initiatives as CSV")
         expect(page).to have_content("Initiatives as JSON")
@@ -85,7 +85,7 @@ describe "Admin exports initiatives" do
       before do
         visit decidim_admin_initiatives.initiatives_path
         apply_filter("State", "Drafted")
-        find("span", text: "Export selection").click
+        find("a", text: "Export selection").click
       end
 
       it "displays success message" do

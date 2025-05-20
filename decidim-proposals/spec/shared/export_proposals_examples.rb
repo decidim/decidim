@@ -25,7 +25,7 @@ shared_examples "export as CSV" do
   it "exports a CSV" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    find("span.exports", text: export_type).click
+    find("a", text: export_type).click
     perform_enqueued_jobs do
       click_on "Proposals as CSV"
       sleep 1
@@ -42,7 +42,7 @@ shared_examples "export as JSON" do
   it "exports a JSON" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
-    find("span.exports", text: export_type).click
+    find("a", text: export_type).click
     perform_enqueued_jobs do
       click_on "Proposals as JSON"
       sleep 1

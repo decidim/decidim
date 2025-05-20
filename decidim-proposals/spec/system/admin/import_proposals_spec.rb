@@ -15,7 +15,7 @@ describe "Import proposals" do
   end
 
   before do
-    page.find(".imports").click
+    find("a", text: "Import").click
     click_on "Import proposals from a file"
   end
 
