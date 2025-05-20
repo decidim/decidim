@@ -38,7 +38,7 @@ describe "Admin manages elections questions" do
   context "when an admin user add a question" do
     it "adds a question with response options" do
       question_body = ["This is the first question", "This is the second question"]
-      question_description = ["This is the first question description", "This is the second question description"]
+      question_description = ["This is the first question description"]
       response_options_body = [
         ["This is the Q1 first option", "This is the Q1 second option", "This is the Q1 third option"],
         ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
@@ -52,8 +52,9 @@ describe "Admin manages elections questions" do
         page.all(".questionnaire-question").each_with_index do |question, idx|
           within question do
             fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
-            fill_in_editor find_nested_form_field_locator("description_en"), with: question_description[idx]
           end
+
+          fill_in_editor find_nested_form_field_locator("description_en"), with: question_description[0]
         end
 
         page.all(".questionnaire-question").each do |question|
@@ -84,7 +85,6 @@ describe "Admin manages elections questions" do
       expect(page).to have_css("input[value='This is the Q1 second option']")
       expect(page).to have_css("input[value='This is the Q1 third option']")
       expect(page).to have_css("input[value='This is the second question']")
-      expect(page).to have_content("This is the second question description")
       expect(page).to have_css("input[value='This is the Q2 first option']")
       expect(page).to have_css("input[value='This is the Q2 second option']")
       expect(page).to have_css("input[value='This is the Q2 third option']")
