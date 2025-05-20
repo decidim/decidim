@@ -153,6 +153,7 @@ ignore_unused:
   - decidim.forms.file_help.*
   - decidim.forms.admin_log.questionnaire.update
   - decidim.elections.admin_log.election.*
+  - decidim.elections.admin_log.questionnaire.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
