@@ -1,0 +1,33 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.elections"), new_election_path, class: "button button__sm button__secondary" if allowed_to? :create, :election %>
+      <%= render partial: "decidim/admin/components/resource_action" %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "elections-thead" %>
+      <tbody>
+      <%= render partial: "decidim/elections/admin/elections/election-tr",
+                 collection: elections,
+                 as: :election,
+                 locals: { view: :index } %>
+      </tbody>
+    </table>
+  </div>
+  <% if allowed_to? :manage_trash, :election, participatory_space: current_participatory_space %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_elections_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_elections", scope: "decidim.elections") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_election_info", scope: "decidim.elections")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= decidim_paginate elections %>
