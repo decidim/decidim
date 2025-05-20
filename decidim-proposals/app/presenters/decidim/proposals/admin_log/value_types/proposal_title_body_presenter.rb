@@ -10,8 +10,6 @@ module Decidim
 
             translated_value = h.decidim_escape_translated(value)
             return if translated_value.blank?
-
-            render(links: false).html_safe
           end
         end
       end
