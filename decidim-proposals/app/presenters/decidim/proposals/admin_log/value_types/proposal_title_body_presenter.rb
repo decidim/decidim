@@ -10,6 +10,9 @@ module Decidim
 
             translated_value = h.decidim_escape_translated(value)
             return if translated_value.blank?
+
+            renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_value)
+            renderer.render(links: false).html_safe
           end
         end
       end
