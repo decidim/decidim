@@ -33,7 +33,7 @@ module Decidim
         end
 
         def editable?
-          # TODO: Needs to be changed
+          # Will be changed for the ongoing election, e.g.
           @editable ||= id.blank? || Decidim::Elections::Question.where(id: id)
         end
 

@@ -10,10 +10,9 @@ module Decidim
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
-      # TODO: Implement the logic
-      # def self.log_presenter_class_for(_log)
-      #   Decidim::Elections::AdminLog::QuestionnairePresenter
-      # end
+      def self.log_presenter_class_for(_log)
+        Decidim::Elections::AdminLog::QuestionnairePresenter
+      end
     end
   end
 end

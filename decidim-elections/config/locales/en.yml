@@ -86,6 +86,8 @@ en:
           soft_delete: "%{user_name} moved the %{resource_name} election in %{space_name} to the trash"
           unpublish: "%{user_name} unpublished the %{resource_name} election in %{space_name}"
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
+        questionnaire:
+          update: "%{user_name} updated the questions of the %{resource_name} election"
       models:
         election:
           fields:
