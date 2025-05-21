@@ -680,7 +680,7 @@ fi-pl:
           try_again: Yritä uudestaan
         header:
           ballot_decision: Lähetä tai tarkasta äänesi
-          confirm: Vahvista äänesi
+          confirm: Vahvista
           election: Vaali
           register: Luo tunnus
           vote_for: Äänestä - %{title}
