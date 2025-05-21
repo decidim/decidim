@@ -6,16 +6,13 @@
         description: Beskrivelse
         image: Bilde
         proposals: Relaterte forslag
-        title: Tittel
       election:
         description: Beskrivelse
         end_time: Avstemningen avsluttes ved
         start_time: Stemmegivning starter
-        title: Tittel
       question:
         max_selections: Maksimalt antall valg
         min_selections: Ingen av valgene over
-        title: Tittel
       voting:
         end_time: Avstemningen avsluttes
         start_time: Avstemningen begynner
@@ -80,6 +77,8 @@
             'true': Ikke signert
         validated_eq:
           label: Godkjent
+          values:
+            'true': Godkjent
     components:
       elections:
         actions:
@@ -100,6 +99,9 @@
         manage_answers: Behandle svar
         manage_questions: Behandle spørsmål
         manage_steps: Behandle trinn
+        new_answer: Nytt svar
+        new_election: Nytt valg
+        new_question: Nytt spørsmål
         preview: Forhåndsvis
         publish: Publiser
         title: Handlinger
@@ -413,7 +415,8 @@
           header: Avstemning bekreftet
           text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
-          confirm: Bekreft stemmen din
+          confirm: Bekreft
+          election: Valg
         messages:
           not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
         modal:
@@ -436,9 +439,31 @@
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
+        ballot_styles:
+          index:
+            actions:
+              title: Handlinger
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+        monitoring_committee_election_results:
+          actions:
+            title: Handlinger
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Handlinger
+        monitoring_committee_verify_elections:
+          index:
+            title: Valg
+      monitoring_committee_members:
+        actions:
+          title: Handlinger
+      polling_officers:
+        actions:
+          title: Handlinger
+      polling_stations:
+        actions:
+          title: Handlinger
       votings:
         login:
           start_voting: Start avstemning
