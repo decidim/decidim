@@ -133,7 +133,7 @@ ca-IT:
           label: Validat
           values:
             'false': Sense validar
-            'true': Validada
+            'true': Validat
       voting_publications:
         create:
           error: S'ha produït un error en publicar aquesta votació.
@@ -161,9 +161,9 @@ ca-IT:
         manage_answers: Gestionar les respostes
         manage_questions: Administrar preguntes
         manage_steps: Administrar les fases
-        new_answer: Afegir resposta
-        new_election: Afegir elecció
-        new_question: Afegir pregunta
+        new_answer: Nova resposta
+        new_election: Nova votació
+        new_question: Nova pregunta
         new_trustee: Afegir garant
         preview: Previsualitzar
         publish: Publicar
@@ -225,7 +225,7 @@ ca-IT:
             invalid: S'ha produït un error en actualitzar aquesta votació.
             success: La votació s'ha actualitzat correctament.
         exports:
-          elections: Eleccions
+          elections: Votacions
           feedback_form_answers: Feedback de les respostes
         mailers:
           trustee_mailer:
@@ -617,7 +617,7 @@ ca-IT:
                 election: Elecció
                 voting_period: Període de votació
               no_elections: No hi ha eleccions en les que actuïs com a garant.
-              title: Eleccions
+              title: Votacions
             identification_keys:
               cancel: Cancel·lar
               generate: Generar claus d'identificació
@@ -680,7 +680,7 @@ ca-IT:
           try_again: Prova-ho de nou
         header:
           ballot_decision: Emetre
-          confirm: Confirma el teu vot
+          confirm: Confirmar
           election: Elecció
           register: Registra't
           vote_for: Vota per %{title}
@@ -954,7 +954,7 @@ ca-IT:
             how_to_run_verifier: 'Una vegada que has descarregat el fitxer i te''n has assegurat que és correcte, pots executar-hi el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>el repositori</a> i, des de la carpeta d''arrel, executa la següent ordre:'
             how_to_title: Com verificar la validesa d'una elecció
             not_available: Encara no està disponible
-            title: Eleccions
+            title: Votacions
         polling_officers:
           create:
             invalid: S'ha produït un error en crear aquesta oficial de votació.
