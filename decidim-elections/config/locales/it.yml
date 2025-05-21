@@ -12,6 +12,8 @@ it:
         end_time: La votazione termina il
         start_time: La votazione inizia il
         title: Titolo
+      polling_station:
+        title: Titolo
       question:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
@@ -20,6 +22,7 @@ it:
         end_time: La votazione termina il
         scope_id: Ambito
         start_time: La votazione inizia il
+        title: Titolo
         voting_type: Tipo di votazione
     errors:
       models:
@@ -82,6 +85,8 @@ it:
             'true': Non firmato
         validated_eq:
           label: Convalidato
+          values:
+            'true': Convalidato
     components:
       elections:
         actions:
@@ -102,6 +107,9 @@ it:
         manage_answers: Gestisci le risposte
         manage_questions: Gestisci i quesiti
         manage_steps: Gestisci passaggi
+        new_answer: Nuova risposta
+        new_election: Nuova elezione
+        new_question: Nuovo quesito
         preview: Anteprima
         publish: Pubblica
         title: Azioni
@@ -499,7 +507,8 @@ it:
           try_again: Riprova
         header:
           ballot_decision: Invia o controlla il tuo voto
-          confirm: Conferma il tuo voto
+          confirm: Conferma
+          election: Elezione
         messages:
           invalid_token: La tua sessione elettorale non è valida. Prova a votare di nuovo.
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
