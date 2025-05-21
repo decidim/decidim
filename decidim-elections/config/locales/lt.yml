@@ -172,6 +172,9 @@ lt:
         manage_answers: Tvarkyti atsakymus
         manage_questions: Tvarkyti klausimus
         manage_steps: Tvarkyti žingsnius
+        new_answer: Naujas atsakymas
+        new_election: Nauji rinkimai
+        new_question: Naujas klausimas
         preview: Peržiūra
         publish: Publikuoti
         title: Veiksmai
@@ -691,7 +694,7 @@ lt:
           try_again: Bandykite dar kartą
         header:
           ballot_decision: Balsuokite arba audituokite savo balsą
-          confirm: Patvirtinkite savo balsą
+          confirm: Patvirtinti
           election: Rinkimai
           register: Registruotis
           vote_for: Balsuoti dėl %{title}
@@ -853,6 +856,7 @@ lt:
             ballot_styles: Biuletenio tipai
             census: Surašymas
             components: Komponentai
+            info: Apie šį balsavimą
             landing_page: Pagrindinis puslapis
             monitoring_committee: Priežiūros komitetas
             monitoring_committee_election_results: Patvirtinti rezultatus
