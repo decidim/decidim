@@ -122,6 +122,9 @@ sv:
         manage_answers: Hantera svar
         manage_questions: Hantera frågor
         manage_steps: Hanterade steg
+        new_answer: Nytt svar
+        new_election: Nytt val
+        new_question: Ny fråga
         preview: Förhandsgranska
         publish: Publicera
         title: Åtgärder
@@ -365,7 +368,7 @@ sv:
                 bb_status: Status
                 election: Val
                 voting_period: Röstningsperiod
-              title: Omröstningar
+              title: Val
             identification_keys:
               cancel: Avbryt
               submit: Skicka in
@@ -392,8 +395,8 @@ sv:
           try_again: Försök igen
         header:
           ballot_decision: Lägg eller granska din röst
-          confirm: Bekräfta din röst
-          election: Omröstning
+          confirm: Bekräfta
+          election: Val
           register: Registrera
         messages:
           not_allowed: Ni får inte rösta om detta val just nu.
@@ -542,7 +545,7 @@ sv:
           index:
             download: Ladda ner
             not_available: Ännu inte tillgängliga
-            title: Omröstningar
+            title: Val
         polling_officers:
           form:
             user_type: Typ av deltagare
