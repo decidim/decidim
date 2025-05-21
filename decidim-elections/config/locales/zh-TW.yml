@@ -145,6 +145,9 @@ zh-TW:
         manage_answers: 管理答案
         manage_questions: 管理問題
         manage_steps: 管理步驟
+        new_answer: 新回答
+        new_election: 新選舉
+        new_question: 新問題
         preview: 預覽
         publish: 發布
         title: 操作
@@ -653,7 +656,8 @@ zh-TW:
           try_again: 再試一次
         header:
           ballot_decision: 投票或查核您的選票
-          confirm: 確認您的選票
+          confirm: 確認
+          election: 選舉
         messages:
           invalid_token: 您在投票站的會話無效。請再次嘗試投票。
           not_allowed: 您目前無法在此選舉中投票。
