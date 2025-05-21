@@ -19,6 +19,8 @@ module Decidim
         destroy_user_account!
         destroy_user_identities
         destroy_follows
+        destroy_user_authorizations
+        destroy_user_versions
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
       end
@@ -49,6 +51,14 @@ module Decidim
 
     def destroy_user_identities
       current_user.identities.destroy_all
+    end
+
+    def destroy_user_versions
+      current_user.versions.destroy_all
+    end
+
+    def destroy_user_authorizations
+      Decidim::Authorization.where(decidim_user_id: current_user.id).destroy_all
     end
 
     def destroy_follows

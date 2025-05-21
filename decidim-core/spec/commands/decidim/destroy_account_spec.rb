@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DestroyAccount do
+  describe DestroyAccount, :versioning => true do
     let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed) }
     let!(:identity) { create(:identity, user:) }
@@ -73,6 +73,11 @@ module Decidim
         end.to change(Identity, :count).by(-1)
       end
 
+      it "deletes user's versions" do
+        command.call
+        expect(user.reload.versions.count).to eq(0)
+      end
+
       it "deletes the follows" do
         other_user = create(:user)
         create(:follow, followable: user, user: other_user)
@@ -81,6 +86,15 @@ module Decidim
         expect do
           command.call
         end.to change(Follow, :count).by(-2)
+      end
+
+      it "deletes the authorizations" do
+        create(:authorization, :granted, user:, unique_id: "12345678X")
+        create(:authorization, :granted, user:, unique_id: "A12345678")
+
+        expect do
+          command.call
+        end.to change(Decidim::Authorization, :count).by(-2)
       end
 
       it "deletes participatory space private user" do
