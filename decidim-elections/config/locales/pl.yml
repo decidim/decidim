@@ -699,7 +699,7 @@ pl:
           try_again: Spróbuj ponownie
         header:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
-          confirm: Potwierdź swój głos
+          confirm: Potwierdź
           election: Wybory
           register: Rejestracja
           vote_for: Głosuj na %{title}
