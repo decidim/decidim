@@ -12,13 +12,6 @@ module Decidim
       end
 
       let(:header_snippets) { "<my-html />" }
-      let(:description) do
-        {
-          en: "Description, awesome description",
-          es: "Descripción",
-          ca: "Descripció"
-        }
-      end
       let(:organization) { create(:organization) }
       let(:cta_button_path) { nil }
       let(:highlighted_content_banner_enabled) { false }
@@ -39,9 +32,6 @@ module Decidim
       let(:attributes) do
         {
           "organization" => {
-            "description_en" => description[:en],
-            "description_es" => description[:es],
-            "description_ca" => description[:ca],
             "show_statics" => false,
             "cta_button_path" => cta_button_path,
             "header_snippets" => header_snippets,

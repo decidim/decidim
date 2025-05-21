@@ -369,6 +369,7 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
 Gruhier
