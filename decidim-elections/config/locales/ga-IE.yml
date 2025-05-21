@@ -7,7 +7,11 @@ ga:
         title: Teideal
       election:
         title: Teideal
+      polling_station:
+        title: Teideal
       question:
+        title: Teideal
+      voting:
         title: Teideal
   activerecord:
     models:
@@ -148,6 +152,8 @@ ga:
           confirm: Deimhnigh
           edit: eagar
           nota_option: Bán
+        header:
+          confirm: Deimhnigh
         modal:
           close: Dún
         verify:
