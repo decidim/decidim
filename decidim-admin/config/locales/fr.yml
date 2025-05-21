@@ -875,6 +875,9 @@ fr:
           title: Modifier l'organisation
           update: Mettre à jour
         form:
+          admin_terms_of_service: Conditions d'utilisation administrateur
+          basic_configuration: Configuration de base
+          extra_features: Fonctionnalités supplémentaires
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -882,6 +885,7 @@ fr:
           social_handlers: Liens des réseaux sociaux
           twitter: X
           url: URL
+          welcome_notification: Notification de bienvenue
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
