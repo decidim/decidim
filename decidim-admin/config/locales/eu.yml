@@ -878,6 +878,9 @@ eu:
           title: Editatu erakundea
           update: Eguneratu
         form:
+          admin_terms_of_service: Zerbitzuaren administratzailearen baldintzak
+          basic_configuration: Oinarrizko Konfigurazioa
+          extra_features: Aparteko ezaugarriak
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -885,6 +888,7 @@ eu:
           social_handlers: Gizarte
           twitter: X
           url: URL
+          welcome_notification: Ongietorri-jakinarazpenaren testua
           youtube: YouTube
         update:
           error: Arazo bat egon da erakunde hau eguneratzean.
