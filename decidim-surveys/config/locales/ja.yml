@@ -7,14 +7,14 @@ ja:
   activerecord:
     models:
       decidim/surveys/survey:
-        other: 調査
+        other: アンケート
       decidim/surveys/survey_answer:
         other: 回答
   decidim:
     admin:
       admin_log:
         changeset:
-          surveys: 調査
+          surveys: アンケート
     components:
       surveys:
         actions:
@@ -29,15 +29,15 @@ ja:
     events:
       surveys:
         survey_closed:
-          email_intro: '%{resource_title} の調査 %{participatory_space_title} はクローズされました。'
+          email_intro: '%{resource_title} のアンケート %{participatory_space_title} はクローズされました。'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} でアンケートが完了しました'
-          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> の調査は終了しました。
+          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> のアンケートは終了しました。
         survey_opened:
           email_intro: '%{resource_title} のアンケート %{participatory_space_title} が公開されました。このページから参加できます：'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{participatory_space_title} での新しい調査'
-          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}の調査</a> が公開されました。
+          email_subject: '%{participatory_space_title} での新しいアンケート'
+          notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}のアンケート</a> が公開されました。
     metrics:
       survey_answers:
         description: 回答したアンケート数
@@ -84,7 +84,7 @@ ja:
           edit:
             title: アンケートを編集
           index:
-            title: 調査
+            title: アンケート
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
@@ -92,7 +92,7 @@ ja:
             invalid: このアンケートを非公開にする際に問題が発生しました。
             success: アンケートを非公開にしました。
           update:
-            invalid: 調査の保存中に問題が発生しました。
+            invalid: アンケートの保存中に問題が発生しました。
             success: アンケートを保存しました。
       admin_log:
         survey:
@@ -104,7 +104,7 @@ ja:
       directory:
         surveys:
           index:
-            surveys: 調査
+            surveys: アンケート
       last_activity:
         new_survey: '新しいアンケート:'
       models:
