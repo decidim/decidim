@@ -12,7 +12,11 @@ gl:
         end_time: A votación remata ás
         start_time: A votación comeza ás
         title: Título
+      polling_station:
+        title: Título
       question:
+        title: Título
+      voting:
         title: Título
   activerecord:
     models:
@@ -41,6 +45,8 @@ gl:
             'true': Sen asinar
         validated_eq:
           label: Validado
+          values:
+            'true': Validado
     components:
       elections:
         actions:
@@ -52,6 +58,9 @@ gl:
         manage_answers: Xestionar respostas
         manage_questions: Xestionar preguntas
         manage_steps: Xestionar pasos
+        new_answer: Nova resposta
+        new_election: Nova elección
+        new_question: Nova pregunta
         publish: Publicar
         title: Accións
       admin:
@@ -72,8 +81,6 @@ gl:
           new:
             create: Crear elección
             title: Nova elección
-        exports:
-          elections: Eleccións
         menu:
           trustees: Comisarios
         models:
@@ -238,7 +245,6 @@ gl:
           try_again: Tentar de novo
         header:
           ballot_decision: Enviar ou auditar o teu voto
-          confirm: Confirma o teu voto
         messages:
           invalid_token: A túa sesión na cabina de votación non é válida. Tenta votar de novo.
         modal:
@@ -300,6 +306,12 @@ gl:
           ballot_style:
             fields:
               code: Código
+          polling_station:
+            fields:
+              title: Título
+          voting:
+            fields:
+              title: Título
         monitoring_committee_election_results:
           actions:
             title: Accións
@@ -352,10 +364,10 @@ gl:
             how_to_run_verifier: 'Unha vez descargades o ficheiro e verifiques que é correcto, podes executar o verficador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> e, dende o cartafol raiz, executa a seguinte orde:'
             how_to_title: Como verificar a validez dunha elección
             not_available: Aínda non dispoñíbel
-            title: Eleccións
         votings:
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
+            title: Título
             voting_type:
               hybrid: Híbrido
               in_person: En persoa
@@ -400,6 +412,9 @@ gl:
           polling_stations:
             heading: Puntos de votación
             no_polling_stations: Aínda non hai puntos de votación.
+      monitoring_committee_members:
+        actions:
+          title: Accións
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver aos puntos de votación
@@ -492,6 +507,9 @@ gl:
               show_closure: Ver peche
               title: Puntos de votación
               voting: Votacións
+      polling_officers:
+        actions:
+          title: Accións
       polling_station_closure_recount:
         polling_officer_notes: 'Notas do xestor de mesa:'
         polling_officer_notes_blank: Non hai notas
@@ -500,6 +518,9 @@ gl:
         total_blank_ballots: 'Total papeletas en branco:'
         total_null_ballots: 'Total papeletas nulas:'
         total_valid_ballots: 'Total papeletas válidas:'
+      polling_stations:
+        actions:
+          title: Accións
       votings:
         access_code_modal:
           email: Enviar a través de correo electrónico a %{email}
