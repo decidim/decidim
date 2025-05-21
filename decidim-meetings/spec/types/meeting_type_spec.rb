@@ -69,6 +69,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
+
       describe "isWithdrawn" do
         let(:query) { "{ isWithdrawn }" }
 

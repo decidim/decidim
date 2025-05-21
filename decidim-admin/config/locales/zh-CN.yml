@@ -594,7 +594,6 @@ zh-CN:
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
-        statistics: 活动
       users:
         create:
           error: 邀请此管理员时出现问题。

@@ -600,6 +600,7 @@ ca:
         share_tokens: Enllaços d'accés
         static_page_topics: Temes
         static_pages: Pàgines
+        statistics: Estadístiques
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomia
         users: Participants
@@ -1243,7 +1244,7 @@ ca:
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
-        statistics: Activitat
+        statistics: Estadístiques
         taxonomies: Taxonomies
         taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
         users: Administradores

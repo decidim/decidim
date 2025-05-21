@@ -3,7 +3,6 @@ zh-CN:
     attributes:
       sortition:
         additional_info: 排序信息
-        decidim_category_id: 您想要应用绘图的一组建议的类别
         decidim_proposals_component_id: 提案集
         dice: 死亡登记的结果。 旋转一个6边的死亡或寻找另一个随机的方法生成一个从1到6之间的数字。 然后在这里当着一些证人的面输入由此产生的号码。 这有助于提高结果的质量并保证结果的随机性
         target_items: 要选择的建议数量 (表示您想要选择的建议的数量，您先前选择的建议群组)
@@ -39,7 +38,6 @@ zh-CN:
         models:
           sortition:
             fields:
-              category: 类别
               created_at: 创建日期
               decidim_proposals_component: 二. 提议的构成部分
               dice: 爱好
@@ -59,7 +57,6 @@ zh-CN:
             title: 更新有关分类的信息
             update: 更新
           form:
-            all_categories: 所有类别
             select_proposal_component: 选择提案集
           index:
             title: 联谊会
@@ -96,11 +93,8 @@ zh-CN:
             other: 选定的建议
         show:
           algorithm: 排序算法
-          any_category: 来自所有类别
           cancelled: 取消排序方式
           candidate_proposal_ids: 排序建议订单和 ID
-          candidate_proposals_info: '排序是在下列建议中进行的 (%{category_label})，具有以下ID(以选定建议的黑体字)  '
-          category: 来自 %{category} 类别
           dice_result: (1) 致残结果
           introduction: '此页面包含排序 %{reference}的结果。 通过这种道歉， 已经随机选择了 %{target_items} 个结果，并且显示在下面的一组建议中同样的概率分布。 本页所显示的信息连同结果，提供了最大限度保证和复制结果所需的所有信息。 这种区分的质量的关键是由证人核实的法官滚动所提供的双倍随机性和为产生随机选择的算法提供输入的吸附确切时间。 难度的时间种子非常精确(秒)，人类无法控制，因此提供了双个“无法控制的”输入以保证结果的公允。  '
           mathematical_result: 结果(1) x (2)

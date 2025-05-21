@@ -816,6 +816,8 @@ ja:
     statistics:
       attendees_count: ミーティング参加者
       meetings_count: ミーティング
+      meetings_count_tooltip: オンラインまたは対面で開催されたミーティングの合計数です。
+      participatory_space_meetings_count: ミーティング
   devise:
     mailer:
       join_meeting:

@@ -91,6 +91,7 @@
       <%= render partial: "decidim/comments/admin/shared/availability_fields", locals: { form: } %>
     </div>
   </div>
+  <%= render "decidim/meetings/admin/meetings/reminders", form: %>
   <%= render "decidim/meetings/admin/meetings/services", form: , id: tabs_id_for_service(blank_service) %>
   <%= render "decidim/meetings/admin/meetings/linked_spaces", form: %>
 </div>

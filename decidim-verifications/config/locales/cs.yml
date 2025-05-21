@@ -3,6 +3,8 @@ cs:
     attributes:
       authorization:
         verification_attachment: Příloha ověření
+      census_data:
+        file: Soubor
       config:
         available_methods: Dostupné metody
         offline: Offline
@@ -160,7 +162,38 @@ cs:
         start_exploring: začít zkoumat
       csv_census:
         admin:
+          actions:
+            destroy: Zničit
+            edit: Upravit
+          census:
+            create_import:
+              no_user: Nebyl nalezen žádný uživatel
+              success: Úspěšně importováno %{count} položek. Zpracováváme data. Obnovte stránku za pár minut a uvidíte změny.
+            index:
+              no_sign_in: Nikdy se nepřihlásil
+              no_user: Nebyl nalezen žádný uživatel
+            last_login:
+              no_user: Žádný uživatel
+            new_import:
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
+              submit: Nahrát soubor
+          census_records:
+            edit_record:
+              save: Uložit
+            form:
+              email: E-mail
+            new_record:
+              save: Uložit
           index:
+            add_new_record_button: Přidat nový záznam
+            fields:
+              actions: Akce
+              created_at: Vytvořeno v
+              email: E-mail
+              user_authorized: Uživatel autorizován?
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace

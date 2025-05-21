@@ -391,6 +391,7 @@ fr-CA:
         related_assemblies: Assemblées associées
     statistics:
       assemblies_count: Assemblées
+      assemblies_count_tooltip: Le nombre d'assemblées publiques où les décisions collectives sont prises.
   layouts:
     decidim:
       assemblies:

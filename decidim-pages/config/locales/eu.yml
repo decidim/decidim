@@ -19,7 +19,7 @@ eu:
     open_data:
       help:
         pages:
-          body: Orriaren gorputza
+          body: Orriaren testua
           component: Orriaren osagaia honi dagokio
           created_at: Zein datatan sortu zen orri hau
           id: Orri honen identifikatzaile bakarra
@@ -31,7 +31,7 @@ eu:
       admin:
         models:
           components:
-            body: Gorputza
+            body: Testua
         pages:
           edit:
             save: Eguneratu

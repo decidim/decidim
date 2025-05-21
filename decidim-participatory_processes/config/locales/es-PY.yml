@@ -520,6 +520,7 @@ es-PY:
         related_processes: Procesos relacionados
     statistics:
       processes_count: Procesos
+      processes_count_tooltip: El número de procesos participativos que están disponibles públicamente.
   layouts:
     decidim:
       participatory_process_groups:

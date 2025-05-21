@@ -245,6 +245,7 @@ ro:
         project_proposal: Propuneri incluse în acest proiect
     statistics:
       orders_count: Voturi
-      projects_count: Proiecte
+      projects_count: Bugete
+      projects_count_tooltip: Numărul de proiecte bugetare participative și totalul voturilor exprimate asupra acestora.
   index:
     confirmed_orders_count: Numărul de voturi

@@ -365,3 +365,4 @@ ja:
         result_proposal: この結果に含まれる提案
     statistics:
       results_count: 結果
+      results_count_tooltip: このスペースから生成された決定または結果の数です。

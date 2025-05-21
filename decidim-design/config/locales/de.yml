@@ -185,6 +185,7 @@ de:
         conference_s: Konferenz S
         conferences: Konferenzen
         context: Kontext
+        context_description: Diese Zelle zeigt einige Informationen über die Nutzenden an. Es ist eine visuelle Hilfe um den Ressourcen-/Inhalts-Erstellende zu identifizieren.
         context_description_2: Für Ressourcen erscheint diese Zelle unterhalb der Hauptüberschrift. Für andere Inhalte erscheint sie neben dem Inhalt selbst.
         debate_l: Debatte L
         debate_s: Debatte S

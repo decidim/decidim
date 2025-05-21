@@ -773,7 +773,6 @@ gl:
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        statistics: Actividade
         users: Administradores
       users:
         create:
