@@ -680,7 +680,7 @@ fr-CA:
           try_again: Réessayez
         header:
           ballot_decision: Validez ou auditez votre vote
-          confirm: Confirmer votre vote
+          confirm: Valider
           election: Élection
           register: S'inscrire
           vote_for: Voter pour %{title}
