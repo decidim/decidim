@@ -70,14 +70,14 @@
 }
 
 .dropdown {
-  @apply absolute border-2 border-gray-3 rounded min-w-max p-1 drop-shadow-md text-left z-10 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
+  @apply absolute border-2 border-gray-3 rounded-md min-w-max p-1 drop-shadow-md text-left z-10 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
 
   & > * {
-    @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
+    @apply relative z-10 p-2.5;
   }
 
   &__item {
-    @apply gap-x-2 flex items-center text-secondary font-normal;
+    @apply flex items-center text-secondary font-normal;
 
     font-size: 14px;
 
@@ -85,7 +85,7 @@
       @apply w-4 h-4 flex-none text-gray fill-current;
     }
 
-    &:hover {
+    a:hover {
       @apply underline [&>svg]:text-secondary;
     }
   }

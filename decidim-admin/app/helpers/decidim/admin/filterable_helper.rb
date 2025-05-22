@@ -65,7 +65,7 @@ module Decidim
             elsif value.is_a?(Hash)
               child_id = SecureRandom.uuid
               content_tag(:li) do
-                dropdown_submenu(value, child_id) + dropdown_link(key, child_id)
+                dropdown_link(key, child_id) + dropdown_submenu(value, child_id)
               end
             end
           end.join.html_safe
