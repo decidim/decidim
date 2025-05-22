@@ -129,7 +129,7 @@ module Decidim
       end
 
       def applied_filter_tag(filter, value, i18n_scope)
-        content_tag(:span, class: "label secondary") do
+        content_tag(:span, class: "label reverse") do
           concat "#{i18n_filter_label(filter, i18n_scope)}: "
           concat i18n_filter_value(filter, value, i18n_scope)
           concat remove_filter_icon_link(filter)
