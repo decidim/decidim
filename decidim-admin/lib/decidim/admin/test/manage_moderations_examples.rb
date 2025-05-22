@@ -124,7 +124,7 @@ shared_examples "manage moderations" do
     it "user can filter by reported content" do
       search = moderation.reportable.id
       within ".filters__section" do
-        fill_in("Search Moderation by reportable id or content.", with: search)
+        fill_in("Search moderation by reportable id or content", with: search)
         within(".input-group-button") { click_on(class: "text-secondary") }
       end
       expect(page).to have_css("tbody tr", count: 1)

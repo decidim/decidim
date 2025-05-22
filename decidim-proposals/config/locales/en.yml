@@ -149,7 +149,7 @@ en:
               state_not_published: Not answered
               state_published: Answered
         search_placeholder:
-          id_string_or_title_cont: Search %{collection} by ID or title.
+          id_string_or_title_cont: Search %{collection} by ID or title
     application:
       geocoding:
         not_configured: Geocoding is not configured!
