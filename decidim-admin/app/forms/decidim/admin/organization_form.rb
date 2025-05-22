@@ -14,11 +14,6 @@ module Decidim
       translatable_attribute :description, Decidim::Attributes::RichText
       attribute :reference_prefix, String
       attribute :time_zone, String
-      attribute :twitter_handler, String
-      attribute :facebook_handler, String
-      attribute :instagram_handler, String
-      attribute :youtube_handler, String
-      attribute :github_handler, String
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
       attribute :comments_max_length, Integer, default: 0
@@ -26,6 +21,20 @@ module Decidim
       attribute :enable_machine_translations, Boolean
       attribute :machine_translation_display_priority, String
       attribute :enable_participatory_space_filters, Boolean
+
+      attribute :twitter_handler, String
+      attribute :facebook_handler, String
+      attribute :instagram_handler, String
+      attribute :youtube_handler, String
+      attribute :github_handler, String
+
+      attribute :logo
+      attribute :remove_logo, Boolean, default: false
+      attribute :favicon
+      attribute :remove_favicon, Boolean, default: false
+      attribute :official_url
+      attribute :official_img_footer
+      attribute :remove_official_img_footer, Boolean, default: false
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
@@ -47,6 +56,10 @@ module Decidim
       validates :machine_translation_display_priority,
                 inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
                 if: :machine_translation_enabled?
+
+      validates :official_img_footer,
+                :logo,
+                passthru: { to: Decidim::Organization }
 
       def machine_translation_priorities
         Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES.map do |priority|

@@ -55,25 +55,5 @@ describe "Admin manages organization" do
         expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
       end
     end
-
-    it "updates the values from the form" do
-      visit decidim_admin.edit_organization_appearance_path
-
-      fill_in "Official organization URL", with: "http://www.example.com"
-
-      dynamically_attach_file(:organization_logo, Decidim::Dev.asset("city2.jpeg"))
-      dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("logo.png"), remove_before: true) do
-        expect(page).to have_content("Has to be a square image")
-      end
-      dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
-
-      click_on "Update"
-
-      expect(page).to have_content("updated successfully")
-
-      within "#minimap" do
-        expect(page.all("img").count).to eq(3)
-      end
-    end
   end
 end
