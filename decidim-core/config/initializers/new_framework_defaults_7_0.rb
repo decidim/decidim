@@ -137,7 +137,7 @@ Rails.application.config.action_mailer.smtp_timeout = 5
 # Thus, to support submitting an empty collection, the `file_field` helper will render an hidden field `include_hidden` by
 # default when `multiple_file_field_include_hidden` is set to `true`.
 # See https://guides.rubyonrails.org/configuring.html#config-active-storage-multiple-file-field-include-hidden for more information.
-# Rails.application.config.active_storage.multiple_file_field_include_hidden = true
+Rails.application.config.active_storage.multiple_file_field_include_hidden = true
 
 # ** Please read carefully, this must be configured in config/application.rb (NOT this file) **
 # Disables the deprecated #to_s override in some Ruby core classes
