@@ -877,6 +877,9 @@ ca:
           title: Edita organització
           update: Actualitzar
         form:
+          admin_terms_of_service: Termes i condicions d'ús para administradores
+          basic_configuration: Configuració bàsica
+          extra_features: Funcions addicionals
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -884,6 +887,7 @@ ca:
           social_handlers: Social
           twitter: X
           url: URL
+          welcome_notification: Notificació de benvinguda
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
