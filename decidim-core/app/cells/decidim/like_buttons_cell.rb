@@ -39,7 +39,7 @@ module Decidim
       decidim.likes_path(*)
     end
 
-    # produce the path to an like from the engine routes as the cell does not have access to routes
+    # produce the path to a like from the engine routes as the cell does not have access to routes
     def like_path(*)
       decidim.like_path(*)
     end

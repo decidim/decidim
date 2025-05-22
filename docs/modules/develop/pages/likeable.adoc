@@ -11,7 +11,7 @@ Participants can like with their own identity. Each liking identity on its own w
 == Data model
 
 A `decidim_likes` table registers each like that each identity gives to each element. This is, one likeable has many likes, and each like belongs to one likeable.
-For performance, an likeable has a counter cache of likes.
+For performance, a likeable has a counter cache of likes.
 
 [source,ascii]
 ----

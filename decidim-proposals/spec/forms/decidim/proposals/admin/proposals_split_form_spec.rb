@@ -65,7 +65,7 @@ module Decidim
             it { is_expected.to be_invalid }
           end
 
-          context "when a proposal has an like" do
+          context "when a proposal has a like" do
             before do
               create(:like, resource: proposals.sample, author: build(:user, organization: component.participatory_space.organization))
             end

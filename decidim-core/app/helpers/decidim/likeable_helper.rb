@@ -31,13 +31,13 @@ module Decidim
       likes_enabled?
     end
 
-    # produces the path that should be POST to create an like
+    # produces the path that should be POST to create a like
     def path_to_create_like(resource)
       likes_path(resource_id: resource.to_gid.to_param,
                  authenticity_token: form_authenticity_token)
     end
 
-    # Produces the path that should be DELETE to destroy an like.
+    # Produces the path that should be DELETE to destroy a like.
     def path_to_destroy_like(resource)
       like_path(resource.to_gid.to_param,
                 authenticity_token: form_authenticity_token)
