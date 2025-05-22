@@ -18,21 +18,10 @@ module Decidim
 
       def attributes
         super
-          .merge(colors_attributes)
           .delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
           end
-      end
-
-      def colors_attributes
-        {
-          colors: {
-            primary: form.primary_color,
-            secondary: form.secondary_color,
-            tertiary: form.tertiary_color
-          }.compact_blank
-        }
       end
     end
   end

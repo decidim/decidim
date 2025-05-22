@@ -20,10 +20,6 @@ module Decidim
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
-      attribute :primary_color, String
-      attribute :secondary_color, String
-      attribute :tertiary_color, String
-
       translatable_attribute :cta_button_text, String
       translatable_attribute :highlighted_content_banner_title, String
       translatable_attribute :highlighted_content_banner_short_description, Decidim::Attributes::RichText

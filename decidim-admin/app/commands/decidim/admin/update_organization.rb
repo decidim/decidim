@@ -18,6 +18,7 @@ module Decidim
         super
           .merge(welcome_notification_attributes)
           .merge(machine_translation_attributes)
+          .merge(colors_attributes)
       end
 
       def welcome_notification_attributes
@@ -33,6 +34,16 @@ module Decidim
 
         {
           machine_translation_display_priority: form.machine_translation_display_priority
+        }
+      end
+
+      def colors_attributes
+        {
+          colors: {
+            primary: form.primary_color,
+            secondary: form.secondary_color,
+            tertiary: form.tertiary_color
+          }.compact_blank
         }
       end
     end

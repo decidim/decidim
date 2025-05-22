@@ -881,6 +881,15 @@ en:
         form:
           admin_terms_of_service: Admin terms of service
           basic_configuration: Basic configuration
+          colors:
+            choose_color: Choose a primary color
+            colors_title: Organization colors
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
+            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
+            legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
+            saturation: Saturation
+            title: Color chooser
+            update_suggested_colors: Update suggested colors
           extra_features: Extra features
           facebook: Facebook
           github: GitHub
@@ -901,15 +910,6 @@ en:
         edit:
           update: Update
         form:
-          colors:
-            choose_color: Choose a primary color
-            colors_title: Organization colors
-            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
-            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
-            legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
-            saturation: Saturation
-            title: Color chooser
-            update_suggested_colors: Update suggested colors
           cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets:

@@ -36,6 +36,10 @@ module Decidim
       attribute :official_img_footer
       attribute :remove_official_img_footer, Boolean, default: false
 
+      attribute :primary_color, String
+      attribute :secondary_color, String
+      attribute :tertiary_color, String
+
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
 
