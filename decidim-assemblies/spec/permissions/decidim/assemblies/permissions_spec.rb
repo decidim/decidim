@@ -531,8 +531,8 @@ describe Decidim::Assemblies::Permissions do
 
   describe "when acting with assemblies admins and children assemblies" do
     let!(:user) { create(:assembly_admin, assembly: mother_assembly) }
-    let(:mother_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "mother") }
-    let(:child_assembly) { create(:assembly, parent: mother_assembly, organization:, hashtag: "child") }
+    let(:mother_assembly) { create(:assembly, parent: assembly, organization:) }
+    let(:child_assembly) { create(:assembly, parent: mother_assembly, organization:) }
 
     context "when assembly is a grandmother assembly" do
       let(:context) { { assembly: } }
