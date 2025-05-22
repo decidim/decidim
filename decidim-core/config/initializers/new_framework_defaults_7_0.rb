@@ -56,7 +56,7 @@ Rails.application.config.action_mailer.smtp_timeout = 5
 # Rails.application.config.active_record.automatic_scope_inversing = true
 
 # Raise when running tests if fixtures contained foreign key violations
-# Rails.application.config.active_record.verify_foreign_keys_for_fixtures = true
+Rails.application.config.active_record.verify_foreign_keys_for_fixtures = true
 
 # Disable partial inserts.
 # This default means that all columns will be referenced in INSERT queries
