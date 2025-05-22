@@ -109,7 +109,7 @@ Rails.application.config.active_support.use_rfc4122_namespaced_uuids = true
 # If you are upgrading and have not set `cookies_serializer` previously, your cookie serializer
 # is `:marshal`. The default for new apps is `:json`.
 #
-# Rails.application.config.action_dispatch.cookies_serializer = :json
+Rails.application.config.action_dispatch.cookies_serializer = :json
 #
 #
 # To migrate an existing application to the `:json` serializer, use the `:hybrid` option.
