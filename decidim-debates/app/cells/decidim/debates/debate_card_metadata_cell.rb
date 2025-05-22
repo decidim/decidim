@@ -18,15 +18,22 @@ module Decidim
       end
 
       def debate_items
-        [duration, comments_count_item, likes_count_item] + taxonomy_items + [coauthors_item]
+        [label, duration, comments_count_item, likes_count_item] + taxonomy_items + [coauthors_item]
       end
 
       def duration
-        text = format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show")
+        text = format_date_range(debate.start_time, debate.end_time)
+        return if text.blank?
 
         {
           text:,
           icon: "time-line"
+        }
+      end
+
+      def label
+        {
+          text: content_tag("span", t((debate.closed? ? "debate_closed" : "open"), scope: "decidim.debates.debates.show"), class: "#{debate.closed? ? "alert" : "success"} label")
         }
       end
     end

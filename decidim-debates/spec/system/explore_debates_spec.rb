@@ -90,6 +90,7 @@ describe "Explore debates" do
     end
 
     context "when there are open debates" do
+      let(:debates) { nil }
       let!(:open_debate) do
         create(
           :debate,
@@ -98,11 +99,23 @@ describe "Explore debates" do
           end_time: nil
         )
       end
+      let!(:closed_debate) do
+        create(
+          :debate,
+          component:,
+          closed_at: 1.day.ago,
+          conclusions: { en: "Conclusions" }
+        )
+      end
 
-      it "the card informs that they are open" do
+      it "the card informs their status" do
         visit_component
         within "#debates__debate_#{open_debate.id}" do
           expect(page).to have_content "Open debate"
+        end
+
+        within "#debates__debate_#{closed_debate.id}" do
+          expect(page).to have_content "Closed"
         end
       end
     end
