@@ -695,7 +695,7 @@ describe "Orders" do
         proposals.each do |proposal|
           expect(page).to have_content(decidim_sanitize_translated(proposal.title))
           expect(page).to have_no_content(proposal.creator_author.name)
-          expect(page).to have_content(proposal.endorsements.size)
+          expect(page).to have_content(proposal.likes.size)
         end
       end
 
