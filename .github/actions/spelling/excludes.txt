@@ -109,7 +109,6 @@
 ^\Qdecidim-initiatives/app/views/decidim/initiatives/initiatives/_linked_initiatives.html.erb\E$
 ^\Qdecidim-meetings/app/views/decidim/meetings/admin/agenda/show.html.erb\E$
 ^\Qdecidim-participatory_processes/app/views/decidim/participatory_processes/participatory_processes/_statistics.html.erb\E$
-^\Qdecidim-proposals/app/views/decidim/proposals/proposals/_likes_card_row.html.erb\E$
 ^\Qdecidim-ai/data/blocked_accounts.csv\E$
 ^\Qdecidim-ai/data/sms-spam.csv\E$
 ^\Qdecidim-ai/data/spam_comments.csv\E$
