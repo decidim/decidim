@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A resource can have an like for each user.
+  # A resource can have a like for each user.
   class Like < ApplicationRecord
     include Decidim::Authorable
 
