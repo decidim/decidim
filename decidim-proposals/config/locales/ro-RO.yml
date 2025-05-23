@@ -391,10 +391,6 @@ ro:
             documents: Documente
             endorsements_count: Număr de susțineri
             endorsers: Susținători
-            n_more_endorsers:
-              one: și încă 1
-              few: și încă %{count}
-              other: și încă %{count}
             photos: Imagini
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
