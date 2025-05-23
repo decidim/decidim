@@ -360,11 +360,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: '%{author_nickname} új kezdeményezést indított'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezés létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname} (akit követsz) támogatta a következő kezdeményezést, nézd meg és tegyél hozzá te is valamit a beszélgetéshez:"
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: '%{author_nickname} támogatta a kezdeményezést'
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezést támogatta: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         revoke_membership_request:
           email_intro: "%{author_nickname} visszautasította a jelentkezésedet, hogy részt vegyél a %{resource_title} kezdeményezést előterjesztő bizottságban."
           email_outro: 'Ezt az értesítést azért kaptad, mert jelentkeztél a %{resource_title} kezdeményezéshez.'
