@@ -72,7 +72,6 @@ cs:
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/promoted_to_admin_event: Povýšen na administrátora skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
-      decidim/resource_endorsed_event: Zdroj byl schválen
       decidim/resource_hidden_event: Zdroj skryt
       decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
@@ -99,11 +98,11 @@ cs:
         few: Změny
         many: Změny
         other: Změny
-      decidim/endorsement:
-        one: Schválení
-        few: Schválení
-        many: Schválení
-        other: Schválení
+      decidim/like:
+        one: Líbí se mi
+        few: Líbí se mi
+        many: Líbí se mi
+        other: Líbí se mi
       decidim/user:
         one: Žádní uživatelé
         few: Uživatelé
@@ -467,11 +466,11 @@ cs:
         few: komentáře
         many: komentáře
         other: komentáře
-      endorsements:
-        one: schválení
-        few: schválení
-        many: schválení
-        other: schválení
+      likes:
+        one: líbí se mi
+        few: líbí se mi
+        many: líbí se mi
+        other: líbí se mi
       official_author: Oficiální
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -866,18 +865,6 @@ cs:
         error: Chyba při nahrávání obrázku.
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
-    endorsement_buttons_cell:
-      already_endorsed: Vrátit označení Líbí se
-      endorse: Líbí se mi
-    endorsers_list:
-      endorsed_by:
-        one: Líbí se %{visible}
-        few: Líbí se %{visible} a %{others}
-        many: Líbí se %{visible} a %{others}
-        other: Líbí se %{visible} a %{others}
-      others: "%{count} dalších"
-      title: Líbí se
-      you: vy
     ephemeral_user: Návštěvník
     errors:
       files:
@@ -993,11 +980,6 @@ cs:
           notification_title: |-
             Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a myslíme si, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
-        email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
-        email_subject: "%{endorser_nickname} provedl nové schválení"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
@@ -1152,6 +1134,8 @@ cs:
         last_activity: Poslední aktivita
       name: Poslední aktivity
       no_activities_warning: Pro tento typ aktivity nejsou k dispozici žádné položky.
+    like_buttons_cell:
+      like: Like
     linked_resource_from:
       included_in: Zahrnuto v
     links:
@@ -1559,6 +1543,10 @@ cs:
         scan: Naskenujte QR kód
         title: QR kód pro %{resource_title}
     reported_mailer:
+      hidden_automatically:
+        details: Podrobnosti
+        participatory_space: Participativní prostor
+        reason: Důvod
       report:
         authors: Autoři
         content: Nahlášený obsah
@@ -1582,9 +1570,6 @@ cs:
       controls_label: Ovládání zdrojů
     resource_autocomplete:
       help: Zadejte hledané návrhy
-    resource_endorsements:
-      create:
-        error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
       prompt: Vyberte oblast působnosti
@@ -1680,7 +1665,6 @@ cs:
         share_to: Sdílet na %{service}
     statistics:
       comments_count: Komentáře
-      endorsements_count: Schválení
       followers_count: Sledující
       headline: Statistiky
       no_stats: Zatím nejsou žádné statistiky.
