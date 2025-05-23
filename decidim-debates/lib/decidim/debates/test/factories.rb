@@ -61,8 +61,8 @@ FactoryBot.define do
     end
 
     after(:build) do |debate|
-      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
-      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+      debate.title
+      debate.description
     end
   end
 
