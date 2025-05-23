@@ -635,8 +635,6 @@ pt-BR:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
-    endorsement_buttons_cell:
-      endorse: Like
     endorsements:
       identities:
         done: Concluído
