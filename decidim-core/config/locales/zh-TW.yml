@@ -546,8 +546,6 @@ zh-TW:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
-    endorsement_buttons_cell:
-      endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
