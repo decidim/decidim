@@ -887,21 +887,11 @@ cs:
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
-      already_endorsed: Vrátit označení Líbí se
-      endorse: Líbí se mi
+      endorse: Like
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
-    endorsers_list:
-      endorsed_by:
-        one: Líbí se %{visible}
-        few: Líbí se %{visible} a %{others}
-        many: Líbí se %{visible} a %{others}
-        other: Líbí se %{visible} a %{others}
-      others: "%{count} dalších"
-      title: Líbí se
-      you: vy
     ephemeral_user: Návštěvník
     errors:
       files:
@@ -1771,6 +1761,10 @@ cs:
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
+      hidden_automatically:
+        details: Podrobnosti
+        participatory_space: Participativní prostor
+        reason: Důvod
       report:
         authors: Autoři
         content: Nahlášený obsah
