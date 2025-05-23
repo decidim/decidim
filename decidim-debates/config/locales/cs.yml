@@ -32,7 +32,6 @@ cs:
         actions:
           comment: Komentář
           create: Vytvořit debatu
-          endorse: Schválit
         name: Debaty
         settings:
           global:
@@ -49,8 +48,6 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
     debates:
       actions:
         close: Zavřít
@@ -263,7 +260,6 @@ cs:
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
-          endorsements_count: Počet potvrzení, která debata získala
           follows_count: Počet sledujících tuto debatu
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě
