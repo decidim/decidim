@@ -877,6 +877,9 @@ es-MX:
           title: Editar organización
           update: Actualizar
         form:
+          admin_terms_of_service: Términos y condiciones de uso para administradoras
+          basic_configuration: Configuración básica
+          extra_features: Funciones adicionales
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -884,6 +887,7 @@ es-MX:
           social_handlers: Social
           twitter: X
           url: URL
+          welcome_notification: Notificación de bienvenida
           youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
