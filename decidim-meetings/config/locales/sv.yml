@@ -209,8 +209,15 @@ sv:
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
+          email_intro: 'Mötet "%{resource_title}" har uppdaterats med ändringar till %{changed_fields}. Du kan läsa den nya versionen på sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
+          field_names:
+            address: Adressen
+            end_time: Sluttiden
+            location: Platsen
+            start_time: Starttiden
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har uppdaterats med ändringar till %{changed_fields}.
         meeting_waitlist_added:
           notification_title: Du har lagts till i väntelistan för <a href="%{resource_url}">%{resource_title}</a> mötet.
         registration_code_validated:
