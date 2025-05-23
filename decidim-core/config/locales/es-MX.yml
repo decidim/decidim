@@ -686,7 +686,6 @@ es-MX:
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
       already_endorsed: No me gusta
-      endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
