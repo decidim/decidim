@@ -194,6 +194,8 @@ cs:
               created_at: Vytvořeno v
               email: E-mail
               user_authorized: Uživatel autorizován?
+            import_csv: Importovat CSV
+            no_authorized: Uživatel neautorizován
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
