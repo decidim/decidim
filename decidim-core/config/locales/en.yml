@@ -73,8 +73,8 @@ en:
       decidim/promote_to_admin: Promoted to group admin
       decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resource endorsed
       decidim/resource_hidden_event: Resource hidden
+      decidim/resource_liked_event: Resource liked
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
@@ -96,9 +96,9 @@ en:
       decidim/amendment:
         one: Amendment
         other: Amendments
-      decidim/endorsement:
-        one: Endorsement
-        other: Endorsements
+      decidim/like:
+        one: Like
+        other: Likes
       decidim/user:
         one: Participant
         other: Participants
@@ -439,9 +439,9 @@ en:
       comments:
         one: comment
         other: comments
-      endorsements:
-        one: endorsement
-        other: endorsements
+      likes:
+        one: like
+        other: likes
       official_author: Official
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -832,16 +832,6 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsement_buttons_cell:
-      already_endorsed: Undo the like
-      endorse: Like
-    endorsers_list:
-      endorsed_by:
-        one: Liked by %{visible}
-        other: Liked by %{visible} and %{others}
-      others: "%{count} more"
-      title: Liked by
-      you: you
     ephemeral_user: Visitor
     errors:
       files:
@@ -965,11 +955,11 @@ en:
           notification_title: |-
             An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
-        email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
-        email_subject: "%{endorser_nickname} has performed a new endorsement"
-        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, who you are following, has just liked "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{liker_nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{liker_nickname} has performed a new like"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been liked by <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
@@ -1120,6 +1110,16 @@ en:
         last_activity: Last activity
       name: Last activities
       no_activities_warning: There are no entries to show for this activity type.
+    like_buttons_cell:
+      already_liked: Undo the like
+      like: Like
+    likes_list:
+      liked_by:
+        one: Liked by %{visible}
+        other: Liked by %{visible} and %{others}
+      others: "%{count} more"
+      title: Liked by
+      you: you
     linked_resource_from:
       included_in: Included in
     links:
@@ -1580,9 +1580,9 @@ en:
       controls_label: Resource controls
     resource_autocomplete:
       help: Type to search proposals
-    resource_endorsements:
+    resource_likes:
       create:
-        error: There was a problem during the endorsement action.
+        error: There was a problem during the like action.
     scopes:
       global: Global scope
       prompt: Select a scope
@@ -1680,10 +1680,10 @@ en:
     statistics:
       comments_count: Comments
       comments_count_tooltip: The total number of comments posted in this space.
-      endorsements_count: Endorsements
       followers_count: Followers
       followers_count_tooltip: The number of users following any part of this space to stay updated.
       headline: Statistics
+      likes_count: Likes
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
