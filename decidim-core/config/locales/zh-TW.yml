@@ -566,7 +566,6 @@ zh-TW:
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
     endorsement_buttons_cell:
       already_endorsed: 不喜歡
-      endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
