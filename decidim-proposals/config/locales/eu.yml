@@ -339,7 +339,7 @@ eu:
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
-          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
           email_subject: Onarpen proposamenak %{participatory_space_title} espazioan hasi dira
           notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
@@ -675,9 +675,6 @@ eu:
             endorsements_count: Atxikimendu kopurua
             endorsers: Atxiki dira
             link: Ikusi proposamena
-            n_more_endorsers:
-              one: eta 1 gehiago
-              other: eta %{count} gehiago
             photos: Argazkiak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
