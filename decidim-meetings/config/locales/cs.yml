@@ -659,6 +659,8 @@ cs:
             start_time: Datum zahájení
             taxonomies: Taxonomie
             title: Titul
+        registration:
+          actions: Akce
       polls:
         questions:
           closed_question:
