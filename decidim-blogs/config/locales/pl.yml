@@ -68,7 +68,6 @@ pl:
           comment: Skomentuj
           create: Utwórz
           destroy: Usuń
-          endorse: Rekomenduj
           update: Aktualizuj
         name: Blog
         settings:
@@ -79,8 +78,6 @@ pl:
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
-            endorsements_blocked: Możliwość rekomendowania zablokowana
-            endorsements_enabled: Rekomendowanie włączone
     events:
       blogs:
         post_created:
