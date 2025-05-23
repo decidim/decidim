@@ -30,7 +30,6 @@ eu:
         actions:
           comment: Iruzkina
           create: Sortu eztabaida bat
-          endorse: Atxiki
         name: Eztabaidak
         settings:
           global:
@@ -47,8 +46,6 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
     debates:
       actions:
         close: Itxi
@@ -259,7 +256,6 @@ eu:
           created_at: Zein datatan eta zein ordutan sortu zen eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
-          endorsements_count: Eztabaidak dituen berme kopurua
           follows_count: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
