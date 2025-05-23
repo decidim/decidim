@@ -21,6 +21,17 @@ module Decidim
 
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"
+
+            get "census", to: "census#edit"
+            patch "census", to: "census#update"
+          end
+
+          resource :census, only: [:edit, :update], controller: "census"
+
+          resources :census_entries, only: [] do
+            collection do
+              delete :destroy_all, as: :destroy_all
+            end
           end
         end
         root to: "elections#index"
@@ -37,6 +48,11 @@ module Decidim
                         I18n.t("election_questions", scope: "decidim.admin.menu.elections_menu"),
                         @election.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@election.component).edit_questions_election_path(@election),
                         icon_name: "question-answer-line"
+
+          menu.add_item :election_census,
+                        I18n.t("election_census", scope: "decidim.admin.menu.elections_menu"),
+                        @election.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@election.component).census_election_path(@election),
+                        icon_name: "group-2-line"
         end
       end
 

@@ -1,0 +1,17 @@
+<div class="card-section">
+  <div class="row column font-semibold pb-4"><%= t(".internal_type_title") %></div>
+  <div class="row column">
+    <p class="mb-2"><%= t(".info_html") %></p>
+  </div>
+
+  <div class="row column mt-4">
+    <%= decidim_form_for form, url: election_census_path(election), method: :patch, html: { id: "internal-census-form", class: "form edit_election form-defaults" } do |form| %>
+      <%= form.hidden_field :census_permissions_form, value: true %>
+      <% current_organization.available_authorizations.each do |authorization| %>
+        <div class="mt-2">
+          <%= form.check_box :verification_types, { label: t("decidim.authorization_handlers.#{authorization}.name"), multiple: true, include_hidden: false, checked: election.verification_types.include?(authorization) }, authorization, nil %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

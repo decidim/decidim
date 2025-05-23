@@ -5,6 +5,7 @@ en:
       menu:
         elections_menu:
           basic_elections: Main
+          election_census: Census
           election_questions: Questions
     components:
       elections:
@@ -23,6 +24,33 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
+        census:
+          internal_census_fields:
+            internal_type_title: Additional required authorizations to vote (optional)
+            info_html: |
+              You can restrict participation in the election to participants who have an authorization.<br>
+              Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone  registered.
+          external_census_fields:
+            example: |
+              user@example.org;123456
+              user2@example.org;ABCXYZ
+            upload_new_census: Upload a CSV file
+            upload_file: Upload file
+            info_html: |
+              Must be a file in CSV format with only one column, one with the email address and another with the value of a token that the user will have to introduce in order to vote. It must be separated with a semicolon (;)
+          edit:
+            save: Save
+            continue: Continue
+            submit_permissions: Save
+            name: Organization's census
+            title: Type of census
+            census_source_type: Choose the type of census you want to use for this election
+            external_type: External (upload a CSV file)
+            internal_type: Internal (registered participants)
+            upload_csv_title: Upload a CSV file
+            update:
+              success: Census updated successfully
+              invalid: There was a problem updating the census
         elections:
           create:
             invalid: There was a problem creating the election.

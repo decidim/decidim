@@ -1,0 +1,25 @@
+<%= append_javascript_pack_tag "decidim_elections_admin" %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <%= button_tag t(election.census_ready? ? "continue" : "save", scope: "decidim.elections.admin.census.edit"), class: "main-tabs-menu__cta-button", form: "csv-census-form" %>
+<% end %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="card-section">
+    <%= render partial: "form", locals: { election: election } %>
+  </div>
+</div>
+
+<% if election.voters.any? %>
+  <div class="item__edit item__edit-1col">
+    <div class="card-section">
+      <%= render partial: "decidim/elections/admin/census/preview", locals: { election: election } %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="row column">
+  <div class="collection-input flex justify-between items-center w-full gap-4 mb-8">
+    <div class="flex items-center border p-4 rounded w-1/2">
+      <%= label_tag nil, class: "mr-2" do %>
+        <%= radio_button_tag "census_type", "csv", !election.internal_census?, id: "csv_radio_button", data: { csv_radio_button: true } %>
+        <%= t("external_type", scope: "decidim.elections.admin.census.edit") %>
+      <% end %>
+    </div>
+
+    <div class="flex items-center border p-4 rounded w-1/2">
+      <%= label_tag nil, class: "mr-2" do %>
+        <%= radio_button_tag "census_type", "permissions", election.internal_census?, id: "permissions_radio_button", data: { permissions_radio_button: true } %>
+        <%= t("internal_type", scope: "decidim.elections.admin.census.edit") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="external_type">
+    <%= render "external_census_fields", form: @csv_census_form %>
+  </div>
+
+  <div id="internal_type">
+    <%= render "internal_census_fields", form: @census_permissions_form %>
+  </div>
+</div>

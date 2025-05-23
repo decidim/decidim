@@ -20,7 +20,7 @@ module Decidim
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
-      has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
       has_one :questionnaire, as: :questionnaire_for, class_name: "Decidim::Elections::Questionnaire", dependent: :destroy
 
       component_manifest_name "elections"
@@ -51,6 +51,28 @@ module Decidim
 
       def manual_start?
         !auto_start?
+      end
+
+      def internal_census?
+        internal_census
+      end
+
+      def external_census?
+        !internal_census?
+      end
+
+      def verification_filters
+        verification_types.presence || []
+      end
+
+      # Public: Checks if the census status for the election is "ready".
+      #
+      # Returns a boolean indicating if the census status equals "ready" or if it's an internal census selection and there are not verification types or voters.
+      def census_ready?
+        return true if internal_census? && (verification_types.blank? || voters.exists?)
+        return true if external_census? && voters.exists?
+
+        false
       end
     end
   end

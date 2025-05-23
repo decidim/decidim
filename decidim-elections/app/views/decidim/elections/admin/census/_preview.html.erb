@@ -1,0 +1,20 @@
+<table class="table w-full mt-4">
+  <thead>
+  <tr>
+    <th class="text-left px-4 py-2">Email</th>
+    <th class="text-left px-4 py-2">Created at</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% election.voters.limit(5).each do |voter| %>
+    <tr>
+      <td class="px-4 py-2"><%= voter.email %></td>
+      <td class="px-4 py-2"><%= l(voter.created_at, format: :short) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p class="mt-2 text-sm text-neutral">
+  Total: <%= election.voters.count %>
+</p>
