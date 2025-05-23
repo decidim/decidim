@@ -887,6 +887,9 @@ cs:
           title: Upravit organizaci
           update: Aktualizace
         form:
+          admin_terms_of_service: Administrátorské podmínky použití
+          basic_configuration: Základní konfigurace
+          extra_features: Extra funkce
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -894,6 +897,7 @@ cs:
           social_handlers: Sociální
           twitter: X
           url: URL
+          welcome_notification: Uvítací oznámení
           youtube: Youtube
         update:
           error: Při aktualizaci této organizace došlo k chybě.
