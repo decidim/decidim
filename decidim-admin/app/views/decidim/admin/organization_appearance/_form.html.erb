@@ -1,27 +1,4 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-homepage_appearance_title">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-homepage_appearance_title" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="homepage_appearance_title">
-          <%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>
-        </h2>
-      </button>
-    </div>
-    <div id="panel-homepage_appearance_title" class="card-section">
-
-    <div class="row">
-      <div class="columns slug">
-        <%= form.text_field :cta_button_path, help_text: t(".cta_button_path_help_html", url: decidim_form_slug_url("", form.object.cta_button_path)) %>
-      </div>
-
-      <div class="columns">
-        <%= form.translated :text_field, :cta_button_text, help_text: t(".cta_button_text_help") %>
-      </div>
-    </div>
-  </div>
-</div>
-
   <div class="card" data-component="accordion" id="accordion-homepage_highlighted_content_banner_title">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-homepage_highlighted_content_banner_title" type="button">

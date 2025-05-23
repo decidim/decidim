@@ -6,7 +6,7 @@ module Decidim
     # Renders the Call To Action button. Link and text can be configured
     # per organization.
     def cta_button_text
-      translated_attribute(current_organization.cta_button_text).presence || t("decidim.pages.home.hero.participate")
+      translated_attribute(content_block.settings.cta_button_text).presence || t("decidim.pages.home.hero.participate")
     end
 
     def cta_button
@@ -15,8 +15,8 @@ module Decidim
 
     # Finds the CTA button path to reuse it in other places.
     def cta_button_path
-      if current_organization.cta_button_path.present?
-        "/#{current_organization.cta_button_path}"
+      if content_block.settings.cta_button_path.present?
+        translated_attribute(content_block.settings.cta_button_path)
       elsif Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?
         decidim_participatory_processes.participatory_processes_path
       elsif current_user
@@ -26,6 +26,12 @@ module Decidim
       else
         decidim.new_user_session_path
       end
+    end
+
+    private
+
+    def content_block
+      Decidim::ContentBlock.find_by(organization: current_organization, scope_name: :homepage, manifest_name: :hero)
     end
   end
 end

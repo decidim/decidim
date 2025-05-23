@@ -589,6 +589,10 @@ en:
       hero_settings_form:
         background_image: Background image
         welcome_text: Welcome text
+        cta_button_text: Call To Action button text
+        cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
+        cta_button_path: Call To Action button URL
+        cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:

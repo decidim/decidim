@@ -19,7 +19,6 @@ module Decidim
       attribute :remove_official_img_footer, Boolean, default: false
       attribute :official_url
       attribute :header_snippets, String
-      attribute :cta_button_path, String
       attribute :highlighted_content_banner_enabled, Boolean, default: false
       attribute :highlighted_content_banner_action_url, String
       attribute :highlighted_content_banner_image
@@ -31,7 +30,6 @@ module Decidim
       attribute :secondary_color, String
       attribute :tertiary_color, String
 
-      translatable_attribute :cta_button_text, String
       translatable_attribute :highlighted_content_banner_title, String
       translatable_attribute :highlighted_content_banner_short_description, Decidim::Attributes::RichText
       translatable_attribute :highlighted_content_banner_action_title, String
@@ -39,7 +37,6 @@ module Decidim
       translatable_attribute :omnipresent_banner_title, String
       translatable_attribute :omnipresent_banner_short_description, String
 
-      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
       validates :official_img_footer,
                 :logo,
                 passthru: { to: Decidim::Organization }
