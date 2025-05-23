@@ -301,11 +301,6 @@ sk:
             documents: Dokumenty
             endorsements_count: Počet podporení
             endorsers: Podporovatelia
-            n_more_endorsers:
-              one: a 1 ďalší
-              few: + %{count} ďalších
-              many: + %{count} ďalších
-              other: + %{count} ďalších
             photos: Fotografie
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
@@ -518,9 +513,9 @@ sk:
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a%{count} ďalšia osoba
-            few: a %{count} ďalší ľudia
-            many: a %{count} ďalších ľudí
-            other: a %{count} ďalších ľudí
+            few: a%{count} ďalších ľudí
+            many: a%{count} ďalších ľudí
+            other: a%{count} ďalších ľudí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
           link_to_collaborative_draft_text: Pozri schému spolupráca
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia
