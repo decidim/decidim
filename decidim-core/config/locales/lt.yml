@@ -679,7 +679,6 @@ lt:
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsement_buttons_cell:
       already_endorsed: Nepatinka
-      endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
