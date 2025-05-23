@@ -38,7 +38,6 @@ pt:
       decidim/profile_updated_event: Perfil atualizado
       decidim/promote_to_admin: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
-      decidim/resource_endorsed_event: Recurso apoiado
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ pt:
       decidim/amendment:
         one: Modificação
         other: Modificações
-      decidim/endorsement:
-        one: Endossamento
-        other: Endossamentos
       decidim/user:
         one: Participante
         other: Participantes
@@ -221,9 +217,6 @@ pt:
       comments:
         one: comentário
         other: comentários
-      endorsements:
-        one: endosso
-        other: endossos
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -483,11 +476,6 @@ pt:
           notification_title: |-
             Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que você segue, endossou "%{resource_title}" e pensamos que poderá ser do seu interesse. Verifique e contribua:'
-        email_outro: Recebeu esta notificação porque segue %{endorser_nickname}. Poderá deixar de receber notificações seguindo a hiperligação anterior.
-        email_subject: "%{endorser_nickname} efetuou um novo endossamento"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} foi endossado por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: A <a href="%{resource_url}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
@@ -757,9 +745,6 @@ pt:
     reports:
       create:
         success: O relatório foi criado corretamente e será revisto por um administrador.
-    resource_endorsements:
-      create:
-        error: Ocorreu um problema durante a ação de endossamento.
     scopes:
       global: Âmbito global
       prompt: Selecionar um âmbito
@@ -827,7 +812,6 @@ pt:
         share_link: Partilhar link
     statistics:
       comments_count: Comentários
-      endorsements_count: Apoios
       followers_count: Seguidores
       headline: Estatísticas
       no_stats: Ainda não há estatísticas.
