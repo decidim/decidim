@@ -12,7 +12,6 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        hashtag: Hashtag
         hero_image: Home image
         location: Location
         main_logo: Main logo
@@ -614,7 +613,6 @@ en:
           description: A long description of the conference
           end_date: The date when this conference ends.
           follows_count: The number of users following this space
-          hashtag: The conference hashtag, used for Twitter/X
           id: The unique identifier of this conference
           location: The conference location. Where this conference will take place.
           objectives: The objectives for this conference. What is the goal.
