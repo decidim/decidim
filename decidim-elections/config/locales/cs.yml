@@ -10,14 +10,28 @@ cs:
             announcement: Oznámení
     elections:
       actions:
+        edit: Upravit volby
+        new: Nové volby
         title: Akce
+        view_deleted_elections: Zobrazit odstraněné volby
       admin:
         elections:
+          create:
+            success: Volba byla úspěšně vytvořena.
           edit:
             title: Upravit volbu
             update: Aktualizovat volby
           form:
             add_images: Přidat obrázky
+            attachment_legend: Přidat galerii obrázků (volitelné)
+            basic_title: Základní informace
+            calendar: Kalendář
+            edit_attachments: Upravit přílohy
+            manual_start: Ruční spuštění
+            results_availability:
+              after_end: Po ukončení voleb
+              after_end_help: Zobrazit výsledky pouze při ukončení voleb
+              per_question_help: Zobrazit výsledky pro každou otázku při dokončení
           index:
             title: Volby
           new:
