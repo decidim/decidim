@@ -722,7 +722,7 @@ cs:
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
       already_endorsed: Nelíbí se mi
-      endorse: Líbí se mi
+      endorse: Like
     endorsements:
       identities:
         done: Hotovo
@@ -1465,6 +1465,10 @@ cs:
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
+      hidden_automatically:
+        details: Podrobnosti
+        participatory_space: Participativní prostor
+        reason: Důvod
       report:
         authors: Autoři
         content: Nahlášený obsah
