@@ -75,6 +75,8 @@ module Decidim
       validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
 
+      alias enable_omnipresent_banner? enable_omnipresent_banner
+
       def machine_translation_priorities
         Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES.map do |priority|
           [
@@ -92,10 +94,6 @@ module Decidim
 
       def machine_translation_enabled?
         Decidim.config.enable_machine_translations
-      end
-
-      def enable_omnipresent_banner?
-        enable_omnipresent_banner
       end
     end
   end
