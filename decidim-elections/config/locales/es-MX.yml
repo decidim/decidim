@@ -10,22 +10,67 @@ es-MX:
             announcement: Aviso
     elections:
       actions:
+        confirm_delete_election: '¿Seguro que quieres eliminar esta elección?'
+        deleted_election_info: Las elecciones eliminadas no se muestran en la lista. Puedes verlas haciendo clic en el botón "Ver las elecciones eliminadas" que encontrarás más abajo.
+        edit: Editar la elección
+        new: Nueva elección
         title: Acciones
+        view_deleted_elections: Ver las elecciones eliminadas
       admin:
         elections:
+          create:
+            invalid: Se ha producido un error al crear la elección.
+            success: Elección creada correctamente.
           edit:
             title: Editar la votación
             update: Actualizar la votación
           form:
             add_images: Añadir imágenes
+            attachment_legend: Añadir galería de imágenes (opcional)
+            basic_title: Información básica
+            calendar: Calendario
+            calendar_description: Compruebe que la zona horaria es correcta en la configuración de la organización. La configuración actual es %{timezone}.
+            edit_attachments: Editar los archivos adjuntos
+            end_at: Hora de finalización
+            manual_start: Inicio manual
+            results_availability:
+              after_end: Tras el fin de las elecciones
+              after_end_help: Mostrar los resultados solo cuando la elección ha terminado
+              per_question: Pregunta por pregunta
+              per_question_help: Mostrar los resultados por pregunta a medida que se finalizan
+              real_time: En tiempo real
+              real_time_help: Mostrar los resultados en cuanto se envíe el primer voto
+              title: Disponibilidad de los resultados
+            start_at: Día y hora de inicio
           index:
             title: Votaciones
+          manage_trash:
+            title: Elecciones eliminadas
           new:
             create: Crear una votación
             title: Nueva votación
+          publish:
+            invalid: Se ha producido un error al publicar la elección.
+            success: Elección publicada con éxito.
+          unpublish:
+            invalid: Se ha producido un error al despublicar la elección.
+            success: Elección despublicada correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar la elección.
+            success: Elección actualizada correctamente.
+      admin_log:
+        election:
+          create: "%{user_name} ha creado la elección \"%{resource_name}\" en %{space_name}"
+          publish: "%{user_name} publicó la elección \"%{resource_name}\" en %{space_name}"
+          restore: "%{user_name} restauró la elección \"%{resource_name}\" en %{space_name}"
+          soft_delete: "%{user_name} ha movido la elección \"%{resource_name}\" de %{space_name} a la papelera"
+          unpublish: "%{user_name} despublicó la elección \"%{resource_name}\" en %{space_name}"
+          update: "%{user_name} ha actualizado la elección \"%{resource_name}\" de %{space_name}"
       models:
         election:
           fields:
+            end_at: Día y hora de finalización
+            start_at: Día y hora de inicio
             title: Título
     statistics:
       elections_count: Elecciones
