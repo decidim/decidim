@@ -843,20 +843,10 @@ eu:
         error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
-    endorsement_buttons_cell:
-      already_endorsed: Desegin "atsegin dut"
-      endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
         select_identity: Hautatu identitatea
-    endorsers_list:
-      endorsed_by:
-        one: 'Nork atsegin du: %{visible}'
-        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
-      others: "%{count} gehiago"
-      title: 'Nork atsegin du:'
-      you: zu(k)
     ephemeral_user: Bisitaria
     errors:
       files:
