@@ -60,7 +60,7 @@ describe "Admin manages elections questions" do
         page.all(".questionnaire-question").each do |question|
           within question do
             select "Single option", from: "Type"
-            click_on "Add answer option"
+            click_on "Add response option"
           end
         end
 
