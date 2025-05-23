@@ -440,9 +440,6 @@ pt:
             documents: Documentos
             endorsements_count: Contagem de endossamentos
             endorsers: Endossadores
-            n_more_endorsers:
-              one: e mais 1
-              other: e mais %{count}
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
