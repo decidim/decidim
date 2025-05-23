@@ -22,9 +22,6 @@ module Decidim
       let(:highlighted_content_banner_action_subtitle) { empty_translatable }
       let(:highlighted_content_banner_action_url) { nil }
       let(:highlighted_content_banner_image) { nil }
-      let(:empty_traslatable_attribute) do
-        { en: "", es: "", ca: "" }
-      end
       let(:attributes) do
         {
           "organization" => {

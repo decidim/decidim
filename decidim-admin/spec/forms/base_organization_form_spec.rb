@@ -38,6 +38,9 @@ module Decidim
       end
       let(:organization) { create(:organization) }
       let(:available_locales) { organization.available_locales }
+      let(:empty_traslatable_attribute) do
+        { en: "", es: "", ca: "" }
+      end
       let(:enable_omnipresent_banner) { false }
       let(:omnipresent_banner_url) { nil }
       let(:omnipresent_banner_title) { empty_traslatable_attribute }
