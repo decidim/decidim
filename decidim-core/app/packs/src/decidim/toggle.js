@@ -27,7 +27,6 @@ export default function createToggle(component) {
       const node = document.getElementById(id)
 
       if (node) {
-        node.hidden = !node.hidden
         node.setAttribute("aria-expanded", !node.hidden);
       }
     });
