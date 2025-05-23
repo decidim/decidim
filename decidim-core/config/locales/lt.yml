@@ -646,8 +646,6 @@ lt:
         error: Klaida įkeliant paveikslėlį.
         success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
-    endorsement_buttons_cell:
-      endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
