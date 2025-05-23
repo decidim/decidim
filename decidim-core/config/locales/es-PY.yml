@@ -72,7 +72,6 @@ es-PY:
       decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminado del grupo
-      decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
@@ -95,9 +94,6 @@ es-PY:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
-      decidim/endorsement:
-        one: Adhesión
-        other: Adhesiones
       decidim/user:
         one: No hay usuarios
         other: Usuarios
@@ -438,9 +434,6 @@ es-PY:
       comments:
         one: comentario
         other: comentarios
-      endorsements:
-        one: adhesión
-        other: adhesiones
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -827,16 +820,6 @@ es-PY:
         error: Error al cargar la imagen.
         success: Imagen cargada correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
-    endorsement_buttons_cell:
-      already_endorsed: Deshacer el "Me gusta"
-      endorse: Me gusta
-    endorsers_list:
-      endorsed_by:
-        one: Le gusta a %{visible}
-        other: Le gusta a %{visible} y a %{others}
-      others: "%{count} más"
-      title: Le ha gustado a
-      you: tú
     ephemeral_user: Visitante
     errors:
       files:
@@ -960,11 +943,6 @@ es-PY:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a>.
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1575,9 +1553,6 @@ es-PY:
       controls_label: Controles de recursos
     resource_autocomplete:
       help: Escribe aquí para buscar entre las propuestas
-    resource_endorsements:
-      create:
-        error: Se ha producido un error durante la acción de adhesión.
     scopes:
       global: Alcance global
       prompt: Seleccione un ámbito
@@ -1675,7 +1650,6 @@ es-PY:
     statistics:
       comments_count: Comentarios
       comments_count_tooltip: El número total de comentarios publicados en este espacio.
-      endorsements_count: Adhesiones
       followers_count: Seguidoras
       followers_count_tooltip: El número de usuarias que siguen cualquier parte de este espacio para mantenerse actualizadas.
       headline: Estadísticas
