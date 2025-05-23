@@ -323,10 +323,6 @@ lv:
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
             endorsers: Atbalstītāji
-            n_more_endorsers:
-              zero: un %{count} vēl
-              one: un vēl viens
-              other: un %{count} vēl
             photos: Fotogrāfijas
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
