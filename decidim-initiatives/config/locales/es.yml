@@ -432,7 +432,7 @@ es:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha apoyado la siguiente iniciativa. Tal vez quieras contribuir a la conversación:"
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Iniciativa adherida por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue adherida por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
