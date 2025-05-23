@@ -43,6 +43,12 @@ module Decidim
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean
 
+      attribute :enable_omnipresent_banner, Boolean, default: false
+      attribute :omnipresent_banner_url, String
+
+      translatable_attribute :omnipresent_banner_title, String
+      translatable_attribute :omnipresent_banner_short_description, String
+
       translatable_attribute :welcome_notification_subject, String
       translatable_attribute :welcome_notification_body, Decidim::Attributes::RichText
 
@@ -65,6 +71,10 @@ module Decidim
                 :logo,
                 passthru: { to: Decidim::Organization }
 
+      validates :omnipresent_banner_url, url: true, presence: true, if: :enable_omnipresent_banner?
+      validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
+      validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
+
       def machine_translation_priorities
         Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES.map do |priority|
           [
@@ -82,6 +92,10 @@ module Decidim
 
       def machine_translation_enabled?
         Decidim.config.enable_machine_translations
+      end
+
+      def enable_omnipresent_banner?
+        enable_omnipresent_banner
       end
     end
   end

@@ -5,12 +5,12 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateOrganizationAppearance do
     describe "call" do
-      let(:organization) { create(:organization, enable_omnipresent_banner: true) }
+      let(:organization) { create(:organization, highlighted_content_banner_enabled: true) }
       let(:user) { create(:user, organization:) }
       let(:params) do
         {
           organization: {
-            enable_omnipresent_banner: false,
+            highlighted_content_banner_enabled: false,
             header_snippets: '<script>alert("Hello");</script>'
           }
         }
@@ -39,7 +39,7 @@ module Decidim::Admin
           command.call
           organization.reload
 
-          expect(organization.enable_omnipresent_banner).to be_truthy
+          expect(organization.highlighted_content_banner_enabled).to be_truthy
         end
       end
 
@@ -76,7 +76,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
           organization.reload
 
-          expect(organization.enable_omnipresent_banner).to be_falsey
+          expect(organization.highlighted_content_banner_enabled).to be_falsey
         end
 
         it "does not save header snippets" do

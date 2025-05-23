@@ -10,9 +10,7 @@ module Decidim
       fetch_form_attributes :cta_button_path, :cta_button_text,
                             :highlighted_content_banner_enabled, :highlighted_content_banner_action_url,
                             :highlighted_content_banner_title, :highlighted_content_banner_short_description,
-                            :highlighted_content_banner_action_title,
-                            :highlighted_content_banner_action_subtitle, :enable_omnipresent_banner, :omnipresent_banner_url,
-                            :omnipresent_banner_title, :omnipresent_banner_short_description
+                            :highlighted_content_banner_action_title, :highlighted_content_banner_action_subtitle
 
       private
 

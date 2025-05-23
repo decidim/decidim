@@ -17,16 +17,12 @@ module Decidim
       attribute :highlighted_content_banner_action_url, String
       attribute :highlighted_content_banner_image
       attribute :remove_highlighted_content_banner_image, Boolean, default: false
-      attribute :enable_omnipresent_banner, Boolean, default: false
-      attribute :omnipresent_banner_url, String
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :highlighted_content_banner_title, String
       translatable_attribute :highlighted_content_banner_short_description, Decidim::Attributes::RichText
       translatable_attribute :highlighted_content_banner_action_title, String
       translatable_attribute :highlighted_content_banner_action_subtitle, String
-      translatable_attribute :omnipresent_banner_title, String
-      translatable_attribute :omnipresent_banner_short_description, String
 
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
 
@@ -48,20 +44,12 @@ module Decidim
                 translatable_presence: true,
                 if: :highlighted_content_banner_enabled?
 
-      validates :omnipresent_banner_url, url: true, presence: true, if: :enable_omnipresent_banner?
-      validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
-      validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
-
       alias organization current_organization
 
       private
 
       def highlighted_content_banner_enabled?
         highlighted_content_banner_enabled
-      end
-
-      def enable_omnipresent_banner?
-        enable_omnipresent_banner
       end
 
       def highlighted_content_banner_image_is_changed?
