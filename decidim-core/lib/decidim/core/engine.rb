@@ -250,13 +250,6 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
-      # Rails 7.0 default is :json. We are going to use :hybrid
-      # Rails transparently deserializes existing (Marshal-serialized) cookies on read and
-      # re-writes them in the JSON format.
-      initializer "decidim_core.action_dispatch" do |app|
-        app.config.action_dispatch.cookies_serializer = :hybrid
-      end
-
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
         next if app.config.active_storage.service_urls_expire_in.present?
 
