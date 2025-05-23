@@ -77,15 +77,12 @@ fr:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
     models:
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
-      decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
@@ -152,7 +149,6 @@ fr:
           amend: Amender
           comment: Commenter
           create: Créer une proposition
-          endorse: Soutenir
           vote: Voter
           vote_comment: Vote sur le commentaire
           withdraw: Retirer
@@ -175,7 +171,6 @@ fr:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
@@ -236,14 +231,11 @@ fr:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
               recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
-            endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
@@ -327,11 +319,6 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -591,13 +578,8 @@ fr:
             body: Corps
             comments_count: Nombre de commentaires
             documents: Documents
-            endorsements_count: Nombre de soutiens
-            endorsers: Soutiens
             evaluators: Évaluateurs
             link: Voir la proposition
-            n_more_endorsers:
-              one: et 1 de plus
-              other: et %{count} autres
             photos: Photos
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
@@ -865,7 +847,6 @@ fr:
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
-          most_endorsed: Les plus soutenues
           most_followed: Les plus suivies
           most_voted: Les plus votées
           random: Aléatoire
@@ -893,9 +874,6 @@ fr:
           changes_at_title: Amendement de "%{title}"
           edit_proposal:
           estimated_cost: Coût estimé
-          hidden_endorsers_count:
-            one: et %{count} personne de plus
-            other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
           link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
