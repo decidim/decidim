@@ -333,7 +333,7 @@ You can read more about this change on PR [#14453](https://github.com/decidim/de
 
 ### 3.8. Change form endorsements to likes
 
-We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters which measure this within certain modules have changed to likes.
+We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters have been changed to likes.
 
 Implementers will notice this transition once they run the needed migrations on the platform.
 
