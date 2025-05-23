@@ -667,7 +667,6 @@ ja:
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
       already_endorsed: 取り消し
-      endorse: オススメ
     endorsements:
       identities:
         done: 完了
