@@ -77,16 +77,13 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
-              voted: Obdrželi hlasy nebo potvrzení
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
-              voted: Obdrželi hlasy nebo potvrzení
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Návrhy taxonomií se změnily
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
-      decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
@@ -164,7 +161,6 @@ cs:
           amend: Pozměnit
           comment: Komentář
           create: Vytvořit návrh
-          endorse: Schválit
           vote: Hlasovat
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
@@ -187,7 +183,6 @@ cs:
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
-              most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
               most_voted: Nejvíce hlasovalo
               random: Náhodně
@@ -249,14 +244,11 @@ cs:
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
-              most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
               most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
@@ -334,11 +326,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
-          notification_title: Nyní můžete začít <a href="%{resource_path}">schvalovat návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -445,7 +432,6 @@ cs:
           cost_report: Zpráva o nákladech na návrh
           created_at: Datum, kdy byl návrh vytvořen
           created_in_meeting: Zda byl návrh vytvořen na schůzce
-          endorsements: Počet souhlasů ("lajků"), které tento návrh získal
           execution_period: Období, kdy návrh běžel od začátku do konce
           follows_count: Počet příznivců tohoto návrhu
           id: Jedinečný identifikátor návrhu
@@ -656,15 +642,9 @@ cs:
             body: Tělo
             comments_count: Počet komentářů
             documents: Dokumenty
-            endorsements_count: Počet schvalování
-            endorsers: Schvalující
             evaluators: Hodnotitelé
+            likes: Líbí se mi
             link: Zobrazit návrh
-            n_more_endorsers:
-              one: a další 1
-              few: a %{count} dalších
-              many: a %{count} dalších
-              other: a dalších %{count}
             photos: Fotky
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
@@ -946,8 +926,8 @@ cs:
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
-          most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
+          most_liked: Nejoblíbenější
           most_voted: Nejvíce hlasovalo
           random: Náhodně
           recent: Nedávné
@@ -976,11 +956,6 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit
           estimated_cost: Odhadované náklady
-          hidden_endorsers_count:
-            one: a %{count} další osoba
-            few: a %{count} dalších lidí
-            many: a %{count} dalších lidí
-            other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
@@ -1064,6 +1039,8 @@ cs:
         proposal_project: 'Návrh se objevuje v těchto projektech:'
         proposal_result: 'Návrh se objeví v těchto výsledcích:'
     statistics:
+      participatory_space_proposals_count: Návrhy
       proposals_accepted: Přijaté návrhy
       proposals_count: Návrhy
+      votes: 'Hlasy:'
       votes_count: Hlasy
