@@ -72,7 +72,6 @@ eu:
       decidim/promote_to_admin: Taldeko administratzaile mailara igota
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldetik kenduta
-      decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
@@ -95,9 +94,6 @@ eu:
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
-      decidim/endorsement:
-        one: Atxikimendua
-        other: Atxikimenduak
       decidim/user:
         one: Parte-hartzailea
         other: Parte-hartzaileak
@@ -437,9 +433,6 @@ eu:
       comments:
         one: iruzkina
         other: iruzkinak
-      endorsements:
-        one: atxikimendua
-        other: atxikimenduak
       official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -826,16 +819,6 @@ eu:
         error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
-    endorsement_buttons_cell:
-      already_endorsed: Desegin "atsegin dut"
-      endorse: Atsegin dut
-    endorsers_list:
-      endorsed_by:
-        one: 'Nork atsegin du: %{visible}'
-        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
-      others: "%{count} gehiago"
-      title: 'Nork atsegin du:'
-      you: zu(k)
     ephemeral_user: Bisitaria
     errors:
       files:
@@ -958,11 +941,6 @@ eu:
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: 'Jarraitzen duzun hau %{endorser_name} %{endorser_nickname} honi atxiki zaio "%{resource_title}" zure interesekoa izan daiteke, egiaztatu eta lagundu:'
-        email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
-        email_subject: "%{endorser_nickname} proposamen bati atxiki zaio"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> atxiki zaio honako proposamen honi <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       resources:
         soft_deleted:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
@@ -1573,9 +1551,6 @@ eu:
       controls_label: Baliabideen kontrolak
     resource_autocomplete:
       help: Bilatu beharreko proposamen-mota
-    resource_endorsements:
-      create:
-        error: Arazo bat egon da atxikimendu-ekintzan zehar.
     scopes:
       global: Eremu orokorra
       prompt: Hautatu eremua
@@ -1673,7 +1648,6 @@ eu:
     statistics:
       comments_count: Iruzkinak
       comments_count_tooltip: Espazio honetan dauden iruzkin guztiak.
-      endorsements_count: Atxikimenduak
       followers_count: Jarraitzaileak
       followers_count_tooltip: Zenbat erabiltzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
