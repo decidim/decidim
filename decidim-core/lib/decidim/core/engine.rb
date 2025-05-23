@@ -231,6 +231,9 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      # Rails 7.0 default is vips, but
+      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
+      # And we are going to use it while migrating rails application
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
       end
