@@ -385,11 +385,6 @@ ro:
           email_outro: Ai primit această notificare deoarece urmărești%{author_nickname}. Poți opri notificările accesând linkul anterior.
           email_subject: O nouă inițiativă a %{author_nickname}
           notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost creată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, pe care îl urmărești, a susținut următoarea inițiativă; dacă dorești, poți contribui și tu aici:"
-          email_outro: Ai primit această notificare deoarece urmărești%{author_nickname}. Poți opri notificările accesând linkul anterior.
-          email_subject: Inițiativă susținută de %{author_nickname}
-          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost susținută de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} a respins cererea tapentru a face parte din comitetul de promovare pentru inițiativa următoare %{resource_title}."
           email_outro: 'Ai primit această notificare deoarece ai cerut să iei parte la această inițiativă: %{resource_title}.'
