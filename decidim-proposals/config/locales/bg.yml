@@ -497,9 +497,6 @@ bg:
             endorsements_count: Брой препоръки
             endorsers: Препоръчали
             link: Виж предложението
-            n_more_endorsers:
-              one: и още 1
-              other: и още %{count}
             photos: Снимки
             ranking: "%{ranking} от %{total}"
             related_meetings: Свързани срещи
@@ -763,7 +760,7 @@ bg:
           changes_at_title: Изменение на „%{title}“
           estimated_cost: Предвидени разходи
           hidden_endorsers_count:
-            one: и още %{count} човек
+            one: и още %{count}
             other: и още %{count} души
           link_to_collaborative_draft_help_text: Това предложение е резултат от съвместна чернова. Прегледайте хронологията
           link_to_collaborative_draft_text: Вижте съвместната чернова
