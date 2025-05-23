@@ -574,6 +574,7 @@ sv:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
             assign_to_valuator: Tilldela till handläggare
+            assign_to_valuator_button: Tilldelad
             cancel: Avbryt
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
@@ -588,6 +589,7 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
+            unassign_from_valuator_button: Ta bort
             update: Uppdatera
           new:
             create: Skapa
@@ -888,8 +890,8 @@ sv:
           changes_at_title: Ändring till %{title}
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
-            one: och %{count} till person
-            other: och %{count} till personer
+            one: och %{count} mer person
+            other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
