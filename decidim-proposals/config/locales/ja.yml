@@ -77,16 +77,13 @@ ja:
           attributes:
             base:
               not_official: 公式ではありません
-              voted: 投票またはオススメを受けました
         proposals_split:
           attributes:
             base:
               not_official: 公式ではありません
-              voted: 投票またはオススメを受けました
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: 提案のタクソノミーが変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
-      decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
       decidim/proposals/publish_proposal_event: 提案が公開
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
@@ -154,7 +151,6 @@ ja:
           amend: 修正
           comment: コメント
           create: 提案を作成
-          endorse: オススメする
           vote: 投票
           vote_comment: コメントに投票
           withdraw: 撤回する
@@ -177,7 +173,6 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
-              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
@@ -239,14 +234,11 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
-              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
@@ -330,11 +322,6 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">新しい提案</a>を出すことができます。
-        endorsing_enabled:
-          email_intro: 'あなたは %{participatory_space_title} で提案をオススメすることができます! このページへの参加を開始します:'
-          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{participatory_space_title} の推薦提案が開始されました'
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">提案を支持する</a>ことができます。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
           email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
@@ -441,7 +428,6 @@ ja:
           cost_report: 提案のコストのレポート
           created_at: 提案の作成日時
           created_in_meeting: 提案がミーティングで作成されたかどうか
-          endorsements: この提案のオススメ(「いいね」) の数
           execution_period: 提案の開始から終了までの期間
           follows_count: この提案のフォロワー数
           id: 提案の固有ID
@@ -656,12 +642,8 @@ ja:
             body: 本文
             comments_count: コメント数
             documents: ドキュメント
-            endorsements_count: オススメ数
-            endorsers: オススメしている人
             evaluators: 評価者
             link: 提案を見る
-            n_more_endorsers:
-              other: 他 %{count} 名
             photos: 写真
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
@@ -939,7 +921,6 @@ ja:
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
-          most_endorsed: オススメの多い順
           most_followed: フォローの多い順
           most_voted: 得票数順
           random: ランダム
@@ -966,8 +947,6 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           edit_proposal: 編集
           estimated_cost: 推定コスト
-          hidden_endorsers_count:
-            other: '%{count} 人以上'
           link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
           link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
