@@ -520,6 +520,7 @@ sv:
           index:
             actions: Åtgärder
             assign_to_valuator: Tilldela till handläggare
+            assign_to_valuator_button: Tilldelad
             cancel: Avbryt
             change_category: Ändra kategori
             change_scope: Ändra indelning
@@ -535,6 +536,7 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
+            unassign_from_valuator_button: Ta bort
             update: Uppdatera
             update_scope_button: Uppdatera indelning
           new:
@@ -847,8 +849,8 @@ sv:
           edit_proposal: Redigera förslag
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
-            one: och %{count} till person
-            other: och %{count} till personer
+            one: och %{count} mer person
+            other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
