@@ -440,11 +440,6 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} による新しいイニシアチブの作成'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって作成されました。
-        endorse_initiative_event:
-          email_intro: "あなたがフォローしている%{author_name} %{author_nickname}は、次のイニシアチブを承認しました。会話に貢献したい場合もあります："
-          email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{author_nickname} によってオススメされたイニシアチブ'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によってオススメされました。
         revoke_membership_request:
           email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
