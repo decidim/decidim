@@ -7,8 +7,12 @@ cs:
           body: Tělo zprávy
           title: Název
           version_number: Číslo verze
+        suggestion:
+          original: Původní text
+          replace: Nahrazení
         version:
           body: Tělo zprávy
+          draft: Koncept
           version_number: Číslo verze
   decidim:
     collaborative_texts:
@@ -25,6 +29,9 @@ cs:
           create:
             invalid: Při vytváření dokumentu došlo k chybě.
             success: Doklad byl úspěšně vytvořen.
+          draft_options:
+            accepting_suggestions: Povolit návrhy v další verzi
+            draft: Pracovní verze
           edit:
             title: Upravit texty pro spolupráci
             update: Aktualizovat
