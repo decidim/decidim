@@ -58,7 +58,6 @@ el:
           comment: Σχόλιο
           create: Δημιουργία
           destroy: Διαγραφή
-          endorse: Επιδοκιμασία
           update: Ενημέρωση
         name: Ιστολόγιο
         settings:
@@ -69,8 +68,6 @@ el:
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
-            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
     events:
       blogs:
         post_created:
