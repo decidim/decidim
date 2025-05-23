@@ -551,6 +551,26 @@ describe "Admin manages organization" do
     end
   end
 
+  describe "organization colors" do
+    it "changes the color on click with the color picker" do
+      visit decidim_admin.edit_organization_path
+
+      expect(page).to have_css(".color-picker")
+      find(".color-picker summary").click
+      selector = find_by_id("primary-selector")
+
+      selector.find("div[data-value='#40a8bf']").click
+      expect(find_by_id("preview-primary", visible: :all).value).to eq "#40a8bf"
+      expect(find_by_id("preview-secondary", visible: :all).value).to eq "#bf40a8"
+      expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#a8bf40"
+
+      selector.find("div[data-value='#bf408c']").click
+      expect(find_by_id("preview-primary", visible: :all).value).to eq "#bf408c"
+      expect(find_by_id("preview-secondary", visible: :all).value).to eq "#8cbf40"
+      expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
+    end
+  end
+
   describe "welcome message" do
     context "when not customizing it" do
       it "does not show the customization fields" do

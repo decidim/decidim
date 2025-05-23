@@ -35,25 +35,5 @@ describe "Admin manages organization" do
         expect(page).to have_no_field(:organization_header_snippets)
       end
     end
-
-    context "when the color picker is used" do
-      it "changes the color on click" do
-        visit decidim_admin.edit_organization_appearance_path
-
-        expect(page).to have_css(".color-picker")
-        find(".color-picker summary").click
-        selector = find_by_id("primary-selector")
-
-        selector.find("div[data-value='#40a8bf']").click
-        expect(find_by_id("preview-primary", visible: :all).value).to eq "#40a8bf"
-        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#bf40a8"
-        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#a8bf40"
-
-        selector.find("div[data-value='#bf408c']").click
-        expect(find_by_id("preview-primary", visible: :all).value).to eq "#bf408c"
-        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#8cbf40"
-        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
-      end
-    end
   end
 end
