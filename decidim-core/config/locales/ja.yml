@@ -72,7 +72,6 @@ ja:
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: オススメされた
       decidim/resource_hidden_event: リソースを非表示
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
@@ -93,8 +92,6 @@ ja:
           other: 履歴
       decidim/amendment:
         other: 修正
-      decidim/endorsement:
-        other: オススメ
       decidim/user:
         other: 参加者
   booleans:
@@ -423,8 +420,6 @@ ja:
       avatar: 'アバター: %{name}'
       comments:
         other: コメント
-      endorsements:
-        other: オススメ
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -809,15 +804,6 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsement_buttons_cell:
-      already_endorsed: オススメの取り消し
-      endorse: オススメ
-    endorsers_list:
-      endorsed_by:
-        other: '%{visible} によるオススメ'
-      others: "%{count} 以上"
-      title: オススメ
-      you: あなた
     ephemeral_user: 訪問者
     errors:
       files:
@@ -943,11 +929,6 @@ ja:
           notification_title: |-
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
-        email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
       resources:
         soft_deleted:
           notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
@@ -1554,9 +1535,6 @@ ja:
       controls_label: リソースコントロール
     resource_autocomplete:
       help: 提案を検索するには入力してください
-    resource_endorsements:
-      create:
-        error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
       prompt: スコープを選択
@@ -1654,7 +1632,6 @@ ja:
     statistics:
       comments_count: コメント
       comments_count_tooltip: このスペースに投稿されたコメントの合計数。
-      endorsements_count: オススメ
       followers_count: フォロワー
       followers_count_tooltip: このスペースのいずれかの部分をフォローしているユーザー数が更新されます。
       headline: 統計情報
