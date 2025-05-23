@@ -237,6 +237,7 @@ module Decidim
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
       end
+
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do
@@ -248,6 +249,7 @@ module Decidim
       initializer "decidim_core.active_support" do |app|
         # Rails 7.0 default
         app.config.active_support.disable_to_s_conversion = true
+        app.config.active_support.cache_format_version = 7.0
       end
 
       initializer "decidim_core.action_mailer" do |app|
