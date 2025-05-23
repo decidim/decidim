@@ -12,10 +12,10 @@
     <div class="row column" id="welcome-notification-details">
       <%= form.check_box :send_welcome_notification, "data-toggle": "send_welcome_notification_details" %>
 
-      <div id="send_welcome_notification_details" data-toggler=".hide" class="column <%= current_organization.send_welcome_notification ? nil : "hide" %>">
+      <div id="send_welcome_notification_details" data-toggler=".hide" class="column <%= form.object.send_welcome_notification ? nil : "hide" %>">
         <%= form.check_box :customize_welcome_notification, "data-toggle": "customize_welcome_notification_details" %>
 
-        <div id="customize_welcome_notification_details" data-toggler=".hide" class="column <%= current_organization.customize_welcome_notification ? nil : "hide" %>">
+        <div id="customize_welcome_notification_details" data-toggler=".hide" class="column <%= form.object.customize_welcome_notification ? nil : "hide" %>">
           <%= form.translated :text_field, :welcome_notification_subject, aria: { label: :welcome_notification_subject } %>
           <%= form.translated :editor, :welcome_notification_body, aria: { label: :welcome_notification_body } %>
         </div>
