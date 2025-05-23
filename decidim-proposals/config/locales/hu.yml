@@ -414,9 +414,6 @@ hu:
             documents: Dokumentumok
             endorsements_count: Támogatások száma
             endorsers: Támogatók
-            n_more_endorsers:
-              one: és még egy
-              other: és még %{count}
             photos: Fotók
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
@@ -651,7 +648,7 @@ hu:
           estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
-            other: és még %{count} ember
+            other: és még %{count} személy
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
           link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás
