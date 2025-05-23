@@ -103,7 +103,6 @@ eu:
           comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
-          endorse: Atxiki
           update: Eguneratu
         name: Bloga
         settings:
@@ -120,8 +119,6 @@ eu:
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
     events:
       blogs:
         post_created:
@@ -148,7 +145,6 @@ eu:
           comments_count: Argitalpen honek duen iruzkin kopurua
           component: Zein osagairi dagokion argitalpena
           created_at: Zein datatan sortu zen argitalpen hau
-          endorsements_count: Argitalpen honek duen abal kopurua
           follows_count: Argitalpen honek duen jarraitzaile kopurua
           id: Argitalpen honen identifikatzaile bakarra
           participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Partaidetza-prozesua, Batzarra)
