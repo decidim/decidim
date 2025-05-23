@@ -1116,6 +1116,7 @@ sv:
         hidden: Dold
         hide: Dölj
         not_hidden: Inte dold
+        parent_hidden: Du kan inte visa denna resurs eftersom dess förälder fortfarande är dold.
         title: Åtgärder
         unhide: Sluta dölja
         unreport: Ta bort rapport
