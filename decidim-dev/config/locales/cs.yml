@@ -36,8 +36,6 @@ cs:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
             readonly_step_attribute: Atribut krok čtení
             test_options:
               bar: Bar
