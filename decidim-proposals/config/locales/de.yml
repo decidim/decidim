@@ -564,9 +564,6 @@ de:
             endorsements_count: Anzahl der Befürwortungen
             endorsers: Befürworter
             link: Vorschlag anzeigen
-            n_more_endorsers:
-              one: und 1 mehr
-              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
