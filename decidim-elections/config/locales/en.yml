@@ -68,8 +68,6 @@ en:
             at_least_one_question: At least one question is required.
         questions:
           edit_questions:
-            add_answer_option: Add answer option
-            answer_option: Answer option
             new_question: New question
             remove_question_confirm: Are you sure you want to remove this question?
             title: Questions
