@@ -30,6 +30,7 @@ eu:
         actions:
           comment: Iruzkina
           create: Sortu eztabaida bat
+          like: Atsegin dut
         name: Eztabaidak
         settings:
           global:
@@ -46,6 +47,8 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
     debates:
       actions:
         close: Itxi
@@ -262,6 +265,7 @@ eu:
           instructions: Jarraibideak eztabaida honetan iruzkina egiteko
           last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
+          likes_count: Eztabaida honek duen like kopurua
           participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Partaidetza-prozesua edo Batzarra)
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
