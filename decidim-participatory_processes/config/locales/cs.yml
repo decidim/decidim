@@ -397,6 +397,8 @@ cs:
             few: "%{count} procesy"
             many: "%{count} procesů"
             other: "%{count} procesy"
+      related_processes:
+        help: Všechny vybrané procesy budou přiřazeny k této skupině, včetně těch, které jsou již přiřazeny do jiných skupin.
       show:
         title: Skupiny účastnických procesů
     participatory_process_steps:
