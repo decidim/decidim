@@ -77,13 +77,16 @@ eu:
           attributes:
             base:
               not_official: Ez dira ofizialak
+              voted: Babesak edo atxikimenduak jaso izana
         proposals_split:
           attributes:
             base:
               not_official: Ez dira ofizialak
+              voted: Babesak edo atxikimenduak jaso izana
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposamenaren taxonomiak aldatu dira
       decidim/proposals/creation_enabled_event: Proposamenak sortzeko aukera gaituta
+      decidim/proposals/liking_enabled_event: Proposamenaren babesa gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatu da
       decidim/proposals/publish_proposal_event: Proposamena argitaratu da
       decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
@@ -155,6 +158,7 @@ eu:
           amend: Zuzendu
           comment: Iruzkindu
           create: Proposamena sortu
+          like: Atsegin dut
           vote: Eman babesa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
@@ -178,6 +182,7 @@ eu:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
+              most_liked: Like gehien
               most_voted: Bozkatuenak
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
@@ -239,10 +244,13 @@ eu:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
+              most_liked: Like gehien
               most_voted: Botu gehien dituztenak
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
               with_more_authors: Egile gehiago dituztenak
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
             proposal_answering_enabled: Proposamenei erantzuna gaituta
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati hau gaitu gabe erantzuten badiozu, aukeratu eta argitaratzeko ekintza erabiliz argitaratu beharko dituzula. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
@@ -326,6 +334,11 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+        liking_enabled:
+          email_intro: 'Proposamenak atsegin ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
@@ -437,6 +450,7 @@ eu:
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
+          likes: Proposamen honek duen atxikimendu ("like") kopurua
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
           meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
@@ -650,7 +664,12 @@ eu:
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             evaluators: Ebaluatzaileak
+            likes: Likeak
+            likes_count: Like kopurua
             link: Ikusi proposamena
+            n_more_likes:
+              one: eta 1 gehiago
+              other: eta %{count} gehiago
             photos: Argazkiak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
@@ -932,6 +951,7 @@ eu:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
+          most_liked: Like gehien
           most_voted: Bozkatuenak
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara
@@ -958,6 +978,9 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
+          hidden_likes_count:
+            one: eta %{count} pertsona gehiago
+            other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
