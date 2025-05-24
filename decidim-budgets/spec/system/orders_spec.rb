@@ -531,7 +531,7 @@ describe "Orders" do
 
         expect(page).to have_content("Budget vote completed")
 
-        page.find("a[aria-label='Go to front page']").click
+        page.find("a[href='#{decidim.root_path}']").click
 
         expect(page).to have_current_path decidim.root_path
       end

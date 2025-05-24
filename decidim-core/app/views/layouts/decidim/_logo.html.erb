@@ -1,7 +1,7 @@
 <% if organization %>
-  <%= link_to decidim.root_url(host: organization.host), "aria-label": t("front_page_link", scope: "decidim.accessibility") do %>
+  <%= link_to root_url do %>
     <% if organization.logo.attached? %>
-      <%= image_tag organization.attached_uploader(:logo).variant_url(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization_name) %>
+      <%= image_tag organization.attached_uploader(:logo).variant_url(:medium), alt: "#{current_organization_name} (#{t("decidim.errors.not_found.back_home")})" %>
     <% else %>
       <span><%= current_organization_name %></span>
     <% end %>
