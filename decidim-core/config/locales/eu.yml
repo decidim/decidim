@@ -685,6 +685,7 @@ eu:
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
       already_endorsed: Ez dut atsegin
+      endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
