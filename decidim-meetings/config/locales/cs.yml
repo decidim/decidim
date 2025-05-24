@@ -171,6 +171,7 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             maps_enabled: Mapy povoleny
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
+            registration_code_enabled: Registrační kód a QR povoleny
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
@@ -392,6 +393,13 @@ cs:
           publish:
             invalid: Při publikování této schůzky došlo k chybě.
             success: Schůze byla úspěšně zveřejněna.
+          reminders:
+            reminder_enabled: Pošlete připomenutí pro tuto schůzku
+            reminder_message: Obsah e-mailu připomínky
+            reminder_message_help_text: Upravte zprávu podle potřeby. Použijte {{meeting_title}} pro zobrazení názvu schůzky.
+            send_reminder: Naplánovaný e-mail připomínky
+            send_reminder_help_text: Čas připomenutí v hodinách před schůzkou.
+            title: Připomínky
           service:
             description: Popis
             down: Dolů
@@ -417,7 +425,7 @@ cs:
         poll:
           form:
             announcement_html:
-              - 
+              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
               - Otázku můžete kdykoliv přidat.
               - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
               - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
@@ -431,6 +439,7 @@ cs:
             recommendation_message: Z důvodu ochrany osobních údajů doporučujeme odstranit tento nadepsaný formulář, když jej již nepotřebujete. Ve výchozím nastavení je to 3 měsíce po ukončení schůzky.
             registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_form: Registrační formulář
+            registrations: Zobrazit registrace
             registrations_count:
               one: Byla zde registrace %{count}.
               few: Bylo zde %{count} registrací.
@@ -615,6 +624,7 @@ cs:
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
           leave_waitlist: Opustit pořadník
+          leave_waitlist_confirmation: Opravdu chcete zrušit registrační listinu na tuto schůzku?
           link_available_soon: Odkaz bude brzy k dispozici
           link_closed: Odkaz pro připojení se ke schůzce bude k dispozici několik minut před jejím spuštěním
           live_event: Tato schůzka se děje právě teď
@@ -623,6 +633,9 @@ cs:
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           redirect_notice: Tato schůzka je součástí jiné skupiny, takže jste byli přesunuti do %{current_space_name}. <br>Pokud chcete, můžete se vrátit do <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_and_qr_code: Registrační a QR kód
+          registration_code: 'Registrační kód: %{code}'
+          registration_code_help_text: Váš registrační a QR kód
           registration_state:
             validated: OVĚŘENÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
@@ -632,6 +645,9 @@ cs:
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
           visit_finished: Zobrazit minulou schůzku
+          waitlist:
+            description: Pokud bude místo k dispozici, zpracujeme Vaši registraci automaticky a upozorníme vás e-mailem.
+            status: Jste ve frontě
           withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
           withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_meeting: Odebrat
@@ -661,12 +677,21 @@ cs:
             title: Titul
         registration:
           actions: Akce
+          fields:
+            email: E-mail
+            name: Jméno
+            status: Stav
+          status:
+            attended: Zúčastnil se
+            not_attended: Neúčastnil se
       polls:
         questions:
           closed_question:
             announcement: Odpovědi na tuto otázku byly uzavřeny.
             question: Otázka
             question_results: Výsledky
+          index:
+            empty_questions: Během této schůzky budou zaslány některé otázky a budete je moci odpovědět. Budou se zobrazovat zde.
           index_admin:
             edit: Upravit v panelu administrace
             question: Otázka
@@ -811,6 +836,7 @@ cs:
     statistics:
       attendees_count: Účastníci schůzky
       meetings_count: Setkání
+      participatory_space_meetings_count: Schůzky
   devise:
     mailer:
       join_meeting:
