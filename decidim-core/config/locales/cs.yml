@@ -1135,7 +1135,11 @@ cs:
       name: Poslední aktivity
       no_activities_warning: Pro tento typ aktivity nejsou k dispozici žádné položky.
     like_buttons_cell:
+      already_liked: Vrátit označení Líbí se
       like: Like
+    likes_list:
+      title: Toto se líbí
+      you: vám
     linked_resource_from:
       included_in: Zahrnuto v
     links:
@@ -1475,6 +1479,8 @@ cs:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
           welcome: Vítejte na %{organization}!
+        statistics:
+          headline: Statistiky
         sub_hero:
           register: Registrovat
           register_title: Vytvořit účet
@@ -1505,6 +1511,7 @@ cs:
         greetings_html: |
           S pozdravem,<br>
           %{organization_name}
+        hello_html: Vážený <strong>%{username}</strong>,
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
@@ -1545,8 +1552,20 @@ cs:
     reported_mailer:
       hidden_automatically:
         details: Podrobnosti
+        hello: Dobrý den %{name},
         participatory_space: Participativní prostor
         reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
+        subject: Zdroj byl automaticky skryt
+      hidden_manually:
+        content: Nahlášený obsah
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
+        participatory_space: Participativní prostor
+        reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl skrytý od %{moderator}.</p>
+        subject: Zdroj byl skryt %{moderator}
       report:
         authors: Autoři
         content: Nahlášený obsah
@@ -1564,6 +1583,8 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      hide:
+        success: Tento zdroj byl skryt.
       parent_hidden:
         report_details: Nadřazený dokument byl skryt
     resource:
@@ -1665,6 +1686,7 @@ cs:
         share_to: Sdílet na %{service}
     statistics:
       comments_count: Komentáře
+      comments_count_tooltip: Celkový počet komentářů zveřejněných v tomto prostoru.
       followers_count: Sledující
       headline: Statistiky
       no_stats: Zatím nejsou žádné statistiky.
