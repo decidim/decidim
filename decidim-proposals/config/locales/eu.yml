@@ -565,6 +565,9 @@ eu:
             endorsements_count: Atxikimendu kopurua
             endorsers: Atxiki dira
             link: Ikusi proposamena
+            n_more_endorsers:
+              one: eta 1 gehiago
+              other: eta %{count} gehiago
             photos: Argazkiak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
