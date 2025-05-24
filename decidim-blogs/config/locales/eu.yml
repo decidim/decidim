@@ -103,6 +103,7 @@ eu:
           comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
+          like: Atsegin dut
           update: Eguneratu
         name: Bloga
         settings:
@@ -119,6 +120,8 @@ eu:
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
     events:
       blogs:
         post_created:
@@ -147,6 +150,7 @@ eu:
           created_at: Zein datatan sortu zen argitalpen hau
           follows_count: Argitalpen honek duen jarraitzaile kopurua
           id: Argitalpen honen identifikatzaile bakarra
+          likes_count: Argitalpen honek duen like kopurua
           participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Partaidetza-prozesua, Batzarra)
           published_at: Zein datatan argitaratu zen atgitalpen hau
           title: Argitalpenaren izenburua
