@@ -703,6 +703,9 @@ cs:
         actions:
           create: Vytvořit iniciativu
           title: Akce
+    statistics:
+      initiatives_count: Iniciativy
+      initiatives_count_tooltip: Počet zveřejněných občanských iniciativ.
   layouts:
     decidim:
       initiative_creation_header:
