@@ -32,6 +32,7 @@ cs:
         actions:
           comment: Komentář
           create: Vytvořit debatu
+          like: Líbí se mi
         name: Debaty
         settings:
           global:
@@ -48,6 +49,8 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
     debates:
       actions:
         close: Zavřít
