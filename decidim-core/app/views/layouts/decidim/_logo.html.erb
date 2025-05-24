@@ -1,5 +1,5 @@
 <% if organization %>
-  <%= link_to root_url do %>
+  <%= link_to decidim.root_url(host: organization.host) do %>
     <% if organization.logo.attached? %>
       <%= image_tag organization.attached_uploader(:logo).variant_url(:medium), alt: "#{current_organization_name} (#{t("decidim.errors.not_found.back_home")})" %>
     <% else %>
