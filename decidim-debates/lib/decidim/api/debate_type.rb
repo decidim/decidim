@@ -10,7 +10,7 @@ module Decidim
       implements Decidim::Core::FollowableInterface
       implements Decidim::Core::ReferableInterface
       implements Decidim::Core::AttachableInterface
-      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::LikeableInterface
       implements Decidim::Core::TraceableInterface
 
       description "A debate"
