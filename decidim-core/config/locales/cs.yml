@@ -887,11 +887,15 @@ cs:
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
+      already_endorsed: Vrátit označení Líbí se
       endorse: Like
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
+    endorsers_list:
+      title: Toto se líbí
+      you: vám
     ephemeral_user: Návštěvník
     errors:
       files:
@@ -1763,8 +1767,20 @@ cs:
     reported_mailer:
       hidden_automatically:
         details: Podrobnosti
+        hello: Dobrý den %{name},
         participatory_space: Participativní prostor
         reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
+        subject: Zdroj byl automaticky skryt
+      hidden_manually:
+        content: Nahlášený obsah
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
+        participatory_space: Participativní prostor
+        reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl skrytý od %{moderator}.</p>
+        subject: Zdroj byl skryt %{moderator}
       report:
         authors: Autoři
         content: Nahlášený obsah
@@ -1782,6 +1798,8 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      hide:
+        success: Tento zdroj byl skryt.
       parent_hidden:
         report_details: Nadřazený dokument byl skryt
     resource:
