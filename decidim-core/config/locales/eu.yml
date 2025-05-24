@@ -73,6 +73,7 @@ eu:
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_hidden_event: Ezkutuko baliabidea
+      decidim/resource_liked_event: Ezkutuko likea
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
@@ -941,6 +942,11 @@ eu:
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname} -k, zu jarraitzen ari zarenak, "%{resource_title}" atsegin du eta uste dugu interesatu ahal zaizula. Egiaztatu eta lagundu:'
+        email_outro: Jakinarazpen hau jaso duzu %{liker_nickname} jarraitzen duzulako. Ondorengo estekan sartu jakinarazpenak jasotzeari uzteko.
+        email_subject: "%{liker_nickname} -k beste bat atsegin du"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} ategin du.
       resources:
         soft_deleted:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
@@ -1091,6 +1097,16 @@ eu:
         last_activity: Azken jarduerak
       name: Azken jarduerak
       no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
+    like_buttons_cell:
+      already_liked: Desegin "atsegin dut"
+      like: Atsegin dut
+    likes_list:
+      liked_by:
+        one: 'Nork atsegin du: %{visible}'
+        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
+      others: "%{count} gehiago"
+      title: 'Nork atsegin du:'
+      you: zu(k)
     linked_resource_from:
       included_in: Honen barne
     links:
@@ -1551,6 +1567,9 @@ eu:
       controls_label: Baliabideen kontrolak
     resource_autocomplete:
       help: Bilatu beharreko proposamen-mota
+    resource_likes:
+      create:
+        error: Arazo bat egon da atsegin-ekintzan zehar.
     scopes:
       global: Eremu orokorra
       prompt: Hautatu eremua
@@ -1651,6 +1670,7 @@ eu:
       followers_count: Jarraitzaileak
       followers_count_tooltip: Zenbat erabiltzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
+      likes_count: Likeak
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Parte-hartzaileak
