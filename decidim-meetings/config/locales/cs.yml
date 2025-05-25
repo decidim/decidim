@@ -247,6 +247,7 @@ cs:
           email_intro: Vaše registrace na schůzku "%{resource_title}" byla označena jako účastník.
           email_outro: Obdrželi jste toto oznámení, protože vaše registrace na schůzku "%{resource_title}" byla označena jako účastník.
           email_subject: Vaše registrace na schůzku "%{resource_title}" byla označena jako účastník
+          notification_title: Vaše registrace na schůzku <a href="%{resource_path}">%{resource_title}</a> byla označena jako účastník.
         registrations_enabled:
           email_intro: 'Schůzka "%{resource_title}" povolila registrace. Můžete se zaregistrovat na své stránce:'
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
@@ -632,6 +633,7 @@ cs:
           micro_camera_permissions_warning: Po kliknutí na tlačítko níže budete požádáni o povolení k mikrofonu nebo fotoaparátu a připojíte se k videokonferenci
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
+          pending_address: Místo bude brzy oznámeno.
           redirect_notice: Tato schůzka je součástí jiné skupiny, takže jste byli přesunuti do %{current_space_name}. <br>Pokud chcete, můžete se vrátit do <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_and_qr_code: Registrační a QR kód
           registration_code: 'Registrační kód: %{code}'
