@@ -339,7 +339,26 @@ Implementers will notice this transition once they run the needed migrations on 
 
 You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
 
-### 3.9. [[TITLE OF THE ACTION]]
+### 3.9. New Rails framework defaults
+
+As of this version, we are changing Rails's settings from 6.1 to 7.0. In order to upgrade your app, you will need to patch your `config/application.rb` to load 6.1 defualts.
+
+As this upgrade may impact the encryption layer, it is highly recommended to do it You will need to change the highlighted.
+
+```ruby
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 6.1 # This is the old value that you need to replace
+    config.load_defaults 7.0 # This is the new value that you need to set
+    # ....
+  end
+end
+```
+
+You can read more about this change on PR [#14735](https://github.com/decidim/decidim/pull/14735).
+
+### 3.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
