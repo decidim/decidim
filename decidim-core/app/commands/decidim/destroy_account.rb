@@ -21,6 +21,11 @@ module Decidim
         destroy_follows
         destroy_user_authorizations
         destroy_user_versions
+        destroy_user_private_exports
+        destroy_user_access_grants
+        destroy_user_access_tokens
+        destroy_user_reminders
+        destroy_user_notifications
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
       end
@@ -55,6 +60,26 @@ module Decidim
 
     def destroy_user_versions
       current_user.versions.destroy_all
+    end
+
+    def destroy_user_private_exports
+      current_user.private_exports.delete_all
+    end
+
+    def destroy_user_access_grants
+      current_user.access_grants.destroy_all
+    end
+
+    def destroy_user_access_tokens
+      current_user.access_tokens.destroy_all
+    end
+
+    def destroy_user_reminders
+      current_user.reminders.destroy_all
+    end
+
+    def destroy_user_notifications
+      current_user.notifications.destroy_all
     end
 
     def destroy_user_authorizations
