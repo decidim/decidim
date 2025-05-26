@@ -72,6 +72,18 @@
 .dropdown {
   @apply absolute border-2 border-gray-3 rounded-md min-w-max p-1 drop-shadow-md text-left z-10 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
 
+  li {
+    @apply rounded;
+
+    &:hover {
+      @apply bg-secondary;
+
+      a {
+        @apply text-white;
+      }
+    }
+  }
+
   & > * {
     @apply relative z-10 p-2.5;
   }
@@ -83,10 +95,6 @@
 
     > svg {
       @apply w-4 h-4 flex-none text-gray fill-current;
-    }
-
-    a:hover {
-      @apply underline [&>svg]:text-secondary;
     }
   }
 
