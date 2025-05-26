@@ -879,10 +879,22 @@ en:
         form:
           admin_terms_of_service: Admin terms of service
           basic_configuration: Basic configuration
+          colors:
+            choose_color: Choose a primary color
+            colors_title: Organization colors
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
+            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
+            legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
+            saturation: Saturation
+            title: Color chooser
+            update_suggested_colors: Update suggested colors
           extra_features: Extra features
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organization logos
+            preview: Preview
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: X
@@ -909,10 +921,6 @@ en:
             header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
             title: HTML header snippets
           homepage_highlighted_content_banner_title: Highligted content banner
-          images:
-            layout_appearance_title: Edit layout appearance
-            preview: Preview
-          omnipresent_banner_appearance_title: Edit omnipresent banner
       organization_external_domain_allowlist:
         edit:
           update: Update

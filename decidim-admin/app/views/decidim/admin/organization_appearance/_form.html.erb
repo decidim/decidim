@@ -41,34 +41,5 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-omnipresent_banner_appearance_title">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-omnipresent_banner_appearance_title" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="omnipresent_banner_appearance_title">
-          <%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>
-        </h2>
-      </button>
-    </div>
-    <div id="panel-omnipresent_banner_appearance_title" class="card-section">
-      <div class="row column">
-        <%= form.check_box :enable_omnipresent_banner %>
-      </div>
-
-      <div class="row column">
-        <%= form.translated :text_field, :omnipresent_banner_title, aria: { label: :omnipresent_banner_title } %>
-      </div>
-
-      <div class="row column">
-        <%= form.translated :text_field, :omnipresent_banner_short_description, aria: { label: :omnipresent_banner_short_description } %>
-      </div>
-
-      <div class="row column">
-        <%= form.url_field :omnipresent_banner_url %>
-      </div>
-    </div>
-  </div>
-  <%= render partial: "decidim/admin/organization_appearance/form/images", locals: { form: } %>
-  <%= render partial: "decidim/admin/organization_appearance/form/colors", locals: { form: } %>
   <%= render partial: "decidim/admin/organization_appearance/form/header_snippets", locals: { form: } %>
 </div>
