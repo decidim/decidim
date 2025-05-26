@@ -163,7 +163,7 @@
   /* shared styles */
   &__highlight-metadata,
   &__grid-metadata {
-    @apply mt-auto flex items-center justify-between flex-wrap overflow-x-hidden text-sm text-gray-2 [&>*]:flex [&>*]:items-center [&>*]:gap-1 first:[&>*]:flex-none;
+    @apply mt-auto items-center justify-between flex-wrap inline-block [word-break:break-word] text-sm text-gray-2 [&>*]:flex [&>*]:items-center [&>*]:gap-1 first:[&>*]:flex-none;
 
     svg {
       @apply flex-none text-gray fill-current;
