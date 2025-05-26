@@ -67,8 +67,8 @@ module Decidim
 
       def send_notification
         Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.initiative_endorsed",
-          event_class: Decidim::Initiatives::EndorseInitiativeEvent,
+          event: "decidim.events.initiatives.initiative_liked",
+          event_class: Decidim::Initiatives::LikeInitiativeEvent,
           resource: initiative,
           followers: initiative.author.followers
         )

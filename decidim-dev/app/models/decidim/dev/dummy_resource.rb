@@ -20,7 +20,7 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include ::Decidim::Endorsable
+      include ::Decidim::Likeable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource

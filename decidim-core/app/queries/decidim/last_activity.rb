@@ -18,6 +18,7 @@ module Decidim
         query = filter_moderated(query)
         query = filter_spaces(query)
         query = filter_deleted(query)
+        query = filter_withdrawn(query)
         query.with_new_resource_type("all")
       end
     end
@@ -46,6 +47,30 @@ module Decidim
             AND decidim_moderations.hidden_at IS NOT NULL
       SQL
       ).where(decidim_moderations: { id: nil })
+    end
+
+    def filter_withdrawn(query)
+      # Filter out the items that have been withdrawn.
+      conditions = []
+
+      ActionLog.public_resource_types.each do |resource_type|
+        klass = resource_type.constantize
+
+        condition = if klass.respond_to?(:not_withdrawn)
+                      Arel.sql(
+                        [
+                          "decidim_action_logs.resource_type = '#{resource_type}'",
+                          "decidim_action_logs.resource_id IN (#{Arel.sql(klass.not_withdrawn.select(:id).to_sql)})"
+                        ].join(" AND ")
+                      ).to_s
+                    else
+                      Arel.sql("decidim_action_logs.resource_type = '#{resource_type}'").to_s
+                    end
+
+        conditions << "(#{condition})"
+      end
+
+      query.where(Arel.sql(conditions.join(" OR ")).to_s)
     end
 
     def filter_spaces(query)
