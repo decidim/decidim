@@ -64,7 +64,7 @@
   }
 
   &__grid {
-    @apply grid grid-cols-4 gap-x-12 gap-y-4;
+    @apply grid grid-cols-2 gap-x-12 gap-y-4 md:grid-cols-4;
   }
 
   &__online {
