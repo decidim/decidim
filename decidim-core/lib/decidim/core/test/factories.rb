@@ -65,10 +65,6 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
-  sequence(:hashtag_name) do |n|
-    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
-  end
-
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -905,14 +901,6 @@ FactoryBot.define do
       scope_name { :newsletter_template }
       manifest_name { :basic_only_text }
     end
-  end
-
-  factory :hashtag, class: "Decidim::Hashtag" do
-    transient do
-      skip_injection { false }
-    end
-    name { generate(:hashtag_name) }
-    organization
   end
 
   factory :amendment, class: "Decidim::Amendment" do

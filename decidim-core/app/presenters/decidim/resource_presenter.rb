@@ -6,12 +6,9 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::SanitizeHelper
 
-    def title(resource_title, links, html_escape, all_locales, extras: true)
+    def title(resource_title, html_escape, all_locales)
       handle_locales(resource_title, all_locales) do |content|
-        content = decidim_html_escape(content) if html_escape
-
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        renderer.render(links:, extras:).html_safe
+        decidim_html_escape(content) if html_escape
       end
     end
 
@@ -30,11 +27,10 @@ module Decidim
     end
 
     # Prepares the HTML content for the editors with the correct tags included
-    # to identify the hashtags and mentions.
-    def editor_locales(data, all_locales, extras: true)
+    # to identify mentions.
+    def editor_locales(data, all_locales)
       handle_locales(data, all_locales) do |content|
         [
-          Decidim::ContentRenderers::HashtagRenderer,
           Decidim::ContentRenderers::UserRenderer,
           Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|

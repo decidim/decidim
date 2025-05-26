@@ -54,7 +54,7 @@ module Decidim
     end
 
     # Add optional parameters to a share_uri
-    # This is initially developed for Twitter, as they allow sending a Hashtag and Via as parameters
+    # This is initially developed for Twitter, as they allow sending a Via as parameters
     #
     # @param keys [Array<Symbol>] all the parameters that this service support
     # @return [String] the share uri with the parameters and optional parameters

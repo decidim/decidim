@@ -19,12 +19,6 @@ module Decidim
       decidim_escape_translated(model.try(:title) || model.try(:name) || "")
     end
 
-    def hashtag
-      return unless model.respond_to?(:hashtag)
-
-      @hashtag ||= decidim_html_escape(model.hashtag) if model.hashtag.present?
-    end
-
     def id
       return "#{model.id}-mobile" if options[:mobile]
 
