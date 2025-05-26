@@ -341,16 +341,14 @@ You can read more about this change on PR [#14666](https://github.com/decidim/de
 
 ### 3.9. New Rails framework defaults
 
-As of this version, we are changing Rails's settings from 6.1 to 7.0. In order to upgrade your app, you will need to patch your `config/application.rb` to load 6.1 defaults.
+As of this version, we are changing Rails's settings from 6.1 to 7.0. In order to upgrade your app, you will need to patch your `config/application.rb` to load the 7.0 defaults.
 
-As this upgrade may impact the encryption layer, it is highly recommended to do it You will need to change the highlighted.
-
-```ruby
+```diff
 module DevelopDevelopmentApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1 # This is the old value that you need to replace
-    config.load_defaults 7.0 # This is the new value that you need to set
+-    config.load_defaults 6.1
++    config.load_defaults 7.0
     # ....
   end
 end
