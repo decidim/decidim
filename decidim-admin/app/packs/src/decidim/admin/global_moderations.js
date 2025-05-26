@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // select all checkboxes
-    document.querySelector(".js-check-all").addEventListener("change", function () {
+    document.getElementById("moderations_bulk").addEventListener("change", function () {
       const isChecked = this.checked;
       const checkboxes = document.querySelectorAll(".js-check-all-moderations");
 
