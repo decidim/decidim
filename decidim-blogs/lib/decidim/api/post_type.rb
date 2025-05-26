@@ -9,7 +9,7 @@ module Decidim
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Core::FollowableInterface
       implements Decidim::Core::TraceableInterface
-      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::LikeableInterface
       implements Decidim::Core::TimestampsInterface
 
       description "A post"

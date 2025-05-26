@@ -36,8 +36,8 @@ module Decidim
           end
         end
 
-        def endorsers_presenters_for(proposal)
-          proposal.endorsements.for_listing.map { |identity| present(identity.author) }
+        def likes_presenters_for(proposal)
+          proposal.likes.for_listing.map { |identity| present(identity.author) }
         end
 
         def proposal_complete_state(proposal)

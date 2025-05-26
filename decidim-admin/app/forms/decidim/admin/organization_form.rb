@@ -11,6 +11,7 @@ module Decidim
       mimic :organization
 
       translatable_attribute :name, String
+      translatable_attribute :description, Decidim::Attributes::RichText
       attribute :reference_prefix, String
       attribute :time_zone, String
       attribute :twitter_handler, String

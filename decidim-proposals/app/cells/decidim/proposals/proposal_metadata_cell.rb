@@ -44,11 +44,11 @@ module Decidim
       private
 
       def proposal_items
-        [coauthors_item] + taxonomy_items + [comments_count_item, endorsements_count_item, state_item, emendation_item]
+        [coauthors_item] + taxonomy_items + [comments_count_item, likes_count_item, state_item, emendation_item]
       end
 
       def items_for_map
-        [coauthors_item_for_map, comments_count_item, endorsements_count_item, state_item, emendation_item].compact_blank.map do |item|
+        [coauthors_item_for_map, comments_count_item, likes_count_item, state_item, emendation_item].compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,
             icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil

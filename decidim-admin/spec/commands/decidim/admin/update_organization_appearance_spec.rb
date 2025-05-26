@@ -10,9 +10,6 @@ module Decidim::Admin
       let(:params) do
         {
           organization: {
-            description_en: "My description",
-            description_es: "Mi descripción",
-            description_ca: "La meva descripció",
             enable_omnipresent_banner: false,
             header_snippets: '<script>alert("Hello");</script>',
             favicon: upload_test_file(Decidim::Dev.test_file("icon.png", "image/png"))
