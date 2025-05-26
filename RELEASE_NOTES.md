@@ -331,7 +331,15 @@ The rhetoric reasoning of this removal is due to extending and improving the set
 
 You can read more about this change on PR [#14453](https://github.com/decidim/decidim/pull/14453).
 
-### 3.8. [[TITLE OF THE ACTION]]
+### 3.8. Change form endorsements to likes
+
+We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters have been changed to likes.
+
+Implementers will notice this transition once they run the needed migrations on the platform. Additionally some of the translation keys have changed, and this may affect your instance.
+
+You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
+
+### 3.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

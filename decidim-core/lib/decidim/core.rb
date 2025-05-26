@@ -92,7 +92,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :Endorsable, "decidim/endorsable"
+  autoload :Likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
@@ -168,7 +168,7 @@ module Decidim
 
     seed_gamification_badges!
 
-    seed_endorsements!
+    seed_likes!
 
     I18n.available_locales = original_locale
   end
@@ -198,15 +198,15 @@ module Decidim
     end
   end
 
-  def self.seed_endorsements!
+  def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
-                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+                             .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
       resource_type.constantize.find_each do |resource|
-        # exclude the users that already endorsed
-        users = resource.endorsements.map(&:author)
+        # exclude the users that already liked
+        users = resource.likes.map(&:author)
         remaining_count = Decidim::User.count - users.count
         next if remaining_count < 1
 
@@ -214,7 +214,7 @@ module Decidim
           user = (Decidim::User.all - users).sample
           next unless user
 
-          Decidim::Endorsement.create!(resource:, author: user)
+          Decidim::Like.create!(resource:, author: user)
           users << user
         end
       end
