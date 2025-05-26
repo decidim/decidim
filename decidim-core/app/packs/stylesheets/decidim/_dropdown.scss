@@ -19,7 +19,7 @@
   }
 
   > svg {
-    @apply w-6 h-6 flex-none text-secondary fill-current;
+    @apply flex-none text-secondary fill-current;
   }
 
   &[aria-expanded="false"] > svg:last-of-type,
