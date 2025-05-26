@@ -251,10 +251,11 @@ en:
           email_subject: The "%{resource_title}" meeting has enabled registrations.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+          default_body: The "{{meeting_title}}" meeting will start in less than {{before_hours}}h.
+          email_intro: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
+          email_outro: You have received this notification because you are following the %{resource_title} meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
@@ -394,6 +395,13 @@ en:
           publish:
             invalid: There was a problem publishing this meeting.
             success: Meeting successfully published.
+          reminders:
+            reminder_enabled: Send a reminder for this meeting
+            reminder_message: Reminder email content
+            reminder_message_help_text: Customize the message as needed. Use {{meeting_title}} to display the meeting name.
+            send_reminder: Scheduled reminder email
+            send_reminder_help_text: Reminder time in hours before the meeting.
+            title: Reminders
           service:
             description: Description
             down: Down

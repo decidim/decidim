@@ -826,7 +826,6 @@ ar:
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        statistics: النشاط
         users: المدراء
       users:
         create:

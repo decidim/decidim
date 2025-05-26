@@ -140,3 +140,4 @@ fr-CA:
           id: L'id de ce commentaire
     statistics:
       posts_count: Publications
+      posts_count_tooltip: Le nombre de mises à jour ou d'articles de blog publiés.

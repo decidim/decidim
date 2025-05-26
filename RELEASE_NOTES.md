@@ -323,7 +323,23 @@ For ease of in operations, we also added the above command to the main `decidim:
 
 You can read more about this change on PR [#14638](https://github.com/decidim/decidim/pull/14638).
 
-### 3.7. [[TITLE OF THE ACTION]]
+### 3.7. Removal of linking Proposals to certain modules
+
+We have removed the ability of linking Proposals to the Meetings, Accountability and Budgets module, by removing the setting `enable_proposal_linking`.
+
+The rhetoric reasoning of this removal is due to extending and improving the settings usage with proposed features such as: [#13067] & [#14289].
+
+You can read more about this change on PR [#14453](https://github.com/decidim/decidim/pull/14453).
+
+### 3.8. Change form endorsements to likes
+
+We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters have been changed to likes.
+
+Implementers will notice this transition once they run the needed migrations on the platform. Additionally some of the translation keys have changed, and this may affect your instance.
+
+You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
+
+### 3.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

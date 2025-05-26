@@ -273,3 +273,4 @@ ja:
           url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート
+      debates_count_tooltip: 議論の数。

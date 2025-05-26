@@ -158,3 +158,4 @@ ca:
           url: L'URL d'aquesta publicació
     statistics:
       posts_count: Publicacions
+      posts_count_tooltip: El número d'actualitzacions publicades o entrades al blog.

@@ -13,6 +13,8 @@ ca-IT:
         other: Respostes
   decidim:
     admin:
+      actions:
+        see_survey: Veure enquesta
       admin_log:
         changeset:
           surveys: enquestes
@@ -46,7 +48,9 @@ ca-IT:
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
     statistics:
+      responses: 'Respostes:'
       responses_count: Respostes
+      surveys_count_tooltip: El nombre d'enquestes fetes i de respostes recollides.
     surveys:
       actions:
         confirm_destroy: Segur que ho vols eliminar?

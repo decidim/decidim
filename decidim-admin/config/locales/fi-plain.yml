@@ -1239,7 +1239,6 @@ fi-pl:
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
-        statistics: Toiminta
         taxonomies: Luokittelut
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         users: Hallintakäyttäjät
