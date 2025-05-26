@@ -17,7 +17,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     end
 
     it "shows the default cta text" do
-      expect(subject).to have_selector("a#hero-cta", text: "Participate")
+      expect(subject).to have_css("a#hero-cta", text: "Participate")
     end
 
     it "shows the default cta path" do
