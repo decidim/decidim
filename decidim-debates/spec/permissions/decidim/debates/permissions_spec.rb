@@ -93,9 +93,9 @@ describe Decidim::Debates::Permissions do
     it { is_expected.to be true }
   end
 
-  context "when endorsing a debate" do
+  context "when liking a debate" do
     let(:action) do
-      { scope: :public, action: :endorse, subject: :debate }
+      { scope: :public, action: :like, subject: :debate }
     end
 
     it { is_expected.to be true }

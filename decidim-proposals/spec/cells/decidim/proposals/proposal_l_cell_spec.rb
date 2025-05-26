@@ -44,8 +44,8 @@ module Decidim::Proposals
         expect(subject).to have_css(".card__list-metadata [data-author]", text: proposal.authors.first.name)
       end
 
-      it "renders the endorsements count" do
-        expect(subject).to have_css(".card__list-metadata [data-endorsements-count]")
+      it "renders the likes count" do
+        expect(subject).to have_css(".card__list-metadata [data-likes-count]")
       end
 
       it "renders the comments count" do
@@ -100,10 +100,10 @@ module Decidim::Proposals
         end
       end
 
-      context "when new endorsement" do
+      context "when new like" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+          create(:like, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
 
           my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)

@@ -46,7 +46,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "endorsements_count" do
+    describe "likes_count" do
       let(:stats_name) { :followers_count }
 
       before do
