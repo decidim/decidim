@@ -40,7 +40,6 @@ module Decidim
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"
     autoload :CategoryInputFilter, "decidim/api/input_filters/category_input_filter"
     autoload :ComponentInputFilter, "decidim/api/input_filters/component_input_filter"
-    autoload :HasHastaggableInputFilter, "decidim/api/input_filters/has_hastaggable_input_filter"
     autoload :HasLocalizedInputFilter, "decidim/api/input_filters/has_localized_input_filter"
     autoload :HasPublishableInputFilter, "decidim/api/input_filters/has_publishable_input_filter"
     autoload :HasTimestampInputFilter, "decidim/api/input_filters/has_timestamp_input_filter"
