@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Select all checkboxes
-    document.getElementById("moderated_users_bulk").addEventListener("change", function (){
+    document.getElementById("moderated_users_bulk").addEventListener("change", function () {
       const isChecked = this.checked;
       const checkboxes = document.querySelectorAll(".js-check-all-moderated_users");
 
