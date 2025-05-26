@@ -1,0 +1,25 @@
+<div class="card" data-component="accordion" id="accordion-welcome_notification">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-welcome_notification" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="welcome_notification">
+        <%= t("welcome_notification", scope: "decidim.admin.organization.form") %>
+      </h2>
+    </button>
+  </div>
+
+  <div id="panel-welcome_notification" class="card-section">
+    <div class="row column" id="welcome-notification-details">
+      <%= form.check_box :send_welcome_notification, "data-toggle": "send_welcome_notification_details" %>
+
+      <div id="send_welcome_notification_details" class="column" <%= form.object.send_welcome_notification ? nil : "hidden" %>>
+        <%= form.check_box :customize_welcome_notification, "data-toggle": "customize_welcome_notification_details" %>
+
+        <div id="customize_welcome_notification_details" class="column" <%= form.object.customize_welcome_notification ? nil : "hidden" %>>
+          <%= form.translated :text_field, :welcome_notification_subject, aria: { label: :welcome_notification_subject } %>
+          <%= form.translated :editor, :welcome_notification_body, aria: { label: :welcome_notification_body } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

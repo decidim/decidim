@@ -3,7 +3,7 @@
     <button class="card-divider-button" data-open="true" data-controls="panel-layout_appearance_title" type="button">
       <%= icon "arrow-right-s-line" %>
       <h2 class="card-title" id="layout_appearance_title">
-        <%= t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images") %>
+        <%= t("organization_logos", scope: "decidim.admin.organization.form.logos") %>
       </h2>
     </button>
   </div>
@@ -11,7 +11,7 @@
   <div id="panel-layout_appearance_title" class="card-section">
     <div class="row column">
       <div>
-        <label for="minimap"><%= t(".preview") %></label>
+        <label for="minimap"><%= t("preview", scope: "decidim.admin.organization.form.logos") %></label>
         <%= render "decidim/admin/organization_appearance/form/minimap" %>
       </div>
 
