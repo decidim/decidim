@@ -854,8 +854,8 @@ es:
             choose_color: Elegir un color primario
             colors_title: Colores de la organización
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
-            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            explanation: Esta herramienta le ayuda a elegir un esquema de colores, compuesto por tonos igualmente espaciados alrededor de la rueda cromática, que se utilizará en el sitio web de la organización.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triádico</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
             saturation: Saturación
             title: Selector de color
             update_suggested_colors: Actualizar a los colores sugeridos
