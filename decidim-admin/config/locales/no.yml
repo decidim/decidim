@@ -723,9 +723,6 @@
         edit:
           update: Oppdater
         form:
-          colors:
-            colors_title: Organisasjonens farger
-            colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
           homepage_appearance_title: Endre hjemmesidens utseende
           homepage_highlighted_content_banner_title: Markert innholdsbanner
