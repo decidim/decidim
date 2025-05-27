@@ -30,9 +30,11 @@ tr:
       decidim:
         accountability:
           result:
+            budget_text: Bu sonuç %{link} eklenmiştir
             meetings_ids: 'Bu toplantıda tartışılmıştır: %{link}'
             project_ids: 'Bu projeye dahil edilmiştir: %{link}'
             proposal_ids: 'Bu önergeye dahil edilmiştir: %{link}'
+            text: 'Bu sonuca dahil edilmiştir: %{link}'
       decidim/accountability/result:
         one: Sonuç
         other: Sonuçlar
@@ -80,6 +82,7 @@ tr:
             success:
               one: 1 sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz.
               other: "%{count} sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz."
+            title: Sonuçları başka bir bileşenden içe aktar
         import_results:
           new:
             download_export: '  İhracat i CSV formatında indirin '
@@ -119,6 +122,7 @@ tr:
             title: Sonucu düzenle
             update: Sonuç güncelle
           index:
+            selected: Seçilen
             title: Sonuçlar
           manage_trash:
             title: Sonuçları sil
@@ -134,6 +138,10 @@ tr:
           update_status:
             invalid: Sonuçların durumunu güncellerken bir hata oluştu
             success:
+          update_taxonomies:
+            invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
+            select_a_result: Bir sonuç seç
+            select_a_taxonomy: Bir sınıflandırma seç
         shared:
           subnav:
             statuses: durumlar
