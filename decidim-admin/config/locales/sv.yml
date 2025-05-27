@@ -849,15 +849,6 @@ sv:
         edit:
           update: Uppdatera
         form:
-          colors:
-            choose_color: Välj primär färg
-            colors_title: Organisationens färger
-            colors_warning_html: Varning! Att ändra färgerna kan påverka tillgängligheten. Du kan kontrollera kontrasterna med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
-            explanation: Det här verktyget hjälper dig att välja ett färgschema till webbplatsen, som består av olika nyanser jämnt fördelade runt ett färghjul.
-            legend_html: Huvudsakliga applikationsfärger, baserat på en <a href="https://www.color-meanings.com/triadic-colors/">triadisk algoritm</a>. Färgen <i>sekundär</i> beräknas automatiskt från den primära färgen och den mättnad du valde.
-            saturation: Mättnad
-            title: Färgväljare
-            update_suggested_colors: Uppdatera föreslagna färger
           cta_button_path_help_html: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
           header_snippets:
@@ -867,7 +858,7 @@ sv:
           homepage_highlighted_content_banner_title: Banner med utvalt innehåll
           images:
             layout_appearance_title: Redigera layout
-            preview: Förhandsgranska
+            preview: Förhandsvisa
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_external_domain_allowlist:
         edit:
