@@ -1,20 +1,19 @@
-<table class="table w-full mt-4">
-  <thead>
-  <tr>
-    <th class="text-left px-4 py-2">Email</th>
-    <th class="text-left px-4 py-2">Created at</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% election.voters.limit(5).each do |voter| %>
+<div class="table-scroll mt-8">
+  <table class="table-list">
+    <thead>
     <tr>
-      <td class="px-4 py-2"><%= voter.email %></td>
-      <td class="px-4 py-2"><%= l(voter.created_at, format: :short) %></td>
+      <th><%= t("edit.email", scope: "decidim.elections.admin.census") %></th>
+      <th><%= t("edit.created_at", scope: "decidim.elections.admin.census") %></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<p class="mt-2 text-sm text-neutral">
-  Total: <%= election.voters.count %>
-</p>
+    </thead>
+    <tbody>
+    <% election.voters.order(created_at: :desc).limit(5).each do |voter| %>
+      <tr>
+        <td><%= voter.email %></td>
+        <td><%= l(voter.created_at, format: :short) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p class="mt-6"><%= t("decidim.elections.admin.census.preview.info_html", count: election.voters.count) %></p>
+</div>

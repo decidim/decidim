@@ -10,16 +10,21 @@
   </h1>
 </div>
 
-<div class="item__edit item__edit-1col">
-  <div class="card-section">
-    <%= render partial: "form", locals: { election: election } %>
-  </div>
-</div>
+<div class="card-section">
+  <%= render partial: "form", locals: { election:, verification_types: formatted_verification_types } %>
 
-<% if election.voters.any? %>
-  <div class="item__edit item__edit-1col">
+  <% if status.count > 0 %>
+    <p class="mb-4"><%= t(".voters_count", count: election.voters.count, due_date: l(status.last_import_at, format: :long)) %></p>
+    <%= link_to destroy_all_census_election_path(election),
+                method: :delete,
+                class: "button button__sm button__primary",
+                data: { confirm: t("decidim.elections.admin.census.destroy.confirm") } do %>
+      <%= icon "delete-bin-line", role: "img", "aria-hidden": true %>
+      <%= t("decidim.elections.admin.census.destroy.title") %>
+    <% end %>
+
     <div class="card-section">
-      <%= render partial: "decidim/elections/admin/census/preview", locals: { election: election } %>
+      <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

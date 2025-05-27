@@ -65,14 +65,15 @@ module Decidim
         verification_types.presence || []
       end
 
+      def census_status
+        @census_status ||= CsvCensus::Status.new(self)
+      end
+
       # Public: Checks if the census status for the election is "ready".
       #
       # Returns a boolean indicating if the census status equals "ready" or if it's an internal census selection and there are not verification types or voters.
       def census_ready?
-        return true if internal_census? && (verification_types.blank? || voters.exists?)
-        return true if external_census? && voters.exists?
-
-        false
+        census_status&.name == "ready" || (internal_census? && verification_types.empty?) || (internal_census? && voters.empty?)
       end
     end
   end

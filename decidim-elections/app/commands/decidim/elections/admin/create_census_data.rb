@@ -22,8 +22,11 @@ module Decidim
           rows = @form.data
           return broadcast(:invalid) if rows.blank?
 
+          # rubocop:disable Rails/SkipsModelValidations
           Voter.insert_all(@election, rows)
+          # rubocop:enable Rails/SkipsModelValidations
           update_census_type
+          clean_verification_types
 
           broadcast(:ok)
         end
@@ -32,6 +35,10 @@ module Decidim
 
         def update_census_type
           @election.update!(internal_census: false)
+        end
+
+        def clean_verification_types
+          @election.update!(verification_types: [])
         end
       end
     end
