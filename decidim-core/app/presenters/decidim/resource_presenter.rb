@@ -28,7 +28,7 @@ module Decidim
 
     # Prepares the HTML content for the editors with the correct tags included
     # to identify mentions.
-    def editor_locales(data, all_locales)
+    def editor_locales(data, all_locales, extras: true)
       handle_locales(data, all_locales) do |content|
         [
           Decidim::ContentRenderers::UserRenderer,
