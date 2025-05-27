@@ -9,7 +9,7 @@ describe "Components can be navigated" do
 
   describe "navigate to a component" do
     before do
-      visit decidim_participatory_processes.participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
     end
 
     it "renders the content of the page" do

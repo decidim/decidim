@@ -19,20 +19,20 @@ module Decidim
           it "Authorized users can vote" do
             expect do
               sign_in initiative.author, scope: :user
-              post :create, params: { initiative_slug: initiative.slug, format: :js }
+              post :create, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             end.to change { InitiativesVote.where(initiative:).count }.by(1)
           end
         end
 
         context "and guest users" do
           it "receives unauthorized response" do
-            post :create, params: { initiative_slug: initiative.slug, format: :js }
+            post :create, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             expect(response).to have_http_status(:unauthorized)
           end
 
           it "do not register the vote" do
             expect do
-              post :create, params: { initiative_slug: initiative.slug, format: :js }
+              post :create, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             end.not_to(change { InitiativesVote.where(initiative:).count })
           end
         end
@@ -47,7 +47,7 @@ module Decidim
 
             expect do
               sign_in initiative.author, scope: :user
-              delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
+              delete :destroy, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             end.to change { InitiativesVote.where(initiative:).count }.by(-1)
           end
         end
@@ -60,13 +60,13 @@ module Decidim
           it "does not remove the vote" do
             expect do
               sign_in initiative.author, scope: :user
-              delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
+              delete :destroy, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             end.not_to(change { InitiativesVote.where(initiative:).count })
           end
 
           it "raises an exception" do
             sign_in initiative.author, scope: :user
-            delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
+            delete :destroy, params: { initiative_slug: initiative.slug, locale: I18n.locale, format: :js }
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:found)
           end

@@ -48,8 +48,8 @@ describe "Menu" do
 
       within "#breadcrumb-main-dropdown-mobile" do
         expect(page).to have_link("Home", href: "/")
-        expect(page).to have_link("Processes", href: "/processes")
-        expect(page).to have_link("Help", href: "/pages")
+        expect(page).to have_link("Processes", href: "/#{I18n.locale}/processes")
+        expect(page).to have_link("Help", href: "/#{I18n.locale}/pages")
       end
     end
   end

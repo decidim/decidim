@@ -4,7 +4,7 @@
   <div>
     <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
       <%= link_to(
-              approve_initiative_committee_request_path(current_initiative, request),
+              approve_initiative_committee_request_path(current_initiative, request, locale: current_locale),
               data: { confirm: t(".confirm_approve") },
               class: "button button__xs button__transparent-secondary"
             ) do %>
@@ -14,7 +14,7 @@
     <% end %>
     <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
       <%= link_to(
-              revoke_initiative_committee_request_path(current_initiative, request),
+              revoke_initiative_committee_request_path(current_initiative, request, locale: current_locale),
               method: :delete,
               data: { confirm: t(".confirm_revoke") },
               class: "button button__xs button__transparent-secondary"

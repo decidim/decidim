@@ -1,6 +1,6 @@
 <% if current_initiative.enough_committee_members? %>
   <%= link_to t(".button"),
-              decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative),
+              decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative, locale: current_locale),
               class: "button button__sm md:button__lg button__secondary",
               data: { confirm: t(".confirm") } %>
 <% else %>

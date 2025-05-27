@@ -50,7 +50,7 @@ module Decidim
             icon: "archive-line",
             text: link_to(
               decidim_escape_translated(participatory_process_group.title).html_safe,
-              decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+              decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
             )
           }
         end

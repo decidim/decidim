@@ -22,7 +22,7 @@ describe "Filter Assemblies" do
 
     context "and choosing a taxonomy" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
+        visit decidim_assemblies.assemblies_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } }, locale: I18n.locale)
       end
 
       it "lists all assemblies belonging to that taxonomy" do

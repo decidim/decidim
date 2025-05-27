@@ -682,7 +682,8 @@ describe "Admin manages meetings" do
       visit decidim_participatory_process_meetings.meeting_path(
         participatory_process_slug: meeting.participatory_space.slug,
         component_id: meeting.component.id,
-        id: meeting.id
+        id: meeting.id,
+        locale: I18n.locale
       )
 
       within ".meeting__agenda-item__description" do

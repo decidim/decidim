@@ -8,7 +8,7 @@ module Decidim
       private
 
       def resource_path
-        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_process_group_path(model)
+        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_process_group_path(model, locale: current_locale)
       end
 
       def resource_image_url

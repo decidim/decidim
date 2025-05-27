@@ -7,7 +7,7 @@
     <p id="dialog-desc-not-authorized-modal"><%= t(".not_authorized.explanation") %></p>
   </div>
   <div data-dialog-actions>
-    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button button__sm md:button__lg button__secondary" %>
+    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type, locale: current_locale)), class: "button button__sm md:button__lg button__secondary" %>
     <button data-dialog-close="not-authorized-modal" class="button button__sm md:button__lg button__secondary">
       <%= t("ok", scope: "decidim.budgets.projects.budget_excess") %>
     </button>

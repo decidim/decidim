@@ -41,8 +41,8 @@ describe "Admin reminds users with pending orders" do
       emails.each do |email|
         expect(email.subject).to eq("You have an unfinished vote in the participatory budgeting vote")
       end
-      expect(last_email_first_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
-      expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets")
+      expect(last_email_first_link).to eq("http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
+      expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/#{I18n.locale}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets")
     end
 
     it "does not send reminders twice" do

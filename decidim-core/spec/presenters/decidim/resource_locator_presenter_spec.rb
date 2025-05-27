@@ -22,7 +22,7 @@ module Decidim
       describe "#url" do
         subject { described_class.new(resource).url }
 
-        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/processes/my-process/f/1/dummy_resources/1") }
+        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
 
         context "when specific port configured" do
           before do
@@ -31,14 +31,14 @@ module Decidim
               .and_return(port: 3000)
           end
 
-          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1") }
+          it { is_expected.to eq("http://1.lvh.me:3000/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
         end
       end
 
       describe "#path" do
         subject { described_class.new(resource).path }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1") }
       end
 
       describe "#show" do
@@ -62,7 +62,7 @@ module Decidim
       describe "#url" do
         subject { described_class.new([resource, nested_resource]).url }
 
-        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to eq("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
 
         context "when specific port configured" do
           before do
@@ -71,20 +71,20 @@ module Decidim
               .and_return(port: 3000)
           end
 
-          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+          it { is_expected.to eq("http://1.lvh.me:3000/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
         end
       end
 
       describe "#path" do
         subject { described_class.new([resource, nested_resource]).path }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
       end
 
       describe "#index" do
         subject { described_class.new([resource, nested_resource]).index }
 
-        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources") }
+        it { is_expected.to eq("/#{I18n.locale}/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources") }
       end
 
       describe "#admin_index" do
@@ -110,13 +110,13 @@ module Decidim
       describe "#url" do
         subject { described_class.new(participatory_process).url }
 
-        it { is_expected.to start_with("http://1.lvh.me:#{Capybara.server_port}/processes/my-process") }
+        it { is_expected.to start_with("http://1.lvh.me:#{Capybara.server_port}/#{I18n.locale}/processes/my-process") }
       end
 
       describe "#path" do
         subject { described_class.new(participatory_process).path }
 
-        it { is_expected.to start_with("/processes/my-process") }
+        it { is_expected.to start_with("/#{I18n.locale}/processes/my-process") }
       end
     end
   end

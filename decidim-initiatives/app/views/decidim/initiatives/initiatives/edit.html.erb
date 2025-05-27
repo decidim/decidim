@@ -5,7 +5,7 @@
     <h1 class="title-decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
   </div>
 
-  <%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>
+  <%= decidim_form_for @form, url: initiative_path(current_initiative, locale: current_locale), html: { class: "form__wrapper edit_initiative" } do |f| %>
     <%= render partial: "form", object: f %>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
@@ -49,7 +49,7 @@
 
       <% if allowed_to? :discard, :initiative, initiative: current_initiative %>
         <%= link_to t("discard", scope: "decidim.initiatives.edit"),
-                    discard_initiative_path(current_initiative),
+                    discard_initiative_path(current_initiative, locale: current_locale),
                     method: :delete,
                     class: "button button__sm md:button__lg button__secondary",
                     data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>

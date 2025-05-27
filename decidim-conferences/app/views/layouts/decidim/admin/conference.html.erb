@@ -2,7 +2,7 @@
 
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
-    <%= link_to decidim_conferences.conference_path(current_participatory_space), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+    <%= link_to decidim_conferences.conference_path(current_participatory_space, locale: current_locale), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
       <%= icon "eye-line" %>
       <span>
         <%= t("see_conference", scope: "decidim.admin.menu.conferences_submenu") %>

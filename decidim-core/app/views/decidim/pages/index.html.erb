@@ -29,7 +29,7 @@ edit_link(
                 <div class="page__accordion-trigger">
                   <div>
                     <h3 id="accordion-title-<%= ix %>" class="page__accordion-trigger-title">
-                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
+                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first, locale: current_locale) %>
                     </h3>
                     <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
@@ -42,7 +42,7 @@ edit_link(
                 <div id="accordion-panel-<%= ix %>" class="page__accordion-panel" aria-hidden="true">
                   <ul role="menu">
                     <% topic.pages.each do |page| %>
-                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page, locale: current_locale), class: "text-secondary" %></li>
                     <% end %>
                   </ul>
                 </div>
@@ -60,7 +60,7 @@ edit_link(
           <% @orphan_pages.each do |page| %>
             <div class="page__accordion">
               <h3 class="page__accordion-trigger-title">
-                <%= link_to translated_attribute(page.title), page_path(page) %>
+                <%= link_to translated_attribute(page.title), page_path(page, locale: current_locale) %>
               </h3>
               <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
             </div>

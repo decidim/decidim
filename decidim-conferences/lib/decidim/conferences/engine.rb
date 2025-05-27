@@ -15,36 +15,38 @@ module Decidim
       isolate_namespace Decidim::Conferences
 
       routes do
-        get "conferences/:conference_id", to: redirect { |params, _request|
-          conference = Decidim::Conference.find(params[:conference_id])
-          conference ? "/conferences/#{conference.slug}" : "/404"
-        }, constraints: { conference_id: /[0-9]+/ }
+        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+          get "conferences/:conference_id", to: redirect { |params, _request|
+            conference = Decidim::Conference.find(params[:conference_id])
+            conference ? "/#{params[:locale]}/conferences/#{conference.slug}" : "/404"
+          }, constraints: { conference_id: /[0-9]+/ }
 
-        get "/conferences/:conference_id/f/:component_id", to: redirect { |params, _request|
-          conference = Decidim::Conferences.find(params[:conference_id])
-          conference ? "/conferences/#{conference.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { conference_id: /[0-9]+/ }
+          get "/conferences/:conference_id/f/:component_id", to: redirect { |params, _request|
+            conference = Decidim::Conferences.find(params[:conference_id])
+            conference ? "/#{params[:locale]}/conferences/#{conference.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { conference_id: /[0-9]+/ }
 
-        resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
-          get :user, to: "conferences#user_diploma"
-          resources :conference_speakers, only: :index, path: "speakers"
-          resources :conference_program, only: :show, path: "program"
-          resources :registration_types, only: :index, path: "registration" do
-            resource :conference_registration, only: [:create, :destroy] do
-              collection do
-                get :create
-                get :decline_invitation
+          resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
+            get :user, to: "conferences#user_diploma"
+            resources :conference_speakers, only: :index, path: "speakers"
+            resources :conference_program, only: :show, path: "program"
+            resources :registration_types, only: :index, path: "registration" do
+              resource :conference_registration, only: [:create, :destroy] do
+                collection do
+                  get :create
+                  get :decline_invitation
+                end
               end
             end
+            resources :media, only: :index
           end
-          resources :media, only: :index
-        end
-        scope "/conferences/:conference_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          scope "/conferences/:conference_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_conference_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_conference_#{manifest.name}"
+              end
             end
           end
         end

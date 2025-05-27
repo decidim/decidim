@@ -12,13 +12,13 @@ describe "Conference speakers" do
 
   context "when there are no conference speakers and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conference_conference_speakers_path(conference) }
+      let(:target_path) { decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale) }
     end
   end
 
   context "when there are no conference speakers and accessing from the conference homepage" do
     it "the menu link is not shown" do
-      visit decidim_conferences.conference_path(conference)
+      visit decidim_conferences.conference_path(conference, locale: I18n.locale)
 
       expect(page).to have_no_content("Speakers")
     end
@@ -26,7 +26,7 @@ describe "Conference speakers" do
 
   context "when the conference does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_conferences.conference_conference_speakers_path(conference_slug: 999_999_999) }
+      let(:target_path) { decidim_conferences.conference_conference_speakers_path(conference_slug: 999_999_999, locale: I18n.locale) }
     end
   end
 
@@ -34,19 +34,19 @@ describe "Conference speakers" do
     let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
 
     before do
-      visit decidim_conferences.conference_conference_speakers_path(conference)
+      visit decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
     end
 
     context "and accessing from the conference homepage" do
       it "the menu link is shown" do
-        visit decidim_conferences.conference_path(conference)
+        visit decidim_conferences.conference_path(conference, locale: I18n.locale)
 
         within ".conference__nav-container" do
           expect(page).to have_content("Speakers")
           click_on "Speakers"
         end
 
-        expect(page).to have_current_path decidim_conferences.conference_conference_speakers_path(conference)
+        expect(page).to have_current_path decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
       end
     end
 
@@ -69,7 +69,7 @@ describe "Conference speakers" do
 
     before do
       login_as user, scope: :user
-      visit decidim_conferences.conference_conference_speakers_path(conference)
+      visit decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
     end
 
     context "when there are some unpublished speakers" do
@@ -90,7 +90,7 @@ describe "Conference speakers" do
           click_link_or_button "Publish"
         end
 
-        visit decidim_conferences.conference_conference_speakers_path(conference)
+        visit decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
 
         within "#conference_speakers-grid" do
           expect(page).to have_css("[data-conference-speaker]", count: 2)
@@ -102,7 +102,7 @@ describe "Conference speakers" do
       before do
         speaker2.update!(published_at: Time.current)
         speaker3.update!(published_at: Time.current)
-        visit decidim_conferences.conference_conference_speakers_path(conference)
+        visit decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
       end
 
       it "is shown in the public list" do
@@ -122,7 +122,7 @@ describe "Conference speakers" do
           click_link_or_button "Unpublish"
         end
 
-        visit decidim_conferences.conference_conference_speakers_path(conference)
+        visit decidim_conferences.conference_conference_speakers_path(conference, locale: I18n.locale)
 
         within "#conference_speakers-grid" do
           expect(page).to have_css("[data-conference-speaker]", count: 2)

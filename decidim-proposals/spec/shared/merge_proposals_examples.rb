@@ -175,6 +175,8 @@ shared_examples "merge proposals" do
             click_on(id: "js-submit-merge-proposals")
             expect(page).to have_content("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
+
+            pp manage_component_path(target_component)
             expect(page).to have_current_path(manage_component_path(target_component))
           end
 

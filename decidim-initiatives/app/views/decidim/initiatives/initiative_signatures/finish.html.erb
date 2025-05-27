@@ -11,7 +11,7 @@
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to initiative_path(current_initiative), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" do %>
+  <%= link_to initiative_path(current_initiative, locale: current_locale), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" do %>
     <%= icon "arrow-left-line", class: "fill-current" %>
     <%= t("back_to_initiative", scope: "decidim.initiatives.initiative_signatures.finish") %>
   <% end %>

@@ -284,6 +284,12 @@ shared_examples "comments" do
         let(:locale) { "Català" }
         let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
 
+        around do |example|
+          I18n.with_locale(:ca) do
+            example.run
+          end
+        end
+
         it_behaves_like "allowing to select emojis"
       end
     end

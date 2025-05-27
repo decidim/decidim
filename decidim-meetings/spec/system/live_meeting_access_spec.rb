@@ -11,7 +11,8 @@ describe "Meeting live event access" do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      meeting_id: meeting.id
+      meeting_id: meeting.id,
+      locale: I18n.locale
     )
   end
 

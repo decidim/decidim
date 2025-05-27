@@ -8,7 +8,7 @@ describe "Report Comment" do
   let(:participatory_process) { commentable }
   let!(:commentable) { create(:initiative, organization:) }
   let!(:reportable) { create(:comment, commentable:) }
-  let(:reportable_path) { decidim_initiatives.initiative_path(commentable) }
+  let(:reportable_path) { decidim_initiatives.initiative_path(commentable, locale: I18n.locale) }
 
   before do
     switch_to_host(organization.host)

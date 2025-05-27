@@ -24,7 +24,7 @@ module Decidim
       describe "GET index" do
         context "when conference has no speakers" do
           it "redirects to 404" do
-            expect { get :index, params: { conference_slug: conference.slug } }
+            expect { get :index, params: { conference_slug: conference.slug, locale: I18n.locale } }
               .to raise_error(ActionController::RoutingError)
           end
         end
@@ -36,7 +36,7 @@ module Decidim
 
           context "when user has permissions" do
             it "displays list of speakers" do
-              get :index, params: { conference_slug: conference.slug }
+              get :index, params: { conference_slug: conference.slug, locale: I18n.locale }
 
               expect(controller.helpers.collection).to contain_exactly(speaker1, speaker2)
             end

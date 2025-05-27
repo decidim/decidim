@@ -7,7 +7,7 @@
     <% end %>
   </div>
 
-  <%= form.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), decidim.page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
+  <%= form.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), decidim.page_path("terms-of-service", locale: current_locale))), label_options: { class: "form__wrapper-checkbox-label" } %>
 </div>
 
 <div id="card__newsletter" class="form__wrapper-block">

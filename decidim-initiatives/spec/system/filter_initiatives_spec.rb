@@ -29,7 +29,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by scope" do
@@ -93,7 +93,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, :acceptable, organization:)
       create(:initiative, organization:, answered_at: Time.current)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by state" do
@@ -188,7 +188,7 @@ describe "Filter Initiatives", :slow do
       before do
         create_list(:initiative, 3, organization:, scoped_type: scoped_type1)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "does not display TYPE filter" do
@@ -206,7 +206,7 @@ describe "Filter Initiatives", :slow do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)
 
-        visit decidim_initiatives.initiatives_path
+        visit decidim_initiatives.initiatives_path(locale: I18n.locale)
       end
 
       it "can be filtered by type" do
@@ -245,7 +245,7 @@ describe "Filter Initiatives", :slow do
       create(:initiative, organization:, area: area2)
       create(:initiative, organization:, area: area3)
 
-      visit decidim_initiatives.initiatives_path
+      visit decidim_initiatives.initiatives_path(locale: I18n.locale)
     end
 
     it "can be filtered by area" do

@@ -8,7 +8,8 @@ module Decidim
     include MultitenantAssetHost
     include Decidim::SanitizeHelper
     include Decidim::OrganizationHelper
-    helper_method :organization_name, :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute, :decidim_sanitize, :decidim_sanitize_newsletter
+    helper_method :organization_name, :current_locale, :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute, :decidim_sanitize,
+                  :decidim_sanitize_newsletter
 
     after_action :set_smtp
     after_action :set_from
@@ -19,6 +20,10 @@ module Decidim
     private
 
     attr_reader :organization
+
+    def current_locale
+      I18n.locale || I18n.default_locale
+    end
 
     def set_smtp
       return if organization.nil? || organization.smtp_settings.blank? || organization.smtp_settings.except("from", "from_label", "from_email").all?(&:blank?)

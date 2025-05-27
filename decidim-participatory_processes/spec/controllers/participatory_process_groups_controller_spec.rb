@@ -17,7 +17,7 @@ module Decidim
 
         context "when the process group belongs to the organization" do
           it "shows the content" do
-            get :show, params: { id: process_group.id }
+            get :show, params: { id: process_group.id, locale: I18n.locale }
 
             expect(response).to be_successful
           end
@@ -27,7 +27,7 @@ module Decidim
           let!(:process_group) { create(:participatory_process_group) }
 
           it "redirects to 404 if there are not any" do
-            expect { get :show, params: { id: process_group.id } }.to raise_error(ActiveRecord::RecordNotFound)
+            expect { get :show, params: { id: process_group.id, locale: I18n.locale } }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
       end

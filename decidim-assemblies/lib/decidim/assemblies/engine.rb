@@ -15,26 +15,28 @@ module Decidim
       isolate_namespace Decidim::Assemblies
 
       routes do
-        get "assemblies/:assembly_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+          get "assemblies/:assembly_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
-          assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { assembly_id: /[0-9]+/ }
+          get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
+            assembly = Decidim::Assembly.find(params[:assembly_id])
+            assembly ? "/#{params[:locale]}/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { assembly_id: /[0-9]+/ }
 
-        resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
-          resources :participatory_space_private_users, only: :index, path: "members"
-        end
+          resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+            resources :participatory_space_private_users, only: :index, path: "members"
+          end
 
-        scope "/assemblies/:assembly_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          scope "/assemblies/:assembly_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
+              end
             end
           end
         end

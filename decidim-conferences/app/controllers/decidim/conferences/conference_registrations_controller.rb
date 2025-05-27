@@ -83,7 +83,7 @@ module Decidim
         return redirect_to(conference_path(conference)) if referer =~ /invitation_token/
         return redirect_to(conference_path(conference)) if referer =~ %r{users/sign_in}
 
-        redirect_back fallback_location: conference_path(conference)
+        redirect_back fallback_location: conference_path(conference, locale: current_locale)
       end
     end
   end

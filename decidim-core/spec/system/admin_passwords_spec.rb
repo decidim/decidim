@@ -55,7 +55,7 @@ describe "Admin passwords" do
       let(:static_page) { create(:static_page, organization:) }
 
       before do
-        visit decidim.page_path(static_page)
+        visit decidim.page_path(static_page, locale: I18n.locale)
       end
 
       it "redirects to original path after password update" do
@@ -64,7 +64,7 @@ describe "Admin passwords" do
         fill_in :password_user_password, with: new_password
         click_on "Change my password"
         expect(page).to have_css("[data-alert-box].success")
-        expect(page).to have_current_path(decidim.page_path(static_page))
+        expect(page).to have_current_path(decidim.page_path(static_page, locale: I18n.locale))
       end
     end
   end

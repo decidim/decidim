@@ -15,27 +15,29 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
-        get "processes/:process_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+        scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
+          get "processes/:process_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
-          process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
-        }, constraints: { process_id: /[0-9]+/ }
+          get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
+            process = Decidim::ParticipatoryProcess.find(params[:process_id])
+            process ? "/#{params[:locale]}/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
+          }, constraints: { process_id: /[0-9]+/ }
 
-        resources :participatory_process_groups, only: :show, path: "processes_groups"
-        resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
-          resources :participatory_space_private_users, only: :index, path: "members"
-        end
+          resources :participatory_process_groups, only: :show, path: "processes_groups"
+          resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
+            resources :participatory_space_private_users, only: :index, path: "members"
+          end
 
-        scope "/processes/:participatory_process_slug/f/:component_id" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.engine
+          scope "/processes/:participatory_process_slug/f/:component_id" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
+              end
             end
           end
         end

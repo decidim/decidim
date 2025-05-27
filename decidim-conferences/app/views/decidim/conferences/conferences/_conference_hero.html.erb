@@ -18,15 +18,15 @@
       </p>
       <% if current_participatory_space.registrations_enabled? %>
         <% if current_participatory_space.has_registration_for?(current_user) %>
-          <%= link_to t("layouts.decidim.conference_hero.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+          <%= link_to t("layouts.decidim.conference_hero.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__primary" %>
         <% elsif current_participatory_space.has_published_registration_types? %>
-          <%= link_to t("layouts.decidim.conference_hero.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+          <%= link_to t("layouts.decidim.conference_hero.register"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__secondary" %>
         <% end %>
       <% end %>
 
       <% component_meeting = current_participatory_space.components.where(manifest_name: "meetings").published.first || self.try(:current_component) %>
       <% if component_meeting.present? %>
-        <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class: "button button__lg button__transparent" %>
+        <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id, locale: current_locale), class: "button button__lg button__transparent" %>
       <% end %>
     </div>
   </div>

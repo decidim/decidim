@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_initiative.description),
   title: translated_attribute(current_initiative.title),
-  url: initiative_url(current_initiative.id),
+  url: initiative_url(current_initiative.id, locale: current_locale),
   resource: current_initiative) %>
 
 <%
@@ -25,13 +25,13 @@ edit_link(
         <section class="layout-aside__section layout-aside__buttons">
           <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
             <%= link_to t(".edit"),
-                        edit_initiative_path(current_initiative),
+                        edit_initiative_path(current_initiative, locale: current_locale),
                         class: "button button__xl w-full button__secondary" %>
           <% end %>
 
           <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
             <%= link_to t(".send_to_technical_validation"),
-                        send_to_technical_validation_initiative_path(current_initiative),
+                        send_to_technical_validation_initiative_path(current_initiative, locale: current_locale),
                         class: "button button__xl w-full button__secondary mt-4",
                         data: { confirm: t(".confirm") } %>
           <% end %>
@@ -57,7 +57,7 @@ edit_link(
             <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
           </span>
           <div class="ml-auto fill-secondary inline-block">
-            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative, locale: current_locale) %>" readonly>
             <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
               <%= render_committee_tooltip %>
               <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
@@ -158,8 +158,8 @@ edit_link(
   <% else %>
     <%= cell("decidim/announcement", t(".before_send_to_technical_validation_announcement",
                                        count: current_initiative.missing_committee_members,
-                                       href: link_to(new_initiative_committee_request_url(current_initiative),
-                                                     new_initiative_committee_request_path(current_initiative))), callout_class: "warning") %>
+                                       href: link_to(new_initiative_committee_request_url(current_initiative, locale: current_locale),
+                                                     new_initiative_committee_request_path(current_initiative, locale: current_locale))), callout_class: "warning") %>
   <% end %>
 <% end %>
 
@@ -218,6 +218,6 @@ edit_link(
   <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
   <ul class="metadata__container layout-main__section" data-metadata-footer>
     <%= content_tag :li, resource_reference(current_initiative), class: "metadata__item" %>
-    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "metadata__item" %>
+    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count, locale: current_locale)), class: "metadata__item" %>
   </ul>
 </section>

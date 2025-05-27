@@ -15,7 +15,7 @@ describe Decidim::Initiatives::InitiativesController do
 
   describe "GET index" do
     it "Only returns published initiatives" do
-      get :index
+      get :index, params: { locale: I18n.locale }
       expect(subject.helpers.initiatives).to include(initiative)
       expect(subject.helpers.initiatives).not_to include(created_initiative)
     end
@@ -26,7 +26,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:initiatives_settings) { create(:initiatives_settings, :most_signed) }
 
       it "return in the default order" do
-        get :index, params: { order: "most_voted" }
+        get :index, params: { order: "most_voted", locale: I18n.locale }
 
         expect(subject.helpers.initiatives.first).to eq(voted_initiative)
       end
@@ -37,7 +37,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
 
       it "most voted appears first" do
-        get :index, params: { order: "most_voted" }
+        get :index, params: { order: "most_voted", locale: I18n.locale }
 
         expect(subject.helpers.initiatives.first).to eq(voted_initiative)
       end
@@ -47,7 +47,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:old_initiative) { create(:initiative, organization:, created_at: initiative.created_at - 12.months) }
 
       it "most recent appears first" do
-        get :index, params: { order: "recent" }
+        get :index, params: { order: "recent", locale: I18n.locale }
         expect(subject.helpers.initiatives.first).to eq(initiative)
       end
     end
@@ -56,7 +56,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:old_initiative) { create(:initiative, organization:, published_at: initiative.published_at - 12.months) }
 
       it "most recent appears first" do
-        get :index, params: { order: "recently_published" }
+        get :index, params: { order: "recently_published", locale: I18n.locale }
         expect(subject.helpers.initiatives.first).to eq(initiative)
       end
     end
@@ -66,7 +66,7 @@ describe Decidim::Initiatives::InitiativesController do
       let!(:comment) { create(:comment, commentable: commented_initiative) }
 
       it "most commented appears first" do
-        get :index, params: { order: "most_commented" }
+        get :index, params: { order: "most_commented", locale: I18n.locale }
         expect(subject.helpers.initiatives.first).to eq(commented_initiative)
       end
     end
@@ -75,17 +75,17 @@ describe Decidim::Initiatives::InitiativesController do
   describe "GET show" do
     context "and any user" do
       it "Shows published initiatives" do
-        get :show, params: { slug: initiative.slug }
+        get :show, params: { slug: initiative.slug, locale: I18n.locale }
         expect(subject.helpers.current_initiative).to eq(initiative)
       end
 
       it "Returns 404 when there is not an initiative" do
-        expect { get :show, params: { slug: "invalid-initiative" } }
+        expect { get :show, params: { slug: "invalid-initiative", locale: I18n.locale } }
           .to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "Throws exception on non published initiatives" do
-        get :show, params: { slug: created_initiative.slug }
+        get :show, params: { slug: created_initiative.slug, locale: I18n.locale }
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:found)
       end
@@ -97,7 +97,7 @@ describe Decidim::Initiatives::InitiativesController do
       end
 
       it "Unpublished initiatives are shown too" do
-        get :show, params: { slug: created_initiative.slug }
+        get :show, params: { slug: created_initiative.slug, locale: I18n.locale }
         expect(subject.helpers.current_initiative).to eq(created_initiative)
       end
     end
@@ -121,7 +121,7 @@ describe Decidim::Initiatives::InitiativesController do
     end
 
     it "edit when user is allowed" do
-      get :edit, params: { slug: created_initiative.slug }
+      get :edit, params: { slug: created_initiative.slug, locale: I18n.locale }
       expect(flash[:alert]).to be_nil
       expect(response).to have_http_status(:ok)
     end
@@ -131,7 +131,8 @@ describe Decidim::Initiatives::InitiativesController do
         put :update,
             params: {
               slug: created_initiative.to_param,
-              initiative: valid_attributes
+              initiative: valid_attributes,
+              locale: I18n.locale
             }
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
@@ -145,7 +146,8 @@ describe Decidim::Initiatives::InitiativesController do
         put :update,
             params: {
               slug: created_initiative.to_param,
-              initiative: invalid_attributes
+              initiative: invalid_attributes,
+              locale: I18n.locale
             }
 
         expect(flash[:alert]).not_to be_empty
@@ -175,7 +177,8 @@ describe Decidim::Initiatives::InitiativesController do
           it "displays the editing form with errors" do
             put :update, params: {
               slug: created_initiative.to_param,
-              initiative: invalid_attributes
+              initiative: invalid_attributes,
+              locale: I18n.locale
             }
 
             expect(flash[:alert]).not_to be_empty

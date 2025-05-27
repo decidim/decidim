@@ -69,7 +69,7 @@
 
               <% if allowed_to? :print, :initiative, initiative: initiative %>
                 <%= icon_link_to "printer-line",
-                                 decidim_initiatives.print_initiative_path(initiative),
+                                 decidim_initiatives.print_initiative_path(initiative, locale: current_locale),
                                  t(".print"),
                                  class: "action-icon--print",
                                  target: "_blank",
@@ -80,7 +80,7 @@
 
               <% if allowed_to? :preview, :initiative, initiative: initiative %>
                 <%= icon_link_to "eye-line",
-                                 decidim_initiatives.initiative_path(initiative.to_param),
+                                 decidim_initiatives.initiative_path(initiative.to_param, locale: current_locale),
                                  t(".preview"),
                                  class: "action-icon--preview",
                                  target: "_blank",

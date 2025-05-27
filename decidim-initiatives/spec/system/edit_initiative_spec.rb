@@ -14,8 +14,8 @@ describe "Edit initiative" do
   let!(:other_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
   let!(:other_scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
 
-  let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
-  let(:edit_initiative_path) { decidim_initiatives.edit_initiative_path(initiative) }
+  let(:initiative_path) { decidim_initiatives.initiative_path(initiative, locale: I18n.locale) }
+  let(:edit_initiative_path) { decidim_initiatives.edit_initiative_path(initiative, locale: I18n.locale) }
 
   shared_examples "manage update" do
     it "can be updated" do
@@ -81,7 +81,7 @@ describe "Edit initiative" do
 
     context "when using the wizard steps" do
       before do
-        visit decidim_initiatives.load_initiative_draft_create_initiative_index_path(initiative_id: initiative.id)
+        visit decidim_initiatives.load_initiative_draft_create_initiative_index_path(initiative_id: initiative.id, locale: I18n.locale)
       end
 
       it "can be updated" do
@@ -110,7 +110,7 @@ describe "Edit initiative" do
       let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 
       it "cannot be updated" do
-        visit decidim_initiatives.initiative_path(initiative)
+        visit initiative_path
 
         expect(page).to have_no_content "Edit initiative"
 
@@ -142,7 +142,7 @@ describe "Edit initiative" do
     let(:initiative) { create(:initiative, :created, scoped_type:, organization:) }
 
     it "renders an error" do
-      visit decidim_initiatives.initiative_path(initiative)
+      visit initiative_path
 
       expect(page).to have_no_content("Edit initiative")
 

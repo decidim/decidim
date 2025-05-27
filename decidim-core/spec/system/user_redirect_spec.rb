@@ -28,7 +28,7 @@ describe "UserRedirect" do
 
     context "when logging for the first time" do
       before do
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email

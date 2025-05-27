@@ -23,7 +23,7 @@ module Decidim
 
           menu.add_item :help,
                         I18n.t("menu.help", scope: "decidim"),
-                        decidim.pages_path,
+                        decidim.pages_path(locale: current_locale),
                         position: 10,
                         active: :exclusive
         end

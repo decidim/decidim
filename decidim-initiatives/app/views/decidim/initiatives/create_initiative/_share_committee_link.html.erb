@@ -4,18 +4,18 @@
   </span>
   <span class="help-text mb-2">
     <%= t ".invite_to_committee_help_2", committee_size: current_initiative.minimum_committee_members %>
-    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives", locale: current_locale), target: "_blank" %>
   </span>
   <div class="initiative__form__committee">
     <span>
-      <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
+      <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative, locale: current_locale) %>
     </span>
     <div class="ml-auto fill-secondary inline-block">
       <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
         <%= render_committee_tooltip %>
         <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
       </button>
-      <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+      <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative, locale: current_locale) %>" readonly>
     </div>
   </div>
 </div>

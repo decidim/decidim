@@ -12,16 +12,16 @@ module Decidim
 
     describe "main_component_path" do
       it "resolves the root path for the component" do
-        expect(helper.main_component_path(component)).to eq("/processes/my-process/f/21/")
+        expect(helper.main_component_path(component)).to eq("/en/processes/my-process/f/21/")
       end
 
       context "when a secondary locale is set" do
-        before do
-          params[:locale] = "ca"
+        around do |example|
+          I18n.with_locale(:ca) { example.run }
         end
 
         it "adds the locale to the path" do
-          expect(helper.main_component_path(component)).to eq("/processes/my-process/f/21/?locale=ca")
+          expect(helper.main_component_path(component)).to eq("/ca/processes/my-process/f/21/")
         end
       end
     end
@@ -33,13 +33,13 @@ module Decidim
       end
 
       context "when a secondary locale is set" do
-        before do
-          params[:locale] = "ca"
+        around do |example|
+          I18n.with_locale(:ca) { example.run }
         end
 
         it "adds the locale to the url" do
           expect(helper.main_component_url(component)).to start_with("http://")
-          expect(helper.main_component_url(component)).to include("/processes/my-process/f/21/?locale=ca")
+          expect(helper.main_component_url(component)).to include("/ca/processes/my-process/f/21/")
         end
       end
     end
@@ -51,13 +51,13 @@ module Decidim
       end
 
       context "when a secondary locale is set" do
-        before do
-          params[:locale] = "ca"
+        around do |example|
+          I18n.with_locale(:ca) { example.run }
         end
 
         it "adds the locale to the path" do
           expect(helper.manage_component_path(component))
-            .to eq("/admin/participatory_processes/my-process/components/21/manage/?locale=ca")
+            .to eq("/admin/participatory_processes/my-process/components/21/manage/")
         end
       end
     end

@@ -78,7 +78,7 @@ module Decidim
                    end
       paths_list.prepend(
         pending_authorizations_path,
-        decidim.page_path(terms_of_service_page)
+        decidim.page_path(terms_of_service_page, locale: current_locale)
       )
 
       paths_list.find { |el| /\A#{URI.parse(el).path}/.match?(request.path) }
