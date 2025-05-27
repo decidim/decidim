@@ -33,8 +33,30 @@ module Decidim
 
       def label
         {
-          text: content_tag("span", t((debate.closed? ? "debate_closed" : "open"), scope: "decidim.debates.debates.show"), class: "#{debate.closed? ? "alert" : "success"} label")
+          text: content_tag("span", t(label_string, scope: "decidim.debates.debates.show"), class: "#{label_class} label")
         }
+      end
+
+      def label_string
+        case debate.state
+        when :ongoing
+          "ongoing"
+        when :not_started
+          "not_started"
+        else
+          "closed"
+        end
+      end
+
+      def label_class
+        case debate.state
+        when :ongoing
+          "success"
+        when :not_started
+          "warning"
+        else
+          "alert"
+        end
       end
     end
   end

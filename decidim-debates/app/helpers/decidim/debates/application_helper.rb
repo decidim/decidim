@@ -59,7 +59,7 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its state.
       def filter_debates_state_values
-        %w(open closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
+        %w(ongoing closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
           ["all", all_filter_text]
         )
       end
