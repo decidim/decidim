@@ -879,10 +879,22 @@ es:
         form:
           admin_terms_of_service: Términos y condiciones de uso para administradoras
           basic_configuration: Configuración básica
+          colors:
+            choose_color: Elegir un color primario
+            colors_title: Colores de la organización
+            colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> u otras herramientas similares.'
+            explanation: Esta herramienta le ayuda a elegir un esquema de colores, compuesto por tonos igualmente espaciados alrededor de la rueda cromática, que se utilizará en el sitio web de la organización.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triádico</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            saturation: Saturación
+            title: Selector de color
+            update_suggested_colors: Actualizar a los colores sugeridos
           extra_features: Funciones adicionales
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logotipo de la organización
+            preview: Previsualizar
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: X
@@ -896,15 +908,6 @@ es:
         edit:
           update: Actualizar
         form:
-          colors:
-            choose_color: Elegir un color primario
-            colors_title: Colores de la organización
-            colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
-            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
-            saturation: Saturación
-            title: Selector de color
-            update_suggested_colors: Actualizar a los colores sugeridos
           cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets:
@@ -912,10 +915,6 @@ es:
             title: Fragmentos de código HTML de cabecera
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
-          images:
-            layout_appearance_title: Editar apariencia de diseño global
-            preview: Previsualizar
-          omnipresent_banner_appearance_title: Editar banner omnipresente
       organization_external_domain_allowlist:
         edit:
           update: Actualizar
