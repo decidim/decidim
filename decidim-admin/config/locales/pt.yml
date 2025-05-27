@@ -668,8 +668,6 @@ pt:
         edit:
           update: Atualizar
         form:
-          colors:
-            colors_title: Cores da organização
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
