@@ -465,9 +465,6 @@ sr:
           update: Ažuriraj
         form:
           homepage_appearance_title: Promeni izgled početne stranice
-          images:
-            preview: Pregled
-          omnipresent_banner_appearance_title: Izmeni sveprisutni baner
       shared:
         gallery:
           add_images: Dodaj slike
