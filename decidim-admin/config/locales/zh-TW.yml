@@ -757,9 +757,6 @@ zh-TW:
         edit:
           update: 更新
         form:
-          colors:
-            colors_title: 組織顏色
-            colors_warning_html: 警告！更改這些顏色可能會破壞可達性對比度。您可以使用<a href="%{link}">WebAIM對比度檢查器</a>或其他類似工具檢查您選擇的對比度。
           cta_button_text_help: 您可以覆蓋主頁上每種語言對應的"呼籲行動"按鈕文本。如果未設置，將使用默認值。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。
           homepage_appearance_title: 編輯主頁外觀
           homepage_highlighted_content_banner_title: 重點顯示的內容橫幅
