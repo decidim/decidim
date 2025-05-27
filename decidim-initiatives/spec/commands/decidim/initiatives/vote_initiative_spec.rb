@@ -65,8 +65,8 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.initiatives.initiative_endorsed",
-                event_class: Decidim::Initiatives::EndorseInitiativeEvent,
+                event: "decidim.events.initiatives.initiative_liked",
+                event_class: Decidim::Initiatives::LikeInitiativeEvent,
                 resource: initiative,
                 followers: [follower]
               )
@@ -82,7 +82,7 @@ module Decidim
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(2)
 
-            expect(last_email_body).to include("has endorsed the following initiative")
+            expect(last_email_body).to include("has liked the following initiative")
           end
 
           context "when a new milestone is completed" do

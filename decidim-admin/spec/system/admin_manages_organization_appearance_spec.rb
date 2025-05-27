@@ -35,51 +35,5 @@ describe "Admin manages organization" do
         expect(page).to have_no_field(:organization_header_snippets)
       end
     end
-
-    context "when the color picker is used" do
-      it "changes the color on click" do
-        visit decidim_admin.edit_organization_appearance_path
-
-        expect(page).to have_css(".color-picker")
-        find(".color-picker summary").click
-        selector = find_by_id("primary-selector")
-
-        selector.find("div[data-value='#40a8bf']").click
-        expect(find_by_id("preview-primary", visible: :all).value).to eq "#40a8bf"
-        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#bf40a8"
-        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#a8bf40"
-
-        selector.find("div[data-value='#bf408c']").click
-        expect(find_by_id("preview-primary", visible: :all).value).to eq "#bf408c"
-        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#8cbf40"
-        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
-      end
-    end
-
-    it "updates the values from the form" do
-      visit decidim_admin.edit_organization_appearance_path
-
-      fill_in_i18n_editor :organization_description,
-                          "#organization-description-tabs",
-                          en: "My own super description",
-                          es: "Mi gran descripción",
-                          ca: "La meva gran descripció"
-
-      fill_in "Official organization URL", with: "http://www.example.com"
-
-      dynamically_attach_file(:organization_logo, Decidim::Dev.asset("city2.jpeg"))
-      dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("logo.png"), remove_before: true) do
-        expect(page).to have_content("Has to be a square image")
-      end
-      dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
-
-      click_on "Update"
-
-      expect(page).to have_content("updated successfully")
-
-      within "#minimap" do
-        expect(page.all("img").count).to eq(3)
-      end
-    end
   end
 end

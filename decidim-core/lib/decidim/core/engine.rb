@@ -119,6 +119,7 @@ module Decidim
         Decidim.icons.register(name: "close-circle-line", icon: "close-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "contacts-line", icon: "contacts-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-settings-line", icon: "user-settings-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-star-line", icon: "user-star-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-add-line", icon: "user-add-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "share-forward-line", icon: "share-forward-line", category: "system", description: "", engine: :core)
@@ -231,6 +232,9 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      # Rails 7.0 default is vips, but
+      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
+      # And we are going to use it while migrating rails application
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
       end
@@ -241,6 +245,12 @@ module Decidim
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
         end
+      end
+
+      initializer "decidim_core.active_support" do |app|
+        # Rails 7.0 default
+        app.config.active_support.disable_to_s_conversion = true
+        app.config.active_support.cache_format_version = 7.0
       end
 
       initializer "decidim_core.action_mailer" do |app|
@@ -689,7 +699,7 @@ module Decidim
         config.to_prepare do
           Decidim::AuthorizationTransfer.register(:core) do |transfer|
             transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
-            transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+            transfer.move_records(Decidim::Like, :decidim_author_id)
             transfer.move_records(Decidim::Amendment, :decidim_user_id)
           end
         end
