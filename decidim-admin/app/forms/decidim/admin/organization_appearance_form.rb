@@ -20,10 +20,6 @@ module Decidim
       attribute :official_url
       attribute :header_snippets, String
       attribute :cta_button_path, String
-      attribute :highlighted_content_banner_enabled, Boolean, default: false
-      attribute :highlighted_content_banner_action_url, String
-      attribute :highlighted_content_banner_image
-      attribute :remove_highlighted_content_banner_image, Boolean, default: false
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
@@ -32,10 +28,6 @@ module Decidim
       attribute :tertiary_color, String
 
       translatable_attribute :cta_button_text, String
-      translatable_attribute :highlighted_content_banner_title, String
-      translatable_attribute :highlighted_content_banner_short_description, Decidim::Attributes::RichText
-      translatable_attribute :highlighted_content_banner_action_title, String
-      translatable_attribute :highlighted_content_banner_action_subtitle, String
       translatable_attribute :omnipresent_banner_title, String
       translatable_attribute :omnipresent_banner_short_description, String
 
@@ -43,24 +35,6 @@ module Decidim
       validates :official_img_footer,
                 :logo,
                 passthru: { to: Decidim::Organization }
-
-      validates :highlighted_content_banner_action_url, url: true, presence: true, if: :highlighted_content_banner_enabled?
-      validates :highlighted_content_banner_image,
-                presence: true,
-                passthru: { to: Decidim::Organization },
-                if: :highlighted_content_banner_image_is_changed?
-
-      validates :highlighted_content_banner_title,
-                translatable_presence: true,
-                if: :highlighted_content_banner_enabled?
-
-      validates :highlighted_content_banner_short_description,
-                translatable_presence: true,
-                if: :highlighted_content_banner_enabled?
-
-      validates :highlighted_content_banner_action_title,
-                translatable_presence: true,
-                if: :highlighted_content_banner_enabled?
 
       validates :omnipresent_banner_url, url: true, presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
@@ -70,17 +44,8 @@ module Decidim
 
       private
 
-      def highlighted_content_banner_enabled?
-        highlighted_content_banner_enabled
-      end
-
       def enable_omnipresent_banner?
         enable_omnipresent_banner
-      end
-
-      def highlighted_content_banner_image_is_changed?
-        highlighted_content_banner_enabled? &&
-          current_organization.highlighted_content_banner_image.blank?
       end
     end
   end

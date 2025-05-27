@@ -5,13 +5,10 @@ module Decidim
     # A command with all the business logic for updating the current
     # organization appearance.
     class UpdateOrganizationAppearance < Decidim::Commands::UpdateResource
-      fetch_file_attributes :logo, :highlighted_content_banner_image, :favicon, :official_img_footer
+      fetch_file_attributes :logo, :favicon, :official_img_footer
 
       fetch_form_attributes :cta_button_path, :cta_button_text, :official_url,
-                            :highlighted_content_banner_enabled, :highlighted_content_banner_action_url,
-                            :highlighted_content_banner_title, :highlighted_content_banner_short_description,
-                            :highlighted_content_banner_action_title,
-                            :highlighted_content_banner_action_subtitle, :enable_omnipresent_banner, :omnipresent_banner_url,
+                            :enable_omnipresent_banner, :omnipresent_banner_url,
                             :omnipresent_banner_title, :omnipresent_banner_short_description
 
       private

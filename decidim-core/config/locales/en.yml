@@ -591,6 +591,14 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Action button subtitle
+        action_button_title: Action button title
+        action_button_url: Action button URL
+        background_image: Background image
+        short_description: Short description
+        subtitle: Subtitle
+        title: Title
       highlighted_elements_settings_form:
         components:
           all: All
