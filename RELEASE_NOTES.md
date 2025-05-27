@@ -57,29 +57,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
 ```
 
-### 1.5. Rails upgrade
-
-If you are upgrading an existing application, you may have a deprecation error like the one below:
-
-```text
-The Gemfile's dependencies are satisfied
-DEPRECATION WARNING: Support for `config.active_support.cache_format_version = 6.1` has been deprecated and will be removed in Rails 7.2.
-
-Check the Rails upgrade guide at https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#new-activesupport-cache-serialization-format
-for more information on how to upgrade.
-```
-
-To remove the deprecation warning, you must patch your `config/application.rb`, and update your `load_defaults` to the following:
-
-```ruby
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.1
-```
-
-Please note that Rails 7.0 & 7.1 have changed the default configuration for encrypted attributes moving out from `OpenSSL::Digest::SHA1` to `OpenSSL::Digest::SHA256`, therefore there may be some issues with your encrypted fields like Organization's smtp settings, or even authorizations.
-To avoid these kind of issues, you will need to make sure your secret_key_base remains unchanged. Ideally, you should have it stored in `SECRET_KEY_BASE` ENV variable.
-
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
