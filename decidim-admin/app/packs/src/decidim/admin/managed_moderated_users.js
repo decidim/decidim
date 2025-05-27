@@ -108,27 +108,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Select all checkboxes
-    document.getElementById("moderated_users_bulk").addEventListener("change", function () {
-      const isChecked = this.checked;
-      const checkboxes = document.querySelectorAll(".js-check-all-moderated_users");
+    const moderatedUsersList = document.getElementById("moderated_users_bulk");
+    if (moderatedUsersList !== null) {
+      moderatedUsersList.addEventListener("change", function () {
+        const isChecked = this.checked;
+        const checkboxes = document.querySelectorAll(".js-check-all-moderated_users");
 
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = isChecked;
-        const row = checkbox.closest("tr");
-        if (row) {
-          row.classList.toggle("selected", isChecked);
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = isChecked;
+          const row = checkbox.closest("tr");
+          if (row) {
+            row.classList.toggle("selected", isChecked);
+          }
+        });
+
+        if (isChecked) {
+          showBulkActionsButton();
+        } else {
+          hideBulkActionsButton();
         }
+
+        selectedModeratedUsersCountUpdate();
       });
-
-      if (isChecked) {
-        showBulkActionsButton();
-      } else {
-        hideBulkActionsButton();
-      }
-
-      selectedModeratedUsersCountUpdate();
-    });
-
+    }
     // moderated users checkbox change
     document.querySelector(".table-list").addEventListener("change", (event) => {
       if (!event.target.matches(".js-check-all-moderated_users")) {
