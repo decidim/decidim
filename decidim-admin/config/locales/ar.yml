@@ -711,8 +711,6 @@ ar:
         edit:
           update: تحديث
         form:
-          colors:
-            colors_title: ألوان المنظمة
           cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
           homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
