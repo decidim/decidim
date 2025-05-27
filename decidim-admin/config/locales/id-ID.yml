@@ -425,13 +425,12 @@ id:
         edit:
           update: Memperbarui
         form:
-          colors:
-            colors_title: Warna organisasi
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
           images:
             layout_appearance_title: Edit tampilan tata letak
+            preview: Preview
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
       participatory_space_private_users:
         create:
