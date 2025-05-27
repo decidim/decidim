@@ -59,12 +59,12 @@ module Decidim
         content_tag(:ul, id: "dropdown-filters-#{menu_id}", class: css_classes, "aria-hidden": true) do
           options.map do |key, value|
             if value.nil?
-              content_tag(:li) do
-                concat content_tag(:span, class: "dropdown__item") { key }
+              content_tag(:li, class: "dropdown__item") do
+                concat content_tag(:span) { key }
               end
             elsif value.is_a?(Hash)
               child_id = SecureRandom.uuid
-              content_tag(:li) do
+              content_tag(:li, class: "dropdown__item") do
                 dropdown_link(key, child_id) + dropdown_submenu(value, child_id)
               end
             end
@@ -73,11 +73,11 @@ module Decidim
       end
 
       def dropdown_link(key, menu_id)
-        link_to("#", class: "dropdown__item", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
+        link_to("#", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
           safe_join([
                       extract_html_value(key),
                       icon("arrow-right-s-line", class: "fill-secondary"),
-                      icon("arrow-down-s-line", class: "!fill-current !text-secondary")
+                      icon("arrow-right-s-line", class: "!fill-current !text-white")
                     ])
         end
       end

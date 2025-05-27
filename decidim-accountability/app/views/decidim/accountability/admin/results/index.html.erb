@@ -15,15 +15,15 @@
         <%= export_dropdowns(query) %>
         <%= import_dropdown do %>
           <% if allowed_to?(:create, :result) && parent_result.nil? %>
-            <li>
-              <%= link_to new_import_component_path, class: "dropdown__item" do %>
+            <li class="dropdown__item">
+              <%= link_to new_import_component_path do %>
                 <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
               <% end %>
             </li>
           <% end %>
           <% if allowed_to? :create, :result %>
-            <li>
-              <%= link_to import_results_path, class: "dropdown__item" do %>
+            <li class="dropdown__item">
+              <%= link_to import_results_path do %>
                 <%= t("actions.import_csv", scope: "decidim.accountability") %>
               <% end %>
             </li>

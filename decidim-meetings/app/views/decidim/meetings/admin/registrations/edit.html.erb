@@ -14,8 +14,8 @@
           </a>
           <ul class="dropdown dropdown_bottom" id="export-dropdown">
             <% %w(CSV JSON Excel).each do |format| %>
-              <li>
-                <%= link_to export_meeting_registrations_path(meeting_id: meeting, format:), class: "dropdown__item" do %>
+              <li class="dropdown__item">
+                <%= link_to export_meeting_registrations_path(meeting_id: meeting, format:) do %>
                   <%= t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format) %>
                 <% end %>
               </li>

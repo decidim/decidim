@@ -16,19 +16,19 @@
     aria-hidden="true">
 
     <% if params[:blocked] %>
-      <li>
-        <button type="button" data-action="unblock-moderated_users" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="unblock-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
         </button>
       </li>
     <% else %>
-      <li>
-        <button type="button" data-action="block-moderated_users" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="block-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
         </button>
       </li>
-      <li>
-        <button type="button" data-action="unreport-moderated_users" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="unreport-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
         </button>
       </li>

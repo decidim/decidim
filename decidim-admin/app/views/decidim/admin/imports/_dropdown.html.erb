@@ -9,8 +9,8 @@
       <%= yield %>
     <% else %>
      <% component.manifest.import_manifests.each do |import_manifest| %>
-       <li>
-         <%= link_to admin_imports_path(component, resource_id:, name: import_manifest.name), class: "dropdown__item" do %>
+       <li class="dropdown__item">
+         <%= link_to admin_imports_path(component, resource_id:, name: import_manifest.name) do %>
            <%= import_manifest.message(:label, self) %>
          <% end %>
        </li>

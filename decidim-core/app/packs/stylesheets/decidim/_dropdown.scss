@@ -7,7 +7,7 @@
 }
 
 [data-target*="dropdown"] {
-  @apply w-full md:hidden flex items-center justify-between first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  @apply w-full flex items-center justify-between first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
   & > span {
     @apply hidden font-semibold text-secondary;
@@ -72,24 +72,12 @@
 .dropdown {
   @apply absolute border-2 border-gray-3 rounded-md min-w-max p-1 drop-shadow-md text-left z-10 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
 
-  li {
-    @apply rounded;
-
-    &:hover {
-      @apply bg-secondary;
-
-      a {
-        @apply text-white;
-      }
-    }
-  }
-
   & > * {
     @apply relative z-10 p-2.5;
   }
 
   &__item {
-    @apply flex items-center text-secondary font-normal;
+    @apply flex items-center text-secondary font-normal rounded hover:text-white hover:bg-secondary;
 
     font-size: 14px;
 

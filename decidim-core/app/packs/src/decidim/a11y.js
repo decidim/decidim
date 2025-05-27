@@ -78,9 +78,13 @@ const changeStyleOfSelectedElement = (component) => {
   component.addEventListener("click", function() {
     component.parentNode.parentNode.querySelectorAll("a").forEach((link) => {
       link.style.fontWeight = "normal";
+      link.parentNode.classList.remove("bg-secondary")
+      link.parentNode.classList.remove("text-white");
     })
 
     component.style.fontWeight = 600;
+    component.parentNode.classList.add("bg-secondary")
+    component.parentNode.classList.add("text-white");
   })
 }
 
@@ -150,7 +154,7 @@ const createDropdown = (component) => {
   }
 
   // Fixes styles for dropdowns with child dropdowns
-  const hasChildMenu = component.classList.contains("dropdown__item")
+  const hasChildMenu = component.parentNode.classList.contains("dropdown__item")
   if (hasChildMenu) {
     changeChildMenuDropdownPosition(component);
     changeStyleOfSelectedElement(component);

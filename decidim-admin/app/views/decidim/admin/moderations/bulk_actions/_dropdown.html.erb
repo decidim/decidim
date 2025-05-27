@@ -15,22 +15,22 @@
     class="dropdown dropdown__bottom"
     aria-hidden="true">
     <% if !params[:hidden] && allowed_to?(:hide, authorization_scope) %>
-      <li>
-        <button type="button" data-action="hide-global-moderations" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="hide-global-moderations">
           <%= t("decidim.admin.moderations.index.actions.hide.title") %>
         </button>
       </li>
     <% end %>
     <% if !params[:hidden] && allowed_to?(:unreport, authorization_scope) %>
-      <li>
-        <button type="button" data-action="unreport-global-moderations" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="unreport-global-moderations">
           <%= t("decidim.admin.moderations.index.actions.unreport.title") %>
         </button>
       </li>
     <% end %>
     <% if params[:hidden] %>
-      <li>
-        <button type="button" data-action="unhide-global-moderations" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="unhide-global-moderations">
           <%= t("decidim.admin.moderations.index.actions.unhide.title") %>
         </button>
       </li>

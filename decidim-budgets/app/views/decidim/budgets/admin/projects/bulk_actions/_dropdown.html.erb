@@ -12,19 +12,19 @@
 
   <ul id="js-bulk-actions-dropdown" class="dropdown dropdown__bottom" aria-hidden="true">
     <% if current_component_taxonomy_filters&.any? %>
-      <li>
-        <button type="button" data-action="taxonomy-change-projects" class="dropdown__item">
+      <li class="dropdown__item">
+        <button type="button" data-action="taxonomy-change-projects">
           <%= t("decidim.budgets.admin.projects.index.change_taxonomies") %>
         </button>
       </li>
     <% end %>
-    <li>
-      <button type="button" data-action="change-selected-projects" class="dropdown__item">
+    <li class="dropdown__item">
+      <button type="button" data-action="change-selected-projects">
         <%= t("decidim.budgets.admin.projects.index.change_selected") %>
       </button>
     </li>
-    <li>
-      <button type="button" data-action="budget-change-projects" class="dropdown__item">
+    <li class="dropdown__item">
+      <button type="button" data-action="budget-change-projects">
         <%= t("decidim.budgets.admin.projects.index.change_budget") %>
       </button>
     </li>

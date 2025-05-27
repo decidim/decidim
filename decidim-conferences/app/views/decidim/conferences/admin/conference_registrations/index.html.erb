@@ -13,8 +13,8 @@
           </a>
           <ul id="export-dropdown" class="dropdown dropdown__bottom" aria-hidden="true">
             <% %w(CSV JSON Excel).each do |format| %>
-              <li>
-                <%= link_to export_conference_conference_registrations_path(conference_id: conference, format:), class: "dropdown__item" do %>
+              <li class="dropdown__item">>
+                <%= link_to export_conference_conference_registrations_path(conference_id: conference, format:) do %>
                   <%= t("decidim.admin.exports.export_as", name: t("decidim.admin.conferences.exports.registrations"), export_format: format) %>
                 <% end %>
               </li>
