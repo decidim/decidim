@@ -175,7 +175,20 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    unless example.metadata[:driver].eql?(:rack_test)
+      log = page.driver.browser.logs.get(:browser)
+
+      ignored_errors = [
+        # "Cannot read properties",
+        # "violates the following Content Security Policy"
+      ]
+
+      if log.any? { |element| ignored_errors.any? { |fragment| element.to_s.include?(fragment) } }
+        warn log
+      elsif log.any?
+        RSpec::Expectations.fail_with(log.first.to_s)
+      end
+    end
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system
