@@ -10,16 +10,38 @@ ja:
             announcement: お知らせ
     elections:
       actions:
+        confirm_delete_election: この選挙を削除してもよろしいですか？
+        deleted_election_info: 削除された選挙はリストに表示されません。下のボタンをクリックすると表示できます。
+        edit: 選挙を編集
+        new: 新しい選挙
         title: アクション
+        view_deleted_elections: 削除された選挙を表示
       admin:
         elections:
+          create:
+            invalid: 選挙の作成中に問題がありました。
+            success: 選挙を作成しました。
           edit:
             title: 選挙を編集
             update: 選挙を更新
           form:
             add_images: 画像を追加
+            attachment_legend: 画像ギャラリーを追加 (オプション)
+            basic_title: 基本情報
+            calendar: カレンダー
+            calendar_description: 組織のタイムゾーンが正しいことを確認してください。現在の設定は %{timezone} です。
+            edit_attachments: 添付ファイルを編集
+            end_at: 終了日時
+            manual_start: 手動の開始
+            results_availability:
+              after_end: 選挙終了後
+              after_end_help: 選挙が終了したときにのみ結果を表示します
+              per_question: 質問ごとの質問
+            start_at: 開始日時
           index:
             title: 選挙
+          manage_trash:
+            title: 削除された選挙
           new:
             create: 選挙を作成
             title: 新しい選挙
