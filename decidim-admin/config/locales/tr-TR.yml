@@ -845,19 +845,12 @@ tr:
         edit:
           update: Güncelleştirme
         form:
-          colors:
-            choose_color: Bir ana renk seçin
-            colors_title: Organizasyon renkleri
-            colors_warning_html: Uyarı! Bu renkleri değiştirmek renk karşıtlığını bozarak erişilebilirliği kısıtlayabilir. Seçiminizin renk karşıtlığını <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ya da benzeri bir araç kullanarak kontrol edebilirsiniz.
-            saturation: Doygunluk
-            title: Renk Seçici
-            update_suggested_colors: Önerilen renkleri güncelle
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
           images:
             layout_appearance_title: Düzen görünümünü düzenle
-            preview: Önizleme
+            preview: Ön izleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_external_domain_allowlist:
         edit:
