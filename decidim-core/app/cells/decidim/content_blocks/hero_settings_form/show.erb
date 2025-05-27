@@ -5,7 +5,7 @@
 
   <div class="row column slug">
     <%= settings_fields.translated :text_field, :cta_button_path, label: t(".cta_button_path") %>
-    <p class="help-text"><%== t(".cta_button_path_help", url: decidim_form_slug_url("", translated_attribute(form.object.settings.cta_button_path))) %></p>
+    <p class="help-text"><%= t(".cta_button_path_help", url: decidim_form_slug_url("", translated_attribute(form.object.settings.cta_button_path))) %></p>
   </div>
 
   <div class="row column">
