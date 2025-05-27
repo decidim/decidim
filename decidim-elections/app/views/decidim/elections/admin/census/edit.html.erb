@@ -4,9 +4,7 @@
   <%= link_to t("continue", scope: "decidim.elections.admin.census.edit"),
               dashboard_page_election_path(election),
               class: "main-tabs-menu__cta-button #{'hide' unless (election.census_ready?)}",
-              data: { internal_census: election.internal_census?,
-                      external_census: election.external_census?,
-                      census_ready: election.census_ready? } %>
+              data: { census_ready: election.census_ready? } %>
 <% end %>
 
 <div class="item_show__header">

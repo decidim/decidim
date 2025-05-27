@@ -6,28 +6,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const internalBlock = document.getElementById("internal_type");
 
   const ctaLink = document.querySelector(".main-tabs-menu__cta-button");
-
-  const isInternalCensus = ctaLink?.dataset.internalCensus === "true";
-  const isExternalCensus = ctaLink?.dataset.externalCensus === "true";
   const isCensusReady   = ctaLink?.dataset.censusReady === "true";
 
   const toggleCensusUI = () => {
     if (externalRadio?.checked) {
       externalBlock?.classList.remove("hide");
       internalBlock?.classList.add("hide");
-      if (isInternalCensus || !isCensusReady) {
-        ctaLink?.classList.add("hide");
-      } else {
-        ctaLink?.classList.remove("hide");
-      }
     } else if (internalRadio?.checked) {
       internalBlock?.classList.remove("hide");
       externalBlock?.classList.add("hide");
-      if (isExternalCensus) {
-        ctaLink?.classList.add("hide");
-      } else {
-        ctaLink?.classList.remove("hide");
-      }
+    }
+
+    if (isCensusReady) {
+      ctaLink?.classList.remove("hide");
+    } else {
+      ctaLink?.classList.add("hide");
     }
   };
 
