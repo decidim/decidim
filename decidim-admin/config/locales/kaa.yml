@@ -161,9 +161,6 @@ kaa:
       organization_appearance:
         edit:
           update: Jańalaw
-        form:
-          images:
-            preview: Aldınnan kóriw
       organization_external_domain_whitelist:
         edit:
           update: Jańalaw
