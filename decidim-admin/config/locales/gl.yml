@@ -702,15 +702,12 @@ gl:
         edit:
           update: Actualización
         form:
-          colors:
-            colors_title: Cores da organización
-            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           images:
             layout_appearance_title: Editar aspecto de deseño
-            preview: Vista Previa
+            preview: Vista previa
           omnipresent_banner_appearance_title: Editar o banner omnipresente
       participatory_space_private_users:
         create:
