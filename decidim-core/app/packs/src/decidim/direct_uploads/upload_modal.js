@@ -171,7 +171,7 @@ export default class UploadModal {
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <img src="data:," alt="${escapeQuotes(file.name)}" />
+      <img src="data:,", role="presentation" />
       <span>${escapeHtml(truncateFilename(file.name))}</span>
     `
 
@@ -185,7 +185,7 @@ export default class UploadModal {
     `
 
     const titleTemplate = `
-      <img src="data:," alt="${escapeQuotes(file.name)}" />
+      <img src="data:," role="presentation" />
       <div>
         <div>
           <label>${this.locales.filename}</label>

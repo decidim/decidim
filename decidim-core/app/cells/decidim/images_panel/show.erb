@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
   <% photos.each_with_index do |photo| %>
     <%= link_to photo.big_url, target: "_blank", rel: "noopener", class: "overflow-hidden rounded aspect-video" do %>
-      <%= image_tag photo.thumbnail_url, class:"w-full h-full object-cover" %>
+      <%= image_tag photo.thumbnail_url, class:"w-full h-full object-cover", role:"presentation" %>
     <% end %>
   <% end %>
 </div>
