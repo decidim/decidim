@@ -850,15 +850,6 @@ de:
         edit:
           update: Aktualisieren
         form:
-          colors:
-            choose_color: Primärfarbe auswählen
-            colors_title: Organisationsfarben
-            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
-            explanation: Dieses Tool hilft Ihnen, ein Farbschema mit Farbtönen auszuwählen, die gleichmäßig um das Farbrad verteilt sind und die auf der Website der Organisation verwendet werden.
-            legend_html: Hauptfarben der Anwendung, basierend auf dem <a href="https://www.color-meanings.com/triadic-colors/">triadischen Algorithmus</a>. Die <i>sekundäre</i> Farbe wird automatisch von der Primärfarbe und der Sättigung, die Sie gewählt haben, berechnet.
-            saturation: Sättigung
-            title: Farbauswahl
-            update_suggested_colors: Vorgeschlagene Farben aktualisieren
           cta_button_path_help_html: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           header_snippets:
