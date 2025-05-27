@@ -135,10 +135,6 @@ sl:
         user_group:
           fields:
             name: Ime
-      organization_appearance:
-        form:
-          colors:
-            colors_title: Barve organizacije
       scope_types:
         create:
           error: Pojavila se je težava pri kreiranju novega tipa področja.
