@@ -760,16 +760,9 @@ ro:
         edit:
           update: Actualizează
         form:
-          colors:
-            colors_title: Culorile organizației
-            colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
-          images:
-            layout_appearance_title: Editează aspectul aranjării în pagină
-            preview: Previzualizează
-          omnipresent_banner_appearance_title: Editează banner-ul omniprezent
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
