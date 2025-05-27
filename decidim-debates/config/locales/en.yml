@@ -165,8 +165,6 @@ en:
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit
-          not_started: Not started
-          ongoing: Ongoing
           open_ended: Open ended
           participants_count: Participants
         update:
