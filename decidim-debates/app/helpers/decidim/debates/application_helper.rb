@@ -73,7 +73,7 @@ module Decidim
           items = [{
             method: :with_any_state,
             collection: filter_debates_state_values,
-            label: t("decidim.meetings.meetings.filters.date"),
+            label: t("decidim.debates.debates.filters.state"),
             id: "date",
             type: :radio_buttons
           }]

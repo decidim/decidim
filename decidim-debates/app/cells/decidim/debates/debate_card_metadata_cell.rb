@@ -31,6 +31,8 @@ module Decidim
         }
       end
 
+      # i18n-tasks-use t("decidim.debates.debates.show.ongoing")
+      # i18n-tasks-use t("decidim.debates.debates.show.not_started")
       def label
         {
           text: content_tag("span", t(label_string, scope: "decidim.debates.debates.show"), class: "#{label_class} label")
