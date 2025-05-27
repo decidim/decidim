@@ -7,6 +7,7 @@ en:
           basic_elections: Main
           election_census: Census
           election_questions: Questions
+          election_dashboard: Dashboard
     components:
       elections:
         name: Elections
@@ -57,6 +58,7 @@ en:
             upload_new_census: Upload a CSV file
             uploaded_data: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
           internal_census_fields:
+            save: Save census
             additional_authorizations: Additional authorizations
             info_html: |
               You can restrict participation in the election to participants who have an authorization.<br>
@@ -70,6 +72,8 @@ en:
           preview:
             info_html: "%{count} people will be eligible for voting in this elections. The preview list is limited to 5 registers."
         elections:
+          dashboard_page:
+            title: Dashboard
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.

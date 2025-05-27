@@ -1,5 +1,5 @@
 <div class="card-section">
-  <% if election.census_ready? %>
+  <% if election.internal_census && election.census_ready? %>
     <div class="row column">
       <%= cell "decidim/announcement",
                t("decidim.elections.admin.census.internal_census_fields.uploaded_data_html",
@@ -23,6 +23,9 @@
             <%= form.check_box :verification_types, { label: t("decidim.authorization_handlers.#{authorization}.name"), multiple: true, include_hidden: false, checked: election.verification_types.include?(authorization) }, authorization, nil %>
           </div>
         <% end %>
+        <div class="mt-4">
+          <%= form.submit t("decidim.elections.admin.census.internal_census_fields.save"), class: "button button__sm button__secondary" %>
+        </div>
       <% end %>
     </div>
   <% end %>

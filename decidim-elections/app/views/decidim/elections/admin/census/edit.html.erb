@@ -1,7 +1,12 @@
 <%= append_javascript_pack_tag "decidim_elections_admin" %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <%= button_tag t(election.census_ready? ? "continue" : "save", scope: "decidim.elections.admin.census.edit"), class: "main-tabs-menu__cta-button", form: "csv-census-form" %>
+  <%= link_to t("continue", scope: "decidim.elections.admin.census.edit"),
+              dashboard_page_election_path(election),
+              class: "main-tabs-menu__cta-button #{'hide' unless (election.census_ready?)}",
+              data: { internal_census: election.internal_census?,
+                      external_census: election.external_census?,
+                      census_ready: election.census_ready? } %>
 <% end %>
 
 <div class="item_show__header">

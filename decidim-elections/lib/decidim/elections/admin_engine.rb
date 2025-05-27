@@ -25,6 +25,8 @@ module Decidim
             get "census", to: "census#edit"
             patch "census", to: "census#update"
             delete "census/destroy_all", to: "census#destroy_all", as: :destroy_all_census
+
+            get :dashboard_page, path: "dashboard_page"
           end
 
           resource :census, only: [:edit, :update], controller: "census"
@@ -53,6 +55,12 @@ module Decidim
                         @election.present? && @election.questionnaire&.questions&.any? ? current_component_admin_proxy&.census_election_path(@election) : "#",
                         active: @election.present? ? is_active_link?(current_component_admin_proxy&.census_election_path(@election)) : false,
                         icon_name: "group-2-line"
+
+          menu.add_item :election_dashboard,
+                        I18n.t("election_dashboard", scope: "decidim.admin.menu.elections_menu"),
+                        @election.present? && @election.census_ready? ? current_component_admin_proxy&.dashboard_page_election_path(@election) : "#",
+                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.dashboard_page_election_path(@election)) : false,
+                        icon_name: "dashboard-line"
         end
       end
 

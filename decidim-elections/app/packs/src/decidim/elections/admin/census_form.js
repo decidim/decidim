@@ -5,17 +5,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const externalBlock = document.getElementById("external_type");
   const internalBlock = document.getElementById("internal_type");
 
-  const submitButton = document.querySelector(".main-tabs-menu__cta-button");
+  const ctaLink = document.querySelector(".main-tabs-menu__cta-button");
+
+  const isInternalCensus = ctaLink?.dataset.internalCensus === "true";
+  const isExternalCensus = ctaLink?.dataset.externalCensus === "true";
+  const isCensusReady   = ctaLink?.dataset.censusReady === "true";
 
   const toggleCensusUI = () => {
     if (externalRadio?.checked) {
       externalBlock?.classList.remove("hide");
       internalBlock?.classList.add("hide");
-      submitButton?.setAttribute("form", "csv-census-form");
+      if (isInternalCensus || !isCensusReady) {
+        ctaLink?.classList.add("hide");
+      } else {
+        ctaLink?.classList.remove("hide");
+      }
     } else if (internalRadio?.checked) {
       internalBlock?.classList.remove("hide");
       externalBlock?.classList.add("hide");
-      submitButton?.setAttribute("form", "internal-census-form");
+      if (isExternalCensus) {
+        ctaLink?.classList.add("hide");
+      } else {
+        ctaLink?.classList.remove("hide");
+      }
     }
   };
 
