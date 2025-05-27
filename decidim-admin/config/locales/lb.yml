@@ -617,15 +617,9 @@ lb:
         edit:
           update: Aktualisieren
         form:
-          colors:
-            colors_title: Organisationsfarben
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
-          images:
-            layout_appearance_title: Layout-Layout bearbeiten
-            preview: Vorschau
-          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
