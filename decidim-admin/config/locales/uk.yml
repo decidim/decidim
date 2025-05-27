@@ -405,6 +405,7 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
+            preview: Попередній перегляд
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       participatory_space_private_users:
         create:
