@@ -467,6 +467,7 @@ ru:
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           images:
             layout_appearance_title: Редактировать внешний вид макета
+            preview: Предпросмотр
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
       organization_external_domain_whitelist:
         edit:
