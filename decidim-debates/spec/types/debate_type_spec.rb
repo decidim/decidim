@@ -19,8 +19,8 @@ module Decidim
       include_examples "referable interface"
       include_examples "attachable interface"
       include_examples "traceable interface"
-      include_examples "endorsable interface" do
-        let(:model) { create(:debate, :open_ama, :with_endorsements) }
+      include_examples "likeable interface" do
+        let(:model) { create(:debate, :open_ama, :with_likes) }
       end
 
       describe "id" do
@@ -40,7 +40,7 @@ module Decidim
       end
 
       describe "last_comment_at" do
-        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_at: 1.year.ago) }
+        let(:model) { create(:debate, :open_ama, :with_likes, last_comment_at: 1.year.ago) }
 
         let(:query) { "{ lastCommentAt }" }
 
@@ -51,7 +51,7 @@ module Decidim
 
       describe "last_comment_by" do
         let(:last_comment_by) { create(:user, :confirmed, name: "User") }
-        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_by:) }
+        let(:model) { create(:debate, :open_ama, :with_likes, last_comment_by:) }
         let(:query) { "{ lastCommentBy { id } }" }
 
         it "returns all the required fields" do

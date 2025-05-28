@@ -7,6 +7,8 @@ module Decidim
     class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      helper Decidim::Admin::UploaderImageDimensionsHelper
+
       add_breadcrumb_item_from_menu :admin_settings_menu
 
       def edit

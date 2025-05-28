@@ -61,8 +61,6 @@ module Decidim
 
       def appearance_attributes_mapping
         {
-          cta_button_path: :string,
-          cta_button_text: :i18n,
           description: :i18n,
           logo: :string,
           header_snippets: :string,
