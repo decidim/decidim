@@ -254,12 +254,6 @@ module Decidim
         end
       end
 
-      def load_defaults_rails70
-        gsub_file "config/application.rb",
-                  /config.load_defaults 7.1/,
-                  "config.load_defaults 7.0"
-      end
-
       def tweak_csp_initializer
         return unless File.exist?("config/initializers/content_security_policy.rb")
 
