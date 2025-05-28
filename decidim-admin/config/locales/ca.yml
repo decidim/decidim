@@ -45,8 +45,6 @@ ca:
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
-        cta_button_path: URL del botó d'acció
-        cta_button_text: Text del botó d'acció
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
@@ -908,12 +906,9 @@ ca:
         edit:
           update: Actualitzar
         form:
-          cta_button_path_help_html: 'Pots redirigir la direcció on enllaça el Botó d''Acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El Botó d''Acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
-          cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets:
             header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb APIs externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
             title: Fragments de codi HTML de capçalera
-          homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Banner de contingut ressaltat
       organization_external_domain_allowlist:
         edit:
