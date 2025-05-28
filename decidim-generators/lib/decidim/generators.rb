@@ -6,7 +6,7 @@ module Decidim
   module Generators
     def self.edge_git_branch
       if Decidim::Generators.version.match?(/\.dev$/)
-        "develop"
+        "chore/rails-7.1-redone"
       else
         "release/#{Decidim::Generators.version.match(/^[0-9]+\.[0-9]+/)[0]}-stable"
       end
