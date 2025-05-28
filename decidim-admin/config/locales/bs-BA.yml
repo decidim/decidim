@@ -30,8 +30,6 @@ bs:
       organization:
         alert_color: Upozorenje
         badges_enabled: Omogući značke
-        cta_button_path: Put dugmeta poziva na akciju
-        cta_button_text: Tekst dugmeta poziva na akciju
         customize_welcome_notification: Prilagodi obaveštenje dobrodošlice
         default_locale: Podrazumevana vrednost
         description: Opis
@@ -463,8 +461,6 @@ bs:
       organization_appearance:
         edit:
           update: Ažuriraj
-        form:
-          homepage_appearance_title: Promeni izgled početne stranice
       shared:
         gallery:
           add_images: Dodaj slike
