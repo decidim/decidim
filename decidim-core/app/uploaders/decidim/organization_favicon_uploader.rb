@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'image_processing'
+
 module Decidim
   # This class deals with uploading an organization's favicon.
   class OrganizationFaviconUploader < ImageUploader
@@ -19,12 +21,12 @@ module Decidim
       end.merge(
         favicon: {
           resize_and_pad: [256, 256],
-          define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
-          format: :ico
+          # define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
+          # format: :ico
         }
       )
     end
-
+    
     def extension_allowlist
       %w(png jpg jpeg webp ico)
     end
