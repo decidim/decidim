@@ -42,8 +42,6 @@ lt:
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
         comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
-        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
-        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
@@ -755,8 +753,6 @@ lt:
         edit:
           update: Atnaujinti
         form:
-          cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
-          homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
           homepage_highlighted_content_banner_title: Paryškinta turinio juosta
       participatory_space_private_users:
         create:
