@@ -45,8 +45,6 @@ it:
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-        cta_button_path: Percorso del pulsante Call To Action
-        cta_button_text: Testo del pulsante Chiamata all'azione
         customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
@@ -831,12 +829,9 @@ it:
         edit:
           update: Modifica
         form:
-          cta_button_path_help_html: 'È possibile modificare la posizione in cui il pulsante "Chiamata all''Azione" nella home page viene mostrato. Per farlo utilizzare URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''Azione" è mostrato nella home page tra il testo di benvenuto e la descrizione. Ad esempio: %{url}'
-          cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           header_snippets:
             header_snippets_help_html: Usa questo campo per aggiungere funzionalità all head HTML. L'uso più comune è quello di integrare servizi di terze parti che richiedono alcuni JavaScript o CSS aggiuntivi. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra per l'HTML. Nota che questo sarà reso solo nelle pagine pubbliche, non nella sezione amministrazione. Se il codice interagisce con API esterne o non è conforme alle linee guida di sicurezza dell’applicazione, sarà necessario modificare la Content Security Policy. Per saperne di più su <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">nella documentazione di Decidim</a>.
             title: Frammenti di intestazione HTML
-          homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
       organization_external_domain_allowlist:
         edit:
