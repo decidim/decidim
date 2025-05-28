@@ -28,8 +28,6 @@ uk:
         body: Основний текст
         subject: Тема
       organization:
-        cta_button_path: Шлях до кнопки "Закликати до дії"
-        cta_button_text: Текст кнопки "Закликати до дії"
         default_locale: Мова за замовчуванням
         description: Опис
         enable_omnipresent_banner: Показувати всюдисущий банер
@@ -386,8 +384,6 @@ uk:
         edit:
           update: Оновити
         form:
-          cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
-          homepage_appearance_title: Редагувати вигляд головної сторінки
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
       participatory_space_private_users:
         create:
