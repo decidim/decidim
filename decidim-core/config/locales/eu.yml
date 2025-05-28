@@ -95,6 +95,9 @@ eu:
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
+      decidim/like:
+        one: Likea
+        other: Likeak
       decidim/user:
         one: Parte-hartzailea
         other: Parte-hartzaileak
@@ -434,6 +437,9 @@ eu:
       comments:
         one: iruzkina
         other: iruzkinak
+      likes:
+        one: likea
+        other: likeak
       official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -580,6 +586,10 @@ eu:
         name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
+        cta_button_path: Deitu Ekintza-botoiaren URLa
+        cta_button_path_help: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
+        cta_button_text: Deitu Ekintza-botoiaren testua
+        cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
         welcome_text: Ongi etorri testua
       highlighted_content_banner:
         name: Nabarmendutako edukia banner
