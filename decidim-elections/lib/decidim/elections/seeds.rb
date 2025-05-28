@@ -60,20 +60,20 @@ module Decidim
       end
 
       def create_questions_for!(election)
-        rand(1..4).times do |position|
+        number_of_records.times do |position|
           question = Decidim::Elections::Question.create!(
             election:,
             position:,
             mandatory: [true, false].sample,
             question_type: %w(single_option multiple_option).sample,
-            body: Decidim::Faker::Localized.sentence(word_count: 6),
+            body: Decidim::Faker::Localized.sentence(word_count: 4),
             description: Decidim::Faker::Localized.paragraph
           )
 
-          rand(2..5).times do
+          rand(2..4).times do
             Decidim::Elections::ResponseOption.create!(
               question:,
-              body: Decidim::Faker::Localized.sentence(word_count: 3)
+              body: Decidim::Faker::Localized.sentence(word_count: 2)
             )
           end
         end
