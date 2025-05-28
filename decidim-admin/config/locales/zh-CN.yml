@@ -32,8 +32,6 @@ zh-CN:
         alert_color: 警告
         badges_enabled: 启用徽章
         comments_max_length: 评论最大长度 (默认值留0)
-        cta_button_path: 调用动作按钮路径
-        cta_button_text: 呼叫动作按钮文本
         customize_welcome_notification: 自定义欢迎通知
         default_locale: 默认区域设置
         description: 描述
@@ -482,8 +480,6 @@ zh-CN:
         edit:
           update: 更新
         form:
-          cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
-          homepage_appearance_title: 编辑主页外观
           homepage_highlighted_content_banner_title: 高亮的内容素材
       participatory_space_private_users:
         create:
