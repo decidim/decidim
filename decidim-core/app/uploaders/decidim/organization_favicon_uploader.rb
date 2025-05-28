@@ -19,7 +19,7 @@ module Decidim
       end.merge(
         favicon: {
           resize_and_pad: [256, 256],
-          define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
+          # define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
           format: :ico
         }
       )
