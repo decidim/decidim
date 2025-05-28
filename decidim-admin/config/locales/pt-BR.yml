@@ -45,8 +45,6 @@ pt-BR:
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
         comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar notificação de boas-vindas
         default_locale: Idioma padrão
         description: Descrição
@@ -784,12 +782,9 @@ pt-BR:
         edit:
           update: Atualizar
         form:
-          cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
-          cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets:
             header_snippets_help_html: Utilize este campo para adicionar coisas à tag head do HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags extras para o HTML. Observe que isto só será renderizado em páginas públicas, não na seção de administração. Se o código interage com APIs externas ou não cumpre as diretrizes de segurança da aplicação, será necessário alterar a Política de Segurança de Conteúdo. Leia mais sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na documentação do site</a>.
             title: Snippets de cabeçalho HTML
-          homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
       organization_external_domain_allowlist:
         edit:
