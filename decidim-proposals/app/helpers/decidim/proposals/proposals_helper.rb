@@ -20,8 +20,14 @@ module Decidim
         icon_name = target_mode == "grid" ? "layout-grid-fill" : "list-check"
         icon_class = "view-icon--disabled" unless current_mode == target_mode
 
-        link_to path, remote: true, title: do
-          icon(icon_name, class: icon_class, role: "img", "aria-hidden": true)
+        if icon_class == "view-icon--disabled"
+          link_to path, remote: true, role: "button", title: do
+            icon(icon_name, class: icon_class, role: "img", "aria-hidden": true)
+          end
+        else
+          link_to path, remote: true, role: "button", "aria-current": true, title: do
+            icon(icon_name, class: icon_class, role: "img", "aria-hidden": true, style: "border:1px solid black")
+          end
         end
       end
 
