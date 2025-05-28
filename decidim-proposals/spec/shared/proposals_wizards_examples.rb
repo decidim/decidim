@@ -118,7 +118,7 @@ shared_examples "proposals wizards" do |options|
         it "displays the attachments correctly" do
           click_on "Images"
           within "#panel-images" do
-            expect(find("img")["alt"]).to eq(".jpg")
+            expect(find("img")["data-filename"]).to eq(".jpg")
           end
 
           click_on "Documents"
