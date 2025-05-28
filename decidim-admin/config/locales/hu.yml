@@ -45,8 +45,6 @@ hu:
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
         comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
-        cta_button_path: Felhívás gomb elérési útvonala
-        cta_button_text: Felhívás gomb szövege
         customize_welcome_notification: Az üdvözlő értesítések testreszabása
         default_locale: Alapértelmezett hely
         description: Leírás
@@ -777,9 +775,6 @@ hu:
         edit:
           update: Frissítés
         form:
-          cta_button_path_help_html: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
-          cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
-          homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
       organization_external_domain_allowlist:
         edit:
