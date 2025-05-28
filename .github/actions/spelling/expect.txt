@@ -490,6 +490,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libvips
 libyaml
 Liddel
 lighthouserc
