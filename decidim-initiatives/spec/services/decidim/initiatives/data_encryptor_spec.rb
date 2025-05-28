@@ -36,7 +36,7 @@ module Decidim
         end
 
         it "decrypts hash data" do
-          expect(encryptor.decrypt(encrypted_hash_data)).to eq(hash_payload.with_indifferent_access)
+          expect(encryptor.decrypt(encrypted_hash_data).with_indifferent_access).to eq(hash_payload.with_indifferent_access)
         end
 
         it "invalid data cannot be decrypted" do
