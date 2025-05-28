@@ -568,6 +568,10 @@ sv:
         name: Bild och CTA
       hero_settings_form:
         background_image: Bakgrundsbild
+        cta_button_path: Knappens länk
+        cta_button_path_help: 'Du kan ändra vad knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL: er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+        cta_button_text: Text på knapp
+        cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner med utvalt innehåll
