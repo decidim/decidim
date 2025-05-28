@@ -15,7 +15,7 @@ module Decidim
         component = create_component!
 
         number_of_records.times do
-          create_election!(component:)
+          election = create_election!(component:)
           create_questions_for!(election) if ::Faker::Boolean.boolean(true_ratio: 0.3)
         end
       end
