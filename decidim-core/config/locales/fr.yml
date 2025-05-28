@@ -546,6 +546,10 @@ fr:
         name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
+        cta_button_path: URL du bouton d'appel à l'action
+        cta_button_path_help: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+        cta_button_text: Texte du bouton d'appel à l'action
+        cta_button_text_help: Vous pouvez remplacer le texte du bouton d'appel à l'action sur la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'appel à l'action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
