@@ -162,9 +162,9 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
-  - decidim.proposals.proposal_endorsements_helper.endorsements_count_title
+  - decidim.proposals.proposal_likes_helper.likes_count_title
   - decidim.proposals.proposals.orders.*
-  - decidim.proposals.proposals.endorsements_card_row.comments_title
+  - decidim.proposals.proposals.likes_card_row.comments_title
   - decidim.proposals.proposals.wizard_aside.back
   - decidim.proposals.proposals.wizard_aside.back_from_step_1
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
@@ -236,7 +236,7 @@ ignore_unused:
   - decidim.events.*
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
-  - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.proposals.proposals.show.hidden_likes_count.*
   - decidim.admin.taxonomies.breadcrumb.*
   - decidim.admin.taxonomy_filters.breadcrumb.*
   - decidim.admin.models.*.name

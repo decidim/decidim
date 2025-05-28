@@ -55,7 +55,7 @@ module Decidim
           hash << model.cache_key_with_version
           hash << model.proposal_votes_count
           hash << options[:show_voting] ? 0 : 1
-          hash << model.endorsements_count
+          hash << model.likes_count
           hash << model.comments_count
           hash << Digest::SHA256.hexdigest(model.component.cache_key_with_version)
           hash << Digest::SHA256.hexdigest(resource_image_url) if resource_image_url

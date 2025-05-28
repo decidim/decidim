@@ -264,7 +264,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -368,6 +368,7 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
 Gruhier
@@ -964,8 +965,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls
