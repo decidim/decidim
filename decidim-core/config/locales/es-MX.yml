@@ -580,6 +580,10 @@ es-MX:
         name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
+        cta_button_path: URL del botón de acción
+        cta_button_path_help: 'Puedes definir a dónde enlaza el botón de acción en la página de inicio. Utiliza rutas parciales, no URLs completas. La URL acepta letras, números, guiones y barras, y debe empezar por una letra. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo:%{url}'
+        cta_button_text: Texto del botón de acción
+        cta_button_text_help: Puedes cambiar el texto del botón de llamada a la acción en la página de inicio para cada idioma disponible en la organización. Si no se establece ningún texto, se utilizará el valor predeterminado. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción.
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido resaltado
