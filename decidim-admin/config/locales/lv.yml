@@ -29,8 +29,6 @@ lv:
       organization:
         alert_color: Brīdinājums
         badges_enabled: Iespējot žetonus
-        cta_button_path: Pogas Call To Action ceļš
-        cta_button_text: Pogas Call To Action teksts
         customize_welcome_notification: Pielāgot sveiciena paziņojumu
         default_locale: Noklusējuma lokalizācija
         description: Apraksts
@@ -460,8 +458,6 @@ lv:
         edit:
           update: Atjaunināt
         form:
-          cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
-          homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
       participatory_space_private_users:
         create:
