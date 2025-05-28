@@ -577,6 +577,10 @@ ca:
         name: Imatge principal i botó d'acció
       hero_settings_form:
         background_image: Imatge de fons
+        cta_button_path: URL del botó d'acció
+        cta_button_path_help: 'Pots definir on enllaça el botó d''acció a la pàgina inicial. Fes servir rutes parcials, no URL completes. L''URL accepta lletres, números, guions i barres, i ha de començar per una lletra. El botó d''acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció. Exemple:%{url}'
+        cta_button_text: Text del botó d'acció
+        cta_button_text_help: Pots canviar el text del botó de trucada a l'acció a la pàgina inicial per a cada idioma disponible a l'organització. Si no s'estableix cap text, s'utilitzarà el valor predeterminat. El botó d'acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció.
         welcome_text: Text de benvinguda
       highlighted_content_banner:
         name: Banner de contingut destacat
