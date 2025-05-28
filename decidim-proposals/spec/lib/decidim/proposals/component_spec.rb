@@ -8,7 +8,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "stats" do
-    subject { current_stat[2] }
+    subject { current_stat[1][:data] }
 
     let(:raw_stats) do
       Decidim.component_manifests.map do |component_manifest|
@@ -27,7 +27,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component:) }
     let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
 
-    let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
+    let(:current_stat) { stats.find { |stat| stat[1][:name] == stats_name } }
 
     describe "proposals_count" do
       let(:stats_name) { :proposals_count }
@@ -64,20 +64,20 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "endorsements_count" do
-      let(:stats_name) { :endorsements_count }
+    describe "likes_count" do
+      let(:stats_name) { :likes_count }
 
       before do
         2.times do
-          create(:endorsement, resource: proposal, author: build(:user, organization:))
+          create(:like, resource: proposal, author: build(:user, organization:))
         end
         3.times do
-          create(:endorsement, resource: hidden_proposal, author: build(:user, organization:))
+          create(:like, resource: hidden_proposal, author: build(:user, organization:))
         end
       end
 
-      it "counts the endorsements from visible proposals" do
-        expect(Decidim::Endorsement.count).to eq 5
+      it "counts the likes from visible proposals" do
+        expect(Decidim::Like.count).to eq 5
         expect(subject).to eq 2
       end
     end

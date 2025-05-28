@@ -23,26 +23,26 @@
           </button>
 
           <% if editable %>
-            <button class="button button__sm button__transparent-secondary small alert move-up-question button--title">
+            <button class="button button__xs button__transparent-secondary small alert move-up-question button--title">
               <%= icon("arrow-up-line") %>
-              <%= t(".up") %>
+              <span class="hidden md:block"><%= t(".up") %></span>
             </button>
 
-            <button class="button button__sm button__transparent-secondary small alert move-down-question button--title">
+            <button class="button button__xs button__transparent-secondary small alert move-down-question button--title">
               <%= icon("arrow-down-line") %>
-              <%= t(".down") %>
+              <span class="hidden md:block"><%= t(".down") %></span>
             </button>
 
-            <button class="button button__sm button__transparent-secondary small alert remove-question button--title">
+            <button class="button button__xs button__transparent-secondary small alert remove-question button--title">
               <%= icon("delete-bin-line") %>
-              <%= t(".remove") %>
+              <span class="hidden md:block"><%= t(".remove") %></span>
             </button>
           <% end %>
           </span>
       </h2>
     </div>
 
-    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
+    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>" aria-hidden="<%= is_expanded ? "false" : "true" %>">
       <div class="row column">
         <%=
           form.translated(
@@ -118,7 +118,7 @@
           </div>
 
           <% if editable %>
-            <button class="button button__sm button__secondary add-matrix-row"><%= t(".add_matrix_row") %></button>
+            <button class="button button__xs button__transparent-secondary mt-4 add-matrix-row"><%= t(".add_matrix_row") %></button>
           <% end %>
         </div>
       </div>
@@ -134,7 +134,7 @@
 
         <% if editable %>
           <div class="row column">
-            <button type="button" class="button button__sm button__secondary mt-4 add-response-option"><%= t(".add_response_option") %></button>
+            <button type="button" class="button button__xs button__transparent-secondary mt-4 add-response-option"><%= t(".add_response_option") %></button>
           </div>
         <% end %>
       </div>
@@ -162,7 +162,7 @@
         <% if editable %>
           <% disabled = !question.persisted? %>
           <div class="row column">
-            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm button__secondary mt-4 add-display-condition"><%= t(".add_display_condition") %></button>
+            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__xs button__transparent-secondary mt-4 add-display-condition"><%= t(".add_display_condition") %></button>
           </div>
         <% end %>
       </div>

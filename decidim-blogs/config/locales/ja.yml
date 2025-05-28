@@ -156,3 +156,4 @@ ja:
           url: この投稿の URL
     statistics:
       posts_count: 投稿
+      posts_count_tooltip: 公開された更新情報やブログ投稿の数です。

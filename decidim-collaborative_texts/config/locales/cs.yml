@@ -50,12 +50,8 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
-        settings:
-          form:
-            allow_suggestions: Umožnit účastníkům předkládat návrhy
       document:
         cancel: Zrušit
-        save: Odeslat návrh
       documents:
         index:
           empty: Zatím neexistují žádné koncepty spolupráce.

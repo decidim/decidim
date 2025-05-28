@@ -45,13 +45,13 @@ module Decidim
       }
     end
 
-    def endorsements_count_item
-      return unless resource.respond_to?(:endorsements_count)
+    def likes_count_item
+      return unless resource.respond_to?(:likes_count)
 
       {
-        text: resource.endorsements_count,
+        text: resource.likes_count,
         icon: resource_type_icon_key(:like),
-        data_attributes: { endorsements_count: "" }
+        data_attributes: { likes_count: "" }
       }
     end
 

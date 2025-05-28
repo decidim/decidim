@@ -153,6 +153,8 @@ commentvotes
 conferenceinvites
 conferenceregistrations
 confirmada
+confirmado
+confirmat
 Consolas
 constantized
 contingut
@@ -263,7 +265,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -367,6 +369,7 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
 Gruhier
@@ -617,6 +620,7 @@ nodistro
 nodoc
 nok
 nomargin
+nombre
 nominatim
 noopen
 nopadding
@@ -767,6 +771,8 @@ reddit
 refactorings
 regexes
 regexps
+registrado
+registrat
 reivindicate
 relogin
 remindable
@@ -964,8 +970,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls
@@ -995,6 +1001,7 @@ uploaders
 upvoted
 upvotes
 upvoting
+usuarias
 usecase
 usename
 usergroup
@@ -1023,6 +1030,7 @@ vkontakte
 vml
 vnd
 voner
+vostre
 votar
 votings
 VPAGQ

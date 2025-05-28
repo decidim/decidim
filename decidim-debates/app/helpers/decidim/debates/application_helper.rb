@@ -8,7 +8,7 @@ module Decidim
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::RichTextEditorHelper
-      include Decidim::EndorsableHelper
+      include Decidim::LikeableHelper
       include Decidim::FollowableHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::DateRangeHelper

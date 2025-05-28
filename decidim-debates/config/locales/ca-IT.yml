@@ -275,3 +275,4 @@ ca-IT:
           url: L'URL on es pot trobar aquest debat
     statistics:
       debates_count: Debats
+      debates_count_tooltip: El número de debats celebrats.

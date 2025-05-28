@@ -78,16 +78,16 @@ en:
           attributes:
             base:
               not_official: Are not official
-              voted: Have received votes or endorsements
+              voted: Have received votes or likes
         proposals_split:
           attributes:
             base:
               not_official: Are not official
-              voted: Have received votes or endorsements
+              voted: Have received votes or likes
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposal taxonomies changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
-      decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
+      decidim/proposals/liking_enabled_event: Proposal liking enabled
       decidim/proposals/proposal_mentioned_event: Proposal mentioned
       decidim/proposals/publish_proposal_event: Proposal published
       decidim/proposals/voting_enabled_event: Proposal voting enabled
@@ -96,9 +96,9 @@ en:
       decidim:
         proposals:
           proposal:
-            budget_text: The proposal %{link} was created
+            budget_text: The proposal <span class="resource-link">%{link} was created</span>
             import_from_proposal_text: 'It became this proposal: %{link}'
-            import_to_proposal_text: This proposal %{link} was created
+            import_to_proposal_text: This proposal <span "resource-link">%{link} was created</span>
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
             split_from_proposal_text: 'It became this proposal: %{link}'
@@ -159,7 +159,7 @@ en:
           amend: Amend
           comment: Comment
           create: Create a proposal
-          endorse: Endorse
+          like: Like
           vote: Vote
           vote_comment: Vote comment
           withdraw: Withdraw
@@ -182,8 +182,8 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_endorsed: Most endorsed
               most_followed: Most followed
+              most_liked: Most liked
               most_voted: Most voted
               random: Random
               recent: Recent
@@ -244,14 +244,14 @@ en:
             default_sort_order_options:
               automatic: Automatic
               most_commented: Most commented
-              most_endorsed: Most endorsed
               most_followed: Most followed
+              most_liked: Most liked
               most_voted: Most voted
               random: Random
               recent: Recent
               with_more_authors: With more authors
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
+            likes_blocked: Likes blocked
+            likes_enabled: Likes enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
             publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
@@ -335,11 +335,11 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
           notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
+        liking_enabled:
+          email_intro: 'You can like proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposals endorsing has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          email_subject: Proposals liking has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">liking proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_url}">in this space</a> in the comments.
           email_outro: You have received this notification because you are an author of "%{resource_title}".
@@ -446,12 +446,12 @@ en:
           cost_report: A report of costs for the proposal
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
-          endorsements: The number of endorsements ("likes") this proposal has
           execution_period: The period at which the proposal ran from beginning to end
           follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
           latitude: The latitude of the proposal in case it has a physical location
+          likes: The number of likes ("likes") this proposal has
           longitude: The longitude of the proposal in case it has a physical location
           meeting_urls: The URLs of the meetings where this proposal was presented or discussed in
           original_proposal: The reference of the original proposal if this is an amendment
@@ -664,11 +664,11 @@ en:
             body: Body
             comments_count: Comments count
             documents: Documents
-            endorsements_count: Endorsements count
-            endorsers: Endorsers
             evaluators: Evaluators
+            likes: Likes
+            likes_count: Likes count
             link: See proposal
-            n_more_endorsers:
+            n_more_likes:
               one: and 1 more
               other: and %{count} more
             photos: Photos
@@ -951,8 +951,8 @@ en:
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
-          most_endorsed: Most endorsed
           most_followed: Most followed
+          most_liked: Most liked
           most_voted: Most voted
           random: Random
           recent: Recent
@@ -979,7 +979,7 @@ en:
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit
           estimated_cost: Estimated cost
-          hidden_endorsers_count:
+          hidden_likes_count:
             one: and %{count} more person
             other: and %{count} more people
           link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
@@ -1063,6 +1063,9 @@ en:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
     statistics:
+      participatory_space_proposals_count: Proposals
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
+      proposals_count_tooltip: The total number of submitted proposals and votes cast on them.
+      votes: 'Votes:'
       votes_count: Votes

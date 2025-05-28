@@ -799,7 +799,6 @@
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
-        statistics: Aktivitet
         users: Administratorer
       users:
         create:

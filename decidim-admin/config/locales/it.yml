@@ -978,7 +978,6 @@ it:
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
-        statistics: Attività
       users:
         create:
           error: Si è verificato un problema durante l'invito a questo amministratore.

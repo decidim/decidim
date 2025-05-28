@@ -57,29 +57,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
 ```
 
-### 1.5. Rails upgrade
-
-If you are upgrading an existing application, you may have a deprecation error like the one below:
-
-```text
-The Gemfile's dependencies are satisfied
-DEPRECATION WARNING: Support for `config.active_support.cache_format_version = 6.1` has been deprecated and will be removed in Rails 7.2.
-
-Check the Rails upgrade guide at https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#new-activesupport-cache-serialization-format
-for more information on how to upgrade.
-```
-
-To remove the deprecation warning, you must patch your `config/application.rb`, and update your `load_defaults` to the following:
-
-```ruby
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.1
-```
-
-Please note that Rails 7.0 & 7.1 have changed the default configuration for encrypted attributes moving out from `OpenSSL::Digest::SHA1` to `OpenSSL::Digest::SHA256`, therefore there may be some issues with your encrypted fields like Organization's smtp settings, or even authorizations.
-To avoid these kind of issues, you will need to make sure your secret_key_base remains unchanged. Ideally, you should have it stored in `SECRET_KEY_BASE` ENV variable.
-
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -331,7 +309,54 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Removal of invalid user exports
+
+We have noticed an edge case when using private export functionality, in which the page becomes inaccessible if the user in question is using export single survey answer functionality.
+
+You can run the following rake task to ensure your system is not corrupted.
+
+```bash
+./bin/rails decidim:upgrade:clean:invalid_private_exports
+```
+
+For ease of in operations, we also added the above command to the main `decidim:upgrade:clean:invalid_records` rake task.
+
+You can read more about this change on PR [#14638](https://github.com/decidim/decidim/pull/14638).
+
+### 3.7. Removal of linking Proposals to certain modules
+
+We have removed the ability of linking Proposals to the Meetings, Accountability and Budgets module, by removing the setting `enable_proposal_linking`.
+
+The rhetoric reasoning of this removal is due to extending and improving the settings usage with proposed features such as: [#13067] & [#14289].
+
+You can read more about this change on PR [#14453](https://github.com/decidim/decidim/pull/14453).
+
+### 3.8. Change form endorsements to likes
+
+We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters have been changed to likes.
+
+Implementers will notice this transition once they run the needed migrations on the platform. Additionally some of the translation keys have changed, and this may affect your instance.
+
+You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
+
+### 3.9. New Rails framework defaults
+
+As of this version, we are changing Rails's settings from 6.1 to 7.0. In order to upgrade your app, you will need to patch your `config/application.rb` to load the 7.0 defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 6.1
++    config.load_defaults 7.0
+    # ....
+  end
+end
+```
+
+You can read more about this change on PR [#14735](https://github.com/decidim/decidim/pull/14735).
+
+### 3.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -369,3 +394,23 @@ result = 1 + 1 if after
 ### 5.2. Add force_api_authentication configuration options
 
 There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
+
+### 5.3. Require organization in nicknamize method
+
+In order to avoid potential performance issues, we have changed the `nicknamize` method by requiring the organization as a parameter.
+
+If you have used code as such:
+
+```ruby
+# We were including the organization in an optional scope
+Decidim::UserBaseEntity.nicknamize(nickname, decidim_organization_id: user.decidim_organization_id)
+```
+
+You need to change it, to something like:
+
+```ruby
+# Now the organization is the required second parameter of the method
+Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
+```
+
+You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).

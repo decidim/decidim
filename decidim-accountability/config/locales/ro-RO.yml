@@ -230,3 +230,4 @@ ro:
         result_proposal: Propuneri incluse în acest rezultat
     statistics:
       results_count: Rezultate
+      results_count_tooltip: Numărul de decizii sau rezultate generate de acest spațiu.

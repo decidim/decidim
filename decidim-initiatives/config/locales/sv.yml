@@ -557,6 +557,9 @@ sv:
       initiatives_type:
         actions:
           title: Åtgärder
+    statistics:
+      initiatives_count: Initiativ
+      initiatives_count_tooltip: Antalet offentliggjorda medborgarinitiativ.
   layouts:
     decidim:
       initiative_creation_header:

@@ -248,6 +248,9 @@ shared_examples "comments" do
             click_on locale
           end
 
+          sleep 1
+          page.scroll_to(find(".add-comment form"))
+
           within ".add-comment form" do
             expect(page).to have_css(".emoji__container")
             expect(page).to have_css(".emoji__trigger .emoji__button")

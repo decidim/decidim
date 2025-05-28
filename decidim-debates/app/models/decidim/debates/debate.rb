@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Randomable
       include Decidim::FilterableResource
       include Decidim::SoftDeletable

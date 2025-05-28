@@ -368,3 +368,4 @@ sv:
         result_proposal: Förslag som ingår i detta resultat
     statistics:
       results_count: Resultat
+      results_count_tooltip: Antalet beslut eller resultat som genereras från detta område.
