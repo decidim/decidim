@@ -45,8 +45,6 @@ ja:
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
-        cta_button_path: Call To Action ボタンのパス
-        cta_button_text: Call To Action ボタンのテキスト
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
@@ -892,12 +890,9 @@ ja:
         edit:
           update: 更新
         form:
-          cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
-          cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           header_snippets:
             header_snippets_help_html: このフィールドはHTMLヘッダ要素内に何かを追加する際に使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理セクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。より詳しい使い方については、 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメントサイト</a> をご覧ください。
             title: HTML ヘッダーのスニペット
-          homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
       organization_external_domain_allowlist:
         edit:
