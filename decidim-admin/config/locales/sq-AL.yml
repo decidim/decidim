@@ -45,8 +45,6 @@ sq:
         available_authorizations: Autorizimet në dispozicion
         badges_enabled: Aktivizo emblemat
         comments_max_length: Madhësia maks. e komenteve(0 për vlerën e paracaktuar)
-        cta_button_path: Shtegu i Thirrjes Për Veprim (Call To Action)
-        cta_button_text: Teksti i butonit të Thirrjes Për Veprim (Call To Action)
         customize_welcome_notification: Personalizo njoftimin e mirëseardhjes
         default_locale: Lokalizimi i parazgjedhur
         description: Përshkrimi
