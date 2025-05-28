@@ -186,6 +186,13 @@ module Decidim
       return favicon if favicon.content_type == "image/vnd.microsoft.icon"
 
       uploader = attached_uploader(:favicon)
+
+      pp uploader.inspect
+      pp uploader.variant(:favicon).inspect
+      pp uploader.variant(:favicon).processed.inspect
+      pp uploader.variant(:favicon).processed.image.inspect
+
+
       variant = uploader.variant(:favicon)
       variant.processed.image
     end
