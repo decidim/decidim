@@ -75,16 +75,16 @@
           <%= form.hidden_field :id %>
         <% end %>
 
-        <%= form.hidden_field :position, value: question.position || 0 %>
+        <%= form.hidden_field :position %>
         <%= form.hidden_field :deleted, disabled: !editable %>
 
         <div class="questionnaire-question-response-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= response_option_template_selector %>">
           <div class="questionnaire-question-response-options-list">
             <% question.response_options.each do |response_option| %>
-              <%= fields_for "questionnaire[questions][#{question.to_param}][response_options][]", response_option do |response_option_form| %>
+              <%= fields_for "questions[#{question.to_param}][response_options][]", response_option do |response_option_form| %>
                 <%= render "decidim/elections/admin/questions/response_option", form: response_option_form, question:, editable: question.editable? %>
               <% end %>
-            <% end %>
+          <% end %>
           </div>
           <% if editable %>
             <div class="row column mb-2 mt-4">

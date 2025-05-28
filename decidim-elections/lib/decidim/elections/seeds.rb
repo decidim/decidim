@@ -16,6 +16,7 @@ module Decidim
 
         number_of_records.times do
           create_election!(component:)
+          create_questions_for!(election) if ::Faker::Boolean.boolean(true_ratio: 0.3)
         end
       end
 
@@ -55,6 +56,26 @@ module Decidim
           visibility: "all"
         ) do
           Decidim::Elections::Election.create!(params)
+        end
+      end
+
+      def create_questions_for!(election)
+        rand(1..4).times do |position|
+          question = Decidim::Elections::Question.create!(
+            election:,
+            position:,
+            mandatory: [true, false].sample,
+            question_type: %w(single_option multiple_option).sample,
+            body: Decidim::Faker::Localized.sentence(word_count: 6),
+            description: Decidim::Faker::Localized.paragraph
+          )
+
+          rand(2..5).times do
+            Decidim::Elections::ResponseOption.create!(
+              question:,
+              body: Decidim::Faker::Localized.sentence(word_count: 3)
+            )
+          end
         end
       end
 

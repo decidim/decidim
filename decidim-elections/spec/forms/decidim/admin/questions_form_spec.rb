@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Elections
     module Admin
-      describe QuestionnaireForm do
+      describe QuestionsForm do
         let(:current_organization) { create(:organization) }
 
         let(:questions) do
@@ -33,11 +33,7 @@ module Decidim
           ]
         end
 
-        let(:attributes) do
-          {
-            "questions" => questions
-          }
-        end
+        let(:attributes) { { "questions" => questions } }
 
         subject(:form) do
           described_class.from_params(attributes).with_context(
@@ -56,7 +52,7 @@ module Decidim
 
           it "is not valid and adds a base error" do
             expect(form).not_to be_valid
-            expect(form.errors[:base]).to include(I18n.t("decidim.elections.admin.questionnaire_form.errors.at_least_one_question"))
+            expect(form.errors[:base]).to include(I18n.t("decidim.elections.admin.questions.form.errors.at_least_one_question"))
           end
         end
 
@@ -72,7 +68,7 @@ module Decidim
 
           it "is not valid and adds a base error" do
             expect(form).not_to be_valid
-            expect(form.errors[:base]).to include(I18n.t("decidim.elections.admin.questionnaire_form.errors.at_least_one_question"))
+            expect(form.errors[:base]).to include(I18n.t("decidim.elections.admin.questions.form.errors.at_least_one_question"))
           end
         end
 

@@ -63,15 +63,14 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
-        questionnaire_form:
-          errors:
-            at_least_one_question: At least one question is required.
         questions:
           edit_questions:
             new_question: New question
             remove_question_confirm: Are you sure you want to remove this question?
             title: Questions
           form:
+            errors:
+              at_least_one_question: At least one question is required.
             form_description: Question must have at least two answers in order go to the next step.
           update:
             invalid: There was a problem updating the questions.
@@ -84,7 +83,7 @@ en:
           soft_delete: "%{user_name} moved the %{resource_name} election in %{space_name} to the trash"
           unpublish: "%{user_name} unpublished the %{resource_name} election in %{space_name}"
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
-        questionnaire:
+        question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
       models:
         election:

@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module AdminLog
-      # This class holds the logic to present a `Decidim::Elections::Questionnaire`
+      # This class holds the logic to present a `Decidim::Elections::Question
       # for the `AdminLog` log.
       #
       # Usage should be automatic and you should not need to call this class
@@ -11,21 +11,21 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    QuestionnairePresenter.new(action_log, view_helpers).present
-      class QuestionnairePresenter < Decidim::Log::BasePresenter
+      #    QuestionPresenter.new(action_log, view_helpers).present
+      class QuestionPresenter < Decidim::Log::BasePresenter
         private
 
         def action_string
           case action
-          when "update"
-            "decidim.elections.admin_log.questionnaire.#{action}"
+          when "create", "update", "destroy"
+            "decidim.elections.admin_log.question.#{action}"
           else
             super
           end
         end
 
         def resource_presenter
-          @resource_presenter ||= Decidim::Log::ResourcePresenter.new(action_log.resource.questionnaire_for, h, action_log.resource.questionnaire_for)
+          @resource_presenter ||= Decidim::Log::ResourcePresenter.new(resource.election, h, resource.election)
         end
 
         def i18n_params

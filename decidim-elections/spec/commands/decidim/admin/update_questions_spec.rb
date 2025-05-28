@@ -5,19 +5,18 @@ require "spec_helper"
 module Decidim
   module Elections
     module Admin
-      describe UpdateQuestionnaire do
+      describe UpdateQuestions do
         let(:organization) { create(:organization, available_locales: [:en]) }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:elections_component, participatory_space: participatory_process) }
         let(:election) { create(:election, component:) }
-        let(:questionnaire) { create(:election_questionnaire, questionnaire_for: election) }
 
         let!(:first_question) do
-          create(:election_question, questionnaire:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
+          create(:election_question, election:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
         end
         let!(:second_question) do
-          create(:election_question, questionnaire:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
+          create(:election_question, election:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
         end
 
         let(:first_question_first_option) { first_question.response_options[0] }
@@ -59,12 +58,12 @@ module Decidim
             }
           end
 
-          let(:form) { Decidim::Elections::Admin::QuestionnaireForm.from_params(update_params).with_context(context_params) }
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(update_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
 
           it "updates all fields" do
             command.call
-            updated = questionnaire.reload.questions.find_by(id: first_question.id)
+            updated = election.reload.questions.find_by(id: first_question.id)
             expect(translated(updated.body)).to eq("First Q updated")
             expect(translated(updated.description)).to eq("Desc updated")
             expect(translated(updated.response_options.first.body)).to eq("Updated Option")
@@ -101,12 +100,12 @@ module Decidim
             }
           end
 
-          let(:form) { Decidim::Elections::Admin::QuestionnaireForm.from_params(reorder_params).with_context(context_params) }
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(reorder_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
 
           it "updates order" do
             command.call
-            bodies = questionnaire.reload.questions.order(:position).map { |q| translated(q.body) }
+            bodies = election.reload.questions.order(:position).map { |q| translated(q.body) }
             expect(bodies).to eq(["Second Q", "First Q"])
           end
         end
@@ -142,13 +141,13 @@ module Decidim
             }
           end
 
-          let(:form) { Decidim::Elections::Admin::QuestionnaireForm.from_params(delete_params).with_context(context_params) }
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(delete_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
 
           it "removes only the deleted question and keeps the other" do
             expect { command.call }
-              .to change { questionnaire.reload.questions.count }.from(2).to(1)
-            remaining = questionnaire.reload.questions.first
+              .to change { election.reload.questions.count }.from(2).to(1)
+            remaining = election.reload.questions.first
             expect(translated(remaining.body)).to eq("Second Q")
             expect(translated(remaining.description)).to eq("Desc 2")
           end
@@ -172,13 +171,13 @@ module Decidim
             }
           end
 
-          let(:form) { Decidim::Elections::Admin::QuestionnaireForm.from_params(add_params).with_context(context_params) }
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(add_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
 
           it "creates a new question and its response options" do
             expect { command.call }
-              .to change { questionnaire.reload.questions.count }.by(1)
-            new_question = questionnaire.reload.questions.last
+              .to change { election.reload.questions.count }.by(1)
+            new_question = election.reload.questions.last
             expect(translated(new_question.body)).to eq("Brand new Q")
             expect(translated(new_question.description)).to eq("Description")
             expect(new_question.response_options.size).to eq(2)
@@ -190,7 +189,7 @@ module Decidim
           let(:form) do
             double("Form", invalid?: true, current_user: current_user, current_organization: organization, questions: [])
           end
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:command) { described_class.new(form, election) }
 
           it "broadcasts :invalid" do
             expect { command.call }
@@ -239,13 +238,13 @@ module Decidim
             }
           end
 
-          let(:form) { Decidim::Elections::Admin::QuestionnaireForm.from_params(combo_params).with_context(context_params) }
-          let(:command) { described_class.new(form, questionnaire) }
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(combo_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
 
           it "handles all changes in one call" do
             expect { command.call }
-              .not_to(change { questionnaire.reload.questions.count })
-            questions = questionnaire.reload.questions.order(:position)
+              .not_to(change { election.reload.questions.count })
+            questions = election.reload.questions.order(:position)
             expect(translated(questions.first.body)).to eq("First Q Updated")
             expect(translated(questions.first.description)).to eq("Desc Updated")
             expect(translated(questions.last.body)).to eq("Totally New Q")
