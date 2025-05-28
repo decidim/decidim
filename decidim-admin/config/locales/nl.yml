@@ -34,8 +34,6 @@ nl:
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
         comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
-        cta_button_path: actieknop pad
-        cta_button_text: actieknop tekst
         customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
         description: Beschrijving
@@ -665,8 +663,6 @@ nl:
         edit:
           update: Bijwerken
         form:
-          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
-          homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
       participatory_space_private_users:
         create:
