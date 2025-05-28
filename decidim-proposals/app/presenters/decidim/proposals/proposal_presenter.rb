@@ -36,14 +36,14 @@ module Decidim
       # extras - should include extra hashtags?
       #
       # Returns a String.
-      def title(html_escape: false, all_locales: false)
+      def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal
 
-        super(proposal.title, html_escape, all_locales, extras: true)
+        super(proposal.title, links, html_escape, all_locales, extras:)
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
-        "##{proposal.id} - #{title(links:, extras:, html_escape:)}"
+        "##{proposal.id} - #{title(linklinks: false, extras: true, s:, extras:, html_escape:)}"
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)

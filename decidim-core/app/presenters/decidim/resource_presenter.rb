@@ -6,9 +6,12 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::SanitizeHelper
 
-    def title(resource_title, html_escape, all_locales)
+    def title(resource_title, links, html_escape, all_locales, extras: true)
       handle_locales(resource_title, all_locales) do |content|
-        decidim_html_escape(content) if html_escape
+        content = decidim_html_escape(content) if html_escape
+
+        renderer = ContentRenderers::LinkRenderer.new(content)
+        renderer.render(links:, extras:).html_safe
       end
     end
 
