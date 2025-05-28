@@ -45,8 +45,6 @@ tr:
         available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
         comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
-        cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
-        cta_button_text: Harekete Geçirici Mesaj metni
         customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
@@ -832,8 +830,6 @@ tr:
         edit:
           update: Güncelleştirme
         form:
-          cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
-          homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
       organization_external_domain_allowlist:
         edit:
