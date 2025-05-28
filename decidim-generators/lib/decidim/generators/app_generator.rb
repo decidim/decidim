@@ -129,7 +129,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
