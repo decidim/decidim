@@ -973,6 +973,7 @@ cs:
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
+          email_subject: Váš %{resource_type} již není viditelný
         resource_hidden:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
