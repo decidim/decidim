@@ -6,7 +6,6 @@ module Decidim
   module Accountability
     module Admin
       describe ImportComponentsController do
-        routes { Decidim::Accountability::AdminEngine.routes }
 
         describe "GET show" do
           let(:current_user) { create(:user, :confirmed, :admin, organization:) }
