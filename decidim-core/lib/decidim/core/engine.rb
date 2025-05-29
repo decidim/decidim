@@ -272,6 +272,10 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
+      initializer "decidim_core.action_view" do |app|
+        app.config.action_view.sanitizer_vendor = Rails::HTML4::Sanitizer
+      end
+
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
         next if app.config.active_storage.service_urls_expire_in.present?
 
