@@ -15,7 +15,7 @@
         <ul class="dropdown" id="add-component-dropdown" aria-hidden="true">
           <% @manifests.each do |manifest| %>
           <li class="dropdown__item">
-            <%= link_to new_component_path(type: manifest.name), class: "#{manifest.name}" do %>
+            <%= link_to new_component_path(type: manifest.name), class: "dropdown__button" do %>
               <%= t("#{manifest.name}.name", scope: "decidim.components") %>
             <% end %>
           </li>

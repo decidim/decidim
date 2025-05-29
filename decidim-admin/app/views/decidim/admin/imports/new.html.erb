@@ -14,7 +14,7 @@
           <ul class="dropdown dropdown__component" id="example-dropdown" aria-hidden="true">
             <% mime_types.each do |format, name| %>
               <li class="dropdown__item">
-                <%= link_to admin_imports_example_path(@current_component, name: import_manifest.name, format:) do %>
+                <%= link_to admin_imports_example_path(@current_component, name: import_manifest.name, format:), class: "dropdown__button" do %>
                   <%= t(".download_example_format", name:) %>
                 <% end %>
               </li>

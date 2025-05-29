@@ -17,18 +17,18 @@
 
     <% if params[:blocked] %>
       <li class="dropdown__item">
-        <button type="button" data-action="unblock-moderated_users">
+        <button type="button" class="dropdown__button" data-action="unblock-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
         </button>
       </li>
     <% else %>
       <li class="dropdown__item">
-        <button type="button" data-action="block-moderated_users">
+        <button type="button" class="dropdown__button" data-action="block-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
         </button>
       </li>
       <li class="dropdown__item">
-        <button type="button" data-action="unreport-moderated_users">
+        <button type="button" class="dropdown__button" data-action="unreport-moderated_users">
           <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
         </button>
       </li>

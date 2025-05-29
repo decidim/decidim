@@ -16,14 +16,14 @@
         <%= import_dropdown do %>
           <% if allowed_to?(:create, :result) && parent_result.nil? %>
             <li class="dropdown__item">
-              <%= link_to new_import_component_path do %>
+              <%= link_to new_import_component_path, class: "dropdown__button" do %>
                 <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
               <% end %>
             </li>
           <% end %>
           <% if allowed_to? :create, :result %>
             <li class="dropdown__item">
-              <%= link_to import_results_path do %>
+              <%= link_to import_results_path, class: "dropdown__button" do %>
                 <%= t("actions.import_csv", scope: "decidim.accountability") %>
               <% end %>
             </li>

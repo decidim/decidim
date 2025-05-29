@@ -17,18 +17,18 @@
     aria-hidden="true">
     <% if current_component_taxonomy_filters&.any? %>
       <li class="dropdown__item">
-        <button type="button" data-action="change-taxonomies">
+        <button type="button" class="dropdown__button" data-action="change-taxonomies">
           <%= t(".change_taxonomies") %>
         </button>
       </li>
     <% end %>
     <li class="dropdown__item">
-      <button type="button" data-action="change-dates">
+      <button type="button" class="dropdown__button" data-action="change-dates">
         <%= t(".change_dates") %>
       </button>
     </li>
     <li class="dropdown__item">
-      <button type="button" data-action="change-status">
+      <button type="button" class="dropdown__button" data-action="change-status">
         <%= t(".change_status") %>
       </button>
     </li>

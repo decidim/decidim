@@ -12,7 +12,7 @@
     <% component.manifest.export_manifests.each do |manifest| %>
       <% manifest.formats.each do |format| %>
         <li class="dropdown__item">
-          <%= link_to exports_path(component, id: manifest.name, format:, resource_id:, filters:), method: :post do %>
+          <%= link_to exports_path(component, id: manifest.name, format:, resource_id:, filters:), class: "dropdown__button", method: :post do %>
             <%= t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")) %>
           <% end %>
         </li>

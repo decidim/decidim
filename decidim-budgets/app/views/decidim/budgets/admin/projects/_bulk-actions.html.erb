@@ -10,7 +10,7 @@
   <% if allowed_to? :import_proposals, :project %>
     <%= import_dropdown do %>
       <li class="dropdown__item">
-        <%= link_to new_budget_proposals_import_path(budget) do %>
+        <%= link_to new_budget_proposals_import_path(budget), class: "dropdown__button" do %>
           <%= t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")) %>
         <% end %>
       </li>

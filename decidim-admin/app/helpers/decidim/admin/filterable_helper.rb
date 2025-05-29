@@ -60,7 +60,7 @@ module Decidim
           options.map do |key, value|
             if value.nil?
               content_tag(:li, class: "dropdown__item") do
-                concat content_tag(:span) { key }
+                concat content_tag(:span, class: "dropdown__button") { key }
               end
             elsif value.is_a?(Hash)
               child_id = SecureRandom.uuid
@@ -73,11 +73,11 @@ module Decidim
       end
 
       def dropdown_link(key, menu_id)
-        link_to("#", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
+        link_to("#", class: "dropdown__button", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
           safe_join([
-                      extract_html_value(key),
-                      icon("arrow-right-s-line", class: "fill-secondary"),
-                      icon("arrow-right-s-line", class: "!fill-current !text-white")
+                      content_tag(:span) { extract_html_value(key) },
+                      icon("arrow-right-s-line", class: "fill-secondary absolute right-2"),
+                      icon("arrow-right-s-line", class: "!fill-current !text-white absolute right-2")
                     ])
         end
       end

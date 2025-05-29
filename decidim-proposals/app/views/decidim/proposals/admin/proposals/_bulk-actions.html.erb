@@ -11,13 +11,13 @@
   <% if allowed_to? :import, :proposals %>
     <%= import_dropdown do %>
       <li class="dropdown__item">
-        <%= link_to new_proposals_import_path do %>
+        <%= link_to new_proposals_import_path, class: "dropdown__button" do %>
           <%= t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")) %>
         <% end %>
       </li>
       <% current_component.manifest.import_manifests.each do |import_manifest| %>
         <li class="dropdown__item">
-          <%= link_to admin_imports_path(current_component, name: import_manifest.name) do %>
+          <%= link_to admin_imports_path(current_component, name: import_manifest.name), class: "dropdown__button" do %>
             <%= import_manifest.message(:label, self) %>
           <% end %>
         </li>

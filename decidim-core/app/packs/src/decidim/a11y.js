@@ -77,14 +77,10 @@ const changeChildMenuDropdownPosition = (component) => {
 const changeStyleOfSelectedElement = (component) => {
   component.addEventListener("click", function() {
     component.parentNode.parentNode.querySelectorAll("a").forEach((link) => {
-      link.style.fontWeight = "normal";
-      link.parentNode.classList.remove("bg-secondary")
-      link.parentNode.classList.remove("text-white");
+      link.parentNode.classList.remove("dropdown__item-hovered")
     })
 
-    component.style.fontWeight = 600;
-    component.parentNode.classList.add("bg-secondary")
-    component.parentNode.classList.add("text-white");
+    component.parentNode.classList.add("dropdown__item-hovered")
   })
 }
 
