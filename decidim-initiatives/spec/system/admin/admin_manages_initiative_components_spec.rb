@@ -21,7 +21,7 @@ describe "Admin manages initiative components" do
       find("button[data-target=add-component-dropdown]").click
 
       within "#add-component-dropdown" do
-        find(".dummy").click
+        click_on "Dummy Component"
       end
 
       within ".item__edit" do

@@ -23,7 +23,7 @@ shared_examples "manage process components" do
         find("button[data-target=add-component-dropdown]").click
 
         within "#add-component-dropdown" do
-          find(".dummy").click
+          click_on "Dummy Component"
         end
 
         within ".item__edit-form .new_component" do
@@ -99,7 +99,7 @@ shared_examples "manage process components" do
         find("button[data-target=add-component-dropdown]").click
 
         within "#add-component-dropdown" do
-          find(".dummy").click
+          click_on "Dummy Component"
         end
 
         within ".item__edit-form .new_component" do
