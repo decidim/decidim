@@ -4,7 +4,6 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::ResultsBulkActionsController do
-
     let(:organization) { create(:organization) }
     let(:participatory_space) { create(:participatory_process, organization:) }
     let(:current_component) { create(:accountability_component, participatory_space:) }
