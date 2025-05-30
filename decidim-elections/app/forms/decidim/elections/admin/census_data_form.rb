@@ -5,7 +5,6 @@ module Decidim
     module Admin
       class CensusDataForm < Decidim::Form
         include Decidim::HasUploadValidations
-        include Decidim::ProcessesFileLocally
         include Decidim::Admin::CustomImport
 
         mimic :census_data
@@ -14,30 +13,27 @@ module Decidim
 
         validates :file, presence: true, file_content_type: { allow: ["text/csv"] }
 
-        validate :validate_csv
+        def parse_csv_data
+          return @csv_data if defined?(@csv_data)
+          return nil if file.blank?
 
-        def validate_csv
-          return if file.blank?
-
-          process_import_file(file) do |(email, token)|
-            errors.add(:email, :invalid) if email.blank? || token.blank?
-          end
+          file_io = StringIO.new(file.download)
+          @csv_data = CsvCensus::Data.new(file_io)
         rescue CSV::MalformedCSVError
           errors.add(:file, :malformed)
+          @csv_data = nil
         end
 
         def data
-          return [] if file.blank?
+          parse_csv_data&.values || []
+        end
 
-          parsed = []
+        def errors_data
+          parse_csv_data&.errors || []
+        end
 
-          process_import_file(file) do |(email, token)|
-            next if email.blank? || token.blank?
-
-            parsed << [email.strip.downcase, token.strip]
-          end
-
-          parsed
+        def imported_count
+          data.size
         end
       end
     end

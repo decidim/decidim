@@ -43,15 +43,17 @@ module Decidim
         end
 
         def handle_census_permissions
-          @form = form(CensusPermissionsForm).from_params(params[:census_permissions] || {})
+          @csv_census_form = form(CensusDataForm).instance
+          @census_permissions_form = form(CensusPermissionsForm).from_params(params[:census_permissions] || {})
 
-          process_form(@form, CreateInternalCensus, success_message_for(@form), :edit)
+          process_form(@census_permissions_form, CreateInternalCensus, success_message_for(@census_permissions_form), :edit)
         end
 
         def handle_census_csv
-          @form = form(CensusDataForm).from_params(params)
+          @census_permissions_form = form(CensusPermissionsForm).instance
+          @csv_census_form = form(CensusDataForm).from_params(params)
 
-          process_form(@form, CreateCensusData, success_message_for(@form, error_method: :errors), :edit)
+          process_form(@csv_census_form, CreateCensusData, success_message_for(@csv_census_form), :edit)
         end
 
         def process_form(form, command_class, success_message, failure_template)
@@ -67,7 +69,8 @@ module Decidim
           end
         end
 
-        def success_message_for(form, error_method: nil)
+        def success_message_for(form)
+          t(".success.import", count: form.imported_count, errors: form.errors_data.size)
         end
       end
     end

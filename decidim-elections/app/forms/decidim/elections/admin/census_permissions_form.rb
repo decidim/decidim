@@ -24,6 +24,16 @@ module Decidim
 
           users
         end
+
+        def imported_count
+          data.count
+        end
+
+        def errors_data
+          return [] if valid?
+
+          errors.full_messages
+        end
       end
     end
   end
