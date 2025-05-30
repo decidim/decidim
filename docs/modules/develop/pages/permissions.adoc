@@ -26,48 +26,48 @@ Permission actions have a scope. It is usually either `:public` or `:admin`, and
 
 === Proposals example
 
-We are going to reproduce the steps to add an action (endorse) for a proposal step by step.
+We are going to reproduce the steps to add an action (like) for a proposal step by step.
 
-==== Configuring a new 'endorse' action
+==== Configuring a new 'like' action
 
 . Edit decidim-proposals/lib/decidim/proposals/component.rb
-. Add the new 'endorse' action into the `component.actions` array and save the file:
+. Add the new 'like' action into the `component.actions` array and save the file:
 
 [source,ruby]
 ----
-component.actions = %w(endorse vote create)
+component.actions = %w(like vote create)
 ----
 
-. Translate the action for the corresponding key: `en.decidim.components.proposals.actions.endorse = Endorse`
+. Translate the action for the corresponding key: `en.decidim.components.proposals.actions.like = Like`
 . Edit `app/permissions/decidim/proposals/permissions.rb` and add the corresponding permission, using `authorized?` method to run the `authorization handler` logic.
-. In the endorse proposals controller, enforce that the user has permissions to perform the `endorse` action before actually doing it, using the `enforce_permission_to` method:
+. In the like proposals controller, enforce that the user has permissions to perform the `like` action before actually doing it, using the `enforce_permission_to` method:
 
 [source,ruby]
 ----
-enforce_permission_to :endorse, :proposal, proposal: proposal
+enforce_permission_to :like, :proposal, proposal: proposal
 ----
 
-. In the proposals templates, change regular links and buttons to endorse a proposal with calls to `action_authorized_link_to` and `action_authorized_button_to` helpers.
+. In the proposals templates, change regular links and buttons to like a proposal with calls to `action_authorized_link_to` and `action_authorized_button_to` helpers.
 . Restart the server to pick up the changes.
 
-==== Using the new 'endorse' action
+==== Using the new 'like' action
 
-. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `endorse` action.
+. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `like` action.
 . Go to a Proposal detail in the front-end
-. Try to endorse the current proposal
- ** If the user has not granted the selected permission, the 'endorse' button should block the action and allow the user to grant the permission with the selected `authorization handler` logic.
- ** If the logger user has already granted the selected permission, the user should be able to perform the endorsement.
+. Try to like the current proposal
+ ** If the user has not granted the selected permission, the 'like' button should block the action and allow the user to grant the permission with the selected `authorization handler` logic.
+ ** If the logger user has already granted the selected permission, the user should be able to perform the like.
 
 ==== Allow to configure the related permissions at resource level
 
 Permissions settings could also be set for an specific resources apart from the full component. Actions should also be related to the resource.
 
 . Edit decidim-proposals/lib/decidim/proposals/component.rb
-. Add the 'endorse' action into the `resource.actions` array for the `proposal` resource definition and save the file:
+. Add the 'like' action into the `resource.actions` array for the `proposal` resource definition and save the file:
 
 [source,ruby]
 ----
-resource.actions = %w(endorse vote)
+resource.actions = %w(like vote)
 ----
 
 . Only if this is the first resource action added, edit the proposals admin templates and use the `resource_permissions_link` helper to link the resource permissions page from each resource in the listing.
@@ -81,7 +81,7 @@ resource.actions = %w(endorse vote)
 
 [source,ruby]
 ----
-authorized?(:endorse, resource: proposal)
+authorized?(:like, resource: proposal)
 ----
 
 . In the proposals templates, also add the extra `resource` parameter to the `action_authorized_link_to` and `action_authorized_button_to` helpers.
@@ -89,4 +89,4 @@ authorized?(:endorse, resource: proposal)
 
 ==== Using permissions at resource level
 
-. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `endorse` action.
+. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `like` action.

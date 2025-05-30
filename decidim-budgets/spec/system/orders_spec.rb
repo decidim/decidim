@@ -556,7 +556,7 @@ describe "Orders" do
 
         expect(page).to have_content("Budget vote completed")
 
-        page.find("a[aria-label='Go to front page']").click
+        page.find("a[href='#{decidim.root_path}']").click
 
         expect(page).to have_current_path decidim.root_path
       end
@@ -695,7 +695,7 @@ describe "Orders" do
         proposals.each do |proposal|
           expect(page).to have_content(decidim_sanitize_translated(proposal.title))
           expect(page).to have_no_content(proposal.creator_author.name)
-          expect(page).to have_content(proposal.endorsements.size)
+          expect(page).to have_content(proposal.likes.size)
         end
       end
 
