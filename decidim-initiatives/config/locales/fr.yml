@@ -410,6 +410,7 @@ fr:
               document_type:
                 prompt: Type de document
               document_type_and_number:
+                help_text: Le numéro du document correspond au document utilisé lors de la vérification du recensement.
                 label: Type et numéro de document
               gender:
                 options:
@@ -560,6 +561,12 @@ fr:
         workflows:
           dummy_signature_handler:
             description: Signature qui prend les informations personnelles de l'utilisateur, valide l'autorisation et vérifie le code SMS
+          dummy_signature_with_personal_data_handler:
+            description: Signature qui prend uniquement les informations personnelles de l'utilisateur et les valide
+            name: Gestionnaire de signatures factices avec données personnelles
+          dummy_signature_with_sms_handler:
+            description: Signature qui valide uniquement le numéro de téléphone en recherchant une autorisation existante associée et vérifie le code SMS
+            name: Gestionnaire de signatures factices avec SMS uniquement
       states:
         accepted: Acceptées
         expired: Expirées
