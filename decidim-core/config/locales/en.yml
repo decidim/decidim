@@ -1614,8 +1614,8 @@ en:
     searches:
       filters:
         jump_to: 'Jump to:'
-        search: Search
         resource: " among %{collection}"
+        search: Search
         state:
           active: Active
           all: All
