@@ -342,6 +342,16 @@ module Decidim
                   "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
       end
 
+      def patch_logging
+        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
+          if ENV["RAILS_LOG_TO_STDOUT"].present?
+            config.logger = ActiveSupport::Logger.new(STDOUT)
+              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+          end
+        CONFIG
+      end
+
       def dev_performance_config
         gsub_file "config/environments/development.rb", /^end\n$/, <<~CONFIG
 
