@@ -227,7 +227,7 @@ module Decidim
                   /Rails.application.configure do/,
                   "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
-                  /# config.active_job.queue_adapter     = :resque/,
+                  /# config.active_job.queue_adapter = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
