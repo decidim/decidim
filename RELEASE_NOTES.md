@@ -78,10 +78,17 @@ module DevelopDevelopmentApp
 end
 ```
 
-You can read more about this change on the following PRs:
-- [Change framework defaults from Rails v6.1 to v7.0 #14735 ](https://github.com/decidim/decidim/pull/13267).
-- [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
+⚠ **Important**: Local environment variable introduced
 
+Besides of what is already mentioned, you may encounter some encryption-related issues while developing locally, and this is caused by a Rails internal change that it is outside the control of Decidim's Maintainers team.
+
+In the previous Rails versions the `secret_key_base` for local development was stored in a local file `development_app/tmp/development_secret.txt`, which has been remove starting Rails 7.1.
+Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`.
+
+You can read more about the Rails upgrade process on the following PRs:
+
+* [Change framework defaults from Rails v6.1 to v7.0 #14735](https://github.com/decidim/decidim/pull/13267).
+* [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
 
 ### 1.5. Run these commands
 
