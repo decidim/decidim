@@ -2,6 +2,6 @@
 
 class RemoveHashtagsFromParticipatoryProcesses < ActiveRecord::Migration[7.0]
   def change
-    remove_column :decidim_participatory_processes, :hashtags, :string
+    remove_column :decidim_participatory_processes, :hashtag, :string
   end
 end
