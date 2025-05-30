@@ -33,7 +33,6 @@
   }
 }
 
-
 [data-target="dropdown-menu-participatory-space"],
 [data-target="dropdown-menu-order"],
 [data-target="dropdown-menu-sidebar"] {
@@ -100,7 +99,8 @@
       }
     }
 
-    &:hover, &-hovered {
+    &:hover,
+    &-hovered {
       @apply text-white bg-secondary;
 
       > .dropdown__button {
