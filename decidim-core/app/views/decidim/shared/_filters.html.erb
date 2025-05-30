@@ -16,16 +16,18 @@
       <% if local_assigns.has_key?(:skip_to_id) %>
         <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
       <% end %>
-      <p class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
+
+      <p id="filter-help-text" class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
 
       <% if local_assigns.has_key?(:search_variable) %>
         <div class="filter-search filter-container" role="menuitem">
           <%= form.search_field search_variable,
                                 label: false,
                                 placeholder: search_label,
-                                title: search_label,
-                                "aria-label": search_label %>
-          <button type="submit" aria-label="<%= search_label %>">
+                                title: search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)),
+                                "aria-label": search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)),
+                                "aria-describedby": "filter-help-text" %>
+          <button type="submit" aria-label="<%= search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)) %>">
             <%= icon "search-line" %>
           </button>
         </div>
