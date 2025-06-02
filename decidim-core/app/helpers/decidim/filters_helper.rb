@@ -45,7 +45,7 @@ module Decidim
       when "surveys"
         I18n.t("activerecord.models.decidim/surveys/survey.other")
       when "projects"
-        I18n.t("activerecord.models.decidim/projects/project.other")
+        I18n.t("activerecord.models.decidim/budgets/project.other")
       when "initiatives"
         I18n.t("activerecord.models.decidim/initiative.other")
       else
