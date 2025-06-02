@@ -404,11 +404,11 @@ Consider this query:
         translation(locale: "en")
       }
       ... on Proposals {
-        proposals(order: {endorsementCount: "desc"}, first: 2) {
+        proposals(order: {likeCount: "desc"}, first: 2) {
           edges {
             node {
               id
-              endorsements {
+              likes {
                 name
               }
             }
@@ -437,7 +437,7 @@ The response:
               {
                 "node": {
                   "id": "35",
-                  "endorsements": [
+                  "likes": [
                     {
                       "name": "Ms. Johnathon Schaefer"
                     },
@@ -468,7 +468,7 @@ The response:
               {
                 "node": {
                   "id": "33",
-                  "endorsements": [
+                  "likes": [
                     {
                       "name": "Spring Brakus"
                     },
@@ -529,7 +529,7 @@ Example:
           edges {
             node {
               id
-              endorsements {
+              likes {
                 name
               }
             }
@@ -564,13 +564,13 @@ Being the response:
               {
                 "node": {
                   "id": "32",
-                  "endorsements": []
+                  "likes": []
                 }
               },
               {
                 "node": {
                   "id": "31",
-                  "endorsements": [
+                  "likes": [
                     {
                       "name": "Mr. Nicolas Raynor"
                     },

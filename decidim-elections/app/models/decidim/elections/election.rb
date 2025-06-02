@@ -21,7 +21,7 @@ module Decidim
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
-      has_one :questionnaire, as: :questionnaire_for, class_name: "Decidim::Elections::Questionnaire", dependent: :destroy
+      has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
 
       component_manifest_name "elections"
 

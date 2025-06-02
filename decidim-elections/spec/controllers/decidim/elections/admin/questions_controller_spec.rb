@@ -12,8 +12,7 @@ module Decidim
         let(:organization) { component.organization }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
         let!(:election) { create(:election, component:) }
-        let!(:questionnaire) { create(:election_questionnaire, questionnaire_for: election) }
-        let!(:question) { create(:election_question, questionnaire:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
+        let!(:question) { create(:election_question, election:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
         let!(:response_option1) { create(:election_response_option, question:, body: { "en" => "Option 1" }) }
         let!(:response_option2) { create(:election_response_option, question:, body: { "en" => "Option 2" }) }
 
@@ -28,7 +27,7 @@ module Decidim
           it "renders the edit_questions template" do
             get :edit_questions, params: { id: election.id }
             expect(response).to render_template("decidim/elections/admin/questions/edit_questions")
-            expect(assigns(:form)).to be_a(Decidim::Elections::Admin::QuestionnaireForm)
+            expect(assigns(:form)).to be_a(Decidim::Elections::Admin::QuestionsForm)
           end
         end
 
@@ -62,16 +61,28 @@ module Decidim
             ]
           end
 
-          it "updates the questionnaire and redirects with notice" do
-            patch :update, params: { id: election.id, questionnaire: { questions: valid_questions_params } }
+          it "updates the questions and redirects with notice" do
+            patch :update, params: { id: election.id, questions: valid_questions_params }
             expect(response).to redirect_to(edit_questions_election_path(election))
             expect(flash[:notice]).to be_present
           end
 
           it "renders edit_questions on invalid data (less than 2 options) and shows alert" do
-            patch :update, params: { id: election.id, questionnaire: { questions: invalid_questions_params } }
+            patch :update, params: { id: election.id, questions: invalid_questions_params }
             expect(response).to render_template("decidim/elections/admin/questions/edit_questions")
             expect(flash.now[:alert]).to be_present
+          end
+        end
+
+        describe "#blank_question" do
+          it "returns a blank QuestionForm" do
+            expect(controller.send(:blank_question)).to be_a(Decidim::Elections::Admin::QuestionForm)
+          end
+        end
+
+        describe "#blank_response_option" do
+          it "returns a blank ResponseOptionForm" do
+            expect(controller.send(:blank_response_option)).to be_a(Decidim::Elections::Admin::ResponseOptionForm)
           end
         end
       end

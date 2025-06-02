@@ -5,11 +5,13 @@ module Decidim
     class ResponseOption < Elections::ApplicationRecord
       include Decidim::TranslatableResource
 
+      belongs_to :question
+
       default_scope { order(arel_table[:id].asc) }
 
       translatable_fields :body
 
-      belongs_to :question, class_name: "Decidim::Elections::Question", foreign_key: "decidim_question_id"
+      validates :body, presence: true
 
       def translated_body
         Decidim::Forms::ResponseOptionPresenter.new(self).translated_body

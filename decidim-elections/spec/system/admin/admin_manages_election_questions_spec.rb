@@ -8,8 +8,7 @@ describe "Admin manages elections questions" do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
   let(:manifest_name) { "elections" }
   let!(:election) { create(:election, component: current_component) }
-  let(:questionnaire) { create(:election_questionnaire, questionnaire_for: election) }
-  let(:question) { create(:election_question, questionnaire:) }
+  let(:question) { create(:election_question, election:) }
   let(:body) do
     {
       en: "This is the first question",
@@ -28,7 +27,7 @@ describe "Admin manages elections questions" do
   include_context "when managing a component as an admin"
 
   before do
-    visit questionnaire_edit_path
+    visit questions_edit_path
   end
 
   it "opens a questions tab" do
@@ -44,7 +43,7 @@ describe "Admin manages elections questions" do
         ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
       ]
 
-      within "form.edit_questionnaire" do
+      within "form.edit_questions" do
         click_on "Add question"
         click_on "Add question"
         expand_all_questions
@@ -60,7 +59,7 @@ describe "Admin manages elections questions" do
         page.all(".questionnaire-question").each do |question|
           within question do
             select "Single option", from: "Type"
-            click_on "Add answer option"
+            click_on "Add response option"
           end
         end
 
@@ -77,7 +76,7 @@ describe "Admin manages elections questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_questions_edit_path_and_expand_all
 
       expect(page).to have_css("input[value='This is the first question']")
       expect(page).to have_content("This is the first question description")
@@ -109,12 +108,12 @@ describe "Admin manages elections questions" do
     click_on "Expand all questions"
   end
 
-  def visit_questionnaire_edit_path_and_expand_all
-    visit questionnaire_edit_path
+  def visit_questions_edit_path_and_expand_all
+    visit questions_edit_path
     expand_all_questions
   end
 
-  def questionnaire_edit_path
+  def questions_edit_path
     Decidim::EngineRouter.admin_proxy(current_component).edit_questions_election_path(election)
   end
 end

@@ -13,7 +13,7 @@ module Decidim
       implements Decidim::Core::AmendableInterface
       implements Decidim::Core::AmendableEntityInterface
       implements Decidim::Core::TraceableInterface
-      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::LikeableInterface
       implements Decidim::Core::TimestampsInterface
 
       field :address, GraphQL::Types::String, "The physical address (location) of this proposal", null: true

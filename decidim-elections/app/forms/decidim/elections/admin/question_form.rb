@@ -10,7 +10,7 @@ module Decidim
 
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String, default: "multiple_option"
-        attribute :position, Integer
+        attribute :position, Integer, default: 1
         attribute :response_options, Array[Decidim::Elections::Admin::ResponseOptionForm]
         attribute :deleted, Boolean, default: false
 
@@ -33,8 +33,7 @@ module Decidim
         end
 
         def editable?
-          # Will be changed for the ongoing election, e.g.
-          @editable ||= id.blank? || Decidim::Elections::Question.where(id: id)
+          @editable ||= id.blank? || Decidim::Elections::Question.exists?(id:)
         end
 
         def number_of_options
