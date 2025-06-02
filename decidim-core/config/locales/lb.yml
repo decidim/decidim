@@ -38,7 +38,6 @@ lb:
       decidim/profile_updated_event: Profil aktualiséiert
       decidim/promote_to_admin: Als Grupp-Admin fräigeschalt
       decidim/removed_from_group: Aus dem Gruppe geläscht
-      decidim/resource_endorsed_event: Ressource akzeptéiert
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ lb:
       decidim/amendment:
         one: Ännerung
         other: Ännerungen
-      decidim/endorsement:
-        one: Akzeptéiert
-        other: Ennerstëtzungen
       decidim/user:
         one: Teilnehmer
         other: Teilnehmer
@@ -221,9 +217,6 @@ lb:
       comments:
         one: Kommentar
         other: Kommentare
-      endorsements:
-        one: Ënnerstëtzungen
-        other: Befürwortungen
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -482,11 +475,6 @@ lb:
           email_subject: Deng %{resource_type} gouf geläscht
           notification_title: |-
             En Admin huet däin %{resource_type} geläscht, well en als %{report_reasons}.</br><i>%{resource_content}</i> gemellt gouf
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, dem s''du nogees, huet grad "%{resource_title}" ënnerstëtzt an mir mengen dat kéint dech interesséieren. Kuck der et mol un an diskutéier mat:'
-        email_outro: Du hues dës Noriicht kritt, well s'du dem %{endorser_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-        email_subject: "%{endorser_nickname} huet eng nei Ënnerstëtzung ausgeschwat"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} gouf vum <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> ënnerstëtzt.
       users:
         profile_updated:
           email_intro: D' <a href="%{resource_url}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
@@ -753,9 +741,6 @@ lb:
     reports:
       create:
         success: De Bericht gouf erstallt a gëtt vun engem Admin iwwerpréift.
-    resource_endorsements:
-      create:
-        error: Bei der Fërderung ass e Problem opgetaucht.
     scopes:
       global: Global Themeberäicher
       prompt: Wiel en Themeberäich
@@ -823,7 +808,6 @@ lb:
         share_link: Link deelen
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Ënnerstëtzungen
       followers_count: Follower
       headline: Statistiken
       no_stats: Et gëtt nach keng Statistiken.

@@ -59,7 +59,6 @@ tr:
               identical: VE gövde aynı olamaz
     models:
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
-      decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
       decidim/proposals/proposal_mentioned_event: Bahsi geçen teklif
       decidim/proposals/publish_proposal_event: Teklif yayınlandı
       decidim/proposals/voting_enabled_event: Teklif oylama etkin
@@ -100,7 +99,6 @@ tr:
       proposals:
         actions:
           amend: Değiştir
-          endorse: Onayla
           withdraw: Geri çek
         name: Teklifler
         settings:
@@ -142,8 +140,6 @@ tr:
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             automatic_hashtags: Tüm tekliflere etiketler eklendi
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Onaylar engellendi
-            endorsements_enabled: Onaylar etkin
             proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
             suggested_hashtags: Yeni teklifler için katılımcılara önerilen etiketler
@@ -174,10 +170,6 @@ tr:
           email_intro: 'Artık %{participatory_space_title} içinde yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Teklifler artık %{participatory_space_title} içinde mevcut
-        endorsing_enabled:
-          email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
         proposal_mentioned:
           email_intro: Yorumlarınızda <a href="%{resource_url}"> bu alanda </a> "%{mentioned_proposal_title}" önerinizden bahsedildi.
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
@@ -343,11 +335,6 @@ tr:
             body: Gövde
             comments_count: Yorum sayısı
             documents: Dokümanlar
-            endorsements_count: Onay sayısı
-            endorsers: Onaycılar
-            n_more_endorsers:
-              one: ve 1 tane daha
-              other: ve %{count} tane daha
             photos: Resimler
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
@@ -532,7 +519,6 @@ tr:
         orders:
           label: 'Teklifleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
-          most_endorsed: En çok onaylanan
           most_followed: En çok takip edilen
           random: Rastgele
           recent: En son
@@ -550,9 +536,6 @@ tr:
           answer: Cevap
           changes_at_title: Değişiklikler "%{title}"
           estimated_cost: Tahmini maliyet
-          hidden_endorsers_count:
-            one: ve %{count} kişi daha
-            other: ve %{count} kişi daha
           link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
           link_to_collaborative_draft_text: Ortak taslaka bakın
           link_to_promoted_emendation_help_text: Bu teklif, önerilen bir düzeltmedir

@@ -36,8 +36,8 @@ eu:
               baz: Baz
               foo: foo
           step:
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
             readonly_step_attribute: Soilik irakurtzeko atributua
             test_options:
               bar: Bar

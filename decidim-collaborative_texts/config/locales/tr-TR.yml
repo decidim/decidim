@@ -1,1 +1,70 @@
+---
 tr:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Belge gövdesi
+          draft: Taslak
+          title: Başlık
+          version_number: Sürüm numarası
+        suggestion:
+          nodes: DOM nesneleri
+          original: Orijinal metin
+        version:
+          body: Belge gövdesi
+          draft: Taslak
+          version_number: Sürüm numarası
+  decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Bu belgeyi silmek istediğinize emin misiniz?
+        deleted_document_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
+        edit: Düzenle
+        manage: Yönet
+        new: Yeni metin
+        title: Eylemler
+        view_deleted_documents: Silinmiş belgeleri görüntüle
+      admin:
+        documents:
+          create:
+            invalid: Belge oluşturulurken bir sorun oluştu.
+            success: Belge başarıyla oluşturuldu.
+          draft_options:
+            accepting_suggestions: Sonraki sürümde önerileri etkinleştir
+            draft: Taslak sürümü
+            draft_help_html: Taslak sürüm, herkese açık değildir ve sadece yöneticiler tarafından düzenlenebilir. İçeriği herkese açık hale getirmek için taslak durumunu kaldırın. <strong>Taslak sürüm etkinken, katılımcılar eski sürümleri görebilir ancak yeni öneriler yapamazlar.</strong>
+          edit:
+            draft: Taslak sürümü
+            previous_versions: Önceki sürümler
+            public_version: Herkese açık sürüm
+            title: Ortak taslak düzenle
+            update: Güncelle
+          edit_settings:
+            update: Güncelle
+          index:
+            title: Ortak taslak
+          manage_trash:
+            title: Silinen belgeler
+          new:
+            create: Oluştur
+            title: Ortak taslak oluştur
+          non_draft_options:
+            create_draft: Önerileri yoksay ve yeni bir taslak sürüm oluştur
+            enable_suggestions: Önerileri etkinleştir
+          publish:
+            invalid: Belgeyi yayınlanırken bir hata oluştu.
+            success: Belge başarıyla yayınlandı.
+          unpublish:
+            invalid: Belge yayından kaldırılırken bir hata oluştu.
+            success: Belge başarıyla yayından kaldırıldı.
+          update:
+            invalid: Belge güncellenirken bir hata oluştu.
+            success: Belge başarıyla güncellendi.
+          update_settings:
+            invalid: Belge güncellenirken bir hata oluştu.
+            success: Belge başarıyla güncellendi.
+      admin_log:
+        document:
+          create: "%{user_name} kullanıcısı %{space_name} alanında %{resource_name} ortak metnini oluşturdu"
+          delete: "%{user_name} kullanıcısı %{space_name} alanından %{resource_name} ortak metnini sildi"

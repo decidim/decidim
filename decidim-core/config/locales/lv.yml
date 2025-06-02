@@ -45,10 +45,6 @@ lv:
         zero: Grozījumi
         one: Grozījums
         other: Grozījumi
-      decidim/endorsement:
-        zero: Atbalsts
-        one: Atbalsts
-        other: Atbalsts
       decidim/user:
         zero: Dalībnieki
         one: Dalībnieks
@@ -201,10 +197,6 @@ lv:
         zero: komentāri
         one: komentēt
         other: komentāri
-      endorsements:
-        zero: atbalsti
-        one: atbalsts
-        other: atbalsti
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -425,11 +417,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
         level_up:
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-      resource_endorsed:
-        email_intro: '%{endorser_name}%{endorser_nickname}, kam jūs sekojat, tikko atbalstīja "%{resource_title}", un mums šķiet, ka tas jums varētu būt interesanti. Aplūkojiet to un piedalieties:'
-        email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{endorser_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-        email_subject: "%{endorser_nickname} ir sniedzis jaunu atbalstu."
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} atbalstīja <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: '%{name} (%{nickname}) <a href="%{resource_url}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
@@ -649,9 +636,6 @@ lv:
     reports:
       create:
         success: Ziņojums ir veiksmīgi izveidots, un to pārskatīs administrators.
-    resource_endorsements:
-      create:
-        error: Atbalstīšanas laikā radās problēma.
     scopes:
       global: Globālais darbības tvērums
       prompt: Izvēlēties darbības tvērumu

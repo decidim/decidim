@@ -384,11 +384,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Nowa inicjatywa autorstwa %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "Użytkownika %{author_name} %{author_nickname}, którego obserwujesz, zarekomendował następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: Inicjatywa rekomendowana przez %{author_nickname}
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}.'

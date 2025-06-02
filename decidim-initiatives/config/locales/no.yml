@@ -319,11 +319,6 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt initiativ av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble opprettet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
-          email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: Initiativ påtegne av %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble påtegnet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_outro: 'Du mottok dette varselet fordi du søkte på dette initiativet: %{resource_title}.'
           email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"

@@ -201,11 +201,6 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Nová iniciatíva od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola vytvorená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
-        endorse_initiative_event:
-          email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, schválil nasledujúce iniciatívu, možno chcete prispieť k konverzáciu:"
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Iniciatíva bola schválená od%{author_nickname}
-          notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
       initiative_signatures:
         finish:
           back_to_initiative: Späť na iniciatívu

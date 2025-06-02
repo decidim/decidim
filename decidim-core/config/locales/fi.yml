@@ -65,7 +65,6 @@ fi:
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/promoted_to_admin_event: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
-      decidim/resource_endorsed_event: Kohdetta suositeltu
       decidim/resource_hidden_event: Piilotettu asia
       decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
@@ -88,9 +87,6 @@ fi:
       decidim/amendment:
         one: muutos
         other: Muutokset
-      decidim/endorsement:
-        one: Suositus
-        other: Suositusta
       decidim/user:
         one: Osallistuja
         other: Osallistujat
@@ -430,9 +426,6 @@ fi:
       comments:
         one: kommentti
         other: kommentit
-      endorsements:
-        one: suositus
-        other: suositusta
       official_author: Virallinen
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -819,16 +812,6 @@ fi:
         error: Kuvan lähettäminen epäonnistui.
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
-    endorsement_buttons_cell:
-      already_endorsed: Peruuta tykkäys
-      endorse: Tykkää
-    endorsers_list:
-      endorsed_by:
-        one: Tästä on tykännyt %{visible}
-        other: Tästä on tykännyt %{visible} ja %{others}
-      others: "%{count} lisää"
-      title: Tykänneet
-      you: sinä
     ephemeral_user: Vierailija
     errors:
       files:
@@ -941,11 +924,6 @@ fi:
           email_subject: Laatimasi %{resource_type} on ilmoitettu
           notification_title: |-
             Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
-        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
       resources:
         soft_deleted:
           notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
@@ -1532,9 +1510,6 @@ fi:
         report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
-    resource_endorsements:
-      create:
-        error: Suosituksen antaminen epäonnistui.
     scopes:
       global: Yleinen teema
       prompt: Valitse teema
@@ -1630,7 +1605,6 @@ fi:
         share_to: Jaa palvelussa %{service}
     statistics:
       comments_count: Kommenttia
-      endorsements_count: Suositusta
       followers_count: Seuraajaa
       headline: Tilastot
       no_stats: Tilastoja ei vielä ole.

@@ -45,8 +45,6 @@ fr-CA:
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
-        cta_button_path: Chemin du bouton d'action
-        cta_button_text: Texte du bouton d'action
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
@@ -875,13 +873,29 @@ fr-CA:
           title: Modifier l'organisation
           update: Mettre à jour
         form:
+          admin_terms_of_service: Conditions d'utilisation administrateur
+          basic_configuration: Configuration de base
+          colors:
+            choose_color: Choisir une couleur primaire
+            colors_title: Couleurs de l'organisation
+            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste choisi avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
+            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue des couleurs, qui seront utilisées sur la plateforme.
+            legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
+            saturation: Saturation
+            title: Sélecteur de couleurs
+            update_suggested_colors: Mettre à jour les couleurs suggérées
+          extra_features: Fonctionnalités supplémentaires
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logos de l'organisation
+            preview: Aperçu
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: X
           url: URL
+          welcome_notification: Notification de bienvenue
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -890,26 +904,10 @@ fr-CA:
         edit:
           update: Mettre à jour
         form:
-          colors:
-            choose_color: Choisir une couleur primaire
-            colors_title: Couleurs de l'organisation
-            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
-            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
-            legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
-            saturation: Saturation
-            title: Sélecteur de couleurs
-            update_suggested_colors: Mettre à jour les couleurs suggérées
-          cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets:
             header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
             title: Éléments à ajouter à l'en-tête "head" HTML
-          homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
-          images:
-            layout_appearance_title: Modifier l’aspect de la mise en page
-            preview: Aperçu
-          omnipresent_banner_appearance_title: Modifier la bannière permanente
       organization_external_domain_allowlist:
         edit:
           update: Mettre à jour

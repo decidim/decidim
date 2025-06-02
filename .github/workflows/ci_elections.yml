@@ -14,7 +14,7 @@ on:
       - "decidim-elections/**"
       - "decidim-core/**"
       - "decidim-dev/**"
-      - "decidim-participatory_processes/**"      
+      - "decidim-participatory_processes/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -32,4 +32,6 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-elections"
+      bullet_n_plus_one: false
+      bullet_unused_eager_loading: false
       test_command: bundle exec parallel_test --type rspec --pattern spec/

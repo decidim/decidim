@@ -75,7 +75,7 @@ module Decidim
           checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(resource)
 
           Decidim::Conferences::UpcomingConferenceNotificationJob
-            .set(wait_until: (resource.start_date - 2.days).to_s)
+            .set(wait_until: (resource.start_date - 2.days).to_time)
             .perform_later(resource.id, checksum)
         end
 

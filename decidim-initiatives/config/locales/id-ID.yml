@@ -212,11 +212,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Inisiatif baru dengan %{author_nickname}
           notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> dibuat oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah mendukung inisiatif berikut, mungkin Anda ingin berkontribusi dalam percakapan:"
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Inisiatif yang didukung oleh %{author_nickname}
-          notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Kembali ke inisiatif
