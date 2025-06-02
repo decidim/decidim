@@ -681,11 +681,6 @@ cs:
             endorsements_count: Počet schvalování
             endorsers: Schvalující
             link: Zobrazit návrh
-            n_more_endorsers:
-              one: a další 1
-              few: a %{count} dalších
-              many: a %{count} dalších
-              other: a dalších %{count}
             photos: Fotky
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky

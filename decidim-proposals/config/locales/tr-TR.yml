@@ -187,7 +187,7 @@ tr:
           email_subject: Teklifler artık %{participatory_space_title} içinde mevcut
         endorsing_enabled:
           email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
         proposal_mentioned:
           email_intro: Yorumlarınızda <a href="%{resource_url}"> bu alanda </a> "%{mentioned_proposal_title}" önerinizden bahsedildi.
@@ -375,9 +375,6 @@ tr:
             documents: Dokümanlar
             endorsements_count: Onay sayısı
             endorsers: Onaycılar
-            n_more_endorsers:
-              one: ve 1 tane daha
-              other: ve %{count} tane daha
             photos: Resimler
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar

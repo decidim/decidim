@@ -848,20 +848,10 @@ de:
         error: Fehler beim Hochladen des Bildes.
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
-    endorsement_buttons_cell:
-      already_endorsed: Zustimmung zurückziehen
-      endorse: Gefällt mir
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
-    endorsers_list:
-      endorsed_by:
-        one: '%{visible} stimmt zu'
-        other: '%{visible} und %{others} stimmen zu'
-      others: "%{count} weitere"
-      title: Zustimmende
-      you: du
     ephemeral_user: Gast
     errors:
       files:

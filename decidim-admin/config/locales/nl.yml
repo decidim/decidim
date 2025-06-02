@@ -685,15 +685,12 @@ nl:
         edit:
           update: Bijwerken
         form:
-          colors:
-            colors_title: Organisatiekleuren
-            colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           images:
             layout_appearance_title: Weergave van de lay-out bewerken
-            preview: Voorvertoning
+            preview: Voorbeeld
           omnipresent_banner_appearance_title: Bewerk de permanente banner
       participatory_space_private_users:
         create:

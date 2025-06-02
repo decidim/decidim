@@ -841,20 +841,10 @@ ca-IT:
         error: S'ha produït un error en carregar la imatge.
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
-    endorsement_buttons_cell:
-      already_endorsed: Desfer el "M'agrada"
-      endorse: M'agrada
     endorsements:
       identities:
         done: Fet
         select_identity: Selecciona identitat
-    endorsers_list:
-      endorsed_by:
-        one: Li agrada a %{visible}
-        other: Li agrada a %{visible} i a %{others}
-      others: "%{count} més"
-      title: Li ha agradat a
-      you: tu
     ephemeral_user: Visitant
     errors:
       files:

@@ -351,9 +351,6 @@
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
             endorsers: Påtegnelser
-            n_more_endorsers:
-              one: og 1 til
-              other: og %{count} til
             photos: Bilder
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter

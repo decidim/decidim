@@ -503,8 +503,6 @@ el:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
-    endorsement_buttons_cell:
-      endorse: Μου αρέσει
     endorsements:
       identities:
         done: Τέλος

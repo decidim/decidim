@@ -556,8 +556,6 @@ ar:
         ready: جاهز
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsement_buttons_cell:
-      endorse: يعجبني
     endorsements:
       identities:
         done: تم

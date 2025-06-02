@@ -640,8 +640,6 @@ bg:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
-    endorsement_buttons_cell:
-      endorse: Харесвам
     endorsements:
       identities:
         done: Готово

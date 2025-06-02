@@ -411,13 +411,6 @@ ar:
             documents: المستندات
             endorsements_count: عد أصوات التأييدات
             endorsers: المؤيدون
-            n_more_endorsers:
-              zero: و%{count} آخرين
-              one: وواحد آخر
-              two: و%{count} آخرين
-              few: و%{count} آخرين
-              many: و%{count} آخرين
-              other: و%{count} آخرين
             photos: الصور
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة

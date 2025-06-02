@@ -805,15 +805,10 @@ ro:
         error: Eroare la încărcarea imaginii.
         success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
-    endorsement_buttons_cell:
-      endorse: Îmi place
     endorsements:
       identities:
         done: Finalizat
         select_identity: Selectare identitate
-    endorsers_list:
-      title: Apreciat de
-      you: tu
     ephemeral_user: Vizitator
     errors:
       files:

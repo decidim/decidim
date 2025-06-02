@@ -836,20 +836,10 @@ fi-pl:
         error: Kuvan lähettäminen epäonnistui.
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
-    endorsement_buttons_cell:
-      already_endorsed: Peruuta tykkäys
-      endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
-    endorsers_list:
-      endorsed_by:
-        one: Tästä on tykännyt %{visible}
-        other: Tästä on tykännyt %{visible} ja %{others}
-      others: "%{count} lisää"
-      title: Tykänneet
-      you: sinä
     ephemeral_user: Vierailija
     errors:
       files:

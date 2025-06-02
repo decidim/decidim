@@ -192,7 +192,7 @@ nl:
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
         endorsing_enabled:
           email_intro: 'U kunt voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: Je kan nu de voorstellen in %{participatory_space_title} steunen
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is in deze ruimte <a href="%{resource_url}"></a> genoemd in de reacties.
@@ -357,9 +357,6 @@ nl:
             documents: Documenten
             endorsements_count: Aantal suggesties
             endorsers: Aanbevelers
-            n_more_endorsers:
-              one: en nog 1
-              other: en %{count} meer
             photos: Foto's
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
@@ -577,7 +574,7 @@ nl:
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
-            other: en nog %{count} mensen
+            other: en nog %{count} personen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk het gezamenlijke ontwerp
           link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement

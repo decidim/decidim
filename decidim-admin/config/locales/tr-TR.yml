@@ -15,16 +15,24 @@ tr:
         description: Açıklama
         file: Dosya
         title: Ek veya resim adı
+        weight: Sıra numarası
       attachment_collection:
         description: Açıklama
         name: isim
+        weight: Sıra numarası
       category:
         description: Açıklama
         name: isim
         parent_id: ebeveyn
+        weight: Sıra numarası
       component:
         name: isim
         published_at: Yayınlandı
+        weight: Sıra numarası
+      external_domain:
+        value: Değer
+      help_section:
+        content: İçerik
       id: İD
       newsletter:
         body: Vücut
@@ -33,6 +41,7 @@ tr:
         send_to_participants: Katılımcılara gönder
         subject: konu
       organization:
+        admin_terms_of_service_body: Yönetici için kullanım şartları metin gövdesi
         alert_color: Alarm
         available_authorizations: Uygun yetkilendirmeler
         badges_enabled: Rozetleri etkinleştir
@@ -46,6 +55,8 @@ tr:
         enable_participatory_space_filters: Katılımcı alan filtrelerini etkinleştir
         facebook_handler: Facebook işleyicisi
         favicon: ikon
+        force_authentication: Kimlik doğrulamayı zorunlu kıl
+        force_users_to_authenticate_before_access_organization: Kullanıcıların organizasyona erişimeden kimlik doğrulamasını zorunlu kıl
         from: Gönderenin eposta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
@@ -58,6 +69,7 @@ tr:
         highlighted_content_banner_image: görüntü
         highlighted_content_banner_short_description: Kısa Açıklama
         highlighted_content_banner_title: Başlık
+        host: Sunucu
         instagram_handler: Instagram işleyicisi
         logo: Logo
         machine_translation_display_priority: Makine çevirisi görüntüleme önceliği
@@ -69,16 +81,22 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
+        organization_admin_email: Organizasyon yönetici e-postası
+        organization_admin_name: Organizasyon yönetici ismi
+        organization_locales: Organizasyon yerelleştirmeleri
         primary_color: Birincil
         reference_prefix: Referans öneki
         rich_text_editor_in_public_views: Katılımcılar için zengin metin düzenleyiciyi etkinleştirin
         secondary_color: İkincil
+        secondary_hosts: İkincil sunucular
         send_welcome_notification: Karşılama bildirimi gönder
         success_color: başarı
+        tertiary_color: Üçüncül
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
         twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
+        users_registration_mode: Kullanıcı kayıt modu
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
@@ -110,11 +128,13 @@ tr:
         slug: URL sümüklü böcek
         title: Başlık
         topic_id: Konu
+        weight: Sıra numarası
       static_page_topic:
         description: Açıklama
         name: Konu adı
         show_in_footer: Altbilgiyi göster
         title: Başlık
+        weight: Sıra numarası
       user_group_csv_verification:
         file: Dosya
     errors:
@@ -127,6 +147,19 @@ tr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Geçersiz resim dosyası
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Bozuk içe aktarım dosyası, lütfen yönergeleri dikkatlice gözden geçirin ve dosyanın UTF-8 ile kodlandığından emin olun.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Bozuk içe aktarım dosyası, lütfen yönergeleri dikkatlice gözden geçirin ve dosyanın UTF-8 ile kodlandığından emin olun.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Geçersiz dosya, lütfen dosyanın doğru formatta olduğundan emin olun.
+            invalid_mime_type: Geçersiz MIME türü.
   activerecord:
     attributes:
       decidim/static_page:
@@ -162,15 +195,41 @@ tr:
         export-selection: Seçimi dışa aktar
         import: İçe aktar
         manage: yönetme
+        newsletter:
+          new: Yeni bülten
+        participatory_space_private_user:
+          new: Yeni katılımcı alanı özel kullanıcısı
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
+        restore: Geri yükle
+        send_me_a_test_email: Bana bir test e-postası gönder
         share: Paylaş
+        share_tokens: Bağlantılara eriş
+        user:
+          new: Yeni yönetici
         verify: DOĞRULAYIN
+        view_deleted_components: Silinmiş bileşenleri görüntüle
+      admin_terms_of_service:
+        accept:
+          error: Yönetici kullanım koşullarını kabul ederken bir hata oluştu.
+          success: Harika! Yönetici kullanım koşullarını kabul ettiniz.
+        actions:
+          accept: Koşulları kabul ediyorum
+          are_you_sure: Yönetici kullanım koşullarını reddetmek istediğinize emin misiniz?
+          refuse: Yöneticilik koşullarını reddet
+          title: Kullanım koşullarını kabul et
+        required_review:
+          alert: 'Gerekli: Yönetici kullanım koşullarımızı inceleyin'
+          callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
+          cta: Şimdi gözden geçirin.
+        title: Yönetici kullanım koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
           success: Alan türü başarıyla oluşturuldu.
+        destroy:
+          success: Bölge türü başarıyla kaldırıldı.
         edit:
           title: Alan türünü düzenle
           update: Güncelleştirme
@@ -179,10 +238,15 @@ tr:
           title: Yeni alan tipi
         update:
           error: Bu alan türünü güncellerken bir hata oluştu.
+          success: Bölge türü başarıyla güncellendi.
       areas:
         create:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
+        deprecated: Bölgeler özelliği kullanımdan kaldırılacak olarak işaretlenmiştir ve sonraki sürümlerde kaldırılacaktır. Bunun yerine Sınıflandırmaları kullanın. Bölgeler özelliğini kullanan tek modül inisiyatiflerdir.
+        destroy:
+          has_spaces: Bu bölgeye bağımlı alanlar tespit edildi. Lütfen bu bölgeyi silmeden önce, bu bölgeyle ilintili katılımcı alanı olmadığından emin olun.
+          success: Bölge başarıyla kaldırıldı.
         edit:
           title: Alanı düzenle
           update: Güncelleştirme
@@ -192,6 +256,7 @@ tr:
         no_areas: Alan Yok
         update:
           error: Bu alanı güncellerken bir hata oluştu.
+          success: Bölge başarıyla güncellendi.
       attachment_collections:
         create:
           error: Yeni bir klasör oluştururken bir hata oluştu.
@@ -226,12 +291,22 @@ tr:
         update:
           error: Bu eki güncellerken bir hata oluştu.
           success: Ek başarıyla güncellendi.
+      attachments_privacy_warning:
+        message: Özel alanlarda eklentilerle çalışırken dikkatli olun. Herhangi bir katılımcı bu belgeyi başkalarıyla paylaşabilir.
       autocomplete:
         no_results: Sonuç bulunamadı
+        search_prompt: Arama yapmak için en az üç karakter girin.
       block_user:
+        bulk_new:
+          action: Hesapları engelle ve gerekçe gönder.
+          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizlersiniz.
+          description: Bir kullanıcıyı engellemek, kullanıcının hesabını kullanılamaz hale getirir. Gerekçenizde engeli kaldırmak için gereken yönergeleri ekleyebilirsiniz.
+          justification: Gerekçe
+          title: Kullanıcıları engelle
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
           already_reported_html: Bu işleme devam ederek katılımcıların tüm içeriklerini de gizleyebilirsiniz.
+          description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
@@ -252,12 +327,17 @@ tr:
           default_step_settings: Varsayılan adım ayarları
           global_settings: Genel Ayarlar
           step_settings: Adım ayarları
+        hide:
+          success: Bileşen menüden başarıyla gizlendi.
         index:
           add: Bileşen ekle
           headers:
             actions: Eylemler
             name: Bileşen Adı
             type: Bileşen tipi
+            visibility: Görünürlük
+        manage_trash:
+          title: Silinmiş bileşenler
         new:
           add: Bileşen ekle
           title: 'Bileşen ekle: %{name}'
@@ -269,22 +349,54 @@ tr:
         update:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
+        visibility_label:
+          published: Yayınlanmış
+          unpublished: Yayınlanmamış
       conflicts:
         attempts: Girişimler
         'false': 'Hayır'
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
+        title: Doğrulamaların çatışmaları
         transfer:
           email: E-Posta
+          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
           name: İsim
           reason: Nedeni
           success: Aktarım başarıyla tamamlandı.
           title: Aktar
         'true': 'Evet'
         user_name: Kullanıcı Adı
+      content_blocks:
+        create:
+          error: Bu içerik bloğu oluşturulurken bir sorun oluştu.
+          success: Içerik bloğu başarıyla oluşturuldu.
+        destroy:
+          error: Bu içerik bloğunu silmeye çalişirken bir sorun oluştu.  
+          success: İçerik bloğu başariyla silindi.
+        edit:
+          active_content_blocks: Etkin içerik blokları
+          add: İçerik bloğu ekle 
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizden emin misiniz?
+          inactive_content_blocks: Etkin olmayan içerik blokları
+          title: Sayfa İçeriği
+          update: Güncelle
       dashboard:
+        pending_moderations:
+          announcement:
+            one: Denetim bekleyen %{count} tane işlem var
+            other: Denetim bekleyen %{count} tane işlem var
+          goto_moderation: Küresel denetimlere git
+          title: Bekleyen denetimler
         show:
+          dropdown: Açılır liste
           view_more_logs: Daha fazla günlükleri görüntüle
+      domain_allowlist:
+        form:
+          domain_too_short: Alan adı çok kısa
+        update:
+          error: İzin verilen harici alan adı listesi güncellenemedi
+          success: İzin verilen harici alan adı listesi başarıyla güncellendi.
       exports:
         export_as: "%{name} olarak %{export_format}"
         formats:
@@ -292,8 +404,25 @@ tr:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Dış aktarım işleminiz şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       filters:
         filter_label: Filtrele
+        invitation_accepted_at_present:
+          label: Davet kabul edildi
+          values:
+            'false': 'Hayır'
+            'true': 'Evet'
+        last_sign_in_at_present:
+          values:
+            'false': 'Hayır'
+            'true': 'Evet'
+        moderated_users:
+          reports_reason_eq:
+            label: Rapor nedeni
+            values:
+              does_not_belong: Ait değil
+              offensive: Saldırgan
+              spam: İstenmeyen/Spam
         moderations:
           reportable_type_string_eq:
             label: Türü
@@ -302,6 +431,17 @@ tr:
           values:
             'false': resmileştirilmiş
             'true': Resmi değil
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Davet kabul edildi
+            values:
+              'false': Kabul edilmedi
+              'true': Kabul Edildi
+          user_invitation_sent_at_not_null:
+            label: Davet gönderildi
+            values:
+              'false': Gönderilmedi
+              'true': Gönderildi
         private_space_eq:
           label: Kişisel
           values:
@@ -312,6 +452,7 @@ tr:
           values:
             'false': Yayınlandı
             'true': Yayından kaldırıldı
+        remove_all: Tümünü kaldır
         search_label: Arama
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
@@ -319,9 +460,25 @@ tr:
           title_cont: Başlığa göre %{collection} ara.
         state_eq:
           label: Durum
+          values:
+            all: Tümü
+            pending: Bekleyen
+            rejected: Reddedilen
+            verified: Doğrulanmış
+        taxonomies:
+          taxonomy_id_eq:
+            label: Sınıflandırma
+      forms:
+        file_help:
+          import:
+            explanation: 'Dosya kılavuzu:'
+            message_1: CSV, JSON ve Excel (.xlsx) dosyaları desteklenmektedir
+            message_2: CSV dosyaları için kolonlar arasında ayraç olarak noktalı virgül (";") kullanılmalıdır
       help_sections:
+        error: Yardım bölümleri güncellenirken bir hata oluştu.
         form:
           save: Kayıt etmek
+        success: Yardım bölümleri başarıyla güncellendi.
       impersonatable_users:
         index:
           filter:
@@ -354,6 +511,48 @@ tr:
           impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
           impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
           impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
+      imports:
+        and: ve
+        data_errors:
+          duplicate_headers:
+            detail: Lütfen dosyanın gerekli sütun ve başlıkları sadece bir kere içerdiğinden emin olun.
+            message:
+              one: Yinelenen sütun %{columns}.
+              other: Yinelenen sütunlar %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
+              message:
+                one: İçe aktarılan dosyada bir hata bulundu. Satır  %{indexes}.
+                other: İçe aktarılan dosyada hatalar bulundu. Satırlar  %{indexes}.
+            records:
+              detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
+          missing_headers:
+            message:
+              one: Eksik sütun %{columns}.
+              other: Eksik sütunlar %{columns}.
+        error: İçe aktarım sırasında bir hata oluştu.
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Geri
+          download_example: Örneği indir
+          file_legend: Ayrıştırılmak üzere bir içe aktarma dosyası ekleyin.
+          import: İçe aktar
+        notice: "%{count} %{resource_name} başarıyla içe aktarıldı."
+      logs:
+        filters:
+          participatory_space: Katılımcı alanı bul
+          text: E-posta, isim veya takma ad ile arayın.
+          user: Kullanıcı
+        logs_list:
+          no_logs_yet: Henüz kayıt yok.
+          no_matching_logs: Verilen filtrelere uygun kayıt yok. Filtreleri değiştirip tekrar deneyin.
+      manage_trash:
+        deleted_items_warning: Silinmiş nesneleri görüntülüyorsunuz. Değişiklik ve düzenlemeler yapmak için önce nesneyi geri yükleyin.
       managed_users:
         promotion:
           error: Yönetilen kullanıcıyı tanıtan bir hata oluştu.
@@ -369,7 +568,10 @@ tr:
         appearance: Görünüm
         area_types: Alan türleri
         areas: alanlar
+        components: Bileşenler
         configuration: Yapılandırma
+        content: Şikayet edilmiş içerik
+        external_domain_allowlist: İzin verilen harici alan adları
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
@@ -377,10 +579,16 @@ tr:
         moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
+        reported_users: Şikayet edilmiş kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
+        see_site: Siteyi gör
         settings: Ayarlar
+        share_tokens: Bağlantılara eriş
+        static_page_topics: Konular
         static_pages: Sayfalar
+        taxonomies: Sınıflandırmalar
+        taxonomy_filters: Sınıflandırma filtreleri
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
       metrics:
@@ -434,8 +642,11 @@ tr:
             plural: Çoğul
         share_token:
           fields:
+            actions: Eylemler
             expires_at: Süre sonu
+            registered_only: Sadece kayıtlılar?
             times_used: Kullanım Sayısı
+            token: Bağlantılara eriş
         static_page:
           fields:
             created_at: Düzenlendi
@@ -444,6 +655,7 @@ tr:
           fields:
             created_at: Oluşturulma tarihi
             email: E-posta
+            last_sign_in_at: Son giriş tarihi
             name: isim
             role: rol
             roles:
@@ -463,8 +675,23 @@ tr:
       moderated_users:
         index:
           actions:
+            block: Kullanıcıyı Engelle
+            bulk_actions:
+              actions_dropdown: Eylemler
+              block:
+                title: Engelle
+                update_moderated_user_button: Kullanıcıları engelle
+              unblock:
+                title: Engelli kaldır
+                update_moderated_user_button: Kullanıcıların Engelini Kaldır
+              unreport:
+                title: Şikayeti geri çek
+            ignore:
+              update_moderated_user_button: Kullanıcıların şikayetlerini geri çek
             title: Eylemler
+            unblock: Kullanıcının Engelini Kaldır
             unreport: Bildirilmedi
+          cancel: İptal
           name: Adı
           nickname: Rumuz
           reason: Nedeni
@@ -541,14 +768,33 @@ tr:
           send_to_all_users: Tüm kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
+        send:
+          no_recipients: Bu seçim için hiç alıcı yok.
+        send_to_user:
+          sent_successfully: Bülten %{email} adresine başarıyla gönderildi
         show:
           preview: Ön izleme
           select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
+          send_me_a_test_email: Bana bir test e-postası gönder
           subject: konu
         update:
           error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       officializations:
+        block:
+          error: Katılımcıyı engellerken bir hata oluştu.
+          success: Katılımcı başarıyla engellendi.
+        bulk_action:
+          block:
+            invalid: Katılımcıyı engellerken bir hata oluştu.
+            success: Katılımcılar başarıyla engellendi.
+          unblock:
+            invalid: Katılımcıların engellemesi geri alınırken bir hata oluştu.
+            success: Katılımcıların engellemesi başarıyla geri çekildi.
+        create:
+          success: Katılımcı başarıyla resmileştirildi.
+        destroy:
+          success: Katılımcı başarıyla resmilikten çıkarıldı.
         index:
           actions: Eylemler
           badge: rozet
@@ -570,10 +816,15 @@ tr:
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
+          description: Bir katılımcıyla doğrudan iletişime geçmeniz gerekirse, e-posta adresini görmek için Göster düğmesine tıklayabilirsiniz. Bu eylem günlüğe kaydedilecek.
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
           show: Göster
+          title: Katılımcı e-posta adresini göster
+        unblock:
+          error: Katılımcının engellemesi geri alınırken bir hata oluştu.
+          success: Katılımcının engellemesi başarıyla geri alındı.
       organization:
         edit:
           title: Kuruluş düzenle
@@ -594,15 +845,24 @@ tr:
         edit:
           update: Güncelleştirme
         form:
-          colors:
-            colors_title: Organizasyon renkleri
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
           images:
             layout_appearance_title: Düzen görünümünü düzenle
-            preview: Önizleme
+            preview: Ön izleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
+      organization_external_domain_allowlist:
+        edit:
+          update: Güncelle
+        external_domain:
+          down: Aşağı
+          external_domain: Harici alan adı
+          remove: Kaldır
+          up: Yukarı
+        form:
+          add: İzin verilenler listesine ekle
+          title: İzin verilen harici alan adları
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
@@ -610,9 +870,14 @@ tr:
         destroy:
           error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
           success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
+        edit:
+          title: Katılımcı alanı özel katılımcılarını düzenle.
+          update: Güncelle
         index:
           import_via_csv: CSV'den içe aktar
+          publish_all: Tümünü yayımla
           title: Katılımcı alan özel kullanıcısı
+          unpublish_all: Tümünü yayımdan kaldır
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
@@ -620,7 +885,13 @@ tr:
         new:
           csv_upload:
             title: CSV dosyanızı yükleyin
+          destroy:
+            title: Özel Kullanıcıları kaldır
+          example_file: 'Örnek dosya:'
           upload: Yükle
+      reminders:
+        new:
+          submit: Gönder
       resource_permissions:
         edit:
           submit: Gönder
@@ -659,6 +930,21 @@ tr:
       share_tokens:
         actions:
           destroy: Sil
+          edit: Düzenle
+          preview: Ön İzleme
+        edit:
+          update: Güncelle
+        form:
+          automatic: Otomatik
+          custom: Özel
+          expires_at: Son Geçerlilik Tarihi
+          'false': 'Hayır'
+          never_expire: Asla
+          registered_only: Sadece kayıtlılar?
+          token: Erişim anahtarı
+          'true': 'Evet'
+        index:
+          copied: Erişim bağlantısı kopyalandı!
       shared:
         gallery:
           add_images: Resim ekle
@@ -725,9 +1011,14 @@ tr:
           invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
       user_groups:
         index:
+          state:
+            pending: Bekleyen
+            rejected: Reddedilen
+            verified: Doğrulanmış
           verify_via_csv: CSV ile doğrulayın
       user_groups_csv_verifications:
         new:
+          example_file: 'Örnek dosya:'
           explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
           title: CSV dosyanızı yükleyin
           upload: Yükle

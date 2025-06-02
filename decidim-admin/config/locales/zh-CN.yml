@@ -500,8 +500,6 @@ zh-CN:
         edit:
           update: 更新
         form:
-          colors:
-            colors_title: 组织颜色
           cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
           homepage_appearance_title: 编辑主页外观
           homepage_highlighted_content_banner_title: 高亮的内容素材

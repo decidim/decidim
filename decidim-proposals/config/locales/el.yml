@@ -408,9 +408,6 @@ el:
             documents: Έγγραφα
             endorsements_count: Πλήθος επιδοκιμασιών
             endorsers: Υποστηρικτές
-            n_more_endorsers:
-              one: και 1 ακόμα
-              other: και %{count} ακόμη
             photos: Φωτογραφίες
             ranking: "%{ranking} από %{total}"
             related_meetings: Σχετικές συσκέψεις

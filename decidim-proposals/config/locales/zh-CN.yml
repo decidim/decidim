@@ -310,8 +310,6 @@ zh-CN:
             documents: www.un.org/webcast
             endorsements_count: 批准次数
             endorsers: 核可者
-            n_more_endorsers:
-              other: 和 %{count} 更多
             photos: 照片
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议

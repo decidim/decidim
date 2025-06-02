@@ -60,7 +60,7 @@ eu:
       admin:
         answers:
           index:
-            title: "Guztira, %{guztira} erantzun"
+            title: "Guztira, %{total} erantzun"
           show:
             title: '#%{number} erantzun'
         exports:

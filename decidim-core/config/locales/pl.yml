@@ -633,8 +633,6 @@ pl:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
-    endorsement_buttons_cell:
-      endorse: Lubię to
     endorsements:
       identities:
         done: Gotowe

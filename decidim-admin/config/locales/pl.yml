@@ -808,15 +808,6 @@ pl:
         edit:
           update: Aktualizuj
         form:
-          colors:
-            choose_color: Wybierz kolor podstawowy
-            colors_title: Kolory organizacji
-            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
-            explanation: To narzędzie pomaga ci wybrać zestaw kolorów złożony z odcieni równomiernie rozmieszczonych na kole barw, który będzie używany na stronie internetowej organizacji.
-            legend_html: Główne kolory aplikacji, oparte na algorytmie <a href="https://www.color-meanings.com/triadic-colors/">Algorytm trójkowy</a>. <i>drugorzędowy</i> kolor jest obliczany automatycznie na podstawie koloru podstawowego i wybranej przez ciebie saturacji.
-            saturation: Saturacja
-            title: Wybór koloru
-            update_suggested_colors: Zaktualizuj sugerowane kolory
           cta_button_path_help_html: 'Możesz nadpisać lokalizację, do której prowadzi przycisk CTA na stronie głównej. Użyj częściowych ścieżek adresu, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Należy zacząć od litery. Przycisk CTA znajduje się na stronie głównej pomiędzy tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           header_snippets:

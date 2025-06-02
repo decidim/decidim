@@ -825,19 +825,10 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsement_buttons_cell:
-      already_endorsed: オススメの取り消し
-      endorse: オススメ
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
-    endorsers_list:
-      endorsed_by:
-        other: '%{visible} によるオススメ'
-      others: "%{count} 以上"
-      title: オススメ
-      you: あなた
     ephemeral_user: 訪問者
     errors:
       files:
@@ -1746,6 +1737,8 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      hide:
+        success: このリソースは非表示になっています。
       parent_hidden:
         report_details: 親リソースは非表示
     resource:
