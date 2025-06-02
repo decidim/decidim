@@ -6,16 +6,13 @@ hu:
         description: Leírás
         image: Kép
         proposals: Kapcsolódó javaslatok
-        title: Cím
       election:
         description: Leírás
         end_time: Szavazás véget ér
         start_time: Szavazás indul
-        title: Cím
       question:
         max_selections: Kiválasztások maximális száma
         min_selections: Egyik opció sem a fentiek közül
-        title: Cím
       voting:
         banner_image: Banner kép
         description: Leírás
@@ -23,7 +20,6 @@ hu:
         promoted: Támogatott
         scope_id: Hatókör
         start_time: Szavazás kezdete
-        title: Cím
     errors:
       models:
         answer:
@@ -80,6 +76,8 @@ hu:
             'false': Aláírt
         validated_eq:
           label: Érvényesített
+          values:
+            'true': Érvényesített
     components:
       elections:
         actions:
@@ -99,6 +97,9 @@ hu:
         import: Válaszjavaslatok importálása
         manage_answers: Válaszok kezelése
         manage_questions: Kérdések kezelése
+        new_answer: Új válasz
+        new_election: Új választás
+        new_question: Új kérdés
         preview: Előnézet
         publish: Közzétesz
         title: Műveletek
@@ -183,6 +184,8 @@ hu:
       trustee_zone:
         trustees:
           show:
+            elections:
+              title: Választások
             identification_keys:
               submit_legend: A fent ismertetett lépések végrehajtása után, a nyilvános azonosító kulcs szervernek való elküldésével fejezi be a folyamatot.
       votes:
@@ -207,9 +210,22 @@ hu:
           notification_title: 'A <a href="%{resource_path}">%{resource_title} </a>választás aktív itt: %{participatory_space_title}.'
     votings:
       admin:
+        ballot_styles:
+          index:
+            actions:
+              title: Műveletek
         menu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
+        monitoring_committee_election_results:
+          actions:
+            title: Műveletek
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Műveletek
+        monitoring_committee_verify_elections:
+          index:
+            title: Választások
         polling_officers:
           index:
             role_manager: menedzser
@@ -217,6 +233,9 @@ hu:
         votings:
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+      monitoring_committee_members:
+        actions:
+          title: Műveletek
       polling_officer_zone:
         closures:
           sign:
@@ -229,10 +248,15 @@ hu:
               role: A te szereped
               voting: Szavazás
       polling_officers:
+        actions:
+          title: Műveletek
         roles:
           manager: Menedzser
           president: Elnök
           unassigned: Nem hozzárendelt
+      polling_stations:
+        actions:
+          title: Műveletek
       votings:
         check_census:
           success:

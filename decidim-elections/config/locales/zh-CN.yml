@@ -12,9 +12,13 @@ zh-CN:
         end_time: 投票结束于
         start_time: 投票开始于
         title: 标题
+      polling_station:
+        title: 标题
       question:
         max_selections: 最大选择数
         min_selections: 上面没有一个选项
+        title: 标题
+      voting:
         title: 标题
     errors:
       models:
@@ -51,6 +55,9 @@ zh-CN:
         destroy: 破坏的
         edit: 编辑
         import: 导入建议以答案
+        new_answer: 新答案
+        new_election: 新的选举
+        new_question: 新问题
         preview: 预览
         publish: 发布
         title: 行动
@@ -79,6 +86,8 @@ zh-CN:
             success: 选举已成功发布。
           unpublish:
             success: 选举已成功取消发布。
+        exports:
+          elections: 选举
         models:
           answer:
             name: 答案
@@ -143,6 +152,11 @@ zh-CN:
         label: 排序选举方式
         older: 更旧的
         recent: 最近的
+      trustee_zone:
+        trustees:
+          show:
+            elections:
+              title: 选举
       votes:
         confirm:
           answer_number: 答案 %{number}
@@ -158,7 +172,7 @@ zh-CN:
           header: 已确认投票
           text: '您可以检查您的投票是否已成功地添加到选票箱，其标识符如下： <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
-          confirm: 确认您的投票
+          confirm: 确认
         messages:
           not_allowed: 此时您无权投票于此次选举。
         modal:
@@ -181,3 +195,37 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            actions:
+              title: 行动
+        models:
+          polling_station:
+            fields:
+              title: 标题
+          voting:
+            fields:
+              title: 标题
+        monitoring_committee_election_results:
+          actions:
+            title: 行动
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: 行动
+        monitoring_committee_verify_elections:
+          index:
+            title: 选举
+        votings:
+          form:
+            title: 标题
+      monitoring_committee_members:
+        actions:
+          title: 行动
+      polling_officers:
+        actions:
+          title: 行动
+      polling_stations:
+        actions:
+          title: 行动

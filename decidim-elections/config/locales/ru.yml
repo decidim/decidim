@@ -1,6 +1,1 @@
----
 ru:
-  activemodel:
-    attributes:
-      question:
-        title: Заголовок

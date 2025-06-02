@@ -133,7 +133,7 @@ de:
           label: Überprüft
           values:
             'false': Nicht überprüft
-            'true': Validiert
+            'true': Überprüft
       voting_publications:
         create:
           error: Bei der Veröffentlichung der Abstimmung ist ein Fehler aufgetreten.
@@ -680,7 +680,7 @@ de:
           try_again: Erneut versuchen
         header:
           ballot_decision: Stimme abgeben oder überprüfen
-          confirm: Bestätige deine Stimme
+          confirm: Bestätigen
           election: Wahl
           register: Registrieren
           vote_for: Über %{title} abstimmen

@@ -864,7 +864,7 @@ sv:
           homepage_highlighted_content_banner_title: Banner med utvalt innehåll
           images:
             layout_appearance_title: Redigera layout
-            preview: Förhandsgranska
+            preview: Förhandsvisa
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_external_domain_whitelist:
         edit:

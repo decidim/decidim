@@ -12,8 +12,12 @@ lv:
         end_time: Balsošana beidzas plkst.
         start_time: Balsošanas sākas plkst.
         title: Nosaukums
+      polling_station:
+        title: Nosaukums
       question:
         max_selections: Maksimālais izvēļu skaits
+        title: Nosaukums
+      voting:
         title: Nosaukums
     errors:
       models:
@@ -50,6 +54,9 @@ lv:
         destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus atbildēm
+        new_answer: Jauna atbilde
+        new_election: Jaunas vēlēšanas
+        new_question: Jauns jautājums
         preview: Priekšskatīt
         title: Darbības
       admin:
@@ -71,6 +78,8 @@ lv:
           new:
             create: Izveidot vēlēšanas
             title: Jaunas vēlēšanas
+        exports:
+          elections: Vēlēšanas
         models:
           answer:
             name: Atbilde
@@ -103,3 +112,42 @@ lv:
             answers: Atbildes
             max_selections: Maks. izvēles
             title: Nosaukums
+      trustee_zone:
+        trustees:
+          show:
+            elections:
+              title: Vēlēšanas
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            actions:
+              title: Darbības
+        models:
+          polling_station:
+            fields:
+              title: Nosaukums
+          voting:
+            fields:
+              title: Nosaukums
+        monitoring_committee_election_results:
+          actions:
+            title: Darbības
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Darbības
+        monitoring_committee_verify_elections:
+          index:
+            title: Vēlēšanas
+        votings:
+          form:
+            title: Nosaukums
+      monitoring_committee_members:
+        actions:
+          title: Darbības
+      polling_officers:
+        actions:
+          title: Darbības
+      polling_stations:
+        actions:
+          title: Darbības

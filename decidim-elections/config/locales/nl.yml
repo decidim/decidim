@@ -12,12 +12,15 @@ nl:
         end_time: Stemming eindigt op
         start_time: Stemming begint om
         title: Aanspreektitel
+      polling_station:
+        title: Aanspreektitel
       question:
         max_selections: Maximum aantal selecties
         title: Aanspreektitel
       voting:
         end_time: Stemmen eindigt
         start_time: Stemmen begint
+        title: Aanspreektitel
         voting_type: Soort stemronde
     errors:
       models:
@@ -72,6 +75,8 @@ nl:
             'true': Niet ondertekend
         validated_eq:
           label: Gevalideerd
+          values:
+            'true': Gevalideerd
     components:
       elections:
         actions:
@@ -91,6 +96,9 @@ nl:
         manage_answers: Antwoorden beheren
         manage_questions: Vragen beheren
         manage_steps: Stappen beheren
+        new_answer: Nieuw antwoord
+        new_election: Nieuwe verkiezing
+        new_question: Nieuwe vraag
         preview: Voorvertoning
         publish: Publiceren
         title: acties
@@ -425,7 +433,8 @@ nl:
           try_again: Probeer opnieuw
         header:
           ballot_decision: Stem uitbrengen of stem controleren
-          confirm: Bevestig uw stem
+          confirm: Bevestigen
+          election: Verkiezing
         messages:
           invalid_token: Je sessie in het stemhokje is niet geldig. Probeer opnieuw te stemmen.
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
@@ -509,7 +518,7 @@ nl:
               confirm_destroy: Weet je het zeker?
               destroy: Verwijderen
               edit: Bewerken
-              title: Acties
+              title: acties
             associated_census_data: Gekoppelde kiezerslijst gegevens
             title: Stembriefstijlen
           new:
@@ -552,15 +561,15 @@ nl:
               address: Adres
               polling_station_managers: Managers
               polling_station_president: Voorzitter
-              title: Titel
+              title: Aanspreektitel
           voting:
             fields:
               created_at: Aangemaakt op
               published: Gepubliceerd
-              title: Titel
+              title: Aanspreektitel
         monitoring_committee_election_results:
           actions:
-            title: Acties
+            title: acties
             view: Bekijken
           index:
             title: Kies een verkiezing waarvan je de resultaten wil zien
@@ -595,7 +604,7 @@ nl:
             title: Maak lid van controlecomité aan
         monitoring_committee_polling_station_closures:
           actions:
-            title: Acties
+            title: acties
             validate: Bevestigen
             view: Bekijk
           closures:
@@ -653,7 +662,7 @@ nl:
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
-            title: Titel
+            title: Aanspreektitel
             voting_type:
               hybrid: Hybride
               in_person: In persoon
@@ -744,7 +753,7 @@ nl:
           confirm_destroy: Weet je het zeker?
           destroy: Verwijderen
           new: Nieuw lid
-          title: Acties
+          title: acties
       polling_officer_zone:
         closures:
           back_to_polling_stations: Terug naar stembureaus
@@ -853,6 +862,8 @@ nl:
               title: Stembureaus
               voting: Stemronde
       polling_officers:
+        actions:
+          title: acties
         roles:
           manager: Manager
           president: Voorzitter
@@ -872,7 +883,7 @@ nl:
           confirm_destroy: Ben je zeker?
           destroy: Verwijderen
           edit: Bewerken
-          title: Acties
+          title: acties
       votings:
         access_code_modal:
           email: Via e-mail verzenden naar %{email}

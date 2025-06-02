@@ -240,7 +240,7 @@ sv:
           checked_out:
             description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
-          vote: Rösta i budgeten
+          vote: Rösta
         count:
           projects_count:
             one: Ett projekt
@@ -292,12 +292,12 @@ sv:
             other: röster
           you_voted: Du röstade på det här
         project_budget_button:
-          add: Lägg till
+          add: Välj
           add_descriptive: Lägg till projektet %{resource_name} till din röst.
-          added: Tillagd
+          added: Vald
           added_descriptive: Projektet %{resource_name} har lagts till din röst.
         project_filter:
-          added: Tillagd
+          added: Valda
           all: Alla
         projects_for: Projekt inom %{name}
         select_projects: Välj projekt

@@ -509,13 +509,12 @@ sk:
         edit:
           update: Aktualizovať
         form:
-          colors:
-            colors_title: Farby organizácie
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           images:
             layout_appearance_title: Upraviť vzhľad 
+            preview: Náhľad
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       organization_external_domain_whitelist:
         edit:

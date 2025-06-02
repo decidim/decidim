@@ -161,9 +161,9 @@ es-MX:
         manage_answers: Gestionar las respuestas
         manage_questions: Gestionar las preguntas
         manage_steps: Gestionar las fases
-        new_answer: Añadir respuesta
-        new_election: Añadir elección
-        new_question: Añadir pregunta
+        new_answer: Nueva respuesta
+        new_election: Nueva votación
+        new_question: Nueva pregunta
         new_trustee: Añadir garante
         preview: Vista previa
         publish: Publicar
@@ -680,7 +680,7 @@ es-MX:
           try_again: Inténtalo de nuevo
         header:
           ballot_decision: Emitir o auditar tu voto
-          confirm: Confirma tu voto
+          confirm: Confirmar
           election: Elección
           register: Regístrate
           vote_for: Vota por %{title}

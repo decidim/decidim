@@ -414,6 +414,7 @@ is:
           homepage_highlighted_content_banner_title: Hápunktur efni borði
           images:
             layout_appearance_title: Breyta útliti útlits
+            preview: Preview
       organization_external_domain_whitelist:
         edit:
           update: Uppfæra

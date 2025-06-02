@@ -12,9 +12,13 @@ tr:
         end_time: Oylama bitişi
         start_time: Oylama başlangıcı
         title: Başlık
+      polling_station:
+        title: Başlık
       question:
         max_selections: Maksimum seçim sayısı
         min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+      voting:
         title: Başlık
     errors:
       models:
@@ -65,7 +69,7 @@ tr:
         import: Teklifleri yanıtlara aktarın
         manage_answers: Cevapları yönet
         manage_questions: Soruları yönet
-        new_answer: Yeni Yanıt
+        new_answer: Yeni cevap
         new_election: Yeni seçim
         new_question: Yeni soru
         new_trustee: Yeni Vekil
@@ -244,7 +248,7 @@ tr:
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
         header:
           ballot_decision: Kullanmak
-          confirm: Oyunu onayla
+          confirm: Onayla
           election: Seçim
           register: Kayıt Olmak
           vote_for: Oy vermek
@@ -290,6 +294,7 @@ tr:
           index:
             actions:
               new: Yeni oylama Yöntemi
+              title: Eylemler
         content_blocks:
           attachments_and_folders:
             name: Oylama ekleri ve klasörleri
@@ -313,6 +318,31 @@ tr:
             name: Oylama istatistikleri
           timeline:
             name: Oylama Zaman Çizelgesi
+        menu:
+          votings_submenu:
+            info: Bu Oylama Hakkında
+        models:
+          polling_station:
+            fields:
+              title: Başlık
+          voting:
+            fields:
+              title: Başlık
+        monitoring_committee_election_results:
+          actions:
+            title: Eylemler
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Eylemler
+        monitoring_committee_verify_elections:
+          index:
+            title: Seçimler
+        votings:
+          form:
+            title: Başlık
+      monitoring_committee_members:
+        actions:
+          title: Eylemler
       pages:
         home:
           highlighted_votings:
@@ -325,9 +355,11 @@ tr:
       polling_officers:
         actions:
           new: Yeni Oylama Memuru
+          title: Eylemler
       polling_stations:
         actions:
           new: Oy verme yeri
+          title: Eylemler
       votings:
         show:
           title: Bu Oylama Hakkında

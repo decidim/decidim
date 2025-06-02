@@ -12,6 +12,8 @@ pt:
         end_time: Votação termina às
         start_time: Votação inicia-se às
         title: Título
+      polling_station:
+        title: Título
       question:
         max_selections: Número máximo de seleções
         min_selections: Nenhuma das opções acima
@@ -19,6 +21,7 @@ pt:
       voting:
         end_time: A votação termina
         start_time: A votação inicia
+        title: Título
         voting_type: Tipo de votação
     errors:
       models:
@@ -81,6 +84,8 @@ pt:
             'true': Não assinado
         validated_eq:
           label: Validado
+          values:
+            'true': Validado
     components:
       elections:
         actions:
@@ -101,6 +106,9 @@ pt:
         manage_answers: Gerir as respostas
         manage_questions: Gerir as perguntas
         manage_steps: Gerir as etapas
+        new_answer: Nova resposta
+        new_election: Nova eleição
+        new_question: Nova pergunta
         preview: Pré-visualizar
         publish: Publicar
         title: Ações
@@ -501,7 +509,8 @@ pt:
           try_again: Tente de novo
         header:
           ballot_decision: Registe ou audite o seu voto
-          confirm: Confirmar o seu voto
+          confirm: Confirmar
+          election: Eleição
         messages:
           invalid_token: A sua sessão na cabine de voto não é válida. Tente votar de novo.
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
@@ -593,7 +602,7 @@ pt:
               confirm_destroy: Tem a certeza?
               destroy: Eliminar
               edit: Editar
-              title: Acções
+              title: Ações
             associated_census_data: Entradas de recenseamento associadas
             title: Estilos de boletim de voto
           new:
@@ -647,7 +656,7 @@ pt:
               title: Título
         monitoring_committee_election_results:
           actions:
-            title: Acções
+            title: Ações
             view: Visualizar
           index:
             title: Escolher uma eleição de qual quer ver os resultados
@@ -683,7 +692,7 @@ pt:
             title: Criar membro da comissão de controlo
         monitoring_committee_polling_station_closures:
           actions:
-            title: Acções
+            title: Ações
             validate: Validado
             view: Visualizar
           closures:
@@ -841,7 +850,7 @@ pt:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
           new: Novo membro
-          title: Acções
+          title: Ações
       polling_officer_zone:
         closures:
           back_to_polling_stations: Retroceder para as secções de voto
@@ -953,7 +962,7 @@ pt:
         actions:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
-          title: Acções
+          title: Ações
         roles:
           manager: Gestor
           president: Presidente
@@ -973,7 +982,7 @@ pt:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
           edit: Editar
-          title: Acções
+          title: Ações
       votings:
         access_code_modal:
           email: Enviar e-mail para %{email}

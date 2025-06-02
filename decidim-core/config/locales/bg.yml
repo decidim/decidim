@@ -676,7 +676,6 @@ bg:
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
       already_endorsed: Не харесвам
-      endorse: Харесвам
     endorsements:
       identities:
         done: Готово

@@ -132,7 +132,7 @@ el:
           label: Επιβεβαιωμένο
           values:
             'false': Μη επιβεβαιωμένο
-            'true': Επικυρωμένες
+            'true': Επιβεβαιωμένο
     components:
       elections:
         actions:
@@ -153,6 +153,9 @@ el:
         manage_answers: Διαχείριση απαντήσεων
         manage_questions: Διαχείριση ερωτήσεων
         manage_steps: Διαχείριση βημάτων
+        new_answer: Νέα απάντηση
+        new_election: Νέα εκλογή
+        new_question: Νέα ερώτηση
         preview: Προεπισκόπηση
         publish: Δημοσίευση
         title: Ενέργειες
@@ -652,6 +655,9 @@ el:
           lead: Η ψήφος σας δεν έχει καταχωρηθεί!
           text: Παρουσιάστηκε σφάλμα, δοκιμάστε ξανά.
           try_again: Προσπαθήστε ξανά
+        header:
+          confirm: Επιβεβαίωση
+          election: Εκλογές
         messages:
           invalid_token: Η συνεδρία σας στο παραβάν ψηφοφορίας δεν είναι έγκυρη. Προσπαθήστε να ψηφίσετε ξανά.
           not_allowed: Αυτή τη στιγμή δεν επιτρέπεται να ψηφίσετε σε αυτές τις εκλογές.

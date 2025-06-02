@@ -730,7 +730,7 @@ cs:
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
       already_endorsed: Nelíbí se mi
-      endorse: Líbí se mi
+      endorse: Like
     endorsements:
       identities:
         done: Hotovo
@@ -1480,6 +1480,8 @@ cs:
     reported_mailer:
       hide:
         hello: Zdravím %{name},
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
+        subject: Zdroj byl automaticky skryt
       report:
         authors: Autoři
         content: Nahlášený obsah

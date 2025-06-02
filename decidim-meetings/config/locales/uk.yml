@@ -112,7 +112,6 @@ uk:
           notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:

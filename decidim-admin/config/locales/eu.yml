@@ -48,8 +48,8 @@ eu:
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Ekintza-botoiaren testua
-        cta_button_text: Ekintza-botoiaren testua
+        cta_button_path: Ekintza-dei botoiaren bidea
+        cta_button_text: Ekintza-dei botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -867,7 +867,7 @@ eu:
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
           images:
             layout_appearance_title: Editatu itxura globalaren itxura
-            preview: Aurrebistaratu
+            preview: Aurreikusi
           omnipresent_banner_appearance_title: Editatu banner nonahikoa
       organization_external_domain_whitelist:
         edit:

@@ -665,7 +665,7 @@ pt-BR:
           try_again: Tente novamente
         header:
           ballot_decision: Transmita ou audite seu voto
-          confirm: Confirme seu voto
+          confirm: Confirmar
           election: Eleição
           register: Registrar-se
         messages:
@@ -818,7 +818,6 @@ pt-BR:
             name: Linha do tempo da votação
         index:
           published: Publicado
-          unpublished: Despublicado
         menu:
           votings: Votações
           votings_submenu:

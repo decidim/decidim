@@ -668,7 +668,7 @@ ja:
           try_again: 再実行
         header:
           ballot_decision: 投票を行うか監査する
-          confirm: 投票を確定
+          confirm: 確定
           election: 選挙
           register: 登録
           vote_for: '%{title} に投票'

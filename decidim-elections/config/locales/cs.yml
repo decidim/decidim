@@ -151,7 +151,7 @@ cs:
           label: Ověřeno
           values:
             'false': Neschváleno
-            'true': Schváleno
+            'true': Ověřeno
       voting_publications:
         create:
           error: Při publikování tohoto hlasování došlo k chybě.
@@ -704,7 +704,7 @@ cs:
           try_again: Zkuste to znovu
         header:
           ballot_decision: Zahlasování nebo audit vašeho hlasování
-          confirm: Potvrďte svůj hlas
+          confirm: Potvrdit
           election: Volby
           register: Registrovat
           vote_for: Hlasujte pro %{title}

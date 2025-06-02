@@ -133,7 +133,7 @@ eu:
           label: Baliozkotuta
           values:
             'false': Baliozkotu gabe
-            'true': Baliozkotua
+            'true': Baliozkotuta
       voting_publications:
         create:
           error: Arazo bat sortu da bozketa hau argitaratzean.
@@ -145,7 +145,7 @@ eu:
       elections:
         actions:
           vote: Eman babesa
-        name: Bozketak
+        name: Hauteskundeak
         settings:
           global:
             announcement: Iragarpena
@@ -162,7 +162,7 @@ eu:
         manage_questions: Kudeatu galderak
         manage_steps: Kudeatu urratsak
         new_answer: Beste erantzun bat
-        new_election: Beste aukera bat
+        new_election: Beste hauteskunde bat
         new_question: Beste galdera bat
         new_trustee: Beste bermatzaile bat
         preview: Aurrebistaratu
@@ -207,16 +207,16 @@ eu:
             invalid: Arazo bat egon da aukera hau ezabatzean.
             success: Aukera ondo ezabatua.
           edit:
-            title: Editatu aukera
-            update: Eguneratu aukera
+            title: Editatu hauteskundea
+            update: Eguneratu hauteskundea
           form:
             organization_time_zone: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{time_zone} (%{time}).
           index:
             no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Iragarki Taula </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
-            title: Aukerak
+            title: Hauteskundeak
           new:
-            create: Sortu aukera
-            title: Beste aukera bat
+            create: Sortu hauteskundea
+            title: Beste hauteskunde bat
           publish:
             success: Aukera zuzen argitaratu da.
           unpublish:
@@ -225,7 +225,7 @@ eu:
             invalid: Arazo bat egon da aukera hau eguneratzean.
             success: Aukera ondo eguneratua.
         exports:
-          elections: Bozketak
+          elections: Hauteskundeak
           feedback_form_answers: Erantzunen feedbacka
         mailers:
           trustee_mailer:
@@ -617,7 +617,7 @@ eu:
                 election: Aukera
                 voting_period: Bozketa-aldia
               no_elections: Ez dago aukerarik zuk bermatzaile gisa aritzeko.
-              title: Bozketak
+              title: Hauteskundeak
             identification_keys:
               cancel: Utzi
               generate: Sortu identifikatzeko gakoak
@@ -680,8 +680,8 @@ eu:
           try_again: Saiatu berriro
         header:
           ballot_decision: Eman edo ikuskatu zure babesa
-          confirm: Berretsi
-          election: Hautaketa
+          confirm: Baieztatu
+          election: Aukera
           register: Erregistroa
           vote_for: '%{title} (r) en alde bozkatu'
         messages:
@@ -773,7 +773,7 @@ eu:
       related_elections:
         see_all: Ikusi aukera guztiak
     statistics:
-      elections_count: Bozketak
+      elections_count: Hauteskundeak
       votings_count: Bozketak
     votings:
       admin:
@@ -954,7 +954,7 @@ eu:
             how_to_run_verifier: 'Fitxategia deskargatu eta ondo dagoela ziurtatu ondoren, egiaztatzaile unibertsala exekuta dezakezu. Klona ezazu biltegi hau <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> eta, erro-karpetatik, exekuta ezazu ondoko komandoa:'
             how_to_title: Nola egiaztatu aukera baten balioa
             not_available: Oraindik ez dago erabilgarri
-            title: Bozketak
+            title: Hauteskundeak
         polling_officers:
           create:
             invalid: Arazo bat egon da mahaiko kudeatzailea sortzean.
@@ -1329,8 +1329,8 @@ eu:
           year_placeholder: UUUU
         count:
           title:
-            one: "Boto %{count}"
-            other: "%{count} boto"
+            one: "%{count} bozketa"
+            other: "%{count} bozketa"
         elections_log:
           description: Aukeraren erregistroak bozketa bakoitzari buruzko informazio garrantzitsu guztia erakutsiko dizu. Adibidez, gako-zeremoniaren edo zenbaketaren egoera edo emaitzak argitaratuta dauden. Egin klik erregistroari buruzko informazioa nahi duzun aukeran.
           title: Aukeraketaren erregistroa

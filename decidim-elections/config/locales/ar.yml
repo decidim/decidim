@@ -19,6 +19,8 @@ ar:
         confirm_destroy: أأنت متأكد؟
         edit: تعديل
       admin:
+        exports:
+          elections: الانتخابات
         models:
           answer:
             name: الإجابة
@@ -39,6 +41,8 @@ ar:
       trustee_zone:
         trustees:
           show:
+            elections:
+              title: الانتخابات
             identification_keys:
               cancel: إلغاء
     votings:
@@ -48,7 +52,6 @@ ar:
             actions:
               destroy: حذف
               edit: تعديل
-              title: الإجراءات
         models:
           monitoring_committee_member:
             fields:
@@ -56,16 +59,12 @@ ar:
           polling_officer:
             fields:
               name: الاسم
-        monitoring_committee_election_results:
-          actions:
-            title: الإجراءات
-        monitoring_committee_polling_station_closures:
-          actions:
-            title: الإجراءات
+        monitoring_committee_verify_elections:
+          index:
+            title: الانتخابات
       monitoring_committee_members:
         actions:
           destroy: حذف
-          title: الإجراءات
       polling_officer_zone:
         closures:
           edit:
@@ -84,7 +83,6 @@ ar:
         actions:
           confirm_destroy: أأنت متأكد؟
           destroy: حذف
-          title: الإجراءات
       polling_stations:
         actions:
           confirm_destroy: أأنت متأكد؟

@@ -84,6 +84,8 @@ ro:
             'true': Nu este semnat
         validated_eq:
           label: Validat
+          values:
+            'true': Validat
     components:
       elections:
         actions:
@@ -104,6 +106,9 @@ ro:
         manage_answers: Gestionare răspunsuri
         manage_questions: Gestionează întrebările
         manage_steps: Gestionați pașii
+        new_answer: Răspuns nou
+        new_election: Alegeri noi
+        new_question: Întrebare nouă
         preview: Previzualizare
         publish: Publică
         title: Acțiuni
@@ -441,7 +446,8 @@ ro:
         failed:
           header: Vot eșuat
         header:
-          confirm: Confirmă votul tău
+          confirm: Confirmare
+          election: Alegeri
         messages:
           invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
