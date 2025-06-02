@@ -121,6 +121,8 @@ module Decidim
       end
 
       def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
         gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
                   "# config.action_controller.raise_on_missing_callback_actions = false"
         gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
