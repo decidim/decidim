@@ -29,16 +29,16 @@
       <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
       <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
     </button>
-    <div id="dropdown-menu-search" aria-hidden="true">
-      <div>
+    <ul id="dropdown-menu-search" aria-hidden="true">
+      <li>
         <%= link_to main_search_path, class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == nil}" do %>
           <%= resource_type_icon("all") %>
           <span><%= t("all", scope: "decidim.searches.filters.state") %></span>
           <span class="label ml-auto"><%= @results_count %></span>
         <% end %>
-      </div>
+      </li>
       <% @blocks.each do |elements| %>
-        <div>
+        <li>
           <% elements.each do |type, results| %>
             <div>
               <% if results[:count].positive? %>
@@ -56,8 +56,8 @@
               <% end %>
             </div>
           <% end %>
-        </div>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
 </nav>
