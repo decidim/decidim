@@ -4,7 +4,7 @@
   <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.initiatives.no_initiatives_warning"), callout_class: "warning") %>
 <% end %>
 
-<h2 class="h5 md:h3 decorator"><%= t("title", scope: "decidim.initiatives.initiatives.count", count: initiatives.total_count) %></h2>
+<h2 class="h5 md:h3 decorator" role="status" aria-atomic="true"><%= t("title", scope: "decidim.initiatives.initiatives.count", count: initiatives.total_count) %></h2>
 
 <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
 
