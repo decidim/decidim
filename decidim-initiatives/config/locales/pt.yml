@@ -307,11 +307,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que você segue, endossou a iniciativa seguinte, talvez você queira contribuir para a conversa:"
-          email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: Iniciativa endossada por %{author_nickname}
-          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} aceitou a sua candidatura para fazer parte da comissão promotora da iniciativa %{resource_title}."
           email_outro: 'Recebeu esta notificação porque se candidatou esta iniciativa: %{resource_title}'

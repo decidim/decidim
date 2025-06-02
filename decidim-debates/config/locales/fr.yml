@@ -30,7 +30,6 @@ fr:
         actions:
           comment: Commenter
           create: Créer un débat
-          endorse: Soutenir
         name: Débats
         settings:
           global:
@@ -43,8 +42,6 @@ fr:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
             creation_enabled: Les participants peuvent créer des débats
-            endorsements_blocked: Soutiens bloqués
-            endorsements_enabled: Soutiens activés
     debates:
       actions:
         close: Fermer
@@ -238,7 +235,6 @@ fr:
           conclusions: Les conclusions du débat s'il est clos
           created_at: La date et l'heure de création du débat
           description: La description du débat
-          endorsements_count: Le nombre de soutiens au débat
           follows_count: Le nombre de personnes qui suivent ce débat
           id: L'identifiant unique du débat
           last_comment_by: Les données du dernier commentaire du débat

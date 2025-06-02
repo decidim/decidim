@@ -47,7 +47,6 @@ pt-BR:
       decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/promoted_to_admin_event: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
-      decidim/resource_endorsed_event: Recurso endossado
       decidim/resource_hidden_event: Conteúdo ocultado
       decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
@@ -65,9 +64,6 @@ pt-BR:
       decidim/amendment:
         one: Emenda
         other: Emendas
-      decidim/endorsement:
-        one: Endosso
-        other: Endossos
       decidim/user:
         one: Nenhum usuário
         other: Comercial
@@ -370,9 +366,6 @@ pt-BR:
       comments:
         one: comentário
         other: comentários
-      endorsements:
-        one: endosso
-        other: endossos
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -623,8 +616,6 @@ pt-BR:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
-    endorsement_buttons_cell:
-      endorse: Like
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
@@ -728,11 +719,6 @@ pt-BR:
           notification_title: |-
             Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que você está seguindo, acabou de aprovar "%{resource_title}" e achamos que pode ser interessante para você. Confira e contribua:'
-        email_outro: Você recebeu esta notificação porque está seguindo %{endorser_nickname}. Você pode parar de receber notificações após o link anterior.
-        email_subject: "%{endorser_nickname} realizou um novo endosso"
-        notification_title: O <a href="%{resource_path}">%{resource_title}</a> %{resource_type} foi endossado por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
@@ -1133,9 +1119,6 @@ pt-BR:
     reports:
       create:
         success: O relatório foi criado com sucesso e será revisto por um administrador.
-    resource_endorsements:
-      create:
-        error: Houve um problema durante a ação de endosso.
     scopes:
       global: Âmbito global
       prompt: Selecione um âmbito
@@ -1217,7 +1200,6 @@ pt-BR:
         share_to: Compartilhar com %{service}
     statistics:
       comments_count: Comentários
-      endorsements_count: Endossos
       followers_count: Seguidores
       headline: Estatísticas
       no_stats: Ainda não há estatísticas.

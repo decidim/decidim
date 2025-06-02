@@ -72,7 +72,6 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă susținută
       decidim/resource_hidden_event: Conținut ascuns
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
@@ -97,10 +96,6 @@ ro:
         one: Amendament
         few: Amendamente
         other: Amendamente
-      decidim/endorsement:
-        one: Susținere
-        few: Susținători
-        other: Susțineri
       decidim/user:
         one: Participant
         few: Participanți
@@ -450,10 +445,6 @@ ro:
         one: comentariu
         few: comentarii
         other: comentarii
-      endorsements:
-        one: susținere
-        few: susțineri
-        other: susțineri
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -787,11 +778,6 @@ ro:
         error: Eroare la încărcarea imaginii.
         success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
-    endorsement_buttons_cell:
-      endorse: Îmi place
-    endorsers_list:
-      title: Apreciat de
-      you: tu
     ephemeral_user: Vizitator
     errors:
       files:
@@ -908,11 +894,6 @@ ro:
           notification_title: |-
             Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
-        email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
-        email_subject: "%{endorser_nickname} a susținut un conținut nou"
-        notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Un administrator a șters "%{resource_type}" "%{resource_title}".
@@ -1299,9 +1280,6 @@ ro:
       controls_label: Control resursă
     resource_autocomplete:
       help: Tastați pentru a căuta propuneri
-    resource_endorsements:
-      create:
-        error: A apărut o problemă în timpul înregistrării susținerii.
     scopes:
       global: Domeniul global de interes
       prompt: Selectează un domeniu
@@ -1382,7 +1360,6 @@ ro:
     statistics:
       comments_count: Comentarii
       comments_count_tooltip: Numărul total de comentarii postate în acest spațiu.
-      endorsements_count: Susțineri
       followers_count: Urmăritori
       followers_count_tooltip: Numărul de utilizatori care urmăresc orice parte a acestui spațiu pentru a rămâne la curent.
       headline: Statistici

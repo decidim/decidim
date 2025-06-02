@@ -45,7 +45,6 @@ pl:
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/promoted_to_admin_event: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
-      decidim/resource_endorsed_event: Zasoby zatwierdzone
       decidim/resource_hidden_event: Zasób ukryty
       decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
@@ -65,11 +64,6 @@ pl:
         few: Poprawki
         many: Poprawki
         other: Poprawki
-      decidim/endorsement:
-        one: Rekomendacja
-        few: Rekomendacje
-        many: Rekomendacje
-        other: Rekomendacje
       decidim/user:
         one: Użytkownik
         few: Użytkownicy
@@ -353,11 +347,6 @@ pl:
         few: komentarze
         many: komentarze
         other: komentarze
-      endorsements:
-        one: rekomendacja
-        few: rekomendacje
-        many: rekomendacje
-        other: rekomendacje
       official_author: Oficjalny
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -619,8 +608,6 @@ pl:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
-    endorsement_buttons_cell:
-      endorse: Lubię to
     errors:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
@@ -728,11 +715,6 @@ pl:
           notification_title: |-
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
-        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-        email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
-        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
@@ -1159,9 +1141,6 @@ pl:
     reports:
       create:
         success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
-    resource_endorsements:
-      create:
-        error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
       prompt: Wybierz zakres
@@ -1249,7 +1228,6 @@ pl:
         share_to: Udostępnij na %{service}
     statistics:
       comments_count: Komentarze
-      endorsements_count: Rekomendacje
       followers_count: Obserwujący
       headline: Statystyki
       no_stats: Nie ma jeszcze żadnych statystyk.
