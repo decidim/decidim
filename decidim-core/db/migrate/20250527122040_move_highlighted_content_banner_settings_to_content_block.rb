@@ -5,12 +5,16 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
     self.table_name = :decidim_organizations
   end
 
+  class ContentBlock < ApplicationRecord
+    self.table_name = :decidim_content_blocks
+  end
+
   def up
     Organization.reset_column_information
-    Decidim::ContentBlock.reset_column_information
+    ContentBlock.reset_column_information
 
     Organization.find_each do |organization|
-      content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
+      content_block = ContentBlock.find_by(organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
       settings = {}
 
       title = organization.highlighted_content_banner_title || {}
@@ -29,6 +33,7 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
       settings["action_button_url"] = action_button_url
 
       background_image = organization.highlighted_content_banner_image || ""
+      # byebug
       content_block.images_container.background_image = background_image.blob unless background_image.empty?
 
       content_block.settings = settings
