@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const censusForm = document.querySelector(".census-form");
+  if (!censusForm) {
+    return;
+  }
+
   const externalRadio = document.getElementById("csv_radio_button");
   const internalRadio = document.getElementById("permissions_radio_button");
 
