@@ -28,7 +28,8 @@ module Decidim
         validate :notify_missing_attachment_if_errored
 
         def map_model(model)
-          translated_attribute(model.body)
+          body = translated_attribute(model.body)
+          Decidim::ContentRenderers::BaseRenderer.new(body).map(&:name).map(&:downcase)
         end
 
         alias component current_component
