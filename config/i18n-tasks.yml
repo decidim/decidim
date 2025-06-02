@@ -121,7 +121,6 @@ ignore_missing:
   - date.month_names
   - explanation
 
-
 # Consider these keys used:
 ignore_unused:
   - devise.*
