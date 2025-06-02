@@ -19,6 +19,8 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute :welcome_text, type: :text, translated: true
+              settings.attribute :cta_button_path, type: :string, translated: true
+              settings.attribute :cta_button_text, type: :string, translated: true
             end
 
             content_block.default!

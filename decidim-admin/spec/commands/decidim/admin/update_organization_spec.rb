@@ -20,7 +20,8 @@ module Decidim::Admin
             admin_terms_of_service_body: { en: Faker::Lorem.paragraph },
             rich_text_editor_in_public_views: true,
             machine_translation_display_priority: "translation",
-            enable_machine_translations: true
+            enable_machine_translations: true,
+            favicon: upload_test_file(Decidim::Dev.test_file("icon.png", "image/png"))
           }
         }
       end
@@ -52,6 +53,24 @@ module Decidim::Admin
         end
       end
 
+      describe "when the organization is not valid" do
+        before do
+          allow(form).to receive(:invalid?).and_return(false)
+          expect(organization).to receive(:valid?).at_least(:once).and_return(false)
+          organization.errors.add(:official_img_footer, "File resolution is too large")
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+        end
+
+        it "adds errors to the form" do
+          command.call
+
+          expect(form.errors[:official_img_footer]).not_to be_empty
+        end
+      end
+
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
@@ -78,6 +97,15 @@ module Decidim::Admin
           expect(translated(organization.description)).to eq("My super description")
           expect(organization.rich_text_editor_in_public_views).to be(true)
           expect(organization.enable_machine_translations).to be(true)
+        end
+
+        context "when there is a favicon in the params" do
+          it "does set a favicon for the organization" do
+            command.call
+            organization.reload
+
+            expect(organization.attached_uploader(:favicon).variant_url(:small)).to be_present
+          end
         end
       end
     end
