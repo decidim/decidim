@@ -5,7 +5,6 @@ const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
-  // to attach tribute to the rich text editor.
   if ($mentionContainer.parent().hasClass("editor")) {
     return;
   }
