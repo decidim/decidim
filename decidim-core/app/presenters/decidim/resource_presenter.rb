@@ -10,7 +10,7 @@ module Decidim
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
 
-        renderer = Decidim::ContentRenderers::LinkRenderer.new(content)
+        renderer = Decidim::ContentRenderers::BaseRenderer.new(content)
         renderer.render(links:, extras:).html_safe
       end
     end
