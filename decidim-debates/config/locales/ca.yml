@@ -30,7 +30,6 @@ ca:
         actions:
           comment: Comentar
           create: Crear un debat
-          endorse: Adherir-se
         name: Debats
         settings:
           global:
@@ -47,8 +46,6 @@ ca:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear debats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
     debates:
       actions:
         close: Tanca
@@ -259,7 +256,6 @@ ca:
           created_at: La data i l'hora en què es va tancar aquest debat
           description: La descripció del debat
           end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar
-          endorsements_count: El número d'adhesions que té aquest debat
           follows_count: El número de seguidores que té aquest debat
           id: L'identificador únic del debat
           information_updates: Les actualitzacions de contingut del debat que va fer l'autora

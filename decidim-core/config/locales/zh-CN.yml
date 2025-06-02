@@ -45,8 +45,6 @@ zh-CN:
     models:
       decidim/amendment:
         other: 修 正 案
-      decidim/endorsement:
-        other: 授权
       decidim/user:
         other: 参加者
   booleans:
@@ -191,8 +189,6 @@ zh-CN:
     author:
       comments:
         other: 评论
-      endorsements:
-        other: 核准
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -418,11 +414,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, 你正在关注, 刚刚支持"%{resource_title}", 我们认为它对你可能很感兴趣。 查看并贡献：'
-        email_outro: 您收到此通知是因为您正在关注 %{endorser_nickname}。您可以停止收到跟随上一个链接的通知。
-        email_subject: "%{endorser_nickname} 执行了新的授权"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 认可。
       users:
         profile_updated:
           email_intro: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_url}">个人资料页面</a> 已经更新。
@@ -677,9 +668,6 @@ zh-CN:
     reports:
       create:
         success: 报告已成功创建，将由管理员审核。
-    resource_endorsements:
-      create:
-        error: 在批准行动中出现了一个问题。
     scopes:
       global: 全球范围
       prompt: 选择范围

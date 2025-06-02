@@ -253,11 +253,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: '%{author_nickname} ir jauna iniciatīva'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> izveidoja iniciatīvu <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kam jūs sekojat, ir atbalstījis šo iniciatīvu, iespējams, jūs vēlaties iesaistīties sarunā par to:"
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Iniciatīvu atbalstīja %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīvu atbalstīja <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas

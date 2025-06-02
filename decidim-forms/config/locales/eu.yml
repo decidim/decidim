@@ -134,7 +134,7 @@ eu:
             export_response:
               title: galdetegia_parte-hartzailea_erantzunak_%{token}
             index:
-              title: "Guztira, %{guztira} erantzun"
+              title: "Guztira, %{total} erantzun"
             show:
               title: '#%{number} erantzun'
           separator:

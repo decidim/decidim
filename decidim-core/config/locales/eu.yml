@@ -72,8 +72,8 @@ eu:
       decidim/promote_to_admin: Taldeko administratzaile mailara igota
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldetik kenduta
-      decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
+      decidim/resource_liked_event: Ezkutuko likea
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
@@ -95,9 +95,9 @@ eu:
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
-      decidim/endorsement:
-        one: Atxikimendua
-        other: Atxikimenduak
+      decidim/like:
+        one: Likea
+        other: Likeak
       decidim/user:
         one: Parte-hartzailea
         other: Parte-hartzaileak
@@ -437,9 +437,9 @@ eu:
       comments:
         one: iruzkina
         other: iruzkinak
-      endorsements:
-        one: atxikimendua
-        other: atxikimenduak
+      likes:
+        one: likea
+        other: likeak
       official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -586,6 +586,10 @@ eu:
         name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
+        cta_button_path: Deitu Ekintza-botoiaren URLa
+        cta_button_path_help: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
+        cta_button_text: Deitu Ekintza-botoiaren testua
+        cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
         welcome_text: Ongi etorri testua
       highlighted_content_banner:
         name: Nabarmendutako edukia banner
@@ -826,16 +830,6 @@ eu:
         error: Akats bat izan da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
-    endorsement_buttons_cell:
-      already_endorsed: Desegin "atsegin dut"
-      endorse: Atsegin dut
-    endorsers_list:
-      endorsed_by:
-        one: 'Nork atsegin du: %{visible}'
-        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
-      others: "%{count} gehiago"
-      title: 'Nork atsegin du:'
-      you: zu(k)
     ephemeral_user: Bisitaria
     errors:
       files:
@@ -958,11 +952,11 @@ eu:
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: 'Jarraitzen duzun hau %{endorser_name} %{endorser_nickname} honi atxiki zaio "%{resource_title}" zure interesekoa izan daiteke, egiaztatu eta lagundu:'
-        email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
-        email_subject: "%{endorser_nickname} proposamen bati atxiki zaio"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> atxiki zaio honako proposamen honi <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname} -k, zu jarraitzen ari zarenak, "%{resource_title}" atsegin du eta uste dugu interesatu ahal zaizula. Egiaztatu eta lagundu:'
+        email_outro: Jakinarazpen hau jaso duzu %{liker_nickname} jarraitzen duzulako. Ondorengo estekan sartu jakinarazpenak jasotzeari uzteko.
+        email_subject: "%{liker_nickname} -k beste bat atsegin du"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} ategin du.
       resources:
         soft_deleted:
           notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
@@ -1113,6 +1107,16 @@ eu:
         last_activity: Azken jarduerak
       name: Azken jarduerak
       no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
+    like_buttons_cell:
+      already_liked: Desegin "atsegin dut"
+      like: Atsegin dut
+    likes_list:
+      liked_by:
+        one: 'Nork atsegin du: %{visible}'
+        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
+      others: "%{count} gehiago"
+      title: 'Nork atsegin du:'
+      you: zu(k)
     linked_resource_from:
       included_in: Honen barne
     links:
@@ -1573,9 +1577,9 @@ eu:
       controls_label: Baliabideen kontrolak
     resource_autocomplete:
       help: Bilatu beharreko proposamen-mota
-    resource_endorsements:
+    resource_likes:
       create:
-        error: Arazo bat egon da atxikimendu-ekintzan zehar.
+        error: Arazo bat egon da atsegin-ekintzan zehar.
     scopes:
       global: Eremu orokorra
       prompt: Hautatu eremua
@@ -1673,10 +1677,10 @@ eu:
     statistics:
       comments_count: Iruzkinak
       comments_count_tooltip: Espazio honetan dauden iruzkin guztiak.
-      endorsements_count: Atxikimenduak
       followers_count: Jarraitzaileak
       followers_count_tooltip: Zenbat erabiltzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
+      likes_count: Likeak
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Parte-hartzaileak
@@ -1996,7 +2000,7 @@ eu:
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_time_zone: ordu-zona ez da baliozkoa
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
-      must_start_with_caps: letra maiuskulaz hasi behar da
+      must_start_with_caps: letra larriz hasi behartu
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
       not_locked: ez zen blokeatuta

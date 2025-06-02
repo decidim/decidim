@@ -58,7 +58,6 @@ ro:
               not_official: Nu sunt oficiale
     models:
       decidim/proposals/creation_enabled_event: Crearea de propuneri este activată
-      decidim/proposals/endorsing_enabled_event: Susținerea propunerii este activată
       decidim/proposals/proposal_mentioned_event: Propunere menționată
       decidim/proposals/publish_proposal_event: Propunere publicată
       decidim/proposals/voting_enabled_event: Votare propunerii este activată
@@ -108,7 +107,6 @@ ro:
         actions:
           amend: Trimite un amendament
           comment: Comentează
-          endorse: Susține
           vote_comment: Votează comentariul
           withdraw: Retrage
         name: Propuneri
@@ -125,7 +123,6 @@ ro:
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_options:
               most_commented: Cele mai comentate
-              most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite
               random: Aleator
               recent: Recente
@@ -167,13 +164,10 @@ ro:
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_options:
               most_commented: Cele mai comentate
-              most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
-            endorsements_blocked: Susțineri blocate
-            endorsements_enabled: Susțineri activate
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
             publish_answers_immediately: Publică imediat răspunsurile la propunere
             suggested_hashtags: Hashtag-uri sugerate participanţilor pentru noi propuneri
@@ -210,10 +204,6 @@ ro:
           email_intro: 'Acum poți crea propuneri noi pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Propunerile sunt acum disponibile pentru %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Poți susține propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: Poți acum susține propunerile primite pentru %{participatory_space_title}
         proposal_mentioned:
           email_intro: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_url}">în acest spațiu</a> în comentarii.
           email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
@@ -385,13 +375,7 @@ ro:
             body: Conținut
             comments_count: Număr de comentarii
             documents: Documente
-            endorsements_count: Număr de susțineri
-            endorsers: Susținători
             evaluators: Evaluatori
-            n_more_endorsers:
-              one: și încă 1
-              few: și încă %{count}
-              other: și încă %{count}
             photos: Imagini
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
@@ -603,7 +587,6 @@ ro:
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
-          most_endorsed: Cele mai susținute
           most_followed: Cele mai urmărite
           random: Aleatoriu
           recent: Recente
@@ -624,10 +607,6 @@ ro:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
           estimated_cost: Cost estimat
-          hidden_endorsers_count:
-            one: și încă %{count} persoană
-            few: și încă %{count} persoane
-            other: și încă %{count} persoane
           link_to_collaborative_draft_help_text: Această propunere este rezultatul unei ciorne colaborative. Revizuiește istoricul colaborării
           link_to_collaborative_draft_text: Vezi ciorna colaborativă
           link_to_promoted_emendation_help_text: Această propunere este un amendament promovat

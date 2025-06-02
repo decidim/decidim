@@ -171,11 +171,6 @@ zh-TW:
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '"%{resource_title}"會議已開放註冊。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
-        upcoming_meeting:
-          email_intro: '%{resource_title}" 會議將在不到48小時後開始。'
-          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
-          email_subject: '%{resource_title}" 會議將在不到48小時後開始。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議將在 48 小時內開始。
     forms:
       meetings:
         attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
