@@ -120,9 +120,7 @@ ignore_missing:
   - date.day_names
   - date.month_names
   - explanation
-  - decidim.verifications.authorizations.new.authorize_with
-  - decidim.initiatives.signatures.workflows.*
-  - decidim.initiatives.initiative_signatures.dummy_signature.form.fields.*
+
 
 # Consider these keys used:
 ignore_unused:
