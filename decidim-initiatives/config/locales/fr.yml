@@ -561,6 +561,7 @@ fr:
         workflows:
           dummy_signature_handler:
             description: Signature qui prend les informations personnelles de l'utilisateur, valide l'autorisation et vérifie le code SMS
+            name: Gestionnaire de signatures factices
           dummy_signature_with_personal_data_handler:
             description: Signature qui prend uniquement les informations personnelles de l'utilisateur et les valide
             name: Gestionnaire de signatures factices avec données personnelles
