@@ -676,7 +676,6 @@ fi:
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsement_buttons_cell:
       already_endorsed: Poista tykkäys
-      endorse: Tykkää
     endorsements:
       identities:
         done: Valmis

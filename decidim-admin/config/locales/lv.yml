@@ -505,8 +505,6 @@ lv:
         edit:
           update: Atjaunināt
         form:
-          colors:
-            colors_title: Organizācijas krāsas
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs

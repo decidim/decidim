@@ -280,7 +280,7 @@ pl:
           notification_title: Możesz teraz przedstawiać <a href="%{resource_path}">nowe propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Możesz rekomendować propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Rozpoczęto rekomendację propozycji w %{participatory_space_title}
           notification_title: Możesz teraz zacząć <a href="%{resource_path}">rekomendować propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
@@ -545,11 +545,6 @@ pl:
             endorsements_count: Liczba rekomendacji
             endorsers: Rekomendujący
             link: Zobacz propozycję
-            n_more_endorsers:
-              one: i jeszcze 1
-              few: i jeszcze %{count}
-              many: i jeszcze %{count}
-              other: i jeszcze %{count}
             photos: Zdjęcia
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
@@ -848,7 +843,7 @@ pl:
           edit_proposal: Edytuj propozycję
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
-            one: i %{count} osoba więcej
+            one: i %{count} więcej osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób

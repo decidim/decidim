@@ -213,7 +213,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
         upcoming_meeting:
           email_intro: En menys de 48 hores començarà la trobada "%{resource_title}".
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     forms:

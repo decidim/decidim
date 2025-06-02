@@ -55,7 +55,7 @@ tr:
         avatar_description: Yazarın ikincil bir bilgi olduğu alanlarda kullanılır.
         compact: "Yoğun\nSıkıştırılmış"
         context: İçerik
-        context_description: Bu hücre, bir kullanıcı hakkında bazı bilgileri görüntüler. Bu kaynak/içerik oluşturucuyu tanımlamaya yönelik görsel bir yardımdır. Farenin üzerine gelindiğinde, daha fazla bilgi ve profiline bağlantılar içeren bir bilgi kutusu görüntülenir.
+        context_description: Bu hücre, bir kullanıcı hakkında bazı bilgileri görüntüler. Bu kaynağı/içerik üreticiyi tanımlamaya yönelik görsel bir yardımdır. Fare üzerine gelindiğinde, daha fazla bilgi ve profil bağlantıları içeren bir bilgi kutusu görüntülenir.
         context_description_2: Kaynaklar bu hücre ana başlığın altında görünür. Diğer içerikler ise içeriğin yanında görünür.
         default: Varsayılan
         demo: Gösteri

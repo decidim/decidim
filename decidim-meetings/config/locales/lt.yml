@@ -197,7 +197,7 @@ lt:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
         upcoming_meeting:
           email_intro: '%{resource_title} susirinkimas prasidės už mažiau nei 48 val.'
-          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ susirinkimą. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
           email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
     forms:

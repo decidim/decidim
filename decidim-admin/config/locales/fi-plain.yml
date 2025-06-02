@@ -850,15 +850,6 @@ fi-pl:
         edit:
           update: Päivitä
         form:
-          colors:
-            choose_color: Valitse ensisijainen väri
-            colors_title: Organisaation värit
-            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
-            explanation: Tämä työkalu auttaa sinua valitsemaan värimaailman, joka koostuu tasaisesti valituista väriympyrän sävyistä. Näitä värejä käytetään verkkosivuston värimäärityksissä.
-            legend_html: Pääsovelluksen värit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
-            saturation: Värikylläisyys
-            title: Värin valinta
-            update_suggested_colors: Päivitä ehdotetut värit
           cta_button_path_help_html: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets:

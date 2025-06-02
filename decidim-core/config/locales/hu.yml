@@ -598,7 +598,6 @@ hu:
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsement_buttons_cell:
       already_endorsed: Nem tetszik
-      endorse: Tetszik
     endorsements:
       identities:
         done: Kész

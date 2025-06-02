@@ -564,9 +564,6 @@ ca-IT:
             endorsements_count: Número d'esmenes
             endorsers: Adherides
             link: Veure la proposta
-            n_more_endorsers:
-              one: i 1 més
-              other: i %{count} més
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Trobades relacionades

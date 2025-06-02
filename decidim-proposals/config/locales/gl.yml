@@ -345,9 +345,6 @@ gl:
           show:
             body: Corpo
             documents: Documentos
-            n_more_endorsers:
-              one: e 1 máis
-              other: e %{count} máis
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas

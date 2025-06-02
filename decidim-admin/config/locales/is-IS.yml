@@ -414,6 +414,7 @@ is:
           homepage_highlighted_content_banner_title: Hápunktur efni borði
           images:
             layout_appearance_title: Breyta útliti útlits
+            preview: Preview
       participatory_space_private_users:
         new:
           create: Búa til

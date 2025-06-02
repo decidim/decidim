@@ -697,7 +697,6 @@ ro:
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
-      endorse: Îmi place
     endorsements:
       identities:
         done: Finalizat

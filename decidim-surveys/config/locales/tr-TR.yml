@@ -57,7 +57,13 @@ tr:
           update:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
+      survey_confirmation_mailer:
+        confirmation:
+          body: '%{participatory_space} alanındaki %{questionnaire_title} anketini başarıyla cevapladınız'
+          subject:
+        export_name: Anket cevapları
       surveys:
         answer:
           invalid: Anketi cevaplarken bir sorun oluştu.
+          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davranmış olabilirsiniz, tekrar deneyebilir misiniz?
           success: Anket başarıyla cevaplandı.

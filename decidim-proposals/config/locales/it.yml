@@ -387,9 +387,6 @@ it:
             documents: Documenti
             endorsements_count: Numero di Appoggi
             endorsers: Sostenitori
-            n_more_endorsers:
-              one: e 1 altro
-              other: e altri %{count}
             photos: Foto
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate

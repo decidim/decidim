@@ -854,11 +854,11 @@ ca-IT:
             choose_color: Triar un color primari
             colors_title: Colors de l'organització
             colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
-            explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
-            legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
+            explanation: Aquesta eina us ajuda a triar un esquema de colors, compost per tons igualment espaiats al voltant de la roda cromàtica, que s'utilitzarà al lloc web de l'organització.
+            legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triàdic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
             saturation: Saturació
             title: Selector de color
-            update_suggested_colors: Actualitzar als colors recomenats
+            update_suggested_colors: Actualitzar als colors recomanats
           cta_button_path_help_html: 'Pots redirigir la direcció on enllaça el Botó d''Acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El Botó d''Acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets:

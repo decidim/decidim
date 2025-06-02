@@ -140,10 +140,6 @@ sl:
           no_scopes: Ni področij
         select_recipients_to_deliver:
           scopes_help: Pošilja obvestilo uporabnikom, ki imajo v nastavitvah »Moja zanimanja« v računu aktivirano katero od izbranih področij.
-      organization_appearance:
-        form:
-          colors:
-            colors_title: Barve organizacije
       scope_types:
         create:
           error: Pojavila se je težava pri kreiranju novega tipa področja.
