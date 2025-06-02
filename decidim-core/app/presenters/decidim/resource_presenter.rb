@@ -34,6 +34,7 @@ module Decidim
     def editor_locales(data, all_locales, extras: true)
       handle_locales(data, all_locales) do |content|
         [
+          Decidim::ContentRenderers::BaseRenderer,
           Decidim::ContentRenderers::UserRenderer,
           Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|
