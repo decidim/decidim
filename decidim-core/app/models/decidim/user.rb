@@ -58,7 +58,7 @@ module Decidim
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
 
     scope :ephemeral, -> { where("extended_data @> ?", { ephemeral: true }.to_json) }
-    
+
     scope :with_inactivity_notification, lambda {
       where("extended_data ? 'inactivity_notification'")
     }
