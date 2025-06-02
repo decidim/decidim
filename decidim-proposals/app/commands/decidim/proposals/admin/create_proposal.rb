@@ -56,11 +56,11 @@ module Decidim
         end
 
         def attributes
-          parsed_title = form.title
-          parsed_body = form.body
+          form.title
+          form.body
           {
-            title: parsed_title,
-            body: parsed_body,
+            title: form.title,
+            body: form.body,
             taxonomizations: form.taxonomizations,
             component: form.component,
             address: form.address,
