@@ -25,7 +25,6 @@ el:
       debates:
         actions:
           comment: Σχόλιο
-          endorse: Επιδοκιμασία
         name: Συζητήσεις
         settings:
           global:
@@ -36,8 +35,6 @@ el:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
             creation_enabled: Οι συμμετέχοντες μπορούν να δημιουργήσουν συζητήσεις
-            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
-            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
     debates:
       actions:
         close: Κλείσιμο

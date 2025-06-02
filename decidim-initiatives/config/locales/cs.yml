@@ -449,11 +449,9 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nová iniciativa od %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, schválil následující iniciativu, možná chcete přispět k konverzaci:"
-          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla schválena od %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        like_initiative_event:
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> se líbí <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
@@ -708,6 +706,9 @@ cs:
         actions:
           create: Vytvořit iniciativu
           title: Akce
+    statistics:
+      initiatives_count: Iniciativy
+      initiatives_count_tooltip: Počet zveřejněných občanských iniciativ.
   layouts:
     decidim:
       initiative_creation_header:
@@ -716,6 +717,7 @@ cs:
         promotal_committee: Hledat propagátory
         select_initiative_type: Vybrat
       initiative_signature_creation_header:
+        help_information_html: Chcete-li podepsat iniciativu <strong>%{initiative_title}</strong> podporovanou %{initiative_author}, musíte poskytnout nějaké informace, díky nimž bude iniciativa podepsána a právně závazná. Žádné informace o vás nebudou zveřejněny.
         verify_your_identity: Ověřte svou identitu
       initiatives:
         no_initiatives_yet:

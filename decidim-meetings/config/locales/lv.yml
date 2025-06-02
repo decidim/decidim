@@ -106,11 +106,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Sanāksme "%{resource_title}" ir atvērta reģistrācijai.
           notification_title: Sanāksmei <a href="%{resource_path}">%{resource_title}</a> ir atvērta reģistrācija.
-        upcoming_meeting:
-          email_intro: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-          email_subject: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
-          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> sāksies ātrāk nekā pēc 48 stundām.
     gamification:
       badges:
         attended_meetings:

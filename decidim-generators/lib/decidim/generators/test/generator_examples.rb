@@ -129,7 +129,6 @@ shared_context "with application env vars" do
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
   end

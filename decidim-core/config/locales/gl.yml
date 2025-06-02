@@ -657,7 +657,6 @@ gl:
         share_link: Compartir a ligazón
     statistics:
       comments_count: Comentarios
-      endorsements_count: Adhesións
       followers_count: Seguidores
       headline: Estatísticas
       no_stats: Aínda non hai estatísticas.

@@ -46,9 +46,6 @@ tr:
       decidim/amendment:
         one: Değişiklik
         other: Değişiklikler
-      decidim/endorsement:
-        one: Onay
-        other: Onaylar
       decidim/user:
         one: Katılımcı
         other: Katılımcılar
@@ -216,9 +213,6 @@ tr:
       comments:
         one: yorum
         other: yorumlar
-      endorsements:
-        one: onay
-        other: onaylar
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -494,11 +488,6 @@ tr:
           notification_title: |-
             Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
             <i>%{resource_content} </i>
-      resource_endorsed:
-        email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" ögesini az önce onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Kontrol edin ve katkıda bulunun:'
-        email_outro: Bu bildirimi %{endorser_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-        email_subject: "%{endorser_nickname} yeni bir onay gerçekleştirdi"
-        notification_title: <a href="%{resource_path}">%{resource_title} </a> %{resource_type}, <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname} </a> tarafından onaylandı.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
@@ -764,9 +753,6 @@ tr:
     reports:
       create:
         success: Rapor başarıyla oluşturuldu ve bir yönetici tarafından incelenecek.
-    resource_endorsements:
-      create:
-        error: Onay işlemi sırasında bir hata oluştu.
     scopes:
       global: Küresel kapsamı
       prompt: Bir kapsam seçin

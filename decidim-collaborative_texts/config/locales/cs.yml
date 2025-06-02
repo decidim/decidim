@@ -5,10 +5,15 @@ cs:
       collaborative_texts:
         document:
           body: Tělo zprávy
+          draft: Koncept
           title: Název
           version_number: Číslo verze
+        suggestion:
+          original: Původní text
+          replace: Nahrazení
         version:
           body: Tělo zprávy
+          draft: Koncept
           version_number: Číslo verze
   decidim:
     collaborative_texts:
@@ -25,9 +30,18 @@ cs:
           create:
             invalid: Při vytváření dokumentu došlo k chybě.
             success: Doklad byl úspěšně vytvořen.
+          draft_options:
+            accepting_suggestions: Povolit návrhy v další verzi
+            accepting_suggestions_help: Povolením návrhů začne nové kolo návrhů pro tento dokument. Současné návrhy nebudou v nové verzi viditelné.
+            draft: Pracovní verze
           edit:
+            document_has_suggestions_html: <a href="%{url}">Tento dokument má návrhy</a> a nemůže být přímo upraven. Přijměte nebo odmítněte návrhy, abyste mohli vygenerovat novou verzi konceptu, kterou lze upravit.
+            draft: Pracovní verze
+            previous_versions: Předchozí verze
+            public_version: Veřejná verze
             title: Upravit texty pro spolupráci
             update: Aktualizovat
+            version: Verze %{version_number}, vytvořená %{created_at} dostala %{suggestions_count} návrhy.
           edit_settings:
             title: Konfigurovat společné texty
             update: Aktualizovat
@@ -38,6 +52,10 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit společné texty
+          non_draft_options:
+            create_draft: Zahodit návrhy a vytvořit novou verzi konceptu
+            enable_suggestions: Povolit návrhy
+            enable_suggestions_help: Povolení návrhů umožní účastníkům předkládat návrhy k této verzi.
           publish:
             invalid: Při publikování tohoto dokumentu došlo k chybě.
             success: Dokument byl úspěšně zveřejněn.
@@ -50,16 +68,42 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
+      admin_log:
+        document:
+          create: "%{user_name} vytvořil kolaborativní text %{resource_name} v %{space_name}"
+          restore: "%{user_name} obnovil kolaborativní text %{resource_name} v %{space_name}"
+          soft_delete: "%{user_name} přesunul kolaborativní text %{resource_name} v %{space_name} do koše"
       document:
+        apply: Použít
         cancel: Zrušit
+        consolidate:
+          new: Konsolidovat přijaté návrhy
+        index: Index
+        restore: Obnovit
+        rollout:
+          new: Navrhnout novou verzi
+        save: Navrhnout změny
+        status:
+          not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
+        suggestions_count: "%{count} návrhů"
+        toggle: Zobrazit/skrýt návrhy
       documents:
         index:
           empty: Zatím neexistují žádné koncepty spolupráce.
+        show:
+          contributors: Přispěvatelé
       models:
         collaborative_text:
           fields:
             suggestions: Přijmout návrhy
             title: Název
+      suggestions:
+        create:
+          invalid: Při vytváření návrhu došlo k chybě.
+          success: Návrh byl úspěšně vytvořen.
+        errors:
+          blank_changeset: Soubor změn nemůže být prázdný.
+          invalid_nodes: Neplatné vybrané uzly.
     components:
       collaborative_texts:
         name: Kolaborativní texty
@@ -70,4 +114,6 @@ cs:
           step:
             announcement: Oznámení
     statistics:
+      all_collaborative_texts_count: Všechny kolaborativní texty
       collaborative_texts_count: Kolaborativní texty
+      collaborative_texts_count_tooltip: Počet kolaborativních textů

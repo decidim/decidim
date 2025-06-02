@@ -27,7 +27,6 @@ lt:
       debates:
         actions:
           comment: Komentaras
-          endorse: Pritarti
         name: Diskusijos
         settings:
           global:
@@ -38,8 +37,6 @@ lt:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali sukurti diskusijas
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
     debates:
       actions:
         close: Uždaryti
