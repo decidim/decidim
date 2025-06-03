@@ -9,7 +9,6 @@ describe "Explore API credentials" do
   let(:dummy_token) { "token1234567890" }
 
   before do
-    allow(Rails.application.secrets).to receive(:dig).with(:decidim, :api, :jwt_secret).and_return("mocked_secret")
     allow(SecureRandom).to receive(:alphanumeric).and_return(dummy_token)
     login_as admin, scope: :admin
     visit decidim_system.admins_path
@@ -36,7 +35,7 @@ describe "Explore API credentials" do
     end
   end
 
-  context "with api_users" do
+  context "with API users" do
     let!(:set) { create_list(:api_user, 3, organization: organization) }
     let!(:set1) { create_list(:api_user, 4, organization: organization1) }
 
@@ -44,7 +43,7 @@ describe "Explore API credentials" do
       visit decidim_system.api_users_path
     end
 
-    it "shows all of the api_users" do
+    it "shows all API users" do
       api_users = Decidim::Api::ApiUser.all
 
       within "table.stack" do
@@ -61,7 +60,7 @@ describe "Explore API credentials" do
       expect(page).to have_link("New API user")
     end
 
-    it "removes the api user" do
+    it "removes the API user" do
       deleting_user = set.last
       expect(page).to have_content(deleting_user.api_key)
       within "table.stack" do
@@ -97,7 +96,7 @@ describe "Explore API credentials" do
       expect(page).to have_content("Copied")
     end
 
-    it "creates new api user" do
+    it "creates a new API user" do
       click_link_or_button "New API user"
       expect(page).to have_current_path("/system/api_users/new")
       expect(page).to have_content("Create new API user")
@@ -113,8 +112,7 @@ describe "Explore API credentials" do
       end
       click_link_or_button "Create"
       expect(page).to have_content("API user created successfully.")
-      current_url = URI.parse(page.current_path)
-      expect(current_url.path).to eq("/system/api_users")
+      expect(page).to have_current_path("/system/api_users")
       within "table.stack" do
         expect(page).to have_content("Dummy name")
         new_tr = find("td", text: "Dummy name").find(:xpath, "..")
