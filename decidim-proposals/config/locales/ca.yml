@@ -77,16 +77,16 @@ ca:
           attributes:
             base:
               not_official: No son oficials
-              voted: Han rebut suports o adhesions
+              voted: Ha rebut vots o m'agrada
         proposals_split:
           attributes:
             base:
               not_official: No son oficials
-              voted: Han rebut suports o adhesions
+              voted: Ha rebut vots o m'agrada
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Les taxonomies de la proposta han canviat
       decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
-      decidim/proposals/endorsing_enabled_event: S'ha habilitat les adhesions a les propostes
+      decidim/proposals/liking_enabled_event: '"M''agrada" activats per a propostes'
       decidim/proposals/proposal_mentioned_event: Proposta esmentada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: Les propostes admeten suports
@@ -95,9 +95,9 @@ ca:
       decidim:
         proposals:
           proposal:
-            budget_text: S'ha creat la proposta %{link}
+            budget_text: La proposta <span class="resource-link">%{link} s'ha creat</span>
             import_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
-            import_to_proposal_text: S'ha creat la proposta %{link}
+            import_to_proposal_text: Aquesta proposta <span "resource-link">%{link} es va crear</span>
             merge_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
             merge_to_proposal_text: 'Es va crear aquesta proposta: %{link}'
             split_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
@@ -148,7 +148,7 @@ ca:
               state_not_published: Sense resposta
               state_published: Amb resposta
         search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o títol.
+          id_string_or_title_cont: Cerca %{collection} per ID o títol
     application:
       geocoding:
         not_configured: La geocodificació no està configurada!
@@ -158,7 +158,7 @@ ca:
           amend: Esmena
           comment: Comentar
           create: Crear una proposta
-          endorse: Adherir-se
+          like: '"M''agrada"'
           vote: Donar suport
           vote_comment: Votar el comentari
           withdraw: Retirar
@@ -181,8 +181,8 @@ ca:
             default_sort_order_options:
               automatic: Per defecte
               most_commented: Més comentades
-              most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
+              most_liked: Amb més "M'agrada"
               most_voted: Amb més suports
               random: Aleatòriament
               recent: Recents
@@ -243,14 +243,14 @@ ca:
             default_sort_order_options:
               automatic: Per defecte
               most_commented: Més comentades
-              most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
+              most_liked: Amb més "M'agrada"
               most_voted: Amb més suports
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: '"M''agrada" desactivats'
+            likes_enabled: '"M''agrada" activats'
             proposal_answering_enabled: Resposta a propostes activada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
             publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
@@ -334,11 +334,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Les propostes ja estan disponibles a %{participatory_space_title}
           notification_title: Ara pots presentar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Pots adherir-te a les propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+        liking_enabled:
+          email_intro: 'Pots donar M''agrada" a les propostes de %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: L'adhesió a les propostes de %{participatory_space_title} ha començat
-          notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          email_subject: L'opció de donar "M'agrada" a les propostes de %{participatory_space_title} ha començat
+          notification_title: Ja pots començar a <a href="%{resource_path}">donar "M'agrada" a les propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada als comentaris <a href="%{resource_url}">en aquest espai</a>.
           email_outro: Has rebut aquesta notificació perquè vas presentar aquesta proposta "%{resource_title}".
@@ -445,12 +445,12 @@ ca:
           cost_report: Un informe dels costos que representa la proposta
           created_at: La data en què es va crear la proposta
           created_in_meeting: Si la proposta s'ha formulat en una trobada
-          endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
           execution_period: El període d'execució de la proposta, de principi a fi
           follows_count: El número de seguidores que té aquesta proposta
           id: L'identificador únic de la proposta
           is_amend: Si aquesta proposta és una esmena a una altra proposta o no
           latitude: La latitud de la proposta en cas que aquesta tingui una ubicació física
+          likes: El número de "M'agrada" que té aquesta proposta
           longitude: La longitud de la proposta en cas que aquesta tingui una ubicació física
           meeting_urls: Les URL de les trobades de les quals va resultar o es va debatre aquesta proposta
           original_proposal: La referència de la proposta original en el cas de tractar-se d'una esmena
@@ -663,11 +663,11 @@ ca:
             body: Cos
             comments_count: Comptador de comentaris
             documents: Documents
-            endorsements_count: Número d'esmenes
-            endorsers: Adherides
             evaluators: Avaluadores
+            likes: '"M''agrada"'
+            likes_count: Recompte de "M'agrada"
             link: Veure la proposta
-            n_more_endorsers:
+            n_more_likes:
               one: i 1 més
               other: i %{count} més
             photos: Fotos
@@ -950,8 +950,8 @@ ca:
         orders:
           label: 'Ordenar propostes:'
           most_commented: Més comentades
-          most_endorsed: Amb més adhesions
           most_followed: Amb més seguidores
+          most_liked: Amb més "M'agrada"
           most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
@@ -978,8 +978,8 @@ ca:
           changes_at_title: Esmena a "%{title}"
           edit_proposal: Editar
           estimated_cost: Cost estimat
-          hidden_endorsers_count:
-            one: i %{count} persona més
+          hidden_likes_count:
+            one: i %{count} persones més
             other: i %{count} persones més
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
@@ -1062,6 +1062,9 @@ ca:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
     statistics:
+      participatory_space_proposals_count: Propostes
       proposals_accepted: Propostes acceptades
       proposals_count: Propostes
+      proposals_count_tooltip: El nombre total de propostes presentades i suports recollits.
+      votes: 'Suports:'
       votes_count: Vots

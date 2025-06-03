@@ -60,7 +60,6 @@ el:
               not_official: Δεν είναι επίσημο
     models:
       decidim/proposals/creation_enabled_event: Η δημιουργία πρότασης ενεργοποιήθηκε
-      decidim/proposals/endorsing_enabled_event: Η επιδοκιμασία πρότασης ενεργοποιήθηκε
       decidim/proposals/proposal_mentioned_event: Η πρόταση αναφέρθηκε
       decidim/proposals/publish_proposal_event: Η πρόταση δημοσιεύτηκε
       decidim/proposals/voting_enabled_event: Η ψηφοφορία πρότασης ενεργοποιήθηκε
@@ -99,14 +98,11 @@ el:
             values:
               state_not_published: Δεν απαντήθηκε
               state_published: Απαντήθηκε
-        search_placeholder:
-          id_string_or_title_cont: Αναζήτηση συλλογής %{collection} με βάση το αναγνωριστικό ή τον τίτλο.
     components:
       proposals:
         actions:
           amend: Τροποποίηση
           comment: Σχόλιο
-          endorse: Επιδοκιμασία
           vote_comment: Ψηφίστε το σχόλιο
           withdraw: Απόσυρση
         name: Προτάσεις
@@ -123,7 +119,6 @@ el:
             default_sort_order: Προεπιλεγμένη ταξινόμηση προτάσεων
             default_sort_order_options:
               most_commented: Πιο σχολιασμένες
-              most_endorsed: Με τις περισσότερες επιδοκιμασίες
               most_followed: Με τους περισσότερους ακολούθους
               random: Τυχαία
               recent: Πρόσφατη
@@ -165,13 +160,10 @@ el:
             default_sort_order: Προεπιλεγμένη ταξινόμηση προτάσεων
             default_sort_order_options:
               most_commented: Πιο σχολιασμένες
-              most_endorsed: Με τις περισσότερες επιδοκιμασίες
               most_followed: Με τους περισσότερους ακολούθους
               random: Τυχαία
               recent: Πρόσφατη
               with_more_authors: Με περισσότερους συντάκτες
-            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
-            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
             proposal_answering_enabled: Η απάντηση στην πρόταση ενεργοποιήθηκε
             publish_answers_immediately: Άμεση δημοσίευση των απαντήσεων πρότασης
             publish_answers_immediately_help_html: 'Έχετε υπόψη ότι αν απαντήσετε σε οποιαδήποτε πρόταση χωρίς αυτό ενεργοποιημένο, θα πρέπει να τα δημοσιεύσετε χειροκίνητα επιλέγοντάς τα και χρησιμοποιώντας την ενέργεια για δημοσίευση. Για περισσότερες πληροφορίες σχετικά με το πώς λειτουργεί αυτό, ανατρέξτε στη σελίδα τεκμηρίωσης απαντήσεων <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"></a>.'
@@ -216,11 +208,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Οι προτάσεις είναι πλέον διαθέσιμες στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Τώρα μπορείτε να υποβάλετε <a href="%{resource_path}">νέες προτάσεις</a> στο <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Μπορείτε να επιδοκιμάσετε προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Έχει ξεκινήσει η επιδοκιμασία προτάσεων για τον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Τώρα μπορείτε να ξεκινήσετε την <a href="%{resource_path}">έγκριση προτάσεων</a> στο <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Η πρότασή σας «%{mentioned_proposal_title}» αναφέρθηκε <a href="%{resource_url}">σε αυτόν τον χώρο</a> στα σχόλια.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
@@ -376,11 +363,6 @@ el:
             body: Σώμα
             comments_count: Πλήθος σχολίων
             documents: Έγγραφα
-            endorsements_count: Πλήθος επιδοκιμασιών
-            endorsers: Υποστηρικτές
-            n_more_endorsers:
-              one: και 1 ακόμα
-              other: και %{count} ακόμη
             photos: Φωτογραφίες
             ranking: "%{ranking} από %{total}"
             related_meetings: Σχετικές συσκέψεις
@@ -583,7 +565,6 @@ el:
         orders:
           label: 'Ταξινόμηση προτάσεων κατά:'
           most_commented: Με τα περισσότερα σχόλια
-          most_endorsed: Με τις περισσότερες επιδοκιμασίες
           most_followed: Με τους περισσότερους ακολούθους
           random: Τυχαία
           recent: Πρόσφατα
@@ -606,9 +587,6 @@ el:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
           estimated_cost: Εκτιμώμενο κόστος
-          hidden_endorsers_count:
-            one: και %{count} ακόμη άτομο
-            other: και %{count} ακόμη άτομα
           link_to_collaborative_draft_help_text: Αυτή η πρόταση είναι το αποτέλεσμα ενός προσχεδίου συνεργασίας. Δείτε το ιστορικό
           link_to_collaborative_draft_text: Δείτε το προσχέδιο συνεργασίας
           link_to_promoted_emendation_help_text: Αυτή η πρόταση είναι μια αναβαθμισμένη διόρθωση

@@ -50,9 +50,6 @@ de:
           update_settings:
             invalid: Beim Aktualisieren des Dokuments ist ein Problem aufgetreten.
             success: Dokument erfolgreich aktualisiert.
-        settings:
-          form:
-            allow_suggestions: Teilnehmenden erlauben, Vorschläge zu machen
       admin_log:
         document:
           create: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} erstellt"
@@ -67,19 +64,23 @@ de:
           update: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} in %{space_name} aktualisiert"
       document:
         cancel: Abbrechen
-        save: Anmerkung absenden
-        suggest: Änderung vorschlagen
       documents:
         index:
           count:
             one: "%{count} kollaborativer Text"
             other: "%{count} kollaborative Texte"
           empty: Es gibt noch keine kollaborative Texte.
+        show:
+          contributors: Mitwirkende
       models:
         collaborative_text:
           fields:
             suggestions: Anregung akzeptieren
             title: Titel
+      suggestion:
+        add_html: <span class="type">Hinzufügen:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Entfernen:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Ersetzen:</span> <span class="text">%{text}</span>
     components:
       collaborative_texts:
         name: Kollaborative Texte

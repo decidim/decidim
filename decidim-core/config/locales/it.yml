@@ -38,7 +38,6 @@ it:
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
-      decidim/resource_endorsed_event: Risorsa approvata
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ it:
       decidim/amendment:
         one: Emendamento
         other: Modifiche
-      decidim/endorsement:
-        one: Appoggio
-        other: Appoggi
       decidim/user:
         one: Partecipante
         other: Partecipanti
@@ -223,9 +219,6 @@ it:
       comments:
         one: commento
         other: Commenti
-      endorsements:
-        one: appoggio
-        other: appoggi
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -490,11 +483,6 @@ it:
           notification_title: |-
             Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
-        email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. Puoi smettere di ricevere notifiche seguendo il link precedente.
-        email_subject: "%{endorser_nickname} ha eseguito un nuovo appoggio"
-        notification_title: Il <a href="%{resource_path}">%{resource_title}</a> %{resource_type} è stato approvato da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
@@ -733,8 +721,6 @@ it:
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        statistics:
-          headline: Statistiche su %{organization}
         sub_hero:
           register: Registrati
       index:
@@ -758,11 +744,6 @@ it:
           edit_profile: Modifica Profilo
           resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
-      hide:
-        hello: Ciao %{name},
-        manage_moderations: Gestire le moderazioni
-        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
-        subject: Un contenuto è stato cancellato automaticamente
       report:
         authors: Autori
         content: Contenuto segnalato
@@ -779,9 +760,6 @@ it:
     reports:
       create:
         success: Il report è stato creato e sarà rivisto da un amministratore.
-    resource_endorsements:
-      create:
-        error: C'è stato un problema durante l'azione di appoggio.
     scopes:
       global: Ambito globale
       prompt: Seleziona un ambito
@@ -811,9 +789,6 @@ it:
         close_modal: Chiudi modalità
         ok: Ok
         title: Conferma
-      extended_navigation_bar:
-        more: Di Più
-        unfold: spiegare
       filter_form_help:
         help: Il modulo sottostante filtra dinamicamente i risultati della ricerca quando le condizioni di ricerca vengono modificate.
         skip: Salta ai risultati
@@ -849,7 +824,6 @@ it:
         share_link: Condividi link
     statistics:
       comments_count: Commenti
-      endorsements_count: Approvazioni
       followers_count: Follower
       headline: Statistiche
       no_stats: Non ci sono ancora statistiche.

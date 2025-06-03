@@ -1,40 +1,37 @@
-<div id="js-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper" class="relative">
   <button
     id="js-bulk-actions-button"
-    class="button button__sm button__secondary"
+    class="button button__sm button__transparent-secondary"
     type="button"
-    data-toggle="js-bulk-actions-dropdown">
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown">
     <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.actions_dropdown") %>
-    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
   </button>
 
-  <div
+  <ul
     id="js-bulk-actions-dropdown"
-    class="dropdown-pane"
-    data-position="bottom"
-    data-alignment="right"
-    data-dropdown="dropdown"
-    data-auto-focus="false"
-    data-events="resize">
-    <ul>
-      <% if params[:blocked] %>
-        <li>
-          <button type="button" data-action="unblock-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
-          </button>
-        </li>
-      <% else %>
-        <li>
-          <button type="button" data-action="block-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
-          </button>
-        </li>
-        <li>
-          <button type="button" data-action="unreport-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
-          </button>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+    class="dropdown dropdown__bottom"
+    aria-hidden="true">
+
+    <% if params[:blocked] %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unblock-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
+        </button>
+      </li>
+    <% else %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="block-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
+        </button>
+      </li>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unreport-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
+        </button>
+      </li>
+    <% end %>
+  </ul>
 </div>

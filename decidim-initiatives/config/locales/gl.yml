@@ -217,11 +217,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Nova iniciativa por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a quen estás seguindo, apoiou a seguinte iniciativa, talvez queres contribuír á conversa:"
-          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Iniciativa aprobada por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Volver á iniciativa

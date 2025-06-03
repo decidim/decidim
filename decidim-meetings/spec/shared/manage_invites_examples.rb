@@ -75,6 +75,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -93,6 +94,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
+          perform_enqueued_jobs
 
           visit last_email_first_link
 
@@ -115,6 +117,7 @@ shared_examples "manage invites" do
           invite_existing_user registered_user
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -125,6 +128,7 @@ shared_examples "manage invites" do
           invite_existing_user registered_user
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_first_link
 
@@ -139,6 +143,7 @@ shared_examples "manage invites" do
           invite_unregistered_user name: registered_user.name, email: registered_user.email
 
           relogin_as registered_user
+          perform_enqueued_jobs
 
           visit last_email_link
 
@@ -150,6 +155,7 @@ shared_examples "manage invites" do
 
           relogin_as registered_user
 
+          perform_enqueued_jobs
           visit last_email_first_link
 
           expect(page).to have_css(".button", text: "Register")

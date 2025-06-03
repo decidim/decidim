@@ -275,6 +275,8 @@ sv:
         home_header:
           global_status: Status för genomförande
         no_results: Det finns inga projekt
+        root_taxonomies:
+          title: 'Visa:'
         search:
           search: Sök efter åtgärder
         show:
@@ -299,6 +301,8 @@ sv:
             clear_all: Rensa alla
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            default_taxonomy: Standardkategori
+            default_taxonomy_help: Välj vilka kategorier du vill visa som standard. Om ingen kategori är vald, kommer resultatet visas som en lista.
             define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             display_progress_enabled: Visa behandling
             geocoding_enabled: Aktivera visning på karta
@@ -308,6 +312,7 @@ sv:
             taxonomy_filters_add: Lägg till filter
           step:
             comments_blocked: Stäng av kommentarer
+          visualization: Visualisering
     download_your_data:
       show:
         result_comments: Exportera resultatkommentarer
@@ -368,3 +373,4 @@ sv:
         result_proposal: Förslag som ingår i detta resultat
     statistics:
       results_count: Resultat
+      results_count_tooltip: Antal beslut eller resultat som skapats i det här deltagarutrymmet.

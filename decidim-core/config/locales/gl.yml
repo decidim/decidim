@@ -580,8 +580,6 @@ gl:
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        statistics:
-          headline: Estado actual de %{organization}
         sub_hero:
           register: Rexistrarse
       index:
@@ -602,11 +600,6 @@ gl:
           edit_profile: Editar perfil
           resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
-      hide:
-        hello: Ola %{name},
-        manage_moderations: Xestionar moderacións
-        report_html: <p> O seguinte <a href="%{url}">content</a> ocultouse automaticamente.</p>
-        subject: Ocultouse un recurso automaticamente
       report:
         hello: Ola %{name},
         report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
@@ -633,9 +626,6 @@ gl:
       results:
         view_all: Ver todos (%{count})
     shared:
-      extended_navigation_bar:
-        more: Máis
-        unfold: Despregar
       flag_modal:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar
@@ -664,7 +654,6 @@ gl:
         share_link: Compartir a ligazón
     statistics:
       comments_count: Comentarios
-      endorsements_count: Adhesións
       followers_count: Seguidores
       headline: Estatísticas
       no_stats: Aínda non hai estatísticas.

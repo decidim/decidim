@@ -72,7 +72,6 @@ ja:
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: オススメされた
       decidim/resource_hidden_event: リソースを非表示
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
@@ -93,8 +92,6 @@ ja:
           other: 履歴
       decidim/amendment:
         other: 修正
-      decidim/endorsement:
-        other: オススメ
       decidim/user:
         other: 参加者
   booleans:
@@ -423,8 +420,6 @@ ja:
       avatar: 'アバター: %{name}'
       comments:
         other: コメント
-      endorsements:
-        other: オススメ
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -809,15 +804,6 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsement_buttons_cell:
-      already_endorsed: オススメの取り消し
-      endorse: オススメ
-    endorsers_list:
-      endorsed_by:
-        other: '%{visible} によるオススメ'
-      others: "%{count} 以上"
-      title: オススメ
-      you: あなた
     ephemeral_user: 訪問者
     errors:
       files:
@@ -943,11 +929,6 @@ ja:
           notification_title: |-
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
-        email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
       resources:
         soft_deleted:
           notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
@@ -1265,8 +1246,8 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
-        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
+        weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
       subject: あなたのメールダイジェストです
@@ -1438,7 +1419,7 @@ ja:
           participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
         statistics:
-          headline: '%{organization} の現在の状態'
+          headline: 統計情報
         sub_hero:
           register: 登録
           register_title: アカウントを作成
@@ -1511,15 +1492,24 @@ ja:
         scan: QRコードをスキャン
         title: '%{resource_title} の QR コード'
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: 通報されたコンテンツ
         details: 詳細
-        hello: こんにちは、 %{name} さん。
+        hello: こんにちは %{name} さん、
         manage_moderations: モデレーションの管理
         participatory_space: 参加型スペース
         reason: 理由
-        report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は自動的に非表示にされました。</p>
         subject: リソースは自動的に非表示になりました
+      hidden_manually:
+        content: 通報されたコンテンツ
+        details: 詳細
+        hello: こんにちは %{name} さん、
+        manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は %{moderator} によって非表示にされました。</p>
+        subject: リソースは%{moderator}によって非表示にされました
       report:
         authors: 著者
         content: 報告されたコンテンツ
@@ -1537,15 +1527,14 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      hide:
+        success: このリソースは非表示になっています。
       parent_hidden:
         report_details: 親リソースは非表示
     resource:
       controls_label: リソースコントロール
     resource_autocomplete:
       help: 提案を検索するには入力してください
-    resource_endorsements:
-      create:
-        error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
       prompt: スコープを選択
@@ -1586,9 +1575,6 @@ ja:
       confirm_unload: このページには保存されていない変更が含まれています。このページから移動してもよいですか？
       embed:
         title: 埋め込み動画コンテンツ
-      extended_navigation_bar:
-        more: もっと見る
-        unfold: 展開する
       filter_form_help:
         help: 以下のフォームは、検索条件が変更されたときに検索結果を動的にフィルタリングします。
         skip: 結果にスキップ
@@ -1642,14 +1628,17 @@ ja:
         share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
-      endorsements_count: オススメ
+      comments_count_tooltip: このスペースに投稿されたコメントの合計数。
       followers_count: フォロワー
+      followers_count_tooltip: このスペースのいずれかの部分をフォローしているユーザー数が更新されます。
       headline: 統計情報
       no_stats: 統計情報はまだありません。
       pages_count: ページ
       participants_count: 参加者
+      participants_count_tooltip: 提案の提出、会議への参加、投票、ディスカッションへの参加などを通じて、このスペースで何らかのやり取りを行ったユニークユーザーの数です。
       surveys_count: 調査
       users_count: 参加者
+      users_count_tooltip: メールでアカウントを確認してサインアップを完了したユーザーの総数です。
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
     taxonomies:

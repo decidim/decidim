@@ -103,7 +103,7 @@ es-PY:
           comment: Comentar
           create: Crear
           destroy: Borrar
-          endorse: Adherirse
+          like: '"Me gusta"'
           update: Actualizar
         name: Blog
         settings:
@@ -120,8 +120,8 @@ es-PY:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
     events:
       blogs:
         post_created:
@@ -148,9 +148,9 @@ es-PY:
           comments_count: El número de comentarios que tiene esta publicación
           component: El componente al que pertenece la publicación
           created_at: La fecha en la que se creó esta publicación
-          endorsements_count: El número de adhesiones que tiene esta publicación
           follows_count: El número de seguidoras que tiene esta publicación
           id: El identificador único de la publicación
+          likes_count: El número de "Me gusta" que tiene esta publicación
           participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
           published_at: La fecha en la que se publicó esta entrada en el blog
           title: El título de la publicación
@@ -158,3 +158,4 @@ es-PY:
           url: La URL para esta publicación
     statistics:
       posts_count: Publicaciones
+      posts_count_tooltip: El número de actualizaciones publicadas o entradas del blog.

@@ -519,6 +519,7 @@ ca:
         related_processes: Processos relacionats
     statistics:
       processes_count: Processos
+      processes_count_tooltip: El nombre de processos participatius disponibles públicament.
   layouts:
     decidim:
       participatory_process_groups:

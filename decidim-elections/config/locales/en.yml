@@ -9,3 +9,69 @@ en:
             announcement: Announcement
           step:
             announcement: Announcement
+    elections:
+      actions:
+        confirm_delete_election: Are you sure you want to delete this election?
+        deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
+        edit: Edit election
+        new: New election
+        title: Actions
+        view_deleted_elections: View deleted elections
+      admin:
+        elections:
+          create:
+            invalid: There was a problem creating the election.
+            success: Election created successfully.
+          edit:
+            title: Edit election
+            update: Update election
+          form:
+            add_images: Add images
+            attachment_legend: Add an image gallery (optional)
+            basic_title: Basic info
+            calendar: Calendar
+            calendar_description: Check that the organization time zone is correct in the organization settings. The current configuration is %{timezone}.
+            edit_attachments: Edit attachments
+            end_at: End time
+            manual_start: Manual start
+            results_availability:
+              after_end: After elections end
+              after_end_help: Show results only when the election is ended
+              per_question: Question by question
+              per_question_help: Show results per question as they are finalized
+              real_time: Real time
+              real_time_help: Show results as soon as the first vote is submitted
+              title: Results availability
+            start_at: Start time
+          index:
+            title: Elections
+          manage_trash:
+            title: Deleted elections
+          new:
+            create: Create election
+            title: New election
+          publish:
+            invalid: There was a problem publishing the election.
+            success: Election published successfully.
+          unpublish:
+            invalid: There was a problem unpublishing the election.
+            success: Election unpublished successfully.
+          update:
+            invalid: There was a problem updating the election.
+            success: Election updated successfully.
+      admin_log:
+        election:
+          create: "%{user_name} created the %{resource_name} election in %{space_name}"
+          publish: "%{user_name} published the %{resource_name} election in %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} election in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} election in %{space_name} to the trash"
+          unpublish: "%{user_name} unpublished the %{resource_name} election in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} election in %{space_name}"
+      models:
+        election:
+          fields:
+            end_at: End time
+            start_at: Start time
+            title: Title
+    statistics:
+      elections_count: Elections

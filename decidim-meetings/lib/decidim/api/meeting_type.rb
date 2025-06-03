@@ -14,7 +14,7 @@ module Decidim
       implements Decidim::Core::LocalizableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface
-      implements Decidim::Meetings::LinkedResourcesInterface if Decidim::Meetings.enable_proposal_linking
+      implements Decidim::Meetings::LinkedResourcesInterface if Decidim.module_installed?(:proposals)
       implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true

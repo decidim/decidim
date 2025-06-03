@@ -72,7 +72,6 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă susținută
       decidim/resource_hidden_event: Conținut ascuns
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
@@ -97,10 +96,6 @@ ro:
         one: Amendament
         few: Amendamente
         other: Amendamente
-      decidim/endorsement:
-        one: Susținere
-        few: Susținători
-        other: Susțineri
       decidim/user:
         one: Participant
         few: Participanți
@@ -450,10 +445,6 @@ ro:
         one: comentariu
         few: comentarii
         other: comentarii
-      endorsements:
-        one: susținere
-        few: susțineri
-        other: susțineri
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -787,11 +778,6 @@ ro:
         error: Eroare la încărcarea imaginii.
         success: Imaginea a fost încărcată cu succes.
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
-    endorsement_buttons_cell:
-      endorse: Îmi place
-    endorsers_list:
-      title: Apreciat de
-      you: tu
     ephemeral_user: Vizitator
     errors:
       files:
@@ -908,11 +894,6 @@ ro:
           notification_title: |-
             Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
-        email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
-        email_subject: "%{endorser_nickname} a susținut un conținut nou"
-        notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Un administrator a șters "%{resource_type}" "%{resource_title}".
@@ -1227,7 +1208,7 @@ ro:
           participate_title: Participați la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
-          headline: Starea curentă a %{organization}
+          headline: Statistici
         sub_hero:
           register: Inregistrare
           register_title: Creați un cont
@@ -1277,15 +1258,6 @@ ro:
         scan: Scanaţi codul QR
         title: Cod QR pentru %{resource_title}
     reported_mailer:
-      hide:
-        content: Conținut raportat
-        details: Detalii
-        hello: Bună ziua %{name},
-        manage_moderations: Gestionați moderările
-        participatory_space: Spaţiu participativ
-        reason: Motiv
-        report_html: <p>Următorul <a href="%{url}">conținut</a> a fost ascuns automat.</p>
-        subject: O resursă a fost ascunsă automat
       report:
         authors: Autori
         content: Conținut raportat
@@ -1308,9 +1280,6 @@ ro:
       controls_label: Control resursă
     resource_autocomplete:
       help: Tastați pentru a căuta propuneri
-    resource_endorsements:
-      create:
-        error: A apărut o problemă în timpul înregistrării susținerii.
     scopes:
       global: Domeniul global de interes
       prompt: Selectează un domeniu
@@ -1345,9 +1314,6 @@ ro:
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
-      extended_navigation_bar:
-        more: Mai
-        unfold: Desfășurat
       filter_form_help:
         help: Formularul de mai jos filtrează dinamic rezultatele căutării atunci când condițiile de căutare sunt schimbate.
         skip: Sari la rezultate
@@ -1390,13 +1356,16 @@ ro:
         share_link: Distribuie link-ul
     statistics:
       comments_count: Comentarii
-      endorsements_count: Susțineri
+      comments_count_tooltip: Numărul total de comentarii postate în acest spațiu.
       followers_count: Urmăritori
+      followers_count_tooltip: Numărul de utilizatori care urmăresc orice parte a acestui spațiu pentru a rămâne la curent.
       headline: Statistici
       no_stats: Încă nu există statistici.
       pages_count: Pagini
       participants_count: Participanți
+      participants_count_tooltip: Numărul de utilizatori unici care au interacționat în acest spațiu prin prezentarea de propuneri, participarea la întâlniri, votarea sau participarea la discuții.
       users_count: Participanți
+      users_count_tooltip: Numărul total de utilizatori care s-au înregistrat și și-au confirmat contul prin e-mail.
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original

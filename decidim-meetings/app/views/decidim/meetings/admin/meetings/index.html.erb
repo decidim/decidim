@@ -3,9 +3,11 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
-      <%= export_dropdowns(query) %>
-      <%= link_to t("actions.new_meeting", scope: "decidim.meetings"), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
-      <%= render partial: "decidim/admin/components/resource_action" %>
+      <div class="flex align-middle gap-x-4 ml-auto">
+        <%= export_dropdowns(query) %>
+        <%= link_to t("actions.new_meeting", scope: "decidim.meetings"), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
+        <%= render partial: "decidim/admin/components/resource_action" %>
+      </div>
     </h1>
   </div>
 

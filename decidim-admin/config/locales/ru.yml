@@ -30,8 +30,6 @@ ru:
       organization:
         alert_color: Оповещение
         badges_enabled: Включить значки
-        cta_button_path: Путь кнопки "Призвать к действию"
-        cta_button_text: Текст кнопки «Призвать к действию»
         customize_welcome_notification: Настроить уведомления о приветствии
         default_locale: Язык по умолчанию
         description: Описание
@@ -424,12 +422,7 @@ ru:
         edit:
           update: Обновить
         form:
-          cta_button_text_help: Вы можете изменить текст кнопки «Призвать к действию» на главной странице для каждого доступного в вашей организации языка. Если вы не зададите текст, будет использоваться значение по умолчанию. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием.
-          homepage_appearance_title: Редактировать внешний вид главной страницы
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
-          images:
-            layout_appearance_title: Редактировать внешний вид макета
-          omnipresent_banner_appearance_title: Редактировать вездесущий баннер
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.

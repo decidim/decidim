@@ -58,7 +58,7 @@ describe "Decidim::Api::QueryType" do
           }
           createdAt
           createdInMeeting
-          endorsements {
+          likes {
             id
             deleted
              name
@@ -66,7 +66,7 @@ describe "Decidim::Api::QueryType" do
             organizationName { translation(locale: "#{locale}") }
             profilePath
           }
-          endorsementsCount
+          likesCount
           executionPeriod {
             translation(locale:"#{locale}")
           }
@@ -119,6 +119,10 @@ describe "Decidim::Api::QueryType" do
     end
   end
   let(:component_type) { "Proposals" }
+  let(:organization) { participatory_process.organization }
+  let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
+  let!(:proposal) { create(:proposal, :with_votes, :with_likes, :participant_author, component: current_component, taxonomies:) }
+  let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
   let(:active_step) { current_component.participatory_space.respond_to?(:active_step) && current_component.participatory_space.active_step.present? }
   let(:cost) do
     number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_step
@@ -172,7 +176,7 @@ describe "Decidim::Api::QueryType" do
       "costReport" => cost_report,
       "createdAt" => proposal.created_at.to_time.iso8601,
       "createdInMeeting" => proposal.created_in_meeting?,
-      "endorsements" => proposal.endorsements.map do |e|
+      "likes" => proposal.likes.map do |e|
         { "deleted" => e.author.deleted?,
           "id" => e.author.id.to_s,
           "name" => e.author.name,
@@ -180,7 +184,7 @@ describe "Decidim::Api::QueryType" do
           "organizationName" => { "translation" => translated(e.author.organization.name) },
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
-      "endorsementsCount" => proposal.endorsements.size,
+      "likesCount" => proposal.likes.size,
       "executionPeriod" => execution_period,
       "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
       "hasComments" => proposal.comment_threads.size.positive?,
@@ -309,7 +313,7 @@ describe "Decidim::Api::QueryType" do
               }
               createdAt
               createdInMeeting
-              endorsements {
+              likes {
                 id
                 deleted
                  name
@@ -317,7 +321,7 @@ describe "Decidim::Api::QueryType" do
                 organizationName { translation(locale: "en") }
                 profilePath
               }
-              endorsementsCount
+              likesCount
               fingerprint{
                 source
                 value

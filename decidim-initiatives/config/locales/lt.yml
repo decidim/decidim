@@ -97,8 +97,6 @@ lt:
               validating: Techninis patvirtinimas
           type_id_eq:
             label: Tipas
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
       initiatives_settings:
         update:
           success: Iniciatyvų nustatymai atnaujinti.
@@ -370,11 +368,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
           email_subject: Nauja %{author_nickname} iniciatyva
           notification_title: Iniciatyvą <a href="%{resource_path}">%{resource_title}</a> sukūrė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kurį sekate, pritarė šiai iniciatyvai. Jei norėtumėte įsitraukti į pokalbį:"
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-          email_subject: Iniciatyvai pritaria %{author_nickname}
-          notification_title: Iniciatyvai <a href="%{resource_path}">%{resource_title}</a> pritarė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} atmetė Jūsų aplikaciją tapti remėjų komiteto nariu %{resource_title} iniciatyvai."
           email_outro: 'Ši pranešimą gavote nes aplikavote į iniciatyvą: %{resource_title}.'

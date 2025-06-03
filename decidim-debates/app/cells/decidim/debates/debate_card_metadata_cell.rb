@@ -18,7 +18,7 @@ module Decidim
       end
 
       def debate_items
-        [duration, comments_count_item, endorsements_count_item] + taxonomy_items + [coauthors_item]
+        [duration, comments_count_item, likes_count_item] + taxonomy_items + [coauthors_item]
       end
 
       def duration

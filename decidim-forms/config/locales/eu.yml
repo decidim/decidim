@@ -134,7 +134,7 @@ eu:
             export_response:
               title: galdetegia_parte-hartzailea_erantzunak_%{token}
             index:
-              title: "Guztira, %{guztira} erantzun"
+              title: "Guztira, %{total} erantzun"
             show:
               title: '#%{number} erantzun'
           separator:
@@ -162,7 +162,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         response:
-          body: Gorputza ezin da hutsik egon
+          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:

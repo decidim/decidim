@@ -196,6 +196,5 @@ gl:
         project_proposal: Propostas incluídas neste proxecto
     statistics:
       orders_count: Apoios
-      projects_count: Proxectos
   index:
     confirmed_orders_count: Reconto de votos

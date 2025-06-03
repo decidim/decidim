@@ -52,18 +52,38 @@ module Decidim
 
       # Produces the html for the dropdown submenu from the options tree.
       # Returns a ActiveSupport::SafeBuffer.
-      def dropdown_submenu(options)
-        content_tag(:ul, class: "vertical menu", "aria-hidden": true) do
+      #
+      def dropdown_submenu(options, menu_id)
+        css_classes = menu_id.starts_with?("top-") ? "dropdown" : "dropdown dropdown__right z-#{options.length * 10}"
+
+        content_tag(:ul, id: "dropdown-filters-#{menu_id}", class: css_classes, "aria-hidden": true) do
           options.map do |key, value|
             if value.nil?
-              content_tag(:li, key)
+              content_tag(:li, class: "dropdown__item") do
+                concat content_tag(:span, class: "dropdown__button") { key }
+              end
             elsif value.is_a?(Hash)
-              content_tag(:li, class: "is-dropdown-submenu-parent") do
-                key + dropdown_submenu(value)
+              child_id = SecureRandom.uuid
+              content_tag(:li, class: "dropdown__item") do
+                dropdown_link(key, child_id) + dropdown_submenu(value, child_id)
               end
             end
           end.join.html_safe
         end
+      end
+
+      def dropdown_link(key, menu_id)
+        link_to("#", class: "dropdown__button", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
+          safe_join([
+                      content_tag(:span) { extract_html_value(key) },
+                      icon("arrow-right-s-line", class: "fill-secondary absolute right-2"),
+                      icon("arrow-right-s-line", class: "!fill-current !text-white absolute right-2")
+                    ])
+        end
+      end
+
+      def extract_html_value(html_string)
+        Nokogiri::HTML.fragment(html_string).at("a").text
       end
 
       def filter_link_label(filter, i18n_scope)
@@ -109,7 +129,7 @@ module Decidim
       end
 
       def applied_filter_tag(filter, value, i18n_scope)
-        content_tag(:span, class: "label secondary") do
+        content_tag(:span, class: "label reverse") do
           concat "#{i18n_filter_label(filter, i18n_scope)}: "
           concat i18n_filter_value(filter, value, i18n_scope)
           concat remove_filter_icon_link(filter)

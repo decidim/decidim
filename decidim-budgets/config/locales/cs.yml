@@ -309,6 +309,8 @@ cs:
             description: Vyberte alespoň %{minimum_number} a až %{maximum_number} projektů, které chcete a hlasujete podle vašich preferencí.
           projects_rule_maximum_only:
             description: Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí.
+          vote_threshold_percent_rule:
+            description: Přiřaďte alespoň %{minimum_budget} k projektům, které chcete, a hlasujte podle vašich preferencí.
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -335,8 +337,10 @@ cs:
           added: Přidáno
           all: Vše
         projects_for: Projekty pro %{name}
+        select_projects: Přidat projekty
         show:
           budget: Rozpočet
+        start_voting: Zahájit hlasování
       prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
@@ -456,6 +460,6 @@ cs:
         project_proposal: Návrhy zahrnuté do tohoto projektu
     statistics:
       orders_count: Podpory
-      projects_count: Projekty
+      projects_count: Rozpočty
   index:
     confirmed_orders_count: Počet hlasů

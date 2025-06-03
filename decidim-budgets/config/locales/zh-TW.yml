@@ -285,6 +285,5 @@ zh-TW:
         project_proposal: 此專案中包括的提案
     statistics:
       orders_count: 支援
-      projects_count: 專案
   index:
     confirmed_orders_count: 投票數

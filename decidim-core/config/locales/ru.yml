@@ -439,8 +439,6 @@ ru:
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
-        statistics:
-          headline: Текущее состояние %{organization}
         sub_hero:
           register: Зарегистрироваться
     profile:
@@ -454,11 +452,6 @@ ru:
         actions:
           edit_profile: Редактировать профиль
     reported_mailer:
-      hide:
-        hello: Здравствуйте, %{name}!
-        manage_moderations: Управление действиями по модерации
-        report_html: <p>Следующее <a href="%{url}">содержимое</a> было автоматически скрыто.</p>
-        subject: Ресурс был автоматически скрыт
       report:
         hello: Здравствуйте, %{name}!
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>

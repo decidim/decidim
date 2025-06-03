@@ -32,8 +32,6 @@ zh-CN:
         alert_color: 警告
         badges_enabled: 启用徽章
         comments_max_length: 评论最大长度 (默认值留0)
-        cta_button_path: 调用动作按钮路径
-        cta_button_text: 呼叫动作按钮文本
         customize_welcome_notification: 自定义欢迎通知
         default_locale: 默认区域设置
         description: 描述
@@ -251,9 +249,6 @@ zh-CN:
             'false': 已发布
             'true': 未发布
         search_label: 搜索
-        search_placeholder:
-          name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
-          title_cont: 按标题搜索 %{collection}。
         state_eq:
           label: 状态
       help_sections:
@@ -482,15 +477,7 @@ zh-CN:
         edit:
           update: 更新
         form:
-          colors:
-            colors_title: 组织颜色
-          cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
-          homepage_appearance_title: 编辑主页外观
           homepage_highlighted_content_banner_title: 高亮的内容素材
-          images:
-            layout_appearance_title: 编辑布局外观
-            preview: 预览
-          omnipresent_banner_appearance_title: Edit omnipresent banner
       participatory_space_private_users:
         create:
           error: 在这种参与空间中添加私人参与者时出现了问题。
@@ -594,7 +581,6 @@ zh-CN:
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
-        statistics: 活动
       users:
         create:
           error: 邀请此管理员时出现问题。

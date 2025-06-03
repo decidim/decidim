@@ -45,8 +45,6 @@ ar:
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
         comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
-        cta_button_path: مسار زر دعوة إلى العمل call to action
-        cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
         description: الوصف
@@ -378,11 +376,7 @@ ar:
             'true': لم يُنشَر
         search_label: بحث
         search_placeholder:
-          name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
           report_count_eq: عدد التقارير يساوى
-          reported_id_string_or_reported_content_cont: البحث عن %{collection} بواسطة رقم-مُعرف أو بالمحتوى.
-          title_cont: البحث عن %{collection} بحسب العنوان.
-          user_name_or_user_nickname_or_user_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
         state_eq:
           label: الحالة
           values:
@@ -681,15 +675,7 @@ ar:
         edit:
           update: تحديث
         form:
-          colors:
-            colors_title: ألوان المنظمة
-          cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
-          homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
-          images:
-            layout_appearance_title: تحرير مظهر التخطيط
-            preview: معاينة
-          omnipresent_banner_appearance_title: تحرير لافتة في كل مكان
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -826,7 +812,6 @@ ar:
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        statistics: النشاط
         users: المدراء
       users:
         create:

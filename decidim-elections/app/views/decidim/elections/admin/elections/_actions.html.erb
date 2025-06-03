@@ -1,0 +1,29 @@
+<% if view == :deleted %>
+  <% if allowed_to? :restore, :election, trashable_deleted_resource: election %>
+    <%= icon_link_to "refresh-line", url_for(action: :restore, id: election, controller: "elections"), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
+  <% end %>
+<% else %>
+  <% if allowed_to? :update, :election, election: election %>
+    <%= icon_link_to "pencil-line", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+  <% else %>
+    <span class="action-space icon"></span>
+  <% end %>
+
+  <% if allowed_to? :update, :election, election: election %>
+    <% if election.published? %>
+      <%= icon_link_to "close-circle-line", unpublish_election_path(election), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
+    <% else %>
+      <%= icon_link_to "check-line", publish_election_path(election), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+    <% end %>
+  <% else %>
+    <span class="action-space icon"></span>
+  <% end %>
+
+  <%= resource_permissions_link(election) %>
+
+  <% if allowed_to? :soft_delete, :election, trashable_deleted_resource: election %>
+    <%= icon_link_to "delete-bin-line", soft_delete_election_path(election), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_election", scope: "decidim.elections") } %>
+  <% else %>
+    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
+  <% end %>
+<% end %>

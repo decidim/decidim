@@ -14,7 +14,7 @@ shared_examples "manage projects" do
       expect(page).to have_content("Proposals")
     end
 
-    context "when geocoding is enabled", :serves_geocoding_autocomplete do
+    context "when geocoding is enabled" do
       let(:address) { "Some address" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
@@ -64,9 +64,9 @@ shared_examples "manage projects" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
 
         # Reload the page with the updated settings
         visit current_path
@@ -142,7 +142,7 @@ shared_examples "manage projects" do
   let(:attributes) { attributes_for(:project) }
 
   it "creates a new project", versioning: true do
-    within ".bulk-actions-budgets" do
+    within ".item_show__header-title" do
       click_on "New project"
     end
 
@@ -236,7 +236,7 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project" do
-      within ".bulk-actions-budgets" do
+      within ".item_show__header-title" do
         click_on "New project"
       end
 
