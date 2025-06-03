@@ -7,10 +7,6 @@ bs:
             body:
               cant_be_equal_to_template: ne može biti jednak šablonu
   decidim:
-    admin:
-      filters:
-        search_placeholder:
-          id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
     components:
       proposals:
         settings:

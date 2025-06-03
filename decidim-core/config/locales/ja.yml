@@ -1575,9 +1575,6 @@ ja:
       confirm_unload: このページには保存されていない変更が含まれています。このページから移動してもよいですか？
       embed:
         title: 埋め込み動画コンテンツ
-      extended_navigation_bar:
-        more: もっと見る
-        unfold: 展開する
       filter_form_help:
         help: 以下のフォームは、検索条件が変更されたときに検索結果を動的にフィルタリングします。
         skip: 結果にスキップ

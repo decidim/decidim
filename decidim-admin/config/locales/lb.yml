@@ -321,10 +321,6 @@ lb:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         search_label: Suche
-        search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
-          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
-          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
           values:

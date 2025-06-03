@@ -73,6 +73,7 @@ de:
       decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
       decidim/resource_hidden_event: Ressource versteckt
+      decidim/resource_liked_event: Ressource geliked
       decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
@@ -94,6 +95,9 @@ de:
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
+      decidim/like:
+        one: Like
+        other: Likes
       decidim/user:
         one: Benutzer
         other: Benutzer
@@ -434,6 +438,9 @@ de:
       comments:
         one: Kommentar
         other: Kommentare
+      likes:
+        one: Like
+        other: Likes
       official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -580,6 +587,7 @@ de:
         name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
         background_image: Hintergrundbild
+        cta_button_path: URL des Call-to-Action Buttons
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
@@ -1597,9 +1605,6 @@ de:
       confirm_unload: Diese Seite enthält ungespeicherte Änderungen. Möchten Sie die Seite dennoch verlassen?
       embed:
         title: Eingebetteter Videoinhalt
-      extended_navigation_bar:
-        more: Mehr
-        unfold: Entfalten
       filter_form_help:
         help: Die Suchresultate werden bei geänderten Filtereinstellungen automatisch aktualisiert.
         skip: Zu Ergebnissen springen

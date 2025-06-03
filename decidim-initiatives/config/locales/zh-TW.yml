@@ -88,8 +88,6 @@ zh-TW:
               validating: 技術驗證
           type_id_eq:
             label: 類別
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 透過標題、描述、ID 或作者姓名搜尋 %{collection}
       initiatives_settings:
         update:
           success: 倡議設定已成功更新.

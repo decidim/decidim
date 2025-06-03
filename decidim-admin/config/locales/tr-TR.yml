@@ -448,10 +448,6 @@ tr:
             'true': Yayından kaldırıldı
         remove_all: Tümünü kaldır
         search_label: Arama
-        search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
-          reported_id_string_or_reported_content_cont: '%{collection} ''ı rapor edilebilir kimlik veya içeriğe göre arayın.'
-          title_cont: Başlığa göre %{collection} ara.
         state_eq:
           label: Durum
           values:
@@ -544,7 +540,6 @@ tr:
       logs:
         filters:
           participatory_space: Katılımcı alanı bul
-          text: E-posta, isim veya takma ad ile arayın.
           user: Kullanıcı
         logs_list:
           no_logs_yet: Henüz kayıt yok.

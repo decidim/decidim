@@ -89,8 +89,6 @@ ro:
               validating: Validarea tehnică
           type_id_eq:
             label: Tip
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Caută %{collection} după titlu, descriere, ID sau numele autorului.
       menu:
         attachments: Atașamente
         committee_members: Membrii comitetului

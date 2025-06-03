@@ -1014,9 +1014,6 @@ ar:
         close_modal: اغلاق النموذج
         ok: حسناً
         title: تأكيد
-      extended_navigation_bar:
-        more: أكثر من
-        unfold: كشف
       filter_form_help:
         help: النموذج أدناه يقوم بتصفية نتائج البحث بشكل دينامي عندما يتم تغيير شروط البحث.
         skip: تخطي إلى النتائج

@@ -1461,9 +1461,6 @@ fr:
       confirm_unload: Cette page contient des modifications non enregistrées. Êtes-vous sûr(e) de vouloir quitter cette page ?
       embed:
         title: Contenu vidéo intégré
-      extended_navigation_bar:
-        more: Plus
-        unfold: Afficher
       filter_form_help:
         help: Le formulaire ci-dessous filtre dynamiquement les résultats de la recherche lorsque les conditions de recherche sont modifiées.
         skip: Passer aux résultats

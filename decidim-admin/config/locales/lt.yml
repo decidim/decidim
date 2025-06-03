@@ -390,11 +390,7 @@ lt:
             'true': Nebeskelbiama
         search_label: Ieškoti
         search_placeholder:
-          name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
           report_count_eq: Raportuoti skaičių
-          reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
-          title_cont: Ieškoti %{collection} pagal pavadinimą.
-          user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
         state_eq:
           label: Būsena
           values:
@@ -494,7 +490,6 @@ lt:
       logs:
         filters:
           participatory_space: Rasti dalyvaujamąją erdvę
-          text: Ieškoti pagal el. pašto adresą, vardą arba naudotojo vardą.
           user: Naudotojas
         logs_list:
           no_logs_yet: Dar nėra įrašų.

@@ -774,9 +774,6 @@ pt:
         close_modal: Fechar modal
         ok: OK
         title: Confirmar
-      extended_navigation_bar:
-        more: Mais
-        unfold: Desdobrar
       filter_form_help:
         help: O formulário abaixo filtra os resultados da pesquisa dinamicamente quando as condições de pesquisa são modificadas.
         skip: Ir para os resultados
