@@ -4,6 +4,13 @@ shared_context "with a graphql class type" do
   let!(:current_organization) { create(:organization) }
   let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
   let!(:current_component) { create(:component) }
+  let(:api_scopes) do
+    if current_user.present?
+      Doorkeeper::OAuth::Scopes.from_array(Doorkeeper.config.scopes.all)
+    else
+      Doorkeeper::OAuth::Scopes.from_string("api:read")
+    end
+  end
   let(:model) { OpenStruct.new({}) }
   let(:type_class) { described_class }
   let(:variables) { {} }
@@ -28,7 +35,8 @@ shared_context "with a graphql class type" do
       context: {
         current_organization:,
         current_user:,
-        current_component:
+        current_component:,
+        scopes: api_scopes
       },
       variables:
     )
