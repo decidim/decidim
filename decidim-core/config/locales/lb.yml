@@ -770,9 +770,6 @@ lb:
         close_modal: Modal zou maachen
         ok: Ok
         title: Bestätegen
-      extended_navigation_bar:
-        more: Méi
-        unfold: Opklappen
       filter_form_help:
         help: D'Formular ënnen filtert d'Resultater vun der Sich dynamesch, wann Konditiounen fir d' Sich änneren.
         skip: Weider bis bei d'Resultater
