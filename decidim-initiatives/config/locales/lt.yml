@@ -97,8 +97,6 @@ lt:
               validating: Techninis patvirtinimas
           type_id_eq:
             label: Tipas
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
       initiatives_settings:
         update:
           success: Iniciatyvų nustatymai atnaujinti.
