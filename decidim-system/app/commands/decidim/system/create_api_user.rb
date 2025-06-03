@@ -54,8 +54,8 @@ module Decidim
 
       def generate_unique_key
         loop do
-          token = SecureRandom.alphanumeric(32)
-          return token unless Decidim::Api::ApiUser.exists?(api_key: token)
+          key = SecureRandom.alphanumeric(32)
+          return key unless Decidim::Api::ApiUser.exists?(api_key: key)
         end
       end
     end
