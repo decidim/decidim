@@ -236,9 +236,6 @@ sk:
             'false': Zverejnené
             'true': Nepublikované
         search_label: Hľadať
-        search_placeholder:
-          name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
-          title_cont: Hľadať %{collection} podľa titulku.
       help_sections:
         form:
           save: Uložiť
