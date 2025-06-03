@@ -121,8 +121,9 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Proposals" }
   let(:organization) { participatory_process.organization }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_votes, :with_likes, :participant_author, component: current_component, taxonomies:) }
+  let!(:proposal) { create(:proposal, :with_answer, :with_votes, :with_likes, :participant_author, component: current_component, taxonomies:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
+
   let(:active_step) { current_component.participatory_space.respond_to?(:active_step) && current_component.participatory_space.active_step.present? }
   let(:cost) do
     number_to_currency(proposal.cost, unit: Decidim.currency_unit) if active_step
@@ -226,10 +227,6 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
-  let(:organization) { participatory_process.organization }
-  let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_answer, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
-  let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 
   before do
     if active_step
