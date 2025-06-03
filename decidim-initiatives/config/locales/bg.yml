@@ -92,8 +92,6 @@ bg:
               validating: Техническа проверка
           type_id_eq:
             label: Тип
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Търсете в %{collection} по заглавие, описание, идент. № или име на автора.
       initiatives_settings:
         update:
           success: Настройките на инициативите са актуализирани успешно.
