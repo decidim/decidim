@@ -87,8 +87,6 @@ pt:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-        search_placeholder:
-          id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
     components:
       proposals:
         actions:
