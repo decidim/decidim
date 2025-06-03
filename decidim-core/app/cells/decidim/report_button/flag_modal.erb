@@ -13,7 +13,7 @@
               [:offensive, t("decidim.shared.flag_modal.offensive")],
               [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization_name)]
             ], :first, :last do |builder|
-              builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
+              builder.label(for: "#{builder.value.to_s}-#{modal_id}", class: "form__wrapper-checkbox-label") { builder.radio_button(id: "#{builder.value.to_s}-#{modal_id}") + builder.text }
             end %>
           </fieldset>
 
