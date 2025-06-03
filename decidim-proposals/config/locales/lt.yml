@@ -104,8 +104,6 @@ lt:
             values:
               state_not_published: Neatsakyta
               state_published: Atsakyta
-        search_placeholder:
-          id_string_or_title_cont: Ieškoti %{collection} pagal ID arba pavadinimą.
     components:
       proposals:
         actions:
