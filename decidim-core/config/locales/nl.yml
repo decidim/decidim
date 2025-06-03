@@ -780,9 +780,6 @@ nl:
         close_modal: Sluit venster
         ok: Ok
         title: Bevestigen
-      extended_navigation_bar:
-        more: Meer
-        unfold: Ontvouwen
       filter_form_help:
         help: Het formulier hieronder filtert de zoekresultaten dynamisch wanneer de zoekvoorwaarden worden gewijzigd.
         skip: Ga naar resultaten
