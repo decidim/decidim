@@ -1620,9 +1620,6 @@ eu:
       confirm_unload: Orrialde honetan gorde gabeko aldaketak daude. Ziur zaude orri hau utzi nahi duzula?
       embed:
         title: Bideo-eduki txertatuak
-      extended_navigation_bar:
-        more: Gehiago
-        unfold: Zabaldu
       filter_form_help:
         help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
