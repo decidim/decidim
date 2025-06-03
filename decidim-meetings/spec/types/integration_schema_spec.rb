@@ -17,7 +17,7 @@ describe "Decidim::Api::QueryType" do
           attachments {
             thumbnail
           }
-          attendeeCount
+          attendeesCount
           attendingOrganizations
           taxonomies {
             id
@@ -32,7 +32,6 @@ describe "Decidim::Api::QueryType" do
           commentsStartTime
           contributionCount
           customizeRegistrationEmail
-          isWithdrawn
           iframeAccessLevel
           iframeEmbedType
           videoUrl
@@ -97,6 +96,7 @@ describe "Decidim::Api::QueryType" do
           updatedAt
           url
           userAllowedToComment
+          withdrawn
         }
       }
 )
@@ -124,7 +124,7 @@ describe "Decidim::Api::QueryType" do
       "address" => meeting.address,
       "agenda" => { "id" => meeting.agenda.id.to_s },
       "attachments" => [],
-      "attendeeCount" => meeting.attendees_count,
+      "attendeesCount" => meeting.attendees_count,
       "attendingOrganizations" => meeting.attending_organizations,
       "taxonomies" => [{ "id" => meeting.taxonomies.first.id.to_s }],
       "closed" => true,
@@ -132,7 +132,6 @@ describe "Decidim::Api::QueryType" do
       "closingReport" => closing_visible ? { "translation" => meeting.closing_report[locale] } : nil,
       "commentsEnabled" => meeting.comments_enabled,
       "commentsEndTime" => meeting.comments_end_time.to_time.iso8601,
-      "isWithdrawn" => true,
       "videoUrl" => closing_visible ? meeting.video_url : nil,
       "audioUrl" => closing_visible ? meeting.audio_url : nil,
       "comments" => [],
@@ -179,7 +178,8 @@ describe "Decidim::Api::QueryType" do
       "type" => "Decidim::Meetings::Meeting",
       "updatedAt" => meeting.updated_at.to_time.iso8601,
       "url" => Decidim::ResourceLocatorPresenter.new(meeting).url,
-      "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user)
+      "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user),
+      "withdrawn" => true
     }
   end
 
@@ -235,7 +235,7 @@ describe "Decidim::Api::QueryType" do
               attachments {
                 thumbnail
               }
-              attendeeCount
+              attendeesCount
               attendingOrganizations
               taxonomies {
                 id
@@ -250,7 +250,6 @@ describe "Decidim::Api::QueryType" do
               commentsStartTime
               contributionCount
               customizeRegistrationEmail
-              isWithdrawn
               iframeAccessLevel
               iframeEmbedType
               videoUrl
@@ -315,6 +314,7 @@ describe "Decidim::Api::QueryType" do
               updatedAt
               url
               userAllowedToComment
+              withdrawn
             }
           }
         }
