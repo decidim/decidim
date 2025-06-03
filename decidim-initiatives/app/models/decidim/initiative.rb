@@ -70,8 +70,6 @@ module Decidim
     enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
-    validates :hashtag,
-              uniqueness: { allow_blank: true, case_sensitive: false }
 
     validate :signature_type_allowed
 
@@ -265,11 +263,6 @@ module Decidim
     # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
-    end
-
-    # Public: Returns the hashtag for the initiative.
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of total current supports.

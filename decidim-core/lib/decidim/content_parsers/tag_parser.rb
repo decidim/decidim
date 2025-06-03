@@ -11,7 +11,7 @@ module Decidim
     class TagParser < BaseParser
       # Replaces tags name with new or existing tags models global ids.
       #
-      # The actual tags depend on the context, these can be hashtags, user
+      # The actual tags depend on the context, these can be user
       # mentions, etc.
       #
       # @return [String] the content with the tags replaced by global ids

@@ -8,7 +8,7 @@ module Decidim
       class UpdateParticipatoryProcessGroup < Decidim::Commands::UpdateResource
         fetch_file_attributes :hero_image
 
-        fetch_form_attributes :title, :description, :hashtag, :group_url, :developer_group, :local_area,
+        fetch_form_attributes :title, :description, :group_url, :developer_group, :local_area,
                               :meta_scope, :participatory_scope, :participatory_structure, :target, :promoted
 
         private

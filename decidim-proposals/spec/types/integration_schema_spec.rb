@@ -52,7 +52,7 @@ describe "Decidim::Api::QueryType" do
           }
           createdAt
           createdInMeeting
-          endorsements {
+          likes {
             id
             deleted
              name
@@ -60,7 +60,7 @@ describe "Decidim::Api::QueryType" do
             organizationName { translation(locale: "en") }
             profilePath
           }
-          endorsementsCount
+          likesCount
           fingerprint{
             source
             value
@@ -104,7 +104,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Proposals" }
   let(:organization) { participatory_process.organization }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
+  let!(:proposal) { create(:proposal, :with_votes, :with_likes, :participant_author, component: current_component, taxonomies:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 
   let(:proposal_single_result) do
@@ -137,7 +137,7 @@ describe "Decidim::Api::QueryType" do
       "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
       "createdAt" => proposal.created_at.to_time.iso8601,
       "createdInMeeting" => proposal.created_in_meeting?,
-      "endorsements" => proposal.endorsements.map do |e|
+      "likes" => proposal.likes.map do |e|
         { "deleted" => e.author.deleted?,
           "id" => e.author.id.to_s,
           "name" => e.author.name,
@@ -145,7 +145,7 @@ describe "Decidim::Api::QueryType" do
           "organizationName" => { "translation" => translated(e.author.organization.name) },
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
-      "endorsementsCount" => proposal.endorsements.size,
+      "likesCount" => proposal.likes.size,
       "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
       "hasComments" => proposal.comment_threads.size.positive?,
       "id" => proposal.id.to_s,
@@ -255,7 +255,7 @@ describe "Decidim::Api::QueryType" do
               }
               createdAt
               createdInMeeting
-              endorsements {
+              likes {
                 id
                 deleted
                  name
@@ -263,7 +263,7 @@ describe "Decidim::Api::QueryType" do
                 organizationName { translation(locale: "en") }
                 profilePath
               }
-              endorsementsCount
+              likesCount
               fingerprint{
                 source
                 value

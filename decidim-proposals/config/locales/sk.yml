@@ -44,7 +44,6 @@ sk:
               identical: A telo nemôže byť totožné
     models:
       decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
-      decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
       decidim/proposals/proposal_mentioned_event: Návrh spomenutý
       decidim/proposals/publish_proposal_event: Návrh publikovaný
       decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
@@ -74,7 +73,6 @@ sk:
       proposals:
         actions:
           amend: Upraviť
-          endorse: Schváliť
           withdraw: Vrátiť späť
         name: Návrhy
         settings:
@@ -111,8 +109,6 @@ sk:
             answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
             automatic_hashtags: Do všetkých návrhov boli pridané značky hashtags
             comments_blocked: Komentáre boli blokované
-            endorsements_blocked: Schvaľovanie blokované
-            endorsements_enabled: Schvaľovanie povolené
             proposal_answering_enabled: Odpovedanie na návrh je povolené
             publish_answers_immediately: Publikovať odpovede na návrhy okamžite
             suggested_hashtags: Hashtagy navrhované užívateľom pre ich nové návrhy
@@ -140,10 +136,6 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Návrhy sú teraz k dispozícii v %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Môžete schváliť návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Schválenie návrhov sa začalo po dobu%{participatory_space_title}
         proposal_mentioned:
           email_intro: Váš návrh %{mentioned_proposal_title} bol zmienený v komentároch v <a href="%{resource_url}">tomto priestore</a>.
           email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
@@ -271,13 +263,6 @@ sk:
             body: Telo
             comments_count: Počet komentárov
             documents: Dokumenty
-            endorsements_count: Počet podporení
-            endorsers: Podporovatelia
-            n_more_endorsers:
-              one: a 1 ďalší
-              few: + %{count} ďalších
-              many: + %{count} ďalších
-              other: + %{count} ďalších
             photos: Fotografie
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
@@ -461,7 +446,6 @@ sk:
         orders:
           label: 'Objednajte návrhy podľa:'
           most_commented: Najviac komentované
-          most_endorsed: Najviac schválené
           most_followed: Najviac sledované
           random: Náhodný
           recent: Nedávno
@@ -479,11 +463,6 @@ sk:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
           estimated_cost: Odhadované náklady
-          hidden_endorsers_count:
-            one: a%{count} ďalšia osoba
-            few: a %{count} ďalší ľudia
-            many: a %{count} ďalších ľudí
-            other: a %{count} ďalších ľudí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
           link_to_collaborative_draft_text: Pozri schému spolupráca
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia

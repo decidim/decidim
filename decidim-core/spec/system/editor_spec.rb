@@ -1232,26 +1232,6 @@ describe "Editor" do
     end
   end
 
-  context "with hashtags" do
-    let(:editor_options) { { hashtaggable: true } }
-
-    let!(:hashtag1) { create(:hashtag, name: "nature", organization:) }
-    let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
-    let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
-
-    it "allows selecting hashtags" do
-      prosemirror.native.send_keys "#na"
-
-      expect(page).to have_css(".editor-suggestions-item", text: "nature")
-      expect(page).to have_css(".editor-suggestions-item", text: "nation")
-      expect(page).to have_css(".editor-suggestions-item", text: "native")
-
-      prosemirror.native.send_keys [:enter]
-
-      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> na</p>))
-    end
-  end
-
   context "with mentions" do
     let(:editor_options) { { mentionable: true } }
 

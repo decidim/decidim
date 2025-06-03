@@ -1,0 +1,31 @@
+<div class="card" data-component="accordion" id="accordion-basic_configuration">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-basic_configuration" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="basic_configuration">
+        <%= t("basic_configuration", scope: "decidim.admin.organization.form") %>
+      </h2>
+    </button>
+  </div>
+  <div id="panel-basic_configuration" class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :name %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :description, aria: { label: :description } %>
+    </div>
+
+    <div class="row column">
+      <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
+    </div>
+
+    <div class="row column">
+      <%= form.time_zone_select :time_zone %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :reference_prefix %>
+    </div>
+  </div>
+</div>

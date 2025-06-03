@@ -55,12 +55,12 @@ shared_examples "split proposals" do
           let!(:target_component) { current_component }
 
           context "and the proposals cannot be splitted" do
-            let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
+            let!(:proposals) { create_list(:proposal, 3, :with_likes, :with_votes, component: current_component) }
 
             it "does not create a new proposal and displays a validation fail message" do
               expect(page).to have_content("There was a problem splitting the selected proposals")
               expect(page).to have_content("Are not official")
-              expect(page).to have_content("Have received votes or endorsements")
+              expect(page).to have_content("Have received votes or likes")
             end
           end
         end

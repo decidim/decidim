@@ -7,7 +7,6 @@ import Underline from "@tiptap/extension-underline";
 import CharacterCount from "src/decidim/editor/extensions/character_count";
 import Bold from "src/decidim/editor/extensions/bold";
 import Dialog from "src/decidim/editor/extensions/dialog";
-import Hashtag from "src/decidim/editor/extensions/hashtag";
 import Heading from "src/decidim/editor/extensions/heading";
 import OrderedList from "src/decidim/editor/extensions/ordered_list";
 import Image from "src/decidim/editor/extensions/image";
@@ -32,7 +31,6 @@ export default Extension.create({
         uploadImagesPath: null,
         contentTypes: /^image\/(jpe?g|png|svg|webp)$/i
       },
-      hashtag: false,
       mention: false,
       mentionResource: false,
       emoji: false
@@ -67,10 +65,6 @@ export default Extension.create({
 
     if (this.options.image !== false && this.options.image.uploadDialogSelector) {
       extensions.push(Image.configure(this.options.image));
-    }
-
-    if (this.options.hashtag !== false) {
-      extensions.push(Hashtag.configure(this.options.hashtag));
     }
 
     if (this.options.mention !== false) {

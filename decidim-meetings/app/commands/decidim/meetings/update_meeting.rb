@@ -45,15 +45,15 @@ module Decidim
       end
 
       def update_meeting!
-        parsed_title = form.title
-        parsed_description = form.description
+        form.title
+        form.description
 
         Decidim.traceability.update!(
           meeting,
           current_user,
           {
-            title: { I18n.locale => parsed_title },
-            description: { I18n.locale => parsed_description },
+            title: { I18n.locale => form.title },
+            description: { I18n.locale => form.description },
             end_time: form.end_time,
             start_time: form.start_time,
             address: form.address,

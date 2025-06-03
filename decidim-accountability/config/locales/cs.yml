@@ -386,3 +386,4 @@ cs:
         result_proposal: Návrhy zahrnuté v tomto výsledku
     statistics:
       results_count: Výsledky
+      results_count_tooltip: Počet rozhodnutí nebo výsledků získaných z tohoto prostoru.

@@ -15,7 +15,6 @@ module Decidim
       field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
       field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], "The committee members list", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
-      field :hashtag, GraphQL::Types::String, "The hashtag for this initiative", null: true
       field :initiative_supports_count, GraphQL::Types::Int,
             description: "The number of supports in this initiative",
             method: :online_votes_count,

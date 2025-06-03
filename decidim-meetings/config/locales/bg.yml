@@ -196,11 +196,6 @@ bg:
           email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
           email_subject: Приемат се регистрации за срещата „%{resource_title}“.
           notification_title: Приемат се регистрации за срещата <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
-          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
-          email_subject: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
-          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> ще започне след по-малко от 48 ч.
     forms:
       meetings:
         attendees_count_help_text: Не забравяйте да включите общия брой присъстващи на вашата среща, независимо дали те присъстват лично, онлайн или хибридно.

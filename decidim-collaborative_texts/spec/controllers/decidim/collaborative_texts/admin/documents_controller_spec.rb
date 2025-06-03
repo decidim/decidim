@@ -7,8 +7,6 @@ module Decidim
   module CollaborativeTexts
     module Admin
       describe DocumentsController do
-        routes { Decidim::CollaborativeTexts::AdminEngine.routes }
-
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:organization) { create(:organization) }
         let(:participatory_space) { create(:participatory_process, organization:) }
@@ -23,10 +21,13 @@ module Decidim
         end
         let(:title) { "A nice test document" }
         let(:body) { "This is a test document." }
+        let(:documents_path) { Decidim::EngineRouter.admin_proxy(component).documents_path }
 
         before do
+          allow(controller).to receive(:documents_path).and_return(documents_path)
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_component"] = component
+          request.env["decidim.current_participatory_space"] = participatory_space
           allow(controller).to receive(:current_participatory_space).and_return(participatory_space)
           allow(controller).to receive(:current_component).and_return(component)
         end

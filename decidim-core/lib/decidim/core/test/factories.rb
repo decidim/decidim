@@ -65,10 +65,6 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
-  sequence(:hashtag_name) do |n|
-    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
-  end
-
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -513,29 +509,29 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_blocked: true }
+          participatory_space.active_step.id => { likes_blocked: true }
         }
       end
     end
@@ -907,14 +903,6 @@ FactoryBot.define do
     end
   end
 
-  factory :hashtag, class: "Decidim::Hashtag" do
-    transient do
-      skip_injection { false }
-    end
-    name { generate(:hashtag_name) }
-    organization
-  end
-
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
@@ -963,7 +951,7 @@ FactoryBot.define do
     user { create(:user, :confirmed) }
   end
 
-  factory :endorsement, class: "Decidim::Endorsement" do
+  factory :like, class: "Decidim::Like" do
     transient do
       skip_injection { false }
     end

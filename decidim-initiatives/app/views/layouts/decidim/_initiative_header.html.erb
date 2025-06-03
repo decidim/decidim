@@ -12,11 +12,6 @@
         </div>
         <div>
           <p>
-            <% if current_participatory_space.hashtag.present? %>
-              <span>
-                <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-              </span>
-            <% end %>
             <%= strip_tags participatory_space_helpers.translated_attribute(current_participatory_space.type.title) %>
           </p>
         </div>

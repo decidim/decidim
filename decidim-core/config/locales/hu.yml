@@ -45,7 +45,6 @@ hu:
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/promoted_to_admin_event: Csoportadminisztrátorrá jelölve
       decidim/removed_from_group: Eltávolítva a csoportból
-      decidim/resource_endorsed_event: Erőforrás támogatva
       decidim/resource_hidden_event: Rejtett erőforrás
       decidim/welcome_notification_event: Üdvözlő üzenet
   activerecord:
@@ -63,9 +62,6 @@ hu:
       decidim/amendment:
         one: Módosítás
         other: Módosítások
-      decidim/endorsement:
-        one: Jóváhagyás
-        other: Támogatások
       decidim/user:
         one: Résztvevő
         other: Résztvevők
@@ -323,9 +319,6 @@ hu:
       comments:
         one: megjegyzés
         other: megjegyzések
-      endorsements:
-        one: jóváhagyás
-        other: támogatások
       official_author: Hivatalos
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -568,8 +561,6 @@ hu:
         error: Hiba történt a kép feltöltése közben.
         success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
-    endorsement_buttons_cell:
-      endorse: Tetszik
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
@@ -676,11 +667,6 @@ hu:
           notification_title: |-
             Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették </br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name}% {endorser_nickname}, akit követsz, éppen jóváhagyta a "%{resource_title}" -t, és úgy gondoljuk, hogy ez érdekes lehet számodra. Nézd meg, és járulj hozzá:'
-        email_outro: Azért kaptad ezt az értesítést, mert %{endorser_nickname} követed. Az előző hivatkozást követve abbahagyhatod az értesítések fogadását.
-        email_subject: "%{endorser_nickname} támogatásról biztosított"
-        notification_title: A <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a(z) <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> hagyta jóvá.
       users:
         profile_updated:
           email_intro: '%{name} (%{nickname}) (akit követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
@@ -1054,9 +1040,6 @@ hu:
     reports:
       create:
         success: A jelentést létrehozása sikeres, de még egy adminisztrátora felülvizsgálja.
-    resource_endorsements:
-      create:
-        error: Hiba történt a támogatási művelet során.
     scopes:
       global: Globális hatáskör
       prompt: Válassz hatáskört
@@ -1140,7 +1123,6 @@ hu:
         share_to: 'Oszd meg vele: %{service}'
     statistics:
       comments_count: Hozzászólások
-      endorsements_count: Támogatások
       followers_count: Követők
       headline: Statisztikák
       no_stats: Még nincsenek statisztikák.
