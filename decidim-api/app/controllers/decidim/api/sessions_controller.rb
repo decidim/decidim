@@ -8,7 +8,7 @@ module Decidim
       respond_to :json
 
       def failure
-        render json: anonymous_user.attributes.slice("id", "name", "nickname").merge(
+        render json: resource_attributes(anonymous_user).merge(
           "jwt_token" => nil,
           "avatar" => nil
         ), status: :unauthorized
@@ -25,7 +25,7 @@ module Decidim
       end
 
       def respond_with(resource, _opts = {})
-        serialized_user = resource.attributes.slice("id", "name", "nickname")
+        serialized_user = resource_attributes(resource)
 
         if request.env[::Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY]
           jwt_token = request.env[::Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
@@ -47,6 +47,10 @@ module Decidim
 
       def respond_to_on_destroy
         head :ok
+      end
+
+      def resource_attributes(resource)
+        resource.attributes.slice("id", "name", "nickname")
       end
 
       def anonymous_user
