@@ -95,8 +95,9 @@ en:
       api_users:
         index:
           explanation_html: |
-            <p>API users allow integration developers to add administrative user accounts to the system. These users can act as an administrator on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where users would perform administrative tasks with the platform without having to authenticate to the system. For example, a user might want to send answers to proposals through an external system in which case we need an integration user to perform this task within this platform.</p>
+            <p>API users allow integration developers to add administrative machine user accounts to the system. These machine users can act as administrators on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where an automated script would perform administrative tasks with the platform without a real user having to authenticate to the system. For example, an automation system might want to send answers to proposals in which case we need an integration user to perform this task within this platform.</p>
             <p>The main difference between these accounts and normal administrator accounts is that these users are meant to be used by machines and therefore their password requirements are different. These users do not need to regularly update their password and changing the account password can happen in a managed way when needed.</p>
+            <p>These credentials are meant to be used by machines. Participant-facing applications should be integrated with <a href="%{oauth_link}">OAuth applications</a>.</p>
           manage: Manage API users
         new:
           select_organization: Select your organization

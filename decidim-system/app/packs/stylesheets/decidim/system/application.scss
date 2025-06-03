@@ -52,7 +52,10 @@ table {
   tr:nth-child(even) td {
     @apply bg-gray-3;
   }
+}
 
+table,
+.text-content {
   a {
     @apply text-primary underline;
   }
