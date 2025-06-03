@@ -61,9 +61,9 @@ module Decidim
       html_properties = default_html_properties.merge(html_properties)
 
       if name == "wechat-line"
-        html_properties = html_properties.merge({ "aria-label" => I18n.t("decidim.author.comments.other") }).reject{ |k,v| k == "aria-hidden" }
+        html_properties = html_properties.merge({ "aria-label" => I18n.t("decidim.author.comments.other") }).except("aria-hidden")
       elsif name == "heart-line"
-        html_properties = html_properties.merge({ "aria-label" => I18n.t(".decidim.author.likes.other") }).reject{ |k,v| k == "aria-hidden" }
+        html_properties = html_properties.merge({ "aria-label" => I18n.t(".decidim.author.likes.other") }).except("aria-hidden")
       end
 
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
