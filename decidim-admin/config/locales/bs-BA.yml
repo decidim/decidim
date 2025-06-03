@@ -236,9 +236,6 @@ bs:
             'false': Objavljeno
             'true': Neobjavljeno
         search_label: Pretraži
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
-          title_cont: Pretraži %{collection} prema nazivu.
       help_sections:
         form:
           save: Sačuvaj
