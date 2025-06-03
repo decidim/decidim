@@ -426,7 +426,7 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           report_count_eq: Jelentések száma
-          reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
+          reported_id_string_or_reported_content_cont: Keresés %{collection} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
           user_name_or_user_nickname_or_user_email_cont: Keresés %{collection} email, név vagy becenév alapján.
         state_eq:

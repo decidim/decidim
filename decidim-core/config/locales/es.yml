@@ -841,10 +841,20 @@ es:
         error: Error al subir la imagen.
         success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
+    endorsement_buttons_cell:
+      already_endorsed: Deshacer el "Me gusta"
+      endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
+    endorsers_list:
+      endorsed_by:
+        one: Le gusta a %{visible}
+        other: Le gusta a %{visible} y a %{others}
+      others: "%{count} más"
+      title: Le ha gustado a
+      you: tú
     ephemeral_user: Visitante
     errors:
       files:
@@ -1734,7 +1744,7 @@ es:
         manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Razón
-        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente por %{moderator}.</p>
         subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras

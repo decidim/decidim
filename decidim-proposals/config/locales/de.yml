@@ -920,7 +920,7 @@ de:
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
-          discard: Verwerfen Sie diesen Entwurf
+          discard: Entwurf verwerfen
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
