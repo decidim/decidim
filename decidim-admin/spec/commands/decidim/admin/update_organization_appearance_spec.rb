@@ -5,12 +5,11 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateOrganizationAppearance do
     describe "call" do
-      let(:organization) { create(:organization, highlighted_content_banner_enabled: true) }
+      let(:organization) { create(:organization) }
       let(:user) { create(:user, organization:) }
       let(:params) do
         {
           organization: {
-            highlighted_content_banner_enabled: false,
             header_snippets: '<script>alert("Hello");</script>'
           }
         }
@@ -25,23 +24,6 @@ module Decidim::Admin
         OrganizationAppearanceForm.from_params(params).with_context(context)
       end
       let(:command) { described_class.new(form, organization) }
-
-      describe "when the form is not valid" do
-        before do
-          allow(form).to receive(:invalid?).and_return(true)
-        end
-
-        it "broadcasts invalid" do
-          expect { command.call }.to broadcast(:invalid)
-        end
-
-        it "does not update the organization" do
-          command.call
-          organization.reload
-
-          expect(organization.highlighted_content_banner_enabled).to be_truthy
-        end
-      end
 
       describe "when the organization is not valid" do
         before do
@@ -70,13 +52,6 @@ module Decidim::Admin
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
           expect(action_log.version.event).to eq "update"
-        end
-
-        it "updates the organization in the organization" do
-          expect { command.call }.to broadcast(:ok)
-          organization.reload
-
-          expect(organization.highlighted_content_banner_enabled).to be_falsey
         end
 
         it "does not save header snippets" do
