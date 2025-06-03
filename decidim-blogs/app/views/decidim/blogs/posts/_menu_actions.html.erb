@@ -1,7 +1,7 @@
 
 <% if allowed_to?(:update, :blogpost, blogpost: post) %>
-  <li role="menuitem">
-    <%= link_to edit_post_path(post), class: "button button__sm button__text button__text-secondary" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to edit_post_path(post), class: "dropdown__button" do %>
       <span><%= t("button_edit", scope: "decidim.blogs.posts.menu_actions") %></span>
       <%= icon "pencil-line" %>
     <% end %>
@@ -9,10 +9,10 @@
 <% end %>
 
 <% if allowed_to?(:destroy, :blogpost, blogpost: post) %>
-  <li role="menuitem">
+  <li role="menuitem" class="dropdown__item">
     <%= link_to post_path(post),
                 method: :delete,
-                class: "button button__sm button__text button__text-secondary",
+                class: "dropdown__button",
                 data: { confirm: t("button_destroy_confirm", scope: "decidim.blogs.posts.menu_actions") } do %>
       <span><%= t("button_destroy", scope: "decidim.blogs.posts.menu_actions") %></span>
       <%= icon "delete-bin-line" %>
