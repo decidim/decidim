@@ -62,7 +62,6 @@ module Decidim
         else
           # In case no user is present, we only allow the user to read the API.
           ::Doorkeeper::OAuth::Scopes.from_string("api:read")
-          # ::Doorkeeper::OAuth::Scopes.from_string("foobar")
         end
       end
 

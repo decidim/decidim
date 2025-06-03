@@ -3,7 +3,8 @@
 
   <%= field_set_tag form.label(:application_type, nil, for: nil) do %>
     <span class="help-text"><%= t(".application_type_help_html", client_type_link: "https://datatracker.ietf.org/doc/html/rfc6749#section-2.1", pkce_link: "https://datatracker.ietf.org/doc/html/rfc7636") %></span>
-    <%= form.collection_radio_buttons(
+    <%=
+    form.collection_radio_buttons(
       :application_type,
       form.object.application_types,
       :to_s,

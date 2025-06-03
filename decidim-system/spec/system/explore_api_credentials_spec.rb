@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "explore api credentials" do
+describe "Explore API credentials" do
   let(:admin) { create(:admin) }
   let!(:organization) { create(:organization) }
   let!(:organization1) { create(:organization) }
