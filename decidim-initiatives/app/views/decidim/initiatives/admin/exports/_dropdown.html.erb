@@ -1,6 +1,6 @@
 <% menu_id = "top-#{SecureRandom.uuid}" %>
 <div class="relative">
-  <a class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
+  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
     <% if collection_ids.present? %>
       <%= t("actions.export-selection", scope: "decidim.admin") %>
     <% else %>
@@ -8,7 +8,8 @@
     <% end %>
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-down-s-line" %>
-  </a>
+  </button>
+
   <ul id="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>" class="dropdown dropdown__bottom" aria-hidden="true">
     <% %w(CSV JSON).each do |format| %>
       <li class="dropdown__item">

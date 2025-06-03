@@ -1,5 +1,5 @@
 <div class="relative">
-  <a class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="<%= dropdown_id(filters) %>">
+  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="<%= dropdown_id(filters) %>">
     <% if filters.present? %>
       <%= t("actions.export-selection", scope: "decidim.admin") %>
     <% else %>
@@ -7,7 +7,8 @@
     <% end %>
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-down-s-line" %>
-  </a>
+  </button>
+
   <ul id="<%= dropdown_id(filters) %>" class="dropdown dropdown__bottom" aria-hidden="true">
     <% component.manifest.export_manifests.each do |manifest| %>
       <% manifest.formats.each do |format| %>

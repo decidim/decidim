@@ -1,9 +1,10 @@
 <div class="relative">
-  <a class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="import-dropdown">
+  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="import-dropdown">
     <%= t "actions.import", scope: "decidim.admin" %>
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-down-s-line" %>
-  </a>
+  </button>
+
   <ul id="import-dropdown" class="dropdown dropdown__bottom" aria-hidden="true">
     <% if custom %>
       <%= yield %>

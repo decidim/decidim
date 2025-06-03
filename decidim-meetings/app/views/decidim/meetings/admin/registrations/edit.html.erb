@@ -5,13 +5,15 @@
     <div class="flex items-center gap-x-4 ml-auto">
       <%= link_to t("registrations", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_attendees_path(meeting), class: "button button__sm button__transparent-secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
       <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__transparent-secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
+
       <% if allowed_to? :export_registrations, :meeting, meeting: meeting %>
         <div class="relative">
-          <a class="exports button button__sm button__transparent-secondary" data-component="dropdown" data-target="export-dropdown">
+          <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="export-dropdown">
             <%= t "actions.export", scope: "decidim.admin" %>
             <%= icon "arrow-down-s-line" %>
             <%= icon "arrow-down-s-line" %>
-          </a>
+          </button>
+
           <ul class="dropdown dropdown_bottom" id="export-dropdown">
             <% %w(CSV JSON Excel).each do |format| %>
               <li class="dropdown__item">
@@ -23,6 +25,7 @@
           </ul>
         </div>
       <% end %>
+
       <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__transparent-secondary" %>
       <%= link_to t("manage_questions" , scope: "decidim.meetings.admin.registrations.form"), edit_questions_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__transparent-secondary" %>
     </div>
