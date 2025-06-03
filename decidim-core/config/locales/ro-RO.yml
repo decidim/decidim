@@ -1314,9 +1314,6 @@ ro:
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
-      extended_navigation_bar:
-        more: Mai
-        unfold: Desfășurat
       filter_form_help:
         help: Formularul de mai jos filtrează dinamic rezultatele căutării atunci când condițiile de căutare sunt schimbate.
         skip: Sari la rezultate
