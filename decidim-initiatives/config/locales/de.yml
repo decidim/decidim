@@ -95,8 +95,6 @@ de:
               validating: Technische Validierung
           type_id_eq:
             label: Typ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       initiatives_settings:
         update:
           error: Beim Aktualisieren der Initiativeneinstellungen ist ein Fehler aufgetreten.
@@ -256,7 +254,7 @@ de:
             accept: Initiative akzeptieren
             confirm: Sind Sie sich sicher?
             confirm_send_to_technical_validation: Sind Sie sich sicher?
-            discard: Verwerfen Sie die Initiative
+            discard: Initiative verwerfen
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
             reject: Initiative ablehnen
