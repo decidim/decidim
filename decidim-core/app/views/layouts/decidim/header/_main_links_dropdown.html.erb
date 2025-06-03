@@ -1,45 +1,45 @@
 <% unread_data ||= current_user_unread_data %>
-<li>
-  <%= link_to decidim.account_path, class: "dropdown__item" do %>
+<li class="dropdown__item">
+  <%= link_to decidim.account_path, class: "dropdown__button" do %>
     <%= icon "user-smile-line" %>
-    <span class="text-secondary"><%= t("layouts.decidim.user_menu.profile") %></span>
+    <span><%= t("layouts.decidim.user_menu.profile") %></span>
   <% end %>
 </li>
-<li>
-  <%= link_to decidim.profile_path(current_user.nickname), class: "dropdown__item" do %>
+<li class="dropdown__item">
+  <%= link_to decidim.profile_path(current_user.nickname), class: "dropdown__button" do %>
     <%= icon "account-circle-line" %>
-    <span class="text-secondary"><%= t("layouts.decidim.user_menu.public_profile") %></span>
+    <span><%= t("layouts.decidim.user_menu.public_profile") %></span>
   <% end %>
 </li>
-<li>
-  <%= link_to decidim.notifications_path, class: "dropdown__item" do %>
+<li class="dropdown__item">
+  <%= link_to decidim.notifications_path, class: "dropdown__button" do %>
     <%= icon "notification-3-line" %>
-    <span class="text-secondary"><%= t("layouts.decidim.user_menu.notifications") %></span>
+    <span><%= t("layouts.decidim.user_menu.notifications") %></span>
     <% if unread_data[:unread_notifications] %>
       <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
     <% end %>
   <% end %>
 </li>
-<li>
-  <%= link_to decidim.conversations_path, class: "dropdown__item" do %>
+<li class="dropdown__item">
+  <%= link_to decidim.conversations_path, class: "dropdown__button" do %>
     <%= icon "mail-send-line" %>
-    <span class="text-secondary"><%= t("layouts.decidim.user_menu.conversations") %></span>
+    <span><%= t("layouts.decidim.user_menu.conversations") %></span>
     <% if unread_data[:unread_conversations] %>
       <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
     <% end %>
   <% end %>
 </li>
 <% if allowed_to? :read, :admin_dashboard %>
-  <li>
-    <%= link_to decidim_admin.root_path, class: "dropdown__item" do %>
+  <li class="dropdown__item">
+    <%= link_to decidim_admin.root_path, class: "dropdown__button" do %>
       <%= icon "dashboard-line" %>
-      <span class="text-secondary"><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
+      <span><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
     <% end %>
   </li>
 <% end %>
-<li>
-  <%= link_to decidim.destroy_user_session_path, method: :delete, class: "dropdown__item" do %>
+<li class="dropdown__item">
+  <%= link_to decidim.destroy_user_session_path, method: :delete, class: "dropdown__button" do %>
     <%= icon "logout-box-r-line" %>
-    <span class="text-secondary"><%= t("layouts.decidim.user_menu.log_out") %></span>
+    <span><%= t("layouts.decidim.user_menu.log_out") %></span>
   <% end %>
 </li>

@@ -109,7 +109,7 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function (e) {
+    $("#js-bulk-actions-dropdown li button").click(function (e) {
       $("#js-bulk-actions-dropdown").removeClass("is-open");
       hideBulkActionForms();
 
