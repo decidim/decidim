@@ -40,7 +40,7 @@ module Decidim
         end
 
         # Default doorkeeper token generator
-        Doorkeeper::OAuth::Helpers::UniqueToken.generate(options)
+        ::Doorkeeper::OAuth::Helpers::UniqueToken.generate(options)
       end
     end
   end
