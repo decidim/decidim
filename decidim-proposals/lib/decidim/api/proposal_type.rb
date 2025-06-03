@@ -64,18 +64,21 @@ module Decidim
       end
 
       def cost_report
+        return unless object.published_state?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         object.cost_report
       end
 
       def execution_period
+        return unless object.published_state?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         object.execution_period
       end
 
       def cost
+        return unless object.published_state?
         return unless proposal_has_costs? && current_settings.answers_with_costs?
 
         number_to_currency(object.cost, unit: Decidim.currency_unit)

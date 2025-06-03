@@ -47,6 +47,34 @@ module Decidim
           )
         end
 
+        context "when answer is not published" do
+          let(:model) { create(:proposal, :accepted_not_published, :with_votes, :with_likes, :with_amendments, component:) }
+
+          describe "execution_period" do
+            let(:query) { '{ executionPeriod { translation(locale: "en")} }' }
+
+            it "returns the proposal's execution_period" do
+              expect(response["executionPeriod"]).to be_nil
+            end
+          end
+
+          describe "cost" do
+            let(:query) { "{ cost }" }
+
+            it "returns the proposal's cost" do
+              expect(response["cost"]).to be_nil
+            end
+          end
+
+          describe "cost_report" do
+            let(:query) { '{ costReport { translation(locale: "en")}}' }
+
+            it "returns the proposal's cost_report" do
+              expect(response["costReport"]).to be_nil
+            end
+          end
+        end
+
         describe "execution_period" do
           let(:query) { '{ executionPeriod { translation(locale: "en")} }' }
 
@@ -156,7 +184,7 @@ module Decidim
         end
 
         context "and response is not published" do
-          let(:model) { create(:proposal, :accepted_not_published, :with_votes, :with_endorsements, :with_amendments, component:) }
+          let(:model) { create(:proposal, :accepted_not_published, :with_votes, :with_likes, :with_amendments, component:) }
 
           describe "answer" do
             let(:query) { '{ answer { translation(locale:"en") } }' }
