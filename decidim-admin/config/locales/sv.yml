@@ -706,6 +706,7 @@ sv:
             does_not_belong: Opassande
             hidden_during_block: Dold när deltagaren är blockerad
             offensive: Stötande
+            parent_hidden: Överordnat innehåll har dolts
             spam: Skräppost
         reports:
           index:
@@ -1116,7 +1117,7 @@ sv:
         hidden: Dold
         hide: Dölj
         not_hidden: Inte dold
-        parent_hidden: Du kan inte visa denna resurs eftersom dess förälder fortfarande är dold.
+        parent_hidden: Du kan inte visa innehållet eftersom dess överordnade innehåll fortfarande är dolt.
         title: Åtgärder
         unhide: Sluta dölja
         unreport: Ta bort rapport
@@ -1127,7 +1128,7 @@ sv:
             success: Innehållet har dolts.
           unhide:
             invalid: Det gick inte att sluta dölja innehållet.
-            parent_invalid: Det gick inte att visa resursen. Föräldern är inte synlig.
+            parent_invalid: Det gick inte att visa innehållet. Överordnat innehåll är dolt.
             success: Innehållet är inte längre dolt.
           unreport:
             invalid: Det gick inte att ta bort rapporten om innehållet.
