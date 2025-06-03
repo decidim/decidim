@@ -1,6 +1,6 @@
 <%= form_required_explanation %>
 
-<%= form.text_field :title, value: form_presenter.title %>
+<%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
 <%= text_editor_for_proposal_body(form) %>
 
 <% if @form.geocoding_enabled? %>

@@ -118,6 +118,8 @@ module Decidim
       # Returns :text_area or :editor based on the organization' settings.
       def text_editor_for_proposal_body(form)
         options = {
+          class: "js-hashtags",
+          hashtaggable: true,
           value: form_presenter.body(extras: false, strip_tags: !current_organization.rich_text_editor_in_public_views).strip
         }
 
