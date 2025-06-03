@@ -65,10 +65,6 @@ sk:
         many: Poznámky
         other: Poznámky
   decidim:
-    admin:
-      filters:
-        search_placeholder:
-          id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
     components:
       proposals:
         actions:
