@@ -167,7 +167,11 @@ module Decidim
                         decidim_admin.edit_organization_homepage_path,
                         position: 1.2,
                         icon_name: "home-gear-line",
-                        if: allowed_to?(:update, :organization, organization: current_organization)
+                        if: allowed_to?(:update, :organization, organization: current_organization),
+                        active: [%w(
+                          decidim/admin/organization_homepage
+                          decidim/admin/organization_homepage_content_blocks
+                        ), []]
 
           menu.add_item :taxonomies,
                         I18n.t("menu.taxonomies", scope: "decidim.admin"),
