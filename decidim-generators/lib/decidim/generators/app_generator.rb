@@ -256,7 +256,7 @@ module Decidim
         end
       end
 
-      def load_defaults_rails61
+      def load_defaults_rails71
         gsub_file "config/application.rb",
                   /config.load_defaults 7.2/,
                   "config.load_defaults 7.1"
