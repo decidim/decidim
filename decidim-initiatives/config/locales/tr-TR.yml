@@ -75,8 +75,6 @@ tr:
               validating: Teknik doğrulama
           type_id_eq:
             label: Tür
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} ''ı başlık, açıklama, kimlik veya yazar adına göre arayın.'
       menu:
         information: Bilgi
         initiatives: Girişimler
