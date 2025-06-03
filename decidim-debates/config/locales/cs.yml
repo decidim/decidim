@@ -32,7 +32,7 @@ cs:
         actions:
           comment: Komentář
           create: Vytvořit debatu
-          endorse: Schválit
+          like: Líbí se mi
         name: Debaty
         settings:
           global:
@@ -49,8 +49,8 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
     debates:
       actions:
         close: Zavřít
@@ -155,6 +155,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
+          title: Vytvořit novou debatu
         orders:
           commented: Nejvíce komentované
           label: Řazení debat podle
@@ -239,11 +240,6 @@ cs:
           next_level_in: Zúčastněte se dalších %{score} debat, abyste dosáhli další úrovně!
           unearned_another: Tento účastník se dosud nezúčastnil žádné debaty.
           unearned_own: Zatím jste se nezúčastnili žádné debaty.
-    metrics:
-      debates:
-        description: Počet vytvořených debat
-        object: debaty
-        title: Debaty
     open_data:
       help:
         debate_comments:
@@ -267,7 +263,6 @@ cs:
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
-          endorsements_count: Počet potvrzení, která debata získala
           follows_count: Počet sledujících tuto debatu
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě

@@ -376,11 +376,6 @@ ca:
           not_found: 'El tipus d''assemblea no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
-    metrics:
-      assemblies:
-        description: Nombre d'assemblees creades
-        object: assemblees
-        title: Assemblees
     open_data:
       help:
         assemblies:
@@ -435,6 +430,7 @@ ca:
         related_assemblies: Assemblees relacionades
     statistics:
       assemblies_count: Assemblees
+      assemblies_count_tooltip: El número d'assemblees públiques on es prenen les decisions col·lectives.
   layouts:
     decidim:
       assemblies:

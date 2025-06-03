@@ -135,7 +135,6 @@
             title: Maksimal antall prosjekter overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
-          cancel_order: slett stemmen din og begynn på nytt
           checked_out:
             title: Budtjett avstemning fullført
         count:
@@ -234,6 +233,5 @@
         project_proposal: Forslag inkludert i dette prosjektet
     statistics:
       orders_count: Støtter
-      projects_count: Prosjekter
   index:
     confirmed_orders_count: Stemmer teller

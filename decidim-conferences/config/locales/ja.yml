@@ -233,6 +233,7 @@ ja:
           roles:
             admin: 管理者
             collaborator: コラボレーター
+            evaluator: 評価者
             moderator: モデレーター
         media_link:
           fields:
@@ -628,6 +629,7 @@ ja:
           url: スペースのURL
     statistics:
       conferences_count: カンファレンス
+      conferences_count_tooltip: 公開されたカンファレンス数です。
   devise:
     mailer:
       join_conference:

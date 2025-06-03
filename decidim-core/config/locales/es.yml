@@ -5,6 +5,7 @@ es:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -52,6 +53,12 @@ es:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: El alias o apodo debe estar en minúsculas y no contener espacios
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -65,7 +72,6 @@ es:
       decidim/promote_to_admin: Promocionada a administradora del grupo
       decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
-      decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
@@ -88,9 +94,6 @@ es:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
-      decidim/endorsement:
-        one: Adhesión
-        other: Adhesiones
       decidim/user:
         one: Participante
         other: Participantes
@@ -165,6 +168,7 @@ es:
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
+      secondary_menu: Menú secundario
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -427,9 +431,6 @@ es:
       comments:
         one: comentario
         other: comentarios
-      endorsements:
-        one: adhesión
-        other: adhesiones
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -576,6 +577,10 @@ es:
         name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
+        cta_button_path: URL del botón de acción
+        cta_button_path_help: 'Puedes definir a dónde enlaza el botón de acción en la página de inicio. Utiliza rutas parciales, no URLs completas. La URL acepta letras, números, guiones y barras, y debe empezar por una letra. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo:%{url}'
+        cta_button_text: Texto del botón de acción
+        cta_button_text_help: Puedes cambiar el texto del botón de llamada a la acción en la página de inicio para cada idioma disponible en la organización. Si no se establece ningún texto, se utilizará el valor predeterminado. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción.
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido destacado
@@ -602,10 +607,6 @@ es:
         name: Datos principales
       metadata:
         name: Metadatos
-      metrics:
-        name: Métricas de la organización
-      participatory_space_metrics:
-        name: Métricas
       participatory_space_stats:
         name: Estadísticas
       social_networks_metadata:
@@ -820,16 +821,6 @@ es:
         error: Error al subir la imagen.
         success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
-    endorsement_buttons_cell:
-      already_endorsed: Deshacer el "Me gusta"
-      endorse: Me gusta
-    endorsers_list:
-      endorsed_by:
-        one: Le gusta a %{visible}
-        other: Le gusta a %{visible} y a %{others}
-      others: "%{count} más"
-      title: Le ha gustado a
-      you: tú
     ephemeral_user: Visitante
     errors:
       files:
@@ -936,6 +927,16 @@ es:
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+          email_outro: Has recibido esta notificación porque es autora del/de la %{resource_type}.
+          email_subject: Tu %{resource_type} ya no es visible
+          notification_title: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
           email_outro: Has recibido esta notificación porque se ha eliminado un contenido que creaste.
@@ -943,11 +944,6 @@ es:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a "%{resource_title}" que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1167,6 +1163,8 @@ es:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante no quiere recibir mensajes privados.
+          participants:
+            title: Participantes
         create:
           error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
@@ -1199,27 +1197,6 @@ es:
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
-    metrics:
-      blocked_users:
-        description: Número de participantes bloqueadas
-      download:
-        csv: Descargar datos (CSV)
-      followers:
-        description: Número de participantes que siguen este espacio de participación
-        object: seguidoras
-        title: Seguidores
-      participants:
-        description: Número de participantes activas en la organización
-        object: participantes
-        title: Participantes
-      reported_users:
-        description: Número de participantes reportadas
-      user_reports:
-        description: Número de denuncias realizadas por participantes
-      users:
-        description: Número de participantes en la organización
-        object: participantes
-        title: Participantes
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
@@ -1347,11 +1324,6 @@ es:
             other: "%{count} recursos"
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
-        metrics:
-          cumulative: El número total de métricas en este día
-          day: La fecha en la que se creó esta métrica
-          metric_type: El tipo de métrica
-          quantity: El número de métricas en este día
         moderated_users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           block_reasons: La razón por la que administradora bloqueó a la usuaria
@@ -1465,7 +1437,7 @@ es:
           participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenida a %{organization}!
         statistics:
-          headline: Estado actual de %{organization}
+          headline: Estadísticas
         sub_hero:
           register: Regístrate
           register_title: Crea una cuenta
@@ -1474,10 +1446,6 @@ es:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
-      participatory_space:
-        metrics:
-          headline: Métricas
-          link: Mostrar todas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1500,7 +1468,7 @@ es:
         body_html: |
           <p>Nuestros registros indican que creaste una cuenta %{organization_name} en <strong>%{date_account_creation}</strong> que no ha estado activa desde <strong>%{date_last_connection</strong></p>}.
           <p>Para proteger tu privacidad, se ha programado la eliminación automática de esta cuenta en <strong>%{days} días</strong>.</p>
-          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
+          <p>Si deseas conservar tu cuenta %{organization_name}, simplemente inicia sesión %{login_url} antes de ese plazo, y tu cuenta se conservará.<p>
         greetings_html: |
           Atentamente,<br>
           %{organization_name}
@@ -1543,11 +1511,24 @@ es:
         scan: Escanea el código QR
         title: Código QR para %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
@@ -1565,20 +1546,21 @@ es:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+      hide:
+        success: Se ha ocultado este recurso.
       parent_hidden:
         report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
-    resource_endorsements:
-      create:
-        error: Se ha producido un error durante la acción de adhesión.
+    resource_autocomplete:
+      help: Escribe aquí para buscar entre las propuestas
     scopes:
       global: Alcance global
       prompt: Selecciona un ámbito
     search:
       name: Buscar
       results: Resultados de la búsqueda
-      results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
+      results_found_for_term: '%{count} resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
@@ -1668,14 +1650,17 @@ es:
         share_to: Compartir en %{service}
     statistics:
       comments_count: Comentarios
-      endorsements_count: Adhesiones
+      comments_count_tooltip: El número total de comentarios publicados en este espacio.
       followers_count: Seguidoras
+      followers_count_tooltip: El número de usuarias que siguen cualquier parte de este espacio para mantenerse actualizadas.
       headline: Estadísticas
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes
+      participants_count_tooltip: El número de usuarios únicos que han interactuado en este espacio presentando propuestas, asistiendo a encuentros, dando apoyo a propuestas, votando a proyectos o uniéndose a debates.
       surveys_count: Encuestas
       users_count: Participantes
+      users_count_tooltip: El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico.
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
     taxonomies:
@@ -1697,10 +1682,20 @@ es:
         body_2: Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones, la función "Grupos de usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo de Usuarias se ha convertido en un perfil de participante al uso.
         greeting: Estimado/a %{name},
         instructions_1: Si tienes acceso a esa cuenta de correo electrónico, por favor, revisa tu bandeja de entrada para ver las instrucciones.
-        instructions_2: Si no, algún miembro del grupo con acceso al correo tendrá que establecer la contraseña y compartir las credenciales de inicio de sesión contigo.
-        instructions_intro: Los miembros del grupo ahora compartirán el acceso a este perfil usando credenciales de acceso compartidas (email y contraseña). Hemos enviado instrucciones a <strong>%{group_email}</strong> para establecer una nueva contraseña para el perfil.
+        instructions_intro: Hemos enviado instrucciones para establecer una nueva contraseña para el perfil, en el correo electrónico asociado a la cuenta.
         instructions_title: "<strong>¿Qué significa esto para ti?</strong>"
         subject: Notificación importante sobre un grupo de usuarias del que formas parte
+      notify_deprecation_to_owner:
+        body_1: Nos ponemos en contacto contigo para informarte sobre una importante actualización respecto al Grupo de usuarias %{organization_name} del que formas parte.
+        body_2: 'Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones como la tuya, la función "Grupos de Usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo: <strong>%{name}</strong>, se ha convertido en un perfil de participante al uso.'
+        body_3: Para continuar accediendo a tu cuenta, necesitamos que establezcas una contraseña.
+        greeting: Estimado/a %{name},
+        instructions_1: 'Haz clic en el enlace de abajo para iniciar el proceso de configuración la contraseña:'
+        instructions_2: En el formulario, introduce la dirección de correo electrónico donde recibiste este mensaje y envía la solicitud.
+        instructions_3: Revisa tu bandeja de entrada en busca de un correo electrónico con más instrucciones para establecer tu nueva contraseña.
+        instructions_title: "<strong>¿Qué necesitas hacer?</strong>"
+        set_password: Iniciar el proceso de configuración de la contraseña
+        subject: Actualización importante del grupo de usuarias
     user_report_mailer:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
@@ -1821,16 +1816,6 @@ es:
         instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
-      user_group_reset_password_instructions:
-        body_1: Nos ponemos en contacto contigo para informarte sobre una importante actualización respecto al Grupo de usuarias %{organization_name} del que formas parte.
-        body_2: 'Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones como la tuya, la función "Grupos de Usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo: <strong>%{name}</strong>, se ha convertido en un perfil de participante al uso.'
-        body_3: Para continuar accediendo al grupo y compartir el acceso, es necesario que definas una contraseña. Una vez configurada, puedes compartir las credenciales de inicio de sesión (email y contraseña) con quien consideres oportuno. Esta/s persona/s podrá realizar diferentes acciones en la plataforma con el nombre de la organización.
-        greeting: Estimado/a %{name},
-        instructions_1: 'Haz clic en el enlace de abajo para restablecer una contraseña:'
-        instructions_2: 'Comparte las credenciales de inicio de sesión (correo electrónico: %{email} i la nueva contraseña) con quien consideres oportuno. Recuerda: esta/s persona/s podrá realizar diferentes acciones en la plataforma con el perfil de la organización.'
-        instructions_title: "<strong>¿Qué necesitas hacer?</strong>"
-        set_password: Establece tu contraseña
-        subject: Actualización importante del grupo de usuarias
     omniauth_callbacks:
       add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No puedes autenticarte desde %{kind} porque "%{reason}".
@@ -2078,8 +2063,11 @@ es:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        back: Volver al listado
+        cancel: Cancelar
         close: Cerrar
-        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
+        confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
+        confirm_title_close_ephemeral_session: Antes de salir de esta página…
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario

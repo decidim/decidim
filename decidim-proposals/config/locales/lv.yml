@@ -41,7 +41,6 @@ lv:
               identical: UN pamatteksts nevar būt identisks
     models:
       decidim/proposals/creation_enabled_event: Priekšlikuma izveide ir iespējota
-      decidim/proposals/endorsing_enabled_event: Priekšlikuma atbalstīšana ir iespējota
       decidim/proposals/proposal_mentioned_event: Priekšlikums ir minēts
       decidim/proposals/publish_proposal_event: Priekšlikums ir publicēts
       decidim/proposals/voting_enabled_event: Balsošana par priekšlikumu ir iespējota
@@ -68,7 +67,6 @@ lv:
       proposals:
         actions:
           amend: Grozīt
-          endorse: Atbalstīt
           withdraw: Atsaukt
         name: Priekšlikumi
         settings:
@@ -108,8 +106,6 @@ lv:
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
             automatic_hashtags: Mirkļbirkas tiek pievienotas visiem priekšlikumiem
             comments_blocked: Komentāri ir bloķēti
-            endorsements_blocked: Atbalsti ir bloķēti
-            endorsements_enabled: Atbalsti ir iespējoti
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
             publish_answers_immediately: Nekavējoties publicēt atbildes uz priekšlikumiem
             suggested_hashtags: Dalībniekiem ieteiktās mirkļbirkas jaunajiem priekšlikumiem
@@ -140,10 +136,6 @@ lv:
           email_intro: 'Tagad jūs varat izveidot jaunu priekšlikumu telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumi tagad ir pieejami telpā %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Jūs varat atbalstīt priekšlikumus telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Priekšlikumu atbalstīšana %{participatory_space_title} ir sākusies
         proposal_mentioned:
           email_intro: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts <a href="%{resource_url}"> šajā telpā </a> komentāros.
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
@@ -187,19 +179,6 @@ lv:
           name: Priekšlikumi
           next_level_in: Izveidojiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
           unearned_own: Jūs vēl neesat izveidojis nevienu priekšlikumu.
-    metrics:
-      accepted_proposals:
-        description: Pieņemto priekšlikumu skaits
-        object: priekšlikumi
-        title: Pieņemtie priekšlikumi
-      endorsements:
-        description: Atbalstīto priekšlikumu skaits
-        object: atbalsti
-        title: Atbalsts
-      proposals:
-        description: Priekšlikumu skaits
-        object: priekšlikumi
-        title: Priekšlikumi
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums
@@ -279,12 +258,6 @@ lv:
             body: Pamatteksts
             comments_count: Komentāru skaits
             documents: Dokumenti
-            endorsements_count: Atbalstu skaits
-            endorsers: Atbalstītāji
-            n_more_endorsers:
-              zero: un %{count} vēl
-              one: un vēl viens
-              other: un %{count} vēl
             photos: Fotogrāfijas
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
@@ -464,7 +437,6 @@ lv:
         orders:
           label: 'Kārtot priekšlikumus pēc:'
           most_commented: Visvairāk komentētie
-          most_endorsed: Visvairāk veicinātie
           most_followed: Visvairāk sekotāju
           random: Nejauši
           recent: Nesenie
@@ -481,10 +453,6 @@ lv:
           answer: Atbilde
           changes_at_title: Grozīts "%{title}"
           estimated_cost: Paredzamās izmaksas
-          hidden_endorsers_count:
-            zero: un vēl %{count} personas
-            one: un vēl %{count} persona
-            other: un vēl %{count} personas
           link_to_collaborative_draft_help_text: Šis priekšlikums ir sadarbības projekta rezultāts. Pārskatiet tā vēsturi
           link_to_collaborative_draft_text: Skatīt sadarbības projektu
           link_to_promoted_emendation_help_text: Šis priekšlikums ir veicinātais uzlabojums

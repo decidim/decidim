@@ -16,7 +16,7 @@ module Decidim
 
         create_statuses!(component:)
 
-        3.times do
+        number_of_records.times do
           taxonomies = create_taxonomies!
 
           taxonomies.each do |taxonomy|
@@ -27,7 +27,7 @@ module Decidim
 
       def create_component!
         params = {
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
+          name: Decidim::Components::Namer.new(organization.available_locales, :accountability).i18n_name,
           manifest_name: :accountability,
           published_at: Time.current,
           participatory_space:,
@@ -53,19 +53,19 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
-                                                                                     "Categories") || participatory_space.organization.taxonomies.roots.sample
+        @root_taxonomy ||= organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
+                                                                 "Categories") || organization.taxonomies.roots.sample
       end
 
       def create_taxonomies!
-        parent_taxonomy = root_taxonomy.children.sample || root_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+        parent_taxonomy = root_taxonomy.children.sample || create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: root_taxonomy)
         taxonomies = [parent_taxonomy]
 
         2.times do
           taxonomies << if parent_taxonomy.children.count > 1
                           parent_taxonomy.children.sample
                         else
-                          parent_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+                          create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: parent_taxonomy)
                         end
         end
 
@@ -96,7 +96,7 @@ module Decidim
 
         Decidim::Comments::Seed.comments_for(result)
 
-        3.times do
+        number_of_records.times do
           child_result = Decidim.traceability.create!(
             Decidim::Accountability::Result,
             admin_user,
@@ -115,7 +115,7 @@ module Decidim
             visibility: "all"
           )
 
-          rand(0..5).times do |i|
+          number_of_records.times do |i|
             child_result.timeline_entries.create!(
               entry_date: child_result.start_date + i.days,
               title: Decidim::Faker::Localized.sentence(word_count: 2),

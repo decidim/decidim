@@ -1,0 +1,29 @@
+ro:
+  decidim:
+    components:
+      elections:
+        name: Alegeri
+        settings:
+          global:
+            announcement: Anunţ
+          step:
+            announcement: Anunţ
+    elections:
+      actions:
+        title: Acțiuni
+      admin:
+        elections:
+          edit:
+            title: Editează alegeri
+            update: Actualizează alegeri
+          index:
+            title: Alegeri
+          new:
+            create: Creează alegeri
+            title: Alegeri noi
+      models:
+        election:
+          fields:
+            title: Titlu
+    statistics:
+      elections_count: Alegeri

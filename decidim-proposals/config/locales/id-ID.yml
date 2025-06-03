@@ -39,7 +39,6 @@ id:
               identical: DAN tubuh tidak bisa identik
     models:
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
-      decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
       decidim/proposals/publish_proposal_event: Proposal dipublikasikan
       decidim/proposals/voting_enabled_event: Pemungutan suara proposal diaktifkan
@@ -55,7 +54,6 @@ id:
     components:
       proposals:
         actions:
-          endorse: Mengesahkan
           withdraw: Menarik
         name: Proposal
         settings:
@@ -78,8 +76,6 @@ id:
             announcement: Pengumuman
             automatic_hashtags: Hashtag ditambahkan ke semua proposal
             comments_blocked: Komentar diblokir
-            endorsements_blocked: Pengesahan dicekal
-            endorsements_enabled: Pengesahan diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
             suggested_hashtags: Hashtag disarankan kepada pengguna untuk proposal baru
     events:
@@ -106,10 +102,6 @@ id:
           email_intro: 'Anda sekarang dapat membuat proposal baru di %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Proposal kini tersedia dalam %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Anda dapat mendukung proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Proposal yang mendukung telah dimulai untuk %{participatory_space_title}
         proposal_mentioned:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
           email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
@@ -152,19 +144,6 @@ id:
           name: Proposal
           next_level_in: Buat %{score} proposal lagi untuk mencapai level berikutnya!
           unearned_own: Anda belum membuat proposal.
-    metrics:
-      accepted_proposals:
-        description: Jumlah proposal yang diterima oleh pengguna
-        object: proposal
-        title: Proposal yang Diterima
-      endorsements:
-        description: Jumlah dukungan yang dihasilkan dalam proposal
-        object: dukungan
-        title: Endorsemen
-      proposals:
-        description: Jumlah proposal yang dihasilkan
-        object: proposal
-        title: Proposal
     participatory_spaces:
       highlighted_proposals:
         see_all: Lihat semua
@@ -416,8 +395,6 @@ id:
           title: Publikasikan proposal Anda
         show:
           answer: Menjawab
-          hidden_endorsers_count:
-            other: dan %{count} lebih banyak orang
           link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
           link_to_collaborative_draft_text: Lihat draf kolaboratif
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'

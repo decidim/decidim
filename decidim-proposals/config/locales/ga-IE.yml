@@ -45,25 +45,11 @@ ga:
         actions:
           amend: Leasaigh
           comment: Tabhair Trácht
-          endorse: Formhuinigh
         name: Moltaí
-        settings:
-          step:
-            endorsements_blocked: Formhuinithe blocáilte
-            endorsements_enabled: Formhuinithe cumasaithe
     gamification:
       badges:
         proposals:
           name: Moltaí
-    metrics:
-      accepted_proposals:
-        object: moltaí
-      endorsements:
-        object: formhuinithe
-        title: Formhuinithe
-      proposals:
-        object: moltaí
-        title: Moltaí
     proposals:
       actions:
         title: Gníomhartha
@@ -103,8 +89,6 @@ ga:
             create: Cruthaigh
           show:
             body: Corp
-            endorsements_count: Líon formhuinithe
-            endorsers: Formhuinitheoirí
             photos: Grianghraif
       answers:
         accepted: Glactha
@@ -181,7 +165,6 @@ ga:
         new:
           send: Lean ar aghaidh
         orders:
-          most_endorsed: Formhuinithe is mó
           random: Randamach
           recent: Is Déanaí
         preview:

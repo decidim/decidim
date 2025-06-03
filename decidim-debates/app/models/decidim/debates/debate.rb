@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Randomable
       include Decidim::FilterableResource
       include Decidim::SoftDeletable
@@ -76,11 +76,6 @@ module Decidim
 
       def comments_end_time
         end_time
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.

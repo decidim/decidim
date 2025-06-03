@@ -22,28 +22,40 @@ ro:
         few: Dezbateri
         other: Dezbateri
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Dezbateri
     components:
       debates:
         actions:
           comment: Comentați
-          endorse: Susține
+          create: Creați o dezbatere
         name: Dezbateri
         settings:
           global:
             announcement: Anunţ
+            attachments_allowed: Permite atașamente
+            clear_all: Ștergeți toate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
           step:
             announcement: Anunț
             comments_blocked: Comentarii blocate
             creation_enabled: Participanții pot crea dezbateri
-            endorsements_blocked: Susțineri dezactivate
-            endorsements_enabled: Susțineri activate
     debates:
       actions:
         close: Închideți
+        confirm_delete_debate: Sigur dorești să ştergi această postare?
+        deleted_debate_info: Postările șterse pot fi restaurate din gunoi.
         edit: Modificați
+        new: Dezbatere nouă
         title: Acțiuni
+        view_deleted_debates: Vizualizați dezbaterile șterse
       admin:
         debate_closes:
           edit:
@@ -57,6 +69,7 @@ ro:
             title: Modificați dezbatere
             update: Actualizați dezbaterea
           form:
+            add_attachments: Adaugă ataşament
             debate_type: Tipul dezbaterii
             finite: Finit (cu timp de început și sfârșit)
             open: Deschis (fără timp de început sau sfârșit)
@@ -183,10 +196,6 @@ ro:
           next_level_in: Participați la încă %{score} dezbateri pentru a ajunge la următorul nivel!
           unearned_another: Acest participant nu a luat parte la nicio dezbatere încă.
           unearned_own: Nu ați participat la nicio dezbatere încă.
-    metrics:
-      debates:
-        description: Numărul dezbaterilor create
-        object: dezbateri
-        title: Dezbateri
     statistics:
       debates_count: Dezbateri
+      debates_count_tooltip: Numărul de discuții care au avut loc.

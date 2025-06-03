@@ -1,0 +1,37 @@
+name: "[CI] Elections"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-elections/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "decidim-participatory_processes/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build_app:
+    uses: ./.github/workflows/build_app.yml
+    secrets: inherit
+    name: Build test application
+  main:
+    needs: build_app
+    name: Tests
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-elections"
+      bullet_n_plus_one: false
+      bullet_unused_eager_loading: false
+      test_command: bundle exec parallel_test --type rspec --pattern spec/

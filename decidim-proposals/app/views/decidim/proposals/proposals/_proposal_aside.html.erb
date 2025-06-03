@@ -1,4 +1,4 @@
-<% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
+<% if current_settings.votes_enabled? && (show_likes_card? || current_user) %>
   <section class="layout-aside__section">
     <div class="proposal__aside-vote layout-aside__ctas-buttons" data-sticky-buttons>
       <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>

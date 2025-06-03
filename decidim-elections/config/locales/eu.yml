@@ -1,0 +1,76 @@
+eu:
+  decidim:
+    components:
+      elections:
+        name: Hauteskundeak
+        settings:
+          global:
+            announcement: Iragarpena
+          step:
+            announcement: Iragarpena
+    elections:
+      actions:
+        confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
+        deleted_election_info: Ezabatutako hauteskundeak ez dira agertzen zerrendan. Beheko botoia sakatuz ikus ditzakezu.
+        edit: Editatu hauteskundea
+        new: Beste hauteskunde bat
+        title: Ekintzak
+        view_deleted_elections: Ikusi ezabatutako hauteskundeak
+      admin:
+        elections:
+          create:
+            invalid: Arazo bat egon da hauteskunde hau sortzean.
+            success: Hauteskundea zuzen sortua.
+          edit:
+            title: Editatu hauteskundea
+            update: Eguneratu hauteskundea
+          form:
+            add_images: Gehiru irudiak
+            attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
+            basic_title: Oinarrizko infoa
+            calendar: Egutegia
+            calendar_description: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{timezone}.
+            edit_attachments: Editatu eranskinak
+            end_at: Amaiera-ordua
+            manual_start: Eskuz hastea
+            results_availability:
+              after_end: Hauteskundeak amaitu ostean
+              after_end_help: Erakutsi emaitzak soilik hauteskundeak amaitzen direnean
+              per_question: Galderaz galdera
+              per_question_help: Erakutsi emaitzak galderen arabera, amaitu ahala
+              real_time: Denbora erreala
+              real_time_help: Erakutsi emaitzak lehen bozketa egin bezain laster
+              title: Emaitzak eskuragarri
+            start_at: Hasiera-ordua
+          index:
+            title: Hauteskundeak
+          manage_trash:
+            title: Ezabatutako hauteskundeak
+          new:
+            create: Sortu hauteskundea
+            title: Beste hauteskunde bat
+          publish:
+            invalid: Arazo bat egon da hauteskundea argitaratzean.
+            success: Hauteskundea zuzen argitaratua.
+          unpublish:
+            invalid: Arazo bat egon da hauteskundea despublikatzean.
+            success: Hauteskundea zuzen despublikatua.
+          update:
+            invalid: Arazo bat egon da hauteskundea eguneratzean.
+            success: Hauteskundea zuzen eguneratua.
+      admin_log:
+        election:
+          create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea argitaratu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea berreskuratu du %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea %{space_name} espazioan zaborretara eraman du"
+          unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
+      models:
+        election:
+          fields:
+            end_at: Amaiera-ordua
+            start_at: Hasiera-ordua
+            title: Izenburua
+    statistics:
+      elections_count: Hauteskundeak

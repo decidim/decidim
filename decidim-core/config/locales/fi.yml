@@ -65,7 +65,6 @@ fi:
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/promoted_to_admin_event: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
-      decidim/resource_endorsed_event: Kohdetta suositeltu
       decidim/resource_hidden_event: Piilotettu asia
       decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
@@ -88,9 +87,6 @@ fi:
       decidim/amendment:
         one: muutos
         other: Muutokset
-      decidim/endorsement:
-        one: Suositus
-        other: Suositusta
       decidim/user:
         one: Osallistuja
         other: Osallistujat
@@ -430,9 +426,6 @@ fi:
       comments:
         one: kommentti
         other: kommentit
-      endorsements:
-        one: suositus
-        other: suositusta
       official_author: Virallinen
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -605,10 +598,6 @@ fi:
         name: Olennaisimmat tiedot
       metadata:
         name: Metatiedot
-      metrics:
-        name: Organisaation tilastomittarit
-      participatory_space_metrics:
-        name: Tilastomittarit
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -823,16 +812,6 @@ fi:
         error: Kuvan lähettäminen epäonnistui.
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
-    endorsement_buttons_cell:
-      already_endorsed: Peruuta tykkäys
-      endorse: Tykkää
-    endorsers_list:
-      endorsed_by:
-        one: Tästä on tykännyt %{visible}
-        other: Tästä on tykännyt %{visible} ja %{others}
-      others: "%{count} lisää"
-      title: Tykänneet
-      you: sinä
     ephemeral_user: Vierailija
     errors:
       files:
@@ -945,11 +924,6 @@ fi:
           email_subject: Laatimasi %{resource_type} on ilmoitettu
           notification_title: |-
             Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
-        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
       resources:
         soft_deleted:
           notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
@@ -1169,6 +1143,8 @@ fi:
           modal_title: Uusi keskustelu
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä käyttäjä ei halua vastaanottaa yksityisiä viestejä.
+          participants:
+            title: Osallistujia
         create:
           error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudestaan.
         error_modal:
@@ -1201,27 +1177,6 @@ fi:
         finished: 'Päättynyt: %{end_date}'
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
-    metrics:
-      blocked_users:
-        description: Estettyjen osallistujien määrä
-      download:
-        csv: Lataa tiedot (CSV)
-      followers:
-        description: Tätä osallistumistilaa seuraavien käyttäjien määrä
-        object: seuraajat
-        title: Seuraajat
-      participants:
-        description: Organisaation aktiivisten käyttäjien määrä
-        object: osallistujat
-        title: Osallistujat
-      reported_users:
-        description: Ilmoitettujen osallistujien määrä
-      user_reports:
-        description: Osallistujien lähettämien ilmoitusten määrä
-      users:
-        description: Organisaation käyttäjien määrä
-        object: käyttäjät
-        title: Käyttäjät
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
@@ -1349,11 +1304,6 @@ fi:
             other: "%{count} asiaa"
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
-        metrics:
-          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
-          day: Tilastomittarin luontipäivä
-          metric_type: Tilastomittarin tyyppi
-          quantity: Tilastomittarien määrä tälle päivälle
         moderated_users:
           about: Käyttäjän henkilökohtainen kuvaus
           block_reasons: Syy, miksi käyttäjä estettiin
@@ -1466,8 +1416,6 @@ fi:
           participate: Osallistu
           participate_title: Osallistu prosesseihin alustalla
           welcome: Tervetuloa organisaatioon %{organization}!
-        statistics:
-          headline: '%{organization} numeroina'
         sub_hero:
           register: Rekisteröidy
           register_title: Luo tili
@@ -1476,10 +1424,6 @@ fi:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
-      participatory_space:
-        metrics:
-          headline: Osallistuminen lukuina
-          link: Näytä kaikki
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
@@ -1545,11 +1489,6 @@ fi:
         scan: Skannaa QR-koodi
         title: QR-koodi kohteelle %{resource_title}
     reported_mailer:
-      hide:
-        hello: Hei %{name},
-        manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
-        subject: Resurssi on piilotettu automaattisesti
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
@@ -1571,16 +1510,12 @@ fi:
         report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
-    resource_endorsements:
-      create:
-        error: Suosituksen antaminen epäonnistui.
     scopes:
       global: Yleinen teema
       prompt: Valitse teema
     search:
       name: Hae
       results: Hakutulokset
-      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
@@ -1670,7 +1605,6 @@ fi:
         share_to: Jaa palvelussa %{service}
     statistics:
       comments_count: Kommenttia
-      endorsements_count: Suositusta
       followers_count: Seuraajaa
       headline: Tilastot
       no_stats: Tilastoja ei vielä ole.
@@ -1699,9 +1633,6 @@ fi:
         body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
         greeting: Hei %{name},
         instructions_1: Mikäli sinulla on pääsy kyseiselle sähköpostitilille, tarkasta kyseiseen sähköpostiin saapuneet ohjeet.
-        instructions_2: Mikäli sinulla ei ole pääsyä kyseiselle sähköpostitilille, pyydä kolleegaasi, jolla on pääsy kyseiselle tilille, asettamaan profiilille salasana ja jakamaan se kanssasi.
-        instructions_intro: Ryhmän jäsenet jakavat pääsyn tähän profiiliin jaetuilla kirjautumistunnuksilla (sähköpostiosoite ja salasana). Olemme lähettäneet ohjeet profiilin salasanan asettamiseen sähköpostiin <strong>%{group_email}</strong>.
-        instructions_title: "<strong>Mitä tämä tarkoittaa sinulle?</strong>"
         subject: Tärkeä ilmoitus koskien käyttäjäryhmää, jonka jäsen olet
     user_report_mailer:
       notify:
@@ -1824,16 +1755,6 @@ fi:
         instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
-      user_group_reset_password_instructions:
-        body_1: 'Tämä viesti koskee tärkeää päivitystä käyttäjäryhmässä, jonka jäsen olet: %{organization_name}.'
-        body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi <strong>%{name}</strong> profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
-        body_3: Jatkaaksesi jaetun tilin käyttämistä, tilille tulee asettaa salasana. Salasanan asettamisen jälkeen voit jakaa kirjautumistunnukset (sähköpostiosoite ja salasana) kenen tahansa ryhmän jäsenen kanssa.
-        greeting: Hei %{name},
-        instructions_1: 'Määritä tilille salasana seuraavan linkin avulla:'
-        instructions_2: 'Jaa kirjautumistunnukset (sähköpostiosoite %{email} ja asettamasi salasana) kolleegoillesi.'
-        instructions_title: "<strong>Mitä sinun täytyy tehdä?</strong>"
-        set_password: Määritä salasana
-        subject: Tärkeä ilmoitus koskien käyttäjäryhmää
     omniauth_callbacks:
       add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
@@ -2082,7 +2003,6 @@ fi:
         terms_of_service: Käyttöehdot
       header:
         close: Sulje
-        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko

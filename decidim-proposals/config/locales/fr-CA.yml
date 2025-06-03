@@ -77,15 +77,12 @@ fr-CA:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
     models:
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
-      decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
@@ -94,8 +91,8 @@ fr-CA:
       decidim:
         proposals:
           proposal:
-            budget_text: La proposition %{link} a été créée
-            import_to_proposal_text: La proposition %{link} a été créée
+            budget_text: La proposition <span class="resource-link">%{link} a été créée</span>
+            import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -152,7 +149,6 @@ fr-CA:
           amend: Amender
           comment: Commentaire
           create: Créer une proposition
-          endorse: Soutenir
           vote: Voter
           vote_comment: Vote sur le commentaire
           withdraw: Retirer
@@ -175,7 +171,6 @@ fr-CA:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus approuvées
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
@@ -236,14 +231,11 @@ fr-CA:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
               recent: Récentes
               with_more_authors: Avec le plus d'auteurs
-            endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
@@ -327,11 +319,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -406,23 +393,6 @@ fr-CA:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
-    metrics:
-      accepted_proposals:
-        description: Nombre de propositions acceptées par les utilisateurs
-        object: propositions
-        title: Propositions Acceptées
-      endorsements:
-        description: Nombre d'avenants générés dans les propositions
-        object: soutiens
-        title: Soutiens
-      proposals:
-        description: Nombre de propositions générées
-        object: propositions
-        title: Propositions
-      votes:
-        description: Nombre de votes sur des propositions
-        object: votes
-        title: Votes
     open_data:
       help:
         proposals:
@@ -437,7 +407,6 @@ fr-CA:
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
@@ -609,13 +578,8 @@ fr-CA:
             body: Corps
             comments_count: Nombre de commentaires
             documents: Documents
-            endorsements_count: Nombre de soutiens
-            endorsers: Soutiens
             evaluators: Évaluateurs
             link: Voir la proposition
-            n_more_endorsers:
-              one: et 1 de plus
-              other: et %{count} autres
             photos: Photos
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
@@ -883,7 +847,6 @@ fr-CA:
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
-          most_endorsed: Les plus soutenues
           most_followed: Les plus suivies
           most_voted: Les plus votées
           random: Aléatoire
@@ -911,9 +874,6 @@ fr-CA:
           changes_at_title: Amendement de (%{title}"
           edit_proposal:
           estimated_cost: Coût estimé
-          hidden_endorsers_count:
-            one: et %{count} personne de plus
-            other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
           link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
@@ -929,7 +889,7 @@ fr-CA:
         update:
           title: Mettre à jour la proposition
         vote_button:
-          already_voted: Déjà votée
+          already_voted: Votée
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
@@ -990,6 +950,9 @@ fr-CA:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
     statistics:
+      participatory_space_proposals_count: Propositions
       proposals_accepted: Propositions acceptées
       proposals_count: Propositions
+      proposals_count_tooltip: Le nombre total de propositions soumises et de votes exprimés pour chacune d'elles.
+      votes: 'Votes:'
       votes_count: Votes

@@ -340,11 +340,6 @@ fr:
           not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id}).'
     menu:
       processes: Concertations
-    metrics:
-      participatory_processes:
-        description: Nombre de concertations dans cette organisation
-        object: concertations
-        title: Concertations
     open_data:
       help:
         participatory_processes:
@@ -378,6 +373,8 @@ fr:
           participatory_processes:
             one: 1 concertation
             other: "%{count} concertations"
+      related_processes:
+        help: Tous les processus sélectionnés seront assignés à ce groupe, y compris ceux qui sont déjà assignés à d'autres groupes.
       show:
         title: Groupes de concertations
     participatory_process_steps:
@@ -443,9 +440,6 @@ fr:
           highlighted_processes:
             active_spaces: Concertations actives
             see_all_spaces: Voir toutes les concertations
-      participatory_process_steps:
-        index:
-          back_to_process: Retour à la page du processus
       participatory_processes:
         description:
           area_name: Périmètre d'assemblée
@@ -496,6 +490,7 @@ fr:
         related_processes: Concertations liées
     statistics:
       processes_count: Concertations
+      processes_count_tooltip: Le nombre de processus participatifs qui sont accessibles au public.
   layouts:
     decidim:
       participatory_process_groups:

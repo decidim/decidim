@@ -29,13 +29,13 @@ module Decidim
     # Public Setting that defines how many proposals will be shown in the
     # participatory_space_highlighted_elements view hook
     config_accessor :participatory_space_highlighted_proposals_limit do
-      4
+      Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
     end
 
     # Public Setting that defines how many proposals will be shown in the
     # process_group_highlighted_elements view hook
     config_accessor :process_group_highlighted_proposals_limit do
-      3
+      Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
     end
 
     def self.proposal_states_colors

@@ -1,0 +1,22 @@
+hu:
+  decidim:
+    components:
+      elections:
+        name: Választások
+        settings:
+          global:
+            announcement: Közlemény
+          step:
+            announcement: Közlemény
+    elections:
+      actions:
+        title: Műveletek
+      admin:
+        elections:
+          edit:
+            update: Választás frissítése
+          index:
+            title: Választások
+          new:
+            create: Választás létrehozása
+            title: Új választás

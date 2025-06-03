@@ -42,8 +42,6 @@ lt:
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
         comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
-        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
-        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
@@ -532,9 +530,6 @@ lt:
         settings: Nustatymai
         static_pages: Puslapiai
         users: Dalyviai
-      metrics:
-        metrics:
-          see_more_metrics: Žiūrėti daugiau rodiklių
       models:
         area:
           fields:
@@ -758,22 +753,7 @@ lt:
         edit:
           update: Atnaujinti
         form:
-          colors:
-            choose_color: Pasirinkite pagrindinę spalvą
-            colors_title: Organizacijos spalvos
-            colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
-            explanation: Šis įrankis padės jums pasirinkti spalvų schemą, sudarytą iš atspalvių, lygiai pasiskirstiusių spalvų rate, kuri bus naudojama organizacijos svetainėje.
-            legend_html: Pagrindinės programos spalvos, remiantis <a href="https://www.color-meanings.com/triadic-colors/">Triadinio algoritmo</a>. <i>Antrinė</i> spalva yra automatiškai apskaičiuojama iš pagrindinės spalvos ir pasirinkto prisotinimo.
-            saturation: Sodrumas
-            title: Spalvų parinkėjas
-            update_suggested_colors: Atnaujinti pasiūlytas spalvas
-          cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
-          homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
           homepage_highlighted_content_banner_title: Paryškinta turinio juosta
-          images:
-            layout_appearance_title: Redaguoti išdėstymą
-            preview: Peržiūra
-          omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -909,13 +889,11 @@ lt:
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
-        metrics: Duomenys
         pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
         scope_types: Apimties tipai
         scopes: Apimtys
-        statistics: Veikla
         users: Administratoriai
       users:
         create:
@@ -943,16 +921,6 @@ lt:
       errors:
         impersonate_user:
           reason: Tvarkydami dalyvio, kurio duomenys netvarkomi, duomenis, turite nurodyti priežastį.
-    metrics:
-      blocked_users:
-        object: užblokuoti naudotojai
-        title: Užblokuoti naudotojai
-      reported_users:
-        object: raportuoti naudotojai
-        title: Raportuoti naudotojai
-      user_reports:
-        object: vartotojo pranešimai
-        title: Naudotojo pranešimai
     moderations:
       actions:
         expand: Išplėsti

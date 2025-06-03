@@ -1,0 +1,20 @@
+gl:
+  decidim:
+    elections:
+      actions:
+        title: Accións
+      admin:
+        elections:
+          form:
+            add_images: Engadir imaxes
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+      models:
+        election:
+          fields:
+            title: Título
+    statistics:
+      elections_count: Eleccións

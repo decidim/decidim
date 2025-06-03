@@ -14,7 +14,7 @@ module Decidim
       def call
         component = create_component!
 
-        3.times do
+        number_of_records.times do
           questionnaire = create_questionnaire!(component:)
           create_questions!(questionnaire:)
 
@@ -134,7 +134,7 @@ module Decidim
         response_options = {
           user:,
           questionnaire:,
-          session_token: Digest::MD5.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
+          session_token: Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
           ip_hash: Faker::Internet.device_token.slice(0, 24)
         }
 

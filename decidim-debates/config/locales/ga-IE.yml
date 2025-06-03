@@ -11,7 +11,6 @@ ga:
       debates:
         actions:
           comment: Tabhair Trácht
-          endorse: Formhuinigh
         name: Díospóireachtaí
     debates:
       actions:
@@ -53,9 +52,5 @@ ga:
       badges:
         commented_debates:
           name: Díospóireachtaí
-    metrics:
-      debates:
-        object: díospóireachtaí
-        title: Díospóireachtaí
     statistics:
       debates_count: Díospóireachtaí

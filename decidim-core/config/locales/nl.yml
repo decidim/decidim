@@ -38,7 +38,6 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Bron gesteund
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ nl:
       decidim/amendment:
         one: Amendement
         other: Amendementen
-      decidim/endorsement:
-        one: Aanbeveling
-        other: Aanbevelingen
       decidim/user:
         one: Deelnemer
         other: Deelnemers
@@ -225,9 +221,6 @@ nl:
       comments:
         one: commentaar
         other: commentaren
-      endorsements:
-        one: ondersteuning
-        other: aantekeningen
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -356,8 +349,6 @@ nl:
         name: Laatste activiteit
         title: Laatste activiteit
         view_all: Bekijk alles
-      metrics:
-        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -480,11 +471,6 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
         level_up:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-        email_subject: "%{endorser_nickname} heeft een nieuwe bevestiging uitgevoerd"
-        notification_title: De <a href="%{resource_path}">%{resource_title}</a> %{resource_type} is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -644,21 +630,6 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-    metrics:
-      download:
-        csv: Gegevens downloaden (csv)
-      followers:
-        description: Aantal deelnemers dat deze participatieruimte volgt
-        object: volgers
-        title: Volgers
-      participants:
-        description: Aantal actieve deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
-      users:
-        description: Aantal deelnemers in de organisatie
-        object: deelnemers
-        title: Deelnemers
     newsletter_mailer:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
@@ -742,8 +713,6 @@ nl:
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        statistics:
-          headline: Huidige stand van %{organization}
         sub_hero:
           register: Registreren
       index:
@@ -751,10 +720,6 @@ nl:
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
         topics: Onderwerpen
-      participatory_space:
-        metrics:
-          headline: Deelname in cijfers
-          link: Toon alle statistieken
     profile:
       deleted: Verwijderde deelnemer
     profiles:
@@ -770,11 +735,6 @@ nl:
           edit_profile: Bewerk profiel
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
-      hide:
-        hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
-        report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
-        subject: Een bron is automatisch verborgen
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
@@ -791,15 +751,11 @@ nl:
     reports:
       create:
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
-    resource_endorsements:
-      create:
-        error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
       prompt: Selecteer een scope
     search:
       results: Zoek resultaten
-      results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
       filters:
@@ -857,7 +813,6 @@ nl:
         share_link: Link delen
     statistics:
       comments_count: Reacties
-      endorsements_count: Aanbevelingen
       followers_count: Volgers
       headline: Statistieken
       no_stats: Er zijn nog geen statistieken.

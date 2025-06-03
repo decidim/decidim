@@ -34,8 +34,6 @@ gl:
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
         comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
-        cta_button_path: Camiño do botón de chamada a acción
-        cta_button_text: Texto do botón de chamada a acción
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
@@ -446,9 +444,6 @@ gl:
         settings: Configuración
         static_pages: Páxinas
         users: Usuarios
-      metrics:
-        metrics:
-          see_more_metrics: Veer máis métricas
       models:
         area:
           fields:
@@ -652,16 +647,7 @@ gl:
         edit:
           update: Actualización
         form:
-          colors:
-            colors_title: Cores da organización
-            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
-          cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
-          homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
-          images:
-            layout_appearance_title: Editar aspecto de deseño
-            preview: Vista Previa
-          omnipresent_banner_appearance_title: Editar o banner omnipresente
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -772,12 +758,10 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
-        metrics: Métricas
         panel: Administrador
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        statistics: Actividade
         users: Administradores
       users:
         create:
@@ -800,16 +784,6 @@ gl:
           last_month: O mes pasado
           last_week: A semana pasada
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuario/as reportado/as
-        title: Usuario/as reportado/as
-      user_reports:
-        object: informe de usuarios
-        title: Informe de usuarios
     moderations:
       actions:
         expand: Expandir

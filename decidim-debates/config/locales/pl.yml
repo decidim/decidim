@@ -27,7 +27,6 @@ pl:
       debates:
         actions:
           comment: Skomentuj
-          endorse: Rekomendacje
         name: Debaty
         settings:
           global:
@@ -38,8 +37,6 @@ pl:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             creation_enabled: Uczestnicy mogą tworzyć debaty
-            endorsements_blocked: Rekomendacje zablokowane
-            endorsements_enabled: Rekomendacje włączone
     debates:
       actions:
         close: Zamknij
@@ -198,10 +195,5 @@ pl:
           next_level_in: Weź udział w %{score} kolejnych debatach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
           unearned_own: Nie uczestniczono jeszcze w żadnej debacie.
-    metrics:
-      debates:
-        description: Liczba utworzonych debat
-        object: debaty
-        title: Debaty
     statistics:
       debates_count: Debaty

@@ -6,7 +6,6 @@ zh-TW:
         answer_url: 回答 URL
         area_id: 區域
         decidim_scope_id: 範圍
-        decidim_user_group_id: 作者
         description: 說明
         hashtag: 主題標籤
         offline_votes: 親筆簽名
@@ -35,7 +34,6 @@ zh-TW:
         comments_enabled: 啟用評論
         custom_signature_end_date_enabled: 允許作者選擇結束簽名收集期限
         description: 說明
-        document_number_authorization_handler: 授權核准文件編號以驗證簽名
         extra_fields_legal_information: 關於個人資料蒐集的法律資訊
         minimum_committee_members: 委員會成員最少人數
         online_signature_enabled: 啟用線上簽名
@@ -277,7 +275,6 @@ zh-TW:
           edit:
             update: 更新
           form:
-            authorizations: 權限設置
             options: 選項
           initiative_type_scopes:
             title: 倡議類型範圍
@@ -363,11 +360,6 @@ zh-TW:
           email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
           email_subject: 由 %{author_nickname} 提出的新倡議
           notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
-        endorse_initiative_event:
-          email_intro: "\"%{author_name} %{author_nickname} 正在追蹤，並已連署以下倡議，或許你想參與對話："
-          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
-          email_subject: 倡議得到 %{author_nickname} 的連署
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已獲 %{author_name} %{author_nickname} 連署。
         revoke_membership_request:
           email_intro: "%{author_nickname} 拒絕了您加入 %{resource_title} 倡議發起委員會的申請。"
           email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
@@ -382,23 +374,14 @@ zh-TW:
         uninitialized: 尚未由管理員設置倡議。
       initiative_signatures:
         fill_personal_data:
-          continue: 繼續
           help: 以下請填寫您的個人資料以簽署此倡議。
         finish:
           back_to_initiative: 回到倡議
-        sms_code:
-          continue: 檢查代碼並繼續
-          help: 請檢查您手機收到的SMS簡訊
-        sms_phone_number:
-          continue: 發送簡訊給我
-          help: 請填寫您驗證過的手機號碼以申請驗證碼.
       initiative_votes:
         create:
           error: 發起倡議的簽署遇到問題。
           invalid: 提供的資料以簽署此倡議為無效.
           success_html: 恭喜！<strong> %{title} </strong> 倡議已成功簽署。
-        personal_data:
-          invalid: 個人資料與授權提供的資料不一致。
         sms_code:
           invalid: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
         sms_phone:
@@ -515,18 +498,11 @@ zh-TW:
       initiatives_type:
         actions:
           title: 操作
-          vote: 簽署
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: 建立
         select_initiative_type: 選擇
-      initiative_signature_creation_header:
-        fill_personal_data: 填寫您的資料
-        finish: 完成
-        sms_code: SMS短訊代碼驗證碼
-        sms_phone_number: 行動電話號碼
-        title: 簽名 %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: 尚無倡議！

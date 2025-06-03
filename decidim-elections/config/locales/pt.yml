@@ -1,0 +1,31 @@
+pt:
+  decidim:
+    components:
+      elections:
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        title: Ações
+      admin:
+        elections:
+          edit:
+            title: Editar eleição
+            update: Atualizar eleição
+          form:
+            add_images: Adicionar imagens
+          index:
+            title: Eleições
+          new:
+            create: Criar eleição
+            title: Nova eleição
+      models:
+        election:
+          fields:
+            title: Título
+    statistics:
+      elections_count: Eleições

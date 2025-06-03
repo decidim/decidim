@@ -1,0 +1,31 @@
+el:
+  decidim:
+    components:
+      elections:
+        name: Εκλογές
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            announcement: Ανακοίνωση
+    elections:
+      actions:
+        title: Ενέργειες
+      admin:
+        elections:
+          edit:
+            title: Επεξεργασία εκλογής
+            update: Ενημέρωση εκλογής
+          form:
+            add_images: Προσθήκη εικόνων
+          index:
+            title: Εκλογές
+          new:
+            create: Δημιουργία εκλογής
+            title: Νέα εκλογή
+      models:
+        election:
+          fields:
+            title: Τίτλος
+    statistics:
+      elections_count: Εκλογές

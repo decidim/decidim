@@ -101,6 +101,15 @@ module Decidim
         Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
       end
 
+      initializer "decidim_initiatives.stats" do
+        Decidim.stats.register :initiatives_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "lightbulb-flash-line",
+                               tooltip_key: "initiatives_count_tooltip" do |organization, _start_at, _end_at|
+          Decidim::Initiative.where(organization:).public_spaces.count
+        end
+      end
+
       initializer "decidim_initiatives.content_blocks" do
         Decidim::Initiatives::ContentBlocks::RegistryManager.register!
       end
@@ -143,7 +152,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|

@@ -172,9 +172,6 @@ ga:
         standalone_pages: Leathanaigh
         title: Cabhair
         topics: Ábhair
-      participatory_space:
-        metrics:
-          headline: Méadrachtaí
     profiles:
       show:
         activity: Gníomhaíocht
@@ -222,7 +219,6 @@ ga:
         share: Roinn
     statistics:
       comments_count: Tráchtanna
-      endorsements_count: Formhuinithe
       pages_count: Leathanaigh
     version:
       show:

@@ -55,7 +55,6 @@ pt:
               not_official: Não são oficiais
     models:
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
-      decidim/proposals/endorsing_enabled_event: Endossamento de proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: Votação de proposta ativada
@@ -95,7 +94,6 @@ pt:
         actions:
           amend: Modificar
           comment: Comentar
-          endorse: Endossar
           vote_comment: Cometário ao voto
           withdraw: Retirar
         name: Propostas
@@ -112,7 +110,6 @@ pt:
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
               most_commented: Mais comentada
-              most_endorsed: Mais apoiada
               most_followed: Mais seguida
               random: Aleatório
               recent: Mais recentes
@@ -152,13 +149,10 @@ pt:
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
               most_commented: Mais comentada
-              most_endorsed: Mais apoiada
               most_followed: Mais seguida
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossamentos ativados
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar as respostas às propostas imediatamente
             suggested_hashtags: Hashtags sugeridos aos participantes para novas propostas
@@ -191,10 +185,6 @@ pt:
           email_intro: 'Agora pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Pode endossar propostas em %{participatory_space_title}! Comece a participar nesta página:'
-          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: As propostas de endosso começaram para %{participatory_space_title}
         proposal_mentioned:
           email_intro: A sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
           email_outro: Recebeu esta notificação porque é um autor de "%{resource_title}".
@@ -238,19 +228,6 @@ pt:
           name: Propostas
           next_level_in: Criar mais %{score} propostas para alcançar o próximo nível!
           unearned_own: Ainda não criou alguma proposta.
-    metrics:
-      accepted_proposals:
-        description: Número de propostas aceites
-        object: propostas
-        title: Propostas aceites
-      endorsements:
-        description: Número de endossos nas propostas
-        object: endossos
-        title: Endossos
-      proposals:
-        description: Número de propostas
-        object: propostas
-        title: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -337,11 +314,6 @@ pt:
             body: Corpo
             comments_count: Contagem de comentários
             documents: Documentos
-            endorsements_count: Contagem de endossamentos
-            endorsers: Endossadores
-            n_more_endorsers:
-              one: e mais 1
-              other: e mais %{count}
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
@@ -527,7 +499,6 @@ pt:
         orders:
           label: 'Ordenar propostas por:'
           most_commented: Mais comentadas
-          most_endorsed: Mais endossadas
           most_followed: Mais seguidas
           random: Aleatória
           recent: Recente
@@ -547,9 +518,6 @@ pt:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
           estimated_cost: Custo estimado
-          hidden_endorsers_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
           link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Reveja o histórico
           link_to_collaborative_draft_text: Ver o rascunho colaborativo
           link_to_promoted_emendation_help_text: Esta proposta é uma correção promovida

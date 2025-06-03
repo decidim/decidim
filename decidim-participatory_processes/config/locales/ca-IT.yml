@@ -1,0 +1,540 @@
+ca-IT:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Avís
+        area_id: Àrea
+        copy_categories: Copiar les categories
+        copy_components: Copiar els components
+        copy_steps: Copiar les fases
+        decidim_area_id: Àrea
+        description: Descripció
+        developer_group: Grup promotor
+        document: Document
+        domain: Àrees municipals
+        end_date: Data de finalització
+        hashtag: Etiqueta (hashtag)
+        hero_image: Imatge de portada
+        import_attachments: Importar arxius adjunts
+        import_categories: Importar categories
+        import_components: Importar components
+        import_steps: Importar fases
+        local_area: Àrea d'organització
+        meta_scope: Metadades d'àmbit
+        participatory_process_group_id: Grup de processos
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
+        private_space: Procés privat
+        promoted: Destacat
+        published_at: Publicat el
+        related_process_ids: Processos relacionats
+        short_description: Breu descripció
+        slug: Nom curt d'URL
+        start_date: Data d'inici
+        subtitle: Subtítol
+        target: Qui hi participa
+        title: Títol
+        weight: Ordre de posició
+      participatory_process_group:
+        description: Descripció
+        developer_group: Grup promotor
+        group_url: Lloc web
+        hashtag: Hashtag
+        hero_image: Imatge
+        local_area: Àrea d'organització
+        meta_scope: Metadades d'àmbit
+        participatory_process_ids: Processos relacionats
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
+        target: Qui participa
+        title: Títol
+      participatory_process_step:
+        cta_path: Ruta del botó d'acció
+        cta_text: Text del botó d'acció
+        description: Descripció
+        end_date: Data de finalització
+        short_description: Breu descripció
+        start_date: Data d'inici
+        title: Títol
+      participatory_process_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
+    models:
+      decidim/participatory_process_step_activated_event: Fase activada
+      decidim/participatory_process_step_changed_event: Fase modificada
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Procés participatiu
+        other: Processos participatius
+      decidim/participatory_process_group:
+        one: Grups de processos participatius
+        other: Grups de processos participatius
+      decidim/participatory_process_step:
+        one: Fase
+        other: Fases
+  decidim:
+    admin:
+      actions:
+        activate: Activar
+        configure: Configurar
+        confirm_delete_process: Segur que vols esborrar aquest procés? Si canvies d'opinió, el pots restaurar més endavant.
+        confirm_destroy: Confirma l'eliminació
+        destroy: Suprimeix
+        duplicate: Duplicar
+        edit: Editar
+        import_process: Importar
+        menu_hidden: Amagar
+        moderate: Moderar
+        new_process: Nou procés
+        new_process_group: Nou grup de processos
+        new_process_step: Nova fase
+        new_process_user_role: Nova administradora del procés
+        preview: Previsualitzar
+        publish: Publicar
+        resend_invitation: Reenviar la invitació
+        see_process: Veure el procés
+        unpublish: Despublicar
+        view_deleted_processes: Veure els processos eliminats
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Per grup de processos
+      menu:
+        participatory_process_groups: Grups de processos
+        participatory_process_groups_submenu:
+          info: Informació
+          landing_page: Pàgina d'inici
+        participatory_processes: Processos
+        participatory_processes_submenu:
+          attachment_collections: Carpetes
+          attachment_files: Fitxers
+          attachments: Adjunts
+          components: Components
+          info: Quant a aquest procés
+          landing_page: Pàgina d'inici
+          moderations: Moderacions
+          private_users: Membres
+          process_admins: Administradores del procés
+          steps: Fases del procés
+      models:
+        participatory_process:
+          fields:
+            actions: Accions
+            created_at: Data de creació
+            private: Privat
+            published: Publicat
+            title: Títol
+          name: Procés participatiu
+        participatory_process_group:
+          fields:
+            title: Títol
+          name: Grup de processos
+        participatory_process_step:
+          fields:
+            end_date: Data de finalització
+            start_date: Data d'inici
+            title: Títol
+          name: Fase del procés participatiu
+        participatory_process_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Administradora de procés participatiu
+          roles:
+            admin: Administradora
+            collaborator: Col·laboradora
+            evaluator: Avaluadora
+            moderator: Moderadora
+        user:
+          fields:
+            invitation_accepted_at: Invitació acceptada el
+            invitation_sent_at: Invitació enviada el
+            published: Publicats
+      participatory_process_copies:
+        new:
+          copy: Còpia
+          select: Selecciona quines dades vols duplicar
+          title: Duplica procés participatiu
+      participatory_process_groups:
+        destroy:
+          error: Hi ha hagut un error en eliminar el grup de processos participatius.
+          success: El grup de processos participatius s'ha eliminat correctament.
+        edit:
+          title: Edita grup de procés
+          update: Actualitza
+        new:
+          create: Crea
+          title: Nou grup de processos
+        update:
+          error: S'ha produït un error en actualitzar aquest grup de processos participatius.
+          success: Grup de processos participatius actualitzat correctament.
+      participatory_process_imports:
+        create:
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
+          success: El procés participatiu s'ha importat correctament.
+        new:
+          import: Importar
+          select: Selecciona quines dades vols importar.
+          title: Importar el procés participatiu
+      participatory_process_publications:
+        create:
+          error: S'ha produït un error en publicar aquest procés participatiu.
+          success: El procés participatiu s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest procés participatiu.
+          success: El procés participatiu s'ha despublicat correctament.
+      participatory_process_step_activations:
+        create:
+          error: S'ha produït un error en activar aquesta fase del procés participatiu.
+          success: La fase del procés participatiu s'ha activat correctament.
+      participatory_process_steps:
+        create:
+          error: S'ha produït un error en crear una nova fase del procés participatiu.
+          success: La fase del procés participatiu s'ha creat correctament.
+        default_title: Introducció
+        destroy:
+          error:
+            active_step: No es pot eliminar la fase activa.
+            last_step: No es pot eliminar l'última fase d'un procés.
+          success: La fase del procés participatiu s'ha eliminat correctament.
+        edit:
+          cta_deprecated:
+            body_html: |-
+              La configuració del CTA a través de la Fase del procés participatiu està obsoleta amb el nou disseny.
+              Ara això es fa a la <b>Página d'inici</b>, fent servir el bloc de contingut <b>Imatges principal i botó d'acció</b>.
+              L'hem deixar aquí per a que migris els CTAs que necessitis. Els camps <i>Ruta del botó d'acció</i> i <i>Text del botó d'acció</i> s'eliminaran a la propera versió.
+            title: CTA obsolet
+          title: Edita fase de procés participatiu
+          update: Actualitza
+        index:
+          steps_title: Fases del procés
+        new:
+          create: Crea
+          title: Nova fase de procés participatiu
+        ordering:
+          error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
+        update:
+          error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha actualitzat correctament.
+      participatory_process_user_roles:
+        create:
+          error: S'ha produït un error en afegir una participant en aquest procés participatiu.
+          success: L'administradora s'ha afegit correctament a aquest procés participatiu.
+        destroy:
+          success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
+        edit:
+          title: Actualitzar administradora de procés participatiu
+          update: Actualitza
+        index:
+          process_admins_title: Administradores del procés participatiu
+        new:
+          create: Crea
+          title: Nova administradora del procés participatiu
+        update:
+          error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
+          success: Administradora actualitzada correctament per a aquest procés participatiu.
+      participatory_processes:
+        create:
+          error: S'ha produït un error en crear un nou procés participatiu.
+          success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
+        edit:
+          update: Actualitza
+        index:
+          private: Privat
+          public: Públic
+          published: Publicat
+          unpublished: Despublicat
+        manage_trash:
+          title: Processos participatius eliminats
+        new:
+          create: Crea
+          title: Nou procés participatiu
+        update:
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
+          success: El procés participatiu s'ha actualitzat correctament.
+      participatory_processes_copies:
+        create:
+          error: S'ha produït un error en duplicar el procés participatiu.
+          success: El procés participatiu ha estat duplicat correctament.
+      participatory_processes_group:
+        create:
+          error: S'ha produït un error en crear aquest grup de processos participatius.
+          success: Grup de processos participatius creat correctament.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tots els processos participatius
+      titles:
+        participatory_process_groups: Grups de processos participatius
+        participatory_process_types: Tipus de processos participatius
+        participatory_processes: Processos participatius
+        participatory_processes_deleted: Processos participatius eliminats
+      tooltips:
+        deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
+      users:
+        resend_invitation:
+          error: S'ha produït un error en reenviar la invitació.
+          success: Invitació reenviada correctament.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} ha creat el procés participatiu %{resource_name}"
+        duplicate: "%{user_name} ha duplicat el procés participatiu %{resource_name}"
+        export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
+        import: "%{user_name} ha importat el procés participatiu %{resource_name}"
+        publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        restore: "%{user_name} ha restaurat el procés participatiu \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviat a la paperera el procés participatiu \"%{resource_name}\""
+        unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
+        update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} ha creat el grup de processos participatius %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el grup de processos participatius: %{resource_name}"
+        update: "%{user_name} ha actualitzat el grup de processos participatius %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} ha activat la fase %{resource_name} en el procés participatiu %{space_name}"
+        create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
+        update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} ha creat el tipus de procés participatiu %{resource_name}"
+        delete: "%{user_name} ha esborrat el tipus de procés participatiu %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus de procés participatiu %{resource_name}"
+      participatory_process_user_role:
+        create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
+        update: "%{user_name} ha canviat el rol de la participant %{resource_name} en el procés participatiu %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar els processos participatius
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} al procés participatiu "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a l procés participatiu "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} al procés participatiu <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'Ja està activa la fase %{resource_title} per a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: Ja està activa la fase %{resource_title} per a <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'S''han actualitzat les dates de la fase %{resource_title} a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
+          page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
+          title: Què és un procés participatiu?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
+    menu:
+      processes: Processos
+    open_data:
+      help:
+        participatory_processes:
+          announcement: La informació de l'anunci/avís (crida)
+          area: L'àrea a què pertany aquest procés
+          created_at: La data en què es va crear aquest procés participatiu
+          description: Una descripció llarga del procés
+          developer_group: El grup promotor del procés. Qui està promovent el procés.
+          end_date: La data de finalització del procés
+          follows_count: El número d'usuàries que segueixen aquest procés participatiu
+          hashtag: L'etiqueta que fa servir el procés a Twitter/X
+          id: L'identificador únic del procés
+          local_area: L'àrea d'organització del procés. Això és l'àrea d'organització de la qual depèn d'aquest procés.
+          meta_scope: Les metadades de l'àmbit territorial del procés
+          participatory_process_group: El grup de processos, si en forma part d'algun
+          participatory_process_type: El tipus de procés
+          participatory_scope: L'àmbit territorial de la participació del procés
+          participatory_structure: L'estructura participativa del procés. Això és com es decideix al procés.
+          promoted: Si el procés està destacat o no
+          published_at: La data en què es va publicar aquest procés participatiu
+          reference: La referència única del procés participatiu
+          remote_hero_image_url: L'URL de la imatge principal del procés
+          scope: L'àmbit territorial del procés
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu del procés
+          slug: El nom curt del procés (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data d'inici del procés
+          subtitle: El subtítol del procés
+          target: Les destinatàries del procés. Qui està cridat a participar en el procés.
+          title: El títol del procés
+          updated_at: La data de la darrera actualització d'aquest procés participatiu
+          url: L'URL del procés participatiu
+    participatory_process_groups:
+      content_blocks:
+        extra_data:
+          developer_group: Promogut per
+          name: Metadades
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+        html:
+          name: Bloc HTML
+        html_1:
+          name: Primer bloc HTML
+        html_2:
+          name: Segon bloc HTML
+        html_3:
+          name: Tercer bloc HTML
+        main_data:
+          name: Títol i descripció
+        participatory_processes:
+          active: Processos participatius actius
+          name: Processos participatius
+        stats:
+          name: Estadístiques
+        title:
+          meta_scope: Àmbit
+          participatory_processes:
+            one: Un procés
+            other: "%{count} processos"
+      related_processes:
+        help: Tots els processos seleccionats seran assignats a aquest grup, incloent-hi els que ja estan assignats a altres grups.
+      show:
+        title: Grups de processos participatius
+    participatory_process_steps:
+      index:
+        process_steps: Fases del procés
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            active: Actius
+            all: Tots
+            max_results: Quantitat màxima d'elements que es mostraran
+            selection_criteria: Criteris de selecció
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadades
+            title: Quant a aquest procés
+            visibility: Visibilitat
+        participatory_process_imports:
+          form:
+            document_legend: Afegeix un document
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
+            cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
+        participatory_processes:
+          form:
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            duration: Durada
+            images: Imatges
+            metadata: Metadades
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
+            related_processes: Processos relacionats
+            select_process_group: Selecciona un grup de processos
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
+            title: Informació general
+            visibility: Visibilitat
+      content_blocks:
+        extra_data:
+          name: Fase i durada
+        hero:
+          name: Imatge principal i botó d'acció
+        highlighted_processes:
+          name: Processos destacats
+        related_processes:
+          name: Processos relacionats
+      index:
+        title: Processos participatius
+      last_activity:
+        new_participatory_process: 'Nou procés participatiu:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Processos actius
+            see_all_spaces: Veure tots els processos
+      participatory_processes:
+        description:
+          area_name: Àrea
+          data: Dades del procés
+          developer_group: Grup promotor
+          local_area: Àrea d'organització
+          meta_scope: Àmbit
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+          title: Quant a aquest procés
+        filters:
+          all_types: Tots els tipus
+          counters:
+            active:
+              one: Un procés actiu
+              other: "%{count} processos actius"
+            all:
+              one: Un procés
+              other: "%{count} processos"
+            past:
+              one: Un procés passat
+              other: "%{count} processos passats"
+            upcoming:
+              one: Un procés proper
+              other: "%{count} processos propers"
+          date: Data
+          explanations:
+            no_active: Sense processos actius.
+            no_active_nor_upcoming: No hi ha processos actius ni futurs.
+            no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
+          filter_by: Mostrar
+          names:
+            active: Actius
+            all: Tots
+            past: Passats
+            upcoming: Propers
+          see: Veure
+          type: Tipus
+        show:
+          title: Quant a aquest procés
+      participatory_space_private_users:
+        index:
+          title: Membres
+      show:
+        belongs_to_group: Aquest procés pertany a
+        private_space: Aquest és un procés privat
+        related_processes: Processos relacionats
+    statistics:
+      processes_count: Processos
+      processes_count_tooltip: El nombre de processos participatius disponibles públicament.
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Explorar
+          browse_resource: Explorar el grup de processos %{resource_name}
+          processes_count: 'Processos:'
+      participatory_process_navigation:
+        member_menu_item: Membres
+      participatory_processes:
+        index:
+          promoted_processes: Processos destacats
+        participatory_process:
+          active_step: 'Fase actual:'
+          more_info: Més informació
+          more_info_about: Més informació sobre el procés %{resource_name}
+          take_part: Participa
+          take_part_in: Participa al procés %{resource_name}

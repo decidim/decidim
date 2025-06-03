@@ -77,16 +77,16 @@ sv:
           attributes:
             base:
               not_official: Är inte officiella
-              voted: Har fått röster eller stöd
+              voted: Har fått röster eller gilla
         proposals_split:
           attributes:
             base:
               not_official: Är inte officiella
-              voted: Har fått röster eller stöd
+              voted: Har fått röster eller gilla
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Förslagskategorier har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
-      decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
+      decidim/proposals/liking_enabled_event: Gilla förslag är aktiverat
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
       decidim/proposals/publish_proposal_event: Förslag publicerat
       decidim/proposals/voting_enabled_event: Omröstningar om förslag aktiverat
@@ -95,9 +95,7 @@ sv:
       decidim:
         proposals:
           proposal:
-            budget_text: Förslaget %{link} skapades
             import_from_proposal_text: 'Det blev det här förslaget: %{link}'
-            import_to_proposal_text: Förslaget %{link} skapades
             merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
             merge_to_proposal_text: 'Förslaget skapades: %{link}'
             split_from_proposal_text: 'Det blev det här förslaget: %{link}'
@@ -158,7 +156,7 @@ sv:
           amend: Ändra
           comment: Kommentera
           create: Skapa förslag
-          endorse: Gilla
+          like: Gilla
           vote: Rösta
           vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
@@ -181,8 +179,8 @@ sv:
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
-              most_endorsed: Mest gillat
               most_followed: Mest följda
+              most_liked: Mest gillade
               most_voted: Flest röster
               random: Slumpvis
               recent: Senaste
@@ -243,14 +241,14 @@ sv:
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
-              most_endorsed: Mest gillat
               most_followed: Mest följda
+              most_liked: Mest gillade
               most_voted: Flest röster
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            endorsements_blocked: Blockera gilla-markeringar
-            endorsements_enabled: Aktivera gilla-markeringar
+            likes_blocked: Gilla är blockerad
+            likes_enabled: Gilla är aktiverad
             proposal_answering_enabled: Aktivera svar på förslag
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
@@ -267,8 +265,14 @@ sv:
         accepted_coauthorship:
           notification_title: Du har lagts till som medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Du har gjorts till utvärderare för förslaget "%{resource_title}". Det innebär att du har fått förtroendet att ge feedback och ett passande svar under de kommande dagarna. Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>.
+            email_outro: Du har fått detta meddelande eftersom du kan utvärdera förslaget.
+            email_subject: Du har gjorts till utvärderare för förslaget %{resource_title}.
+            notification_title: Du har gjorts till utvärderare för förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det på <a href="%{admin_proposal_info_path}"> adminpanelen </a> 
           proposal_note_created:
             email_intro: '%{author_name} har skapat en privat anteckning till %{resource_title}. Kolla in den i <a href="%{admin_proposal_info_url}">adminpanelen</a>.'
+            email_outro: Du har fått detta meddelande eftersom du kan utvärdera förslaget.
             email_subject: Någon skrev en anteckning till förslaget %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har gjort en privat anteckning till <a href="%{resource_path}">%{resource_title}</a>. Kolla in den i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
           proposal_note_mentioned:
@@ -328,11 +332,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
           notification_title: Nu kan du lägga <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
+        liking_enabled:
           email_intro: 'Du kan gilla förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Stöd till förslag har startat för %{participatory_space_title}
-          notification_title: Nu kan du stötta <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          notification_title: Du kan nu börja <a href="%{resource_path}">gilla förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">den här processen</a>.
           email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
@@ -407,23 +411,6 @@ sv:
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
           unearned_another: Den här deltagaren har inte skapat några förslag än.
           unearned_own: Du har inte skapat några förslag än.
-    metrics:
-      accepted_proposals:
-        description: Antal accepterade förslag
-        object: förslag
-        title: Accepterade förslag
-      endorsements:
-        description: Antal gilla-markeringar för förslag
-        object: gilla-markeringar
-        title: Gilla-markeringar
-      proposals:
-        description: Antal förslag
-        object: förslag
-        title: Förslag
-      votes:
-        description: Antal röster på förslag
-        object: röster
-        title: Röster
     open_data:
       help:
         proposal_comments:
@@ -437,9 +424,10 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
+        proposals:
+          likes: Antalet som gillar ("gillar") detta förslag
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:
@@ -461,6 +449,13 @@ sv:
       admin:
         actions:
           preview: Förhandsvisa
+        evaluation_assignments:
+          create:
+            invalid: 'Problem: Utvärderaren kunde inte få förslag.'
+            success: 'Succé: Utvärderaren har fått förslaget.'
+          delete:
+            invalid: 'Problem: Det gick inte att ta bort förslag från utvärderaren. '
+            success: 'Succé: Utvärderarens förslag har tagits bort.'
         exports:
           proposal_comments: Kommentarer
           proposals: Förslag
@@ -566,17 +561,22 @@ sv:
           index:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
+            assign_to_evaluator: Tilldelad en utvärderare
+            assign_to_evaluator_button: Tilldelad
             cancel: Avbryt
             merge: Slå samman till ett nytt
             no_templates_available: Ingen mall tillgänglig
             publish: Publicera
             publish_answers: Publicera svar
             select_component: Välj en komponent
+            select_evaluators: Välj en eller flera utvärderare
             selected: valda
             split: Dela upp förslag
             split_button: Dela upp
             statuses: Statusar
             title: Förslag
+            unassign_from_evaluator: Ta bort från utvärderare
+            unassign_from_evaluator_button: Ta bort
             update: Uppdatera
           new:
             create: Skapa
@@ -586,19 +586,22 @@ sv:
             select_a_proposal: Välj ett förslag.
           show:
             amendments_count: Antal ändringsförslag
+            assigned_evaluators: Tilldelade utvärderare
             body: Innehåll
             comments_count: Antal kommentarer
             documents: Dokument
-            endorsements_count: Antal som gilla-markeringar
-            endorsers: Gillar
+            evaluators: Utvärderare
+            likes: Gillar
+            likes_count: Antal gilla
             link: Visa förslag
-            n_more_endorsers:
+            n_more_likes:
               one: och 1 till
               other: och %{count} till
             photos: Bilder
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterade möten
             remove_assignment: Ta bort tilldelning
+            remove_assignment_confirmation: Är du säker på att du vill ta bort utvärderaren från detta förslag?
             votes_count: Antal röster
         proposals_imports:
           create:
@@ -620,6 +623,7 @@ sv:
       admin_log:
         evaluation_assignment:
           create: "%{user_name} tilldelade förslaget %{resource_name} till en utvärderare"
+          delete: "%{user_name} tog bort en utvärderare från förslaget %{proposal_title}"
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           publish_answer: "%{user_name} publicerade svaret på förslaget %{resource_name} i utrymmet %{space_name}"
@@ -768,6 +772,8 @@ sv:
         proposal:
           fields:
             comments: Kommentarer
+            evaluator: Utvärderare
+            evaluators: Utvärderare
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
@@ -834,8 +840,8 @@ sv:
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
-          most_endorsed: Mest gillat
           most_followed: Mest följda
+          most_liked: Mest gillade
           most_voted: Mest röstade
           random: Slumpvis
           recent: Senaste
@@ -861,9 +867,9 @@ sv:
           answer: Svara
           changes_at_title: Ändring till %{title}
           estimated_cost: Beräknad kostnad
-          hidden_endorsers_count:
-            one: och %{count} till person
-            other: och %{count} till personer
+          hidden_likes_count:
+            one: och %{count} person till
+            other: och %{count} personer till
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
@@ -878,7 +884,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan röstat
+          already_voted: Röstade
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
@@ -935,6 +941,9 @@ sv:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
     statistics:
+      participatory_space_proposals_count: Förslag
       proposals_accepted: Godkända förslag
       proposals_count: Förslag
+      proposals_count_tooltip: Det totala antalet inlämnade förslag och röster för dem.
+      votes: 'Röster:'
       votes_count: Röster

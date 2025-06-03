@@ -5,6 +5,7 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       attachment:
         documents: Dokumente
+        image: Bild
         photos: Fotos
       common:
         created_at: Erstellt am
@@ -52,6 +53,12 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Der Spitzname muss Kleinbuchstaben sein und keine Leerzeichen enthalten
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -65,7 +72,6 @@ de:
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
       decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
-      decidim/resource_endorsed_event: Ressource befürwortet
       decidim/resource_hidden_event: Ressource versteckt
       decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
@@ -88,9 +94,6 @@ de:
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
-      decidim/endorsement:
-        one: Befürwortung
-        other: Befürwortungen
       decidim/user:
         one: Benutzer
         other: Benutzer
@@ -165,6 +168,7 @@ de:
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       opens_in_new_tab: In neuem Tab öffnen
+      secondary_menu: Sekundäres Menü
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -430,9 +434,6 @@ de:
       comments:
         one: Kommentar
         other: Kommentare
-      endorsements:
-        one: Befürwortung
-        other: Befürwortungen
       official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -525,7 +526,7 @@ de:
           comment: Kommentar
           debate: Debatte
           initiative: Initiative
-          meeting: Treffen
+          meeting: Veranstaltung
           order: Budget-Abstimmung
           post: Beitrag
           proposal: Vorschlag
@@ -605,10 +606,6 @@ de:
         name: Hauptdaten
       metadata:
         name: Metadaten
-      metrics:
-        name: Organisationsmetriken
-      participatory_space_metrics:
-        name: Metriken
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -827,16 +824,6 @@ de:
         error: Fehler beim Hochladen des Bildes.
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
-    endorsement_buttons_cell:
-      already_endorsed: Zustimmung zurückziehen
-      endorse: Gefällt mir
-    endorsers_list:
-      endorsed_by:
-        one: '%{visible} stimmt zu'
-        other: '%{visible} und %{others} stimmen zu'
-      others: "%{count} weitere"
-      title: Zustimmende
-      you: du
     ephemeral_user: Gast
     errors:
       files:
@@ -943,6 +930,16 @@ de:
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des betroffenen %{resource_type}s sind.
+          email_subject: Ihr %{resource_type} ist nicht mehr sichtbar
+          notification_title: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Ein Administrator hat Ihr/e/n %{resource_type} entfernt, weil diese/r/s als %{report_reasons} gemeldet wurde.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor des entfernten Inhalts sind.
@@ -950,11 +947,6 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt, und wir denken, das könnte interessant für Sie sein. Schauen Sie es sich an und reden Sie mit:'
-        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-        email_subject: "%{endorser_nickname} hat eine neue Befürwortung ausgesprochen"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> befürwortet.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
@@ -1174,6 +1166,8 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer möchte keine privaten Nachrichten empfangen.
+          participants:
+            title: Teilnehmende
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
@@ -1206,27 +1200,6 @@ de:
         finished: 'Beendet am: %{end_date}'
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
-    metrics:
-      blocked_users:
-        description: Anzahl der blockierten Teilnehmenden
-      download:
-        csv: Daten herunterladen (CSV)
-      followers:
-        description: Anzahl der Benutzer, die dieser Teilnahme folgen
-        object: Anhänger
-        title: Anhänger
-      participants:
-        description: Anzahl der aktiven Benutzer in der Organisation
-        object: Teilnehmer
-        title: Teilnehmer
-      reported_users:
-        description: Anzahl der gemeldeten Teilnehmenden
-      user_reports:
-        description: Anzahl der von Teilnehmenden getätigten Meldungen
-      users:
-        description: Anzahl der Benutzer in der Organisation
-        object: Benutzer
-        title: Benutzer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
@@ -1354,11 +1327,6 @@ de:
             other: "%{count} Ressourcen"
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
-        metrics:
-          cumulative: Die Gesamtzahl der Metrik an diesem Tag
-          day: Erstellungsdatum dieser Metrik
-          metric_type: Typ der Metrik
-          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1472,7 +1440,7 @@ de:
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
-          headline: Starea curentă a %{organization}
+          headline: Statistiken
         sub_hero:
           register: Registrieren
           register_title: Konto erstellen
@@ -1481,10 +1449,6 @@ de:
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
         topics: Themen
-      participatory_space:
-        metrics:
-          headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1550,11 +1514,24 @@ de:
         scan: QR-Code scannen
         title: QR-Code für %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Gemeldeter Inhalt
+        details: Details
         hello: Hallo %{name},
         manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
         subject: Eine Ressource wurde automatisch ausgeblendet
+      hidden_manually:
+        content: Gemeldeter Inhalt
+        details: Details
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde durch %{moderator} ausgeblendet.</p>
+        subject: Eine Ressource wurde durch %{moderator} ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
@@ -1572,13 +1549,14 @@ de:
       create:
         error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+      hide:
+        success: Diese Ressource wurde ausgeblendet.
       parent_hidden:
         report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
       controls_label: Ressourcensteuerung
-    resource_endorsements:
-      create:
-        error: Bei der Befürwortung ist ein Fehler aufgetreten.
+    resource_autocomplete:
+      help: Tippen, um Vorschläge zu durchsuchen
     scopes:
       global: Globaler Umfang
       prompt: Wählen Sie einen Bereich aus
@@ -1675,8 +1653,9 @@ de:
         share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
-      endorsements_count: Befürwortungen
+      comments_count_tooltip: Die Summe der in diesem Bereich geposteten Kommentare.
       followers_count: Follower
+      followers_count_tooltip: Die Anzahl der Nutzenden, die einen beliebigen Teil dieses Bereichs folgen, um auf dem Laufenden zu bleiben.
       headline: Statistik
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
@@ -1704,10 +1683,20 @@ de:
         body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
-        instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
-        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an <strong>%{group_email}</strong> gesendet, um ein neues Passwort für das Profil festzulegen.
-        instructions_title: "<strong>Was bedeutet das für Sie?</strong>"
+        instructions_intro: Wir haben Anweisungen an die mit dem Konto verknüpfte E-Mail-Adresse gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
         subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
+      notify_deprecation_to_owner:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
+        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
+        body_3: Um weiterhin auf Ihr Konto zuzugreifen, müssen Sie ein Passwort setzen.
+        greeting: Hallo %{name},
+        instructions_1: 'Klicken Sie auf den Link unten, um den Passwortaufsetzungsprozess zu starten:'
+        instructions_2: Geben Sie in das Formular die E-Mail-Adresse ein, unter der Sie diese Nachricht erhalten haben, und senden Sie die Anfrage ab.
+        instructions_3: Überprüfen Sie Ihren Posteingang für eine E-Mail mit weiteren Anweisungen, um Ihr neues Passwort festzulegen.
+        instructions_title: "<strong>Was Sie tun müssen</strong>"
+        set_password: Starte Passwortsetzungsprozess
+        subject: Wichtiges Update zur Gruppenfunktion
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -1829,16 +1818,6 @@ de:
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Anweisungen zur Entsperrung
-      user_group_reset_password_instructions:
-        body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
-        body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
-        body_3: Um weiterhin auf Ihr Konto zuzugreifen und den Zugriff freizugeben, müssen Sie ein Passwort festlegen. Sobald gesetzt, können Sie die Anmeldedaten (E-Mail und Passwort) an jeden weitergeben.
-        greeting: Hallo %{name},
-        instructions_1: 'Klicke auf den untenstehenden Link, um das Passwort zurückzusetzen:'
-        instructions_2: 'Teilen Sie die Anmeldedaten (E-Mail: %{email} und das neue Passwort) mit Ihren Kollegen.'
-        instructions_title: "<strong>Was sie tun müssen?</strong>"
-        set_password: Setzen Sie ein Passwort
-        subject: Wichtiges Update zur Gruppenfunktion
     omniauth_callbacks:
       add_tos_errors: Die Nutzungsbedingungen müssen akzeptiert werden, um ein Konto zu erstellen.
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
@@ -2086,8 +2065,11 @@ de:
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
+        back: Zurück zur Liste
+        cancel: Abbrechen
         close: Schliessen
-        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
+        confirm_close_ephemeral_session: Wenn Sie wegnavigieren, wird Ihre temporäre Sitzung geschlossen. Allerdings werden alle Fortschritte und Aktivitäten gespeichert. Wenn Sie Ihre Aktivität beendet haben, klicken Sie auf OK.
+        confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü

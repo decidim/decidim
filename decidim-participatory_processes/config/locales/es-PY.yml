@@ -343,11 +343,6 @@ es-PY:
           not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
-    metrics:
-      participatory_processes:
-        description: Número de procesos participativos en esta organización.
-        object: procesos participativos
-        title: Procesos participativos
     open_data:
       help:
         participatory_processes:
@@ -408,6 +403,8 @@ es-PY:
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
+      related_processes:
+        help: Todos los procesos seleccionados serán asignados a este grupo, incluyendo los que ya están asignados a otros grupos.
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -473,9 +470,6 @@ es-PY:
           highlighted_processes:
             active_spaces: Procesos activos
             see_all_spaces: Ver todos los procesos
-      participatory_process_steps:
-        index:
-          back_to_process: Volver a la página del proceso
       participatory_processes:
         description:
           area_name: Área
@@ -526,6 +520,7 @@ es-PY:
         related_processes: Procesos relacionados
     statistics:
       processes_count: Procesos
+      processes_count_tooltip: El número de procesos participativos que están disponibles públicamente.
   layouts:
     decidim:
       participatory_process_groups:

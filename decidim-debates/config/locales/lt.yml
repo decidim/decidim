@@ -27,7 +27,6 @@ lt:
       debates:
         actions:
           comment: Komentaras
-          endorse: Pritarti
         name: Diskusijos
         settings:
           global:
@@ -38,8 +37,6 @@ lt:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali sukurti diskusijas
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
     debates:
       actions:
         close: Uždaryti
@@ -187,10 +184,5 @@ lt:
           next_level_in: Įsitraukite į %{score} daugiau diskusijų ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nedalyvavo nė vienoje diskusijoje.
           unearned_own: Jūs dar nedalyvavote nė vienoje diskusijoje.
-    metrics:
-      debates:
-        description: Sukurtų diskusijų skaičius
-        object: diskusijos
-        title: Diskusijos
     statistics:
       debates_count: Diskusijos

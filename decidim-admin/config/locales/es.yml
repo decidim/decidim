@@ -45,8 +45,6 @@ es:
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
-        cta_button_path: Ruta del botón de acción principal
-        cta_button_text: Texto del botón de acción principal
         customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
@@ -477,6 +475,10 @@ es:
             explanation: 'Instrucciones para el archivo:'
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
+          import_csv:
+            explanation: 'Instrucciones para el archivo:'
+            message_1: Se admiten archivos CSV
+            message_2: "archivo .csv con datos de correos electrónicos"
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda.
         form:
@@ -596,12 +598,10 @@ es:
         share_tokens: Enlaces de acceso
         static_page_topics: Temas
         static_pages: Páginas
+        statistics: Estadísticas
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía
         users: Participantes
-      metrics:
-        metrics:
-          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -875,13 +875,29 @@ es:
           title: Editar organización
           update: Actualizar
         form:
+          admin_terms_of_service: Términos y condiciones de uso para administradoras
+          basic_configuration: Configuración básica
+          colors:
+            choose_color: Elegir un color primario
+            colors_title: Colores de la organización
+            colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> u otras herramientas similares.'
+            explanation: Esta herramienta le ayuda a elegir un esquema de colores, compuesto por tonos igualmente espaciados alrededor de la rueda cromática, que se utilizará en el sitio web de la organización.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triádico</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            saturation: Saturación
+            title: Selector de color
+            update_suggested_colors: Actualizar a los colores sugeridos
+          extra_features: Funciones adicionales
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logotipo de la organización
+            preview: Previsualizar
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: X
           url: URL
+          welcome_notification: Notificación de bienvenida
           youtube: YouTube
         update:
           error: Se ha producido un error al actualizar esta organización.
@@ -890,26 +906,10 @@ es:
         edit:
           update: Actualizar
         form:
-          colors:
-            choose_color: Elegir un color primario
-            colors_title: Colores de la organización
-            colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
-            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
-            saturation: Saturación
-            title: Selector de color
-            update_suggested_colors: Actualizar a los colores sugeridos
-          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
-          cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets:
             header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lee más sobre esto <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
             title: Fragmentos de código HTML de cabecera
-          homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
-          images:
-            layout_appearance_title: Editar apariencia de diseño global
-            preview: Previsualizar
-          omnipresent_banner_appearance_title: Editar banner omnipresente
       organization_external_domain_allowlist:
         edit:
           update: Actualizar
@@ -1236,14 +1236,13 @@ es:
         impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestión de participantes
         menu: Menú
-        metrics: Métricas
         page_topics: Temas
         pages: Páginas
         panel: Administradora
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        statistics: Actividad
+        statistics: Estadísticas
         taxonomies: Taxonomías
         taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         users: Administradoras
@@ -1282,22 +1281,13 @@ es:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada.
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuarias reportadas
-        title: Usuarias reportadas
-      user_reports:
-        object: reportes de usuaria
-        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
+        parent_hidden: No se puede mostrar este recurso porque está incluido dentro de otro recurso ("padre") que sigue oculto.
         title: Acciones
         unhide: Vuelve a mostrar
         unreport: Deshacer denuncia
@@ -1324,6 +1314,7 @@ es:
             success: Contenido ocultado correctamente.
           unhide:
             invalid: Se ha producido un error volviendo a mostrar el contenido.
+            parent_invalid: Ha habido un problema desocultando el recurso. El recurso en el que este está incluido ("padre") no está visible.
             success: Contenido exitosamente desocultado.
           unreport:
             invalid: Se ha producido un error al cancelar la denuncia.

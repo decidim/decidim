@@ -30,7 +30,6 @@ fi-pl:
         actions:
           comment: Kommentoi
           create: Luo keskustelu
-          endorse: Suosittele
         name: Keskustelut
         settings:
           global:
@@ -47,8 +46,6 @@ fi-pl:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda keskusteluja
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
     debates:
       actions:
         close: Sulje
@@ -236,11 +233,6 @@ fi-pl:
           next_level_in: Osallistu vielä %{score} keskusteluun päästäksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään keskusteluun.
           unearned_own: Et ole vielä osallistunut yhteenkään keskusteluun.
-    metrics:
-      debates:
-        description: Keskustelujen määrä
-        object: keskustelut
-        title: Keskustelut
     open_data:
       help:
         debate_comments:
@@ -264,7 +256,6 @@ fi-pl:
           created_at: Keskustelun luontiaika
           description: Keskustelun kuvaus
           end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
-          endorsements_count: Keskustelun suositusten ("tykkäykset") lukumäärä
           follows_count: Keskustelun seuraajien lukumäärä
           id: Keskustelun yksilöivä tunniste
           information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun

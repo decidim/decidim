@@ -1,0 +1,12 @@
+<div class="budget-summary__progressbox-buttons layout-aside__ctas-buttons" data-sticky-buttons>
+  <% if !current_order_checked_out? && voting_open? %>
+    <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+      <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
+    </button>
+  <% elsif current_order_checked_out? %>
+    <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+      <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+      <%= icon "delete-bin-line" %>
+    <% end %>
+  <% end %>
+</div>

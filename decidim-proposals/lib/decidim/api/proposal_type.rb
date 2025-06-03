@@ -13,7 +13,7 @@ module Decidim
       implements Decidim::Core::AmendableInterface
       implements Decidim::Core::AmendableEntityInterface
       implements Decidim::Core::TraceableInterface
-      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::LikeableInterface
       implements Decidim::Core::TimestampsInterface
 
       field :address, GraphQL::Types::String, "The physical address (location) of this proposal", null: true
@@ -34,6 +34,12 @@ module Decidim
       field :vote_count, GraphQL::Types::Int, description: "The total amount of votes the proposal has received", null: true
       field :withdrawn, GraphQL::Types::Boolean, "Whether this proposal has been withdrawn or not", method: :withdrawn?, null: true
       field :withdrawn_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was withdrawn", null: true
+
+      field :url, GraphQL::Types::String, "The URL for this proposal", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
 
       def coordinates
         [object.latitude, object.longitude]

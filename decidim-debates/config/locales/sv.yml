@@ -25,7 +25,7 @@ sv:
       debates:
         actions:
           comment: Kommentera
-          endorse: Gilla
+          like: Gilla
         name: Debatter
         settings:
           global:
@@ -36,8 +36,8 @@ sv:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagarna kan skapa debatter
-            endorsements_blocked: Blockera gilla-markeringar
-            endorsements_enabled: Aktivera gilla-markeringar
+            likes_blocked: Gilla är blockerat
+            likes_enabled: Gilla är aktiverat
     debates:
       actions:
         close: Stäng
@@ -117,6 +117,7 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
+          title: Skapa ny debatt
         orders:
           commented: Mest kommenterade
           label: Sortera debater efter
@@ -194,10 +195,10 @@ sv:
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i någon debatt än.
-    metrics:
-      debates:
-        description: Antal skapade debatter
-        object: debatter
-        title: Debatter
+    open_data:
+      help:
+        debates:
+          likes_count: Antal som gillar debatten
     statistics:
       debates_count: Debatter
+      debates_count_tooltip: Antalet diskussioner som hållits.

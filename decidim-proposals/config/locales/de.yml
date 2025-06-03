@@ -9,6 +9,9 @@ de:
         scope_id: Bereich
         state: Status
         title: Titel
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Name der bewertenden Person
       import_participatory_text:
         document: Dokument
       proposal:
@@ -74,16 +77,13 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              voted: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              voted: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
-      decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
@@ -92,9 +92,7 @@ de:
       decidim:
         proposals:
           proposal:
-            budget_text: Der Vorschlag %{link} wurde erstellt
             import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
-            import_to_proposal_text: Dieser Vorschlag %{link} wurde erstellt
             merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
             split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
@@ -118,6 +116,8 @@ de:
           proposals: Vorschläge
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Zur Bewertung zugewiesen
           is_emendation_true:
             label: Art
             values:
@@ -153,7 +153,6 @@ de:
           amend: Änderungsvorschlag
           comment: Kommentieren
           create: Einen Vorschlag erstellen
-          endorse: Unterstützung
           vote: Abstimmen
           vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
@@ -176,7 +175,6 @@ de:
             default_sort_order_options:
               automatic: Automatisch
               most_commented: Am häufigsten kommentiert
-              most_endorsed: Am häufigsten befürwortet
               most_followed: Am häufigsten gefolgt
               most_voted: Am meisten gewählt
               random: Zufällig
@@ -238,14 +236,11 @@ de:
             default_sort_order_options:
               automatic: Automatisch
               most_commented: Am meisten kommentiert
-              most_endorsed: Am meisten befürwortet
               most_followed: Am häufigsten gefolgt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
-            endorsements_blocked: Zustimmungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
@@ -262,8 +257,14 @@ de:
         accepted_coauthorship:
           notification_title: Sie wurden als Co-AutorIn zum Vorschlag <a href="%{resource_path}">%{resource_title}</a> hinzugefügt.
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie den Vorschlag bewerten können.
+            email_subject: Der Vorschlag %{resource_title} wurde Ihnen zur Bewertung zugewiesen.
+            notification_title: Ihnen wurde der Vorschlag <a href="%{resource_path}">%{resource_title}</a> zur Bewertung zugewiesen. Jetzt <a href="%{admin_proposal_info_path}">Admin-Panel</a> anschauen.
           proposal_note_created:
             email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie den Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
             notification_title: <a href="%{author_path}">%{author_name}</a> hat eine private Notiz unter <a href="%{resource_path}">%{resource_title}</a> erstellt. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
           proposal_note_mentioned:
@@ -323,11 +324,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen.
-        endorsing_enabled:
-          email_intro: 'Sie können Vorschläge in %{participatory_space_title} unterstützen! Beteiligen Sie sich auf dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
-          notification_title: Sie können nun Vorschläge auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>.
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -407,23 +403,6 @@ de:
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Teilnehmer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
-    metrics:
-      accepted_proposals:
-        description: Anzahl der von den Benutzern akzeptierten Vorschläge
-        object: Vorschläge
-        title: Akzeptierte Vorschläge
-      endorsements:
-        description: Anzahl der in Vorschlägen generierten Vermerke
-        object: Änderungsvorschläge
-        title: Änderungsvorschläge
-      proposals:
-        description: Anzahl der Vorschläge
-        object: Vorschläge
-        title: Vorschläge
-      votes:
-        description: Anzahl Stimmen über Vorschläge
-        object: Stimmen
-        title: Abstimmungen
     open_data:
       help:
         proposal_comments:
@@ -451,7 +430,6 @@ de:
           cost_report: Ein Kostenbericht für den Vorschlag
           created_at: Erstellungsdatum dieses Vorschlags
           created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
-          endorsements: Die Anzahl Unterstützungen dieses Vorschlags
           execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
           follows_count: Die Anzahl Folgende dieses Vorschlags
           id: Die eindeutige Bezeichnung des Vorschlags
@@ -475,7 +453,6 @@ de:
           withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
-        last: Letzte Vorschläge
         see_all: Alle anzeigen
     proposals:
       actions:
@@ -500,6 +477,13 @@ de:
           deleted_proposals_info: Gelöschte Vorschläge können aus dem Papierkorb wiederhergestellt werden.
           preview: Vorschau
           view_deleted_proposals: Gelöschte Vorschläge anzeigen
+        evaluation_assignments:
+          create:
+            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
+          delete:
+            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
+            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
@@ -663,17 +647,13 @@ de:
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
-            endorsements_count: Anzahl der Befürwortungen
-            endorsers: Befürworter
             evaluators: Bewertende Personen
             link: Vorschlag anzeigen
-            n_more_endorsers:
-              one: und 1 mehr
-              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den Bewerter dieses Vorschlags entfernen möchten?
             votes_count: Anzahl Stimmen
           update_taxonomies:
             invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
@@ -704,6 +684,9 @@ de:
             invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} hat den %{resource_name} Vorschlag einem Bewerter zugewiesen"
+          delete: "%{user_name} hat die Zuweisung eines Bewerters zum %{proposal_title} Vorschlag aufgehoben"
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den Vorschlag %{resource_name} aus dem Zusammenführen von %{merged_count} Vorschlägen in %{space_name} erstellt"
@@ -859,6 +842,7 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.
@@ -872,6 +856,8 @@ de:
         proposal:
           fields:
             comments: Bemerkungen
+            evaluator: Bewertende Person
+            evaluators: Bewertende Personen
             id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
@@ -939,10 +925,10 @@ de:
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
-          most_endorsed: Am meisten befürwortet
           most_followed: Am meisten gefolgt
           most_voted: Am meisten gewählt
           random: Zufällig
@@ -970,9 +956,6 @@ de:
           changes_at_title: Ergänzung zu „%{title}“
           edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
-          hidden_endorsers_count:
-            one: und %{count} weitere Person
-            other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
           link_to_promoted_emendation_help_text: Dieser Vorschlag hat eine markierte Berichtigung
@@ -988,7 +971,7 @@ de:
         update:
           title: Vorschlag aktualisieren
         vote_button:
-          already_voted: Bereits abgestimmt
+          already_voted: Abgestimmt
           already_voted_hover: Stimme zurückziehen
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen

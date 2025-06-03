@@ -103,7 +103,6 @@ de:
           comment: Kommentieren
           create: Erstellen
           destroy: Löschen
-          endorse: Unterstützen
           update: Aktualisieren
         name: Blog
         settings:
@@ -120,8 +119,6 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Unterstützung deaktiviert
-            endorsements_enabled: Unterstützung aktiviert
     events:
       blogs:
         post_created:
@@ -148,7 +145,6 @@ de:
           comments_count: Die Anzahl Kommentare zu diesem Beitrag
           component: Komponente, zu der dieses Beitrag gehört
           created_at: Erstellungsdatum dieses Beitrags
-          endorsements_count: Die Anzahl Unterstützungen dieses Beitrags
           follows_count: Die Anzahl Folgende dieses Beitrags
           id: Die eindeutige Bezeichnung des Beitrags
           participatory_space: Zu welchem Bereich dieser Beitrag gehört (z.B. Partizipationsprozesse oder Gremien)
@@ -158,3 +154,4 @@ de:
           url: Die URL für diesen Beitrag
     statistics:
       posts_count: Beiträge
+      posts_count_tooltip: Die Anzahl der veröffentlichten Updates oder Blog-Beiträge.

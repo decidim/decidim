@@ -3,7 +3,6 @@ es:
     attributes:
       sortition:
         additional_info: Información del sorteo
-        decidim_category_id: Categorías del conjunto de propuestas en las que deseas aplicar el sorteo
         decidim_proposals_component_id: Propuestas establecidas
         dice: Resultado de la tirada de dados. Tira un dado de seis caras, o busca otra forma aleatoria de generar un número del uno al 6, e ingresa aquí el número resultante delante de algunos testigos. Esto contribuye a la calidad y garantías de la aleatoriedad del resultado
         target_items: Número de propuestas a seleccionar (indica el número de propuestas que deseas seleccionar a través del sorteo del grupo de propuestas que hayas seleccionado previamente)
@@ -24,8 +23,13 @@ es:
         name: Sorteos
         settings:
           global:
+            clear_all: Limpiarlo todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
     events:
       sortitions:
         sortition_created:
@@ -43,7 +47,6 @@ es:
         models:
           sortition:
             fields:
-              category: Categoría
               created_at: Fecha de creación
               decidim_proposals_component: Componente de Propuestas
               dice: Dado
@@ -51,6 +54,7 @@ es:
               request_timestamp: Tiempo de dibujar
               seed: Semilla
               target_items: Elementos a seleccionar
+              taxonomies: Taxonomías
               title: Título
         sortitions:
           confirm_destroy:
@@ -67,8 +71,9 @@ es:
             title: Actualiza la información sobre el sorteo
             update: Actualizar
           form:
-            all_categories: Todas las categorias
+            all_taxonomies: Todas las taxonomías
             select_proposal_component: Selecciona el conjunto de propuestas
+            select_taxonomies: Taxonomías del conjunto de propuestas en las que se desea aplicar el sorteo. Dejar en blanco para aplicar el sorteo a todas las propuestas sobre esa taxonomía.
           index:
             title: Sorteos
           new:
@@ -110,16 +115,16 @@ es:
             other: Propuestas seleccionadas
         show:
           algorithm: Código de algoritmo del sorteo
-          any_category: de todas las categorías
+          any_taxonomy: de todas las taxonomías
           cancelled: Sorteo cancelado
           candidate_proposal_ids: Orden e IDs de las propuestas del sorteo
-          candidate_proposals_info: 'El sorteo se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
-          category: de la categoría %{category}
+          candidate_proposals_info: 'El sorteo se realizó entre las siguientes propuestas (%{taxonomy_labels}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
           dice_result: (1) resultado de los dados
           introduction: 'Esta página contiene los resultados del sorteo %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso del sorteo que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo del sorteo es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propuestas seleccionadas por sorteo
           sortition_reproducibility_details: Detalles de reproducibilidad del sorteo
+          taxonomies: de las taxonomías %{taxonomies}
           time_seed: (2) Semilla de tiempo
           witnesses: Testimonios
         sortition:
@@ -137,3 +142,4 @@ es:
             other: "%{count} clasificaciones"
     statistics:
       sortitions_count: Sorteos
+      sortitions_count_tooltip: El número de selecciones aleatorias realizadas para la toma de decisiones.

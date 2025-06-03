@@ -38,7 +38,6 @@
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe-admin
       decidim/removed_from_group: Fjernet fra gruppen
-      decidim/resource_endorsed_event: Ressurs er tilsluttet
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@
       decidim/amendment:
         one: Endring
         other: Endringer
-      decidim/endorsement:
-        one: Tilslutning
-        other: Tilslutninger
       decidim/user:
         one: Deltaker
         other: Deltakere
@@ -228,9 +224,6 @@
       comments:
         one: kommentar
         other: kommentarer
-      endorsements:
-        one: tilslutning
-        other: tilslutninger
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -362,8 +355,6 @@
         name: Siste aktivitet
         title: Siste aktivitet
         view_all: Vis alle
-      metrics:
-        name: Organisasjonens målinger
       stats:
         name: Organisasjonsstatistikk
       sub_hero:
@@ -494,11 +485,6 @@
           notification_title: |-
             En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
-        email_outro: Du har mottatt dette varselet fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler ved å følge den forrige lenken.
-        email_subject: "%{endorser_nickname} har utført ny påtegning"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} er godkjent av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
@@ -658,21 +644,6 @@
           title: Samtale med %{usernames}
         start:
           send: Send
-    metrics:
-      download:
-        csv: Last ned data (CSV)
-      followers:
-        description: Antall deltakere som følger dette deltakerområdet
-        object: følgere
-        title: Følgere
-      participants:
-        description: Antall aktive deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
-      users:
-        description: Antall deltakere i organisasjonen
-        object: deltakere
-        title: Deltakere
     newsletter_mailer:
       newsletter:
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
@@ -755,8 +726,6 @@
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        statistics:
-          headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
       index:
@@ -764,10 +733,6 @@
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
         topics: Emner
-      participatory_space:
-        metrics:
-          headline: Deltakelse i tall
-          link: Vis all statistikk
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -784,11 +749,6 @@
           edit_profile: Rediger profil
           resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
-      hide:
-        hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
-        subject: En ressurs var automatisk skjult
       report:
         authors: Forfattere
         content: Rapportert innhold
@@ -805,15 +765,11 @@
     reports:
       create:
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
-    resource_endorsements:
-      create:
-        error: Det oppstod et problem under påtegning.
     scopes:
       global: Alle tema
       prompt: Velg et tema
     search:
       results: Søkeresultater
-      results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
       filters:
@@ -876,7 +832,6 @@
         share_link: Del lenke
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Påtegnelser
       followers_count: Følgere
       headline: Statistikk
       no_stats: Det finnes ingen statistikk enda.

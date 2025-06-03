@@ -242,11 +242,6 @@ id:
           title: Apa itu proses partisipatif?
     menu:
       processes: Proses
-    metrics:
-      participatory_processes:
-        description: Jumlah proses partisipatif dalam organisasi ini
-        object: proses partisipatif
-        title: Proses partisipatif
     participatory_process_groups:
       content_blocks:
         stats:

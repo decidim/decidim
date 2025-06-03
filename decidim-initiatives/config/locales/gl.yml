@@ -2,7 +2,6 @@ gl:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
         description: Descrición
         offline_votes: Soportes cara a cara
         scope_id: Alcance
@@ -21,7 +20,6 @@ gl:
         banner_image: Imaxe do banner
         collect_user_extra_fields: Recolle datos persoais do usuario na sinatura
         description: Descrición
-        document_number_authorization_handler: Autorización para verificar o número do documento nos votos
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
@@ -219,26 +217,12 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Nova iniciativa por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a quen estás seguindo, apoiou a seguinte iniciativa, talvez queres contribuír á conversa:"
-          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Iniciativa aprobada por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Continuar
         finish:
           back_to_initiative: Volver á iniciativa
-        sms_code:
-          continue: Comprobe o código e continúe
-          help: Comprobe o SMS recibido no seu teléfono
-        sms_phone_number:
-          continue: Envíame un SMS
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
-        personal_data:
-          invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
         sms_phone:
           invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
@@ -305,18 +289,11 @@ gl:
       initiatives_type:
         actions:
           title: Accións
-          vote: Vota
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
         select_initiative_type: Elixe
-      initiative_signature_creation_header:
-        fill_personal_data: Completa os teus datos
-        finish: Finalizar
-        sms_code: Verificación do código SMS
-        sms_phone_number: Número de teléfono
-        title: Rexistrar %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Non hai iniciativas aínda.

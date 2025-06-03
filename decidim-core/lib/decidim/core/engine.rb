@@ -119,6 +119,7 @@ module Decidim
         Decidim.icons.register(name: "close-circle-line", icon: "close-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "contacts-line", icon: "contacts-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-settings-line", icon: "user-settings-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-star-line", icon: "user-star-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-add-line", icon: "user-add-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "share-forward-line", icon: "share-forward-line", category: "system", description: "", engine: :core)
@@ -231,8 +232,26 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      # Rails 7.0 default is vips, but
+      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
+      # And we are going to use it while migrating rails application
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
+      end
+
+      initializer "decidim_core.active_storage_method_patch" do |_app|
+        if Rails::VERSION::MAJOR < 8
+          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
+          module Attachment
+            def named_variants
+              record.attachment_reflections[name]&.named_variants || {}
+            end
+          end
+
+          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
+        else
+          ActiveSupport::Deprecation.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
+        end
       end
 
       initializer "decidim_core.action_controller" do |_app|
@@ -243,8 +262,18 @@ module Decidim
         end
       end
 
+      initializer "decidim_core.active_support" do |app|
+        # Rails 7.0 default
+        app.config.active_support.disable_to_s_conversion = true
+        app.config.active_support.cache_format_version = 7.0
+      end
+
       initializer "decidim_core.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim_core.action_view" do |app|
+        app.config.action_view.sanitizer_vendor = Rails::HTML4::Sanitizer
       end
 
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
@@ -401,7 +430,7 @@ module Decidim
               Decidim.configure do |config|
                 config.maps = {
                   provider: :here,
-                  api_key: Rails.application.secrets.maps[:api_key],
+                  api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", Decidim::Env.new("MAPS_API_KEY", nil)).to_s,
                   static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
                 }
               end
@@ -419,16 +448,11 @@ module Decidim
       end
 
       initializer "decidim_core.stats" do
-        Decidim.stats.register :users_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
+        Decidim.stats.register :users_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "user-line",
+                               tooltip_key: "users_count_tooltip" do |organization, start_at, end_at|
           StatsUsersCount.for(organization, start_at, end_at)
-        end
-
-        Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
-          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
-
-          processes = processes.where(created_at: start_at..) if start_at.present?
-          processes = processes.where(created_at: ..end_at) if end_at.present?
-          processes.count
         end
       end
 
@@ -447,13 +471,13 @@ module Decidim
       initializer "decidim_core.validators" do
         config.to_prepare do
           # Decidim overrides to the file content type validator
-          require "file_content_type_validator"
+          require File.expand_path("#{Decidim::Core::Engine.root}/app/validators/file_content_type_validator")
         end
       end
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link, :blob]
+          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
         end
       end
 
@@ -668,7 +692,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
@@ -705,7 +729,7 @@ module Decidim
         config.to_prepare do
           Decidim::AuthorizationTransfer.register(:core) do |transfer|
             transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
-            transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+            transfer.move_records(Decidim::Like, :decidim_author_id)
             transfer.move_records(Decidim::Amendment, :decidim_user_id)
           end
         end

@@ -245,8 +245,6 @@ id:
         name: Aktivitas terakhir
         title: Aktivitas terakhir
         view_all: Lihat semua
-      metrics:
-        name: Metrik organisasi
       stats:
         name: Statistik organisasi
       sub_hero:
@@ -471,19 +469,6 @@ id:
           title: Percakapan dengan %{usernames}
         start:
           send: Kirim
-    metrics:
-      followers:
-        description: Jumlah pengguna yang mengikuti ruang partisipasi ini
-        object: pengikut
-        title: Pengikut
-      participants:
-        description: Jumlah pengguna aktif dalam organisasi
-        object: peserta
-        title: Peserta
-      users:
-        description: Jumlah pengguna dalam organisasi
-        object: pengguna
-        title: Pengguna
     newsletter_mailer:
       newsletter:
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
@@ -536,8 +521,6 @@ id:
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        statistics:
-          headline: Keadaan saat ini %{organization}
         sub_hero:
           register: Daftar
       index:
@@ -545,10 +528,6 @@ id:
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
         topics: Topik
-      participatory_space:
-        metrics:
-          headline: Partisipasi dalam angka
-          link: Tampilkan semua statistik
     profile:
       deleted: Pengguna yang dihapus
     profiles:
@@ -562,11 +541,6 @@ id:
           edit_profile: Edit profil
           resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
-      hide:
-        hello: Halo %{name},
-        manage_moderations: Kelola moderasi
-        report_html: <p>berikut <a href="%{url}">konten</a> telah disembunyikan secara otomatis.</p>
-        subject: Sumber daya telah disembunyikan secara otomatis
       report:
         hello: Halo %{name},
         report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
@@ -578,7 +552,6 @@ id:
       global: Ruang lingkup global
       prompt: Pilih cakupan
     search:
-      results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
     searches:
       filters:

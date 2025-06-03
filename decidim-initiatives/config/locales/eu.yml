@@ -6,7 +6,6 @@ eu:
         answer_url: URL erantzuna
         area_id: Arloa
         decidim_scope_id: Esparrua
-        decidim_user_group_id: Egilea
         description: Deskribapena
         hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
@@ -35,7 +34,7 @@ eu:
         comments_enabled: Gaitu iruzkinak
         custom_signature_end_date_enabled: Gaitu egileak sinadurak biltzeko aldiaren amaiera aukeratzeko
         description: Deskribapena
-        document_number_authorization_handler: Sinaduretan dokumentu zenbakia egiaztatzeko baimena
+        document_number_authorization_handler: Sinatzeko prozesua
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
@@ -63,7 +62,7 @@ eu:
           attributes:
             attachment:
               file: Fitxategia ez da baliozkoa
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
               title: Izenburua ezin da hutsik egon
   activerecord:
     models:
@@ -183,14 +182,14 @@ eu:
             email_intro: '%{resource_title} zure ekimenak sinaduren %{percentage} lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako.
             email_subject: Beste maila bat osatua!
-            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %%{percentage} lortu ditu.
           follower:
             email_intro: '%{resource_title} ekimenak %%{percentage} sinadura lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Ondorengo estekan sartu jakinarazpenak jasotzeari uzteko.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinaduren %%{percentage} lortu ditu.
         support_threshold_reached:
-          email_intro: '%{resource_title} ekimena sinadura-atarira heldu da'
+          email_intro: '%{resource_title} ekimena beharrezko sinadura kopurura heldu da'
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Sinadura-atarira helduta
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena sinadura-atarira heldu da
@@ -241,7 +240,7 @@ eu:
             order:
               default: Lehenetsita (zaharragoak)
               label: 'Ordenatu elementua honen arabera:'
-              most_recent: Azkenak
+              most_recent: Berrienetatik zaharrenetara
         exports:
           initiatives: Ekimenak
         index:
@@ -290,7 +289,7 @@ eu:
             update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
-            date: Azkenak
+            date: Berrienetatik zaharrenetara
             publication_date: Azken argitaratutakoak
             random: Ausaz
             signatures: Sinadura gehiago
@@ -319,10 +318,10 @@ eu:
           edit:
             update: Eguneratu
           form:
-            authorizations: Baimen-doikuntzak
             child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
             only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
+            signature_workflow_settings: Sinatzeko prozesuaren ezarpena
           initiative_type_scopes:
             title: Ekimen motaren eremuak
           new:
@@ -355,7 +354,7 @@ eu:
           accepted: Sinadurak lortu ditu
           all: Guztiak
           answered: Erantzunda
-          closed: itxita
+          closed: Itxita
           open: Open
           rejected: Ez ditu lortu beharrezko sinadurak
         filter_type_values:
@@ -436,7 +435,7 @@ eu:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} k onartu du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
-          email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean'
+          email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenarekin bat egitea eskatu duzulako'
           email_subject: "%{author_nickname} k onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         create_initiative_event:
@@ -444,11 +443,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{author_nickname} ren bete ekimen bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
-          email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} babestutako ekimena'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
+        like_initiative_event:
+          email_intro: "%{liker_name} %{liker_nickname} -k, zu jarraitzen ari zarenak, jarraitzen duen ekimena atsegin du, eta uste dugu interesatu ahal zaizula. Egiaztatu eta lagundu:"
+          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+          email_subject: '%{author_nickname} -k ekimena atsegin du'
+          notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} ategin du.
         revoke_membership_request:
           email_intro: "%{author_nickname} k ukatu egin du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean.'
@@ -469,24 +468,46 @@ eu:
       index:
         uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Jaiotze-data
+              document_number:
+                placeholder: Agiri zenbakia
+              document_type:
+                prompt: Dokumentu mota
+              document_type_and_number:
+                help_text: Agiri zenbakia errolda egiaztatzeko erabilitako agiriari dagokio.
+                label: Agiri mota eta zenbakia
+              gender:
+                options:
+                  man: Gizonezkoa
+                  non_binary: Ez-binarioa
+                  woman: Emakumezkoa
         fill_personal_data:
-          continue: Jarraitu
+          continue: Baliozkotu zure datuak
           help: Mesedez, bete hurrengo eremuak zure datu pertsonalekin ekimena sinatzeko.
+          invalid_authorization: Ekintzari ekiteko emandako datuak ez dira bateragarriak zure baimenekin edo baimen berri bat lortu behar duzu.
+          invalid_data: Zure nortasuna egiaztatzeko emandako datu pertsonal batzuk ez dira baliozkoak.
         finish:
           back_to_initiative: Ekimenera itzuli
-        sms_code:
-          continue: Egiaztatu kodea eta jarraitu
-          help: Egiaztatu telefonoan jasotako SMSa
+          title: Ekimena sinatu duzu
         sms_phone_number:
-          continue: Bidali SMS bat
-          help: Bete inprimakia zure telefono zenbakiarekin zure egiaztapen-kodea eskatzeko.
+          confirmed_data: Zure datuak baieztatu dituzu.
+          continue: Sinatu ekimena
+          help_enter_your_number: Mesedez, sartu zure telefono zenbakia. Orduan jasoko duzu baliozkotzeko kodea SMS baten bidez.
+          receive_code: Jaso kodea
+          resend_code_html: Ez duzu jaso kodea? <a href="%{new_code_path}">Saiatu berriro</a>
+          your_code_is_correct: Zure kodea ez da zuzena.
+          your_code_is_incorrect: Kodea ez da zuzena. Birpasatu edo <a href="%{new_code_path}">saiatu berriro</a>.
+          your_confirmation_code: Zure baieztatzeko kodea
       initiative_votes:
         create:
+          already_voted: Zure sinadura dagoeneko erregistratu da zure datuekin.
           error: Arazo bat egon da ekimena sinatzean.
           invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak.
           success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da.
-        personal_data:
-          invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
         sms_code:
           invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun SMSa.
         sms_phone:
@@ -532,7 +553,7 @@ eu:
           most_commented: Iruzkin gehien dutenak
           most_voted: Sinadura gehien dutenak
           random: Random
-          recent: Berrienak
+          recent: Berrienetatik zaharrenetara
           recently_published: Oraintsu argitaratutakoa
         pending_initiatives:
           title: Proiektuak eta egiteke dauden ekimenak
@@ -561,7 +582,7 @@ eu:
           initiative_rejected_reason: Ekimen hau ukatu egin da sinadura faltagatik.
         show:
           area: Arloa
-          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, %{count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: % {href}'
+          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, %{count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: %{href}'
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
           initiative_data: Ekimenaren datuak
@@ -613,6 +634,23 @@ eu:
           open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Sinadurak parte-hartzailearen informazio pertsonala jasotzen du, baimena baliozkotzen du eta SMS kodea egiaztatzen du
+            name: Sinaduren Kudeatzaile Simulatua
+          dummy_signature_with_personal_data_handler:
+            description: Sinadurak erabiltzailearen informazio pertsonala baino ez du jasotzen, eta baliozkotu egiten du
+            name: Sinadura-kudeatzaile simulatua datu pertsonalekin
+          dummy_signature_with_sms_handler:
+            description: Sinadura horrek soilik baliozkotzen du telefono-zenbakia, baliozkotuz lehendik dagoen baimena eta egiaztatuz SMS kodea
+            name: Sinaduren kudeatzaile simulatua soilik SMS bidez
+          ephemeral_dummy_signature_handler:
+            description: Sinadurak parte-hartzailearen informazio pertsonala jasotzen du, baimena baliozkotzen du eta SMS kodea egiaztatzen du
+            name: Sinadura-emaile Mugikor Iragankorra
+          legacy_signature_handler:
+            description: Sinadura-kudeatzailea, sinadura-ezaugarri zaharrean oinarritua, datu pertsonalen bilketan jasoa, SMS urratsa eta baimena dummy_autorization_handler bidez baliozkotzea barne. Aldatu edozein parametro, erabilitako konfiguraziora egokitzeko
+            name: Sinaduren Legezko Kudeatzailea
       states:
         accepted: Onartua
         expired: iraungi
@@ -659,7 +697,9 @@ eu:
         actions:
           create: Sortu ekimen bat
           title: Ekintzak
-          vote: Bozkatu
+    statistics:
+      initiatives_count: Ekimenak
+      initiatives_count_tooltip: Argitaratutako herri-ekimenen kopurua.
   layouts:
     decidim:
       initiative_creation_header:
@@ -668,11 +708,8 @@ eu:
         promotal_committee: Bilatu sustatzaileak
         select_initiative_type: Aukeratu
       initiative_signature_creation_header:
-        fill_personal_data: Zure datuak osatzea
-        finish: Amaitu
-        sms_code: SMS kodea egiaztatzea
-        sms_phone_number: Telefono mugikorraren zenbakia
-        title: Sinatu %{initiative_title}
+        help_information_html: '%{iniciative_autor}-k sustatzen duen %<strong>{iniciative_title}</strong> ekimena sinatzeko, beharrezkoa da informazio jakin bat ematea, sinatzen duen ekimena legez loteslea izan dadin. Ez da zuri buruzko informaziorik argitaratuko.'
+        verify_your_identity: Egiaztatu zure nortasuna
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ez dago ekimenik oraindik!

@@ -25,7 +25,6 @@
       debates:
         actions:
           comment: Kommenter
-          endorse: Påtegne
         name: Innspillstråder
         settings:
           global:
@@ -36,8 +35,6 @@
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
             creation_enabled: Deltakere kan opprette debatter
-            endorsements_blocked: Påtegnelser blokkert
-            endorsements_enabled: Påtegnelser aktivert
     debates:
       actions:
         close: Lukk
@@ -175,10 +172,5 @@
           name: Innspillstråder
           next_level_in: Delta i %{score} flere innspillstråder for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i noen innspillstråder ennå.
-    metrics:
-      debates:
-        description: Antall innspillstråder opprettet
-        object: innspillstråder
-        title: Innspillstråder
     statistics:
       debates_count: Debatter

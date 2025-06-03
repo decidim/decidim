@@ -77,16 +77,13 @@ es-MX:
           attributes:
             base:
               not_official: No son oficiales
-              voted: Han recibido apoyos o adhesiones
         proposals_split:
           attributes:
             base:
               not_official: No son oficiales
-              voted: Han recibido apoyos o adhesiones
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Las taxonomías de la propuesta han cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
-      decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
@@ -95,9 +92,9 @@ es-MX:
       decidim:
         proposals:
           proposal:
-            budget_text: Se creó la propuesta %{link}
+            budget_text: La propuesta <span class="resource-link">%{link} se creó</span>
             import_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
-            import_to_proposal_text: Se creó la propuesta %{link}
+            import_to_proposal_text: Esta propuesta <span "resource-link">%{link} fue creada</span>
             merge_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
             merge_to_proposal_text: 'Esta propuesta fue creada: %{link}'
             split_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
@@ -158,7 +155,6 @@ es-MX:
           amend: Enmendar
           comment: Comentar
           create: Crear una propuesta
-          endorse: Adherirse
           vote: Apoyar
           vote_comment: Votar comentario
           withdraw: Retirar
@@ -181,7 +177,6 @@ es-MX:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
-              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
               most_voted: Con más apoyos
               random: Aleatorio
@@ -243,14 +238,11 @@ es-MX:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
-              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
               most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas
             publish_answers_immediately: Publicar respuestas a las propuestas inmediatamente
             publish_answers_immediately_help_html: 'Ten en cuenta que si respondes a alguna propuesta sin que esto esté habilitado, tendrás que publicarlas manualmente seleccionándolas y utilizando la acción de publicar. Para más información sobre el funcionamiento, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentación de respuestas a las propuestas</a>.'
@@ -334,11 +326,6 @@ es-MX:
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
-          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
@@ -418,23 +405,6 @@ es-MX:
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
-    metrics:
-      accepted_proposals:
-        description: Número de propuestas aceptadas por los usuarios
-        object: propuestas
-        title: Propuestas aceptadas
-      endorsements:
-        description: Número de adhesiones generadas en las propuestas
-        object: adhesiones
-        title: Adhesiones
-      proposals:
-        description: Número de propuestas generadas
-        object: propuestas
-        title: Propuestas
-      votes:
-        description: Número de apoyos a propuestas
-        object: Apoyos
-        title: Apoyos
     open_data:
       help:
         proposal_comments:
@@ -462,7 +432,6 @@ es-MX:
           cost_report: Un informe de los costes que representa la propuesta
           created_at: La fecha en la que se creó la propuesta
           created_in_meeting: Si la propuesta se ha elaborado en un encuentro
-          endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
           execution_period: El período de ejecución de la propuesta, de principio a fin
           follows_count: El número de seguidoras que tiene esta propuesta
           id: El identificador único de la propuesta
@@ -486,7 +455,6 @@ es-MX:
           withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todo
     proposals:
       actions:
@@ -681,13 +649,8 @@ es-MX:
             body: Cuerpo
             comments_count: Número de comentarios
             documents: Documentos
-            endorsements_count: Número de adhesiones
-            endorsers: Se han adherido
             evaluators: Evaluadoras
             link: Ver la propuesta
-            n_more_endorsers:
-              one: y 1 más
-              other: y %{count} más
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
@@ -968,7 +931,6 @@ es-MX:
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
-          most_endorsed: Con más adhesiones
           most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
@@ -996,9 +958,6 @@ es-MX:
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar
           estimated_cost: Coste estimado
-          hidden_endorsers_count:
-            one: y %{count} persona más
-            other: y %{count} personas más
           link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo
           link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
@@ -1014,7 +973,7 @@ es-MX:
         update:
           title: Actualizar propuesta
         vote_button:
-          already_voted: Ya has dado tu apoyo
+          already_voted: Ya le has dado apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay apoyos restantes
@@ -1080,6 +1039,9 @@ es-MX:
         proposal_project: 'Propuesta vinculada a estos proyectos:'
         proposal_result: 'Propuesta vinculada a estos resultados:'
     statistics:
+      participatory_space_proposals_count: Propuestas
       proposals_accepted: Propuestas aceptadas
       proposals_count: Propuestas
+      proposals_count_tooltip: El número total de propuestas presentadas y apoyos recogidos en ellas.
+      votes: 'Apoyos:'
       votes_count: Votos

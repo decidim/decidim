@@ -120,6 +120,13 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -129,7 +136,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
@@ -181,7 +188,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(ai conferences design initiatives templates collaborative_texts).each do |component|
+        %w(ai conferences design initiatives templates collaborative_texts elections).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -191,14 +198,14 @@ module Decidim
       end
 
       def add_storage_provider
-        template "storage.yml.erb", "config/storage.yml", force: true
+        copy_file "storage.yml", "config/storage.yml", force: true
 
         providers = options[:storage].split(",")
 
         abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
-                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+                  %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
@@ -220,7 +227,7 @@ module Decidim
                   /Rails.application.configure do/,
                   "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
-                  /# config.active_job.queue_adapter     = :resque/,
+                  /# config.active_job.queue_adapter = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
@@ -245,12 +252,6 @@ module Decidim
             @production_gems.map(&:call)
           end
         end
-      end
-
-      def load_defaults_rails61
-        gsub_file "config/application.rb",
-                  /config.load_defaults 7.0/,
-                  "config.load_defaults 6.1"
       end
 
       def tweak_csp_initializer
@@ -337,8 +338,18 @@ module Decidim
                   /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
                   "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
-                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+                  /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
+                  "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
+      end
+
+      def patch_logging
+        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
+          if ENV["RAILS_LOG_TO_STDOUT"].present?
+            config.logger = ActiveSupport::Logger.new(STDOUT)
+              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+          end
+        CONFIG
       end
 
       def dev_performance_config
@@ -387,6 +398,17 @@ module Decidim
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
+      def initiative_signatures_workflows
+        return unless options[:demo]
+
+        copy_file "dummy_signature_handler.rb", "app/services/dummy_signature_handler.rb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature/_form.html.erb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/ephemeral_dummy_signature/_form.html.erb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature_with_personal_data/_form.html.erb"
+        copy_file "dummy_sms_mobile_phone_validator.rb", "app/services/dummy_sms_mobile_phone_validator.rb"
+        copy_file "initiatives_initializer.rb", "config/initializers/decidim_initiatives.rb"
+      end
+
       def ai_toolkit
         return unless options[:demo]
 
@@ -406,7 +428,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.pdf_signature_service = "MyPDFSignatureService"/,
-                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
+                  "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
       end
 
       def machine_translation_service

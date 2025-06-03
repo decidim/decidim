@@ -1,0 +1,27 @@
+lv:
+  decidim:
+    components:
+      elections:
+        name: Vēlēšanas
+        settings:
+          global:
+            announcement: Paziņojums
+          step:
+            announcement: Paziņojums
+    elections:
+      actions:
+        title: Darbības
+      admin:
+        elections:
+          edit:
+            title: Rediģēt vēlēšanas
+            update: Atjaunināt vēlēšanas
+          index:
+            title: Vēlēšanas
+          new:
+            create: Izveidot vēlēšanas
+            title: Jaunas vēlēšanas
+      models:
+        election:
+          fields:
+            title: Nosaukums

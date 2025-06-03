@@ -90,10 +90,8 @@ uk:
           email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
           notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
         meeting_updated:
-          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Зустріч "%{resource_title}" було оновлено
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
         registration_code_validated:
           email_outro: Ви отримали це повідомлення, оскільки ваш реєстраційний код для зустрічі "%{resource_title}" підтверджено.
           notification_title: Ваш реєстраційний код "%{registration_code}" для зустрічі <a href="%{resource_path}">%{resource_title}</a> підтверджено.
@@ -102,11 +100,6 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Розпочато реєстрацію на зустріч "%{resource_title}".
           notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
       actions:
         agenda: Порядок денний
@@ -188,8 +181,6 @@ uk:
         registrations:
           edit:
             save: Зберегти
-            validate: Підтвердити
-            validate_registration_code: Підтвердити реєстраційний код
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
@@ -197,9 +188,6 @@ uk:
           update:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
-          validate_registration_code:
-            invalid: Цей реєстраційний код неналежний.
-            success: Реєстраційний код успішно підтверджено.
       admin_log:
         invite:
           create: "%{user_name} запросив %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
@@ -261,7 +249,6 @@ uk:
         confirmation:
           confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
           details: Детальні відомості про зустріч читайте у вкладенні.
-          registration_code: Ваш реєстраційний код - %{code}.
       registrations:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.

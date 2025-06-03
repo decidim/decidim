@@ -1,0 +1,9 @@
+ga:
+  decidim:
+    elections:
+      actions:
+        title: Gníomhartha
+      models:
+        election:
+          fields:
+            title: Teideal

@@ -14,6 +14,10 @@
         one: Stemme
         other: Stemmer
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Kommentarer
     comments:
       admin:
         shared:
@@ -129,8 +133,3 @@
           email_outro: Du har mottatt denne varslingen fordi du er nevnt i %{resource_title}.
           email_subject: Du har blitt nevnt i %{resource_title}
           notification_title: Du har blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antall kommenterer generert av deltakerne
-        object: kommentarer
-        title: Kommentarer

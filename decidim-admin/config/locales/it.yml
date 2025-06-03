@@ -45,8 +45,6 @@ it:
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-        cta_button_path: Percorso del pulsante Call To Action
-        cta_button_text: Testo del pulsante Chiamata all'azione
         customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
@@ -546,6 +544,7 @@ it:
             xlsx: xlsx
           actions:
             back: Indietro
+          download_example: Scarica esempio
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
       managed_users:
@@ -578,9 +577,6 @@ it:
         settings: Impostazioni
         static_pages: Pagine
         users: Partecipanti
-      metrics:
-        metrics:
-          see_more_metrics: Visualizza Ulteriori Dettagli
       models:
         area:
           fields:
@@ -833,26 +829,10 @@ it:
         edit:
           update: Modifica
         form:
-          colors:
-            choose_color: Scegli un colore primario
-            colors_title: Colori dell'organizzazione
-            colors_warning_html: Attenzione! Cambiare questi colori può violare l'accessibilità dei contrasti dei colori. Puoi controllare il contrasto della tua scelta dei colori con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o altri strumenti simili.
-            explanation: Questo strumento ti aiuta a scegliere uno schema di colori, composto da tonalità ugualmente distanziate intorno alla gamma dei colori, che saranno utilizzate nel sito web dell'organizzazione.
-            legend_html: I principali colori dell'applicazione, basati sull'algoritmo <a href="https://www.color-meanings.com/triadic-colors/">Triadic</a>. Il colore <i>secondario</i> è calcolato a partire dal colore primario e dalla saturazione che hai scelto.
-            saturation: Saturazione
-            title: Selettore colore
-            update_suggested_colors: Aggiorna i colori suggeriti
-          cta_button_path_help_html: 'È possibile modificare la posizione in cui il pulsante "Chiamata all''Azione" nella home page viene mostrato. Per farlo utilizzare URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''Azione" è mostrato nella home page tra il testo di benvenuto e la descrizione. Ad esempio: %{url}'
-          cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           header_snippets:
             header_snippets_help_html: Usa questo campo per aggiungere funzionalità all head HTML. L'uso più comune è quello di integrare servizi di terze parti che richiedono alcuni JavaScript o CSS aggiuntivi. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra per l'HTML. Nota che questo sarà reso solo nelle pagine pubbliche, non nella sezione amministrazione. Se il codice interagisce con API esterne o non è conforme alle linee guida di sicurezza dell’applicazione, sarà necessario modificare la Content Security Policy. Per saperne di più su <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">nella documentazione di Decidim</a>.
             title: Frammenti di intestazione HTML
-          homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
-          images:
-            layout_appearance_title: Modifica aspetto del layout
-            preview: Anteprima
-          omnipresent_banner_appearance_title: Modifica banner onnipresente
       organization_external_domain_allowlist:
         edit:
           update: Aggiorna
@@ -976,12 +956,10 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
-        metrics: Partecipazione in cifre
         panel: Amministratrice/tore
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
-        statistics: Attività
       users:
         create:
           error: Si è verificato un problema durante l'invito a questo amministratore.
@@ -1002,16 +980,6 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           participants: Partecipanti
-    metrics:
-      blocked_users:
-        object: utenti bloccati
-        title: Utenti bloccati
-      reported_users:
-        object: utenti segnalati
-        title: Utenti segnalati
-      user_reports:
-        object: rapporti utenti
-        title: Rapporti utenti
     moderations:
       actions:
         expand: Espandi

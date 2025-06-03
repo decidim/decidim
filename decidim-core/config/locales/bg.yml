@@ -45,7 +45,6 @@ bg:
       decidim/promote_to_admin: Назначен за администратор на групата
       decidim/promoted_to_admin_event: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
-      decidim/resource_endorsed_event: Съдържанието е одобрено
       decidim/resource_hidden_event: Съдържанието е скрито
       decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
@@ -63,9 +62,6 @@ bg:
       decidim/amendment:
         one: Поправка
         other: Поправки
-      decidim/endorsement:
-        one: Одобряване
-        other: Одобрявания
       decidim/user:
         one: Участник
         other: Участници
@@ -366,9 +362,6 @@ bg:
       comments:
         one: коментар
         other: коментари
-      endorsements:
-        one: одобряване
-        other: одобрявания
       official_author: Официално
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -528,10 +521,6 @@ bg:
         name: Основни данни
       metadata:
         name: Метаданни
-      metrics:
-        name: Показатели за организацията
-      participatory_space_metrics:
-        name: Метрики
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
@@ -632,8 +621,6 @@ bg:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
-    endorsement_buttons_cell:
-      endorse: Харесвам
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
@@ -741,11 +728,6 @@ bg:
           notification_title: |-
             Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, когото следвате, одобри "%{resource_title}" Ако представлява интерес за вас, проверете и участвайте:'
-        email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предната връзка.
-        email_subject: "%{endorser_nickname} направи ново одобряване"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} беше одобрено от <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Профилната <a href="%{resource_url}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
@@ -981,21 +963,6 @@ bg:
         finished: 'Приключило: %{end_date}'
         not_started: Още не е започнало
         remaining: "Остават %{time_distance}"
-    metrics:
-      download:
-        csv: Изтегляне на данни (CSV)
-      followers:
-        description: Брой участници, които следват това пространство
-        object: последователи
-        title: Последователи
-      participants:
-        description: Брой активни участници в организацията
-        object: участници
-        title: Участници
-      users:
-        description: Брой участници в организацията
-        object: участници
-        title: Участници
     newsletter_mailer:
       newsletter:
         no_reply_notice: Този имейл е изпратен от имейл адрес за уведомяване, който не може да приема входящи имейли. Моля, не отговаряйте на това съобщение.
@@ -1122,8 +1089,6 @@ bg:
           participate: Участвайте
           participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
-        statistics:
-          headline: Текущо състояние на %{organization}
         sub_hero:
           register: Регистрация
       index:
@@ -1131,10 +1096,6 @@ bg:
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
         topics: Tеми
-      participatory_space:
-        metrics:
-          headline: Индикатори
-          link: Покажи всички индикатори
       terms_of_service:
         accept:
           error: Възникна проблем при приемането на Условията за ползване.
@@ -1176,11 +1137,6 @@ bg:
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
-      hide:
-        hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
       report:
         authors: Автори
         content: Докладвано съдържание
@@ -1197,16 +1153,12 @@ bg:
     reports:
       create:
         success: Докладът беше създаден успешно и ще бъде прегледан от администратор.
-    resource_endorsements:
-      create:
-        error: Възникна проблем в процеса на одобрение.
     scopes:
       global: Обща сфера
       prompt: Изберете сфера
     search:
       name: Търсене
       results: Резултати от търсенето
-      results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:
@@ -1287,7 +1239,6 @@ bg:
         share_to: Сподели с %{service}
     statistics:
       comments_count: Коментари
-      endorsements_count: Одобрения
       followers_count: Последователи
       headline: Статистики
       no_stats: Все още няма статистики.

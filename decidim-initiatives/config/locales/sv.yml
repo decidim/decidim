@@ -6,7 +6,6 @@ sv:
         answer_url: Svars-URL
         area_id: Område
         decidim_scope_id: Indelning
-        decidim_user_group_id: Författare
         description: Beskrivning
         hashtag: Hashtag
         offline_votes: Fysiska underskrifter
@@ -35,7 +34,6 @@ sv:
         comments_enabled: Aktivera kommentarer
         custom_signature_end_date_enabled: Gör det möjligt för författarna att välja när perioden för insamling av underskrifter ska sluta
         description: Beskrivning
-        document_number_authorization_handler: Tillstånd att verifiera dokumentnummer för underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kampanjmedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
@@ -299,7 +297,6 @@ sv:
           edit:
             update: Uppdatera
           form:
-            authorizations: Inställningar för autentisering
             child_scope_threshold_enabled_help_html: 'Den här konfigurationen har inte stöd för offline-röster. Den aktiverar indelningar och fungerar med en auktorisering som associerar ett utrymme till användaren. Kontrollera att du väljer den auktoriseringen, nedan i auktoriseringsinställningar. För att det ska fungera måste indelningen konfigureras på ett hierarkiskt sätt: 1 Förälder - N barn. För mer information om hur denna konfiguration fungerar, se <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiativs admindokumentationssida</a>.'
             only_global_scope_enabled_help_html: Välj den här om du aktiverade "Child scope signatur" och konfigurerade den globala indelningen som din överordnade indelning. Genom att aktivera detta kommer man att hoppa över valet av initiativtyp i guiden för att skapa initiativ. För mer information om hur denna konfiguration fungerar, se denna <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">länk</a>.
             options: Alternativ
@@ -390,9 +387,9 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: Nytt initiativ från %{author_nickname}
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
+        like_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, som du följer, gillar följande initiativ. Kanske du vill bidra till diskussionen:"
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} gillar Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> gillar initiativet <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
@@ -413,23 +410,14 @@ sv:
         uninitialized: Initiativ är ännu inte konfigurerade av en administratör.
       initiative_signatures:
         fill_personal_data:
-          continue: Fortsätt
           help: Skriv under initiativet genom att fylla i följande fält med dina uppgifter.
         finish:
           back_to_initiative: Tillbaka till initiativet
-        sms_code:
-          continue: Kontrollera koden och fortsätt
-          help: Se det SMS som skickades till din telefon
-        sms_phone_number:
-          continue: Skicka mig ett SMS
-          help: Begär en verifieringskod genom att fyll i formuläret med ditt verifierade telefonnummer.
       initiative_votes:
         create:
           error: Det gick inte att skriva under initiativet.
           invalid: Uppgifterna för underskrift av initiativet är ogiltiga.
           success_html: Grattis! Du har skrivit under initiativet <strong> %{title}</strong>.
-        personal_data:
-          invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_code:
           invalid: Din verifieringskod matchar inte vår. Vänligen dubbelkolla SMS vi skickade dig.
         sms_phone:
@@ -569,18 +557,14 @@ sv:
       initiatives_type:
         actions:
           title: Åtgärder
-          vote: Underteckna
+    statistics:
+      initiatives_count: Initiativ
+      initiatives_count_tooltip: Antalet offentliggjorda medborgarinitiativ.
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Skapa
         select_initiative_type: Välj
-      initiative_signature_creation_header:
-        fill_personal_data: Komplettera dina uppgifter
-        finish: Slutför
-        sms_code: Verifiering med SMS-kod
-        sms_phone_number: Mobiltelefonnummer
-        title: Skriv under %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Inga initiativ ännu!

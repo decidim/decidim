@@ -52,7 +52,6 @@ ar:
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
       decidim/promoted_to_admin_event: تمت ترقيتك لمدير مجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
-      decidim/resource_endorsed_event: المورد المدعُوم
       decidim/resource_hidden_event: تم إخفاء المورد
       decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
@@ -74,13 +73,6 @@ ar:
         few: تعديلات
         many: تعديلات
         other: تعديلات
-      decidim/endorsement:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدان
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       decidim/user:
         zero: المشاركين
         one: لا مشاركين
@@ -325,13 +317,6 @@ ar:
         few: تعليقات
         many: تعليقات
         other: تعليقات
-      endorsements:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدات
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       official_author: رسمي
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -473,10 +458,6 @@ ar:
         view_all: عرض الكل
       metadata:
         name: البيانات الوصفية
-      metrics:
-        name: مقاييس المنظمة
-      participatory_space_metrics:
-        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -544,8 +525,6 @@ ar:
         ready: جاهز
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsement_buttons_cell:
-      endorse: يعجبني
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -642,11 +621,6 @@ ar:
           email_subject: تم إزالة %{resource_type} الخاص بك
           notification_title: |-
             قام مسؤول بإزالة %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، قد أيد للتو "%{resource_title}" ونحن نعتقد أنه قد يكون مثيراً للاهتمام بالنسبة لك. يمكنك الاطلاع والمساهمة على:'
-        email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{endorser_nickname}". يمكنك إيقاف تلقي الإشعارات باتباع الرابط السابق.
-        email_subject: "%{endorser_nickname} قام بتأييد جديد"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} تم تأييدها من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
@@ -857,27 +831,6 @@ ar:
         start:
           placeholder: رسالتك...
           send: إرسال
-    metrics:
-      blocked_users:
-        description: عدد المشاركين المحظورين
-      download:
-        csv: تحميل البيانات (CSV)
-      followers:
-        description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
-        object: متابعون
-        title: متابعون
-      participants:
-        description: عدد المشاركين النشطين في المنظمة
-        object: المشاركين
-        title: المشاركين
-      reported_users:
-        description: عدد المشاركين المبلّغ عنهم
-      user_reports:
-        description: عدد التقارير التي قدمها المشاركون
-      users:
-        description: عدد المشاركين في المنظمة
-        object: المشاركين
-        title: المشاركين
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
@@ -987,8 +940,6 @@ ar:
           participate: مشاركة
           participate_title: المشاركة في مسارات المنصة
           welcome: مرحبًا بكم على %{organization}!
-        statistics:
-          headline: الحالة الحالية لـ %{organization}
         sub_hero:
           register: تسجيل
       index:
@@ -996,10 +947,6 @@ ar:
         subheading: انتقل من خلال صفحات المساعدة من %{name}
         title: المساعدة
         topics: المواضيع
-      participatory_space:
-        metrics:
-          headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
       terms_of_service:
         form:
           agreement: أوافق على هذه الشروط
@@ -1020,11 +967,6 @@ ar:
           message: الرسالة
           resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
-      hide:
-        hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
-        subject: تم إخفاء المورد تلقائيًا
       report:
         authors: المؤلفون
         content: محتوى تم الإبلاغ عنه
@@ -1041,16 +983,12 @@ ar:
     reports:
       create:
         success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
-    resource_endorsements:
-      create:
-        error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
       prompt: حدد النطاق
     search:
       name: البحث
       results: نتائج البحث
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:
@@ -1121,7 +1059,6 @@ ar:
         share_to: شارك مع %{service}
     statistics:
       comments_count: تعليقات
-      endorsements_count: الدعم والتأييد
       followers_count: المُتابِعون
       headline: الإحصائيات
       no_stats: لا توجد إحصائيات بعد.

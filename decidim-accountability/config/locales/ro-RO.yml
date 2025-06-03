@@ -220,11 +220,6 @@ ro:
           email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}” și această propunere este inclusă în rezultatul „%{resource_title}”. Poți înceta să primești notificări urmând link-ul anterior.
           email_subject: O actualizare la progresul %{resource_title}
           notification_title: Rezultatul <a href="%{resource_path}">%{resource_title}</a>, care include propunerea <a href="%{proposal_path}">%{proposal_title}</a>, este acum %{progress}% complet.
-    metrics:
-      results:
-        description: Număr de rezultate generate
-        object: rezultate
-        title: Rezultate
     participatory_spaces:
       highlighted_results:
         see_all: Vezi toate rezultatele
@@ -235,3 +230,4 @@ ro:
         result_proposal: Propuneri incluse în acest rezultat
     statistics:
       results_count: Rezultate
+      results_count_tooltip: Numărul de decizii sau rezultate generate de acest spațiu.

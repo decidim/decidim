@@ -209,6 +209,7 @@ fr:
           pending_to_vote_budgets:
             one: Vous pouvez voter dans un autre budget
             other: Vous pouvez voter dans d'autres budgets
+          share_text: "Je viens de voter pour mes projets favoris dans %{space_name}! 🎉 A vous de voter maintenant : %{component_url}"
           share_vote: Partagez votre vote
           title: Votre vote a été enregistré avec succès
           view_votes:
@@ -217,6 +218,9 @@ fr:
           votes_count:
             one: Votre vote pour %{budget_name} a déjà été enregistré.
             other: Vos votes %{count} pour %{budget_name} ont déjà été enregistrés.
+      order_pdf:
+        text: Vous avez voté pour les projets suivants dans %{space_name}
+        title: Votre vote a été enregistré avec succès.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Les projets que vous avez sélectionnés sont :'
@@ -240,7 +244,7 @@ fr:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          cancel_order: supprimer votre vote
+          cancel_order: Supprimer votre vote
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez supprimer votre vote.
             title: Vote du budget terminé
@@ -271,13 +275,13 @@ fr:
             start_adding_projects: Commencer à ajouter des projets
           minimum: Minimum
           minimum_projects_rule:
-            description: Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences.
           projects_rule:
-            description: Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences.
           projects_rule_maximum_only:
-            description: Sélectionnez au maximum %{maximum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.
+            description: Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences.
           vote_threshold_percent_rule:
-            description: Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            description: Assignez au moins %{minimum_budget} aux projets que vous voulez et votez selon vos préférences.
         orders:
           highest_cost: Prix décroissant
           label: Trier les projets par
@@ -302,9 +306,10 @@ fr:
           added: Ajouté
           all: Tout
         projects_for: Projets pour %{name}
-        select_projects: Sélectionner des projets
+        select_projects: Ajouter des projets
         show:
           budget: Budget
+        start_voting: Commencer à voter
       prompt: Sélectionnez le budget
       vote_reminder_mailer:
         vote_reminder:
@@ -393,6 +398,7 @@ fr:
         project_proposal: Propositions incluses dans ce projet
     statistics:
       orders_count: Votes
-      projects_count: Projets
+      projects_count: Budgets
+      projects_count_tooltip: Le nombre de projets de budgets participatifs et le total des votes exprimés pour chacun d'eux.
   index:
     confirmed_orders_count: Nombre de votes

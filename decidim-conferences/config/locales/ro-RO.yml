@@ -65,6 +65,8 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -545,6 +547,7 @@ ro:
       conferences: Conferințe
     statistics:
       conferences_count: Conferințe
+      conferences_count_tooltip: Numărul conferinţelor publicate.
   devise:
     mailer:
       join_conference:

@@ -329,11 +329,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització sobre el progrés de %{resource_title}
           notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
-    metrics:
-      results:
-        description: Nombre de resultats generats
-        object: resultats
-        title: Resultats
     open_data:
       help:
         result_comments:
@@ -378,3 +373,4 @@ ca:
         result_proposal: Propostes incloses en aquest resultat
     statistics:
       results_count: Resultats
+      results_count_tooltip: Nombre d'acords o actuacions resultat d'aquest espai de participació.

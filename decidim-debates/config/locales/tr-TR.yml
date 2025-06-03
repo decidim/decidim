@@ -22,8 +22,6 @@ tr:
   decidim:
     components:
       debates:
-        actions:
-          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
@@ -33,8 +31,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Onaylar engellendi
-            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
         close: Kapat
@@ -182,8 +178,3 @@ tr:
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
-    metrics:
-      debates:
-        description: Oluşturulan tartışmaların sayısı
-        object: tartışmalar
-        title: Tartışmalar

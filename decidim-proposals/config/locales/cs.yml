@@ -9,6 +9,9 @@ cs:
         scope_id: Oblast působnosti
         state: Stav
         title: Titul
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Název hodnotitele
       import_participatory_text:
         document: Dokument
       proposal:
@@ -74,16 +77,15 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
-              voted: Obdrželi hlasy nebo potvrzení
+              voted: Obdrželi hlasy nebo líbí se mi
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
-              voted: Obdrželi hlasy nebo potvrzení
+              voted: Obdrželi hlasy nebo líbí se mi
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Návrhy taxonomií se změnily
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
-      decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
@@ -92,9 +94,7 @@ cs:
       decidim:
         proposals:
           proposal:
-            budget_text: Návrh %{link} byl vytvořen
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
-            import_to_proposal_text: Tento návrh %{link} byl vytvořen
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
             split_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
@@ -126,6 +126,8 @@ cs:
           proposals: Návrhy
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Přiřazeno hodnotiteli
           is_emendation_true:
             label: Typ
             values:
@@ -161,7 +163,7 @@ cs:
           amend: Pozměnit
           comment: Komentář
           create: Vytvořit návrh
-          endorse: Schválit
+          like: Líbí se mi
           vote: Hlasovat
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
@@ -184,8 +186,8 @@ cs:
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
-              most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
+              most_liked: Nejoblíbenější
               most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
@@ -246,14 +248,13 @@ cs:
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
-              most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
               most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
@@ -270,8 +271,14 @@ cs:
         accepted_coauthorship:
           notification_title: Byli jste přidáni jako spoluautor návrhu <a href="%{resource_path}">%{resource_title}</a>.
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: Byl jste přiřazen jako hodnotitel k návrhu "%{resource_title}". To znamená, že jste byli v následujících dnech důvěryhodní a poskytli jim zpětnou vazbu a správnou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh vyhodnotit.
+            email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
+            notification_title: Byli jste přiřazeni jako hodnotitel k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>.
           proposal_note_created:
             email_intro: '%{author_name} vytvořil soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.'
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh vyhodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_mentioned:
@@ -331,11 +338,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
-          notification_title: Nyní můžete začít <a href="%{resource_path}">schvalovat návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -415,23 +417,6 @@ cs:
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
-    metrics:
-      accepted_proposals:
-        description: Počet návrhů přijatých uživateli
-        object: návrhy
-        title: Přijaté návrhy
-      endorsements:
-        description: Počet schvalování k návrhům
-        object: schvalování
-        title: Schvalování
-      proposals:
-        description: Počet vytvořených návrhů
-        object: návrhy
-        title: Návrhy
-      votes:
-        description: Počet hlasů pro návrhy
-        object: hlasy
-        title: Hlasy
     open_data:
       help:
         proposal_comments:
@@ -459,7 +444,6 @@ cs:
           cost_report: Zpráva o nákladech na návrh
           created_at: Datum, kdy byl návrh vytvořen
           created_in_meeting: Zda byl návrh vytvořen na schůzce
-          endorsements: Počet souhlasů ("lajků"), které tento návrh získal
           execution_period: Období, kdy návrh běžel od začátku do konce
           follows_count: Počet příznivců tohoto návrhu
           id: Jedinečný identifikátor návrhu
@@ -483,7 +467,6 @@ cs:
           withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:
@@ -638,6 +621,8 @@ cs:
           index:
             actions: Akce
             apply_answer_template: Použít šablonu odpovědi
+            assign_to_evaluator: Přiřadit hodnotiteli
+            assign_to_evaluator_button: Přiřadit
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
@@ -646,11 +631,14 @@ cs:
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
+            select_evaluators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
             statuses: Statusy
             title: Návrhy
+            unassign_from_evaluator: Odebrat hodnotiteli
+            unassign_from_evaluator_button: Zrušit přiřazení
             update: Aktualizace
           manage_trash:
             title: Smazané návrhy
@@ -662,17 +650,13 @@ cs:
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
+            assigned_evaluators: Přiřazení hodnotitelé
             body: Tělo
             comments_count: Počet komentářů
             documents: Dokumenty
-            endorsements_count: Počet schvalování
-            endorsers: Schvalující
+            evaluators: Hodnotitelé
+            likes: Líbí se mi
             link: Zobrazit návrh
-            n_more_endorsers:
-              one: a další 1
-              few: a %{count} dalších
-              many: a %{count} dalších
-              other: a dalších %{count}
             photos: Fotky
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
@@ -879,6 +863,8 @@ cs:
         proposal:
           fields:
             comments: Komentáře
+            evaluator: Hodnotitel
+            evaluators: Hodnotitelé
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
@@ -948,11 +934,12 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
-          most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
+          most_liked: Nejoblíbenější
           most_voted: Nejvíce hlasovalo
           random: Náhodně
           recent: Nedávné
@@ -981,11 +968,6 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit
           estimated_cost: Odhadované náklady
-          hidden_endorsers_count:
-            one: a %{count} další osoba
-            few: a %{count} dalších lidí
-            many: a %{count} dalších lidí
-            other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
@@ -1001,7 +983,7 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
-          already_voted: Již hlasovalo
+          already_voted: Hlasováno
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
@@ -1069,6 +1051,8 @@ cs:
         proposal_project: 'Návrh se objevuje v těchto projektech:'
         proposal_result: 'Návrh se objeví v těchto výsledcích:'
     statistics:
+      participatory_space_proposals_count: Návrhy
       proposals_accepted: Přijaté návrhy
       proposals_count: Návrhy
+      votes: 'Hlasy:'
       votes_count: Hlasy

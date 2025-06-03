@@ -3,6 +3,8 @@ cs:
     attributes:
       authorization:
         verification_attachment: Příloha ověření
+      census_data:
+        file: Soubor
       config:
         available_methods: Dostupné metody
         offline: Offline
@@ -160,30 +162,48 @@ cs:
         start_exploring: začít zkoumat
       csv_census:
         admin:
+          actions:
+            destroy: Zničit
+            edit: Upravit
           census:
-            create:
-              error: Při importu členů organizace došlo k chybě.
-              success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
-            destroy_all:
-              success: Všechna data seznamu členů byly smazány.
-          destroy:
-            confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
-            title: Smazat všechna data členství organizace
+            create_import:
+              no_user: Nebyl nalezen žádný uživatel
+              success: Úspěšně importováno %{count} položek. Zpracováváme data. Obnovte stránku za pár minut a uvidíte změny.
+            index:
+              no_sign_in: Nikdy se nepřihlásil
+              no_user: Nebyl nalezen žádný uživatel
+            last_login:
+              no_sign_in: Nikdy se nepřihlásil
+              no_user: Žádný uživatel
+            new_import:
+              errors:
+                email_exists: E-mailová adresa %{email} již existuje v organizaci %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
+              submit: Nahrát soubor
+          census_records:
+            edit_record:
+              save: Uložit
+            form:
+              email: E-mail
+            new_record:
+              save: Uložit
           index:
-            data: Celkem je načteno %{count} záznamů. Poslední datum nahrávání bylo %{due_date}.
-            empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
+            add_new_record_button: Přidat nový záznam
+            authorized: Uživatel autorizován
+            fields:
+              actions: Akce
+              created_at: Vytvořeno v
+              email: E-mail
+              user_authorized: Uživatel autorizován?
+            import_csv: Importovat CSV
+            no_authorized: Uživatel neautorizován
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
             title: Musíte aktivovat CSV s kontakty členů organizace
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv soubor s daty e-mailů"
-            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
-            submit: Nahrát soubor
-            title: Nahrajte nové členy organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.
@@ -200,6 +220,10 @@ cs:
             few: 'Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             many: 'Účast je omezena na účastníky s poštovními kódy %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             other: 'Účast je omezena na účastníky s kterýmkoli z následujících poštovních kódů: %{postal_codes}. Vaše poštovní směrovací číslo je %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Následující e-mailové adresy jsou neplatné: %{invalid_emails}.'
+        no_emails: Soubor musí obsahovat e-maily
+        wrong_number_columns: "Byl očekáván sloupec %{expected}, ale byl nalezen %{actual}."
       id_documents:
         admin:
           config:

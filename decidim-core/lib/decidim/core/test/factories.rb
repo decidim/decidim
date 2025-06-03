@@ -513,29 +513,29 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_blocked: true }
+          participatory_space.active_step.id => { likes_blocked: true }
         }
       end
     end
@@ -867,6 +867,18 @@ FactoryBot.define do
     scopes { "profile" }
   end
 
+  factory :private_export, class: "Decidim::PrivateExport" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    expires_at { 1.week.from_now }
+    attached_to { create(:user, organization:, skip_injection:) }
+    export_type { "dummy" }
+    content_type { "application/zip" }
+    file_size { 10.kilobytes }
+  end
+
   factory :searchable_resource, class: "Decidim::SearchableResource" do
     transient do
       skip_injection { false }
@@ -953,7 +965,7 @@ FactoryBot.define do
     user { create(:user, :confirmed) }
   end
 
-  factory :endorsement, class: "Decidim::Endorsement" do
+  factory :like, class: "Decidim::Like" do
     transient do
       skip_injection { false }
     end

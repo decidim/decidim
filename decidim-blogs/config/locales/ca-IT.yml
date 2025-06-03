@@ -1,0 +1,157 @@
+ca-IT:
+  activemodel:
+    attributes:
+      post:
+        body: Cos del text
+        decidim_author_id: Autoria
+        published_at: Hora de publicació
+        title: Títol
+    models:
+      decidim/blogs/create_post_event: Nova publicació al blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicació
+        other: Publicacions
+  decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Entrades al blog
+    blogs:
+      actions:
+        author_id: Crear publicació com
+        confirm_delete_post: Segur que vols eliminar aquesta publicació?
+        deleted_posts_info: Els resultats eliminats es poden restaurar des de la paperera.
+        edit: Edita
+        new: Nova publicació
+        title: Accions
+        view_deleted_posts: Veure les publicacions eliminades
+      admin:
+        posts:
+          create:
+            invalid: S'ha produït un error en crear aquesta publicació.
+            success: Publicació creada correctament.
+          destroy:
+            success: La publicació s'ha esborrat correctament.
+          edit:
+            save: Actualitza
+            title: Editar publicació
+          index:
+            not_published_yet: No publicada encara.
+            title: Publicacions
+          manage_trash:
+            title: Publicacions eliminades
+          new:
+            create: Crear
+            title: Crea una publicació
+          update:
+            invalid: S'ha produït un error en guardar la publicació.
+            success: S'ha desat la publicació correctament.
+      admin_log:
+        post:
+          create: "%{user_name} ha creat el post %{resource_name} al blog de %{space_name}"
+          delete: "%{user_name} ha eliminat el post %{resource_name} del blog de %{space_name}"
+          restore: "%{user_name} ha restaurat la publicació %{resource_name} al blog de %{space_name}"
+          soft_delete: "%{user_name} ha mogut la publicació %{resource_name} des del blog de %{space_name} a la paperera"
+          update: "%{user_name} ha actualitzat el post %{resource_name} en el blog de %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Darrera publicació
+          name: Publicacions
+          see_all: Veure totes les publicacions
+      last_activity:
+        new_post: 'Nova publicació:'
+      models:
+        post:
+          fields:
+            author: Autora
+            body: Cos
+            official_blog_post: Post oficial
+            published_at: Hora de publicació
+            taxonomies: Taxonomies
+            title: Títol
+      posts:
+        edit:
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir un document o una imatge
+          back: Tornar a la publicació
+          button: Actualitzar
+          edit_attachments: Edita els fitxers adjunts
+          title: Editar la publicació
+        form:
+          author_id: Autoria
+          body: Cos del text
+          title: Títol
+        index:
+          count:
+            one: "%{count} publicació"
+            other: "%{count} publicacions"
+          empty: Encara no hi ha cap publicació.
+          new_post: Nova publicació
+        menu_actions:
+          button_destroy: Eliminar la publicació
+          button_destroy_confirm: Segur que vols eliminar aquesta publicació?
+          button_edit: Editar la publicació
+        new:
+          back: Tornar a la publicació
+          button: Nova publicació
+          title: Crear una nova publicació
+    components:
+      blogs:
+        actions:
+          comment: Comentar
+          create: Crear
+          destroy: Esborrar
+          update: Actualitzar
+        name: Blog
+        settings:
+          global:
+            announcement: Avís
+            attachments_allowed: Permetre fitxers adjunts
+            comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            creation_enabled_for_participants: Les participants poden crear noves entrades en el blog
+            define_taxonomy_filters: Si us plau, defineix alguns filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
+          step:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+    events:
+      blogs:
+        post_created:
+          email_intro: La publicació "%{resource_title}" s'ha publicat al "%{participatory_space_title}", el qual segueixes.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova publicació publicada a %{participatory_space_title}
+          notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer aquest comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+        posts:
+          author: La informació de l'autoria
+          body: El contingut de la publicació
+          comments_count: El número de comentaris que té aquesta publicació
+          component: El component al qual pertany aquesta publicació
+          created_at: La data en què es va crear aquesta publicació
+          follows_count: El número de seguidores que té aquesta publicació
+          id: L'identificador únic de la publicació
+          participatory_space: A quin espai pertany aquesta publicació (procés participatiu, assemblea, etc.)
+          published_at: La data en què es va publicar aquesta entrada al blog
+          title: El títol de la publicació
+          updated_at: La data de la darrera actualització d'aquesta publicació
+          url: L'URL d'aquesta publicació
+    statistics:
+      posts_count: Publicacions
+      posts_count_tooltip: El número d'actualitzacions publicades o entrades al blog.

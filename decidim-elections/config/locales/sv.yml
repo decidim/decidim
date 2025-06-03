@@ -1,0 +1,76 @@
+sv:
+  decidim:
+    components:
+      elections:
+        name: Val
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            announcement: Meddelande
+    elections:
+      actions:
+        confirm_delete_election: Är du säker på att du vill radera detta val?
+        deleted_election_info: Borttagna val visas inte i listan. Du kan se dem genom att klicka på knappen nedan.
+        edit: Redigera val
+        new: Nytt val
+        title: Åtgärder
+        view_deleted_elections: Visa raderade val
+      admin:
+        elections:
+          create:
+            invalid: Det gick inte att skapa valet.
+            success: Valet skapades framgångsrikt.
+          edit:
+            title: Redigera val
+            update: Uppdatera val
+          form:
+            add_images: Lägg till bilder
+            attachment_legend: Lägg till ett bildgalleri (valfritt)
+            basic_title: Grundläggande info
+            calendar: Kalender
+            calendar_description: Kontrollera att organisationens tidszon är korrekt i organisationsinställningarna. Den aktuella konfigurationen är %{timezone}.
+            edit_attachments: Redigera bilagor
+            end_at: Sluttid
+            manual_start: Manuell Start
+            results_availability:
+              after_end: Efter valets slut
+              after_end_help: Visa endast resultat när valet är avslutat
+              per_question: Fråga för fråga
+              per_question_help: Visa resultat per fråga när de har avslutats
+              real_time: Direkt
+              real_time_help: Visa resultat så snart den första omröstningen är inskickad
+              title: Resultat tillgängliga
+            start_at: Starttid
+          index:
+            title: Val
+          manage_trash:
+            title: Borttagna val
+          new:
+            create: Skapa val
+            title: Nytt val
+          publish:
+            invalid: Det gick inte att publicera valet.
+            success: Valet publicerades.
+          unpublish:
+            invalid: Det gick inte att ta bort valet.
+            success: Valet togs bort.
+          update:
+            invalid: Det gick inte att uppdatera valet.
+            success: Val uppdaterades.
+      admin_log:
+        election:
+          create: "%{user_name} Skapade valet %{resource_name} i %{space_name}"
+          publish: "%{user_name} Publicerade valet %{resource_name} i %{space_name}"
+          restore: "%{user_name} Återställde valet %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
+          unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
+          update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+      models:
+        election:
+          fields:
+            end_at: Sluttid
+            start_at: Starttid
+            title: Titel
+    statistics:
+      elections_count: Omröstningar

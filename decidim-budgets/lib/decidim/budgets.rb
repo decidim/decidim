@@ -11,12 +11,8 @@ module Decidim
   # Base module for this engine.
   module Budgets
     autoload :ProjectSerializer, "decidim/budgets/project_serializer"
+    autoload :OrderPDF, "decidim/budgets/budget_order_pdf"
 
     include ActiveSupport::Configurable
-
-    # Public Setting that defines whether proposals can be linked to meetings
-    config_accessor :enable_proposal_linking do
-      Decidim.const_defined?("Proposals")
-    end
   end
 end

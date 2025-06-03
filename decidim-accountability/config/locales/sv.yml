@@ -324,11 +324,6 @@ sv:
           email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till behandlingen av %{resource_title}
           notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som ingår i förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
-    metrics:
-      results:
-        description: Antal genererade resultat
-        object: resultat
-        title: Resultat
     open_data:
       help:
         result_comments:
@@ -373,3 +368,4 @@ sv:
         result_proposal: Förslag som ingår i detta resultat
     statistics:
       results_count: Resultat
+      results_count_tooltip: Antalet beslut eller resultat som genereras från detta område.

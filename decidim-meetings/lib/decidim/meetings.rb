@@ -19,18 +19,17 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # Public Setting that defines whether proposals can be linked to meetings
-    config_accessor :enable_proposal_linking do
-      Decidim.const_defined?("Proposals")
-    end
-
     # Public Setting that defines the interval when the upcoming meeting will be sent
     config_accessor :upcoming_meeting_notification do
-      2.days
+      Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
     end
 
     config_accessor :embeddable_services do
-      %w(www.youtube.com www.twitch.tv meet.jit.si)
+      Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES", "www.youtube.com www.twitch.tv meet.jit.si").to_array(separator: " ")
+    end
+
+    config_accessor :waiting_list_enabled do
+      Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?
     end
   end
 

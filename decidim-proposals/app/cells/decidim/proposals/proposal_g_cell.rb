@@ -46,6 +46,7 @@ module Decidim
 
       private
 
+      # rubocop:disable Metrics/CyclomaticComplexity
       def cache_hash
         @cache_hash ||= begin
           hash = []
@@ -54,19 +55,20 @@ module Decidim
           hash << model.cache_key_with_version
           hash << model.proposal_votes_count
           hash << options[:show_voting] ? 0 : 1
-          hash << model.endorsements_count
+          hash << model.likes_count
           hash << model.comments_count
-          hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
-          hash << Digest::MD5.hexdigest(resource_image_url) if resource_image_url
+          hash << Digest::SHA256.hexdigest(model.component.cache_key_with_version)
+          hash << Digest::SHA256.hexdigest(resource_image_url) if resource_image_url
           hash << 0 # render space
           hash << model.follows_count
-          hash << Digest::MD5.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
+          hash << Digest::SHA256.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
           hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
           hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
-
+          hash << (current_user&.id || 0)
           hash.join(Decidim.cache_key_separator)
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       def classes
         super.merge(metadata: "card__list-metadata")

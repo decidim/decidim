@@ -94,10 +94,8 @@ lv:
           email_subject: Piešķirtais laiks runāšanai sanāksmē "%{resource_title}" pārsniedz %{percentage}%.
           notification_title: Piešķirtais laiks runāšanai sanāksmē <a href="%{resource_path}">%{resource_title}</a> pārsniedz %{percentage}%.
         meeting_updated:
-          email_intro: 'Sanāksme "%{resource_title}" tika atjaunināta. Jūs varat lasīt jauno versiju tās lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Sanāksme "%{resource_title}" tika atjaunināta
-          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> tika atjaunināta.
         registration_code_validated:
           email_intro: Jūsu reģistrācijas kods "%{registration_code}" sanāksmei "%{resource_title}" ir validēts.
           email_outro: Jūs saņēmāt šo paziņojumu, jo jūsu reģistrācijas kods sanāksmei "%{resource_title}" ir validēts.
@@ -108,11 +106,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Sanāksme "%{resource_title}" ir atvērta reģistrācijai.
           notification_title: Sanāksmei <a href="%{resource_path}">%{resource_title}</a> ir atvērta reģistrācija.
-        upcoming_meeting:
-          email_intro: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-          email_subject: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
-          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> sāksies ātrāk nekā pēc 48 stundām.
     gamification:
       badges:
         attended_meetings:
@@ -208,8 +201,6 @@ lv:
         registrations:
           edit:
             save: Saglabāt
-            validate: Validēt
-            validate_registration_code: Validācijas reģistrācijas kods
           form:
             available_slots_help: Atstājiet 0, ja jums ir pieejams neierobežots laiks runāšanai
             invites: Ielūgumi
@@ -224,9 +215,6 @@ lv:
           update:
             invalid: Saglabājot reģistrācijas iestatījumus, radās problēma.
             success: Sanāksmes reģistrācijas iestatījumi ir veiksmīgi saglabāti.
-          validate_registration_code:
-            invalid: Šis reģistrācijas kods nav derīgs.
-            success: Reģistrācijas kods ir veiksmīgi validēts.
       admin_log:
         invite:
           create: "%{user_name} uzaicināja %{attendee_name} pievienoties %{resource_name} sanāksmei telpā %{space_name}"
@@ -274,7 +262,6 @@ lv:
           meeting_minutes: Sanāksmes protokols
           no_slots_available: Nav pieejama laika runāšanai
           organizations: Apmeklējošās organizācijas
-          registration_code_help_text: Jūsu reģistrācijas kods
           registration_state:
             validated: VALIDĒTS
             validation_pending: GAIDA VALIDĀCIJU
@@ -305,7 +292,6 @@ lv:
         confirmation:
           confirmed_html: Jūsu reģistrācija <a href="%{url}">%{title}</a> sanāksmei ir apstiprināta.
           details: Sīkāka informācija par sanāksmi atrodama pielikumā.
-          registration_code: Jūsu reģistrācijas kods ir %{code}.
       registrations:
         create:
           invalid: Pievienojoties šai sanāksmei, radās problēma
@@ -318,11 +304,6 @@ lv:
       types:
         private_meeting: Privāta sanāksme
         transparent: Caurskatāms
-    metrics:
-      meetings:
-        description: Izveidoto sanāksmju skaits
-        object: sanāksmes
-        title: Sanāksmes
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Iepriekšējās sanāksmes

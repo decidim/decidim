@@ -42,6 +42,7 @@ module Decidim
         user_can_export_conference_registrations?
         user_can_confirm_conference_registration?
         user_can_create_conference?
+        user_can_upload_images_in_conference?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -320,6 +321,11 @@ module Decidim
 
       def conference
         @conference ||= context.fetch(:current_participatory_space, nil) || context.fetch(:conference, nil)
+      end
+
+      # Checks of assigned admins can upload images in the conference
+      def user_can_upload_images_in_conference?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, conference, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

@@ -1,0 +1,22 @@
+<p class="email-greeting"><%= t(".greeting", name: @group_name) %></p>
+
+<p class="email-instructions"><%= t(".body_1", organization_name: organization_name(@organization)) %></p>
+
+<p class="email-instructions"><%= t(".body_2", name: @group_name).html_safe %></p>
+
+<p class="email-instructions"><%= t(".body_3") %></p>
+
+<p class="email-instructions"><%= t(".instructions_title").html_safe %></p>
+
+<ol class="email-instructions list-decimal">
+  <li>
+    <%= t(".instructions_1") %>
+    <p class="email-button email-button__cta"><%= link_to t(".set_password"), new_password_url(:user, host: @organization.host) %></p>
+  </li>
+  <li>
+    <%= t(".instructions_2") %>
+  </li>
+  <li>
+    <%= t(".instructions_3") %>
+  </li>
+</ol>

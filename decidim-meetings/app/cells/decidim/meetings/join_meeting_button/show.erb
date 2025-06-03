@@ -1,33 +1,27 @@
-<% if model.can_be_joined_by?(current_user) %>
-  <% unless model.has_registration_for? current_user %>
-    <% if model.registration_form_enabled? %>
-      <%= action_authorized_link_to(
-        :join,
-        i18n_join_text,
-        join_meeting_registration_path(model),
-        class: button_classes,
-        disabled: !model.has_available_slots?
-      ) %>
-    <% else %>
-      <% unless options[:hide_modal] %>
-        <%= render :registration_modal %>
-      <% end %>
-      <%= action_authorized_button_to(
-        :join,
-        i18n_join_text,
-        "#",
-        class: button_classes,
-        disabled: !model.has_available_slots?,
-        data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" },
-        resource: model
-      ) %>
+<% if render_waitlist_button? %>
+  <%= render :waitlist_button %>
+
+<% elsif model.can_be_joined_by?(current_user) && !model.has_registration_for?(current_user) %>
+  <% if model.registration_form_enabled? %>
+    <%= action_authorized_link_to(
+          :join,
+          i18n_join_text,
+          join_meeting_registration_path(model),
+          class: button_classes
+        ) %>
+  <% else %>
+    <% unless options[:hide_modal] %>
+      <%= render :registration_modal %>
     <% end %>
+    <%= action_authorized_button_to(
+          :join,
+          i18n_join_text,
+          "#",
+          class: button_classes,
+          data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" },
+          resource: model
+        ) %>
   <% end %>
-
-  <% if shows_remaining_slots? %>
-    <%= render :remaining_slots %>
-  <% end %>
-
 <% elsif model.on_different_platform? %>
   <%= action_authorized_link_to(
     :join,
@@ -35,4 +29,7 @@
     model.registration_url,
     class: button_classes
   ) %>
+<% end %>
+<% if shows_remaining_slots? %>
+  <%= render :remaining_slots unless participant_registered_for_meeting? %>
 <% end %>

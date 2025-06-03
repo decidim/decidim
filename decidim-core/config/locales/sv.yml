@@ -3,6 +3,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      attachment:
+        image: Bild
       common:
         created_at: Skapad
       conversation:
@@ -34,6 +36,12 @@ sv:
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
         tos_agreement: Användarvillkor
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Användarnamnet måste ha små bokstäver inga mellanslag
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -47,8 +55,8 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Innehållet gillas
       decidim/resource_hidden_event: Dolt innehåll
+      decidim/resource_liked_event: Resurs gillad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -70,9 +78,9 @@ sv:
       decidim/amendment:
         one: Ändring
         other: Ändringar
-      decidim/endorsement:
-        one: Gilla-markering
-        other: Gilla-markeringar
+      decidim/like:
+        one: Gillar
+        other: Gillar
       decidim/user:
         one: Deltagare
         other: Deltagare
@@ -161,6 +169,7 @@ sv:
         leaving_authorizations_behind: Viss data som är kopplad till din auktorisering kommer att sparas av säkerhetsskäl. Om du skapar ett annat konto och auktoriserar det igen, kommer dessa data att användas till ditt nya konto.
       destroy:
         error: Det gick inte att radera ditt konto.
+        inactive_account_removal_reason: Konto borttaget efter %{inactivity_period} dagar av inaktivitet
         success: Ditt konto har raderats.
       download_your_data_export:
         export_expired: Exporten har gått ut. Försök att skapa en ny export.
@@ -410,9 +419,9 @@ sv:
       comments:
         one: kommentar
         other: kommentarer
-      endorsements:
-        one: gilla-markeringar
-        other: instämmanden
+      likes:
+        one: gillar
+        other: gillar
       official_author: Officiell
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -559,6 +568,10 @@ sv:
         name: Bild och CTA
       hero_settings_form:
         background_image: Bakgrundsbild
+        cta_button_path: Knappens länk
+        cta_button_path_help: 'Du kan ändra vad knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL: er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+        cta_button_text: Text på knapp
+        cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner med utvalt innehåll
@@ -585,10 +598,6 @@ sv:
         name: Viktig information
       metadata:
         name: Metadata
-      metrics:
-        name: Organisationsdata
-      participatory_space_metrics:
-        name: Mätvärden
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
@@ -645,7 +654,7 @@ sv:
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
+          username_help: Offentligt namn som visas vid dina inlägg. Använd ett påhittat namn om du vill vara anonym.
       sessions:
         new:
           are_you_new?: Inte registrerad än?
@@ -753,8 +762,6 @@ sv:
         error: Fel vid uppladdning av bild.
         success: Bilden har laddats upp.
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
-    endorsement_buttons_cell:
-      endorse: Gilla
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
@@ -855,6 +862,16 @@ sv:
       notification_event:
         notification_title: Något inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände därför att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar automatiskt att återställas.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till %{resource_type}.
+          email_subject: Din %{resource_type} är inte längre synlig
+          notification_title: |-
+            Din %{resource_type} är inte längre synlig.<br>
+            Detta hände på grund av att förslaget, mötet, debatten eller kommentaren du svarade på har modererats. Om den blir tillgänglig igen, kommer din kommentar att återställas automatiskt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
           email_outro: Du har fått det här meddelandet eftersom du är en författare till det här innehållet.
@@ -863,11 +880,11 @@ sv:
             En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
             </br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, gillar "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
-        email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-        email_subject: "%{endorser_nickname} har gillat något nytt"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, som du följer, har just gillat "%{resource_title}" och vi tror att det kan vara intressant för dig. Kolla in det och bidra:'
+        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
+        email_subject: "%{liker_nickname} har gillat en ny sak"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -1011,6 +1028,16 @@ sv:
         last_activity: Senaste aktivitet
       name: Senaste aktiviteten
       no_activities_warning: Det finns inga poster att visa för denna aktivitetstyp.
+    like_buttons_cell:
+      already_liked: Ångra gilla
+      like: Gilla
+    likes_list:
+      liked_by:
+        one: Gillad av %{visible}
+        other: Gillad av %{visible} och %{others}
+      others: "%{count} mer"
+      title: Gillad av
+      you: du
     linked_resource_from:
       included_in: Ingår i
     links:
@@ -1073,9 +1100,11 @@ sv:
         add_conversation_users:
           add_max_users: 'Lägg till användare i samtalet: högst 9'
           add_users_placeholder: Sök...
-          modal_title: Nytt samtal
+          modal_title: Ny konversation
           no_results: Inga resultat
           participant_with_disabled_message_reception: Den här deltagaren vill inte ta emot privata meddelanden.
+          participants:
+            title: Deltagare
         create:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
@@ -1084,10 +1113,10 @@ sv:
           intro: 'Det fanns följande fel med ditt meddelande:'
           ok: Ok
         index:
-          new_conversation: Nytt samtal
+          new_conversation: Ny konversation
           next: Nästa
           no_conversations: Du har inga konversationer än.
-          title: Samtal
+          title: Konversationer
         reply_form:
           placeholder: Ditt svar...
           send: Skicka
@@ -1096,7 +1125,7 @@ sv:
           chat_with: Konversation med
           deleted_accounts: Du kan inte ha en konversation med raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
-          title: Samtal med %{usernames}
+          title: Konversation med %{usernames}
         start:
           placeholder: Ditt meddelande...
           send: Skicka
@@ -1108,21 +1137,6 @@ sv:
         finished: 'Färdig: %{end_date}'
         not_started: Inte påbörjad
         remaining: "%{time_distance} kvar"
-    metrics:
-      download:
-        csv: Ladda ner data (CSV)
-      followers:
-        description: Antal deltagare som följer detta deltagarområde
-        object: följare
-        title: Följare
-      participants:
-        description: Antal aktiva deltagare i organisationen
-        object: deltagare
-        title: Deltagare
-      users:
-        description: Antal användare i organisationen
-        object: användare
-        title: Deltagare
     newsletter_mailer:
       newsletter:
         no_reply_notice: Det här e-postmeddelandet har skickats från en adress som inte accepterar inkommande e-post. Du kan inte svara på detta meddelande.
@@ -1138,7 +1152,7 @@ sv:
         interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i innehållet eller ämnet och det kommer att ersättas av mottagarens namn.'
       image_text_cta:
         body_preview: 'Dummy text för innehåll: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
-        cta_text_preview: Uppmaningens text
+        cta_text_preview: Text på knapp
         introduction_preview: 'Dummy text för introduktion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Bild, text och knapp
       image_text_cta_settings_form:
@@ -1229,13 +1243,13 @@ sv:
     open_data:
       help:
         core:
-          generated_on_date: Skapad den %{date}
+          generated_on_date: Skapad %{date}
           resources:
             one: "%{count} Resurs"
             other: "%{count} Resurser"
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
-      disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
+      disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       explanation: Använd den här anteckningsytan för att gemensamt ta anteckningar under mötet så att det går lättare att skriva protokollet efteråt.
       pad: Memo
     pages:
@@ -1258,7 +1272,7 @@ sv:
           participate_title: Delta i plattformens processer
           welcome: Välkommen till %{organization}!
         statistics:
-          headline: Aktuellt läge för %{organization}
+          headline: Statistik
         sub_hero:
           register: Registrera
           register_title: Skapa ett konto
@@ -1267,10 +1281,6 @@ sv:
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
         topics: Ämnen
-      participatory_space:
-        metrics:
-          headline: Deltagande i siffror
-          link: Visa allt
       terms_of_service:
         accept:
           error: Det gick inte att acceptera användarvillkoren.
@@ -1289,7 +1299,23 @@ sv:
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Enligt våra uppgifter skapade du ett %{organization_name} -konto på <strong>%{date_account_creation}</strong> och har inte varit aktiv sedan <strong>%{date_last_connection}</strong>.</p>
+          <p>För att skydda din integritet kommer detta raderas om <strong>%{days} dagar</strong>.</p>
+          <p>Om du vill behålla ditt %{organization_name} konto behöver du bara %{login_url} innan dess, så kommer ditt konto att behållas.<p>
+        greetings_html: |
+          Vänliga hälsningar,<br>
+          %{organization_name}
+        hello_html: Kära <strong>%{username}</strong>,
+        log_in: logga in
+        never_logged_in: aldrig inloggad
+        subject: varning för inaktivitet
       removal_notification:
+        body: Ditt %{organization_name} konto har tagits bort på grund av inaktivitet.
+        greetings_html: |
+          Vänliga hälsningar,<br>
+          %{organization_name}
         subject: Inaktivt konto raderat
     passwords:
       update:
@@ -1315,11 +1341,24 @@ sv:
           message: Meddelande
           resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Rapporterat innehåll
+        details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
-        report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
-        subject: En resurs har döljts automatiskt
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har dolts automatiskt.</p>
+        subject: En resurs har dolts automatiskt
+      hidden_manually:
+        content: Rapporterat innehåll
+        details: Detaljer
+        hello: Hej %{name},
+        manage_moderations: Hantera modereringar
+        participatory_space: Deltagarutrymme
+        reason: Anledning
+        report_html: <p>Följande <a href="%{url}">-innehåll</a> har dolts av %{moderator}.</p>
+        subject: En resurs har dolts av %{moderator}
       report:
         authors: Författare
         content: Rapporterat innehåll
@@ -1337,7 +1376,11 @@ sv:
       create:
         error: Det gick inte att skapa rapporten. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
-    resource_endorsements:
+      hide:
+        success: Denna resurs har gömts.
+    resource_autocomplete:
+      help: Sök efter förslag
+    resource_likes:
       create:
         error: Det gick inte att gilla.
     scopes:
@@ -1346,7 +1389,6 @@ sv:
     search:
       name: Sök
       results: Sökresultat
-      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
@@ -1429,13 +1471,17 @@ sv:
         share_to: Dela till %{service}
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Gilla-markeringar
+      comments_count_tooltip: Det totala antalet kommentarer postade i detta utrymme.
       followers_count: Följare
+      followers_count_tooltip: Antalet användare som följer någon del av detta utrymme för att hålla sig uppdaterad.
       headline: Statistik
+      likes_count: Gillar
       no_stats: Det finns ingen statistik ännu.
       pages_count: Sidor
       participants_count: Deltagare
+      participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
       users_count: Deltagare
+      users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
@@ -1811,6 +1857,8 @@ sv:
         sign_up: Skapa ett konto
         terms_of_service: Användarvillkor
       header:
+        back: Tillbaka till listan
+        cancel: Avbryt
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny

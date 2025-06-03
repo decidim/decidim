@@ -12,6 +12,10 @@ zh-CN:
       decidim/comments/comment_vote:
         other: 所得票数
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: 评论
     comments:
       votes:
         create:
@@ -81,8 +85,3 @@ zh-CN:
           email_outro: 您收到此通知是因为您已在 %{resource_title} 中被提及。
           email_subject: 您已在 %{resource_title} 中被提及了
           notification_title: 您在 <a href="%{resource_path}">%{resource_title}中提到</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: 与会者生成的评论数
-        object: 评论
-        title: 评论

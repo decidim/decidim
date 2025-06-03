@@ -55,7 +55,6 @@ nl:
               not_official: Zijn niet officieel
     models:
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
-      decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
       decidim/proposals/voting_enabled_event: Voorstel stemmen ingeschakeld
@@ -80,7 +79,6 @@ nl:
         actions:
           amend: Pas aan
           comment: Reactie
-          endorse: Aanbevelen
           vote: Stem
           vote_comment: Stem op de reactie
           withdraw: Intrekken
@@ -98,7 +96,6 @@ nl:
             default_sort_order: Standaardsortering
             default_sort_order_options:
               most_commented: Meeste reacties
-              most_endorsed: Meest gesteund
               most_followed: Meest gevolgd
               random: Willekeurig
               recent: Meest recent
@@ -139,13 +136,10 @@ nl:
             default_sort_order: Standaardsortering
             default_sort_order_options:
               most_commented: Meeste reacties
-              most_endorsed: Meest gesteund
               most_followed: Meest gevolgd
               random: Willekeurig
               recent: Meest recent
               with_more_authors: Met meer auteurs
-            endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             publish_answers_immediately: Publiceer voorstel antwoorden onmiddellijk
             suggested_hashtags: Hashtags stelde gebruikers voor nieuwe voorstellen voor
@@ -178,10 +172,6 @@ nl:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'U kunt voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-          email_subject: Je kan nu de voorstellen in %{participatory_space_title} steunen
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is in deze ruimte <a href="%{resource_url}"></a> genoemd in de reacties.
           email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
@@ -227,19 +217,6 @@ nl:
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
           unearned_own: U hebt nog geen voorstellen gemaakt.
-    metrics:
-      accepted_proposals:
-        description: Aantal geaccepteerde voorstellen
-        object: voorstellen
-        title: Aanvaarde voorstellen
-      endorsements:
-        description: Aantal goedkeuringen van voorstellen
-        object: goedkeuringen
-        title: Goedkeuringen
-      proposals:
-        description: Aantal voorstellen
-        object: voorstellen
-        title: voorstellen
     participatory_spaces:
       highlighted_proposals:
         see_all: Alles zien
@@ -337,11 +314,6 @@ nl:
             body: Tekstgedeelte
             comments_count: Aantal reacties
             documents: Documenten
-            endorsements_count: Aantal suggesties
-            endorsers: Aanbevelers
-            n_more_endorsers:
-              one: en nog 1
-              other: en %{count} meer
             photos: Foto's
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
@@ -529,7 +501,6 @@ nl:
         orders:
           label: 'Bestelling sorteren op:'
           most_commented: Meeste reacties
-          most_endorsed: Meest goedgekeurd
           most_followed: Meest gevolgd
           most_voted: Meeste stemmen
           random: Willekeurig
@@ -548,9 +519,6 @@ nl:
           answer: Antwoord
           changes_at_title: Amendement op "%{title}"
           estimated_cost: Geschatte kosten
-          hidden_endorsers_count:
-            one: en nog %{count} persoon
-            other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk het gezamenlijke ontwerp
           link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement
@@ -564,7 +532,6 @@ nl:
         update:
           title: Update voorstel
         vote_button:
-          already_voted: Al gestemd
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem

@@ -165,7 +165,6 @@ fi-pl:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             maps_enabled: Karttatoiminnot käytössä
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
@@ -223,10 +222,8 @@ fi-pl:
           email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
           notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
-          email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuma "%{resource_title}" päivitettiin
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
           email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
@@ -237,11 +234,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Ilmoittautumiset on avattu tapahtumaan "%{resource_title}".
           notification_title: Ilmoittautumiset on avattu tapahtumaan <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     forms:
       meetings:
         attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.
@@ -412,8 +404,6 @@ fi-pl:
         registrations:
           edit:
             save: Tallenna
-            validate: Vahvista
-            validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
@@ -430,9 +420,6 @@ fi-pl:
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
-          validate_registration_code:
-            invalid: Tämä ilmoittautumiskoodi on virheellinen.
-            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
@@ -599,7 +586,6 @@ fi-pl:
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           redirect_notice: Tämä tapaaminen on toisessa osallistumistilassa, joten sinut on siirretty osallistumistilaan nimeltä %{current_space_name}.<br>Jos haluat, voit siirtyä takaisin osallistumistilaan nimeltä <a href="%{previous_space_url}">%{previous_space_name}</a>.
-          registration_code_help_text: Ilmoittautumiskoodisi
           registration_state:
             validated: VAHVISTETTU
             validation_pending: ODOTTAA VAHVISTUSTA
@@ -677,7 +663,6 @@ fi-pl:
         confirmation:
           confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
           details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
-          registration_code: Ilmoittautumiskoodisi on %{code}.
       registration_type:
         on_different_platform: Toisella alustalla
         on_this_platform: Tällä alustalla
@@ -703,11 +688,6 @@ fi-pl:
       withdraw:
         error: Tapaamisen peruminen epäonnistui.
         success: Tapaaminen on peruttu.
-    metrics:
-      meetings:
-        description: Tapahtumien määrä
-        object: tapahtumat
-        title: Tapahtumat
     open_data:
       help:
         meeting_comments:

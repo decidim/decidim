@@ -34,6 +34,11 @@ module Decidim
       field :signature_type, GraphQL::Types::String, "Signature type of the initiative", null: true
       field :slug, GraphQL::Types::String, "The slug of the initiative", null: false
       field :state, GraphQL::Types::String, "Current status of the initiative", null: true
+      field :url, GraphQL::Types::String, "The URL of this initiative", null: true
+
+      def url
+        Decidim::EngineRouter.main_proxy(object).initiative_url(object)
+      end
     end
   end
 end

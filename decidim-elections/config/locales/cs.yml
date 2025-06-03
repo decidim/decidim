@@ -1,0 +1,70 @@
+cs:
+  decidim:
+    components:
+      elections:
+        name: Volby
+        settings:
+          global:
+            announcement: Oznámení
+          step:
+            announcement: Oznámení
+    elections:
+      actions:
+        confirm_delete_election: Opravdu chcete odstranit tuto volbu?
+        deleted_election_info: Smazané volby nejsou zobrazeny v seznamu. Můžete je zobrazit kliknutím na tlačítko níže.
+        edit: Upravit volby
+        new: Nové volby
+        title: Akce
+        view_deleted_elections: Zobrazit odstraněné volby
+      admin:
+        elections:
+          create:
+            invalid: Při vytváření voleb došlo k chybě.
+            success: Volba byla úspěšně vytvořena.
+          edit:
+            title: Upravit volbu
+            update: Aktualizovat volby
+          form:
+            add_images: Přidat obrázky
+            attachment_legend: Přidat galerii obrázků (volitelné)
+            basic_title: Základní informace
+            calendar: Kalendář
+            edit_attachments: Upravit přílohy
+            end_at: Čas ukončení
+            manual_start: Ruční spuštění
+            results_availability:
+              after_end: Po ukončení voleb
+              after_end_help: Zobrazit výsledky pouze při ukončení voleb
+              per_question_help: Zobrazit výsledky pro každou otázku při dokončení
+              real_time_help: Zobrazit výsledky ihned po prvním hlasování
+              title: Dostupnost výsledků
+            start_at: Čas zahájení
+          index:
+            title: Volby
+          manage_trash:
+            title: Odstraněné volby
+          new:
+            create: Vytvořit volbu
+            title: Nové volby
+          publish:
+            invalid: Při zveřejňování voleb došlo k chybě.
+            success: Volby byly úspěšně zveřejněny.
+          unpublish:
+            invalid: Při rušení zveřejnění voleb došlo k chybě.
+            success: Volby úspěšně nezveřejněny.
+          update:
+            invalid: Při aktualizaci voleb došlo k chybě.
+      admin_log:
+        election:
+          create: "%{user_name} vytvořil volby %{resource_name} v %{space_name}"
+          publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
+          restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
+          update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      models:
+        election:
+          fields:
+            end_at: Čas ukončení
+            start_at: Čas zahájení
+            title: Název
+    statistics:
+      elections_count: Volby

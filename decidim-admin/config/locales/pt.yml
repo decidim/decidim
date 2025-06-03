@@ -35,8 +35,6 @@ pt:
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
@@ -428,9 +426,6 @@ pt:
         taxonomies: Taxonomias
         taxonomy_filters: Filtros de taxonomia
         users: Utilizadores
-      metrics:
-        metrics:
-          see_more_metrics: Mostrar mais métricas
       models:
         area:
           fields:
@@ -651,15 +646,7 @@ pt:
         edit:
           update: Atualizar
         form:
-          colors:
-            colors_title: Cores da organização
-          cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
-          homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
-          images:
-            layout_appearance_title: Editar aparência do layout
-            preview: Pré-visualização
-          omnipresent_banner_appearance_title: Editar faixa omnipresente
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
@@ -761,12 +748,10 @@ pt:
         dashboard: Painel de Controlo
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
-        metrics: Métricas
         panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        statistics: Atividade
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).
@@ -787,16 +772,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: utilizadores bloqueados
-        title: Utilizadores bloqueados
-      reported_users:
-        object: utilizadores denunciados
-        title: Utilizadores denunciados
-      user_reports:
-        object: relatórios de utilizador
-        title: Relatórios de utilizador
     moderations:
       actions:
         expand: Expandir

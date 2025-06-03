@@ -34,8 +34,6 @@ lb:
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-        cta_button_path: Call To Action Schaltfläche Pfad
-        cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -411,9 +409,6 @@ lb:
         settings: die Einstellungen
         static_pages: Seiten
         users: Benutzer
-      metrics:
-        metrics:
-          see_more_metrics: Mehr Kriterien anzeigen
       models:
         area:
           fields:
@@ -620,15 +615,7 @@ lb:
         edit:
           update: Aktualisieren
         form:
-          colors:
-            colors_title: Organisationsfarben
-          cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
-          homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
-          images:
-            layout_appearance_title: Layout-Layout bearbeiten
-            preview: Vorschau
-          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -730,12 +717,10 @@ lb:
         dashboard: Instrumententafel
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
-        metrics: Kriterien
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        statistics: Aktivität
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -756,16 +741,6 @@ lb:
           last_month: Letzter Monat
           last_week: Letzte Woche
           participants: Teilnehmer
-    metrics:
-      blocked_users:
-        object: blockierte Benutzer
-        title: Blockierte Benutzer
-      reported_users:
-        object: gemeldete Benutzer
-        title: Gemeldete Benutzer
-      user_reports:
-        object: Benutzer-Meldungen
-        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen

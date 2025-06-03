@@ -19,7 +19,7 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Gorputza
+        body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -28,7 +28,7 @@ eu:
         scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
-        title: Titulua
+        title: Izena
       proposal_answer:
         answer: Erantzuna
         cost: Kostua
@@ -36,7 +36,7 @@ eu:
         execution_period: Gauzatzeko epea
       proposal_state:
         announcement_title: Erantzunaren goiburua
-        bg_color: Pantailaren atzeko planoaren kolorea
+        bg_color: Atzealdeko kolorea
         colors:
           blue: Urdina
           gray: Grisa
@@ -48,12 +48,12 @@ eu:
           yellow: Horia
         text_color: Testuaren kolorea
       proposals_copy:
-        copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
+        copy_proposals: Ulertzen dut ekintza honek proposamen guztiak hautatutako osagaira inportatuko dituela eta hori egin ondoren ezin dela atzera egin.
         origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_file_import:
         file: Fitxategia
       proposals_import:
-        import_proposals: Inportatu proposamenak
+        import_proposals: Proposamenak inportatu
         keep_answers: Mantendu egoera eta erantzunak
         keep_authors: Mantendu jatorrizko egileak
     errors:
@@ -65,14 +65,14 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
             body:
-              cant_be_equal_to_template: ezin da plantillaren berdina izan
+              cant_be_equal_to_template: ezin da plantilla bezalakoa izan
               identical: ETA izenburua ezin da berdina izan
             title:
-              identical: ETA gorputza ezin da berdina izan
+              identical: ETA testua ezin da berdina izan
         proposals_merge:
           attributes:
             base:
@@ -84,23 +84,23 @@ eu:
               not_official: Ez dira ofizialak
               voted: Babesak edo atxikimenduak jaso izana
     models:
-      decidim/proposals/admin/update_proposal_taxonomies_event: Proposamen taxonomiak aldatuta
-      decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
-      decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
-      decidim/proposals/proposal_mentioned_event: Proposamena aipatua
-      decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
+      decidim/proposals/admin/update_proposal_taxonomies_event: Proposamenaren taxonomiak aldatu dira
+      decidim/proposals/creation_enabled_event: Proposamenak sortzeko aukera gaituta
+      decidim/proposals/liking_enabled_event: Proposamenaren babesa gaituta
+      decidim/proposals/proposal_mentioned_event: Proposamena aipatu da
+      decidim/proposals/publish_proposal_event: Proposamena argitaratu da
       decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
   activerecord:
     models:
       decidim:
         proposals:
           proposal:
-            budget_text: '%{link} proposamena sortu da'
-            import_from_proposal_text: '%{link} proposamen bihurtu da'
-            import_to_proposal_text: '%{link} proposamena sortu da'
-            merge_from_proposal_text: '%{link} proposamen bihurtu da'
+            budget_text: <span class="resource-link">% {link} proposamena sortu zen</span>
+            import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
+            import_to_proposal_text: <span class="resource-link">% {link} proposamen hau sortu zen</span>
+            merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
-            split_from_proposal_text: '%{link} proposamen bihurtu da'
+            split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             split_to_proposal_text: '%{link} proposamena sortu da'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
@@ -122,7 +122,7 @@ eu:
       filters:
         proposals:
           evaluator_role_ids_has:
-            label: Ebaluatzaileari esleitua
+            label: Ebaluatzaileari esleitu zaio
           is_emendation_true:
             label: Mota
             values:
@@ -137,8 +137,8 @@ eu:
               evaluating: Ebaluatzen
               not_answered: Erantzun gabe
               published: Argitaratua
-              rejected: Ukatua
-              validating: Baliozkotze teknikoa
+              rejected: Baztertuta
+              validating: Balioztatze teknikoa
               withdrawn: Kenduta
           taxonomies_part_of_contains:
             label: Taxonomia
@@ -146,7 +146,7 @@ eu:
             label: Erantzunda
             values:
               state_not_published: Erantzun gabe
-              state_published: Erantzunda
+              state_published: Erantzun da
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     application:
@@ -156,9 +156,9 @@ eu:
       proposals:
         actions:
           amend: Zuzendu
-          comment: Iruzkina
-          create: Sortu proposamena
-          endorse: Atxikitu
+          comment: Iruzkindu
+          create: Proposamena sortu
+          like: Atsegin dut
           vote: Eman babesa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
@@ -166,38 +166,38 @@ eu:
         settings:
           global:
             amendments_enabled: Zuzenketak baimenduta
-            amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
-            amendments_wizard_help_text: Zuzenketen testu-laguntzailea
+            amendments_enabled_help: Aktibo badago, zuzenketen aukerak fase bakoitzerako ezartzen ditu.
+            amendments_wizard_help_text: Zuzenketak egiteko laguntza-testua
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
-            attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
+            attachments_allowed_help: Aukera hau gaitzean, besterik adierazi ezean, proposamenak lauki moduan agertuko dira eta lehen irudia txartelan agertuko da.
             can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
+              most_liked: Like gehien
               most_voted: Bozkatuenak
-              random: Ausazkoa
-              recent: Azkenak
-              with_more_authors: Egile gehiagorekin
+              random: Ausazko ordena
+              recent: Berrienetatik zaharrenetara
+              with_more_authors: Egile gehien dituztenak
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
-            edit_time: Proposamenak egileek edita ditzakete denbora luzea igaro baino lehen
+            edit_time: Egileek proposamenak edita ditzakete denbora tarte honen barruan
             edit_time_units:
               days: Egunak
               hours: Orduak
               minutes: Minutuak
             geocoding_enabled: Mapak gaituta
             minimum_votes_per_user: Gutxieneko babesak parte-hartzaile bakoitzeko
-            new_proposal_body_template: Plantilla proposamen berriaren testurako
-            new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
-            new_proposal_help_text: Proposamen berriaren laguntza testua
+            new_proposal_body_template: Proposamen berriaren testurako plantilla
+            new_proposal_body_template_help: Proposamen berriek aurretik izango duten testua zehaztu ahal duzu
+            new_proposal_help_text: Proposamen berria egiteko laguntza-testua
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             official_proposals_enabled: Proposamen ofizialak gaituta
             participatory_texts_enabled: Testu parte-hartzaileak gaituta
@@ -205,58 +205,58 @@ eu:
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_time: Proposamenen edizioa
             proposal_edit_time_choices:
-              infinite: Utzi proposamenak editatzen epe mugagabe batean
-              limited: Utzi proposamenak editatzen epe zehatz baten barruan
+              infinite: Proposamenak editatzeko aukera epe mugarik gabe
+              limited: Proposamenak epe jakin batean editatzen utzi
             proposal_edit_time_unit_options:
               days: Egunak
               hours: Orduak
               minutes: Minutuak
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga parte-hartzaile bakoitzeko
-            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
-            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
-            resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
+            proposal_wizard_step_1_help_text: Proposamenen laguntzailearen "Sortu" urratserako testua
+            proposal_wizard_step_2_help_text: Proposamenen laguntzailearen "Argitaratu" urratserako testua
+            resources_permissions_enabled: Proposamen bakoitzerako ekintza-baimenak ezarri ahal dira
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Babesen muga partaide bakoitzeko
           step:
-            amendment_creation_enabled: Zuzenketa sortzea aktibatuta
+            amendment_creation_enabled: Zuzenketa sortzea aktibatua
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
-            amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
-            amendment_promotion_enabled_help: Zuzenketaren egileek proposamen berri gisa sustatu ahal izango dute baztertutako zuzenketa.
-            amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
+            amendment_promotion_enabled: Zuzenketa sustatzea aktibatua
+            amendment_promotion_enabled_help: Zuzenketaren egileek proposamen berri gisa sustatu ahalko dute baztertutako zuzenketa.
+            amendment_reaction_enabled: Zuzenketaren aurreko erreakzioa aktibatuta
             amendment_reaction_enabled_help: Proposamenen egileek beste parte-hartzaile batzuen zuzenketak onartu edo baztertu ahal izango dituzte.
             amendments_visibility: Zuzenketaren ikusgarritasuna
             amendments_visibility_choices:
               all: Zuzenketak ikusgai denentzat
-              participants: Zuzenketak ikusgai daude beren egileentzat
+              participants: Zuzenketak soilik egileentzat ikusgai
             amendments_visibility_help: Zuzenketak egileentzat bakarrik ikusgai" aukera hautatzen bada, parte-hartzaileek saioa hasi beharko dute egindako zuzenketak ikusteko.
             announcement: Iragarpenak
-            answers_with_costs: Gaitu kostua proposamenen erantzunetan
+            answers_with_costs: Proposamenei erantzunetan kostua gaitu
             automatic_hashtags: Traola proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
-            default_sort_order: Proposamenen hurrenkera lehenetsia
+            default_sort_order: Proposamenen lehenetsitako hurrenkera
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
-              most_voted: Bozkatuenak
-              random: Ausazkoa
-              recent: Berrienak
-              with_more_authors: Egile gehiagorekin
-            endorsements_blocked: Onarpen blokeatuak
-            endorsements_enabled: Onarpen gaituak
-            proposal_answering_enabled: Proposamena erantzutea gaituta dago
+              most_liked: Like gehien
+              most_voted: Botu gehien dituztenak
+              random: Ausazko ordena
+              recent: Berrienetatik zaharrenetara
+              with_more_authors: Egile gehiago dituztenak
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
+            proposal_answering_enabled: Proposamenei erantzuna gaituta
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
-            publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
+            publish_answers_immediately_help_html: 'Kontuz, proposamenen bati hau gaitu gabe erantzuten badiozu, aukeratu eta argitaratzeko ekintza erabiliz argitaratu beharko dituzula. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
-            votes_blocked: Bozketak blokeatuta
-            votes_enabled: Bozketak gaituta
+            votes_blocked: Botoak blokeatuta
+            votes_enabled: Botoak gaituta
             votes_hidden: Boto ezkutuak (babesak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     download_your_data:
       show:
@@ -265,40 +265,40 @@ eu:
     events:
       proposals:
         accepted_coauthorship:
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa gehitu zaituzte.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide bihurtu zaituzte.
         admin:
           proposal_assigned_to_evaluator:
-            email_intro: 'Zu esleitu zaituzte ebaluatzaile gisa proposamen honetarako: "%{resource_title}". Horrek esan nahi du datozen egunetan feedbacka eta erantzun egokia emango dizkiezula. Begiratu <a href="%{admin_proposal_info_url}">the admin panel</a> admin. panelean.'
+            email_intro: '"%{resource_title}" proposamenaren ebaluatzaile rola eman dizute. Horrek esan nahi zugan konfidantza jarri dela datozen egunetan zure iritzia eta erantzun egokia emateko. Ikusi proposamena <a href="%{admin_proposal_info_url}">the admin panel</a> admin. panelean.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
-            email_subject: Esleitu zaituzte ebaluatzaile gisa %{resource_title} proposamenerako.
-            notification_title: Esleitu zaituzte <a href="%{resource_path}">%{resource_title}</a> proposamenaren ebaluatzaile izateko. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.
+            email_subject: '%{resource_title} proposamenaren ebaluatzaile rola eman dizute.'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren ebaluatzaile rola eman dizute. Ikusi proposamena <a href="%{admin_proposal_info_path}"> admin. panelean.
           proposal_note_created:
-            email_intro: '% {author_name} -k ohar pribatu bat sortu du hemen: %{resources ce_title}. Begiratu <a href="%{admin_proposal_info_url}">admin panelean.'
+            email_intro: '% {author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
-            notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k ohar pribatu bat sortu du hemen: <a href="%{resource_path}">%{resource_title}</a>. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.'
+            notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak ohar pribatu bat sortu du hemen: <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_path}"> admin. panelean</a>.'
           proposal_note_mentioned:
-            email_intro: '"%{author_name}" "%{author_nickname}" k "%{resource_title}" ohar pribatuan aipatu zaitu. Begiratu <a href="%{admin_proposal_info_url}"> admin. panelean.'
+            email_intro: '"%{author_name}" "%{author_nickname}" parte-hartzaileak ohar pribatu batean aipatu zaitu hemen "%{resource_title}". Ikusi hemen <a href="%{admin_proposal_info_url}"> admin. panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu ohar pribatu batean aipatu zaituztelako.
             email_subject: Norbaitek aipatu zaitu ohar batean %{resource_title} proposamenean.
-            notification_title: '"%{author_name}" "%{author_nickname}" k "%{resource_title}" ohar pribatuan aipatu zaitu. Begiratu <a href="%{admin_proposal_info_url}"> admin. panelean.'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak ohar pribatu batean aipatu zaitu, hemen <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_url}"> admin. panelean</a>.
           proposal_note_replied:
-            email_intro: '% {author_name} -k zure ohar pribatua erantzun du hemen: %{resources ce_title}. Begiratu <a href="%{admin_proposal_info_url}">admin panelean.'
+            email_intro: '% {author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu oharraren egilea zarelako.
-            email_subject: "%{author_name} k zure ohar pribatua erantzun du hemen: %{resource_title}."
-            notification_title: '<a href="%{author_path}">%{author_name}%{author_nickname} k zure ohar pribatua erantzun du hemen: <a href="%{resource_path}">%{resource_title}. Begiratu <a href="%{admin_proposal_info_path}">admin. panelean.'
+            email_subject: "%{author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}."
+            notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak zure ohar pribatua erantzun du hemen: <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_path}">admin. panelean</a>.'
         coauthor_accepted_invite:
-          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k onartu du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> parte-hartzaileak onartu egin du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         coauthor_invited:
           actions:
             accept: Onartu
             decline: Baztertu
           email_intro: 'Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera. Gonbidapena onartu edo baztertu ahal duzu orrialde honetan:'
-          email_outro: Jakinarazpen hau jaso duzu proposamenaren egileak balioetsi nahi dituelako zure ekarpenak zu egilekide bihurtuz.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egileak zure ekarpenak balioesteko horren egilekide bihurtu nahi zaituelako.
           email_subject: Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera
-          notification_title: <a href="%{author_path}">%{author_name}</a> k gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa.
+          notification_title: <a href="%{author_path}">%{author_name}</a> parte-hartzaileak gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izatera.
         coauthor_rejected_invite:
-          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k zure gonbidapena baztertu du <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko egin duzun gonbidapena errefusatu du.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
@@ -315,14 +315,14 @@ eu:
           email_subject: "%{requester_name}-k sarbidea eskatu du %{resource_title}-an aritzeko."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu du <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
         collaborative_draft_access_requester_accepted:
-          email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> </a>testu kolaboratiboan laguntzaile gisa sartzeko.
-          email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
-          email_subject: '%{resource_title} ko laguntzaile gisa onartu zaituzte.'
+          email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> testu kolaboratiboan laguntzailea izateko.
+          email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ren kolaboratzailea izatea eskatu duzulako.
+          email_subject: '%{resource_title} -ren laguntzaile gisa onartu zaituzte.'
           notification_title: Onartu zaituzte <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko.
         collaborative_draft_access_requester_rejected:
-          email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a></a> testu kolaboratiboan laguntzaile gisa sartzeko.
-          email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
-          email_subject: Baztertu egin zaituzte %{resource_title} -ko laguntzaile gisa.
+          email_intro: Baztertu da <a href="%{resource_url}">%{resource_title}</a> testu kolaboratiboan laguntzailea izateko eskaera.
+          email_outro: Jakinarazpen hau jaso duzu hemen <a href="%{resource_url}">%{resource_title}</a> kolaboratzaile izatea eskatu duzulako.
+          email_subject: Baztertu egin zaituzte laguntzaile gisa hemen %{resource_title}.
           notification_title: '<strong>Baztertu egin zaituzte, kolaboratzaile gisa, hemen sartzeko: </strong> <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>-k kendu du <a href="%{resource_url}">%{resource_title}</a> testu kolaboraboaren zirriborroa.
@@ -334,26 +334,26 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-        endorsing_enabled:
-          email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
-          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
-          email_subject: Onarpen proposamenak %{participatory_space_title} espazioan hasi dira
-          notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+        liking_enabled:
+          email_intro: 'Proposamenak atsegin ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
           email_subject: Zure "%{mentioned_proposal_title}" proposamena aipatu egin da
           notification_title: Zure"%{mentioned_proposal_title}" proposamena espazio honetako <a href="%{resource_path}"></a> iruzkinetan apiatu da.
         proposal_merged:
-          email_intro: 'Administratzaile batek bat egin du zure proposamenarekin: "%{resource_title}", egiazta ezazu orri honetan:'
+          email_intro: 'Administratzaile batek zure proposamena, "%{resource_title}", beste batekin batu du. Ikusi orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
-          email_subject: '%{resource_title} proposamenarekin bat egin da'
-          notification_title: Administratzaile batek bat egin du <a href="%{resource_path}">%{resource_title}</a> proposamenarekin.
+          email_subject: '%{resource_title} proposamena beste batekin batu da'
+          notification_title: Administratzaile batek <a href="%{resource_path}">%{resource_title}</a> proposamena beste batekin batu du.
         proposal_published:
-          email_intro: 'Jarraitzen ari zaren %{author_name} %{author_nickname} k beste proposamen bat argitaratu du, "%{resource_title}" izenekoa. Begiratu eta ekarri:'
-          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu, aurreko estekan.
-          email_subject: '%{author_nickname}-ek egindako beste proposamen bat: "%{resource_title}"'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> kargitaratu du.
+          email_intro: 'Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak beste proposamen bat argitaratu du, "%{resource_title}" izenekoa. Begiratu eta lagundu hobetzen:'
+          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+          email_subject: '%{author_nickname} parte-hartzaileak proposamen berria egin du: "%{resource_title}"'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> proposamena argitaratu du.
         proposal_published_for_space:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
@@ -362,13 +362,13 @@ eu:
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
         proposal_state_changed:
           affected_user:
-            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
-            email_subject: Zure proposamenak aldatu du (%{state}) egoera
-            notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+            email_intro: '"%{resource_title}" proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago. Orri honetan duzu erantzuna:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" proposamenaren egilea zarelako.
+            email_subject: Zure proposamenaren egoera aldatu da (%{state})
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> zure proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago.
           follower:
-            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
+            email_intro: '"%{resource_title}" proposamenaren egoera aldatu da eta orain "%{state}" egoeran dago. Orrialde honetan duzu erantzuna:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
         proposal_update_taxonomies:
@@ -392,18 +392,18 @@ eu:
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
-          name: Proposamen onartuak
-          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea, hurrengo mailara iristeko!
+          name: Onartutako proposamenak
+          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea hurrengo mailara igotzeko!
           unearned_another: Parte-hartzaile honek ez du oraindik lortu bere proposamen bat ere onartua izatea.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
-            - Bozkatu gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenak
+            - Eman botoa gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenei
           description: Bereizgarri hau ematen da beste pertsona batzuen proposmenak bozkatzen dituzunean.
           description_another: Parte-hartzaile honek %{score} proposamen bozkatu ditu.
           description_own: '%{score} proposamen bozkatu dituzu.'
-          name: Proposamenak bozkatuak
+          name: Proposamenetarako botoak
           next_level_in: Bozkatu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du proposamenik bozkatu.
           unearned_own: Oraindik ez duzu proposamenik bozkatu.
@@ -418,23 +418,6 @@ eu:
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du proposamenik sortu.
           unearned_own: Oraindik ez duzu proposamenik sortu.
-    metrics:
-      accepted_proposals:
-        description: Onartutako proposamen kopurua
-        object: proposamenak
-        title: Onartutako proposamenak
-      endorsements:
-        description: Proposamenen atxikimendu kopurua
-        object: atxikimenduak
-        title: Atxikimenduak
-      proposals:
-        description: Proposamen kopurua
-        object: proposamenak
-        title: Proposamenak
-      votes:
-        description: Zenbat babes proposamenei
-        object: babesak
-        title: Babesak
     open_data:
       help:
         proposal_comments:
@@ -454,7 +437,7 @@ eu:
           answered_at: Zein datatan erantzun zen proposamen hau
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
-          body: Proposamenaren gorputza
+          body: Proposamenaren testua
           coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
           comments: Proposamen honek duen babes kopurua
           component: Proposamena osagai honen barruan dago
@@ -462,12 +445,12 @@ eu:
           cost_report: Proposamenaren kostuen txostena
           created_at: Zein datatan sortu zen proposamen hau
           created_in_meeting: Proposamena bilera batean sortu bazen
-          endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
           execution_period: Proposamena burutzeko aldia, hasieratik bukaerara arte
           follows_count: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
+          likes: Proposamen honek duen atxikimendu ("like") kopurua
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
           meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
@@ -486,7 +469,6 @@ eu:
           withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
-        last: Azken proposamenak
         see_all: Ikusi proposamenak
     proposals:
       actions:
@@ -678,14 +660,14 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_evaluators: Ebaluatzaileak esleituta
-            body: Gorputza
+            body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
-            endorsements_count: Atxikimendu kopurua
-            endorsers: Atxiki dira
             evaluators: Ebaluatzaileak
+            likes: Likeak
+            likes_count: Like kopurua
             link: Ikusi proposamena
-            n_more_endorsers:
+            n_more_likes:
               one: eta 1 gehiago
               other: eta %{count} gehiago
             photos: Argazkiak
@@ -786,7 +768,7 @@ eu:
           all: Guztiak
           amendment: Zuzenketak
           open: Zabaldu
-          published: Argitaratuta
+          published: Argitaratua
           related_to: Lotutako gaiak
           search: Bilatu
           state: Egoera
@@ -810,8 +792,8 @@ eu:
         orders:
           label: 'Zirriborroak honela ordenatu:'
           most_contributed: Bozka gehien jaso duena
-          random: Ausazkoa
-          recent: Azkena
+          random: Ausazko ordena
+          recent: Berrienetatik zaharrenetara
         requests:
           accepted_request:
             error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
@@ -836,13 +818,13 @@ eu:
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
-          published_proposal: argitaratutako proposamena
+          published_proposal: Argitaratutako proposamena
           request_access: Sarrera beharrezkoa
           requested_access: Sarbidea beharrezkoa
           withdraw: kendu zirriborroa
         states:
           open: Zabaldu
-          published: Argitaratuta
+          published: Argitaratua
           withdrawn: Kendu
         update:
           error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
@@ -968,11 +950,11 @@ eu:
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
-          most_endorsed: Aldeko atxikimendu gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
+          most_liked: Like gehien
           most_voted: Bozkatuenak
           random: Ausazko ordena
-          recent: Berrienak
+          recent: Berrienetatik zaharrenetara
           with_more_authors: Egile gehiagorekin
         participatory_texts:
           view_index:
@@ -996,8 +978,8 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
-          hidden_endorsers_count:
-            one: eta pertsona %{count} gehiago
+          hidden_likes_count:
+            one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
@@ -1014,7 +996,7 @@ eu:
         update:
           title: Eguneratu proposamena
         vote_button:
-          already_voted: Bozkatuta duzu
+          already_voted: Botoa emanda
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
@@ -1034,7 +1016,7 @@ eu:
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
-            description: '%{limit} proposamen sortu ditzakezu.'
+            description: Proposamen(ak) sortu ditzakezu.
           success: Zure babesak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} babes izatera iritsi behar da.
@@ -1080,6 +1062,9 @@ eu:
         proposal_project: 'Proiektu hauetatik sortutako proposamena:'
         proposal_result: 'Emaitza hauetatik sortutako proposamena:'
     statistics:
+      participatory_space_proposals_count: Proposamenak
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
+      proposals_count_tooltip: Aurkeztutako proposamenen eta emandako botoen kopurua, guztira.
+      votes: 'Botoak:'
       votes_count: Babesak

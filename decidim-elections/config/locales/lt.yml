@@ -1,0 +1,31 @@
+lt:
+  decidim:
+    components:
+      elections:
+        name: Rinkimai
+        settings:
+          global:
+            announcement: Pranešimas
+          step:
+            announcement: Pranešimas
+    elections:
+      actions:
+        title: Veiksmai
+      admin:
+        elections:
+          edit:
+            title: Redaguoti rinkimus
+            update: Atnaujinti rinkimus
+          form:
+            add_images: Pridėti paveikslėlių
+          index:
+            title: Rinkimai
+          new:
+            create: Sukurti rinkimus
+            title: Nauji rinkimai
+      models:
+        election:
+          fields:
+            title: Pavadinimas
+    statistics:
+      elections_count: Rinkimai

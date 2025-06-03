@@ -45,8 +45,6 @@ hu:
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
         comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
-        cta_button_path: Felhívás gomb elérési útvonala
-        cta_button_text: Felhívás gomb szövege
         customize_welcome_notification: Az üdvözlő értesítések testreszabása
         default_locale: Alapértelmezett hely
         description: Leírás
@@ -552,9 +550,6 @@ hu:
         static_page_topics: Témák
         static_pages: Oldalak
         users: Résztvevők
-      metrics:
-        metrics:
-          see_more_metrics: Több mérési eredmény megtekintése
       models:
         area:
           fields:
@@ -780,23 +775,7 @@ hu:
         edit:
           update: Frissítés
         form:
-          colors:
-            choose_color: Elsődleges szín kiválasztása
-            colors_title: Szervezet színei
-            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
-            explanation: Ez az eszköz segít kiválasztani egy színsémát, amely a színkör körül egyenlően elosztott árnyalatokból áll, és amelyet a szervezet weboldalán használnak.
-            legend_html: Az alkalmazás fő színei a <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmus</a>. A <i>szekunder</i> szín automatikusan kiszámításra kerül az elsődleges színből és a kiválasztott telítettségből.
-            saturation: Telítettség
-            title: Színválasztó
-            update_suggested_colors: A javasolt színekre frissítés
-          cta_button_path_help_html: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
-          cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
-          homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
-          images:
-            layout_appearance_title: Elrendezés szerkesztése
-            preview: Előnézet
-          omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
       organization_external_domain_allowlist:
         edit:
           update: Frissítés
@@ -943,14 +922,12 @@ hu:
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         menu: Menü
-        metrics: Mérőszámok
         page_topics: Témák
         pages: Oldalak
         panel: Admin
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        statistics: Tevékenység
         users: Adminisztrátorok
       users:
         create:
@@ -978,16 +955,6 @@ hu:
       errors:
         impersonate_user:
           reason: Nem kezelt résztvevő kezelése esetén indoklást kell adnia.
-    metrics:
-      blocked_users:
-        object: letiltott felhasználók
-        title: Letiltott felhasználók
-      reported_users:
-        object: jelentett felhasználók
-        title: Jelentett felhasználók
-      user_reports:
-        object: felhasználói jelentések
-        title: Felhasználói jelentések
     moderations:
       actions:
         expand: Kibont

@@ -6,7 +6,6 @@ de:
         answer_url: Antwort-URL
         area_id: Gebiet
         decidim_scope_id: Thema
-        decidim_user_group_id: Autor
         description: Beschreibung
         hashtag: Hashtag
         offline_votes: Face-to-Face-Unterstützung
@@ -35,7 +34,7 @@ de:
         comments_enabled: Kommentare aktivieren
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
-        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
+        document_number_authorization_handler: Unterzeichnungsablauf
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
@@ -319,10 +318,10 @@ de:
           edit:
             update: Aktualisieren
           form:
-            authorizations: Autorisierungseinstellungen
             child_scope_threshold_enabled_help_html: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
             only_global_scope_enabled_help_html: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
+            signature_workflow_settings: Einstellungen zum Unterzeichnungsablauf
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
@@ -392,15 +391,37 @@ de:
           callout_text_created: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
           callout_text_validating: Ihre Initiative wurde erfolgreich an die technische Validierung gesendet.
           go_to_initiatives: Zu Initiativen gehen
+          publish_helper_text_html: Denken Sie daran, dass für die Veröffentlichung Ihrer Initiative eine technische Validierung durch einen Admin erforderlich ist.
         previous_form:
           back: Zurück
+        promotal_committee:
+          individual_help_text: Ihre Initiative wurde erstellt und als Entwurf gespeichert. Jetzt müssen Sie Personen dem zum Unterstützungskommittee hinzufügen.
+          invite_link_title: Link, um Leute einzuladen
+          promoters_committee_help_2: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und diese an die technische Validierung senden müssen, damit ein Admin sie prüfen kann.
+          promoters_committee_help_html: Bevor Sie Ihre Initiative zur technischen Validierung senden, müssen Sie %{committee_members_left} weitere Mitglieder dem Unterstützungskommittee hinzufügen. Sie haben derzeit <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_title: Unterstützungskommittee
+        return_to_initiatives_button:
+          return_initiatives_html: Jetzt überspringen und <a href="%{initiatives_path}">zu den Initiativen zurückkehren</a>
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
+          consult_existing_initiatives: Bestehende Initiativen konsultieren
+          continue: Fortsetzen
           more_information: (Weitere Informationen)
           new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
+          select_initiative_type_help_html: "<p>Initiativen sind Instrumente, mit dem die Personen eingreifen können, damit die Organisation Aktionen im Namen des Allgemeininteresses durchführen kann. Welche Initiative möchten Sie starten?</p>"
+          show_less: Weniger anzeigen
+          show_more: Mehr anzeigen
+          subtitle: Welche Initiative wollen Sie bewerben?
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
+        send_to_technical_validation_button:
+          button: Zur technischen Prüfung senden
+          confirm: Sie werden die Initiative an einen Admin senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
+        share_committee_link:
+          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Unterstützungskommittees sein werden.
+          invite_to_committee_help_2: Diese Art der Bürgerinitiative erfordert ein Unterstützungskommittee, welches aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          more_information: Weitere Informationen
       edit:
         accept: Initiative akzeptieren
         back: Zurück
@@ -422,11 +443,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Initiative von %{author_nickname}
           notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, dem Sie folgen, hat die folgende Initiative unterstützt, vielleicht möchten Sie mitreden:"
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Initiative wurde von %{author_nickname} unterstützt
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
         revoke_membership_request:
           email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
@@ -447,24 +463,46 @@ de:
       index:
         uninitialized: Initiativen wurden noch nicht von einem Admin konfiguriert.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Geburtsdatum
+              document_number:
+                placeholder: Dokumentnummer
+              document_type:
+                prompt: Dokumenttyp
+              document_type_and_number:
+                help_text: Die Dokumentennummer entspricht dem Dokument, welches bei der Schriftenbeglaubigung verwendet wird.
+                label: Dokumenttyp und -nummer
+              gender:
+                options:
+                  man: Mann
+                  non_binary: Nicht-binär
+                  woman: Frau
         fill_personal_data:
-          continue: Fortsetzen
+          continue: Daten überprüfen
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen.
+          invalid_authorization: Die Daten, die zum Fortfahren der Aktion zur Verfügung gestellt werden, sind nicht kompatibel mit Ihren bestehenden Genehmigungen oder Sie müssen eine erteilte Genehmigung erstellen.
+          invalid_data: Einige der zur Überprüfung Ihrer Identität zur Verfügung gestellten persönlichen Daten sind nicht gültig.
         finish:
           back_to_initiative: Zurück zur Initiative
-        sms_code:
-          continue: Code überprüfen und fortfahren
-          help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
+          title: Sie haben die Initiative unterzeichnet
         sms_phone_number:
-          continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern.
+          confirmed_data: Sie haben Ihre Daten bestätigt.
+          continue: Initiative unterzeichnen
+          help_enter_your_number: Bitte geben Sie Ihre Telefonnummer ein. Sie erhalten dann eine SMS mit einem Bestätigungscode.
+          receive_code: Code erhalten
+          resend_code_html: Keinen Code erhalten? <a href="%{new_code_path}">Erneut versuchen</a>
+          your_code_is_correct: Der Code ist korrekt.
+          your_code_is_incorrect: Der Code ist nicht korrekt. Vitte überprüfen oder <a href="%{new_code_path}"> erneut versuchen</a>.
+          your_confirmation_code: Ihr Bestätigungscode
       initiative_votes:
         create:
+          already_voted: Ihre Unterschrift wurde bereits mit Ihren Daten registriert.
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
           invalid: Ihre zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig.
           success_html: Herzliche Glückwünsche! Die Initiative <strong> %{title}</strong> wurde erfolgreich unterzeichnet.
-        personal_data:
-          invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_code:
           invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
         sms_phone:
@@ -512,6 +550,8 @@ de:
           random: Zufällig
           recent: Neueste zuerst
           recently_published: Zuletzt veröffentlicht
+        pending_initiatives:
+          title: Entwürfe & ausstehende Initiativen
         print:
           address: Adresse
           author_title: Autor der Initiative
@@ -584,10 +624,28 @@ de:
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
+          created: Entworfen
           discarded: Verworfen
           open: Offen
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Unterzeichnung, welche die persönlichen Daten des Benutzers aufnimmt, die Autorisierung und den SMS-Code überprüft
+            name: Muster-Unterzeichnungsverfahren
+          dummy_signature_with_personal_data_handler:
+            description: Unterzeichnung, die nur persönliche Informationen der Nutzenden annimmt und diese validiert
+            name: Muster-Unterzeichnungsverfahren mit persönlichen Daten
+          dummy_signature_with_sms_handler:
+            description: Unterzeichnung, die nur die Telefonnummer auf der Suche nach einer zugehörigen Autorisierung und den SMS-Code überprüft
+            name: Muster-Unterzeichnungsverfahren nur mit SMS
+          ephemeral_dummy_signature_handler:
+            description: Ephemere Unterzeichnung, die persönliche Informationen der Nutzenden annimmt, die Autorisierungen und den SMS-Code überprüft
+            name: Ephemeres Muster-Unterzeichnungsverfahren
+          legacy_signature_handler:
+            description: Veraltetes Muster-Unterzeichnungsverfahren basierend auf der alten Unterzeichnungsfunktion einschließlich der Erfassung persönlicher Daten, SMS-Schritt und Validierung der Autorisierung mit dummy_authorization_handler. Ändere jeden Parameter, um sich an die verwendete Konfiguration anzupassen
+            name: Veraltetes Muster-Unterzeichnungsverfahren
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
@@ -634,18 +692,16 @@ de:
         actions:
           create: Initiative erstellen
           title: Aktionen
-          vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
+        finish: Technische Prüfung
+        promotal_committee: Suche nach Unterstützenden
         select_initiative_type: Wählen
       initiative_signature_creation_header:
-        fill_personal_data: Ergänzen Sie Ihre Daten
-        finish: Fertig
-        sms_code: SMS-Code-Bestätigung
-        sms_phone_number: Handynummer
-        title: Zeichen %{initiative_title}
+        help_information_html: Um die Initiative <strong>%{initiative_title}</strong> zu unterzeichnen, die von %{initiative_author} gefördert wurde, müssen Sie einige Informationen angeben, die die Unterzeichnung der Initiative rechtsverbindlich machen. Keine Informationen über Sie werden öffentlich gemacht.
+        verify_your_identity: Bestätigen Sie Ihre Identität
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

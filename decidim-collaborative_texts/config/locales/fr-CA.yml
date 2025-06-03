@@ -1,5 +1,20 @@
 ---
 fr-CA:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Corps de texte
+          draft: Brouillon
+          title: Titre
+          version_number: Numéro de version
+        suggestion:
+          original: Texte original
+          replace: Remplacement
+        version:
+          body: Corps de texte
+          draft: Brouillon
+          version_number: Numéro de version
   decidim:
     collaborative_texts:
       actions:
@@ -16,6 +31,8 @@ fr-CA:
             invalid: Un problème est survenu lors de la création du document.
             success: Document créé avec succès.
           edit:
+            previous_versions: Versions précédentes
+            public_version: Version publique
             title: Modifier les textes collaboratifs
             update: Mettre à jour
           edit_settings:
@@ -28,6 +45,9 @@ fr-CA:
           new:
             create: Créer
             title: Créer des textes collaboratifs
+          non_draft_options:
+            enable_suggestions: Activer les suggestions
+            enable_suggestions_help: Activer les suggestions permettra aux participants de faire des suggestions sur cette version.
           publish:
             invalid: Une erreur s'est produite lors de la publication de ce document.
             success: Document publié avec succès.
@@ -40,20 +60,47 @@ fr-CA:
           update_settings:
             invalid: Un problème est survenu lors de la mise à jour du document.
             success: Document mis à jour avec succès.
-        settings:
-          form:
-            allow_suggestions: Autoriser les participants à faire des suggestions
+      admin_log:
+        document:
+          create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le texte collaboratif %{resource_name} de %{space_name}"
+          publish: "%{user_name} a publié le texte collaboratif %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré le texte collaboratif %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le texte collaboratif %{resource_name} en %{space_name} dans la corbeille"
+          unpublish: "%{user_name} a dépublié le texte collaboratif %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le texte collaboratif %{resource_name} dans %{space_name}"
+        version:
+          delete: "%{user_name} a supprimé la version du texte collaboratif %{resource_name} de %{space_name}"
+          update: "%{user_name} a mis à jour la version du texte collaboratif %{resource_name} dans %{space_name}"
+      document:
+        apply: Appliquer
+        cancel: Annuler
+        index: Index
+        restore: Restaurer
+        status:
+          not_accepting_suggestions: Les suggestions ne sont pas autorisées pour le moment.
+          selection_active: Une sélection est active. Veuillez annuler la sélection actuelle pour en faire une nouvelle.
+        suggestions_count: "%{count} suggestions"
+        toggle: Afficher/masquer les suggestions
       documents:
         index:
           count:
             one: "%{count} texte collaboratif"
             other: "%{count} textes collaboratifs"
           empty: Il n'y a pas encore de textes collaboratifs.
+        show:
+          contributors: Contributeur/trices
       models:
         collaborative_text:
           fields:
             suggestions: Accepter les suggestions
             title: Titre
+      suggestions:
+        create:
+          invalid: Il y a eu un problème lors de la création de la suggestion.
+          success: Suggestion créée avec succès.
+        errors:
+          invalid_nodes: Nœuds sélectionnés non valides.
     components:
       collaborative_texts:
         name: Textes collaboratifs
@@ -64,4 +111,6 @@ fr-CA:
           step:
             announcement: Message d'annonce
     statistics:
+      all_collaborative_texts_count: Tous les textes collaboratifs
       collaborative_texts_count: Textes collaboratifs
+      collaborative_texts_count_tooltip: Nombre de textes collaboratifs

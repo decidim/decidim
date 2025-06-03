@@ -31,7 +31,7 @@ en:
         actions:
           comment: Comment
           create: Create a debate
-          endorse: Endorse
+          like: Like
         name: Debates
         settings:
           global:
@@ -48,8 +48,8 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Participants can create debates
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
+            likes_blocked: Likes blocked
+            likes_enabled: Likes enabled
     debates:
       actions:
         close: Close
@@ -260,13 +260,13 @@ en:
           created_at: The date and time when the debate was created
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
-          endorsements_count: The number of endorsements the debate has
           follows_count: The number of followers this debate has
           id: The unique identifier of the debate
           information_updates: The updates that the author has made to the debate
           instructions: Which are the instructions to comment in this debate
           last_comment_at: The date when this debate was commented by the last time
           last_comment_by: The data of last comment made within the debate
+          likes_count: The number of likes the debate has
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this debate belongs to
           reference: The unique identifier of the resource in this platform
           start_time: When this debate starts, if it is an open debate and has a limited time
@@ -276,3 +276,4 @@ en:
           url: The URL where this debate can be found
     statistics:
       debates_count: Debates
+      debates_count_tooltip: The number of discussions held.

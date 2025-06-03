@@ -134,7 +134,7 @@ eu:
             export_response:
               title: galdetegia_parte-hartzailea_erantzunak_%{token}
             index:
-              title: "Guztira, %{guztira} erantzun"
+              title: "Guztira, %{total} erantzun"
             show:
               title: '#%{number} erantzun'
           separator:
@@ -156,13 +156,13 @@ eu:
             success: Galdetegia zuzen gorde da.
       admin_log:
         question:
-          publish_responses: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkestaren galdera %{space_name} espazioan"
-          unpublish_responses: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} inkestaren galdera %{space_name} espazioan"
+          publish_responses: "%{user_name} parte-hartzaileak argitaratu ditu %{resource_name} inkestari emandako erantzunak %{space_name} espazioan"
+          unpublish_responses: "%{user_name} parte-hartzaileak %{resource_name} inkestari emandako erantzunen argitalpena kendu du %{space_name} espazioan"
         questionnaire:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         response:
-          body: Gorputza ezin da hutsik egon
+          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:

@@ -1,0 +1,76 @@
+ca:
+  decidim:
+    components:
+      elections:
+        name: Votacions
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    elections:
+      actions:
+        confirm_delete_election: Segur que vols eliminar aquesta elecció?
+        deleted_election_info: 'Les eleccions eliminades no es mostren al llistat. Les pots veure fent clic al botó: "Veure les eleccions eliminades" que trobaràs més avall.'
+        edit: Editar l'elecció
+        new: Nova elecció
+        title: Accions
+        view_deleted_elections: Veure les eleccions eliminades
+      admin:
+        elections:
+          create:
+            invalid: S'ha produït un error en crear l'elecció.
+            success: Elecció creada correctament.
+          edit:
+            title: Editar la votació
+            update: Actualitzar la votació
+          form:
+            add_images: Afegir imatges
+            attachment_legend: Afegir una galeria d'imatges (opcional)
+            basic_title: Informació bàsica
+            calendar: Calendari
+            calendar_description: Comprova que la zona horària és correcta a la configuració de l'organització. La configuració actual és %{timezone}.
+            edit_attachments: Edita els fitxers adjunts
+            end_at: Dia i hora de finalització
+            manual_start: Inici manual
+            results_availability:
+              after_end: Després de la fi de les eleccions
+              after_end_help: Mostrar els resultats només quan l'elecció hagi finalitzat
+              per_question: Pregunta per pregunta
+              per_question_help: Mostrar els resultats per pregunta a mesura que es finalitzen
+              real_time: En temps real
+              real_time_help: Mostrar els resultats quan s'enviï el primer vot
+              title: Disponibilitat dels resultats
+            start_at: Dia i hora d'inici
+          index:
+            title: Votacions
+          manage_trash:
+            title: Eleccions eliminades
+          new:
+            create: Crear una votació
+            title: Nova votació
+          publish:
+            invalid: S'ha produït un error en publicar l'elecció.
+            success: Elecció publicada amb èxit.
+          unpublish:
+            invalid: S'ha produït un error en despublicar l'elecció.
+            success: Elecció despublicada correctament.
+          update:
+            invalid: S'ha produït un error en actualitzar l'elecció.
+            success: Elecció actualitzada correctament.
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció \"%{resource_name}\" a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció \"%{resource_name}\" a %{space_name}"
+          restore: "%{user_name} ha restaurat l'elecció \"%{resource_name}\" a %{space_name}"
+          soft_delete: "%{user_name} ha mogut l'elecció \"%{resource_name}\" de %{space_name} a la paperera"
+          unpublish: "%{user_name} ha despublicat l'elecció \"%{resource_name}\" a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
+      models:
+        election:
+          fields:
+            end_at: Dia i hora de finalització
+            start_at: Dia i hora d'inici
+            title: Títol
+    statistics:
+      elections_count: Eleccions

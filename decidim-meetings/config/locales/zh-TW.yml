@@ -126,7 +126,6 @@ zh-TW:
             default_registration_terms: 預設報名條款
             enable_pads_creation: 啟用平板創建
             maps_enabled: 啟用地圖
-            registration_code_enabled: 啟用註冊碼
             resources_permissions_enabled: 可以針對每個會議設定操作權限
             terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
           step:
@@ -160,10 +159,8 @@ zh-TW:
           email_subject: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
           notification_title: 該會議的可用預約時段已滿 %{percentage}%。
         meeting_updated:
-          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '%{resource_title}" 會議已更新。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議的可用名額已滿 %{percentage}%。
         registration_code_validated:
           email_intro: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
           email_outro: 您已收到此通知，因為您的註冊碼已驗證成功，可參加「%{resource_title}」會議。
@@ -174,11 +171,6 @@ zh-TW:
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '"%{resource_title}"會議已開放註冊。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
-        upcoming_meeting:
-          email_intro: '%{resource_title}" 會議將在不到48小時後開始。'
-          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
-          email_subject: '%{resource_title}" 會議將在不到48小時後開始。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議將在 48 小時內開始。
     forms:
       meetings:
         attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
@@ -320,8 +312,6 @@ zh-TW:
         registrations:
           edit:
             save: 儲存
-            validate: 驗證
-            validate_registration_code: 驗證註冊碼
           form:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             invites: 邀請
@@ -337,9 +327,6 @@ zh-TW:
           update:
             invalid: 儲存註冊設定時出現問題。
             success: 會議註冊設定已成功保存。
-          validate_registration_code:
-            invalid: 此註冊碼無效。
-            success: 註冊碼已成功驗證。
       admin_log:
         invite:
           create: "%{user_name} 邀請 %{attendee_name} 參加在 %{space_name} 空間舉行的 %{resource_name} 會議。"
@@ -488,7 +475,6 @@ zh-TW:
           micro_camera_permissions_warning: 當您點擊下面的按鈕時，系統會要求您授權使用麥克風和/或攝像頭，接著您就可以進入視訊會議。
           no_slots_available: 無可用時段。
           organizations: 參加的組織
-          registration_code_help_text: 您的報名代碼
           registration_state:
             validated: 已驗證
             validation_pending: 驗證待處理
@@ -542,7 +528,6 @@ zh-TW:
         confirmation:
           confirmed_html: 您的 <a href="%{url}">%{title}</a> 會議註冊已確認。
           details: 有關會議的詳細信息，請參閱附件。
-          registration_code: 您的註冊碼為 %{code}。
       registration_type:
         on_different_platform: 在不同的平台上
         on_this_platform: 在此平台上
@@ -567,11 +552,6 @@ zh-TW:
         withdraw: 撤回
       withdraw:
         success: 會議已成功撤回.
-    metrics:
-      meetings:
-        description: 建立的會議次數
-        object: 會議
-        title: 會議
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去的會議

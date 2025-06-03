@@ -13,6 +13,8 @@ eu:
         other: Erantzunak
   decidim:
     admin:
+      actions:
+        see_survey: Ikusi inkesta
       admin_log:
         changeset:
           surveys: inkestak
@@ -45,13 +47,10 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
-    metrics:
-      survey_responses:
-        description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkesten erantzunak
-        title: Inkesten erantzunak
     statistics:
+      responses: 'Erantzunak:'
       responses_count: Erantzunak
+      surveys_count_tooltip: Jasotako inkesten eta erantzunen kopurua.
     surveys:
       actions:
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
@@ -85,7 +84,7 @@ eu:
         responses:
           index:
             no_responses: Oraindik ez dago erantzunik
-            title: "Guztira, %{guztira} erantzun"
+            title: "Guztira, %{total} erantzun"
           show:
             title: '#%{number} erantzun'
         settings:

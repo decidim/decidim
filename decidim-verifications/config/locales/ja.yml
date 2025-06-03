@@ -3,6 +3,8 @@ ja:
     attributes:
       authorization:
         verification_attachment: 検証添付ファイル
+      census_data:
+        file: ファイル
       config:
         available_methods: 利用可能なメソッド
         offline: オフライン
@@ -120,6 +122,12 @@ ja:
           email_subject: 他の参加者に対する検証の試みに失敗しました
           notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> は、別の参加者 (<a href="%{managed_user_path}">%{managed_user_name}</a>) のデータで自分自身を検証しようとしました。
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} が新しいセンサスデータレコードを作成しました（メールアドレス: %{resource_email}）"
+          delete: "%{user_name} がメールアドレス %{resource_email} のセンサスデータの記録を削除しました"
+          import: "%{user_name} は %{imported_count} 件のセンサスの記録をインポートしました"
+          update: "%{user_name} がメールアドレス %{resource_email} のセンサスデータの記録を更新しました"
       authorizations:
         authorization_metadata:
           info: 'これは現在の検証のデータです。'
@@ -160,30 +168,62 @@ ja:
         start_exploring: 探索を始めましょう
       csv_census:
         admin:
+          actions:
+            confirm_destroy: このセンサスデータの記録を本当に削除してもよろしいですか？
+            destroy: 破棄
+            edit: 編集
           census:
-            create:
+            create_import:
               error: センサスのインポート中に問題が発生しました。
-              success: '%{count} 個のアイテム(%{errors} 個のエラー) を正常にインポートしました。'
-            destroy_all:
-              success: すべてのセンサスデータが削除されました。
-          destroy:
-            confirm: すべてのセンサスを削除すると、元に戻すことができません。本当に続行しますか？
-            title: センサスデータをすべて削除する
+              no_user: ユーザーが見つかりません
+              success: '%{count} 件のアイテムを正常にインポートしました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。'
+            destroy:
+              success: センサスデータレコードが削除されました。
+            index:
+              empty: センサスデータがありません。CSVファイルをインポートするには %{import_csv} を使用してください。
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーが見つかりません
+            last_login:
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーがいません
+            new_import:
+              errors:
+                email_exists: メールアドレス %{email} はすでに組織 %{organization}に存在します。
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
+              submit: ファイルをアップロード
+              title: センサスデータのインポート
+              upload_new_census: 新しいセンサスをアップロード
+          census_records:
+            create_record:
+              success: センサスデータレコードを正常に追加しました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。
+            edit_record:
+              save: 保存
+              title: センサスレコードを編集
+            form:
+              email: メールアドレス
+            new_record:
+              save: 保存
+              title: 新しいセンサスレコードを追加
+            update_record:
+              invalid: センサスデータのレコードを更新する際に問題が発生しました。
+              success: センサスデータのレコードを更新しました。
           index:
-            data: 合計%{count} 件のレコードが読み込まれました。最後アップロード日は%{due_date} です。
-            empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
+            add_new_record_button: 新しいレコードを追加
+            authorized: 承認されているユーザー
+            fields:
+              actions: アクション
+              created_at: 作成日時
+              email: メールアドレス
+              user_authorized: 承認済み？
+            import_csv: CSVをインポート
+            no_authorized: 承認されていないユーザー
             title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
             title: この組織のCSVセンサス認証を有効にする必要があります
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "電子メールデータを含む.csvファイル"
-            info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
-            submit: ファイルをアップロード
-            title: 新しいセンサスをアップロード
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。
@@ -194,6 +234,10 @@ ja:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
           user_postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}. あなたの郵便番号は %{user_postal_code} です。'
+      errors:
+        invalid_emails: '次のメールアドレスが無効です: %{invalid_emails}。'
+        no_emails: ファイルにはメールアドレスが含まれている必要があります
+        wrong_number_columns: "%{expected} 列が期待されていましたが、 %{actual} 列が見つかりました。"
       id_documents:
         admin:
           config:

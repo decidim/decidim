@@ -2,7 +2,6 @@ nl:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Auteur
         description: Beschrijving
         offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
@@ -24,7 +23,6 @@ nl:
         collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
         custom_signature_end_date_enabled: Sta auteurs toe het einde van de handtekeningperiode te kiezen
         description: Beschrijving
-        document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
@@ -275,11 +273,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van notificaties door te klikken op de voorgaande link.
           email_subject: Nieuw initiatief van %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, die je volgt, heeft het volgende initiatief onderschreven, misschien wil je een bijdrage leveren aan het gesprek:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen via deze link.
-          email_subject: Initiatief goedgekeurd door %{author_nickname}
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief %{resource_title} aanvaard."
           email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie afgewezen"
@@ -290,20 +283,11 @@ nl:
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Doorgaan met
         finish:
           back_to_initiative: Terug naar initiatief
-        sms_code:
-          continue: Controleer de code en ga verder
-          help: Controleer de sms die je op je telefoon hebt ontvangen
-        sms_phone_number:
-          continue: Stuur me een sms
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-        personal_data:
-          invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_phone:
           invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
@@ -389,18 +373,11 @@ nl:
       initiatives_type:
         actions:
           title: acties
-          vote: Onderteken
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: creëren
         select_initiative_type: Kiezen
-      initiative_signature_creation_header:
-        fill_personal_data: Vul uw gegevens in
-        finish: Voltooien
-        sms_code: Verificatie van sms-codes
-        sms_phone_number: Mobiele telefoonnummer
-        title: Teken %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Nog geen initiatieven!

@@ -3,6 +3,8 @@ eu:
     attributes:
       authorization:
         verification_attachment: Egiaztapen-eranskina
+      census_data:
+        file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline
@@ -120,6 +122,12 @@ eu:
           email_subject: Errorea beste parte-hartzaile baten bidez egiaztatzean
           notification_title: <a href="%{resource_path}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_path}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} -k sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
+          delete: "%{user_name} -k ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          import: "%{user_name} -k %{imported_count} errolda-erregistroak inportatu ditu"
+          update: "%{user_name} -k eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'
@@ -160,30 +168,62 @@ eu:
         start_exploring: Hasi esploratzen
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Ziur zaude erroldako datuen erregistro hau ezabatu nahi duzula?
+            destroy: Suntsitu
+            edit: Editatu
           census:
-            create:
+            create_import:
               error: Arazo bat izan da erroldak inportatzean.
-              success: Zuzen inportatutako %{count} itemak (%{errors} errors).
-            destroy_all:
-              success: Erroldako datu guztiak ezabatu dira.
-          destroy:
-            confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-            title: Ezabatu erroldako datu guztiak
+              no_user: Ez da aurkitu parte-hartzailea
+              success: Zuzen inportatu dira %{count} elementu. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
+            destroy:
+              success: Errolda-datuen erregistroa ezabatu da.
+            index:
+              empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV fitxategi bat.
+              no_sign_in: Saioa inoiz ez hasia
+              no_user: Ez da aurkitu parte-hartzailerik
+            last_login:
+              no_sign_in: Inoiz ez sinatua
+              no_user: Parte-hartzailerik gabe
+            new_import:
+              errors:
+                email_exists: '%{email} helbide elektronikoa badago %{organization} elkartean.'
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'CSV formatudun fitxategia izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
+              submit: Igo fitxategia
+              title: Inportatu errolda-datuak
+              upload_new_census: Igo beste errolda bat
+          census_records:
+            create_record:
+              success: Datuen erregistroa zuzen erantsita. Datuak prozesatzen ari gara. Eguneratu orrialdea minutu batzuetan aldaketak ikusteko.
+            edit_record:
+              save: Gorde
+              title: Editatu errolda-erregistroa
+            form:
+              email: Helbide elektronkoa
+            new_record:
+              save: Gorde
+              title: Gehitu beste errolda-erregistro bat
+            update_record:
+              invalid: Arazo bat egon da errolda-datuen erregistroa eguneratzean.
+              success: Zuzen eguneratu da errolda-datuen erregistroa.
           index:
-            data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
-            empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
+            add_new_record_button: Erantsi beste erregistro bat
+            authorized: Parte-hartzailea baimendua
+            fields:
+              actions: Ekintzak
+              created_at: Noiz sortua
+              email: Helbide elektronkoa
+              user_authorized: Parte-hartzailea baimendua?
+            import_csv: Inportatu CSV
+            no_authorized: Parte-hartzailea ez baimendua
             title: Erroldako oraingo datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
             title: CSV errolda aktibatu behar duzu erakunde honetarako
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
-            submit: Igo fitxategia
-            title: Igo beste errolda bat
         authorizations:
           new:
             error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
@@ -196,6 +236,10 @@ eu:
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Hurrengo helbide elektronikoak ez dira baliozkoak: %{invalid_emails}.'
+        no_emails: Fitxategiak helbide elektronikoak eduki behar ditu
+        wrong_number_columns: "%{expected} zutabe espero zen, baina %{actual} aurkitu zuten."
       id_documents:
         admin:
           config:

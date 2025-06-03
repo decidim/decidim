@@ -92,10 +92,8 @@ zh-CN:
           email_subject: 分配给"%{resource_title}"会议的时间段超过 %{percentage}%
           notification_title: 分配给 <a href="%{resource_path}">%{resource_title}次</a> 次会议的时间段超过 %{percentage}%。
         meeting_updated:
-          email_intro: '"%{resource_title}"会议已更新。您可以从其页面读取新版本：'
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '“%{resource_title}”会议已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会议已更新。
         registration_code_validated:
           email_intro: 您的注册码%{registration_code}"%{resource_title}"会议的注册码已被验证。
           email_outro: 您收到此通知是因为您的“%{resource_title}”会议的注册码已被验证。
@@ -106,11 +104,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '"%{resource_title}"会议已启用注册。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话已启用注册。
-        upcoming_meeting:
-          email_intro: '"%{resource_title}"会议将在不到48小时内开始。'
-          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
-          email_subject: '"%{resource_title}"会议将在不到48小时内开始。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话将在不到48小时内开始。
     gamification:
       badges:
         attended_meetings:
@@ -209,8 +202,6 @@ zh-CN:
         registrations:
           edit:
             save: 保存
-            validate: Validate
-            validate_registration_code: 验证注册码
           form:
             available_slots_help: 如果您有无限空位可用，则将其留给0。
             invites: 邀请
@@ -223,9 +214,6 @@ zh-CN:
           update:
             invalid: 保存注册设置时出现问题。
             success: 会议注册设置保存成功。
-          validate_registration_code:
-            invalid: 此注册码无效。
-            success: 注册码已成功验证。
       admin_log:
         invite:
           create: "%{user_name} 邀請了 %{attendee_name} 在 %{space_name} 空间加入 %{resource_name} 次会议"
@@ -299,7 +287,6 @@ zh-CN:
           meeting_minutes: 会议分钟
           no_slots_available: 无可用槽位
           organizations: B. 参加组织
-          registration_code_help_text: 您的注册码
           registration_state:
             validated: 有效的
             validation_pending: VALIDATED
@@ -332,7 +319,6 @@ zh-CN:
         confirmation:
           confirmed_html: 您注册的会议 <a href="%{url}">%{title}</a> 已被确认。
           details: 您将在附件中找到会议的详细信息。
-          registration_code: 您的注册码是 %{code}。
       registrations:
         create:
           invalid: 加入本次会议时出现问题。
@@ -345,11 +331,6 @@ zh-CN:
       types:
         private_meeting: 非公开会议
         transparent: 透明的
-    metrics:
-      meetings:
-        description: 创建的会议数
-        object: 会议
-        title: 会议
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 过去的会议

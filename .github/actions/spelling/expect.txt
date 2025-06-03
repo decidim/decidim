@@ -60,6 +60,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -152,6 +153,8 @@ commentvotes
 conferenceinvites
 conferenceregistrations
 confirmada
+confirmado
+confirmat
 Consolas
 constantized
 contingut
@@ -262,7 +265,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -366,6 +369,7 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
 Gruhier
@@ -576,6 +580,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -601,6 +606,8 @@ newwindow
 ngrams
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
@@ -613,6 +620,7 @@ nodistro
 nodoc
 nok
 nomargin
+nombre
 nominatim
 noopen
 nopadding
@@ -763,6 +771,8 @@ reddit
 refactorings
 regexes
 regexps
+registrado
+registrat
 reivindicate
 relogin
 remindable
@@ -784,6 +794,8 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
@@ -852,6 +864,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby
@@ -957,8 +970,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls
@@ -988,6 +1001,7 @@ uploaders
 upvoted
 upvotes
 upvoting
+usuarias
 usecase
 usename
 usergroup
@@ -1016,6 +1030,7 @@ vkontakte
 vml
 vnd
 voner
+vostre
 votar
 votings
 VPAGQ

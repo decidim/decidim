@@ -92,7 +92,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :Endorsable, "decidim/endorsable"
+  autoload :Likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
@@ -126,6 +126,12 @@ module Decidim
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
   autoload :OAuth, "decidim/oauth"
+  autoload :PdfSignatureExample, "decidim/pdf_signature_example"
+  autoload :HasWorkflows, "decidim/has_workflows"
+  autoload :StatsFollowersCount, "decidim/stats_followers_count"
+  autoload :StatsParticipantsCount, "decidim/stats_participants_count"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -165,7 +171,7 @@ module Decidim
 
     seed_gamification_badges!
 
-    seed_endorsements!
+    seed_likes!
 
     I18n.available_locales = original_locale
   end
@@ -195,15 +201,15 @@ module Decidim
     end
   end
 
-  def self.seed_endorsements!
+  def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
-                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+                             .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
       resource_type.constantize.find_each do |resource|
-        # exclude the users that already endorsed
-        users = resource.endorsements.map(&:author)
+        # exclude the users that already liked
+        users = resource.likes.map(&:author)
         remaining_count = Decidim::User.count - users.count
         next if remaining_count < 1
 
@@ -211,7 +217,7 @@ module Decidim
           user = (Decidim::User.all - users).sample
           next unless user
 
-          Decidim::Endorsement.create!(resource:, author: user)
+          Decidim::Like.create!(resource:, author: user)
           users << user
         end
       end
@@ -230,20 +236,48 @@ module Decidim
   end
 
   # Exposes a configuration option: The application name String.
-  config_accessor :application_name
+  config_accessor :application_name do
+    config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
+  end
 
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
-  config_accessor :mailer_sender
+  config_accessor :mailer_sender do
+    Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
+  end
 
   # Whether SSL should be forced or not.
   config_accessor :force_ssl do
-    Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
+    if Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
+      Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
+    else
+      Decidim::Env.new("DECIDIM_FORCE_SSL").present?
+    end
+  end
+
+  # CDN host configuration
+  config_accessor :storage_cdn_host do
+    Decidim::Env.new("STORAGE_CDN_HOST", nil).to_s
+  end
+
+  # Which storage provider is going to be used for the application, provides support for the most popular options.
+  config_accessor :storage_provider do
+    Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+  end
+
+  # VAPID public key that will be used to sign the Push API requests.
+  config_accessor :vapid_public_key do
+    Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+  end
+
+  # VAPID private key that will be used to sign the Push API requests.
+  config_accessor :vapid_private_key do
+    Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
   end
 
   # Having this on true will change the way the svg assets are being served.
   config_accessor :cors_enabled do
-    false
+    Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
   end
 
   # Exposes a configuration option: The application available locales.
@@ -253,12 +287,12 @@ module Decidim
 
   # Exposes a configuration option: The application default locale.
   config_accessor :default_locale do
-    :en
+    (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
   end
 
   # Users that have not logged in for this period of time will be deleted
   config_accessor :delete_inactive_users_after_days do
-    ENV.fetch("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+    Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
   # The minimum allowed inactivity period for deleting participants.
@@ -290,7 +324,7 @@ module Decidim
   # For more details https://github.com/rails/rails/issues/39643
   # Additional context: This has been revealed as an issue during a security audit on Future of Europe installation
   config_accessor :allow_open_redirects do
-    false
+    Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -350,52 +384,60 @@ module Decidim
 
   # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
-    []
+    Decidim::Env.new("DECIDIM_SYSTEM_ACCESSLIST_IPS").to_array
   end
 
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
-    "€"
+    if Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").present?
+      Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
+    else
+      "€"
+    end
   end
 
   # Exposes a configuration option: The image uploader quality.
   config_accessor :image_uploader_quality do
-    80
+    Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
   end
 
   # The number of reports which a resource can receive before hiding it
   config_accessor :max_reports_before_hiding do
-    3
+    Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
   end
 
   # Allow organization's administrators to inject custom HTML into the frontend
   config_accessor :enable_html_header_snippets do
-    true
+    Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
   end
 
   # Allow organization's administrators to track newsletter links
   config_accessor :track_newsletter_links do
-    true
+    if Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
+      true
+    else
+      Decidim.force_ssl
+    end
   end
 
   # Time that download your data files are available in server
   config_accessor :download_your_data_expiry_time do
-    7.days
+    Decidim::Env.new("DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME", "7").to_i.days
   end
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
-    100
+    Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
   end
 
   # Time window in which the throttling is applied.
   config_accessor :throttling_period do
-    1.minute
+    Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
   end
 
   # Time window were users can access the website even if their email is not confirmed.
   config_accessor :unconfirmed_access_for do
-    0.days
+    Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
   end
 
   # Allow machine translations
@@ -406,7 +448,7 @@ module Decidim
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.
   config_accessor :expire_session_after do
-    30.minutes
+    Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
   end
 
   # Defines how long the OAuth access tokens and API access tokens are valid.
@@ -418,12 +460,16 @@ module Decidim
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
-    true
+    if Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
+      true
+    else
+      Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
+    end
   end
 
   # Defines how often session_timeouter.js checks time between current moment and last request
   config_accessor :session_timeout_interval do
-    10.seconds
+    Decidim::Env.new("DECIDIM_SESSION_TIMEOUT_INTERVAL", "10").to_i.seconds
   end
 
   # Exposes a configuration option: an object to configure Etherpad
@@ -440,7 +486,7 @@ module Decidim
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
   config_accessor :base_uploads_path do
-    nil
+    Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_s if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
   end
 
   # The name of the class to deliver SMS codes to users.
@@ -471,21 +517,29 @@ module Decidim
     # "MyTranslationService"
   end
 
+  config_accessor :maximum_attachment_size do
+    Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i
+  end
+
+  config_accessor :maximum_avatar_size do
+    Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i
+  end
+
   # Social Networking services used for social sharing
   config_accessor :social_share_services do
-    %w(X Facebook WhatsApp Telegram)
+    Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array
   end
 
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
-    ";"
+    Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_s
   end
 
   # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
   config_accessor :follow_http_x_forwarded_host do
-    false
+    Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
   end
 
   # The list of roles a user can have, not considering the space-specific roles.
@@ -507,13 +561,13 @@ module Decidim
   # Exposes a configuration option: The maximum length for conversation
   # messages.
   config_accessor :maximum_conversation_message_length do
-    1_000
+    Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
   end
 
   # Defines the name of the cookie used to check if the user has given consent
   # to store local data in their browser.
   config_accessor :consent_cookie_name do
-    "decidim-consent"
+    Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
   end
 
   # Defines data consent categories. Note that when adding an item you need to
@@ -559,57 +613,57 @@ module Decidim
 
   # Denied passwords. Array may contain strings and regex entries.
   config_accessor :denied_passwords do
-    []
+    Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
   end
 
   # Ignores strings similar to email / domain on password validation if too short
   config_accessor :password_similarity_length do
-    4
+    Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
   end
 
   # Defines if admins are required to have stronger passwords than other users
   config_accessor :admin_password_strong do
-    true
+    Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_STRONG", true).present?
   end
 
   config_accessor :admin_password_expiration_days do
-    90
+    Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", 90).to_i
   end
 
   config_accessor :admin_password_min_length do
-    15
+    Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
   end
 
   config_accessor :admin_password_repetition_times do
-    5
+    Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
   end
 
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
-    "/"
+    Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
   end
 
   # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
   # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
   config_accessor :cache_expiry_time do
-    24.hours
+    Decidim::Env.new("DECIDIM_CACHE_EXPIRATION_TIME", "1440").to_i.minutes
   end
 
   # Same as before, but specifically for cell displaying stats
   config_accessor :stats_cache_expiry_time do
-    10.minutes
+    Decidim::Env.new("DECIDIM_STATS_CACHE_EXPIRATION_TIME", 10).to_i.minutes
   end
 
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
-    Rails.env.exclude?("development")
+    Decidim::Env.new("DECIDIM_SERVICE_WORKER_ENABLED", Rails.env.exclude?("development")).present?
   end
 
   # List of static pages' slugs that can include content blocks
   config_accessor :page_blocks do
-    %w(terms-of-service)
+    Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
   end
 
   # The default max last activity users to be shown
@@ -624,6 +678,33 @@ module Decidim
     {}
   end
 
+  config_accessor :omniauth_providers do
+    {
+      developer: {
+        enabled: Rails.env.local?,
+        icon: "phone-line"
+      },
+      facebook: {
+        enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
+        app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil),
+        app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+        icon_path: "media/images/facebook.svg"
+      },
+      twitter: {
+        enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
+        api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil),
+        api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil),
+        icon_path: "media/images/twitter-x.svg"
+      },
+      google_oauth2: {
+        enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
+        icon_path: "media/images/google.svg",
+        client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
+        client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
+      }
+    }
+  end
+
   CoreDataManifest = Data.define(:name, :collection, :serializer, :include_in_open_data)
 
   def self.open_data_manifests
@@ -631,8 +712,8 @@ module Decidim
       CoreDataManifest.new(
         name: :moderated_users,
         collection: lambda { |organization|
-                      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
-                    },
+          Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
+        },
         serializer: Decidim::Exporters::OpenDataBlockedUserSerializer,
         include_in_open_data: true
       ),

@@ -95,7 +95,6 @@ ar:
           ok: حسنا
         budget_summary:
           are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
-          cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
             title: اكتمال التصويت في الميزانية
         count:
@@ -132,7 +131,5 @@ ar:
             show_votes: إظهار الأصوات
             votes_choices:
               enabled: تم تمكين التصويت
-    statistics:
-      projects_count: المشاريع
   index:
     confirmed_orders_count: عدد الأصوات

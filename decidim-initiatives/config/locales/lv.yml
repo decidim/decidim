@@ -2,7 +2,6 @@ lv:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autors
         description: Apraksts
         offline_votes: Klātienes paraksti
         scope_id: Darbības tvērums
@@ -24,7 +23,6 @@ lv:
         collect_user_extra_fields: Vākt dalībnieka personas datus ar parakstu
         custom_signature_end_date_enabled: Ļaut autoriem izvēlēties parakstu vākšanas perioda beigas
         description: Apraksts
-        document_number_authorization_handler: Autorizācija, lai verificētu dokumenta numuru parakstos
         extra_fields_legal_information: Juridiska informācija par personas datu vākšanu
         minimum_committee_members: Minimālais skaits komisijas locekļu
         online_signature_enabled: Tiešsaistes paraksts ir iespējots
@@ -255,26 +253,12 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: '%{author_nickname} ir jauna iniciatīva'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> izveidoja iniciatīvu <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kam jūs sekojat, ir atbalstījis šo iniciatīvu, iespējams, jūs vēlaties iesaistīties sarunā par to:"
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Iniciatīvu atbalstīja %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīvu atbalstīja <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Turpināt
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas
-        sms_code:
-          continue: Pārbaudīt kodu un turpināt
-          help: Pārbaudiet tālrunī saņemto SMS
-        sms_phone_number:
-          continue: Sūtīt man SMS
       initiative_votes:
         create:
           error: Iniciatīvas parakstīšanas laikā radās problēma
-        personal_data:
-          invalid: Personas dati neatbilst autorizējoties sniegtajiem datiem.
         sms_phone:
           invalid: Tālruņa numurs nav derīgs vai gaida autorizāciju. Lūdzu, pārbaudiet savas autorizācijas.
       initiatives:
@@ -350,18 +334,11 @@ lv:
       initiatives_type:
         actions:
           title: Darbības
-          vote: Parakstīt
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Izveidot
         select_initiative_type: Izvēlēties
-      initiative_signature_creation_header:
-        fill_personal_data: Pabeidziet ierakstīt savus datus
-        finish: Pabeigt
-        sms_code: SMS koda verifikācija
-        sms_phone_number: Mobilā tālruņa numurs
-        title: Parakstīt %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Pagaidām nav iniciatīvu!

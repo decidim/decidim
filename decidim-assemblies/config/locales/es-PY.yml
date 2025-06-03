@@ -376,11 +376,6 @@ es-PY:
           not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
-    metrics:
-      assemblies:
-        description: Número de ensamblajes creados
-        object: asambleas
-        title: Asambleas
     open_data:
       help:
         assemblies:
@@ -435,6 +430,7 @@ es-PY:
         related_assemblies: Asambleas relacionadas
     statistics:
       assemblies_count: Asambleas
+      assemblies_count_tooltip: El número de asambleas públicas donde se toman las decisiones colectivas.
   layouts:
     decidim:
       assemblies:

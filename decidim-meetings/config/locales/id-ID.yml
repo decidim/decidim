@@ -88,10 +88,8 @@ id:
           email_subject: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%
           notification_title: Slot pertemuan <a href="%{resource_path}">%{resource_title}</a> diduduki lebih dari %{percentage}%.
         meeting_updated:
-          email_intro: 'Rapat "%{resource_title}" telah diperbarui. Anda dapat membaca versi baru dari halamannya:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Rapat "%{resource_title}" telah diperbarui
-          notification_title: Rapat <a href="%{resource_path}">%{resource_title}</a> telah diperbarui.
         registration_code_validated:
           email_intro: Kode registrasi Anda "%{registration_code}" untuk rapat "%{resource_title}" telah divalidasi.
           email_outro: Anda telah menerima pemberitahuan ini karena kode pendaftaran Anda untuk rapat "%{resource_title}" telah divalidasi.
@@ -102,11 +100,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Rapat "%{resource_title}" telah memungkinkan pendaftaran.
           notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> telah memungkinkan pendaftaran.
-        upcoming_meeting:
-          email_intro: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-          email_subject: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
-          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> akan dimulai dalam waktu kurang dari 48 jam.
     gamification:
       badges:
         attended_meetings:
@@ -199,8 +192,6 @@ id:
         registrations:
           edit:
             save: Menyimpan
-            validate: Mengesahkan
-            validate_registration_code: Validasikan kode registrasi
           form:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             invites: Undangan
@@ -211,9 +202,6 @@ id:
           update:
             invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
             success: Pengaturan pendaftaran rapat berhasil disimpan.
-          validate_registration_code:
-            invalid: Kode registrasi ini tidak valid.
-            success: Kode registrasi berhasil divalidasi.
       admin_log:
         invite:
           create: "%{user_name} diundang %{attendee_name} untuk bergabung dengan %{resource_name} pertemuan di %{space_name} ruang"
@@ -261,7 +249,6 @@ id:
           meeting_minutes: Risalah Pertemuan
           no_slots_available: Tidak ada slot yang tersedia
           organizations: Menghadiri organisasi
-          registration_code_help_text: Kode registrasi Anda
           registration_state:
             validated: DIvalidasi
             validation_pending: MENUNGGU VALIDASI
@@ -290,7 +277,6 @@ id:
         confirmation:
           confirmed_html: Pendaftaran Anda untuk pertemuan <a href="%{url}">%{title}</a> telah dikonfirmasi.
           details: Anda akan menemukan rincian rapat dalam lampiran.
-          registration_code: Kode registrasi Anda adalah %{code}.
       registrations:
         create:
           invalid: Ada masalah saat bergabung dengan rapat ini.
@@ -303,11 +289,6 @@ id:
       types:
         private_meeting: Pertemuan pribadi
         transparent: Transparan
-    metrics:
-      meetings:
-        description: Jumlah pertemuan yang dibuat
-        object: pertemuan
-        title: Rapat
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Pertemuan sebelumnya

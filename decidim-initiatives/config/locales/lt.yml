@@ -6,7 +6,6 @@ lt:
         answer_url: Atsakymo nuoroda
         area_id: Aplinka
         decidim_scope_id: Sritis
-        decidim_user_group_id: Autorė(-ius)
         description: Aprašymas
         hashtag: Grotažymė
         offline_votes: Fiziniai parašai
@@ -35,7 +34,6 @@ lt:
         comments_enabled: Įjungti komentarus
         custom_signature_end_date_enabled: Suteikti autoriams galimybę pasirinkti parašų rinkimo periodo pabaigą
         description: Aprašymas
-        document_number_authorization_handler: Leidimas tikrinti dokumento numerį gavus parašą
         extra_fields_legal_information: Teisinė informacija apie asmens duomenų rinkimą
         minimum_committee_members: Mažiausias komiteto narių skaičius
         online_signature_enabled: Pasirašymas internetu įjungtas
@@ -286,7 +284,6 @@ lt:
           edit:
             update: Atnaujinti
           form:
-            authorizations: Autorizacijos nustatymai
             options: Variantai
           initiative_type_scopes:
             title: Iniciatyvos rūšies sritys
@@ -373,11 +370,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
           email_subject: Nauja %{author_nickname} iniciatyva
           notification_title: Iniciatyvą <a href="%{resource_path}">%{resource_title}</a> sukūrė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kurį sekate, pritarė šiai iniciatyvai. Jei norėtumėte įsitraukti į pokalbį:"
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
-          email_subject: Iniciatyvai pritaria %{author_nickname}
-          notification_title: Iniciatyvai <a href="%{resource_path}">%{resource_title}</a> pritarė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} atmetė Jūsų aplikaciją tapti remėjų komiteto nariu %{resource_title} iniciatyvai."
           email_outro: 'Ši pranešimą gavote nes aplikavote į iniciatyvą: %{resource_title}.'
@@ -396,23 +388,14 @@ lt:
         uninitialized: Iniciatyvos dar nesukonfiguruotos.
       initiative_signatures:
         fill_personal_data:
-          continue: Tęsti
           help: Kad pasirašytumėte iniciatyvą, įrašykite savo asmens duomenis toliau nurodomuose laukeliuose.
         finish:
           back_to_initiative: Grįžti į iniciatyvą
-        sms_code:
-          continue: Patikrinkite kodą ir tęskite
-          help: Pasitikrinkite telefone gautą SMS žinutę
-        sms_phone_number:
-          continue: Atsisiųsti SMS
-          help: Užpildykite formą su patikrintu telefono numeriu tam, kad gautumėte patvirtinimo kodą.
       initiative_votes:
         create:
           error: Pasirašant iniciatyvą kilo problema.
           invalid: Iniciatyvai pasirašyti pateikti duomenys - neteisingi.
           success_html: Sveikiname! Iniciatyva <strong> %{title}</strong> pasirašyta.
-        personal_data:
-          invalid: Asmens duomenys neatitinka leidimui gauti pateiktų duomenų.
         sms_code:
           invalid: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
         sms_phone:
@@ -556,18 +539,11 @@ lt:
       initiatives_type:
         actions:
           title: Veiksmai
-          vote: Pasirašyti
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Sukurti
         select_initiative_type: Pasirinkti
-      initiative_signature_creation_header:
-        fill_personal_data: Užpildyti savo duomenis
-        finish: Baigti
-        sms_code: SMS kodo tikrinimas
-        sms_phone_number: Mobilaus telefono numeris
-        title: Pasirašyti %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Dar nėra iniciatyvų!

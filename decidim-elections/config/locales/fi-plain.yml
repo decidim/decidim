@@ -1,0 +1,31 @@
+fi-pl:
+  decidim:
+    components:
+      elections:
+        name: Vaalit
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            announcement: Ilmoitus
+    elections:
+      actions:
+        title: Toiminnot
+      admin:
+        elections:
+          edit:
+            title: Muokkaa vaalia
+            update: Päivitä vaali
+          form:
+            add_images: Lisää kuvia
+          index:
+            title: Vaalit
+          new:
+            create: Luo vaali
+            title: Uusi vaali
+      models:
+        election:
+          fields:
+            title: Otsikko
+    statistics:
+      elections_count: Vaalia

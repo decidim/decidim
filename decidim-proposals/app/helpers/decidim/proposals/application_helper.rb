@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
-      include ::Decidim::EndorsableHelper
+      include ::Decidim::LikeableHelper
       include ::Decidim::FollowableHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
@@ -16,8 +16,6 @@ module Decidim
       include ControlVersionHelper
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
-
-      delegate :minimum_votes_per_user, to: :component_settings
 
       # Public: The state of a proposal in a way a human can understand.
       #
@@ -85,10 +83,6 @@ module Decidim
         proposal_limit.present?
       end
 
-      def minimum_votes_per_user_enabled?
-        minimum_votes_per_user.positive?
-      end
-
       def not_from_collaborative_draft(proposal)
         proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
       end
@@ -136,13 +130,6 @@ module Decidim
         return if component_settings.proposal_limit.zero?
 
         component_settings.proposal_limit
-      end
-
-      def votes_given
-        @votes_given ||= ProposalVote.where(
-          proposal: Proposal.where(component: current_component),
-          author: current_user
-        ).count
       end
 
       def layout_item_classes

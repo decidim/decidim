@@ -30,8 +30,6 @@ sr:
       organization:
         alert_color: Upozorеnjе
         badges_enabled: Omogući značke
-        cta_button_path: Put dugmeta poziva na akciju
-        cta_button_text: Tekst dugmeta poziva na akciju
         customize_welcome_notification: Prilagodi obaveštenje dobrodošlice
         default_locale: Podrazumevana vrednost
         description: Opis
@@ -303,9 +301,6 @@ sr:
         settings: Podešavanja
         static_pages: Stranice
         users: Učesnici
-      metrics:
-        metrics:
-          see_more_metrics: Prikaži više metrika
       models:
         area:
           fields:
@@ -466,18 +461,10 @@ sr:
       organization_appearance:
         edit:
           update: Ažuriraj
-        form:
-          homepage_appearance_title: Promeni izgled početne stranice
-          images:
-            preview: Pregled
-          omnipresent_banner_appearance_title: Izmeni sveprisutni baner
       shared:
         gallery:
           add_images: Dodaj slike
           gallery_legend: Dodaj galeriju slika (opciono)
-      titles:
-        metrics: Metrika
-        statistics: Aktivnost
       users_statistics:
         users_count:
           last_day: Poslednji dan

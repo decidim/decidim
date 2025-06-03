@@ -20,7 +20,7 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include ::Decidim::Endorsable
+      include ::Decidim::Likeable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
@@ -44,10 +44,6 @@ module Decidim
 
       def presenter
         Decidim::Dev::DummyResourcePresenter.new(self)
-      end
-
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       def reported_attributes

@@ -157,6 +157,7 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
         user:
           fields:
@@ -348,11 +349,6 @@ cs:
           not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
-    metrics:
-      participatory_processes:
-        description: Počet participativních procesů v této organizaci
-        object: participativní procesy
-        title: Participativní procesy
     open_data:
       help:
         participatory_processes:
@@ -415,6 +411,8 @@ cs:
             few: "%{count} procesy"
             many: "%{count} procesů"
             other: "%{count} procesy"
+      related_processes:
+        help: Všechny vybrané procesy budou přiřazeny k této skupině, včetně těch, které jsou již přiřazeny do jiných skupin.
       show:
         title: Skupiny účastnických procesů
     participatory_process_steps:
@@ -480,9 +478,6 @@ cs:
           highlighted_processes:
             active_spaces: Aktivní procesy
             see_all_spaces: Zobrazit všechny procesy
-      participatory_process_steps:
-        index:
-          back_to_process: Zpět na stránku procesu
       participatory_processes:
         description:
           area_name: Oblast
@@ -541,6 +536,7 @@ cs:
         related_processes: Související procesy
     statistics:
       processes_count: Procesy
+      processes_count_tooltip: Počet veřejně přístupných participačních procesů.
   layouts:
     decidim:
       participatory_process_groups:

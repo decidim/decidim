@@ -197,6 +197,7 @@ ja:
           roles:
             admin: 管理者
             collaborator: コラボレーター
+            evaluator: 評価者
             moderator: モデレーター
       taxonomy_filters:
         space_filter_for:
@@ -372,11 +373,6 @@ ja:
           not_found: '参加スペース種別がデータベース上に見つかりませんでした (ID: %{id})'
     menu:
       assemblies: 参加スペース
-    metrics:
-      assemblies:
-        description: 作成された参加スペース数
-        object: 参加スペース
-        title: 参加スペース
     open_data:
       help:
         assemblies:
@@ -431,6 +427,7 @@ ja:
         related_assemblies: 関連する参加スペース
     statistics:
       assemblies_count: 参加スペース
+      assemblies_count_tooltip: 集団的な意思決定が行われた公開参加スペースの数です。
   layouts:
     decidim:
       assemblies:

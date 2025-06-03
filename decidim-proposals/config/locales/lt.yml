@@ -60,7 +60,6 @@ lt:
               not_official: Nėra oficialūs
     models:
       decidim/proposals/creation_enabled_event: Pasiūlymo sukūrimas aktyvintas
-      decidim/proposals/endorsing_enabled_event: Parama pasiūlymui aktyvinta
       decidim/proposals/proposal_mentioned_event: Pasiūlymas paminėtas
       decidim/proposals/publish_proposal_event: Pasiūlymas paskelbtas
       decidim/proposals/voting_enabled_event: Balsavimas už pasiūlymą aktyvintas
@@ -112,7 +111,6 @@ lt:
         actions:
           amend: Pakeisti
           comment: Komentuoti
-          endorse: Palaikyti
           vote_comment: Balsuoti už komentarą
           withdraw: Atsiimti
         name: Pasiūlymai
@@ -129,7 +127,6 @@ lt:
             default_sort_order: Numatytas pasiūlymų rikiavimas
             default_sort_order_options:
               most_commented: Labiausiai komentuojamas
-              most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekė
               random: Atsitiktinai
               recent: Naujausi
@@ -171,13 +168,10 @@ lt:
             default_sort_order: Numatytasis pasiūlymų rūšiavimas
             default_sort_order_options:
               most_commented: Labiausiai komentuojamas
-              most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekamas
               random: Atsitiktinis
               recent: Naujausi
               with_more_authors: Turintys daug autorių
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
             proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             publish_answers_immediately_help_html: 'Atminkite, kad jei atsakysite į bet kurį pasiūlymą neįjungę šio funkcijos, turėsite atsakymus paskelbti rankiniu būdu, pasirinkdami ir naudodami paskelbimo veiksmą. Norėdami gauti daugiau informacijos apie tai, kaip tai veikia, aplankykite <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pasiūlymų atsakymų dokumentacijos puslapį</a >.'
@@ -222,11 +216,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Dabar su pasiūlymais galima susipažinti in %{participatory_space_title}
           notification_title: Dabar galite pateikti <a href="%{resource_path}">naujų pasiūlymų </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Galite pritarti pasiūlymams %{participatory_space_title}! Pradėkite dalyvauti šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: Pritarimas pasiūlymams %{participatory_space_title} prasidėjo
-          notification_title: Dabar galite pradėti <a href="%{resource_path}">pritarti pasiūlymams</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Jūsų pasiūlymas „%{mentioned_proposal_title}“ buvo paminėtas <a href="%{resource_url}">šioje erdvėje</a> komentaruose.
           email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
@@ -273,22 +262,8 @@ lt:
           next_level_in: Parenkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar neparengė jokių pasiūlymų.
           unearned_own: Jūs dar neparengėte jokių pasiūlymų.
-    metrics:
-      accepted_proposals:
-        description: Priimtų pasiūlymų skaičius
-        object: pasiūlymai
-        title: Priimti pasiūlymai
-      endorsements:
-        description: Pritarimų pasiūlymams skaičius
-        object: pritarimai
-        title: Pritarimai
-      proposals:
-        description: Pasiūlymų skaičius
-        object: pasiūlymai
-        title: Pasiūlymai
     participatory_spaces:
       highlighted_proposals:
-        last: Paskutiniai pasiūlymai
         see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:
@@ -400,13 +375,6 @@ lt:
             body: Pagrindinė dalis
             comments_count: Komentarų skaičius
             documents: Dokumentai
-            endorsements_count: Palaikymų skaičius
-            endorsers: Pritariantieji
-            n_more_endorsers:
-              one: ir dar vienas
-              few: ir dar %{count}
-              many: ir dar %{count} daugiau
-              other: ir dar %{count} daugiau
             photos: Nuotraukos
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
@@ -621,7 +589,6 @@ lt:
         orders:
           label: 'Rikiuoti pasiūlymus pagal:'
           most_commented: Labiausiai komentuojamas
-          most_endorsed: Labiausiai paremtas
           most_followed: Labiausiai sekamas
           random: Atsitiktinai
           recent: Naujausi
@@ -649,11 +616,6 @@ lt:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
           estimated_cost: Numatomos išlaidos
-          hidden_endorsers_count:
-            one: ir dar %{count} žmogus
-            few: ir dar %{count} žmonės (-ių)
-            many: ir dar %{count} žmonės (-ių)
-            other: ir dar %{count} žmonės (-ių)
           link_to_collaborative_draft_help_text: Šis pasiūlymas yra bendro projekto rezultatas. Peržiūrėkite istoriją
           link_to_collaborative_draft_text: Peržiūrėti bendrą projektą (juodraštį)
           link_to_promoted_emendation_help_text: Šis pasiūlymas yra remiamas pakeitimas

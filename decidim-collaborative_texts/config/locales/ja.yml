@@ -1,6 +1,146 @@
 ---
 ja:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: 本文
+          draft: 下書き
+          title: タイトル
+          version_number: バージョン番号
+        suggestion:
+          nodes: DOM nodes
+          original: 元のテキスト
+          replace: 置き換え
+        version:
+          body: 本文
+          draft: 下書き
+          version_number: バージョン番号
   decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: このドキュメントを削除してもよろしいですか？
+        deleted_document_info: 削除されたドキュメントはゴミ箱から復元できます。
+        edit: 編集
+        manage: 管理
+        new: 新しいテキスト
+        title: アクション
+        view_deleted_documents: 削除されたドキュメントを表示
+      admin:
+        documents:
+          create:
+            invalid: ドキュメント作成中に問題が発生しました。
+            success: ドキュメントを作成しました。
+          draft_options:
+            accepting_suggestions: 次のバージョンで提案機能を有効にする
+            accepting_suggestions_help: 提案機能を有効にすると、このドキュメントの新しい提案ラウンドが開始されます。現在の提案は新しいバージョンでは表示されなくなります。
+            draft: 下書きバージョン
+            draft_help_html: 下書きバージョンは公開されておらず、管理者のみが編集できます。下書きの状態を解除すると、このコンテンツが公開バージョンになります。 <strong>なお、下書きバージョンが有効な間は、参加者には以前のバージョンが表示され、提案を行うことはできません。</strong>
+          edit:
+            document_has_suggestions_html: <a href="%{url}">このドキュメントには提案があります</a>。そのため、直接編集することはできません。編集可能な新しい下書きバージョンを作成するには、提案を承認または却下してください。
+            draft: 下書きバージョン
+            previous_versions: 以前のバージョン
+            public_version: 公開バージョン
+            title: コラボレーションテキストを編集
+            update: 更新
+            version: '%{version_number}で作成されたバージョン %{created_at} は %{suggestions_count} の提案を得ました。'
+          edit_settings:
+            title: コラボレーションテキストを設定する
+            update: 更新
+          index:
+            title: コラボレーションテキスト
+          manage_trash:
+            title: 削除されたドキュメント
+          new:
+            create: 作成
+            title: コラボレーションテキストを作成
+          non_draft_options:
+            create_draft: 提案を破棄して、新しい下書きバージョンを作成する
+            draft_help_html: 下書きバージョンは公開されておらず、管理者のみが編集できます。下書きの状態を解除すると、このコンテンツが公開バージョンになります。 <strong>なお、下書きバージョンが有効な間は、参加者には以前のバージョンが表示され、提案を行うことはできません。</strong>
+            enable_suggestions: 提案を有効にする
+            enable_suggestions_help: 提案機能を有効にすると、参加者がこのバージョンに対して提案を行えるようになります。
+          publish:
+            invalid: このドキュメントの公開中に問題が発生しました。
+            success: ドキュメントを公開しました。
+          unpublish:
+            invalid: この文書を非公開にする際に問題が発生しました。
+            success: ドキュメントを非公開にしました。
+          update:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+          update_settings:
+            invalid: ドキュメントの更新中に問題が発生しました。
+            success: ドキュメントを更新しました。
+      admin_log:
+        document:
+          create: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを作成しました"
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコラボレーションテキストを削除しました"
+          publish: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを公開しました"
+          restore: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを復元しました"
+          soft_delete: "%{user_name}が%{space_name}の%{resource_name}のコラボレーションテキストをゴミ箱に移動しました"
+          unpublish: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを非公開にしました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを更新しました"
+        suggestion:
+          create: "%{user_name} が、%{space_name} 内の %{resource_name} コラボレーションテキストの変更を提案しました"
+        version:
+          delete: "%{user_name}が%{space_name}から%{resource_name}のコラボレーションテキストバージョンを削除しました"
+          update: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストバージョンを更新しました"
+      document:
+        apply: 適用
+        cancel: キャンセル
+        consolidate:
+          confirm: この操作は、すべての承認された提案を新しいバージョンのドキュメントに統合します。未承認の提案は、さらに確認するために新しいバージョンへ引き継がれます。この操作を行っても、提案機能の有効状態は維持されます。
+          new: 承認済みの提案を統合
+        consolidate_counter: 統合を実行すると、%{applied} 件の適用済み提案がマージされ、%{pending} 件の未処理の提案は新しいバージョンに引き継がれます。
+        controls_label: 提案コントロール
+        draft_counter: 下書きには、%{applied} 件の適用済み提案が反映され、%{pending} 件の未処理の提案は破棄されます。
+        index: インデックス
+        restore: 復元
+        rollout:
+          confirm: この操作により、新しい下書きバージョンが作成され、最終調整のために編集ページへリダイレクトされます。現在のバージョンは引き続き公開され、提案機能は無効になります。
+          invalid: 新しいバージョンのドキュメントの作成中に問題が発生しました(%{errors})。
+          new: 新しいバージョンの下書きを作る
+        save: 変更の提案
+        status:
+          accepting_suggestions: 変更を提案するには、編集したいテキストを選択またはダブルクリックし、「変更を提案」ボタンをクリックしてください。
+          draft: このドキュメントは現在、管理者による確認中です。現在は提案を行うことはできませんが、他の参加者による提案を閲覧することはできます。
+          not_accepting_suggestions: 現在、提案は許可されていません。
+          selection_active: 選択がすでにアクティブです。新しい選択を行うには、現在の選択をキャンセルしてください。
+        suggestions_count: "%{count} 件の提案"
+        toggle: 提案の表示/非表示
+      documents:
+        index:
+          count:
+            other: "%{count} 件のコラボレーションテキスト"
+          empty: コラボレーションテキストはまだありません。
+        show:
+          contributors: コントリビューター
+      models:
+        collaborative_text:
+          fields:
+            suggestions: 提案を承認する
+            title: タイトル
+      suggestion:
+        add_html: <span class="type">追加:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">削除:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">置換:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: 提案の作成中に問題が発生しました。
+          success: 提案を作成しました。
+        errors:
+          blank_changeset: 変更セットは空白にできません。
+          invalid_nodes: 選択されたノードが無効です。
     components:
       collaborative_texts:
         name: 共同テキスト
+        settings:
+          global:
+            announcement: お知らせ
+            comments_blocked: コメントをブロック
+          step:
+            announcement: お知らせ
+    statistics:
+      all_collaborative_texts_count: すべてのコラボレーションテキスト
+      collaborative_texts_count: コラボレーションテキスト
+      collaborative_texts_count_tooltip: コラボレーションテキストの数

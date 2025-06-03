@@ -376,11 +376,6 @@ sv:
           not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Samråd
-    metrics:
-      assemblies:
-        description: Antal skapade samråd
-        object: samråd
-        title: Samråd
     open_data:
       help:
         assemblies:
@@ -435,6 +430,7 @@ sv:
         related_assemblies: Relaterade samråd
     statistics:
       assemblies_count: Samråd
+      assemblies_count_tooltip: Antal offentliga samråd.
   layouts:
     decidim:
       assemblies:

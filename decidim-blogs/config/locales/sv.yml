@@ -99,7 +99,7 @@ sv:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Gilla
+          like: Gilla
           update: Uppdatera
         name: Blogg
         settings:
@@ -111,8 +111,8 @@ sv:
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
-            endorsements_blocked: Blockera gilla-markeringar
-            endorsements_enabled: Aktivera gilla-markeringar
+            likes_blocked: Gilla är blockerat
+            likes_enabled: Gilla är aktiverat
     events:
       blogs:
         post_created:
@@ -139,9 +139,9 @@ sv:
           comments_count: Antalet kommentarer till inlägget
           component: Komponenten som inlägget tillhör
           created_at: Datum för inlägget
-          endorsements_count: Antal gilla-markeringar för inlägget
           follows_count: Antal följare för inlägget
           id: Unikt id för inlägget
+          likes_count: Antalet som gillar det här inlägget
           participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
           published_at: Publiceringsdatum för inlägget
           title: Titeln på inlägget
@@ -149,3 +149,4 @@ sv:
           url: URL för inlägget
     statistics:
       posts_count: Inlägg
+      posts_count_tooltip: Antal publicerade uppdateringar eller blogginlägg.

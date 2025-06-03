@@ -9,6 +9,9 @@ ja:
         scope_id: 対象範囲
         state: 状態
         title: タイトル
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: 評価者名
       import_participatory_text:
         document: ドキュメント
       proposal:
@@ -74,16 +77,13 @@ ja:
           attributes:
             base:
               not_official: 公式ではありません
-              voted: 投票またはオススメを受けました
         proposals_split:
           attributes:
             base:
               not_official: 公式ではありません
-              voted: 投票またはオススメを受けました
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: 提案のタクソノミーが変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
-      decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
       decidim/proposals/publish_proposal_event: 提案が公開
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
@@ -92,9 +92,9 @@ ja:
       decidim:
         proposals:
           proposal:
-            budget_text: 提案 %{link} が作成されました
+            budget_text: 提案 <span class="resource-link">%{link} が作成されました</span>
             import_from_proposal_text: 'この提案になりました： %{link}'
-            import_to_proposal_text: この提案 %{link} が作成されました
+            import_to_proposal_text: 提案 <span "resource-link">%{link} が作成されました</span>
             merge_from_proposal_text: 'この提案になりました： %{link}'
             merge_to_proposal_text: 'この提案が作成されました: %{link}'
             split_from_proposal_text: 'この提案になりました： %{link}'
@@ -114,6 +114,8 @@ ja:
           proposals: 提案
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: 評価者に割り当てられました
           is_emendation_true:
             label: タイプ
             values:
@@ -149,7 +151,6 @@ ja:
           amend: 修正
           comment: コメント
           create: 提案を作成
-          endorse: オススメする
           vote: 投票
           vote_comment: コメントに投票
           withdraw: 撤回する
@@ -172,7 +173,6 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
-              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
@@ -234,14 +234,11 @@ ja:
             default_sort_order_options:
               automatic: 自動
               most_commented: コメントの多い順
-              most_endorsed: オススメの多い順
               most_followed: フォローの多い順
               most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
@@ -258,8 +255,14 @@ ja:
         accepted_coauthorship:
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の共著者として追加されました。
         admin:
+          proposal_assigned_to_evaluator:
+            email_intro: あなたは提案「%{resource_title}」の評価者に任命されました。これは、今後数日以内にフィードバックと適切な対応を行う役割を信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>でご確認ください。
+            email_outro: 提案を評価できるため、この通知を受け取りました。
+            email_subject: あなたは提案 %{resource_title}の評価者として割り当てられています。
+            notification_title: あなたは提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
+            email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>にプライベートノートを作成しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
           proposal_note_mentioned:
@@ -319,11 +322,6 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">新しい提案</a>を出すことができます。
-        endorsing_enabled:
-          email_intro: 'あなたは %{participatory_space_title} で提案をオススメすることができます! このページへの参加を開始します:'
-          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{participatory_space_title} の推薦提案が開始されました'
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">提案を支持する</a>ことができます。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
           email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
@@ -403,23 +401,6 @@ ja:
           next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
           unearned_another: この参加者はまだ提案を作成していません．
           unearned_own: 提案はまだ作成されていません。
-    metrics:
-      accepted_proposals:
-        description: 提案数が承認されました
-        object: 提案
-        title: 承認された提案
-      endorsements:
-        description: 提案へのオススメ数
-        object: オススメ
-        title: オススメ
-      proposals:
-        description: 提案数
-        object: 提案
-        title: 提案
-      votes:
-        description: 提案への投票数
-        object: 投票
-        title: 投票
     open_data:
       help:
         proposal_comments:
@@ -447,7 +428,6 @@ ja:
           cost_report: 提案のコストのレポート
           created_at: 提案の作成日時
           created_in_meeting: 提案がミーティングで作成されたかどうか
-          endorsements: この提案のオススメ(「いいね」) の数
           execution_period: 提案の開始から終了までの期間
           follows_count: この提案のフォロワー数
           id: 提案の固有ID
@@ -471,7 +451,6 @@ ja:
           withdrawn_at: この提案が撤回された日時
     participatory_spaces:
       highlighted_proposals:
-        last: 最近の提案
         see_all: すべての提案を見る
     proposals:
       actions:
@@ -496,6 +475,13 @@ ja:
           deleted_proposals_info: 削除された提案はゴミ箱から復元することができます。
           preview: プレビュー
           view_deleted_proposals: 削除された提案を表示
+        evaluation_assignments:
+          create:
+            invalid: 評価者に提案を割り当てる際に問題が発生しました。
+            success: 評価者に提案を割り当てました。
+          delete:
+            invalid: 評価者から提案の割り当てを解除する際に問題が発生しました。
+            success: 評価者への提案の割り当てを解除しました。
         exports:
           proposal_comments: コメント
           proposals: 提案
@@ -623,6 +609,8 @@ ja:
           index:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
+            assign_to_evaluator: 評価者に割り当て
+            assign_to_evaluator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
@@ -631,11 +619,14 @@ ja:
             publish: 公開
             publish_answers: 回答を公開
             select_component: コンポーネントを選択
+            select_evaluators: 1人以上の評価者を選択してください
             selected: 選択済み
             split: 提案を分割
             split_button: 分割
             statuses: ステータス
             title: 提案
+            unassign_from_evaluator: 評価者の割り当てを解除
+            unassign_from_evaluator_button: 割り当ての解除
             update: 更新
           manage_trash:
             title: 削除された提案
@@ -647,18 +638,17 @@ ja:
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
+            assigned_evaluators: 評価者に割り当てられました
             body: 本文
             comments_count: コメント数
             documents: ドキュメント
-            endorsements_count: オススメ数
-            endorsers: オススメしている人
+            evaluators: 評価者
             link: 提案を見る
-            n_more_endorsers:
-              other: 他 %{count} 名
             photos: 写真
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
+            remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             votes_count: 投票数
           update_taxonomies:
             invalid: 'これらの提案にはすでに %{taxonomies} タクソノミーがありました: %{proposals}。'
@@ -689,6 +679,9 @@ ja:
             invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} は %{resource_name} の提案を評価者に割り当てました"
+          delete: "%{user_name} が %{proposal_title} 提案から評価者の割り当てを解除しました"
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
           create: "%{user_name} が %{resource_name} 提案を %{space_name} での %{merged_count} 件の提案をマージして作成しました"
@@ -842,6 +835,7 @@ ja:
           success: 共同執筆者の招待を取り消しました。
         create:
           error: 共同執筆者を招待する際に問題が発生しました。
+          success: "%{author_name} は共同執筆者として正常に招待されました。"
         destroy:
           error: 招待を却下するのに問題が発生しました。
           success: 招待は拒否されました。
@@ -855,6 +849,8 @@ ja:
         proposal:
           fields:
             comments: コメント
+            evaluator: 評価者
+            evaluators: 評価者
             id: ID
             notes: メモ
             official_proposal: 事務局の提案
@@ -921,10 +917,10 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
+          title: 新しい提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
-          most_endorsed: オススメの多い順
           most_followed: フォローの多い順
           most_voted: 得票数順
           random: ランダム
@@ -951,8 +947,6 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           edit_proposal: 編集
           estimated_cost: 推定コスト
-          hidden_endorsers_count:
-            other: '%{count} 人以上'
           link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
           link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
@@ -968,7 +962,7 @@ ja:
         update:
           title: 提案を更新
         vote_button:
-          already_voted: すでに投票済みです
+          already_voted: 投票済
           already_voted_hover: 投票を撤回する
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
@@ -1033,6 +1027,9 @@ ja:
         proposal_project: 'これらのプロジェクトに表示される提案'
         proposal_result: 'これらの結果に提案が表示されます:'
     statistics:
+      participatory_space_proposals_count: 提案
       proposals_accepted: 承認された提案
       proposals_count: 提案
+      proposals_count_tooltip: 提出された提案のと、それらに対して投票された総数です。
+      votes: '投票：'
       votes_count: 投票

@@ -25,7 +25,6 @@ bg:
       debates:
         actions:
           comment: Коментар
-          endorse: Одобрявам
         name: Дебати
         settings:
           global:
@@ -36,8 +35,6 @@ bg:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
             creation_enabled: Участниците могат да създават дебати
-            endorsements_blocked: Одобренията са блокирани
-            endorsements_enabled: Одобренията са активирани
     debates:
       actions:
         close: Затвори
@@ -194,10 +191,5 @@ bg:
           next_level_in: Участвайте в още %{score} дебата, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е участвал в нито един дебат.
           unearned_own: Все още не сте участвали в нито един дебат.
-    metrics:
-      debates:
-        description: Брой създадени дебати
-        object: дебати
-        title: Дебати
     statistics:
       debates_count: Дебати

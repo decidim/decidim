@@ -376,11 +376,6 @@ fr:
           not_found: 'Le type d''assemblée n''a pas été trouvé sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
-    metrics:
-      assemblies:
-        description: Nombre d'assemblées créées
-        object: assemblées
-        title: Assemblées
     open_data:
       help:
         assemblies:
@@ -396,6 +391,7 @@ fr:
         related_assemblies: Assemblées associées
     statistics:
       assemblies_count: Assemblées
+      assemblies_count_tooltip: Le nombre d'assemblées publiques où les décisions collectives sont prises.
   layouts:
     decidim:
       assemblies:

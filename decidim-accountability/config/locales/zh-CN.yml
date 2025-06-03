@@ -143,11 +143,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注"%{proposal_title}"，此建议包含在结果"%{resource_title}"中。 您可以停止接收跟随上一个链接的通知。
           email_subject: 更新到 %{resource_title} 进度
           notification_title: 结果 <a href="%{resource_path}">%{resource_title}</a>, 其中包括提议 <a href="%{proposal_path}">%{proposal_title}</a>, 现在已完成 %{progress}%。
-    metrics:
-      results:
-        description: 生成的结果数
-        object: 结果
-        title: 成果
     participatory_spaces:
       highlighted_results:
         see_all: 查看所有结果 (%{count})

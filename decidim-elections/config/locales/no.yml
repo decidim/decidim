@@ -1,0 +1,23 @@
+"no":
+  decidim:
+    components:
+      elections:
+        name: Valg
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
+    elections:
+      actions:
+        title: Handlinger
+      admin:
+        elections:
+          edit:
+            title: Rediger valg
+            update: Oppdater valg
+          index:
+            title: Valg
+          new:
+            create: Opprett valg
+            title: Nytt valg

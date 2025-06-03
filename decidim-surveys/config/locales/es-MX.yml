@@ -13,6 +13,8 @@ es-MX:
         other: Respuestas
   decidim:
     admin:
+      actions:
+        see_survey: Ver encuesta
       admin_log:
         changeset:
           surveys: Encuestas
@@ -45,13 +47,10 @@ es-MX:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-    metrics:
-      survey_responses:
-        description: Número de encuestas respondidas por las participantes
-        object: respuestas a encuestas
-        title: Respuestas a encuestas
     statistics:
+      responses: 'Respuestas:'
       responses_count: Respuestas
+      surveys_count_tooltip: El número de encuestas realizadas y de respuestas recogidas.
     surveys:
       actions:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'

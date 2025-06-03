@@ -24,7 +24,6 @@ zh-TW:
       debates:
         actions:
           comment: 留言
-          endorse: 連署
         name: 辯論
         settings:
           global:
@@ -35,8 +34,6 @@ zh-TW:
             announcement: 公告
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立辯論
-            endorsements_blocked: 連署已封鎖
-            endorsements_enabled: 連署已封鎖
     debates:
       actions:
         close: 關閉
@@ -178,10 +175,5 @@ zh-TW:
           next_level_in: 再參與 %{score} 個辯論，即可達成下一等級！
           unearned_another: 這位參與者尚未參與任何辯論。
           unearned_own: 您尚未參與任何辯論。
-    metrics:
-      debates:
-        description: 建立的辯論次數
-        object: 辯論
-        title: 辯論
     statistics:
       debates_count: 辯論

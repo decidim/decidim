@@ -1,0 +1,27 @@
+zh-CN:
+  decidim:
+    components:
+      elections:
+        name: 选举
+        settings:
+          global:
+            announcement: 通 知
+          step:
+            announcement: 通 知
+    elections:
+      actions:
+        title: 行动
+      admin:
+        elections:
+          edit:
+            title: 编辑选择
+            update: 更新选择
+          index:
+            title: 选举
+          new:
+            create: 创建选择
+            title: 新的选举
+      models:
+        election:
+          fields:
+            title: 标题

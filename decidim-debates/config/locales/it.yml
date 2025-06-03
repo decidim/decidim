@@ -25,7 +25,6 @@ it:
       debates:
         actions:
           comment: Commenta
-          endorse: Sottoscrivi
         name: Dibattiti
         settings:
           global:
@@ -36,8 +35,6 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare nuovi dibattiti
-            endorsements_blocked: Sottoscrizioni bloccate
-            endorsements_enabled: Sottoscrizioni abilitate
     debates:
       actions:
         close: Chiudi
@@ -175,10 +172,5 @@ it:
           name: Dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
-    metrics:
-      debates:
-        description: Numero di dibattiti creati
-        object: dibattiti
-        title: dibattiti
     statistics:
       debates_count: Dibattiti

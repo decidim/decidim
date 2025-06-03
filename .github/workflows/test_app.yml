@@ -41,7 +41,7 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "126.0.6478.182"
+        default: "136.0.7103.92"
         type: string
 
 jobs:
@@ -70,14 +70,6 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
-      redis:
-        image: redis
-        ports: ["6379:6379"]
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
       - uses: actions/checkout@v4
         with:
@@ -123,6 +115,7 @@ jobs:
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
           DISPLAY: ":99"
           CI: "true"
+          FAST_SEEDS: "true"
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"

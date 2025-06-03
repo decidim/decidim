@@ -120,7 +120,6 @@ pt:
             title: Projectos máximos excedidos
         budget_summary:
           are_you_sure: Tem a certeza de que deseja cancelar o seu voto?
-          cancel_order: elimine o seu voto e comece de novo
           checked_out:
             title: Votação do orçamento concluída
         count:
@@ -205,6 +204,5 @@ pt:
         project_proposal: Propostas incluídas neste projecto
     statistics:
       orders_count: Suportes
-      projects_count: Projectos
   index:
     confirmed_orders_count: Contagem de votos

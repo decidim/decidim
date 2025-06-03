@@ -30,7 +30,6 @@ es:
         actions:
           comment: Comentar
           create: Crear un debate
-          endorse: Adherirse
         name: Debates
         settings:
           global:
@@ -47,8 +46,6 @@ es:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear debates
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
     debates:
       actions:
         close: Cerrar
@@ -236,11 +233,6 @@ es:
           next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha participado en ningún debate.
           unearned_own: Aún no has participado en ningún debate.
-    metrics:
-      debates:
-        description: Número de debates creados
-        object: debates
-        title: Debates
     open_data:
       help:
         debate_comments:
@@ -264,7 +256,6 @@ es:
           created_at: La fecha y hora en que se creó este debate
           description: La descripción del debate
           end_time: Cuando terminaba este debate, si era un debate abierto o tenía un tiempo limitado para participar.
-          endorsements_count: El número de adhesiones que tiene este debate
           follows_count: El número de seguidoras que tiene este debate
           id: El identificador único del debate
           information_updates: Las actualizaciones de contenido del debate que hizo la autora
@@ -280,3 +271,4 @@ es:
           url: La URL donde se puede encontrar este debate
     statistics:
       debates_count: Debates
+      debates_count_tooltip: El número de debates celebrados.

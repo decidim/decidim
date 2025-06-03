@@ -376,11 +376,6 @@ de:
           not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
-    metrics:
-      assemblies:
-        description: Anzahl der erstellten Gremien
-        object: Gremien
-        title: Gremien
     open_data:
       help:
         assemblies:
@@ -435,6 +430,7 @@ de:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
+      assemblies_count_tooltip: Die Anzahl der öffentlichen Gremien, in denen kollektive Entscheidungen getroffen werden.
   layouts:
     decidim:
       assemblies:

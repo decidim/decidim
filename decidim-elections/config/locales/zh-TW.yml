@@ -1,0 +1,31 @@
+zh-TW:
+  decidim:
+    components:
+      elections:
+        name: 選舉
+        settings:
+          global:
+            announcement: 公告
+          step:
+            announcement: 公告
+    elections:
+      actions:
+        title: 操作
+      admin:
+        elections:
+          edit:
+            title: 編輯選舉
+            update: 更新選舉
+          form:
+            add_images: 添加圖案
+          index:
+            title: 選舉
+          new:
+            create: 建立選舉
+            title: 新選舉
+      models:
+        election:
+          fields:
+            title: 標題
+    statistics:
+      elections_count: 選舉

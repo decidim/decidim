@@ -1,0 +1,75 @@
+fr:
+  decidim:
+    components:
+      elections:
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
+    elections:
+      actions:
+        confirm_delete_election: Êtes-vous sûr(e) de vouloir supprimer cette élection ?
+        deleted_election_info: Les élections supprimées ne sont pas affichées dans la liste. Vous pouvez les voir en cliquant sur le bouton ci-dessous.
+        edit: Modifier l'élection
+        new: Nouvelle élection
+        title: Actions
+        view_deleted_elections: Voir les élections supprimées
+      admin:
+        elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de l'élection.
+            success: Élection créée avec succès.
+          edit:
+            title: Modifier l'élection
+            update: Mettre à jour l'élection
+          form:
+            add_images: Ajouter des images
+            attachment_legend: Ajouter une galerie d'images (facultatif)
+            basic_title: Informations de base
+            calendar: Calendrier
+            edit_attachments: Modifier les pièces jointes
+            end_at: Heure de fin
+            manual_start: Démarrage manuel
+            results_availability:
+              after_end: Après la fin des élections
+              after_end_help: Afficher les résultats uniquement lorsque l'élection est terminée
+              per_question: Question par question
+              per_question_help: Afficher les résultats par question lorsqu'ils sont finalisés
+              real_time: Temps réel
+              real_time_help: Afficher les résultats dès que le premier vote est soumis
+              title: Disponibilité des résultats
+            start_at: Heure de début
+          index:
+            title: Élections
+          manage_trash:
+            title: Élections supprimées
+          new:
+            create: Créer une élection
+            title: Nouvelle élection
+          publish:
+            invalid: Il y a eu un problème lors de la publication de l'élection.
+            success: Élection publiée avec succès.
+          unpublish:
+            invalid: Il y a eu un problème lors de la dépublication de l'élection.
+            success: Élection dépubliée avec succès.
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de l'élection.
+            success: Élection mise à jour avec succès.
+      admin_log:
+        election:
+          create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
+          publish: "%{user_name} a publié l'élection %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré l'élection %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé l'élection %{resource_name} de %{space_name} vers la corbeille"
+          unpublish: "%{user_name} a dépublié l'élection %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
+      models:
+        election:
+          fields:
+            end_at: Heure de fin
+            start_at: Heure de début
+            title: Titre
+    statistics:
+      elections_count: Élections

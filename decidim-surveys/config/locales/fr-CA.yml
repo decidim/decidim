@@ -13,6 +13,8 @@ fr-CA:
         other: Réponses
   decidim:
     admin:
+      actions:
+        see_survey: Voir le sondage
       admin_log:
         changeset:
           surveys: enquêtes
@@ -45,12 +47,10 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-    metrics:
-      survey_responses:
-        object: réponses aux enquêtes
-        title: Réponses aux enquêtes
     statistics:
+      responses: 'Réponses:'
       responses_count: Réponses
+      surveys_count_tooltip: Le nombre de sondages disponibles et de réponses recueillies.
     surveys:
       actions:
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?

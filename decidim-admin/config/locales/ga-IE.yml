@@ -284,9 +284,6 @@ ga:
       organization_appearance:
         edit:
           update: Nuashonraigh
-        form:
-          images:
-            preview: Réamhamharc
       participatory_space_private_users:
         new:
           create: Cruthaigh
@@ -315,7 +312,6 @@ ga:
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
-        metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
       users:

@@ -103,7 +103,6 @@ es:
           comment: Comentar
           create: Crear
           destroy: Borrar
-          endorse: Adherirse
           update: Actualizar
         name: Blog
         settings:
@@ -120,8 +119,6 @@ es:
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
     events:
       blogs:
         post_created:
@@ -148,7 +145,6 @@ es:
           comments_count: El número de comentarios que tiene esta publicación
           component: El componente al que pertenece la publicación
           created_at: La fecha en la que se creó esta publicación
-          endorsements_count: El número de adhesiones que tiene esta publicación
           follows_count: El número de seguidoras que tiene esta publicación
           id: El identificador único de la publicación
           participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
@@ -158,3 +154,4 @@ es:
           url: La URL para esta publicación
     statistics:
       posts_count: Publicaciones
+      posts_count_tooltip: El número de actualizaciones publicadas o entradas del blog.

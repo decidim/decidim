@@ -23,7 +23,7 @@ eu:
           title: Helbidea
         announcement:
           iam_an_announcement: Ni iragarpena naiz
-          this_is_the_body: Hau gorputza da
+          this_is_the_body: Hau testua da
           this_is_the_title: Hau izenburua da
           title: Iragarpena
         author:
@@ -185,7 +185,7 @@ eu:
         conference_s: S Jardunaldia
         conferences: Jardunaldiak
         context: Testuingurua
-        context_description: Gelaxka honek parte-hartzaile bati buruzko informazioa erakusten du. Baliabidearen/edukiaren sortzailea identifikatzeko laguntza bisuala da. Kursoreaz gainetik pasatzean, informazio gehiago eta bere profilerako estekak dituen deskribapena agertzen da.
+        context_description: Gelaxka honek parte-hartzaile bati buruzko informazioa erakusten du. Ikusizko laguntza bat da baliabidearen/edukiaren sortzailea identifikatzeko.
         context_description_2: Baliabideetarako, gelaxka hau sarrera nagusiaren azpian agertzen da. Beste eduki batzuetarako, edukiaren ondoan agertzen da.
         debate_l: L Eztabaida
         debate_s: S Eztabaida

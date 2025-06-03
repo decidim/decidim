@@ -6,7 +6,6 @@ cs:
         answer_url: URL odpovědi
         area_id: Oblast
         decidim_scope_id: Oblast působnosti
-        decidim_user_group_id: Autor
         description: Popis
         hashtag: Hashtag
         offline_votes: Osobní fyzické podpisy
@@ -35,7 +34,7 @@ cs:
         comments_enabled: Povolit komentáře
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
-        document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy
+        document_number_authorization_handler: Pracovní postup podpisu
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
@@ -325,10 +324,10 @@ cs:
           edit:
             update: Aktualizovat
           form:
-            authorizations: Nastavení autorizace
             child_scope_threshold_enabled_help_html: 'Tento příznak konfigurace nepodporuje offline hlasování. Umožňuje podřazené rozsahy a pracuje s autorizačním handlerem, který přiřazuje rozsah k uživateli. Ujistěte se, že jste zvolili toto autorizaci, níže v nastavení autorizace. Aby fungoval, je třeba nastavit rozsahy hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete v <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">administrátorské dokumentaci</a>.'
             only_global_scope_enabled_help_html: Zaškrtněte tento příznak, pokud jste povolili "Podřazený rozsah" a nakonfigurovali globální rozsah jako váš nadřazený rozsah. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak funguje tato konfigurace, naleznete v tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
+            signature_workflow_settings: Nastavení pracovního postupu podpisu
           initiative_type_scopes:
             title: Oblasti působnosti pro tento druh iniciativ
           new:
@@ -450,11 +449,9 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nová iniciativa od %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, schválil následující iniciativu, možná chcete přispět k konverzaci:"
-          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla schválena od %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        like_initiative_event:
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> se líbí <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
@@ -475,24 +472,45 @@ cs:
       index:
         uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Datum narození
+              document_number:
+                placeholder: Číslo dokumentu
+              document_type:
+                prompt: Typ dokumentu
+              document_type_and_number:
+                label: Typ a číslo dokumentu
+              gender:
+                options:
+                  man: Muž
+                  non_binary: Nebinární
+                  woman: Žena
         fill_personal_data:
-          continue: Pokračovat
+          continue: Ověřit vaše data
           help: Chcete-li iniciativu podepsat, vyplňte své osobní údaje do následujících polí.
+          invalid_authorization: Poskytnutá data k provedení akce nejsou kompatibilní s vašimi existujícími autorizacemi nebo musíte vytvořit udělenou autorizaci.
+          invalid_data: Některé osobní údaje poskytnuté k ověření Vaší totožnosti nejsou platné.
         finish:
           back_to_initiative: Zpět na iniciativu
-        sms_code:
-          continue: Zkontrolujte kód a pokračujte
-          help: Zkontrolujte SMS přijaté v telefonu
+          title: Podepsali jste iniciativu
         sms_phone_number:
-          continue: Pošlete mi SMS
-          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód.
+          confirmed_data: Potvrdili jste svá data.
+          continue: Podepsat iniciativu
+          help_enter_your_number: Zadejte své telefonní číslo. Poté obdržíte SMS s ověřovacím kódem.
+          receive_code: Přijmout kód
+          resend_code_html: Neobdrželi jste kód? <a href="%{new_code_path}">Zkuste to znovu</a>
+          your_code_is_correct: Váš kód je správný.
+          your_code_is_incorrect: Kód není správný. Zkontrolujte jej nebo <a href="%{new_code_path}">zkuste znovu</a>.
+          your_confirmation_code: Váš potvrzovací kód
       initiative_votes:
         create:
+          already_voted: Váš podpis byl již zaregistrován s vašimi daty.
           error: Při podpisu iniciativy došlo k chybám.
           invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné.
           success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla úspěšně podepsána.
-        personal_data:
-          invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
         sms_code:
           invalid: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
         sms_phone:
@@ -629,6 +647,19 @@ cs:
           open: Otevřeno
           rejected: Nedostatek podpisů
           validating: Technické ověření
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Podpis, který přijímá osobní údaje od uživatele, potvrzuje autorizaci a kontroluje SMS kód
+            name: Zpracovatel podpisu
+          dummy_signature_with_personal_data_handler:
+            description: Podpis, který od uživatele přijímá pouze osobní údaje a potvrzuje je
+            name: Zpracovatel podpisu s osobními údaji
+          dummy_signature_with_sms_handler:
+            description: Podpis, který ověřuje pouze telefonní číslo, které vyhledává existující autorizaci a kontroluje SMS kód
+            name: Zpracovatel podpisu pouze s SMS
+          legacy_signature_handler:
+            name: Zastaralý zpracovatel podpisu
       states:
         accepted: Přijato
         expired: Platnost vypršela
@@ -675,7 +706,9 @@ cs:
         actions:
           create: Vytvořit iniciativu
           title: Akce
-          vote: Podepsat
+    statistics:
+      initiatives_count: Iniciativy
+      initiatives_count_tooltip: Počet zveřejněných občanských iniciativ.
   layouts:
     decidim:
       initiative_creation_header:
@@ -684,11 +717,8 @@ cs:
         promotal_committee: Hledat propagátory
         select_initiative_type: Vybrat
       initiative_signature_creation_header:
-        fill_personal_data: Dokončit své údaje
-        finish: Dokončit
-        sms_code: Ověření kódu SMS
-        sms_phone_number: Číslo mobilního telefonu
-        title: Podepsat %{initiative_title}
+        help_information_html: Chcete-li podepsat iniciativu <strong>%{initiative_title}</strong> podporovanou %{initiative_author}, musíte poskytnout nějaké informace, díky nimž bude iniciativa podepsána a právně závazná. Žádné informace o vás nebudou zveřejněny.
+        verify_your_identity: Ověřte svou identitu
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Zatím žádné iniciativy!

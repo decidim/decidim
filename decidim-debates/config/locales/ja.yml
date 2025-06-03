@@ -29,7 +29,6 @@ ja:
         actions:
           comment: コメント
           create: ディベートを作成
-          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -46,8 +45,6 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者はディベートを作成できます
-            endorsements_blocked: オススメがブロックされました
-            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる
@@ -149,6 +146,7 @@ ja:
         new:
           back: 戻る
           create: 作成
+          title: 新しいディベートを作成
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'
@@ -233,11 +231,6 @@ ja:
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
           unearned_own: まだどのディベートにも参加していません。
-    metrics:
-      debates:
-        description: 作成されたディベート数
-        object: ディベート
-        title: ディベート
     open_data:
       help:
         debate_comments:
@@ -261,7 +254,6 @@ ja:
           created_at: ディベートの作成日時
           description: ディベートの説明
           end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
-          endorsements_count: ディベートのオススメ数
           follows_count: この議論のフォロワー数
           id: ディベートの固有ID
           information_updates: 作者がディベートに加えた更新
@@ -277,3 +269,4 @@ ja:
           url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート
+      debates_count_tooltip: 議論の数。

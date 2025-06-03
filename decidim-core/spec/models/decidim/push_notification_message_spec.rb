@@ -6,7 +6,7 @@ module Decidim
   describe PushNotificationMessage do
     subject { push_notification_message }
 
-    let(:organization) { build(:organization, favicon:) }
+    let!(:organization) { create(:organization, favicon:) }
     let(:conversation) { create(:conversation) }
     let(:recipient) { build(:user, organization:) }
     let(:favicon) { nil }

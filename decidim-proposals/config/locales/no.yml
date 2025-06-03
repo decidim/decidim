@@ -55,7 +55,6 @@
               not_official: Er ikke offisiell
     models:
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
-      decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
       decidim/proposals/publish_proposal_event: Forslag publisert
       decidim/proposals/voting_enabled_event: Forslag til avstemning aktivert
@@ -95,7 +94,6 @@
         actions:
           amend: Endre
           comment: Kommentar
-          endorse: Påtegne
           vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
         name: Forslag
@@ -112,7 +110,6 @@
             default_sort_order: Standard sortering av forslag
             default_sort_order_options:
               most_commented: Mest kommenterte
-              most_endorsed: Mest påtegnet
               most_followed: Mest fulgte
               random: Tilfeldig
               recent: Nylig
@@ -153,13 +150,10 @@
             default_sort_order: Standard sortering av forslag
             default_sort_order_options:
               most_commented: Mest kommentert
-              most_endorsed: Mest påtegnet
               most_followed: Mest fulgt
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere
-            endorsements_blocked: Påtegnelser blokkert
-            endorsements_enabled: Påtegnelser aktivert
             proposal_answering_enabled: Forslags besvaring aktivert
             publish_answers_immediately: Publiser svar på forslag umiddelbart
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
@@ -187,10 +181,6 @@
           email_intro: 'Du kan nå lage nye forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Forslag nå tilgjengelig i %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Du kan påtegne forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: Forslags påtegnelse har startet for %{participatory_space_title}
         proposal_mentioned:
           email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
           email_subject: Forslaget ditt "%{mentioned_proposal_title}" er blitt nevnt
@@ -233,19 +223,6 @@
           name: Forslag
           next_level_in: Opprett %{score} flere forslag for å nå neste nivå!
           unearned_own: Du har ikke opprettet noen forslag ennå.
-    metrics:
-      accepted_proposals:
-        description: Antall forslag akseptert
-        object: forslag
-        title: Godkjente forslag
-      endorsements:
-        description: Antall påtegnelser til forslag
-        object: påtegnelser
-        title: Påtegnelser
-      proposals:
-        description: Antall forslag
-        object: forslag
-        title: Forslag
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle
@@ -343,11 +320,6 @@
             body: Body
             comments_count: Kommentarer teller
             documents: Dokumenter
-            endorsements_count: Påtegnelser teller
-            endorsers: Påtegnelser
-            n_more_endorsers:
-              one: og 1 til
-              other: og %{count} til
             photos: Bilder
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
@@ -524,7 +496,6 @@
         orders:
           label: 'Sorter forslag:'
           most_commented: Flest kommentarer
-          most_endorsed: Mest påtegnet
           most_followed: Mest fulgte
           random: Tilfeldig
           recent: Nylig
@@ -544,9 +515,6 @@
           answer: Svar
           changes_at_title: Endring til "%{title}"
           estimated_cost: Estimert kostnad
-          hidden_endorsers_count:
-            one: og %{count} til person
-            other: og %{count} flere personer
           link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
           link_to_collaborative_draft_text: Se samarbeids utkastet
           link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon

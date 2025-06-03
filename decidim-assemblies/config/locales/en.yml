@@ -431,6 +431,7 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
+      assemblies_count_tooltip: The number of public assemblies where collective decisions are made.
   layouts:
     decidim:
       assemblies:

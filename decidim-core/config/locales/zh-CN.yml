@@ -45,8 +45,6 @@ zh-CN:
     models:
       decidim/amendment:
         other: 修 正 案
-      decidim/endorsement:
-        other: 授权
       decidim/user:
         other: 参加者
   booleans:
@@ -191,8 +189,6 @@ zh-CN:
     author:
       comments:
         other: 评论
-      endorsements:
-        other: 核准
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -302,8 +298,6 @@ zh-CN:
         name: 上次活动
         title: 上次活动
         view_all: 查看全部
-      metrics:
-        name: 组织指标
       stats:
         name: 组织统计
       sub_hero:
@@ -420,11 +414,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, 你正在关注, 刚刚支持"%{resource_title}", 我们认为它对你可能很感兴趣。 查看并贡献：'
-        email_outro: 您收到此通知是因为您正在关注 %{endorser_nickname}。您可以停止收到跟随上一个链接的通知。
-        email_subject: "%{endorser_nickname} 执行了新的授权"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 认可。
       users:
         profile_updated:
           email_intro: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_url}">个人资料页面</a> 已经更新。
@@ -572,19 +561,6 @@ zh-CN:
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-    metrics:
-      followers:
-        description: 跟随此参与空间的参与者数量
-        object: 关注者
-        title: 关注者
-      participants:
-        description: 组织中的活跃参与者人数
-        object: 参与者
-        title: 参加者
-      users:
-        description: 参加组织的人数
-        object: 参与者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
@@ -657,8 +633,6 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        statistics:
-          headline: 当前状态 %{organization}
         sub_hero:
           register: 注册
       index:
@@ -666,10 +640,6 @@ zh-CN:
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
         topics: 主题
-      participatory_space:
-        metrics:
-          headline: 指标
-          link: 显示所有指标
     profile:
       deleted: 删除参与者
     profiles:
@@ -685,11 +655,6 @@ zh-CN:
           edit_profile: 编辑配置文件
           resend_email_confirmation_instructions: 重新发送电子邮件确认说明
     reported_mailer:
-      hide:
-        hello: 您好 %{name}，
-        manage_moderations: 管理版面
-        report_html: <p>以下 <a href="%{url}">内容</a> 已被自动隐藏。</p>
-        subject: 资源已自动隐藏
       report:
         authors: 作者
         content: 报告的内容
@@ -703,15 +668,11 @@ zh-CN:
     reports:
       create:
         success: 报告已成功创建，将由管理员审核。
-    resource_endorsements:
-      create:
-        error: 在批准行动中出现了一个问题。
     scopes:
       global: 全球范围
       prompt: 选择范围
     search:
       results: 搜索结果
-      results_found_for_term: '搜索的%{count} 结果: "%{term}"'
       term_input_placeholder: 搜索
     searches:
       filters:

@@ -242,6 +242,7 @@ cs:
           roles:
             admin: Správce
             collaborator: Spolupracovník
+            evaluator: Hodnotitel
             moderator: Moderátor
         media_link:
           fields:
@@ -643,6 +644,7 @@ cs:
           url: URL prostoru
     statistics:
       conferences_count: Konference
+      conferences_count_tooltip: Počet publikovaných konferencí.
   devise:
     mailer:
       join_conference:

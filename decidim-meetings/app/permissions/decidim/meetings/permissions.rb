@@ -9,7 +9,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :meeting && permission_action.action == :read
-          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+          toggle_allow(user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)))
           return permission_action
         end
 
@@ -30,6 +30,8 @@ module Decidim
           case permission_action.action
           when :join
             toggle_allow(can_join_meeting?)
+          when :join_waitlist
+            toggle_allow(can_join_waitlist?)
           when :leave
             toggle_allow(can_leave_meeting?)
           when :decline_invitation
@@ -72,6 +74,13 @@ module Decidim
       def can_join_meeting?
         meeting.can_be_joined_by?(user) &&
           authorized?(:join, resource: meeting)
+      end
+
+      def can_join_waitlist?
+        meeting.waitlist_enabled? &&
+          !meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user) &&
+          authorized?(:join_waitlist, resource: meeting)
       end
 
       def can_leave_meeting?

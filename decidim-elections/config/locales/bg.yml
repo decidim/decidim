@@ -1,0 +1,31 @@
+bg:
+  decidim:
+    components:
+      elections:
+        name: Избори
+        settings:
+          global:
+            announcement: Обявление
+          step:
+            announcement: Обявление
+    elections:
+      actions:
+        title: Активности
+      admin:
+        elections:
+          edit:
+            title: Редактиране на избора
+            update: Актуализиране на избора
+          form:
+            add_images: Добави изображения
+          index:
+            title: Избори
+          new:
+            create: Създаване на избор
+            title: Нов избор
+      models:
+        election:
+          fields:
+            title: Заглавие
+    statistics:
+      elections_count: Избори

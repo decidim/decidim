@@ -21,5 +21,6 @@ describe "Admin checks pagination on participatory space private users" do
 
   it "shows private users of the participatory space and changes page correctly" do
     find("li a", text: "Next").click
+    expect(page).to have_current_path "#{decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)}?page=2"
   end
 end

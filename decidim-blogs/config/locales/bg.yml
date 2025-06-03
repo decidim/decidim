@@ -69,7 +69,6 @@ bg:
           comment: Коментар
           create: Създаване
           destroy: Изтрий
-          endorse: Подкрепете
           update: Актуализация
         name: Блог
         settings:
@@ -80,8 +79,6 @@ bg:
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
-            endorsements_blocked: Подкрепата е блокирана
-            endorsements_enabled: Подкрепата е активирана
     events:
       blogs:
         post_created:

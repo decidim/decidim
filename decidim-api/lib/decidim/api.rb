@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "devise/jwt"
+require "decidim/env"
 require "decidim/api/engine"
 require "decidim/api/types"
 require "decidim/api/devise"
@@ -13,33 +14,33 @@ module Decidim
 
     # defines the schema max_per_page to configure GraphQL pagination
     config_accessor :schema_max_per_page do
-      50
+      Decidim::Env.new("API_SCHEMA_MAX_PER_PAGE", 50).to_i
     end
 
     # defines the schema max_complexity to configure GraphQL query complexity
     config_accessor :schema_max_complexity do
-      5000
+      Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
     end
 
     # defines the schema max_depth to configure GraphQL query max_depth
     config_accessor :schema_max_depth do
-      15
+      Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
     end
 
     config_accessor :disclose_system_version do
-      %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
+      Decidim::Env.new("DECIDIM_API_DISCLOSE_SYSTEM_VERSION").present?
     end
 
     # Public Setting that can make the API authentication necessary in order to
     # access it.
     config_accessor :force_api_authentication do
-      %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
+      Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION", nil).present?
     end
 
     # The expiration time of the jwt tokens, after which issued token to the
     # user will expired.
     config_accessor :jwt_expiration_time do
-      ENV.fetch("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes.to_i)
+      Decidim::Env.new("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes).to_i
     end
 
     # This declares all the types an interface or union can resolve to. This needs

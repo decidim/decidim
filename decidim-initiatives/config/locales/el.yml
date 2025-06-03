@@ -2,7 +2,6 @@ el:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Συντάκτης
         description: Περιγραφή
         offline_votes: Υπογραφές αυτοπροσώπως
         scope_id: Πεδίο εφαρμογής
@@ -24,7 +23,6 @@ el:
         collect_user_extra_fields: Συλλογή προσωπικών δεδομένων των συμμετεχόντων κατά την υπογραφή
         custom_signature_end_date_enabled: Να επιτρέπεται στους συντάκτες να επιλέξουν τη λήξη της περιόδου συλλογής υπογραφών
         description: Περιγραφή
-        document_number_authorization_handler: Εξουσιοδότηση για την επαλήθευση του αριθμού εγγράφου στις υπογραφές
         extra_fields_legal_information: Νομικές πληροφορίες σχετικά με τη συλλογή προσωπικών δεδομένων
         minimum_committee_members: Ελάχιστος αριθμός μελών επιτροπής
         online_signature_enabled: Η ηλεκτρονική υπογραφή ενεργοποιήθηκε
@@ -255,26 +253,12 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Νέα πρωτοβουλία από τον συντάκτη %{author_nickname}
           notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία δημιουργήθηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, έχει επιδοκιμάσει την ακόλουθη πρωτοβουλία. Ίσως θέλετε να συμβάλλετε στη συνομιλία:"
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
-          notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Συνέχεια
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία
-        sms_code:
-          continue: Έλεγχος κωδικού και συνέχεια
-          help: Ελέγξτε το SMS που λάβατε στο τηλέφωνό σας
-        sms_phone_number:
-          continue: Αποστολή SMS σε μένα
       initiative_votes:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την υπογραφή της πρωτοβουλίας.
-        personal_data:
-          invalid: Τα προσωπικά στοιχεία δεν συμφωνούν με τα στοιχεία που παρείχατε για εξουσιοδότηση.
         sms_phone:
           invalid: Ο αριθμός τηλεφώνου δεν είναι έγκυρος ή εκκρεμεί εξουσιοδότηση. Ελέγξτε τις εξουσιοδοτήσεις σας.
       initiatives:
@@ -350,18 +334,11 @@ el:
       initiatives_type:
         actions:
           title: Ενέργειες
-          vote: Υπογραφή
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Δημιουργία
         select_initiative_type: Επιλέξτε
-      initiative_signature_creation_header:
-        fill_personal_data: Συμπληρώστε τα στοιχεία σας
-        finish: Τέλος
-        sms_code: Επαλήθευση κωδικού μέσω SMS
-        sms_phone_number: Αριθμός κινητού τηλεφώνου
-        title: Υπογραφή πρωτοβουλίας %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Δεν υπάρχουν ακόμη πρωτοβουλίες!

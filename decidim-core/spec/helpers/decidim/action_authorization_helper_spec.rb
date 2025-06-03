@@ -167,7 +167,7 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource:, permissions_holder:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: false, widget_parts: %w(<input type="submit")
+        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: false, widget_parts: %w(<button type="submit")
       end
 
       context "when called with a block" do
@@ -195,7 +195,7 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.logged_button_to(widget_text, path, resource:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: false, widget_parts: %w(<input type="submit")
+        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: false, widget_parts: %w(<button type="submit")
       end
 
       context "when called with a block" do

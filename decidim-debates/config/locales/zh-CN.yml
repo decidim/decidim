@@ -21,8 +21,6 @@ zh-CN:
   decidim:
     components:
       debates:
-        actions:
-          endorse: 批准
         name: 辩论
         settings:
           global:
@@ -32,8 +30,6 @@ zh-CN:
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止
-            endorsements_blocked: 已阻止授权
-            endorsements_enabled: 授权已启用
     debates:
       actions:
         close: 关闭
@@ -164,8 +160,3 @@ zh-CN:
           name: 辩论
           next_level_in: 参加更多的 %{score} 次辩论，以达到下一级！
           unearned_another: 这位与会者尚未参加任何辩论。
-    metrics:
-      debates:
-        description: 创建的辩论数
-        object: 辩论情况
-        title: 辩论

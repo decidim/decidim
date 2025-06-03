@@ -5,6 +5,7 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Créé le
@@ -45,6 +46,12 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Le pseudo doit être en minuscules et ne contenir aucun espace
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -58,7 +65,6 @@ fr:
       decidim/promote_to_admin: Promu au groupe admin
       decidim/promoted_to_admin_event: Promotion au rôle d'administrateur de groupe
       decidim/removed_from_group: Retiré du groupe
-      decidim/resource_endorsed_event: Ressource soutenue
       decidim/resource_hidden_event: Modération de votre participation
       decidim/welcome_notification_event: Message de bienvenue
   activerecord:
@@ -77,9 +83,6 @@ fr:
       decidim/amendment:
         one: Amendement
         other: Amendements
-      decidim/endorsement:
-        one: Soutien
-        other: Soutiens
       decidim/user:
         one: Participant
         other: Participants
@@ -154,6 +157,7 @@ fr:
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
+      secondary_menu: Menu secondaire
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -399,9 +403,6 @@ fr:
       comments:
         one: commentaire
         other: commentaires
-      endorsements:
-        one: soutien
-        other: soutiens
       official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -545,6 +546,10 @@ fr:
         name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
+        cta_button_path: URL du bouton d'appel à l'action
+        cta_button_path_help: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+        cta_button_text: Texte du bouton d'appel à l'action
+        cta_button_text_help: Vous pouvez remplacer le texte du bouton d'appel à l'action sur la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'appel à l'action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
@@ -571,10 +576,6 @@ fr:
         name: Données principales
       metadata:
         name: Métadonnées
-      metrics:
-        name: Historique des statistiques de participation
-      participatory_space_metrics:
-        name: Métriques
       participatory_space_stats:
         name: Statistiques
       social_networks_metadata:
@@ -732,11 +733,6 @@ fr:
         error: Une erreur est survenue lors du téléchargement de l'image.
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
-    endorsement_buttons_cell:
-      endorse: J’aime
-    endorsers_list:
-      others: "%{count} de plus"
-      you: vous
     ephemeral_user: Visiteur
     errors:
       files:
@@ -850,11 +846,6 @@ fr:
           notification_title: |-
             Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez :'
-        email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-        email_subject: "%{endorser_nickname} a soutenu un nouveau contenu"
-        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été soutenu par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -1068,6 +1059,8 @@ fr:
           modal_title: Nouvelle conversation
           no_results: Aucun résultat
           participant_with_disabled_message_reception: Cet utilisateur ne veut pas recevoir de messages privés.
+          participants:
+            title: Participants
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
@@ -1100,27 +1093,6 @@ fr:
         finished: 'Terminé : %{end_date}'
         not_started: Pas encore commencé
         remaining: "%{time_distance} restant"
-    metrics:
-      blocked_users:
-        description: Nombre de participants bloqués
-      download:
-        csv: Télécharger les données (CSV)
-      followers:
-        description: Nombre d'utilisateurs qui suivent cet espace de participation
-        object: suiveurs
-        title: Suiveurs
-      participants:
-        description: Nombre d'utilisateurs actifs dans l'organisation
-        object: les participants
-        title: Participants
-      reported_users:
-        description: Nombre de participants signalés
-      user_reports:
-        description: Nombre de signalements effectués par les participants
-      users:
-        description: Nombre d'utilisateurs dans l'organisation
-        object: utilisateurs
-        title: Utilisateurs
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
@@ -1244,10 +1216,6 @@ fr:
             one: "%{count} ressource"
             other: "%{count} ressources"
           spaces: Espaces
-        metrics:
-          day: Le jour de la création de cette métrique
-          metric_type: Le type de métrique
-          quantity: Le nombre de métriques pour ce jour
         moderated_users:
           about: Le champ "A propos" de l'utilisateur
           block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
@@ -1338,7 +1306,7 @@ fr:
           participate_title: Participer aux concertations de la plateforme
           welcome: Bienvenue sur %{organization} !
         statistics:
-          headline: État actuel de %{organization}
+          headline: Statistiques
         sub_hero:
           register: S'inscrire
           register_title: Créer un compte
@@ -1347,10 +1315,6 @@ fr:
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
         topics: Thématiques
-      participatory_space:
-        metrics:
-          headline: Participation en chiffres
-          link: Tout afficher
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1416,11 +1380,24 @@ fr:
         scan: Scannez le code QR
         title: QR Code pour %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Contenu signalé
+        details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
+      hidden_manually:
+        content: Contenu signalé
+        details: Détails
+        hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée par %{moderator}
       report:
         authors: Auteurs
         content: Contenu signalé
@@ -1438,18 +1415,19 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      hide:
+        success: Cette ressource a été masquée.
       parent_hidden:
         report_details: La ressource parente a été masquée
-    resource_endorsements:
-      create:
-        error: Il y a eu un problème lors de l'action de soutien.
+    resource_autocomplete:
+      help: Tapez pour rechercher des propositions
     scopes:
       global: Portée générale
       prompt: Sélectionnez un périmètre d'application
     search:
       name: Rechercher
       results: Résultats de recherche
-      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
+      results_found_for_term: '%{count} résultat(s) pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
@@ -1539,14 +1517,17 @@ fr:
         share_to: Partager sur %{service}
     statistics:
       comments_count: Commentaires
-      endorsements_count: Soutiens
+      comments_count_tooltip: Le nombre total de commentaires déposés dans cet espace.
       followers_count: Abonnés
+      followers_count_tooltip: Le nombre d'utilisateurs qui suivent tout ou partie de cet espace pour rester à jour.
       headline: Statistiques
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participants
+      participants_count_tooltip: Le nombre d'utilisateurs uniques qui ont interagi dans cet espace en soumettant des propositions, en assistant à des réunions, en votant ou en participant à des discussions.
       surveys_count: Enquêtes
       users_count: Participants
+      users_count_tooltip: Le nombre total d'utilisateurs qui se sont inscrits et ont confirmé leur compte par e-mail.
     taxonomies:
       prompt: Veuillez sélectionner une option
     translation_bar:
@@ -1566,10 +1547,20 @@ fr:
         body_2: Dans le cadre de nos efforts pour simplifier l'expérience des organisations, la fonctionnalité "Groupes d'utilisateurs" est dépréciée. Votre profil de groupe d'utilisateurs a maintenant été converti en un profil de simple participant.
         greeting: Cher(ère) %{name},
         instructions_1: Si vous avez accès à ce compte de messagerie, veuillez vérifier votre boîte de réception pour les instructions.
-        instructions_2: Sinon, l'un de vos collègues qui a accès devra définir le mot de passe et partager les identifiants de connexion avec vous.
-        instructions_intro: Les membres du groupe partageront désormais l'accès à ce profil en utilisant les identifiants de connexion partagés (courriel et mot de passe). Nous avons envoyé des instructions à <strong>%{group_email}</strong> pour définir un nouveau mot de passe pour le profil.
-        instructions_title: "<strong>Qu'est-ce que ça signifie pour vous ?</strong>"
+        instructions_intro: Nous avons envoyé des instructions à l'adresse e-mail associée au compte pour définir un nouveau mot de passe pour le profil.
+        instructions_title: "<strong>Cce que ça signifie pour vous</strong>"
         subject: Mise à jour importante à propos du groupe d'utilisateurs dont vous êtes membre
+      notify_deprecation_to_owner:
+        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3: Pour continuer à accéder à votre compte, nous avons besoin que vous définissiez un mot de passe.
+        greeting: Cher(ère) %{name},
+        instructions_1: 'Cliquez sur le lien ci-dessous pour démarrer le processus de définition du mot de passe :'
+        instructions_2: Dans le formulaire, entrez l'adresse e-mail à laquelle vous avez reçu ce message et soumettez la demande.
+        instructions_3: Consultez votre boîte de réception afin d'obtenir des instructions supplémentaires pour définir votre nouveau mot de passe.
+        instructions_title: "<strong>Ce que vous devez faire</strong>"
+        set_password: Démarrer le processus de définition du mot de passe
+        subject: Mise à jour importante à propos du groupe d'utilisateurs
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -1690,16 +1681,6 @@ fr:
         instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte :'
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
-      user_group_reset_password_instructions:
-        body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
-        body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
-        body_3: .
-        greeting: Cher(ère) %{name},
-        instructions_1: 'Cliquez sur le lien ci-dessous pour réinitialiser votre mot de passe :'
-        instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
-        instructions_title: "<strong>Ce que vous devez faire</strong>"
-        set_password: Définir votre mot de passe
-        subject: Mise à jour importante à propos du groupe d'utilisateurs
     omniauth_callbacks:
       add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
@@ -1947,8 +1928,10 @@ fr:
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        back: Retour à la liste
+        cancel: Annuler
         close: Fermer
-        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
+        confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur

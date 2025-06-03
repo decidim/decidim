@@ -100,7 +100,6 @@ Decidim::Core::Engine.routes.draw do
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    get "tooltip", to: "profiles#tooltip", as: "profile_tooltip"
   end
 
   scope :timeouts do
@@ -111,6 +110,7 @@ Decidim::Core::Engine.routes.draw do
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
+  get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
   get "/qr-code", to: "qr#show", as: :qr
@@ -128,7 +128,7 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
   resource :report_user, only: [:create]
-  resources :endorsements, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   resources :amends, only: [:new, :reject, :accept], controller: :amendments do
     collection do
       post :create

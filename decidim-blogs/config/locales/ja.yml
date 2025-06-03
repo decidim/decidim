@@ -68,11 +68,15 @@ ja:
             body: 本文
             official_blog_post: 公式ポスト
             published_at: 公開時刻
+            taxonomies: タクソノミー
             title: タイトル
       posts:
         edit:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
           back: 投稿に戻る
           button: 更新
+          edit_attachments: 添付ファイルを編集
           title: 投稿を編集
         form:
           author_id: 作成者
@@ -97,20 +101,22 @@ ja:
           comment: コメント
           create: 作成
           destroy: 削除
-          endorse: オススメ
           update: 更新
         name: ブログ
         settings:
           global:
             announcement: お知らせ
+            attachments_allowed: 添付ファイルを許可
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             creation_enabled_for_participants: 参加者は投稿を作成できます
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメが有効
     events:
       blogs:
         post_created:
@@ -137,7 +143,6 @@ ja:
           comments_count: 投稿のコメント数
           component: ポストが属するコンポーネント
           created_at: この投稿の作成日時
-          endorsements_count: 投稿のオススメ数
           follows_count: 投稿のフォロー数
           id: 投稿の固有ID
           participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
@@ -147,3 +152,4 @@ ja:
           url: この投稿の URL
     statistics:
       posts_count: 投稿
+      posts_count_tooltip: 公開された更新情報やブログ投稿の数です。

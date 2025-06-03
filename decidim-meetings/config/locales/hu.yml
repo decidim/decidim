@@ -97,7 +97,6 @@ hu:
             default_registration_terms: Alapértelmezett regisztrációs feltételek
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             maps_enabled: Térképek engedélyezve
-            registration_code_enabled: Regisztrációs kód engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
             terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
           step:
@@ -131,10 +130,8 @@ hu:
           email_subject: 'A(z) "%{resource_title}" találkozó résztvevői helye ilyen arányban telt be: %{percentage}%'
           notification_title: A(z) rendelkezésre álló helyek a <a href="%{resource_path}">%{resource_title}</a> találkozóra több mint %{percentage}% -ban teltek meg.
         meeting_updated:
-          email_intro: 'A(z) "%{resource_title}" találkozót frissítettük. Az új verzióról ezen az oldalon olvashatsz:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozót frissítettük
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
           email_intro: A(z) "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
           email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
@@ -145,11 +142,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozóra mostantól regisztrálhatsz.
-        upcoming_meeting:
-          email_intro: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
-          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
-          email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
     gamification:
       badges:
         attended_meetings:
@@ -266,8 +258,6 @@ hu:
         registrations:
           edit:
             save: Mentés
-            validate: Érvényesítés
-            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
@@ -283,9 +273,6 @@ hu:
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
-          validate_registration_code:
-            invalid: Érvénytelen a regisztrációs kód.
-            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
         invite:
           create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
@@ -402,7 +389,6 @@ hu:
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
-          registration_code_help_text: A regisztrációs kódod
           registration_state:
             validated: JÓVÁHAGYOTT
             validation_pending: ÉRVÉNYESÍTÉS FÜGGŐBEN
@@ -439,7 +425,6 @@ hu:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
-          registration_code: 'Regisztrációs kódod: %{code}.'
       registration_type:
         on_different_platform: Egy másik platformon
         on_this_platform: Ezen a platformon
@@ -462,11 +447,6 @@ hu:
         private_meeting: Privát találkozó
         transparent: Átlátszó
         withdraw: Visszavonva
-    metrics:
-      meetings:
-        description: A létrehozott találkozók száma
-        object: ülések
-        title: találkozók
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók

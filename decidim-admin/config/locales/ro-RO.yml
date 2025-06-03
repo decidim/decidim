@@ -45,8 +45,6 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acțiune
-        cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
@@ -278,6 +276,8 @@ ro:
         no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta.
       block_user:
+        bulk_new:
+          justification: Justificare
         new:
           action: Blochează contul și trimite justificarea
           already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
@@ -415,6 +415,8 @@ ro:
             explanation: 'Îndrumare pentru fișier:'
             message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
+          import_csv:
+            message_1: Sunt acceptate fișiere CSV
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor.
         form:
@@ -522,6 +524,7 @@ ro:
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
+        insights: Perspective
         manage: Gestionează
         moderation: Moderări globale
         newsletters: Buletine informative
@@ -531,11 +534,9 @@ ro:
         scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
+        statistics: Statistici
         taxonomy_filters: Filtre taxonomie
         users: Participanți
-      metrics:
-        metrics:
-          see_more_metrics: Vezi mai mulți indicatori
       models:
         area:
           fields:
@@ -757,16 +758,7 @@ ro:
         edit:
           update: Actualizează
         form:
-          colors:
-            colors_title: Culorile organizației
-            colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
-          cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
-          homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
-          images:
-            layout_appearance_title: Editează aspectul aranjării în pagină
-            preview: Previzualizează
-          omnipresent_banner_appearance_title: Editează banner-ul omniprezent
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
@@ -932,12 +924,11 @@ ro:
         dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
-        metrics: Indicatori
         panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
-        statistics: Activitate
+        statistics: Statistici
         users: Administratori
       users:
         create:
@@ -965,22 +956,13 @@ ro:
       errors:
         impersonate_user:
           reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat.
-    metrics:
-      blocked_users:
-        object: utilizatori blocați
-        title: Utilizatori blocați
-      reported_users:
-        object: utilizatori raportați
-        title: Utilizatori raportați
-      user_reports:
-        object: rapoarte de utilizator
-        title: Rapoarte de utilizator
     moderations:
       actions:
         expand: Extinde
         hidden: Ascuns
         hide: Ascunde
         not_hidden: Neascuns
+        parent_hidden: Nu puteți afișa această resursă deoarece părintele său este încă ascuns.
         title: Acțiuni
         unhide: Anulează ascunderea
         unreport: Anulează raportarea
@@ -991,6 +973,7 @@ ro:
             success: Resursa a fost ascunsă cu succes.
           unhide:
             invalid: A apărut o problemă la anularea ascunderii resursei.
+            parent_invalid: A apărut o problemă la afișarea resursei. Părintele nu este vizibil.
             success: Anularea ascunderii resursei a fost realizată cu succes.
           unreport:
             invalid: A apărut o problemă la anularea raportării resursei.
@@ -1021,3 +1004,5 @@ ro:
       admin:
         global_moderations:
           title: Moderare globală
+        insights:
+          title: Perspective

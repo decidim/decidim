@@ -150,7 +150,6 @@ pt-BR:
             default_registration_terms: Termos de registro padrão
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas ativados
-            registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
@@ -184,10 +183,8 @@ pt-BR:
           email_subject: Os espaços de ocupação ocupados com "%{resource_title}" estão acima de %{percentage}%
           notification_title: Os <a href="%{resource_path}">%{resource_title}</a> atendimento ocupados são mais de %{percentage}%.
         meeting_updated:
-          email_intro: 'A reunião "%{resource_title}" foi atualizada. Você pode ler a nova versão da sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" foi atualizada
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
           email_intro: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
           email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
@@ -198,11 +195,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" permitiu registos.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
-        upcoming_meeting:
-          email_intro: A reunião "%{resource_title}" começará em menos de 48h.
-          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
-          email_subject: A reunião "%{resource_title}" começará em menos de 48h.
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     forms:
       meetings:
         attendees_count_help_text: Não se esqueça de incluir o número total de participantes na sua reunião, seja presencial, on-line ou híbrida.
@@ -347,8 +339,6 @@ pt-BR:
         registrations:
           edit:
             save: Salvar
-            validate: Confirmar
-            validate_registration_code: Confirmar código de registro
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
@@ -365,9 +355,6 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
-          validate_registration_code:
-            invalid: Este código de registro é inválido.
-            success: Código de registro confirmado com sucesso.
       admin_log:
         invite:
           create: "%{user_name} convidados %{attendee_name} a participar de %{resource_name} reunião no espaço %{space_name}"
@@ -524,7 +511,6 @@ pt-BR:
           micro_camera_permissions_warning: Quando você clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e participará na videoconferência
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
-          registration_code_help_text: Seu código de registro
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDAÇÃO PENDENTE
@@ -580,7 +566,6 @@ pt-BR:
         confirmation:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Você encontrará os detalhes da reunião no anexo.
-          registration_code: Seu código de registro é %{code}.
       registration_type:
         on_different_platform: Em uma plataforma diferente
         on_this_platform: Nesta plataforma
@@ -605,11 +590,6 @@ pt-BR:
         withdraw: Retirado
       withdraw:
         success: A reunião foi retirada com sucesso.
-    metrics:
-      meetings:
-        description: Número de reuniões criadas
-        object: reuniões
-        title: Reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores

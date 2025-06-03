@@ -43,7 +43,6 @@ zh-CN:
               identical: 和正文不能相同
     models:
       decidim/proposals/creation_enabled_event: 建议创建已启用
-      decidim/proposals/endorsing_enabled_event: 提案已启用
       decidim/proposals/proposal_mentioned_event: 提及的建议
       decidim/proposals/publish_proposal_event: 建议已发布
       decidim/proposals/voting_enabled_event: 提案投票已启用
@@ -79,7 +78,6 @@ zh-CN:
       proposals:
         actions:
           amend: 修改：
-          endorse: 批准
           withdraw: 取款
         name: 建议
         settings:
@@ -120,8 +118,6 @@ zh-CN:
             answers_with_costs: 启用建议答案的成本
             automatic_hashtags: 添加到所有建议的标签
             comments_blocked: 评论已阻止
-            endorsements_blocked: 已阻止授权
-            endorsements_enabled: 授权已启用
             proposal_answering_enabled: 建议答案已启用
             publish_answers_immediately: 立即发布提案答案
             suggested_hashtags: 推荐给参与者的新建议标签
@@ -150,10 +146,6 @@ zh-CN:
           email_intro: '您现在可以在 %{participatory_space_title}中创建新的建议 ！开始参与这个页面：'
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: 建议已在 %{participatory_space_title} 中可用
-        endorsing_enabled:
-          email_intro: '您可以在 %{participatory_space_title}中批准提案！开始参与此页面：'
-          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{participatory_space_title} 的建议已经开始'
         proposal_mentioned:
           email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
           email_subject: 您的提议 "%{mentioned_proposal_title}" 已被提到了
@@ -195,19 +187,6 @@ zh-CN:
           name: 建议
           next_level_in: 再创建 %{score} 个建议以达到下一关！
           unearned_own: 您尚未创建任何提案。
-    metrics:
-      accepted_proposals:
-        description: 接受的建议数
-        object: 提议
-        title: 已接受的提议
-      endorsements:
-        description: 建议认可次数
-        object: 核准
-        title: 授权
-      proposals:
-        description: 建议数
-        object: 提议
-        title: 建议
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议
@@ -291,10 +270,6 @@ zh-CN:
             body: 正文内容
             comments_count: 评论计数
             documents: www.un.org/webcast
-            endorsements_count: 批准次数
-            endorsers: 核可者
-            n_more_endorsers:
-              other: 和 %{count} 更多
             photos: 照片
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议
@@ -471,7 +446,6 @@ zh-CN:
         orders:
           label: '排序提议：'
           most_commented: 最多评论
-          most_endorsed: 最多支持
           most_followed: 关注最多的
           random: 随机播放
           recent: 最近的
@@ -486,8 +460,6 @@ zh-CN:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
           estimated_cost: 估计费用
-          hidden_endorsers_count:
-            other: 和更多 %{count} 人
           link_to_collaborative_draft_help_text: 此建议是协作草稿的结果，请查看历史记录
           link_to_collaborative_draft_text: 查看协作草稿
           link_to_promoted_emendation_help_text: 这项建议是一项提倡的修正

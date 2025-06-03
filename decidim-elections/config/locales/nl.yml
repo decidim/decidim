@@ -1,0 +1,31 @@
+nl:
+  decidim:
+    components:
+      elections:
+        name: Verkiezingen
+        settings:
+          global:
+            announcement: Mededeling
+          step:
+            announcement: Mededeling
+    elections:
+      actions:
+        title: acties
+      admin:
+        elections:
+          edit:
+            title: Bewerken van verkiezing
+            update: Keuze bijwerken
+          form:
+            add_images: Afbeeldingen toevoegen
+          index:
+            title: Verkiezingen
+          new:
+            create: Maak verkiezing aan
+            title: Nieuwe verkiezing
+      models:
+        election:
+          fields:
+            title: Aanspreektitel
+    statistics:
+      elections_count: Verkiezingen
