@@ -454,7 +454,7 @@ module Decidim
   # Defines how long the OAuth access tokens and API access tokens are valid.
   # Defaults to the default value as defined in Doorkeeper.
   config_accessor :oauth_access_token_expires_in do
-    ENV.fetch("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", 120).to_i.minutes
+    Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120").to_i.minutes
   end
 
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take
