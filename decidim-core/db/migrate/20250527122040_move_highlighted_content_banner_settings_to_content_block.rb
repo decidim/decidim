@@ -12,22 +12,7 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
     Organization.find_each do |organization|
       content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
-      settings = {}
-
-      title = organization.highlighted_content_banner_title || {}
-      settings = title.inject(settings) { |acc, (k, v)| acc.update("title_#{k}" => v) }
-
-      short_description = organization.highlighted_content_banner_short_description || {}
-      settings = short_description.inject(settings) { |acc, (k, v)| acc.update("short_description_#{k}" => v) }
-
-      action_button_title = organization.highlighted_content_banner_action_title || {}
-      settings = action_button_title.inject(settings) { |acc, (k, v)| acc.update("action_button_title_#{k}" => v) }
-
-      action_button_subtitle = organization.highlighted_content_banner_action_subtitle || {}
-      settings = action_button_subtitle.inject(settings) { |acc, (k, v)| acc.update("action_button_subtitle_#{k}" => v) }
-
-      action_button_url = organization.highlighted_content_banner_action_url || ""
-      settings["action_button_url"] = action_button_url
+      settings = extract_settings(organization)
 
       # We need to do a workaround for getting the image, as ActiveStorage is polymorphic and expects that the `record_type` is the class name of the model
       background_image = ActiveStorage::Attachment.find_by(name: "highlighted_content_banner_image", record_type: "Decidim::Organization", record_id: organization.id)
@@ -56,4 +41,29 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
     add_column :decidim_organizations, :highlighted_content_banner_action_url, :string
     add_column :decidim_organizations, :highlighted_content_banner_image, :string
   end
+
+  private
+
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def extract_settings(organization)
+    settings = {}
+
+    title = organization.highlighted_content_banner_title || {}
+    settings = title.inject(settings) { |acc, (k, v)| acc.update("title_#{k}" => v) }
+
+    short_description = organization.highlighted_content_banner_short_description || {}
+    settings = short_description.inject(settings) { |acc, (k, v)| acc.update("short_description_#{k}" => v) }
+
+    action_button_title = organization.highlighted_content_banner_action_title || {}
+    settings = action_button_title.inject(settings) { |acc, (k, v)| acc.update("action_button_title_#{k}" => v) }
+
+    action_button_subtitle = organization.highlighted_content_banner_action_subtitle || {}
+    settings = action_button_subtitle.inject(settings) { |acc, (k, v)| acc.update("action_button_subtitle_#{k}" => v) }
+
+    action_button_url = organization.highlighted_content_banner_action_url || ""
+    settings["action_button_url"] = action_button_url
+
+    settings
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
