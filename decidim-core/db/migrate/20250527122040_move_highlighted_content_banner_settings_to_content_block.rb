@@ -5,16 +5,13 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
     self.table_name = :decidim_organizations
   end
 
-  class ContentBlock < ApplicationRecord
-    self.table_name = :decidim_content_blocks
-  end
-
   def up
     Organization.reset_column_information
-    ContentBlock.reset_column_information
+    # Note that we need to use the actual Decidim::ContentBlock clas, as we need access to the `images_container` method
+    Decidim::ContentBlock.reset_column_information
 
     Organization.find_each do |organization|
-      content_block = ContentBlock.find_by(organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
+      content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
       settings = {}
 
       title = organization.highlighted_content_banner_title || {}
@@ -32,9 +29,9 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
       action_button_url = organization.highlighted_content_banner_action_url || ""
       settings["action_button_url"] = action_button_url
 
-      background_image = organization.highlighted_content_banner_image || ""
-      # byebug
-      content_block.images_container.background_image = background_image.blob unless background_image.empty?
+      # We need to do a workaround for getting the image, as ActiveStorage is polymorphic and expects that the `record_type` is the class name of the model
+      background_image = ActiveStorage::Attachment.find_by(name: "highlighted_content_banner_image", record_type: "Decidim::Organization", record_id: organization.id)
+      content_block.images_container.background_image = background_image.blob if background_image
 
       content_block.settings = settings
       content_block.settings_will_change!
