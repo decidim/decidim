@@ -12,7 +12,7 @@
           <%= icon "arrow-down-s-line", class: "!fill-white" %>
         </button>
 
-        <ul class="dropdown" id="add-content-block-dropdown" aria-hidden="true">
+        <ul class="dropdown dropdown__bottom" id="add-content-block-dropdown" aria-hidden="true">
           <% available_manifests.each do |manifest| %>
             <li class="dropdown__item">
               <%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), class: "dropdown__button", method: :post %>
