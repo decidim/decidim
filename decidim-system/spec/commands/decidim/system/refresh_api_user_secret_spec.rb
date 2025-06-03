@@ -8,12 +8,12 @@ module Decidim
       subject { described_class.new(api_user, admin) }
 
       let(:command) { subject.call }
-      let(:api_user) { create(:api_user) }
-      let(:organization) { create(:organization) }
+      let!(:organization) { create(:organization) }
+      let(:api_user) { create(:api_user, organization: organization) }
       let(:admin) { create(:admin) }
       let(:valid) { true }
       let(:name) { "Dummy name" }
-      let(:dummy_token) { "Dummy token" }
+      let(:dummy_token) { SecureRandom.alphanumeric(32) }
 
       before do
         allow(SecureRandom).to receive(:alphanumeric).and_return(dummy_token)

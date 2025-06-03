@@ -8,11 +8,11 @@ module Decidim
       subject { described_class.new(form, admin) }
 
       let(:command) { subject.call }
-      let(:organization) { create(:organization) }
+      let!(:organization) { create(:organization) }
       let(:admin) { create(:admin) }
       let(:valid) { true }
       let(:name) { "Dummy name" }
-      let(:dummy_token) { "Dummy token" }
+      let(:dummy_token) { SecureRandom.alphanumeric(32) }
 
       let(:form) do
         double(
