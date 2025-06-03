@@ -8,7 +8,7 @@ module Decidim
 
       def index
         @api_users = api_users
-        @secret_user = session.delete(:api_user)
+        @secret_user = session.delete(:api_user)&.with_indifferent_access
       end
 
       def new
