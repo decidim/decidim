@@ -87,8 +87,6 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-        search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o titolo.
     components:
       proposals:
         actions:
