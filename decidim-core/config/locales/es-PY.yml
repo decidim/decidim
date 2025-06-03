@@ -686,6 +686,7 @@ es-PY:
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
       already_endorsed: No me gusta
+      endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
@@ -1440,7 +1441,7 @@ es-PY:
         manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Razón
-        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente por %{moderator}.</p>
         subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
