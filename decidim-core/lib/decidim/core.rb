@@ -125,6 +125,7 @@ module Decidim
   autoload :HasConversations, "decidim/has_conversations"
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
+  autoload :OAuth, "decidim/oauth"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -406,6 +407,12 @@ module Decidim
   # this is also maximum time that user can idle before getting automatically signed out.
   config_accessor :expire_session_after do
     30.minutes
+  end
+
+  # Defines how long the OAuth access tokens and API access tokens are valid.
+  # Defaults to the default value as defined in Doorkeeper.
+  config_accessor :oauth_access_token_expires_in do
+    ENV.fetch("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", 120).to_i.minutes
   end
 
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take

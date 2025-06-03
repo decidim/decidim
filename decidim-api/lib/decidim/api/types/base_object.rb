@@ -4,9 +4,15 @@ module Decidim
   module Api
     module Types
       class BaseObject < GraphQL::Schema::Object
+        include Decidim::Api::RequiredScopes
+
         field_class Types::BaseField
 
+        required_scopes "api:read"
+
         def self.authorized?(object, context)
+          return false unless scope_authorized?(context)
+
           chain = []
 
           subject = determine_subject_name(object)
@@ -57,6 +63,10 @@ module Decidim
           context[:current_component] = object.component if object.respond_to?(:component) && object.component.present?
 
           context.to_h
+        end
+
+        def self.required_scopes(*scopes)
+          @required_scopes = scopes
         end
 
         # Creates the permission chain arrau that contains all the permission classes required to authorize a certain resource

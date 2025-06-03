@@ -11,18 +11,45 @@
       <%= t("connect_your_account_html", scope: "decidim.doorkeeper.authorizations.new", organization: current_organization_name) %>
     </p>
 
-    <p><%= t("this_application_will_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
-    <ul class="list-disc ml-4">
-      <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
-      <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
-      <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
-    </ul>
+    <% unless no_abilities? %>
+      <p><%= t("this_application_will_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
+      <ul class="list-disc ml-4">
+        <% if @scopes.include?("profile") || @scopes.include?("user") %>
+          <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
+          <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
+          <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% if @scopes.include?("user") %>
+          <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% if @scopes.include?("api:read") %>
+          <li><%= t("api_read", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% if @scopes.include?("api:write") %>
+          <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-    <p><%= t("this_application_will_not_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
-    <ul class="list-disc ml-4">
-      <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
-      <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
-    </ul>
+    <% unless all_abilities? %>
+      <p><%= t("this_application_will_not_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
+      <ul class="list-disc ml-4">
+        <% if !@scopes.include?("profile") && !@scopes.include?("user") %>
+          <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
+          <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
+          <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% unless @scopes.include?("user") %>
+          <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% unless @scopes.include?("api:read") %>
+          <li><%= t("api_read", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+        <% unless @scopes.include?("api:write") %>
+          <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
@@ -31,7 +58,10 @@
       <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
       <%= hidden_field_tag :state, @pre_auth.state %>
       <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+      <%= hidden_field_tag :response_mode, @pre_auth.response_mode, id: nil %>
       <%= hidden_field_tag :scope, @pre_auth.scope %>
+      <%= hidden_field_tag :code_challenge, @pre_auth.code_challenge, id: nil %>
+      <%= hidden_field_tag :code_challenge_method, @pre_auth.code_challenge_method, id: nil %>
 
       <button type="submit" class="button button__lg button__transparent-secondary">
         <span><%= t("cancel", scope: "decidim.doorkeeper.authorizations.new") %></span>
@@ -43,7 +73,10 @@
       <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
       <%= hidden_field_tag :state, @pre_auth.state %>
       <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+      <%= hidden_field_tag :response_mode, @pre_auth.response_mode, id: nil %>
       <%= hidden_field_tag :scope, @pre_auth.scope %>
+      <%= hidden_field_tag :code_challenge, @pre_auth.code_challenge, id: nil %>
+      <%= hidden_field_tag :code_challenge_method, @pre_auth.code_challenge_method, id: nil %>
 
       <button type="submit" class="button button__lg button__secondary">
         <span><%= t("authorize", scope: "decidim.doorkeeper.authorizations.new") %></span>

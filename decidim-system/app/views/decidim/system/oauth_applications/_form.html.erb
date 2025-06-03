@@ -1,5 +1,22 @@
 <div class="form__wrapper">
   <%= form.text_field :name %>
+
+  <%= field_set_tag form.label(:application_type, nil, for: nil) do %>
+    <span class="help-text"><%= t(".application_type_help_html", client_type_link: "https://datatracker.ietf.org/doc/html/rfc6749#section-2.1", pkce_link: "https://datatracker.ietf.org/doc/html/rfc7636") %></span>
+    <%= form.collection_radio_buttons(
+      :application_type,
+      form.object.application_types,
+      :to_s,
+      ->(type) { t(".application_type.#{type}.name") }
+    ) do |builder|
+      builder.label(for: nil, class: "form__wrapper-checkbox-label") do
+        explanation = t(".application_type.#{builder.value}.explanation")
+        builder.radio_button(id: nil) + %(#{sanitize(builder.text)}<br><span class="help-text">#{sanitize(explanation)}</span>).html_safe
+      end
+    end
+    %>
+  <% end %>
+
   <%= form.text_field :redirect_uri %>
   <%= form.select :decidim_organization_id,
                   Decidim::Organization.all.map { |o| [organization_name(o), o.id] },
@@ -8,4 +25,21 @@
   <%= form.text_field :organization_name %>
   <%= form.text_field :organization_url %>
   <%= form.upload :organization_logo, required: true, button_class: "button button__lg button__transparent-primary" %>
+
+  <%= field_set_tag form.label(:refresh_tokens, nil, for: nil) do %>
+    <span class="help-text"><%= t(".refresh_tokens_help_html") %></span>
+    <%= form.check_box :refresh_tokens_enabled, label_options: { class: "form__wrapper-checkbox-label" } %>
+  <% end %>
+
+  <%= field_set_tag form.label(:scopes, nil, for: nil) do %>
+    <%=
+      form.collection_check_boxes :scopes, Doorkeeper.config.scopes.all, :to_s, :to_s, include_hidden: false, help_text: t(".scopes_help_html") do |option|
+        option.label(class: "form__wrapper-checkbox-label") do
+          option.check_box(checked: form.object.scopes.include?(option.value)) +
+            option.text +
+            content_tag(:div, class: "help-text") { t(".scopes_explanation.#{option.value}") }
+        end
+      end
+    %>
+  <% end %>
 </div>

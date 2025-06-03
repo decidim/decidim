@@ -852,7 +852,7 @@ FactoryBot.define do
     organization_url { "http://example.org" }
     organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
-    scopes { "public" }
+    scopes { "profile" }
   end
 
   factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
@@ -864,7 +864,7 @@ FactoryBot.define do
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
     created_at { Time.current }
-    scopes { "public" }
+    scopes { "profile" }
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do

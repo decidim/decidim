@@ -8,6 +8,9 @@ en:
         organization_name: Organization
         organization_url: Organization URL
         redirect_uri: Redirect URI
+        scopes: Available scopes
+        refresh_tokens: Refresh tokens
+        refresh_tokens_enabled: Refresh tokens enabled
       organization:
         address: SMTP hostname
         from_email: Email address
@@ -172,6 +175,28 @@ en:
           save: Save
           title: Edit application
         form:
+          application_type:
+            confidential:
+              explanation: Applications that are able to securely authenticate with the authorization server, for example being able to keep their registered client secret safe. Typically an application running on a server where the client secret is stored.
+              name: Confidential
+            public:
+              explanation: Applications that are unable to use registered client secrets, such as applications running in a browser or on a mobile device.
+              name: Public
+          application_type_help_html: |
+            The OAuth client type as defined by <a href="%{client_type_link}" target="_blank">RFC 6749 Section 2.1</a>. Public clients need to implement the PKCE flow as defined by <a href="%{pkce_link}" target="_blank">RFC 7636</a>.
+          refresh_tokens_help_html: |
+            Refresh tokens are useful in case the token needs a longer lifetime than what is assigned for the access token. Note that <strong>refresh tokens should be used carefully</strong> because they can weaken the security of your users.
+          scopes_explanation:
+            "api:read": Allows the user to perform query operations through the GraphQL API.
+            "api:write": Allows the user to perform mutation operations through the GraphQL API.
+            profile: Provides access to the user's own profile details. Only this scope is needed in case the OAuth application is only used as an identity provider or an authentication service.
+            user: Ability to act as the signed in user with the given token during calls to the GraphQL API. This is required for all api:write operations or api:read operations that need information about the current user.
+          scopes_help_html: |
+            The selected scopes will be available for the connected applications to request during the authorization process. The user will be presented details about the authorization request when they sign in using OAuth.
+            <br>
+            Different scopes provide different features for the authenticated user using the granted access tokens.
+            <br>
+            <strong>Note:</strong> If you only need to authenticate the users to your external applications, you only need the <strong>profile</strong> scope. Applications interacting with the Decidim API require other scopes as well.
           select_organization: Select an organization
         index:
           confirm_delete: Are you sure you want to delete this application?

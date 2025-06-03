@@ -46,10 +46,10 @@ module Decidim::System
         expect(organization.oauth_applications.count).to eq(1)
       end
 
-      it "sets the scopes as public" do
+      it "sets the scopes as profile" do
         subject
 
-        expect(organization.oauth_applications.last.scopes.to_s).to eq("public")
+        expect(organization.oauth_applications.last.scopes.to_s).to eq("profile")
       end
 
       it "traces the action", versioning: true do

@@ -326,7 +326,7 @@ Devise.setup do |config|
         ["DELETE", %r{^/sign_out$}]
       ]
       jwt.expiration_time = Decidim::Api.jwt_expiration_time
-      jwt.aud_header = "JWT_AUD"
+      jwt.aud_header = "X_JWT_AUD"
     end
   end
 
