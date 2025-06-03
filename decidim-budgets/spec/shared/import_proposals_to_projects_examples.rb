@@ -8,7 +8,7 @@ shared_examples "import proposals to projects" do
   include Decidim::ComponentPathHelper
 
   it "imports proposals from one component to a budget component" do
-    find("a", text: "Import").click
+    click_on "Import"
     click_on "Import proposals to projects"
 
     within ".import_proposals" do

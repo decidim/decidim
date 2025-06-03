@@ -15,7 +15,7 @@ describe "Import proposals" do
   end
 
   before do
-    find("a", text: "Import").click
+    click_on "Import"
     click_on "Import proposals from a file"
   end
 
