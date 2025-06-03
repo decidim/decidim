@@ -221,14 +221,14 @@ module Decidim
         end
       end
 
-      describe "isWithdrawn" do
-        let(:query) { "{ isWithdrawn }" }
+      describe "withdrawn" do
+        let(:query) { "{ withdrawn }" }
 
         context "when meetings is withdrawn" do
           let(:model) { create(:meeting, :published, :withdrawn, component:) }
 
           it "returns true" do
-            expect(response["isWithdrawn"]).to be true
+            expect(response["withdrawn"]).to be true
           end
         end
 
@@ -236,7 +236,7 @@ module Decidim
           let(:model) { create(:meeting, :published, component:) }
 
           it "returns false" do
-            expect(response["isWithdrawn"]).to be false
+            expect(response["withdrawn"]).to be false
           end
         end
       end
@@ -350,11 +350,11 @@ module Decidim
           end
         end
 
-        describe "attendeeCount" do
-          let(:query) { "{ attendeeCount }" }
+        describe "attendeesCount" do
+          let(:query) { "{ attendeesCount }" }
 
           it "returns the amount of attendees" do
-            expect(response["attendeeCount"]).to eq(model.attendees_count)
+            expect(response["attendeesCount"]).to eq(model.attendees_count)
           end
         end
       end
