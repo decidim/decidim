@@ -675,6 +675,9 @@ es:
             endorsements_count: Número de adhesiones
             endorsers: Se han adherido
             link: Ver la propuesta
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
