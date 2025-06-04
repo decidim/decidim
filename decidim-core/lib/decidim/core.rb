@@ -129,6 +129,8 @@ module Decidim
   autoload :HasWorkflows, "decidim/has_workflows"
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -672,7 +674,7 @@ module Decidim
   config_accessor :omniauth_providers do
     {
       developer: {
-        enabled: Rails.env.development? || Rails.env.test?,
+        enabled: Rails.env.local?,
         icon: "phone-line"
       },
       facebook: {
@@ -1034,5 +1036,9 @@ module Decidim
     true
   rescue LoadError
     false
+  end
+
+  def self.deprecator(gem_name: "decidim-core", deprecation_horizon: "0.32")
+    @deprecator ||= ActiveSupport::Deprecation.new(deprecation_horizon, gem_name)
   end
 end

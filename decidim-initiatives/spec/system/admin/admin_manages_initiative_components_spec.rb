@@ -18,10 +18,10 @@ describe "Admin manages initiative components" do
     before do
       visit decidim_admin_initiatives.components_path(initiative)
 
-      find("button[data-toggle=add-component-dropdown]").click
+      find("button[data-target=add-component-dropdown]").click
 
       within "#add-component-dropdown" do
-        find(".dummy").click
+        click_on "Dummy Component"
       end
 
       within ".item__edit" do

@@ -45,8 +45,6 @@ eu:
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Ekintza-botoiaren testua
-        cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -353,8 +351,6 @@ eu:
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
-        index:
-          text: Bilatu egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -456,11 +452,7 @@ eu:
         remove_all: Ezabatu denak
         search_label: Bilatu
         search_placeholder:
-          name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           report_count_eq: Txosten kopurua
-          reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
-          title_cont: Bilatu %{collection} izenburuaren arabera.
-          user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
         state_eq:
           label: Egoera
           values:
@@ -559,7 +551,6 @@ eu:
       logs:
         filters:
           participatory_space: Bilatu partaidetza-espazioa
-          text: Bilatu parte-hartzailearen helbide elektroniko, izen edo ezizenaren arabera.
           user: Parte-hartzailea
         logs_list:
           no_logs_yet: Oraindik ez dago erregistrorik.
@@ -878,21 +869,8 @@ eu:
           title: Editatu erakundea
           update: Eguneratu
         form:
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Gizarte
-          twitter: X
-          url: URL
-          youtube: YouTube
-        update:
-          error: Arazo bat egon da erakunde hau eguneratzean.
-          success: Erakundea zuzen eguneratua.
-      organization_appearance:
-        edit:
-          update: Eguneratu
-        form:
+          admin_terms_of_service: Zerbitzuaren administratzailearen baldintzak
+          basic_configuration: Oinarrizko Konfigurazioa
           colors:
             choose_color: Aukeratu kolore nagusia
             colors_title: Erakundearen koloreak
@@ -902,17 +880,30 @@ eu:
             saturation: Saturazioa
             title: Kolore-hautatzailea
             update_suggested_colors: Eguneratu iradokitako koloreak
-          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
-          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
+          extra_features: Aparteko ezaugarriak
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          logos:
+            organization_logos: Erakundearen logoak
+            preview: Aurreikusi
+          rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
+          social_handlers: Gizarte
+          twitter: X
+          url: URL
+          welcome_notification: Ongietorri-jakinarazpenaren testua
+          youtube: YouTube
+        update:
+          error: Arazo bat egon da erakunde hau eguneratzean.
+          success: Erakundea zuzen eguneratua.
+      organization_appearance:
+        edit:
+          update: Eguneratu
+        form:
           header_snippets:
             header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
             title: Goiburuko HTML kode-zatiak
-          homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
-          images:
-            layout_appearance_title: Editatu itxura globalaren itxura
-            preview: Aurrebistaratu
-          omnipresent_banner_appearance_title: Editatu banner nonahikoa
       organization_external_domain_allowlist:
         edit:
           update: Eguneratu

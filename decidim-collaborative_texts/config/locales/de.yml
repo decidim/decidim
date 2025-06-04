@@ -70,11 +70,17 @@ de:
             one: "%{count} kollaborativer Text"
             other: "%{count} kollaborative Texte"
           empty: Es gibt noch keine kollaborative Texte.
+        show:
+          contributors: Mitwirkende
       models:
         collaborative_text:
           fields:
             suggestions: Anregung akzeptieren
             title: Titel
+      suggestion:
+        add_html: <span class="type">Hinzufügen:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Entfernen:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Ersetzen:</span> <span class="text">%{text}</span>
     components:
       collaborative_texts:
         name: Kollaborative Texte

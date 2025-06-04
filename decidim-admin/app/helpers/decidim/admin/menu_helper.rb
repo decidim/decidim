@@ -29,7 +29,8 @@ module Decidim
           target_menu,
           self,
           container_options: { class: "dropdown dropdown__bottom" },
-          element_class: "dropdown__item",
+          element_class: "dropdown__button",
+          element_wrapper_class: "dropdown__item",
           active_class: "is-active"
         )
       end
@@ -38,7 +39,7 @@ module Decidim
         ::Decidim::Admin::SecondaryMenuPresenter.new(
           target_menu,
           self,
-          element_class: "sidebar-menu__item",
+          element_wrapper_class: "sidebar-menu__item",
           active_class: "is-active"
         )
       end

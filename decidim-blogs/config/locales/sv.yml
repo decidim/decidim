@@ -69,11 +69,15 @@ sv:
             body: Innehåll
             official_blog_post: Officiellt inlägg
             published_at: Publicerad
+            taxonomies: Kategorier
             title: Titel
       posts:
         edit:
+          add_attachments: Lägg till bilagor
+          attachment_legend: Lägg till ett dokument eller en bild
           back: Tillbaka till inlägget
           button: Uppdatera
+          edit_attachments: Redigera bilagor
           title: Redigera inlägg
         form:
           author_id: Författare
@@ -99,20 +103,25 @@ sv:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Gilla
+          like: Gilla
           update: Uppdatera
         name: Blogg
         settings:
           global:
             announcement: Meddelande
+            attachments_allowed: Tillåt bilagor
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa inlägg
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
-            endorsements_blocked: Blockera gilla-markeringar
-            endorsements_enabled: Aktivera gilla-markeringar
+            likes_blocked: Stäng av gilla-markeringar
+            likes_enabled: Aktivera gilla-markeringar
     events:
       blogs:
         post_created:
@@ -139,9 +148,9 @@ sv:
           comments_count: Antalet kommentarer till inlägget
           component: Komponenten som inlägget tillhör
           created_at: Datum för inlägget
-          endorsements_count: Antal gilla-markeringar för inlägget
           follows_count: Antal följare för inlägget
           id: Unikt id för inlägget
+          likes_count: Antal gilla-markeringar för inlägget
           participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
           published_at: Publiceringsdatum för inlägget
           title: Titeln på inlägget

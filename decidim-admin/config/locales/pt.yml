@@ -35,8 +35,6 @@ pt:
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
@@ -331,10 +329,6 @@ pt:
             'false': Publicado
             'true': Publicação removida
         search_label: Pesquisa
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
-          reported_id_string_or_reported_content_cont: Pesquisar %{coleção} por identificador de denúncia ou conteúdo.
-          title_cont: Pesquisar %{collection} por título.
         state_eq:
           label: Estado
           values:
@@ -648,15 +642,7 @@ pt:
         edit:
           update: Atualizar
         form:
-          colors:
-            colors_title: Cores da organização
-          cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
-          homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
-          images:
-            layout_appearance_title: Editar aparência do layout
-            preview: Pré-visualização
-          omnipresent_banner_appearance_title: Editar faixa omnipresente
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.

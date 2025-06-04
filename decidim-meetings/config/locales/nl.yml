@@ -142,11 +142,6 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
-        upcoming_meeting:
-          email_intro: Het "%{resource_title}"event start in minder dan 48 uur.
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-          email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
     gamification:
       badges:
         attended_meetings:

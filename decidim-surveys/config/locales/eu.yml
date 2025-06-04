@@ -84,7 +84,7 @@ eu:
         responses:
           index:
             no_responses: Oraindik ez dago erantzunik
-            title: "Guztira, %{guztira} erantzun"
+            title: "Guztira, %{total} erantzun"
           show:
             title: '#%{number} erantzun'
         settings:

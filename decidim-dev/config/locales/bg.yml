@@ -31,8 +31,6 @@ bg:
               baz: Baz
               foo: Нещо2
           step:
-            endorsements_blocked: Одобряване забранено
-            endorsements_enabled: Одобряване разрешено
             readonly_step_attribute: Само за четене стъпков атрибут
             test_options:
               bar: Нещо1

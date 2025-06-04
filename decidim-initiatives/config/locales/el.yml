@@ -58,9 +58,6 @@ el:
     admin:
       actions:
         new_initiative_type: Νέος τύπος πρωτοβουλίας
-      filters:
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
         information: Πληροφορίες
         initiatives: Πρωτοβουλίες
@@ -253,11 +250,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Νέα πρωτοβουλία από τον συντάκτη %{author_nickname}
           notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία δημιουργήθηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, έχει επιδοκιμάσει την ακόλουθη πρωτοβουλία. Ίσως θέλετε να συμβάλλετε στη συνομιλία:"
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
-          notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία
