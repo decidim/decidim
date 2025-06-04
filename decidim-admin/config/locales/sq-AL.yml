@@ -300,7 +300,6 @@ sq:
           import: Importo
       logs:
         filters:
-          text: Kërko me email përdoruesi, emër ose nofkë.
           user: Përdorues
       managed_users:
         promotions:

@@ -116,8 +116,6 @@ bg:
             values:
               state_not_published: Не отговорено
               state_published: Отговорено
-        search_placeholder:
-          id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
     components:
       proposals:
         actions:

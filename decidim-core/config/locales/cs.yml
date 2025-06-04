@@ -1631,9 +1631,6 @@ cs:
       confirm_unload: Tato stránka obsahuje neuložené změny. Opravdu chcete opustit tuto stránku?
       embed:
         title: Vložený obsah videa
-      extended_navigation_bar:
-        more: Více
-        unfold: Rozvinout
       filter_form_help:
         help: Formulář níže filtruje výsledky hledání dynamicky, pokud se změní podmínky vyhledávání.
         skip: Přeskočit na výsledky

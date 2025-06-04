@@ -93,8 +93,6 @@ tr:
               rejected: Reddedildi
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
-        search_placeholder:
-          id_string_or_title_cont: Başlığa vey ID'ye göre %{collection} ara.
     components:
       proposals:
         actions:

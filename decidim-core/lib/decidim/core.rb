@@ -1037,4 +1037,8 @@ module Decidim
   rescue LoadError
     false
   end
+
+  def self.deprecator(gem_name: "decidim-core", deprecation_horizon: "0.32")
+    @deprecator ||= ActiveSupport::Deprecation.new(deprecation_horizon, gem_name)
+  end
 end

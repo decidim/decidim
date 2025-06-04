@@ -38,27 +38,27 @@
         </button>
 
         <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
-          <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
+          <ul class="dropdown dropdown__bottom divide-y divide-gray-3">
             <% unless reloaded? %>
-              <li>
-                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
+              <li class="dropdown__item">
+                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__button flex flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
               </li>
             <% end %>
-            <li>
-              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "text-only" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
+            <li class="dropdown__item">
+              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", class: "dropdown__button", target: "_blank", data: { "external-link": "text-only" }, title: t("decidim.components.comment.single_comment_link_title") do %>
                 <%= icon "share-line" %>
                 <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
               <% end %>
             </li>
             <% if model.authored_by?(current_user) %>
-              <li>
-                <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog">
+              <li class="dropdown__item">
+                <button type="button" data-dialog-open="<%= "editCommentModal#{model.id}" %>" class="dropdown__button" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog">
                   <%= icon "edit-line" %>
                   <span><%= t("decidim.components.comment.edit") %></span>
                 </button>
               </li>
-              <li>
-                <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") } do %>
+              <li class="dropdown__item">
+                <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__button", data: { confirm: t("decidim.components.comment.confirm_destroy") } do %>
                   <%= icon "delete-bin-line" %>
                   <span><%= t("decidim.components.comment.delete") %></span>
                 <% end %>
@@ -66,7 +66,7 @@
             <% end %>
             <% if (extra_actions) %>
               <% extra_actions.each do |action| %>
-                <li>
+                <li class="dropdown__item">
                   <%= link_to(*action) %>
                 </li>
               <% end %>

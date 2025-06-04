@@ -72,8 +72,6 @@ zh-CN:
               rejected: 已拒绝
               validating: 技术验证
               withdrawn: 取出
-        search_placeholder:
-          id_string_or_title_cont: 通过ID或标题搜索 %{collection}。
     components:
       proposals:
         actions:

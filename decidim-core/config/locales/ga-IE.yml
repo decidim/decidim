@@ -202,9 +202,6 @@ ga:
         cancel: Cealaigh
         ok: Togha
         title: Deimhnigh
-      extended_navigation_bar:
-        more: Níos mó
-        unfold: Oscail
       flag_modal:
         close: Dún
         reason: Cúis

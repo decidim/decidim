@@ -58,9 +58,6 @@ nl:
     admin:
       actions:
         new_initiative_type: Nieuw initiatiefstype
-      filters:
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
         attachments: Bijlagen
         committee_members: Commissieleden

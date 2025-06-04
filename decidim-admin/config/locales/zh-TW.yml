@@ -387,11 +387,7 @@ zh-TW:
             'true': 取消發佈
         search_label: 搜尋
         search_placeholder:
-          name_or_nickname_or_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
           report_count_eq: 報告數量等於
-          reported_id_string_or_reported_content_cont: 按報告 Id 或內容搜索%{collection}。
-          title_cont: 按標題搜索%{collection}。
-          user_name_or_user_nickname_or_user_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
         state_eq:
           label: 狀態
           values:
@@ -479,7 +475,6 @@ zh-TW:
       logs:
         filters:
           participatory_space: 尋找參與空間
-          text: 按用戶電子郵件、姓名或暱稱進行搜索。
           user: 使用者
         logs_list:
           no_logs_yet: 尚未有任何日誌記錄.

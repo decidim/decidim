@@ -152,8 +152,6 @@ cs:
             values:
               state_not_published: Nezodpovězeno
               state_published: Odpovězeno
-        search_placeholder:
-          id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
     application:
       geocoding:
         not_configured: Geocoding není nakonfigurován!
