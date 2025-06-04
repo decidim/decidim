@@ -169,14 +169,18 @@ module Decidim
               let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, taxonomies:) }
               let!(:random_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
               let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component, taxonomies:) }
+              let!(:hidden_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
+              let!(:moderation) { create(:moderation, reportable: hidden_proposal, hidden_at: 1.day.ago) }
 
               it "only imports proposals from the selected states" do
                 expect do
                   call_command_and_perform_enqueued_jobs
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
+                expect(Proposal.where(component: current_component).pluck(:title)).to include(random_proposal.title)
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(withdrawn_proposal.title)
+                expect(Proposal.where(component: current_component).pluck(:title)).not_to include(hidden_proposal.title)
               end
 
               context "when using translation" do
