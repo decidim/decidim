@@ -100,11 +100,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Rapat "%{resource_title}" telah memungkinkan pendaftaran.
           notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> telah memungkinkan pendaftaran.
-        upcoming_meeting:
-          email_intro: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-          email_subject: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
-          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> akan dimulai dalam waktu kurang dari 48 jam.
     gamification:
       badges:
         attended_meetings:

@@ -460,5 +460,6 @@ cs:
         project_proposal: Návrhy zahrnuté do tohoto projektu
     statistics:
       orders_count: Podpory
+      projects_count: Rozpočty
   index:
     confirmed_orders_count: Počet hlasů

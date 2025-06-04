@@ -65,7 +65,6 @@ lt:
           comment: Komentuoti
           create: Sukurti
           destroy: Ištrinti
-          endorse: Palaikyti
           update: Atnaujinti
         name: Tinklaraštis
         settings:
@@ -76,8 +75,6 @@ lt:
           step:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
     events:
       blogs:
         post_created:

@@ -107,8 +107,8 @@ describe "Admin manages proposals evaluators" do
       expect(page).to have_content(translated(unassigned_proposal.title))
 
       within ".filters__section" do
-        find("a.dropdown", text: "Filter").hover
-        find("a", text: "Assigned to evaluator").hover
+        find("a", text: "Filter").click
+        find("a", text: "Assigned to evaluator").click
         find("a", text: evaluator.name).click
       end
 

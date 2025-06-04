@@ -30,8 +30,6 @@ id:
       organization:
         alert_color: Waspada
         badges_enabled: Aktifkan lencana
-        cta_button_path: Jalur tombol Call To Action
-        cta_button_text: Teks tombol Call To Action
         default_locale: Lokal default
         description: Deskripsi
         enable_omnipresent_banner: Tampilkan spanduk di mana-mana
@@ -410,14 +408,7 @@ id:
         edit:
           update: Memperbarui
         form:
-          colors:
-            colors_title: Warna organisasi
-          cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
-          homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
-          images:
-            layout_appearance_title: Edit tampilan tata letak
-          omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.

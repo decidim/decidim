@@ -173,8 +173,11 @@ cs:
               no_sign_in: Nikdy se nepřihlásil
               no_user: Nebyl nalezen žádný uživatel
             last_login:
+              no_sign_in: Nikdy se nepřihlásil
               no_user: Žádný uživatel
             new_import:
+              errors:
+                email_exists: E-mailová adresa %{email} již existuje v organizaci %{organization}.
               example: |
                 john.doe@example.org
                 jane.doe@example.org
@@ -189,11 +192,14 @@ cs:
               save: Uložit
           index:
             add_new_record_button: Přidat nový záznam
+            authorized: Uživatel autorizován
             fields:
               actions: Akce
               created_at: Vytvořeno v
               email: E-mail
               user_authorized: Uživatel autorizován?
+            import_csv: Importovat CSV
+            no_authorized: Uživatel neautorizován
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
@@ -214,6 +220,10 @@ cs:
             few: 'Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             many: 'Účast je omezena na účastníky s poštovními kódy %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             other: 'Účast je omezena na účastníky s kterýmkoli z následujících poštovních kódů: %{postal_codes}. Vaše poštovní směrovací číslo je %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Následující e-mailové adresy jsou neplatné: %{invalid_emails}.'
+        no_emails: Soubor musí obsahovat e-maily
+        wrong_number_columns: "Byl očekáván sloupec %{expected}, ale byl nalezen %{actual}."
       id_documents:
         admin:
           config:

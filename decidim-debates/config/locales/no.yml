@@ -25,7 +25,6 @@
       debates:
         actions:
           comment: Kommenter
-          endorse: Påtegne
         name: Innspillstråder
         settings:
           global:
@@ -36,8 +35,6 @@
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
             creation_enabled: Deltakere kan opprette debatter
-            endorsements_blocked: Påtegnelser blokkert
-            endorsements_enabled: Påtegnelser aktivert
     debates:
       actions:
         close: Lukk

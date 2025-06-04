@@ -40,7 +40,7 @@ module Decidim
                                icon_name: "chat-1-line",
                                tooltip_key: "comments_count" do |organization|
           Decidim.component_manifests.sum do |component|
-            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
+            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.compact_blank.sum
           end
         end
       end

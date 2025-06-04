@@ -202,11 +202,6 @@ ro:
           email_outro: Ai primit această notificare deoarece te-ai înregistrat pentru întâlnirea „%{resource_title}”. O poți anula de la link-ul anterior.
           email_subject: Întâlnirea "%{resource_title}" a permis înregistrări.
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a permis înregistrări.
-        upcoming_meeting:
-          email_intro: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
-          email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
-          email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
-          notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
     gamification:
       badges:
         attended_meetings:

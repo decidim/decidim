@@ -34,8 +34,6 @@
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
-        cta_button_path: Sti for handlingsknapp
-        cta_button_text: Tekst til handlingsknapp
         customize_welcome_notification: Tilpass dine velkomstvarsler
         default_locale: Standardspråk
         description: Beskrivelse
@@ -347,11 +345,7 @@
             'true': Avpublisert
         search_label: Søk
         search_placeholder:
-          name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
           report_count_eq: Antall rapporter
-          reported_id_string_or_reported_content_cont: Søk %{collection} av rapporterbar id eller innhold.
-          title_cont: Søk %{collection} etter tittel.
-          user_name_or_user_nickname_or_user_email_cont: Søk %{collection} via e-post, navn eller kallenavn.
         state_eq:
           label: Tilstand
           values:
@@ -669,16 +663,7 @@
         edit:
           update: Oppdater
         form:
-          colors:
-            colors_title: Organisasjonens farger
-            colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
-          cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
-          homepage_appearance_title: Endre hjemmesidens utseende
           homepage_highlighted_content_banner_title: Markert innholdsbanner
-          images:
-            layout_appearance_title: Rediger layout utseende
-            preview: Forhåndsvis
-          omnipresent_banner_appearance_title: Endre enerådende banner
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
