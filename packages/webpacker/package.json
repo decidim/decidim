@@ -1,7 +1,7 @@
 {
   "name": "@decidim/webpacker",
   "description": "The webpacker dependencies for Decidim",
-  "version": "0.29.3",
+  "version": "0.29.4",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",

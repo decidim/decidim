@@ -2,6 +2,54 @@
 
 # Changelog
 
+## [0.29.4](https://github.com/decidim/decidim/tree/0.29.4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Fix digest emails to use organization timezone' to v0.29 [\#14615](https://github.com/decidim/decidim/pull/14615)
+- **decidim-core**: Backport 'The message textarea on Conversations page is missing an appropriate label' to v0.29 [\#14626](https://github.com/decidim/decidim/pull/14626)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix copy blocks when duplicating assemblies or spaces' to v0.29 [\#14618](https://github.com/decidim/decidim/pull/14618)
+- **decidim-core**, **decidim-dev**, **decidim-meetings**: Backport 'Fix meeting registration mail digest and user export' to v0.29 [\#14629](https://github.com/decidim/decidim/pull/14629)
+- **decidim-budgets**: Backport 'Fix crash when phase end_date is NULL when sending order reminders' to v0.29 [\#14634](https://github.com/decidim/decidim/pull/14634)
+- **decidim-core**: Backport 'Hidden resource report translation' to v0.29 [\#14653](https://github.com/decidim/decidim/pull/14653)
+- Fix typo in release notes [\#14650](https://github.com/decidim/decidim/pull/14650)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix text in meeting show page' to v0.29 [\#14655](https://github.com/decidim/decidim/pull/14655)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix text in calendar share modal' to v0.29 [\#14657](https://github.com/decidim/decidim/pull/14657)
+- Use defined token if present in generate_token method [\#14667](https://github.com/decidim/decidim/pull/14667)
+- **decidim-core**: Backport 'Fix pagination visibility issue' to v0.29 [\#14672](https://github.com/decidim/decidim/pull/14672)
+- **decidim-core**: Backport 'Separate manual and automatic moderation mails' to v0.29 [\#14681](https://github.com/decidim/decidim/pull/14681)
+- **decidim-comments**: Backport 'Fix comment refresh bug when replying' to v0.29 [\#14677](https://github.com/decidim/decidim/pull/14677)
+- **decidim-admin**, **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-meetings**: Backport 'Require organization in `nicknamize` method' to v0.29 [\#14683](https://github.com/decidim/decidim/pull/14683)
+- Backport 'Fix warnings for documentation project' to v0.29 [\#14685](https://github.com/decidim/decidim/pull/14685)
+- **decidim-core**, **decidim-initiatives**: Backport 'Fix home menu layout' to v0.29 [\#14688](https://github.com/decidim/decidim/pull/14688)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-meetings**, **decidim-participatory processes**: Backport 'Preview unpublished meetings as a process admin' to v0.29 [\#14695](https://github.com/decidim/decidim/pull/14695)
+- **decidim-core**: Backport 'Fix accessibility in extra_data content_block cell in process show page' to v0.29 [\#14746](https://github.com/decidim/decidim/pull/14746)
+- **decidim-budgets**, **decidim-core**: Backport 'Fix WCAG logo link description' to v0.29 [\#14745](https://github.com/decidim/decidim/pull/14745)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix order of participatory processes and assemblies' to v0.29 [\#14749](https://github.com/decidim/decidim/pull/14749)
+- **decidim-meetings**: Backport 'Fix list of meetings' participants in mobile' to v0.29 [\#14750](https://github.com/decidim/decidim/pull/14750)
+- **decidim-core**: Backport 'Withdrawn proposals/meetings displayed in the last activity feed' to v0.29 [\#14752](https://github.com/decidim/decidim/pull/14752)
+- **decidim-core**: Backport 'Fix author's name display in posts in participatory process show page' to v0.29 [\#14757](https://github.com/decidim/decidim/pull/14757)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Clean-up Releases Notes file for v0.29 [\#14623](https://github.com/decidim/decidim/pull/14623)
+
 ## [0.29.3](https://github.com/decidim/decidim/tree/0.29.3)
 
 ### Added
