@@ -853,6 +853,8 @@ FactoryBot.define do
     organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
     scopes { "profile" }
+    confidential { true }
+    refresh_tokens_enabled { false }
   end
 
   factory :oauth_access_token, class: "Doorkeeper::AccessToken" do

@@ -40,6 +40,29 @@ describe "Manage OAuth applications" do
     end
   end
 
+  context "when the application type is not selected" do
+    it "shows an error message" do
+      click_on "New"
+
+      within ".new_oauth_application" do
+        fill_in :oauth_application_name, with: "Meta Decidim"
+        fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
+        select translated(organization.name), from: :oauth_application_decidim_organization_id
+        fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
+        fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
+      end
+
+      dynamically_attach_file(:oauth_application_organization_logo, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+
+      within ".new_oauth_application" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("There was a problem creating this application")
+      expect(page).to have_content("is not included in the list")
+    end
+  end
+
   context "with existing applications" do
     let!(:application) { create(:oauth_application, organization:) }
 
