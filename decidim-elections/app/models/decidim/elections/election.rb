@@ -53,27 +53,23 @@ module Decidim
         !auto_start?
       end
 
-      def internal_census?
-        internal_census
-      end
-
-      def external_census?
-        !internal_census?
-      end
-
       def verification_filters
         verification_types.presence || []
+      end
+
+      def census
+        @census ||= Decidim::Elections.census_registry.find(census_manifest)
       end
 
       def census_status
         @census_status ||= CsvCensus::Status.new(self)
       end
 
-      # Public: Checks if the census status for the election is "ready".
-      #
-      # Returns a boolean indicating if the census status equals "ready" or if it's an internal census selection and there are not verification types or voters.
+      # syntax sugar to access the census manifest
       def census_ready?
-        census_status&.name == "ready" || (internal_census? && verification_types.empty?) || (internal_census? && voters.empty?)
+        return false if census.nil?
+
+        census.ready?(self)
       end
     end
   end

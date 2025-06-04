@@ -1,19 +1,21 @@
-<div class="table-scroll mt-8">
-  <table class="table-list">
-    <thead>
-    <tr>
-      <th><%= t("edit.email", scope: "decidim.elections.admin.census") %></th>
-      <th><%= t("edit.created_at", scope: "decidim.elections.admin.census") %></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% election.voters.order(created_at: :desc).limit(5).each do |voter| %>
+<div class="border-t border-gray-3 my-4">
+  <p class="my-4"><em><%= t("decidim.elections.admin.census.preview.title", limit: preview_users.count) %></em></p>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
       <tr>
-        <td><%= voter.email %></td>
-        <td><%= l(voter.created_at, format: :short) %></td>
+        <th><%= t("edit.identifier", scope: "decidim.elections.admin.census") %></th>
+        <th><%= t("edit.created_at", scope: "decidim.elections.admin.census") %></th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <p class="mt-6"><%= t("decidim.elections.admin.census.preview.info_html", count: election.voters.count) %></p>
+      </thead>
+      <tbody>
+      <% preview_users.each do |voter| %>
+        <tr>
+          <td><%= voter.identifier %></td>
+          <td><%= voter.date_created %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

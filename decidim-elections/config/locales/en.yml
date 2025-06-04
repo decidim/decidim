@@ -26,58 +26,17 @@ en:
         view_deleted_elections: View deleted elections
       admin:
         census:
-          destroy:
-            confirm: Delete all the census can not be undone. Are you sure you want to continue?
-            invalid: There was a problem deleting the census data
-            success: Census data deleted successfully
-            title: Delete all census data
           edit:
-            census_source_type: Choose the type of census you want to use for this election
-            continue: Continue
+            choose_census: Choose the type of census you want to use for this election
             created_at: Created at
-            email: Email
-            error: There was a problem editing the census.
-            external_type: External (upload a CSV file)
-            internal_type: Internal (registered participants)
-            name: Organization's census
-            save: Save
-            submit_permissions: Save
+            identifier: User identifier
             title: Type of census
-            update:
-              invalid: There was a problem updating the census
-              success: Census updated successfully
-            upload_csv_title: Upload a CSV file
-            voters_count: There are %{count} records loaded in total. Last upload date was on %{due_date}. If you want to change the census (for instance, adding more participants), its necessary to first delete all census data.
-          external_census_fields:
-            example: |
-              email;token
-              user@example.org;123456
-              user2@example.org;ABCXYZ
-            info_html: |
-              Must be a file in CSV format with only one column, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
-              It must be separated with a semicolon (;)
-            upload_file: Upload file
-            upload_new_census: Upload a CSV file
-            uploaded_data: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-          internal_census_fields:
-            additional_authorizations: Additional authorizations
-            info_html: |
-              You can restrict participation in the election to participants who have an authorization.<br>
-              Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone  registered.
-            internal_type_title: Additional required authorizations to vote (optional)
-            no_additional_authorizations: "(no additional authorizations are required)"
-            not_ready: The census is not ready yet. You need save it to proceed.
-            save: Save census
-            uploaded_data_html: |
-              Selected census: <b>Internal</b><br>
-              %{authorization_info}
+            voters_count: There are currently %{count} people eligible for voting in this election (this might change on a dynamic census).
           preview:
-            info_html: "%{count} people will be eligible for voting in this elections. The preview list is limited to 5 registers."
+            title: 'User preview (the list is limited to %{limit} registers):'
           update:
-            error: There was an error importing or generating the census.
-            invalid: There was a problem updating the census.
-            success:
-              import: Successfully imported %{count} items (%{errors} errors). Please wait a moment while these records are being processed.
+            error: There was an error while generating or saving the census.
+            success: Census updated successfully.
         elections:
           create:
             invalid: There was a problem creating the election.
@@ -142,6 +101,29 @@ en:
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
+      censuses:
+        internal_users:
+          info_html: |
+            You can restrict participation in the election to participants who have an authorization.<br>
+            Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
+          internal_type_title: Additional required authorizations to vote (optional)
+          label: Registered participants (dynamic)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
+            It must be separated with a semicolon (;)
+          label: Unregistered participants with tokens (fixed)
+          remove_all: Remove all current census data
+          remove_before_upload: 'If you want to upload a new census, you must first remove the existing one.
+
+            '
+          upload_file: Upload file
+          upload_new_census: Upload a CSV file
+          uploaded_data: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
       models:
         election:
           fields:

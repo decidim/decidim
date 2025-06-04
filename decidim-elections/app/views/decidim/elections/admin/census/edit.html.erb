@@ -1,33 +1,33 @@
 <%= append_javascript_pack_tag "decidim_elections_admin" %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <%= link_to t("continue", scope: "decidim.elections.admin.census.edit"),
-              dashboard_page_election_path(election),
-              class: "main-tabs-menu__cta-button #{'hide' unless (election.census_ready?)}",
-              data: { census_ready: election.census_ready? } %>
+  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button #{"hide" unless election.census}", form: "census-election-form" %>
 <% end %>
 
-<div class="item_show__header">
+<div class="item_show__header form-defaults">
   <h1 class="item_show__header-title">
     <%= t(".title") %>
   </h1>
+  <%= select_tag "census_manifest",
+                 options_for_select(census_manifests.to_h { |manifest| [manifest.label, manifest.name] }, selected: election.census&.name),
+                 include_blank: t(".choose_census"),
+                 id: "census-manifest-selector" %>
+
 </div>
-
-<div class="card-section census-form">
-  <%= render partial: "form", locals: { election:, verification_types: formatted_verification_types } %>
-
-  <% if status.count > 0 %>
-    <p class="mb-4"><%= t(".voters_count", count: election.voters.count, due_date: l(status.last_import_at, format: :long)) %></p>
-    <%= link_to destroy_all_census_election_path(election),
-                method: :delete,
-                class: "button button__sm button__primary",
-                data: { confirm: t("decidim.elections.admin.census.destroy.confirm") } do %>
-      <%= icon "delete-bin-line", role: "img", "aria-hidden": true %>
-      <%= t("decidim.elections.admin.census.destroy.title") %>
-    <% end %>
-
-    <div class="card-section">
-      <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } %>
-    </div>
+  <% if election.census_ready? %>
+   <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data", election_title: translated_attribute(election.title)) %>
+   <% announcement += "<br>" + t(".voters_count", count: "<strong>#{census_count}</strong>") %>
+    <%= cell "decidim/announcement", announcement, callout_class: "success" %>
   <% end %>
+<div class="card-section census-form form-defaults">
+  <% if @form && election.census&.admin_form_partial %>
+    <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name),
+                                method: :patch,
+                                multipart: true,
+                                html: { id: "census-election-form" }) do |f| %>
+      <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
+    <% end %>
+  <% end %>
+
+  <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users.present? %>
 </div>
