@@ -168,6 +168,7 @@ module Decidim
               let(:states) { %w(not_answered rejected) }
               let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, taxonomies:) }
               let!(:random_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
+              let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component, taxonomies:) }
 
               it "only imports proposals from the selected states" do
                 expect do
@@ -175,6 +176,7 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+                expect(Proposal.where(component: current_component).pluck(:title)).not_to include(withdrawn_proposal.title)
               end
 
               context "when using translation" do
