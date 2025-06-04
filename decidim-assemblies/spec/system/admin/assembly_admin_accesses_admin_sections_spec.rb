@@ -50,7 +50,7 @@ describe "Assembly admin accesses admin sections" do
   end
 
   context "when is a child assembly" do
-    let!(:child_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "child") }
+    let!(:child_assembly) { create(:assembly, parent: assembly, organization:) }
 
     before do
       visit decidim_admin_assemblies.edit_assembly_path(child_assembly)

@@ -185,7 +185,6 @@ describe "Assemblies" do
             expect(page).to have_content(translated(assembly.subtitle, locale: :en))
             expect(page).to have_content(translated(assembly.short_description, locale: :en))
             expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-            expect(page).to have_content(assembly.hashtag)
             expect(page).to have_content(translated(assembly.developer_group, locale: :en))
             expect(page).to have_content(translated(assembly.local_area, locale: :en))
             expect(page).to have_content(translated(assembly.target, locale: :en))

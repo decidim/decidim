@@ -47,7 +47,6 @@ module Decidim
             title: form.title,
             subtitle: @assembly.subtitle,
             slug: form.slug,
-            hashtag: @assembly.hashtag,
             description: @assembly.description,
             short_description: @assembly.short_description,
             promoted: @assembly.promoted,
