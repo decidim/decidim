@@ -19,7 +19,7 @@ FactoryBot.define do
                      else
                        evaluator.body
                      end
-      comment.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, comment.body, current_organization: comment.root_commentable.organization).rewrite
+      comment.body
     end
 
     trait :deleted do

@@ -62,7 +62,6 @@ module Decidim
 
         Decidim.icons.register(name: "film-line", icon: "film-line", category: "system", description: "", engine: :conferences)
         Decidim.icons.register(name: "ticket-line", icon: "ticket-line", category: "system", description: "", engine: :conferences)
-        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :conferences)
         Decidim.icons.register(name: "link-m", icon: "link-m", category: "system", description: "", engine: :conferences)
       end
 

@@ -46,7 +46,51 @@ gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.4. Run these commands
+### 1.4. Rails upgrade
+
+This particular release is deploying a new Rails version 7.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
+
+```console
+bundle update decidim
+bin/rails decidim:upgrade
+```
+
+After that, you will have to patch your `config/environments/production.rb`, and change the logger with:
+
+```ruby
+if ENV["RAILS_LOG_TO_STDOUT"].present?
+  config.logger = ActiveSupport::Logger.new(STDOUT)
+    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+end
+```
+
+As of this version, we are changing Rails's settings from 6.1 to 7.1. In order to upgrade your app, you will need to patch your `config/application.rb` to load the 7.1 defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 6.1
++    config.load_defaults 7.1
+    # ....
+  end
+end
+```
+
+⚠ **Important**: Local environment variable introduced
+
+Besides of what is already mentioned, you may encounter some encryption-related issues while developing locally, and this is caused by a Rails internal change that it is outside the control of Decidim's Maintainers team.
+
+In the previous Rails versions the `secret_key_base` for local development was stored in a local file `development_app/tmp/development_secret.txt`, which has been remove starting Rails 7.1.
+Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`.
+
+You can read more about the Rails upgrade process on the following PRs:
+
+* [Change framework defaults from Rails v6.1 to v7.0 #14735](https://github.com/decidim/decidim/pull/13267).
+* [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
+
+### 1.5. Run these commands
 
 ```console
 bundle update decidim
@@ -57,7 +101,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
 ```
 
-### 1.5. Follow the steps and commands detailed in these notes
+### 1.6. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -331,7 +375,15 @@ The rhetoric reasoning of this removal is due to extending and improving the set
 
 You can read more about this change on PR [#14453](https://github.com/decidim/decidim/pull/14453).
 
-### 3.8. [[TITLE OF THE ACTION]]
+### 3.8. Change form endorsements to likes
+
+We have replaced the terminology of `endorsements` with `likes` throughout the platform, meaning that endorsement buttons and counters have been changed to likes.
+
+Implementers will notice this transition once they run the needed migrations on the platform. Additionally some of the translation keys have changed, and this may affect your instance.
+
+You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
+
+### 3.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -350,27 +402,11 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
-
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
-
-If you have used code as such:
-
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
-```
-
-```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-```
-
-### 5.2. Add force_api_authentication configuration options
+### 5.1. Add force_api_authentication configuration options
 
 There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
 
-### 5.3. Require organization in nicknamize method
+### 5.2. Require organization in nicknamize method
 
 In order to avoid potential performance issues, we have changed the `nicknamize` method by requiring the organization as a parameter.
 
@@ -389,3 +425,21 @@ Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
 ```
 
 You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).
+
+### 5.3. [[TITLE OF THE CHANGE]]
+
+In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+
+If you have used code as such:
+
+```ruby
+# Explain the usage of the API as it was in the previous version
+result = 1 + 1 if before
+```
+
+```ruby
+# Explain the usage of the API as it is in the new version
+result = 1 + 1 if after
+```
+
+You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxxxx).

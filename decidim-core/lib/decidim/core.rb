@@ -84,7 +84,6 @@ module Decidim
   autoload :DownloadYourDataExporter, "decidim/download_your_data_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
-  autoload :Hashtag, "decidim/hashtag"
   autoload :Etherpad, "decidim/etherpad"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
@@ -92,7 +91,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :Endorsable, "decidim/endorsable"
+  autoload :Likeable, "decidim/likeable"
   autoload :ActionAuthorization, "decidim/action_authorization"
   autoload :Map, "decidim/map"
   autoload :Geocodable, "decidim/geocodable"
@@ -129,6 +128,8 @@ module Decidim
   autoload :HasWorkflows, "decidim/has_workflows"
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -168,7 +169,7 @@ module Decidim
 
     seed_gamification_badges!
 
-    seed_endorsements!
+    seed_likes!
 
     I18n.available_locales = original_locale
   end
@@ -198,15 +199,15 @@ module Decidim
     end
   end
 
-  def self.seed_endorsements!
+  def self.seed_likes!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
-                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+                             .select { |resource| resource.constantize.include? Decidim::Likeable }
 
     resources_types.each do |resource_type|
       resource_type.constantize.find_each do |resource|
-        # exclude the users that already endorsed
-        users = resource.endorsements.map(&:author)
+        # exclude the users that already liked
+        users = resource.likes.map(&:author)
         remaining_count = Decidim::User.count - users.count
         next if remaining_count < 1
 
@@ -214,7 +215,7 @@ module Decidim
           user = (Decidim::User.all - users).sample
           next unless user
 
-          Decidim::Endorsement.create!(resource:, author: user)
+          Decidim::Like.create!(resource:, author: user)
           users << user
         end
       end
@@ -672,7 +673,7 @@ module Decidim
   config_accessor :omniauth_providers do
     {
       developer: {
-        enabled: Rails.env.development? || Rails.env.test?,
+        enabled: Rails.env.local?,
         icon: "phone-line"
       },
       facebook: {

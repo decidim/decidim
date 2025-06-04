@@ -103,7 +103,6 @@ ca:
           comment: Comentar
           create: Crear
           destroy: Esborrar
-          endorse: Adherir-se
           update: Actualitzar
         name: Blog
         settings:
@@ -120,8 +119,6 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
     events:
       blogs:
         post_created:
@@ -148,7 +145,6 @@ ca:
           comments_count: El número de comentaris que té aquesta publicació
           component: El component al qual pertany aquesta publicació
           created_at: La data en què es va crear aquesta publicació
-          endorsements_count: El número d'adhesions que té aquesta publicació
           follows_count: El número de seguidores que té aquesta publicació
           id: L'identificador únic de la publicació
           participatory_space: A quin espai pertany aquesta publicació (procés participatiu, assemblea, etc.)

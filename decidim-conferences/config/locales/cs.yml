@@ -644,6 +644,7 @@ cs:
           url: URL prostoru
     statistics:
       conferences_count: Konference
+      conferences_count_tooltip: Počet publikovaných konferencí.
   devise:
     mailer:
       join_conference:

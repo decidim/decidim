@@ -60,6 +60,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -264,7 +265,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -579,6 +580,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -792,6 +794,8 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
@@ -860,6 +864,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby
@@ -965,8 +970,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls

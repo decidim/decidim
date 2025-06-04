@@ -18,7 +18,7 @@ describe "User prints the initiative" do
       it "Updates published initiative data" do
         page.find(".action-icon--edit").click
         within ".edit_initiative" do
-          fill_in :initiative_hashtag, with: "#hashtag"
+          fill_in :initiative_title, with: "#title"
         end
         within("[data-content]") do
           find("*[type=submit]").click

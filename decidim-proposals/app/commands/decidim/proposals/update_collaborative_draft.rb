@@ -4,8 +4,6 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a collaborative_draft.
     class UpdateCollaborativeDraft < Decidim::Command
-      include HashtagsMethods
-
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -59,8 +57,8 @@ module Decidim
 
       def attributes
         {
-          title: title_with_hashtags,
-          body: body_with_hashtags,
+          title: form.title,
+          body: form.body,
           taxonomizations: form.taxonomizations,
           address: form.address,
           latitude: form.latitude,

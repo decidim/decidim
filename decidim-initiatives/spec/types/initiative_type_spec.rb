@@ -34,14 +34,6 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
-
-        it "returns the initiative' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
-        end
-      end
-
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
 

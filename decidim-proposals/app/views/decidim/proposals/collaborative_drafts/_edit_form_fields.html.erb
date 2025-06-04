@@ -3,22 +3,6 @@
 <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
 <%= text_editor_for_proposal_body(form) %>
 
-<% if @form.component_automatic_hashtags.any? %>
-  <%= field_set_tag form.label(:automatic_hashtags, nil, for: nil) do %>
-    <% @form.component_automatic_hashtags.each do |hashtag| %>
-      <%= form.check_box "", checked: true, disabled: true, label: "##{hashtag}", label_options: { class: "form__wrapper-checkbox-label" } %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% if @form.component_suggested_hashtags.any? %>
-  <%= field_set_tag form.label(:suggested_hashtags, nil, for: nil) do %>
-    <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
-          option.label(class: "form__wrapper-checkbox-label") { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
-        end %>
-  <% end %>
-<% end %>
-
 <% if @form.geocoding_enabled? %>
   <%= form.geocoding_field :address %>
 <% end %>

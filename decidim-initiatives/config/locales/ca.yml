@@ -443,11 +443,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha donat suport a la següent iniciativa. Potser vols contribuir a la conversa:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Iniciativa adherida per %{author_nickname}
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}".'

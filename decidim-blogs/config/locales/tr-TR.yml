@@ -47,8 +47,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Yorumlar engellendi
-            endorsements_enabled: Yorumlar etkin
     events:
       blogs:
         post_created:

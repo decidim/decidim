@@ -8,7 +8,6 @@ en:
         area_id: Area
         decidim_scope_id: Scope
         description: Description
-        hashtag: Hashtag
         offline_votes: In-person signatures
         offline_votes_for_scope: In-person signatures for %{scope_name}
         scope_id: Scope
@@ -97,7 +96,7 @@ en:
           type_id_eq:
             label: Type
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name
       initiatives_settings:
         update:
           error: There was a problem updating the initiatives settings.
@@ -444,11 +443,11 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: New initiative by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+        like_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has liked the following initiative, maybe you want to contribute to the conversation:"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: Initiative endorsed by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: Initiative liked by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was liked by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rejected your application to be part of the promoter committee for the following initiative %{resource_title}."
           email_outro: 'You received this notification because you applied to this initiative: %{resource_title}.'
@@ -674,7 +673,6 @@ en:
           description: The description of the initiative
           first_progress_notification_at: The date when the first progress notification was sent
           follows_count: The number of users following this space
-          hashtag: The initiative hashtag, used for Twitter/X
           offline_votes: The number of signatures that this inititative received outside of this platform
           online_votes: The number of signatures that this initiative received online (directly through the platform)
           published_at: The date this space was published

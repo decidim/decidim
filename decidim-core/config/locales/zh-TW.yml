@@ -43,7 +43,6 @@ zh-TW:
       decidim/promote_to_admin: 晉升為群組管理員
       decidim/promoted_to_admin_event: 晉升為群組管理員
       decidim/removed_from_group: 從群組中移除
-      decidim/resource_endorsed_event: 資源已獲得連署
       decidim/resource_hidden_event: 資源已隱藏
       decidim/welcome_notification_event: 歡迎訊息
   activerecord:
@@ -60,8 +59,6 @@ zh-TW:
     models:
       decidim/amendment:
         other: 修正案
-      decidim/endorsement:
-        other: 連署
       decidim/user:
         other: 參與者
   booleans:
@@ -313,8 +310,6 @@ zh-TW:
       avatar: '頭像： %{name}'
       comments:
         other: 評論
-      endorsements:
-        other: "one\n連署\nOther\n連署"
       official_author: 官方
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -535,8 +530,6 @@ zh-TW:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
-    endorsement_buttons_cell:
-      endorse: 喜歡！
     errors:
       internal_server_error:
         copied: 文字已複製!
@@ -635,11 +628,6 @@ zh-TW:
           email_subject: 您的%{resource_type} 已被移除。
           notification_title: |-
             一位管理員因為 %{report_reasons} 的舉報，移除了您的%{resource_type}。</br> <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}，您正在關注的用戶，剛剛為"%{resource_title}"進行了連署，我們認為這可能對您很有興趣。請查看並做出貢獻：'
-        email_outro: 您收到此通知是因為您正在關注 %{endorser_nickname}。您可以點擊上方的連結停止接收通知。
-        email_subject: "%{endorser_nickname} 進行了一個新的連署。"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> 的 %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 連署。
       users:
         profile_updated:
           email_intro: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
@@ -1035,9 +1023,6 @@ zh-TW:
     reports:
       create:
         success: 報告已成功建立，將由管理員進行審查。
-    resource_endorsements:
-      create:
-        error: 在連署操作過程中出現問題。
     scopes:
       global: 全域範圍
       prompt: 選擇一個範圍
@@ -1114,7 +1099,6 @@ zh-TW:
         share_to: 分享至 %{service}
     statistics:
       comments_count: 評論
-      endorsements_count: 連署
       followers_count: 追隨者
       headline: 統計資料
       no_stats: 目前還沒有統計資料。

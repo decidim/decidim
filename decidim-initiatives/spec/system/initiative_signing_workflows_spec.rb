@@ -109,7 +109,9 @@ describe "Initiative signing with workflows" do
 
         vote = Decidim::InitiativesVote.last
 
-        expect(vote.decrypted_metadata).to eq(personal_data)
+        data = personal_data.with_indifferent_access
+        data[:date_of_birth] = data[:date_of_birth].strftime("%Y-%m-%d")
+        expect(vote.decrypted_metadata).to eq(data)
       end
     end
 

@@ -29,18 +29,18 @@ FactoryBot.define do
       Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end
@@ -105,12 +105,12 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            endorsements_enabled: true,
-            endorsements_blocked: true
+            likes_enabled: true,
+            likes_blocked: true
           }
         }
       end
@@ -233,23 +233,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_extra_hashtags do
-      transient do
-        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
-        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
-      end
-
-      step_settings do
-        {
-          participatory_space.active_step.id => {
-            automatic_hashtags:,
-            suggested_hashtags:,
-            creation_enabled: true
-          }
-        }
-      end
-    end
-
     trait :without_publish_answers_immediately do
       step_settings do
         {
@@ -332,8 +315,8 @@ FactoryBot.define do
                         evaluator.body
                       end
 
-      proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
-      proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+      proposal.title
+      proposal.body
 
       if proposal.component
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
@@ -430,12 +413,12 @@ FactoryBot.define do
       end
     end
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |proposal, evaluator|
         5.times.collect do
-          create(:endorsement, resource: proposal,
-                               author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
-                               skip_injection: evaluator.skip_injection)
+          create(:like, resource: proposal,
+                        author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
+                        skip_injection: evaluator.skip_injection)
         end
       end
     end

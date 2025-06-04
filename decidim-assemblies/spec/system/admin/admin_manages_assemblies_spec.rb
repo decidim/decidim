@@ -83,7 +83,6 @@ describe "Admin manages assemblies" do
         select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
         fill_in :assembly_slug, with: "slug"
-        fill_in :assembly_hashtag, with: "#hashtag"
         fill_in :assembly_weight, with: 1
       end
 

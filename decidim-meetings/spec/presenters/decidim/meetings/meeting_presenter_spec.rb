@@ -72,55 +72,5 @@ module Decidim::Meetings
         expect(subject).to contain_exactly(translated(taxonomy1.name), translated(taxonomy2.name))
       end
     end
-
-    describe "#description" do
-      let(:description1) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
-      end
-      let(:description2) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description in Spanish #description", current_organization: organization).rewrite
-      end
-      let(:meeting) do
-        create(
-          :meeting,
-          component: meeting_component,
-          description: {
-            en: description1,
-            machine_translations: {
-              es: description2
-            }
-          }
-        )
-      end
-
-      it "parses hashtags in machine translations" do
-        expect(meeting.description["en"]).to match(/gid:/)
-        expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
-
-        presented_description = presented_meeting.description(all_locales: true)
-        expect(presented_description["en"]).to eq("Description #description")
-        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
-      end
-
-      context "when sanitizes any HTML input" do
-        let(:description1) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
-
-        it "removes the html input" do
-          presented_description = presented_meeting.description(all_locales: true, strip_tags: true)
-          expect(presented_description["en"]).to eq("XSS via target in a tag")
-        end
-      end
-    end
-
-    describe "#editor_description" do
-      let(:meeting) { create(:meeting, component: meeting_component, description:) }
-      let(:description) { { en: html, es: html } }
-
-      include_context "with editor content containing hashtags and mentions"
-
-      it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
-        expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
-      end
-    end
   end
 end

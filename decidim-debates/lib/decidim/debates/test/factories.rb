@@ -21,10 +21,10 @@ FactoryBot.define do
     comments_layout { "single_column" }
     deleted_at { nil }
 
-    trait :with_endorsements do
+    trait :with_likes do
       after :create do |post, evaluator|
         5.times.collect do
-          create(:endorsement,
+          create(:like,
                  resource: post,
                  skip_injection: evaluator.skip_injection,
                  author: build(:user, :confirmed, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
@@ -61,8 +61,8 @@ FactoryBot.define do
     end
 
     after(:build) do |debate|
-      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
-      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+      debate.title
+      debate.description
     end
   end
 
@@ -99,32 +99,32 @@ FactoryBot.define do
     end
 
     trait :with_votes_enabled do
-      # Needed for endorsements tests
+      # Needed for likes tests
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            endorsements_enabled: true,
-            endorsements_blocked: true
+            likes_enabled: true,
+            likes_blocked: true
           }
         }
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end

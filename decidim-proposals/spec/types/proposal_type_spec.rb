@@ -8,7 +8,7 @@ module Decidim
     describe ProposalType, type: :graphql do
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
+      let(:model) { create(:proposal, :with_votes, :with_likes, :with_amendments, component:) }
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
@@ -19,7 +19,7 @@ module Decidim
       include_examples "amendable proposals interface"
       include_examples "traceable interface"
       include_examples "timestamps interface"
-      include_examples "endorsable interface"
+      include_examples "likeable interface"
 
       describe "id" do
         let(:query) { "{ id }" }

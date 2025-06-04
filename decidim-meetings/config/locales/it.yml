@@ -135,11 +135,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" ha abilitato le registrazioni.
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
-        upcoming_meeting:
-          email_intro: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
     gamification:
       badges:
         attended_meetings:

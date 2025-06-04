@@ -20,13 +20,13 @@ Decidim.register_component(:proposals) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw amend comment vote_comment)
+  component.actions = %w(like vote create withdraw amend comment vote_comment)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
-  POSSIBLE_SORT_ORDERS = %w(automatic random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
+  POSSIBLE_SORT_ORDERS = %w(automatic random recent most_liked most_voted most_commented most_followed with_more_authors).freeze
 
   component.settings(:global) do |settings|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
@@ -63,8 +63,8 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :endorsements_enabled, type: :boolean, default: true
-    settings.attribute :endorsements_blocked, type: :boolean
+    settings.attribute :likes_enabled, type: :boolean, default: true
+    settings.attribute :likes_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
@@ -81,8 +81,6 @@ Decidim.register_component(:proposals) do |component|
                        type: :enum, default: "all",
                        choices: ->(_context) { Decidim.config.amendments_visibility_options }
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
-    settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
   end
 
   component.register_resource(:proposal) do |resource|
@@ -90,7 +88,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.reported_content_cell = "decidim/proposals/reported_content"
-    resource.actions = %w(endorse vote amend comment vote_comment)
+    resource.actions = %w(like vote amend comment vote_comment)
     resource.searchable = true
   end
 
@@ -130,9 +128,9 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
-  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :likes_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    proposals.sum(:endorsements_count)
+    proposals.sum(:likes_count)
   end
 
   component.register_stat :comments_count,

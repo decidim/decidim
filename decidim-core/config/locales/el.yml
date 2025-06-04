@@ -43,7 +43,6 @@ el:
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/promoted_to_admin_event: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
-      decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
       decidim/resource_hidden_event: Κρυφός πόρος
       decidim/welcome_notification_event: Μήνυμα καλωσορίσματος
   activerecord:
@@ -61,9 +60,6 @@ el:
       decidim/amendment:
         one: Τροποποίηση
         other: Τροποποιήσεις
-      decidim/endorsement:
-        one: Επιδοκιμασία
-        other: Επιδοκιμασίες
       decidim/user:
         one: Συμμετέχων
         other: Συμμετέχοντες
@@ -281,9 +277,6 @@ el:
       comments:
         one: σχόλιο
         other: σχόλια
-      endorsements:
-        one: επιδοκιμασία
-        other: επιδοκιμασίες
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -491,8 +484,6 @@ el:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
-    endorsement_buttons_cell:
-      endorse: Μου αρέσει
     errors:
       internal_server_error:
         title: Υπήρξε ένα πρόβλημα με τον διακομιστή μας
@@ -567,11 +558,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
         level_up:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-      resource_endorsed:
-        email_intro: 'Ο υποστηρικτής %{endorser_name} %{endorser_nickname}, τον οποίο ακολουθείτε, μόλις επιδοκίμασε το στοιχείο «%{resource_title}» και πιστεύουμε ότι μπορεί να σας ενδιαφέρει. Δείτε το και συνεισφέρετε:'
-        email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον υποστηρικτή %{endorser_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-        email_subject: "Ο υποστηρικτής %{endorser_nickname} πραγματοποίησε μια νέα επιδοκιμασία"
-        notification_title: Το στοιχείο <a href="%{resource_path}">%{resource_title}</a> %{resource_type} επιδοκιμάστηκε από τον υποστηρικτή <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Η <a href="%{resource_url}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
@@ -887,9 +873,6 @@ el:
     reports:
       create:
         success: Η αναφορά δημιουργήθηκε με επιτυχία και θα ελεγχθεί από έναν διαχειριστή.
-    resource_endorsements:
-      create:
-        error: Υπήρξε ένα πρόβλημα κατά την ενέργεια επιδοκιμασίας.
     scopes:
       global: Καθολικό πεδίο εφαρμογής
       prompt: Επιλέξτε πεδίο εφαρμογής
