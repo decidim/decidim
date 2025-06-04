@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-participatory_processes version.
   module ParticipatoryProcesses
     def self.version
-      "0.30.0"
+      "0.30.1"
     end
   end
 end

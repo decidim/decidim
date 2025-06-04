@@ -1,5 +1,61 @@
 # Changelog
 
+## [0.30.1](https://github.com/decidim/decidim/tree/0.30.1)
+
+### Added
+
+- **decidim-core**, **decidim-proposals**: Backport 'Fix bug on history when resource's title is too long' to v0.30 [\#14633](https://github.com/decidim/decidim/pull/14633)
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Fix digest emails to use organization timezone' to v0.30 [\#14616](https://github.com/decidim/decidim/pull/14616)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix copy blocks when duplicating assemblies or spaces' to v0.30 [\#14617](https://github.com/decidim/decidim/pull/14617)
+- **decidim-core**: Backport 'The message textarea on Conversations page is missing an appropriate label' to v0.30 [\#14627](https://github.com/decidim/decidim/pull/14627)
+- **decidim-proposals**: Backport 'Show disabled button in proposals page when 'votes disabled'' to v0.30 [\#14613](https://github.com/decidim/decidim/pull/14613)
+- **decidim-core**, **decidim-dev**, **decidim-meetings**: Backport 'Fix meeting registration mail digest and user export' to v0.30 [\#14630](https://github.com/decidim/decidim/pull/14630)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix bug on history when resource's title is too long' to v0.30 [\#14633](https://github.com/decidim/decidim/pull/14633)
+- **decidim-budgets**: Backport 'Fix crash when phase end_date is NULL when sending order reminders' to v0.30 [\#14635](https://github.com/decidim/decidim/pull/14635)
+- **decidim-core**: Backport 'Hidden resource report translation' to v0.30 [\#14652](https://github.com/decidim/decidim/pull/14652)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix text in meeting show page' to v0.30 [\#14656](https://github.com/decidim/decidim/pull/14656)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix text in calendar share modal' to v0.30 [\#14658](https://github.com/decidim/decidim/pull/14658)
+- **decidim-core**: Backport 'Fix pagination visibility issue' to v0.30 [\#14673](https://github.com/decidim/decidim/pull/14673)
+- **decidim-comments**: Backport 'Fix comment refresh bug when replying' to v0.30 [\#14675](https://github.com/decidim/decidim/pull/14675)
+- **decidim-core**: Backport 'Separate manual and automatic moderation mails' to v0.30 [\#14678](https://github.com/decidim/decidim/pull/14678)
+- **decidim-admin**, **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-meetings**: Backport 'Require organization in `nicknamize` method' to v0.30 [\#14682](https://github.com/decidim/decidim/pull/14682)
+- Backport 'Fix warnings for documentation project' to v0.30 [\#14684](https://github.com/decidim/decidim/pull/14684)
+- **decidim-core**, **decidim-initiatives**: Backport 'Fix home menu layout' to v0.30 [\#14686](https://github.com/decidim/decidim/pull/14686)
+- **decidim-core**: Backport 'Generate a random nickname to ephemeral users' to v0.30 [\#14692](https://github.com/decidim/decidim/pull/14692)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-meetings**, **decidim-participatory processes**: Backport 'Preview unpublished meetings as a process admin' to v0.30 [\#14694](https://github.com/decidim/decidim/pull/14694)
+- **decidim-admin**, **decidim-proposals**: Backport 'Add attachments button in proposals' to v0.30 [\#14689](https://github.com/decidim/decidim/pull/14689)
+- **decidim-core**: Backport 'Fix script that synchronize migrations' to v0.30 [\#14717](https://github.com/decidim/decidim/pull/14717)
+- **decidim-core**, **decidim-forms**, **decidim-surveys**: Backport 'Fix export of a single survey answer' to v0.30 [\#14718](https://github.com/decidim/decidim/pull/14718)
+- **decidim-budgets**, **decidim-core**, **decidim-dev**, **decidim-meetings**, **decidim-proposals**: Backport 'Improve the map specs in order to avoid random failures' to v0.30 [\#14720](https://github.com/decidim/decidim/pull/14720)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**: Backport 'Collaborator view of deleted processes' to v0.30 [\#14726](https://github.com/decidim/decidim/pull/14726)
+- **decidim-core**: Backport 'Fix accessibility in extra_data content_block cell in process show page' to v0.30 [\#14747](https://github.com/decidim/decidim/pull/14747)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix order of participatory processes and assemblies' to v0.30 [\#14748](https://github.com/decidim/decidim/pull/14748)
+- **decidim-budgets**, **decidim-core**: Backport 'Fix WCAG logo link description' to v0.30 [\#14744](https://github.com/decidim/decidim/pull/14744)
+- **decidim-meetings**: Backport 'Fix list of meetings' participants in mobile' to v0.30 [\#14751](https://github.com/decidim/decidim/pull/14751)
+- **decidim-core**: Backport 'Withdrawn proposals/meetings displayed in the last activity feed' to v0.30 [\#14753](https://github.com/decidim/decidim/pull/14753)
+- **decidim-core**: Backport 'Fix author's name display in posts in participatory process show page' to v0.30 [\#14758](https://github.com/decidim/decidim/pull/14758)
+- **decidim-admin**: Backport 'Fix javascript exception "countElement is null"' to v0.30 [\#14763](https://github.com/decidim/decidim/pull/14763)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Clean-up Releases Notes file for v0.30 [\#14649](https://github.com/decidim/decidim/pull/14649)
+- **decidim-budgets**, **decidim-core**, **decidim-dev**, **decidim-meetings**, **decidim-proposals**: Backport 'Improve the map specs in order to avoid random failures' to v0.30 [\#14720](https://github.com/decidim/decidim/pull/14720)
+
 ## [0.30.0](https://github.com/decidim/decidim/tree/0.30.0)
 
 ### Added
