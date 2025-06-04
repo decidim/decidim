@@ -39,7 +39,7 @@ RSpec.describe "Api authentication" do
       expect(response.headers["Authorization"]).to be_present
       expect(response.body["jwt_token"]).to be_present
       parsed_response_body = JSON.parse(response.body)
-      expect(response.headers["Authorization"].split[1]).to eq(parsed_response_body["jwt_token"])
+      expect(response.headers["Authorization"]).to eq("Bearer #{parsed_response_body["jwt_token"]}")
     end
 
     it "renders resource when invalid credentials" do

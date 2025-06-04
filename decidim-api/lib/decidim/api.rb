@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "devise/jwt"
+require "warden/jwt_auth/decidim_overrides"
 require "decidim/env"
 require "decidim/api/engine"
 require "decidim/api/types"

@@ -34,13 +34,14 @@ describe Decidim::Api::SessionsController do
   end
 
   describe "sign in" do
-    it "returns jwt_token when credentials are valid" do
+    it "returns JWT token when credentials are valid" do
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).not_to be_present
       post :create, params: params
       expect(response).to have_http_status(:ok)
-      expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).to be_present
+      token = request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
+      expect(token).to be_present
       parsed_response_body = JSON.parse(response.body)
-      expect(parsed_response_body["jwt_token"]).to eq(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY])
+      expect(parsed_response_body["jwt_token"]).to eq(token)
     end
 
     it "returns :forbidden when credentials are invalid" do
@@ -50,7 +51,7 @@ describe Decidim::Api::SessionsController do
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).not_to be_present
     end
 
-    it "renders resource without jwt_token in body when `Tokendispatcher::ENV_KEY` is nil" do
+    it "renders resource without JWT token in body when `Tokendispatcher::ENV_KEY` is nil" do
       request.env[Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY] = nil
       post :create, params: params
       expect(request.env[Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]).to be_present
