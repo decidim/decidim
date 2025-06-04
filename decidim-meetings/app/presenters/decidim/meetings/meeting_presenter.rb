@@ -82,7 +82,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor_admin(content))
+          renderer = Decidim::ContentRenderers::BaseRenderer.new(decidim_sanitize_editor_admin(content))
           renderer.render(links:).html_safe
         end
       end
