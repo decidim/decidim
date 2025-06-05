@@ -1440,7 +1440,6 @@ fr:
     searches:
       filters:
         jump_to: 'Aller à:'
-        resource: " parmi les %{collection}"
         search: Rechercher
         state:
           active: actif
