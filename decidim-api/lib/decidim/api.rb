@@ -45,7 +45,7 @@ module Decidim
       Decidim::Env.new(
         "DECIDIM_API_JWT_EXPIRES_IN",
         Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120")
-      ).to_i.minutes.to_i
+      ).to_i
     end
 
     # This declares all the types an interface or union can resolve to. This needs

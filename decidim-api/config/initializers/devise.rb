@@ -20,6 +20,6 @@ Devise.jwt do |jwt|
   jwt.revocation_requests = [
     ["DELETE", %r{^/api/sign_out$}]
   ]
-  jwt.expiration_time = Decidim::Api.jwt_expires_in
+  jwt.expiration_time = Decidim::Api.jwt_expires_in.minutes.to_i
   jwt.aud_header = "X_JWT_AUD"
 end
