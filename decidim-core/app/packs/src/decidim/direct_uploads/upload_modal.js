@@ -192,8 +192,8 @@ export default class UploadModal {
           <span>${escapeHtml(truncateFilename(file.name))}</span>
         </div>
         <div>
-          <label>${this.locales.title}</label>
-          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" />
+          <label for="${file.name}">${this.locales.title}</label>
+          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" id="${file.name}" />
         </div>
       </div>
     `
