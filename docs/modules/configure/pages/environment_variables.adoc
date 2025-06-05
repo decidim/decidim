@@ -678,6 +678,11 @@ Additional context: This has been revealed as an issue during a security audit o
 | redis://localhost:6379/2
 | No
 
+|DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN
+|OAuth access token expiration time in minutes.
+|120
+|No
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)
