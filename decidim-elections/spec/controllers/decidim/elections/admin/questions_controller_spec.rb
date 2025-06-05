@@ -6,8 +6,6 @@ module Decidim
   module Elections
     module Admin
       describe QuestionsController do
-        routes { Decidim::Elections::AdminEngine.routes }
-
         let(:component) { create(:elections_component) }
         let(:organization) { component.organization }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
@@ -62,8 +60,12 @@ module Decidim
           end
 
           it "updates the questions and redirects with notice" do
+            edit_questions_election_path = Decidim::EngineRouter.admin_proxy(component).edit_questions_election_path(election)
+
+            allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_election_path)
+
             patch :update, params: { id: election.id, questions: valid_questions_params }
-            expect(response).to redirect_to(edit_questions_election_path(election))
+            expect(response).to redirect_to(edit_questions_election_path)
             expect(flash[:notice]).to be_present
           end
 

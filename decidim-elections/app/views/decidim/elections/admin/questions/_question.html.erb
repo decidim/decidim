@@ -7,9 +7,9 @@
         <h2 class="card-title">
         <span>
           <% if editable %>
-            <%== icon("drag-move-2-fill") %>
+            <%= icon("drag-move-2-fill") %>
           <% else %>
-            <%== icon("lock-line") %>
+            <%= icon("lock-line") %>
           <% end %>
           <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("new_question", scope: "decidim.elections.admin.questions.edit_questions")) %>
         </span>
@@ -17,11 +17,11 @@
           <span class="ml-auto flex flex-row-reverse items-center gap-2">
           <button id="<%= id %>-button" type="button" class="question--collapse <%= "question-error" if is_expanded %>" data-controls="panel-<%= id %>-question-card">
             <span class="icon-collapse">
-              <%== icon "arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
+              <%= icon "arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
             </span>
 
             <span class="icon-expand">
-              <%== icon "arrow-down-s-line", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
+              <%= icon "arrow-down-s-line", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
             </span>
           </button>
 

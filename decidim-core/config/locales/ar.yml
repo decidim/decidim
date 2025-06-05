@@ -52,7 +52,6 @@ ar:
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
       decidim/promoted_to_admin_event: تمت ترقيتك لمدير مجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
-      decidim/resource_endorsed_event: المورد المدعُوم
       decidim/resource_hidden_event: تم إخفاء المورد
       decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
@@ -74,13 +73,6 @@ ar:
         few: تعديلات
         many: تعديلات
         other: تعديلات
-      decidim/endorsement:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدان
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       decidim/user:
         zero: المشاركين
         one: لا مشاركين
@@ -325,13 +317,6 @@ ar:
         few: تعليقات
         many: تعليقات
         other: تعليقات
-      endorsements:
-        zero: التأييدات
-        one: التأييد
-        two: التأييدات
-        few: التأييدات
-        many: التأييدات
-        other: التأييدات
       official_author: رسمي
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -540,8 +525,6 @@ ar:
         ready: جاهز
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsement_buttons_cell:
-      endorse: يعجبني
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -638,11 +621,6 @@ ar:
           email_subject: تم إزالة %{resource_type} الخاص بك
           notification_title: |-
             قام مسؤول بإزالة %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، قد أيد للتو "%{resource_title}" ونحن نعتقد أنه قد يكون مثيراً للاهتمام بالنسبة لك. يمكنك الاطلاع والمساهمة على:'
-        email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{endorser_nickname}". يمكنك إيقاف تلقي الإشعارات باتباع الرابط السابق.
-        email_subject: "%{endorser_nickname} قام بتأييد جديد"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} تم تأييدها من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
@@ -1005,9 +983,6 @@ ar:
     reports:
       create:
         success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
-    resource_endorsements:
-      create:
-        error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
       prompt: حدد النطاق
@@ -1039,9 +1014,6 @@ ar:
         close_modal: اغلاق النموذج
         ok: حسناً
         title: تأكيد
-      extended_navigation_bar:
-        more: أكثر من
-        unfold: كشف
       filter_form_help:
         help: النموذج أدناه يقوم بتصفية نتائج البحث بشكل دينامي عندما يتم تغيير شروط البحث.
         skip: تخطي إلى النتائج
@@ -1084,7 +1056,6 @@ ar:
         share_to: شارك مع %{service}
     statistics:
       comments_count: تعليقات
-      endorsements_count: الدعم والتأييد
       followers_count: المُتابِعون
       headline: الإحصائيات
       no_stats: لا توجد إحصائيات بعد.

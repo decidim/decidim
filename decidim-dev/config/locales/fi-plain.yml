@@ -36,8 +36,6 @@ fi-pl:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
             readonly_step_attribute: Vain luku -attribuutti vaiheelle
             test_options:
               bar: Palkki

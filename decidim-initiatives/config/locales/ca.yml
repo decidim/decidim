@@ -96,7 +96,7 @@ ca:
           type_id_eq:
             label: Tipus
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria
       initiatives_settings:
         update:
           error: S'ha produït un error en actualitzar la configuració de les iniciatives.
@@ -443,11 +443,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha donat suport a la següent iniciativa. Potser vols contribuir a la conversa:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Iniciativa adherida per %{author_nickname}
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        like_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, li ha donat \"M'agrada\" a la següent iniciativa. Potser vols contribuir a la conversa:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: A %{author_nickname} li ha agradat aquesta iniciativa
+          notification_title: A <a href="%{author_path}">%{author_name} %{author_nickname}</a> li ha agradat la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}".'

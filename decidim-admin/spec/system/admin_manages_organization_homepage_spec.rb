@@ -19,7 +19,7 @@ describe "Admin manages organization homepage" do
 
       within ".edit_content_blocks" do
         click_on "Add content block"
-        within ".add-components" do
+        within "#add-content-block-dropdown" do
           find("a", text: "Hero image").click
         end
       end

@@ -171,11 +171,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: لقد مكّن الاجتماع "%{resource_title}" التسجيلات.
           notification_title: لقد مكّن الاجتماع <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
-        upcoming_meeting:
-          email_intro: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          notification_title: سيبدأ الاجتماع <a href="%{resource_path}">%{resource_title}</a> في أقل من 48 ساعة.
     gamification:
       badges:
         attended_meetings:

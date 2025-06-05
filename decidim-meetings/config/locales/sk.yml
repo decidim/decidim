@@ -109,11 +109,6 @@ sk:
           email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Schôdzka "%{resource_title}" povolila registrácie.
           notification_title: Schôdzka <a href="%{resource_path}">%{resource_title} </a> povolila registrácie.
-        upcoming_meeting:
-          email_intro: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
-          email_outro: Toto upozornenie ste dostali, pretože postupujete po stretnutí "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-          email_subject: Schôdzka "%{resource_title}" začne za menej ako 48 hodín.
-          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title} </a> sa začne za menej ako 48 hodín.
     gamification:
       badges:
         attended_meetings:
