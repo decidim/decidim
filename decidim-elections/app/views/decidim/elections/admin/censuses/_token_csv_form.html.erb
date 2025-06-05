@@ -1,6 +1,6 @@
 <% if census_count.positive? %>
   <div class="row column mb-4 font-semibold border p-4 rounded w-1/2">
-    <%= form.check_box :remove_all, label: t("decidim.elections.censuses.token_csv.remove_all"), help_text: t("decidim.elections.censuses.token_csv.remove_before_upload") %>
+    <%= form.check_box :remove_all, help_text: t("decidim.elections.censuses.token_csv.remove_before_upload") %>
   </div>
 <% else %>
   <div class="row column font-semibold pb-4"><%= t("decidim.elections.censuses.token_csv.upload_new_census") %></div>

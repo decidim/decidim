@@ -1,5 +1,10 @@
 ---
 en:
+  activemodel:
+    attributes:
+      token_csv:
+        file: File
+        remove_all: Remove all current census data
   decidim:
     admin:
       menu:
@@ -117,7 +122,6 @@ en:
             Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
             It must be separated with a semicolon (;)
           label: Unregistered participants with tokens (fixed)
-          remove_all: Remove all current census data
           remove_before_upload: 'If you want to upload a new census, you must first remove the existing one.
 
             '
