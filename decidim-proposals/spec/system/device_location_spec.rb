@@ -7,6 +7,7 @@ describe "User location button" do
   let(:manifest_name) { "proposals" }
   let!(:component) do
     create(:proposal_component,
+           :with_creation_enabled,
            participatory_space: participatory_process,
            settings: { geocoding_enabled: })
   end
