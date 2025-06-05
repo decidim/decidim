@@ -30,8 +30,20 @@ module Decidim
           sign_in current_user
         end
 
+        def edit_questions_election_path(election)
+          Decidim::EngineRouter.admin_proxy(component).edit_questions_election_path(election)
+        end
+
+        def elections_path
+          Decidim::EngineRouter.admin_proxy(component).elections_path
+        end
+
         describe "POST create" do
+          let(:new_election_id) { (Decidim::Elections::Election.maximum(:id) || 0) + 1 }
+
           it "creates the election and redirects" do
+            allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_election_path(new_election_id))
+
             post :create, params: { election: election_params }
 
             expect(response).to redirect_to(edit_questions_election_path(Decidim::Elections::Election.last))
@@ -48,6 +60,7 @@ module Decidim
 
         describe "PATCH update" do
           it "updates the election and redirects" do
+            allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_election_path(election))
             patch :update, params: { id: election.id, election: election_params.merge(title: { en: "Updated title" }) }
 
             expect(response).to redirect_to(edit_questions_election_path(election))
@@ -67,9 +80,11 @@ module Decidim
             let!(:election) { create(:election, component:, published_at: nil) }
 
             it "publishes the election and redirects" do
+              allow(controller).to receive(:elections_path).and_return(elections_path)
+
               put :publish, params: { id: election.id }
 
-              expect(response).to redirect_to("/elections")
+              expect(response).to redirect_to(elections_path)
               expect(flash[:notice]).to be_present
               expect(election.reload).to be_published
             end
@@ -88,9 +103,11 @@ module Decidim
         describe "PUT unpublish" do
           context "when the election is published" do
             it "unpublishes the election and redirects" do
+              allow(controller).to receive(:elections_path).and_return(elections_path)
+
               put :unpublish, params: { id: election.id }
 
-              expect(response).to redirect_to("/elections")
+              expect(response).to redirect_to(elections_path)
               expect(flash[:notice]).to be_present
               expect(election.reload).not_to be_published
             end
