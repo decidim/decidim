@@ -145,7 +145,6 @@ es-MX:
           state: Estado
           state_values:
             closed: Cerrado
-            open: Abierto
         index:
           new_debate: Nuevo debate
         new:
@@ -160,11 +159,9 @@ es-MX:
           updated: Actualizados recientemente
         show:
           close_debate: Cerrar
-          debate_closed: Cerrado
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
           edit_debate: Editar
-          open: Debate abierto
           participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.
