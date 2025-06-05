@@ -155,13 +155,6 @@ module Decidim
                         icon_name: "pencil-line",
                         if: allowed_to?(:update, :organization, organization: current_organization)
 
-          menu.add_item :edit_organization_appearance,
-                        I18n.t("menu.appearance", scope: "decidim.admin"),
-                        decidim_admin.edit_organization_appearance_path,
-                        position: 1.1,
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :organization, organization: current_organization)
-
           menu.add_item :edit_organization_homepage,
                         I18n.t("menu.homepage", scope: "decidim.admin"),
                         decidim_admin.edit_organization_homepage_path,
