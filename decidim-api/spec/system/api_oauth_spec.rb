@@ -167,8 +167,8 @@ describe "API OAuth" do
     raise "Invalid response from the API: #{response.code}" unless response.is_a?(Net::HTTPOK)
     raise "Unexpected content type from the API: #{response.content_type}" unless response.content_type == "application/json"
 
-    apiresponse = JSON.parse(response.body)
-    apiresponse["data"]
+    details = JSON.parse(response.body)
+    details["data"]
   end
 
   def random_string(chars, length)
