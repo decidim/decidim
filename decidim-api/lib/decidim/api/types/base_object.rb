@@ -65,10 +65,6 @@ module Decidim
           context.to_h
         end
 
-        def self.required_scopes(*scopes)
-          @required_scopes = scopes
-        end
-
         # Creates the permission chain arrau that contains all the permission classes required to authorize a certain resource
         # We are using unshift as we need the Admin and base permissions to be last in the chain
         # @param object [ActiveModel::Base] The object that is being represented.
