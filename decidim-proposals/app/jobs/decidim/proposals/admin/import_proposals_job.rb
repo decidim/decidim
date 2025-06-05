@@ -30,7 +30,7 @@ module Decidim
         private
 
         def proposals
-          proposals = Decidim::Proposals::Proposal.where(component: origin_component)
+          proposals = Decidim::Proposals::Proposal.not_hidden.not_withdrawn.where(component: origin_component)
           proposals = proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
 
           if @form["states"].include?("not_answered")
