@@ -350,6 +350,8 @@ fr:
       conflicts:
         attempts: Tentatives
         'false': 'Non'
+        index:
+          text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
@@ -451,7 +453,11 @@ fr:
         remove_all: Tout supprimer
         search_label: Rechercher
         search_placeholder:
+          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
           report_count_eq: Nombre de signalement
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par id ou contenu signalable
+          title_cont: Rechercher %{collection} par titre
+          user_name_or_user_nickname_or_user_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
         state_eq:
           label: État
           values:
@@ -548,6 +554,7 @@ fr:
       logs:
         filters:
           participatory_space: Trouver un espace participatif
+          text: Recherche par e-mail, nom ou pseudo
           user: Utilisateur
         logs_list:
           no_logs_yet: Il n'y a pas encore de journaux d'activité. 
