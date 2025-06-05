@@ -11,25 +11,23 @@
       <%= t("connect_your_account_html", scope: "decidim.doorkeeper.authorizations.new", organization: current_organization_name) %>
     </p>
 
-    <% unless no_abilities? %>
-      <p><%= t("this_application_will_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
-      <ul class="list-disc ml-4">
-        <% if @scopes.include?("profile") || @scopes.include?("user") %>
-          <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
-          <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
-          <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
-        <% end %>
-        <% if @scopes.include?("user") %>
-          <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
-        <% end %>
-        <% if @scopes.include?("api:read") %>
-          <li><%= t("api_read", scope: "decidim.doorkeeper.authorizations.new") %></li>
-        <% end %>
-        <% if @scopes.include?("api:write") %>
-          <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <p><%= t("this_application_will_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
+    <ul class="list-disc ml-4">
+      <% if @scopes.include?("profile") || @scopes.include?("user") %>
+        <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
+        <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <% end %>
+      <% if @scopes.include?("user") %>
+        <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <% end %>
+      <% if @scopes.include?("api:read") %>
+        <li><%= t("api_read", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <% end %>
+      <% if @scopes.include?("api:write") %>
+        <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <% end %>
+    </ul>
 
     <% unless all_abilities? %>
       <p><%= t("this_application_will_not_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>

@@ -8,7 +8,11 @@ module Decidim
       respond_to :json
 
       def me
-        respond_with public_data
+        if doorkeeper_token
+          respond_with public_data
+        else
+          respond_with status: :unauthorized
+        end
       end
 
       private
@@ -24,7 +28,7 @@ module Decidim
       end
 
       def current_resource_owner
-        @current_resource_owner ||= Decidim::User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+        @current_resource_owner ||= Decidim::User.find(doorkeeper_token.resource_owner_id)
       end
 
       def avatar_url

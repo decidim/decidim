@@ -6,7 +6,7 @@ module Decidim
     class AuthorizationsController < ::Doorkeeper::AuthorizationsController
       include HasSpecificBreadcrumb
 
-      helper_method :oauth_application, :all_abilities?, :no_abilities?
+      helper_method :oauth_application, :all_abilities?
 
       def new
         @scopes =
@@ -33,11 +33,8 @@ module Decidim
       private
 
       def all_abilities?
-        ["profile", "user", "api:read", "api:write"].all? { |scope| @scopes.include?(scope) }
-      end
-
-      def no_abilities?
-        @scopes.none?
+        %w(api:read api:write).all? { |scope| @scopes.include?(scope) } &&
+          %w(profile user).any? { |scope| @scopes.include?(scope) }
       end
     end
   end
