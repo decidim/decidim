@@ -211,7 +211,9 @@ shared_examples "manage component share tokens" do
 
   def visit_share_tokens_page
     visit components_path
-    within ".table-list" do
+
+    within("tr", text: resource_name) do
+      find("button[data-component='dropdown']").click
       click_on "Access links"
     end
   end
@@ -230,7 +232,11 @@ shared_examples "manage participatory space share tokens" do
 
   def visit_share_tokens_page
     visit participatory_spaces_path
-    click_on "Access links"
+
+    within("tr", text: resource_name) do
+      find("button[data-component='dropdown']").click
+      click_on "Access links"
+    end
   end
 
   it_behaves_like "manage resource share tokens"
