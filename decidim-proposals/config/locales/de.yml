@@ -142,8 +142,6 @@ de:
             values:
               state_not_published: Unbeantwortet
               state_published: Beantwortet
-        search_placeholder:
-          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
     application:
       geocoding:
         not_configured: Geolokalisierung wurde nicht eingestellt!
@@ -892,7 +890,7 @@ de:
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
-          discard: Verwerfen Sie diesen Entwurf
+          discard: Entwurf verwerfen
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten

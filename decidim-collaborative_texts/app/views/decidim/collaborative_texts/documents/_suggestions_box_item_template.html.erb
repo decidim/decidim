@@ -14,13 +14,13 @@
     </button>
 
     <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" tabindex="-1" aria-hidden="true">
-      <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4 pt-1 pb-0" role="menu">
-        <li role="menuitem">
-          <button class="button-apply button button__sm button__text button__text-secondary">
+      <ul class="dropdown dropdown__bottom divide-y divide-gray-3 pt-1 pb-0" role="menu">
+        <li role="menuitem" class="dropdown__item">
+          <button class="button-apply dropdown__button">
             <%= icon "checkbox-circle-line" %>
             <%= t("decidim.collaborative_texts.document.apply") %>
           </button>
-          <button class="button-restore button button__sm button__text button__text-secondary">
+          <button class="button-restore dropdown__button">
             <%= icon "arrow-go-back-line" %>
             <%= t("decidim.collaborative_texts.document.restore") %>
           </button>

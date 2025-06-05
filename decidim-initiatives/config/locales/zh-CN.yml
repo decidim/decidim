@@ -72,8 +72,6 @@ zh-CN:
               validating: 技术验证
           type_id_eq:
             label: 类型
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 按标题、描述、ID或作者名称搜索 %{collection}。
       menu:
         information: 信息
         initiatives: 倡议

@@ -145,8 +145,6 @@ sv:
             values:
               state_not_published: Ej besvarade
               state_published: Besvarade
-        search_placeholder:
-          id_string_or_title_cont: Sök %{collection} efter ID eller titel.
     application:
       geocoding:
         not_configured: Kartvisning är inte konfigurerad!

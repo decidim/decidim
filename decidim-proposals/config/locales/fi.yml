@@ -142,8 +142,6 @@ fi:
             values:
               state_not_published: Ei vastattu
               state_published: Vastattu
-        search_placeholder:
-          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
     application:
       geocoding:
         not_configured: Karttatoimintojen asetuksia ei ole määritetty!

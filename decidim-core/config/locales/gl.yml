@@ -626,9 +626,6 @@ gl:
       results:
         view_all: Ver todos (%{count})
     shared:
-      extended_navigation_bar:
-        more: Máis
-        unfold: Despregar
       flag_modal:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar

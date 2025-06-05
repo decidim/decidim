@@ -1175,9 +1175,6 @@ pl:
         title: Potwierdź
       embed:
         title: Wbudowana zawartość wideo
-      extended_navigation_bar:
-        more: Więcej
-        unfold: Rozwiń
       filter_form_help:
         help: Poniższy formularz filtruje wyniki wyszukiwania na bieżąco po zmianie warunków wyszukiwania.
         skip: Przejdź do wyników

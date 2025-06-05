@@ -140,8 +140,6 @@ ja:
             values:
               state_not_published: 未回答
               state_published: 回答済み
-        search_placeholder:
-          id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
     application:
       geocoding:
         not_configured: ジオコーディングが設定されていません

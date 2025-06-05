@@ -73,6 +73,7 @@ ca:
       decidim/promoted_to_admin_event: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
       decidim/resource_hidden_event: Recurs amagat
+      decidim/resource_liked_event: Recurs amagat
       decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
@@ -94,6 +95,9 @@ ca:
       decidim/amendment:
         one: Esmena
         other: Esmenes
+      decidim/like:
+        one: '"M''agrada"'
+        other: '"M''agrada"'
       decidim/user:
         one: Participant
         other: Participants
@@ -431,6 +435,9 @@ ca:
       comments:
         one: comentari
         other: comentaris
+      likes:
+        one: m'agrada
+        other: m'agrada
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -944,6 +951,11 @@ ca:
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, a qui segueixes, li acaba d''agradar: "%{resource_title}", que et pot resultar interessant, revisa-la i contribueix:'
+        email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{liker_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: "%{liker_nickname} ha realitzat un nou \"m'agrada\""
+        notification_title: '"<a href="%{resource_path}">%{resource_type} </a> %{resource_type}" li ha agradat a <a href="%{liker_path}">%{liker_nickname}</a>.'
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1094,6 +1106,16 @@ ca:
         last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
+    like_buttons_cell:
+      already_liked: Desfer el "M'agrada"
+      like: M'agrada
+    likes_list:
+      liked_by:
+        one: Li agrada a %{visible}
+        other: Li agrada a %{visible} i a %{others}
+      others: "%{count} més"
+      title: Li ha agradat a
+      you: tu
     linked_resource_from:
       included_in: Inclòs a
     links:
@@ -1527,7 +1549,7 @@ ca:
         manage_moderations: Gestiona moderacions
         participatory_space: Espai de participació
         reason: Motiu
-        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
+        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament per %{moderator}.</p>
         subject: Un recurs ha estat amagat per %{moderator}
       report:
         authors: Autores
@@ -1554,6 +1576,9 @@ ca:
       controls_label: Controls de recursos
     resource_autocomplete:
       help: Escriu aquí per cercar entre les propostes
+    resource_likes:
+      create:
+        error: S'ha produït un error durant l'acció "m'agrada".
     scopes:
       global: Àmbit global
       prompt: Selecciona un àmbit
@@ -1594,9 +1619,6 @@ ca:
       confirm_unload: Aquesta pàgina conté canvis sense desar. Segur que vols abandonar aquesta pàgina?
       embed:
         title: Contingut del vídeo incrustat
-      extended_navigation_bar:
-        more: Més
-        unfold: Desplegar
       filter_form_help:
         help: El següent formulari filtra els resultats de la cerca dinàmicament quan es canvien les condicions de la cerca.
         skip: Saltar als resultats
@@ -1654,6 +1676,7 @@ ca:
       followers_count: Seguidores
       followers_count_tooltip: El nombre d'usuàries que segueixen qualsevol part d'aquest espai per mantenir actualitzades.
       headline: Estadístiques
+      likes_count: '"M''agrada"'
       no_stats: Encara no hi ha estadístiques.
       pages_count: Pàgines
       participants_count: Participants

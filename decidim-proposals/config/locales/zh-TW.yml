@@ -89,8 +89,6 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
-        search_placeholder:
-          id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
       proposals:
         actions:

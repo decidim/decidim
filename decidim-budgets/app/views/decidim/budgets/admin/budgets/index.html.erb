@@ -3,16 +3,19 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
-      <% if allowed_to? :export, :budget %>
-        <%= export_dropdown %>
-      <% end %>
-      <% if allowed_to? :remind, :order %>
-        <%= link_to t("actions.send_voting_reminders", scope: "decidim.budgets"), admin_reminders_path(current_component, name: "orders"), class: "button button__sm button__transparent-secondary" %>
-      <% end %>
-      <div id="js-other-actions-wrapper">
-        <%= link_to t("actions.new_budget", scope: "decidim.budgets"), new_budget_path, class: "button button__sm button__secondary" if allowed_to? :create, :budget %>
+
+      <div class="flex items-center gap-x-4">
+        <% if allowed_to? :export, :budget %>
+          <%= export_dropdown %>
+        <% end %>
+        <% if allowed_to? :remind, :order %>
+          <%= link_to t("actions.send_voting_reminders", scope: "decidim.budgets"), admin_reminders_path(current_component, name: "orders"), class: "button button__sm button__transparent-secondary" %>
+        <% end %>
+        <div id="js-other-actions-wrapper">
+          <%= link_to t("actions.new_budget", scope: "decidim.budgets"), new_budget_path, class: "button button__sm button__secondary" if allowed_to? :create, :budget %>
+        </div>
+        <%= render partial: "decidim/admin/components/resource_action" %>
       </div>
-      <%= render partial: "decidim/admin/components/resource_action" %>
     </h1>
   </div>
   <div class="table-scroll">

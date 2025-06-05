@@ -351,8 +351,6 @@ it:
       conflicts:
         attempts: Tentativi
         'false': 'No'
-        index:
-          text: Cerca per email utente, nome o nickname.
         managed_user_name: Gestione utente
         solved: Risolto
         title: Verifica dei conflitti
@@ -454,11 +452,7 @@ it:
         remove_all: Rimuovi tutto
         search_label: Ricerca
         search_placeholder:
-          name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
           report_count_eq: Conteggio report eq
-          reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
-          title_cont: Cerca %{collection} per titolo.
-          user_name_or_user_nickname_or_user_email_cont: Ricerca %{collection} per email, nome o nickname.
         state_eq:
           label: Stato
           values:

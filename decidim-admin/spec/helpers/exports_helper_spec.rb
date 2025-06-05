@@ -12,9 +12,10 @@ module Decidim
       let!(:component) { create(:component, manifest_name: "dummy") }
 
       it "creates a dropdown an export for each format and artifact" do
-        expect(subject.css("li.exports--dummies").length).to eq(3)
-        expect(subject.css("li.exports--format--csv").length).to eq(1)
-        expect(subject.css("li.exports--format--excel").length).to eq(1)
+        expect(subject.css("ul.dropdown li").length).to eq(3)
+        expect(subject).to have_content("Dummies as CSV")
+        expect(subject).to have_content("Dummies as JSON")
+        expect(subject).to have_content("Dummies as Excel")
       end
 
       it "creates links for each format" do

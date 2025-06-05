@@ -142,7 +142,7 @@ shared_examples "manage projects" do
   let(:attributes) { attributes_for(:project) }
 
   it "creates a new project", versioning: true do
-    within ".bulk-actions-budgets" do
+    within ".item_show__header-title" do
       click_on "New project"
     end
 
@@ -236,7 +236,7 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project" do
-      within ".bulk-actions-budgets" do
+      within ".item_show__header-title" do
         click_on "New project"
       end
 

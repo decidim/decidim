@@ -98,8 +98,6 @@ pl:
               validating: Walidacja techniczna
           type_id_eq:
             label: Typ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       initiatives_settings:
         update:
           success: Ustawienia inicjatyw zostały pomyślnie zaktualizowane.

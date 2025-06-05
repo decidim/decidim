@@ -90,6 +90,7 @@ describe "Explore debates" do
     end
 
     context "when there are open debates" do
+      let(:debates) { nil }
       let!(:open_debate) do
         create(
           :debate,
@@ -98,11 +99,57 @@ describe "Explore debates" do
           end_time: nil
         )
       end
+      let!(:not_started_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 1.day.from_now,
+          end_time: 2.days.from_now
+        )
+      end
+      let!(:ongoing_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 1.day.ago,
+          end_time: 1.day.from_now
+        )
+      end
+      let!(:finished_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 2.days.ago,
+          end_time: 1.day.ago
+        )
+      end
+      let!(:closed_debate) do
+        create(
+          :debate,
+          component:,
+          closed_at: 1.day.ago,
+          conclusions: { en: "Conclusions" }
+        )
+      end
 
-      it "the card informs that they are open" do
+      it "the card informs their status" do
         visit_component
         within "#debates__debate_#{open_debate.id}" do
-          expect(page).to have_content "Open debate"
+          expect(page).to have_content "Ongoing"
+        end
+
+        within "#debates__debate_#{not_started_debate.id}" do
+          expect(page).to have_content "Not started"
+        end
+        within "#debates__debate_#{ongoing_debate.id}" do
+          expect(page).to have_content "Ongoing"
+        end
+        within "#debates__debate_#{finished_debate.id}" do
+          expect(page).to have_content "Closed"
+        end
+
+        within "#debates__debate_#{closed_debate.id}" do
+          expect(page).to have_content "Closed"
         end
       end
     end
@@ -234,7 +281,7 @@ describe "Explore debates" do
 
     context "with comment metadata" do
       let!(:comment) { create(:comment, commentable: debates) }
-      let!(:debates) { create(:debate, :open_ama, component:) }
+      let!(:debates) { create(:debate, :ongoing_ama, component:) }
 
       it "shows the comments count" do
         visit_component
@@ -264,7 +311,7 @@ describe "Explore debates" do
     let!(:debate) do
       create(
         :debate,
-        :open_ama,
+        :ongoing_ama,
         component:,
         start_time: Time.zone.local(2016, 12, 13, 14, 15),
         end_time: Time.zone.local(2016, 12, 13, 16, 17)
