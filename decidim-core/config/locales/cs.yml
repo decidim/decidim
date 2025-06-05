@@ -619,6 +619,10 @@ cs:
         name: Obrázek hrdiny a CTA
       hero_settings_form:
         background_image: Obrázek pozadí
+        cta_button_path: URL tlačítka Výzvy k akci
+        cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+        cta_button_text: Text tlačítka Výzvy k akci
+        cta_button_text_help: Text tlačítka Výzva k akci na domovské stránce můžete přepsat do každého jazyka používaného ve vaší organizaci. Pokud je nenastavíte, použije se výchozí hodnota. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem.
         welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
