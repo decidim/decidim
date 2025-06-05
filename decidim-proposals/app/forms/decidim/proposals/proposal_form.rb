@@ -38,7 +38,6 @@ module Decidim
       def map_model(model)
         self.title = translated_attribute(model.title)
         self.body = translated_attribute(model.body)
-        Decidim::ContentRenderers::BaseRenderer.new(body).map(&:name).map(&:downcase)
 
         presenter = ProposalPresenter.new(model)
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
