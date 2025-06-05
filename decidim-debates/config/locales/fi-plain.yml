@@ -142,7 +142,6 @@ fi-pl:
           state: Tila
           state_values:
             closed: Suljetut
-            open: Avoimet
         index:
           new_debate: Uusi keskustelu
         new:
@@ -157,11 +156,9 @@ fi-pl:
           updated: Viimeksi päivitetyt
         show:
           close_debate: Päätä
-          debate_closed: Suljettu
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa
-          open: Avoin keskustelu
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
