@@ -33,6 +33,8 @@
       end %>
     <% end %>
 
+    <%= f.text_area :header_snippets, help_text: t("decidim.system.organizations.header_snippets_help_html"), rows: 10 %>
+
     <%= render partial: "advanced_settings", locals: { f: } %>
   </div>
 
