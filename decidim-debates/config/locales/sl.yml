@@ -15,5 +15,3 @@ sl:
       debates:
         form:
           select_a_category: Prosim izberi kategorijo
-        show:
-          debate_closed: Zaprto
