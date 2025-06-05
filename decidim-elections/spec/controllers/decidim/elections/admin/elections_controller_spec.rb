@@ -7,8 +7,6 @@ module Decidim
   module Elections
     module Admin
       describe ElectionsController do
-        routes { Decidim::Elections::AdminEngine.routes }
-
         let(:component) { create(:elections_component) }
         let(:organization) { component.organization }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
