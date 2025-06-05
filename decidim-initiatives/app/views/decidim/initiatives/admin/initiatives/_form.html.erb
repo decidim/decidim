@@ -17,12 +17,6 @@
       <div class="row column">
         <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :description } %>
       </div>
-
-      <div class="row column">
-        <div class="columns">
-          <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
-        </div>
-      </div>
     </div>
   </div>
 
