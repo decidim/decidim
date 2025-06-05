@@ -12,6 +12,26 @@ describe "API OAuth" do
     let(:query) { "{ session { user { id name nickname } } }" }
     let(:graphql_data) { graphql_request(authorization, query) }
 
+    shared_context "with comment mutation" do
+      let(:participatory_space) { create(:participatory_process, organization:) }
+      let(:component) { create(:component, participatory_space:) }
+      let(:model) { create(:dummy_resource, :published, component:) }
+      let(:query) do
+        %(
+          mutation {
+            commentable(
+              id: "#{model.id}",
+              type: "#{model.commentable_type}",
+              locale: "en",
+              toggleTranslations: false
+            ) {
+              addComment(body: "Test comment", alignment: 0) { body }
+            }
+          }
+        )
+      end
+    end
+
     context "with user and api:read scopes" do
       let(:token_scope) { "user api:read" }
 
@@ -23,6 +43,14 @@ describe "API OAuth" do
           "nickname" => "@#{user.nickname}"
         )
       end
+
+      context "when performing mutations" do
+        include_context "with comment mutation"
+
+        it "does not allow writing data through the API" do
+          expect(graphql_data).to be_nil
+        end
+      end
     end
 
     context "with user scope" do
@@ -31,6 +59,14 @@ describe "API OAuth" do
       it "does not allow reading data through the API" do
         expect(graphql_data).to be_nil
       end
+
+      context "when performing mutations" do
+        include_context "with comment mutation"
+
+        it "does not allow writing data through the API" do
+          expect(graphql_data).to be_nil
+        end
+      end
     end
 
     context "with api:read scope" do
@@ -38,6 +74,20 @@ describe "API OAuth" do
 
       it "does not allow reading user data through the API" do
         expect(graphql_data).to match("session" => nil)
+      end
+    end
+
+    context "with user, api:read and api:write scopes" do
+      let(:token_scope) { "user api:read api:write" }
+
+      include_context "with comment mutation"
+
+      it "allows writing data through the API" do
+        expect do
+          expect(graphql_data).to match(
+            "commentable" => { "addComment" => { "body" => "Test comment" } }
+          )
+        end.to change(Decidim::Comments::Comment, :count).by(1)
       end
     end
   end
