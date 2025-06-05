@@ -1,0 +1,101 @@
+= Elections
+
+The Elections component can be embedded in participatory spaces. To enable it, ensure it is included in your Gemfile by adding or uncommenting the following line:
+
+[source,ruby]
+----
+gem "decidim-elections", DECIDIM_VERSION
+----
+
+The Elections component provides a way to organize voting based on a census. Depending on the type of census, users may be required to register before voting. Since the method for verifying a person against a census can vary, censuses are implemented using a manifest. 
+Any Decidim application or plugin can implement its own type of census just by defining the corresponding manifest.
+
+== Registering a Census Manifest
+
+Census types use the same manifests-registry pattern used in other places around Decidim. Here is how to register them:
+
+[source,ruby]
+----
+Decidim::Elections.census_registry.register(:my_census_type) do |manifest|
+    # Define your census manifest here
+    # Example:
+    manifest.admin_form = "Decidim::MyCensuses::MyCensusForm"
+    manifest.admin_form_partial = "decidim/my_censuses/my_census_form"
+    # Add additional configuration as needed
+end
+----
+
+Note that census types need to be registered from an initializer. If you are adding a census type from a module, use this in the `engine.rb` file of your module:
+
+[source,ruby]
+----
+module Decidim::MyModule::Engine < ::Rails::Engine
+  # ...
+
+  initializer "decidim_my_module.election_census" do
+    Decidim::Elections.census_registry.register(:my_census_type) do |manifest|
+      # ...
+    end
+  end
+
+  # ...
+end
+----
+
+
+== Options for the census manifest
+
+The manifest is defined in the class `Decidim::Elections::CensusManifest`, possible attributes are:
+
+[cols="1,2,2", options="header"]
+|===
+| Attribute
+| Type
+| Description
+
+| admin_form
+| String
+| Name of the form class used in the admin interface for configuring the census. **Optional**.
+If not defined, the admin interface will not show any additional form for configuring the census.
+Note that, if you need to save different settings as a result of this form, the class needs to implement the method `census_settings` (check the `Decidim::Elections::Admin::Censuses::InternalUsersForm` for an example).
+
+| admin_form_partial
+| String
+| Path to the partial rendered for the form in the admin interface. **Required if admin_form is set**.
+
+| after_update_command
+| String
+| Command called after the census is updated in the admin interface. Receives the form and the election. **Optional**.
+If not defined, there will be no post-processing after saving the census.
+Note that you can use this command to upload a fixed list of voters in the generic model `Decidim::Elections::Voter` which only has one JSON column called `data`.
+Check the command `Decidim::Elections::Admin::Censuses::TokenCsv` for an example on how to fill this table.
+
+| user_presenter
+| String
+| Name of the presenter class for users in the census. Defaults to `"Decidim::Elections::Censuses::UserPresenter"` which should be enough for most cases.
+
+| user_query
+| Proc
+| Block returning an `ActiveRecord::Relation` of users for the census. If set, automatically defines user validation, readiness, counting, and iteration.
+Note that you can ignore this parameter if you define the next methods independently.
+
+| user_validator
+| Proc
+| Block for custom user validation. Receives the election and user data. This is used to check if a user is in a census, must return a "truthy" value if ok.
+Note that, if the `user_query` block is defined and this block is not set, the default behavior is to check the passed data against the query to see if there is any existing record.
+
+| census_ready_validator
+| Proc
+| Block for custom census readiness validation. Receives the election. Must return a "truthy" value if the census is ready (for instance a census might require you to upload a file in order to be ready).
+Note that, if the `user_query` block is defined and this block is not set, the default behavior is to check if there is at least one entry on the query.
+
+| census_counter
+| Proc
+| Block for custom census user counting. Receives the election. Must return an integer of the number of users in the census. This does not mean necessarily that only that amount of users will be able to vote.
+Dynamic censuses can grow/shrink while the election.
+Note that, if the `user_query` block is defined and this block is not set, the default behavior is to count the number of elements in the query.
+
+| user_iterator
+| Proc
+| Block for custom user iteration. Receives the election and offset. This is currently used only to show a preview of the census in the admin (so the offset is always zero, this might change in the future). If not defined and there is a `user_query` the first 5 elements will be listed.
+|===
