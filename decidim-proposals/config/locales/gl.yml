@@ -86,8 +86,6 @@ gl:
               rejected: Rexeitada
               validating: Validación técnica
               withdrawn: Retiradas
-        search_placeholder:
-          id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:
       proposals:
         actions:

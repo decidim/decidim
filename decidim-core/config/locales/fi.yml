@@ -1549,9 +1549,6 @@ fi:
       confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
-      extended_navigation_bar:
-        more: Lisää
-        unfold: Avaa
       filter_form_help:
         help: Alla oleva lomake suodattaa hakutulokset dynaamisesti, kun hakuehtoja muutetaan.
         skip: Siirry tuloksiin

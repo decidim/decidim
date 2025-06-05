@@ -9,9 +9,9 @@ shared_context "with filterable context" do
 
   def apply_filter(options, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(options).hover
-      within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(options).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
         click_on(filter)
       end
     end
@@ -19,11 +19,11 @@ shared_context "with filterable context" do
 
   def apply_sub_filter(option1, option2, filter)
     within(".filters__section") do
-      find_link("Filter").hover
-      find_link(option1).hover
-      within ".submenu > .is-active > .submenu" do
-        find_link(option2).hover
-        within ".submenu > .is-active > .submenu" do
+      find_link("Filter").click
+      find_link(option1).click
+      within ".dropdown .dropdown__right[aria-hidden='false']" do
+        find_link(option2).click
+        within ".dropdown .dropdown__right[aria-hidden='false']" do
           click_on(filter)
         end
       end
@@ -201,15 +201,5 @@ shared_examples "a collection filtered by taxonomies" do
   it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root2", filter: "Taxonomy21" do
     let(:in_filter) { resource_with_taxonomy21_title }
     let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root1" do
-    let(:in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
-    let(:not_in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root2" do
-    let(:in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
   end
 end

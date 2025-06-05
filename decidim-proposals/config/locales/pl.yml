@@ -119,8 +119,6 @@ pl:
             values:
               state_not_published: Bez odpowiedzi
               state_published: Z odpowiedziami
-        search_placeholder:
-          id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
       proposals:
         actions:

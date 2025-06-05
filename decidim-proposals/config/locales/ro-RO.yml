@@ -100,8 +100,6 @@ ro:
               rejected: Respins
               validating: Validarea tehnică
               withdrawn: Retras
-        search_placeholder:
-          id_string_or_title_cont: Caută %{collection} după ID sau titlu.
     components:
       proposals:
         actions:

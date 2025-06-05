@@ -1152,9 +1152,6 @@ pt-BR:
         ok: OK
         title: Confirmar
       confirm_unload: Esta página contém alterações não salvas. Tem certeza que deseja sair desta página?
-      extended_navigation_bar:
-        more: Mais
-        unfold: Desdobrar
       filter_form_help:
         help: O formulário abaixo filtra os resultados da busca dinamicamente quando as condições de busca são alteradas.
         skip: Pular para os resultados

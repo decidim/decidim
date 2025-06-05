@@ -667,9 +667,6 @@ sk:
       results:
         view_all: Zobrazit všechny (%{count})
     shared:
-      extended_navigation_bar:
-        more: Viac
-        unfold: Rozbaliť
       flag_modal:
         already_reported: Tento obsah je už nahlásený a bude kontrolovaný administrátorom.
         close: Zavrieť

@@ -376,11 +376,7 @@ ar:
             'true': لم يُنشَر
         search_label: بحث
         search_placeholder:
-          name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
           report_count_eq: عدد التقارير يساوى
-          reported_id_string_or_reported_content_cont: البحث عن %{collection} بواسطة رقم-مُعرف أو بالمحتوى.
-          title_cont: البحث عن %{collection} بحسب العنوان.
-          user_name_or_user_nickname_or_user_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
         state_eq:
           label: الحالة
           values:

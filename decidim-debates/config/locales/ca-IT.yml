@@ -30,6 +30,7 @@ ca-IT:
         actions:
           comment: Comentar
           create: Crear un debat
+          like: M'agrada
         name: Debats
         settings:
           global:
@@ -46,6 +47,8 @@ ca-IT:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear debats
+            likes_blocked: '"M''agrada" bloquejat'
+            likes_enabled: '"M''agrada" habilitat'
     debates:
       actions:
         close: Tanca
@@ -262,6 +265,7 @@ ca-IT:
           instructions: Quines van ser les instruccions per comentar/participar en aquest debat
           last_comment_at: La data del darrer comentari en aquest debat
           last_comment_by: La data del darrer comentari realitzat en aquest debat
+          likes_count: El número de "m'agrada" que té aquest debat
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
           start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar

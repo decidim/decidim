@@ -292,9 +292,9 @@ sv:
           projects_rule:
             description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
           projects_rule_maximum_only:
-            description: Välj upp till %{maximum_number} projekt som du är intresserad av och vill rösta om.
+            description: Välj upp till %{maximum_number} projekt att rösta på.
           vote_threshold_percent_rule:
-            description: Tilldela minst %{minimum_budget} till de projekt du är intresserad av och vill rösta om.
+            description: Välj projekt för minst %{minimum_budget} att rösta på.
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
@@ -441,6 +441,6 @@ sv:
     statistics:
       orders_count: Stöd
       projects_count: Budgetar
-      projects_count_tooltip: Antalet deltagande budgeteringsprojekt och de totala rösterna på dem.
+      projects_count_tooltip: Antalet projekt och det totala antalet röster.
   index:
     confirmed_orders_count: Antal röster

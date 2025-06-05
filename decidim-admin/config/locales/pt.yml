@@ -329,10 +329,6 @@ pt:
             'false': Publicado
             'true': Publicação removida
         search_label: Pesquisa
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
-          reported_id_string_or_reported_content_cont: Pesquisar %{coleção} por identificador de denúncia ou conteúdo.
-          title_cont: Pesquisar %{collection} por título.
         state_eq:
           label: Estado
           values:

@@ -84,8 +84,6 @@ hu:
             values:
               state_not_published: Megválaszolatlan
               state_published: Megválaszolt
-        search_placeholder:
-          id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
     components:
       proposals:
         actions:

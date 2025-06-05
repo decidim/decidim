@@ -90,8 +90,6 @@ pt-BR:
           with_any_state:
             values:
               state_not_published: Não respondido
-        search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID ou título.
     components:
       proposals:
         actions:

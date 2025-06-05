@@ -96,7 +96,7 @@ es:
           type_id_eq:
             label: Tipo
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría
       initiatives_settings:
         update:
           error: Se produjo un problema al actualizar la configuración de las iniciativas.
@@ -443,6 +443,11 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva iniciativa de %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        like_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, a quien sigues, le ha dado \"Me gusta\" a la siguiente iniciativa. Tal vez te interese contribuir a la conversación:"
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: A %{author_nickname} le ha gustado esta iniciativa
+          notification_title: A <a href="%{author_path}">%{author_name} %{author_nickname}</a> le ha gustado la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa %{resource_title}."
           email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: "%{resource_title}".'

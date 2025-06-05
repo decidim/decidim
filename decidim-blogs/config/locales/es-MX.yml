@@ -103,6 +103,7 @@ es-MX:
           comment: Comentar
           create: Crear
           destroy: Borrar
+          like: '"Me gusta"'
           update: Actualizar
         name: Blog
         settings:
@@ -119,6 +120,8 @@ es-MX:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
     events:
       blogs:
         post_created:
@@ -147,6 +150,7 @@ es-MX:
           created_at: La fecha en la que se creó esta publicación
           follows_count: El número de seguidoras que tiene esta publicación
           id: El identificador único de la publicación
+          likes_count: El número de "Me gusta" que tiene esta publicación
           participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
           published_at: La fecha en la que se publicó esta entrada en el blog
           title: El título de la publicación
