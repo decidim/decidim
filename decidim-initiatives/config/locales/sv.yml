@@ -93,6 +93,8 @@ sv:
               validating: Teknisk validering
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn
       initiatives_settings:
         update:
           error: Det gick inte att uppdatera inställningarna för initiativ.
