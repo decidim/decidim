@@ -147,6 +147,8 @@ eu:
             values:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
+        search_placeholder:
+          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
     application:
       geocoding:
         not_configured: Geokodifikazioa ez dago konfiguratuta!
