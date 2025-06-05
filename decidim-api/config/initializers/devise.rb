@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 Devise.jwt do |jwt|
-  # In order to be compatible with the jwt authentication, we need to set these
-  # configurations. JWT secret is being used by the devise-jwt to generate the
-  # tokens, once the user authenticated. If it is not set correctly, the API
-  # authentication does not work.
+  # In order to be compatible with the JWT authentication, we need to set these
+  # configurations. JWT secret is being used by the devise-jwt to sign the
+  # tokens, once the user authenticated. The token signature ensures the
+  # validity of the token and that the user has not tampered with it. If the
+  # secret is not set correctly, the API authentication does not work.
   #
   # Note that the `dispatch_requests` and `revocation_requests` paths are the
   # full paths because we do not want the JWT tokens to be dispatched or revoked
