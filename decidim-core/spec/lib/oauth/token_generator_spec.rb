@@ -83,7 +83,7 @@ module Decidim
               )
             )
             expect(payload["exp"] - payload["iat"]).to eq(
-              Decidim::Api.jwt_expires_in
+              Decidim::Api.jwt_expires_in.minutes.to_i
             )
           end
         end
