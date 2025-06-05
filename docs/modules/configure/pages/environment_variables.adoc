@@ -706,7 +706,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |Yes
 
 |DECIDIM_API_JWT_EXPIRES_IN
-|The expiration time of the jwt tokens, after which issued token will expire.
+|The expiration time of the JWT tokens in minutes, after which issued token will expire.
 |(value of DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN)
 |No
 
