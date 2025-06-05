@@ -32,22 +32,26 @@ module Decidim
       end
     end
 
+    def filter_search_label(label, id)
+      label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(id))
+    end
+
     def filter_for_resource(skip_to_id)
       case skip_to_id
       when "proposals"
-        I18n.t("activerecord.models.decidim/proposals/proposal.other")
+        I18n.t("decidim/proposals/proposal.other", scope: "activerecord.models")
       when "meetings"
-        I18n.t("activerecord.models.decidim/meetings/meeting.other")
+        I18n.t("decidim/meetings/meeting.other", scope: "activerecord.models")
       when "debates"
-        I18n.t("activerecord.models.decidim/debates/debate.other")
+        I18n.t("decidim/debates/debate.other", scope: "activerecord.models")
       when "sortitions"
-        I18n.t("activerecord.models.decidim/sortitions/sortition.other")
+        I18n.t("decidim/sortitions/sortition.other", scope: "activerecord.models")
       when "surveys"
-        I18n.t("activerecord.models.decidim/surveys/survey.other")
+        I18n.t("decidim/surveys/survey.other", scope: "activerecord.models")
       when "projects"
-        I18n.t("activerecord.models.decidim/budgets/project.other")
+        I18n.t("decidim/budgets/project.other", scope: "activerecord.models")
       when "initiatives"
-        I18n.t("activerecord.models.decidim/initiative.other")
+        I18n.t("decidim/initiative.other", scope: "activerecord.models")
       else
         ""
       end

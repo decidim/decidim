@@ -24,10 +24,10 @@
           <%= form.search_field search_variable,
                                 label: false,
                                 placeholder: search_label,
-                                title: search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)),
-                                "aria-label": search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)),
+                                title: filter_search_label(search_label, skip_to_id),
+                                "aria-label": filter_search_label(search_label, skip_to_id),
                                 "aria-describedby": "filter-help-text" %>
-          <button type="submit" aria-label="<%= search_label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(skip_to_id)) %>">
+          <button type="submit" aria-label="<%= filter_search_label(search_label, skip_to_id) %>">
             <%= icon "search-line" %>
           </button>
         </div>
