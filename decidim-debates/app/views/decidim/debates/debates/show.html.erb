@@ -27,10 +27,10 @@ edit_link(
     </h1>
 
     <% debate_presenter = debate.presenter %>
-    <% if debate.closed? %>
+    <% if debate.closed? || debate.finished? %>
     <div class="layout-author has_status">
-        <span class="success label">
-          <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
+        <span class="alert label">
+          <%= t("closed", scope: "decidim.debates.debates.show") %>
         </span>
     </div>
     <% end %>
@@ -89,7 +89,7 @@ edit_link(
         </div>
 
         <div class="text-md font-semibold [&>svg]:inline-block">
-          <%= format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show") %>
+          <%= format_date_range(debate.start_time, debate.end_time) || t("open_ended", scope: "decidim.debates.debates.show") %>
         </div>
       </div>
       <div class="text-gray-2 space-y-1.5">

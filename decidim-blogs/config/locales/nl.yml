@@ -52,8 +52,6 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: Aanbevelingen ingeschakeld
     events:
       blogs:
         post_created:

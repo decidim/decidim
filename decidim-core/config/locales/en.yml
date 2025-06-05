@@ -1627,9 +1627,6 @@ en:
       confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
-      extended_navigation_bar:
-        more: More
-        unfold: Unfold
       filter_form_help:
         help: The form below filters the search results dynamically when the search conditions are changed.
         skip: Skip to results

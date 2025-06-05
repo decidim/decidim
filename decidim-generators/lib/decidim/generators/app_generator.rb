@@ -120,6 +120,15 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
+        gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -129,7 +138,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
@@ -150,7 +159,7 @@ module Decidim
       end
 
       def rubocop
-        copy_file ".rubocop.yml", ".rubocop.yml"
+        copy_file ".rubocop.yml", ".rubocop.yml", force: true
       end
 
       def ruby_version
@@ -220,7 +229,7 @@ module Decidim
                   /Rails.application.configure do/,
                   "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
-                  /# config.active_job.queue_adapter     = :resque/,
+                  /# config.active_job.queue_adapter = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
@@ -245,6 +254,12 @@ module Decidim
             @production_gems.map(&:call)
           end
         end
+      end
+
+      def load_defaults_rails71
+        gsub_file "config/application.rb",
+                  /config.load_defaults 7.2/,
+                  "config.load_defaults 7.1"
       end
 
       def tweak_csp_initializer
@@ -333,6 +348,16 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
                   "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
+      end
+
+      def patch_logging
+        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
+          if ENV["RAILS_LOG_TO_STDOUT"].present?
+            config.logger = ActiveSupport::Logger.new(STDOUT)
+              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+          end
+        CONFIG
       end
 
       def dev_performance_config

@@ -186,7 +186,7 @@ module Decidim
 
         # Plural model name. Used in search_field placeholder.
         def collection_name
-          query.klass.model_name.human(count: 2)
+          query.klass.model_name.human(count: 2).downcase
         end
 
         def taxonomy_order_or_search?

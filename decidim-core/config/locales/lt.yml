@@ -43,7 +43,6 @@ lt:
       decidim/promote_to_admin: Paaukštintas(-a) į grupės administratorius
       decidim/promoted_to_admin_event: Paaukštintas(-a) į grupės administratorius
       decidim/removed_from_group: Pašalinta iš grupės
-      decidim/resource_endorsed_event: Išteklis palaikytas
       decidim/resource_hidden_event: Išteklis paslėptas
       decidim/welcome_notification_event: Sveikinimo prisijungus žinutė
   activerecord:
@@ -63,11 +62,6 @@ lt:
         few: Pataisos
         many: Pataisos
         other: Pataisos
-      decidim/endorsement:
-        one: Palaikymas
-        few: Palaikymai
-        many: Palaikymai
-        other: Palaikymai
       decidim/user:
         one: Dalyvis
         few: Dalyviai
@@ -379,11 +373,6 @@ lt:
         few: komentarai
         many: komentarai
         other: komentarai
-      endorsements:
-        one: palaikymas
-        few: palaikymai
-        many: palaikymai
-        other: palaikymai
       official_author: Oficialus
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -632,8 +621,6 @@ lt:
         error: Klaida įkeliant paveikslėlį.
         success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
-    endorsement_buttons_cell:
-      endorse: Patinka
     errors:
       internal_server_error:
         copied: Tekstas nukopijuotas!
@@ -734,11 +721,6 @@ lt:
             Administratorius pašalino jūsų %{resource_type}, nes buvo pranešta apie tai kaip %{report_reasons}.
             </br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, kurį sekate, ką tik pritarė „%{resource_title}“ ir, manome, kad tai galėtų jus sudominti. Pažiūrėkite ir prisidėkite:'
-        email_outro: Šį pranešimą gavote dėl to, kad sekate %{endorser_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-        email_subject: "%{endorser_nickname} išreiškė naują pritarimą"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> pritarė <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
       users:
         profile_updated:
           email_intro: '%{name} (%{nickname}), profilio puslapis, <a href="%{resource_url}">, kurį sekate</a> buvo atnaujintas.'
@@ -1153,9 +1135,6 @@ lt:
     reports:
       create:
         success: Ataskaita sukurta ir ją peržiūrės administratorius.
-    resource_endorsements:
-      create:
-        error: Atliekant šį pritarimo veiksmą iškilo problema.
     scopes:
       global: Globali sritis
       prompt: Pasirinkti apimtį
@@ -1187,9 +1166,6 @@ lt:
         close_modal: Uždaryti modalinį langą
         ok: Gerai
         title: Patvirtinti
-      extended_navigation_bar:
-        more: Daugiau
-        unfold: Išskleisti
       filter_form_help:
         help: Toliau pateikiamoje formoje paieškos rezultatai filtuojami dinamiškai, kai pasikeičia paieškos sąlygos.
         skip: Pereiti į rezultatus
@@ -1235,7 +1211,6 @@ lt:
         share_to: Dalintis %{service}
     statistics:
       comments_count: Komentarai
-      endorsements_count: Pritarimai
       followers_count: Sekėjai
       headline: Statistika
       no_stats: Statistinių duomenų dar nėra.

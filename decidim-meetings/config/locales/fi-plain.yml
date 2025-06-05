@@ -234,11 +234,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Ilmoittautumiset on avattu tapahtumaan "%{resource_title}".
           notification_title: Ilmoittautumiset on avattu tapahtumaan <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     forms:
       meetings:
         attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.

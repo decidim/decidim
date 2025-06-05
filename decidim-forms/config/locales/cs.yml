@@ -183,6 +183,7 @@ cs:
         response:
           invalid: Při odpovídání formuláře došlo k chybě.
           max_choices_alert: Je vybráno příliš mnoho možností
+          success: Formulář úspěšně zodpovězen.
         show:
           current_step: Krok %{step}
           empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
@@ -199,8 +200,10 @@ cs:
           questionnaire_not_published:
             body: Tento formulář zatím není zveřejněn.
           questionnaire_responded:
+            body: Na tento formulář jste již odpověděl.
             title: Již jste odpověděli
           questionnaire_responded_edit:
+            body: Na tento formulář jste již odpověděl. %{link}
             edit: Upravte své odpovědi
           response_questionnaire:
             already_have_an_account?: Již máte účet?
