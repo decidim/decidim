@@ -36,7 +36,6 @@ describe "Admin manages participatory process groups" do
       fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
       fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
 
-      fill_in :participatory_process_group_hashtag, with: "hashtag"
       fill_in :participatory_process_group_group_url, with: "http://example.org"
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
     end
@@ -49,7 +48,6 @@ describe "Admin manages participatory process groups" do
 
     expect(page).to have_admin_callout("successfully")
     expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
-    expect(page).to have_field(:participatory_process_group_hashtag, with: "hashtag")
     expect(page).to have_field(:participatory_process_group_group_url, with: "http://example.org")
     expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
     expect(page).to have_select("Related processes", selected: participatory_processes.first.title["en"])
@@ -81,7 +79,6 @@ describe "Admin manages participatory process groups" do
         fill_in_i18n(:participatory_process_group_title, "#participatory_process_group-title-tabs", **attributes[:title].except("machine_translations"))
         fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
 
-        fill_in :participatory_process_group_hashtag, with: "new_hashtag"
         fill_in :participatory_process_group_group_url, with: "http://new-example.org"
         fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
 
@@ -97,7 +94,6 @@ describe "Admin manages participatory process groups" do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
       expect(page).to have_content(strip_tags(translated(attributes[:description])).strip)
-      expect(page).to have_field(:participatory_process_group_hashtag, with: "new_hashtag")
       expect(page).to have_field(:participatory_process_group_group_url, with: "http://new-example.org")
       expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
       expect(page).to have_select("Related processes", selected: participatory_processes.last.title["en"])

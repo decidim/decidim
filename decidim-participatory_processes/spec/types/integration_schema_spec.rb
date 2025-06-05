@@ -53,7 +53,6 @@ describe "Decidim::Api::QueryType" do
             translation(locale: "#{locale}")
           }
         endDate
-        hashtag
         heroImage
         id
         linkedParticipatorySpaces{
@@ -163,7 +162,6 @@ describe "Decidim::Api::QueryType" do
       "description" => { "translation" => participatory_process.description[locale] },
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
-      "hashtag" => "",
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },
