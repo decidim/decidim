@@ -149,7 +149,6 @@ cs:
           state: Stav
           state_values:
             closed: Uzavřeno
-            open: Otevřeno
         index:
           new_debate: Nová debata
         new:
@@ -164,11 +163,9 @@ cs:
           updated: Naposledy aktualizované
         show:
           close_debate: Zavřít‏
-          debate_closed: Uzavřeno
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
           edit_debate: Upravit
-          open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci debaty došlo k chybě.
