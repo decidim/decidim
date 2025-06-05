@@ -7,6 +7,6 @@ const initializeApiSecretToggler = () => {
   })
 }
 
-$(() => {
+document.addEventListener("DOMContentLoaded", () => {
   initializeApiSecretToggler();
 });
