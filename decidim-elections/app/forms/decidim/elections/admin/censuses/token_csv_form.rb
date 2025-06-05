@@ -6,9 +6,6 @@ module Decidim
       module Censuses
         class TokenCsvForm < Decidim::Form
           include Decidim::HasUploadValidations
-          # include Decidim::Admin::CustomImport
-
-          # mimic :census_data
 
           attribute :file, Decidim::Attributes::Blob
           attribute :remove_all, Boolean

@@ -4,8 +4,6 @@ module Decidim
   module Elections
     module Admin
       class CensusController < Admin::ApplicationController
-        helper Decidim::Elections::Admin::ElectionsHelper
-
         helper_method :election, :census_manifests, :census_count, :preview_users, :user_identifier
 
         before_action :set_census_manifest, only: [:edit, :update]
