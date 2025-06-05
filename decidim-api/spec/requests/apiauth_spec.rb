@@ -68,16 +68,19 @@ RSpec.describe "Api authentication" do
         authorization = response.headers["Authorization"]
         post "/api", params: { query: "{session { user { id nickname } } }" }, headers: { HTTP_AUTHORIZATION: authorization }
         parsed_response = JSON.parse(response.body)["data"]
-        expect(parsed_response["session"]["user"]["id"].to_i).to eq(user.id)
-        expect(parsed_response["session"]["user"]["nickname"]).to eq(user.nickname.prepend("@"))
+        expect(parsed_response).to match(
+          "session" => {
+            "user" => { "id" => user.id.to_s, "nickname" => "@#{user.nickname}" }
+          }
+        )
       end
     end
 
     context "when not signed in" do
       it "does not return session details" do
         post "/api", params: { query: query }
-        parsed_response = response.body
-        expect(parsed_response).to eq("{\"data\":{\"session\":null}}")
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to match("data" => { "session" => nil })
       end
     end
   end
