@@ -67,15 +67,12 @@ bg:
           attributes:
             base:
               not_official: Не са официални
-              voted: Получили са гласове или одобрения
         proposals_split:
           attributes:
             base:
               not_official: Не са официални
-              voted: Получили са гласове или одобрения
     models:
       decidim/proposals/creation_enabled_event: Създаването на предложения е разрешено
-      decidim/proposals/endorsing_enabled_event: Одобряването на предложения е разрешено
       decidim/proposals/proposal_mentioned_event: Предложението е споменато
       decidim/proposals/publish_proposal_event: Предложението е публикувано
       decidim/proposals/voting_enabled_event: Гласуването за предложения е разрешено
@@ -119,14 +116,11 @@ bg:
             values:
               state_not_published: Не отговорено
               state_published: Отговорено
-        search_placeholder:
-          id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
     components:
       proposals:
         actions:
           amend: Промяна
           comment: Коментар
-          endorse: Одобри
           vote: Глас
           vote_comment: Оцени коментара
           withdraw: Оттегляне
@@ -148,7 +142,6 @@ bg:
             default_sort_order_options:
               automatic: Автоматично
               most_commented: Най-коментирани
-              most_endorsed: Най-препоръчвани
               most_followed: Най-следвани
               most_voted: Най-гласувани
               random: Произволно
@@ -196,14 +189,11 @@ bg:
             default_sort_order_options:
               automatic: Автоматично
               most_commented: Най-коментирани
-              most_endorsed: Най-препоръчвани
               most_followed: Най-следвани
               most_voted: Най-гласувани
               random: Произволно
               recent: Скорошни
               with_more_authors: С повече автори
-            endorsements_blocked: Одобряване забранено
-            endorsements_enabled: Одобряване разрешено
             proposal_answering_enabled: Отговора на предложение е разрешен
             publish_answers_immediately: Публикувай отговорите на предложения незабавно
             publish_answers_immediately_help_html: 'Имайте предвид, че ако отговорите на някое предложение, без тази активация, ще трябва да го публикувате ръчно, като го изберете и използвате действието за публикуване. За повече информация как работи това вижте <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">страницата с документация за отговорите на предложенията</a >.'
@@ -251,11 +241,6 @@ bg:
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
           email_subject: Предложенията вече са достъпни в %{participatory_space_title}
           notification_title: Вече може да направите <a href="%{resource_path}">ново предложение</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Можете да одобрите предложение в %{participatory_space_title}! Участвайте чрез тази страница:'
-          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
-          email_subject: Одобряването на предложения започна в %{participatory_space_title}
-          notification_title: Вече можете да <a href="%{resource_path}">одобрявате предложения</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
           email_outro: Получавате това известие, защото сте автор на %{resource_title}".
@@ -461,12 +446,7 @@ bg:
             body: Основен текст
             comments_count: Брой коментари
             documents: Документи
-            endorsements_count: Брой препоръки
-            endorsers: Препоръчали
             link: Виж предложението
-            n_more_endorsers:
-              one: и още 1
-              other: и още %{count}
             photos: Снимки
             ranking: "%{ranking} от %{total}"
             related_meetings: Свързани срещи
@@ -688,7 +668,6 @@ bg:
         orders:
           label: 'Подреждане на предложенията по:'
           most_commented: Най-коментирани
-          most_endorsed: Най-препоръчвани
           most_followed: Най-следвани
           most_voted: Най-гласувани
           random: Произволно
@@ -715,9 +694,6 @@ bg:
           answer: Отговор
           changes_at_title: Изменение на „%{title}“
           estimated_cost: Предвидени разходи
-          hidden_endorsers_count:
-            one: и още %{count} човек
-            other: и още %{count} души
           link_to_collaborative_draft_help_text: Това предложение е резултат от съвместна чернова. Прегледайте хронологията
           link_to_collaborative_draft_text: Вижте съвместната чернова
           link_to_promoted_emendation_help_text: Това предложение е допринасяща поправка

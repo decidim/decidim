@@ -72,8 +72,8 @@ de:
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
       decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
-      decidim/resource_endorsed_event: Ressource befürwortet
       decidim/resource_hidden_event: Ressource versteckt
+      decidim/resource_liked_event: Ressource geliked
       decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
@@ -95,9 +95,9 @@ de:
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
-      decidim/endorsement:
-        one: Befürwortung
-        other: Befürwortungen
+      decidim/like:
+        one: Like
+        other: Likes
       decidim/user:
         one: Benutzer
         other: Benutzer
@@ -438,9 +438,9 @@ de:
       comments:
         one: Kommentar
         other: Kommentare
-      endorsements:
-        one: Befürwortung
-        other: Befürwortungen
+      likes:
+        one: Like
+        other: Likes
       official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -587,6 +587,7 @@ de:
         name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
         background_image: Hintergrundbild
+        cta_button_path: URL des Call-to-Action Buttons
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
@@ -831,16 +832,6 @@ de:
         error: Fehler beim Hochladen des Bildes.
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
-    endorsement_buttons_cell:
-      already_endorsed: Zustimmung zurückziehen
-      endorse: Gefällt mir
-    endorsers_list:
-      endorsed_by:
-        one: '%{visible} stimmt zu'
-        other: '%{visible} und %{others} stimmen zu'
-      others: "%{count} weitere"
-      title: Zustimmende
-      you: du
     ephemeral_user: Gast
     errors:
       files:
@@ -964,11 +955,6 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt, und wir denken, das könnte interessant für Sie sein. Schauen Sie es sich an und reden Sie mit:'
-        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-        email_subject: "%{endorser_nickname} hat eine neue Befürwortung ausgesprochen"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> befürwortet.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
@@ -1579,9 +1565,6 @@ de:
       controls_label: Ressourcensteuerung
     resource_autocomplete:
       help: Tippen, um Vorschläge zu durchsuchen
-    resource_endorsements:
-      create:
-        error: Bei der Befürwortung ist ein Fehler aufgetreten.
     scopes:
       global: Globaler Umfang
       prompt: Wählen Sie einen Bereich aus
@@ -1622,9 +1605,6 @@ de:
       confirm_unload: Diese Seite enthält ungespeicherte Änderungen. Möchten Sie die Seite dennoch verlassen?
       embed:
         title: Eingebetteter Videoinhalt
-      extended_navigation_bar:
-        more: Mehr
-        unfold: Entfalten
       filter_form_help:
         help: Die Suchresultate werden bei geänderten Filtereinstellungen automatisch aktualisiert.
         skip: Zu Ergebnissen springen
@@ -1679,7 +1659,6 @@ de:
     statistics:
       comments_count: Kommentare
       comments_count_tooltip: Die Summe der in diesem Bereich geposteten Kommentare.
-      endorsements_count: Befürwortungen
       followers_count: Follower
       followers_count_tooltip: Die Anzahl der Nutzenden, die einen beliebigen Teil dieses Bereichs folgen, um auf dem Laufenden zu bleiben.
       headline: Statistik

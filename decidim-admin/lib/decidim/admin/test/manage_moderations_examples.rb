@@ -114,8 +114,8 @@ shared_examples "manage moderations" do
     it "user can filter by reportable type" do
       reportable_type = moderation.reportable.class.name.demodulize
       within ".filters__section" do
-        find(:xpath, "//a[contains(text(), 'Filter')]").hover
-        find(:xpath, "//a[contains(text(), 'Type')]").hover
+        click_on "Filter"
+        click_on "Type"
         click_on reportable_type
       end
       expect(page).to have_css("tbody tr", count: moderations.length)
@@ -124,7 +124,7 @@ shared_examples "manage moderations" do
     it "user can filter by reported content" do
       search = moderation.reportable.id
       within ".filters__section" do
-        fill_in("Search Moderation by reportable id or content.", with: search)
+        fill_in("Search moderation by reportable id or content", with: search)
         within(".input-group-button") { click_on(class: "text-secondary") }
       end
       expect(page).to have_css("tbody tr", count: 1)

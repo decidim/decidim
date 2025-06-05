@@ -72,8 +72,8 @@ ca:
       decidim/promote_to_admin: Promocionada a administradora del grup
       decidim/promoted_to_admin_event: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
-      decidim/resource_endorsed_event: Adhesió a recurs feta
       decidim/resource_hidden_event: Recurs amagat
+      decidim/resource_liked_event: Recurs amagat
       decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
@@ -95,9 +95,9 @@ ca:
       decidim/amendment:
         one: Esmena
         other: Esmenes
-      decidim/endorsement:
-        one: Adhesió
-        other: Adhesions
+      decidim/like:
+        one: '"M''agrada"'
+        other: '"M''agrada"'
       decidim/user:
         one: Participant
         other: Participants
@@ -435,9 +435,9 @@ ca:
       comments:
         one: comentari
         other: comentaris
-      endorsements:
-        one: adhesió
-        other: adhesions
+      likes:
+        one: m'agrada
+        other: m'agrada
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -584,6 +584,10 @@ ca:
         name: Imatge principal i botó d'acció
       hero_settings_form:
         background_image: Imatge de fons
+        cta_button_path: URL del botó d'acció
+        cta_button_path_help: 'Pots definir on enllaça el botó d''acció a la pàgina inicial. Fes servir rutes parcials, no URL completes. L''URL accepta lletres, números, guions i barres, i ha de començar per una lletra. El botó d''acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció. Exemple:%{url}'
+        cta_button_text: Text del botó d'acció
+        cta_button_text_help: Pots canviar el text del botó de trucada a l'acció a la pàgina inicial per a cada idioma disponible a l'organització. Si no s'estableix cap text, s'utilitzarà el valor predeterminat. El botó d'acció es mostra a la pàgina inicial entre el text de benvinguda i la descripció.
         welcome_text: Text de benvinguda
       highlighted_content_banner:
         name: Banner de contingut destacat
@@ -824,16 +828,6 @@ ca:
         error: S'ha produït un error en carregar la imatge.
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
-    endorsement_buttons_cell:
-      already_endorsed: Desfer el "M'agrada"
-      endorse: M'agrada
-    endorsers_list:
-      endorsed_by:
-        one: Li agrada a %{visible}
-        other: Li agrada a %{visible} i a %{others}
-      others: "%{count} més"
-      title: Li ha agradat a
-      you: tu
     ephemeral_user: Visitant
     errors:
       files:
@@ -957,11 +951,11 @@ ca:
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a "%{resource_title}" que et pot resultar interessant, revisa-la i contribueix:'
-        email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{endorser_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
-        email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, a qui segueixes, li acaba d''agradar: "%{resource_title}", que et pot resultar interessant, revisa-la i contribueix:'
+        email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{liker_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: "%{liker_nickname} ha realitzat un nou \"m'agrada\""
+        notification_title: '"<a href="%{resource_path}">%{resource_type} </a> %{resource_type}" li ha agradat a <a href="%{liker_path}">%{liker_nickname}</a>.'
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1112,6 +1106,16 @@ ca:
         last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
+    like_buttons_cell:
+      already_liked: Desfer el "M'agrada"
+      like: M'agrada
+    likes_list:
+      liked_by:
+        one: Li agrada a %{visible}
+        other: Li agrada a %{visible} i a %{others}
+      others: "%{count} més"
+      title: Li ha agradat a
+      you: tu
     linked_resource_from:
       included_in: Inclòs a
     links:
@@ -1545,7 +1549,7 @@ ca:
         manage_moderations: Gestiona moderacions
         participatory_space: Espai de participació
         reason: Motiu
-        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
+        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament per %{moderator}.</p>
         subject: Un recurs ha estat amagat per %{moderator}
       report:
         authors: Autores
@@ -1572,9 +1576,9 @@ ca:
       controls_label: Controls de recursos
     resource_autocomplete:
       help: Escriu aquí per cercar entre les propostes
-    resource_endorsements:
+    resource_likes:
       create:
-        error: S'ha produït un error durant l'acció d'adhesió.
+        error: S'ha produït un error durant l'acció "m'agrada".
     scopes:
       global: Àmbit global
       prompt: Selecciona un àmbit
@@ -1615,9 +1619,6 @@ ca:
       confirm_unload: Aquesta pàgina conté canvis sense desar. Segur que vols abandonar aquesta pàgina?
       embed:
         title: Contingut del vídeo incrustat
-      extended_navigation_bar:
-        more: Més
-        unfold: Desplegar
       filter_form_help:
         help: El següent formulari filtra els resultats de la cerca dinàmicament quan es canvien les condicions de la cerca.
         skip: Saltar als resultats
@@ -1672,10 +1673,10 @@ ca:
     statistics:
       comments_count: Comentaris
       comments_count_tooltip: El número total de comentaris publicats en aquest espai.
-      endorsements_count: Adhesions
       followers_count: Seguidores
       followers_count_tooltip: El nombre d'usuàries que segueixen qualsevol part d'aquest espai per mantenir actualitzades.
       headline: Estadístiques
+      likes_count: '"M''agrada"'
       no_stats: Encara no hi ha estadístiques.
       pages_count: Pàgines
       participants_count: Participants

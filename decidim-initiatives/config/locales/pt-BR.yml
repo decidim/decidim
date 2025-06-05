@@ -80,8 +80,6 @@ pt-BR:
               validating: Validação técnica
           type_id_eq:
             label: Tipo
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       initiatives_settings:
         update:
           success: As configurações de iniciativas foram atualizadas com sucesso.
@@ -333,11 +331,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que você está seguindo, endossou a seguinte iniciativa, talvez você queira contribuir para a conversa:"
-          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Iniciativa endossada por %{author_nickname}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rejeitou sua solicitação para fazer parte do comitê de promotores para a seguinte iniciativa %{resource_title}."
           email_outro: 'Você recebeu esta notificação porque você aplicou nesta iniciativa: %{resource_title}.'

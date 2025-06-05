@@ -242,9 +242,6 @@ module Decidim
         proposal_state&.token || "not_answered"
       end
 
-      # This is only used to define the setter, as the getter will be overridden below.
-      alias_attribute :internal_state, :state
-
       # Public: Returns the internal state of the proposal.
       #
       # Returns Boolean.

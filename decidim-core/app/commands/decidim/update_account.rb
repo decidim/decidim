@@ -56,7 +56,7 @@ module Decidim
 
     def update_avatar
       if @form.avatar.present?
-        current_user.avatar.attach(@form.avatar)
+        current_user.avatar.attach(@form.avatar.signed_id)
       elsif @form.remove_avatar
         current_user.avatar = nil
       end

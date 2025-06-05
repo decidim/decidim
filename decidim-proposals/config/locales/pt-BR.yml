@@ -51,7 +51,6 @@ pt-BR:
               identical: E o corpo não pode ser idêntico
     models:
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
-      decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: Proposta de votação ativada
@@ -91,14 +90,11 @@ pt-BR:
           with_any_state:
             values:
               state_not_published: Não respondido
-        search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID ou título.
     components:
       proposals:
         actions:
           amend: Alterar
           comment: Comentar
-          endorse: Endossar
           vote: Voto
           vote_comment: Votar no documento
           withdraw: retirar o
@@ -152,8 +148,6 @@ pt-BR:
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
             default_sort_order_options:
               most_commented: Mais comentado
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
             suggested_hashtags: Hashtags sugeridos aos usuários para novas propostas
@@ -199,10 +193,6 @@ pt-BR:
           email_intro: 'Agora você pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Você pode endossar propostas em %{participatory_space_title}! Comece a participar nesta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: As propostas de endosso começaram para %{participatory_space_title}
         proposal_mentioned:
           email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
           email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
@@ -346,11 +336,6 @@ pt-BR:
             body: Corpo
             comments_count: Contagem de Comentários
             documents: Documentos
-            endorsements_count: Contagem de endossos
-            endorsers: Endossar
-            n_more_endorsers:
-              one: e mais 1
-              other: e mais %{count}
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
@@ -540,7 +525,6 @@ pt-BR:
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
-          most_endorsed: Mais endossados
           most_followed: Mais seguidos
           most_voted: Mais votados
           random: Aleatório
@@ -564,9 +548,6 @@ pt-BR:
           answer: Responda
           changes_at_title: Alteração para "%{title}"
           estimated_cost: Custo estimado
-          hidden_endorsers_count:
-            one: e mais %{count} pessoa
-            other: e mais %{count} pessoas
           link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
           link_to_collaborative_draft_text: Veja o rascunho colaborativo
           link_to_promoted_emendation_help_text: Esta proposta é uma emenda promovida

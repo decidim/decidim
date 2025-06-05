@@ -45,8 +45,6 @@ ja:
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
-        cta_button_path: Call To Action ボタンのパス
-        cta_button_text: Call To Action ボタンのテキスト
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
@@ -353,8 +351,6 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        index:
-          text: 現在のユーザーのメールアドレス、名前、ニックネームで検索します。
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
@@ -455,11 +451,7 @@ ja:
         remove_all: すべて削除
         search_label: 検索
         search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
           report_count_eq: 報告数
-          reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索します。
-          title_cont: '%{collection} をタイトルで検索します。'
-          user_name_or_user_nickname_or_user_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
         state_eq:
           label: 状態
           values:
@@ -554,7 +546,6 @@ ja:
       logs:
         filters:
           participatory_space: 参加型スペースを探す
-          text: ユーザーのメールアドレス、名前、ニックネームで検索します。
           user: ユーザー
         logs_list:
           no_logs_yet: ログはまだありません。
@@ -873,6 +864,9 @@ ja:
           title: 組織を編集
           update: 更新
         form:
+          admin_terms_of_service: 管理者向け利用規約
+          basic_configuration: 基本設定
+          extra_features: 追加機能
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -880,6 +874,7 @@ ja:
           social_handlers: ソーシャル
           twitter: X
           url: URL
+          welcome_notification: ウェルカム通知
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -888,26 +883,10 @@ ja:
         edit:
           update: 更新
         form:
-          colors:
-            choose_color: プライマリカラーを選択
-            colors_title: 組織の色
-            colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
-            explanation: このツールは、カラーホイールの周りに均等に間隔を置いた色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに掲載されています
-            legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法に基づく</a>に基づくメインのアプリケーションカラーです. 選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーはは自動的に計算されます.
-            saturation: 彩度
-            title: 色の選択
-            update_suggested_colors: 提案色を更新
-          cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
-          cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           header_snippets:
             header_snippets_help_html: このフィールドはHTMLヘッダ要素内に何かを追加する際に使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理セクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。より詳しい使い方については、 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメントサイト</a> をご覧ください。
             title: HTML ヘッダーのスニペット
-          homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
-          images:
-            layout_appearance_title: レイアウトを編集
-            preview: プレビュー
-          omnipresent_banner_appearance_title: Omnipresentバナーを編集
       organization_external_domain_allowlist:
         edit:
           update: 更新
