@@ -11,11 +11,19 @@ module Decidim
           @required_scopes = scopes
         end
 
+        def determine_required_scopes
+          return @required_scopes if @required_scopes.present?
+          return unless superclass.respond_to?(:determine_required_scopes)
+
+          superclass.determine_required_scopes
+        end
+
         def scope_authorized?(context)
-          return true unless @required_scopes.is_a?(Array)
+          req_scopes = determine_required_scopes
+          return true unless req_scopes.is_a?(Array)
 
           scopes = context[:scopes] # ::Doorkeeper::OAuth::Scopes
-          scopes.scopes?(@required_scopes)
+          scopes.scopes?(req_scopes)
         end
       end
     end
