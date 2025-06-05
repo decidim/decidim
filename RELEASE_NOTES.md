@@ -438,7 +438,7 @@ This change provides a new endpoint for API authentication and a method to check
 
 For this to work,  you need to add a secret key that will be used by devise-jwt to sign the tokens.
 Add `DECIDIM_API_JWT_SECRET` environment variable for your application to work in production.
-Also, you can set the jwt expiration time through `DECIDIM_API_JWT_EXPIRATION_TIME_JWT` environment variable. The default is set to 60 minutes.
+Also, you can set the jwt expiration time through `DECIDIM_API_JWT_EXPIRES_IN` environment variable. The default is set to the same value as `DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN`.
 
 You can generate the key from the console by running:
 

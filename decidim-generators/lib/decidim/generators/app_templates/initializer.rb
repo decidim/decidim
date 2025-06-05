@@ -440,7 +440,7 @@ end
 #     config.schema_max_depth = Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
 #     config.disclose_system_version = Decidim::Env.new("DECIDIM_API_DISCLOSE_SYSTEM_VERSION").present?
 #     config.force_api_authentication = Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION").present?
-#     config.jwt_expiration_time = Decidim::Env.new("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes).to_i
+#     config.jwt_expires_in = Decidim::Env.new("DECIDIM_API_JWT_EXPIRES_IN", 60.minutes).to_i
 #   end
 # end
 

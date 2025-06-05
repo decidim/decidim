@@ -38,10 +38,14 @@ module Decidim
       Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION", nil).present?
     end
 
-    # The expiration time of the jwt tokens, after which issued token to the
-    # user will expired.
-    config_accessor :jwt_expiration_time do
-      Decidim::Env.new("DECIDIM_API_JWT_EXPIRATION_TIME", 60.minutes).to_i
+    # The expiration time of the JWT tokens, after which issued token will
+    # expire. Recommended to match the value of
+    # `DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN`.
+    config_accessor :jwt_expires_in do
+      Decidim::Env.new(
+        "DECIDIM_API_JWT_EXPIRES_IN",
+        Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120")
+      ).to_i
     end
 
     # This declares all the types an interface or union can resolve to. This needs
