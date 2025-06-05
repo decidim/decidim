@@ -144,7 +144,7 @@ pl:
           updated: Ostatnio aktualizowane
         show:
           close_debate: Zamknij debatę
-          debate_closed: Zamknięta
+          debate_closed: Zakończone
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
           edit_debate: Edytuj debatę
