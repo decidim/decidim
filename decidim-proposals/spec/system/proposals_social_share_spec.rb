@@ -79,7 +79,7 @@ describe "Social shares" do
   context "when no attachment images" do
     let!(:attachment) { nil }
 
-    it_behaves_like "a social share meta tag", "description_image.jpg"
+    it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 
   context "when no attachments nor description images" do
