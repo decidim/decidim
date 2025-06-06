@@ -88,8 +88,6 @@ zh-TW:
               validating: 技術驗證
           type_id_eq:
             label: 類別
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 透過標題、描述、ID 或作者姓名搜尋 %{collection}
       initiatives_settings:
         update:
           success: 倡議設定已成功更新.
@@ -360,11 +358,6 @@ zh-TW:
           email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
           email_subject: 由 %{author_nickname} 提出的新倡議
           notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
-        endorse_initiative_event:
-          email_intro: "\"%{author_name} %{author_nickname} 正在追蹤，並已連署以下倡議，或許你想參與對話："
-          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
-          email_subject: 倡議得到 %{author_nickname} 的連署
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已獲 %{author_name} %{author_nickname} 連署。
         revoke_membership_request:
           email_intro: "%{author_nickname} 拒絕了您加入 %{resource_title} 倡議發起委員會的申請。"
           email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'

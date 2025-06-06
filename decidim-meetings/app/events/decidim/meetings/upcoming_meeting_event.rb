@@ -30,7 +30,7 @@ module Decidim
       end
 
       def default_email_intro
-        I18n.t("decidim.events.meetings.upcoming_meeting.email_intro", **i18n_options)
+        I18n.t("email_intro", **i18n_options)
       end
 
       def custom_message

@@ -22,8 +22,6 @@ tr:
   decidim:
     components:
       debates:
-        actions:
-          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
@@ -33,8 +31,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Onaylar engellendi
-            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
         close: Kapat

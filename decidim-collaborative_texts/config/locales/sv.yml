@@ -5,10 +5,16 @@ sv:
       collaborative_texts:
         document:
           body: Brödtext
+          draft: Utkast
           title: Titel
           version_number: Version nummer
+        suggestion:
+          nodes: DOM nodes
+          original: Ursprunglig text
+          replace: Ändring
         version:
           body: Text
+          draft: Utkast
           version_number: Version
   decidim:
     collaborative_texts:
@@ -25,9 +31,19 @@ sv:
           create:
             invalid: Det gick inte att skapa dokumentet.
             success: Dokumentet har skapats.
+          draft_options:
+            accepting_suggestions: Aktivera ändringsförslag för nästa version
+            accepting_suggestions_help: Att aktivera ändringsförslag kommer att starta en ny omgång av förslag för dokumentet. De nuvarande ändringsförslagen kommer inte att synas i den nya versionen.
+            draft: Utkast
+            draft_help_html: Ett utkast är inte offentligt och kan redigeras av administratörerna. Ändra status för utkastet för att göra det offentligt. <strong>Observera att under tiden utkastversionen är aktiv, kommer deltagarna att se den tidigare versionen och de kommer inte att kunna komma med förslag.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">Detta dokument har ändringsförslag</a> och kan inte redigeras direkt. Vänligen acceptera eller avvisa förslagen för att generera en ny utkastversion som kan redigeras.
+            draft: Utkast
+            previous_versions: Tidigare versioner
+            public_version: Offentlig version
             title: Redigera kollaborativa texter
             update: Uppdatera
+            version: Version %{version_number}, skapad %{created_at} har fått %{suggestions_count} ändringsförslag.
           edit_settings:
             title: Konfigurera kollaborativa texter
             update: Uppdatera
@@ -38,6 +54,11 @@ sv:
           new:
             create: Skapa
             title: Skapa kollaborativa texter
+          non_draft_options:
+            create_draft: Ignorera förslag och skapa en ny utkastversion
+            draft_help_html: Ett utkast är inte offentligt och kan redigeras av administratörerna. Ändra status för utkastet för att göra det offentligt. <strong>Observera att under tiden utkastversionen är aktiv, kommer deltagarna att se den tidigare versionen och de kommer inte att kunna komma med förslag.</strong>
+            enable_suggestions: Aktivera ändringsförslag
+            enable_suggestions_help: Genom att aktivera ändringsförslag kan deltagarna komma med förslag till denna version.
           publish:
             invalid: Det gick inte att publicera detta dokument.
             success: Dokumentet har publicerats.

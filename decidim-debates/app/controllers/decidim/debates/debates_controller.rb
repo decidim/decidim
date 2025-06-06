@@ -116,9 +116,9 @@ module Decidim
         {
           search_text_cont: "",
           with_any_origin: nil,
-          activity: %w(all),
+          activity: "all",
           with_any_taxonomies: nil,
-          with_any_state: %w(open closed)
+          with_any_state: "all"
         }
       end
 

@@ -436,6 +436,7 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
+      assemblies_count_tooltip: Počet veřejných shromáždění, kde jsou přijímána kolektivní rozhodnutí.
   layouts:
     decidim:
       assemblies:
