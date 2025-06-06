@@ -74,8 +74,6 @@ lb:
               validating: Technische Validierung
           type_id_eq:
             label: Typ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
@@ -264,11 +262,6 @@ lb:
           email_outro: Du hues dës Noriicht kritt, well s'du dem %{author_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
           email_subject: Neue Initiative von %{author_nickname}
           notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, dem Sie folgen, hat die folgende Initiative unterstützt, vielleicht möchten Sie mitreden:"
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{author_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: Initiative wurde von %{author_nickname} unterstützt
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
         revoke_membership_request:
           email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'

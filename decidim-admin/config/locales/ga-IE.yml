@@ -284,9 +284,6 @@ ga:
       organization_appearance:
         edit:
           update: Nuashonraigh
-        form:
-          images:
-            preview: Réamhamharc
       participatory_space_private_users:
         new:
           create: Cruthaigh

@@ -25,7 +25,6 @@ pt-BR:
       debates:
         actions:
           comment: Comentário
-          endorse: Endossar
         name: Debates
         settings:
           global:
@@ -36,8 +35,6 @@ pt-BR:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar debates
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossos habilitados
     debates:
       actions:
         close: Fechar

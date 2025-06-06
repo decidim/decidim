@@ -9,6 +9,7 @@ tr:
         end_date: Bitiş tarihi
         progress: İlerleme
         start_date: Başlangıç tarihi
+        subresults:
         title: Başlık
         updated_at: Adresinde güncellendi
       status:
@@ -28,9 +29,11 @@ tr:
       decidim:
         accountability:
           result:
+            budget_text: Bu sonuç %{link} eklenmiştir
             meetings_ids: 'Bu toplantıda tartışılmıştır: %{link}'
             project_ids: 'Bu projeye dahil edilmiştir: %{link}'
             proposal_ids: 'Bu önergeye dahil edilmiştir: %{link}'
+            text: 'Bu sonuca dahil edilmiştir: %{link}'
       decidim/accountability/result:
         one: Sonuç
         other: Sonuçlar
@@ -74,6 +77,11 @@ tr:
             no_components: Bu katılımcı alanda içe aktaracak bir bileşen bulunmamaktadır.
             origin_component_id:
             select_component: Bir bileşen seç
+          new:
+            success:
+              one: 1 sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz.
+              other: "%{count} sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz."
+            title: Sonuçları başka bir bileşenden içe aktar
         import_results:
           new:
             download_export: '  İhracat i CSV formatında indirin '
@@ -91,6 +99,8 @@ tr:
         results:
           bulk_actions:
             dates_form:
+              change_dates: Tarihi değiştir
+              end_date: Bitiş tarihi
               start_date: Başlangıç tarihi
             dropdown:
               actions: Eylemler
@@ -111,7 +121,10 @@ tr:
             title: Sonucu düzenle
             update: Sonuç güncelle
           index:
+            selected: Seçilen
             title: Sonuçlar
+          manage_trash:
+            title: Sonuçları sil
           new:
             create: Sonuç oluştur
             title: Yeni sonuç
@@ -124,6 +137,10 @@ tr:
           update_status:
             invalid: Sonuçların durumunu güncellerken bir hata oluştu
             success:
+          update_taxonomies:
+            invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
+            select_a_result: Bir sonuç seç
+            select_a_taxonomy: Bir sınıflandırma seç
         shared:
           subnav:
             statuses: durumlar
@@ -258,6 +275,10 @@ tr:
           email_outro: '"%{proposal_title}" izlemekte olduğunuz için bu bildirimi aldınız ve bu teklif "%{resource_title}" sonucuna dahil edildi. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
           email_subject: '%{resource_title} için bir güncelleme'
           notification_title: '<a href="%{proposal_path}">%{proposal_title}</a> teklifini içeren <a href="%{resource_path}">%{resource_title}</a> sonucu: %{progress} tamamlandı.'
+    open_data:
+      help:
+        results:
+          created_at: Sonucun oluşturulma tarihi
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})

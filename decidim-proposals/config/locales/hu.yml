@@ -43,7 +43,6 @@ hu:
               identical: A szövegtörzs nem lehet azonos
     models:
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
-      decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
       decidim/proposals/publish_proposal_event: Javaslat közzétéve
       decidim/proposals/voting_enabled_event: Javaslatról szavazás engedélyezve
@@ -85,13 +84,10 @@ hu:
             values:
               state_not_published: Megválaszolatlan
               state_published: Megválaszolt
-        search_placeholder:
-          id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
     components:
       proposals:
         actions:
           amend: Módosítás
-          endorse: Támogatás
           vote: Szavazás
           withdraw: Visszalépés
         name: Javaslatok
@@ -105,8 +101,6 @@ hu:
             collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             default_sort_order: Alapértelmezett javaslat rendezés
-            default_sort_order_options:
-              most_endorsed: Legtámogatottabb
             minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_body_template: Új javaslat szövegtörzse
             new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
@@ -143,10 +137,6 @@ hu:
             creation_enabled: A résztvevők létrehozhatnak javaslatokat
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
             default_sort_order: Alapértelmezett javaslat rendezés
-            default_sort_order_options:
-              most_endorsed: Legtámogatottabb
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
             publish_answers_immediately: Javaslati válaszok azonnali közzététele
             publish_answers_immediately_help_html: 'Ne feledje, hogy ennek engedélyezése nélkül bármely javaslatot, kiválasztva őket, a művelet használatával manuálisan kell közzétennie. További információért arról, hogyan működik ez, lásd <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
@@ -182,11 +172,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok elérhetőek innen: %{participatory_space_title}'
           notification_title: 'Mostantól <a href="%{resource_path}">új javaslatokat terjeszthetsz elő</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-        endorsing_enabled:
-          email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
-          notification_title: 'Mostantól <a href="%{resource_path}">támogathatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
           email_intro: A(z) "%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_url}">egy megjegyzésben</a>.
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
@@ -346,11 +331,6 @@ hu:
             body: Szöveg
             comments_count: Hozzászólások száma
             documents: Dokumentumok
-            endorsements_count: Támogatások száma
-            endorsers: Támogatók
-            n_more_endorsers:
-              one: és még egy
-              other: és még %{count}
             photos: Fotók
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
@@ -536,7 +516,6 @@ hu:
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
-          most_endorsed: Legtámogatottabb
           most_followed: Legkövetettebb
           most_voted: Legtöbb szavazattal
           random: Véletlenszerű
@@ -553,9 +532,6 @@ hu:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
           estimated_cost: Becsült költség
-          hidden_endorsers_count:
-            one: és még %{count} személy
-            other: és még %{count} ember
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
           link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás

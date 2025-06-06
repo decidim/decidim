@@ -20,10 +20,10 @@ shared_examples "manage process components" do
 
     context "when the process has active steps" do
       before do
-        find("button[data-toggle=add-component-dropdown]").click
+        find("button[data-target=add-component-dropdown]").click
 
         within "#add-component-dropdown" do
-          find(".dummy").click
+          click_on "Dummy Component"
         end
 
         within ".item__edit-form .new_component" do
@@ -96,10 +96,10 @@ shared_examples "manage process components" do
       end
 
       before do
-        find("button[data-toggle=add-component-dropdown]").click
+        find("button[data-target=add-component-dropdown]").click
 
         within "#add-component-dropdown" do
-          find(".dummy").click
+          click_on "Dummy Component"
         end
 
         within ".item__edit-form .new_component" do
