@@ -2,7 +2,7 @@
 
 class RenameTimelineToMilestoneEntries < ActiveRecord::Migration[7.0]
   def change
-    def up
+    def up # rubocop:disable Lint/NestedMethodDefinition
       rename_table :decidim_accountability_timeline_entries, :decidim_accountability_milestone_entries
 
       rename_index :decidim_accountability_milestone_entries,
@@ -14,7 +14,7 @@ class RenameTimelineToMilestoneEntries < ActiveRecord::Migration[7.0]
                    :index_decidim_accountability_milestone_entries_on_entry_date
     end
 
-    def down
+    def down # rubocop:disable Lint/NestedMethodDefinition
       rename_index :decidim_accountability_milestone_entries,
                    :index_decidim_accountability_milestone_entries_on_results_id,
                    :index_decidim_accountability_timeline_entries_on_results_id
