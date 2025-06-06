@@ -43,7 +43,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
       within("tr", text: title[:en]) do
         # To remove once all the actions are migrated to dropdowns
         find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
-        have_selector(".dropdown__button-disabled span", text: "Soft delete")
+        have_css(".dropdown__button-disabled span", text: "Soft delete")
       end
     end
   end
