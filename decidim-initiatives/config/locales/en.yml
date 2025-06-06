@@ -79,6 +79,7 @@ en:
   decidim:
     admin:
       actions:
+        cannot_answer: Cannot answer this initiative
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
       filters:
