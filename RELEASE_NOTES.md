@@ -445,7 +445,7 @@ You can read more about these changes on PR [#14225](https://github.com/decidim/
 
 In previous versions, there was only a single OAuth scope defined for external OAuth applications to request during the
 [OAuth authorization request](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1). The scope was previously
-named `public` indicating that it allows the external application to fetch information about the signed in user thorugh
+named `public` indicating that it allows the external application to fetch information about the signed in user through
 the `/oauth/me` endpoint in order to use these details in the integrated application.
 
 This scope was misleadingly named as this information is not public. This information is very private and sensitive user
@@ -459,10 +459,10 @@ automatically assigned as the default scope in case it is not defined within the
 Additionally, the following OAuth scopes have been introduced in order to allow external applications to represent the
 user through the API:
 
-- `user` - The authenticated user is able to perform actions within Decidim representing themselves when authenticated
+* `user` - The authenticated user is able to perform actions within Decidim representing themselves when authenticated
   with the API.
-- `api:read` - The authenticated user is able to read data through the Decidim API when authenticated with the API.
-- `api:write` - The authenticated user is able to write data through the Decidim API when authenticated with the API.
+* `api:read` - The authenticated user is able to read data through the Decidim API when authenticated with the API.
+* `api:write` - The authenticated user is able to write data through the Decidim API when authenticated with the API.
 
 Note that for the `api:write` scope to work, you additionally need to request the `user` scope as well in order to
 represent the user which is necessary for most writing operations within Decidim. It is also highly recommended to
