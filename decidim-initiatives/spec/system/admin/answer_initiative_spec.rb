@@ -21,8 +21,10 @@ describe "User answers the initiative" do
     end
 
     it "answer is allowed" do
-      expect(page).to have_css(".action-icon--answer")
-      page.find(".action-icon--answer").click
+      within("tr", text: translated(initiative.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Answer"
+      end
 
       within ".edit_initiative_answer" do
         fill_in_i18n_editor(
@@ -44,7 +46,10 @@ describe "User answers the initiative" do
 
       context "and signature dates are editable" do
         it "can be edited in answer" do
-          page.find(".action-icon--answer").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Answer"
+          end
 
           within ".edit_initiative_answer" do
             fill_in_i18n_editor(
@@ -65,7 +70,10 @@ describe "User answers the initiative" do
 
         context "when dates are invalid" do
           it "returns an error message" do
-            page.find(".action-icon--answer").click
+            within("tr", text: translated(initiative.title)) do
+              find("button[data-component='dropdown']").click
+              click_on "Answer"
+            end
 
             within ".edit_initiative_answer" do
               fill_in_i18n_editor(
@@ -95,7 +103,10 @@ describe "User answers the initiative" do
       end
 
       it "signature dates are not displayed" do
-        page.find(".action-icon--answer").click
+        within("tr", text: translated(initiative.title)) do
+          find("button[data-component='dropdown']").click
+          click_on "Answer"
+        end
 
         within ".edit_initiative_answer" do
           expect(page).to have_no_css("#initiative_signature_start_date_date")
