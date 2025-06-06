@@ -10,7 +10,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "profile" }
 
       it "shows the correct abilities" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -31,7 +31,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "user" }
 
       it "shows the correct abilities" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -52,7 +52,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "user api:read" }
 
       it "shows the correct abilities" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -73,7 +73,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "user api:read api:write" }
 
       it "shows the correct abilities" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -94,7 +94,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "profile user api:read api:write" }
 
       it "shows the correct abilities" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -115,7 +115,7 @@ describe "Doorkeeper authorizations" do
       let(:scope) { "" }
 
       it "shows the abilities for the default scope" do
-        visit_authorization_page
+        visit_oauth_authorization_page
 
         expect(page).to have_content(
           <<~TEXT
@@ -131,24 +131,10 @@ describe "Doorkeeper authorizations" do
         )
       end
     end
-
-    def visit_authorization_page
-      authorization = oauth_authorization(scope)
-      visit "/oauth/authorize?#{URI.encode_www_form(authorization[:params])}"
-      expect(page).to have_content("Log in")
-
-      within "#session_new_user" do
-        fill_in :session_user_email, with: user.email
-        fill_in :session_user_password, with: "decidim123456789"
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_content("Logged in successfully.")
-    end
   end
 
   describe "performing a regular OAuth sign in" do
-    let(:token) { api_authorization("profile").split.last }
+    let(:token) { oauth_api_authorization("profile").split.last }
 
     it "can fetch token info" do
       uri = URI.parse("#{organization_host}/oauth/token/info?access_token=#{token}")

@@ -8,9 +8,24 @@ describe "API OAuth" do
   include_context "with oauth application"
 
   shared_examples "performs API queries with the assigned OAuth token" do
-    let(:authorization) { api_authorization(token_scope) }
+    let(:authorization) { oauth_api_authorization(token_scope) }
     let(:query) { "{ session { user { id name nickname } } }" }
-    let(:graphql_data) { graphql_request(authorization, query) }
+    let(:graphql_data) do
+      uri = URI.parse("#{organization_host}/api")
+      request = Net::HTTP::Post.new(uri)
+      request["Authorization"] = authorization
+      request["Content-Type"] = "application/json; charset=utf-8"
+      request["X-Jwt-Aud"] = oauth_application.uid
+      request.body = { query: }.to_json
+
+      http = Net::HTTP.new(uri.host, uri.port)
+      response = http.request(request)
+      raise "Invalid response from the API: #{response.code}" unless response.is_a?(Net::HTTPOK)
+      raise "Unexpected content type from the API: #{response.content_type}" unless response.content_type == "application/json"
+
+      details = JSON.parse(response.body)
+      details["data"]
+    end
 
     shared_context "with comment mutation" do
       let(:participatory_space) { create(:participatory_process, organization:) }
@@ -100,22 +115,5 @@ describe "API OAuth" do
     let(:confidential) { false }
 
     it_behaves_like "performs API queries with the assigned OAuth token"
-  end
-
-  def graphql_request(authorization, query)
-    uri = URI.parse("#{organization_host}/api")
-    request = Net::HTTP::Post.new(uri)
-    request["Authorization"] = authorization
-    request["Content-Type"] = "application/json; charset=utf-8"
-    request["X-Jwt-Aud"] = oauth_application.uid
-    request.body = { query: }.to_json
-
-    http = Net::HTTP.new(uri.host, uri.port)
-    response = http.request(request)
-    raise "Invalid response from the API: #{response.code}" unless response.is_a?(Net::HTTPOK)
-    raise "Unexpected content type from the API: #{response.content_type}" unless response.content_type == "application/json"
-
-    details = JSON.parse(response.body)
-    details["data"]
   end
 end
