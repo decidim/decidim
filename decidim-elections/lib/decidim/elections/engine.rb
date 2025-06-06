@@ -30,7 +30,7 @@ module Decidim
               handlers: election.census_settings["verification_handlers"].presence
             ).query
           end
-          # census is dynamic so we don't need to validate it
+          # census is dynamic so we do not need to validate it
           manifest.census_ready_validator do |_election|
             true
           end

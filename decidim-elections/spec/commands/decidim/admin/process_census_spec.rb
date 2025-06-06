@@ -38,9 +38,9 @@ module Decidim
 
           context "when the form is valid" do
             it "updates the census manifest and settings" do
-              expect {
+              expect do
                 subject.call
-              }.to change { election.reload.census_settings }.to(census_settings)
+              end.to change { election.reload.census_settings }.to(census_settings)
             end
 
             it "broadcasts :ok" do

@@ -12,9 +12,9 @@ module Decidim
             @election = election
           end
 
-          # Executes the command. Broadcast this events:
+          # Executes the command. Broadcast these events:
           # - :ok when everything is valid
-          # - :invalid when the form wasn't valid and couldn't proceed-
+          # - :invalid when the form was not valid and could not proceed-
           #
           # Returns nothing.
           def call

@@ -8,7 +8,7 @@ module Decidim
       module Censuses
         describe InternalUsersForm do
           let(:organization) { create(:organization) }
-          let(:valid_verification_handlers) { ["email_authorization", "phone_authorization"] }
+          let(:valid_verification_handlers) { %w(email_authorization phone_authorization) }
 
           subject do
             described_class.from_params(

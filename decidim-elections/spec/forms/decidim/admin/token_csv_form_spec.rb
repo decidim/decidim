@@ -13,7 +13,6 @@ module Decidim
 
           subject { described_class.new(attributes).with_context(current_organization: organization) }
 
-
           describe "#data" do
             context "when file is present and valid" do
               let(:file) { upload_test_file(Decidim::Dev.test_file("valid_election_census.csv", "text/csv")) }
