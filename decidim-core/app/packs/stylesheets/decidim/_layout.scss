@@ -132,8 +132,6 @@
   }
 
   .dropdown__bottom {
-    @apply [&>li]:pl-0;
-
     .button {
       @apply [&>svg]:order-1 [&>span]:order-2;
     }

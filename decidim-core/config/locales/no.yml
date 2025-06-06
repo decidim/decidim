@@ -794,9 +794,6 @@
         close_modal: Lukk modal
         ok: Ok
         title: Bekreft
-      extended_navigation_bar:
-        more: Mer
-        unfold: Åpne
       filter_form_help:
         help: Kryss av på de kriteriene du ønsker å inkludere i søket ditt.
         skip: Hopp til resultater

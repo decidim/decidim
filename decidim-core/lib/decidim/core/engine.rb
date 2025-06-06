@@ -250,7 +250,7 @@ module Decidim
 
           ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
         else
-          ActiveSupport::Deprecation.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
+          Decidim.deprecator.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
         end
       end
 
@@ -421,7 +421,7 @@ module Decidim
 
         next unless legacy_api_key
 
-        ActiveSupport::Deprecation.warn(
+        Decidim.deprecator.warn(
           <<~DEPRECATION.strip
             Configuring maps functionality has changed.
 

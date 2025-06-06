@@ -1,43 +1,39 @@
-<div id="js-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper" class="relative">
   <button
     id="js-bulk-actions-button"
     class="button button__sm button__secondary"
     type="button"
-    data-toggle="js-bulk-actions-dropdown">
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown">
     <%= t("decidim.admin.moderations.index.actions.actions_dropdown") %>
-    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    <%= icon "arrow-down-s-line", class: "!fill-white" %>
+    <%= icon "arrow-down-s-line", class: "!fill-white" %>
   </button>
 
-  <div
+  <ul
     id="js-bulk-actions-dropdown"
-    class="dropdown-pane"
-    data-position="bottom"
-    data-alignment="right"
-    data-dropdown="dropdown"
-    data-auto-focus="false"
-    data-events="resize">
-    <ul>
-      <% if !params[:hidden] && allowed_to?(:hide, authorization_scope) %>
-        <li>
-          <button type="button" data-action="hide-global-moderations">
-            <%= t("decidim.admin.moderations.index.actions.hide.title") %>
-          </button>
-        </li>
-      <% end %>
-      <% if !params[:hidden] && allowed_to?(:unreport, authorization_scope) %>
-        <li>
-          <button type="button" data-action="unreport-global-moderations">
-            <%= t("decidim.admin.moderations.index.actions.unreport.title") %>
-          </button>
-        </li>
-      <% end %>
-      <% if params[:hidden] %>
-        <li>
-          <button type="button" data-action="unhide-global-moderations">
-            <%= t("decidim.admin.moderations.index.actions.unhide.title") %>
-          </button>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+    class="dropdown dropdown__bottom"
+    aria-hidden="true">
+    <% if !params[:hidden] && allowed_to?(:hide, authorization_scope) %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="hide-global-moderations">
+          <%= t("decidim.admin.moderations.index.actions.hide.title") %>
+        </button>
+      </li>
+    <% end %>
+    <% if !params[:hidden] && allowed_to?(:unreport, authorization_scope) %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unreport-global-moderations">
+          <%= t("decidim.admin.moderations.index.actions.unreport.title") %>
+        </button>
+      </li>
+    <% end %>
+    <% if params[:hidden] %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unhide-global-moderations">
+          <%= t("decidim.admin.moderations.index.actions.unhide.title") %>
+        </button>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -58,9 +58,6 @@ el:
     admin:
       actions:
         new_initiative_type: Νέος τύπος πρωτοβουλίας
-      filters:
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
         information: Πληροφορίες
         initiatives: Πρωτοβουλίες

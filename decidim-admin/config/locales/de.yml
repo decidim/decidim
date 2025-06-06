@@ -351,8 +351,6 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
-        index:
-          text: Suche nach bestehender E-Mail, Name oder Spitzname des Teilnehmenden.
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte
@@ -454,11 +452,7 @@ de:
         remove_all: Alle entfernen
         search_label: Suche
         search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
           report_count_eq: Anzahl Meldungen
-          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
-          title_cont: In %{collection} nach Titel suchen.
-          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Kontoname durchsuchen.'
         state_eq:
           label: Status
           values:
@@ -557,7 +551,6 @@ de:
       logs:
         filters:
           participatory_space: Partizipativen Raum finden
-          text: Suche nach E-Mail, Name oder Spitzname.
           user: Benutzer*in
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
@@ -876,13 +869,29 @@ de:
           title: Organisation bearbeiten
           update: Aktualisieren
         form:
+          admin_terms_of_service: Admin-Nutzungsbedingungen
+          basic_configuration: Grundeinstellungen
+          colors:
+            choose_color: Primärfarbe auswählen
+            colors_title: Organisationsfarben
+            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
+            explanation: Dieses Tool hilft Ihnen, ein Farbschema mit Farbtönen auszuwählen, die gleichmäßig um das Farbrad verteilt sind und die auf der Website der Organisation verwendet werden.
+            legend_html: Hauptfarben der Anwendung, basierend auf dem <a href="https://www.color-meanings.com/triadic-colors/">triadischen Algorithmus</a>. Die <i>sekundäre</i> Farbe wird automatisch von der Primärfarbe und der Sättigung, die Sie gewählt haben, berechnet.
+            saturation: Sättigung
+            title: Farbauswahl
+            update_suggested_colors: Vorgeschlagene Farben aktualisieren
+          extra_features: Zusätzliche Funktionen
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organisationslogo
+            preview: Vorschau
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: X
           url: URL
+          welcome_notification: Willkommensbenachrichtigung
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.

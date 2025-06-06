@@ -655,9 +655,6 @@ lv:
       results:
         view_all: Skatīt visus (%{count})
     shared:
-      extended_navigation_bar:
-        more: Vairāk
-        unfold: Atritināt
       flag_modal:
         already_reported: Par šo saturu jau ir ziņots, un administrators to pārskatīs.
         close: Aizvērt

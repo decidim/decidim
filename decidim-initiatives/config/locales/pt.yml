@@ -74,8 +74,6 @@ pt:
               validating: Validação técnica
           type_id_eq:
             label: Tipo
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       menu:
         attachments: Anexos
         committee_members: Membros do Comité

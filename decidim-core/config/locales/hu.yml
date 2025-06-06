@@ -1071,9 +1071,6 @@ hu:
         close_modal: Felugró ablak bezárása
         ok: OK
         title: Megerősít
-      extended_navigation_bar:
-        more: Több
-        unfold: Kibontás
       filter_form_help:
         help: Az alábbi űrlap dinamikusan szűri a keresési eredményeket, amikor a keresési feltételek megváltoznak.
         skip: Ugrás az eredményekre

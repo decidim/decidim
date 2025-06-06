@@ -109,8 +109,6 @@ ar:
               rejected: تم رفضه
               validating: تحقق تقني
               withdrawn: تم السحب
-        search_placeholder:
-          id_string_or_title_cont: البحث عن %{collection} بحسب المعرف ID أو العنوان.
     components:
       proposals:
         actions:

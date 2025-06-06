@@ -36,6 +36,8 @@ es-PY:
               baz: Baz
               foo: Foo
           step:
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
             readonly_step_attribute: Atributo de sólo lectura
             test_options:
               bar: Barra

@@ -70,10 +70,6 @@ nl:
         one: Notitie
         other: Notes
   decidim:
-    admin:
-      filters:
-        search_placeholder:
-          id_string_or_title_cont: Zoek %{collection} op ID of titel.
     components:
       proposals:
         actions:

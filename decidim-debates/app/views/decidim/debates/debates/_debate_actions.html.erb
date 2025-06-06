@@ -1,14 +1,14 @@
 
 <% if allowed_to?(:edit, :debate, debate: debate) %>
-  <li role="menuitem">
-    <%= link_to edit_debate_path(debate), class: "button button__sm button__text button__text-secondary" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to edit_debate_path(debate), class: "dropdown__button" do %>
       <span><%= t("edit_debate", scope: "decidim.debates.debates.show") %></span>
       <%= icon "pencil-line" %>
     <% end %>
   </li>
 <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
-  <li role="menuitem">
-    <%= link_to resource_locator(debate).edit, class: "button button__sm button__text button__text-secondary" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to resource_locator(debate).edit, class: "dropdown__button" do %>
       <span><%= t("edit_debate", scope: "decidim.debates.debates.show") %></span>
       <%= icon "pencil-line" %>
     <% end %>
@@ -17,15 +17,15 @@
 
 <% close_debate_action_text = (debate.closed? ? "decidim.debates.debates.show.edit_conclusions" : "decidim.debates.debates.show.close_debate" ) %>
 <% if allowed_to?(:close, :debate, debate: debate) %>
-  <li role="menuitem">
-    <button type="button" data-dialog-open="close-debate" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__sm button__text button__text-secondary">
+  <li role="menuitem" class="dropdown__item">
+    <button type="button" data-dialog-open="close-debate" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="dropdown__button">
       <span><%= t(close_debate_action_text) %></span>
       <%= icon "lock-line" %>
     </button>
   </li>
 <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
-  <li role="menuitem">
-    <%= link_to Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button button__sm button__text button__text-secondary" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "dropdown__button" do %>
       <span><%= t(close_debate_action_text) %></span>
       <%= icon "lock-line" %>
     <% end %>

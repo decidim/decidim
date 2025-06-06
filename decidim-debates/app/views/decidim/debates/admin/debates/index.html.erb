@@ -3,9 +3,11 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
-      <%= export_dropdown if allowed_to? :export, :debates %>
-      <%= link_to t("actions.new", scope: "decidim.debates"), new_debate_path, class: "button button__sm button__secondary" if allowed_to? :create, :debate %>
-      <%= render partial: "decidim/admin/components/resource_action" %>
+      <div class="flex align-middle gap-x-4 ml-auto">
+        <%= export_dropdown if allowed_to? :export, :debates %>
+        <%= link_to t("actions.new", scope: "decidim.debates"), new_debate_path, class: "button button__sm button__secondary" if allowed_to? :create, :debate %>
+        <%= render partial: "decidim/admin/components/resource_action" %>
+      </div>
     </h1>
   </div>
   <div class="table-scroll">

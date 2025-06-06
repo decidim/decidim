@@ -139,7 +139,7 @@ fr:
               state_not_published: Non répondue
               state_published: Répondue
         search_placeholder:
-          id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
+          id_string_or_title_cont: Rechercher %{collection} par ID ou titre
     application:
       geocoding:
         not_configured: La géolocalisation n'est pas configurée !

@@ -98,8 +98,6 @@ el:
             values:
               state_not_published: Δεν απαντήθηκε
               state_published: Απαντήθηκε
-        search_placeholder:
-          id_string_or_title_cont: Αναζήτηση συλλογής %{collection} με βάση το αναγνωριστικό ή τον τίτλο.
     components:
       proposals:
         actions:

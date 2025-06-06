@@ -789,9 +789,6 @@ it:
         close_modal: Chiudi modalità
         ok: Ok
         title: Conferma
-      extended_navigation_bar:
-        more: Di Più
-        unfold: spiegare
       filter_form_help:
         help: Il modulo sottostante filtra dinamicamente i risultati della ricerca quando le condizioni di ricerca vengono modificate.
         skip: Salta ai risultati

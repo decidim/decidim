@@ -155,6 +155,7 @@ sv:
       front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       opens_in_new_tab: Öppnas i en ny flik
+      secondary_menu: Sekundär meny
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av brott mot användarvillkoren
@@ -1418,9 +1419,6 @@ sv:
       confirm_unload: Denna sida innehåller osparade ändringar. Är du säker på att du vill lämna denna sida?
       embed:
         title: Inbäddat videoinnehåll
-      extended_navigation_bar:
-        more: Mer
-        unfold: Veckla ut
       filter_form_help:
         help: Formuläret filtrerar sökresultaten dynamiskt när sökningen ändras.
         skip: Gå till resultat
