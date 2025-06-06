@@ -231,7 +231,7 @@ describe "Decidim::Api::QueryType" do
           "description" => { "translation" => participatory_process.steps.first.description[locale] },
           "endDate" => participatory_process.steps.first.end_date&.to_time&.iso8601,
           "id" => participatory_process.steps.first.id.to_s,
-          "participatoryProcess" => {"id" => participatory_process.id.to_s },
+          "participatoryProcess" => { "id" => participatory_process.id.to_s },
           "position" => participatory_process.steps.first.position,
           "startDate" => participatory_process.steps.first.start_date&.to_time&.iso8601,
           "title" => { "translation" => participatory_process.steps.first.title[locale] },
