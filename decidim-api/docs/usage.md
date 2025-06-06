@@ -69,9 +69,9 @@ Participant-facing applications where the participants need to interact with Dec
 
 In order to use the OAuth access tokens to represent the user through the API, please select the following scopes as "Available" scopes for the application:
 
-- `user` - Authenticated users have the ability to represent a logged in user in Decidim
-- `api:read` - Authenticated users have the ability to read data from the API
-- `api:write` - Authenticated users have the ability to write data through the API (in case your external application needs to perform mutations over the API on behalf of the user)
+* `user` - Authenticated users have the ability to represent a logged in user in Decidim
+* `api:read` - Authenticated users have the ability to read data from the API
+* `api:write` - Authenticated users have the ability to write data through the API (in case your external application needs to perform mutations over the API on behalf of the user)
 
 Once configured, you can now use any OAuth authentication library to perform the OAuth authentication flow with your application users and receive an access token to utilize the Decidim API representing the signed in user. Please note that with public OAuth clients especially (and recommended also for confidential clients), you have to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) with the authorization flow.
 
@@ -84,7 +84,7 @@ Once the OAuth application is created, you can authenticate against it with the 
 
 When doing the requests to the API, you also need to pass the OAuth client ID within the `X-Jwt-Aud` header of the requests in order for the token to be recognized as a valid token for the issued client. Passing the bearer token to the `Authorization` header and the OAuth client ID to the `X-Jwt-Aud` header, you can send the following HTTP request to the API to validate that the token works and the user is recognized as signed in:
 
-```
+```http
 POST /api HTTP/1.1
 Accept: application/json
 Authorization: Bearer token
@@ -121,7 +121,7 @@ curl -s -i -H "Content-type: application/x-www-form-urlencoded" \
 
 After running this command, you should see the following string in the console, where `token` is replaced with the access token:
 
-```
+```bash
 Bearer token
 ```
 
