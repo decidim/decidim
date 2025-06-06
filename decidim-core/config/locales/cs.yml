@@ -1717,6 +1717,7 @@ cs:
         greeting: Dobrý den %{name},
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
         instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
+        instructions_title: "<strong>Co to pro vás znamená</strong>"
       notify_deprecation_to_owner:
         greeting: Dobrý den %{name},
         instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'
