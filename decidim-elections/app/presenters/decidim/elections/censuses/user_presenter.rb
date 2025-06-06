@@ -15,8 +15,8 @@ module Decidim
             user.name
           elsif user.respond_to?(:email)
             user.email
-          elsif user.respond_to?(:username)
-            user.username
+          elsif user.respond_to?(:user_name)
+            user.user_name
           else
             user.to_s
           end
