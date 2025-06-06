@@ -58,7 +58,7 @@ describe "Decidim::Api::QueryType" do
           taxonomies {
             id
           }
-          timelineEntries {
+          milestoneEntries {
             id
             createdAt
             title {
@@ -123,15 +123,15 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => result.status.updated_at.to_time.iso8601
       },
       "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
-      "timelineEntries" => [
+      "milestoneEntries" => [
         {
-          "createdAt" => result.timeline_entries.first.created_at.to_time.iso8601,
-          "title" => { "translation" => result.timeline_entries.first.title[locale] },
-          "description" => { "translation" => result.timeline_entries.first.description[locale] },
-          "entryDate" => result.timeline_entries.first.entry_date.to_s,
-          "id" => result.timeline_entries.first.id.to_s,
+          "createdAt" => result.milestones.first.created_at.to_time.iso8601,
+          "title" => { "translation" => result.milestones.first.title[locale] },
+          "description" => { "translation" => result.milestones.first.description[locale] },
+          "entryDate" => result.milestones.first.entry_date.to_s,
+          "id" => result.milestones.first.id.to_s,
           "result" => { "id" => result.id.to_s },
-          "updatedAt" => result.timeline_entries.first.updated_at.to_time.iso8601
+          "updatedAt" => result.milestones.first.updated_at.to_time.iso8601
         }
       ],
       "title" => { "translation" => result.title[locale] },
@@ -161,7 +161,7 @@ describe "Decidim::Api::QueryType" do
   end
   let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
   let!(:result) { create(:result, component: current_component, taxonomies:) }
-  let!(:timeline_entry) { create(:timeline_entry, result:) }
+  let!(:milestone) { create(:milestone, result:) }
   let!(:proposal_component) { create(:proposal_component, participatory_space: result.participatory_space) }
   let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
 
@@ -245,7 +245,7 @@ describe "Decidim::Api::QueryType" do
               taxonomies {
                 id
               }
-              timelineEntries {
+              milestoneEntries {
                 id
                 createdAt
                 title {

@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module AdminLog
-      # This class holds the logic to present a `Decidim::Accountability::TimelineEntry`
+      # This class holds the logic to present a `Decidim::Accountability::MilestoneEntry`
       # for the `AdminLog` log.
       #
       # Usage should be automatic and you should not need to call this class
@@ -11,14 +11,14 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #     TimelineEntryPresenter.new(action_log, view_helpers).present
-      class TimelineEntryPresenter < Decidim::Log::BasePresenter
+      #     MilestoneEntryPresenter.new(action_log, view_helpers).present
+      class MilestoneEntryPresenter < Decidim::Log::BasePresenter
         private
 
         def action_string
           case action
           when "create", "delete", "update"
-            "decidim.accountability.admin_log.timeline_entry.#{action}"
+            "decidim.accountability.admin_log.milestone.#{action}"
           else
             super
           end

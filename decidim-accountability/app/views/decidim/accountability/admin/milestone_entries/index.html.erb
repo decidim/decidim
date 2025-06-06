@@ -1,0 +1,42 @@
+<% add_decidim_page_title(t(".title")) %>
+<% add_decidim_page_title(translated_attribute(result.title)) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <div>
+        <%= link_to "#{translated_attribute(result.title)} > ", edit_result_path(result) %>
+        <%= t(".title") %>
+      </div>
+      <%= link_to t("actions.new_milestone", scope: "decidim.accountability"), new_result_milestone_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :milestone %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.milestone.fields.entry_date", scope: "decidim.accountability") %></th>
+          <th><%= t("models.milestone.fields.title", scope: "decidim.accountability") %></th>
+          <th><%= t("actions.title", scope: "decidim.accountability") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% milestones.each do |milestone| %>
+          <tr data-id="<%= milestone.id %>">
+            <td><%= l milestone.entry_date, format: :decidim_short %><br></td>
+            <td><%= translated_attribute(milestone.title) %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :milestone, milestone: milestone %>
+                <%= icon_link_to "pencil-line", edit_result_milestone_path(milestone.result, milestone), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+              <% end %>
+
+              <% if allowed_to? :destroy, :milestone, milestone: milestone %>
+                <%= icon_link_to "delete-bin-line", result_milestone_path(milestone.result, milestone), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability") } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate milestones %>

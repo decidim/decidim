@@ -32,8 +32,8 @@ module Decidim
 
       belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results, optional: true
 
-      has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
-                                                             class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
+      has_many :milestones, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
+                                                       class_name: "Decidim::Accountability::MilestoneEntry", inverse_of: :result, dependent: :destroy
 
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 

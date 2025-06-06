@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   module Accountability
-    describe TimelineEntry do
-      subject { timeline_entry }
+    describe MilestoneEntry do
+      subject { milestone }
 
-      let(:timeline_entry) { build(:timeline_entry) }
+      let(:milestone) { build(:milestone) }
 
       it { is_expected.to be_valid }
     end

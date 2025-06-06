@@ -18,7 +18,7 @@ en:
         key: Key
         name: Name
         progress: Progress
-      timeline_entry:
+      milestone:
         description: Description
         entry_date: Date
         title: Title
@@ -52,9 +52,9 @@ en:
         import_csv: Import results from CSV file
         new_result: New result
         new_status: New status
-        new_timeline_entry: New milestone
+        new_milestone: New milestone
         preview: Preview
-        timeline_entries: Milestones
+        milestones: Milestones
         title: Actions
         view_deleted_results: View deleted results
       admin:
@@ -185,7 +185,7 @@ en:
           update:
             invalid: There was a problem updating this status.
             success: Status successfully updated.
-        timeline_entries:
+        milestones:
           create:
             invalid: There was a problem creating this entry.
             success: Entry successfully created.
@@ -213,10 +213,10 @@ en:
           create: "%{user_name} created the %{resource_name} status"
           delete: "%{user_name} deleted the %{resource_name} status"
           update: "%{user_name} updated the %{resource_name} status"
-        timeline_entry:
-          create: "%{user_name} created the %{resource_name} timeline entry"
-          delete: "%{user_name} deleted the %{resource_name} timeline entry"
-          update: "%{user_name} updated the %{resource_name} timeline entry"
+        milestone:
+          create: "%{user_name} created the %{resource_name} milestone"
+          delete: "%{user_name} deleted the %{resource_name} milestone"
+          update: "%{user_name} updated the %{resource_name} milestone"
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
@@ -265,7 +265,7 @@ en:
             key: Key
             name: Name
             progress: Progress
-        timeline_entry:
+        milestone:
           fields:
             entry_date: Date
             title: Title
@@ -284,7 +284,7 @@ en:
         show:
           stats:
             back_to_resource: Go back to result
-        timeline:
+        milestone:
           title: Project evolution
     admin:
       filters:
