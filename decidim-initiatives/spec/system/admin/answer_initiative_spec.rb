@@ -5,14 +5,6 @@ require "spec_helper"
 describe "User answers the initiative" do
   include_context "when admins initiative"
 
-  def submit_and_validate(message)
-    within "[data-content]" do
-      find("*[type=submit]").click
-    end
-
-    expect(page).to have_admin_callout(message)
-  end
-
   context "when user is admin" do
     before do
       switch_to_host(organization.host)
@@ -36,7 +28,11 @@ describe "User answers the initiative" do
         )
       end
 
-      submit_and_validate("The initiative has been successfully updated")
+      within "[data-content]" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("The initiative has been successfully updated")
     end
 
     context "when initiative is in published state" do
@@ -65,7 +61,11 @@ describe "User answers the initiative" do
             fill_in_datepicker :initiative_signature_start_date_date, with: 1.day.ago.strftime("%d/%m/%Y")
           end
 
-          submit_and_validate("The initiative has been successfully updated")
+          within "[data-content]" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_admin_callout("The initiative has been successfully updated")
         end
 
         context "when dates are invalid" do
@@ -90,7 +90,12 @@ describe "User answers the initiative" do
               fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d/%m/%Y")
             end
 
-            submit_and_validate("There was a problem updating the initiative.")
+            within "[data-content]" do
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_admin_callout("There was a problem updating the initiative.")
+
             expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
           end
         end

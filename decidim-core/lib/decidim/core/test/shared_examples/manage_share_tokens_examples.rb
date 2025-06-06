@@ -214,9 +214,7 @@ shared_examples "manage component share tokens" do
 
     within("tr", text: resource_name) do
       #  To remove once all the actions are migrated to dropdowns
-      if page.has_css?("button[data-component='dropdown']")
-        find("button[data-component='dropdown']").click
-      end
+      find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
       click_on "Access links"
     end
   end
@@ -238,9 +236,7 @@ shared_examples "manage participatory space share tokens" do
 
     within("tr", text: resource_name) do
       #  To remove once all the actions are migrated to dropdowns
-      if page.has_css?("button[data-component='dropdown']")
-        find("button[data-component='dropdown']").click
-      end
+      find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
       click_on "Access links"
     end
   end
