@@ -20,6 +20,7 @@ module Decidim
                  .filter(tag: :followers)
                  .with_context(space_components)
                  .map { |_name, value| value }
+                 .compact_blank
                  .sum
       end
     end
@@ -30,6 +31,7 @@ module Decidim
              .filter(tag: :followers)
              .with_context(participatory_space_items)
              .map { |_name, value| value }
+             .compact_blank
              .sum
       end
     end

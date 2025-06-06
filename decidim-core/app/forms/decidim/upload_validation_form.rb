@@ -90,6 +90,14 @@ module Decidim
         :id
       end
 
+      def self.composite_primary_key?
+        false
+      end
+
+      def self.has_query_constraints?
+        false
+      end
+
       def self.polymorphic_name
         "Decidim::Organization"
       end

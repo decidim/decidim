@@ -103,7 +103,7 @@ ca-IT:
           comment: Comentar
           create: Crear
           destroy: Esborrar
-          endorse: Adherir-se
+          like: '"M''agrada"'
           update: Actualitzar
         name: Blog
         settings:
@@ -120,8 +120,8 @@ ca-IT:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: '"M''agrada" desactivats'
+            likes_enabled: '"M''agrada" activats'
     events:
       blogs:
         post_created:
@@ -148,9 +148,9 @@ ca-IT:
           comments_count: El número de comentaris que té aquesta publicació
           component: El component al qual pertany aquesta publicació
           created_at: La data en què es va crear aquesta publicació
-          endorsements_count: El número d'adhesions que té aquesta publicació
           follows_count: El número de seguidores que té aquesta publicació
           id: L'identificador únic de la publicació
+          likes_count: El número de "M'agrada" que té aquesta publicació
           participatory_space: A quin espai pertany aquesta publicació (procés participatiu, assemblea, etc.)
           published_at: La data en què es va publicar aquesta entrada al blog
           title: El títol de la publicació

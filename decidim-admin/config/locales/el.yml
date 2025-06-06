@@ -42,8 +42,6 @@ el:
         available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
         comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
-        cta_button_path: Διαδρομή κουμπιού «Call To Action»
-        cta_button_text: Κείμενο κουμπιού «Call To Action»
         customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
@@ -390,11 +388,7 @@ el:
             'true': Η δημοσίευση καταργήθηκε
         search_label: Αναζήτηση
         search_placeholder:
-          name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
           report_count_eq: Αναφορά μετρητή eq
-          reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
-          title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
-          user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση
           values:
@@ -486,7 +480,6 @@ el:
       logs:
         filters:
           participatory_space: Βρείτε συμμετοχικό χώρο
-          text: Αναζήτηση με email, όνομα ή ψευδώνυμο.
           user: Χρήστης
         logs_list:
           no_logs_yet: Δεν υπάρχουν ακόμη αρχεία καταγραφής.
@@ -741,22 +734,7 @@ el:
         edit:
           update: Ενημέρωση
         form:
-          colors:
-            choose_color: Επιλέξτε ένα πρωτεύον χρώμα
-            colors_title: Χρώματα οργανισμού
-            colors_warning_html: Προσοχή! Η αλλαγή αυτών των χρωμάτων μπορεί να σπάσει τις αντιθέσεις προσβασιμότητας. Μπορείτε να ελέγξετε την αντίθεση της επιλογής σας με <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ή άλλα παρόμοια εργαλεία.
-            explanation: Αυτό το εργαλείο σας βοηθά να επιλέξετε ένα συνδυασμό χρωμάτων, που αποτελείται από αποχρώσεις εξίσου τοποθετημένες γύρω από τον τροχό χρωμάτων, που θα χρησιμοποιηθούν στην ιστοσελίδα του οργανισμού.
-            legend_html: Κύρια χρώματα εφαρμογής, με βάση τον <a href="https://www.color-meanings.com/triadic-colors/">τριαδικό αλγόριθμο</a>. Το <i>δευτερεύον</i> χρώμα υπολογίζεται αυτόματα από το πρωτεύον χρώμα και τον κορεσμό που επιλέξατε.
-            saturation: Κορεσμός
-            title: Επιλογέας χρωμάτων
-            update_suggested_colors: Ενημέρωση προτεινόμενων χρωμάτων
-          cta_button_text_help: Μπορείτε να αντικαταστήσετε το κείμενο του κουμπιού «Call To Action» στην αρχική σελίδα για κάθε διαθέσιμη γλώσσα στον οργανισμό σας. Εάν δεν έχει οριστεί, θα χρησιμοποιηθεί η προεπιλεγμένη τιμή. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής.
-          homepage_appearance_title: Επεξεργασία εμφάνισης αρχικής σελίδας
           homepage_highlighted_content_banner_title: Επισημασμένο πλαίσιο περιεχομένου
-          images:
-            layout_appearance_title: Επεξεργασία εμφάνισης διάταξης
-            preview: Προεπισκόπηση
-          omnipresent_banner_appearance_title: Επεξεργασία διαφημιστικού πλαισίου omnipresent
       participatory_space_private_users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.

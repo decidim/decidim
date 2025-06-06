@@ -32,7 +32,7 @@ FactoryBot.define do
       end
     end
 
-    trait :open_ama do
+    trait :ongoing_ama do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
     end

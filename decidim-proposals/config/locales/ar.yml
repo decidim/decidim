@@ -65,7 +65,6 @@ ar:
               not_official: غير رسمية
     models:
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
-      decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
       decidim/proposals/publish_proposal_event: تم نشر الاقتراح
       decidim/proposals/voting_enabled_event: تم تمكين التصويت على الاقتراح
@@ -110,14 +109,11 @@ ar:
               rejected: تم رفضه
               validating: تحقق تقني
               withdrawn: تم السحب
-        search_placeholder:
-          id_string_or_title_cont: البحث عن %{collection} بحسب المعرف ID أو العنوان.
     components:
       proposals:
         actions:
           amend: تعديل
           comment: تعليق
-          endorse: تأييد
           vote: تصويت
           vote_comment: التصويت على التعليق
           withdraw: سحب
@@ -135,7 +131,6 @@ ar:
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
               most_commented: صاحبة الأكثر تعليقات
-              most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
               random: عشوائي
               recent: الأخيرة
@@ -177,13 +172,10 @@ ar:
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
               most_commented: صاحبة الأكثر تعليقات
-              most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
-            endorsements_blocked: المصادقة المحظورة
-            endorsements_enabled: تم التصديق
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             publish_answers_immediately: نشر إجابات الاقتراح على الفور
             suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
@@ -226,10 +218,6 @@ ar:
           email_intro: 'يمكنك الآن إنشاء مقترحات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: مقترحات متاحة الآن في %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'يمكنك تأييد المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: بدأت اقتراحات الموافقة على %{participatory_space_title}
         proposal_mentioned:
           email_intro: تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_url}">في هذا الفضاء</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
@@ -378,15 +366,6 @@ ar:
             body: الجسم
             comments_count: تعداد التعليقات
             documents: المستندات
-            endorsements_count: عد أصوات التأييدات
-            endorsers: المؤيدون
-            n_more_endorsers:
-              zero: و%{count} آخرين
-              one: وواحد آخر
-              two: و%{count} آخرين
-              few: و%{count} آخرين
-              many: و%{count} آخرين
-              other: و%{count} آخرين
             photos: الصور
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
@@ -595,7 +574,6 @@ ar:
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
-          most_endorsed: التي تحصلت على أكبر دعم
           most_followed: الأكثر متابَعة
           random: عشوائية
           recent: الأخيرة
@@ -619,13 +597,6 @@ ar:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
           estimated_cost: التكلفة التقديرية
-          hidden_endorsers_count:
-            zero: و %{count} المزيد من الناس
-            one: و %{count} شخص آخر
-            two: و %{count} المزيد من الناس
-            few: و %{count} المزيد من الناس
-            many: و %{count} المزيد من الناس
-            other: و %{count} المزيد من الناس
           link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
           link_to_collaborative_draft_text: انظر المسودة التعاونية
           link_to_promoted_emendation_help_text: هذا الاقتراح عبارة عن تعديل مروج له

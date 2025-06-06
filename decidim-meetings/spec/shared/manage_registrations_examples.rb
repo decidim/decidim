@@ -44,8 +44,7 @@ shared_examples "manage registrations" do
     it "exports a CSV" do
       visit_edit_registrations_page
 
-      find(".exports").click
-
+      click_on "Export all"
       click_on "Registrations as CSV"
 
       expect(page.response_headers["Content-Type"]).to eq("text/csv")
@@ -55,8 +54,7 @@ shared_examples "manage registrations" do
     it "exports a JSON" do
       visit_edit_registrations_page
 
-      find(".exports").click
-
+      click_on "Export all"
       click_on "Registrations as JSON"
 
       expect(page.response_headers["Content-Type"]).to eq("text/json")

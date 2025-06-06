@@ -34,8 +34,6 @@ lb:
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-        cta_button_path: Call To Action Schaltfläche Pfad
-        cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
@@ -323,10 +321,6 @@ lb:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         search_label: Suche
-        search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
-          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
-          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
           values:
@@ -617,15 +611,7 @@ lb:
         edit:
           update: Aktualisieren
         form:
-          colors:
-            colors_title: Organisationsfarben
-          cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
-          homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
-          images:
-            layout_appearance_title: Layout-Layout bearbeiten
-            preview: Vorschau
-          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.

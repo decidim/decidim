@@ -261,7 +261,7 @@ sv:
           checked_out:
             description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
-          vote: Rösta i budgeten
+          vote: Rösta
         count:
           projects_count:
             one: Ett projekt
@@ -292,9 +292,9 @@ sv:
           projects_rule:
             description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
           projects_rule_maximum_only:
-            description: Välj upp till %{maximum_number} projekt som du är intresserad av och vill rösta om.
+            description: Välj upp till %{maximum_number} projekt att rösta på.
           vote_threshold_percent_rule:
-            description: Tilldela minst %{minimum_budget} till de projekt du är intresserad av och vill rösta om.
+            description: Välj projekt för minst %{minimum_budget} att rösta på.
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
@@ -311,15 +311,15 @@ sv:
             other: röster
           you_voted: Du röstade på det här
         project_budget_button:
-          add: Lägg till
+          add: Välj
           add_descriptive: Lägg till projektet %{resource_name} till din röst.
-          added: Tillagd
+          added: Vald
           added_descriptive: Projektet %{resource_name} har lagts till din röst.
         project_filter:
-          added: Tillagd
+          added: Valda
           all: Alla
         projects_for: Projekt inom %{name}
-        select_projects: Lägg till projekt
+        select_projects: Välj projekt
         show:
           budget: Budget
         start_voting: Börja rösta
@@ -441,6 +441,6 @@ sv:
     statistics:
       orders_count: Stöd
       projects_count: Budgetar
-      projects_count_tooltip: Antalet deltagande budgeteringsprojekt och de totala rösterna på dem.
+      projects_count_tooltip: Antalet projekt och det totala antalet röster.
   index:
     confirmed_orders_count: Antal röster

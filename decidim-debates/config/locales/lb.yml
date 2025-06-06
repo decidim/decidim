@@ -24,7 +24,6 @@ lb:
       debates:
         actions:
           comment: Kommentar
-          endorse: Bestätigen
         name: Debatten
         settings:
           global:
@@ -34,8 +33,6 @@ lb:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Bestätigungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
     debates:
       admin:
         debates:
