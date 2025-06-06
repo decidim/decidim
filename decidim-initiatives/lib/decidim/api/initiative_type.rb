@@ -35,7 +35,7 @@ module Decidim
       field :offline_votes, GraphQL::Types::Int, "The number of offline votes in this initiative", method: :offline_votes_count, null: true
       field :online_votes, GraphQL::Types::Int, "The number of online votes in this initiative", method: :online_votes_count, null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this initiative was published", null: false
-      field :second_progress_notification_at, Decidim::Core::DateTimeType, " The date when the second progress notification was sent ", null: true
+      field :second_progress_notification_at, Decidim::Core::DateTimeType, "The date when the second progress notification was sent", null: true
       field :signature_end_date, Decidim::Core::DateType, "The signature end date", null: false
       field :signature_start_date, Decidim::Core::DateType, "The signature start date", null: false
       field :signature_type, GraphQL::Types::String, "Signature type of the initiative", null: true
