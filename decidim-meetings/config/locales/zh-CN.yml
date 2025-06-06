@@ -104,11 +104,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '"%{resource_title}"会议已启用注册。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话已启用注册。
-        upcoming_meeting:
-          email_intro: '"%{resource_title}"会议将在不到48小时内开始。'
-          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
-          email_subject: '"%{resource_title}"会议将在不到48小时内开始。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话将在不到48小时内开始。
     gamification:
       badges:
         attended_meetings:

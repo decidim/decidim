@@ -30,7 +30,7 @@ module Decidim
           name_and_surname: ::Faker::Name.name,
           document_type: Decidim::Verifications.document_types.first,
           document_number:,
-          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40),
+          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40).to_s,
           postal_code: ::Faker::Address.zip_code,
           scope_id: initiative.scope.id,
           gender: DummySignatureHandler::AVAILABLE_GENDERS.last
@@ -65,8 +65,8 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.initiatives.initiative_endorsed",
-                event_class: Decidim::Initiatives::EndorseInitiativeEvent,
+                event: "decidim.events.initiatives.initiative_liked",
+                event_class: Decidim::Initiatives::LikeInitiativeEvent,
                 resource: initiative,
                 followers: [follower]
               )
@@ -82,7 +82,7 @@ module Decidim
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(2)
 
-            expect(last_email_body).to include("has endorsed the following initiative")
+            expect(last_email_body).to include("has liked the following initiative")
           end
 
           context "when a new milestone is completed" do
@@ -264,7 +264,7 @@ module Decidim
                   command_with_personal_data.call
                   vote = InitiativesVote.last
                   expect(vote.encrypted_metadata).to be_present
-                  expect(vote.decrypted_metadata).to eq personal_data_params.except(:scope_id)
+                  expect(vote.decrypted_metadata).to eq personal_data_params.with_indifferent_access.except(:scope_id)
                   expect(vote.scope).to eq initiative.scope
                 end
               end

@@ -92,7 +92,7 @@
     @apply text-gray-2 text-xs;
   }
 
-  td a:not(.button) {
+  td a:not(.button):not([class*="dropdown"] a) {
     @apply underline text-md font-semibold text-secondary;
   }
 

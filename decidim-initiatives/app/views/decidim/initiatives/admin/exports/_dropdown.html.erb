@@ -1,25 +1,22 @@
-<span class="exports button button__sm button__transparent-secondary" data-toggle="<%= dropdown_id(collection_ids) %>">
-  <% if collection_ids.present? %>
-    <%= t("actions.export-selection", scope: "decidim.admin") %>
-  <% else %>
-    <%= t("actions.export", scope: "decidim.admin") %>
-  <% end %>
-  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-</span>
-<div class="dropdown-pane"
-     id="<%= dropdown_id(collection_ids) %>"
-     data-dropdown
-     data-position=bottom
-     data-alignment=right
-     data-auto-focus="true"
-     data-close-on-click="true">
-  <ul class="vertical menu add-components">
+<% menu_id = "top-#{SecureRandom.uuid}" %>
+<div class="relative">
+  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
+    <% if collection_ids.present? %>
+      <%= t("actions.export-selection", scope: "decidim.admin") %>
+    <% else %>
+      <%= t("actions.export", scope: "decidim.admin") %>
+    <% end %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
+  </button>
+
+  <ul id="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>" class="dropdown dropdown__bottom" aria-hidden="true">
     <% %w(CSV JSON).each do |format| %>
-      <%= link_to export_initiatives_path(format:, collection_ids:) do %>
-        <li class="exports--format--<%= format.downcase %> exports--initiatives">
+      <li class="dropdown__item">
+        <%= link_to export_initiatives_path(format:, collection_ids:), class: "dropdown__button" do %>
           <%= t("decidim.admin.exports.export_as", name: t("decidim.initiatives.admin.exports.initiatives"), export_format: format.upcase) %>
-        </li>
-      <% end %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

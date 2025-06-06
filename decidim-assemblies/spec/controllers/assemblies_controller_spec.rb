@@ -17,19 +17,21 @@ module Decidim
         )
       end
 
-      let!(:published) do
-        create(
-          :assembly,
-          :published,
-          organization:
-        )
-      end
-
       let!(:promoted) do
         create(
           :assembly,
           :published,
           :promoted,
+          weight: 2,
+          organization:
+        )
+      end
+
+      let!(:published) do
+        create(
+          :assembly,
+          :published,
+          weight: 3,
           organization:
         )
       end
@@ -47,6 +49,21 @@ module Decidim
 
           it "redirects to 404" do
             expect { get :index }.to raise_error(ActionController::RoutingError)
+          end
+        end
+
+        context "when there are published assemblies" do
+          let!(:another_published) do
+            create(
+              :assembly,
+              :published,
+              weight: 1,
+              organization:
+            )
+          end
+
+          it "orders assemblies by weight" do
+            expect(controller.helpers.collection).to eq([another_published, promoted, published])
           end
         end
       end

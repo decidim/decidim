@@ -52,7 +52,7 @@ module Decidim
 
       def smtp_environment
         inject_into_file "config/environments/production.rb",
-                         after: "config.log_formatter = ::Logger::Formatter.new" do
+                         after: "config.log_tags = [ :request_id ]" do
           cut <<~HERE
             |
             |  config.action_mailer.smtp_settings = {

@@ -1,0 +1,15 @@
+<div class="card" data-component="accordion" id="accordion-admin_terms_of_service">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-admin_terms_of_service" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="admin_terms_of_service">
+        <%= t("admin_terms_of_service", scope: "decidim.admin.organization.form") %>
+      </h2>
+    </button>
+  </div>
+  <div id="panel-admin_terms_of_service" class="card-section">
+    <div class="row column">
+      <%= form.translated :editor, :admin_terms_of_service_body, aria: { label: :admin_terms_of_service_body } %>
+    </div>
+  </div>
+</div>

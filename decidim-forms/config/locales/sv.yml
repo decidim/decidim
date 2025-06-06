@@ -7,20 +7,56 @@ sv:
       questionnaire_question:
         mandatory: Obligatoriskt
         max_characters: Teckengräns (skriv 0 för obegränsad)
+      response:
+        body: Svar
+        choices: Alternativ
+        selected_choices: Valda alternativ
     errors:
       models:
         questionnaire:
           request_invalid: Det gick inte att hantera begäran. Försök igen.
+        response:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Måste bifogas igen
+            body:
+              too_long: är för långt
+            choices:
+              missing: är inte fullständiga
+              too_many: Du kan välja maximalt %{count}.
   decidim:
+    download_your_data:
+      help:
+        responses:
+          id: Unikt id för resultatet
+          question: Frågan som besvarades
+          questionnaire: Frågeformuläret som besvarades
+          response: Svaret på frågan
+          user: Användaren som svarade på frågeformuläret
+      show:
+        responses: Exportera svar
+        survey_user_responses: Svar på enkät
     forms:
       admin:
         models:
           components:
+            allow_editing_responses: Tillåt registrerade användare att redigera egna enkätsvar
+            allow_responses: Tillåt svar
+            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
+            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
+            announcement: Meddelande
+            clean_after_publish: Ta bort svar vid publicering av enkäten
             description: Beskrivning
+            ends_at: Öppet för svar till
+            ends_at_help: Lämna tomt för att inte sätta något datum
+            starts_at: Öppet för svar från
+            starts_at_help: Lämna tomt för att inte sätta något datum
             tos: Användarvillkor
         questionnaires:
           actions:
             back: Tillbaka till frågor
+            publish_responses: Publicera svar
+            show: Svar
           display_condition:
             condition_question: Fråga
             condition_type: Villkor
@@ -28,16 +64,26 @@ sv:
               equal: Lika med
               match: Innehåller text
               not_equal: Ej lika med
+              not_responded: Ej besvarad
+              responded: Besvarad
             condition_value: Innehåller text
             display_condition: Visa villkor
             mandatory: Detta villkor måste alltid uppfyllas, oavsett status för andra villkor
             remove: Radera
+            response_option: Alternativ för svar
             save_warning: Kom ihåg att spara formuläret innan du konfigurerar visningsvillkor
             select_condition_question: Välj en fråga
             select_condition_type: Välj en typ av villkor
+            select_response_option: Välj svarsalternativ
           edit:
             save: Spara
-            title: Redigera enkät
+            title: Redigera frågeformulär
+          edit_questions:
+            add_question: Lägg till fråga
+            add_separator: Lägg till avgränsare
+            add_title_and_description: Lägg till titel och beskrivning
+            save: Spara
+            title: Frågor
           form:
             add_question: Lägg till fråga
             collapse: Dölj alla frågor
@@ -47,26 +93,53 @@ sv:
           matrix_row:
             matrix_row: Rad
             remove: Ta bort
-            statement: Påstående
+            statement: Titel
           question:
             add_display_condition: Lägg till visningsvillkor
             add_display_condition_info: Spara formuläret för att konfigurera visningsvillkor
             add_matrix_row: Lägg till rad
-            any: Någon
+            add_response_option: Lägg till svarsalternativ
+            any: Valfritt
             collapse: Dölj
             description: Beskrivning
-            down: Ned
+            down: Ner
             expand: Visa
             question: Fråga
             remove: Ta bort
-            statement: Påstående
+            statement: Titel
             up: Upp
+          questions_form:
+            already_responded_warning: Formuläret har redan besvarats av en användare, så du kan inte längre redigera frågorna.
+            collapse: Dölj alla frågor
+            expand: Visa alla frågor
+            unpublished_warning: Formuläret har inte publicerats. Du kan ändra frågorna, men det kommer att göra att befintliga svar raderas.
+            update:
+              success: Enkäten har sparats.
+          response_option:
+            free_text: Fritext
+            remove: Ta bort
+            response_option: Svarsalternativ
+            statement: Titel
           responses:
             actions:
+              back: Tillbaka till svar
+              export: Exportera
+              next: Nästa &rsaquo;
+              previous: "&lsaquo; Föregående"
               show: Visa svar
+            empty: Inga svar ännu
+            export:
+              response:
+                title: 'Svar #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} svar totalt"
+            show:
+              title: 'Svar #%{number}'
           separator:
             down: Ner
-            remove: Radera
+            remove: Ta bort
             separator: Avgränsare
             up: Upp
           title_and_description:
@@ -74,7 +147,7 @@ sv:
             description: Beskrivning
             down: Ner
             expand: Visa
-            remove: Radera
+            remove: Ta bort
             title: Titel
             title_and_description: Titel och beskrivning
             up: Upp
@@ -82,8 +155,14 @@ sv:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
       admin_log:
+        question:
+          publish_responses: "%{user_name} publicerade svaren på %{resource_name} i utrymmet %{space_name}"
+          unpublish_responses: "%{user_name} avpublicerade svaren på %{resource_name} i utrymmet %{space_name}"
         questionnaire:
           update: "%{user_name} uppdaterade enkäten %{resource_name}"
+      errors:
+        response:
+          body: Innehåll kan inte vara tomt
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -91,20 +170,29 @@ sv:
           resize_to_fit: Bilden skalas om till %{dimensions}.
       question_types:
         files: Filer
+        long_response: Långt svar
         matrix_multiple: Matris (flera alternativ)
         matrix_single: Matris (ett alternativ)
         multiple_option: Flera alternativ
+        short_response: Kort svar
         single_option: Ett alternativ
         sorting: Sortering
         title_and_description: Titel och beskrivning
+      questionnaire_response_presenter:
+        download_attachment: Ladda ner bilaga
       questionnaires:
         question:
           max_choices: 'Högst antal val: %{n}'
+        response:
+          invalid: Det gick inte att besvara formuläret.
+          max_choices_alert: Du har valt för många alternativ
+          success: Formuläret har besvarats.
         show:
           current_step: Steg %{step}
           empty: Formuläret har inga frågor än.
           of_total_steps: av %{total_steps}
           questionnaire_closed:
+            body: Formuläret är stängt och kan inte besvaras.
             title: Formuläret är stängt
           questionnaire_for_private_users:
             body: Formuläret är endast tillgängligt för privata användare
@@ -114,9 +202,35 @@ sv:
             title: JavaScript är inaktiverat
           questionnaire_not_published:
             body: Formulär är ännu inte publicerat.
-          tos_agreement: Genom att delta godkänner du användarvillkoren
+          questionnaire_responded:
+            body: Du har redan besvarat det här formuläret.
+            title: Redan besvarat
+          questionnaire_responded_edit:
+            body: Du har redan besvarat det här formuläret. %{link}
+            edit: Redigera dina svar
+          response_questionnaire:
+            already_have_an_account?: Har du redan ett konto?
+            are_you_new?: Ny användare?
+            sign_in_description: Logga in för att göra enkäten
+            sign_up_description: Skapa ett konto för att göra enkäten
+            title: Svara på formuläret
+          tos_agreement: Genom att fortsätta godkänner du användarvillkoren
       step_navigation:
         show:
+          are_you_sure_edit_guest: Om du vill kunna redigera dina svar efteråt måste du logga in eller skapa ett konto.
+          are_you_sure_no_edit: Det går inte att ångra denna åtgärd och du kommer inte att kunna redigera dina svar. Vill du fortsätta?
           back: Tillbaka
           continue: Fortsätt
-          submit: Skicka in
+          disallowed: Du har inte behörighet att redigera dina svar.
+          submit: Skicka
+      user_responses_serializer:
+        body: Svar
+        completion: Slutfört
+        created_at: Besvarad
+        id: Svars-ID
+        ip_hash: IP-hash
+        question: Fråga
+        registered: Registrerad
+        session_token: Identifierare för användare
+        unregistered: Ej registrerad
+        user_status: Användarstatus

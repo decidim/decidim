@@ -45,8 +45,6 @@ ca-IT:
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
-        cta_button_path: URL del botó d'acció
-        cta_button_text: Text del botó d'acció
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
@@ -354,7 +352,7 @@ ca-IT:
         attempts: Intents
         'false': 'No'
         index:
-          text: Cercar per correu electrònic, nom o àlies.
+          text: Cercar per correu electrònic, nom o àlies
         managed_user_name: Usuari gestionat
         solved: Resolt
         title: Conflictes de verificació
@@ -456,11 +454,11 @@ ca-IT:
         remove_all: Eliminar tots
         search_label: Cercar
         search_placeholder:
-          name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          name_or_nickname_or_email_cont: Cercar %{collection} per correu electrònic, nom o àlies
           report_count_eq: Número de denúncies
-          reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
-          title_cont: Buscar %{collection} per títol.
-          user_name_or_user_nickname_or_user_email_cont: Cercar %{collection} per correu electrònic, nom o àlies.
+          reported_id_string_or_reported_content_cont: Cercar %{collection} per contingut o id reportable
+          title_cont: Buscar %{collection} per títol
+          user_name_or_user_nickname_or_user_email_cont: Cercar %{collection} per correu electrònic, nom o àlies
         state_eq:
           label: Estat
           values:
@@ -559,7 +557,7 @@ ca-IT:
       logs:
         filters:
           participatory_space: Trobar espai de participació
-          text: Cerca per correu electrònic, nom o àlies.
+          text: Cerca per correu electrònic, nom o àlies
           user: Usuària
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat.
@@ -588,6 +586,7 @@ ca-IT:
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
+        insights: Estadístiques
         manage: Gestionar
         moderation: Moderacions globals
         newsletters: Butlletins
@@ -877,13 +876,29 @@ ca-IT:
           title: Edita organització
           update: Actualitzar
         form:
+          admin_terms_of_service: Termes i condicions d'ús para administradores
+          basic_configuration: Configuració bàsica
+          colors:
+            choose_color: Triar un color primari
+            colors_title: Colors de l'organització
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
+            explanation: Aquesta eina us ajuda a triar un esquema de colors, compost per tons igualment espaiats al voltant de la roda cromàtica, que s'utilitzarà al lloc web de l'organització.
+            legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triàdic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
+            saturation: Saturació
+            title: Selector de color
+            update_suggested_colors: Actualitzar als colors recomanats
+          extra_features: Funcions addicionals
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logotip de l'organització
+            preview: Previsualitzar
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: X
           url: URL
+          welcome_notification: Notificació de benvinguda
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
@@ -892,26 +907,10 @@ ca-IT:
         edit:
           update: Actualitzar
         form:
-          colors:
-            choose_color: Triar un color primari
-            colors_title: Colors de l'organització
-            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
-            explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
-            legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
-            saturation: Saturació
-            title: Selector de color
-            update_suggested_colors: Actualitzar als colors recomenats
-          cta_button_path_help_html: 'Pots redirigir la direcció on enllaça el Botó d''Acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El Botó d''Acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
-          cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets:
             header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb APIs externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
             title: Fragments de codi HTML de capçalera
-          homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Banner de contingut ressaltat
-          images:
-            layout_appearance_title: Edita l'aparença del disseny global
-            preview: Previsualitzar
-          omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_external_domain_allowlist:
         edit:
           update: Actualizar
@@ -1347,5 +1346,7 @@ ca-IT:
       admin:
         global_moderations:
           title: Moderacions globals
+        insights:
+          title: Estadístiques
         taxonomy_filters_selector:
           title: Filtres

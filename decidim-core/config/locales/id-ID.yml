@@ -567,9 +567,6 @@ id:
       results:
         view_all: Lihat semua (%{count})
     shared:
-      extended_navigation_bar:
-        more: Lebih
-        unfold: Membuka
       flag_modal:
         already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
         close: Dekat
