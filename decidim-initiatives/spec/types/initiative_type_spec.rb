@@ -46,7 +46,7 @@ module Decidim
                    answer_url: "http://decidim.org")
           end
 
-          it "returns the field value" do
+          it "does not return the field value" do
             expect(response["answer"]).to be_nil
           end
         end
@@ -68,7 +68,7 @@ module Decidim
                    answer_url: "http://decidim.org")
           end
 
-          it "returns the field value" do
+          it "does not return the field value" do
             expect(response["answer"]).to be_nil
           end
         end
