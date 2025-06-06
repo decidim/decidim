@@ -141,7 +141,7 @@ Once the API interaction is done, you should always make an HTTP DELETE request 
 ```bash
 curl -s -o /dev/null -w "HTTP %{http_code}\n" \
   -H "Authorization: Bearer token" \
-  -X DELETE http://localhost:3000/api/sign_out
+  -X DELETE http://DOMAIN/api/sign_out
 ```
 
 ### Usage limits
