@@ -377,7 +377,6 @@ export default class CommentsComponent {
 
     $opinionButtons.removeClass("is-active").attr("aria-pressed", "false");
     $btn.addClass("is-active").attr("aria-pressed", "true");
-    $btn.css("fontWeight", "bold");
 
     if ($btn.data("toggleOk")) {
       $alignment.val(1);
