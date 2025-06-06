@@ -11,7 +11,7 @@ module Decidim
 
       after_save :update_document_counters
 
-      enum status: [:pending, :accepted, :rejected]
+      enum :status, [:pending, :accepted, :rejected]
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
 
