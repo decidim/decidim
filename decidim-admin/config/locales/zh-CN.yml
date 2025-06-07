@@ -249,9 +249,6 @@ zh-CN:
             'false': 已发布
             'true': 未发布
         search_label: 搜索
-        search_placeholder:
-          name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
-          title_cont: 按标题搜索 %{collection}。
         state_eq:
           label: 状态
       help_sections:

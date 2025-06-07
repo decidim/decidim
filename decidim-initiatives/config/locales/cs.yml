@@ -101,8 +101,6 @@ cs:
               validating: Technické ověření
           type_id_eq:
             label: Typ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       initiatives_settings:
         update:
           error: Při aktualizaci nastavení iniciativ došlo k chybě.

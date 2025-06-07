@@ -1166,9 +1166,6 @@ lt:
         close_modal: Uždaryti modalinį langą
         ok: Gerai
         title: Patvirtinti
-      extended_navigation_bar:
-        more: Daugiau
-        unfold: Išskleisti
       filter_form_help:
         help: Toliau pateikiamoje formoje paieškos rezultatai filtuojami dinamiškai, kai pasikeičia paieškos sąlygos.
         skip: Pereiti į rezultatus

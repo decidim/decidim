@@ -73,6 +73,7 @@ es-PY:
       decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminado del grupo
       decidim/resource_hidden_event: Recurso oculto
+      decidim/resource_liked_event: Recurso oculto
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -94,6 +95,9 @@ es-PY:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
+      decidim/like:
+        one: '"Me gusta"'
+        other: '"Me gusta"'
       decidim/user:
         one: No hay usuarios
         other: Usuarios
@@ -434,6 +438,9 @@ es-PY:
       comments:
         one: comentario
         other: comentarios
+      likes:
+        one: me gusta
+        other: me gusta
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -947,6 +954,11 @@ es-PY:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti, compruébalo y contribuye:'
+        email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{liker_nickname} ha realizado un nuevo \"me gusta\""
+        notification_title: '"<a href="%{resource_path}">%{resource_type}</a> %{resource_type} le ha gustado a <a href="%{liker_path}">%{liker_nickname}</a>.'
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1097,6 +1109,16 @@ es-PY:
         last_activity: Última actividad
       name: Últimas actividades
       no_activities_warning: No hay nada que mostrar para este tipo de actividad.
+    like_buttons_cell:
+      already_liked: Deshacer el "Me gusta"
+      like: Me gusta
+    likes_list:
+      liked_by:
+        one: Le gusta a %{visible}
+        other: Le gusta a %{visible} y a %{others}
+      others: "%{count} más"
+      title: Le ha gustado a
+      you: tú
     linked_resource_from:
       included_in: Incluido en
     links:
@@ -1530,7 +1552,7 @@ es-PY:
         manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Razón
-        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente por %{moderator}.</p>
         subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
@@ -1557,6 +1579,9 @@ es-PY:
       controls_label: Controles de recursos
     resource_autocomplete:
       help: Escribe aquí para buscar entre las propuestas
+    resource_likes:
+      create:
+        error: Se ha producido un error durante la acción de "me gusta".
     scopes:
       global: Alcance global
       prompt: Seleccione un ámbito
@@ -1597,9 +1622,6 @@ es-PY:
       confirm_unload: Esta página contiene cambios sin guardar. ¿Seguro que quieres abandonar esta página?
       embed:
         title: Contenido de vídeo incrustado
-      extended_navigation_bar:
-        more: Más
-        unfold: Desplegar
       filter_form_help:
         help: El siguiente formulario filtra los resultados de búsqueda dinámicamente cuando se cambian las condiciones de búsqueda.
         skip: Saltar a los resultados
@@ -1657,6 +1679,7 @@ es-PY:
       followers_count: Seguidoras
       followers_count_tooltip: El número de usuarias que siguen cualquier parte de este espacio para mantenerse actualizadas.
       headline: Estadísticas
+      likes_count: '"Me gusta"'
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes

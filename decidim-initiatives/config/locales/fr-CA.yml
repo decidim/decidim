@@ -93,8 +93,6 @@ fr-CA:
               validating: Validation technique
           type_id_eq:
             label: Type d'initiative
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
       initiatives_settings:
         update:
           success: Les paramètres des pétitions ont bien été mis à jour.

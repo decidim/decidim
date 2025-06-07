@@ -1052,9 +1052,6 @@ zh-TW:
         close_modal: 關閉視窗
         ok: 好的
         title: 確認
-      extended_navigation_bar:
-        more: 更多
-        unfold: 展開
       filter_form_help:
         help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
         skip: 跳到結果

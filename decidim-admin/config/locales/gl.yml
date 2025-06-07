@@ -328,11 +328,7 @@ gl:
             'true': Publicación borrada
         search_label: Busca
         search_placeholder:
-          name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
           report_count_eq: Número de denuncias
-          reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
-          title_cont: Procurar %{collection} por título.
-          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
           values:

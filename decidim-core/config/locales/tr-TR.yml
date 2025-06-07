@@ -784,9 +784,6 @@ tr:
         title: Onayla
       embed:
         title: Gömülü video içeriği
-      extended_navigation_bar:
-        more: Daha
-        unfold: açılmak
       filter_form_help:
         help: Aşağıdaki form, arama koşulları değiştirildiğinde arama sonuçlarını dinamik olarak filtreler.
         skip: Sonuçları atla

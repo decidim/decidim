@@ -697,9 +697,6 @@ zh-CN:
         close_modal: 关闭模式
         ok: 好的
         title: 确认
-      extended_navigation_bar:
-        more: 更多
-        unfold: 展开...
       filter_form_help:
         help: 当搜索条件改变时，下面的表单将动态地过滤搜索结果。
         skip: 跳转到结果
