@@ -376,6 +376,8 @@ fi:
         registrations:
           edit:
             save: Tallenna
+            validate: Vahvista
+            validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut
@@ -391,6 +393,9 @@ fi:
           update:
             invalid: Rekisteröitymisasetusten päivitys epäonnistui.
             success: Tapaamisen ilmoittautumisasetusten tallennus onnistui.
+          validate_registration_code:
+            invalid: Tämä ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodin vahvistaminen onnistui.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapaamiseen %{resource_name} osallistumistilassa %{space_name}"
