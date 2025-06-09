@@ -16,14 +16,13 @@
         </button>
       <% end %>
     </div>
-    <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
+    <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true" aria-expanded="true">
       <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
       <% @blocks.each do |elements| %>
         <% elements.each do |type, results| %>
           <%= content_tag :span, class: "#{"is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
             <span><%= searchable_resource_human_name(type) %></span>
           <% end %>
-
         <% end %>
       <% end %>
       <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
@@ -40,24 +39,45 @@
       <% @blocks.each do |elements| %>
         <li>
           <% elements.each do |type, results| %>
-            <div>
+            <ul>
               <% if results[:count].positive? %>
+                <li>
                 <%= link_to search_path_by_resource_type(type), class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
                   <%= resource_type_icon(type) %>
                   <span><%= searchable_resource_human_name(type) %></span>
                   <span class="label ml-auto"><%= results[:count] %></span>
                 <% end %>
+                </li>
               <% else %>
-                <%= content_tag :div, class: "filter#{" is-empty" if results[:count].zero?}" do %>
+                <%= content_tag :li, class: "filter#{" is-empty" if results[:count].zero?}" do %>
                   <%= resource_type_icon(type) %>
                   <span><%= searchable_resource_human_name(type) %></span>
                   <span class="label ml-auto"><%= results[:count] %></span>
                 <% end %>
               <% end %>
-            </div>
+            </ul>
           <% end %>
         </li>
       <% end %>
     </ul>
   </div>
 </nav>
+<script type="text/javascript">
+  const button = document.querySelector('#dropdown-trigger-search');
+  const arrowDown = button.querySelector('svg:first-of-type');
+  const arrowUp = button.querySelector('svg:last-of-type');
+  const list = document.querySelector('#dropdown-menu-search');
+  // the arrow is up when user arrives on the page, with the list displayed
+  arrowUp.addEventListener('click', function(){
+    setTimeout(() => {
+      button.setAttribute('aria-expanded', 'false');
+      list.style.display = "none";
+      }, 300)
+  })
+  arrowDown.addEventListener('click', function(){
+    setTimeout(() => {
+      button.setAttribute('aria-expanded', 'true');
+      list.style.display = "block";
+    }, 300)
+  })
+</script>
