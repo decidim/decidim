@@ -6,6 +6,7 @@ fi:
         delete_reason: Syy tilisi poistoon
       attachment:
         documents: Asiakirjat
+        image: Kuva
         photos: Kuvat
       common:
         created_at: Luontiaika
@@ -46,6 +47,12 @@ fi:
         tos_agreement: Käyttöehtojen hyväksyntä
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Nimimerkki on kirjoitettava pienillä kirjaimilla, eikä siinä voi olla välilyöntejä
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -159,6 +166,7 @@ fi:
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       opens_in_new_tab: Avautuu uuteen välilehteen
+      secondary_menu: Toissijainen valikko
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -676,6 +684,7 @@ fi:
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsement_buttons_cell:
       already_endorsed: Poista tykkäys
+      endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
@@ -1413,6 +1422,24 @@ fi:
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
     reported_mailer:
+      hidden_automatically:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
+        hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
+        subject: Kohde on piilotettu automaattisesti
+      hidden_manually:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
+        hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu moderoijan %{moderator} toimesta.</p>
+        subject: Kohde on piilotettu moderoijan %{moderator} toimesta
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
@@ -1430,6 +1457,8 @@ fi:
       create:
         error: Raportin luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      hide:
+        success: Tämä kohde on piilotettu.
       parent_hidden:
         report_details: Isäntäkohde piilotettiin
     resource_endorsements:
