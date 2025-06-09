@@ -22,9 +22,9 @@
 #   end
 #
 # In this example, if the configuration is set to `:never`, the job will
-# be enqueued immediately, even though the `Topic` hasn't been committed yet.
+# be enqueued immediately, even though the `Topic` has not been committed yet.
 # Because of this, if the job is picked up almost immediately, or if the
-# transaction doesn't succeed for some reason, the job will fail to find this
+# transaction does not succeed for some reason, the job will fail to find this
 # topic in the database.
 #
 # If `enqueue_after_transaction_commit` is set to `:default`, the queue adapter
@@ -32,7 +32,7 @@
 #
 # Note: Active Job backends can disable this feature. This is generally done by
 # backends that use the same database as Active Record as a queue, hence they
-# don't need this feature.
+# do not need this feature.
 #++
 # Rails.application.config.active_job.enqueue_after_transaction_commit = :default
 
