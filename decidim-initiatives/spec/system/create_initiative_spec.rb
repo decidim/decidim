@@ -792,6 +792,7 @@ describe "Initiative" do
           dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
           dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
           find_button("Continue").click
+          expect(page).to have_content("Your initiative has been successfully created.")
         end
 
         it "saves the attachments" do
