@@ -402,6 +402,8 @@ fi:
           participatory_processes:
             one: 1 prosessi
             other: "%{count} prosessia"
+      related_processes:
+        help: Valitut prosessit liitetään tähän ryhmään, myös sellaiset, jotka on aikaisemmin liitetty johonkin toiseen ryhmään.
       show:
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
@@ -517,6 +519,7 @@ fi:
         related_processes: Liittyvät prosessit
     statistics:
       processes_count: Prosessia
+      processes_count_tooltip: Julkisesti näkyvien osallistumisprosessien lukumäärä.
   layouts:
     decidim:
       participatory_process_groups:
