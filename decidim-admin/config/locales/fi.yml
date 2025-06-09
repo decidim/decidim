@@ -351,6 +351,8 @@ fi:
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
+        index:
+          text: Etsi nykyisen käyttäjän sähköpostiosoitteella, nimellä tai nimimerkillä
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         title: Vahvistusten ristiriidat
@@ -452,7 +454,11 @@ fi:
         remove_all: Poista kaikki
         search_label: Hae
         search_placeholder:
+          name_or_nickname_or_email_cont: Etsi kohteista %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella
           report_count_eq: Ilmoitusten määrä
+          reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} ilmoitettavien kohteiden ID-numeron tai sisällön perusteella
+          title_cont: Hae kohteesta %{collection} otsikon perusteella
+          user_name_or_user_nickname_or_user_email_cont: Etsi kohteista %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella
         state_eq:
           label: Tila
           values:
@@ -469,6 +475,10 @@ fi:
             explanation: 'Tiedoston ohjeistus:'
             message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
             message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
+          import_csv:
+            explanation: 'Tiedoston ohjeistus:'
+            message_1: CSV-tiedostomuotoa tuetaan
+            message_2: "sähköpostiosoitteet sisältävä .csv-tiedosto"
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui.
         form:
@@ -547,6 +557,7 @@ fi:
       logs:
         filters:
           participatory_space: Etsi osallistumistila
+          text: Etsi käyttäjien sähköpostiosoitteen, nimen tai nimimerkin perusteella
           user: Käyttäjä
         logs_list:
           no_logs_yet: Ei vielä lokitietoja.
@@ -575,6 +586,7 @@ fi:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        insights: Tietoja palvelusta
         manage: Hallitse
         moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
@@ -587,6 +599,7 @@ fi:
         share_tokens: Pääsylinkit
         static_page_topics: Aiheet
         static_pages: Sivut
+        statistics: Tilastot
         taxonomies: Luokittelut
         taxonomy_filters: Luokitteluiden suodattimet
         users: Käyttäjät
@@ -863,13 +876,29 @@ fi:
           title: Muokkaa organisaatiota
           update: Päivitä
         form:
+          admin_terms_of_service: Hallintakäyttäjän käyttöehdot
+          basic_configuration: Perusasetukset
+          colors:
+            choose_color: Valitse ensisijainen väri
+            colors_title: Organisaation värit
+            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="https://webaim.org/resources/contrastchecker">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
+            explanation: Tämä työkalu auttaa sinua valitsemaan värimaailman, joka koostuu tasaisesti valituista väriympyrän sävyistä. Näitä värejä käytetään verkkosivuston värimäärityksissä.
+            legend_html: Sovelluksen päävärit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
+            saturation: Värikylläisyys
+            title: Värin valinta
+            update_suggested_colors: Päivitä ehdotetut värit
+          extra_features: Lisäominaisuudet
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organisaation logot
+            preview: Esikatsele
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
           twitter: X
           url: URL
+          welcome_notification: Tervetuloilmoitus
           youtube: YouTube
         update:
           error: Organisaation päivitys epäonnistui.
@@ -1214,6 +1243,7 @@ fi:
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
+        statistics: Tilastot
         taxonomies: Luokittelut
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         users: Hallintakäyttäjät
@@ -1258,6 +1288,7 @@ fi:
         hidden: Piilotettu
         hide: Piilota
         not_hidden: Näkyvillä
+        parent_hidden: Et voi palauttaa tätä kohdetta näkyviin, koska se on liitetty kohteeseen, joka on edelleen piilotettu.
         title: Toiminnot
         unhide: Poista piilotus
         unreport: Poista ilmoitus
@@ -1284,6 +1315,7 @@ fi:
             success: Resurssin piilotus onnistui.
           unhide:
             invalid: Kohteen piilotuksen poisto epäonnistui.
+            parent_invalid: Kohteen palautus näkyviin epäonnistui. Kohde on liitetty toiseen kohteeseen, joka on piilotettu.
             success: Resurssin piilotuksen poistaminen onnistui.
           unreport:
             invalid: Kohteen ilmoituksen poisto epäonnistui.
@@ -1314,5 +1346,7 @@ fi:
       admin:
         global_moderations:
           title: Yleiset moderoinnit
+        insights:
+          title: Tietoja palvelusta
         taxonomy_filters_selector:
           title: Suodattimet
