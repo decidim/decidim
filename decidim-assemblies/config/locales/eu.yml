@@ -430,6 +430,7 @@ eu:
         related_assemblies: Erlazionatutako batzarrak
     statistics:
       assemblies_count: Batzarrak
+      assemblies_count_tooltip: Erabaki kolektiboak hartzen diren batzar publikoen kopurua.
   layouts:
     decidim:
       assemblies:

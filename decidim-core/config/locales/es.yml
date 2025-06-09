@@ -72,8 +72,8 @@ es:
       decidim/promote_to_admin: Promocionada a administradora del grupo
       decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
-      decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
+      decidim/resource_liked_event: Recurso oculto
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -95,9 +95,9 @@ es:
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
-      decidim/endorsement:
-        one: Adhesión
-        other: Adhesiones
+      decidim/like:
+        one: '"Me gusta"'
+        other: '"Me gusta"'
       decidim/user:
         one: Participante
         other: Participantes
@@ -435,9 +435,9 @@ es:
       comments:
         one: comentario
         other: comentarios
-      endorsements:
-        one: adhesión
-        other: adhesiones
+      likes:
+        one: me gusta
+        other: me gusta
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -584,6 +584,10 @@ es:
         name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
+        cta_button_path: URL del botón de acción
+        cta_button_path_help: 'Puedes definir a dónde enlaza el botón de acción en la página de inicio. Utiliza rutas parciales, no URLs completas. La URL acepta letras, números, guiones y barras, y debe empezar por una letra. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo:%{url}'
+        cta_button_text: Texto del botón de acción
+        cta_button_text_help: Puedes cambiar el texto del botón de llamada a la acción en la página de inicio para cada idioma disponible en la organización. Si no se establece ningún texto, se utilizará el valor predeterminado. El botón de acción se muestra en la página de inicio entre el texto de bienvenida y la descripción.
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido destacado
@@ -824,16 +828,6 @@ es:
         error: Error al subir la imagen.
         success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
-    endorsement_buttons_cell:
-      already_endorsed: Deshacer el "Me gusta"
-      endorse: Me gusta
-    endorsers_list:
-      endorsed_by:
-        one: Le gusta a %{visible}
-        other: Le gusta a %{visible} y a %{others}
-      others: "%{count} más"
-      title: Le ha gustado a
-      you: tú
     ephemeral_user: Visitante
     errors:
       files:
@@ -957,11 +951,11 @@ es:
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a "%{resource_title}" que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti, compruébalo y contribuye:'
+        email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{liker_nickname} ha realizado un nuevo \"me gusta\""
+        notification_title: '"<a href="%{resource_path}">%{resource_type}</a> %{resource_type} le ha gustado a <a href="%{liker_path}">%{liker_nickname}</a>.'
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1112,6 +1106,16 @@ es:
         last_activity: Última actividad
       name: Últimas actividades
       no_activities_warning: No hay nada que mostrar para este tipo de actividad.
+    like_buttons_cell:
+      already_liked: Deshacer el "Me gusta"
+      like: Me gusta
+    likes_list:
+      liked_by:
+        one: Le gusta a %{visible}
+        other: Le gusta a %{visible} y a %{others}
+      others: "%{count} más"
+      title: Le ha gustado a
+      you: tú
     linked_resource_from:
       included_in: Incluido en
     links:
@@ -1455,7 +1459,7 @@ es:
           participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenida a %{organization}!
         statistics:
-          headline: Estado actual de %{organization}
+          headline: Estadísticas
         sub_hero:
           register: Regístrate
           register_title: Crea una cuenta
@@ -1529,7 +1533,7 @@ es:
         scan: Escanea el código QR
         title: Código QR para %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenido reportado
         details: Detalles
         hello: Hola %{name},
@@ -1538,6 +1542,15 @@ es:
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente por %{moderator}.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
@@ -1555,15 +1568,17 @@ es:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+      hide:
+        success: Se ha ocultado este recurso.
       parent_hidden:
         report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
     resource_autocomplete:
       help: Escribe aquí para buscar entre las propuestas
-    resource_endorsements:
+    resource_likes:
       create:
-        error: Se ha producido un error durante la acción de adhesión.
+        error: Se ha producido un error durante la acción de "me gusta".
     scopes:
       global: Alcance global
       prompt: Selecciona un ámbito
@@ -1604,9 +1619,6 @@ es:
       confirm_unload: Esta página contiene cambios sin guardar. ¿Seguro que quieres abandonar esta página?
       embed:
         title: Contenido de vídeo incrustado
-      extended_navigation_bar:
-        more: Más
-        unfold: Desplegar
       filter_form_help:
         help: El siguiente formulario filtra los resultados de búsqueda dinámicamente cuando se cambian las condiciones de búsqueda.
         skip: Saltar a los resultados
@@ -1660,14 +1672,18 @@ es:
         share_to: Compartir en %{service}
     statistics:
       comments_count: Comentarios
-      endorsements_count: Adhesiones
+      comments_count_tooltip: El número total de comentarios publicados en este espacio.
       followers_count: Seguidoras
+      followers_count_tooltip: El número de usuarias que siguen cualquier parte de este espacio para mantenerse actualizadas.
       headline: Estadísticas
+      likes_count: '"Me gusta"'
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes
+      participants_count_tooltip: El número de usuarios únicos que han interactuado en este espacio presentando propuestas, asistiendo a encuentros, dando apoyo a propuestas, votando a proyectos o uniéndose a debates.
       surveys_count: Encuestas
       users_count: Participantes
+      users_count_tooltip: El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico.
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
     taxonomies:

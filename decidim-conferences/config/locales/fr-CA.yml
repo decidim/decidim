@@ -593,6 +593,7 @@ fr-CA:
       conferences: Conférences
     statistics:
       conferences_count: Conférences
+      conferences_count_tooltip: Le nombre de conférences publiées.
   devise:
     mailer:
       join_conference:

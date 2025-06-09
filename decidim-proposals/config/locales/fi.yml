@@ -77,16 +77,13 @@ fi:
           attributes:
             base:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
-              voted: On vastaanottanut ääniä tai suosituksia
         proposals_split:
           attributes:
             base:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
-              voted: On vastaanottanut ääniä tai suosituksia
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Ehdotuksen luokitteluja on muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
-      decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
       decidim/proposals/publish_proposal_event: Ehdotus julkaistiin
       decidim/proposals/voting_enabled_event: Ehdotuksen äänestys käytössä
@@ -95,9 +92,7 @@ fi:
       decidim:
         proposals:
           proposal:
-            budget_text: Ehdotus %{link} luotiin
             import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
-            import_to_proposal_text: Tämä ehdotus %{link} luotiin
             merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
             merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
             split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'
@@ -147,8 +142,6 @@ fi:
             values:
               state_not_published: Ei vastattu
               state_published: Vastattu
-        search_placeholder:
-          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
     application:
       geocoding:
         not_configured: Karttatoimintojen asetuksia ei ole määritetty!
@@ -158,7 +151,6 @@ fi:
           amend: Muokkaa
           comment: Kommentoi
           create: Luo ehdotus
-          endorse: Suosittele
           vote: Äänestä
           vote_comment: Äänestä kommenttia
           withdraw: Peru
@@ -181,7 +173,6 @@ fi:
             default_sort_order_options:
               automatic: Automaattinen
               most_commented: Eniten kommentoidut
-              most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
@@ -243,14 +234,11 @@ fi:
             default_sort_order_options:
               automatic: Automaattinen
               most_commented: Eniten kommentoidut
-              most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten laatijoita
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
@@ -334,11 +322,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
-          email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_url}">tämän osallistumistilan</a> kommentissa.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
@@ -445,7 +428,6 @@ fi:
           cost_report: Ehdotuksen kustannusraportti
           created_at: Ehdotuksen laatimisaika
           created_in_meeting: Oliko ehdotus laadittu tapaamisessa
-          endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
           execution_period: Ehdotuksen toteutuksen aikaväli
           follows_count: Ehdotuksen seuraajien lukumäärä
           id: Ehdotuksen yksilöivä tunniste
@@ -663,13 +645,8 @@ fi:
             body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
             documents: Asiakirjat
-            endorsements_count: Suositusten lukumäärä
-            endorsers: Suosittelijat
             evaluators: Arvioijat
             link: Näytä ehdotus
-            n_more_endorsers:
-              one: ja 1 muu
-              other: ja %{count} muuta
             photos: Kuvat
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapaamiset
@@ -950,7 +927,6 @@ fi:
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
-          most_endorsed: Eniten suositellut
           most_followed: Eniten seuratut
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
@@ -978,9 +954,6 @@ fi:
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa
           estimated_cost: Arvioitu kustannus
-          hidden_endorsers_count:
-            one: ja %{count} muu henkilö
-            other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           link_to_promoted_emendation_help_text: Tämä ehdotus on peräisin toisen ehdotuksen muutoksesta

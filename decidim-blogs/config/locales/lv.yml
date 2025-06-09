@@ -40,8 +40,6 @@ lv:
           step:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
-            endorsements_blocked: Atbalsti ir bloķēti
-            endorsements_enabled: Atbalsti ir iespējoti
     events:
       blogs:
         post_created:

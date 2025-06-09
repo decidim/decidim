@@ -45,8 +45,6 @@ zh-CN:
     models:
       decidim/amendment:
         other: 修 正 案
-      decidim/endorsement:
-        other: 授权
       decidim/user:
         other: 参加者
   booleans:
@@ -191,8 +189,6 @@ zh-CN:
     author:
       comments:
         other: 评论
-      endorsements:
-        other: 核准
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -418,11 +414,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, 你正在关注, 刚刚支持"%{resource_title}", 我们认为它对你可能很感兴趣。 查看并贡献：'
-        email_outro: 您收到此通知是因为您正在关注 %{endorser_nickname}。您可以停止收到跟随上一个链接的通知。
-        email_subject: "%{endorser_nickname} 执行了新的授权"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 认可。
       users:
         profile_updated:
           email_intro: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_url}">个人资料页面</a> 已经更新。
@@ -642,8 +633,6 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        statistics:
-          headline: 当前状态 %{organization}
         sub_hero:
           register: 注册
       index:
@@ -666,11 +655,6 @@ zh-CN:
           edit_profile: 编辑配置文件
           resend_email_confirmation_instructions: 重新发送电子邮件确认说明
     reported_mailer:
-      hide:
-        hello: 您好 %{name}，
-        manage_moderations: 管理版面
-        report_html: <p>以下 <a href="%{url}">内容</a> 已被自动隐藏。</p>
-        subject: 资源已自动隐藏
       report:
         authors: 作者
         content: 报告的内容
@@ -684,9 +668,6 @@ zh-CN:
     reports:
       create:
         success: 报告已成功创建，将由管理员审核。
-    resource_endorsements:
-      create:
-        error: 在批准行动中出现了一个问题。
     scopes:
       global: 全球范围
       prompt: 选择范围
@@ -716,9 +697,6 @@ zh-CN:
         close_modal: 关闭模式
         ok: 好的
         title: 确认
-      extended_navigation_bar:
-        more: 更多
-        unfold: 展开...
       filter_form_help:
         help: 当搜索条件改变时，下面的表单将动态地过滤搜索结果。
         skip: 跳转到结果

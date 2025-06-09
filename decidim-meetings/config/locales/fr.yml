@@ -226,10 +226,11 @@ fr:
           email_subject: Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes.
           notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
         upcoming_meeting:
-          email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+          default_body: La réunion "{{meeting_title}}" débutera dans moins de {{before_hours}}h.
+          email_intro: La réunion "%{resource_title}" débutera dans moins de %{reminders_before_hours}h.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la réunion %{resource_title} . Vous pouvez cesser de la suivre à partir du lien précédent.
+          email_subject: La réunion "%{resource_title}" débutera dans moins de %{reminders_before_hours}h.
+          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> commencera dans moins de %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou hybride.
@@ -367,6 +368,13 @@ fr:
           publish:
             invalid: Une erreur s'est produite lors de la publication de la rencontre.
             success: Rencontre publiée avec succès.
+          reminders:
+            reminder_enabled: Envoyer un rappel pour cette réunion
+            reminder_message: Contenu de l'email de rappel
+            reminder_message_help_text: Personnalisez le message au besoin. Utilisez {{meeting_title}} pour afficher le nom de la réunion.
+            send_reminder: E-mail de rappel programmé
+            send_reminder_help_text: Moment du rappel (en heures avant la réunion).
+            title: Rappels
           service:
             description: Description
             down: Vers le bas
@@ -759,6 +767,8 @@ fr:
     statistics:
       attendees_count: Participants à la réunion
       meetings_count: Rencontres
+      meetings_count_tooltip: Le nombre de réunions qui ont eu lieu, à la fois en ligne et en personne.
+      participatory_space_meetings_count: Réunions
   devise:
     mailer:
       join_meeting:

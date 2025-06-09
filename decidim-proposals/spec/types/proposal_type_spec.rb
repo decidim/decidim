@@ -6,9 +6,11 @@ require "decidim/api/test"
 module Decidim
   module Proposals
     describe ProposalType, type: :graphql do
+      include ActiveSupport::NumberHelper
+
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
+      let(:model) { create(:proposal, :with_answer, :with_votes, :with_likes, :with_amendments, component:) }
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
@@ -19,13 +21,108 @@ module Decidim
       include_examples "amendable proposals interface"
       include_examples "traceable interface"
       include_examples "timestamps interface"
-      include_examples "endorsable interface"
+      include_examples "likeable interface"
+      include_examples "referable interface"
+      include_examples "localizable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns the proposal's id" do
           expect(response["id"]).to eq(model.id.to_s)
+        end
+      end
+
+      describe "when proposal has costs" do
+        before do
+          component.update!(
+            settings: { proposal_answering_enabled: true },
+            step_settings: {
+              component.participatory_space.active_step.id => {
+                proposal_answering_enabled: true,
+                answers_with_costs: true
+              }
+            }
+          )
+        end
+
+        context "when answer is not published" do
+          let(:model) { create(:proposal, :accepted_not_published, :with_votes, :with_likes, :with_amendments, component:) }
+
+          describe "execution_period" do
+            let(:query) { '{ executionPeriod { translation(locale: "en")} }' }
+
+            it "returns the proposal's execution_period" do
+              expect(response["executionPeriod"]).to be_nil
+            end
+          end
+
+          describe "cost" do
+            let(:query) { "{ cost }" }
+
+            it "returns the proposal's cost" do
+              expect(response["cost"]).to be_nil
+            end
+          end
+
+          describe "cost_report" do
+            let(:query) { '{ costReport { translation(locale: "en")}}' }
+
+            it "returns the proposal's cost_report" do
+              expect(response["costReport"]).to be_nil
+            end
+          end
+        end
+
+        describe "execution_period" do
+          let(:query) { '{ executionPeriod { translation(locale: "en")} }' }
+
+          it "returns the proposal's execution_period" do
+            expect(response["executionPeriod"]["translation"]).to eq(translated(model.execution_period))
+          end
+        end
+
+        describe "cost" do
+          let(:query) { "{ cost }" }
+
+          it "returns the proposal's cost" do
+            expect(response["cost"]).to eq(number_to_currency(model.cost, unit: Decidim.currency_unit))
+          end
+        end
+
+        describe "cost_report" do
+          let(:query) { '{ costReport { translation(locale: "en")}}' }
+
+          it "returns the proposal's cost_report" do
+            expect(response["costReport"]["translation"]).to eq(translated(model.cost_report))
+          end
+        end
+      end
+
+      describe "when proposal has no costs" do
+        describe "execution_period" do
+          let(:query) { '{ executionPeriod { translation(locale: "en")} }' }
+
+          it "returns the proposal's execution_period" do
+            expect(response["executionPeriod"]).to be_nil
+          end
+        end
+
+        describe "cost" do
+          let(:query) { "{ cost }" }
+
+          it "returns the proposal's cost" do
+            expect(response["cost"]).to be_nil
+          end
+        end
+
+        describe "cost_report" do
+          let(:query) { '{ costReport { translation(locale: "en")}}' }
+
+          it "returns the proposal's cost_report" do
+            expect(response["costReport"]).to be_nil
+          end
         end
       end
 
@@ -51,7 +148,7 @@ module Decidim
         let(:query) { '{ title { translation(locale: "en")}}' }
 
         it "returns the proposal's title" do
-          expect(response["title"]["translation"]).to eq(model.title["en"])
+          expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
 
@@ -59,7 +156,7 @@ module Decidim
         let(:query) { '{ body { translation(locale: "en")}}' }
 
         it "returns the proposal's body" do
-          expect(response["body"]["translation"]).to eq(model.body["en"])
+          expect(response["body"]["translation"]).to eq(translated(model.body))
         end
       end
 
@@ -86,11 +183,31 @@ module Decidim
           model.save!
         end
 
+        context "and response is not published" do
+          let(:model) { create(:proposal, :accepted_not_published, :with_votes, :with_likes, :with_amendments, component:) }
+
+          describe "answer" do
+            let(:query) { '{ answer { translation(locale:"en") } }' }
+
+            it "returns the proposal's answer" do
+              expect(response["answer"]).to be_nil
+            end
+          end
+
+          describe "answeredAt" do
+            let(:query) { "{ answeredAt }" }
+
+            it "returns when was this query answered at" do
+              expect(response["answeredAt"]).to be_nil
+            end
+          end
+        end
+
         describe "answer" do
           let(:query) { '{ answer { translation(locale:"en") } }' }
 
           it "returns the proposal's answer" do
-            expect(response["answer"]["translation"]).to eq(model.answer["en"])
+            expect(response["answer"]["translation"]).to eq(translated(model.answer))
           end
         end
 
@@ -116,23 +233,6 @@ module Decidim
 
         it "returns the address of this proposal" do
           expect(response["address"]).to eq(model.address)
-        end
-      end
-
-      describe "coordinates" do
-        let(:query) { "{ coordinates { latitude longitude } }" }
-
-        before do
-          model.latitude = 2
-          model.longitude = 40
-          model.save!
-        end
-
-        it "returns the meeting's address" do
-          expect(response["coordinates"]).to include(
-            "latitude" => model.latitude,
-            "longitude" => model.longitude
-          )
         end
       end
 

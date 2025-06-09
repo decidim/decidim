@@ -35,13 +35,13 @@ module Decidim
 
       def self.prepare_comments_enabled(active, _ctx)
         lambda do |_model_name, _locale|
-          ["(settings->'global'->>'comments_enabled')::boolean is ?", active]
+          ["settings @> ?", { global: { comments_enabled: active } }.to_json]
         end
       end
 
       def self.prepare_geolocation_enabled(active, _ctx)
         lambda do |_model_name, _locale|
-          ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active]
+          ["settings @> ? or manifest_name='meetings'", { global: { geocoding_enabled: active } }.to_json]
         end
       end
 

@@ -104,8 +104,7 @@ describe Decidim::Meetings::MeetingsController do
 
         get :show, params: { id: meeting.id }
 
-        expect(subject).to redirect_to(Decidim::ResourceLocatorPresenter.new(meeting).index)
-        expect(flash[:alert]).not_to be_empty
+        expect(flash[:alert]).to include("You are not authorized to perform this action.")
       end
     end
 
@@ -123,6 +122,17 @@ describe Decidim::Meetings::MeetingsController do
         let!(:participatory_process_user_role) { create(:participatory_process_user_role, user:, participatory_process:) }
 
         it_behaves_like "having meeting access visibility applied"
+
+        context "when meeting is unpublished" do
+          let(:meeting) { create(:meeting, component: meeting_component) }
+
+          it "process admin successfully sees the meeting" do
+            get :show, params: { id: meeting.id }
+
+            expect(subject).to render_template(:show)
+            expect(flash[:alert]).to be_blank
+          end
+        end
       end
 
       context "when user is private user" do
@@ -146,7 +156,7 @@ describe Decidim::Meetings::MeetingsController do
       it "redirects to the login page" do
         get(:new)
         expect(response).to have_http_status(:found)
-        expect(response.body).to have_text("You are being redirected")
+        expect(response).to redirect_to("/users/sign_in")
       end
     end
   end

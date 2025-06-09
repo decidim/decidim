@@ -247,10 +247,11 @@ ja:
           email_subject: '"%{resource_title}" ミーティングは登録を有効にしました．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは登録を有効にしました。
         upcoming_meeting:
-          email_intro: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
-          email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
-          email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
+          default_body: '"{{meeting_title}}"ミーティングは、あと{{before_hours}}時間以内に開始されます。'
+          email_intro: '"%{resource_title}" ミーティングは、あと%{reminders_before_hours}時間以内に開始されます。'
+          email_outro: '"%{resource_title}"ミーティングをフォローしているため、この通知を受け取りました。フォローを解除するには、前のリンクから行ってください。'
+          email_subject: '"%{resource_title}"ミーティングは、%{reminders_before_hours}時間以内に開始されます。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングは、%{reminders_before_hours}時間以内に開始されます。
     forms:
       meetings:
         attendees_count_help_text: 対面、オンライン、ハイブリッドのどの形態でも、ミーティングの参加者の総数を含めることを忘れないでください。
@@ -389,6 +390,13 @@ ja:
           publish:
             invalid: このミーティングを公開する際に問題が発生しました。
             success: ミーティングを公開しました。
+          reminders:
+            reminder_enabled: このミーティングのリマインダーを送信する
+            reminder_message: リマインダーのメール内容
+            reminder_message_help_text: 必要に応じてメッセージをカスタマイズしてください。ミーティング名を表示するには {{meeting_title}} を使用します。
+            send_reminder: 予約されたリマインダーメール
+            send_reminder_help_text: 会議の何時間前にリマインダーを送信するかを指定します。
+            title: リマインダー
           service:
             description: 説明
             down: 下
@@ -816,6 +824,8 @@ ja:
     statistics:
       attendees_count: ミーティング参加者
       meetings_count: ミーティング
+      meetings_count_tooltip: オンラインまたは対面で開催されたミーティングの合計数です。
+      participatory_space_meetings_count: ミーティング
   devise:
     mailer:
       join_meeting:

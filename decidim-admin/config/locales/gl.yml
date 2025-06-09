@@ -34,8 +34,6 @@ gl:
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
         comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
-        cta_button_path: Camiño do botón de chamada a acción
-        cta_button_text: Texto do botón de chamada a acción
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
@@ -330,11 +328,7 @@ gl:
             'true': Publicación borrada
         search_label: Busca
         search_placeholder:
-          name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
           report_count_eq: Número de denuncias
-          reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
-          title_cont: Procurar %{collection} por título.
-          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
           values:
@@ -649,16 +643,7 @@ gl:
         edit:
           update: Actualización
         form:
-          colors:
-            colors_title: Cores da organización
-            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
-          cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
-          homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
-          images:
-            layout_appearance_title: Editar aspecto de deseño
-            preview: Vista Previa
-          omnipresent_banner_appearance_title: Editar o banner omnipresente
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -773,7 +758,6 @@ gl:
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        statistics: Actividade
         users: Administradores
       users:
         create:

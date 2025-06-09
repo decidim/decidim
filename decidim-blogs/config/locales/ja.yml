@@ -101,7 +101,6 @@ ja:
           comment: コメント
           create: 作成
           destroy: 削除
-          endorse: オススメ
           update: 更新
         name: ブログ
         settings:
@@ -118,8 +117,6 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメが有効
     events:
       blogs:
         post_created:
@@ -146,7 +143,6 @@ ja:
           comments_count: 投稿のコメント数
           component: ポストが属するコンポーネント
           created_at: この投稿の作成日時
-          endorsements_count: 投稿のオススメ数
           follows_count: 投稿のフォロー数
           id: 投稿の固有ID
           participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
@@ -156,3 +152,4 @@ ja:
           url: この投稿の URL
     statistics:
       posts_count: 投稿
+      posts_count_tooltip: 公開された更新情報やブログ投稿の数です。

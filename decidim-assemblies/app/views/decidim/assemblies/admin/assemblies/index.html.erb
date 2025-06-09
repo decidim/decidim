@@ -28,15 +28,17 @@
     </table>
   </div>
 
-  <div class="mt-4">
-    <%= link_to manage_trash_assemblies_path, class: "flex items-center underline text-secondary" do %>
-      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
-      <%= t("actions.view_deleted_assemblies", scope: "decidim.admin") %>
-      <span class="ml-2">
-      <%= icon_with_tooltip("information-line", t("tooltips.deleted_assemblies_info", scope: "decidim.admin")) %>
-    </span>
-    <% end %>
-  </div>
+  <% if allowed_to? :read, :assembly, trashable_deleted_resource: @assemblies %>
+    <div class="mt-4">
+      <%= link_to manage_trash_assemblies_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_assemblies", scope: "decidim.admin") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("tooltips.deleted_assemblies_info", scope: "decidim.admin")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= decidim_paginate @assemblies %>
 </div>

@@ -192,9 +192,10 @@ shared_examples "comments" do
       end
 
       it "shows a modal with the comment form" do
-        sleep 1
+        sleep(2)
+        expect(page).to have_content("Add comment")
         click_on "Add comment"
-        sleep 1
+
         expect(page).to have_content("Add comment")
         expect(page).to have_content("1000 characters left")
         expect(page).to have_css(".add-comment form")
@@ -243,6 +244,9 @@ shared_examples "comments" do
           within_language_menu do
             click_on locale
           end
+
+          sleep 1
+          page.scroll_to(find(".add-comment form"))
 
           within ".add-comment form" do
             expect(page).to have_css(".emoji__container")

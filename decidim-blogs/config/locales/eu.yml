@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -66,7 +66,7 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Gorputza
+            body: Testua
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
             taxonomies: Taxonomiak
@@ -81,7 +81,7 @@ eu:
           title: Editatu sarrera
         form:
           author_id: Egilea
-          body: Gorputza
+          body: Testua
           title: Izenburua
         index:
           count:
@@ -103,7 +103,7 @@ eu:
           comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
-          endorse: Atxiki
+          like: Atsegin dut
           update: Eguneratu
         name: Bloga
         settings:
@@ -120,8 +120,8 @@ eu:
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
     events:
       blogs:
         post_created:
@@ -144,13 +144,13 @@ eu:
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
         posts:
           author: Egilearen informazioa
-          body: Argitaratuaren gorputza
+          body: Argitaratuaren testua
           comments_count: Argitalpen honek duen iruzkin kopurua
           component: Zein osagairi dagokion argitalpena
           created_at: Zein datatan sortu zen argitalpen hau
-          endorsements_count: Argitalpen honek duen abal kopurua
           follows_count: Argitalpen honek duen jarraitzaile kopurua
           id: Argitalpen honen identifikatzaile bakarra
+          likes_count: Argitalpen honek duen like kopurua
           participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Partaidetza-prozesua, Batzarra)
           published_at: Zein datatan argitaratu zen atgitalpen hau
           title: Argitalpenaren izenburua
@@ -158,3 +158,4 @@ eu:
           url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak
+      posts_count_tooltip: Argitaratutako eguneratzeen edo blogeko argitalpenen kopurua.

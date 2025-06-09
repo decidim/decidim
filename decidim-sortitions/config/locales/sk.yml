@@ -3,7 +3,6 @@ sk:
     attributes:
       sortition:
         additional_info: Informácie o voľbe losovaním
-        decidim_category_id: Kategórie sady návrhov, v ktorých chcete použiť remízu
         decidim_proposals_component_id: Návrhy sú nastavené
         dice: Výsledok hodu kockou. Hoďte 6-strananou kockou alebo vyhľadajte iný náhodný spôsob, ako vygenerovať číslo od 1 do 6, a zadajte tu výsledné číslo pred niekoľkými svedkami. To prispieva ku kvalite a záruke náhodnosti výsledku.
         target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať zo skupiny návrhov, ktoré ste predtým vybrali)
@@ -41,7 +40,6 @@ sk:
         models:
           sortition:
             fields:
-              category: Kategória
               created_at: Dátum vzniku
               decidim_proposals_component: Súčasť návrhov
               dice: Kocky
@@ -61,7 +59,6 @@ sk:
             title: Aktualizujte informácie o voľbe losovaním
             update: Aktualizácia
           form:
-            all_categories: Všetky kategórie
             select_proposal_component: Vyberte sadu návrhov
           index:
             title: Voľby losovaním
@@ -104,11 +101,8 @@ sk:
             other: vybrané návrhy
         show:
           algorithm: Kód algoritmu Sortition
-          any_category: zo všetkých kategórií
           cancelled: Zrušené výber
           candidate_proposal_ids: žrebovacie volbaní objednávky a ID
-          candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (%{category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
-          category: z kategórie %{category}
           dice_result: (1) Výsledok hodu kockou
           introduction: 'Táto stránka obsahuje výsledky voľby losovaním %{referencie}. Prostredníctvom tohto výberu bolo vybratých %{target_items} výsledkov náhodne a s rovnakým rozložením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazenými na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom ku kvalite tejto voľby je dvojitá náhodnosť, ktorú poskytuje hod kockou (overený svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časový údaj pre voľbu je tak presný (sekundy), že nie je možné ovládať ho ľudsky, a tak poskytuje dvojitý, "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
           mathematical_result: Výsledok (1) x (2)

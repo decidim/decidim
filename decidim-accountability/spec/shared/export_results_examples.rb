@@ -25,8 +25,11 @@ end
 shared_examples "export as CSV" do
   it "exports a CSV" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Results as CSV" }
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Results as CSV"
+      sleep 1
+    end
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "results" is ready))
@@ -38,8 +41,11 @@ end
 shared_examples "export as JSON" do
   it "exports a JSON" do
     expect(Decidim::PrivateExport.count).to eq(0)
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Results as JSON" }
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Results as JSON"
+      sleep 1
+    end
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to eq(%(Your export "results" is ready))

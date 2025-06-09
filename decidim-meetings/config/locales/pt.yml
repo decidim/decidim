@@ -135,11 +135,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A reunião "%{resource_title}" ativou os registos.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> ativou os registos.
-        upcoming_meeting:
-          email_intro: A reunião "%{resource_title}" começará em menos de 48h.
-          email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
-          email_subject: A reunião "%{resource_title}" começará em menos de 48h.
-          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
     gamification:
       badges:
         attended_meetings:

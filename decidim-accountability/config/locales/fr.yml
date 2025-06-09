@@ -373,3 +373,4 @@ fr:
         result_proposal: Propositions incluses dans cette réalisation
     statistics:
       results_count: Résultats
+      results_count_tooltip: Le nombre de décisions ou de résultats générés à partir de cet espace.

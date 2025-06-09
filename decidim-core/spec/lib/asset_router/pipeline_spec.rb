@@ -59,7 +59,7 @@ module Decidim::AssetRouter
 
       context "when the host cannot be resolved" do
         before do
-          allow(Rails.env).to receive(:test?).and_return(false)
+          allow(Rails.env).to receive(:local?).and_return(false)
         end
 
         it { is_expected.to eq(correct_asset_path) }

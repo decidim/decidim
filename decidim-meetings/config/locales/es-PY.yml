@@ -250,10 +250,11 @@ es-PY:
           email_subject: El encuentro "%{resource_title}" ha abierto las inscripciones.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
-          email_intro: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
+          default_body: 'El encuentro: "{{meeting_title}}" empezará en menos de {{before_hours}}h.'
+          email_intro: El encuentro "%{resource_title}" empezará en menos de %{reminders_before_hours}h.
+          email_outro: "Has recibido esta notificación porque sigues el encuentro \"%{resource_title}\". Puedes dejar de seguirla \ndesde el enlace anterior."
+          email_subject: El encuentro "%{resource_title}" empezará en menos de %{reminders_before_hours}h.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
@@ -393,6 +394,13 @@ es-PY:
           publish:
             invalid: Se ha producido un error al publicar este encuentro.
             success: Encuentro publicado correctamente.
+          reminders:
+            reminder_enabled: Enviar un recordatorio para este encuentro
+            reminder_message: Contenido del correo electrónico recordatorio
+            reminder_message_help_text: Personaliza el mensaje como necesites. Usa {{meeting_title}} para mostrar el título del encuentro.
+            send_reminder: Correo electrónico de recordatorio programado
+            send_reminder_help_text: Tiempo en horas para el recordatorio antes del encuentro.
+            title: Recordatorios
           service:
             description: Descripción
             down: Abajo
@@ -824,6 +832,8 @@ es-PY:
     statistics:
       attendees_count: Asistentes a la reunión
       meetings_count: Encuentros
+      meetings_count_tooltip: El número de encuentros que han tenido lugar, tanto si fueron presenciales, digitales o mixtas.
+      participatory_space_meetings_count: Encuentros
   devise:
     mailer:
       join_meeting:

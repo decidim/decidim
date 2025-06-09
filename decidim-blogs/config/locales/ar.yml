@@ -60,7 +60,6 @@ ar:
           comment: التعليق
           create: إنشاء
           destroy: حذف
-          endorse: تأييد
           update: تحديث
         name: مدونة
         settings:
@@ -71,8 +70,6 @@ ar:
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
-            endorsements_blocked: التأييدات مغلقةٌ
-            endorsements_enabled: التأييدات مُتاحه
     events:
       blogs:
         post_created:

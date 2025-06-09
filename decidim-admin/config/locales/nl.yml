@@ -34,8 +34,6 @@ nl:
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
         comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
-        cta_button_path: actieknop pad
-        cta_button_text: actieknop tekst
         customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
         description: Beschrijving
@@ -335,11 +333,7 @@ nl:
             'true': Niet-gepubliceerde
         search_label: Zoeken
         search_placeholder:
-          name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
           report_count_eq: Aantal rapporteringen
-          reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
-          title_cont: Zoek %{collection} op titel.
-          user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
           values:
@@ -426,7 +420,6 @@ nl:
       logs:
         filters:
           participatory_space: Zoek een participatieve ruimte
-          text: Doorzoek op e-mail, naam of bijnaam.
           user: Gebruiker
         logs_list:
           no_logs_yet: Er zijn nog geen logs.
@@ -665,16 +658,7 @@ nl:
         edit:
           update: Bijwerken
         form:
-          colors:
-            colors_title: Organisatiekleuren
-            colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
-          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
-          homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
-          images:
-            layout_appearance_title: Weergave van de lay-out bewerken
-            preview: Voorvertoning
-          omnipresent_banner_appearance_title: Bewerk de permanente banner
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
@@ -794,7 +778,6 @@ nl:
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        statistics: Activiteit
         users: Beheerders
       users:
         create:

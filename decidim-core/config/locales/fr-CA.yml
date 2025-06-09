@@ -65,7 +65,6 @@ fr-CA:
       decidim/promote_to_admin: Promu au groupe admin
       decidim/promoted_to_admin_event: Promotion au rôle d'administrateur de groupe
       decidim/removed_from_group: Retiré du groupe
-      decidim/resource_endorsed_event: Ressource soutenue
       decidim/resource_hidden_event: Modération de votre participation
       decidim/welcome_notification_event: Message de bienvenue
   activerecord:
@@ -84,9 +83,6 @@ fr-CA:
       decidim/amendment:
         one: Amendement
         other: Amendements
-      decidim/endorsement:
-        one: Soutien
-        other: Soutiens
       decidim/user:
         one: Participant
         other: Participants
@@ -407,9 +403,6 @@ fr-CA:
       comments:
         one: commentaire
         other: commentaires
-      endorsements:
-        one: soutien
-        other: soutiens
       official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -553,6 +546,10 @@ fr-CA:
         name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
+        cta_button_path: URL du bouton d'appel à l'action
+        cta_button_path_help: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+        cta_button_text: Texte du bouton d'appel à l'action
+        cta_button_text_help: Vous pouvez remplacer le texte du bouton d'appel à l'action sur la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'appel à l'action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
@@ -736,11 +733,6 @@ fr-CA:
         error: Une erreur est survenue lors du téléchargement de l'image.
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
-    endorsement_buttons_cell:
-      endorse: J’aime
-    endorsers_list:
-      others: "%{count} de plus"
-      you: vous
     ephemeral_user: Visiteur
     errors:
       files:
@@ -854,11 +846,6 @@ fr-CA:
           notification_title: |-
             Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
-        email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-        email_subject: "%{endorser_nickname} a effectué une nouvelle approbation"
-        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -1319,7 +1306,7 @@ fr-CA:
           participate_title: Participer aux concertations de la plateforme
           welcome: Bienvenue sur %{organization} !
         statistics:
-          headline: État actuel de %{organization}
+          headline: Statistiques
         sub_hero:
           register: S'inscrire
           register_title: Créer un compte
@@ -1393,15 +1380,24 @@ fr-CA:
         scan: Scannez le code QR
         title: QR Code pour %{resource_title}
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: Contenu signalé
         details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
         reason: Motif
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
+      hidden_manually:
+        content: Contenu signalé
+        details: Détails
+        hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée par %{moderator}
       report:
         authors: Auteurs
         content: Contenu signalé
@@ -1419,13 +1415,12 @@ fr-CA:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      hide:
+        success: Cette ressource a été masquée.
       parent_hidden:
         report_details: La ressource parente a été masquée
     resource_autocomplete:
       help: Tapez pour rechercher des propositions
-    resource_endorsements:
-      create:
-        error: Il y a eu un problème lors de l'action d'approbation.
     scopes:
       global: Portée générale
       prompt: Sélectionnez un périmètre d'application
@@ -1466,9 +1461,6 @@ fr-CA:
       confirm_unload: Cette page contient des modifications non enregistrées. Êtes-vous sûr(e) de vouloir quitter cette page ?
       embed:
         title: Contenu vidéo intégré
-      extended_navigation_bar:
-        more: Plus
-        unfold: Afficher
       filter_form_help:
         help: Le formulaire ci-dessous filtre dynamiquement les résultats de la recherche lorsque les conditions de recherche sont modifiées.
         skip: Passer aux résultats
@@ -1522,14 +1514,17 @@ fr-CA:
         share_to: Partager sur %{service}
     statistics:
       comments_count: Commentaires
-      endorsements_count: Soutiens
+      comments_count_tooltip: Le nombre total de commentaires déposés dans cet espace.
       followers_count: Abonnés
+      followers_count_tooltip: Le nombre d'utilisateurs qui suivent tout ou partie de cet espace pour rester à jour.
       headline: Statistiques
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participant·e·s
+      participants_count_tooltip: Le nombre d'utilisateurs uniques qui ont interagi dans cet espace en soumettant des propositions, en assistant à des réunions, en votant ou en participant à des discussions.
       surveys_count: Enquêtes
       users_count: Participant·e·s
+      users_count_tooltip: Le nombre total d'utilisateurs qui se sont inscrits et ont confirmé leur compte par e-mail.
     taxonomies:
       prompt: Veuillez sélectionner une option
     translation_bar:

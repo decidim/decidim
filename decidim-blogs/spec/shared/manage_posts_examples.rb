@@ -83,6 +83,8 @@ shared_examples "manage posts" do |audit_check: true|
       expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
     end
 
+    perform_enqueued_jobs
+
     visit decidim.last_activities_path
     expect(page).to have_content("New post: #{translated(attributes[:title])}")
 

@@ -31,7 +31,6 @@ ro:
         actions:
           comment: Comentați
           create: Creați o dezbatere
-          endorse: Susține
         name: Dezbateri
         settings:
           global:
@@ -48,8 +47,6 @@ ro:
             announcement: Anunț
             comments_blocked: Comentarii blocate
             creation_enabled: Participanții pot crea dezbateri
-            endorsements_blocked: Susțineri dezactivate
-            endorsements_enabled: Susțineri activate
     debates:
       actions:
         close: Închideți
@@ -201,3 +198,4 @@ ro:
           unearned_own: Nu ați participat la nicio dezbatere încă.
     statistics:
       debates_count: Dezbateri
+      debates_count_tooltip: Numărul de discuții care au avut loc.

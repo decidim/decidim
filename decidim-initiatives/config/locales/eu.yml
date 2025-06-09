@@ -95,8 +95,6 @@ eu:
               validating: Baliozkotze teknikoa
           type_id_eq:
             label: Mota
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       initiatives_settings:
         update:
           error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
@@ -443,11 +441,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{author_nickname} ren bete ekimen bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
-          email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} babestutako ekimena'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> babesten du.
+        like_initiative_event:
+          email_intro: "%{liker_name} %{liker_nickname} -k, zu jarraitzen ari zarenak, jarraitzen duen ekimena atsegin du, eta uste dugu interesatu ahal zaizula. Egiaztatu eta lagundu:"
+          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+          email_subject: '%{author_nickname} -k ekimena atsegin du'
+          notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} ategin du.
         revoke_membership_request:
           email_intro: "%{author_nickname} k ukatu egin du zure eskaera %{resource_title} ekimenaren batzorde bultzatzailean parte hartzeko."
           email_outro: 'Jakinarazpen hau jaso duzu eskatu duzulako parte hartzea %{resource_title} ekimenean.'
@@ -697,6 +695,9 @@ eu:
         actions:
           create: Sortu ekimen bat
           title: Ekintzak
+    statistics:
+      initiatives_count: Ekimenak
+      initiatives_count_tooltip: Argitaratutako herri-ekimenen kopurua.
   layouts:
     decidim:
       initiative_creation_header:

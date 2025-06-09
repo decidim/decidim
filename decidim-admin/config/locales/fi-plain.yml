@@ -45,8 +45,6 @@ fi-pl:
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
-        cta_button_path: Call To Action -painikkeen polku
-        cta_button_text: Call To Action -painikkeen teksti
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
         default_locale: Oletuskieli
         description: Kuvaus
@@ -353,8 +351,6 @@ fi-pl:
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
-        index:
-          text: Etsi nykyisen käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         title: Vahvistusten ristiriidat
@@ -456,11 +452,7 @@ fi-pl:
         remove_all: Poista kaikki
         search_label: Hae
         search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           report_count_eq: Ilmoitusten määrä
-          reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
-          title_cont: '%{collection}: Hae otsikon perusteella'
-          user_name_or_user_nickname_or_user_email_cont: Etsi kohteita %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella.
         state_eq:
           label: Tila
           values:
@@ -555,7 +547,6 @@ fi-pl:
       logs:
         filters:
           participatory_space: Etsi osallistumistila
-          text: Etsi käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
           user: Käyttäjä
         logs_list:
           no_logs_yet: Ei vielä lokitietoja.
@@ -887,26 +878,10 @@ fi-pl:
         edit:
           update: Päivitä
         form:
-          colors:
-            choose_color: Valitse ensisijainen väri
-            colors_title: Organisaation värit
-            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
-            explanation: Tämä työkalu auttaa sinua valitsemaan värimaailman, joka koostuu tasaisesti valituista väriympyrän sävyistä. Näitä värejä käytetään verkkosivuston värimäärityksissä.
-            legend_html: Pääsovelluksen värit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
-            saturation: Värikylläisyys
-            title: Värin valinta
-            update_suggested_colors: Päivitä ehdotetut värit
-          cta_button_path_help_html: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
-          cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets:
             header_snippets_help_html: Käytä tätä kenttää lisätäksesi uusia HTML-otsakkeita. Yleisin käyttötarkoitus on kolmannen osapuolen palveluiden integrointi, missä tarvitaan ylimääräisiä JavaScript- tai CSS-tiedostoja. Voit myös käyttää asetusta lisätäksesi uusia meta-merkintöjä HTML:ään. Huomaa, että tämä asetus pätee vain osallistujille suunnatuilla julkisilla sivuilla, ei hallintakäyttäjien osiossa. Jos koodi on vuorovaikutuksessa ulkoisten sovellusrajapintojen kanssa tai se ei ole sovelluksen turvallisuusohjeiden mukainen, sisällön turvallisuuskäytäntöä (CSP) tulee muuttaa. Lue lisää <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">dokumentaatiosivustolta</a>.
             title: Yläosion HTML-koodipätkät
-          homepage_appearance_title: Muokkaa kotisivun ulkoasua
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
-          images:
-            layout_appearance_title: Muokkaa sivupohjan ulkoasua
-            preview: Esikatsele
-          omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       organization_external_domain_allowlist:
         edit:
           update: Päivitä
@@ -1239,7 +1214,6 @@ fi-pl:
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
-        statistics: Toiminta
         taxonomies: Luokittelut
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         users: Hallintakäyttäjät

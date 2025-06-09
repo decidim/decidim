@@ -9,6 +9,20 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
+      routes do
+        resources :elections do
+          get :manage_trash, on: :collection
+
+          member do
+            put :publish
+            put :unpublish
+            patch :soft_delete
+            patch :restore
+          end
+        end
+        root to: "elections#index"
+      end
+
       def load_seed
         nil
       end

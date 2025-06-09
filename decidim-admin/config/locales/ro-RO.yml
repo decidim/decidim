@@ -45,8 +45,6 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acțiune
-        cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
@@ -399,11 +397,7 @@ ro:
             'true': Nepublicat
         search_label: Caută
         search_placeholder:
-          name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
           report_count_eq: Număr de raportări
-          reported_id_string_or_reported_content_cont: Caută %{collection} după id sau conținut.
-          title_cont: Caută %{collection} după titlu.
-          user_name_or_user_nickname_or_user_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
         state_eq:
           label: Stadiu
           values:
@@ -501,7 +495,6 @@ ro:
       logs:
         filters:
           participatory_space: Găsește spațiul participativ
-          text: Caută după e-mail, nume sau pseudonim.
           user: Utilizator
         logs_list:
           no_logs_yet: Nu există încă înregistrări.
@@ -526,6 +519,7 @@ ro:
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
+        insights: Perspective
         manage: Gestionează
         moderation: Moderări globale
         newsletters: Buletine informative
@@ -535,6 +529,7 @@ ro:
         scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
+        statistics: Statistici
         taxonomy_filters: Filtre taxonomie
         users: Participanți
       models:
@@ -758,16 +753,7 @@ ro:
         edit:
           update: Actualizează
         form:
-          colors:
-            colors_title: Culorile organizației
-            colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
-          cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
-          homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
-          images:
-            layout_appearance_title: Editează aspectul aranjării în pagină
-            preview: Previzualizează
-          omnipresent_banner_appearance_title: Editează banner-ul omniprezent
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
@@ -937,7 +923,7 @@ ro:
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
-        statistics: Activitate
+        statistics: Statistici
         users: Administratori
       users:
         create:
@@ -1013,3 +999,5 @@ ro:
       admin:
         global_moderations:
           title: Moderare globală
+        insights:
+          title: Perspective

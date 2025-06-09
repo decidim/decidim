@@ -250,10 +250,11 @@ eu:
           email_subject: '"%{resource_title}" topaketan izena emateko epea ireki da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketan izena emateko epea ireki da.
         upcoming_meeting:
-          email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
-          email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino lehen hasiko da.
+          default_body: '"{{meeting_title}}" topaketa {{before_hours}} ordu baino lehen hasiko da.'
+          email_intro: '"%{resource_title}" topaketa %{reminders_before_hours} ordu baino lehen hasiko da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
+          email_subject: '"%{resource_title}" topaketa %{reminders_before_hours} ordu baino lehen hasiko da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa %{reminders_before_hours} ordu baino lehen hasiko da.
     forms:
       meetings:
         attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, online edo hibridoan.
@@ -393,6 +394,13 @@ eu:
           publish:
             invalid: Arazo bat egon da topaketa hau argitaratzean.
             success: Topaketa zuzen argitaratua.
+          reminders:
+            reminder_enabled: Bidali gogorarazpena topaketa honetarako
+            reminder_message: Gogorarazteko e-mailaren edukia
+            reminder_message_help_text: Pertsonalizatu mezua behar den bezala. Erabili {{meeting_title}} bilera-izena erakusteko.
+            send_reminder: Gogorarazteko e-maila programatuta
+            send_reminder_help_text: Topaketa egin baino lehen, zenbat ordu gogorarazteko.
+            title: Gogorarazpenak
           service:
             description: Deskribapena
             down: Behera
@@ -824,6 +832,8 @@ eu:
     statistics:
       attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
+      meetings_count_tooltip: Zenbat topaketa egin diren, online zein aurrez aurre.
+      participatory_space_meetings_count: Topaketak
   devise:
     mailer:
       join_meeting:
