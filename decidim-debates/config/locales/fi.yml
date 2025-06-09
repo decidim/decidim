@@ -30,6 +30,7 @@ fi:
         actions:
           comment: Kommentoi
           create: Luo keskustelu
+          like: Tykkää
         name: Keskustelut
         settings:
           global:
@@ -46,6 +47,8 @@ fi:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda keskusteluja
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
     debates:
       actions:
         close: Sulje
@@ -142,6 +145,7 @@ fi:
           state: Tila
           state_values:
             closed: Suljetut
+            ongoing: Käynnissä olevat
         index:
           new_debate: Uusi keskustelu
         new:
@@ -156,9 +160,13 @@ fi:
           updated: Viimeksi päivitetyt
         show:
           close_debate: Päätä
+          closed: Suljettu
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa
+          not_started: Ei aloitettu
+          ongoing: Käynnissä
+          open_ended: Avoin
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
@@ -259,6 +267,7 @@ fi:
           instructions: Keskustelun osallistumisohjeet
           last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
           last_comment_by: Keskustelun viimeisimmän kommentin laatimisaika
+          likes_count: Keskustelun tykkäysten lukumäärä
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
           reference: Keskustelun yksilöivä tunniste tällä alustalla
           start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
@@ -268,3 +277,4 @@ fi:
           url: URL-osoite keskusteluun
     statistics:
       debates_count: Keskustelua
+      debates_count_tooltip: Käytyjen keskustelujen lukumäärä.
