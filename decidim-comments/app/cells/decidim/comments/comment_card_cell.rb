@@ -9,6 +9,8 @@ module Decidim
       include Cell::ViewModel::Partial
 
       def show
+        return unless model.root_commentable
+
         cell card_size, model, options
       end
 
