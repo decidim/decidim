@@ -89,7 +89,7 @@ You can read more about the Rails upgrade process on the following PRs:
 
 * [Change framework defaults from Rails v6.1 to v7.0 #14735](https://github.com/decidim/decidim/pull/13267).
 * [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
-* [Rails official documentation](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
+* [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
 ### 1.5. Run these commands
 
