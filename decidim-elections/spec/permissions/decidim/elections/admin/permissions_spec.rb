@@ -5,65 +5,78 @@ require "spec_helper"
 describe Decidim::Elections::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: elections_component.organization) }
+  let(:user) { create(:user, organization: component.organization) }
+  let(:component) { create(:elections_component) }
+  let(:election) { create(:election, component:) }
   let(:context) do
     {
-      current_component: elections_component,
+      current_component: component,
       election:
     }
   end
-  let(:elections_component) { create(:elections_component) }
-  let(:election) { create(:election, component: elections_component) }
-  let(:permission_action) { Decidim::PermissionAction.new(**action) }
+  let(:permission_action) { Decidim::PermissionAction.new(scope: :admin, action: action_name, subject: action_subject) }
+  let(:action_name) { :foo }
+  let(:action_subject) { :foo }
+
+  shared_examples "requires an election" do
+    context "when election is present" do
+      it { is_expected.to be true }
+    end
+
+    context "when election is missing" do
+      let(:election) { nil }
+
+      it { is_expected.to be false }
+    end
+  end
 
   context "when scope is not admin" do
-    let(:action) do
-      { scope: :foo, action: :bar, subject: :debate }
-    end
+    let(:permission_action) { Decidim::PermissionAction.new(scope: :public, action: :create, subject: :election) }
 
     it_behaves_like "permission is not set"
   end
 
-  context "when subject is not debate" do
-    context "when subject is anything else" do
-      let(:action) do
-        { scope: :admin, action: :bar, subject: :foo }
-      end
-
-      it_behaves_like "permission is not set"
-    end
-  end
-
-  context "when action is a random one" do
-    let(:action) do
-      { scope: :admin, action: :bar, subject: :debate }
-    end
+  context "when subject is unknown" do
+    let(:action_subject) { :unknown }
 
     it_behaves_like "permission is not set"
   end
 
-  describe "create permission" do
-    let(:action) { { scope: :admin, action: :create, subject: :election } }
+  context "when subject is election" do
+    let(:action_subject) { :election }
 
-    it { is_expected.to be true }
+    context "when creating" do
+      let(:action_name) { :create }
+
+      it { is_expected.to be true }
+    end
+
+    context "when reading" do
+      let(:action_name) { :read }
+
+      it { is_expected.to be true }
+    end
+
+    context "when updating" do
+      let(:action_name) { :update }
+
+      it_behaves_like "requires an election"
+    end
   end
 
-  describe "read permission" do
-    let(:action) { { scope: :admin, action: :read, subject: :election } }
+  context "when subject is election_question" do
+    let(:action_subject) { :election_question }
 
-    it { is_expected.to be true }
-  end
+    context "when updating" do
+      let(:action_name) { :update }
 
-  describe "update permission with election present" do
-    let(:action) { { scope: :admin, action: :update, subject: :election } }
+      it_behaves_like "requires an election"
+    end
 
-    it { is_expected.to be true }
-  end
+    context "when reordering" do
+      let(:action_name) { :reorder }
 
-  describe "update permission without election" do
-    let(:election) { nil }
-    let(:action) { { scope: :admin, action: :update, subject: :election } }
-
-    it { is_expected.to be false }
+      it_behaves_like "requires an election"
+    end
   end
 end

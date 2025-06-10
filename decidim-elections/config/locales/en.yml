@@ -1,6 +1,18 @@
 ---
 en:
+  activemodel:
+    attributes:
+      token_csv:
+        file: File
+        remove_all: Remove all current census data
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Main
+          election_census: Census
+          election_dashboard: Dashboard
+          election_questions: Questions
     components:
       elections:
         name: Elections
@@ -18,13 +30,26 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
+        census:
+          edit:
+            choose_census: Choose the type of census you want to use for this election
+            created_at: Created at
+            identifier: User identifier
+            title: Type of census
+            voters_count: There are currently %{count} people eligible for voting in this election (this might change on a dynamic census).
+          preview:
+            title: 'User preview (the list is limited to %{limit} registers):'
+          update:
+            error: There was an error while generating or saving the census.
+            success: Census updated successfully.
         elections:
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
+          dashboard_page:
+            title: Dashboard
           edit:
             title: Edit election
-            update: Update election
           form:
             add_images: Add images
             attachment_legend: Add an image gallery (optional)
@@ -42,13 +67,13 @@ en:
               real_time: Real time
               real_time_help: Show results as soon as the first vote is submitted
               title: Results availability
+            save: Save and continue
             start_at: Start time
           index:
             title: Elections
           manage_trash:
             title: Deleted elections
           new:
-            create: Create election
             title: New election
           publish:
             invalid: There was a problem publishing the election.
@@ -59,6 +84,18 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
+        questions:
+          edit_questions:
+            new_question: New question
+            remove_question_confirm: Are you sure you want to remove this question?
+            title: Questions
+          form:
+            errors:
+              at_least_one_question: At least one question is required.
+            form_description: Question must have at least two answers in order go to the next step.
+          update:
+            invalid: There was a problem updating the questions.
+            success: Questions updated successfully.
       admin_log:
         election:
           create: "%{user_name} created the %{resource_name} election in %{space_name}"
@@ -67,6 +104,30 @@ en:
           soft_delete: "%{user_name} moved the %{resource_name} election in %{space_name} to the trash"
           unpublish: "%{user_name} unpublished the %{resource_name} election in %{space_name}"
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
+        question:
+          update: "%{user_name} updated the questions of the %{resource_name} election"
+      censuses:
+        internal_users:
+          info_html: |
+            You can restrict participation in the election to participants who have an authorization.<br>
+            Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
+          internal_type_title: Additional required authorizations to vote (optional)
+          label: Registered participants (dynamic)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
+            It must be separated with a semicolon (;)
+          label: Unregistered participants with tokens (fixed)
+          remove_before_upload: 'If you want to upload a new census, you must first remove the existing one.
+
+            '
+          upload_file: Upload file
+          upload_new_census: Upload a CSV file
+          uploaded_data: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
       models:
         election:
           fields:

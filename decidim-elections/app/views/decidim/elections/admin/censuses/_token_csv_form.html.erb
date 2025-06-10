@@ -1,0 +1,16 @@
+<% if census_count.positive? %>
+  <div class="row column mb-4 font-semibold border p-4 rounded w-1/2">
+    <%= form.check_box :remove_all, help_text: t("decidim.elections.censuses.token_csv.remove_before_upload") %>
+  </div>
+<% else %>
+  <div class="row column font-semibold pb-4"><%= t("decidim.elections.censuses.token_csv.upload_new_census") %></div>
+      <div class="row column">
+      <p class="mb-2"><%= t("decidim.elections.censuses.token_csv.info_html") %></p>
+      <pre class="code-block"><%= t("decidim.elections.censuses.token_csv.example") %></pre>
+      </div>
+      <div class="row column">
+      <div class="font-semibold">
+          <%= form.upload :file, button_label: t("decidim.elections.censuses.token_csv.upload_file"), help_i18n_scope: "decidim.admin.forms.file_help.import_csv", button_class: "button button__sm button__transparent-secondary" %>
+      </div>
+  </div>
+<% end %>

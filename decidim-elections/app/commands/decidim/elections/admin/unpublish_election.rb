@@ -4,11 +4,11 @@ module Decidim
   module Elections
     module Admin
       # A command with all the business logic that unpublishes an
-      # existing meeting.
+      # existing election.
       class UnpublishElection < Decidim::Command
         # Public: initializes the command.
         #
-        # meeting - Decidim::Elections::Election
+        # election - Decidim::Elections::Election
         # current_user - the user performing the action
         def initialize(election, current_user)
           @election = election
