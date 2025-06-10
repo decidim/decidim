@@ -1,0 +1,36 @@
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title flex items-center justify-between">
+        <%= t("decidim.elections.admin.dashboard.questions.title") %>
+        <%= link_to edit_questions_election_path(election), class: "flex items-end justify-between gap-x-3" do %>
+          <span class="border-b-2"><%= icon "pencil-line", class: "!w-4 !h-4" %></span>
+          <span class="border-b-2 text-sm"><%= t("actions.edit", scope: "decidim.admin") %></span>
+        <% end %>
+      </h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column mb-2">
+        <% election.questions.limit(3).each_with_index do |question, index| %>
+          <div class="card mb-4">
+            <div class="row column">
+              <h6 class="h6 pt-4 mb-2"><%= t("decidim.elections.admin.dashboard.questions.labels.question_title", number: index + 1) %></h6>
+              <p class="mb-2"><%= translated_attribute(question.body) %></p>
+              <%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:
+              <ul>
+                <% question.response_options.each_with_index do |option, opt_index| %>
+                  <li><%= "#{('a'.ord + opt_index).chr})" %> <%= translated_attribute(option.body) %></li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+
+        <% if election.questions.count > 3 %>
+          <div class="mt-4"><%= t("decidim.elections.admin.dashboard.questions.limit_info") %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

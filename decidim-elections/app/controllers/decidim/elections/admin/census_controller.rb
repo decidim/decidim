@@ -4,7 +4,9 @@ module Decidim
   module Elections
     module Admin
       class CensusController < Admin::ApplicationController
-        helper_method :election, :census_manifests, :census_count, :preview_users, :user_identifier
+        helper Decidim::Elections::Admin::ElectionsHelper
+
+        helper_method :election, :census_manifests
 
         before_action :set_census_manifest, only: [:edit, :update]
 
@@ -43,24 +45,6 @@ module Decidim
 
         def election
           @election ||= Decidim::Elections::Election.where(component: current_component).find(params[:id])
-        end
-
-        def census_count
-          @census_count ||= election.census&.count(election).to_i
-        end
-
-        def preview_users
-          return unless election.census_ready?
-
-          @preview_users ||= election.census&.users(election, 0)&.map do |user|
-            present_user(user)
-          end
-        end
-
-        def present_user(user)
-          return user unless election.census
-
-          election.census.user_presenter.constantize.new(user)
         end
       end
     end

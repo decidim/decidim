@@ -30,6 +30,24 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
+        dashboard:
+          publish_confirm: Are you sure you want to publish this election?
+          main:
+            labels:
+              title: Title
+              description: Description
+              image: Image gallery
+              calendar: Calendar
+              results: Results availability
+            title: Main
+          questions:
+            limit_info: This election has more questions. The preview is limited to 3 questions.
+            labels:
+              question_title: Question %{number}
+              answers: Answers
+            title: Questions
+          census:
+            title: Census
         census:
           edit:
             choose_census: Choose the type of census you want to use for this election
@@ -51,6 +69,7 @@ en:
           edit:
             title: Edit election
           form:
+            publish: Publish
             add_images: Add images
             attachment_legend: Add an image gallery (optional)
             basic_title: Basic info

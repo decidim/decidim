@@ -4,6 +4,7 @@ module Decidim
   module Elections
     module Admin
       class ElectionsController < Admin::ApplicationController
+        helper Decidim::Elections::Admin::ElectionsHelper
         include Decidim::Admin::HasTrashableResources
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable

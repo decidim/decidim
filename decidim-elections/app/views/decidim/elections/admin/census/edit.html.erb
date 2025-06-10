@@ -14,20 +14,21 @@
                  id: "census-manifest-selector" %>
 
 </div>
-  <% if election.census_ready? %>
-   <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data", election_title: translated_attribute(election.title)) %>
-   <% announcement += "<br>" + t(".voters_count", count: "<strong>#{census_count}</strong>") %>
-    <%= cell "decidim/announcement", announcement, callout_class: "success" %>
-  <% end %>
+<% if election.census_ready? %>
+  <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data", election_title: translated_attribute(election.title)) %>
+  <% announcement += "<br>" + t(".voters_count", count: "<strong>#{census_count(election)}</strong>") %>
+  <%= cell "decidim/announcement", announcement, callout_class: "success" %>
+<% end %>
 <div class="card-section census-form form-defaults">
   <% if @form && election.census&.admin_form_partial %>
     <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name),
-                                method: :patch,
-                                multipart: true,
-                                html: { id: "census-election-form" }) do |f| %>
+                         method: :patch,
+                         multipart: true,
+                         html: { id: "census-election-form" }) do |f| %>
       <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
     <% end %>
   <% end %>
-
-  <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users.present? %>
+  <div class="border-t border-gray-3 my-4">
+    <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users(election).present? %>
+  </div>
 </div>

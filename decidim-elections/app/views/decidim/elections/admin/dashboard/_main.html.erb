@@ -1,0 +1,41 @@
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title flex items-center justify-between">
+        <%= t("decidim.elections.admin.dashboard.main.title") %>
+        <%= link_to edit_election_path(election), class: "flex items-end justify-between gap-x-3" do %>
+          <span class="border-b-2"><%= icon "pencil-line", class: "!w-4 !h-4" %></span>
+          <span class="border-b-2 text-sm"><%= t("actions.edit", scope: "decidim.admin") %></span>
+        <% end %>
+      </h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column mb-2">
+        <h3><%= t("labels.title", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <div><%= translated_attribute election.title %></div>
+      </div>
+      <div class="row column mb-2">
+        <h3><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <div><%= decidim_sanitize_translated election.description %></div>
+      </div>
+      <div class="row column mb-2">
+        <h3><%= t("labels.image", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <div>
+          <!--        image gallery-->
+        </div>
+      </div>
+      <div class="row column mb-2">
+        <h3><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <div><%= election.start_at.strftime("%d/%m/%Y %H:%M") %> – <%= election.end_at.strftime("%d/%m/%Y %H:%M") %></div>
+      </div>
+      <div class="row column">
+        <h3><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <div>
+          <%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}") %>
+          (<%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}_help") %>)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
