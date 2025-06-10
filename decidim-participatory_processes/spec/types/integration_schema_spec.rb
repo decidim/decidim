@@ -80,7 +80,6 @@ describe "Decidim::Api::QueryType" do
           developerGroup{
             translation(locale: "#{locale}")
           }
-          hashtag
           id
           localArea {
             translation(locale: "#{locale}")
@@ -198,7 +197,6 @@ describe "Decidim::Api::QueryType" do
         "createdAt" => participatory_process_group.created_at.to_time.iso8601,
         "description" => { "translation" => participatory_process_group.description[locale] },
         "developerGroup" => { "translation" => participatory_process_group.developer_group[locale] },
-        "hashtag" => participatory_process_group.hashtag,
         "id" => participatory_process_group.id.to_s,
         "localArea" => { "translation" => participatory_process_group.local_area[locale] },
         "metaScope" => { "translation" => participatory_process_group.meta_scope[locale] },
