@@ -18,9 +18,11 @@ describe "User prints the initiative" do
       it "Updates published initiative data" do
         page.find(".action-icon--edit").click
 
-        within ".edit_initiative" do
-          fill_in :initiative_title, with: "This is an updated title"
-        end
+        fill_in_i18n_editor(
+          :initiative_description,
+          "#initiative-description-tabs",
+          **attributes[:description].except("machine_translations")
+        )
 
         within("[data-content]") do
           find("*[type=submit]").click
