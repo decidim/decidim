@@ -57,6 +57,7 @@ module Decidim
 
       context "when the proposal has a mention" do
         let(:organization) { proposal.organization }
+
         before do
           body = "Proposal with @user"
           parsed_body = Decidim::ContentProcessor.parse(body, current_organization: proposal.organization)
