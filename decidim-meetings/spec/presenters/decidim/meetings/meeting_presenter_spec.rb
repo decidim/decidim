@@ -111,5 +111,16 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "#editor_description" do
+      let(:meeting) { create(:meeting, component: meeting_component, description:) }
+      let(:description) { { en: html, es: html } }
+
+      include_context "with editor content containing mentions"
+
+      it "converts the mentions to WYSIWYG editor ready elements" do
+        expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
+      end
+    end
   end
 end

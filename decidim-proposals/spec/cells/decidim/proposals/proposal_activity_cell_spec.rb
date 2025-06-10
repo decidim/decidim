@@ -54,6 +54,22 @@ module Decidim
           end
         end
       end
+
+      context "when the proposal has a mention" do
+        before do
+          body = "Proposal with @user"
+          parsed_body = Decidim::ContentProcessor.parse(body, current_organization: proposal.organization)
+          proposal.body = { en: parsed_body.rewrite }
+          proposal.save
+        end
+
+        include_context "with editor content containing mentions"
+
+        it "correctly renders proposals with mentions" do
+          html = cell("decidim/proposals/proposal_activity", action_log).call
+          expect(html).to have_no_content("gid://")
+        end
+      end
     end
   end
 end
