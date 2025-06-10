@@ -89,7 +89,7 @@ describe Decidim::MetaImageUrlResolver do
     let(:resource) { proposal }
     let(:attachment) { nil }
 
-    it { is_expected.to end_with("icon.png") }
+    it { is_expected.to end_with("/description_image.jpg") }
   end
 
   context "when no previous images and belongs to a participatory space" do
