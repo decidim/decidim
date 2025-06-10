@@ -44,11 +44,12 @@ module Decidim
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
 
-      describe "weight" do
-        let(:query) { "{ weight }" }
+        describe "weight" do
+          let(:query) { "{ weight }" }
 
-        it "returns the process' weight" do
-          expect(response["weight"]).to eq(model.weight)
+          it "returns the process' weight" do
+            expect(response["weight"]).to eq(model.weight)
+          end
         end
       end
 
