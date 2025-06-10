@@ -381,9 +381,9 @@ FactoryBot.define do
 
     trait :accepted_not_published do
       state { :accepted }
+      answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { nil }
-      answer { generate_localized_title }
     end
 
     trait :with_answer do

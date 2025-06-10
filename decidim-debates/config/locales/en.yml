@@ -146,7 +146,7 @@ en:
           state: Status
           state_values:
             closed: Closed
-            open: Open
+            ongoing: Ongoing
         index:
           new_debate: New debate
         new:
@@ -161,11 +161,13 @@ en:
           updated: Recently updated
         show:
           close_debate: Close
-          debate_closed: Closed
+          closed: Closed
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit
-          open: Open debate
+          not_started: Not started
+          ongoing: Ongoing
+          open_ended: Open ended
           participants_count: Participants
         update:
           invalid: There was a problem updating the debate.

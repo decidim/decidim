@@ -13,6 +13,9 @@ module Decidim
 
       include_examples "attachable interface"
       include_examples "taxonomizable interface"
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -41,16 +44,11 @@ module Decidim
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
 
-        it "returns when the process was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
+      describe "weight" do
+        let(:query) { "{ weight }" }
 
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the process was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns the process' weight" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 
@@ -180,14 +178,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the process' reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 
