@@ -10,6 +10,8 @@ module Decidim
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::CategoriesContainerInterface
+      implements Decidim::Core::FollowableInterface
+      implements Decidim::Core::ReferableInterface
 
       description "A participatory process"
 
@@ -25,19 +27,19 @@ module Decidim
       field :participatory_process_group, Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType,
             null: true,
             description: "The participatory process group in which this process belong to"
-      field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process.", null: true
-      field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process.", null: true
+      field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process", null: true
+      field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process", null: true
+      field :private_space, GraphQL::Types::Boolean, "Specifies if the space is public or private", null: true
       field :promoted, GraphQL::Types::Boolean, "If this participatory process is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
-      field :reference, GraphQL::Types::String, "Reference prefix for this participatory process", null: true
-      field :scopes_enabled, GraphQL::Types::Boolean, "If this participatory process has scopes enabled", null: true
-      field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process.", null: true
-      field :slug, GraphQL::Types::String, "The slug of the Participatory Process", null: false
-      field :start_date, Decidim::Core::DateType, "This participatory process' start date.", null: true
-      field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this process.", null: false
-      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process.", null: true
-      field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process.", null: true
-      field :url, GraphQL::Types::String, "The URL of this participatory process.", null: true
+      field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process", null: true
+      field :slug, GraphQL::Types::String, "The slug of the participatory process", null: false
+      field :start_date, Decidim::Core::DateType, "This participatory process' start date", null: true
+      field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this participatory process", null: false
+      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process", null: true
+      field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process", null: true
+      field :url, GraphQL::Types::String, "The URL of this participatory process", null: true
+      field :weight, GraphQL::Types::Int, "The weight of this participatory process", null: true
 
       def url
         Decidim::EngineRouter.main_proxy(object).participatory_process_url(object)
