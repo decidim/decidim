@@ -70,5 +70,3 @@
 # deploying to a memory constrained environment you may want to set this to `false`.
 #++
 # Rails.application.config.yjit = true
-
-raise "this file is being loaded"
