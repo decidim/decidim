@@ -27,7 +27,7 @@ shared_examples "inviting participatory space moderators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         within("tr", text: translated(participatory_space.title)) do
           find("button[data-component='dropdown']").click
           click_on "Moderate"
@@ -58,7 +58,7 @@ shared_examples "inviting participatory space moderators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
         within("tr", text: translated(participatory_space.title)) do
           find("button[data-component='dropdown']").click
