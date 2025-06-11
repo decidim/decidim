@@ -148,7 +148,10 @@ class DynamicFieldsComponent {
       $template = $wrapper.children(`template, ${templateClass}`);
     }
 
-    const $newField = $($template.html()).template(this.placeholderId, this._getUID());
+    // Clean any comment or text nodes that may be present in the template.
+    const $templateNode = $($template.html()).filter((_, el) => el.nodeType === Node.ELEMENT_NODE);
+
+    const $newField = $templateNode.template(this.placeholderId, this._getUID());
 
     $newField.find("ul.tabs").attr("data-tabs", true);
 
