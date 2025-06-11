@@ -181,10 +181,10 @@ shared_examples "comments" do
         click_on "Accept all"
         login_as user, scope: :user
         visit resource_path
-      end
-
-      it "shows the add comment button" do
-        expect(page).to have_content("Add comment")
+        if page.has_content?("Log in")
+          login_as user, scope: :user
+          visit resource_path
+        end
       end
 
       it "does not show a message so user can Log in or create an account" do
@@ -192,7 +192,6 @@ shared_examples "comments" do
       end
 
       it "shows a modal with the comment form" do
-        sleep(2)
         expect(page).to have_content("Add comment")
         click_on "Add comment"
 
