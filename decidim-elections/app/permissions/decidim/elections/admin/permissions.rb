@@ -29,6 +29,8 @@ module Decidim
             allow!
           when :update
             toggle_allow(election.present?)
+          when :publish
+            toggle_allow(election&.questions&.exists? && election&.census_ready? && !election&.published?)
           end
         end
 

@@ -27,7 +27,7 @@
       </div>
       <div class="row column mb-2">
         <h3><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h3>
-        <div><%= election.start_at.strftime("%d/%m/%Y %H:%M") %> – <%= election.end_at.strftime("%d/%m/%Y %H:%M") %></div>
+        <div><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : election.start_at.strftime("%d/%m/%Y %H:%M") %> – <%= election.end_at.strftime("%d/%m/%Y %H:%M") %></div>
       </div>
       <div class="row column">
         <h3><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h3>

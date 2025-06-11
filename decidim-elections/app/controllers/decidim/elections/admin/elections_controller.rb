@@ -64,7 +64,7 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to(:publish, :election, election:)
 
           PublishElection.call(election, current_user) do
             on(:ok) do

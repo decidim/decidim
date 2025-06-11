@@ -18,6 +18,8 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
 
+      delegate :scheduled?, :started?, :ongoing?, :finished?, :results_published?, to: :status
+
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
@@ -30,6 +32,10 @@ module Decidim
       validates :title, presence: true
 
       enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: "results"
+
+      scope :upcoming, -> { published.where(start_at: Time.current..) }
+      scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
+      scope :finished, -> { published.where(end_at: ..Time.current) }
 
       searchable_fields(
         A: :title,
@@ -70,6 +76,10 @@ module Decidim
         return false if census.nil?
 
         census.ready?(self)
+      end
+
+      def status
+        @status ||= Decidim::Elections::ElectionStatus.new(self)
       end
     end
   end

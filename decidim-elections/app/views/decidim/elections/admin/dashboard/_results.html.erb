@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("decidim.elections.admin.dashboard.results.title") %>
+    </h2>
+  </div>
+
+  <div class="pb-4">
+    <div class="row column">
+      <% unless election.results_published? %>
+        <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.no_results") %>
+      <% end %>
+    </div>
+  </div>
+</div>

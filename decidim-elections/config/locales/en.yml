@@ -30,24 +30,6 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
-        dashboard:
-          publish_confirm: Are you sure you want to publish this election?
-          main:
-            labels:
-              title: Title
-              description: Description
-              image: Image gallery
-              calendar: Calendar
-              results: Results availability
-            title: Main
-          questions:
-            limit_info: This election has more questions. The preview is limited to 3 questions.
-            labels:
-              question_title: Question %{number}
-              answers: Answers
-            title: Questions
-          census:
-            title: Census
         census:
           edit:
             choose_census: Choose the type of census you want to use for this election
@@ -60,6 +42,36 @@ en:
           update:
             error: There was an error while generating or saving the census.
             success: Census updated successfully.
+        dashboard:
+          calendar:
+            end_election: End election
+            manual_start: Manual
+            end_at: "End time:"
+            start_at: "Start time:"
+            title: Calendar
+            start_election: Start election
+          census:
+            title: Census
+          main:
+            labels:
+              calendar: Calendar
+              description: Description
+              image: Image gallery
+              results: Results availability
+              title: Title
+            title: Main
+          publish_confirm: Are you sure you want to publish this election?
+          questions:
+            labels:
+              answers: Answers
+              question_title: Question %{number}
+            limit_info: This election has more questions. The preview is limited to 3 questions.
+            title: Questions
+          results:
+            no_results: There are no results yet.
+            title: Results
+          status:
+            title: Status
         elections:
           create:
             invalid: There was a problem creating the election.
@@ -69,7 +81,6 @@ en:
           edit:
             title: Edit election
           form:
-            publish: Publish
             add_images: Add images
             attachment_legend: Add an image gallery (optional)
             basic_title: Basic info
@@ -78,6 +89,7 @@ en:
             edit_attachments: Edit attachments
             end_at: End time
             manual_start: Manual start
+            publish: Publish
             results_availability:
               after_end: After elections end
               after_end_help: Show results only when the election is ended
@@ -153,5 +165,14 @@ en:
             end_at: End time
             start_at: Start time
             title: Title
+      status:
+        active: Active
+        ended: Ended
+        ongoing: Ongoing
+        published_results: Published results
+        scheduled: Scheduled
     statistics:
       elections_count: Elections
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"
