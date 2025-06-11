@@ -29,7 +29,7 @@ module Decidim
         end
 
         def reporting_user
-          @reporting_user ||= Decidim::User.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email)
+          @reporting_user ||= Decidim::User.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email, organization: @author.organization)
         end
       end
     end
