@@ -128,8 +128,11 @@
       }
 
       span {
-        @apply text-sm text-gray-2 mx-auto;
+        @apply text-sm text-gray-2 mx-auto w-full break-all mb-2;
       }
     }
+  }
+  &__span {
+    @apply w-full break-all mb-2;
   }
 }
