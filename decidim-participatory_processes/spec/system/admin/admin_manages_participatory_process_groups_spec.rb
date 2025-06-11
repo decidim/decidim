@@ -74,6 +74,7 @@ describe "Admin manages participatory process groups" do
 
     it "can edit them" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -109,6 +110,7 @@ describe "Admin manages participatory process groups" do
 
     it "validates the group attributes" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -129,6 +131,7 @@ describe "Admin manages participatory process groups" do
 
     it "can remove its image" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -146,6 +149,7 @@ describe "Admin manages participatory process groups" do
 
     it "can delete them" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -158,6 +162,7 @@ describe "Admin manages participatory process groups" do
 
     it "has a link to the landing page" do
       within "tr", text: participatory_process_group.title["en"] do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
