@@ -2,84 +2,86 @@
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
-<ul id="actions-conference-<%= conference.id %>" class="dropdown dropdown__action" aria-hidden="true">
-  <% if view == :deleted %>
-    <% if allowed_to? :restore, :conference, trashable_deleted_resource: conference %>
-      <li class="dropdown__item">
-        <%= link_to restore_conference_path(conference), class: "dropdown__button", method: :patch do %>
-          <%= icon "refresh-line" %>
-          <%= t("decidim.admin.actions.restore") %>
-        <% end %>
-      </li>
-    <% end %>
-  <% else %>
-    <% if allowed_to? :update, :conference, conference: conference %>
-      <li class="dropdown__item">
-        <%= link_to edit_conference_path(conference), class: "dropdown__button" do %>
-          <%= icon "pencil-line" %>
-          <%= t("decidim.admin.actions.configure") %>
-        <% end %>
-      </li>
-    <% end %>
-
-    <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
-      <li class="dropdown__item">
-        <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
-          <%= icon "share-line" %>
-          <%= t("actions.share_tokens", scope: "decidim.admin") %>
-        <% end %>
-      </li>
-    <% end %>
-
-    <% if allowed_to? :create, :conference, conference: conference %>
-      <li class="dropdown__item">
-        <%= link_to new_conference_copy_path(conference), class: "dropdown__button" do %>
-          <%= icon "file-copy-line" %>
-          <%= t("decidim.admin.actions.duplicate") %>
-        <% end %>
-      </li>
-    <% end %>
-
-    <% if allowed_to? :preview, :conference, conference: conference %>
-      <li class="dropdown__item">
-        <%= link_to decidim_conferences.conference_path(conference), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
-          <%= icon "eye-line" %>
-          <%= t("decidim.admin.actions.preview") %>
-        <% end %>
-      </li>
-    <% end %>
-
-    <hr>
-
-    <% if allowed_to? :read, :moderation, conference: conference %>
-      <li class="dropdown__item">
-        <%= link_to moderations_path(conference), class: "dropdown__button" do %>
-          <%= icon "flag-line" %>
-          <%= t("decidim.admin.actions.moderate") %>
-        <% end %>
-      </li>
-    <% end %>
-
-    <% if allowed_to? :soft_delete, :conference, trashable_deleted_resource: conference %>
-      <% if conference.published? %>
+<div class="inline-block relative">
+  <ul id="actions-conference-<%= conference.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted %>
+      <% if allowed_to? :restore, :conference, trashable_deleted_resource: conference %>
         <li class="dropdown__item">
-          <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.deleted_conferences_info", scope: "decidim.admin") do %>
-              <%= icon "delete-bin-line", class: "text-gray" %>
-              <span>
-                <%= t("decidim.admin.actions.soft_delete") %>
-              </span>
-            <% end %>
-          </div>
-        </li>
-      <% else %>
-        <li class="dropdown__item">
-          <%= link_to soft_delete_conference_path(conference), class: "dropdown__button", method: :patch, data: { confirm: t("decidim.admin.actions.confirm_delete_conference") } do %>
-            <%= icon "delete-bin-line" %>
-            <%= t("decidim.admin.actions.soft_delete") %>
+          <%= link_to restore_conference_path(conference), class: "dropdown__button", method: :patch do %>
+            <%= icon "refresh-line" %>
+            <%= t("decidim.admin.actions.restore") %>
           <% end %>
         </li>
       <% end %>
+    <% else %>
+      <% if allowed_to? :update, :conference, conference: conference %>
+        <li class="dropdown__item">
+          <%= link_to edit_conference_path(conference), class: "dropdown__button" do %>
+            <%= icon "pencil-line" %>
+            <%= t("decidim.admin.actions.configure") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
+        <li class="dropdown__item">
+          <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
+            <%= icon "share-line" %>
+            <%= t("actions.share_tokens", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :create, :conference, conference: conference %>
+        <li class="dropdown__item">
+          <%= link_to new_conference_copy_path(conference), class: "dropdown__button" do %>
+            <%= icon "file-copy-line" %>
+            <%= t("decidim.admin.actions.duplicate") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :preview, :conference, conference: conference %>
+        <li class="dropdown__item">
+          <%= link_to decidim_conferences.conference_path(conference), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+            <%= icon "eye-line" %>
+            <%= t("decidim.admin.actions.preview") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <hr>
+
+      <% if allowed_to? :read, :moderation, conference: conference %>
+        <li class="dropdown__item">
+          <%= link_to moderations_path(conference), class: "dropdown__button" do %>
+            <%= icon "flag-line" %>
+            <%= t("decidim.admin.actions.moderate") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :soft_delete, :conference, trashable_deleted_resource: conference %>
+        <% if conference.published? %>
+          <li class="dropdown__item">
+            <div class="dropdown__button-disabled">
+              <%= with_tooltip t("tooltips.deleted_conferences_info", scope: "decidim.admin") do %>
+                <%= icon "delete-bin-line", class: "text-gray" %>
+                <span>
+                  <%= t("decidim.admin.actions.soft_delete") %>
+                </span>
+              <% end %>
+            </div>
+          </li>
+        <% else %>
+          <li class="dropdown__item">
+            <%= link_to soft_delete_conference_path(conference), class: "dropdown__button", method: :patch, data: { confirm: t("decidim.admin.actions.confirm_delete_conference") } do %>
+              <%= icon "delete-bin-line" %>
+              <%= t("decidim.admin.actions.soft_delete") %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
