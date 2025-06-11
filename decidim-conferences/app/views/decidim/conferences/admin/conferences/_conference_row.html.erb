@@ -14,6 +14,7 @@
   </td>
   <td data-label="<%= t("models.conference.fields.created_at", scope: "decidim.admin") %>">
     <%= l conference.created_at, format: :short %>
+  </td>
   <td class="table-list__state" data-label="<%= t("models.conference.fields.published", scope: "decidim.admin") %>">
     <% if conference.published? %>
       <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
