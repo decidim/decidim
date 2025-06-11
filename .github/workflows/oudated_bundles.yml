@@ -1,0 +1,41 @@
+name: "[CI] Outdated bundles"
+
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+
+env:
+  CI: "true"
+  RUBY_VERSION: 3.3.4
+  NODE_VERSION: 22.14.0
+  PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  patches:
+    runs-on: ubuntu-22.04
+    name: "Outdated bundles"
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: false
+      - run: bundle outdated --filter-patch || exit 125
+        name: Searching for Patch updates
+        shell: "bash"
