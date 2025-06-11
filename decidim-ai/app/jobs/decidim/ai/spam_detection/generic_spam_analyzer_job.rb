@@ -8,6 +8,7 @@ module Decidim
 
         def perform(reportable, author, locale, fields)
           @author = author
+          @organization = reportable.organization
           overall_score = I18n.with_locale(locale) do
             fields.map do |field|
               classifier.classify(translated_attribute(reportable.send(field)))
@@ -29,7 +30,7 @@ module Decidim
         end
 
         def reporting_user
-          @reporting_user ||= Decidim::User.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email, organization: @author.organization)
+          @reporting_user ||= Decidim::User.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email, organization: @organization)
         end
       end
     end
