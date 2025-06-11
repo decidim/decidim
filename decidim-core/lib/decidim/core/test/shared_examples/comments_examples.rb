@@ -571,6 +571,8 @@ shared_examples "comments" do
           field.native.send_keys content
           click_on "Publish comment"
         end
+
+        sleep(1)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
