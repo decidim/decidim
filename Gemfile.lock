@@ -829,7 +829,7 @@ GEM
     valid_email2 (7.0.0)
       activemodel (>= 6.0)
       mail (~> 2.5)
-    version_gem (1.1.4)
+    version_gem (1.1.8)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
