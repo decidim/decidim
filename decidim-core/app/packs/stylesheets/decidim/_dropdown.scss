@@ -133,7 +133,7 @@
   }
 
   &__action {
-    transform: translateX(-50%);
+    @apply top-full left-0 md:right-0 md:left-auto;
 
     li {
       @apply border-none;
