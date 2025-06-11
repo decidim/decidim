@@ -31,13 +31,13 @@
           <% end %>
 
           <% if has_title? %>
-            <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
+            <span><%= title_for(attachment) %></span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
             <% if blob(attachment).image? %>
-              <span><%= truncated_file_name_for(attachment, 15) %></span>
+              <span><%= attachment %></span>
             <% else %>
-              <%= link_to truncated_file_name_for(attachment), file_attachment_path(attachment) %>
+              <%= link_to attachment, file_attachment_path(attachment), class: "w-full break-all mb-2" %>
             <% end %>
           <% end %>
         </div>
