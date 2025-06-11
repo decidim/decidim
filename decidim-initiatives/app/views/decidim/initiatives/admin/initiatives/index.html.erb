@@ -69,6 +69,8 @@
                     </li>
                   <% end %>
 
+                  <hr>
+
                   <% if allowed_to?(:answer, :initiative, initiative: initiative) %>
                     <li class="dropdown__item">
                       <%= link_to edit_initiative_answer_path(initiative.slug), class: "dropdown__button" do %>
@@ -95,6 +97,8 @@
                       <% end %>
                     </li>
                   <% end %>
+
+                  <hr>
 
                   <% if allowed_to? :preview, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
