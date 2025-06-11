@@ -294,7 +294,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.2.1)
+    bigdecimal (3.2.2)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -826,7 +826,7 @@ GEM
     uniform_notifier (1.16.0)
     uri (1.0.2)
     useragent (0.16.11)
-    valid_email2 (7.0.0)
+    valid_email2 (7.0.13)
       activemodel (>= 6.0)
       mail (~> 2.5)
     version_gem (1.1.8)
