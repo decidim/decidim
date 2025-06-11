@@ -10,6 +10,9 @@ on:
     branches-ignore:
       - "chore/l10n*"
 
+permissions:
+  contents: read
+
 env:
   CI: "true"
   RUBY_VERSION: 3.3.4
