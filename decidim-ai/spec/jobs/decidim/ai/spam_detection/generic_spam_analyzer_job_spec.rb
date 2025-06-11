@@ -24,7 +24,7 @@ describe Decidim::Ai::SpamDetection::GenericSpamAnalyzerJob do
 
     it "finds the user by email" do
       obj = subject.new
-      obj.instance_variable_set(:@author, user_two)
+      obj.instance_variable_set(:@organization, organization_two)
       expect(obj.send(:reporting_user)).to eq user_two
     end
   end

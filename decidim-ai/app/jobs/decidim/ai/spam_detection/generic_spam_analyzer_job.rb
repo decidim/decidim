@@ -9,6 +9,7 @@ module Decidim
         def perform(reportable, author, locale, fields)
           @author = author
           @organization = reportable.organization
+
           overall_score = I18n.with_locale(locale) do
             fields.map do |field|
               classifier.classify(translated_attribute(reportable.send(field)))
