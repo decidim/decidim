@@ -572,7 +572,7 @@ shared_examples "comments" do
           click_on "Publish comment"
         end
 
-        sleep(1)
+        expect(page).to have_content(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
