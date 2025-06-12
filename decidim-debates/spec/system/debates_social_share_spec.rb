@@ -30,7 +30,7 @@ describe "Social shares" do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "a social share meta tag", "description_image.jpeg"
+  it_behaves_like "a social share meta tag", "description_image.jpg"
   it_behaves_like "a social share widget"
   it_behaves_like "a social share via QR code" do
     context "when the resource is moderated" do

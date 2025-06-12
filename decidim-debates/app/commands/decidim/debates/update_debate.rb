@@ -47,7 +47,7 @@ module Decidim
 
       def attributes
         parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
-        parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse_with_processor(:inline_images, debate.description, current_organization: debate.organization).rewrite
         super.merge({
                       title: { I18n.locale => parsed_title },
                       description: { I18n.locale => parsed_description }
