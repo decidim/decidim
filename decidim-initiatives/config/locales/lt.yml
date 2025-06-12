@@ -431,13 +431,6 @@ lt:
         initiatives:
           closed_initiatives_warning: Šiuo metu atvirų iniciatyvų nėra, tačiau čia galite rasti visų baigtų svarstyti iniciatyvų sąrašą.
           no_initiatives_warning: Jūsų paieškos kriterijus atitinkančių iniciatyvų nerasta.
-        interactions:
-          comments_count:
-            count:
-              one: Komentaras
-              few: Komentarai
-              many: Komentarai
-              other: Komentarai
         orders:
           label: 'Rūšiuoti iniciatyvas pagal:'
           most_commented: Labiausiai komentuota
