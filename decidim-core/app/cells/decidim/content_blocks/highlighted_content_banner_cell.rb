@@ -32,7 +32,7 @@ module Decidim
       private
 
       def render?
-        required_keys = %i[title short_description action_button_title action_button_subtitle action_button_url]
+        required_keys = [:title, :short_description, :action_button_title, :action_button_subtitle, :action_button_url]
         required_keys.all? { |key| model.settings.public_send(key).present? }
       end
     end
