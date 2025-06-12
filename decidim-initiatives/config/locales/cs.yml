@@ -548,13 +548,6 @@ cs:
         initiatives:
           closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
           no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
-        interactions:
-          comments_count:
-            count:
-              one: Komentář
-              few: Komentáře
-              many: Komentáře
-              other: Komentáře
         orders:
           label: 'Seřadit iniciativy podle:'
           most_commented: Nejvíce komentované
