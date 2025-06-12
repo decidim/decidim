@@ -430,6 +430,7 @@ fi-pl:
         related_assemblies: Liittyvät ryhmät
     statistics:
       assemblies_count: Ryhmää
+      assemblies_count_tooltip: Julkisten ryhmien lukumäärä, missä on tehty päätöksiä.
   layouts:
     decidim:
       assemblies:
