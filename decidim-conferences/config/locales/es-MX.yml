@@ -218,6 +218,7 @@ es-MX:
       models:
         conference:
           fields:
+            actions: Acciones
             created_at: Creada en
             published: Publicada
             title: Título
