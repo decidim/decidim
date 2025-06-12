@@ -543,11 +543,6 @@ fi:
         initiatives:
           closed_initiatives_warning: Tällä hetkellä yhtään aloitetta ei ole avoimena, mutta tästä listasta löydät kaikki suljetut aloitteet.
           no_initiatives_warning: Yhtään aloitetta ei löytynyt hakukriteereilläsi.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentti
-              other: Kommenttia
         orders:
           label: 'Lajittele aloitteita:'
           most_commented: Eniten kommentoidut
