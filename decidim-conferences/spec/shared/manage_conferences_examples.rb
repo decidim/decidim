@@ -64,6 +64,7 @@ shared_examples "manage conferences" do
 
     before do
       within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end
@@ -99,6 +100,7 @@ shared_examples "manage conferences" do
   describe "updating a conference without images" do
     before do
       within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end
@@ -136,6 +138,7 @@ shared_examples "manage conferences" do
 
       it "allows the user to preview the unpublished conference" do
         within "tr", text: translated(conference.title) do
+          find("button[data-component='dropdown']").click
           click_on "Preview"
         end
 
@@ -149,6 +152,7 @@ shared_examples "manage conferences" do
       it "allows the user to preview the unpublished conference" do
         new_window = window_opened_by do
           within "tr", text: translated(conference.title) do
+            find("button[data-component='dropdown']").click
             click_on "Preview"
           end
         end
@@ -172,6 +176,7 @@ shared_examples "manage conferences" do
 
     before do
       within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end
@@ -192,6 +197,7 @@ shared_examples "manage conferences" do
 
     before do
       within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end

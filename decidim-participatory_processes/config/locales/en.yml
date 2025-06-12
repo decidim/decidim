@@ -133,6 +133,7 @@ en:
           name: Participatory process
         participatory_process_group:
           fields:
+            actions: Actions
             title: Title
           name: Process group
         participatory_process_step:

@@ -12,7 +12,10 @@ shared_examples "copy conferences" do
 
   context "without any context" do
     it "copies the conference with the basic fields" do
-      click_on "Duplicate", match: :first
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -34,7 +37,10 @@ shared_examples "copy conferences" do
 
   context "with context" do
     before do
-      click_on "Duplicate", match: :first
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -54,9 +60,11 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
 
-      within "tr", text: "Copy conference" do
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
+
       within_admin_sidebar_menu do
         click_on "Components"
       end

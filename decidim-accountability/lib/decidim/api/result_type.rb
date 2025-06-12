@@ -35,7 +35,7 @@ module Decidim
       end
 
       def proposals
-        object.linked_resources(:proposals, "included_proposals")
+        object.linked_resources(:proposals, "included_proposals").sort_by(&:id)
       end
     end
   end

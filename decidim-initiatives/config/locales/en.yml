@@ -78,6 +78,7 @@ en:
   decidim:
     admin:
       actions:
+        cannot_answer: Cannot answer this initiative
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
       filters:
@@ -543,11 +544,6 @@ en:
         initiatives:
           closed_initiatives_warning: Currently, there are no open initiatives, but here you can find all the closed initiatives listed.
           no_initiatives_warning: No initiatives match your search criteria.
-        interactions:
-          comments_count:
-            count:
-              one: Comment
-              other: Comments
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
