@@ -218,6 +218,7 @@ fr:
       models:
         conference:
           fields:
+            actions: Actions
             created_at: Créé à
             published: Publié
             title: Titre
