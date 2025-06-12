@@ -431,11 +431,6 @@ bg:
         initiatives:
           closed_initiatives_warning: В момента няма отворени инициативи, но тук можете да намерите всички изброени затворени инициативи.
           no_initiatives_warning: Няма инициативи, които да съответстват на критериите Ви за търсене.
-        interactions:
-          comments_count:
-            count:
-              one: Коментар
-              other: Коментари
         orders:
           label: 'Сортиране на инициативите по:'
           most_commented: Най-коментирани
