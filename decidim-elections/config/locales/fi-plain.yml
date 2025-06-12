@@ -10,22 +10,67 @@ fi-pl:
             announcement: Ilmoitus
     elections:
       actions:
+        confirm_delete_election: Haluatko varmasti poistaa tämän vaalin?
+        deleted_election_info: Poistettuja vaaleja ei näytetä listassa. Voit tarkastella niitä painamalla alla olevaa painiketta.
+        edit: Muokkaa vaalia
+        new: Uusi vaali
         title: Toiminnot
+        view_deleted_elections: Näytä poistetut vaalit
       admin:
         elections:
+          create:
+            invalid: Vaalin luonti epäonnistui.
+            success: Vaalin luonti onnistui.
           edit:
             title: Muokkaa vaalia
             update: Päivitä vaali
           form:
             add_images: Lisää kuvia
+            attachment_legend: Lisää kuvagalleria (valinnainen)
+            basic_title: Perustiedot
+            calendar: Kalenteri
+            calendar_description: Tarkista, että organisaation aikavyöhyke on oikea organisaation asetuksissa. Nykyinen aikavyöhyke on %{timezone}.
+            edit_attachments: Muokkaa liitteitä
+            end_at: Päättymisaika
+            manual_start: Käynnistä manuaalisesti
+            results_availability:
+              after_end: Vaalien päättymisen jälkeen
+              after_end_help: Näytä tulokset vasta vaalien päätyttyä
+              per_question: Erikseen jokaiselle kysymykselle
+              per_question_help: Näytä tulokset jokaiselle kysymykselle tulosten valmistuttua
+              real_time: Reaaliajassa
+              real_time_help: Näytä tulokset heti ensimmäisen äänen jättämisen jälkeen
+              title: Tulosten näkyvyys
+            start_at: Alkamisaika
           index:
             title: Vaalit
+          manage_trash:
+            title: Poistetut vaalit
           new:
             create: Luo vaali
             title: Uusi vaali
+          publish:
+            invalid: Vaalin julkaisu epäonnistui.
+            success: Vaalin julkaisu onnistui.
+          unpublish:
+            invalid: Vaalin julkaisun peruminen epäonnistui.
+            success: Vaalin julkaisun peruminen onnistui.
+          update:
+            invalid: Vaalin päivittäminen epäonnistui.
+            success: Vaalin päivittäminen onnistui.
+      admin_log:
+        election:
+          create: "%{user_name} loi vaalin %{resource_name} tilaan %{space_name}"
+          publish: "%{user_name} julkaisi vaalin %{resource_name} tilassa %{space_name}"
+          restore: "%{user_name} palautti vaalin %{resource_name} tilaan %{space_name}"
+          soft_delete: "%{user_name} siirsi vaalin %{resource_name} roskakoriin tilassa %{space_name}"
+          unpublish: "%{user_name} perui vaalin %{resource_name} julkaisun tilassa %{space_name}"
+          update: "%{user_name} päivitti vaalia %{resource_name} tilassa %{space_name}"
       models:
         election:
           fields:
+            end_at: Päättymisaika
+            start_at: Alkamisaika
             title: Otsikko
     statistics:
       elections_count: Vaalia
