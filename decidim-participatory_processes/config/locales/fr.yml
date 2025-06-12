@@ -134,6 +134,7 @@ fr:
           name: Concertation
         participatory_process_group:
           fields:
+            actions: Actions
             title: Titre
           name: Groupe de concertations
         participatory_process_step:
