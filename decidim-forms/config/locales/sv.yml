@@ -177,10 +177,10 @@ sv:
             title: JavaScript är inaktiverat
           questionnaire_not_published:
             body: Formulär är ännu inte publicerat.
-          tos_agreement: Genom att fortsätta godkänner du användarvillkoren
+          tos_agreement: Genom att fortsätta godkänner du villkoren för anmälan
       step_navigation:
         show:
-          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Vill du fortsätta?
+          are_you_sure: Efter att du har skickat in anmälan kan du inte ändra i den. Vill du fortsätta?
           back: Tillbaka
           continue: Fortsätt
           submit: Skicka
