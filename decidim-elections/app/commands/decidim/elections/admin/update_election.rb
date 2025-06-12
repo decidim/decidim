@@ -15,25 +15,46 @@ module Decidim
         protected
 
         def attributes
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+          super.merge(election.published? ? published_election_attributes : unpublished_election_attributes)
+        end
 
-          super.merge({
-                        title: parsed_title,
-                        description: parsed_description,
-                        start_at: form.manual_start ? nil : form.start_at,
-                        end_at: form.end_at,
-                        results_availability: form.results_availability
-                      })
+        private
+
+        def published_election_attributes
+          {
+            title: election.title,
+            description: parsed_description,
+            start_at: election.manual_start? ? nil : election.start_at,
+            end_at: election.end_at,
+            results_availability: election.results_availability
+          }
+        end
+
+        def unpublished_election_attributes
+          {
+            title: parsed_title,
+            description: parsed_description,
+            start_at: form.manual_start ? nil : form.start_at,
+            end_at: form.end_at,
+            results_availability: form.results_availability
+          }
+        end
+
+        def parsed_title
+          Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        end
+
+        def parsed_description
+          Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
         end
 
         def run_after_hooks
-          create_gallery if process_gallery?
+          create_gallery if process_gallery? && !election.published?
           photo_cleanup!
         end
 
         def run_before_hooks
-          return unless process_gallery?
+          return unless process_gallery? && election.published?
 
           build_gallery
           raise Decidim::Commands::HookError if gallery_invalid?
