@@ -218,6 +218,7 @@ ca:
       models:
         conference:
           fields:
+            actions: Accions
             created_at: Creat a
             published: Publicada
             title: Títol
