@@ -277,11 +277,6 @@ el:
           type: Τύπος
         index_header:
           new_initiative: Νέα πρωτοβουλία
-        interactions:
-          comments_count:
-            count:
-              one: Σχόλιο
-              other: Σχόλιο
         orders:
           label: 'Ταξινόμηση πρωτοβουλιών κατά:'
           most_commented: Με τα περισσότερα σχόλια
