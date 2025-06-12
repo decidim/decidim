@@ -531,10 +531,6 @@ ja:
         initiatives:
           closed_initiatives_warning: 現在、オープンなイニシアチブはありませんが、ここに記載されているすべてのクローズドイニシアチブを見つけることができます。
           no_initiatives_warning: 検索基準に一致するイニシアチブは見つかりませんでした
-        interactions:
-          comments_count:
-            count:
-              other: コメント
         orders:
           label: 'イニシアチブの並べ替え:'
           most_commented: コメントが多い順
