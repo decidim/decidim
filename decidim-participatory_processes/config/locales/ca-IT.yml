@@ -134,6 +134,7 @@ ca-IT:
           name: Procés participatiu
         participatory_process_group:
           fields:
+            actions: Accions
             title: Títol
           name: Grup de processos
         participatory_process_step:
