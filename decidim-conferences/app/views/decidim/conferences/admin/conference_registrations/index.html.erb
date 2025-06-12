@@ -52,7 +52,7 @@
             </td>
             <td data-label="<%= t("models.conference_registration.fields.actions", scope: "decidim.conferences") %>">
               <% if allowed_to?(:confirm, :conference_registration, conference_registration: registration) && !registration.confirmed? %>
-                <button type="button" data-component="dropdown" data-target="actions-conference-registration-<%= registration.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: t('models.conference_registration.name', scope: 'decidim.admin')) %>">
+                <button type="button" data-component="dropdown" data-target="actions-conference-registration-<%= registration.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: t("models.conference_registration.name", scope: "decidim.admin")) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
