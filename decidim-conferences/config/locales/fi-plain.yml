@@ -634,6 +634,7 @@ fi-pl:
           url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
+      conferences_count_tooltip: Julkaistujen konferenssien lukumäärä.
   devise:
     mailer:
       join_conference:
