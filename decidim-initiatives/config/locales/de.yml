@@ -536,11 +536,6 @@ de:
         initiatives:
           closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentar
-              other: Bemerkungen
         orders:
           label: 'Initiativen sortieren nach:'
           most_commented: Am meisten kommentiert
