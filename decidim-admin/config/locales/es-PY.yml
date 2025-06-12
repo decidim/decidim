@@ -173,6 +173,7 @@ es-PY:
   decidim:
     admin:
       actions:
+        actions_label: Acciones para %{resource}
         add: Añadir
         attachment:
           new: Nuevo archivo adjunto
