@@ -125,8 +125,12 @@ en:
             state: Status
             supports_count: Signatures
             title: Initiatives
+        initiatives_committee_member:
+          fields:
+            actions: Actions
         initiatives_type_scope:
           fields:
+            actions: Actions
             scope: Scope
             supports_required: Signatures required
           name: Initiative type scope

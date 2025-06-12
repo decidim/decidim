@@ -25,48 +25,77 @@
     </div>
   </div>
 
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
           <th><%= t("models.conference_speaker.fields.full_name", scope: "decidim.admin") %></th>
           <th><%= t("models.conference_speaker.fields.position", scope: "decidim.admin") %></th>
           <th><%= t("models.conference_speaker.fields.affiliation", scope: "decidim.admin") %></th>
-
-          <th></th>
+          <th><%= t("models.conference_speaker.fields.actions", scope: "decidim.admin") %></th>
         </tr>
       </thead>
       <tbody>
         <% @conference_speakers.each do |speaker| %>
           <% speaker_presenter = Decidim::Admin::ConferenceSpeakerPresenter.new(speaker) %>
           <tr>
-            <td>
+            <td data-label="<%= t("models.conference_speaker.fields.full_name", scope: "decidim.admin") %>">
               <%= speaker_presenter.name %>
             </td>
-            <td>
+            <td data-label="<%= t("models.conference_speaker.fields.position", scope: "decidim.admin") %>">
               <%= translated_attribute(speaker.position) %>
             </td>
-            <td>
+            <td data-label="<%= t("models.conference_speaker.fields.affiliation", scope: "decidim.admin") %>">
               <%= translated_attribute(speaker.affiliation) %>
             </td>
-            <td class="table-list__actions">
-              <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
-                <%= icon_link_to "pencil-line", edit_conference_speaker_path(current_conference, speaker), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-              <% end %>
+            <td class="table-list__actions" data-label="<%= t("models.conference_speaker.fields.actions", scope: "decidim.admin") %>">
+              <button type="button" data-component="dropdown" data-target="actions-conference-speaker-<%= speaker.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: speaker_presenter.name) %>">
+                <%= icon "more-fill" %>
+              </button>
 
-              <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
-                <% if speaker.published? %>
-                  <%= icon_link_to "close-circle-line", unpublish_conference_speaker_path(current_conference, speaker.id), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
-                <% else %>
-                  <%= icon_link_to "check-line", publish_conference_speaker_path(current_conference, speaker.id), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
-                <% end %>
-              <% else %>
-                <span class="action-space icon"></span>
-              <% end %>
+              <div class="inline-block relative">
+                <ul id="actions-conference-speaker-<%= speaker.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
+                    <li class="dropdown__item">
+                      <%= link_to edit_conference_speaker_path(current_conference, speaker), class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t("actions.edit", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
 
-              <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
-                <%= icon_link_to "delete-bin-line", conference_speaker_path(current_conference, speaker), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-              <% end %>
+                  <hr>
+
+                  <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
+                    <% if speaker.published? %>
+                      <li class="dropdown__item">
+                        <%= link_to unpublish_conference_speaker_path(current_conference, speaker.id), method: :put, class: "dropdown__button" do %>
+                          <%= icon "close-circle-line" %>
+                          <%= t("actions.unpublish", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li class="dropdown__item">
+                        <%= link_to publish_conference_speaker_path(current_conference, speaker.id), method: :put, class: "dropdown__button" do %>
+                          <%= icon "check-line" %>
+                          <%= t("actions.publish", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  <% end %>
+
+                  <hr>
+
+                  <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
+                    <li class="dropdown__item">
+                      <%= link_to conference_speaker_path(current_conference, speaker), method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("actions.destroy", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
