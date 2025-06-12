@@ -543,11 +543,6 @@ eu:
         initiatives:
           closed_initiatives_warning: Gaur egun ez dago ekimen irekirik, baina hemen aurki ditzakezu itxitako ekimen guztiak zerrendatuta.
           no_initiatives_warning: Ez dago bilaketa-irizpideekin bat datorren ekimenik.
-        interactions:
-          comments_count:
-            count:
-              one: Iruzkina
-              other: Oharrak
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkin gehien dutenak
