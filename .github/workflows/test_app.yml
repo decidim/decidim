@@ -1,11 +1,6 @@
 on:
   workflow_call:
     inputs:
-      codecov_token:
-        required: false
-        description: 'Codecov token'
-        default: "bc15b944-6b42-420a-b3f9-a5a8fb214326"
-        type: string
       ruby_version:
         description: 'Ruby Version'
         default: "3.3.4"
@@ -108,7 +103,6 @@ jobs:
           VALIDATOR_HTML_URI: http://localhost:8888/
           RUBY_VERSION: ${{ inputs.ruby_version }}
           DECIDIM_MODULE: ${{ inputs.working-directory }}
-          CODECOV_TOKEN: ${{ inputs.codecov_token }}
           DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
@@ -119,10 +113,9 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
-          token: ${{ inputs.codecov_token }}
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
       - uses: actions/upload-artifact@v4
