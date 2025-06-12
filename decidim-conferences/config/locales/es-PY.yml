@@ -218,6 +218,7 @@ es-PY:
       models:
         conference:
           fields:
+            actions: Acciones
             created_at: Creado en
             published: Publicado
             title: Título
