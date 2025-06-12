@@ -77,6 +77,7 @@ fr:
   decidim:
     admin:
       actions:
+        cannot_answer: Impossible de répondre à cette pétition
         new_initiative_type: Nouveau type de pétition
         new_initiative_type_scope: Nouveau secteur du type de pétition
       filters:
@@ -468,11 +469,6 @@ fr:
         initiatives:
           closed_initiatives_warning: À l'heure actuelle, il n'y a pas de pétitions publiées, mais vous trouverez ici une liste de toutes les pétitions fermées.
           no_initiatives_warning: Aucune pétition ne correspond à vos critères de recherche.
-        interactions:
-          comments_count:
-            count:
-              one: Commentaire
-              other: commentaires
         orders:
           label: 'Trier les pétitions par :'
           most_commented: Les plus commentées
