@@ -66,8 +66,8 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
+    enum :signature_type, [:online, :offline, :any], suffix: true
+    enum :state, [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
