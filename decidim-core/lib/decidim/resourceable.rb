@@ -47,7 +47,7 @@ module Decidim
              .joins(:resource_links_to)
              .where(decidim_resource_links: { name: link_name, from_id: id, from_type: self.class.name })
 
-        scope.where(id: from).or(scope.where(id: to)).sort_by(&:id)
+        scope.where(id: from).or(scope.where(id: to))
       end
 
       def linked_resources_from(resource_name, link_name, component_published: true)
