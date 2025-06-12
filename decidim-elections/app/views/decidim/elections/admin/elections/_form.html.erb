@@ -28,10 +28,9 @@
                               label: false,
                               button_label: t("decidim.elections.admin.elections.form.add_images"),
                               button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
-                              button_class: "button button__sm button__transparent-secondary",
+                              button_class: "button button__sm button__transparent-secondary #{'disabled pointer-events-none' if disable_fields}",
                               help_i18n_scope: "decidim.forms.file_help.image",
-                              help_text: t("decidim.elections.admin.elections.form.attachment_legend"),
-                              disabled: disable_fields %>
+                              help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
         </div>
       </div>
     </div>

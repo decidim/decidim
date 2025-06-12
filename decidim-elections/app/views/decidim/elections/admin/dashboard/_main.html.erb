@@ -20,10 +20,9 @@
         <div><%= decidim_sanitize_translated election.description %></div>
       </div>
       <div class="row column mb-2">
-        <h3><%= t("labels.image", scope: "decidim.elections.admin.dashboard.main") %></h3>
-        <div>
-          <!--        image gallery-->
-        </div>
+        <% if election.photos.any? %>
+          <%= render partial: "decidim/elections/admin/dashboard/photos", locals: { election: } %>
+        <% end %>
       </div>
       <div class="row column mb-2">
         <h3><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h3>
