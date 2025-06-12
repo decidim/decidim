@@ -173,6 +173,7 @@ ca:
   decidim:
     admin:
       actions:
+        actions_label: Accions per a %{resource}
         add: Afegir
         attachment:
           new: Nou arxiu adjunt
