@@ -97,8 +97,8 @@ We are recommending to follow the proposed steps, as you may have installed othe
 
 Besides of what is already mentioned, you may encounter some encryption-related issues while developing locally, and this is caused by a Rails internal change that it is outside the control of Decidim's Maintainers team.
 
-In the previous Rails versions the `secret_key_base` for local development was stored in a local file `development_app/tmp/development_secret.txt`, which has been remove starting Rails 7.1.
-Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`.
+In the previous Rails versions the `secret_key_base` for local development was stored in a local file `tmp/development_secret.txt`, which has been remove starting Rails 7.1.
+Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`, or you can rename the file `tmp/development_secret.txt` to `tmp/local_secret.txt` so that you can continue the same secret.
 
 You can read more about the Rails upgrade process on the following PRs:
 
@@ -106,6 +106,7 @@ You can read more about the Rails upgrade process on the following PRs:
 * [Update Rails to v7.1](https://github.com/decidim/decidim/pull/13267)
 * [Update Rails to v7.2](https://github.com/decidim/decidim/pull/14784)
 * [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
+* [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
 ### 1.5. Run these commands
 
