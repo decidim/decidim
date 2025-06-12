@@ -145,6 +145,7 @@ ca-IT:
           state: Estat
           state_values:
             closed: Tancat
+            ongoing: En curs
         index:
           new_debate: Nou debat
         new:
@@ -159,9 +160,13 @@ ca-IT:
           updated: Recentment actualitzats
         show:
           close_debate: Tancar
+          closed: Tancat
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar
+          not_started: No s'ha iniciat
+          ongoing: En curs
+          open_ended: Indefinit
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
