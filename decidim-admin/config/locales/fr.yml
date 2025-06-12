@@ -173,6 +173,7 @@ fr:
   decidim:
     admin:
       actions:
+        actions_label: Actions pour %{resource}
         add: Ajouter
         attachment:
           new: Nouvelle pièce jointe
