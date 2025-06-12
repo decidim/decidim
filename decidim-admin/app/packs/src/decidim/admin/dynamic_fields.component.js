@@ -149,7 +149,7 @@ class DynamicFieldsComponent {
     }
 
     // Clean any comment or text nodes that may be present in the template.
-    const $templateNode = $($template.html()).filter((_, el) => el.nodeType === Node.ELEMENT_NODE);
+    const $templateNode = $($template.html()).filter((__unused, el) => el.nodeType === Node.ELEMENT_NODE);
 
     const $newField = $templateNode.template(this.placeholderId, this._getUID());
 
