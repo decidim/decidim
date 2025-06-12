@@ -98,7 +98,9 @@ fi-pl:
       decidim:
         proposals:
           proposal:
+            budget_text: Ehdotus <span class="resource-link">%{link}</span> luotiin
             import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
+            import_to_proposal_text: Ehdotus <span "resource-link">%{link}</span> luotiin
             merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
             merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
             split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'
@@ -673,6 +675,9 @@ fi-pl:
             endorsements_count: Suositusten lukumäärä
             endorsers: Suosittelijat
             link: Näytä ehdotus
+            n_more_endorsers:
+              one: ja 1 lisää
+              other: ja %{count} lisää
             photos: Kuvat
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapahtumat
@@ -1003,6 +1008,7 @@ fi-pl:
         update:
           title: Muokkaa ehdotusta
         vote_button:
+          already_voted: Äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
