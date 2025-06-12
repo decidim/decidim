@@ -103,6 +103,7 @@ fi-pl:
           comment: Kommentointi
           create: Luo
           destroy: Poista
+          like: Tykkää
           update: Päivitä
         name: Blogi
         settings:
@@ -119,6 +120,8 @@ fi-pl:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
     events:
       blogs:
         post_created:
@@ -147,6 +150,7 @@ fi-pl:
           created_at: Artikkelin laatimisaika
           follows_count: Artikkelin seuraajien lukumäärä
           id: Artikkelin yksilöivä tunniste
+          likes_count: Artikkelin tykkäysten lukumäärä
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
           published_at: Artikkelin julkaisuaika
           title: Artikkelin otsikko
@@ -154,3 +158,4 @@ fi-pl:
           url: Artikkelin URL-osoite
     statistics:
       posts_count: Artikkelia
+      posts_count_tooltip: Julkaistujen blogi- tai uutisartikkelien määrä.
