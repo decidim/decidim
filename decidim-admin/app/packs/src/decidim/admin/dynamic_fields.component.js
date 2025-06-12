@@ -34,9 +34,12 @@ class DynamicFieldsComponent {
     }
 
     $.fn.template = function(placeholder, value) {
+      // Clean up the template HTML to ensure it only contains elements.
+      const $template = $(this).filter((_idx, el) => el.nodeType === Node.ELEMENT_NODE);
+
       // See the comment below in the `_addField()` method regarding the
       // `<template>` tag support in IE11.
-      const $subtemplate = $(this).find("template, .decidim-template");
+      const $subtemplate = $template.find("template, .decidim-template");
 
       if ($subtemplate.length > 0) {
         $subtemplate.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
@@ -44,7 +47,7 @@ class DynamicFieldsComponent {
 
       // Handle those subtemplates that are mapped with the `data-template`
       // attribute. This is also because of the IE11 support.
-      const $subtemplateParents = $(this).find("[data-template]");
+      const $subtemplateParents = $template.find("[data-template]");
 
       if ($subtemplateParents.length > 0) {
         $subtemplateParents.each((_i, elem) => {
@@ -64,15 +67,15 @@ class DynamicFieldsComponent {
         });
       }
 
-      $(this).replaceAttribute("id", placeholder, value);
-      $(this).replaceAttribute("name", placeholder, value);
-      $(this).replaceAttribute("data-tabs-content", placeholder, value);
-      $(this).replaceAttribute("for", placeholder, value);
-      $(this).replaceAttribute("tabs_id", placeholder, value);
-      $(this).replaceAttribute("href", placeholder, value);
-      $(this).replaceAttribute("value", placeholder, value);
+      $template.replaceAttribute("id", placeholder, value);
+      $template.replaceAttribute("name", placeholder, value);
+      $template.replaceAttribute("data-tabs-content", placeholder, value);
+      $template.replaceAttribute("for", placeholder, value);
+      $template.replaceAttribute("tabs_id", placeholder, value);
+      $template.replaceAttribute("href", placeholder, value);
+      $template.replaceAttribute("value", placeholder, value);
 
-      return this;
+      return $template;
     }
   }
 
@@ -147,12 +150,7 @@ class DynamicFieldsComponent {
       // as they are submitted with them.
       $template = $wrapper.children(`template, ${templateClass}`);
     }
-
-    // Clean any comment or text nodes that may be present in the template.
-    const $templateNode = $($template.html()).filter((__unused, el) => el.nodeType === Node.ELEMENT_NODE);
-
-    const $newField = $templateNode.template(this.placeholderId, this._getUID());
-
+    const $newField = $($template.html()).template(this.placeholderId, this._getUID());
     $newField.find("ul.tabs").attr("data-tabs", true);
 
     const $lastQuestion = $container.find(this.fieldSelector).last()
