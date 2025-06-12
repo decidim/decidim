@@ -102,7 +102,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename}']")
 
         details = subject.find(".attachment-details")
-        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)} (#{filename})")
+        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)}")
       end
     end
 
@@ -165,7 +165,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_css("[data-filename='#{filename1}']")
 
         details = subject.find(".attachment-details", match: :first)
-        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)} (#{filename1})")
+        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)}")
       end
     end
 
