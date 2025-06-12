@@ -78,6 +78,7 @@ es:
   decidim:
     admin:
       actions:
+        cannot_answer: No se puede responder a esta iniciativa
         new_initiative_type: Nuevo tipo de iniciativa
         new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
@@ -543,11 +544,6 @@ es:
         initiatives:
           closed_initiatives_warning: Actualmente no hay iniciativas abiertas, pero aquí puedes encontrar todas las iniciativas cerradas listadas.
           no_initiatives_warning: Ninguna iniciativa coincide con los criterios de búsqueda.
-        interactions:
-          comments_count:
-            count:
-              one: Comentario
-              other: Comentarios
         orders:
           label: 'Ordena las iniciativas por:'
           most_commented: Más comentadas
