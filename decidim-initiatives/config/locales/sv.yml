@@ -453,11 +453,6 @@ sv:
         initiatives:
           closed_initiatives_warning: För tillfället finns inga öppna initiativ, men här är en lista över alla avslutade initiativ.
           no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentar
-              other: Kommentarer
         orders:
           label: 'Sortera initiativ efter:'
           most_commented: Mest kommenterade
