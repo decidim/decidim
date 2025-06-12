@@ -9,10 +9,20 @@ describe "Decidim::Api::QueryType" do
   let(:schema) { Decidim::Api::Schema }
 
   let(:locale) { "en" }
-  let!(:initiative) { create(:initiative, organization: current_organization) }
+  let!(:initiative) do
+    create(:initiative, organization: current_organization,
+                        first_progress_notification_at: Time.current,
+                        second_progress_notification_at: Time.current,
+                        answered_at: Time.current,
+                        answer: { en: "Measured answer" },
+                        answer_url: "http://decidim.org")
+  end
 
   let(:initiative_data) do
     {
+      "answer" => { "translation" => initiative.answer[locale] },
+      "answerUrl" => initiative.answer_url,
+      "answeredAt" => initiative.answered_at.to_time.iso8601,
       "attachments" => [],
       "author" => { "id" => initiative.author.id.to_s },
       "committeeMembers" => initiative.committee_members.map do |cm|
@@ -27,12 +37,15 @@ describe "Decidim::Api::QueryType" do
       "components" => [],
       "createdAt" => initiative.created_at.to_time.iso8601,
       "description" => { "translation" => initiative.description[locale] },
+      "firstProgressNotificationAt" => initiative.first_progress_notification_at.to_time.iso8601,
       "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
+      "initiativeType" => initiative_type_data,
       "offlineVotes" => initiative.offline_votes_count,
       "onlineVotes" => initiative.online_votes_count,
       "publishedAt" => initiative.published_at.to_time.iso8601,
       "reference" => initiative.reference,
+      "secondProgressNotificationAt" => initiative.second_progress_notification_at.to_time.iso8601,
       "scope" => { "id" => initiative.scope.id.to_s },
       "signatureEndDate" => initiative.signature_end_date.iso8601,
       "signatureStartDate" => initiative.signature_start_date.iso8601,
@@ -47,7 +60,10 @@ describe "Decidim::Api::QueryType" do
   end
   let(:initiative_type_data) do
     {
+      "attachmentsEnabled" => initiative.type.attachments_enabled,
       "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
+      "commentsEnabled" => initiative.type.comments_enabled,
+      "customSignatureEndDateEnabled" => initiative.type.custom_signature_end_date_enabled,
       "createdAt" => initiative.type.created_at.to_time.iso8601,
       "description" => { "translation" => initiative.type.description[locale] },
       "extraFieldsLegalInformation" => initiative.type.extra_fields_legal_information,
@@ -66,6 +82,11 @@ describe "Decidim::Api::QueryType" do
   let(:initiatives) do
     %(
       initiatives{
+        answer {
+          translation(locale: "en")
+        }
+        answerUrl
+        answeredAt
         attachments {
           thumbnail
         }
@@ -86,14 +107,17 @@ describe "Decidim::Api::QueryType" do
         description {
           translation(locale: "#{locale}")
         }
+        firstProgressNotificationAt
         hashtag
         id
         initiativeType {
-          bannerImage
+          attachmentsEnabled
           collectUserExtraFields
+          commentsEnabled
           createdAt
+          customSignatureEndDateEnabled
           description {
-          translation(locale: "#{locale}")
+            translation(locale: "#{locale}")
           }
           extraFieldsLegalInformation
           id
@@ -102,8 +126,7 @@ describe "Decidim::Api::QueryType" do
           promotingCommitteeEnabled
           signatureType
           title {
-                  translation(locale: "#{locale}")
-
+            translation(locale: "#{locale}")
           }
           undoOnlineSignaturesEnabled
           updatedAt
@@ -116,6 +139,7 @@ describe "Decidim::Api::QueryType" do
         scope {
           id
         }
+        secondProgressNotificationAt
         signatureEndDate
         signatureStartDate
         signatureType
@@ -148,7 +172,6 @@ describe "Decidim::Api::QueryType" do
       data = response["initiatives"].first
       expect(data).to include(initiative_data)
       expect(data["initiativeType"]).to include(initiative_type_data)
-      expect(data["initiativeType"]["bannerImage"]).to be_blob_url(initiative.type.banner_image.blob)
     end
 
     it_behaves_like "implements stats type" do
@@ -170,6 +193,11 @@ describe "Decidim::Api::QueryType" do
     let(:initiatives) do
       %(
       initiative(id: #{initiative.id}){
+        answer {
+          translation(locale: "en")
+        }
+        answerUrl
+        answeredAt
         attachments {
           thumbnail
         }
@@ -190,14 +218,17 @@ describe "Decidim::Api::QueryType" do
         description {
           translation(locale: "en")
         }
+        firstProgressNotificationAt
         hashtag
         id
         initiativeType {
-          bannerImage
+          attachmentsEnabled
           collectUserExtraFields
+          commentsEnabled
           createdAt
+          customSignatureEndDateEnabled
           description {
-          translation(locale: "en")
+            translation(locale: "en")
           }
           extraFieldsLegalInformation
           id
@@ -206,8 +237,7 @@ describe "Decidim::Api::QueryType" do
           promotingCommitteeEnabled
           signatureType
           title {
-                  translation(locale: "en")
-
+            translation(locale: "en")
           }
           undoOnlineSignaturesEnabled
           updatedAt
@@ -220,6 +250,7 @@ describe "Decidim::Api::QueryType" do
         scope {
           id
         }
+        secondProgressNotificationAt
         signatureEndDate
         signatureStartDate
         signatureType
@@ -243,7 +274,6 @@ describe "Decidim::Api::QueryType" do
       data = response["initiative"]
       expect(data).to include(initiative_data)
       expect(data["initiativeType"]).to include(initiative_type_data)
-      expect(data["initiativeType"]["bannerImage"]).to be_blob_url(initiative.type.banner_image.blob)
     end
 
     it_behaves_like "implements stats type" do

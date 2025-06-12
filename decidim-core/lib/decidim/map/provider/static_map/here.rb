@@ -27,7 +27,7 @@ module Decidim
 
           # @See Decidim::Map::StaticMap#url_params
           def url_params(latitude:, longitude:, options: {})
-            ActiveSupport::Deprecation.warn(
+            Decidim.deprecator.warn(
               <<~DEPRECATION.strip
                 Please use a V3 version HERE maps.
                 For further information, see:

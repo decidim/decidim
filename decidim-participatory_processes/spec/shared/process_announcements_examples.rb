@@ -28,7 +28,12 @@ shared_examples "manage processes announcements" do
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
-    new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
+    new_window = window_opened_by do
+      within("tr", text: translated(participatory_process.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Preview"
+      end
+    end
 
     page.within_window(new_window) do
       expect(page).to have_content("An important announcement")
