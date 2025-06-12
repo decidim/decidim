@@ -78,6 +78,7 @@ ca-IT:
   decidim:
     admin:
       actions:
+        cannot_answer: No es pot respondre a aquesta iniciativa
         new_initiative_type: Nou tipus d'iniciativa
         new_initiative_type_scope: Afegir àmbit del tipus d'iniciativa
       filters:
@@ -543,11 +544,6 @@ ca-IT:
         initiatives:
           closed_initiatives_warning: Actualment no hi ha iniciatives obertes, però aquí pots trobar el llistat de totes les iniciatives tancades.
           no_initiatives_warning: No hi ha iniciatives que coincideixin amb el teu criteri de cerca.
-        interactions:
-          comments_count:
-            count:
-              one: Comentari
-              other: Comentaris
         orders:
           label: 'Ordena iniciatives per:'
           most_commented: Més comentades
