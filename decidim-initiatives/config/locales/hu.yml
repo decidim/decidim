@@ -402,11 +402,6 @@ hu:
         initiatives:
           closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
           no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
-        interactions:
-          comments_count:
-            count:
-              one: Megjegyzés
-              other: Hozzászólások
         orders:
           label: 'Kezdeményezések rendezése:'
           most_commented: Legtöbb hozzászólással
