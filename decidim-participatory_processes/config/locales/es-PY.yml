@@ -134,6 +134,7 @@ es-PY:
           name: Proceso participativo
         participatory_process_group:
           fields:
+            actions: Acciones
             title: Título
           name: Grupo de procesos
         participatory_process_step:
