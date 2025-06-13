@@ -18,7 +18,6 @@ ca-IT:
         address: Adreça
         answer: Respondre
         answered_at: Respost el
-        automatic_hashtags: Hashtags afegits automàticament
         body: Cos
         decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
@@ -27,7 +26,6 @@ ca-IT:
         longitude: Longitud
         scope_id: Àmbit
         state: Estat
-        suggested_hashtags: Hashtags suggerits
         title: Títol
       proposal_answer:
         answer: Resposta
@@ -234,7 +232,6 @@ ca-IT:
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
             answers_with_costs: Habilitar cost en les respostes a propostes
-            automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear propostes
             creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
@@ -254,7 +251,6 @@ ca-IT:
             proposal_answering_enabled: Resposta a propostes activada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
             publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
-            suggested_hashtags: Hashtags suggerits a les participants per a noves propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
