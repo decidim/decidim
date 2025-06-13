@@ -13,7 +13,6 @@ eu:
         document: Dokumentua
         domain: Domeinua
         end_date: Bukaera-data
-        hashtag: Traola
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
@@ -39,7 +38,6 @@ eu:
         description: Deskribapena
         developer_group: Talde sustatzailea
         group_url: Web gunea
-        hashtag: Traola
         hero_image: Irudia
         local_area: Antolakuntza arloa
         meta_scope: Eremuaren metadatuak
@@ -110,7 +108,6 @@ eu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
           info: Informazioa
-          landing_page: Hasierako orrialdea
         participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachment_collections: Karpetak
@@ -118,7 +115,6 @@ eu:
           attachments: Eranskinak
           components: Osagaiak
           info: Prozesu honi buruz
-          landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
@@ -353,7 +349,6 @@ eu:
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
           end_date: Prozesuaren amaiera-data
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
-          hashtag: Prozesuaren traola, X sarerako erabilia
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
           meta_scope: Prozesuaren eremu-metadatuak
