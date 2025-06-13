@@ -57,7 +57,7 @@ module Decidim
         fields = {}
 
         parsed_title = Decidim::ContentProcessor.parse(@collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse(@collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:inline_images, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
 
         fields[:title] = { I18n.locale => parsed_title }
         fields[:body] = { I18n.locale => parsed_body }

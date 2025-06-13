@@ -316,7 +316,7 @@ FactoryBot.define do
                       end
 
       proposal.title = Decidim::ContentProcessor.parse(proposal.title, current_organization: proposal.organization).rewrite
-      proposal.body = Decidim::ContentProcessor.parse(proposal.body, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse_with_processor(:inline_images, proposal.body, current_organization: proposal.organization).rewrite
 
       if proposal.component
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
