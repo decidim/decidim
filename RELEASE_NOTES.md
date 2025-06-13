@@ -401,6 +401,12 @@ Implementers will notice this transition once they run the needed migrations on 
 
 You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
 
+### 3.9. Removal of Hashtags
+
+We have removed the Hashtags from all modules in the application. Rendering hashtags in the title and description of certain modules will cease to work.
+
+You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
+
 ### 3.9. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
