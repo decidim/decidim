@@ -7,7 +7,6 @@ fr-CA:
         area_id: Périmètre d'assemblée
         decidim_scope_id: Secteur
         description: Description
-        hashtag: Hashtag
         offline_votes: Votes en présentiel
         offline_votes_for_scope: Signatures en personne pour %{scope_name}
         scope_id: Secteur
@@ -245,6 +244,7 @@ fr-CA:
             success: La pétition a été envoyée à la validation technique.
             update: Mettre à jour
           form:
+            attachments_title: Pièces jointes
             settings: Paramètres
             title: Informations générales
           index:
