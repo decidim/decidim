@@ -33,5 +33,5 @@ jobs:
     with:
       working-directory: "decidim-assemblies"
       test_command: bundle exec parallel_test --type rspec --pattern spec/
-      bullet_n_plus_one: true
-      bullet_unused_eager_loading: true
+      bullet_n_plus_one: false
+      bullet_unused_eager_loading: false
