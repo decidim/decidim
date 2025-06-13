@@ -11,7 +11,6 @@ fi-pl:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
-        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         location: Sijainti
         main_logo: Päälogo
@@ -218,6 +217,7 @@ fi-pl:
       models:
         conference:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             published: Julkaistu
             title: Otsikko
@@ -613,7 +613,6 @@ fi-pl:
           description: Konferenssin pitkä kuvaus
           end_date: Konferenssin päättymispäivä.
           follows_count: Tilaa seuraavien käyttäjien määrä
-          hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Konferenssin yksilöivä tunniste
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
