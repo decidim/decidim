@@ -30,7 +30,7 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 end
 ----
 
-Note that, if the user is already registered, the `CreateOmniauthRegistration` command will not trigger the "decidim.user.omniauth_registration" event byt instead it will trigger the "decidim.user.omniauth_login" event, which has the same payload as the registration event.
+Note that, if the user is already registered, the `CreateOmniauthRegistration` command will not trigger the "decidim.user.omniauth_registration" event by instead it will trigger the "decidim.user.omniauth_login" event, which has the same payload as the registration event.
 
 For instance, to retrigger the `IdCatMobilVerificationJob` after a user logs in via omniauth, you can subscribe to the "decidim.user.omniauth_login" event as follows:
 
