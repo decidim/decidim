@@ -7,7 +7,6 @@ fi-pl:
         area_id: Alue
         decidim_scope_id: Teema
         description: Kuvaus
-        hashtag: Aihetunniste (hashtag)
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
         offline_votes_for_scope: Fyysisesti kerätyt allekirjoitukset kohteelle %{scope_name}
         scope_id: Teema
@@ -78,6 +77,7 @@ fi-pl:
   decidim:
     admin:
       actions:
+        cannot_answer: Tähän aloitteeseen ei voi vastata
         new_initiative_type: Uusi aloitetyyppi
         new_initiative_type_scope: Uusi aloitetyypin teema
       filters:
@@ -264,6 +264,7 @@ fi-pl:
             success: Aloite on lähetetty tekniseen tarkastukseen.
             update: Päivitä
           form:
+            attachments_title: Liitteet
             settings: Asetukset
             title: Yleistä tietoa
           index:
@@ -668,7 +669,6 @@ fi-pl:
           description: Aloitteen kuvaus
           first_progress_notification_at: Ajankohta, jolloin ensimmäinen edistymisheräte lähetettiin
           follows_count: Tilaa seuraavien käyttäjien määrä
-          hashtag: Aloitetta vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           offline_votes: Aloitteen keräämien allekirjoitusten määrä alustan ulkopuolella
           online_votes: Aloitteen keräämien allekirjoitusten määrä verkkoalustalla (suoraan tämän alustan kautta)
           published_at: Tilan julkaisuaika
