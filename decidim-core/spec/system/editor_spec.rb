@@ -451,6 +451,8 @@ describe "Editor" do
         find("button[data-action='save']").click
       end
 
+      sleep 0.5
+
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -469,6 +471,8 @@ describe "Editor" do
         fill_in "Title", with: "La plataforma digital"
         find("[data-input='src'] input").native.send_keys [:enter]
       end
+
+      sleep 0.5
 
       expect_value(
         <<~HTML
@@ -1389,6 +1393,8 @@ describe "Editor" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
           click_on "Remove"
         end
+
+        sleep 0.5
 
         expect_value(%(<p>Hello, world!</p>))
 
