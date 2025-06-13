@@ -25,7 +25,6 @@ eu:
         duration: Iraupena
         facebook: Facebook
         github: GitHub
-        hashtag: Traola
         hero_image: Hasierako orriko irudia
         import_attachments: Inportatu erantsitako fitxategiak
         import_categories: Inportatu kategoriak
@@ -170,7 +169,6 @@ eu:
           attachments: Eranskinak
           components: Osagaiak
           info: Batzar honi buruz
-          landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Kideak
           see_assembly: Ikusi batzarra
@@ -396,7 +394,6 @@ eu:
           facebook_handler: Sare sozialetako arduraduna Facebookerako
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
-          hashtag: Batzarraren traola, Twitter/X-entzat erabilia
           id: Batzar honen identifikatzaile bakarra
           included_at: Zein datatan sartu zen batzar hau
           instagram_handler: Sare sozialetako arduraduna Instagram-erako
