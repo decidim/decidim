@@ -18,7 +18,6 @@ fi:
         address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
@@ -27,7 +26,6 @@ fi:
         longitude: Pituusaste
         scope_id: Teema
         state: Tila
-        suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
         title: Otsikko
       proposal_answer:
         answer: Vastaa
@@ -234,7 +232,6 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
-            automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda ehdotuksia
             creation_enabled_readonly: Tämä asetus on pois päältä, kun olet ottanut ehdotusaineistot käyttöön. Voit ladata uusia ehdotusaineistoja siirtymällä ehdotusaineistot-osioon ja seuraamalla kyseisen osion ohjeistusta.
@@ -254,7 +251,6 @@ fi:
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
-            suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
