@@ -159,7 +159,7 @@ module Decidim
                         I18n.t("menu.homepage", scope: "decidim.admin"),
                         decidim_admin.edit_organization_homepage_path,
                         position: 1.2,
-                        icon_name: "home-gear-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :organization, organization: current_organization),
                         active: [%w(
                           decidim/admin/organization_homepage
