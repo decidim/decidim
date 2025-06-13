@@ -7,7 +7,7 @@ The Elections component can be embedded in participatory spaces. To enable it, e
 gem "decidim-elections", DECIDIM_VERSION
 ----
 
-The Elections component provides a way to organize voting based on a census. Depending on the type of census, users may be required to register before voting. Since the method for verifying a person against a census can vary, censuses are implemented using a manifest. 
+The Elections component provides a way to organize voting based on a census. Depending on the type of census, users may be required to register before voting. Since the method for verifying a person against a census can vary, censuses are implemented using a manifest.
 Any Decidim application or plugin can implement its own type of census just by defining the corresponding manifest.
 
 == Registering a Census Manifest
