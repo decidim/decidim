@@ -39,6 +39,17 @@ shared_examples "content submitted to spam analysis" do
       expect(Decidim::Report.count).to eq(spam_count)
     end
   end
+
+  it "hides the resource" do
+    allow(Decidim::Ai::SpamDetection).to receive(:hide_reported_resources).and_return(true)
+    perform_enqueued_jobs do
+      expect { command.call }.to change(Decidim::Report, :count).by(spam_count)
+      expect(Decidim::Report.count).to eq(spam_count)
+      # We are reusing the spec for Valid and invalid content. We are just checking that the resource is hidden if the
+      # resource is spam
+      expect(resource.last.hidden?).to eq(spam_count == 1)
+    end
+  end
 end
 
 shared_examples "initiatives spam analysis" do

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 if Decidim.module_installed?(:ai)
+
+  # When the engine is consistently marking spam content without errors,
+  # you can skip human intervention by enabling this functionality
+  Decidim::Ai::SpamDetection.hide_reported_resources = false
+
   Decidim::Ai::Language.formatter = "Decidim::Ai::Language::Formatter"
 
   Decidim::Ai::SpamDetection.reporting_user_email = "your-admin@example.org"
