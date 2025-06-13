@@ -1,5 +1,9 @@
 eu:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Galderak
     components:
       elections:
         name: Hauteskundeak
@@ -23,7 +27,6 @@ eu:
             success: Hauteskundea zuzen sortua.
           edit:
             title: Editatu hauteskundea
-            update: Eguneratu hauteskundea
           form:
             add_images: Gehiru irudiak
             attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
@@ -47,7 +50,6 @@ eu:
           manage_trash:
             title: Ezabatutako hauteskundeak
           new:
-            create: Sortu hauteskundea
             title: Beste hauteskunde bat
           publish:
             invalid: Arazo bat egon da hauteskundea argitaratzean.
@@ -58,6 +60,10 @@ eu:
           update:
             invalid: Arazo bat egon da hauteskundea eguneratzean.
             success: Hauteskundea zuzen eguneratua.
+        questions:
+          edit_questions:
+            new_question: Beste galdera bat
+            title: Galderak
       admin_log:
         election:
           create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
