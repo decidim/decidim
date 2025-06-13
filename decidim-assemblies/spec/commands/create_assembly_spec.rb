@@ -32,7 +32,6 @@ module Decidim::Assemblies
         subtitle: { en: "subtitle" },
         weight: 1,
         slug: "slug",
-        hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
         banner_image:,
