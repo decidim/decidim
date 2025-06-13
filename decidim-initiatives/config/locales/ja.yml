@@ -7,7 +7,6 @@ ja:
         area_id: エリア
         decidim_scope_id: スコープ
         description: 説明
-        hashtag: ハッシュタグ
         offline_votes: 対面署名
         offline_votes_for_scope: '%{scope_name} の 対面署名'
         scope_id: スコープ
@@ -654,7 +653,6 @@ ja:
           description: イニシアチブの説明
           first_progress_notification_at: 最初の進捗通知の送信日時
           follows_count: このスペースをフォローしているユーザー数
-          hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
           offline_votes: このプラットフォーム外でこのイニシアチブが受け取った署名の数
           online_votes: このイニシアチブが（プラットフォームを介して直接）オンラインで受信した署名の数
           published_at: このスペースの公開日時
