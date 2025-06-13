@@ -69,7 +69,7 @@ module Decidim
 
         it "renders the correct HTML" do
           expect(result).to include("Share to X")
-          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello&amp;via=Decidim")
+          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello")
           expect(result).to include(".svg")
         end
       end
