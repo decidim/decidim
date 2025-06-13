@@ -465,6 +465,8 @@ sq:
         form:
           social_handlers: Rrjetet sociale
       organization_appearance:
+        edit:
+          update: Përditëso
         form:
           images:
             preview: Parapamje
@@ -493,6 +495,7 @@ sq:
           update: Përditëso
       titles:
         dashboard: Paneli
+        edit_landing_page: Përmbatja e faqes
         menu: Menu
         page_topics: Temat
         pages: Faqet
