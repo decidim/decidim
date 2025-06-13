@@ -107,6 +107,7 @@ it:
           attachments: Allegati
           categories: Categorie
           components: Componenti
+          landing_page: Pagina di destinazione
           moderations: Moderazione
           private_users: Utenti privati
           process_admins: Amministratrici/tori di processo
