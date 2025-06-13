@@ -7,7 +7,6 @@ es:
         area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
-        hashtag: Etiqueta (hashtag)
         offline_votes: Firmas presenciales
         offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Ámbito
@@ -265,6 +264,7 @@ es:
             success: La iniciativa se ha enviado a validación técnica.
             update: Actualizar
           form:
+            attachments_title: Archivos adjuntos
             settings: Ajustes
             title: Información general
           index:
@@ -669,7 +669,6 @@ es:
           description: La descripción de la iniciativa
           first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
           follows_count: El número de usuarias que siguen esta iniciativa
-          hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
           offline_votes: El número de firmas que esta iniciativa recogió presencialmente (en papel)
           online_votes: El número de firmas digitales que recogió esta iniciativa (directamente a través de la plataforma)
           published_at: La fecha en la que se publicó esta iniciativa
