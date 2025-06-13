@@ -128,7 +128,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshots
+          name: Screenshots of run ${{ github.run_id }}
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
           overwrite: true

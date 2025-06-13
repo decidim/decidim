@@ -10,7 +10,10 @@ describe "Conference admin accesses admin sections" do
     login_as user, scope: :user
     visit decidim_admin_conferences.conferences_path
 
-    click_on "Configure"
+    within("tr", text: translated(conference.title)) do
+      find("button[data-component='dropdown']").click
+      click_on "Configure"
+    end
   end
 
   it "can access all sections" do
