@@ -59,13 +59,6 @@ fr-CA:
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surligner, alternative
         highlight_color: Surligner
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Titre du bouton d'action
-        highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Brève description
-        highlighted_content_banner_title: Titre
         host: Host
         instagram_handler: Gestionnaire Instagram
         logo: Logo
@@ -582,7 +575,7 @@ fr-CA:
         content: Contenu signalé
         external_domain_allowlist: Domaines externes autorisés
         help_sections: Sections d'aide
-        homepage: Page d'accueil
+        homepage: Mise en page de la page d'accueil
         impersonations: Utilisateurs représentés
         insights: Aperçus
         manage: Gérer
@@ -901,14 +894,6 @@ fr-CA:
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
-      organization_appearance:
-        edit:
-          update: Mettre à jour
-        form:
-          header_snippets:
-            header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
-            title: Éléments à ajouter à l'en-tête "head" HTML
-          homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
       organization_external_domain_allowlist:
         edit:
           update: Mettre à jour
@@ -1166,8 +1151,6 @@ fr-CA:
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
-        edit_landing_page: Contenus de la page
-        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         menu: Menu
