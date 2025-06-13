@@ -59,13 +59,6 @@ ca:
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
         highlight_color: Destacar
-        highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
-        highlighted_content_banner_action_title: Títol del botó d'acció
-        highlighted_content_banner_action_url: URL del botó d'acció
-        highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
-        highlighted_content_banner_image: Imatge
-        highlighted_content_banner_short_description: Breu descripció
-        highlighted_content_banner_title: Títol
         host: Host
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
@@ -585,7 +578,6 @@ ca:
         content: Contingut reportat
         external_domain_allowlist: Dominis externs permesos
         help_sections: Seccions d'ajuda
-        homepage: Pàgina d'inici
         impersonations: Impersonacions
         insights: Estadístiques
         manage: Gestionar
@@ -904,14 +896,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
-      organization_appearance:
-        edit:
-          update: Actualitzar
-        form:
-          header_snippets:
-            header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb APIs externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
-            title: Fragments de codi HTML de capçalera
-          homepage_highlighted_content_banner_title: Banner de contingut ressaltat
       organization_external_domain_allowlist:
         edit:
           update: Actualizar
@@ -1233,8 +1217,6 @@ ca:
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         edit_external_domains: Llistat de dominis externs permesos
-        edit_landing_page: Continguts de la pàgina
-        edit_organization_appearance: Edita l'aparença de la pàgina d'inici
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         menu: Menú
