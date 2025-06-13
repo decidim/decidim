@@ -48,7 +48,7 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ### 1.4. Rails upgrade
 
-This particular release is deploying a new Rails version 7.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
+This particular release is deploying a new Rails version 7.2. As a result you need to update your application configuration. Before that, you need to run the following commands:
 
 ```console
 bundle update decidim
@@ -78,6 +78,21 @@ module DevelopDevelopmentApp
 end
 ```
 
+After you have validated that your application still works as expected, you will need to do the next change, to fully finalize the upgrade. You need to change again the `config/application.rb` to load the 7.2 defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 7.1
++    config.load_defaults 7.2
+    # ....
+  end
+end
+```
+
+We are recommending to follow the proposed steps, as you may have installed other decidim modules that are not yet ready to be used with 7.2
+
 ⚠ **Important**: Local environment variable introduced
 
 Besides of what is already mentioned, you may encounter some encryption-related issues while developing locally, and this is caused by a Rails internal change that it is outside the control of Decidim's Maintainers team.
@@ -87,8 +102,10 @@ Depending on your environment setup, you will need to define an environment vari
 
 You can read more about the Rails upgrade process on the following PRs:
 
-* [Change framework defaults from Rails v6.1 to v7.0 #14735](https://github.com/decidim/decidim/pull/13267).
-* [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
+* [Change framework defaults from Rails v6.1 to v7.0](https://github.com/decidim/decidim/pull/13267).
+* [Update Rails to v7.1](https://github.com/decidim/decidim/pull/13267)
+* [Update Rails to v7.2](https://github.com/decidim/decidim/pull/14784)
+* [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
 * [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
 ### 1.5. Run these commands
