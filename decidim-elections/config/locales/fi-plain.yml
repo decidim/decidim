@@ -1,5 +1,10 @@
 fi-pl:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Yleiset asetukset
+          election_questions: Kysymykset
     components:
       elections:
         name: Vaalit
@@ -23,7 +28,6 @@ fi-pl:
             success: Vaalin luonti onnistui.
           edit:
             title: Muokkaa vaalia
-            update: Päivitä vaali
           form:
             add_images: Lisää kuvia
             attachment_legend: Lisää kuvagalleria (valinnainen)
@@ -41,13 +45,13 @@ fi-pl:
               real_time: Reaaliajassa
               real_time_help: Näytä tulokset heti ensimmäisen äänen jättämisen jälkeen
               title: Tulosten näkyvyys
+            save: Tallenna ja jatka
             start_at: Alkamisaika
           index:
             title: Vaalit
           manage_trash:
             title: Poistetut vaalit
           new:
-            create: Luo vaali
             title: Uusi vaali
           publish:
             invalid: Vaalin julkaisu epäonnistui.
@@ -58,6 +62,18 @@ fi-pl:
           update:
             invalid: Vaalin päivittäminen epäonnistui.
             success: Vaalin päivittäminen onnistui.
+        questions:
+          edit_questions:
+            new_question: Uusi kysymys
+            remove_question_confirm: Haluatko varmasti poistaa tämän kysymyksen?
+            title: Kysymykset
+          form:
+            errors:
+              at_least_one_question: Vähintään yksi kysymys on määritettävä.
+            form_description: Kysymykseen on saatava vähintään kaksi vastausta, jotta vastaaja voi siirtyä seuraavaan vaiheeseen.
+          update:
+            invalid: Kysymysten päivittäminen epäonnistui.
+            success: Kysymysten päivittäminen onnistui.
       admin_log:
         election:
           create: "%{user_name} loi vaalin %{resource_name} tilaan %{space_name}"
@@ -66,6 +82,8 @@ fi-pl:
           soft_delete: "%{user_name} siirsi vaalin %{resource_name} roskakoriin tilassa %{space_name}"
           unpublish: "%{user_name} perui vaalin %{resource_name} julkaisun tilassa %{space_name}"
           update: "%{user_name} päivitti vaalia %{resource_name} tilassa %{space_name}"
+        question:
+          update: "%{user_name} päivitti kysymyksiä vaalille %{resource_name}"
       models:
         election:
           fields:
