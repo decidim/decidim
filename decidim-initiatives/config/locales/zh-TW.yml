@@ -7,7 +7,6 @@ zh-TW:
         area_id: 區域
         decidim_scope_id: 範圍
         description: 說明
-        hashtag: 主題標籤
         offline_votes: 親筆簽名
         offline_votes_for_scope: '%{scope_name} 的親筆簽名'
         scope_id: 範圍
