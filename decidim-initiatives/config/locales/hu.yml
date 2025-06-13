@@ -7,7 +7,6 @@ hu:
         area_id: Terület
         decidim_scope_id: Hatókör
         description: Leírás
-        hashtag: Kettőskereszt
         offline_votes: Támogatás szemtől szembe
         offline_votes_for_scope: 'Személyesen aláírások erre: %{scope_name}'
         scope_id: Hatáskör
