@@ -13,13 +13,11 @@ gl:
         address: Enderezo
         answer: Resposta
         answered_at: Respondeu en
-        automatic_hashtags: Engadíronse automaticamente os hexágonos
         body: Corpo
         decidim_scope_id: Ámbito
         has_address: Ten enderezo
         scope_id: Ámbito
         state: Estado
-        suggested_hashtags: Hashtags suxeridos
         title: Título
       proposal_answer:
         answer: Resposta
@@ -118,7 +116,6 @@ gl:
             threshold_per_proposal: Umbral por proposta
           step:
             announcement: Anuncio
-            automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear propostas
             default_sort_order: Orde predefinido das propostas
@@ -129,7 +126,6 @@ gl:
               recent: Recentes
               with_more_authors: Con máis autores
             proposal_answering_enabled: Contestando a proposta habilitada
-            suggested_hashtags: Hashtags suxeriu aos usuarios novas propostas
             votes_blocked: Votos bloqueados
             votes_enabled: Votos habilitados
     events:
