@@ -1,7 +1,7 @@
-<div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>">
+<div class="card" data-component="accordion" id="accordion-initiative_type_scope">
   <div class="card-divider">
     <h2 class="card-title gap-2" id="<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-initiative_type_scope" type="button">
         <%= icon "arrow-right-s-line" %>
         <span>
           <%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>
@@ -12,7 +12,7 @@
                   class: "button button__sm button__secondary flex-none" if allowed_to? :create, :initiative_type_scope %>
     </h2>
   </div>
-  <div id="panel-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>" class="card-section">
+  <div id="panel-initiative_type_scope" class="card-section">
     <div class="table-stacked">
       <table class="table-list">
         <thead>

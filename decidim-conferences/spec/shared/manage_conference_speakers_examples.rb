@@ -72,6 +72,7 @@ shared_examples "manage conference speakers examples" do
 
     it "updates a conference speaker", versioning: true do
       within "#conference_speakers tr", text: conference_speaker.full_name do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -96,7 +97,8 @@ shared_examples "manage conference speakers examples" do
 
     it "deletes the conference speaker" do
       within "#conference_speakers tr", text: conference_speaker.full_name do
-        accept_confirm { find("a.action-icon--remove").click }
+        find("button[data-component='dropdown']").click
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
