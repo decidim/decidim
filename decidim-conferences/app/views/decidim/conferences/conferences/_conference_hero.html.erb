@@ -5,11 +5,6 @@
         <%= translated_attribute(current_participatory_space.title) %>
       </h1>
       <p class="conference__hero-slogan">
-        <% if current_participatory_space.hashtag.present? %>
-          <span>
-            <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-          </span>
-        <% end %>
         <%= translated_attribute(current_participatory_space.slogan) %>
       </p>
       <p class="conference__hero-location">

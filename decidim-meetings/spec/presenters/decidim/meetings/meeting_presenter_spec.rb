@@ -75,10 +75,10 @@ module Decidim::Meetings
 
     describe "#description" do
       let(:description1) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse("Description #description", current_organization: organization).rewrite
       end
       let(:description2) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description in Spanish #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse("Description in Spanish #description", current_organization: organization).rewrite
       end
       let(:meeting) do
         create(
@@ -93,7 +93,7 @@ module Decidim::Meetings
         )
       end
 
-      it "parses hashtags in machine translations" do
+      it "parses the description in machine translations" do
         expect(meeting.description["en"]).to match(/gid:/)
         expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
 
@@ -113,12 +113,23 @@ module Decidim::Meetings
     end
 
     describe "#editor_description" do
+      let(:html) do
+        <<~HTML
+          <p>Paragraph with a user mention #{user.to_global_id} and another user mention #{user2.to_global_id}</p>
+        HTML
+      end
+
+      let(:editor_html) do
+        <<~HTML
+          <p>Paragraph with a user mention #{html_mention(user)} and another user mention #{html_mention(user2)}</p>
+        HTML
+      end
       let(:meeting) { create(:meeting, component: meeting_component, description:) }
       let(:description) { { en: html, es: html } }
 
-      include_context "with editor content containing hashtags and mentions"
+      include_context "with editor content containing mentions"
 
-      it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
+      it "converts the mentions to WYSIWYG editor ready elements" do
         expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
       end
     end
