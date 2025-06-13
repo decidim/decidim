@@ -5,6 +5,10 @@ $('[data-assembly-id="<%= parent_assembly_id %>"]').after(
                 locals: { view: :index }).strip.html_safe %>'
 );
 
+// Dispatch the `ajax:loaded` event with the newly inserted element
+const insertedElement = $('[data-assembly-id="<%= parent_assembly_id %>"]').next()[0];
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: insertedElement }));
+
 var component = new window.Decidim.AdminAssembliesListComponent();
 
 component.run();

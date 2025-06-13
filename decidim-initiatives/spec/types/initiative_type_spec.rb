@@ -7,14 +7,102 @@ module Decidim
   module Initiatives
     describe InitiativeType, type: :graphql do
       include_context "with a graphql class type"
+      include_context "followable interface"
+      include_context "referable interface"
+      include_context "commentable interface"
 
-      let(:model) { create(:initiative, online_votes: { "total" => 5 }, offline_votes: { "total" => 3 }) }
+      let(:model) do
+        create(:initiative,
+               online_votes: { "total" => 5 },
+               offline_votes: { "total" => 3 },
+               first_progress_notification_at: Time.current,
+               second_progress_notification_at: Time.current,
+               answered_at: Time.current,
+               answer: { en: "Measured answer" },
+               answer_url: "http://decidim.org")
+      end
 
       describe "id" do
         let(:query) { "{ id }" }
 
         it "returns the id field" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "answer" do
+        let(:query) { '{ answer { translation(locale: "en")} }' }
+
+        it "returns the field value" do
+          expect(response["answer"]["translation"]).to eq(model.answer["en"])
+        end
+
+        context "when the answer is not published" do
+          let(:model) do
+            create(:initiative,
+                   online_votes: { "total" => 5 },
+                   offline_votes: { "total" => 3 },
+                   answer: { en: "Measured answer" },
+                   answer_url: "http://decidim.org")
+          end
+
+          it "does not return the field value" do
+            expect(response["answer"]).to be_nil
+          end
+        end
+      end
+
+      describe "answerUrl" do
+        let(:query) { "{ answerUrl }" }
+
+        it "returns the field value" do
+          expect(response["answerUrl"]).to eq(model.answer_url)
+        end
+
+        context "when the answer is not published" do
+          let(:model) do
+            create(:initiative,
+                   online_votes: { "total" => 5 },
+                   offline_votes: { "total" => 3 },
+                   answer: { en: "Measured answer" },
+                   answer_url: "http://decidim.org")
+          end
+
+          it "does not return the field value" do
+            expect(response["answer"]).to be_nil
+          end
+        end
+      end
+
+      describe "answeredAt" do
+        let(:query) { "{ answeredAt }" }
+
+        it "returns the field value" do
+          expect(response["answeredAt"]).to eq(model.answered_at.to_time.iso8601)
+        end
+
+        context "when the answer is not published" do
+          let(:model) { create(:initiative, online_votes: { "total" => 5 }, offline_votes: { "total" => 3 }) }
+
+          it "returns the field value" do
+            expect(response["answeredAt"]).to be_nil
+          end
+        end
+      end
+
+      describe "first_progress_notification_at" do
+        let(:query) { "{ firstProgressNotificationAt }" }
+
+        it "returns the field value" do
+          expect(response["firstProgressNotificationAt"]).to eq(model.first_progress_notification_at.to_time.iso8601)
+        end
+      end
+
+      describe "second_progress_notification_at" do
+        let(:query) { "{ secondProgressNotificationAt }" }
+
+        it "returns the field value" do
+          expect(response["secondProgressNotificationAt"]).to eq(model.second_progress_notification_at.to_time.iso8601)
         end
       end
 
