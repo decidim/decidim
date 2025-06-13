@@ -13,7 +13,6 @@ es:
         document: Documento
         domain: Dominio
         end_date: Fecha de finalización
-        hashtag: Hashtag
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -39,7 +38,6 @@ es:
         description: Descripción
         developer_group: Grupo promotor
         group_url: Sitio web
-        hashtag: Hashtag
         hero_image: Imagen
         local_area: Área de la organización
         meta_scope: Metadatos de ámbito
@@ -110,7 +108,6 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Información
-          landing_page: Página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -118,7 +115,6 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de este proceso
-          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Administradoras del proceso
@@ -354,7 +350,6 @@ es:
           developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.
           end_date: La fecha de finalización del proceso
           follows_count: El número de usuarias que siguen este proceso participativo
-          hashtag: La etiqueta que utiliza el proceso en Twitter/X
           id: El identificador único del proceso
           local_area: El área de organización del proceso. Esto es el área de organización de la que depende este proceso.
           meta_scope: Los metadatos del ámbito territorial del proceso
