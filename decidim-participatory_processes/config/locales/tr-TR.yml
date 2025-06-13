@@ -105,6 +105,7 @@ tr:
           categories: Kategoriler
           components: Bileşenler
           info: Süreç Hakkında
+          landing_page: Açılış sayfası
           moderations: Denetimler
           private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
