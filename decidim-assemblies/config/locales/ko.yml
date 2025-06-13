@@ -7,7 +7,6 @@ ko:
         duration: 지속 기간
         facebook: 페이스북
         github: 깃허브
-        hashtag: 해시태그
         hero_image: 홈 이미지
         import_attachments: '첨부 파일 가져오기:'
         import_categories: 카테고리 가져오기
