@@ -60,13 +60,6 @@ en:
         header_snippets: Header snippets
         highlight_alternative_color: Highlight, alternative
         highlight_color: Highlight
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
         host: Host
         instagram_handler: Instagram handler
         logo: Logo
@@ -174,6 +167,7 @@ en:
   decidim:
     admin:
       actions:
+        actions_label: Actions for %{resource}
         add: Add
         attachment:
           new: New attachment
@@ -904,14 +898,6 @@ en:
         update:
           error: There was a problem updating this organization.
           success: Organization updated successfully.
-      organization_appearance:
-        edit:
-          update: Update
-        form:
-          header_snippets:
-            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
-            title: HTML header snippets
-          homepage_highlighted_content_banner_title: Highligted content banner
       organization_external_domain_allowlist:
         edit:
           update: Update
@@ -1234,7 +1220,6 @@ en:
         dashboard: Dashboard
         edit_external_domains: Allowed list of external domains
         edit_landing_page: Page contents
-        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu

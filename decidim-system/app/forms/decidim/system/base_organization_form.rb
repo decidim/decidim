@@ -18,6 +18,7 @@ module Decidim
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
       attribute :default_locale, String
+      attribute :header_snippets, String
 
       jsonb_attribute :smtp_settings, [
         [:from, String],
