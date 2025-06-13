@@ -7,7 +7,6 @@ ca-IT:
         area_id: Àrea
         decidim_scope_id: Àmbit
         description: Descripció
-        hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
         offline_votes_for_scope: Signatures presencials per a %{scope_name}
         scope_id: Àmbit
@@ -265,6 +264,7 @@ ca-IT:
             success: La iniciativa s'ha enviat a validació tècnica.
             update: Actualitzar
           form:
+            attachments_title: Fitxers adjunts
             settings: Configuració
             title: Informació general
           index:
@@ -669,7 +669,6 @@ ca-IT:
           description: La descripció de la iniciativa
           first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
           follows_count: El número d'usuàries que segueixen aquesta iniciativa
-          hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
           offline_votes: El número de signatures que va recollir aquesta iniciativa presencialment (en paper)
           online_votes: El número de signatures digitals que va recollir aquesta iniciativa (directament a través de la plataforma)
           published_at: La data en què es va publicar aquesta iniciativa
