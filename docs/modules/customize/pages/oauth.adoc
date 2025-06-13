@@ -30,4 +30,16 @@ ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |
 end
 ----
 
+Note that, if the user is already registered, the `CreateOmniauthRegistration` command will not trigger the "decidim.user.omniauth_registration" event byt instead it will trigger the "decidim.user.omniauth_login" event, which has the same payload as the registration event.
+
+For instance, to retrigger the `IdCatMobilVerificationJob` after a user logs in via omniauth, you can subscribe to the "decidim.user.omniauth_login" event as follows:
+
+[source,ruby]
+----
+ActiveSupport::Notifications.subscribe "decidim.user.omniauth_login" do |name, started, finished, unique_id, data|
+  puts "the data: #{data.inspect}"
+  IdCatMobilVerificationJob.perform_later(data[:raw_data])
+end
+----
+
 It is a good practice to delegate the required implementation to a Job to bring a fastest response to the user, also it will avoid that crashes in this code to propagate to the registration process.
