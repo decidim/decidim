@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+# This module provides a collection of content parsers for Decidim.
+# Each parser is responsible for processing and transforming specific types of content,
+# such as user mentions, links, blobs, and inline images.
+#
+# You can use these parsers by referencing their symbolic names with Decidim's content processor.
+# For example, to parse inline images in content, use the :inline_images parser:
+#
+#   Decidim::ContentProcessor.parse_with_processor(:inline_images, content, options)
+#
+# Available parsers include:
+#   :inline_images, :blob, :user, :link, :tag, :mention_resource, :resource, :newline, :base
+#
+# See each parser's documentation for details on their specific behavior.
 module Decidim
   module ContentParsers
     autoload :BaseParser, "decidim/content_parsers/base_parser"
