@@ -905,7 +905,7 @@ eu:
           success: Erakundea zuzen eguneratua.
       organization_appearance:
         edit:
-          update: Eguneratu
+          update: Onartu
         form:
           colors:
             choose_color: Aukeratu kolore nagusia
