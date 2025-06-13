@@ -7,7 +7,6 @@ sv:
         area_id: Område
         decidim_scope_id: Indelning
         description: Beskrivning
-        hashtag: Hashtag
         offline_votes: Fysiska underskrifter
         offline_votes_for_scope: Personliga underskrifter för %{scope_name}
         scope_id: Indelning
@@ -77,6 +76,7 @@ sv:
   decidim:
     admin:
       actions:
+        cannot_answer: Kan inte svara på detta initiativ
         new_initiative_type: Ny initiativtyp
         new_initiative_type_scope: Skapa indelning för initiativ
       filters:
@@ -249,6 +249,7 @@ sv:
             success: Initiativet har skickats till teknisk validering.
             update: Uppdatera
           form:
+            attachments_title: Bilagor
             settings: Inställningar
             title: Allmän information
           index:
