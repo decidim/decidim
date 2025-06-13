@@ -7,7 +7,6 @@ bg:
         area_id: Област
         decidim_scope_id: Обхват
         description: Описание
-        hashtag: Хаштаг
         offline_votes: Лични подписи
         offline_votes_for_scope: Лични подписи за %{scope_name}
         scope_id: Обхват
