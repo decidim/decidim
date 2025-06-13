@@ -104,6 +104,7 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
+          landing_page: Landingspagina
           moderations: Moderaties
           private_users: Privégebruikers
           process_admins: Admins van het proces
