@@ -59,13 +59,6 @@ sv:
         header_snippets: HTML header snippets
         highlight_alternative_color: Alternativ accentfärg
         highlight_color: Accentfärg
-        highlighted_content_banner_action_subtitle: Undertitel på knapp
-        highlighted_content_banner_action_title: Titel på knapp
-        highlighted_content_banner_action_url: URL för knapp
-        highlighted_content_banner_enabled: Visa bannern för utvalt innehåll
-        highlighted_content_banner_image: Bild
-        highlighted_content_banner_short_description: Kort beskrivning
-        highlighted_content_banner_title: Titel
         host: Host
         instagram_handler: Instagram-namn
         logo: Logo
@@ -173,6 +166,7 @@ sv:
   decidim:
     admin:
       actions:
+        actions_label: Åtgärder för %{resource}
         add: Lägg till
         attachment:
           new: Ny bifogad fil
@@ -584,7 +578,6 @@ sv:
         content: Rapporterat innehåll
         external_domain_allowlist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
-        homepage: Startsida
         impersonations: Uppträd som
         insights: Insikter
         manage: Hantera
@@ -903,14 +896,6 @@ sv:
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.
-      organization_appearance:
-        edit:
-          update: Uppdatera
-        form:
-          header_snippets:
-            header_snippets_help_html: Använd det här fältet för att göra tillägg till HTML-huvudet. Den vanligaste användningen är för att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar till HTML. Observera att detta endast kommer att visas på offentliga sidor, inte i admin-sektionen. Om koden interagerar med externa API:er eller inte följer webbplatsens säkerhetsriktlinjer behöver du ändra säkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">på dokumentationssidan</a>.
-            title: HTML header snippets
-          homepage_highlighted_content_banner_title: Banner med utvalt innehåll
       organization_external_domain_allowlist:
         edit:
           update: Uppdatera
@@ -1232,8 +1217,6 @@ sv:
         authorization_workflows: Verifieringsmetoder
         dashboard: Adminpanel
         edit_external_domains: Tillåtna externa domäner
-        edit_landing_page: Sidans innehåll
-        edit_organization_appearance: Redigera startsidans utseende
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         menu: Meny
