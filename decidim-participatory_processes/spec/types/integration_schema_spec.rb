@@ -55,7 +55,6 @@ describe "Decidim::Api::QueryType" do
         }
         endDate
         followsCount
-        hashtag
         heroImage
         id
         linkedParticipatorySpaces{
@@ -81,7 +80,6 @@ describe "Decidim::Api::QueryType" do
           developerGroup{
             translation(locale: "#{locale}")
           }
-          hashtag
           id
           localArea {
             translation(locale: "#{locale}")
@@ -191,7 +189,6 @@ describe "Decidim::Api::QueryType" do
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
       "followsCount" => 3,
-      "hashtag" => "",
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },
@@ -200,7 +197,6 @@ describe "Decidim::Api::QueryType" do
         "createdAt" => participatory_process_group.created_at.to_time.iso8601,
         "description" => { "translation" => participatory_process_group.description[locale] },
         "developerGroup" => { "translation" => participatory_process_group.developer_group[locale] },
-        "hashtag" => participatory_process_group.hashtag,
         "id" => participatory_process_group.id.to_s,
         "localArea" => { "translation" => participatory_process_group.local_area[locale] },
         "metaScope" => { "translation" => participatory_process_group.meta_scope[locale] },

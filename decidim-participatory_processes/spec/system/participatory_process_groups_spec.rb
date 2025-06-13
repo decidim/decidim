@@ -11,7 +11,6 @@ describe "Participatory Process Groups" do
       :with_participatory_processes,
       organization:,
       title: { en: "Title", ca: "Títol", es: "Título" },
-      hashtag: "my_awesome_hashtag",
       group_url: "https://www.example.org/external"
     )
   end
@@ -92,10 +91,6 @@ describe "Participatory Process Groups" do
 
       it "shows the meta scope name" do
         expect(page).to have_i18n_content(participatory_process_group.meta_scope)
-      end
-
-      it "shows the hashtag" do
-        expect(page).to have_content("#my_awesome_hashtag")
       end
 
       it "has a link to the group url" do
