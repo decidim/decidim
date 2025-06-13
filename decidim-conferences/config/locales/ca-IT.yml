@@ -11,7 +11,6 @@ ca-IT:
         decidim_scope_id: Àmbit
         description: Descripció
         end_date: Data de fi
-        hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
         location: Ubicació
         main_logo: Logo principal
@@ -614,7 +613,6 @@ ca-IT:
           description: Una descripció llarga de la jornada
           end_date: La data en la qual va finalitzar aquesta jornada.
           follows_count: El número d'usuàries que segueixen aquesta jornada
-          hashtag: L'etiqueta que fa servir la jornada a Twitter/X
           id: L'identificador únic de la jornada
           location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
           objectives: Els objectius de la jornada. Quina va ser la meta.
