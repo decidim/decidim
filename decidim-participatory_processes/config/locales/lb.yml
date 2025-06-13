@@ -104,6 +104,7 @@ lb:
           attachments: Unhäng
           categories: Kategorien
           components: Komponenten
+          landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
