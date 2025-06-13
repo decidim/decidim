@@ -7,7 +7,6 @@ eu:
         area_id: Arloa
         decidim_scope_id: Esparrua
         description: Deskribapena
-        hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Eremua
@@ -264,6 +263,7 @@ eu:
             success: Ekimena baliozkotze teknikora bidali da.
             update: Eguneratu
           form:
+            attachments_title: Erantsitako fitxategiak
             settings: Ezarpenak
             title: Informazio orokorra
           index:
@@ -668,7 +668,6 @@ eu:
           description: Ekimenaren deskribapena
           first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
           follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Ekimenaren traola, X sarerako erabilia
           offline_votes: Ekimen honek plataforma honetatik kanpo jaso dituen sinadura kopurua
           online_votes: Ekimen honek online jaso duen sinadura kopurua (plataformaren bidez zuzenean)
           published_at: Zein egunetan argitaratu zen espazio hau
