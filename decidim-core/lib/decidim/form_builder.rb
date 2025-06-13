@@ -73,22 +73,6 @@ module Decidim
         safe_join [field_label, language_selector]
       end
 
-      hashtaggable = options.delete(:hashtaggable)
-      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
-        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id, "aria-hidden": tab_attr_aria_hidden_for(index)) do
-            if hashtaggable
-              hashtaggable_text_field(type, name, locale, options.merge(label: false))
-            elsif type.to_sym == :editor
-              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable:))
-            else
-              send(type, name_with_locale(name, locale), options.merge(label: false))
-            end
-          end
-        end
-      end
-
       safe_join [label_tabs, tabs_content]
     end
 
@@ -101,32 +85,11 @@ module Decidim
     end
 
     def translated_one_locale(type, name, locale, options = {})
-      return hashtaggable_text_field(type, name, locale, options) if options.delete(:hashtaggable)
-
       send(
         type,
         "#{name}_#{locale.to_s.gsub("-", "__")}",
         options.merge(label: options[:label] || label_for(name))
       )
-    end
-
-    # Public: Generates a field for hashtaggable type.
-    # type - The form field's type, like `text_area` or `text_field`
-    # name - The name of the field
-    # locale - The locale to be created
-    # options - The set of options to send to the field
-    #
-    # Renders form fields for each locale.
-    def hashtaggable_text_field(type, name, locale, options = {})
-      options[:hashtaggable] = true if type.to_sym == :editor
-
-      content_tag(:div) do
-        if options[:value]
-          send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
-        else
-          send(type, name_with_locale(name, locale), options.merge(label: options[:label]))
-        end
-      end
     end
 
     # Public: Generates a form field for each social.
@@ -816,13 +779,11 @@ module Decidim
       upload_options = options.delete(:image_upload) || {}
       upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
 
-      hashtaggable = options.delete(:hashtaggable)
       mentionable = options.delete(:mentionable)
       emojiable = options.delete(:emojiable)
       resource_mentionable = options.delete(:resource_mentionable)
 
       editor_classes = ["editor-container"]
-      editor_classes << "js-hashtags" if hashtaggable
       editor_classes << "js-mentions" if mentionable
       editor_classes << "js-emojis" if emojiable
       editor_classes << "js-resource-mentions" if resource_mentionable
