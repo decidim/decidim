@@ -594,6 +594,14 @@ fi-pl:
         welcome_text: Tervetuloa-teksti
       highlighted_content_banner:
         name: Tärkeä sisältöbanneri
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Toimintapainikkeen alaotsikko
+        action_button_title: Toimintapainikkeen otsikko
+        action_button_url: Toimintopainikkeen URL-osoite
+        background_image: Taustakuva
+        short_description: Lyhyt kuvaus
+        subtitle: Alaotsikko
+        title: Otsikko
       highlighted_elements_settings_form:
         components:
           all: Kaikki
