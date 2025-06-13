@@ -405,7 +405,7 @@ You can read more about this change on PR [#14666](https://github.com/decidim/de
 
 We have removed the Hashtags from all modules in the application. Rendering hashtags in the title and description of certain modules will cease to work.
 
-This also inludes renderers and parsers which used the hashtag object to render HTML in forms.
+This also includes renderers and parsers which used the hashtag object to render HTML in forms.
 
 You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
 
