@@ -6,13 +6,11 @@ shared_context "with editor content containing mentions" do
 
   let(:html) do
     <<~HTML
-      <p>Paragraph with some information</p>
       <p>Paragraph with a user mention #{user.to_global_id} and another user mention #{user2.to_global_id}</p>
     HTML
   end
   let(:editor_html) do
     <<~HTML
-      <p>Paragraph with some information</p>
       <p>Paragraph with a user mention #{html_mention(user)} and another user mention #{html_mention(user2)}</p>
     HTML
   end
