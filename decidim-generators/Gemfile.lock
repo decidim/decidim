@@ -342,7 +342,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.21.0)
+    css_parser (1.21.1)
       addressable
     csv (3.3.2)
     date (3.4.1)
@@ -610,7 +610,7 @@ GEM
     psych (5.2.6)
       date
       stringio
-    public_suffix (6.0.1)
+    public_suffix (6.0.2)
     puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.1)
