@@ -11,7 +11,6 @@ es-MX:
         decidim_scope_id: Ámbito
         description: Descripción
         end_date: Fecha de fin
-        hashtag: Etiqueta
         hero_image: Imagen de portada
         location: Localización
         main_logo: Logo principal
@@ -614,7 +613,6 @@ es-MX:
           description: Una descripción larga de la jornada
           end_date: La fecha en la que finalizó esta jornada.
           follows_count: El número de usuarias que siguen esta jornada
-          hashtag: La etiqueta que utiliza la jornada en Twitter/X
           id: El identificador único de la jornada
           location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
           objectives: Los objetivos de esta jornada. Cuál fue la meta.
