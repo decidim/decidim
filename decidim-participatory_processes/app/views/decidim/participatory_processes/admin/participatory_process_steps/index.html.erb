@@ -62,9 +62,9 @@
                           <%= icon "check-line" %> <%= t("actions.activate", scope: "decidim.admin") %>
                         <% end %>
                       </li>
-                    <% end %>
 
-                    <hr>
+                      <hr>
+                    <% end %>
 
                     <% if allowed_to? :destroy, :process_step, process_step: step %>
                       <li class="dropdown__item">

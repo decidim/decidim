@@ -53,9 +53,9 @@
                         <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to?(:update, :registration_type, registration_type: registration_type) %>
                     <% if registration_type.published? %>
@@ -73,9 +73,9 @@
                         <% end %>
                       </li>
                     <% end %>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to?(:destroy, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
                     <li class="dropdown__item">

@@ -56,9 +56,9 @@
                         <%= icon "refresh-line" %> <%= t("actions.resend_invitation", scope: "decidim.admin") %>
                       <% end %>
                     </li>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to? :update, :assembly_user_role, user_role: role %>
                     <li class="dropdown__item">
@@ -66,9 +66,9 @@
                         <%= icon "pencil-line" %> <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to? :destroy, :assembly_user_role, user_role: role %>
                     <li class="dropdown__item">

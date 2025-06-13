@@ -62,9 +62,9 @@
                         <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
                     <% if speaker.published? %>
@@ -82,9 +82,9 @@
                         <% end %>
                       </li>
                     <% end %>
-                  <% end %>
 
-                  <hr>
+                    <hr>
+                  <% end %>
 
                   <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
                     <li class="dropdown__item">
