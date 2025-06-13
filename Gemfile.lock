@@ -327,7 +327,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
-    chartkick (5.1.2)
+    chartkick (5.1.5)
     childprocess (5.1.0)
       logger (~> 1.5)
     chunky_png (1.4.0)
