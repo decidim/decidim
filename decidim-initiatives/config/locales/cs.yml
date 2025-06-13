@@ -7,7 +7,6 @@ cs:
         area_id: Oblast
         decidim_scope_id: Oblast působnosti
         description: Popis
-        hashtag: Hashtag
         offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
@@ -673,7 +672,6 @@ cs:
           description: Popis iniciativy
           first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
           follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Iniciativy, používaný pro Twitter/X
           offline_votes: Počet podpisů, které byly použity mimo tuto platformu
           online_votes: Počet podpisů, které tato iniciativa obdržela on-line (přímo prostřednictvím platformy)
           published_at: Datum, kdy byl tento prostor publikován
