@@ -13,7 +13,6 @@ hu:
         document: Dokumentum
         domain: Domain
         end_date: Befejezés dátuma
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         import_attachments: Mellékletek importálása
         import_categories: Importált kategóriák
@@ -39,7 +38,6 @@ hu:
         description: Leírás
         developer_group: Előterjesztő csoport
         group_url: Weboldal
-        hashtag: Hashtag
         hero_image: Kép
         local_area: Szervezeti terület
         meta_scope: Hatókör-metaadatok
@@ -103,7 +101,6 @@ hu:
         participatory_process_groups: Folyamat csoportok
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landing oldal
         participatory_processes: Folyamatok
         participatory_processes_submenu:
           attachment_collections: Mappák
