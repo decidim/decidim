@@ -7,7 +7,6 @@ de:
         area_id: Gebiet
         decidim_scope_id: Thema
         description: Beschreibung
-        hashtag: Hashtag
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
@@ -661,7 +660,6 @@ de:
           description: Die Beschreibung der Initiative
           first_progress_notification_at: Das Datum, an dem die erste Fortschrittsbenachrichtigung gesendet wurde
           follows_count: Die Anzahl Nutzende, die diesem Raum folgen
-          hashtag: Der Hashtag der Initiative, verwendet für Twitter/X
           offline_votes: Die Anzahl der Unterschriften, die diese Initiative von ausserhalb dieser Plattform erhalten hat
           online_votes: Die Anzahl der Unterschriften, die diese Initiative online erhalten hat (direkt über die Plattform)
           published_at: Veröffentlichungsdatum des Bereichs
