@@ -16,7 +16,7 @@
   </h1>
 </div>
 <div class="item__edit-form">
-  <% if @election.scheduled? %>
+  <% if !@election.scheduled? %>
     <div class="flex flex-col md:flex-row gap-4 w-full mb-5">
       <% %w[status calendar].each do |partial_name| %>
         <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: @election } %></div>

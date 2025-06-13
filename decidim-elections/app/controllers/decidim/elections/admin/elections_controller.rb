@@ -41,12 +41,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :update, :election, election:
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 
         def update
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :update, :election, election:
 
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
 
@@ -64,7 +64,7 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to(:publish, :election, election:)
+          enforce_permission_to :publish, :election, election:
 
           PublishElection.call(election, current_user) do
             on(:ok) do
@@ -80,7 +80,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :unpublish, :election, election:
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do

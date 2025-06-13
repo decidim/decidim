@@ -9,11 +9,12 @@
     <span class="action-space icon"></span>
   <% end %>
 
-<!--  Needs to be deleted -->
-  <% if election.published? %>
-    <%= icon_link_to "close-circle-line", unpublish_election_path(election), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
-  <% else %>
+  <% if allowed_to? :publish, :election, election: election %>
     <%= icon_link_to "check-line", publish_election_path(election), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+  <% end %>
+
+  <% if allowed_to? :unpublish, :election, election: election %>
+    <%= icon_link_to "close-circle-line", unpublish_election_path(election), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
   <% end %>
 
   <%= resource_permissions_link(election) %>

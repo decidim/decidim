@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
 
-      delegate :scheduled?, :started?, :ongoing?, :finished?, :results_published?, to: :status
+      delegate :scheduled?, :started?, :ongoing?, :finished?, :vote_ended?, :results_published?, to: :status
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
