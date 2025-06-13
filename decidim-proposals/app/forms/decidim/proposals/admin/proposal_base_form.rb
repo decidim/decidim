@@ -29,7 +29,7 @@ module Decidim
 
         def map_model(model)
           body = translated_attribute(model.body)
-          Decidim::ContentRenderers::BaseRenderer.new(body)
+          Decidim::ContentRenderers::BlobRenderer.new(body)
         end
 
         alias component current_component
