@@ -25,7 +25,6 @@ ca:
         duration: Durada
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -170,7 +169,6 @@ ca:
           attachments: Adjunts
           components: Components
           info: Quant a aquesta assemblea
-          landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Membres
           see_assembly: Veure l'assemblea
@@ -396,7 +394,6 @@ ca:
           facebook_handler: Controlador de xarxes socials per a Facebook
           follows_count: El número d'usuàries que segueixen aquesta assemblea
           github_handler: Controlador de xarxes socials per a GitHub
-          hashtag: L'etiqueta que fa servir l'assemblea a Twitter/X
           id: L'identificador únic del resultat
           included_at: La data en què l'assemblea es va incloure a la plataforma
           instagram_handler: Controlador de xarxes socials per a Instagram
