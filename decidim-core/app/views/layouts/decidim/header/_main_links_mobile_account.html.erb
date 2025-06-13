@@ -1,4 +1,4 @@
-<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true" aria-modal="true">
+<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true">
   <div class="main-bar">
     <div class="main-bar__logo">
       <div class="main-bar__logo-desktop">
@@ -10,7 +10,7 @@
     </div>
 
     <div>
-      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();">
+      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();document.querySelector('#dropdown-menu-account-mobile').removeAttribute('aria-modal')">
         <%= icon "close-line" %>
       </div>
     </div>

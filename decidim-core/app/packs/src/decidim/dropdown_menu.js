@@ -9,4 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
       dropdownMobileDiv.setAttribute("role", "dialog")
     }, 300)
   }
+  const triggerButtonMobile = document.querySelector("#dropdown-trigger-links-mobile");
+  if (triggerButtonMobile) {
+    triggerButtonMobile.addEventListener("click", () => {
+      dropdownMobileDiv.setAttribute("aria-modal", "true")
+    })
+  }
 });
