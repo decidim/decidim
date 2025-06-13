@@ -73,6 +73,15 @@ module Decidim
         safe_join [field_label, language_selector]
       end
 
+      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
+        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id, "aria-hidden": tab_attr_aria_hidden_for(index)) do
+            send(type, name_with_locale(name, locale), options.merge(label: false))
+          end
+        end
+      end
+
       safe_join [label_tabs, tabs_content]
     end
 
