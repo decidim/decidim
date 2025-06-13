@@ -5,7 +5,6 @@ module Decidim
     module ContentBlocks
       class MainDataCell < Decidim::ContentBlocks::ParticipatorySpaceMainDataCell
         include Decidim::SanitizeHelper
-        include Decidim::TwitterSearchHelper
 
         delegate :title, :description, :hashtag, :group_url, :meta_scope, to: :resource
 

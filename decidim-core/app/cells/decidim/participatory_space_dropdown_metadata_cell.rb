@@ -2,8 +2,6 @@
 
 module Decidim
   class ParticipatorySpaceDropdownMetadataCell < Decidim::ViewModel
-    include Decidim::TwitterSearchHelper
-
     private
 
     def nav_items_method = nil
