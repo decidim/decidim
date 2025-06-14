@@ -815,7 +815,7 @@ GEM
       listen (>= 2.7, < 4.0)
       spring (>= 4)
     stringio (3.1.7)
-    strscan (3.1.2)
+    strscan (3.1.5)
     temple (0.10.3)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
