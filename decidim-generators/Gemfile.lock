@@ -404,7 +404,7 @@ GEM
       net-http (>= 0.5.0)
     fast-stemmer (1.0.2)
     ffi (1.17.2-x86_64-linux-gnu)
-    fiber-storage (1.0.0)
+    fiber-storage (1.0.1)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
