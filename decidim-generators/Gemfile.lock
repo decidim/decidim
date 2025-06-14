@@ -680,7 +680,7 @@ GEM
     rdoc (6.14.0)
       erb
       psych (>= 4.0.0)
-    redcarpet (3.6.0)
+    redcarpet (3.6.1)
     redis (4.8.1)
     regexp_parser (2.10.0)
     reline (0.6.1)
