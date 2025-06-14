@@ -766,7 +766,7 @@ GEM
     rubocop-rubycw (0.1.6)
       rubocop (~> 1.0)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.2)
+    ruby-vips (2.2.4)
       ffi (~> 1.12)
       logger
     rubyXL (3.4.33)
