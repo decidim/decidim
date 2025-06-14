@@ -478,7 +478,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.9.1)
+    json (2.12.2)
     jwt (2.10.1)
       base64
     kaminari (1.2.2)
@@ -493,7 +493,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    language_server-protocol (3.17.0.3)
+    language_server-protocol (3.17.0.5)
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
@@ -585,12 +585,12 @@ GEM
     paper_trail (16.0.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
-    parallel (1.26.3)
+    parallel (1.27.0)
     parallel_tests (4.9.0)
       parallel
     paranoia (3.0.0)
       activerecord (>= 6, < 8.1)
-    parser (3.3.6.0)
+    parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
@@ -608,6 +608,7 @@ GEM
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
     prettyprint (0.2.0)
+    prism (1.4.0)
     psych (5.2.6)
       date
       stringio
@@ -736,8 +737,9 @@ GEM
       rubocop-ast (>= 1.36.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.37.0)
-      parser (>= 3.3.1.0)
+    rubocop-ast (1.45.1)
+      parser (>= 3.3.7.2)
+      prism (~> 1.4)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
     rubocop-factory_bot (2.26.1)
