@@ -90,7 +90,7 @@ module Decidim
       when :title
         form.text_field(:title, options)
       when :body
-        text_editor_for(form, :body)
+        text_editor_for(form, :body, options)
       end
     end
 
