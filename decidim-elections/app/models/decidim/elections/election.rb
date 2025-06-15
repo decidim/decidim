@@ -20,13 +20,15 @@ module Decidim
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
+      has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+
       component_manifest_name "elections"
 
       translatable_fields :title, :description
 
       validates :title, presence: true
 
-      enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: "results"
+      enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), prefix: "results"
 
       searchable_fields(
         A: :title,

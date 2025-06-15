@@ -10,8 +10,9 @@ describe "Decidim::Api::QueryType" do
   let(:locale) { "en" }
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
-  let(:participatory_process) { create(:participatory_process, organization: current_organization, taxonomies: [taxonomy]) }
-
+  let!(:participatory_process_group) { create(:participatory_process_group, organization: current_organization) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization, participatory_process_group:, taxonomies: [taxonomy]) }
+  let!(:follows) { create_list(:follow, 3, followable: participatory_process) }
   let(:participatory_process_query) do
     %(
       participatoryProcess {
@@ -47,13 +48,13 @@ describe "Decidim::Api::QueryType" do
 
         createdAt
         description {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         developerGroup{
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         endDate
-        hashtag
+        followsCount
         heroImage
         id
         linkedParticipatorySpaces{
@@ -66,30 +67,51 @@ describe "Decidim::Api::QueryType" do
           toType
         }
         localArea {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         metaScope {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         participatoryProcessGroup {
+          createdAt
           description {
             translation(locale: "#{locale}")
           }
-          heroImage
+          developerGroup{
+            translation(locale: "#{locale}")
+          }
           id
-          title{
+          localArea {
+            translation(locale: "#{locale}")
+          }
+          metaScope{
             translation(locale: "#{locale}")
           }
           participatoryProcesses {
             id
           }
+          participatoryScope {
+            translation(locale: "#{locale}")
+          }
+          participatoryStructure {
+            translation(locale: "#{locale}")
+          }
+          promoted
+          target {
+            translation(locale: "#{locale}")
+          }
+          title{
+            translation(locale: "#{locale}")
+          }
+          updatedAt
         }
         participatoryScope {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         participatoryStructure {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
+        privateSpace
         promoted
         publishedAt
         reference
@@ -106,8 +128,8 @@ describe "Decidim::Api::QueryType" do
           }
         }
         shortDescription {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         slug
         startDate
         steps {
@@ -116,6 +138,7 @@ describe "Decidim::Api::QueryType" do
           callToActionText{
             translation(locale: "#{locale}")
           }
+          createdAt
           description{
             translation(locale: "#{locale}")
           }
@@ -129,19 +152,21 @@ describe "Decidim::Api::QueryType" do
           title {
             translation(locale: "#{locale}")
           }
+          updatedAt
         }
         subtitle {
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         target{
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         title{
-            translation(locale: "#{locale}")
-          }
+          translation(locale: "#{locale}")
+        }
         type
         updatedAt
         url
+        weight
       }
     )
   end
@@ -163,14 +188,29 @@ describe "Decidim::Api::QueryType" do
       "description" => { "translation" => participatory_process.description[locale] },
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
-      "hashtag" => "",
+      "followsCount" => 3,
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },
       "metaScope" => { "translation" => participatory_process.meta_scope[locale] },
-      "participatoryProcessGroup" => nil,
+      "participatoryProcessGroup" => {
+        "createdAt" => participatory_process_group.created_at.to_time.iso8601,
+        "description" => { "translation" => participatory_process_group.description[locale] },
+        "developerGroup" => { "translation" => participatory_process_group.developer_group[locale] },
+        "id" => participatory_process_group.id.to_s,
+        "localArea" => { "translation" => participatory_process_group.local_area[locale] },
+        "metaScope" => { "translation" => participatory_process_group.meta_scope[locale] },
+        "participatoryProcesses" => [{ "id" => participatory_process.id.to_s }],
+        "participatoryScope" => { "translation" => participatory_process_group.participatory_scope[locale] },
+        "participatoryStructure" => { "translation" => participatory_process_group.participatory_structure[locale] },
+        "promoted" => participatory_process_group.promoted,
+        "target" => { "translation" => participatory_process_group.target[locale] },
+        "title" => { "translation" => participatory_process_group.title[locale] },
+        "updatedAt" => participatory_process_group.updated_at.to_time.iso8601
+      },
       "participatoryScope" => { "translation" => participatory_process.participatory_scope[locale] },
       "participatoryStructure" => { "translation" => participatory_process.participatory_structure[locale] },
+      "privateSpace" => participatory_process.private_space?,
       "promoted" => false,
       "publishedAt" => participatory_process.published_at.to_time.iso8601,
       "reference" => participatory_process.reference,
@@ -178,13 +218,29 @@ describe "Decidim::Api::QueryType" do
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,
-      "steps" => participatory_process.steps.to_a,
+      "steps" => [
+        {
+          "active" => participatory_process.steps.first.active,
+          "callToActionPath" => participatory_process.steps.first.cta_path,
+          "callToActionText" => { "translation" => participatory_process.steps.first.cta_text[locale] },
+          "createdAt" => participatory_process.steps.first.created_at.to_time.iso8601,
+          "description" => { "translation" => participatory_process.steps.first.description[locale] },
+          "endDate" => participatory_process.steps.first.end_date&.to_time&.iso8601,
+          "id" => participatory_process.steps.first.id.to_s,
+          "participatoryProcess" => { "id" => participatory_process.id.to_s },
+          "position" => participatory_process.steps.first.position,
+          "startDate" => participatory_process.steps.first.start_date&.to_time&.iso8601,
+          "title" => { "translation" => participatory_process.steps.first.title[locale] },
+          "updatedAt" => participatory_process.steps.first.updated_at.to_time.iso8601
+        }
+      ],
       "subtitle" => { "translation" => participatory_process.subtitle[locale] },
       "target" => { "translation" => participatory_process.target[locale] },
       "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
       "updatedAt" => participatory_process.updated_at.to_time.iso8601,
-      "url" => Decidim::EngineRouter.main_proxy(participatory_process).participatory_process_url(participatory_process)
+      "url" => Decidim::EngineRouter.main_proxy(participatory_process).participatory_process_url(participatory_process),
+      "weight" => participatory_process.weight
     }
   end
   let(:query) do

@@ -32,7 +32,7 @@ FactoryBot.define do
       end
     end
 
-    trait :open_ama do
+    trait :ongoing_ama do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
     end
@@ -61,8 +61,8 @@ FactoryBot.define do
     end
 
     after(:build) do |debate|
-      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
-      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+      debate.title = Decidim::ContentProcessor.parse(debate.title, current_organization: debate.organization).rewrite
+      debate.description = Decidim::ContentProcessor.parse_with_processor(:inline_images, debate.description, current_organization: debate.organization).rewrite
     end
   end
 

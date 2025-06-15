@@ -12,7 +12,7 @@ module Decidim
                foreign_key: "decidim_users_id",
                class_name: "Decidim::User"
 
-    enum state: [:requested, :rejected, :accepted]
+    enum :state, [:requested, :rejected, :accepted]
 
     validates :state, presence: true
     validates :user, uniqueness: { scope: :initiative }

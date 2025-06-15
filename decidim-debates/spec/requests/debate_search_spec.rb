@@ -90,12 +90,22 @@ RSpec.describe "Debate search" do
   context "when searching by state" do
     let(:filter_params) { { with_any_state: state } }
 
-    context "and the state is open" do
-      let(:state) { %w(open) }
+    let!(:debate1) do
+      create(
+        :debate,
+        :official,
+        component:,
+        start_time: 1.day.ago,
+        end_time: 1.day.from_now
+      )
+    end
 
-      it "returns the open debates" do
+    context "and the state is ongoing" do
+      let(:state) { %w(ongoing) }
+
+      it "returns the ongoing debates" do
         expect(subject).to have_escaped_html(translated(debate1.title))
-        expect(subject).to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
         expect(subject).not_to have_escaped_html(translated(debate3.title))
         expect(subject).to have_escaped_html(translated(debate4.title))
       end

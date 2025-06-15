@@ -588,9 +588,21 @@ en:
         name: Hero image and CTA
       hero_settings_form:
         background_image: Background image
+        cta_button_path: Call To Action button URL
+        cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+        cta_button_text: Call To Action button text
+        cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Action button subtitle
+        action_button_title: Action button title
+        action_button_url: Action button URL
+        background_image: Background image
+        short_description: Short description
+        subtitle: Subtitle
+        title: Title
       highlighted_elements_settings_form:
         components:
           all: All
@@ -1623,9 +1635,6 @@ en:
       confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
-      extended_navigation_bar:
-        more: More
-        unfold: Unfold
       filter_form_help:
         help: The form below filters the search results dynamically when the search conditions are changed.
         skip: Skip to results

@@ -68,7 +68,7 @@ module Decidim
     end
 
     context "when it has an image" do
-      subject { build(:attachment, :with_image) }
+      subject { create(:attachment, :with_image) }
 
       it "has a thumbnail" do
         expect(subject.thumbnail_url).not_to be_nil

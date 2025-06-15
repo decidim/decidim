@@ -28,10 +28,10 @@ module Decidim
         resource_key = resource.resource_manifest.name.to_sym
         return unless resource.allow_resource_permissions? && allowed_to?(:update, resource_key, resource_key => resource)
 
-        icon_link_to "key-2-line",
-                     send("edit_#{resource_key}_permissions_path", resource, resource_name: resource.resource_manifest.name),
-                     t("actions.permissions", scope: "decidim.admin"),
-                     class: "action-icon--permissions #{"action-icon--highlighted" if resource.permissions.present?}"
+        link_to send("edit_#{resource_key}_permissions_path", resource, resource_name: resource.resource_manifest.name), class: "dropdown__button" do
+          concat icon "key-2-line"
+          concat t("actions.permissions", scope: "decidim.admin")
+        end
       end
     end
   end

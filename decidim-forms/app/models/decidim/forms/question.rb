@@ -39,7 +39,8 @@ module Decidim
                class_name: "DisplayCondition",
                foreign_key: "decidim_condition_question_id",
                dependent: :destroy,
-               inverse_of: :question
+               inverse_of: :question,
+               counter_cache: :display_conditions_for_other_questions_count
 
       # Questions which have display conditions based on the value of this question's response
       has_many :conditioned_questions,

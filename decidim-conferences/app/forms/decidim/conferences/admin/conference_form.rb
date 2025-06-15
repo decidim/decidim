@@ -22,7 +22,6 @@ module Decidim
 
         attribute :slug, String
         attribute :weight, Integer, default: 0
-        attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :hero_image
         attribute :remove_hero_image, Boolean, default: false

@@ -29,6 +29,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+amagat
 amd
 amendables
 AMR
@@ -60,6 +61,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -490,6 +492,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -579,6 +582,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -792,6 +796,8 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
@@ -860,6 +866,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby
@@ -1065,6 +1072,7 @@ XXXXXXXY
 yardopts
 yarnkey
 ydd
+yjit
 yieldparam
 yieldreturn
 yoda

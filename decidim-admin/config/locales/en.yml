@@ -46,8 +46,6 @@ en:
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
@@ -62,13 +60,6 @@ en:
         header_snippets: Header snippets
         highlight_alternative_color: Highlight, alternative
         highlight_color: Highlight
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
         host: Host
         instagram_handler: Instagram handler
         logo: Logo
@@ -176,6 +167,7 @@ en:
   decidim:
     admin:
       actions:
+        actions_label: Actions for %{resource}
         add: Add
         attachment:
           new: New attachment
@@ -355,7 +347,7 @@ en:
         attempts: Attempts
         'false': 'No'
         index:
-          text: Search by current user email, name or nickname.
+          text: Search by current user email, name or nickname
         managed_user_name: Managed User
         solved: Solved
         title: Verification conflicts
@@ -457,11 +449,11 @@ en:
         remove_all: Remove all
         search_label: Search
         search_placeholder:
-          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname
           report_count_eq: Report count eq
-          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
-          title_cont: Search %{collection} by title.
-          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content
+          title_cont: Search %{collection} by title
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname
         state_eq:
           label: State
           values:
@@ -560,7 +552,7 @@ en:
       logs:
         filters:
           participatory_space: Find participatory space
-          text: Search by user email, name or nickname.
+          text: Search by user email, name or nickname
           user: User
         logs_list:
           no_logs_yet: There are no logs yet.
@@ -587,7 +579,7 @@ en:
         content: Reported content
         external_domain_allowlist: Allowed external domains
         help_sections: Help sections
-        homepage: Homepage
+        homepage: Homepage layout
         impersonations: Impersonations
         insights: Insights
         manage: Manage
@@ -881,23 +873,6 @@ en:
         form:
           admin_terms_of_service: Admin terms of service
           basic_configuration: Basic configuration
-          extra_features: Extra features
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
-          social_handlers: Social
-          twitter: X
-          url: URL
-          welcome_notification: Welcome notification
-          youtube: YouTube
-        update:
-          error: There was a problem updating this organization.
-          success: Organization updated successfully.
-      organization_appearance:
-        edit:
-          update: Update
-        form:
           colors:
             choose_color: Choose a primary color
             colors_title: Organization colors
@@ -907,17 +882,22 @@ en:
             saturation: Saturation
             title: Color chooser
             update_suggested_colors: Update suggested colors
-          cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets:
-            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
-            title: HTML header snippets
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          images:
-            layout_appearance_title: Edit layout appearance
+          extra_features: Extra features
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          logos:
+            organization_logos: Organization logos
             preview: Preview
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
+          social_handlers: Social
+          twitter: X
+          url: URL
+          welcome_notification: Welcome notification
+          youtube: YouTube
+        update:
+          error: There was a problem updating this organization.
+          success: Organization updated successfully.
       organization_external_domain_allowlist:
         edit:
           update: Update
@@ -1239,8 +1219,6 @@ en:
         authorization_workflows: Verification methods
         dashboard: Dashboard
         edit_external_domains: Allowed list of external domains
-        edit_landing_page: Page contents
-        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu

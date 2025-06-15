@@ -134,11 +134,6 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Møtet "%{resource_title}" har muliggjort registreringer.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet har muliggjort registreringer.
-        upcoming_meeting:
-          email_intro: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
-          email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
-          email_subject: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet starter om mindre enn 48 timer.
     gamification:
       badges:
         attended_meetings:

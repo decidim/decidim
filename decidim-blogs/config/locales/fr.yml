@@ -103,7 +103,6 @@ fr:
           comment: Commenter
           create: Créer
           destroy: Supprimer
-          endorse: Soutenir
           update: Mettre à jour
         name: Actualités
         settings:
@@ -120,8 +119,6 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
-            endorsements_blocked: Soutiens bloqués
-            endorsements_enabled: Soutiens activés
     events:
       blogs:
         post_created:
