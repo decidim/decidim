@@ -46,6 +46,7 @@ module Decidim
 
       # Validates the emendation using the amendable form.
       def amendable_form_must_be_valid
+        parse_hash_params
         original_form.validate unless defined?(@original_form) # Preserves previously added errors.
 
         amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
@@ -68,6 +69,16 @@ module Decidim
             error = hash.delete(:error)
             @amendable_form.errors.add(key, error, **hash) unless @amendable_form.errors.details[key].include?(error:)
           end
+        end
+      end
+
+      # Parses :title and :body attribute values with BlobParser.
+      def parse_hash_params
+        emendation_params.each do |key, value|
+          next unless [:title, :body].include?(key)
+
+          clean_value = translated_attribute(value)
+          emendation_params[key] = Decidim::ContentParsers::BlobParser.new(clean_value, form_context).rewrite
         end
       end
 
