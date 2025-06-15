@@ -425,7 +425,7 @@ describe "Editor" do
       prosemirror.native.send_keys "Hello, world!"
     end
 
-    it "videoEmbed" do
+    it "videoEmbed" do # rubocop:disable RSpec/ExampleLength
       click_toggle("videoEmbed")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Video URL", with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
