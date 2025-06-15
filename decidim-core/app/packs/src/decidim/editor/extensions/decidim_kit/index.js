@@ -3,11 +3,11 @@ import { Extension } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import CodeBlock from "@tiptap/extension-code-block";
 import Underline from "@tiptap/extension-underline";
+import Heading from "@tiptap/extension-heading";
 
 import CharacterCount from "src/decidim/editor/extensions/character_count";
 import Bold from "src/decidim/editor/extensions/bold";
 import Dialog from "src/decidim/editor/extensions/dialog";
-import Heading from "src/decidim/editor/extensions/heading";
 import OrderedList from "src/decidim/editor/extensions/ordered_list";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
