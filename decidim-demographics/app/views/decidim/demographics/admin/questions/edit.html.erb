@@ -3,18 +3,6 @@
 <%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
   <%= button_tag t("decidim.demographics.admin.questions.edit.save"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
 <% end %>
-
-<div class="questionnaire-questions">
-  <div class="item_show__header">
-    <h1 class="item_show__header-title">
-      <%= t(".title") %>
-      <% if questionnaire.questions_editable? %>
-        <button class="button button__xs button__transparent-secondary add-question"><%= t(".add_question") %></button>
-      <% end %>
-    </h1>
-  </div>
-</div>
-
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: update_questions_questions_path, method: :patch, html: { id: "survey-form", class: "form-defaults form edit_questions_survey" }) do |form| %>
