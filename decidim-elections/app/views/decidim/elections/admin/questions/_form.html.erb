@@ -16,7 +16,7 @@
   <% end %>
 
   <div class="questionnaire-questions-list last:pb-0">
-    <ul class="draggable-list js-connect js-list-questions flex flex-col py-6 gap-6">
+    <ul class="draggable-list js-connect js-list-questions flex flex-col py-6">
       <% @form.questions.each_with_index do |question, index| %>
         <%= fields_for "questions[]", question do |question_form| %>
           <li class="draggable-item js-question-block" draggable="true">

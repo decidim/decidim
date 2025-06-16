@@ -31,7 +31,7 @@ module Decidim
 
       validates :title, presence: true
 
-      enum results_availability: RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), _prefix: "results"
+      enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), prefix: "results"
 
       scope :upcoming, -> { published.where(start_at: Time.current..) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }

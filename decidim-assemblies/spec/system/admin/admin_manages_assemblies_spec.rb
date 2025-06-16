@@ -175,12 +175,20 @@ describe "Admin manages assemblies" do
       it "expands the parent assembly" do
         expect(page).to have_no_content(translated(child_assembly.title))
 
+        # Opens children
         within "tr", text: translated(parent_assembly.title) do
           find("a[data-arrow-down]").click
         end
 
         expect(page).to have_content(translated(child_assembly.title))
 
+        # Opens actions dropdown in children
+        find("button[data-target='actions-assembly-#{child_assembly.id}']").click
+        expect(page).to have_content("Configure")
+        expect(page).to have_content("Access links")
+        expect(page).to have_content("Export all")
+
+        # Remove children
         within "tr", text: translated(parent_assembly.title) do
           find("a[data-arrow-up]").click
         end

@@ -4,6 +4,8 @@ module Decidim
   module Elections
     module Admin
       module ElectionsHelper
+        include Decidim::ApplicationHelper
+
         def census_count(election)
           election.census&.count(election).to_i
         end

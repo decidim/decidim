@@ -150,9 +150,7 @@ class DynamicFieldsComponent {
       // as they are submitted with them.
       $template = $wrapper.children(`template, ${templateClass}`);
     }
-
     const $newField = $($template.html()).template(this.placeholderId, this._getUID());
-
     $newField.find("ul.tabs").attr("data-tabs", true);
 
     const $lastQuestion = $container.find(this.fieldSelector).last()

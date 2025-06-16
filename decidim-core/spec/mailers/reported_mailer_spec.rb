@@ -135,8 +135,7 @@ module Decidim
       let(:default_body) { "has been hidden" }
       let(:locale) { nil }
 
-      # Temporary disabled as we are missing the translations for new actions
-      # include_examples "localised email"
+      include_examples "localised email"
 
       it "includes the participatory space name" do
         expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
@@ -159,15 +158,14 @@ module Decidim
     describe "#hidden_manually" do
       let(:mail) { described_class.hidden_manually(user, report, user) }
 
-      let(:mail_subject) { "Un contingut s'ha ocultat automàticament" }
+      let(:mail_subject) { "Un recurs ha estat amagat per #{user.name}" }
       let(:default_subject) { "A resource has been hidden by #{user.name}" }
 
       let(:body) { "ocultat automàticament" }
       let(:default_body) { "has been hidden" }
       let(:locale) { nil }
 
-      # Temporary disabled as we are missing the translations for new actions
-      # include_examples "localised email"
+      include_examples "localised email"
 
       it "includes the participatory space name" do
         expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
