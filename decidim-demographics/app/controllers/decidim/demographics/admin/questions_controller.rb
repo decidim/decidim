@@ -24,7 +24,7 @@ module Decidim
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
           @questionnaire.override_edit!
-          # create_default_questionnaire!
+          create_default_questionnaire!
           @questionnaire
         end
 
