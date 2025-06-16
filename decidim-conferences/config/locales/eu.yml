@@ -217,6 +217,7 @@ eu:
       models:
         conference:
           fields:
+            actions: Ekintzak
             created_at: Noiz sortua
             published: Argitaratua
             title: Izenburua
