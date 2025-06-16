@@ -108,6 +108,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Información
+          landing_page: Disposición de la página de aterrizaje
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -115,6 +116,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de este proceso
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Administradoras del proceso
