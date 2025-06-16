@@ -5,7 +5,11 @@ RSpec.shared_examples "manage timeline" do
 
   it "updates a timeline entry", versioning: true do
     visit current_path
-    click_on "Edit", match: :first
+
+    within("tr", text: translated_attribute(timeline_entry.title)) do
+      find("button[data-component='dropdown']").click
+      click_on "Edit"
+    end
 
     within ".edit_timeline_entry" do
       fill_in_datepicker :timeline_entry_entry_date_date, with: Date.current.strftime("%d/%m/%Y")
@@ -26,7 +30,7 @@ RSpec.shared_examples "manage timeline" do
   end
 
   it "creates a timeline entry", versioning: true do
-    click_on "New timeline entry", match: :first
+    click_on "New timeline entry"
 
     within ".new_timeline_entry" do
       fill_in_datepicker :timeline_entry_entry_date_date, with: Date.current.strftime("%d/%m/%Y")

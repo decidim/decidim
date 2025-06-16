@@ -27,6 +27,7 @@ describe "Admin manages accountability" do
   describe "child results" do
     before do
       within "tr[data-id='#{result.id}'] .table-list__actions" do
+        find("button[data-component='dropdown']").click
         click_on "New result"
       end
     end
@@ -46,6 +47,7 @@ describe "Admin manages accountability" do
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
         click_on "Project evolution"
       end
     end

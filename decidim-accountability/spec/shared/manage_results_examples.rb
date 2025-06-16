@@ -29,6 +29,7 @@ shared_examples "manage results" do
 
     it "updates a result" do
       within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -53,7 +54,10 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_on "New result", match: :first
+      within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
+        click_on "New result"
+      end
 
       within ".new_result" do
         fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
@@ -89,13 +93,13 @@ shared_examples "manage results" do
 
   it "allows the user to preview the result" do
     within "tr", text: translated(result.title) do
-      klass = "action-icon--preview"
-      href = resource_locator(result).path
-      target = "blank"
+      find("button[data-component='dropdown']").click
+      preview_window = window_opened_by { click_on "Preview" }
 
-      expect(page).to have_xpath(
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-      )
+      within_window preview_window do
+        expect(page).to have_content translated(result.title)
+        expect(page).to have_content "Progress"
+      end
     end
   end
 
@@ -108,6 +112,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Soft delete" }
       end
 

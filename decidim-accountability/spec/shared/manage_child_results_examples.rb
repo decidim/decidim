@@ -3,6 +3,7 @@
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
     within "tr", text: translated(child_result.title) do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
 
@@ -38,7 +39,10 @@ RSpec.shared_examples "manage child results" do
   end
 
   it "creates a new child result" do
-    click_on "New result", match: :first
+    within "tr", text: translated(child_result.title) do
+      find("button[data-component='dropdown']").click
+      click_on "New result"
+    end
 
     within ".new_result" do
       fill_in_i18n(
@@ -74,12 +78,14 @@ RSpec.shared_examples "manage child results" do
     before do
       visit current_path
       within "tr[data-id='#{result.id}'] .table-list__actions" do
+        find("button[data-component='dropdown']").click
         click_on "New result"
       end
     end
 
     it "moves to the trash a result" do
       within "tr", text: translated(child_result.title) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Soft delete" }
       end
 
