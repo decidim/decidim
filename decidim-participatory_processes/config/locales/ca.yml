@@ -108,6 +108,7 @@ ca:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
           info: Informació
+          landing_page: Disposició de la pàgina de destinació
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -115,6 +116,7 @@ ca:
           attachments: Adjunts
           components: Components
           info: Quant a aquest procés
+          landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
           private_users: Membres
           process_admins: Administradores del procés
