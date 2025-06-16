@@ -1,27 +1,64 @@
-<% if view == :deleted %>
-  <% if allowed_to? :restore, :project, trashable_deleted_resource: project %>
-    <%= icon_link_to "refresh-line", restore_budget_project_path(project.budget, project), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
-  <% end %>
-<% else %>
-  <% if allowed_to? :update, :project, project: project %>
-    <%= icon_link_to "pencil-line", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
-  <% end %>
+<button type="button" data-component="dropdown" data-target="actions-post-<%= project.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: project.title) %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
 
-  <% if allowed_to? :update, :project, project: project %>
-    <%= icon_link_to "folder-line", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
-  <% end %>
+<div class="inline-block relative">
+  <ul id="actions-post-<%= project.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted %>
+      <% if allowed_to? :restore, :project, trashable_deleted_resource: project %>
+        <li class="dropdown__item">
+          <%= link_to restore_budget_project_path(project.budget, project), method: :patch, class: "dropdown__button action-icon--restore" do %>
+            <%= icon "refresh-line" %>
+            <%= t("decidim.admin.actions.restore") %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <% if allowed_to? :update, :project, project: project %>
+        <li class="dropdown__item">
+          <%= link_to resource_locator([budget, project]).edit, class: "dropdown__button action-icon--edit" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.budgets") %>
+          <% end %>
+        </li>
+        <li class="dropdown__item">
+          <%= link_to project_attachment_collections_path(project), class: "dropdown__button action-icon--attachment_collections" do %>
+            <%= icon "folder-line" %>
+            <%= t("actions.attachment_collections", scope: "decidim.budgets") %>
+          <% end %>
+        </li>
+        <li class="dropdown__item">
+          <%= link_to project_attachments_path(project), class: "dropdown__button action-icon--attachments" do %>
+            <%= icon "attachment-line" %>
+            <%= t("actions.attachments", scope: "decidim.budgets") %>
+          <% end %>
+        </li>
+      <% end %>
 
-  <% if allowed_to? :update, :project, project: project %>
-    <%= icon_link_to "attachment-line", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
-  <% end %>
+      <li class="dropdown__item">
+        <%= link_to resource_locator([budget, project]).path, target: :blank, data: { "external-link": false }, class: "dropdown__button action-icon--preview" do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.budgets") %>
+        <% end %>
+      </li>
 
-  <%= icon_link_to "eye-line", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview", data: { "external-link": false } %>
+      <li class="dropdown__item">
+        <%= resource_permissions_link(project) %>
+      </li>
 
-  <%= resource_permissions_link(project) %>
-
-  <% if allowed_to? :soft_delete, :project, trashable_deleted_resource: project %>
-    <%= icon_link_to "delete-bin-line", soft_delete_budget_project_path(project.budget, project), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_project", scope: "decidim.budgets") } %>
-  <% else %>
-    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.admin") %>
-  <% end %>
-<% end %>
+      <li class="dropdown__item">
+        <% if allowed_to? :soft_delete, :project, trashable_deleted_resource: project %>
+          <%= link_to soft_delete_budget_project_path(project.budget, project), method: :patch, data: { confirm: t("actions.confirm_delete_project", scope: "decidim.budgets") }, class: "dropdown__button action-icon--delete" do %>
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <span class="dropdown__button action-icon--disabled" role="img" aria-label="<%= t("actions.destroy", scope: "decidim.admin") %>">
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

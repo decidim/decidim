@@ -10,7 +10,7 @@
       <%= link_to t("actions.new_timeline_entry", scope: "decidim.accountability"), new_result_timeline_entry_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :timeline_entry %>
     </h1>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -22,16 +22,40 @@
       <tbody>
         <% timeline_entries.each do |timeline_entry| %>
           <tr data-id="<%= timeline_entry.id %>">
-            <td><%= l timeline_entry.entry_date, format: :decidim_short %><br></td>
-            <td><%= translated_attribute(timeline_entry.title) %></td>
-            <td class="table-list__actions">
-              <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
-                <%= icon_link_to "pencil-line", edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
-              <% end %>
+            <td data-label="<%= t("models.timeline_entry.fields.entry_date", scope: "decidim.accountability") %>">
+              <%= l timeline_entry.entry_date, format: :decidim_short %><br>
+            </td>
+            <td data-label="<%= t("models.timeline_entry.fields.title", scope: "decidim.accountability") %>">
+              <%= translated_attribute(timeline_entry.title) %>
+            </td>
+            <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.accountability") %>">
+              <button type="button" data-component="dropdown" data-target="actions-timeline-entry-<%= timeline_entry.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: translated_attribute(timeline_entry.title)) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
 
-              <% if allowed_to? :destroy, :timeline_entry, timeline_entry: timeline_entry %>
-                <%= icon_link_to "delete-bin-line", result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability") } %>
-              <% end %>
+              <div class="inline-block relative">
+                <ul id="actions-timeline-entry-<%= timeline_entry.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
+                    <li class="dropdown__item">
+                      <%= link_to edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t("actions.edit", scope: "decidim.accountability") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to? :destroy, :timeline_entry, timeline_entry: timeline_entry %>
+                    <li class="dropdown__item">
+                      <%= link_to result_timeline_entry_path(timeline_entry.result, timeline_entry), method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability") }, class: "dropdown__button dropdown__button--danger" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("actions.destroy", scope: "decidim.accountability") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
