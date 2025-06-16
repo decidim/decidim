@@ -1,5 +1,8 @@
 <div class="questionnaire-questions form__wrapper">
   <div class="row column text-center my-4">
+    <% if questionnaire.questions_editable? %>
+      <button class="button button__xs button__transparent-secondary add-question"><%= t(".add_question") %></button>
+    <% end %>
     <button type="button" class="button button__xs button__transparent-secondary collapse-all"><%= t(".collapse") %></button>
     <button type="button" class="button button__xs button__transparent-secondary expand-all"><%= t(".expand") %></button>
   </div>

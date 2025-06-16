@@ -3,6 +3,7 @@
 <%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
   <%= button_tag t("decidim.demographics.admin.questions.edit.save"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
 <% end %>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: update_questions_questions_path, method: :patch, html: { id: "survey-form", class: "form-defaults form edit_questions_survey" }) do |form| %>

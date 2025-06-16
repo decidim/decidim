@@ -16,10 +16,10 @@ en:
             title: Publish responses
         questions:
           edit:
-            add_question: Add question
             save: Save
             title: Questions
           questions_form:
+            add_question: Add question
             collapse: Collapse all questions
             expand: Expand all questions
         responses:
@@ -52,6 +52,24 @@ en:
         error: There was an error removing your donated data
         success: Successfully removed your donated data
       name: Demographic data donation
+      questions:
+        age:
+          options:
+          - 15 to 29 years
+          - 30 to 44 years
+          - 45 to 64 years
+          - 65 years and over
+          question: What is your age?
+        gender:
+          options:
+          - Man
+          - Woman
+          - Non-binary
+          - My gender is not listed
+          - Prefer not to say
+          question: Which of the following best describes your gender?
+        postal:
+          question: What is your home postal code?
   layouts:
     decidim:
       shared:

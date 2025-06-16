@@ -873,9 +873,11 @@ describe "Admin manages demographic questions" do
 
         context "when submitting a new question with an error" do
           before do
+            expect(page).to have_content("Add question")
             click_on "Add question"
             click_on "Save"
 
+            sleep(1)
             within ".questionnaire-question:last-of-type" do
               page.find(".question--collapse").click
             end
@@ -971,6 +973,8 @@ describe "Admin manages demographic questions" do
   it_behaves_like "update questions"
 
   def expand_all_questions
+    sleep(1)
+    expect(page).to have_content("Expand all questions")
     click_on "Expand all questions"
   end
 
