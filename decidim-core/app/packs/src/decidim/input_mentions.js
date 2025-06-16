@@ -5,7 +5,7 @@ const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
-  // Used to render mentions in the rich text editor.
+  //  Prevents the mention component to be initialized inside the editor
   if ($mentionContainer.parent().hasClass("editor")) {
     return;
   }
