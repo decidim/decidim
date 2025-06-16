@@ -73,7 +73,7 @@ module Decidim
       end
 
       # Parses :title and :body attribute values with BlobParser.
-      def parse_hash_params
+      def parse_content_params
         emendation_params.each do |key, value|
           next unless [:title, :body].include?(key)
 
