@@ -6,16 +6,18 @@
       <div>
         <div class="form__wrapper flag-modal__form">
           <p id="dialog-desc-<%= modal_id %>" class="flag-modal__form-description"><%= t("decidim.shared.flag_modal.description") %></p>
-          <p class="flag-modal__form-reason"><%= t("decidim.shared.flag_modal.reason") %>:</p>
-          <%= f.collection_radio_buttons :reason, [
-            [:spam, t("decidim.shared.flag_modal.spam")],
-            [:offensive, t("decidim.shared.flag_modal.offensive")],
-            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization_name)]
-          ], :first, :last do |builder|
-            builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
-          end %>
+          <fieldset class="mt-6">
+            <legend class="flag-modal__form-reason"><%= t("decidim.shared.flag_modal.reason") %>:</legend>
+            <%= f.collection_radio_buttons :reason, [
+              [:spam, t("decidim.shared.flag_modal.spam")],
+              [:offensive, t("decidim.shared.flag_modal.offensive")],
+              [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization_name)]
+            ], :first, :last do |builder|
+              builder.label(for: "#{builder.value.to_s}-#{modal_id}", class: "form__wrapper-checkbox-label") { builder.radio_button(id: "#{builder.value.to_s}-#{modal_id}") + builder.text }
+            end %>
+          </fieldset>
 
-          <%= f.text_area :details, rows: 4, label_options: { class: "flag-modal__form-textarea-label", for: nil }, id: nil %>
+          <%= f.text_area :details, rows: 4, label_options: { class: "flag-modal__form-textarea-label", for: "additional-comments-#{modal_id}" }, id: "additional-comments-#{modal_id}" %>
 
           <% if frontend_administrable? %>
             <%= f.check_box :hide,
