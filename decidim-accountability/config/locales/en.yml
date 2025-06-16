@@ -114,7 +114,7 @@ en:
           create:
             invalid: There was a problem importing the results.
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
-        milestones:
+        milestone_entries:
           create:
             invalid: There was a problem creating this entry.
             success: Entry successfully created.
