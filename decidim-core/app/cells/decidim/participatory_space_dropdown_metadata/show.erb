@@ -1,6 +1,6 @@
 <div id="breadcrumb-secondary-dropdown-<%= id %>" class="menu-bar__secondary-dropdown">
   <div class="menu-bar__secondary-dropdown__left">
-    <%= render :metadata %>
+    <h4 class="menu-bar__secondary-dropdown__title"><%= title %></h4>
     <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", model, hide_participatory_space: true %>
   </div>
   <nav role="navigation" aria-label="<%= t("decidim.accessibility.secondary_menu") %>">
