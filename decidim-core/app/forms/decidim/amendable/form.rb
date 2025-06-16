@@ -46,7 +46,7 @@ module Decidim
 
       # Validates the emendation using the amendable form.
       def amendable_form_must_be_valid
-        parse_hash_params
+        parse_content_params
         original_form.validate unless defined?(@original_form) # Preserves previously added errors.
 
         amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
