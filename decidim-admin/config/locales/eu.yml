@@ -166,6 +166,7 @@ eu:
   decidim:
     admin:
       actions:
+        actions_label: 'Ekintzak honentzat: %{resource}'
         add: Gehitu
         attachment:
           new: Beste eranskin bat
@@ -577,6 +578,7 @@ eu:
         content: Eduki salatua
         external_domain_allowlist: Baimendutako kanpoko domeinuak
         help_sections: Laguntza atalak
+        homepage: Hasierako orrien antolaketa
         impersonations: Inpertsonazioak
         insights: Pertzepzioak
         manage: Kudeatu
