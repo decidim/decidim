@@ -578,6 +578,7 @@ es:
         content: Contenido reportado
         external_domain_allowlist: Dominios externos permitidos
         help_sections: Secciones de ayuda
+        homepage: Disposición de la página de inicio
         impersonations: Impersonaciones
         insights: Estadísticas
         manage: Gestionar
