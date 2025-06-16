@@ -42,7 +42,7 @@ export default class UploadModal {
 
     this.emptyItems = this.modal.querySelector("[data-dropzone-no-items]");
     this.uploadItems = this.modal.querySelector("[data-dropzone-items]");
-    this.input = this.dropZone.querySelector("input");
+    this.input = this.dropZone.querySelector("input[type=file]");
     this.items = []
 
     this.attachmentCounter = 0;
