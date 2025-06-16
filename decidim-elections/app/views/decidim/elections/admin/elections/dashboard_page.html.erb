@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t(".title")) %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <% if allowed_to?(:publish, :election, election: @election) %>
+  <% if allowed_to?(:publish, :election, election: election) %>
     <%= link_to t("publish", scope: "decidim.elections.admin.elections.form"),
-                publish_election_path(@election),
+                publish_election_path(election),
                 method: :put,
                 class: "main-tabs-menu__cta-button",
                 data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } %>
@@ -16,16 +16,16 @@
   </h1>
 </div>
 <div class="item__edit-form">
-  <% if !@election.scheduled? %>
+  <% if election.published? %>
     <div class="flex flex-col md:flex-row gap-4 w-full mb-5">
       <% %w[status calendar].each do |partial_name| %>
-        <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: @election } %></div>
+        <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election } %></div>
       <% end %>
     </div>
-    <%= render partial: "decidim/elections/admin/dashboard/results", locals: { election: @election } %>
+    <%= render partial: "decidim/elections/admin/dashboard/results", locals: { election: election } %>
   <% else %>
     <% %w[main questions census].each do |partial_name| %>
-      <%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: @election } %>
+      <%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election } %>
     <% end %>
   <% end %>
 </div>

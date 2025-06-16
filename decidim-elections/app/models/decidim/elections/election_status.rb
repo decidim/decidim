@@ -10,16 +10,12 @@ module Decidim
       end
 
       def current_status
-        case
-        when scheduled?
-          :scheduled
-        when ongoing?
-          :ongoing
-        when finished? && !results_published?
-          :ended
-        when results_published?
-          :published_results
-        end
+        return :published_results if results_published?
+        return :ended if vote_ended? && !results_published?
+        return :ongoing if ongoing?
+        return :scheduled if scheduled?
+
+        nil
       end
 
       def localized_status
@@ -27,13 +23,11 @@ module Decidim
       end
 
       def scheduled?
-        election.published? && !started? && !vote_ended?
+        election.published? && !started? && !vote_ended? && !results_published?
       end
 
       def started?
-        return false if election.start_at.nil?
-
-        election.start_at < Time.current
+        election.start_at.present? && election.start_at <= Time.current
       end
 
       def ongoing?
@@ -41,19 +35,13 @@ module Decidim
       end
 
       def vote_ended?
-        election.end_at.present? && election.end_at < Time.current
+        election.end_at.present? && election.end_at <= Time.current
       end
 
-      def finished?
-        return true if vote_ended?
-        return true if results_published?
-
-        election.end_at < Time.current
-      end
-
-      # TODO: This method should be implemented in the future
+      # Results have been marked as published
       def results_published?
-        false
+        false # Placeholder for actual logic to determine if results are published
+        # election.results_published
       end
     end
   end

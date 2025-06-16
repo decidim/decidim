@@ -18,6 +18,7 @@ module Decidim
             put :unpublish
             patch :soft_delete
             patch :restore
+            put :update_status
 
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"

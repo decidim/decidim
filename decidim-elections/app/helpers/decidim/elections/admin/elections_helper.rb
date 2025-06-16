@@ -34,22 +34,19 @@ module Decidim
           l(datetime, format: :short_with_time)
         end
 
-        def election_action_button(election)
-          if election.manual_start? && !election.started?
-            button_tag(
-              t("decidim.elections.admin.dashboard.calendar.start_election"),
-              class: "button button__xs button__secondary small"
-            )
-          elsif election.started? && !election.vote_ended?
-            button_tag(
-              t("decidim.elections.admin.dashboard.calendar.end_election"),
-              class: "button button__xs button__secondary small"
-            )
-          else
-            nil
+        def election_status_action_data(election)
+          if election.scheduled? && election.manual_start?
+            {
+              label: t("decidim.elections.admin.dashboard.calendar.start_election"),
+              status_action: "start"
+            }
+          elsif election.ongoing?
+            {
+              label: t("decidim.elections.admin.dashboard.calendar.end_election"),
+              status_action: "end"
+            }
           end
         end
-
 
         private
 

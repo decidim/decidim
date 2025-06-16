@@ -30,6 +30,13 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
+        statuses:
+          start:
+            success: Election started successfully.
+            invalid: There was a problem starting the election.
+          end:
+            success: Election ended successfully.
+            invalid: There was a problem ending the election.
         census:
           edit:
             choose_census: Choose the type of census you want to use for this election

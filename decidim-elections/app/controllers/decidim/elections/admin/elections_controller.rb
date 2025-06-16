@@ -9,7 +9,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections
+        helper_method :elections, :election
 
         def index
           enforce_permission_to :read, :election
@@ -41,12 +41,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :election, election:
+          enforce_permission_to :update, :election, election: election
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 
         def update
-          enforce_permission_to :update, :election, election:
+          enforce_permission_to :update, :election, election: election
 
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
 
@@ -64,12 +64,12 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to :publish, :election, election:
+          enforce_permission_to :publish, :election, election: election
 
           PublishElection.call(election, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to dashboard_page_election_path(election)
             end
 
             on(:invalid) do
@@ -80,7 +80,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to :unpublish, :election, election:
+          enforce_permission_to :unpublish, :election, election: election
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do
@@ -96,7 +96,26 @@ module Decidim
         end
 
         def dashboard_page
+          puts "DBG: #{@election&.start_at.inspect}"
           election
+        end
+
+        def update_status
+          enforce_permission_to :update, :election, election: election
+
+          @form = form(ElectionStatusForm).from_params(params)
+
+          UpdateElectionStatus.call(@form, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("statuses.#{@form.status_action}.success", scope: "decidim.elections.admin")
+              redirect_to dashboard_page_election_path(election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("statuses.#{@form.status_action}.invalid", scope: "decidim.elections.admin")
+              render action: "dashboard_page"
+            end
+          end
         end
 
         private
