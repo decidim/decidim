@@ -108,6 +108,7 @@ eu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
           info: Informazioa
+          landing_page: Lurreratze-orrien antolaketa
         participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachment_collections: Karpetak
@@ -115,6 +116,7 @@ eu:
           attachments: Eranskinak
           components: Osagaiak
           info: Prozesu honi buruz
+          landing_page: Lurreratze-orrien antolaketa
           moderations: Moderazioak
           private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
@@ -130,6 +132,7 @@ eu:
           name: Partaidetza-prozesua
         participatory_process_group:
           fields:
+            actions: Ekintzak
             title: Izenburua
           name: Prozesu-taldea
         participatory_process_step:
