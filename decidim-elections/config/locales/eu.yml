@@ -3,6 +3,7 @@ eu:
     admin:
       menu:
         elections_menu:
+          basic_elections: Nagusia
           election_questions: Galderak
     components:
       elections:
@@ -44,6 +45,7 @@ eu:
               real_time: Denbora erreala
               real_time_help: Erakutsi emaitzak lehen bozketa egin bezain laster
               title: Emaitzak eskuragarri
+            save: Gorde eta jarraitu
             start_at: Hasiera-ordua
           index:
             title: Hauteskundeak
@@ -63,7 +65,15 @@ eu:
         questions:
           edit_questions:
             new_question: Beste galdera bat
+            remove_question_confirm: Ziur zaude galdera hau ezabatu nahi duzula?
             title: Galderak
+          form:
+            errors:
+              at_least_one_question: Gutxienez galdera bat eskatzen da.
+            form_description: Galderak gutxienez erantzuteko aukera bi eduki behar ditu, hurrengo urratsera pasatzeko.
+          update:
+            invalid: Arazo bat egon da galderak eguneratzean.
+            success: Galderak zuzen egiuneratu dira.
       admin_log:
         election:
           create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
@@ -72,6 +82,8 @@ eu:
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea %{space_name} espazioan zaborretara eraman du"
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
+        question:
+          update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
       models:
         election:
           fields:
