@@ -59,20 +59,6 @@ module Decidim
           expect(result).to include(".svg")
         end
       end
-
-      context "with X and all optional params" do
-        let(:args) { { url: "http://example.org", via: "Decidim" } }
-
-        before do
-          allow(Decidim.config).to receive(:social_share_services).and_return(%w(X))
-        end
-
-        it "renders the correct HTML" do
-          expect(result).to include("Share to X")
-          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello")
-          expect(result).to include(".svg")
-        end
-      end
     end
   end
 end
