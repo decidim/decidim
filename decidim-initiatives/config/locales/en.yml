@@ -8,7 +8,6 @@ en:
         area_id: Area
         decidim_scope_id: Scope
         description: Description
-        hashtag: Hashtag
         offline_votes: In-person signatures
         offline_votes_for_scope: In-person signatures for %{scope_name}
         scope_id: Scope
@@ -79,6 +78,7 @@ en:
   decidim:
     admin:
       actions:
+        cannot_answer: Cannot answer this initiative
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
       filters:
@@ -265,6 +265,7 @@ en:
             success: The initiative has been sent to technical validation.
             update: Update
           form:
+            attachments_title: Attachments
             settings: Settings
             title: General information
           index:
@@ -544,11 +545,6 @@ en:
         initiatives:
           closed_initiatives_warning: Currently, there are no open initiatives, but here you can find all the closed initiatives listed.
           no_initiatives_warning: No initiatives match your search criteria.
-        interactions:
-          comments_count:
-            count:
-              one: Comment
-              other: Comments
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
@@ -674,7 +670,6 @@ en:
           description: The description of the initiative
           first_progress_notification_at: The date when the first progress notification was sent
           follows_count: The number of users following this space
-          hashtag: The initiative hashtag, used for Twitter/X
           offline_votes: The number of signatures that this inititative received outside of this platform
           online_votes: The number of signatures that this initiative received online (directly through the platform)
           published_at: The date this space was published

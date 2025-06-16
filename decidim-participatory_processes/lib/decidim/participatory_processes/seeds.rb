@@ -61,7 +61,6 @@ module Decidim
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          hashtag: ::Faker::Internet.slug,
           group_url: ::Faker::Internet.url,
           organization:,
           hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
@@ -80,7 +79,6 @@ module Decidim
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-          hashtag: "##{::Faker::Lorem.word}",
           short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(word_count: 3)
           end,
