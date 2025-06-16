@@ -7,7 +7,7 @@ namespace :decidim do
       # Core
       Decidim::Upgrade::WysiwygMigrator.register_model(
         "Decidim::Organization",
-        [:description, :omnipresent_banner_short_description, :highlighted_content_banner_short_description, :welcome_notification_body, :admin_terms_of_service_body]
+        [:description, :omnipresent_banner_short_description, :welcome_notification_body, :admin_terms_of_service_body]
       )
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Category", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ContextualHelpSection", [:content])

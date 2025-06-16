@@ -163,7 +163,7 @@ describe "Decidim::Api::QueryType" do
   let!(:result) { create(:result, component: current_component, taxonomies:) }
   let!(:milestone) { create(:milestone, result:) }
   let!(:proposal_component) { create(:proposal_component, participatory_space: result.participatory_space) }
-  let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
+  let(:proposals) { create_list(:proposal, rand(20), :published, component: proposal_component) }
 
   before do
     result.link_resources(proposals, "included_proposals")

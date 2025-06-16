@@ -8,7 +8,7 @@ module Decidim
       class CreateAssembly < Decidim::Commands::CreateResource
         fetch_file_attributes :hero_image, :banner_image
 
-        fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :description, :short_description,
+        fetch_form_attributes :title, :subtitle, :weight, :slug, :description, :short_description,
                               :promoted, :taxonomizations, :parent, :announcement, :organization,
                               :private_space, :developer_group, :local_area, :target, :participatory_scope,
                               :participatory_structure, :meta_scope, :purpose_of_action,
