@@ -57,7 +57,7 @@ module Decidim
     end
 
     # Public: Calls the specified processors to process the given content with
-    # it. For example, to convert images to its Global ID representation.
+    # it. For example, to convert user mentions to its Global ID representation.
     #
     # @param type [String] the name of the processor to use.
     # @param content [String] already rewritten content or regular content
