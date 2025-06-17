@@ -345,7 +345,7 @@ RSpec.shared_examples "manage debates" do
       it "cannot close the debate" do
         within "tr", text: translated(debate.title) do
           find("button[data-component='dropdown']").click
-          expect(page).not_to have_content("Close")
+          expect(page).to have_no_content("Close")
         end
       end
     end
