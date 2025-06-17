@@ -21,6 +21,9 @@
             <%= t("actions.edit", scope: "decidim.budgets") %>
           <% end %>
         </li>
+
+        <hr>
+
         <li class="dropdown__item">
           <%= link_to project_attachment_collections_path(project), class: "dropdown__button" do %>
             <%= icon "folder-line" %>
@@ -33,6 +36,8 @@
             <%= t("actions.attachments", scope: "decidim.budgets") %>
           <% end %>
         </li>
+
+        <hr>
       <% end %>
 
       <li class="dropdown__item">
@@ -42,9 +47,13 @@
         <% end %>
       </li>
 
+      <hr>
+
       <li class="dropdown__item">
         <%= dropdown_resource_permissions_link(project) %>
       </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :project, trashable_deleted_resource: project %>

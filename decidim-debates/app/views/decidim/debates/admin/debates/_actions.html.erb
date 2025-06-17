@@ -32,6 +32,8 @@
         </li>
       <% end %>
 
+      <hr>
+
       <li class="dropdown__item">
         <%= link_to resource_locator(debate).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
           <%= icon "eye-line" %>
@@ -39,9 +41,13 @@
         <% end %>
       </li>
 
+      <hr>
+
       <li class="dropdown__item">
         <%= dropdown_resource_permissions_link(debate) %>
       </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :debate, trashable_deleted_resource: debate %>

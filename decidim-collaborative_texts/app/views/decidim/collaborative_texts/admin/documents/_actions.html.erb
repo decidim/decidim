@@ -29,14 +29,9 @@
         </li>
       <% end %>
 
-      <li class="dropdown__item">
-        <%= link_to resource_locator(document).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
-          <%= icon "eye-line" %>
-          <%= t("actions.preview", scope: "decidim.admin") %>
-        <% end %>
-      </li>
-
       <% if allowed_to?(:update, :collaborative_text, document: document) %>
+        <hr>
+
         <% if document.published? %>
           <li class="dropdown__item">
             <%= link_to unpublish_document_path(document), method: :put, class: "dropdown__button" do %>
@@ -53,6 +48,17 @@
           </li>
         <% end %>
       <% end %>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <%= link_to resource_locator(document).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.admin") %>
+        <% end %>
+      </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :collaborative_text, trashable_deleted_resource: document %>
