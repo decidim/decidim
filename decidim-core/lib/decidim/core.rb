@@ -131,6 +131,7 @@ module Decidim
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands

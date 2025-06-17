@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Api
+  module Core
     class ParticipantDetailsType < Decidim::Core::UserType
-      include Decidim::Api::ApiPermissions
-
       description "Details of a participant"
 
       field :email, GraphQL::Types::String, "The user's email", null: false

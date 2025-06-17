@@ -1,6 +1,6 @@
-# frozen_string_literal: true 
+# frozen_string_literal: true
 
-module Decidim 
+module Decidim
   module ApiResponseHelper
     # When passing the JSON types as a variables, it results to a string type.
     def json_value(value)

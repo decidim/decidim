@@ -7,6 +7,7 @@ module Decidim
     autoload :ParticipantDetailsType, "decidim/api/participant_details_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
+    autoload :ComponentMutationType, "decidim/api/component_mutation_type"
 
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"

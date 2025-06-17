@@ -2,8 +2,7 @@
 
 module Decidim
   module Proposals
-    class ProposalMutationType < GraphQL::Schema::Object
-      # include ::Decidim::Apiext::ApiPermissions
+    class ProposalMutationType < Decidim::Api::Types::BaseObject
       include Decidim::ApiResponseHelper
 
       graphql_name "ProposalMutation"
@@ -23,8 +22,6 @@ module Decidim
       end
 
       def answer(state:, answer_content: nil, cost: nil, cost_report: nil, execution_period: nil)
-        enforce_permission_to :create, :proposal_answer, proposal: object
-
         params = {
           internal_state: state,
           answer: json_value(answer_content) || object.answer,
@@ -35,15 +32,15 @@ module Decidim
           execution_period: json_value(execution_period) || object.execution_period
         }
 
-        form = ::Decidim::Proposals::Admin::ProposalAnswerForm.from_params(
+        form = Decidim::Proposals::Admin::ProposalAnswerForm.from_params(
           params
         ).with_context(
           current_component: object.component,
           current_organization: object.organization,
-          current_user: current_user
+          current_user: context[:current_user]
         )
 
-        ::Decidim::Proposals::Admin::AnswerProposal.call(form, object) do
+        Decidim::Proposals::Admin::AnswerProposal.call(form, object) do
           on(:ok) do
             return object
           end
@@ -57,6 +54,10 @@ module Decidim
             I18n.t("decidim.proposals.admin.proposals.answer.invalid")
           )
         end
+      end
+
+      def self.authorized?(object, context)
+        super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
       end
     end
   end
