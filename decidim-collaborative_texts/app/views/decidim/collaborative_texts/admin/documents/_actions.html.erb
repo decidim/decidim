@@ -62,7 +62,7 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <%= with_tooltip t("tooltips.delete_collaborative_texts_info", scope: "decidim.admin") do %>
+            <%= with_tooltip t("tooltips.deleted_collaborative_texts_info", scope: "decidim.admin") do %>
               <%= icon "delete-bin-line", class: "text-gray" %>
               <span>
                 <%= t("actions.soft_delete", scope: "decidim.admin") %>
