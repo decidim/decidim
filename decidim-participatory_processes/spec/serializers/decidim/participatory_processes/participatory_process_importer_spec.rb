@@ -104,6 +104,16 @@ module Decidim::ParticipatoryProcesses
           expect { subject }.not_to change(Decidim::ParticipatoryProcessGroup, :count)
         end
       end
+
+      context "when the process group is nil" do
+        let(:group_data) do
+          nil
+        end
+
+        it "imports the process correctly" do
+          expect { subject }.to change(Decidim::ParticipatoryProcess, :count).by(1)
+        end
+      end
     end
   end
 end
