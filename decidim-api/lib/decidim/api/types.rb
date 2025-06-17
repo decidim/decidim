@@ -4,6 +4,7 @@ module Decidim
   module Api
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
+    autoload :ParticipantDetailsType, "decidim/api/participant_details_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
 

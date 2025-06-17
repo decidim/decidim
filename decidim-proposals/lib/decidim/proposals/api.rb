@@ -7,5 +7,7 @@ module Decidim
     autoload :ProposalType, "decidim/api/proposal_type"
     autoload :ProposalsType, "decidim/api/proposals_type"
     autoload :ProposalStateType, "decidim/api/proposal_state_type"
+    autoload :ProposalsMutationType, "decidim/api/proposals_mutation_type"
+    autoload :ProposalMutationType, "decidim/api/proposal_mutation_type"
   end
 end
