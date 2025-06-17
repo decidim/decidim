@@ -406,7 +406,7 @@
 
         &:hover,
         &.is-active {
-          @apply border-secondary text-secondary bg-background-4;
+          @apply border-secondary text-secondary bg-background-4 font-bold;
         }
       }
     }
