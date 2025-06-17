@@ -54,6 +54,8 @@
                           <%= icon "pencil-line" %> <%= t("actions.edit", scope: "decidim.admin") %>
                         <% end %>
                       </li>
+                      
+                      <hr>
                     <% end %>
 
                     <% if allowed_to?(:activate, :process_step, process_step: step) && !step.active? %>

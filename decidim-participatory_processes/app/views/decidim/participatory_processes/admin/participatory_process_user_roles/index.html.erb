@@ -57,6 +57,8 @@
                         <%= icon "pencil-line" %> <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
+
+                    <hr>
                   <% end %>
 
                   <% if allowed_to?(:invite, :process_user_role, user_role: role) && role.user.invited_to_sign_up? %>
@@ -65,6 +67,8 @@
                         <%= icon "refresh-line" %> <%= t("actions.resend_invitation", scope: "decidim.admin") %>
                       <% end %>
                     </li>
+
+                    <hr>
                   <% end %>
 
                   <% if allowed_to? :destroy, :process_user_role, user_role: role %>
