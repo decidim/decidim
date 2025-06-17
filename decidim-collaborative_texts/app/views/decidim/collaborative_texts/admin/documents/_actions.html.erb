@@ -7,7 +7,7 @@
     <% if view == :deleted %>
       <% if allowed_to? :restore, :collaborative_text, trashable_deleted_resource: document %>
         <li class="dropdown__item">
-          <%= link_to restore_document_path(document), method: :patch, class: "dropdown__button action-icon--restore" do %>
+          <%= link_to restore_document_path(document), method: :patch, class: "dropdown__button" do %>
             <%= icon "refresh-line" %>
             <%= t("actions.restore", scope: "decidim.admin") %>
           <% end %>
@@ -22,7 +22,7 @@
           <% end %>
         </li>
         <li class="dropdown__item">
-          <%= link_to edit_document_path(document), class: "dropdown__button action-icon--edit" do %>
+          <%= link_to edit_document_path(document), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
             <%= t("actions.edit", scope: "decidim.collaborative_texts") %>
           <% end %>
@@ -30,7 +30,7 @@
       <% end %>
 
       <li class="dropdown__item">
-        <%= link_to resource_locator(document).path, target: :blank, data: { "external-link": false }, class: "dropdown__button action-icon--preview" do %>
+        <%= link_to resource_locator(document).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
           <%= icon "eye-line" %>
           <%= t("actions.preview", scope: "decidim.admin") %>
         <% end %>
@@ -39,14 +39,14 @@
       <% if allowed_to?(:update, :collaborative_text, document: document) %>
         <% if document.published? %>
           <li class="dropdown__item">
-            <%= link_to unpublish_document_path(document), method: :put, class: "dropdown__button action-icon--unpublish" do %>
+            <%= link_to unpublish_document_path(document), method: :put, class: "dropdown__button" do %>
               <%= icon "close-circle-line" %>
               <%= t("actions.unpublish", scope: "decidim.admin") %>
             <% end %>
           </li>
         <% else %>
           <li class="dropdown__item">
-            <%= link_to publish_document_path(document), method: :put, class: "dropdown__button action-icon--publish" do %>
+            <%= link_to publish_document_path(document), method: :put, class: "dropdown__button" do %>
               <%= icon "check-line" %>
               <%= t("actions.publish", scope: "decidim.admin") %>
             <% end %>
@@ -56,7 +56,7 @@
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :collaborative_text, trashable_deleted_resource: document %>
-          <%= link_to soft_delete_document_path(document), method: :patch, data: { confirm: t("actions.confirm_delete_document", scope: "decidim.collaborative_texts") }, class: "dropdown__button action-icon--delete" do %>
+          <%= link_to soft_delete_document_path(document), method: :patch, data: { confirm: t("actions.confirm_delete_document", scope: "decidim.collaborative_texts") }, class: "dropdown__button" do %>
             <%= icon "delete-bin-line" %>
             <%= t("actions.soft_delete", scope: "decidim.admin") %>
           <% end %>

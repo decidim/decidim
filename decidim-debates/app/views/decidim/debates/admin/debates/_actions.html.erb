@@ -7,7 +7,7 @@
     <% if view == :deleted %>
       <% if allowed_to? :restore, :debate, trashable_deleted_resource: debate %>
         <li class="dropdown__item">
-          <%= link_to url_for(action: :restore, id: debate, controller: "debates"), method: :patch, class: "dropdown__button action-icon--restore" do %>
+          <%= link_to url_for(action: :restore, id: debate, controller: "debates"), method: :patch, class: "dropdown__button" do %>
             <%= icon "refresh-line" %>
             <%= t("decidim.admin.actions.restore") %>
           <% end %>
@@ -16,7 +16,7 @@
     <% else %>
       <% if allowed_to? :update, :debate, debate: debate %>
         <li class="dropdown__item">
-          <%= link_to edit_debate_path(debate), class: "dropdown__button action-icon--edit" do %>
+          <%= link_to edit_debate_path(debate), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
             <%= t("actions.edit", scope: "decidim.debates") %>
           <% end %>
@@ -25,7 +25,7 @@
 
       <% if allowed_to? :close, :debate, debate: debate %>
         <li class="dropdown__item">
-          <%= link_to edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "dropdown__button action-icon--close" do %>
+          <%= link_to edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "dropdown__button" do %>
             <%= icon "lock-line" %>
             <%= t("actions.close", scope: "decidim.debates") %>
           <% end %>
@@ -33,7 +33,7 @@
       <% end %>
 
       <li class="dropdown__item">
-        <%= link_to resource_locator(debate).path, target: :blank, data: { "external-link": false }, class: "dropdown__button action-icon--preview" do %>
+        <%= link_to resource_locator(debate).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
           <%= icon "eye-line" %>
           <%= t("actions.preview", scope: "decidim.admin") %>
         <% end %>
@@ -45,7 +45,7 @@
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :debate, trashable_deleted_resource: debate %>
-          <%= link_to soft_delete_debate_path(debate), method: :patch, data: { confirm: t("actions.confirm_delete_debate", scope: "decidim.debates") }, class: "dropdown__button action-icon--delete" do %>
+          <%= link_to soft_delete_debate_path(debate), method: :patch, data: { confirm: t("actions.confirm_delete_debate", scope: "decidim.debates") }, class: "dropdown__button" do %>
             <%= icon "delete-bin-line" %>
             <%= t("actions.soft_delete", scope: "decidim.admin") %>
           <% end %>
