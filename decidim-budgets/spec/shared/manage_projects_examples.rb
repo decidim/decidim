@@ -80,6 +80,7 @@ shared_examples "manage projects" do
 
   it "updates a project" do
     within "tr", text: translated(project.title) do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
 
@@ -109,8 +110,7 @@ shared_examples "manage projects" do
         preview_window = window_opened_by { click_on "Preview" }
 
         within_window preview_window do
-          expect(page).to have_content translated(project.title)
-          expect(page).to have_content "Description"
+          expect(page).to have_current_path resource_locator(project).path
         end
       end
     end

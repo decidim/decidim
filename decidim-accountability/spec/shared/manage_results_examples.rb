@@ -54,10 +54,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      within "tr", text: translated(result.title) do
-        find("button[data-component='dropdown']").click
-        click_on "New result"
-      end
+      click_on "New result"
 
       within ".new_result" do
         fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))

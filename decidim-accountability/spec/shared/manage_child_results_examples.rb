@@ -74,6 +74,10 @@ RSpec.shared_examples "manage child results" do
   describe "soft delete a result" do
     before do
       visit current_path
+      within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
+        click_on "New result"
+      end
     end
 
     it "moves to the trash a result" do
