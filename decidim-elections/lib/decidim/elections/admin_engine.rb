@@ -27,6 +27,9 @@ module Decidim
             patch "census", to: "census#update"
             delete "census/destroy_all", to: "census#destroy_all", as: :destroy_all_census
 
+            post :publish_results
+            post :publish_result
+
             get :dashboard_page, path: "dashboard_page"
           end
 
@@ -47,13 +50,13 @@ module Decidim
 
           menu.add_item :election_questions_edit,
                         I18n.t("election_questions", scope: "decidim.admin.menu.elections_menu"),
-                        (@election.nil? || @election.published?) ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
+                        @election.nil? || @election.published? ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
                         active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.edit_questions_election_path(@election)),
                         icon_name: "question-answer-line"
 
           menu.add_item :election_census,
                         I18n.t("election_census", scope: "decidim.admin.menu.elections_menu"),
-                        (@election.nil? || @election.published?) ? "#" : current_component_admin_proxy&.census_election_path(@election),
+                        @election.nil? || @election.published? ? "#" : current_component_admin_proxy&.census_election_path(@election),
                         active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.census_election_path(@election)),
                         icon_name: "group-2-line"
 

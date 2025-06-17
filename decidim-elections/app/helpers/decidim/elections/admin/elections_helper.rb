@@ -48,21 +48,26 @@ module Decidim
           end
         end
 
+        def publish_button_for(election, question)
+          button_to publish_results_election_path(election),
+                    method: :post,
+                    disabled: !election.results_publishable_for?(question),
+                    class: "button button__sm button__secondary" do
+            t("decidim.elections.admin.dashboard.results.publish_button")
+          end
+        end
+
         private
 
         def election_status_and_class(election)
-          status = election.status.current_status
+          css_class = {
+            scheduled: "secondary label",
+            ongoing: "warning label",
+            ended: "success label",
+            results_published: "success label"
+          }[election.status.current_status] || "default label"
 
-          case status
-          when :scheduled
-            [t("decidim.elections.status.scheduled"), "secondary label"]
-          when :ongoing
-            [t("decidim.elections.status.ongoing"), "warning label"]
-          when :ended
-            [t("decidim.elections.status.ended"), "success label"]
-          when :published_results
-            [t("decidim.elections.status.published_results"), "success label"]
-          end
+          [election.localized_status, css_class]
         end
       end
     end

@@ -7,8 +7,9 @@
 
   <div class="pb-4">
     <div class="row column">
+      <div class="election-title mb-2"><%= translated_attribute election.title %></div>
       <div class="status-label">
-        <%= election_status_with_label(@election) %>
+        <%= election_status_with_label(election) %>
       </div>
     </div>
   </div>

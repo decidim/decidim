@@ -9,7 +9,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections, :election
+        helper_method :elections, :election, :election_questions
 
         def index
           enforce_permission_to :read, :election
@@ -96,8 +96,7 @@ module Decidim
         end
 
         def dashboard_page
-          puts "DBG: #{@election&.start_at.inspect}"
-          election
+          enforce_permission_to :dashboard, :election, election: election
         end
 
         def update_status
@@ -142,6 +141,10 @@ module Decidim
 
         def election
           @election ||= elections.find(params[:id])
+        end
+
+        def election_questions
+          @election_questions ||= election.questions.includes(:response_options)
         end
       end
     end

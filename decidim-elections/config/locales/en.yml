@@ -30,13 +30,6 @@ en:
         title: Actions
         view_deleted_elections: View deleted elections
       admin:
-        statuses:
-          start:
-            success: Election started successfully.
-            invalid: There was a problem starting the election.
-          end:
-            success: Election ended successfully.
-            invalid: There was a problem ending the election.
         census:
           edit:
             choose_census: Choose the type of census you want to use for this election
@@ -51,12 +44,12 @@ en:
             success: Census updated successfully.
         dashboard:
           calendar:
+            end_at: 'End time:'
             end_election: End election
             manual_start: Manual
-            end_at: "End time:"
-            start_at: "Start time:"
-            title: Calendar
+            start_at: 'Start time:'
             start_election: Start election
+            title: Calendar
           census:
             title: Census
           main:
@@ -74,8 +67,21 @@ en:
               question_title: Question %{number}
             limit_info: This election has more questions. The preview is limited to 3 questions.
             title: Questions
+          questions_table:
+            answer: Answers
+            percentage: Percentage
+            results: Results
           results:
             no_results: There are no results yet.
+            publish_all_results: Publish all results
+            publish_button: Publish results
+            publish_results: Publish results
+            published: Published
+            question_title: Question %{index}
+            results_availability:
+              after_end: You can publish all results after the election ends.Results will remain hidden until you publish them manually.
+              per_question: You can publish results one question at a time. Results will appear after each question is finalized.
+              real_time: Results are displayed automatically during the election.
             title: Results
           status:
             title: Status
@@ -134,6 +140,13 @@ en:
           update:
             invalid: There was a problem updating the questions.
             success: Questions updated successfully.
+        statuses:
+          end:
+            invalid: There was a problem ending the election.
+            success: Election ended successfully.
+          start:
+            invalid: There was a problem starting the election.
+            success: Election started successfully.
       admin_log:
         election:
           create: "%{user_name} created the %{resource_name} election in %{space_name}"
@@ -176,7 +189,7 @@ en:
         active: Active
         ended: Ended
         ongoing: Ongoing
-        published_results: Published results
+        results_published: Published results
         scheduled: Scheduled
     statistics:
       elections_count: Elections

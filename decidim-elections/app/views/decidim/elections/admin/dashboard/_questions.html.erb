@@ -12,7 +12,7 @@
 
     <div class="card-section">
       <div class="row column mb-2">
-        <% election.questions.limit(3).each_with_index do |question, index| %>
+        <% election_questions.limit(3).each_with_index do |question, index| %>
           <div class="card mb-4">
             <div class="row column">
               <h6 class="h6 pt-4 mb-2"><%= t("decidim.elections.admin.dashboard.questions.labels.question_title", number: index + 1) %></h6>

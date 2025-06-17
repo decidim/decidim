@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
 
-      delegate :scheduled?, :started?, :ongoing?, :finished?, :vote_ended?, :results_published?, to: :status
+      delegate :scheduled?, :ongoing?, :vote_ended?, :ready_to_publish_results?, :results_published?, :current_status, :localized_status, to: :status
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
@@ -80,6 +80,27 @@ module Decidim
 
       def status
         @status ||= Decidim::Elections::ElectionStatus.new(self)
+      end
+
+      def results_publishable_for?(question)
+        case results_availability
+        when "per_question"
+          publishable_per_question?(question)
+        when "after_end"
+          ready_to_publish_results?
+        else
+          false
+        end
+      end
+
+      def publishable_per_question?(question)
+        return false unless questions.include?(question)
+
+        index = questions.index(question)
+        return true if index.zero?
+
+        previous_question = questions[index - 1]
+        previous_question.published_results_at.present?
       end
     end
   end

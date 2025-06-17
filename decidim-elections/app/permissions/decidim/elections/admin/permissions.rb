@@ -33,6 +33,8 @@ module Decidim
             toggle_allow(election&.questions&.exists? && election&.census_ready? && !election&.published?)
           when :unpublish
             toggle_allow(election.present? && election.published? && !election.ongoing?)
+          when :dashboard
+            toggle_allow(election.present? && election.census_ready?)
           end
         end
 

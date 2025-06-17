@@ -25,7 +25,7 @@
     <%= render partial: "decidim/elections/admin/dashboard/results", locals: { election: election } %>
   <% else %>
     <% %w[main questions census].each do |partial_name| %>
-      <%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election } %>
+      <%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election, election_questions: election_questions } %>
     <% end %>
   <% end %>
 </div>
