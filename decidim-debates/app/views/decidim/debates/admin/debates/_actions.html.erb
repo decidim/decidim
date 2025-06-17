@@ -50,10 +50,14 @@
             <%= t("actions.soft_delete", scope: "decidim.admin") %>
           <% end %>
         <% else %>
-          <span class="dropdown__button action-icon--disabled" role="img" aria-label="<%= t("actions.soft_delete", scope: "decidim.admin") %>">
-            <%= icon "delete-bin-line" %>
-            <%= t("actions.soft_delete", scope: "decidim.admin") %>
-          </span>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.delete_debates_info", scope: "decidim.admin") do %>
+              <%= icon "delete-bin-line", class: "text-gray" %>
+              <span>
+                <%= t("actions.soft_delete", scope: "decidim.admin") %>
+              </span>
+            <% end %>
+          </div>
         <% end %>
       </li>
     <% end %>
