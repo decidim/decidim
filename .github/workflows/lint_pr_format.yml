@@ -1,4 +1,4 @@
-name: "[CI] Lint PR labels"
+name: "[CI] Lint PR format"
 on:
   # WARNING: we're using `pull_request_target` on this workflow.
   # This is necessary so the `verify-pr-label-action` can work with forks,
