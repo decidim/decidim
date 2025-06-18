@@ -168,46 +168,6 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when component has extra hashtags defined" do
-          let(:component) do
-            create(:proposal_component,
-                   :with_collaborative_drafts_enabled,
-                   :with_extra_hashtags,
-                   suggested_hashtags: component_suggested_hashtags,
-                   automatic_hashtags: component_automatic_hashtags,
-                   manifest:,
-                   participatory_space: participatory_process)
-          end
-
-          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
-          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
-
-          before do
-            component.update!(settings: {
-                                collaborative_drafts_enabled: true
-                              })
-          end
-
-          it "offers and save extra hashtags", :slow do
-            visit new_collaborative_draft_path
-
-            within ".new_collaborative_draft" do
-              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
-              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-
-              check :collaborative_draft_suggested_hashtags_suggestedhashtag1
-
-              find("*[type=submit]").click
-            end
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("#AutoHashtag1")
-            expect(page).to have_content("#AutoHashtag2")
-            expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).to have_no_content("#SuggestedHashtag2")
-          end
-        end
-
         context "when the user is not authorized" do
           context "and there is only an authorization required" do
             before do

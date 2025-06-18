@@ -40,7 +40,6 @@ module Decidim::Conferences
         slogan: { en: "slogan" },
         weight: 1,
         slug: "slug",
-        hashtag: "hashtag",
         location: "location location",
         hero_image:,
         banner_image:,

@@ -6,14 +6,12 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::MainDataCell, type:
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:hashtag) { "hashtag" }
   let(:group_url) { "https://www.example.org/group" }
   let(:meta_scope) { { en: "Barcelona" } }
   let(:participatory_process_group) do
     create(
       :participatory_process_group,
       organization:,
-      hashtag:,
       group_url:,
       meta_scope:
     )
