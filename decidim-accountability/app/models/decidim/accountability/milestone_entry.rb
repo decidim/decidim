@@ -10,7 +10,7 @@ module Decidim
 
       translatable_fields :title
       translatable_fields :description
-      belongs_to :result, foreign_key: "decidim_accountability_result_id", class_name: "Decidim::Accountability::Result", inverse_of: :milestones
+      belongs_to :result, foreign_key: "decidim_accountability_result_id", class_name: "Decidim::Accountability::Result", inverse_of: :milestone_entries
 
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::MilestoneEntryPresenter

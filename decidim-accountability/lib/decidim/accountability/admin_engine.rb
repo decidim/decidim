@@ -30,7 +30,7 @@ module Decidim
 
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
-          resources :milestones, except: [:show]
+          resources :milestone_entries, except: [:show]
         end
         resources :import_components, only: [:new, :create] do
           get :preview, on: :collection

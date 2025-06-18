@@ -231,8 +231,8 @@ describe "Explore results", :versioning do
       end
 
       context "with milestones" do
-        let!(:milestones) { create_list(:milestone, 3, result:) }
-        let(:milestone) { milestones.first }
+        let!(:milestone_entries) { create_list(:milestone, 3, result:) }
+        let(:milestone) { milestone_entries.first }
 
         before do
           visit current_path

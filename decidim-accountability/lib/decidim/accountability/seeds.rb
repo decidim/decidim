@@ -116,7 +116,7 @@ module Decidim
           )
 
           number_of_records.times do |i|
-            child_result.milestones.create!(
+            child_result.milestone_entries.create!(
               entry_date: child_result.start_date + i.days,
               title: Decidim::Faker::Localized.sentence(word_count: 2),
               description: Decidim::Faker::Localized.paragraph(sentence_count: 1)

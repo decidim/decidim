@@ -12,7 +12,7 @@
   <% end %>
 
   <% if allowed_to? :update, :result, result: result %>
-    <%= icon_link_to "time-line", result_milestones_path(result), t("actions.milestones", scope: "decidim.accountability"), class: "action-icon--clock" %>
+    <%= icon_link_to "time-line", result_milestone_entries_path(result), t("actions.milestones", scope: "decidim.accountability"), class: "action-icon--clock" %>
     <%= icon_link_to "folder-line", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
     <%= icon_link_to "attachment-line", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
   <% end %>

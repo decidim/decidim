@@ -125,6 +125,7 @@ en:
             update: Update milestone
           index:
             title: Milestone entries
+            new: New milestone
           new:
             create: Create milestone
             title: New milestone

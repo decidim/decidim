@@ -32,7 +32,7 @@ module Decidim
       end
 
       def result
-        @result ||= search_collection.includes(:milestones).find_by(id: params[:id])
+        @result ||= search_collection.includes(:milestone_entries).find_by(id: params[:id])
       end
 
       def search_collection

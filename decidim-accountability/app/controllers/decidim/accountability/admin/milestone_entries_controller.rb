@@ -4,8 +4,8 @@ module Decidim
   module Accountability
     module Admin
       # This controller allows an admin to manage milestones for a Result
-      class MilestonesController < Admin::ApplicationController
-        helper_method :result, :milestones
+      class MilestoneEntriesController < Admin::ApplicationController
+        helper_method :result, :milestone_entries
 
         def new
           enforce_permission_to :create, :milestone
@@ -22,7 +22,7 @@ module Decidim
           CreateMilestoneEntry.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("milestone_entries.create.success", scope: "decidim.accountability.admin")
-              redirect_to result_milestones_path(params[:result_id])
+              redirect_to result_milestone_entries_path(params[:result_id])
             end
 
             on(:invalid) do
@@ -46,7 +46,7 @@ module Decidim
           UpdateMilestoneEntry.call(@form, milestone) do
             on(:ok) do
               flash[:notice] = I18n.t("milestone_entries.update.success", scope: "decidim.accountability.admin")
-              redirect_to result_milestones_path(params[:result_id])
+              redirect_to result_milestone_entries_path(params[:result_id])
             end
 
             on(:invalid) do
@@ -63,19 +63,19 @@ module Decidim
             on(:ok) do
               flash[:notice] = I18n.t("milestone_entries.destroy.success", scope: "decidim.accountability.admin")
 
-              redirect_to result_milestones_path(params[:result_id])
+              redirect_to result_milestone_entries_path(params[:result_id])
             end
           end
         end
 
         private
 
-        def milestones
-          @milestones ||= result.milestones.page(params[:page]).per(15)
+        def milestone_entries
+          @milestone_entries ||= result.milestone_entries.page(params[:page]).per(15)
         end
 
         def milestone
-          @milestone ||= milestones.find(params[:id])
+          @milestone ||= milestone_entries.find(params[:id])
         end
 
         def result

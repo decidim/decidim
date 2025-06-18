@@ -17,7 +17,7 @@ module Decidim
       private
 
       def result
-        @result ||= Result.includes(:milestones).where(component: current_component).find(params[:result_id])
+        @result ||= Result.includes(:milestone_entries).where(component: current_component).find(params[:result_id])
       end
     end
   end
