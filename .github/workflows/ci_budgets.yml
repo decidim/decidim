@@ -18,22 +18,9 @@ on:
       - "decidim-dev/**"
       - "decidim-proposals/**"
 
-# https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#permissions
 permissions:
-  actions: none
-  attestations: none
-  checks: none
   contents: read
-  deployments: none
-  id-token: none
-  issues: none
-  discussions: none
-  packages: none
-  pages: none
   pull-requests: read
-  repository-projects: none
-  security-events: none
-  statuses: none
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
