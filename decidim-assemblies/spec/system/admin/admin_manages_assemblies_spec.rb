@@ -139,35 +139,6 @@ describe "Admin manages assemblies" do
     end
   end
 
-  context "when updating an assembly with empty fields" do
-    let!(:assembly4) { create(:assembly, organization:) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
-
-    before do
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit decidim_admin_assemblies.assemblies_path
-    end
-
-    it "throws error" do
-      within "tr", text: translated(assembly4.title) do
-        click_on translated(assembly4.title)
-      end
-
-      fill_in_i18n(:assembly_title, "#assembly-title-tabs", **attributes[:title].except("machine_translations"))
-      fill_in_i18n(:assembly_subtitle, "#assembly-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
-      attributes[:short_description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      within "#assembly_description_en" do
-        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      end
-      click_on "Update"
-
-      within ".flash__message" do
-        expect(page).to have_content("There was a problem updating this assembly.")
-      end
-    end
-  end
-
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
     let!(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }

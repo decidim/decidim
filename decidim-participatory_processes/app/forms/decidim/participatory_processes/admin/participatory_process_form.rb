@@ -45,8 +45,7 @@ module Decidim
 
         validate :slug_uniqueness
 
-        validates :title, :subtitle, translatable_presence: true
-        validates :description, :short_description, translated_etiquette: true, translatable_presence: true
+        validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 

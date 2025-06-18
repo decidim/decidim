@@ -39,8 +39,7 @@ module Decidim
 
         validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
-        validates :title, :slogan, translatable_presence: true
-        validates :description, :short_description, translatable_presence: true, translated_etiquette: true
+        validates :title, :slogan, :description, :short_description, translatable_presence: true
 
         validate :slug_uniqueness
 

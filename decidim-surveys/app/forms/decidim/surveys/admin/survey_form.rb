@@ -7,7 +7,7 @@ module Decidim
         include TranslatableAttributes
 
         validates :title, translatable_presence: true
-        validates :tos, presence: true, translated_etiquette: true
+        validates :tos, presence: true
       end
     end
   end

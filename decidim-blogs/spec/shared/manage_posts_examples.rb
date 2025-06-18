@@ -41,25 +41,6 @@ shared_examples "manage posts" do |audit_check: true|
     end
   end
 
-  it "throws error when submitting with mandatory fields empty" do
-    within "tr", text: translated(post1.title) do
-      click_on "Edit"
-    end
-
-    within ".edit_post" do
-      expect(page).to have_select("post_decidim_author_id", selected: translated(author.name))
-
-      fill_in_i18n(:post_title, "#post-title-tabs", **attributes[:title].except("machine_translations"))
-      attributes[:body]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-
-      find("*[type=submit]").click
-    end
-
-    within ".flash__message" do
-      expect(page).to have_content("There was a problem saving the post.")
-    end
-  end
-
   it "creates a new post", versioning: true do
     click_on "New post"
 

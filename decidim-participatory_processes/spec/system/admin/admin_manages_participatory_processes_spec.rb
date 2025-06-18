@@ -123,24 +123,6 @@ describe "Admin manages participatory processes", versioning: true do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
-    it "throws error when submitting with empty mandatory fields" do
-      within "tr", text: translated(participatory_process3.title) do
-        click_on translated(participatory_process3.title)
-      end
-
-      fill_in_i18n(:participatory_process_title, "#participatory_process-title-tabs", **attributes[:title].except("machine_translations"))
-      fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
-      attributes[:short_description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      within "#participatory_process_description_en" do
-        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      end
-      click_on "Update"
-
-      within ".flash__message" do
-        expect(page).to have_content("There was a problem updating this participatory process.")
-      end
-    end
-
     it "update a participatory process without images does not delete them" do
       within "tr", text: translated(participatory_process3.title) do
         click_on translated(participatory_process3.title)

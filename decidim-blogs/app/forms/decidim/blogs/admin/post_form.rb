@@ -15,7 +15,7 @@ module Decidim
         attribute :published_at, Decidim::Attributes::TimeWithZone
 
         validates :title, translatable_presence: true
-        validates :body, translatable_presence: true, translated_etiquette: true
+        validates :body, translatable_presence: true
         validate :can_set_author
 
         alias component current_component

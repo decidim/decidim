@@ -68,8 +68,7 @@ module Decidim
         validate :slug_uniqueness
 
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
-        validates :title, :subtitle, translatable_presence: true
-        validates :description, :short_description, translated_etiquette: true, translatable_presence: true
+        validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
         validates :banner_image, passthru: { to: Decidim::Assembly }
         validates :hero_image, passthru: { to: Decidim::Assembly }

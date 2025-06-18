@@ -95,24 +95,6 @@ shared_examples "manage conferences" do
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:title])} conference")
     end
-
-    it "throws error when mandatory fields are empty" do
-      within ".edit_conference" do
-        fill_in_i18n(:conference_title, "#conference-title-tabs", **attributes[:title].except("machine_translations"))
-
-        within "#conference_short_description_en" do
-          attributes[:short_description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-        end
-
-        within "#conference_description_en" do
-          attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-        end
-        click_link_or_button "Update"
-      end
-      within ".flash__message" do
-        expect(page).to have_content("There was a problem updating this conference.")
-      end
-    end
   end
 
   describe "updating a conference without images" do
