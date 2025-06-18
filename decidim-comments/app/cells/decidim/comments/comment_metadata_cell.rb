@@ -9,7 +9,7 @@ module Decidim
       private
 
       def items
-        [author_item, commentable_item, comments_count_item]
+        [author_item, commentable_item, (comments_count_item || {})]
       end
 
       def commentable_item

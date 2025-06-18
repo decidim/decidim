@@ -39,8 +39,8 @@ module Decidim
 
         uncommentable_resources = uncommentable_resources(results) if results.present?
         if uncommentable_resources.present?
-          results -= uncommentable_resources
           results_count -= uncommentable_resources.count
+          results = Kaminari.paginate_array(results - uncommentable_resources, total_count: results_count).page(page_params[:page]).per(page_params[:per_page])
         end
 
         results_by_type.update(class_name => {
