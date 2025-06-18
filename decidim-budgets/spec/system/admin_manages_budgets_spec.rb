@@ -76,7 +76,7 @@ describe "Admin manages budgets" do
         find("button[data-component='dropdown']").click
         preview_window = window_opened_by { click_on "Preview" }
         within_window preview_window do
-          Decidim::EngineRouter.main_proxy(budget.component).budget_projects_path(budget)
+          expect(page).to have_current_path(Decidim::EngineRouter.main_proxy(budget.component).budget_projects_path(budget))
         end
       end
     end
