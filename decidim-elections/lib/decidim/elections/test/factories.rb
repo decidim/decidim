@@ -39,6 +39,19 @@ FactoryBot.define do
         election.attachments << create(:attachment, :with_image, attached_to: election, skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :with_internal_users_census do
+      census_manifest { "internal_users" }
+      census_settings { { "verification_handlers" => ["postal_letter"] } }
+    end
+
+    trait :with_token_csv_census do
+      census_manifest { "token_csv" }
+
+      after :create do |election|
+        create_list(:voter, 3, election:)
+      end
+    end
   end
 
   factory :election_question, class: "Decidim::Elections::Question" do
