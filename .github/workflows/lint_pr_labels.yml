@@ -21,6 +21,28 @@ permissions:
   pull-requests: write
 
 jobs:
+  check_title:
+    name: Check PR title
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: deepakputhraya/action-pr-title@master
+        with:
+          disallowed_prefixes: "feat/,feature/,fix/,chore/,build/,ci/,refactor/,docs/,wip/,fix:"
+          prefix_case_sensitive: false
+          regex: "^[A-Z].+"
+          min_length: 5
+          max_length: 100
+  labeler:
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/labeler@v5
+        with:
+          dot: 'true'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
   check_label:
     name: Check PR labels
     runs-on: ubuntu-22.04
