@@ -33,6 +33,8 @@ jobs:
           min_length: 5
           max_length: 100
   labeler:
+    needs: check_title
+    name: Add PR labels
     permissions:
       contents: read
       pull-requests: write
@@ -44,6 +46,7 @@ jobs:
           dot: 'true'
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
   check_label:
+    needs: labeler
     name: Check PR labels
     runs-on: ubuntu-22.04
     steps:
