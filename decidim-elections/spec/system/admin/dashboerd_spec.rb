@@ -17,6 +17,8 @@ describe "Dashboard" do
   end
 
   context "when the election is not published" do
+    let(:published_at) { nil }
+
     it "shows publish button" do
       expect(page).to have_content("Publish")
     end
@@ -44,8 +46,6 @@ describe "Dashboard" do
   end
 
   context "when the election is published" do
-    let(:published_at) { nil }
-
     it "does not show publish button" do
       expect(page).to have_no_link("Publish")
     end
