@@ -9,13 +9,13 @@ module Decidim
 
         def initialize(form, election)
           super
-          @attached_to = election
+          @attached_to = election unless election.published?
         end
 
         protected
 
         def attributes
-          super.merge(election.published? ? published_election_attributes : unpublished_election_attributes)
+          election.published? ? published_election_attributes : unpublished_election_attributes
         end
 
         private
@@ -49,12 +49,15 @@ module Decidim
         end
 
         def run_after_hooks
-          create_gallery if process_gallery? && !election.published?
+          return if election.published?
+
+          create_gallery if process_gallery?
           photo_cleanup!
         end
 
         def run_before_hooks
-          return unless process_gallery? && election.published?
+          return if election.published?
+          return unless process_gallery?
 
           build_gallery
           raise Decidim::Commands::HookError if gallery_invalid?

@@ -16,6 +16,7 @@
       <div id="panel-basic">
         <div class="row column">
           <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title }, disabled: disable_fields %>
+          <%= form.hidden_field :title, value: election.title if disable_fields %>
         </div>
 
         <div class="row column">
@@ -52,14 +53,17 @@
         </div>
         <div class="row column">
           <%= form.check_box :manual_start, label: t("decidim.elections.admin.elections.form.manual_start"), disabled: disable_fields %>
+          <%= form.hidden_field :manual_start, value: election.manual_start? if disable_fields %>
         </div>
         <div class="row column election-fields--time">
           <div class="md:flex w-100">
             <div class="row column election_start_time">
               <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
+              <%= form.hidden_field :start_at, value: election.start_at if disable_fields %>
             </div>
             <div class="row column">
               <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at") %>
+              <%= form.hidden_field :end_at, value: election.end_at if disable_fields  %>
             </div>
           </div>
         </div>
@@ -77,11 +81,12 @@
       </div>
       <div id="panel-results">
         <div class="row column">
+          <%= form.hidden_field :results_availability, value: election.results_availability if disable_fields %>
           <%= form.collection_radio_buttons :results_availability,
                                             @form.results_availability_labels,
                                             :first,
                                             :last,
-                                            {}, class: "radio-buttons" do |b| %>
+                                            { include_hidden: false }, class: "radio-buttons" do |b| %>
             <div class="radio-button">
               <%= b.label do %>
                 <%= b.radio_button(disabled: disable_fields) %>
