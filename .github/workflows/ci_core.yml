@@ -21,10 +21,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
   main:
     strategy:
       fail-fast: false
@@ -40,7 +36,6 @@ jobs:
             name: "Tasks specs"
           - command: bundle exec rspec spec/tasks/decidim_tasks_webpacker_spec.rb
             name: "Webpacker tasks specs"
-    needs: build_app
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit

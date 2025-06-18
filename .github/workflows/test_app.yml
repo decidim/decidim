@@ -72,6 +72,15 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+      - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
+        name: Tune NPM configuration
+        shell: "bash"
       - run: |
           sudo apt update
           sudo apt install libu2f-udev
@@ -82,12 +91,16 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
-      - uses: actions/cache@v4
-        id: app-cache
-        with:
-          path: ./spec/decidim_dummy_app/
-          key: app-${{ github.sha }}
-          restore-keys: app-${{ github.sha }}
+      - run: bundle exec brakeman --rails7 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ inputs.working-directory }}
+        shell: "bash"
+      - run: bundle exec rake test_app
+        name: Create test app
+        shell: "bash"
+      - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+        name: Create the screenshots folder
+        shell: "bash"
       - run: |
           bundle install
           bundle exec rake parallel:create parallel:load_schema

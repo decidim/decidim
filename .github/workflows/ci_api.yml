@@ -22,12 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
   main:
-    needs: build_app
     name: Tests
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
