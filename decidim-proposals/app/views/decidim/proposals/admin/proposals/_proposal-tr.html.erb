@@ -1,10 +1,11 @@
+
 <tr data-id="<%= proposal.id %>"
     data-allow-answer="<%= allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation? %>"
     <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
-  <td>
-    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
+  <td data-label="">
+    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check js-proposal-id-#{proposal.id}" %><br>
   </td>
-  <td class="!text-left">
+  <td class="!text-left" data-label="<%= t('models.proposal.fields.title', scope: 'decidim.proposals') %>">
     <% if allowed_to? :edit, :proposal, proposal: proposal %>
       <%= link_to present(proposal).title(html_escape: true), proposal_path(proposal) %><br>
     <% else %>
@@ -19,12 +20,12 @@
       </div>
     <% end %>
   </td>
-  <td class="table-list__date">
+  <td class="table-list__date" data-label="<%= t('models.proposal.fields.published_at', scope: 'decidim.proposals') %>">
     <%= l proposal.published_at, format: :decidim_short %>
   </td>
 
   <% unless current_settings.publish_answers_immediately? %>
-    <td>
+    <td data-label="<%= t('models.proposal.fields.published_answer', scope: 'decidim.proposals') %>">
       <% if proposal.answered? && !proposal.emendation? %>
         <%= humanize_boolean proposal.published_state? %>
       <% else %>
@@ -34,33 +35,33 @@
   <% end %>
 
   <% if current_settings.votes_enabled? %>
-    <td>
+    <td data-label="<%= t('models.proposal.fields.votes', scope: 'decidim.proposals') %>">
       <%= proposal.proposal_votes_count %>
     </td>
   <% end %>
 
   <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
-    <td>
+    <td data-label="<%= t('models.proposal.fields.comments', scope: 'decidim.proposals') %>">
       <%= proposal.comments_count %>
     </td>
   <% end %>
 
-  <td>
+  <td data-label="<%= t('models.proposal.fields.notes', scope: 'decidim.proposals') %>">
     <%= proposal.proposal_notes_count %>
   </td>
 
-  <td class="evaluators-count">
+  <td class="evaluators-count" data-label="<%= t('models.proposal.fields.evaluators', scope: 'decidim.proposals') %>">
     <%= proposal.evaluation_assignments_count %>
   </td>
 
-  <td>
+  <td data-label="<%= t('models.proposal.fields.state', scope: 'decidim.proposals') %>">
     <strong class="label <%= proposal_state_css_class proposal %>" style="<%= proposal_state_css_style proposal %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= proposal_complete_state proposal %>
     </strong>
   </td>
 
-  <td class="table-list__actions">
+  <td class="table-list__actions" data-label="<%= t('actions.title', scope: 'decidim.proposals') %>">
     <%= render partial: "decidim/proposals/admin/proposals/actions", locals: { proposal:, view: } %>
   </td>
 </tr>
