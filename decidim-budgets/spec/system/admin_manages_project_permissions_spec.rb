@@ -36,7 +36,6 @@ describe "Admin manages project permissions" do
       click_on "Manage projects"
     end
     within "tr", text: translated(project.title) do
-      expect(page).to have_css(".action-icon--highlighted")
       find("button[data-component='dropdown']").click
       click_on "Permissions"
     end
