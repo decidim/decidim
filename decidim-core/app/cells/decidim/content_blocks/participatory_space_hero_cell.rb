@@ -5,7 +5,7 @@ module Decidim
     class ParticipatorySpaceHeroCell < Decidim::ContentBlocks::BaseCell
       include Decidim::TwitterSearchHelper
 
-      delegate :title, :hashtag, :attached_uploader, to: :resource
+      delegate :title, :attached_uploader, to: :resource
 
       def cta_text
         return unless model
@@ -37,18 +37,8 @@ module Decidim
         attached_uploader(:banner_image).url
       end
 
-      def has_hashtag?
-        @has_hashtag ||= hashtag.present?
-      end
-
       def has_cta?
         [cta_text, cta_path].all?
-      end
-
-      def escaped_hashtag
-        return unless has_hashtag?
-
-        @escaped_hashtag ||= decidim_html_escape(hashtag)
       end
     end
   end

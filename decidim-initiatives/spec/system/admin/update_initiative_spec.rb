@@ -22,7 +22,11 @@ describe "User prints the initiative" do
         end
 
         within ".edit_initiative" do
-          fill_in :initiative_hashtag, with: "#hashtag"
+          fill_in_i18n_editor(
+            :initiative_description,
+            "#initiative-description-tabs",
+            **attributes[:description].except("machine_translations")
+          )
         end
         within("[data-content]") do
           find("*[type=submit]").click

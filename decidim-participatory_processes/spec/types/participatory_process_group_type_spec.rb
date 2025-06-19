@@ -78,14 +78,6 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
-
-        it "returns the process' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
-        end
-      end
-
       describe "target" do
         let(:query) { '{ target { translation(locale: "en")}}' }
 
