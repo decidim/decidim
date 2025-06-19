@@ -23,7 +23,7 @@
         <% end %>
       </div>
 
-      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false">
+      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false" onclick="document.querySelector('div[id^=panel-view-more]').toggleAttribute('inert')">
         <span>
           <%= t("view_more", scope: "layouts.decidim.announcements") %>
         </span>
