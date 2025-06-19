@@ -169,6 +169,7 @@ ca-IT:
           attachments: Adjunts
           components: Components
           info: Quant a aquesta assemblea
+          landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
           private_users: Membres
           see_assembly: Veure l'assemblea
@@ -191,6 +192,7 @@ ca-IT:
             vice_president: Vicepresidència
         assembly_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
