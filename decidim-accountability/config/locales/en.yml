@@ -124,7 +124,6 @@ en:
             title: Edit milestone
             update: Update milestone
           index:
-            new: New milestone
             title: Milestones
           new:
             create: Create milestone
