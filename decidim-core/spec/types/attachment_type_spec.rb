@@ -8,29 +8,23 @@ module Decidim
     describe AttachmentType do
       include_context "with a graphql class type"
 
-      let(:title) { { en: "Participation guidelines", es: "Pautas de participación", ca: "Pautes de participació" } }
-      let(:description) { { en: "Read through these guidelines carefully.", es: "Lea atentamente estas pautas.", ca: "Llegiu atentament aquestes directrius." } }
-      let(:url) { "https://foo.bar/baz" }
-      let(:file_type) { "image" }
-      let(:thumbnail) { "https://foo.bar/baz.thumb" }
+      let(:model) { create(:attachment) }
 
-      let(:model) do
-        double(title:, description:, url:, file_type:, thumbnail_url: thumbnail)
-      end
+      include_examples "timestamps interface"
 
       describe "title" do
-        let(:query) { "{ title { translations { locale text } } }" }
+        let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the attachment's url" do
-          expect(response).to eq("title" => { "translations" => title.map { |locale, text| { "locale" => locale.to_s, "text" => text } } })
+        it "returns the attachment's title" do
+          expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
 
       describe "description" do
-        let(:query) { "{ description { translations { locale text } } }" }
+        let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the attachment's url" do
-          expect(response).to eq("description" => { "translations" => description.map { |locale, text| { "locale" => locale.to_s, "text" => text } } })
+        it "returns the attachment's description" do
+          expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
 
@@ -38,7 +32,23 @@ module Decidim
         let(:query) { "{ url }" }
 
         it "returns the attachment's url" do
-          expect(response).to eq("url" => url)
+          expect(response).to eq("url" => model.url)
+        end
+      end
+
+      describe "id" do
+        let(:query) { "{ id }" }
+
+        it "returns the attachment's id" do
+          expect(response).to eq("id" => model.id.to_s)
+        end
+      end
+
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the attachment's weight" do
+          expect(response).to eq("weight" => model.weight.to_s)
         end
       end
 
@@ -46,7 +56,7 @@ module Decidim
         let(:query) { "{ type }" }
 
         it "returns the attachment's type" do
-          expect(response).to eq("type" => file_type)
+          expect(response).to eq("type" => model.file_type)
         end
       end
 
@@ -54,14 +64,31 @@ module Decidim
         let(:query) { "{ thumbnail }" }
 
         it "returns the attachment's thumbnail" do
-          expect(response).to eq("thumbnail" => thumbnail)
+          expect(response).to eq("thumbnail" => model.thumbnail_url)
         end
 
         context "when not available" do
-          let(:thumbnail) { nil }
+          let(:model) { create(:attachment, :with_pdf) }
 
           it "returns nil" do
             expect(response).to eq("thumbnail" => nil)
+          end
+        end
+      end
+
+      describe "link" do
+        let(:query) { "{ link }" }
+        let(:model) { create(:attachment, :with_link) }
+
+        it "returns the attachment's link" do
+          expect(response).to eq("link" => model.link)
+        end
+
+        context "when not available" do
+          let(:model) { create(:attachment, :with_pdf) }
+
+          it "returns nil" do
+            expect(response).to eq("link" => nil)
           end
         end
       end

@@ -8,6 +8,8 @@ module Decidim
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
+      include_examples "timestamps interface"
+
       let(:model) { create(:user, :confirmed) }
 
       describe "unconfirmed user" do
@@ -118,6 +120,54 @@ module Decidim
 
         it "returns the user's organization name" do
           expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
+        end
+      end
+
+      describe "followersCount" do
+        let(:query) { "{ followersCount }" }
+
+        it "returns the user's followers count" do
+          expect(response).to include("followersCount" => model.followers.count)
+        end
+      end
+
+      describe "followingCount" do
+        let(:query) { "{ followingCount }" }
+
+        it "returns the user's following count" do
+          expect(response).to include("followingCount" => model.following_count)
+        end
+      end
+
+      describe "followsCount" do
+        let(:query) { "{ followsCount }" }
+
+        it "returns the user's follows count" do
+          expect(response).to include("followsCount" => model.follows.count)
+        end
+      end
+
+      describe "officialized" do
+        let(:query) { "{ officialized }" }
+
+        it "returns the user's officialized status" do
+          expect(response).to include("officialized" => model.officialized?)
+        end
+      end
+
+      describe "about" do
+        let(:query) { "{ about }" }
+
+        it "returns the user's about" do
+          expect(response).to include("about" => model.about)
+        end
+      end
+
+      describe "personalUrl" do
+        let(:query) { "{ personalUrl }" }
+
+        it "returns the user's personal url" do
+          expect(response).to include("personalUrl" => model.personal_url)
         end
       end
     end
