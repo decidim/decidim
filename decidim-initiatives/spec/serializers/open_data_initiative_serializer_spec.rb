@@ -70,10 +70,6 @@ module Decidim::Initiatives
         expect(serialized).to include(answer_url: initiative.answer_url)
       end
 
-      it "includes the hashtag" do
-        expect(serialized).to include(hashtag: initiative.hashtag)
-      end
-
       it "includes the first_progress_notification_at timestamp" do
         expect(serialized).to include(first_progress_notification_at: initiative.first_progress_notification_at)
       end

@@ -17,7 +17,6 @@ module Decidim::Assemblies
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(slug: resource.slug)
-        expect(serialized).to include(hashtag: resource.hashtag)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/assemblies/#{resource.slug}")
         expect(serialized).to include(subtitle: resource.subtitle)
