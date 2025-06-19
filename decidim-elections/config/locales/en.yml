@@ -73,11 +73,7 @@ en:
             results: Results
           results:
             no_results: There are no results yet.
-            publish_all_results: Publish all results
             publish_button: Publish results
-            publish_results: Publish results
-            published: Published
-            question_title: Question %{index}
             results_availability:
               after_end: You can publish all results after the election ends.Results will remain hidden until you publish them manually.
               per_question: You can publish results one question at a time. Results will appear after each question is finalized.
