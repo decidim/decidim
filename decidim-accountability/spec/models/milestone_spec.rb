@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Accountability
-    describe MilestoneEntry do
+    describe Milestone do
       subject { milestone }
 
       let(:milestone) { build(:milestone) }

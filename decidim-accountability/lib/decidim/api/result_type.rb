@@ -20,7 +20,7 @@ module Decidim
       field :end_date, Decidim::Core::DateType, "The end date for this result", null: true
       field :external_id, GraphQL::Types::String, "The external ID for this result", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this result", null: false
-      field :milestone_entries, [Decidim::Accountability::MilestoneEntryType, { null: true }], "The milestones for this result", null: true
+      field :milestones, [Decidim::Accountability::MilestoneType, { null: true }], "The milestones for this result", null: true
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :progress, GraphQL::Types::Float, "The progress for this result", null: true
       field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The proposal URLs for this result", null: true

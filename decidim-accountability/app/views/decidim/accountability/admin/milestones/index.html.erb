@@ -7,7 +7,7 @@
         <%= link_to "#{translated_attribute(result.title)} > ", edit_result_path(result) %>
         <%= t(".title") %>
       </div>
-      <%= link_to t("actions.new_milestone", scope: "decidim.accountability"), new_result_milestone_entry_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :milestone %>
+      <%= link_to t("actions.new_milestone", scope: "decidim.accountability"), new_result_milestone_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :milestone %>
     </h1>
   </div>
   <div class="table-scroll">
@@ -20,17 +20,17 @@
         </tr>
       </thead>
       <tbody>
-        <% milestone_entries.each do |milestone| %>
+        <% milestones.each do |milestone| %>
           <tr data-id="<%= milestone.id %>">
             <td><%= l milestone.entry_date, format: :decidim_short %><br></td>
             <td><%= translated_attribute(milestone.title) %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :milestone, milestone: milestone %>
-                <%= icon_link_to "pencil-line", edit_result_milestone_entry_path(milestone.result, milestone), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <%= icon_link_to "pencil-line", edit_result_milestone_path(milestone.result, milestone), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
               <% end %>
 
               <% if allowed_to? :destroy, :milestone, milestone: milestone %>
-                <%= icon_link_to "delete-bin-line", result_milestone_entry_path(milestone.result, milestone), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability") } %>
+                <%= icon_link_to "delete-bin-line", result_milestone_path(milestone.result, milestone), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability") } %>
               <% end %>
             </td>
           </tr>
@@ -39,4 +39,4 @@
     </table>
   </div>
 </div>
-<%= decidim_paginate milestone_entries %>
+<%= decidim_paginate milestones %>

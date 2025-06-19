@@ -8,7 +8,7 @@ module Decidim
     class ProjectCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Cell::ViewModel::Partial
-      delegate :children, :milestone_entries, to: :model
+      delegate :children, :milestones, to: :model
 
       alias result model
 
@@ -27,8 +27,8 @@ module Decidim
             args: ["decidim/accountability/result_history", result]
           },
           {
-            enabled: milestone_entries.any?,
-            id: "milestone_entries",
+            enabled: milestones.any?,
+            id: "milestones",
             text: t("decidim.accountability.results.milestone.title"),
             icon: "route-line",
             method: :cell,

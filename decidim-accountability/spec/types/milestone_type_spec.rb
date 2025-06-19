@@ -5,7 +5,7 @@ require "decidim/api/test"
 
 module Decidim
   module Accountability
-    describe MilestoneEntryType, type: :graphql do
+    describe MilestoneType, type: :graphql do
       include_context "with a graphql class type"
 
       let(:model) { create(:milestone) }

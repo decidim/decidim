@@ -2,7 +2,7 @@
 
 module Decidim
   module Accountability
-    class MilestoneEntryType < Decidim::Api::Types::BaseObject
+    class MilestoneType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::TraceableInterface
 

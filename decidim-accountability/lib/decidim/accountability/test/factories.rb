@@ -50,7 +50,7 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
   end
 
-  factory :milestone, class: "Decidim::Accountability::MilestoneEntry" do
+  factory :milestone, class: "Decidim::Accountability::Milestone" do
     transient do
       skip_injection { false }
     end

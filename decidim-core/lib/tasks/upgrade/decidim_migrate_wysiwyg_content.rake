@@ -27,7 +27,7 @@ namespace :decidim do
       # Components
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Result", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Status", [:description])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::MilestoneEntry", [:description])
+      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Milestone", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Blogs::Post", [:body])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Budgets::Budget", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Budgets::Project", [:description])

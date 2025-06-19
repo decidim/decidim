@@ -3,9 +3,9 @@
 module Decidim
   module Accountability
     module Admin
-      # This command is executed when the user changes a MilestoneEntry from the admin
+      # This command is executed when the user changes a Milestone from the admin
       # panel.
-      class UpdateMilestoneEntry < Decidim::Commands::UpdateResource
+      class UpdateMilestone < Decidim::Commands::UpdateResource
         fetch_form_attributes :entry_date, :title, :description
       end
     end
