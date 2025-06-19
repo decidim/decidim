@@ -137,12 +137,14 @@ ca:
           name: Grup de processos
         participatory_process_step:
           fields:
+            actions: Accions
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
           name: Fase del procés participatiu
         participatory_process_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
