@@ -135,6 +135,29 @@ module Decidim
           expect(response["users"]).not_to include("id" => user6.id.to_s)
         end
       end
+
+      describe "participant_details" do
+        let!(:participant) { create(:user, :confirmed, organization: current_organization) }
+        let(:query) { %({ participantDetails(id: #{participant.id}){email name nickname}} ) }
+
+        context "with unauthorized user" do
+          it "does not show participant details" do
+            expect(response["participantDetails"]).to be_nil
+          end
+        end
+
+        context "with an admin user" do
+          let!(:scope) { "admin" }
+
+          it_behaves_like "logable participant details"
+        end
+
+        context "with an api user" do
+          let!(:scope) { "api_user" }
+
+          it_behaves_like "logable participant details"
+        end
+      end
     end
   end
 end
