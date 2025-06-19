@@ -223,12 +223,14 @@ es-PY:
             title: Título
         conference_speaker:
           fields:
+            actions: Acciones
             affiliation: Afiliación
             full_name: Nombre completo
             position: Posición
           name: Conferenciante
         conference_user_role:
           fields:
+            actions: Acciones
             email: Correo electrònico
             name: Nombre
             role: Papel
@@ -240,12 +242,14 @@ es-PY:
             moderator: Moderador
         media_link:
           fields:
+            actions: Acciones
             date: Fecha
             link: Enlazar
             title: Título
           name: Enlace multimedia
         partner:
           fields:
+            actions: Acciones
             link: Enlazar
             logo: Logotipo
             name: Nombre
@@ -256,6 +260,7 @@ es-PY:
             main_promotor: Promotor principal
         registration_type:
           fields:
+            actions: Acciones
             conference_meetings: Encuentros de la conferencia
             price: Precio
             registrations_count: Número de inscripciones
@@ -515,6 +520,7 @@ es-PY:
             sent: Expedido
         conference_registration:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             registration_type: Tipo de inscripción
