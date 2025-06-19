@@ -24,7 +24,6 @@ describe "Decidim::Api::QueryType" do
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
       "followsCount" => 3,
-      "hashtag" => conference.hashtag,
       "id" => conference.id.to_s,
       "location" => conference.location,
       "mediaLinks" => [],
@@ -70,7 +69,6 @@ describe "Decidim::Api::QueryType" do
         }
         endDate
         followsCount
-        hashtag
         heroImage
         id
         location
@@ -181,7 +179,6 @@ describe "Decidim::Api::QueryType" do
         }
         endDate
         followsCount
-        hashtag
         heroImage
         id
         location
