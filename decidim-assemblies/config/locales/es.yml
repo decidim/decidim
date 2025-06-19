@@ -192,6 +192,7 @@ es:
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
