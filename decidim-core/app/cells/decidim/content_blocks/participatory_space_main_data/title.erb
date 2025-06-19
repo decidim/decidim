@@ -15,7 +15,7 @@
   <div class="content-block__description editor-content" <%= "data-component='accordion'" if should_truncate %>>
     <% if should_truncate %>
       <% seed = SecureRandom.hex(4) %>
-      <div id="panel-view-more-<%= seed %>" aria-hidden="true" class="editor-content">
+      <div id="panel-view-more-<%= seed %>" class="editor-content" inert>
         <% if rich_text_processors? %>
           <%= render_rich_text(resource, :description) %>
         <% else %>
