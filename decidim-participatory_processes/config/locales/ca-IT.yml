@@ -108,6 +108,7 @@ ca-IT:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
           info: Informació
+          landing_page: Disposició de la pàgina de destinació
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -115,6 +116,7 @@ ca-IT:
           attachments: Adjunts
           components: Components
           info: Quant a aquest procés
+          landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
           private_users: Membres
           process_admins: Administradores del procés
@@ -135,12 +137,14 @@ ca-IT:
           name: Grup de processos
         participatory_process_step:
           fields:
+            actions: Accions
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
           name: Fase del procés participatiu
         participatory_process_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
