@@ -77,7 +77,8 @@ shared_examples "manage soft deletable resource" do |resource_name|
     expect(page).to have_content(title[:en])
 
     within(resource_row) do
-      accept_confirm { click_on "Soft delete" }
+      find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+      accept_confirm { click_on " delete" }
     end
 
     expect(page).to have_admin_callout("successfully")
