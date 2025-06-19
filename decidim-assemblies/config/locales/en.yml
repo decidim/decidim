@@ -193,6 +193,7 @@ en:
             vice_president: Vice president
         assembly_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
