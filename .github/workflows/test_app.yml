@@ -51,6 +51,7 @@ jobs:
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      DECIDIM_AVAILABLE_LOCALES: en,ca,es
     services:
       validator:
         image: ghcr.io/validator/validator:latest

@@ -291,7 +291,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 enabled) => false,
       %w(decidim application_name) => "My Application Name",
       %w(decidim mailer_sender) => "change-me@example.org",
-      %w(decidim available_locales) => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      %w(decidim available_locales) => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu
+                                          id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => "auto",
       %w(decidim enable_html_header_snippets) => false,
@@ -460,7 +461,8 @@ shared_examples_for "an application with configurable env vars" do
     {
       "application_name" => "My Application Name",
       "mailer_sender" => "change-me@example.org",
-      "available_locales" => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      "available_locales" => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it
+                                ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       "default_locale" => "en",
       "force_ssl" => true,
       "enable_html_header_snippets" => false,

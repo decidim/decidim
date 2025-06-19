@@ -281,7 +281,9 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr
+                                                           hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW).join(",")
+    ).to_array
   end
 
   # Exposes a configuration option: The application default locale.
@@ -348,7 +350,46 @@ module Decidim
 
   # Exposes a configuration option: an object to configure the mapping
   # functionality. See Decidim::Map for more information.
-  config_accessor :maps
+  config_accessor :maps do
+    if Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).present?
+
+      @maps ||= begin
+                  static_provider = Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+                  dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+                  dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+                  static_url = ENV.fetch("MAPS_STATIC_URL", nil)
+                  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+                  maps = {
+                    provider: static_provider,
+                    api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,
+                    static: { url: static_url },
+                    dynamic: {
+                      provider: dynamic_provider,
+                      api_key: Decidim::Env.new("MAPS_DYNAMIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s
+                    }
+                  }
+                  maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
+                  maps[:dynamic][:tile_layer] = {}
+                  maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
+                  maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
+                  if ENV["MAPS_EXTRA_VARS"].present?
+                    vars = URI.decode_www_form(ENV["MAPS_EXTRA_VARS"])
+                    vars.each do |key, value|
+                      # perform a naive type conversion
+                      maps[:dynamic][:tile_layer][key] = case value
+                                                         when /^true$|^false$/i
+                                                           value.downcase == "true"
+                                                         when /\A[-+]?\d+\z/
+                                                           value.to_i
+                                                         else
+                                                           value
+                                                         end
+                    end
+                  end
+                  maps
+                end
+    end
+  end
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
@@ -467,11 +508,13 @@ module Decidim
 
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad do
-    # {
-    #   server: <your url>,
-    #   api_key: <your key>,
-    #   api_version: <your version>
-    # }
+    if Decidim::Env.new("ETHERPAD_SERVER").present? && Decidim::Env.new("ETHERPAD_API_KEY").present?
+      {
+        server: Decidim::Env.new("ETHERPAD_SERVER").to_s,
+        api_key: Decidim::Env.new("ETHERPAD_API_KEY").to_s,
+        api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").to_s
+      }
+    end
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
