@@ -223,12 +223,14 @@ es-MX:
             title: Título
         conference_speaker:
           fields:
+            actions: Acciones
             affiliation: Afiliación
             full_name: Nombre completo
             position: Cargo
           name: Ponente
         conference_user_role:
           fields:
+            actions: Acciones
             email: Correo electrònico
             name: Nombre
             role: Rol
@@ -240,12 +242,14 @@ es-MX:
             moderator: Moderador
         media_link:
           fields:
+            actions: Acciones
             date: Fecha
             link: Enlace
             title: Título
           name: Enlace multimedia
         partner:
           fields:
+            actions: Acciones
             link: Enlace
             logo: Logotipo
             name: Nombre
@@ -256,6 +260,7 @@ es-MX:
             main_promotor: Promotor principal
         registration_type:
           fields:
+            actions: Acciones
             conference_meetings: Encuentros de la conferencia
             price: Precio
             registrations_count: Número de inscripciones
@@ -515,6 +520,7 @@ es-MX:
             sent: Enviada
         conference_registration:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             registration_type: Tipo de inscripción
