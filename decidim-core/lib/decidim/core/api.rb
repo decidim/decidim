@@ -27,6 +27,7 @@ module Decidim
     autoload :HashtagType, "decidim/api/types/hashtag_type"
     autoload :LocalizedStringType, "decidim/api/types/localized_string_type"
     autoload :OrganizationType, "decidim/api/types/organization_type"
+    autoload :ParticipantDetailsType, "decidim/api/types/participant_details_type"
     autoload :ParticipatorySpaceType, "decidim/api/types/participatory_space_type"
     autoload :ParticipatorySpaceLinkType, "decidim/api/types/participatory_space_link_type"
     autoload :ParticipatorySpaceManifestType, "decidim/api/types/participatory_space_manifest_type"

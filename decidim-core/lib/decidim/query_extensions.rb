@@ -38,6 +38,12 @@ module Decidim
         argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
       end
+
+      type.field :participant_details, type: Decidim::Core::ParticipantDetailsType, null: true do
+        description "Participant details visible to admin users only"
+        argument :id, GraphQL::Types::ID, "The ID of the participant", required: true
+        argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
+      end
     end
 
     def component(id: {})
@@ -67,6 +73,23 @@ module Decidim
 
     def users(filter: {}, order: {})
       Core::UserEntityList.new.call(object, { filter:, order: }, context)
+    end
+
+    def participant_details(id: nil, nickname: nil)
+      participant = Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
+      return nil unless participant
+
+      return nil unless Decidim::Core::ParticipantDetailsType.authorized?(participant, context)
+
+      Decidim::ActionLogger.log(
+        "read",
+        context[:current_user],
+        participant,
+        nil,
+        {}
+      )
+
+      participant
     end
   end
 end
