@@ -169,6 +169,7 @@ es-PY:
           attachments: Archivos adjuntos
           components: Componentes
           info: Acerca de esta asamblea
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea
@@ -191,6 +192,7 @@ es-PY:
             vice_president: Vicepresidente
         assembly_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
