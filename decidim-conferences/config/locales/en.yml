@@ -224,12 +224,14 @@ en:
             title: Title
         conference_speaker:
           fields:
+            actions: Actions
             affiliation: Affiliation
             full_name: Full name
             position: Position
           name: Conference Speaker
         conference_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -241,12 +243,14 @@ en:
             moderator: Moderator
         media_link:
           fields:
+            actions: Actions
             date: Date
             link: Link
             title: Title
           name: Media link
         partner:
           fields:
+            actions: Actions
             link: Link
             logo: Logo
             name: Name
@@ -257,6 +261,7 @@ en:
             main_promotor: Main promotor
         registration_type:
           fields:
+            actions: Actions
             conference_meetings: Conference meetings
             price: Price
             registrations_count: Registrations count
@@ -516,6 +521,7 @@ en:
             sent: Sent
         conference_registration:
           fields:
+            actions: Actions
             email: Email
             name: Name
             registration_type: Registration type

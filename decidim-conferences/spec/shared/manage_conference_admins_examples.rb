@@ -55,6 +55,7 @@ shared_examples "manage conference admins examples" do
     it "updates a conference admin", versioning: true do
       within "#conference_admins" do
         within "#conference_admins tr", text: other_user.email do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
       end
@@ -76,6 +77,7 @@ shared_examples "manage conference admins examples" do
 
     it "deletes a conference_user_role" do
       within "#conference_admins tr", text: other_user.email do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -107,6 +109,7 @@ shared_examples "manage conference admins examples" do
 
       it "resends the invitation to the user" do
         within "#conference_admins tr", text: "test@example.org" do
+          find("button[data-component='dropdown']").click
           click_on "Resend invitation"
         end
 
