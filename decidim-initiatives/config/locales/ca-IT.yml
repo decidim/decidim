@@ -123,8 +123,12 @@ ca-IT:
             state: Estat
             supports_count: Signatures
             title: Iniciatives
+        initiatives_committee_member:
+          fields:
+            actions: Accions
         initiatives_type_scope:
           fields:
+            actions: Accions
             scope: Àmbit
             supports_required: Signatures necessàries
           name: Àmbit del tipus d'iniciativa
