@@ -108,6 +108,7 @@ es-PY:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Información
+          landing_page: Disposición de la página de aterrizaje
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -115,6 +116,7 @@ es-PY:
           attachments: Archivos adjuntos
           components: Componentes
           info: Acerca de este proceso
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Usuarios del proceso
@@ -135,12 +137,14 @@ es-PY:
           name: Grupo de procesos
         participatory_process_step:
           fields:
+            actions: Acciones
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
         participatory_process_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
