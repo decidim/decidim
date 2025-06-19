@@ -109,7 +109,7 @@ en:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landing page
+          landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -117,7 +117,7 @@ en:
           attachments: Attachments
           components: Components
           info: About this process
-          landing_page: Landing page
+          landing_page: Landing page layout
           moderations: Moderations
           private_users: Members
           process_admins: Process admins
