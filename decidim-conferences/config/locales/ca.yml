@@ -223,12 +223,14 @@ ca:
             title: Títol
         conference_speaker:
           fields:
+            actions: Accions
             affiliation: Afiliació
             full_name: Nom complet
             position: Càrrec
           name: Ponents de la jornada
         conference_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
@@ -240,12 +242,14 @@ ca:
             moderator: Moderadora
         media_link:
           fields:
+            actions: Accions
             date: Data
             link: Enllaç
             title: Títol
           name: Enllaç multimèdia
         partner:
           fields:
+            actions: Accions
             link: Enllaç
             logo: Logotip
             name: Nom
@@ -256,6 +260,7 @@ ca:
             main_promotor: Promotora principal
         registration_type:
           fields:
+            actions: Accions
             conference_meetings: Trobades de la jornada
             price: Preu
             registrations_count: Nombre d'inscripcions
@@ -515,6 +520,7 @@ ca:
             sent: Enviat
         conference_registration:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             registration_type: Tipus d'inscripció
