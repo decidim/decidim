@@ -83,6 +83,8 @@ module Decidim
       end
 
       def results_publishable_for?(question)
+        return false if question&.published_results_at.present?
+
         case results_availability
         when "per_question"
           publishable_per_question?(question)
