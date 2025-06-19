@@ -192,6 +192,7 @@ ca:
             vice_president: Vicepresidència
         assembly_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
