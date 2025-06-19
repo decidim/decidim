@@ -30,7 +30,7 @@ module Decidim
 
       # When the engine is consistently marking spam content without errors,
       # you can skip human intervention by enabling this functionality
-      config_accessor :hide_reported_resources do
+      config_accessor :hide_reported_resources_automatically do
         false
       end
 

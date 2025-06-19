@@ -30,7 +30,7 @@ module Decidim
           @form ||= Decidim::ReportForm.new(
             reason: "spam",
             details: classifier.classification_log,
-            hide: Decidim::Ai::SpamDetection.hide_reported_resources
+            hide: Decidim::Ai::SpamDetection.hide_reported_resources_automatically
           ).with_context(
             current_user: reporting_user,
             can_hide: false,

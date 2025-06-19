@@ -4,7 +4,7 @@ if Decidim.module_installed?(:ai)
 
   # When the engine is consistently marking spam content without errors,
   # you can skip human intervention by enabling this functionality
-  Decidim::Ai::SpamDetection.hide_reported_resources = false
+  Decidim::Ai::SpamDetection.hide_reported_resources_automatically = false
 
   Decidim::Ai::Language.formatter = "Decidim::Ai::Language::Formatter"
 
