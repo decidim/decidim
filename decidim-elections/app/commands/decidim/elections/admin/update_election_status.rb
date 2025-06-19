@@ -33,6 +33,8 @@ module Decidim
             start_election
           when :end
             end_election
+          when :publish_results
+            publish_results
           end
         end
 
@@ -42,6 +44,24 @@ module Decidim
 
         def end_election
           election.end_at = Time.current
+        end
+
+        def publish_results
+          election.per_question? ? publish_results_per_question : publish_all_results
+        end
+
+        def publish_results_per_question
+          question = election.questions.detect { |q| q.published_results_at.nil? && election.results_publishable_for?(q) }
+
+          raise "No publishable question found" unless question
+
+          question.update!(published_results_at: Time.current)
+        end
+
+        def publish_all_results
+          return if election.results_published?
+
+          election.published_results_at = Time.current
         end
       end
     end

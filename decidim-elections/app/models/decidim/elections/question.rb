@@ -24,6 +24,10 @@ module Decidim
       def number_of_options
         response_options.size
       end
+
+      def published_results?
+        published_results_at.present?
+      end
     end
   end
 end

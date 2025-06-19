@@ -49,8 +49,9 @@ module Decidim
         end
 
         def publish_button_for(election, question)
-          button_to publish_results_election_path(election),
-                    method: :post,
+          button_to update_status_election_path(election),
+                    method: :put,
+                    params: { status_action: "publish_results" },
                     disabled: !election.results_publishable_for?(question),
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.publish_button")

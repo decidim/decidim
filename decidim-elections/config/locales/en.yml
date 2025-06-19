@@ -144,6 +144,9 @@ en:
           end:
             invalid: There was a problem ending the election.
             success: Election ended successfully.
+          publish_results:
+            invalid: There was a problem publishing the results.
+            success: Results published successfully.
           start:
             invalid: There was a problem starting the election.
             success: Election started successfully.

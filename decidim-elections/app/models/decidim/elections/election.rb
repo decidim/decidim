@@ -102,6 +102,19 @@ module Decidim
         previous_question = questions[index - 1]
         previous_question.published_results_at.present?
       end
+
+      def per_question?
+        results_availability == "per_question"
+      end
+
+      def results_published?
+        case results_availability
+        when "per_question"
+          questions.all?(&:published_results?)
+        else
+          published_results_at.present?
+        end
+      end
     end
   end
 end
