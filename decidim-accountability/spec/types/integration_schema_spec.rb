@@ -58,7 +58,7 @@ describe "Decidim::Api::QueryType" do
           taxonomies {
             id
           }
-          milestone_entries {
+          milestoneEntries {
             id
             createdAt
             title {
@@ -123,7 +123,7 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => result.status.updated_at.to_time.iso8601
       },
       "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
-      "milestone_entries" => [
+      "milestoneEntries" => [
         {
           "createdAt" => result.milestone_entries.first.created_at.to_time.iso8601,
           "title" => { "translation" => result.milestone_entries.first.title[locale] },
@@ -245,7 +245,7 @@ describe "Decidim::Api::QueryType" do
               taxonomies {
                 id
               }
-              milestone_entries {
+              milestoneEntries {
                 id
                 createdAt
                 title {
