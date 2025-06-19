@@ -123,8 +123,12 @@ es:
             state: Estado
             supports_count: Firmas
             title: Iniciativas
+        initiatives_committee_member:
+          fields:
+            actions: Acciones
         initiatives_type_scope:
           fields:
+            actions: Acciones
             scope: Ámbito
             supports_required: Firmas requeridas
           name: Ámbito del tipo de iniciativa
