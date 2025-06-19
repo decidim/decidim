@@ -18,7 +18,7 @@ module Decidim
         def action_string
           case action
           when "create", "delete", "update"
-            "decidim.accountability.admin_log.milestone.#{action}"
+            "decidim.accountability.admin_log.milestones.#{action}"
           else
             super
           end
