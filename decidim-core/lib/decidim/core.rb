@@ -528,14 +528,14 @@ module Decidim
   #
   # Check the example in `decidim-verifications`.
   config_accessor :sms_gateway_service do
-    Decidim::Env.new("DECIDIM_SMS_GATEWAY_SERVICE", nil).default_or_present_if_exists
+    Decidim::Env.new("DECIDIM_SMS_GATEWAY_SERVICE", nil).value
   end
 
   # The name of the class used to generate a timestamp from a document.
   #
   # Check the example in `decidim-initiatives`
   config_accessor :timestamp_service do
-    Decidim::Env.new("DECIDIM_TIMESTAMP_SERVICE", nil).default_or_present_if_exists
+    Decidim::Env.new("DECIDIM_TIMESTAMP_SERVICE", nil).value
   end
 
   # The name of the class used to process a pdf and add a signature to the
@@ -543,14 +543,14 @@ module Decidim
   #
   # Check the example in `decidim-initiatives`
   config_accessor :pdf_signature_service do
-    Decidim::Env.new("DECIDIM_PDF_SIGNATURE_SERVICE", nil).default_or_present_if_exists
+    Decidim::Env.new("DECIDIM_PDF_SIGNATURE_SERVICE", nil).value
   end
 
   # The name of the class to translate user content.
   #
   config_accessor :machine_translation_service do
     # "MyTranslationService"
-    Decidim::Env.new("DECIDIM_MACHINE_TRANSLATION_SERVICE", nil).default_or_present_if_exists
+    Decidim::Env.new("DECIDIM_MACHINE_TRANSLATION_SERVICE", nil).value
   end
 
   config_accessor :maximum_attachment_size do
