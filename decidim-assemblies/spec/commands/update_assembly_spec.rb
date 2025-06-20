@@ -35,7 +35,6 @@ module Decidim::Assemblies
             subtitle_es: my_assembly.subtitle,
             weight: my_assembly.weight,
             slug: my_assembly.slug,
-            hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
             promoted: my_assembly.promoted,
             description: { "en" => "Description in en", "ca" => "Description in ca", "es" => "Description in es" },

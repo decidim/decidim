@@ -157,39 +157,6 @@ describe "Proposals" do
           end
         end
 
-        context "when component has extra hashtags defined" do
-          let(:component) do
-            create(:proposal_component,
-                   :with_extra_hashtags,
-                   suggested_hashtags: component_suggested_hashtags,
-                   automatic_hashtags: component_automatic_hashtags,
-                   manifest:,
-                   participatory_space: participatory_process)
-          end
-
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
-          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
-          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
-
-          it "offers and save extra hashtags", :slow do
-            visit edit_draft_proposal_path(component, proposal_draft)
-
-            within ".edit_proposal" do
-              check :proposal_suggested_hashtags_suggestedhashtag1
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("#AutoHashtag1")
-            expect(page).to have_content("#AutoHashtag2")
-            expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).to have_no_content("#SuggestedHashtag2")
-          end
-        end
-
         context "when the user is not authorized" do
           context "and there is only an authorization required" do
             before do

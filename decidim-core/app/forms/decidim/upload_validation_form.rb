@@ -79,7 +79,7 @@ module Decidim
     class AttachmentContextProxy
       attr_reader :organization, :attachment_context
 
-      delegate :id, :_read_attribute, to: :organization
+      delegate :id, :_read_attribute, :read_attribute, to: :organization
 
       def initialize(organization, attachment_context)
         @organization = organization

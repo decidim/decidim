@@ -16,9 +16,17 @@ describe "User prints the initiative" do
       end
 
       it "Updates published initiative data" do
-        page.find(".action-icon--edit").click
+        within("tr", text: translated(initiative.title)) do
+          find("button[data-component='dropdown']").click
+          click_on "Configure"
+        end
+
         within ".edit_initiative" do
-          fill_in :initiative_hashtag, with: "#hashtag"
+          fill_in_i18n_editor(
+            :initiative_description,
+            "#initiative-description-tabs",
+            **attributes[:description].except("machine_translations")
+          )
         end
         within("[data-content]") do
           find("*[type=submit]").click
@@ -28,7 +36,10 @@ describe "User prints the initiative" do
       end
 
       it "updates the initiative" do
-        page.find(".action-icon--edit").click
+        within("tr", text: translated(initiative.title)) do
+          find("button[data-component='dropdown']").click
+          click_on "Configure"
+        end
 
         fill_in_i18n(
           :initiative_title,
@@ -56,7 +67,11 @@ describe "User prints the initiative" do
         end
 
         it "updates type, scope and signature type" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
+
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
@@ -71,7 +86,11 @@ describe "User prints the initiative" do
         end
 
         it "displays initiative attachments" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
+
           expect(page).to have_link("Edit")
           expect(page).to have_link("New")
         end
@@ -83,7 +102,11 @@ describe "User prints the initiative" do
         end
 
         it "updates type, scope and signature type" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
+
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
@@ -98,7 +121,11 @@ describe "User prints the initiative" do
         end
 
         it "displays initiative attachments" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
+
           expect(page).to have_link("Edit")
           expect(page).to have_link("New")
         end
@@ -110,7 +137,10 @@ describe "User prints the initiative" do
         end
 
         it "update of type, scope and signature type are disabled" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
 
           within ".edit_initiative" do
             expect(page).to have_css("#initiative_type_id[disabled]")
@@ -120,7 +150,11 @@ describe "User prints the initiative" do
         end
 
         it "displays initiative attachments" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
+
           expect(page).to have_link("Edit")
           expect(page).to have_link("New")
         end
@@ -135,7 +169,10 @@ describe "User prints the initiative" do
         end
 
         it "update of type, scope and signature type are disabled" do
-          page.find(".action-icon--edit").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Configure"
+          end
 
           within ".edit_initiative" do
             expect(page).to have_no_css("label[for='initiative_type_id']")

@@ -45,7 +45,6 @@ module Decidim::Conferences
         expect(new_conference.organization).to eq(old_conference.organization)
         expect(new_conference.slogan).to eq(old_conference.slogan)
         expect(new_conference.description).to eq(old_conference.description)
-        expect(new_conference.hashtag).to eq(old_conference.hashtag)
         expect(new_conference.short_description).to eq(old_conference.short_description)
         expect(new_conference.promoted).to eq(old_conference.promoted)
         expect(new_conference.objectives).to eq(old_conference.objectives)

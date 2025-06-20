@@ -16,7 +16,10 @@ describe "Admin copies participatory process" do
 
   context "without any context" do
     it "copies the process with the basic fields" do
-      click_on "Duplicate", match: :first
+      within("tr", text: translated(participatory_process.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_participatory_process" do
         fill_in_i18n(
@@ -38,7 +41,10 @@ describe "Admin copies participatory process" do
 
   context "with context" do
     before do
-      click_on "Duplicate", match: :first
+      within("tr", text: translated(participatory_process.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_participatory_process" do
         fill_in_i18n(

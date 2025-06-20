@@ -21,17 +21,12 @@ RSpec.shared_examples "manage elections" do
       fill_in_timepicker :election_end_at_time, with: end_time.strftime("%H:%M")
       check "Manual start"
       choose "Real time"
-
-      find("*[type=submit]").click
     end
+
+    click_on "Save and continue"
 
     expect(page).to have_admin_callout "Election created successfully"
-
-    within "table" do
-      expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content("Manual start")
-      expect(page).to have_content(end_time.strftime("%B %d, %Y"))
-    end
+    expect(page).to have_content("Question must have at least two answers in order go to the next step.")
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} election in")
@@ -53,15 +48,12 @@ RSpec.shared_examples "manage elections" do
         uncheck "Manual start"
         fill_in_datepicker :election_start_at_date, with: start_time.strftime("%d/%m/%Y")
         fill_in_timepicker :election_start_at_time, with: start_time.strftime("%H:%M")
-
-        find("*[type=submit]").click
       end
+
+      click_on "Save and continue"
 
       expect(page).to have_admin_callout "Election updated successfully"
-      within "table" do
-        expect(page).to have_content(start_time.strftime("%B %d, %Y"))
-        expect(page).to have_no_content("Manual start")
-      end
+      # redirect to questions tab
     end
   end
 end

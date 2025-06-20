@@ -93,29 +93,33 @@
     }
 
     .dropdown__button {
-      @apply font-normal button button__sm button__text button__text-secondary w-full flex justify-start !p-4;
+      @apply font-normal button button__sm button__text button__text-secondary w-full flex justify-start !p-2;
 
       span {
         @apply mr-4 font-normal;
+      }
+
+      &-disabled {
+        @apply text-gray-2 font-normal w-full flex justify-start !p-2;
+
+        svg {
+          @apply text-gray-2 mr-1;
+        }
       }
     }
 
     &:hover,
     &-hovered {
-      @apply text-white bg-secondary;
-
       > .dropdown__button {
         @apply text-white no-underline;
-
-        background: theme("colors.secondary") !important;
 
         span {
           @apply text-white;
         }
-      }
 
-      svg {
-        @apply fill-white;
+        svg {
+          @apply fill-white;
+        }
       }
     }
   }
@@ -126,5 +130,13 @@
 
   &__right {
     @apply top-0 left-48;
+  }
+
+  &__action {
+    @apply top-full left-0 md:right-0 md:left-auto;
+
+    li {
+      @apply border-none;
+    }
   }
 }
