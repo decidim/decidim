@@ -18,7 +18,7 @@
 </div>
 
 <%= admin_filter_selector(:moderated_users) %>
-<div class="table-scroll">
+<div class="table-stacked">
   <table class="table-list">
     <thead>
     <tr>
@@ -34,36 +34,76 @@
     <tbody>
     <% @moderated_users.each do |moderation| %>
       <tr data-id="<%= moderation.id %>">
-        <td><%= check_box_tag "user_ids_s[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-list-check  js-moderated_user-id-#{moderation.user.id}" %><br></td>
-        <% if moderation.user.nickname.present? %>
-          <td><%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname) %></td>
-          <td><%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname) %></td>
-        <% else %>
-          <td><%= moderation.user.name %></td>
-          <td><%= moderation.user.nickname %></td>
-        <% end %>
-        <td>
-          <% reports = moderation.reports.map { |report| render "report", report: } %>
-          <%= safe_join(reports, ",") %>
+        <td data-label="">
+          <%= check_box_tag "user_ids_s[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-list-check js-moderated_user-id-#{moderation.user.id}" %>
         </td>
-        <td>
+
+        <% if moderation.user.nickname.present? %>
+          <td data-label="<%= t('.name') %>">
+            <%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname) %>
+          </td>
+          <td data-label="<%= t('.nickname') %>">
+            <%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname) %>
+          </td>
+        <% else %>
+          <td data-label="<%= t('.name') %>">
+            <%= moderation.user.name %>
+          </td>
+          <td data-label="<%= t('.nickname') %>">
+            <%= moderation.user.nickname %>
+          </td>
+        <% end %>
+
+        <td data-label="<%= t('.reason') %>">
+          <% reports = moderation.reports.map { |report| render "report", report: } %>
+          <%= safe_join(reports, ", ") %>
+        </td>
+
+        <td data-label="<%= t('models.moderation.fields.created_at', scope: 'decidim.moderations') %>">
           <%= l moderation.created_at, format: :decidim_short %>
         </td>
-        <td>
+
+        <td data-label="<%= t('.reports') %>">
           <%= moderation.report_count %>
         </td>
 
-        <td>
-          <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
-            <%= icon_link_to "arrow-go-back-line", ignore_moderated_user_path(id: moderation), t(".actions.unreport"), class: "action-icon--unreport", method: :put %>
-          <% end %>
-          <% if allowed_to?(:block, :moderate_users) %>
-            <% if moderation.user.blocked? %>
-              <%= icon_link_to "refresh-line", user_block_path(user_id: moderation.user.id), t(".actions.unblock"), class: "action-icon action-icon--disabled", method: :delete %>
-            <% else %>
-              <%= icon_link_to "lock-2-line", new_user_block_path(user_id: moderation.user.id), t(".actions.block"), class: "action-icon action-icon" %>
-            <% end %>
-          <% end %>
+        <td class="table-list__actions" data-label="<%= t('.actions.title') %>">
+          <button type="button" data-component="dropdown" data-target="actions-user-<%= moderation.user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: moderation.user.nickname) %>">
+            <%= icon "more-fill", class: "text-secondary" %>
+          </button>
+
+          <div class="inline-block relative">
+            <ul id="actions-user-<%= moderation.user.id %>" class="dropdown dropdown__action" aria-hidden="true">
+              <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
+                <li class="dropdown__item">
+                  <%= link_to ignore_moderated_user_path(id: moderation), method: :put, class: "dropdown__button" do %>
+                    <%= icon "arrow-go-back-line" %>
+                    <%= t(".actions.unreport") %>
+                  <% end %>
+                </li>
+
+                <hr>
+              <% end %>
+
+              <% if allowed_to?(:block, :moderate_users) %>
+                <% if moderation.user.blocked? %>
+                  <li class="dropdown__item">
+                    <%= link_to user_block_path(user_id: moderation.user.id), method: :delete, class: "dropdown__button" do %>
+                      <%= icon "refresh-line" %>
+                      <%= t(".actions.unblock") %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li class="dropdown__item">
+                    <%= link_to new_user_block_path(user_id: moderation.user.id), class: "dropdown__button" do %>
+                      <%= icon "lock-2-line" %>
+                      <%= t(".actions.block") %>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         </td>
       </tr>
     <% end %>

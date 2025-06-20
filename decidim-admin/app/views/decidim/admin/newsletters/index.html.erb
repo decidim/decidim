@@ -12,7 +12,7 @@
       </div>
     </h1>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -21,43 +21,86 @@
           <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
           <th><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></th>
           <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
-          <th></th>
+          <th><%= t("decidim.admin.actions.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @newsletters.each do |newsletter| %>
           <tr data-newsletter-id="<%= newsletter.id %>">
-            <td>
+            <td data-label="<%= t('models.newsletter.fields.subject', scope: 'decidim.admin') %>">
               <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
                 <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
               <% else %>
-                <%= translated_attribute newsletter.subject %>
+                <%= translated_attribute(newsletter.subject) %>
               <% end %>
             </td>
-            <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
-            <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
-            <td><%= selective_newsletter_to newsletter %></td>
-            <td>
+
+            <td data-label="<%= t('models.newsletter.fields.created_at', scope: 'decidim.admin') %>">
+              <%= l(newsletter.created_at, format: :long) if newsletter.created_at %>
+            </td>
+
+            <td data-label="<%= t('models.newsletter.fields.sent_at', scope: 'decidim.admin') %>">
+              <%= l(newsletter.sent_at, format: :long) if newsletter.sent_at %>
+            </td>
+
+            <td data-label="<%= t('models.newsletter.fields.sent_to', scope: 'decidim.admin') %>">
+              <%= selective_newsletter_to(newsletter) %>
+            </td>
+
+            <td data-label="<%= t('models.newsletter.fields.progress', scope: 'decidim.admin') %>">
               <% if newsletter.sent? %>
                 <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
               <% end %>
             </td>
-            <td class="table-list__actions">
-              <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
-                <%= icon_link_to "pencil-line", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
-              <% end %>
 
-              <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                <%= icon_link_to "share-line", decidim_admin.send_to_user_newsletter_path(newsletter), t("actions.send_me_a_test_email", scope: "decidim.admin"), class: "preview", method: :post %>
-              <% end %>
+            <td data-label="<%= t('decidim.admin.actions.actions') %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-newsletter-<%= newsletter.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: t("models.newsletter.name", scope: "decidim.admin")) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
 
-              <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                <%= icon_link_to "eye-line", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview", target: "_blank", data: { "external-link": false } %>
-              <% end %>
+              <div class="inline-block relative">
+                <ul id="actions-newsletter-<%= newsletter.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin.edit_newsletter_path(newsletter), method: :get, class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t("actions.edit", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
 
-              <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
-                <%= icon_link_to "delete-bin-line", decidim_admin.newsletter_path(newsletter), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
-              <% end %>
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin.send_to_user_newsletter_path(newsletter), method: :post, class: "dropdown__button" do %>
+                        <%= icon "share-line" %>
+                        <%= t("actions.send_me_a_test_email", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin.newsletter_path(newsletter), class: "dropdown__button", target: "_blank", data: { "external-link": false } do %>
+                        <%= icon "eye-line" %>
+                        <%= t("actions.preview", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin.newsletter_path(newsletter), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button dropdown__button--danger" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("actions.destroy", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
