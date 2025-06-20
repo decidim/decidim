@@ -28,6 +28,12 @@ module Decidim
         autoload :Bayes, "decidim/ai/spam_detection/strategy/bayes"
       end
 
+      # When the engine is consistently marking spam content without errors,
+      # you can skip human intervention by enabling this functionality
+      config_accessor :hide_reported_resources_automatically do
+        false
+      end
+
       # This is the email address used by the spam engine to
       # properly identify the user that will report users and content
       config_accessor :reporting_user_email do

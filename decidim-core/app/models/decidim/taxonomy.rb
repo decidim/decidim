@@ -113,6 +113,7 @@ module Decidim
 
     def forbid_cycles
       return unless parent_id
+      return if parent.part_of.compact_blank.empty?
 
       errors.add(:parent_id, :invalid) if parent.part_of.include?(id)
     end
