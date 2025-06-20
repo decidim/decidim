@@ -69,10 +69,10 @@ module Decidim
     end
 
     def hideable?
-      hidden_by_admin? || hidden_by_spam_engine? || hidden_by_report count?
+      hidden_by_admin? || hidden_by_spam_engine? || hidden_by_report_count?
     end
 
-    def hidden_by_report count?
+    def hidden_by_report_count?
       !@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding
     end
 
