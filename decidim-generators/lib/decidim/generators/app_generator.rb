@@ -388,7 +388,7 @@ module Decidim
         copy_file "dummy_sms_mobile_phone_validator.rb", "app/services/dummy_sms_mobile_phone_validator.rb"
         copy_file "initiatives_initializer.rb", "config/initializers/decidim_initiatives.rb"
       end
-      
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
