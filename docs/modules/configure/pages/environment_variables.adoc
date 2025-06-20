@@ -871,6 +871,11 @@ After this time the initiative will be moved to discarded state.
 | Decidim::Ai::Language::Formatter
 | No
 
+|*DECIDIM_SPAM_HIDE_REPORTED_RESOURCES_AUTOMATICALLY*
+| When the engine is consistently marking spam content without errors, you can skip human intervention by enabling this functionality
+| false
+| No
+
 |===
 
 .Optional Env Vars for extra configuration

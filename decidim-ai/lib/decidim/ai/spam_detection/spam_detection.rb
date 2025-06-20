@@ -31,7 +31,7 @@ module Decidim
       # When the engine is consistently marking spam content without errors,
       # you can skip human intervention by enabling this functionality
       config_accessor :hide_reported_resources_automatically do
-        false
+        Decidim::Env.new("DECIDIM_SPAM_HIDE_REPORTED_RESOURCES_AUTOMATICALLY", false).present?
       end
 
       # This is the email address used by the spam engine to
