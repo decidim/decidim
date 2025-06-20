@@ -319,8 +319,6 @@ module Decidim
       end
 
       def decidim_initializer
-        # copy_file "initializer.rb", "config/initializers/decidim.rb"
-
         gsub_file "config/environments/production.rb",
                   /config.log_level = :info/,
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
