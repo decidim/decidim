@@ -120,8 +120,12 @@ fr:
             state: État
             supports_count: Signatures
             title: Pétitions
+        initiatives_committee_member:
+          fields:
+            actions: Actions
         initiatives_type_scope:
           fields:
+            actions: Actions
             scope: Secteur
             supports_required: Signatures requises
           name: Secteur du type de pétition
