@@ -156,6 +156,7 @@ en:
         cannot_manage_poll_meetings: Cannot manage poll in this meeting as it is created by a participant
         cannot_manage_registrations_meetings: Cannt manage registrations on this meeting as it is created by a participant, it has registrations disabled or these registrations are externals
         cannot_mark_attendee: Cannot mark as atteendee as it was already marked
+        deleted_meetings_info: Cannot delete this meeting as it is created by a participant.
     components:
       meetings:
         actions:
