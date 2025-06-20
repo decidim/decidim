@@ -135,12 +135,14 @@ fr:
           name: Groupe de concertations
         participatory_process_step:
           fields:
+            actions: Actions
             end_date: Date de fin
             start_date: Date de début
             title: Titre
           name: Étape de la concertation
         participatory_process_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Rôle
