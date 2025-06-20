@@ -658,24 +658,45 @@ Additional context: This has been revealed as an issue during a security audit o
 |true
 |No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_USER*
-| The adapter type needed for user classifier. (for CI purposes, you can set "memory")
-| redis
+
+|*DECIDIM_ENABLE_MACHINE_TRANSLATION*
+| Whether the Decidim attempt to automatically translate missing translations
+| false
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
-| The redis connection url used by the user classifier
-| redis://localhost:6379/3
+|*DECIDIM_SMS_GATEWAY_SERVICE*
+| The name of the class to deliver SMS codes to users.
+| nil
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
-| The adapter type needed for resource classifier. (for CI purposes, you can set "memory")
-| redis
+|*DECIDIM_TIMESTAMP_SERVICE*
+| The name of the class used to generate a timestamp from a document.
+| nil
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
-| The redis connection url used by the resource classifier
-| redis://localhost:6379/2
+|*DECIDIM_PDF_SIGNATURE_SERVICE*
+| The name of the class used to process a pdf and add a signature to the document.
+| nil
+| No
+
+|*DECIDIM_MACHINE_TRANSLATION_SERVICE*
+| The name of the class to translate user content.
+| nil
+| No
+
+|*DECIDIM_USER_ROLES*
+| The list of roles a user can have, not considering the space-specific roles.
+| admin, user_manager
+| No
+
+|*DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS*
+| The list of visibility options for amendments.
+| all, participants
+| No
+
+|*DECIDIM_DEFAULT_MAX_LAST_ACTIVITY_USERS*
+| The default max last activity users to be shown
+| 6
 | No
 
 |===
@@ -715,10 +736,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |2
 |No
 
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
-|No
-
 |MEETINGS_EMBEDDABLE_SERVICES
 |A list (separated by spaces) of allowed services that can be embedded in a iframe when creating an online meeting.
 |www.youtube.com www.twitch.tv meet.jit.si
@@ -727,14 +744,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |MEETINGS_WAITING_LIST_ENABLED
 |If set to "false", disables the waiting list feature for meetings. Enabled by default.
 |true
-|No
-
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
-|No
-
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
 |No
 
 |INITIATIVES_CREATION_ENABLED
@@ -806,6 +815,61 @@ After this time the initiative will be moved to discarded state.
 |Secret used by the base class Decidim::Initiatives::SignatureHandler to encrypt the user personal data that will be stored in the initiatives votes.
 |personal user metadata
 |No
+
+|*DECIDIM_SPAM_REPORTING_USER*
+| This is the email address used by the spam engine to properly identify the user that will report users and content
+| decidim-reporting-user@example.org
+| No
+
+|*DECIDIM_SPAM_DETECTION_RESOURCE_SCORE_THRESHOLD*
+| This is the threshold used to report resources. If the score falls under this value, the resource will not be reported.
+| 0.75
+| No
+
+|*DECIDIM_SPAM_DETECTION_USER_SCORE_THRESHOLD*
+| This is the threshold used to report users. If the score falls under this value, the user will not be reported.
+| 0.75
+| No
+
+|*DECIDIM_SPAM_DETECTION_DELAY*
+| You can configure the spam delay for the spam detection service. It is recommended not to set it to 0, as the request may not finished (ex: resources could not yet exist in Database)
+| 30
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER*
+| The adapter type needed for user classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
+| The redis connection url used by the user classifier
+| redis://localhost:6379/3
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
+| The adapter type needed for resource classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
+| The redis connection url used by the resource classifier
+| redis://localhost:6379/2
+| No
+
+|*DECIDIM_SPAM_DETECTION_RESOURCE_SERVICE*
+| Spam detection service class.
+| Decidim::Ai::SpamDetection::Service
+| No
+
+|*DECIDIM_SPAM_DETECTION_USER_SERVICE*
+| Spam detection service class.
+| Decidim::Ai::SpamDetection::Service
+| No
+
+|*DECIDIM_AI_LANGUAGE_FORMATTER*
+| Text cleanup service
+| Decidim::Ai::Language::Formatter
+| No
 
 |===
 

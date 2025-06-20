@@ -239,6 +239,11 @@ module Decidim
         app.config.active_storage.variant_processor = :mini_magick
       end
 
+      initializer "decidim_core.setup_i18n" do |app|
+        app.config.i18n.available_locales = Decidim.available_locales
+        app.config.i18n.default_locale = Decidim.default_locale
+      end
+
       initializer "decidim_core.active_storage_method_patch" do |_app|
         if Rails::VERSION::MAJOR < 8
           # This is a manual bugfix of https://github.com/rails/rails/pull/51931
@@ -676,6 +681,10 @@ module Decidim
 
       initializer "decidim_core.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_core.register_application_assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
       end
 
       initializer "decidim_core.preview_mailer" do

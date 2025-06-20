@@ -108,6 +108,11 @@ jobs:
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
+          DECIDIM_ENABLE_MACHINE_TRANSLATION: true
+          DECIDIM_SMS_GATEWAY_SERVICE: "Decidim::Verifications::Sms::ExampleGateway"
+          DECIDIM_TIMESTAMP_SERVICE: "Decidim::Initiatives::DummyTimestamp"
+          DECIDIM_PDF_SIGNATURE_SERVICE: "Decidim::PdfSignatureExample"
+          DECIDIM_MACHINE_TRANSLATION_SERVICE: "Decidim::Dev::DummyTranslator"
           DISPLAY: ":99"
           CI: "true"
           FAST_SEEDS: "true"

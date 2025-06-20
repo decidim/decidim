@@ -328,20 +328,6 @@ module Decidim
         gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-
-        # if options[:force_ssl] == "false"
-        #   gsub_file "config/initializers/decidim.rb",
-        #             /# config.force_ssl = true/,
-        #             "config.force_ssl = false"
-        # end
-        # return if options[:locales].blank?
-        #
-        # gsub_file "config/initializers/decidim.rb",
-        #           /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
-        #           "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
-        # gsub_file "config/initializers/decidim.rb",
-        #           /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
-        #           "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
       end
 
       def patch_logging
@@ -383,14 +369,6 @@ module Decidim
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end
 
-      # def sms_gateway
-      #   return unless options[:demo]
-      #
-      #   gsub_file "config/initializers/decidim.rb",
-      #             /# config.sms_gateway_service = "MySMSGatewayService"/,
-      #             "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
-      # end
-
       def budgets_workflows
         return unless options[:demo]
 
@@ -416,30 +394,6 @@ module Decidim
 
         copy_file "ai_initializer.rb", "config/initializers/decidim_ai.rb"
       end
-
-      # def timestamp_service
-      #   return unless options[:demo]
-      #
-      #   gsub_file "config/initializers/decidim.rb",
-      #             /# config.timestamp_service = "MyTimestampService"/,
-      #             "config.timestamp_service = \"Decidim::Initiatives::DummyTimestamp\""
-      # end
-
-      # def pdf_signature_service
-      #   return unless options[:demo]
-      #
-      #   gsub_file "config/initializers/decidim.rb",
-      #             /# config.pdf_signature_service = "MyPDFSignatureService"/,
-      #             "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
-      # end
-
-      # def machine_translation_service
-      #   return unless options[:demo]
-      #
-      #   gsub_file "config/initializers/decidim.rb",
-      #             /# config.machine_translation_service = "MyTranslationService"/,
-      #             "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
-      # end
 
       def install
         Decidim::Generators::InstallGenerator.start(
