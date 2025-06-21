@@ -192,6 +192,7 @@ eu:
             vice_president: Presidenteordea
         assembly_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola
