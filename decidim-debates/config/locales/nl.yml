@@ -107,6 +107,7 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
+          debate_closed: Gesloten
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.

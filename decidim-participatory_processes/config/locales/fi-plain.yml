@@ -408,6 +408,8 @@ fi-pl:
           participatory_processes:
             one: 1 prosessi
             other: "%{count} prosessia"
+      related_processes:
+        help: Valitut prosessit liitetään tähän ryhmään, myös sellaiset, jotka on aikaisemmin liitetty johonkin toiseen ryhmään.
       show:
         title: Osallisuusprosessiryhmät
     participatory_process_steps:

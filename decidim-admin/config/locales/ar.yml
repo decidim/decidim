@@ -69,7 +69,7 @@ ar:
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
         highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
         highlighted_content_banner_image: الصورة
-        highlighted_content_banner_short_description: وصف مختصر
+        highlighted_content_banner_short_description: وصف قصير
         highlighted_content_banner_title: العنوان
         host: المضيف
         instagram_handler: مُعرّف حساب استجرام
