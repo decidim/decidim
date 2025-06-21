@@ -77,8 +77,6 @@ it:
               validating: Validazione tecnica
           type_id_eq:
             label: Tipo
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
       menu:
         attachments: Allegati
         committee_members: Membri del comitato
@@ -310,11 +308,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Nuova iniziativa di %{author_nickname}
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha approvato la seguente iniziativa, forse tu vuoi contribuire alla conversazione:"
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Iniziativa approvata da %{author_nickname}
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata approvata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} ha respinto la tua richiesta di far parte del comitato promoter per la seguente iniziativa %{resource_title}."
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}.'
@@ -359,11 +352,6 @@ it:
         initiatives:
           closed_initiatives_warning: Attualmente non vi sono iniziative aperte, ma qui puoi trovare un elenco di tutte le iniziative chiuse.
           no_initiatives_warning: Nessuna iniziativa corrisponde ai criteri di ricerca.
-        interactions:
-          comments_count:
-            count:
-              one: Commento
-              other: Commenti
         orders:
           label: 'Ordina le iniziative per:'
           most_commented: Più commentato

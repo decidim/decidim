@@ -30,7 +30,6 @@ de:
         actions:
           comment: Kommentar
           create: Debatte erstellen
-          endorse: Bestätigen
         name: Debatten
         settings:
           global:
@@ -47,8 +46,6 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Debatten erstellen
-            endorsements_blocked: Bestätigungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
         close: Schließen
@@ -145,7 +142,6 @@ de:
           state: Status
           state_values:
             closed: Geschlossen
-            open: Offen
         index:
           new_debate: Neue Debatte
         new:
@@ -160,11 +156,9 @@ de:
           updated: Kürzlich aktualisiert
         show:
           close_debate: Schliessen
-          debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Bearbeiten
-          open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
@@ -259,7 +253,6 @@ de:
           created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
           description: Die Beschreibung der Debatte
           end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
-          endorsements_count: Die Anzahl Unterstützungen dieser Debatte
           follows_count: Die Anzahl der Follower, die diese Debatte hat
           id: Die eindeutige Bezeichnung der Debatte
           information_updates: Die Aktualisierungen, die der Autor zur Debatte gemacht hat

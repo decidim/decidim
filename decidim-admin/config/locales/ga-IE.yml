@@ -24,8 +24,6 @@ ga:
       organization:
         alert_color: Foláireamh
         favicon: Deilbhín
-        highlighted_content_banner_image: Íomhá
-        highlighted_content_banner_title: Teideal
         host: Óstach
         logo: Lógó
         name: Ainm
@@ -175,7 +173,6 @@ ga:
       menu:
         admins: Riaracháin
         areas: Ceantair
-        homepage: Leathanach baile
         manage: Bainistigh
         scopes: Scóip
         settings: Socruithe
@@ -281,12 +278,6 @@ ga:
           social_handlers: Sóisialta
           url: URL
           youtube: YouTube
-      organization_appearance:
-        edit:
-          update: Nuashonraigh
-        form:
-          images:
-            preview: Réamhamharc
       participatory_space_private_users:
         new:
           create: Cruthaigh

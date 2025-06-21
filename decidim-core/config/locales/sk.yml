@@ -46,11 +46,6 @@ sk:
         few: Zmeny
         many: Zmeny
         other: Zmeny
-      decidim/endorsement:
-        one: Podpora
-        few: Podpory
-        many: Podpory
-        other: Podpory
       decidim/user:
         one: Účastník
         few: Účastníci
@@ -206,11 +201,6 @@ sk:
         few: komentáre
         many: komentáre
         other: komentáre
-      endorsements:
-        one: podpora
-        few: podpory
-        many: podpory
-        other: podpory
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -439,11 +429,6 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože ste aktivovali činnosť na našich webových stránkach.
         level_up:
           email_outro: Toto oznámenie ste dostali, pretože ste aktivovali činnosť na našich webových stránkach.
-      resource_endorsed:
-        email_intro: '%{endorser_name}%{endorser_nickname}, ktorého sledujete, práve podporill %{resource_title} a myslíme, že by vás to mohlo zaujímať. Pozrite sa a prispejte aj vy:'
-        email_outro: Túto notifikáciu ste dostali, pretože sledujete %{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-        email_subject: "%{endorser_nickname} práve podporil ďalšiu vec"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} bol podporený účastníkom <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}"> profilová stránka </a> zo %{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
@@ -663,9 +648,6 @@ sk:
     reports:
       create:
         success: Správa bola úspešne vytvorená a bude kontrolovaná administrátorom.
-    resource_endorsements:
-      create:
-        error: Počas udeľovania podpory nastal problém.
     scopes:
       global: Globální oblast působnosti
       prompt: Vyberte oblast
@@ -685,9 +667,6 @@ sk:
       results:
         view_all: Zobrazit všechny (%{count})
     shared:
-      extended_navigation_bar:
-        more: Viac
-        unfold: Rozbaliť
       flag_modal:
         already_reported: Tento obsah je už nahlásený a bude kontrolovaný administrátorom.
         close: Zavrieť

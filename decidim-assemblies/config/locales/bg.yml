@@ -25,7 +25,6 @@ bg:
         duration: Продължителност
         facebook: Facebook
         github: GitHub
-        hashtag: Хаштаг
         hero_image: Изображение за начална страница
         import_attachments: Импортиране на прикачени файлове
         import_categories: Импортиране на категории
@@ -164,7 +163,6 @@ bg:
           attachments: Прикачени файлове
           components: Компоненти
           info: Относно това събрание
-          landing_page: Целева страница
           moderations: Модерации
           see_assembly: Вижте събранието
       models:

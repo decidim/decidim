@@ -372,3 +372,4 @@ fi:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
     statistics:
       results_count: Tulosta
+      results_count_tooltip: Tässä osallistumistilassa tehtyjen päätösten tai johtopäätösten lukumäärä.

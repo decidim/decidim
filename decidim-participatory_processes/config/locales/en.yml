@@ -14,7 +14,6 @@ en:
         document: Document
         domain: Domain
         end_date: End date
-        hashtag: Hashtag
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -40,7 +39,6 @@ en:
         description: Description
         developer_group: Promoter group
         group_url: Website
-        hashtag: Hashtag
         hero_image: Image
         local_area: Organization area
         meta_scope: Scope metadata
@@ -111,7 +109,7 @@ en:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landing page
+          landing_page: Landing page layout
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -119,7 +117,7 @@ en:
           attachments: Attachments
           components: Components
           info: About this process
-          landing_page: Landing page
+          landing_page: Landing page layout
           moderations: Moderations
           private_users: Members
           process_admins: Process admins
@@ -135,16 +133,19 @@ en:
           name: Participatory process
         participatory_process_group:
           fields:
+            actions: Actions
             title: Title
           name: Process group
         participatory_process_step:
           fields:
+            actions: Actions
             end_date: End date
             start_date: Start date
             title: Title
           name: Participatory process phase
         participatory_process_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -354,7 +355,6 @@ en:
           developer_group: The developer group of the process. This is the organization that is promoting the process.
           end_date: The end date of the process
           follows_count: The number of users following this space
-          hashtag: The process hashtag, used for Twitter/X
           id: The unique identifier of this process
           local_area: The local area of the process. This is the organization area where the process is taking place.
           meta_scope: The scope metadata of the process

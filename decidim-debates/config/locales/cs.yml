@@ -32,7 +32,7 @@ cs:
         actions:
           comment: Komentář
           create: Vytvořit debatu
-          endorse: Schválit
+          like: Líbí se mi
         name: Debaty
         settings:
           global:
@@ -49,8 +49,8 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
     debates:
       actions:
         close: Zavřít
@@ -149,7 +149,7 @@ cs:
           state: Stav
           state_values:
             closed: Uzavřeno
-            open: Otevřeno
+            ongoing: Probíhající
         index:
           new_debate: Nová debata
         new:
@@ -164,11 +164,13 @@ cs:
           updated: Naposledy aktualizované
         show:
           close_debate: Zavřít‏
-          debate_closed: Uzavřeno
+          closed: Uzavřené
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
           edit_debate: Upravit
-          open: Otevřená diskuse
+          not_started: Nezahájeno
+          ongoing: Probíhající
+          open_ended: Otevřené
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci debaty došlo k chybě.
@@ -263,7 +265,6 @@ cs:
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
-          endorsements_count: Počet potvrzení, která debata získala
           follows_count: Počet sledujících tuto debatu
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě

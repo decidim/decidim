@@ -45,8 +45,6 @@ bg:
         available_authorizations: Активни оторизации
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
-        cta_button_path: Път на бутона "призив към действие"
-        cta_button_text: Текст на бутона "призив към действие"
         customize_welcome_notification: Персонализирайте приветствието
         default_locale: Език по подразбиране
         description: Описание
@@ -61,13 +59,6 @@ bg:
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
         highlight_color: Акцентирано
-        highlighted_content_banner_action_subtitle: Подзаглавие на бутон за действие
-        highlighted_content_banner_action_title: Надпис на бутон за действие
-        highlighted_content_banner_action_url: Адрес на бутон за действие
-        highlighted_content_banner_enabled: Показвай банер на подчертано съдържание
-        highlighted_content_banner_image: Изображение
-        highlighted_content_banner_short_description: Кратко описание
-        highlighted_content_banner_title: Заглавие
         host: Хост
         instagram_handler: Манипулатор на Instagram
         logo: Лого
@@ -331,8 +322,6 @@ bg:
       conflicts:
         attempts: Опити
         'false': 'Не'
-        index:
-          text: Търсете по имейл, име или псевдоним на текущия потребител.
         managed_user_name: Управляван потребител
         solved: Разрешен случай
         title: Проверка на конфликти
@@ -434,11 +423,7 @@ bg:
         remove_all: Премахване на всички
         search_label: Търсене
         search_placeholder:
-          name_or_nickname_or_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
           report_count_eq: Отчитане на броя
-          reported_id_string_or_reported_content_cont: Търсете в %{collection} по ID или съдържание, което може да бъде отчетено.
-          title_cont: Търсене на %{collection} по заглавие.
-          user_name_or_user_nickname_or_user_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
         state_eq:
           label: Състояние
           values:
@@ -533,7 +518,6 @@ bg:
       logs:
         filters:
           participatory_space: Намерете място за участие
-          text: Търсете по потребителски имейл, име или псевдоним.
           user: Потребител
         logs_list:
           no_logs_yet: Все още няма регистри.
@@ -558,7 +542,6 @@ bg:
         content: Докладвано съдържание
         external_domain_allowlist: Лист с позволени външни домейни
         help_sections: Помощни раздели
-        homepage: Начална страница
         impersonations: Имитация
         manage: Управление
         moderation: Глобални модерации
@@ -795,30 +778,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на тази организация.
           success: Организацията беше актуализирана успешно.
-      organization_appearance:
-        edit:
-          update: Актуализация
-        form:
-          colors:
-            choose_color: Изберете основен цвят
-            colors_title: Цветове на организацията
-            colors_warning_html: Внимание! Промяната на тези цветове може да наруши контрастите на достъпността. Можете да проверите контраста на Вашия избор с <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> или други подобни инструменти.
-            explanation: Този инструмент ви помага да изберете цветова схема, съставена от нюанси, разположени на еднакво разстояние около цветното колело, която ще се използва в уебсайта на организацията.
-            legend_html: Основни цветове на приложението, базирани на <a href="https://www.color-meanings.com/triadic-colors/">Триаден алгоритъм</a>. <i>Вторичният</i> цвят се изчислява автоматично от основния цвят и наситеността, която сте избрали.
-            saturation: Наситеност
-            title: Палитра
-            update_suggested_colors: Обнови предложените цветове
-          cta_button_path_help_html: 'Можете да презапишете къде да води бутонът, призоваващ към действие, на началната страница. Тук използвайте частични пътища, а не пълни URL адреси. Допуска се използването на букви, цифри, тирета, наклонени черти и пътят трябва да започва с буква. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието. Пример: %{url}'
-          cta_button_text_help: Можете да презапишете текста на бутона, призоваващ към действие, в началната страница за всеки наличен език във вашата организация. Ако не е зададено, ще се използва стойността по подразбиране. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието.
-          header_snippets:
-            header_snippets_help_html: Използвайте това поле, за да добавите неща към главата на HTML. Най-честата употреба е за интегриране на услуги на трети страни, които изискват допълнителен JavaScript или CSS. Освен това можете да го използвате, за да добавите допълнителни мета тагове към HTML. Имайте предвид, че това ще бъде изобразено само в публични страници, а не в раздела за администриране. Ако кодът взаимодейства с външни API или не отговаря на указанията за сигурност на приложението, ще е необходимо да промените Политиката за сигурност на съдържанието. Прочетете повече за <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">на сайта с документация</a>.
-            title: HTML header snippets
-          homepage_appearance_title: Редактиране на външния вид на началната страница
-          homepage_highlighted_content_banner_title: Банер с подчертано съдържание
-          images:
-            layout_appearance_title: Редактиране външния вид шаблона
-            preview: Преглед
-          omnipresent_banner_appearance_title: Редактиране на присъстващия навсякъде банер
       organization_external_domain_allowlist:
         edit:
           update: Актуализация
@@ -1001,8 +960,6 @@ bg:
         authorization_workflows: Методи за проверка
         dashboard: Контролен панел
         edit_external_domains: Лист с позволени външни домейни
-        edit_landing_page: Съдържание на страницата
-        edit_organization_appearance: Редактиране на външния вид на началната страница
         impersonatable_users: Управляеми участници
         impersonations: Управление на участниците
         menu: Меню

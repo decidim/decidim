@@ -30,7 +30,7 @@ ca-IT:
         actions:
           comment: Comentar
           create: Crear un debat
-          endorse: Adherir-se
+          like: M'agrada
         name: Debats
         settings:
           global:
@@ -47,8 +47,8 @@ ca-IT:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear debats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: '"M''agrada" bloquejat'
+            likes_enabled: '"M''agrada" habilitat'
     debates:
       actions:
         close: Tanca
@@ -145,7 +145,7 @@ ca-IT:
           state: Estat
           state_values:
             closed: Tancat
-            open: Obert
+            ongoing: En curs
         index:
           new_debate: Nou debat
         new:
@@ -160,11 +160,13 @@ ca-IT:
           updated: Recentment actualitzats
         show:
           close_debate: Tancar
-          debate_closed: Tancat
+          closed: Tancat
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar
-          open: Debat obert
+          not_started: No s'ha iniciat
+          ongoing: En curs
+          open_ended: Indefinit
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
@@ -259,13 +261,13 @@ ca-IT:
           created_at: La data i l'hora en què es va tancar aquest debat
           description: La descripció del debat
           end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar
-          endorsements_count: El número d'adhesions que té aquest debat
           follows_count: El número de seguidores que té aquest debat
           id: L'identificador únic del debat
           information_updates: Les actualitzacions de contingut del debat que va fer l'autora
           instructions: Quines van ser les instruccions per comentar/participar en aquest debat
           last_comment_at: La data del darrer comentari en aquest debat
           last_comment_by: La data del darrer comentari realitzat en aquest debat
+          likes_count: El número de "m'agrada" que té aquest debat
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
           start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar

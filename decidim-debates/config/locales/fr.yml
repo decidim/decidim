@@ -30,7 +30,6 @@ fr:
         actions:
           comment: Commenter
           create: Créer un débat
-          endorse: Soutenir
         name: Débats
         settings:
           global:
@@ -43,8 +42,6 @@ fr:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
             creation_enabled: Les participants peuvent créer des débats
-            endorsements_blocked: Soutiens bloqués
-            endorsements_enabled: Soutiens activés
     debates:
       actions:
         close: Fermer
@@ -136,7 +133,7 @@ fr:
           state: Statut
           state_values:
             closed: Fermé
-            open: Ouvert
+            ongoing: En cours
         index:
           new_debate: Nouveau débat
         new:
@@ -151,11 +148,13 @@ fr:
           updated: Mis à jour récemment
         show:
           close_debate: Clore
-          debate_closed: Fermé
+          closed: Fermé
           debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
           edit_conclusions: Modifier les conclusions
           edit_debate: Modifier
-          open: Ouvrir le débat
+          not_started: Non démarré
+          ongoing: En cours
+          open_ended: À durée indéterminée
           participants_count: Participants
         update:
           invalid: Une erreur s'est produite lors de la mise à jour du débat.
@@ -238,7 +237,6 @@ fr:
           conclusions: Les conclusions du débat s'il est clos
           created_at: La date et l'heure de création du débat
           description: La description du débat
-          endorsements_count: Le nombre de soutiens au débat
           follows_count: Le nombre de personnes qui suivent ce débat
           id: L'identifiant unique du débat
           last_comment_by: Les données du dernier commentaire du débat

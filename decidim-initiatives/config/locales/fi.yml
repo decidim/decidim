@@ -7,7 +7,6 @@ fi:
         area_id: Alue
         decidim_scope_id: Teema
         description: Kuvaus
-        hashtag: Aihetunniste (hashtag)
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
         offline_votes_for_scope: Fyysisesti kerätyt allekirjoitukset kohteelle %{scope_name}
         scope_id: Teema
@@ -34,6 +33,7 @@ fi:
         comments_enabled: Ota kommentit käyttöön
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
+        document_number_authorization_handler: Allekirjoitusten työnkulku
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
@@ -77,6 +77,7 @@ fi:
   decidim:
     admin:
       actions:
+        cannot_answer: Tähän aloitteeseen ei voi vastata
         new_initiative_type: Uusi aloitetyyppi
         new_initiative_type_scope: Uusi aloitetyypin teema
       filters:
@@ -95,7 +96,7 @@ fi:
           type_id_eq:
             label: Tyyppi
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hae kohteesta %{collection} otsikon, kuvauksen, ID-numeron tai tekijän nimen perusteella
       initiatives_settings:
         update:
           error: Aloitteiden asetusten päivittäminen epäonnistui.
@@ -263,6 +264,7 @@ fi:
             success: Aloite on lähetetty tekniseen tarkastukseen.
             update: Päivitä
           form:
+            attachments_title: Liitteet
             settings: Asetukset
             title: Yleistä tietoa
           index:
@@ -320,6 +322,7 @@ fi:
             child_scope_threshold_enabled_help_html: 'Tämä asetus ei tue fyysisiä äänestyksiä. Se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 vanhempi - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">aloitteiden hallinnoinnin dokumentaatioon</a>.'
             only_global_scope_enabled_help_html: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
+            signature_workflow_settings: Allekirjoitusten työnkulun asetukset
           initiative_type_scopes:
             title: Aloitetyypin teemat
           new:
@@ -441,11 +444,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi aloite käyttäjältä %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on laatinut aloitteen <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Voit osallistua keskusteluun seuraavan linkin avulla:"
+        like_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on tykännyt seuraavasta aloitteesta. Voit osallistua keskusteluun:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: '%{author_nickname} on suositellut aloitetta'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: '%{author_nickname} on tykännyt aloitteesta'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tykkäsi aloitteesta <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
           email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}.'
@@ -466,12 +469,43 @@ fi:
       index:
         uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia.
       initiative_signatures:
+        dummy_signature:
+          form:
+            fields:
+              date_of_birth:
+                label: Syntymäaika
+              document_number:
+                placeholder: Asiakirjan numero
+              document_type:
+                prompt: Asiakirjan tyyppi
+              document_type_and_number:
+                help_text: Asiakirjan numero vastaa sitä asiakirjaa, jota henkilötietorekisterin tietojen vahvistamisessa on käytetty.
+                label: Asiakirjan tyyppi ja numero
+              gender:
+                options:
+                  man: Mies
+                  non_binary: Muunsukupuolinen
+                  woman: Nainen
         fill_personal_data:
+          continue: Vahvista tietosi
           help: Täytä henkilötietosi seuraaviin kohtiin allekirjoittaaksesi aloitteen.
+          invalid_authorization: Toiminnon jatkamista varten annetut tiedot eivät täsmää olemassa olevien henkilötietojen vahvistustesi kanssa. Vaihtoehtoisesti voit vahvistaa henkilötietosi uudestaan.
+          invalid_data: Osa henkilöllisyytesi vahvistamiseksi annetuista tiedoista on väärin.
         finish:
           back_to_initiative: Takaisin aloitteeseen
+          title: Olet allekirjoittanut aloitteen
+        sms_phone_number:
+          confirmed_data: Olet vahvistanut tietosi.
+          continue: Allekirjoita aloite
+          help_enter_your_number: Syötä puhelinnumerosi sen vahvistamista varten. Lähetämme vahvistuskoodin tekstiviestillä.
+          receive_code: Lähetä koodi
+          resend_code_html: Etkö saanut koodia? <a href="%{new_code_path}">Yritä uudestaan</a>
+          your_code_is_correct: Koodisi on oikein.
+          your_code_is_incorrect: Koodi ei ole oikein. Tarkasta se uudestaan tai <a href="%{new_code_path}">tilaa uusi koodi</a>.
+          your_confirmation_code: Vahvistuskoodisi
       initiative_votes:
         create:
+          already_voted: Allekirjoituksesi on jo kirjattu henkilötietojesi kanssa.
           error: Aloitteen allekirjoitus epäonnistui.
           invalid: Aloitteen allekirjoittamiseksi annetut tiedot eivät kelpaa.
           success_html: Onnittelut! Aloite <strong> %{title}</strong> on allekirjoitettu.
@@ -510,11 +544,6 @@ fi:
         initiatives:
           closed_initiatives_warning: Tällä hetkellä yhtään aloitetta ei ole avoimena, mutta tästä listasta löydät kaikki suljetut aloitteet.
           no_initiatives_warning: Yhtään aloitetta ei löytynyt hakukriteereilläsi.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentti
-              other: Kommenttia
         orders:
           label: 'Lajittele aloitteita:'
           most_commented: Eniten kommentoidut
@@ -601,6 +630,23 @@ fi:
           open: Avoimet
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
+      signatures:
+        workflows:
+          dummy_signature_handler:
+            description: Allekirjoitustapa, joka tallentaa käyttäjän henkilötiedot, tarkastaa hänen henkilöllisyytensä vahvistuksen sekä tarkastaa puhelinnumeron oikeellisuuden tekstiviestitse lähetettävän koodin avulla
+            name: Esimerkki allekirjoitusten käsittelijä
+          dummy_signature_with_personal_data_handler:
+            description: Allekirjoitustapa, joka tallentaa käyttäjän henkilötiedot ja vahvistaa tietojen oikeellisuuden
+            name: Esimerkki allekirjoitusten käsittelijä henkilötietojen kanssa
+          dummy_signature_with_sms_handler:
+            description: Allekirjoitustapa, joka tarkastaa henkikön puhelinnumeron aikaisempien henkilötietojen vahvistusten kautta sekä tarkastaa puhelinnumeron oikeellisuuden tekstiviestitse lähetettävän koodin avulla
+            name: Esimerkki allekirjoitusten käsittelijä ainoastaan tekstiviestivahvistuksella
+          ephemeral_dummy_signature_handler:
+            description: Lyhytaikainen allekirjoitustapa, joka tallentaa käyttäjän henkilötietoja, vahvistaa hänen henkilöllisyytensä ja tarkastaa puhelinnumeron oikeellisuuden tekstiviestitse lähetettävän koodin avulla
+            name: Lyhytaikainen esimerkki allekirjoitusten käsittelijä
+          legacy_signature_handler:
+            description: Allekirjoitusten käsittelijä, joka perustuu aikaisempaan allekirjoitustoimintoon, joka pitää sisällään henkilötietojen keräyksen, tekstiviestivahvistuksen ja allekirjoituksen vahvistuksen dummy_authorization_handler-varmennustavalla. Muokkaa mitä tahansa parametria mukauttaaksesi tämän oman järjestelmäympäristösi asetuksiin.
+            name: Vanha allekirjoitusten käsittelijä
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
@@ -623,7 +669,6 @@ fi:
           description: Aloitteen kuvaus
           first_progress_notification_at: Ajankohta, jolloin ensimmäinen edistymisheräte lähetettiin
           follows_count: Tilaa seuraavien käyttäjien määrä
-          hashtag: Aloitetta vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           offline_votes: Aloitteen keräämien allekirjoitusten määrä alustan ulkopuolella
           online_votes: Aloitteen keräämien allekirjoitusten määrä verkkoalustalla (suoraan tämän alustan kautta)
           published_at: Tilan julkaisuaika
@@ -647,6 +692,9 @@ fi:
         actions:
           create: Luo aloite
           title: Toimet
+    statistics:
+      initiatives_count: Aloitteet
+      initiatives_count_tooltip: Julkaistujen kansalaisaloitteiden määrä.
   layouts:
     decidim:
       initiative_creation_header:
@@ -654,6 +702,9 @@ fi:
         finish: Tekninen tarkastus
         promotal_committee: Etsi jäseniä kannatuskomiteaan
         select_initiative_type: Valitse
+      initiative_signature_creation_header:
+        help_information_html: Allekirjoittaaksesi aloitteen <strong>%{initiative_title}</strong>, jonka on aloittanut %{initiative_author}, sinun on annettava tiettyjä henkilötietojasi, jotka tekevät allekirjoituksestasi lainvoimaisen. Tarkempia henkilötietojasi ei julkaista missään.
+        verify_your_identity: Vahvista henkilöllisyytesi
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ei vielä yhtään aloitetta!

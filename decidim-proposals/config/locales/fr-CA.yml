@@ -18,7 +18,6 @@ fr-CA:
         address: Adresse
         answer: Répondre
         answered_at: Répondu à
-        automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
@@ -27,7 +26,6 @@ fr-CA:
         longitude: Longitude
         scope_id: Périmètre d'application
         state: État
-        suggested_hashtags: Hashtags suggérés
         title: Titre
       proposal_answer:
         answer: Répondre
@@ -77,15 +75,12 @@ fr-CA:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              voted: A reçu des votes ou des soutiens
     models:
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
-      decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
@@ -142,7 +137,7 @@ fr-CA:
               state_not_published: Non répondue
               state_published: Répondue
         search_placeholder:
-          id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
+          id_string_or_title_cont: Rechercher %{collection} par ID ou titre
     application:
       geocoding:
         not_configured: La géolocalisation n'est pas configurée !
@@ -152,7 +147,6 @@ fr-CA:
           amend: Amender
           comment: Commentaire
           create: Créer une proposition
-          endorse: Soutenir
           vote: Voter
           vote_comment: Vote sur le commentaire
           withdraw: Retirer
@@ -175,7 +169,6 @@ fr-CA:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus approuvées
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
@@ -227,7 +220,6 @@ fr-CA:
             amendments_visibility_help: Si l'option "Les amendements ne sont visibles que pour leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les amendements apportés.
             announcement: Annonce
             answers_with_costs: Activer les coûts sur les réponses aux propositions
-            automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
@@ -236,18 +228,14 @@ fr-CA:
             default_sort_order_options:
               automatic: Automatique
               most_commented: Les plus commentées
-              most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
               recent: Récentes
               with_more_authors: Avec le plus d'auteurs
-            endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
-            suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
@@ -327,11 +315,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -591,13 +574,8 @@ fr-CA:
             body: Corps
             comments_count: Nombre de commentaires
             documents: Documents
-            endorsements_count: Nombre de soutiens
-            endorsers: Soutiens
             evaluators: Évaluateurs
             link: Voir la proposition
-            n_more_endorsers:
-              one: et 1 de plus
-              other: et %{count} autres
             photos: Photos
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
@@ -865,7 +843,6 @@ fr-CA:
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
-          most_endorsed: Les plus soutenues
           most_followed: Les plus suivies
           most_voted: Les plus votées
           random: Aléatoire
@@ -893,9 +870,6 @@ fr-CA:
           changes_at_title: Amendement de (%{title}"
           edit_proposal:
           estimated_cost: Coût estimé
-          hidden_endorsers_count:
-            one: et %{count} personne de plus
-            other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
           link_to_promoted_emendation_help_text: Cette proposition est un amendement promu

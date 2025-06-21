@@ -119,11 +119,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A xuntanza "%{resource_title}" habilitou as inscricións.
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> habilitou as inscricións.
-        upcoming_meeting:
-          email_intro: A reunión "%{resource_title}" comezará en menos de 48 horas.
-          email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-          email_subject: A reunión "%{resource_title}" comezará en menos de 48 horas.
-          notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de 48 horas.
     gamification:
       badges:
         attended_meetings:

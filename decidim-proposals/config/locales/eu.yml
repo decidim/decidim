@@ -18,7 +18,6 @@ eu:
         address: Helbidea
         answer: Erantzuna
         answered_at: '-k erantzuna'
-        automatic_hashtags: Traola automatikoki gehitu da
         body: Testua
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Eremua
@@ -27,7 +26,6 @@ eu:
         longitude: Longitudea
         scope_id: Eremua
         state: Egoera
-        suggested_hashtags: Iradokitako traolak
         title: Izena
       proposal_answer:
         answer: Erantzuna
@@ -86,7 +84,7 @@ eu:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposamenaren taxonomiak aldatu dira
       decidim/proposals/creation_enabled_event: Proposamenak sortzeko aukera gaituta
-      decidim/proposals/endorsing_enabled_event: Proposamenarekiko atxikimendua gaituta
+      decidim/proposals/liking_enabled_event: Proposamenaren babesa gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatu da
       decidim/proposals/publish_proposal_event: Proposamena argitaratu da
       decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
@@ -148,7 +146,7 @@ eu:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
         search_placeholder:
-          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
+          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
     application:
       geocoding:
         not_configured: Geokodifikazioa ez dago konfiguratuta!
@@ -158,7 +156,7 @@ eu:
           amend: Zuzendu
           comment: Iruzkindu
           create: Proposamena sortu
-          endorse: Atxikitu
+          like: Atsegin dut
           vote: Eman babesa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
@@ -181,8 +179,8 @@ eu:
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
+              most_liked: Like gehien
               most_voted: Bozkatuenak
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
@@ -234,7 +232,6 @@ eu:
             amendments_visibility_help: Zuzenketak egileentzat bakarrik ikusgai" aukera hautatzen bada, parte-hartzaileek saioa hasi beharko dute egindako zuzenketak ikusteko.
             announcement: Iragarpenak
             answers_with_costs: Proposamenei erantzunetan kostua gaitu
-            automatic_hashtags: Traola proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
@@ -243,18 +240,17 @@ eu:
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
+              most_liked: Like gehien
               most_voted: Botu gehien dituztenak
               random: Ausazko ordena
               recent: Berrienetatik zaharrenetara
               with_more_authors: Egile gehiago dituztenak
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
             proposal_answering_enabled: Proposamenei erantzuna gaituta
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati hau gaitu gabe erantzuten badiozu, aukeratu eta argitaratzeko ekintza erabiliz argitaratu beharko dituzula. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
-            suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
             votes_hidden: Boto ezkutuak (babesak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
@@ -334,11 +330,11 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-        endorsing_enabled:
-          email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
-          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
-          email_subject: Onarpen proposamenak %{participatory_space_title} espazioan hasi dira
-          notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+        liking_enabled:
+          email_intro: 'Proposamenak atsegin ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: 'Proposamenak atxikitzen hasi dira hemen: %{participatory_space_title}'
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
@@ -445,12 +441,12 @@ eu:
           cost_report: Proposamenaren kostuen txostena
           created_at: Zein datatan sortu zen proposamen hau
           created_in_meeting: Proposamena bilera batean sortu bazen
-          endorsements: Proposamen honek duen atxikimendu ("atsegin") kopurua
           execution_period: Proposamena burutzeko aldia, hasieratik bukaerara arte
           follows_count: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
+          likes: Proposamen honek duen atxikimendu ("like") kopurua
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
           meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
@@ -663,11 +659,11 @@ eu:
             body: Testua
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
-            endorsements_count: Atxikimendu kopurua
-            endorsers: Atxiki dira
             evaluators: Ebaluatzaileak
+            likes: Likeak
+            likes_count: Like kopurua
             link: Ikusi proposamena
-            n_more_endorsers:
+            n_more_likes:
               one: eta 1 gehiago
               other: eta %{count} gehiago
             photos: Argazkiak
@@ -950,8 +946,8 @@ eu:
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
-          most_endorsed: Aldeko atxikimendu gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
+          most_liked: Like gehien
           most_voted: Bozkatuenak
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara
@@ -978,8 +974,8 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
-          hidden_endorsers_count:
-            one: eta pertsona %{count} gehiago
+          hidden_likes_count:
+            one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua

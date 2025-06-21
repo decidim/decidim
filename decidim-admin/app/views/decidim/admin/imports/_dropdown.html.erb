@@ -1,18 +1,20 @@
-<span class="imports button button__sm button__transparent-secondary" data-toggle="import-dropdown">
-  <%= t "actions.import", scope: "decidim.admin" %>
-  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-</span>
-<div class="dropdown-pane" id="import-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
-  <ul class="vertical menu add-components">
+<div class="relative">
+  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="import-dropdown">
+    <%= t "actions.import", scope: "decidim.admin" %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
+  </button>
+
+  <ul id="import-dropdown" class="dropdown dropdown__bottom" aria-hidden="true">
     <% if custom %>
       <%= yield %>
     <% else %>
      <% component.manifest.import_manifests.each do |import_manifest| %>
-        <%= link_to admin_imports_path(component, resource_id:, name: import_manifest.name) do %>
-          <li class="imports--file imports--<%= import_manifest.name %>">
-            <%= import_manifest.message(:label, self) %>
-          </li>
-        <% end %>
+       <li class="dropdown__item">
+         <%= link_to admin_imports_path(component, resource_id:, name: import_manifest.name), class: "dropdown__button" do %>
+           <%= import_manifest.message(:label, self) %>
+         <% end %>
+       </li>
       <% end %>
     <% end %>
   </ul>

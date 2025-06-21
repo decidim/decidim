@@ -30,8 +30,6 @@ id:
       organization:
         alert_color: Waspada
         badges_enabled: Aktifkan lencana
-        cta_button_path: Jalur tombol Call To Action
-        cta_button_text: Teks tombol Call To Action
         default_locale: Lokal default
         description: Deskripsi
         enable_omnipresent_banner: Tampilkan spanduk di mana-mana
@@ -39,13 +37,6 @@ id:
         favicon: Ikon
         github_handler: GitHub handler
         header_snippets: Cuplikan header
-        highlighted_content_banner_action_subtitle: Subjudul tombol tindakan
-        highlighted_content_banner_action_title: Judul tombol aksi
-        highlighted_content_banner_action_url: URL tombol tindakan
-        highlighted_content_banner_enabled: Tampilkan spanduk konten yang disorot
-        highlighted_content_banner_image: Gambar
-        highlighted_content_banner_short_description: Deskripsi Singkat
-        highlighted_content_banner_title: Judul
         instagram_handler: Pengatur Instagram
         logo: Logo
         name: Nama
@@ -271,7 +262,6 @@ id:
         areas: Area
         configuration: Konfigurasi
         help_sections: Bagian bantuan
-        homepage: Homepage
         impersonations: Peniruan identitas
         manage: Mengelola
         newsletters: Nawala
@@ -406,18 +396,6 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
           success: Organisasi berhasil diperbarui.
-      organization_appearance:
-        edit:
-          update: Memperbarui
-        form:
-          colors:
-            colors_title: Warna organisasi
-          cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
-          homepage_appearance_title: Edit tampilan homepage
-          homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
-          images:
-            layout_appearance_title: Edit tampilan tata letak
-          omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.

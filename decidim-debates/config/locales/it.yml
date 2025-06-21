@@ -25,7 +25,6 @@ it:
       debates:
         actions:
           comment: Commenta
-          endorse: Sottoscrivi
         name: Dibattiti
         settings:
           global:
@@ -36,8 +35,6 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare nuovi dibattiti
-            endorsements_blocked: Sottoscrizioni bloccate
-            endorsements_enabled: Sottoscrizioni abilitate
     debates:
       actions:
         close: Chiudi
@@ -106,7 +103,6 @@ it:
           state: Stato
           state_values:
             closed: Chiuso
-            open: Apri
         index:
           new_debate: Nuovo dibattito
         new:
@@ -119,10 +115,8 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
-          debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni
-          open: Apri il dibattito
           participants_count: Partecipanti
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.

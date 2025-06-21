@@ -1,88 +1,11 @@
 hu:
-  activemodel:
-    attributes:
-      answer:
-        description: Leírás
-        image: Kép
-        proposals: Kapcsolódó javaslatok
-        title: Cím
-      election:
-        description: Leírás
-        end_time: Szavazás véget ér
-        start_time: Szavazás indul
-        title: Cím
-      question:
-        max_selections: Kiválasztások maximális száma
-        min_selections: Egyik opció sem a fentiek közül
-        title: Cím
-      voting:
-        banner_image: Banner kép
-        description: Leírás
-        end_time: Szavazás vége
-        promoted: Támogatott
-        scope_id: Hatókör
-        start_time: Szavazás kezdete
-        title: Cím
-    errors:
-      models:
-        answer:
-          attributes:
-            attachment:
-              needs_to_be_reattached: Ismételt csatolásra van szükség
-        election:
-          attributes:
-            attachment:
-              needs_to_be_reattached: Ismételt csatolásra van szükség
-  activerecord:
-    models:
-      decidim/elections/answer:
-        one: Válasz
-        other: Válaszok
-      decidim/elections/election:
-        one: Választás
-        other: Választások
-      decidim/elections/question:
-        one: Kérdés
-        other: Kérdések
-      decidim/votings/census/dataset:
-        one: Adatkészlet
-        other: Adatkészletek
-      decidim/votings/census/datum:
-        one: Dátum
-        other: Adatok
-      decidim/votings/polling_officer:
-        one: Szavazóbiztos
-        other: Szavazóbiztosok
-      decidim/votings/polling_station:
-        one: Szavazóhely
-        other: Szavazóhelyek
-      decidim/votings/voting:
-        one: Szavazás
-        other: Szavazások
   decidim:
     admin:
-      filters:
-        officers_assigned_eq:
-          label: Biztosok
-          values:
-            assigned: Hozzárendelt
-            unassigned: Nem hozzárendelt
-        role_eq:
-          label: Szerepkör
-          values:
-            manager: Ügyvezető
-            president: Elnök
-            unassigned: Nem hozzárendelt
-        signed_eq:
-          label: Aláírt
-          values:
-            'false': Aláírt
-        validated_eq:
-          label: Érvényesített
+      menu:
+        elections_menu:
+          election_questions: Kérdések
     components:
       elections:
-        actions:
-          vote: Szavazás
         name: Választások
         settings:
           global:
@@ -91,155 +14,14 @@ hu:
             announcement: Közlemény
     elections:
       actions:
-        confirm_destroy: Biztos vagy benne?
-        destroy: Töröl
-        edit: Szerkeszt
-        feedback: Szavazó visszajelzése
-        import: Válaszjavaslatok importálása
-        manage_answers: Válaszok kezelése
-        manage_questions: Kérdések kezelése
-        preview: Előnézet
-        publish: Közzétesz
         title: Műveletek
-        unpublish: Közzététel visszavonása
       admin:
-        answers:
-          create:
-            success: A válasz létrehozása sikeres.
-          edit:
-            title: Válasz szerkesztése
-            update: Válasz frissítése
-          index:
-            title: Válaszok
-          new:
-            create: Válasz létrehozása
-            title: Új válasz
-          not_selected: Nincs kiválasztva
-          selected: Kiválasztva
         elections:
-          edit:
-            update: Választás frissítése
           index:
             title: Választások
           new:
-            create: Választás létrehozása
             title: Új választás
-          publish:
-            success: A választás sikeresen publikálásra került.
-          unpublish:
-            success: A választás publikálását sikeresen visszavonta.
-        exports:
-          elections: Választások
-        menu:
-          trustees: Felügyelők
-        models:
-          answer:
-            name: Válasz
-        proposals_imports:
-          new:
-            create: Válaszjavaslatok importálása
-            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
-            select_component: Kérjük, válassz egy komponenst
-            title: Javaslatok importálása
         questions:
-          edit:
-            title: Kérdés szerkesztése
-            update: Kérdés frissítése
-          index:
+          edit_questions:
+            new_question: Új kérdés
             title: Kérdések
-          new:
-            create: Kérdés létrehozása
-            title: Új kérdés
-        steps:
-          create_election:
-            trustees: Választási megbízottak
-          created:
-            trustees: Felügyelők
-          key_ceremony:
-            continue: Folytatás
-          key_ceremony_ended:
-            title: Készen áll a kezdésre
-          tally_started:
-            continue: Folytatás
-            mark_as_missing: Hiányzóként megjelölt
-            tally_completion: A folyamat akkor fejeződik be, ha az összes megbízott aktív vagy hiányzónak van jelölve. A folyamat befejezéséhez legalább %{quorum} megbízottra van szükség.
-            undo_mark_as_missing: A tévedésből hiányzónak megjelölt megbízott az eljárás befejezése előtt részt vehet. A szokásos módon folytathatja a folyamatot, és a hiányzó jelölést figyelmen kívül hagyják.
-      elections:
-        filters:
-          date: Dátum
-        show:
-          action_button:
-            change_vote: Szavazatának megváltoztatása
-            vote: Szavazás kezdete
-            vote_again: Újraszavaz
-          callout:
-            already_voted: Már szavaztál ezen a választáson. Megváltoztathatod szavazatod, vagy ellenőrizheted.
-            vote_rejected: Nem volt lehetséges szavazatod ellenőrzése. Kérjük, dobd be újra.
-          verify:
-            already_voted: Már szavaztál?
-            verify_here: Itt ellenőrizheted szavazatod.
-            will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
-      trustee_zone:
-        trustees:
-          show:
-            identification_keys:
-              submit_legend: A fent ismertetett lépések végrehajtása után, a nyilvános azonosító kulcs szervernek való elküldésével fejezi be a folyamatot.
-      votes:
-        modal:
-          proposal_header: 'Javaslatok:'
-        onboarding_modal:
-          description: Szeretnél új fiókot létrehozni a platformon? Képes leszel a folyamatokban részt venni, és aktív részese lehetsz a szervezetnek.
-          title: Új a platformon?
-        verify:
-          form:
-            back: Vissza a platformra
-        voting_step:
-          continue: Következő
-    events:
-      elections:
-        election_published:
-          email_intro: 'A %{resource_title} című választás már aktív a %{participatory_space_title}-ben. Megtekinthető erről az oldalról:'
-          email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
-          email_subject: 'A %{resource_title} választás aktív itt: %{participatory_space_title}.'
-          notification_title: 'A <a href="%{resource_path}">%{resource_title} </a>választás aktív itt: %{participatory_space_title}.'
-    votings:
-      admin:
-        menu:
-          votings_submenu:
-            monitoring_committee: Ellenőrző Bizottság
-        polling_officers:
-          index:
-            role_manager: menedzser
-            role_president: elnök
-        votings:
-          form:
-            census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
-      polling_officer_zone:
-        closures:
-          certify:
-            add_photos: Fényképek hozzáadása
-            edit_photos: Fényképek szerkesztése
-          show:
-            edit_count_votes: Hibás számok? Még mindig tudod szerkeszteni őket.
-          sign:
-            confirm: Ok, folytassuk
-        polling_officers:
-          index:
-            polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
-            polling_station:
-              no_polling_stations: Még nem vagy kijelölve egyetlen szavazóhelyiséghez sem.
-              role: A te szereped
-              voting: Szavazás
-      polling_officers:
-        roles:
-          manager: Menedzser
-          president: Elnök
-          unassigned: Nem hozzárendelt
-      votings:
-        check_census:
-          success:
-            access_link: e-mailen keresztül.
-        filters:
-          date: Dátum
-        login:
-          start_voting: Szavazás kezdete

@@ -11,7 +11,6 @@ ga:
       debates:
         actions:
           comment: Tabhair Trácht
-          endorse: Formhuinigh
         name: Díospóireachtaí
     debates:
       actions:
@@ -38,12 +37,9 @@ ga:
           state: Stádas
           state_values:
             closed: Dúnta
-            open: Oscail
         new:
           back: Ar Ais
           create: Cruthaigh
-        show:
-          debate_closed: Dúnta
       models:
         debate:
           fields:

@@ -13,13 +13,11 @@ gl:
         address: Enderezo
         answer: Resposta
         answered_at: Respondeu en
-        automatic_hashtags: Engadíronse automaticamente os hexágonos
         body: Corpo
         decidim_scope_id: Ámbito
         has_address: Ten enderezo
         scope_id: Ámbito
         state: Estado
-        suggested_hashtags: Hashtags suxeridos
         title: Título
       proposal_answer:
         answer: Resposta
@@ -55,7 +53,6 @@ gl:
               not_official: Non é oficial
     models:
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
-      decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: A votación da proposta habilitada
@@ -87,13 +84,10 @@ gl:
               rejected: Rexeitada
               validating: Validación técnica
               withdrawn: Retiradas
-        search_placeholder:
-          id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:
       proposals:
         actions:
           comment: Comentario
-          endorse: Endosar
           vote_comment: Votar comentario
           withdraw: Retirar
         name: Propostas
@@ -107,7 +101,6 @@ gl:
             default_sort_order: Orde predefinido das propostas
             default_sort_order_options:
               most_commented: Máis comentadas
-              most_endorsed: Máis apoios
               most_followed: Máis seguidas
               random: Ao chou
               recent: Máis recentes
@@ -123,21 +116,16 @@ gl:
             threshold_per_proposal: Umbral por proposta
           step:
             announcement: Anuncio
-            automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear propostas
             default_sort_order: Orde predefinido das propostas
             default_sort_order_options:
               most_commented: Máis comentadas
-              most_endorsed: Máis apoios
               most_followed: Máis seguidas
               random: Ao chou
               recent: Recentes
               with_more_authors: Con máis autores
-            endorsements_blocked: Aprobacións bloqueadas
-            endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
-            suggested_hashtags: Hashtags suxeriu aos usuarios novas propostas
             votes_blocked: Votos bloqueados
             votes_enabled: Votos habilitados
     events:
@@ -164,10 +152,6 @@ gl:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: As propostas agora están dispoñibles en %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Podes aprobar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
-          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: As propostas de avaliación iniciáronse para %{participatory_space_title}
         proposal_mentioned:
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
           email_subject: Enviouse a súa proposta "%{mentioned_proposal_title}"
@@ -302,9 +286,6 @@ gl:
           show:
             body: Corpo
             documents: Documentos
-            n_more_endorsers:
-              one: e 1 máis
-              other: e %{count} máis
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas
@@ -488,7 +469,6 @@ gl:
         orders:
           label: 'Solicitar propostas por:'
           most_commented: Máis comentadas
-          most_endorsed: Con máis adhesións
           most_followed: Con máis seguidores
           random: Aleatorio
           recent: Recentes
@@ -506,9 +486,6 @@ gl:
           title: Publica a túa proposta
         show:
           answer: Resposta
-          hidden_endorsers_count:
-            one: e %{count} persoas máis
-            other: e %{count} persoas máis
           link_to_collaborative_draft_help_text: Esta proposta é o resultado dun borrador colaborativo. Repasa o historial
           link_to_collaborative_draft_text: Vexa o borrador colaborativo
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'

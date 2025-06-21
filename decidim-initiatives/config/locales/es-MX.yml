@@ -7,7 +7,6 @@ es-MX:
         area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
-        hashtag: Etiqueta (hashtag)
         offline_votes: Apoyo cara a cara
         offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Alcance
@@ -78,6 +77,7 @@ es-MX:
   decidim:
     admin:
       actions:
+        cannot_answer: No se puede responder a esta iniciativa
         new_initiative_type: Nuevo tipo de iniciativa
         new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
@@ -96,7 +96,7 @@ es-MX:
           type_id_eq:
             label: Tipo
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría
       initiatives_settings:
         update:
           error: Se produjo un problema al actualizar la configuración de las iniciativas.
@@ -123,8 +123,12 @@ es-MX:
             state: Estado
             supports_count: Firmas
             title: Iniciativas
+        initiatives_committee_member:
+          fields:
+            actions: Acciones
         initiatives_type_scope:
           fields:
+            actions: Acciones
             scope: Alcance
             supports_required: Se requieren apoyos
           name: Alcance del tipo de iniciativa
@@ -264,6 +268,7 @@ es-MX:
             success: La iniciativa se ha enviado a validación técnica.
             update: Actualizar
           form:
+            attachments_title: Archivos adjuntos
             settings: Ajustes
             title: Información general
           index:
@@ -443,11 +448,11 @@ es-MX:
           email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva iniciativa por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha respaldado la siguiente iniciativa, tal vez quieras contribuir a la conversación:"
+        like_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, a quien sigues, le ha dado \"Me gusta\" a la siguiente iniciativa. Tal vez te interese contribuir a la conversación:"
           email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Iniciativa respaldada por %{author_nickname}
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue respaldada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: A %{author_nickname} le ha gustado esta iniciativa
+          notification_title: A <a href="%{author_path}">%{author_name} %{author_nickname}</a> le ha gustado la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa %{resource_title}."
           email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}.'
@@ -543,11 +548,6 @@ es-MX:
         initiatives:
           closed_initiatives_warning: Actualmente no hay iniciativas abiertas, pero aquí puedes encontrar todas las iniciativas cerradas listadas.
           no_initiatives_warning: Ninguna iniciativa coincide con los criterios de búsqueda.
-        interactions:
-          comments_count:
-            count:
-              one: Comentario
-              other: Comentarios
         orders:
           label: 'Clasificar las iniciativas por:'
           most_commented: Más comentado
@@ -673,7 +673,6 @@ es-MX:
           description: La descripción de la iniciativa
           first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
           follows_count: El número de usuarias que siguen esta iniciativa
-          hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
           offline_votes: El número de firmas que esta iniciativa recogió presencialmente (en papel)
           online_votes: El número de firmas digitales que recogió esta iniciativa (directamente a través de la plataforma)
           published_at: La fecha en la que se publicó esta iniciativa

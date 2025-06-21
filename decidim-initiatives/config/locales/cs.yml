@@ -7,7 +7,6 @@ cs:
         area_id: Oblast
         decidim_scope_id: Oblast působnosti
         description: Popis
-        hashtag: Hashtag
         offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
@@ -101,8 +100,6 @@ cs:
               validating: Technické ověření
           type_id_eq:
             label: Typ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       initiatives_settings:
         update:
           error: Při aktualizaci nastavení iniciativ došlo k chybě.
@@ -449,11 +446,9 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nová iniciativa od %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, schválil následující iniciativu, možná chcete přispět k konverzaci:"
-          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla schválena od %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        like_initiative_event:
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> se líbí <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
@@ -552,13 +547,6 @@ cs:
         initiatives:
           closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
           no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
-        interactions:
-          comments_count:
-            count:
-              one: Komentář
-              few: Komentáře
-              many: Komentáře
-              other: Komentáře
         orders:
           label: 'Seřadit iniciativy podle:'
           most_commented: Nejvíce komentované
@@ -684,7 +672,6 @@ cs:
           description: Popis iniciativy
           first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
           follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Iniciativy, používaný pro Twitter/X
           offline_votes: Počet podpisů, které byly použity mimo tuto platformu
           online_votes: Počet podpisů, které tato iniciativa obdržela on-line (přímo prostřednictvím platformy)
           published_at: Datum, kdy byl tento prostor publikován
@@ -708,6 +695,9 @@ cs:
         actions:
           create: Vytvořit iniciativu
           title: Akce
+    statistics:
+      initiatives_count: Iniciativy
+      initiatives_count_tooltip: Počet zveřejněných občanských iniciativ.
   layouts:
     decidim:
       initiative_creation_header:
@@ -716,6 +706,7 @@ cs:
         promotal_committee: Hledat propagátory
         select_initiative_type: Vybrat
       initiative_signature_creation_header:
+        help_information_html: Chcete-li podepsat iniciativu <strong>%{initiative_title}</strong> podporovanou %{initiative_author}, musíte poskytnout nějaké informace, díky nimž bude iniciativa podepsána a právně závazná. Žádné informace o vás nebudou zveřejněny.
         verify_your_identity: Ověřte svou identitu
       initiatives:
         no_initiatives_yet:

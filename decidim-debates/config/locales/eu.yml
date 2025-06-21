@@ -30,7 +30,7 @@ eu:
         actions:
           comment: Iruzkina
           create: Sortu eztabaida bat
-          endorse: Atxiki
+          like: Atsegin dut
         name: Eztabaidak
         settings:
           global:
@@ -47,8 +47,8 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
     debates:
       actions:
         close: Itxi
@@ -145,7 +145,7 @@ eu:
           state: Egoera
           state_values:
             closed: Itxita
-            open: Ireki
+            ongoing: Abian
         index:
           new_debate: Beste eztabaida bat
         new:
@@ -160,11 +160,13 @@ eu:
           updated: Orain dela gutxi eguneratuak
         show:
           close_debate: Itxi
-          debate_closed: Itxita
+          closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
-          open: Eztabaida irekita
+          not_started: Hasi gabe
+          ongoing: Abian
+          open_ended: Irekiera amaituta
           participants_count: Parte-hartzaileak
         update:
           invalid: Arazo bat egon da eztabaida eguneratzean.
@@ -259,13 +261,13 @@ eu:
           created_at: Zein datatan eta zein ordutan sortu zen eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
-          endorsements_count: Eztabaidak dituen berme kopurua
           follows_count: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
           instructions: Jarraibideak eztabaida honetan iruzkina egiteko
           last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
+          likes_count: Eztabaida honek duen like kopurua
           participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Partaidetza-prozesua edo Batzarra)
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu

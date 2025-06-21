@@ -18,7 +18,6 @@ es-PY:
         address: Dirección
         answer: Respuesta
         answered_at: Respondido
-        automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
@@ -27,7 +26,6 @@ es-PY:
         longitude: Longitud
         scope_id: Ámbito
         state: Estado
-        suggested_hashtags: Hashtags sugeridos
         title: Título
       proposal_answer:
         answer: Respuesta
@@ -77,16 +75,16 @@ es-PY:
           attributes:
             base:
               not_official: No son oficiales
-              voted: Han recibido apoyos o adhesiones
+              voted: Ha recibido votos o me gusta
         proposals_split:
           attributes:
             base:
               not_official: No son oficiales
-              voted: Han recibido apoyos o adhesiones
+              voted: Ha recibido votos o me gusta
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Las taxonomías de la propuesta han cambiado
       decidim/proposals/creation_enabled_event: Creación de propuesta habilitada
-      decidim/proposals/endorsing_enabled_event: Aprobación de propuesta habilitada
+      decidim/proposals/liking_enabled_event: '"Me gusta" activados para propuestas'
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/voting_enabled_event: Votación de propuestas habilitada
@@ -148,7 +146,7 @@ es-PY:
               state_not_published: Sin respuesta
               state_published: Respondidas
         search_placeholder:
-          id_string_or_title_cont: Buscar %{collection} por ID o título.
+          id_string_or_title_cont: Buscar %{collection} por ID o título
     application:
       geocoding:
         not_configured: '¡La geocodificación no está configurada!'
@@ -158,7 +156,7 @@ es-PY:
           amend: Enmendar
           comment: Comentar
           create: Crear una propuesta
-          endorse: Adherirse
+          like: '"Me gusta"'
           vote: Apoyar
           vote_comment: Votar comentario
           withdraw: Retirar
@@ -181,8 +179,8 @@ es-PY:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
-              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_liked: Con más "Me gusta"
               most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
@@ -234,7 +232,6 @@ es-PY:
             amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Anuncio
             answers_with_costs: Habilitar coste en las respuestas a propuestas
-            automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
@@ -243,18 +240,17 @@ es-PY:
             default_sort_order_options:
               automatic: Automático
               most_commented: Más comentadas
-              most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_liked: Con más "Me gusta"
               most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            endorsements_blocked: Adhesiones bloqueados
-            endorsements_enabled: Adhesiones habilitados
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
             proposal_answering_enabled: Contestación de propuesta habilitada
             publish_answers_immediately: Publicar respuestas a las propuestas inmediatamente
             publish_answers_immediately_help_html: 'Ten en cuenta que si respondes a alguna propuesta sin que esto esté habilitado, tendrás que publicarlas manualmente seleccionándolas y utilizando la acción de publicar. Para más información sobre el funcionamiento, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentación de respuestas a las propuestas</a>.'
-            suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
             votes_blocked: Apoyos bloqueados
             votes_enabled: Votos habilitados
             votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
@@ -334,11 +330,11 @@ es-PY:
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
-          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_intro: 'Puedes dar "Me gusta" a las propuestas en %{participatory_space_title}. Empieza a participar en esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La opción de dar "Me gusta" a las propuestas de %{participatory_space_title} ha empezado
+          notification_title: Ya puedes empezar a <a href="%{resource_path}">dar "Me gusta" a las propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
@@ -445,12 +441,12 @@ es-PY:
           cost_report: Un informe de los costes que representa la propuesta
           created_at: La fecha en la que se creó la propuesta
           created_in_meeting: Si la propuesta se ha elaborado en un encuentro
-          endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
           execution_period: El período de ejecución de la propuesta, de principio a fin
           follows_count: El número de seguidoras que tiene esta propuesta
           id: El identificador único de la propuesta
           is_amend: Si esta propuesta es una enmienda a otra propuesta o no
           latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
+          likes: El número de "Me gusta" que tiene esta propuesta
           longitude: La longitud de la propuesta en caso de que esta tenga una ubicación física
           meeting_urls: Las URL de los encuentros de los que resultó o se debatió esta propuesta
           original_proposal: La referencia de la propuesta original en el caso de que se trate de una enmienda
@@ -663,11 +659,11 @@ es-PY:
             body: Cuerpo
             comments_count: Número de comentarios
             documents: Documentos
-            endorsements_count: Número de adhesiones
-            endorsers: Se han adherido
             evaluators: Evaluadoras
+            likes: '"Me gusta"'
+            likes_count: Recuento de "Me gusta"
             link: Ver la propuesta
-            n_more_endorsers:
+            n_more_likes:
               one: y 1 más
               other: y %{count} más
             photos: Fotos
@@ -950,8 +946,8 @@ es-PY:
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
-          most_endorsed: Con más adhesiones
           most_followed: Con más seguidoras
+          most_liked: Con más "Me gusta"
           most_voted: Más votado
           random: Aleatorio
           recent: Reciente
@@ -978,7 +974,7 @@ es-PY:
           changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar
           estimated_cost: Coste estimado
-          hidden_endorsers_count:
+          hidden_likes_count:
             one: y %{count} persona más
             other: y %{count} personas más
           link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial

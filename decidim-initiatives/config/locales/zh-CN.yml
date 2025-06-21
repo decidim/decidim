@@ -72,8 +72,6 @@ zh-CN:
               validating: 技术验证
           type_id_eq:
             label: 类型
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 按标题、描述、ID或作者名称搜索 %{collection}。
       menu:
         information: 信息
         initiatives: 倡议
@@ -269,11 +267,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{author_nickname} 的新举措'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议是由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 创建的。
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经批准了以下倡议，也许您想要为对话做出贡献："
-          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: '%{author_nickname} 认可的倡议'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
       initiative_signatures:
         finish:
           back_to_initiative: 回到倡议
@@ -302,10 +295,6 @@ zh-CN:
         initiatives:
           closed_initiatives_warning: 目前没有开放的倡议，但在这里你可以找到列出的所有已关闭的倡议。
           no_initiatives_warning: 没有符合您搜索条件的倡议。
-        interactions:
-          comments_count:
-            count:
-              other: 评论
         orders:
           label: '对倡议进行排序：'
           most_commented: 最多评论

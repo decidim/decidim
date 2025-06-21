@@ -4,15 +4,15 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe RegistrationsController do
-    routes { Decidim::Meetings::Engine.routes }
-
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:meeting) { create(:meeting, :published, component:, registrations_enabled: true, available_slots: 10) }
+    let(:my_meeting_path) { Decidim::EngineRouter.main_proxy(component).meeting_path(meeting) }
 
     before do
+      allow(controller).to receive(:meeting_path).and_return(Decidim::EngineRouter.main_proxy(component).meeting_path(meeting))
       request.env["decidim.current_organization"] = organization
       request.env["decidim.current_participatory_space"] = participatory_process
       request.env["decidim.current_component"] = component
@@ -31,7 +31,7 @@ module Decidim::Meetings
             end.to change(Registration, :count).by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.create.success", scope: "decidim.meetings"))
-            expect(response).to redirect_to(meeting_path(meeting))
+            expect(response).to redirect_to(my_meeting_path)
           end
         end
 
@@ -42,7 +42,7 @@ module Decidim::Meetings
             post :create, params: params
 
             expect(flash[:alert]).to eq(I18n.t("registrations.create.invalid", scope: "decidim.meetings"))
-            expect(response).to redirect_to(meeting_path(meeting))
+            expect(response).to redirect_to(my_meeting_path)
           end
         end
       end
@@ -88,7 +88,7 @@ module Decidim::Meetings
             end.to change { meeting.registrations.count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.create.success", scope: "decidim.meetings"))
-            expect(response).to redirect_to(meeting_path(meeting))
+            expect(response).to redirect_to(my_meeting_path)
           end
         end
 
@@ -102,7 +102,7 @@ module Decidim::Meetings
             end.to change { meeting.registrations.where(status: :waiting_list).count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.waitlist.success", scope: "decidim.meetings"))
-            expect(response).to redirect_to(meeting_path(meeting))
+            expect(response).to redirect_to(my_meeting_path)
           end
         end
       end
@@ -138,7 +138,7 @@ module Decidim::Meetings
           end.to change(Registration.on_waiting_list, :count).by(1)
 
           expect(flash[:notice]).to eq(I18n.t("registrations.waitlist.success", scope: "decidim.meetings"))
-          expect(response).to redirect_to(meeting_path(meeting))
+          expect(response).to redirect_to(my_meeting_path)
         end
       end
     end
@@ -155,7 +155,7 @@ module Decidim::Meetings
         end.to change(Registration, :count).by(-1)
 
         expect(flash[:notice]).to match(/successfully/)
-        expect(response).to redirect_to(meeting_path(meeting))
+        expect(response).to redirect_to(my_meeting_path)
       end
     end
   end

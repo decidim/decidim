@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Comments", perform_enqueued: true do
   let!(:component) { create(:debates_component, organization:) }
-  let!(:commentable) { create(:debate, :open_ama, component:) }
+  let!(:commentable) { create(:debate, :ongoing_ama, component:) }
 
   let(:resource_path) { resource_locator(commentable).path }
 
@@ -18,7 +18,7 @@ describe "Comments", perform_enqueued: true do
   end
 
   context "with two columns layout" do
-    let!(:commentable) { create(:debate, :open_ama, component:, comments_layout: :two_columns) }
+    let!(:commentable) { create(:debate, :ongoing_ama, component:, comments_layout: :two_columns) }
     let!(:closed_commentable) { create(:debate, :closed, component:, comments_layout: :two_columns) }
 
     include_examples "comments with two columns"

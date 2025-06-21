@@ -7,7 +7,6 @@ fr:
         area_id: Périmètre d'assemblée
         decidim_scope_id: Secteur
         description: Description
-        hashtag: Hashtag
         offline_votes: Votes en présentiel
         offline_votes_for_scope: Signatures en personne pour %{scope_name}
         scope_id: Secteur
@@ -77,6 +76,7 @@ fr:
   decidim:
     admin:
       actions:
+        cannot_answer: Impossible de répondre à cette pétition
         new_initiative_type: Nouveau type de pétition
         new_initiative_type_scope: Nouveau secteur du type de pétition
       filters:
@@ -94,7 +94,7 @@ fr:
           type_id_eq:
             label: Type de pétition
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur
       initiatives_settings:
         update:
           success: Les paramètres des pétitions ont bien été mis à jour.
@@ -120,8 +120,12 @@ fr:
             state: État
             supports_count: Signatures
             title: Pétitions
+        initiatives_committee_member:
+          fields:
+            actions: Actions
         initiatives_type_scope:
           fields:
+            actions: Actions
             scope: Secteur
             supports_required: Signatures requises
           name: Secteur du type de pétition
@@ -244,6 +248,7 @@ fr:
             success: La pétition a été envoyée à la validation technique.
             update: Mettre à jour
           form:
+            attachments_title: Pièces jointes
             settings: Paramètres
             title: Informations générales
           index:
@@ -375,11 +380,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle pétition de %{author_nickname}
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a soutenu la pétition suivante; vous pouvez y contribuer si vous le souhaitez :"
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Pétition soutenue par %{author_nickname}
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} a rejeté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
           email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à rejoindre cette pétition : %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l''onglet “Mon compte” > “Paramètres des notifications”.'
@@ -473,11 +473,6 @@ fr:
         initiatives:
           closed_initiatives_warning: À l'heure actuelle, il n'y a pas de pétitions publiées, mais vous trouverez ici une liste de toutes les pétitions fermées.
           no_initiatives_warning: Aucune pétition ne correspond à vos critères de recherche.
-        interactions:
-          comments_count:
-            count:
-              one: Commentaire
-              other: commentaires
         orders:
           label: 'Trier les pétitions par :'
           most_commented: Les plus commentées

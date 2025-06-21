@@ -45,8 +45,6 @@ sq:
         available_authorizations: Autorizimet në dispozicion
         badges_enabled: Aktivizo emblemat
         comments_max_length: Madhësia maks. e komenteve(0 për vlerën e paracaktuar)
-        cta_button_path: Shtegu i Thirrjes Për Veprim (Call To Action)
-        cta_button_text: Teksti i butonit të Thirrjes Për Veprim (Call To Action)
         customize_welcome_notification: Personalizo njoftimin e mirëseardhjes
         default_locale: Lokalizimi i parazgjedhur
         description: Përshkrimi
@@ -59,13 +57,6 @@ sq:
         from: Adresa email e dërguesit
         github_handler: Emri i përdoruesit Github
         highlight_color: Theksim
-        highlighted_content_banner_action_subtitle: Nëntitull i butonit të veprimit
-        highlighted_content_banner_action_title: Titulli i butonit të veprimit
-        highlighted_content_banner_action_url: URL e butonit të veprimit
-        highlighted_content_banner_enabled: Shfaq banerin e theksuar të përmbajtjes
-        highlighted_content_banner_image: Imazhi
-        highlighted_content_banner_short_description: Përshkrim i shkurtër
-        highlighted_content_banner_title: Titulli
         host: Organizatori
         instagram_handler: Emri i përdoruesit Instagram
         logo: Logo
@@ -302,7 +293,6 @@ sq:
           import: Importo
       logs:
         filters:
-          text: Kërko me email përdoruesi, emër ose nofkë.
           user: Përdorues
       managed_users:
         promotions:
@@ -316,7 +306,6 @@ sq:
         components: Komponentët
         configuration: Konfigurimi
         content: Përmbajtje e raportuar
-        homepage: Kryefaqja
         newsletters: Buletinet
         participants: Pjesëmarrësit
         scopes: Fushëveprimet
@@ -447,17 +436,6 @@ sq:
       organization:
         form:
           social_handlers: Rrjetet sociale
-      organization_appearance:
-        form:
-          colors:
-            choose_color: Zgjidh ngjyrën parësore
-            colors_title: Ngjyrat e organizatës
-            colors_warning_html: Kujdes! Ndryshimi i këtyre ngjyrave mund të prishë aksesibilitetin e kontrastit. Kontrolloni kontrastin e zgjedhur me <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ose mjete të ngjashme.
-            explanation: Kjo vegël ndihmon në zgjedhjen e një kombimini ngyrash, të përbërë nga nuanca të barazlarguara në rrotën e ngjyrave, që do perdoret në faqen e organizatës.
-            legend_html: Ngjyrat kryesore të aplikacionit, bazuar në <a href="https://www.color-meanings.com/triadic-colors/">algoritmin triadik</a>. Ngjyra <i>dytësore</i> llogaritet automatikisht nga ngjyra parësore dhe thellësia e zgjedhur.
-            saturation: Thellësia
-            title: Përzgjedhësi i ngjyrës
-            update_suggested_colors: Përditëso ngjyrat e rekomanduara
       resource_permissions:
         edit:
           title: Github

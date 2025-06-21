@@ -29,7 +29,6 @@ ja:
         actions:
           comment: コメント
           create: ディベートを作成
-          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -46,8 +45,6 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者はディベートを作成できます
-            endorsements_blocked: オススメがブロックされました
-            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる
@@ -143,7 +140,6 @@ ja:
           state: ステータス
           state_values:
             closed: 終了
-            open: 公開
         index:
           new_debate: 新しいディベート
         new:
@@ -158,11 +154,9 @@ ja:
           updated: 更新が新しい順
         show:
           close_debate: 閉じる
-          debate_closed: 終了
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
           edit_debate: 編集
-          open: 公開ディベート
           participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
@@ -257,7 +251,6 @@ ja:
           created_at: ディベートの作成日時
           description: ディベートの説明
           end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
-          endorsements_count: ディベートのオススメ数
           follows_count: この議論のフォロワー数
           id: ディベートの固有ID
           information_updates: 作者がディベートに加えた更新

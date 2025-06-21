@@ -25,7 +25,6 @@ fi:
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Tuo aihepiirejä
@@ -170,7 +169,7 @@ fi:
           attachments: Liitteet
           components: Komponentit
           info: Tietoa tästä ryhmästä
-          landing_page: Laskeutumissivu
+          landing_page: Laskeutumissivun asettelu
           moderations: Moderoinnit
           private_users: Jäsenet
           see_assembly: Näytä ryhmä
@@ -396,7 +395,6 @@ fi:
           facebook_handler: Sosiaalisen median tunniste Facebookissa
           follows_count: Tilaa seuraavien käyttäjien määrä
           github_handler: Sosiaalisen median tunniste GitHubissa
-          hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Ryhmän yksilöivä tunniste
           included_at: Ryhmän sisällyttämisen päivämäärä
           instagram_handler: Sosiaalisen median tunniste Instagramissa
@@ -430,6 +428,7 @@ fi:
         related_assemblies: Liittyvät ryhmät
     statistics:
       assemblies_count: Ryhmää
+      assemblies_count_tooltip: Julkisten ryhmien lukumäärä, missä on tehty päätöksiä.
   layouts:
     decidim:
       assemblies:

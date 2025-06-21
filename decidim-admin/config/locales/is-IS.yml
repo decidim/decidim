@@ -32,8 +32,6 @@ is-IS:
         alert_color: Viðvörun
         available_authorizations: Möguleg auðkenni
         badges_enabled: Virkja merki
-        cta_button_path: Hringja til aðgerða hnappaslóð
-        cta_button_text: Hringja í aðgerð hnappinn texta
         default_locale: Sjálfgefið tungumál
         description: Lýsing
         enable_omnipresent_banner: Sýna algengasta borði
@@ -43,13 +41,6 @@ is-IS:
         force_users_to_authenticate_before_access_organization: Þvinga notendur í að auðkenna, áður en þeir komast í samtök
         github_handler: GitHub handler
         header_snippets: Header brot
-        highlighted_content_banner_action_subtitle: Aðgerðshnappur texti
-        highlighted_content_banner_action_title: Heiti aðgerðahnappsins
-        highlighted_content_banner_action_url: Vefslóð aðgerðahnappsins
-        highlighted_content_banner_enabled: Sýna auðkenndan innihald borða
-        highlighted_content_banner_image: Mynd
-        highlighted_content_banner_short_description: Stutt lýsing
-        highlighted_content_banner_title: Titill
         host: Gestgjafi
         instagram_handler: Instagram handler
         logo: Merki
@@ -369,15 +360,6 @@ is-IS:
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
-      organization_appearance:
-        edit:
-          update: Uppfæra
-        form:
-          cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
-          homepage_appearance_title: Breyta heimasíðu útliti
-          homepage_highlighted_content_banner_title: Hápunktur efni borði
-          images:
-            layout_appearance_title: Breyta útliti útlits
       participatory_space_private_users:
         new:
           create: Búa til

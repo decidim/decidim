@@ -24,7 +24,6 @@ lb:
       debates:
         actions:
           comment: Kommentar
-          endorse: Bestätigen
         name: Debatten
         settings:
           global:
@@ -34,8 +33,6 @@ lb:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Bestätigungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
     debates:
       admin:
         debates:
@@ -47,7 +44,6 @@ lb:
           state: Status
           state_values:
             closed: Geschlossen
-            open: Offen
         index:
           new_debate: Neue Debatte
         new:
@@ -60,10 +56,8 @@ lb:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.

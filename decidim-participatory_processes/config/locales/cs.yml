@@ -13,7 +13,6 @@ cs:
         document: Dokument
         domain: Doména
         end_date: Datum ukončení
-        hashtag: Hashtag
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -39,7 +38,6 @@ cs:
         description: Popis
         developer_group: Skupina propagátorů
         group_url: Webová stránka
-        hashtag: Hashtag
         hero_image: Obrázek
         local_area: Oblast působnosti organizace
         meta_scope: Metadata oblasti působnosti
@@ -116,7 +114,6 @@ cs:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Úvodní stránka
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -124,7 +121,6 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto procesu
-          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Členové
           process_admins: Administrátoři procesu
@@ -359,7 +355,6 @@ cs:
           developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
           end_date: Datum ukončení procesu
           follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Procesu, používaný pro Twitter/X
           id: Jedinečný identifikátor tohoto procesu
           local_area: Místní oblast procesu. Tohle je oblast organizace, kde probíhá proces.
           meta_scope: Rozsah metadat procesu
@@ -411,6 +406,8 @@ cs:
             few: "%{count} procesy"
             many: "%{count} procesů"
             other: "%{count} procesy"
+      related_processes:
+        help: Všechny vybrané procesy budou přiřazeny k této skupině, včetně těch, které jsou již přiřazeny do jiných skupin.
       show:
         title: Skupiny účastnických procesů
     participatory_process_steps:
@@ -534,6 +531,7 @@ cs:
         related_processes: Související procesy
     statistics:
       processes_count: Procesy
+      processes_count_tooltip: Počet veřejně přístupných participačních procesů.
   layouts:
     decidim:
       participatory_process_groups:

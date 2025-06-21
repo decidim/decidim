@@ -42,8 +42,6 @@ lt:
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
         comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
-        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
-        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         default_locale: Numatytoji lokalė
         description: Aprašymas
@@ -58,13 +56,6 @@ lt:
         header_snippets: Antraštės fragmentai
         highlight_alternative_color: Paryškinti, alternatyva
         highlight_color: Paryškinimai
-        highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
-        highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
-        highlighted_content_banner_action_url: Veiksmo mygtuko URL
-        highlighted_content_banner_enabled: Rodyti paryškintą turinio reklamjuostę
-        highlighted_content_banner_image: Paveikslėlis
-        highlighted_content_banner_short_description: Trumpas aprašymas
-        highlighted_content_banner_title: Pavadinimas
         host: Šeimininkas
         instagram_handler: '„Instagram“ tvarkyklė'
         logo: Logotipas
@@ -392,11 +383,7 @@ lt:
             'true': Nebeskelbiama
         search_label: Ieškoti
         search_placeholder:
-          name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
           report_count_eq: Raportuoti skaičių
-          reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
-          title_cont: Ieškoti %{collection} pagal pavadinimą.
-          user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
         state_eq:
           label: Būsena
           values:
@@ -496,7 +483,6 @@ lt:
       logs:
         filters:
           participatory_space: Rasti dalyvaujamąją erdvę
-          text: Ieškoti pagal el. pašto adresą, vardą arba naudotojo vardą.
           user: Naudotojas
         logs_list:
           no_logs_yet: Dar nėra įrašų.
@@ -520,7 +506,6 @@ lt:
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
         help_sections: Pagalbos skyrius
-        homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
         manage: Valdyti
         moderation: Globalūs moderavimai
@@ -751,26 +736,6 @@ lt:
         update:
           error: Atnaujinant šią organizaciją iškilo problema.
           success: Organizacija atnaujinta.
-      organization_appearance:
-        edit:
-          update: Atnaujinti
-        form:
-          colors:
-            choose_color: Pasirinkite pagrindinę spalvą
-            colors_title: Organizacijos spalvos
-            colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
-            explanation: Šis įrankis padės jums pasirinkti spalvų schemą, sudarytą iš atspalvių, lygiai pasiskirstiusių spalvų rate, kuri bus naudojama organizacijos svetainėje.
-            legend_html: Pagrindinės programos spalvos, remiantis <a href="https://www.color-meanings.com/triadic-colors/">Triadinio algoritmo</a>. <i>Antrinė</i> spalva yra automatiškai apskaičiuojama iš pagrindinės spalvos ir pasirinkto prisotinimo.
-            saturation: Sodrumas
-            title: Spalvų parinkėjas
-            update_suggested_colors: Atnaujinti pasiūlytas spalvas
-          cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
-          homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
-          homepage_highlighted_content_banner_title: Paryškinta turinio juosta
-          images:
-            layout_appearance_title: Redaguoti išdėstymą
-            preview: Peržiūra
-          omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -902,8 +867,6 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
-        edit_landing_page: Puslapio turinys
-        edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
         pages: Puslapiai

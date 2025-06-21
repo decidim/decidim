@@ -109,10 +109,6 @@
   /* overwrite default dropdown styles */
   [data-target*="dropdown"] {
     @apply md:flex w-auto cursor-pointer text-sm text-secondary;
-
-    > svg {
-      @apply h-3 w-3;
-    }
   }
 
   /* overwrite default dropdown styles */
@@ -406,7 +402,7 @@
 
         &:hover,
         &.is-active {
-          @apply border-secondary text-secondary bg-background-4;
+          @apply border-secondary text-secondary bg-background-4 font-bold;
         }
       }
     }

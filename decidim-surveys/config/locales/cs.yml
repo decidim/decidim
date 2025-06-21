@@ -12,6 +12,8 @@ cs:
         other: Průzkumy
   decidim:
     admin:
+      actions:
+        see_survey: Zobrazit průzkum
       admin_log:
         changeset:
           surveys: průzkumy
@@ -45,7 +47,9 @@ cs:
           email_subject: Nový průzkum v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> je nyní otevřený.
     statistics:
+      responses: 'Odpovědi:'
       responses_count: Odpovědi
+      surveys_count_tooltip: Počet dostupných průzkumů a shromážděných odpovědí.
     surveys:
       actions:
         confirm_destroy: Opravdu to chcete smazat?
@@ -69,6 +73,8 @@ cs:
         responses:
           index:
             no_responses: Zatím nejsou žádné odpovědi
+          show:
+            title: 'Odpověď č.%{number}'
         settings:
           surveys:
             edit:

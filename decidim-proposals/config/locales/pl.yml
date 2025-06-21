@@ -13,13 +13,11 @@ pl:
         address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziano
-        automatic_hashtags: Hashtagi zostały dodane automatycznie
         body: Treść
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
         state: Stan
-        suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
       proposal_answer:
         answer: Odpowiedź
@@ -67,15 +65,12 @@ pl:
           attributes:
             base:
               not_official: Nieoficjalne
-              voted: Otrzymano głosy lub potwierdzenia
         proposals_split:
           attributes:
             base:
               not_official: Nie są oficjalne
-              voted: Otrzymano głosy lub potwierdzenia
     models:
       decidim/proposals/creation_enabled_event: Włączono tworzenie propozycji
-      decidim/proposals/endorsing_enabled_event: Możliwe rekomendowanie propozycji
       decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
       decidim/proposals/publish_proposal_event: Propozycja została opublikowana
       decidim/proposals/voting_enabled_event: Można głosować na propozycje
@@ -122,14 +117,11 @@ pl:
             values:
               state_not_published: Bez odpowiedzi
               state_published: Z odpowiedziami
-        search_placeholder:
-          id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
       proposals:
         actions:
           amend: Popraw
           comment: Skomentuj
-          endorse: Rekomendacje
           vote: Głosuj
           vote_comment: Poprzyj komentarz
           withdraw: Wycofywanie
@@ -151,7 +143,6 @@ pl:
             default_sort_order_options:
               automatic: Automatyczne
               most_commented: Najczęściej komentowane
-              most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
               most_voted: Z największą liczbą głosów
               random: Losowo
@@ -190,7 +181,6 @@ pl:
             amendments_visibility_help: W przypadku zaznaczenia opcji „Poprawki są widoczne tylko dla ich autorów” użytkownik musi być zalogowany, aby zobaczyć wprowadzone poprawki.
             announcement: Ogłoszenie
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
-            automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
@@ -199,18 +189,14 @@ pl:
             default_sort_order_options:
               automatic: Automatyczne
               most_commented: Najczęściej komentowane
-              most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
               most_voted: Z największą liczbą głosów
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
-            endorsements_blocked: Rekomendacje zostały zablokowane
-            endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             publish_answers_immediately_help_html: 'Pamiętaj, że jeśli odpowiesz na dowolną propozycję bez włączonej tej opcji, musisz ją opublikować ręcznie, wybierając ją i korzystając z akcji do publikacji. Aby uzyskać więcej informacji na temat tego, jak to działa, zobacz stronę <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">z dokumentacją odpowiedzi na propozycje</a>.'
-            suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
             votes_blocked: Głosy zablokowane
             votes_enabled: Głosowanie włączone
             votes_hidden: Ukryte głosy (jeśli głosy są włączone, sprawdzenie to ukryje liczbę głosów)
@@ -254,11 +240,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Propozycje są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz przedstawiać <a href="%{resource_path}">nowe propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Możesz rekomendować propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: Rozpoczęto rekomendację propozycji w %{participatory_space_title}
-          notification_title: Możesz teraz zacząć <a href="%{resource_path}">rekomendować propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Twoja propozycja „%{mentioned_proposal_title}” została wspomniana <a href="%{resource_url}"> w tej przestrzeni</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
@@ -463,14 +444,7 @@ pl:
             body: Treść
             comments_count: Liczba komentarzy
             documents: Dokumenty
-            endorsements_count: Liczba rekomendacji
-            endorsers: Rekomendujący
             link: Zobacz propozycję
-            n_more_endorsers:
-              one: i jeszcze 1
-              few: i jeszcze %{count}
-              many: i jeszcze %{count}
-              other: i jeszcze %{count}
             photos: Zdjęcia
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
@@ -698,7 +672,6 @@ pl:
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
-          most_endorsed: Najbardziej rekomendowane
           most_followed: Najczęściej obserwowane
           most_voted: Większość głosów
           random: Losowo
@@ -727,11 +700,6 @@ pl:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
           estimated_cost: Szacowany koszt
-          hidden_endorsers_count:
-            one: i %{count} osoba więcej
-            few: i %{count} więcej osób
-            many: i %{count} więcej osób
-            other: i %{count} więcej osób
           link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego szkicu. Przejrzyj historię
           link_to_collaborative_draft_text: Zobacz wspólny szkic
           link_to_promoted_emendation_help_text: Ta propozycja jest awansowaną poprawką

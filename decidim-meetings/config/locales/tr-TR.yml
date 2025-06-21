@@ -113,11 +113,6 @@ tr:
           email_outro: Bu bildirimi, "%{resource_title}" toplantısını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
           email_subject: '"%{resource_title}" toplantısı kayıtları etkinleştirdi.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı kayıtları etkinleştirdi.
-        upcoming_meeting:
-          email_intro: '"%{resource_title}" toplantısı 48 saatten daha az sürede başlayacak.'
-          email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
-          email_subject: '"%{resource_title}" toplantısı 48 saatten daha az sürede başlayacak.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı 48 saatten daha az sürede başlayacak.
     gamification:
       badges:
         attended_meetings:

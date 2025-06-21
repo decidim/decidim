@@ -55,8 +55,8 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Innehållet gillas
       decidim/resource_hidden_event: Dolt innehåll
+      decidim/resource_liked_event: Resurs gillad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -78,9 +78,9 @@ sv:
       decidim/amendment:
         one: Ändring
         other: Ändringar
-      decidim/endorsement:
-        one: Gilla-markering
-        other: Gilla-markeringar
+      decidim/like:
+        one: Gillar
+        other: Gillar
       decidim/user:
         one: Deltagare
         other: Deltagare
@@ -155,6 +155,7 @@ sv:
       front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       opens_in_new_tab: Öppnas i en ny flik
+      secondary_menu: Sekundär meny
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av brott mot användarvillkoren
@@ -169,6 +170,7 @@ sv:
         leaving_authorizations_behind: Viss data som är kopplad till din auktorisering kommer att sparas av säkerhetsskäl. Om du skapar ett annat konto och auktoriserar det igen, kommer dessa data att användas till ditt nya konto.
       destroy:
         error: Det gick inte att radera ditt konto.
+        inactive_account_removal_reason: Konto borttaget efter %{inactivity_period} dagar av inaktivitet
         success: Ditt konto har raderats.
       download_your_data_export:
         export_expired: Exporten har gått ut. Försök att skapa en ny export.
@@ -418,9 +420,9 @@ sv:
       comments:
         one: kommentar
         other: kommentarer
-      endorsements:
-        one: gilla-markeringar
-        other: instämmanden
+      likes:
+        one: gillar
+        other: gillar
       official_author: Officiell
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -567,9 +569,21 @@ sv:
         name: Bild och CTA
       hero_settings_form:
         background_image: Bakgrundsbild
+        cta_button_path: Knappens länk
+        cta_button_path_help: 'Du kan ändra vad knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL: er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+        cta_button_text: Text på knapp
+        cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner med utvalt innehåll
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Undertitel på knapp
+        action_button_title: Titel på knapp
+        action_button_url: URL för knapp
+        background_image: Bakgrundsbild
+        short_description: Kort beskrivning
+        subtitle: Underrubrik
+        title: Titel
       highlighted_elements_settings_form:
         components:
           all: Alla
@@ -757,8 +771,6 @@ sv:
         error: Fel vid uppladdning av bild.
         success: Bilden har laddats upp.
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
-    endorsement_buttons_cell:
-      endorse: Gilla
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
@@ -877,11 +889,11 @@ sv:
             En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
             </br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, gillar "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
-        email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-        email_subject: "%{endorser_nickname} har gillat något nytt"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, som du följer, har just gillat "%{resource_title}" och vi tror att det kan vara intressant för dig. Kolla in det och bidra:'
+        email_outro: Du har fått det här meddelandet eftersom du följer %{liker_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
+        email_subject: "%{liker_nickname} har gillat en ny sak"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -1025,6 +1037,16 @@ sv:
         last_activity: Senaste aktivitet
       name: Senaste aktiviteten
       no_activities_warning: Det finns inga poster att visa för denna aktivitetstyp.
+    like_buttons_cell:
+      already_liked: Ångra gilla
+      like: Gilla
+    likes_list:
+      liked_by:
+        one: Gillad av %{visible}
+        other: Gillad av %{visible} och %{others}
+      others: "%{count} mer"
+      title: Gillad av
+      you: du
     linked_resource_from:
       included_in: Ingår i
     links:
@@ -1286,7 +1308,23 @@ sv:
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Enligt våra uppgifter skapade du ett %{organization_name} -konto på <strong>%{date_account_creation}</strong> och har inte varit aktiv sedan <strong>%{date_last_connection}</strong>.</p>
+          <p>För att skydda din integritet kommer detta raderas om <strong>%{days} dagar</strong>.</p>
+          <p>Om du vill behålla ditt %{organization_name} konto behöver du bara %{login_url} innan dess, så kommer ditt konto att behållas.<p>
+        greetings_html: |
+          Vänliga hälsningar,<br>
+          %{organization_name}
+        hello_html: Kära <strong>%{username}</strong>,
+        log_in: logga in
+        never_logged_in: aldrig inloggad
+        subject: varning för inaktivitet
       removal_notification:
+        body: Ditt %{organization_name} konto har tagits bort på grund av inaktivitet.
+        greetings_html: |
+          Vänliga hälsningar,<br>
+          %{organization_name}
         subject: Inaktivt konto raderat
     passwords:
       update:
@@ -1351,7 +1389,7 @@ sv:
         success: Denna resurs har gömts.
     resource_autocomplete:
       help: Sök efter förslag
-    resource_endorsements:
+    resource_likes:
       create:
         error: Det gick inte att gilla.
     scopes:
@@ -1389,9 +1427,6 @@ sv:
       confirm_unload: Denna sida innehåller osparade ändringar. Är du säker på att du vill lämna denna sida?
       embed:
         title: Inbäddat videoinnehåll
-      extended_navigation_bar:
-        more: Mer
-        unfold: Veckla ut
       filter_form_help:
         help: Formuläret filtrerar sökresultaten dynamiskt när sökningen ändras.
         skip: Gå till resultat
@@ -1443,10 +1478,10 @@ sv:
     statistics:
       comments_count: Kommentarer
       comments_count_tooltip: Det totala antalet kommentarer postade i detta utrymme.
-      endorsements_count: Gilla-markeringar
       followers_count: Följare
       followers_count_tooltip: Antalet användare som följer någon del av detta utrymme för att hålla sig uppdaterad.
       headline: Statistik
+      likes_count: Gillar
       no_stats: Det finns ingen statistik ännu.
       pages_count: Sidor
       participants_count: Deltagare

@@ -12,6 +12,28 @@
   }
 }
 
+.table-stacked {
+  table {
+    @apply w-full border-collapse md:table;
+
+    thead {
+      @apply hidden md:table-header-group;
+    }
+
+    tbody {
+      @apply block md:table-row-group;
+    }
+
+    tr {
+      @apply block mb-4 md:table-row md:mb-0;
+
+      td {
+        @apply block p-3 md:table-cell before:content-[attr(data-label)] before:border-collapse before:border-spacing-0 before:inline-block before:w-24 before:bg-background-2 before:text-xs before:text-gray-2 before:font-semibold md:before:hidden;
+      }
+    }
+  }
+}
+
 //Table list
 .table-list {
   @apply border-collapse border-spacing-0;
@@ -72,7 +94,7 @@
 
   th:not(:first-child),
   td:not(:first-child) {
-    @apply text-center;
+    @apply text-left md:text-center;
   }
 
   th [type="checkbox"],
@@ -92,7 +114,7 @@
     @apply text-gray-2 text-xs;
   }
 
-  td a:not(.button) {
+  td a:not(.button):not([class*="dropdown"] a) {
     @apply underline text-md font-semibold text-secondary;
   }
 

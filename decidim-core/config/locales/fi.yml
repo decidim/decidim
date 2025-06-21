@@ -5,6 +5,7 @@ fi:
         delete_reason: Syy tilisi poistoon
       attachment:
         documents: Asiakirjat
+        image: Kuva
         photos: Kuvat
       common:
         created_at: Luontiaika
@@ -52,6 +53,12 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Nimimerkki on kirjoitettava pienillä kirjaimilla, eikä siinä voi olla välilyöntejä
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -65,8 +72,8 @@ fi:
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/promoted_to_admin_event: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
-      decidim/resource_endorsed_event: Kohdetta suositeltu
       decidim/resource_hidden_event: Piilotettu asia
+      decidim/resource_liked_event: Tykätty asia
       decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
     attributes:
@@ -88,9 +95,9 @@ fi:
       decidim/amendment:
         one: muutos
         other: Muutokset
-      decidim/endorsement:
-        one: Suositus
-        other: Suositusta
+      decidim/like:
+        one: Tykkäys
+        other: Tykkäykset
       decidim/user:
         one: Osallistuja
         other: Osallistujat
@@ -165,6 +172,7 @@ fi:
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       opens_in_new_tab: Avautuu uuteen välilehteen
+      secondary_menu: Toissijainen valikko
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -430,9 +438,9 @@ fi:
       comments:
         one: kommentti
         other: kommentit
-      endorsements:
-        one: suositus
-        other: suositusta
+      likes:
+        one: tykkäys
+        other: tykkäystä
       official_author: Virallinen
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -579,9 +587,21 @@ fi:
         name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
         background_image: Taustakuva
+        cta_button_path: Toimintopainikkeen (Call To Action) URL-osoite
+        cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
+        cta_button_text: Toimintopainikkeen (Call To Action) teksti
+        cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, käytetään oletusarvoa. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
         welcome_text: Tervetuloa-teksti
       highlighted_content_banner:
         name: Tärkeä sisältöbanneri
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Toimintapainikkeen alaotsikko
+        action_button_title: Toimintapainikkeen otsikko
+        action_button_url: Toimintopainikkeen URL-osoite
+        background_image: Taustakuva
+        short_description: Lyhyt kuvaus
+        subtitle: Alaotsikko
+        title: Otsikko
       highlighted_elements_settings_form:
         components:
           all: Kaikki
@@ -819,16 +839,6 @@ fi:
         error: Kuvan lähettäminen epäonnistui.
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
-    endorsement_buttons_cell:
-      already_endorsed: Peruuta tykkäys
-      endorse: Tykkää
-    endorsers_list:
-      endorsed_by:
-        one: Tästä on tykännyt %{visible}
-        other: Tästä on tykännyt %{visible} ja %{others}
-      others: "%{count} lisää"
-      title: Tykänneet
-      you: sinä
     ephemeral_user: Vierailija
     errors:
       files:
@@ -935,17 +945,27 @@ fi:
       notification_event:
         notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Laatimasi %{resource_type} ei ole enää näkyvissä.<br>
+            Tämä tapahtui, koska ehdotus, tapaaminen, keskustelu tai kommentti, johon vastasit on moderoitu. Jos se tulee saataville uudelleen, kommenttisi palautetaan automaattisesti näkyviin.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_type}.
+          email_subject: Laatimasi %{resource_type} ei ole enää näkyvissä
+          notification_title: |-
+            Laatimasi %{resource_type} ei ole enää näkyvissä.<br>
+            Tämä tapahtui, koska ehdotus, tapaaminen, keskustelu tai kommentti, johon vastasit on moderoitu. Jos se tulee saataville uudelleen, kommenttisi palautetaan automaattisesti näkyviin.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut poistetun kohteen.
           email_subject: Laatimasi %{resource_type} on ilmoitettu
           notification_title: |-
             Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
-        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, jota seuraat, on juuri tykännyt kohteesta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu tykättyyn kohteeseen ja osallistu:'
+        email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{liker_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: "%{liker_nickname} teki uuden tykkäyksen"
+        notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> tykkäsi kohteesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       resources:
         soft_deleted:
           notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
@@ -1096,6 +1116,16 @@ fi:
         last_activity: Viimeaikainen toiminta
       name: Viimeisin toiminta
       no_activities_warning: Tälle toimintatyypille ei ole näytettäviä merkintöjä.
+    like_buttons_cell:
+      already_liked: Peruuta tykkäys
+      like: Tykkää
+    likes_list:
+      liked_by:
+        one: Tästä on tykännyt %{visible}
+        other: Tästä on tykännyt %{visible} ja %{others}
+      others: "%{count} muuta"
+      title: Tykänneet
+      you: sinä
     linked_resource_from:
       included_in: Sisältyy kohteeseen
     links:
@@ -1438,6 +1468,8 @@ fi:
           participate: Osallistu
           participate_title: Osallistu prosesseihin alustalla
           welcome: Tervetuloa organisaatioon %{organization}!
+        statistics:
+          headline: Tilastot
         sub_hero:
           register: Rekisteröidy
           register_title: Luo tili
@@ -1511,6 +1543,24 @@ fi:
         scan: Skannaa QR-koodi
         title: QR-koodi kohteelle %{resource_title}
     reported_mailer:
+      hidden_automatically:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
+        hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
+        subject: Kohde on piilotettu automaattisesti
+      hidden_manually:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
+        hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu moderoijan %{moderator} toimesta.</p>
+        subject: Kohde on piilotettu moderoijan %{moderator} toimesta
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
@@ -1528,19 +1578,24 @@ fi:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      hide:
+        success: Tämä kohde on piilotettu.
       parent_hidden:
         report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
-    resource_endorsements:
+    resource_autocomplete:
+      help: Kirjoita etsiäksesi ehdotuksia
+    resource_likes:
       create:
-        error: Suosituksen antaminen epäonnistui.
+        error: Tykkääminen epäonnistui.
     scopes:
       global: Yleinen teema
       prompt: Valitse teema
     search:
       name: Hae
       results: Hakutulokset
+      results_found_for_term: '%{count} tulosta haulle: "%{term}"'
       term_input_placeholder: Hae
     searches:
       filters:
@@ -1574,9 +1629,6 @@ fi:
       confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
-      extended_navigation_bar:
-        more: Lisää
-        unfold: Avaa
       filter_form_help:
         help: Alla oleva lomake suodattaa hakutulokset dynaamisesti, kun hakuehtoja muutetaan.
         skip: Siirry tuloksiin
@@ -1630,14 +1682,18 @@ fi:
         share_to: Jaa palvelussa %{service}
     statistics:
       comments_count: Kommenttia
-      endorsements_count: Suositusta
+      comments_count_tooltip: Tähän osallistumistilaan lähetettyjen kommenttien lukumäärä.
       followers_count: Seuraajaa
+      followers_count_tooltip: Tätä osallistumistilaa seuraavien käyttäjien lukumäärä.
       headline: Tilastot
+      likes_count: Tykkäyksiä
       no_stats: Tilastoja ei vielä ole.
       pages_count: Sivua
       participants_count: Osallistujaa
+      participants_count_tooltip: Yksilöityjen käyttäjien lukumäärä, jotka ovat vuorovaikuttaneet tässä osallistumistilassa lähettämällä ehdotuksia, osallistumalla tapaamisiin, äänestämällä tai osallistumalla keskusteluihin.
       surveys_count: Kyselyt
       users_count: Osallistujaa
+      users_count_tooltip: Käyttäjien lukumäärä, jotka ovat rekisteröityneet palveluun ja vahvistaneet käyttäjätilinsä sähköpostiosoitteen.
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
     taxonomies:
@@ -1659,7 +1715,20 @@ fi:
         body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
         greeting: Hei %{name},
         instructions_1: Mikäli sinulla on pääsy kyseiselle sähköpostitilille, tarkasta kyseiseen sähköpostiin saapuneet ohjeet.
+        instructions_intro: Olemme lähettäneet ohjeet salasanan asettamiseksi tälle tilillä kyseiseen tiliin liitettyyn sähköpostiosoitteeseen.
+        instructions_title: "<strong>Mitä tämä tarkoittaa sinulle?</strong>"
         subject: Tärkeä ilmoitus koskien käyttäjäryhmää, jonka jäsen olet
+      notify_deprecation_to_owner:
+        body_1: Tämä viesti koskee tärkeää päivitystä käyttäjäryhmät-toiminnossa palvelussa %{organization_name}.
+        body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi <strong>%{name}</strong> profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
+        body_3: Mikäli haluat jatkossa päästä ryhmäkäyttäjäsi tilille, sinun on asetettava salasana kyseiselle käyttäjätilille.
+        greeting: Hei %{name},
+        instructions_1: 'Paina alla olevaa linkkiä asettaaksesi salasanan kyseiselle tilille:'
+        instructions_2: Syötä kyseiselle lomakkeelle tämä sähköpostiosoite, johon tämä viesti lähetettiin ja lähetä pyyntö.
+        instructions_3: Tarkasta saapuneet sähköpostiviestit, missä on tarkemmat ohjeet salasanan asettamiseen.
+        instructions_title: "<strong>Mitä sinun täytyy tehdä?</strong>"
+        set_password: Aloita salasanan asettaminen
+        subject: Tärkeä ilmoitus koskien käyttäjäryhmää
     user_report_mailer:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
@@ -2028,7 +2097,11 @@ fi:
         sign_up: Luo tili
         terms_of_service: Käyttöehdot
       header:
+        back: Takaisin listaan
+        cancel: Peruuta
         close: Sulje
+        confirm_close_ephemeral_session: Mikäli poistut tältä sivulta, väliaikainen istuntosi suljetaan. Kaikki tekemäsi toimet kuitenkin tallentuvat tilillesi. Mikäli olet suorittanut tarvittavat toimet loppuun, paina OK-painiketta.
+        confirm_title_close_ephemeral_session: Ennen kuin poistut tältä sivulta…
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko

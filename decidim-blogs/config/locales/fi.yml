@@ -103,7 +103,7 @@ fi:
           comment: Kommentointi
           create: Luo
           destroy: Poista
-          endorse: Suosittelu
+          like: Tykkää
           update: Päivitä
         name: Blogi
         settings:
@@ -120,8 +120,8 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
     events:
       blogs:
         post_created:
@@ -148,9 +148,9 @@ fi:
           comments_count: Artikkelin saamien kommenttien määrä
           component: Artikkelin komponentti
           created_at: Artikkelin laatimisaika
-          endorsements_count: Artikkelin suositusten ("tykkäykset") lukumäärä
           follows_count: Artikkelin seuraajien lukumäärä
           id: Artikkelin yksilöivä tunniste
+          likes_count: Artikkelin tykkäysten lukumäärä
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
           published_at: Artikkelin julkaisuaika
           title: Artikkelin otsikko
@@ -158,3 +158,4 @@ fi:
           url: Artikkelin URL-osoite
     statistics:
       posts_count: Artikkelia
+      posts_count_tooltip: Julkaistujen blogi- tai uutisartikkelien määrä.

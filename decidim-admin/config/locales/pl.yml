@@ -45,8 +45,6 @@ pl:
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
-        cta_button_path: Ścieżka przycisku CTA
-        cta_button_text: Tekst przycisku CTA
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domyślny język
         description: Opis
@@ -61,13 +59,6 @@ pl:
         header_snippets: Fragmenty nagłówków
         highlight_alternative_color: Wyróżnij (alternatywny kolor)
         highlight_color: Wyróżniony kolor
-        highlighted_content_banner_action_subtitle: Podtytuł przycisku akcji
-        highlighted_content_banner_action_title: Tytuł przycisku akcji
-        highlighted_content_banner_action_url: URL przycisku akcji
-        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
-        highlighted_content_banner_image: Obraz
-        highlighted_content_banner_short_description: Krótki opis
-        highlighted_content_banner_title: Tytuł
         host: Host
         instagram_handler: Handler Instagrama
         logo: Logo
@@ -420,11 +411,7 @@ pl:
         remove_all: Usuń wszystkie
         search_label: Szukaj
         search_placeholder:
-          name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
           report_count_eq: Licznik raportów
-          reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
-          title_cont: Przeszukaj %{collection} według tytułu.
-          user_name_or_user_nickname_or_user_email_cont: Szukaj %{collection} według adresu e-mail, nazwy lub pseudonimu.
         state_eq:
           label: Stan
           values:
@@ -524,7 +511,6 @@ pl:
       logs:
         filters:
           participatory_space: Znajdź przestrzeń partycypacji
-          text: Szukaj według adresu e-mail, nazwy lub pseudonimu.
           user: Użytkownik
         logs_list:
           no_logs_yet: Nie ma jeszcze logów.
@@ -549,7 +535,6 @@ pl:
         content: Zgłoszona zawartość
         external_domain_allowlist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
-        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         manage: Zarządzanie
         moderation: Globalne moderacje
@@ -784,30 +769,6 @@ pl:
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została pomyślnie zaktualizowana.
-      organization_appearance:
-        edit:
-          update: Aktualizuj
-        form:
-          colors:
-            choose_color: Wybierz kolor podstawowy
-            colors_title: Kolory organizacji
-            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
-            explanation: To narzędzie pomaga ci wybrać zestaw kolorów złożony z odcieni równomiernie rozmieszczonych na kole barw, który będzie używany na stronie internetowej organizacji.
-            legend_html: Główne kolory aplikacji, oparte na algorytmie <a href="https://www.color-meanings.com/triadic-colors/">Algorytm trójkowy</a>. <i>drugorzędowy</i> kolor jest obliczany automatycznie na podstawie koloru podstawowego i wybranej przez ciebie saturacji.
-            saturation: Saturacja
-            title: Wybór koloru
-            update_suggested_colors: Zaktualizuj sugerowane kolory
-          cta_button_path_help_html: 'Możesz nadpisać lokalizację, do której prowadzi przycisk CTA na stronie głównej. Użyj częściowych ścieżek adresu, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Należy zacząć od litery. Przycisk CTA znajduje się na stronie głównej pomiędzy tekstem powitalnym a opisem. Przykład: %{url}'
-          cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
-          header_snippets:
-            header_snippets_help_html: Użyj tego pola, aby dodać rzeczy do nagłówka HTML. Najczęstszym zastosowaniem jest integracja usług innych firm, które wymagają dodatkowych JavaScript lub CSS. Możesz także użyć tego aby dodać dodatkowe meta tagi do HTML. Pamiętaj, że będzie to wyświetlane tylko na publicznych stronach, nie w sekcji administratora. Jeśli kod wchodzi w interakcje z zewnętrznymi API lub nie jest zgodny z wytycznymi bezpieczeństwa aplikacji, konieczna będzie zmiana polityki bezpieczeństwa treści. Dowiedz się więcej o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na stronie dokumentacji</a>.
-            title: Fragmenty nagłówków HTML
-          homepage_appearance_title: Edytuj wygląd strony głównej
-          homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
-          images:
-            layout_appearance_title: Edytuj wygląd layoutu
-            preview: Podgląd
-          omnipresent_banner_appearance_title: Edytuj stały baner
       organization_external_domain_allowlist:
         edit:
           update: Aktualizuj
@@ -961,8 +922,6 @@ pl:
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
         edit_external_domains: Dozwolone domeny zewnętrzne
-        edit_landing_page: Zawartość strony
-        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         menu: Menu

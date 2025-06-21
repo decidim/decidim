@@ -48,7 +48,6 @@ module Decidim
             title: form.title,
             subtitle: @participatory_process.subtitle,
             slug: form.slug,
-            hashtag: @participatory_process.hashtag,
             description: @participatory_process.description,
             short_description: @participatory_process.short_description,
             promoted: @participatory_process.promoted,

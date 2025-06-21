@@ -13,13 +13,11 @@ zh-TW:
         address: 地址
         answer: 回答
         answered_at: 回答
-        automatic_hashtags: 已自動添加標籤
         body: 內容
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
         state: 狀態
-        suggested_hashtags: 建議使用標籤
         title: 標題
       proposal_answer:
         answer: 回答
@@ -60,7 +58,6 @@ zh-TW:
               not_official: 非正式
     models:
       decidim/proposals/creation_enabled_event: 建立提案已啟用
-      decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
       decidim/proposals/proposal_mentioned_event: 提案已被提及
       decidim/proposals/publish_proposal_event: 提案已發佈
       decidim/proposals/voting_enabled_event: 提案投票已啟用
@@ -90,14 +87,11 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
-        search_placeholder:
-          id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
       proposals:
         actions:
           amend: 修訂
           comment: 評論
-          endorse: 連署
           vote_comment: 投票評論
           withdraw: 撤回
         name: 提案
@@ -114,7 +108,6 @@ zh-TW:
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論
-              most_endorsed: 最多已連署
               most_followed: 最多追蹤者
               random: 隨機
               recent: 最近
@@ -149,24 +142,19 @@ zh-TW:
             amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
             announcement: 公告
             answers_with_costs: 啟用提案回答的成本
-            automatic_hashtags: 所有提案都已添加標籤
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立提案
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
             default_sort_order: 預設提案排序
             default_sort_order_options:
               most_commented: 最多評論
-              most_endorsed: 最多已連署
               most_followed: 最多追蹤者
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
-            endorsements_blocked: 連署已封鎖
-            endorsements_enabled: 連署已啟用
             proposal_answering_enabled: 提案回答已啟用
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
-            suggested_hashtags: 為新提案建議參與者使用的標籤
     events:
       proposals:
         admin:
@@ -207,11 +195,6 @@ zh-TW:
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
           email_subject: 現在可以在 %{participatory_space_title} 中建立新的提案了！
           notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中提出<a href="%{resource_path}">新提案</a>。
-        endorsing_enabled:
-          email_intro: '您可以連署 %{participatory_space_title} 中的提案！請點擊以下連結參與：'
-          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: 已開始對於 %{participatory_space_title} 的提案進行連署
-          notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中開始<a href="%{resource_path}">連署提案</a>。
         proposal_mentioned:
           email_intro: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_url}">請至此空間查看</a>。
           email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
@@ -365,10 +348,6 @@ zh-TW:
             body: 正文
             comments_count: 評論次數
             documents: 文件
-            endorsements_count: 連署人數
-            endorsers: 贊助人
-            n_more_endorsers:
-              other: 還有 %{count} 位
             photos: 圖片
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
@@ -568,7 +547,6 @@ zh-TW:
         orders:
           label: '依順序排序提案：'
           most_commented: 最多評論
-          most_endorsed: 最多已連署
           most_followed: 最多追蹤者
           random: 隨機
           recent: 最近
@@ -590,8 +568,6 @@ zh-TW:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
           estimated_cost: 預估成本
-          hidden_endorsers_count:
-            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
           link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
           link_to_collaborative_draft_text: 查看協作草稿
           link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案

@@ -165,6 +165,7 @@ fi-pl:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             maps_enabled: Karttatoiminnot käytössä
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
+            registration_code_enabled: Ilmoittautumiskoodit ja QR-koodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
@@ -222,23 +223,38 @@ fi-pl:
           email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
           notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
+          email_intro: 'Tapaamisen "%{resource_title}" seuraavia tietoja on muutettu: %{changed_fields}. Voit tarkastella uutta versiota tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuma "%{resource_title}" päivitettiin
+          field_names:
+            address: osoite
+            end_time: päättymisaika
+            location: sijainti
+            start_time: alkamisaika
+          notification_title: 'Tapaamisen <a href="%{resource_path}">%{resource_title}</a> seuraavia tietoja on muutettu: %{changed_fields}.'
+        meeting_waitlist_added:
+          notification_title: Sinut on lisätty tapaamisen <a href="%{resource_url}">%{resource_title}</a> odotuslistalle.
         registration_code_validated:
           email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
           email_subject: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
+        registration_marked_as_attendee:
+          email_intro: Ilmoittautumisesi tapaamiseen "%{resource_title}" on muutettu osallistujaksi.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumisesi tapaamiseen "%{resource_title}" on muutettu osallistujaksi.
+          email_subject: Ilmoittautumisesi tapaamiseen "%{resource_title}" on muutettu osallistujaksi
+          notification_title: Ilmoittautumisesi tapaamiseen <a href="%{resource_path}">%{resource_title}</a> on muutettu osallistujaksi.
         registrations_enabled:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Ilmoittautumiset on avattu tapahtumaan "%{resource_title}".
           notification_title: Ilmoittautumiset on avattu tapahtumaan <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
-          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+          default_body: Tapaamisen "{{meeting_title}}" alkuun on alle {{before_hours}} tuntia.
+          email_intro: Tapaamisen "%{resource_title}" alkuun on alle %{reminders_before_hours} tuntia.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+          email_subject: Tapaamisen "%{resource_title}" alkuun on alle %{reminders_before_hours} tuntia.
+          notification_title: Tapaamisen <a href="%{resource_path}">%{resource_title}</a> alkuun on alle %{reminders_before_hours} tuntia.
     forms:
       meetings:
         attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.
@@ -268,6 +284,7 @@ fi-pl:
             one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
+        mark_as_attendee: Merkitse osallistujaksi
         new_meeting: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -377,6 +394,13 @@ fi-pl:
           publish:
             invalid: Tapaamisen julkaiseminen epäonnistui.
             success: Tapaamisen julkaiseminen onnistui.
+          reminders:
+            reminder_enabled: Lähetä muistutus tästä tapaamisesta
+            reminder_message: Muistutussähköpostin sisältö
+            reminder_message_help_text: Muokkaa viestiä tarpeidesi mukaan. Voit käyttää merkintää {{meeting_title}} näyttääksesi tapaamisen otsikon viestin sisällössä.
+            send_reminder: Ajoitettu muistutussähköposti
+            send_reminder_help_text: Muistutusaika tunteina ennen tapaamista.
+            title: Muistutukset
           service:
             description: Kuvaus
             down: Alas
@@ -416,6 +440,7 @@ fi-pl:
             recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
+            registrations: Näytä ilmoittautumiset
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
               other: Tapahtumaan on %{count} ilmoittautumista.
@@ -425,6 +450,17 @@ fi-pl:
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
+        registrations_attendees:
+          index:
+            title: Ilmoittautumiset
+            validate: Vahvista
+            validate_registration_code: Vahvista ilmoittautumiskoodi
+          mark_attendee:
+            invalid: Ilmoittautuminen on jo merkitty osallistujaksi.
+            success: Ilmoittautuminen merkitty osallistujaksi.
+          validate_registration_code:
+            invalid: Tämä ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodin vahvistaminen onnistui.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
@@ -581,8 +617,11 @@ fi-pl:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
           join: Liity tapahtumaan
+          join_waitlist: Liity odotuslistaan
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
+          leave_waitlist: Poistu odotuslistalta
+          leave_waitlist_confirmation: Haluatko varmasti poistua tämän tapaamisen odotuslistalta?
           link_available_soon: Linkki julkaistaan pian
           link_closed: Linkki tähän tapaamiseen liittymiseksi julkaistaan muutama minuutti ennen tapaamisen alkamista
           live_event: Tämä tapaaminen on parhaillaan käynnissä
@@ -590,7 +629,11 @@ fi-pl:
           micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
+          pending_address: Tapaamisen sijainti ilmoitetaan pian.
           redirect_notice: Tämä tapaaminen on toisessa osallistumistilassa, joten sinut on siirretty osallistumistilaan nimeltä %{current_space_name}.<br>Jos haluat, voit siirtyä takaisin osallistumistilaan nimeltä <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_and_qr_code: Ilmoittautuminen ja QR-koodi
+          registration_code: 'Ilmoittautumiskoodi: %{code}'
+          registration_code_help_text: Ilmoittautumisesi ja QR-koodi
           registration_state:
             validated: VAHVISTETTU
             validation_pending: ODOTTAA VAHVISTUSTA
@@ -598,6 +641,9 @@ fi-pl:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           visit_finished: Näytä mennyt tapaaminen
+          waitlist:
+            description: Mikäli tapaamisesta vapautuu paikka, käsittelemme ilmoittautumisesi automaattisesti ja ilmoitamme tästä sähköpostitse.
+            status: Olet odotuslistalla
           withdraw_btn_hint: Voit peruuttaa tapahtumasi, jos muutat mieltäsi. Tapahtumaa ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapahtumien listasta.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapahtuman?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
           withdraw_meeting: Peru
@@ -625,6 +671,15 @@ fi-pl:
             start_time: Alkamispäivä
             taxonomies: Luokittelut
             title: Otsikko
+        registration:
+          actions: Toiminnot
+          fields:
+            email: Sähköpostiosoite
+            name: Nimi
+            status: Tila
+          status:
+            attended: Osallistunut
+            not_attended: Ei osallistunut
       polls:
         questions:
           closed_question:
@@ -668,6 +723,7 @@ fi-pl:
         confirmation:
           confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
           details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
+          registration_code: Ilmoittautumiskoodisi on %{code}. Näytä alla näkyvä QR-koodi tapaamisen järjestäjille vahvistaaksesi osallistumisesi.
       registration_type:
         on_different_platform: Toisella alustalla
         on_this_platform: Tällä alustalla
@@ -682,6 +738,9 @@ fi-pl:
         destroy:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
+        waitlist:
+          invalid: Odotuslistalle liittyminen epäonnistui.
+          success: Liityit tapaamisen odotuslistalle. Ilmoitamme, mikäli paikkoja vapautuu ja pääset mukaan tapaamiseen.
       type_of_meeting:
         hybrid: Hybridi
         in_person: Fyysinen
@@ -773,6 +832,8 @@ fi-pl:
     statistics:
       attendees_count: Tapaamisen osallistujat
       meetings_count: Tapaamista
+      meetings_count_tooltip: Järjestettyjen tapaamisten lukumäärä, verkossa ja fyysisesti.
+      participatory_space_meetings_count: Tapaamisia
   devise:
     mailer:
       join_meeting:

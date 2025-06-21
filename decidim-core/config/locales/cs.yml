@@ -72,7 +72,6 @@ cs:
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/promoted_to_admin_event: Povýšen na administrátora skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
-      decidim/resource_endorsed_event: Zdroj byl schválen
       decidim/resource_hidden_event: Zdroj skryt
       decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
@@ -99,11 +98,11 @@ cs:
         few: Změny
         many: Změny
         other: Změny
-      decidim/endorsement:
-        one: Schválení
-        few: Schválení
-        many: Schválení
-        other: Schválení
+      decidim/like:
+        one: Líbí se mi
+        few: Líbí se mi
+        many: Líbí se mi
+        other: Líbí se mi
       decidim/user:
         one: Žádní uživatelé
         few: Uživatelé
@@ -467,11 +466,11 @@ cs:
         few: komentáře
         many: komentáře
         other: komentáře
-      endorsements:
-        one: schválení
-        few: schválení
-        many: schválení
-        other: schválení
+      likes:
+        one: líbí se mi
+        few: líbí se mi
+        many: líbí se mi
+        other: líbí se mi
       official_author: Oficiální
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -620,6 +619,10 @@ cs:
         name: Obrázek hrdiny a CTA
       hero_settings_form:
         background_image: Obrázek pozadí
+        cta_button_path: URL tlačítka Výzvy k akci
+        cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+        cta_button_text: Text tlačítka Výzvy k akci
+        cta_button_text_help: Text tlačítka Výzva k akci na domovské stránce můžete přepsat do každého jazyka používaného ve vaší organizaci. Pokud je nenastavíte, použije se výchozí hodnota. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem.
         welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
@@ -866,18 +869,6 @@ cs:
         error: Chyba při nahrávání obrázku.
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
-    endorsement_buttons_cell:
-      already_endorsed: Vrátit označení Líbí se
-      endorse: Líbí se mi
-    endorsers_list:
-      endorsed_by:
-        one: Líbí se %{visible}
-        few: Líbí se %{visible} a %{others}
-        many: Líbí se %{visible} a %{others}
-        other: Líbí se %{visible} a %{others}
-      others: "%{count} dalších"
-      title: Líbí se
-      you: vy
     ephemeral_user: Návštěvník
     errors:
       files:
@@ -986,6 +977,7 @@ cs:
       reports:
         parent_hidden:
           email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
+          email_subject: Váš %{resource_type} již není viditelný
         resource_hidden:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
@@ -993,11 +985,6 @@ cs:
           notification_title: |-
             Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a myslíme si, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
-        email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
-        email_subject: "%{endorser_nickname} provedl nové schválení"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
@@ -1152,6 +1139,12 @@ cs:
         last_activity: Poslední aktivita
       name: Poslední aktivity
       no_activities_warning: Pro tento typ aktivity nejsou k dispozici žádné položky.
+    like_buttons_cell:
+      already_liked: Vrátit označení Líbí se
+      like: Like
+    likes_list:
+      title: Toto se líbí
+      you: vám
     linked_resource_from:
       included_in: Zahrnuto v
     links:
@@ -1491,6 +1484,8 @@ cs:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
           welcome: Vítejte na %{organization}!
+        statistics:
+          headline: Statistiky
         sub_hero:
           register: Registrovat
           register_title: Vytvořit účet
@@ -1521,6 +1516,7 @@ cs:
         greetings_html: |
           S pozdravem,<br>
           %{organization_name}
+        hello_html: Vážený <strong>%{username}</strong>,
         log_in: přihlásit se
         never_logged_in: nikdy se nepřihlásil
         subject: Upozornění na neaktivní účet
@@ -1559,6 +1555,22 @@ cs:
         scan: Naskenujte QR kód
         title: QR kód pro %{resource_title}
     reported_mailer:
+      hidden_automatically:
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        participatory_space: Participativní prostor
+        reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
+        subject: Zdroj byl automaticky skryt
+      hidden_manually:
+        content: Nahlášený obsah
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
+        participatory_space: Participativní prostor
+        reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl skrytý od %{moderator}.</p>
+        subject: Zdroj byl skryt %{moderator}
       report:
         authors: Autoři
         content: Nahlášený obsah
@@ -1576,15 +1588,14 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      hide:
+        success: Tento zdroj byl skryt.
       parent_hidden:
         report_details: Nadřazený dokument byl skryt
     resource:
       controls_label: Ovládání zdrojů
     resource_autocomplete:
       help: Zadejte hledané návrhy
-    resource_endorsements:
-      create:
-        error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
       prompt: Vyberte oblast působnosti
@@ -1624,9 +1635,6 @@ cs:
       confirm_unload: Tato stránka obsahuje neuložené změny. Opravdu chcete opustit tuto stránku?
       embed:
         title: Vložený obsah videa
-      extended_navigation_bar:
-        more: Více
-        unfold: Rozvinout
       filter_form_help:
         help: Formulář níže filtruje výsledky hledání dynamicky, pokud se změní podmínky vyhledávání.
         skip: Přeskočit na výsledky
@@ -1680,7 +1688,7 @@ cs:
         share_to: Sdílet na %{service}
     statistics:
       comments_count: Komentáře
-      endorsements_count: Schválení
+      comments_count_tooltip: Celkový počet komentářů zveřejněných v tomto prostoru.
       followers_count: Sledující
       headline: Statistiky
       no_stats: Zatím nejsou žádné statistiky.
@@ -1709,6 +1717,7 @@ cs:
         greeting: Dobrý den %{name},
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
         instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
+        instructions_title: "<strong>Co to pro vás znamená</strong>"
       notify_deprecation_to_owner:
         greeting: Dobrý den %{name},
         instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'

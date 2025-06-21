@@ -25,7 +25,6 @@ cs:
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -176,7 +175,6 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto shromáždění
-          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Členové
           see_assembly: Zobrazit shromáždění
@@ -402,7 +400,6 @@ cs:
           facebook_handler: Handler sociálních médií pro Facebook
           follows_count: Počet uživatelů sledujících tento prostor
           github_handler: Handler sociálních médií pro GitHub
-          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
           id: Jedinečný identifikátor ttohoto shromáždění
           included_at: Datum, kdy bylo shromáždění zahrnuto
           instagram_handler: Handler sociálních médií pro Instagram
@@ -436,6 +433,7 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
+      assemblies_count_tooltip: Počet veřejných shromáždění, kde jsou přijímána kolektivní rozhodnutí.
   layouts:
     decidim:
       assemblies:

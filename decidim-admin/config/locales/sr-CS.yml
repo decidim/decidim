@@ -30,8 +30,6 @@ sr:
       organization:
         alert_color: Upozorеnjе
         badges_enabled: Omogući značke
-        cta_button_path: Put dugmeta poziva na akciju
-        cta_button_text: Tekst dugmeta poziva na akciju
         customize_welcome_notification: Prilagodi obaveštenje dobrodošlice
         default_locale: Podrazumevana vrednost
         description: Opis
@@ -40,13 +38,6 @@ sr:
         favicon: Ikona
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
-        highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
-        highlighted_content_banner_action_title: Naslov dugmeta akcije
-        highlighted_content_banner_action_url: Link dugmeta akcije
-        highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
-        highlighted_content_banner_image: Slika
-        highlighted_content_banner_short_description: Kratak opis
-        highlighted_content_banner_title: Naslov
         instagram_handler: Administrator Instagram-a
         logo: Logo
         name: Ime
@@ -238,9 +229,6 @@ sr:
             'false': Objavljeno
             'true': Neobjavljeno
         search_label: Pretraži
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
-          title_cont: Pretraži %{collection} prema nazivu.
       help_sections:
         form:
           save: Sačuvaj
@@ -293,7 +281,6 @@ sr:
         areas: Oblasti
         configuration: Konfiguracija
         help_sections: Sekcije za pomoć
-        homepage: Početna stranica
         impersonations: Predstavljanja
         manage: Upravljaj
         newsletters: Bilteni
@@ -460,14 +447,6 @@ sr:
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
           success: Organizacija je uspešno ažurirana.
-      organization_appearance:
-        edit:
-          update: Ažuriraj
-        form:
-          homepage_appearance_title: Promeni izgled početne stranice
-          images:
-            preview: Pregled
-          omnipresent_banner_appearance_title: Izmeni sveprisutni baner
       shared:
         gallery:
           add_images: Dodaj slike

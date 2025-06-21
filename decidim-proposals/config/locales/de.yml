@@ -18,7 +18,6 @@ de:
         address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
-        automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
@@ -27,7 +26,6 @@ de:
         longitude: Längengrad
         scope_id: Bereich
         state: Status
-        suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
       proposal_answer:
         answer: Antworten
@@ -77,16 +75,13 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              voted: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              voted: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
-      decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
@@ -145,8 +140,6 @@ de:
             values:
               state_not_published: Unbeantwortet
               state_published: Beantwortet
-        search_placeholder:
-          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
     application:
       geocoding:
         not_configured: Geolokalisierung wurde nicht eingestellt!
@@ -156,7 +149,6 @@ de:
           amend: Änderungsvorschlag
           comment: Kommentieren
           create: Einen Vorschlag erstellen
-          endorse: Unterstützung
           vote: Abstimmen
           vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
@@ -179,7 +171,6 @@ de:
             default_sort_order_options:
               automatic: Automatisch
               most_commented: Am häufigsten kommentiert
-              most_endorsed: Am häufigsten befürwortet
               most_followed: Am häufigsten gefolgt
               most_voted: Am meisten gewählt
               random: Zufällig
@@ -232,7 +223,6 @@ de:
             amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer angemeldet sein, um die vorgenommenen Ergänzungen zu sehen.
             announcement: Ankündigung
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
-            automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Vorschläge erstellen
             creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
@@ -241,18 +231,14 @@ de:
             default_sort_order_options:
               automatic: Automatisch
               most_commented: Am meisten kommentiert
-              most_endorsed: Am meisten befürwortet
               most_followed: Am häufigsten gefolgt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
-            endorsements_blocked: Zustimmungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
-            suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Stimmensammlung deaktiviert
             votes_enabled: Stimmensammlung aktiviert
             votes_hidden: Stimmenanzahl ausgeblendet (falls die Stimmensammlung aktiviert ist, wird die Anzahl Stimmen nicht angezeigt)
@@ -332,11 +318,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen.
-        endorsing_enabled:
-          email_intro: 'Sie können Vorschläge in %{participatory_space_title} unterstützen! Beteiligen Sie sich auf dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
-          notification_title: Sie können nun Vorschläge auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>.
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -443,7 +424,6 @@ de:
           cost_report: Ein Kostenbericht für den Vorschlag
           created_at: Erstellungsdatum dieses Vorschlags
           created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
-          endorsements: Die Anzahl Unterstützungen dieses Vorschlags
           execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
           follows_count: Die Anzahl Folgende dieses Vorschlags
           id: Die eindeutige Bezeichnung des Vorschlags
@@ -661,13 +641,8 @@ de:
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
-            endorsements_count: Anzahl der Befürwortungen
-            endorsers: Befürworter
             evaluators: Bewertende Personen
             link: Vorschlag anzeigen
-            n_more_endorsers:
-              one: und 1 mehr
-              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
@@ -911,7 +886,7 @@ de:
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
-          discard: Verwerfen Sie diesen Entwurf
+          discard: Entwurf verwerfen
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
@@ -940,7 +915,7 @@ de:
           list_mode: Listen-Ansicht
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
-          see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          see_all_withdrawn: Zurückgezogene Vorschläge ansehen
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
@@ -948,7 +923,6 @@ de:
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
-          most_endorsed: Am meisten befürwortet
           most_followed: Am meisten gefolgt
           most_voted: Am meisten gewählt
           random: Zufällig
@@ -976,9 +950,6 @@ de:
           changes_at_title: Ergänzung zu „%{title}“
           edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
-          hidden_endorsers_count:
-            one: und %{count} weitere Person
-            other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
           link_to_promoted_emendation_help_text: Dieser Vorschlag hat eine markierte Berichtigung
@@ -1030,7 +1001,7 @@ de:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
           step_2: Vorschlag veröffentlichen
-          title: Schritten zur Erstellung von Vorschlägen
+          title: Schritte der Vorschlagserstellung
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.

@@ -232,8 +232,26 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      # Rails 7.0 default is vips, but
+      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
+      # And we are going to use it while migrating rails application
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
+      end
+
+      initializer "decidim_core.active_storage_method_patch" do |_app|
+        if Rails::VERSION::MAJOR < 8
+          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
+          module Attachment
+            def named_variants
+              record.attachment_reflections[name]&.named_variants || {}
+            end
+          end
+
+          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
+        else
+          Decidim.deprecator.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
+        end
       end
 
       initializer "decidim_core.action_controller" do |_app|
@@ -244,8 +262,18 @@ module Decidim
         end
       end
 
+      initializer "decidim_core.active_support" do |app|
+        # Rails 7.0 default
+        app.config.active_support.disable_to_s_conversion = true
+        app.config.active_support.cache_format_version = 7.0
+      end
+
       initializer "decidim_core.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim_core.action_view" do |app|
+        app.config.action_view.sanitizer_vendor = Rails::HTML4::Sanitizer
       end
 
       initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
@@ -393,7 +421,7 @@ module Decidim
 
         next unless legacy_api_key
 
-        ActiveSupport::Deprecation.warn(
+        Decidim.deprecator.warn(
           <<~DEPRECATION.strip
             Configuring maps functionality has changed.
 
@@ -443,7 +471,7 @@ module Decidim
       initializer "decidim_core.validators" do
         config.to_prepare do
           # Decidim overrides to the file content type validator
-          require "file_content_type_validator"
+          require File.expand_path("#{Decidim::Core::Engine.root}/app/validators/file_content_type_validator")
         end
       end
 
@@ -655,7 +683,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|

@@ -38,7 +38,6 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Bron gesteund
   activerecord:
     attributes:
       decidim/user:
@@ -51,9 +50,6 @@ nl:
       decidim/amendment:
         one: Amendement
         other: Amendementen
-      decidim/endorsement:
-        one: Aanbeveling
-        other: Aanbevelingen
       decidim/user:
         one: Deelnemer
         other: Deelnemers
@@ -225,9 +221,6 @@ nl:
       comments:
         one: commentaar
         other: commentaren
-      endorsements:
-        one: ondersteuning
-        other: aantekeningen
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -478,11 +471,6 @@ nl:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
         level_up:
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
-        email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-        email_subject: "%{endorser_nickname} heeft een nieuwe bevestiging uitgevoerd"
-        notification_title: De <a href="%{resource_path}">%{resource_title}</a> %{resource_type} is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -763,9 +751,6 @@ nl:
     reports:
       create:
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
-    resource_endorsements:
-      create:
-        error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
       prompt: Selecteer een scope
@@ -795,9 +780,6 @@ nl:
         close_modal: Sluit venster
         ok: Ok
         title: Bevestigen
-      extended_navigation_bar:
-        more: Meer
-        unfold: Ontvouwen
       filter_form_help:
         help: Het formulier hieronder filtert de zoekresultaten dynamisch wanneer de zoekvoorwaarden worden gewijzigd.
         skip: Ga naar resultaten
@@ -828,7 +810,6 @@ nl:
         share_link: Link delen
     statistics:
       comments_count: Reacties
-      endorsements_count: Aanbevelingen
       followers_count: Volgers
       headline: Statistieken
       no_stats: Er zijn nog geen statistieken.

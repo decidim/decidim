@@ -18,7 +18,6 @@ fi:
         address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
@@ -27,7 +26,6 @@ fi:
         longitude: Pituusaste
         scope_id: Teema
         state: Tila
-        suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
         title: Otsikko
       proposal_answer:
         answer: Vastaa
@@ -77,16 +75,16 @@ fi:
           attributes:
             base:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
-              voted: On vastaanottanut ääniä tai suosituksia
+              voted: On vastaanottanut ääniä tai tykkäyksiä
         proposals_split:
           attributes:
             base:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
-              voted: On vastaanottanut ääniä tai suosituksia
+              voted: On vastaanottanut ääniä tai tykkäyksiä
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Ehdotuksen luokitteluja on muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
-      decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
+      decidim/proposals/liking_enabled_event: Ehdotusten tykkääminen käytössä
       decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
       decidim/proposals/publish_proposal_event: Ehdotus julkaistiin
       decidim/proposals/voting_enabled_event: Ehdotuksen äänestys käytössä
@@ -95,7 +93,9 @@ fi:
       decidim:
         proposals:
           proposal:
+            budget_text: Ehdotus <span class="resource-link">%{link}</span> luotiin
             import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
+            import_to_proposal_text: Ehdotus <span "resource-link">%{link}</span> luotiin
             merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
             merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
             split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'
@@ -146,7 +146,7 @@ fi:
               state_not_published: Ei vastattu
               state_published: Vastattu
         search_placeholder:
-          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
+          id_string_or_title_cont: Hae kohteesta %{collection} ID-numeron tai otsikon perusteella
     application:
       geocoding:
         not_configured: Karttatoimintojen asetuksia ei ole määritetty!
@@ -156,7 +156,7 @@ fi:
           amend: Muokkaa
           comment: Kommentoi
           create: Luo ehdotus
-          endorse: Suosittele
+          like: Tykkää
           vote: Äänestä
           vote_comment: Äänestä kommenttia
           withdraw: Peru
@@ -179,8 +179,8 @@ fi:
             default_sort_order_options:
               automatic: Automaattinen
               most_commented: Eniten kommentoidut
-              most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
+              most_liked: Eniten tykätyt
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
@@ -232,7 +232,6 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
-            automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda ehdotuksia
             creation_enabled_readonly: Tämä asetus on pois päältä, kun olet ottanut ehdotusaineistot käyttöön. Voit ladata uusia ehdotusaineistoja siirtymällä ehdotusaineistot-osioon ja seuraamalla kyseisen osion ohjeistusta.
@@ -241,18 +240,17 @@ fi:
             default_sort_order_options:
               automatic: Automaattinen
               most_commented: Eniten kommentoidut
-              most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
+              most_liked: Eniten tykätyt
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten laatijoita
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
-            suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
@@ -332,11 +330,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
-          email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_intro: 'Voit tykätä ehdotuksista osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tältä sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat osallistumistilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Ehdotusten tykkääminen on alkanut kohteessa %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten tykkäämisen</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_url}">tämän osallistumistilan</a> kommentissa.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
@@ -443,12 +441,12 @@ fi:
           cost_report: Ehdotuksen kustannusraportti
           created_at: Ehdotuksen laatimisaika
           created_in_meeting: Oliko ehdotus laadittu tapaamisessa
-          endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
           execution_period: Ehdotuksen toteutuksen aikaväli
           follows_count: Ehdotuksen seuraajien lukumäärä
           id: Ehdotuksen yksilöivä tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
+          likes: Ehdotuksen keräämien tykkäysten lukumäärä
           longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
           meeting_urls: Tapaamisten URL-osoitteet, joissa tämä ehdotus esiteltiin tai siitä keskusteltiin
           original_proposal: Alkuperäisen ehdotuksen viite, mikäli kyseessä on muutosehdotus
@@ -661,13 +659,13 @@ fi:
             body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
             documents: Asiakirjat
-            endorsements_count: Suositusten lukumäärä
-            endorsers: Suosittelijat
             evaluators: Arvioijat
+            likes: Tykkäykset
+            likes_count: Tykkäysten lukumäärä
             link: Näytä ehdotus
-            n_more_endorsers:
-              one: ja 1 muu
-              other: ja %{count} muuta
+            n_more_likes:
+              one: ja 1 lisää
+              other: ja %{count} lisää
             photos: Kuvat
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapaamiset
@@ -948,8 +946,8 @@ fi:
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
-          most_endorsed: Eniten suositellut
           most_followed: Eniten seuratut
+          most_liked: Eniten tykätyt
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
@@ -976,7 +974,7 @@ fi:
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa
           estimated_cost: Arvioitu kustannus
-          hidden_endorsers_count:
+          hidden_likes_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
@@ -994,6 +992,7 @@ fi:
         update:
           title: Muokkaa ehdotusta
         vote_button:
+          already_voted: Äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
@@ -1059,6 +1058,9 @@ fi:
         proposal_project: 'Ehdotus sisältyy seuraaviin projekteihin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
     statistics:
+      participatory_space_proposals_count: Ehdotukset
       proposals_accepted: Hyväksyttyä ehdotusta
       proposals_count: Ehdotusta
+      proposals_count_tooltip: Lähetettyjen ehdotusten lukumäärä sekä niiden keräämien äänien määrä.
+      votes: 'Ääniä:'
       votes_count: Ääntä

@@ -7,7 +7,6 @@ sv:
         area_id: Område
         decidim_scope_id: Indelning
         description: Beskrivning
-        hashtag: Hashtag
         offline_votes: Fysiska underskrifter
         offline_votes_for_scope: Personliga underskrifter för %{scope_name}
         scope_id: Indelning
@@ -77,6 +76,7 @@ sv:
   decidim:
     admin:
       actions:
+        cannot_answer: Kan inte svara på detta initiativ
         new_initiative_type: Ny initiativtyp
         new_initiative_type_scope: Skapa indelning för initiativ
       filters:
@@ -94,7 +94,7 @@ sv:
           type_id_eq:
             label: Typ
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn
       initiatives_settings:
         update:
           error: Det gick inte att uppdatera inställningarna för initiativ.
@@ -249,6 +249,7 @@ sv:
             success: Initiativet har skickats till teknisk validering.
             update: Uppdatera
           form:
+            attachments_title: Bilagor
             settings: Inställningar
             title: Allmän information
           index:
@@ -387,9 +388,9 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: Nytt initiativ från %{author_nickname}
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
+        like_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, som du följer, gillar följande initiativ. Kanske du vill bidra till diskussionen:"
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} gillar Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> gillar initiativet <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
@@ -453,11 +454,6 @@ sv:
         initiatives:
           closed_initiatives_warning: För tillfället finns inga öppna initiativ, men här är en lista över alla avslutade initiativ.
           no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentar
-              other: Kommentarer
         orders:
           label: 'Sortera initiativ efter:'
           most_commented: Mest kommenterade

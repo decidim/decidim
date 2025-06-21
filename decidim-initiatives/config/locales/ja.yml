@@ -7,7 +7,6 @@ ja:
         area_id: エリア
         decidim_scope_id: スコープ
         description: 説明
-        hashtag: ハッシュタグ
         offline_votes: 対面署名
         offline_votes_for_scope: '%{scope_name} の 対面署名'
         scope_id: スコープ
@@ -92,8 +91,6 @@ ja:
               validating: 技術的検証
           type_id_eq:
             label: タイプ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       initiatives_settings:
         update:
           error: イニシアチブ設定の更新中に問題が発生しました。
@@ -440,11 +437,6 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} による新しいイニシアチブの作成'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって作成されました。
-        endorse_initiative_event:
-          email_intro: "あなたがフォローしている%{author_name} %{author_nickname}は、次のイニシアチブを承認しました。会話に貢献したい場合もあります："
-          email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{author_nickname} によってオススメされたイニシアチブ'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によってオススメされました。
         revoke_membership_request:
           email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
@@ -538,10 +530,6 @@ ja:
         initiatives:
           closed_initiatives_warning: 現在、オープンなイニシアチブはありませんが、ここに記載されているすべてのクローズドイニシアチブを見つけることができます。
           no_initiatives_warning: 検索基準に一致するイニシアチブは見つかりませんでした
-        interactions:
-          comments_count:
-            count:
-              other: コメント
         orders:
           label: 'イニシアチブの並べ替え:'
           most_commented: コメントが多い順
@@ -665,7 +653,6 @@ ja:
           description: イニシアチブの説明
           first_progress_notification_at: 最初の進捗通知の送信日時
           follows_count: このスペースをフォローしているユーザー数
-          hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
           offline_votes: このプラットフォーム外でこのイニシアチブが受け取った署名の数
           online_votes: このイニシアチブが（プラットフォームを介して直接）オンラインで受信した署名の数
           published_at: このスペースの公開日時

@@ -25,7 +25,6 @@ bg:
       debates:
         actions:
           comment: Коментар
-          endorse: Одобрявам
         name: Дебати
         settings:
           global:
@@ -36,8 +35,6 @@ bg:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
             creation_enabled: Участниците могат да създават дебати
-            endorsements_blocked: Одобренията са блокирани
-            endorsements_enabled: Одобренията са активирани
     debates:
       actions:
         close: Затвори
@@ -111,7 +108,6 @@ bg:
           state: Статус
           state_values:
             closed: Затворен
-            open: Отворен
         index:
           new_debate: Нов дебат
         new:
@@ -124,10 +120,8 @@ bg:
           recent: Най-скорошни
           updated: Скоро обновени
         show:
-          debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
-          open: Отворен дебат
           participants_count: Участници
         update:
           invalid: Възникна проблем при актуализирането на дебата.

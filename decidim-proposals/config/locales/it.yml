@@ -13,13 +13,11 @@ it:
         address: Indirizzo
         answer: Risposta
         answered_at: Risposto a
-        automatic_hashtags: Hashtag aggiunti automaticamente
         body: Corpo del testo
         decidim_scope_id: Ambito
         has_address: Ha un indirizzo
         scope_id: Ambito
         state: Stato
-        suggested_hashtags: Hashtag consigliati
         title: Titolo
       proposal_answer:
         answer: Risposta
@@ -55,7 +53,6 @@ it:
               not_official: Non sono ufficiali
     models:
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
-      decidim/proposals/endorsing_enabled_event: Approvazione della proposta abilitata
       decidim/proposals/proposal_mentioned_event: Proposta menzionata
       decidim/proposals/publish_proposal_event: Proposta pubblicata
       decidim/proposals/voting_enabled_event: Voto della proposta abilitato
@@ -88,14 +85,11 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-        search_placeholder:
-          id_string_or_title_cont: Cerca %{collection} per ID o titolo.
     components:
       proposals:
         actions:
           amend: Modificare
           comment: Commento
-          endorse: Sostieni
           vote_comment: Vota per il commento
           withdraw: Ritirare
         name: Proposte
@@ -142,14 +136,10 @@ it:
             amendments_visibility_help: Se viene selezionata l'opzione "Gli emendamenti sono visibili solo ai loro autori", il partecipante deve essere loggato per vedere gli emendamenti apportati.
             announcement: Annuncio
             answers_with_costs: Abilita i costi sulle risposte proposte
-            automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
-            endorsements_blocked: Approvazioni bloccate
-            endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
             publish_answers_immediately: Pubblica immediatamente le risposte proposte
-            suggested_hashtags: Gli hashtag hanno suggerito agli utenti nuove proposte
             votes_blocked: Voti bloccati
             votes_enabled: Voti abilitati
     events:
@@ -179,10 +169,6 @@ it:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
-        endorsing_enabled:
-          email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
-          email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
         proposal_mentioned:
           email_intro: La tua proposta%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_url}">in questo spazio</a> nei commenti.
           email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
@@ -312,11 +298,6 @@ it:
             body: Corpo
             comments_count: Conteggio dei Commenti
             documents: Documenti
-            endorsements_count: Numero di Appoggi
-            endorsers: Sostenitori
-            n_more_endorsers:
-              one: e 1 altro
-              other: e altri %{count}
             photos: Foto
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
@@ -502,7 +483,6 @@ it:
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati
-          most_endorsed: I più approvati
           most_followed: I più seguiti
           most_voted: Più votate
           random: A caso
@@ -523,9 +503,6 @@ it:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
           estimated_cost: Costo stimato
-          hidden_endorsers_count:
-            one: e %{count} altra persona
-            other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa
           link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa

@@ -42,8 +42,6 @@ zh-TW:
         available_authorizations: 可用認證方式
         badges_enabled: 啟用勳章
         comments_max_length: 留言字數上限 (0 表示使用預設)
-        cta_button_path: 行動呼籲按鈕路徑
-        cta_button_text: 行動呼籲按鈕文字
         customize_welcome_notification: 自訂歡迎通知
         default_locale: 預設語言
         description: 說明
@@ -58,13 +56,6 @@ zh-TW:
         header_snippets: 頁首片段
         highlight_alternative_color: 高調、替代
         highlight_color: 高調
-        highlighted_content_banner_action_subtitle: 行動按鈕子標題
-        highlighted_content_banner_action_title: 行動按鈕標題
-        highlighted_content_banner_action_url: 行動按鈕網址
-        highlighted_content_banner_enabled: 顯示強調的內容廣告
-        highlighted_content_banner_image: 圖片
-        highlighted_content_banner_short_description: 簡介
-        highlighted_content_banner_title: 標題
         host: 主機
         instagram_handler: Instagram 處理器
         logo: 標誌
@@ -389,11 +380,7 @@ zh-TW:
             'true': 取消發佈
         search_label: 搜尋
         search_placeholder:
-          name_or_nickname_or_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
           report_count_eq: 報告數量等於
-          reported_id_string_or_reported_content_cont: 按報告 Id 或內容搜索%{collection}。
-          title_cont: 按標題搜索%{collection}。
-          user_name_or_user_nickname_or_user_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
         state_eq:
           label: 狀態
           values:
@@ -481,7 +468,6 @@ zh-TW:
       logs:
         filters:
           participatory_space: 尋找參與空間
-          text: 按用戶電子郵件、姓名或暱稱進行搜索。
           user: 使用者
         logs_list:
           no_logs_yet: 尚未有任何日誌記錄.
@@ -505,7 +491,6 @@ zh-TW:
         configuration: 配置
         content: 被檢舉的內容
         help_sections: 幫助部分
-        homepage: 首頁
         impersonations: 模擬登錄
         manage: 管理
         moderation: 全局審查
@@ -733,20 +718,6 @@ zh-TW:
         update:
           error: 更新此組織時發生問題。
           success: 組織更新成功
-      organization_appearance:
-        edit:
-          update: 更新
-        form:
-          colors:
-            colors_title: 組織顏色
-            colors_warning_html: 警告！更改這些顏色可能會破壞可達性對比度。您可以使用<a href="%{link}">WebAIM對比度檢查器</a>或其他類似工具檢查您選擇的對比度。
-          cta_button_text_help: 您可以覆蓋主頁上每種語言對應的"呼籲行動"按鈕文本。如果未設置，將使用默認值。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。
-          homepage_appearance_title: 編輯主頁外觀
-          homepage_highlighted_content_banner_title: 重點顯示的內容橫幅
-          images:
-            layout_appearance_title: 編輯版面外觀
-            preview: 預覽
-          omnipresent_banner_appearance_title: 編輯無處不在的橫幅
       participatory_space_private_users:
         create:
           error: 在此參與空間中添加私人參與者時出現問題。
