@@ -143,7 +143,7 @@ fi:
           updated: Viimeksi päivitetyt
         show:
           close_debate: Sulje keskustelu
-          debate_closed: Suljettu
+          debate_closed: Suljetut
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa keskustelua

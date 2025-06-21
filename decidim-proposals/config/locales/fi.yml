@@ -563,6 +563,9 @@ fi:
             endorsements_count: Suositusten lukumäärä
             endorsers: Suosittelijat
             link: Näytä ehdotus
+            n_more_endorsers:
+              one: ja 1 lisää
+              other: ja %{count} lisää
             photos: Kuvat
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapaamiset

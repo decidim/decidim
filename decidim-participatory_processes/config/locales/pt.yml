@@ -105,6 +105,7 @@ pt:
           categories: Categorias
           components: Componentes
           info: Sobre este processo
+          landing_page: Página de entrada
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo

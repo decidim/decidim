@@ -20,6 +20,8 @@ th:
         description: คำอธิบาย
         name: ชื่อ
       organization:
+        highlighted_content_banner_short_description: คำอธิบายสั้น
+        highlighted_content_banner_title: ชื่อ
         machine_translation_display_priority_translation: แปลข้อความก่อน
         name: ชื่อ
         official_img_footer: ส่วนท้ายของโลโก้อย่างเป็นทางการ
@@ -107,6 +109,9 @@ th:
         user_group:
           fields:
             name: ชื่อ
+      organization_appearance:
+        edit:
+          update: อัปเดต
       resources:
         index:
           headers:
