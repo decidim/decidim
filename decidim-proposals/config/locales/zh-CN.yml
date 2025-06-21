@@ -13,13 +13,11 @@ zh-CN:
         address: 地址
         answer: 答案
         answered_at: 回答于
-        automatic_hashtags: 自动添加标签
         body: 正文内容
         decidim_scope_id: 范围
         has_address: 有地址
         scope_id: 范围
         state: 状态
-        suggested_hashtags: 建议的哈希标签
         title: 标题
       proposal_answer:
         answer: 答案
@@ -114,11 +112,9 @@ zh-CN:
             amendments_visibility_help: 如果选择“修改仅对作者可见”，参与者必须登录才能看到所做的修改。
             announcement: 通 知
             answers_with_costs: 启用建议答案的成本
-            automatic_hashtags: 添加到所有建议的标签
             comments_blocked: 评论已阻止
             proposal_answering_enabled: 建议答案已启用
             publish_answers_immediately: 立即发布提案答案
-            suggested_hashtags: 推荐给参与者的新建议标签
     events:
       proposals:
         admin:

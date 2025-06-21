@@ -45,12 +45,6 @@ ko:
         from: 보낸사람의 이메일 주소
         github_handler: Github handler
         highlight_color: 하이라이트
-        highlighted_content_banner_action_title: 실행버튼 URL
-        highlighted_content_banner_action_url: 실행버튼 URL
-        highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
-        highlighted_content_banner_image: 이미지
-        highlighted_content_banner_short_description: 요약
-        highlighted_content_banner_title: 제목
         host: 호스트
         instagram_handler: Instagram handler
         logo: 로고
@@ -542,11 +536,6 @@ ko:
           hidden: 숨겨짐
           show: 표시
           title: 참가자의 이메일 주소 보기
-      organization_appearance:
-        form:
-          header_snippets:
-            header_snippets_help_html: 이 필드를 사용하여 HTML 헤드에 항목을 추가할 수 있습니다. 가장 일반적인 용도는 자바스크립트나 CSS가 필요한 타사 서비스를 통합하는 것입니다. 또한 이를 사용하여 HTML에 추가 메타 태그를 추가할 수 있습니다. 이는 관리자 섹션이 아닌 공용 페이지에서만 렌더링됩니다. 코드가 외부 API와 상호 작용하거나 애플리케이션 보안 지침을 준수하지 않는 경우 콘텐츠 보안 정책을 변경해야 합니다. 지침 사이트 </a>에서 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy ">에 대해 자세히 알아보십시오.
-          homepage_highlighted_content_banner_title: 강조 표시된 내용 배너
       participatory_space_private_users:
         new:
           create: 생성
@@ -627,8 +616,6 @@ ko:
         areas: 영역
         authorization_workflows: 인증 방식
         dashboard: 대시보드
-        edit_landing_page: 페이지 콘텐츠
-        edit_organization_appearance: 홈페이지 외관 편집
         impersonatable_users: 관리 가능한 참가자
         impersonations: 참가자 관리
         menu: 메뉴

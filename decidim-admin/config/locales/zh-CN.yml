@@ -42,13 +42,6 @@ zh-CN:
         header_snippets: 头部代码片段
         highlight_alternative_color: 高亮显示选项
         highlight_color: 高亮
-        highlighted_content_banner_action_subtitle: 动作按钮字幕
-        highlighted_content_banner_action_title: 动作按钮标题
-        highlighted_content_banner_action_url: 动作按钮 URL
-        highlighted_content_banner_enabled: 显示突出显示的内容素材
-        highlighted_content_banner_image: 图片
-        highlighted_content_banner_short_description: 简短描述
-        highlighted_content_banner_title: 标题
         instagram_handler: Instagram 处理器
         logo: 徽标
         machine_translation_display_priority: 机器翻译显示优先级
@@ -303,7 +296,6 @@ zh-CN:
         areas: 地区
         configuration: 配置
         help_sections: 帮助部分
-        homepage: 主页
         impersonations: 影像
         manage: 管理
         newsletters: 新闻通讯
@@ -473,11 +465,6 @@ zh-CN:
         update:
           error: 更新这个组织时出现问题。
           success: 组织更新成功。
-      organization_appearance:
-        edit:
-          update: 更新
-        form:
-          homepage_highlighted_content_banner_title: 高亮的内容素材
       participatory_space_private_users:
         create:
           error: 在这种参与空间中添加私人参与者时出现了问题。

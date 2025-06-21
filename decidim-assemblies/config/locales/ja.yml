@@ -25,7 +25,6 @@ ja:
         duration: 持続期間
         facebook: Facebook
         github: GitHub
-        hashtag: ハッシュタグ
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -167,7 +166,6 @@ ja:
           attachments: 添付ファイル
           components: コンポーネント
           info: この参加スペースについて
-          landing_page: ランディングページ
           moderations: モデレーション
           private_users: メンバー
           see_assembly: 参加スペースを見る
@@ -393,7 +391,6 @@ ja:
           facebook_handler: Facebook 用のソーシャルメディアハンドラー
           follows_count: このスペースをフォローしているユーザー数
           github_handler: GitHub 用のソーシャルメディアハンドラ
-          hashtag: Twitter/Xで使用される参加スペースのハッシュタグ
           id: このアセンブリの固有ID
           included_at: 参加スペースが含まれた日付
           instagram_handler: Instagramのソーシャルメディアハンドラー
