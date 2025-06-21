@@ -217,6 +217,7 @@ eu:
             Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
             Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren parte-hartzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
+        header_snippets_help_html: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
         index:
           title: Erakundeak
         new:
