@@ -1,0 +1,28 @@
+# Disabled rails configurations
+
+Rails/ContentTag:
+  Enabled: false
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/PluckInWhere:
+  Enabled: false

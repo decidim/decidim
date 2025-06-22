@@ -36,20 +36,8 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
   Max: 49
 
-RSpec/ExpectInHook:
-  Enabled: false
-
 RSpec/IteratedExpectation:
   Enabled: true
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
@@ -57,23 +45,8 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/NestedGroups:
   Max: 7
 
-RSpec/NamedSubject:
-  Enabled: false
-
 RSpec/RepeatedExampleGroupDescription:
   Enabled: true
 
 RSpec/RepeatedExampleGroupBody:
   Enabled: true
-
-RSpec/VerifiedDoubles:
-  Enabled: false
-
-RSpec/LeakyConstantDeclaration:
-  Enabled: false
-
-RSpec/DescribedClass:
-  Enabled: false
-
-RSpec/IndexedLet:
-  Enabled: false

@@ -1,3 +1,5 @@
+require: rubocop
+
 # Common configuration.
 AllCops:
   Include:
@@ -176,7 +178,6 @@ Style/ArrayCoercion:
     with a variable you want to treat as an Array, but you are not certain it is an array.
   StyleGuide: '#array-coercion'
   Safe: false
-  Enabled: false
   VersionAdded: '0.88'
 
 Style/AndOr:
@@ -186,9 +187,6 @@ Style/AndOr:
   SupportedStyles:
     - always
     - conditionals
-
-Style/AsciiComments:
-  Enabled: false
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
@@ -268,12 +266,6 @@ Style/BlockDelimiters:
     - proc
     - it
 
-Style/ExplicitBlockArgument:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: false
-
 Style/HashLikeCase:
   MinBranchesCount: 5
 
@@ -290,7 +282,6 @@ Layout/CaseIndentation:
   IndentationWidth: ~
 
 Style/ClassAndModuleChildren:
-  Enabled: false
   # Checks the style of children definitions at classes and modules.
   #
   # Basically there are two different styles:
@@ -790,9 +781,6 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
-Style/SlicingWithRange:
-  Enabled: false
-
 Naming/PredicateName:
   # Predicate name prefixes.
   NamePrefix:
@@ -820,9 +808,6 @@ Style/PreferredHashMethods:
 Style/DateTime:
   Enabled: true
 
-Style/Documentation:
-  Enabled: false
-
 Style/RaiseArgs:
   EnforcedStyle: exploded
   SupportedStyles:
@@ -846,9 +831,6 @@ Style/RegexpLiteral:
   # If false, the cop will always recommend using %r if one or more slashes
   # are found in the regexp string.
   AllowInnerSlashes: false
-
-Style/SafeNavigation:
-  Enabled: false
 
 Style/Semicolon:
   # Allow ; to separate several expressions on the same line.
@@ -962,9 +944,6 @@ Layout/SpaceInsideStringInterpolation:
   SupportedStyles:
     - space
     - no_space
-
-Style/AccessModifierDeclarations:
-  Enabled: false
 
 Style/SymbolArray:
   EnforcedStyle: brackets
@@ -1089,10 +1068,6 @@ Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be an Integer or
   # a Float.
   Max: 15
-  Enabled: false
-
-Metrics/BlockLength:
-  Enabled: false
 
 Metrics/BlockNesting:
   Max: 3
@@ -1100,12 +1075,10 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
   Max: 100
-  Enabled: false
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
   Max: 100
-  Enabled: false
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
@@ -1118,7 +1091,6 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 15
-  Enabled: false
 
 Metrics/ParameterLists:
   Max: 5
@@ -1140,13 +1112,6 @@ Lint/AmbiguousBlockAssociation:
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
   AllowSafeAssignment: true
-
-Lint/ConstantDefinitionInBlock:
-  Enabled: false
-
-# Call super to initialize state of the parent class.
-Lint/MissingSuper:
-  Enabled: false
 
 # checks whether the end keywords are aligned properly for `do` `end` blocks.
 Layout/BlockAlignment:

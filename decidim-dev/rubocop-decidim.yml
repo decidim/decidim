@@ -11,10 +11,18 @@ require:
   - rubocop-factory_bot
 
 inherit_from:
-  - config/rubocop/performance.yml
-  - config/rubocop/ruby.yml
-  - config/rubocop/rails.yml
-  - config/rubocop/rspec.yml
-  - config/rubocop/faker.yml
-  - config/rubocop/graphql.yml
+  - config/rubocop/performance/configuration.yml
+  - config/rubocop/performance/disabled.yml
+  - config/rubocop/ruby/configuration.yml
+  - config/rubocop/ruby/disabled.yml
+  - config/rubocop/rails/configuration.yml
+  - config/rubocop/rails/disabled.yml
+  - config/rubocop/rspec/configuration.yml
+  - config/rubocop/rspec/disabled.yml
+  - config/rubocop/faker/configuration.yml
+  - config/rubocop/faker/disabled.yml
+  - config/rubocop/graphql/configuration.yml
+  - config/rubocop/graphql/disabled.yml
+  - config/rubocop/factory_bot/configuration.yml
+  - config/rubocop/factory_bot/disabled.yml
   - config/rubocop/disabled.yml

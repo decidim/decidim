@@ -1,0 +1,61 @@
+# Disabled rubocop configurations
+Style/OpenStructUse:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Lint/SelfAssignment:
+  Enabled: false
+
+Style/ArrayCoercion:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SlicingWithRange:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/AccessModifierDeclarations:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+# Call super to initialize state of the parent class.
+Lint/MissingSuper:
+  Enabled: false

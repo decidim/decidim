@@ -8,12 +8,6 @@ Rails/ActionFilter:
     - app/controllers/**/*.rb
     - decidim-*/app/controllers/**/*.rb
 
-Rails/ContentTag:
-  Enabled: false
-
-Rails/CreateTableWithTimestamps:
-  Enabled: false
-
 Rails/EnumUniqueness:
   Include:
     - app/models/**/*.rb
@@ -50,16 +44,11 @@ Rails/HasManyOrHasOneDependent:
     - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
-Rails/InverseOf:
-  Enabled: false
-
 Rails/LexicallyScopedActionFilter:
   Include:
     - app/controllers/**/*.rb
     - decidim-*/app/controllers/**/*.rb
 
-Rails/NotNullColumn:
-  Enabled: false
 
 Rails/Output:
   Include:
@@ -74,22 +63,10 @@ Rails/Output:
   Exclude:
     - "**/db/seeds.rb"
 
-Rails/OutputSafety:
-  Enabled: false
-
-Rails/Pluck:
-  Enabled: false
-
-Rails/RakeEnvironment:
-  Enabled: false
-
 Rails/ReadWriteAttribute:
   Include:
     - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
-
-Rails/ReversibleMigration:
-  Enabled: false
 
 Rails/ScopeArgs:
   Include:
