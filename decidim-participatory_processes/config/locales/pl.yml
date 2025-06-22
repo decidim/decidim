@@ -13,7 +13,6 @@ pl:
         document: Dokument
         domain: Domena
         end_date: Data zakończenia
-        hashtag: Hashtag
         hero_image: Obraz główny
         import_attachments: Importuj załączniki
         import_categories: Importuj kategorie
@@ -39,7 +38,6 @@ pl:
         description: Opis
         developer_group: Grupa inicjatorów
         group_url: Strona internetowa
-        hashtag: Hashtag
         hero_image: Obraz
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
@@ -113,7 +111,6 @@ pl:
         participatory_process_groups: Grupy procesu
         participatory_process_groups_submenu:
           info: Informacje
-          landing_page: Strona startowa
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -121,7 +118,6 @@ pl:
           attachments: Załączniki
           components: Komponenty
           info: O tym procesie
-          landing_page: Strona startowa
           moderations: Moderacje
           process_admins: Użytkownicy procesu
           steps: Etapy

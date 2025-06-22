@@ -103,7 +103,6 @@ hu:
           state: Állapot
           state_values:
             closed: Lezárva
-            open: Nyitva
         index:
           new_debate: Új vita
         new:
@@ -116,10 +115,8 @@ hu:
           recent: Legfrissebb
           updated: Nemrégiben frissítve
         show:
-          debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
-          open: Nyitott vita
           participants_count: Résztvevők
         update:
           invalid: Hiba történt a vita frissítése során.

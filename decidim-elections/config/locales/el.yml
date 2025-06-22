@@ -1,5 +1,9 @@
 el:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Ερωτήσεις
     components:
       elections:
         name: Εκλογές
@@ -15,14 +19,16 @@ el:
         elections:
           edit:
             title: Επεξεργασία εκλογής
-            update: Ενημέρωση εκλογής
           form:
             add_images: Προσθήκη εικόνων
           index:
             title: Εκλογές
           new:
-            create: Δημιουργία εκλογής
             title: Νέα εκλογή
+        questions:
+          edit_questions:
+            new_question: Νέα ερώτηση
+            title: Ερωτήσεις
       models:
         election:
           fields:

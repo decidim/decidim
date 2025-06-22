@@ -1,13 +1,24 @@
 name: "[CI] Lint PR format"
 on:
-  pull_request:
+  # WARNING: we're using `pull_request_target` on this workflow.
+  # This is necessary so the `verify-pr-label-action` can work with forks,
+  # but it introduces a potential security risk, specially if we checkout
+  # code from the forks.
+  #
+  # DO NOT checkout code from forks never in this workflow1
+  #
+  # @see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
+  pull_request_target:
     branches-ignore:
       - "chore/l10n*"
-    types: [opened, edited, synchronize, reopened]
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
+
+permissions:
+  pull-requests: write
 
 jobs:
   check_title:
@@ -21,3 +32,27 @@ jobs:
           regex: "^[A-Z].+"
           min_length: 5
           max_length: 100
+  labeler:
+    needs: check_title
+    name: Add PR labels
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/labeler@v5
+        with:
+          dot: 'true'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+  check_label:
+    needs: labeler
+    name: Check PR labels
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: jesusvasquez333/verify-pr-label-action@v1.4.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          valid-labels: "type: feature, type: change, type: fix, type: removal, target: developer-experience, type: internal"
+          invalid-labels: "type: bug"
+          pull-request-number: "${{ github.event.pull_request.number }}"

@@ -18,7 +18,6 @@ ja:
         address: 住所
         answer: 回答
         answered_at: 回答日時
-        automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
@@ -27,7 +26,6 @@ ja:
         longitude: 経度
         scope_id: 対象範囲
         state: 状態
-        suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
       proposal_answer:
         answer: 回答
@@ -223,7 +221,6 @@ ja:
             amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
             announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
-            automatic_hashtags: すべての提案に下記のハッシュタグを追加する
             comments_blocked: コメントをブロック
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
@@ -240,7 +237,6 @@ ja:
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
-            suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
             votes_blocked: 投票をブロックしました
             votes_enabled: 投票を有効にしました
             votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)

@@ -138,12 +138,14 @@ en:
           name: Process group
         participatory_process_step:
           fields:
+            actions: Actions
             end_date: End date
             start_date: Start date
             title: Title
           name: Participatory process phase
         participatory_process_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role

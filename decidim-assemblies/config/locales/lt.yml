@@ -25,7 +25,6 @@ lt:
         duration: Trukmė
         facebook: Facebook
         github: GitHub
-        hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
         import_attachments: Importuoti priedus
         import_categories: Importuoti kategorijas
@@ -156,7 +155,6 @@ lt:
           attachment_files: Dokumentai
           attachments: Priedai
           components: Komponentai
-          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
       models:
         assembly:
