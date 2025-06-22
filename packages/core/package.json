@@ -11,7 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
-    "@rails/activestorage": "^7.0.8",
+    "@rails/activestorage": "^7.2.201",
     "@tarekraafat/autocomplete.js": "10.2.7",
     "@tiptap/core": "2.1.13",
     "@tiptap/extension-blockquote": "2.1.13",

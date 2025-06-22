@@ -352,11 +352,6 @@ it:
         initiatives:
           closed_initiatives_warning: Attualmente non vi sono iniziative aperte, ma qui puoi trovare un elenco di tutte le iniziative chiuse.
           no_initiatives_warning: Nessuna iniziativa corrisponde ai criteri di ricerca.
-        interactions:
-          comments_count:
-            count:
-              one: Commento
-              other: Commenti
         orders:
           label: 'Ordina le iniziative per:'
           most_commented: Più commentato

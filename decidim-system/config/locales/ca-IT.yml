@@ -215,6 +215,7 @@ ca-IT:
           intro: |
             Si us plau, vés en compte en considerar canviar aquests ajustos. Com menys opcions permetis, millor.
             Permetre extensions d'arxius específiques o tipus MIME pot exposar a les usuàries del sistema a riscos de seguretat i també pot afectar l'accessibilitat del lloc web.
+        header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb APIs externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
         index:
           title: Organitzacions
         new:

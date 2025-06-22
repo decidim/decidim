@@ -12,7 +12,6 @@ lb:
         developer_group: Promoter-Gruppe
         domain: Domäne
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -33,7 +32,6 @@ lb:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -90,7 +88,6 @@ lb:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Startseite
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren

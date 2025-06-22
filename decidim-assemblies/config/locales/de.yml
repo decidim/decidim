@@ -25,7 +25,6 @@ de:
         duration: Aktiv bis
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
@@ -170,7 +169,6 @@ de:
           attachments: Anhänge
           components: Komponenten
           info: Über dieses Gremium
-          landing_page: Startseite
           moderations: Moderationen
           private_users: Mitglieder
           see_assembly: Gremium ansehen
@@ -396,7 +394,6 @@ de:
           facebook_handler: Social Media Handler für Facebook
           follows_count: Die Anzahl der Benutzer, die diesem Raum folgen
           github_handler: Social Media Handler für GitHub
-          hashtag: Der Gremium-Hashtag, verwendet für Twitter/X
           id: Die eindeutige Bezeichnung dieser Assembly
           included_at: Datum des Einbezugs des Ergebnisses
           instagram_handler: Social Media Handler für Instagram

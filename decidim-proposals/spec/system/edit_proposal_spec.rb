@@ -303,12 +303,12 @@ describe "Edit proposals" do
         expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
-          fill_in :proposal_title, with: "A title with a #hashtag"
+          fill_in :proposal_title, with: "A proposal with a title"
           fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 
-        expect(page).to have_css("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A proposal with a title']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end

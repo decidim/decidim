@@ -7,7 +7,6 @@ ga:
         decidim_area_id: Ceantar
         domain: Fearann
         end_date: Dáta deiridh
-        hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
         promoted: Curtha chun cinn
         related_process_ids: Próisis Ceangailte
@@ -16,7 +15,6 @@ ga:
         title: Teideal
       participatory_process_group:
         group_url: Suíomh Gréasáin
-        hashtag: Haischlib
         hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
         title: Teideal

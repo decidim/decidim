@@ -1,5 +1,9 @@
 nl:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: vragen
     components:
       elections:
         name: Verkiezingen
@@ -15,14 +19,16 @@ nl:
         elections:
           edit:
             title: Bewerken van verkiezing
-            update: Keuze bijwerken
           form:
             add_images: Afbeeldingen toevoegen
           index:
             title: Verkiezingen
           new:
-            create: Maak verkiezing aan
             title: Nieuwe verkiezing
+        questions:
+          edit_questions:
+            new_question: Nieuwe vraag
+            title: vragen
       models:
         election:
           fields:

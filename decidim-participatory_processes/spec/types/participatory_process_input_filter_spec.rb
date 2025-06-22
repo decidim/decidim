@@ -13,10 +13,6 @@ module Decidim
       context "when filtered by published_at" do
         include_examples "collection has before/since input filter", "participatoryProcesses", "published"
       end
-
-      context "when filtered by hashtag" do
-        include_examples "collection has hashtag input filter", "participatoryProcesses"
-      end
     end
   end
 end

@@ -59,13 +59,6 @@ eu:
         header_snippets: Goiburuko zatiak
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
-        highlighted_content_banner_action_subtitle: Ekintza-botoiaren azpititulua
-        highlighted_content_banner_action_title: Ekintza-botoiaren izenburua
-        highlighted_content_banner_action_url: Ekintza-botoiaren URLa
-        highlighted_content_banner_enabled: Erakutsi nabarmendutako edukien bannera
-        highlighted_content_banner_image: Irudia
-        highlighted_content_banner_short_description: Deskribapen laburra
-        highlighted_content_banner_title: Izenburua
         host: Zerbitzaria
         instagram_handler: Instagramen kudeatzailea
         logo: Logotipoa
@@ -173,6 +166,7 @@ eu:
   decidim:
     admin:
       actions:
+        actions_label: 'Ekintzak honentzat: %{resource}'
         add: Gehitu
         attachment:
           new: Beste eranskin bat
@@ -351,6 +345,8 @@ eu:
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
+        index:
+          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenren edo ezizenaren bidez
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -452,7 +448,11 @@ eu:
         remove_all: Ezabatu denak
         search_label: Bilatu
         search_placeholder:
+          name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektronikoaren, izenaren edo ezizenaren arabera
           report_count_eq: Txosten kopurua
+          reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera
+          title_cont: Bilatu %{collection} izenburuaren arabera
+          user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektronikoaren, izenaren edo ezizenaren arabera
         state_eq:
           label: Egoera
           values:
@@ -551,6 +551,7 @@ eu:
       logs:
         filters:
           participatory_space: Bilatu partaidetza-espazioa
+          text: Bilatu parte-hartzailearen helbide elektronikoaren, izenaren edo ezizenaren arabera
           user: Parte-hartzailea
         logs_list:
           no_logs_yet: Oraindik ez dago erregistrorik.
@@ -577,7 +578,7 @@ eu:
         content: Eduki salatua
         external_domain_allowlist: Baimendutako kanpoko domeinuak
         help_sections: Laguntza atalak
-        homepage: Orrialde nagusia
+        homepage: Hasierako orrien antolaketa
         impersonations: Inpertsonazioak
         insights: Pertzepzioak
         manage: Kudeatu
@@ -896,14 +897,6 @@ eu:
         update:
           error: Arazo bat egon da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratua.
-      organization_appearance:
-        edit:
-          update: Eguneratu
-        form:
-          header_snippets:
-            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
-            title: Goiburuko HTML kode-zatiak
-          homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
       organization_external_domain_allowlist:
         edit:
           update: Eguneratu
@@ -1225,8 +1218,6 @@ eu:
         authorization_workflows: Egiaztapen-metodoak
         dashboard: Kontrol-panela
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
-        edit_landing_page: Orriaren edukiak
-        edit_organization_appearance: Editatu hasierako orriaren itxura
         impersonatable_users: Parte-hartzaile erabilgarriak
         impersonations: Parte-hartzaileen kudeaketa
         menu: Menua

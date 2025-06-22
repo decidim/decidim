@@ -26,7 +26,6 @@ en:
         duration: Duration
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -171,7 +170,7 @@ en:
           attachments: Attachments
           components: Components
           info: About this assembly
-          landing_page: Landing page
+          landing_page: Landing page layout
           moderations: Moderations
           private_users: Members
           see_assembly: See assembly
@@ -194,6 +193,7 @@ en:
             vice_president: Vice president
         assembly_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -397,7 +397,6 @@ en:
           facebook_handler: Social media handler for Facebook
           follows_count: The number of users following this space
           github_handler: Social media handler for GitHub
-          hashtag: The assembly hashtag, used for Twitter/X
           id: The unique identifier of this assembly
           included_at: The date when the assembly was included
           instagram_handler: Social media handler for Instagram

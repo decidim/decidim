@@ -18,7 +18,13 @@ shared_examples "manage soft deletable component or space" do |resource_name|
         expect(page).to have_content(title[:en])
       end
 
-      accept_confirm { click_on "Soft delete" }
+      accept_confirm do
+        within("tr", text: title[:en]) do
+          # To remove once all the actions are migrated to dropdowns
+          find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+          click_on "Soft delete"
+        end
+      end
 
       expect(page).to have_admin_callout("successfully")
 
@@ -34,7 +40,11 @@ shared_examples "manage soft deletable component or space" do |resource_name|
     end
 
     it "does not allow to move it to the trash" do
-      expect(page).to have_no_content("Soft delete")
+      within("tr", text: title[:en]) do
+        # To remove once all the actions are migrated to dropdowns
+        find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+        have_css(".dropdown__button-disabled span", text: "Soft delete")
+      end
     end
   end
 
@@ -67,7 +77,8 @@ shared_examples "manage soft deletable resource" do |resource_name|
     expect(page).to have_content(title[:en])
 
     within(resource_row) do
-      accept_confirm { click_on "Soft delete" }
+      find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+      accept_confirm { click_on " delete" }
     end
 
     expect(page).to have_admin_callout("successfully")
@@ -101,7 +112,11 @@ shared_examples "manage trashed resource" do |resource_name|
     end
 
     it "restores the #{resource_name} from the trash" do
-      click_on "Restore"
+      # To remove once all the actions are migrated to dropdowns
+      within("tr", text: title[:en]) do
+        find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+        click_on "Restore"
+      end
 
       expect(page).to have_admin_callout("successfully")
       visit trash_path

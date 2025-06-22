@@ -14,7 +14,10 @@ describe "User previews initiative" do
 
     it "shows the details of the given initiative" do
       preview_window = window_opened_by do
-        page.find(".action-icon--preview").click
+        within("tr", text: translated(initiative.title)) do
+          find("button[data-component='dropdown']").click
+          click_on "Preview"
+        end
       end
 
       within_window(preview_window) do
