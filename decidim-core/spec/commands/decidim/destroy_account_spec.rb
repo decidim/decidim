@@ -76,33 +76,40 @@ module Decidim
       end
 
       context "when removing associated records" do
-        it "set name, nickname, personal_url, about and email to blank string" do
-          create(:private_export, attached_to: user)
-          create(:reminder, user:)
-          create(:notification, user:)
-          create(:oauth_access_grant, organization: user.organization, resource_owner_id: user.id)
+        it "deletes user's access tokens" do
           create(:oauth_access_token, resource_owner_id: user.id)
 
-          expect(user.reload.private_exports.count).not_to eq(0)
-          expect(user.reload.access_grants.count).not_to eq(0)
-          expect(user.reload.access_tokens.count).not_to eq(0)
-          expect(user.reminders.count).not_to eq(0)
-          expect(user.notifications.count).not_to eq(0)
+          expect { command.call }.to change(::Doorkeeper::AccessToken, :count).by(-1)
+        end
 
-          command.call
+        it "deletes user's access grants" do
+          create(:oauth_access_grant, organization: user.organization, resource_owner_id: user.id)
 
-          expect(user.reload.private_exports.count).to eq(0)
-          expect(user.reload.access_grants.count).to eq(0)
-          expect(user.reload.access_tokens.count).to eq(0)
-          expect(user.reminders.count).to eq(0)
-          expect(user.notifications.count).to eq(0)
+          expect { command.call }.to change(::Doorkeeper::AccessGrant, :count).by(-1)
+        end
+
+        it "deletes user's notifications" do
+          create(:notification, user:)
+
+          expect { command.call }.to change(Decidim::Notification, :count).by(-1)
+        end
+
+        it "deletes user's reminders" do
+          create(:reminder, user:)
+
+          expect { command.call }.to change(Decidim::Reminder, :count).by(-1)
+        end
+
+        it "deletes user's private exports" do
+          create(:private_export, attached_to: user)
+
+          expect { command.call }.to change(Decidim::PrivateExport, :count).by(-1)
         end
 
         it "deletes user's identities" do
           create(:identity, user:)
-          expect do
-            command.call
-          end.to change(Identity, :count).by(-1)
+
+          expect { command.call }.to change(Decidim::Identity, :count).by(-1)
         end
 
         it "deletes user's versions" do
