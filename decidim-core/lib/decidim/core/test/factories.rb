@@ -865,6 +865,18 @@ FactoryBot.define do
     scopes { "public" }
   end
 
+  factory :oauth_access_grant, class: "Doorkeeper::AccessGrant" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    resource_owner_id { create(:user, organization: application.organization, skip_injection:).id }
+    application { create(:oauth_application, organization:, skip_injection:) }
+    redirect_uri { "https://app.com/callback" }
+    expires_in { 100 }
+    scopes { "public write" }
+  end
+
   factory :private_export, class: "Decidim::PrivateExport" do
     transient do
       skip_injection { false }

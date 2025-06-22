@@ -6,7 +6,6 @@ module Decidim
   describe DestroyAccount, :versioning => true do
     let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed) }
-    let!(:identity) { create(:identity, user:) }
     let(:valid) { true }
     let(:data) do
       {
@@ -60,54 +59,6 @@ module Decidim
         expect(user.personal_url).to eq("")
         expect(user.about).to eq("")
         expect(user.notifications_sending_frequency).to eq("none")
-        expect(user.reload.private_exports.count).to eq(0)
-        expect(user.reload.access_grants.count).to eq(0)
-        expect(user.reload.access_tokens.count).to eq(0)
-        expect(user.reload.reminders.count).to eq(0)
-        expect(user.reload.notifications.count).to eq(0)
-      end
-
-      it "destroys the current user avatar" do
-        command.call
-        expect(user.reload.avatar).not_to be_present
-      end
-
-      it "deletes user's identities" do
-        expect do
-          command.call
-        end.to change(Identity, :count).by(-1)
-      end
-
-      it "deletes user's versions" do
-        command.call
-        expect(user.reload.versions.count).to eq(0)
-      end
-
-      it "deletes the follows" do
-        other_user = create(:user)
-        create(:follow, followable: user, user: other_user)
-        create(:follow, followable: other_user, user:)
-
-        expect do
-          command.call
-        end.to change(Follow, :count).by(-2)
-      end
-
-      it "deletes the authorizations" do
-        create(:authorization, :granted, user:, unique_id: "12345678X")
-        create(:authorization, :granted, user:, unique_id: "A12345678")
-
-        expect do
-          command.call
-        end.to change(Decidim::Authorization, :count).by(-2)
-      end
-
-      it "deletes participatory space private user" do
-        create(:participatory_space_private_user, user:)
-
-        expect do
-          command.call
-        end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
       end
 
       context "when user is admin" do
@@ -116,6 +67,75 @@ module Decidim
         it "removes admin role" do
           command.call
           expect(user.reload.admin).to be_falsey
+        end
+      end
+
+      it "destroys the current user avatar" do
+        command.call
+        expect(user.reload.avatar).not_to be_present
+      end
+
+      context "when removing associated records" do
+        it "set name, nickname, personal_url, about and email to blank string" do
+          create(:private_export, attached_to: user)
+          create(:reminder, user:)
+          create(:notification, user:)
+          create(:oauth_access_grant, organization: user.organization, resource_owner_id: user.id)
+          create(:oauth_access_token, resource_owner_id: user.id)
+
+          expect(user.reload.private_exports.count).not_to eq(0)
+          expect(user.reload.access_grants.count).not_to eq(0)
+          expect(user.reload.access_tokens.count).not_to eq(0)
+          expect(user.reminders.count).not_to eq(0)
+          expect(user.notifications.count).not_to eq(0)
+
+          command.call
+
+          expect(user.reload.private_exports.count).to eq(0)
+          expect(user.reload.access_grants.count).to eq(0)
+          expect(user.reload.access_tokens.count).to eq(0)
+          expect(user.reminders.count).to eq(0)
+          expect(user.notifications.count).to eq(0)
+        end
+
+        it "deletes user's identities" do
+          create(:identity, user:)
+          expect do
+            command.call
+          end.to change(Identity, :count).by(-1)
+        end
+
+        it "deletes user's versions" do
+          expect(user.reload.versions.count).to eq(1)
+          command.call
+          expect(user.reload.versions.count).to eq(0)
+        end
+
+        it "deletes the follows" do
+          other_user = create(:user)
+          create(:follow, followable: user, user: other_user)
+          create(:follow, followable: other_user, user:)
+
+          expect do
+            command.call
+          end.to change(Follow, :count).by(-2)
+        end
+
+        it "deletes the authorizations" do
+          create(:authorization, :granted, user:, unique_id: "12345678X")
+          create(:authorization, :granted, user:, unique_id: "A12345678")
+
+          expect do
+            command.call
+          end.to change(Decidim::Authorization, :count).by(-2)
+        end
+
+        it "deletes participatory space private user" do
+          create(:participatory_space_private_user, user:)
+
+          expect do
+            command.call
+          end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
         end
       end
     end
