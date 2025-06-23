@@ -21,7 +21,7 @@ module Decidim
       # * published, discarded: Initiative authors will be notified about the
       #   result of the technical validation process.
       #
-      # * rejected, accepted: Initiative's authors will be
+      # * rejected, accepted: Initiative's followers and authors will be
       #   notified about the result of the initiative.
       def notify
         notify_initiative_creation if initiative.created?
@@ -58,9 +58,11 @@ module Decidim
       end
 
       def notify_support_result
-        Decidim::Initiatives::InitiativesMailer
-          .notify_state_change(initiative, initiative.author)
-          .deliver_later
+        initiative.followers.each do |follower|
+          Decidim::Initiatives::InitiativesMailer
+            .notify_state_change(initiative, follower)
+            .deliver_later
+        end
 
         initiative.committee_members.approved.each do |committee_member|
           Decidim::Initiatives::InitiativesMailer
