@@ -378,7 +378,7 @@ en:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             registrations_count:
               one: There has been 1 registration.
-              other: There has been %{count} registrations.
+              other: There have been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         content_blocks:
           highlighted_conferences:
