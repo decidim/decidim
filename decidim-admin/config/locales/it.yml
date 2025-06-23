@@ -59,13 +59,6 @@ it:
         header_snippets: Frammenti di intestazione
         highlight_alternative_color: Evidenziato, alternativa
         highlight_color: In evidenza
-        highlighted_content_banner_action_subtitle: Sottotitolo del pulsante di azione
-        highlighted_content_banner_action_title: Titolo del pulsante di azione
-        highlighted_content_banner_action_url: URL del pulsante di azione
-        highlighted_content_banner_enabled: Mostra il banner dei contenuti evidenziato
-        highlighted_content_banner_image: Immagine
-        highlighted_content_banner_short_description: Breve descrizione
-        highlighted_content_banner_title: Titolo
         host: Host
         instagram_handler: Gestore di Instagram
         logo: Logo
@@ -559,7 +552,6 @@ it:
         components: Componenti
         configuration: Configurazione
         help_sections: Sezioni di Aiuto
-        homepage: Homepage
         impersonations: Impersonificazioni
         manage: Gestisci
         moderation: Moderazione globale
@@ -819,14 +811,6 @@ it:
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
-      organization_appearance:
-        edit:
-          update: Modifica
-        form:
-          header_snippets:
-            header_snippets_help_html: Usa questo campo per aggiungere funzionalità all head HTML. L'uso più comune è quello di integrare servizi di terze parti che richiedono alcuni JavaScript o CSS aggiuntivi. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra per l'HTML. Nota che questo sarà reso solo nelle pagine pubbliche, non nella sezione amministrazione. Se il codice interagisce con API esterne o non è conforme alle linee guida di sicurezza dell’applicazione, sarà necessario modificare la Content Security Policy. Per saperne di più su <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">nella documentazione di Decidim</a>.
-            title: Frammenti di intestazione HTML
-          homepage_highlighted_content_banner_title: Banner con contenuti Highligted
       organization_external_domain_allowlist:
         edit:
           update: Aggiorna

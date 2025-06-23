@@ -2,7 +2,8 @@
 
 def visit_edit_registrations_page
   within "tr", text: translated(meeting.title) do
-    page.click_on "Registrations"
+    find("button[data-component='dropdown']").click
+    click_on "Registrations"
   end
 end
 

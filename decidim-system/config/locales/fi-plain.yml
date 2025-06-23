@@ -215,6 +215,7 @@ fi-pl:
           intro: |
             Ole erityisen varovainen harkitessasi näiden asetusten muuttamista. Mitä vähemmän sallit, sitä parempi.
             Sallimalla tietyt tiedostopäätteet tai MIME-tyypit voit altistaa järjestelmän käyttäjät turvallisuusriskeille ja se voi myös vaikuttaa sivuston saavutettavuuteen.
+        header_snippets_help_html: Käytä tätä kenttää lisätäksesi uusia HTML-otsakkeita. Yleisin käyttötarkoitus on kolmannen osapuolen palveluiden integrointi, missä tarvitaan ylimääräisiä JavaScript- tai CSS-tiedostoja. Voit myös käyttää asetusta lisätäksesi uusia meta-merkintöjä HTML:ään. Huomioithan, että tämä asetus vaikuttaa vain osallistujille suunnatuilla julkisilla sivuilla, ei hallintakäyttäjien osiossa. Jos koodi on vuorovaikutuksessa ulkoisten sovellusrajapintojen kanssa tai se ei ole palvelun turvallisuuskäytännön mukainen, sisällön turvallisuuskäytäntöä (CSP, Content Security Policy) tulee muuttaa. Lue lisää <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">dokumentaatiosivustolta</a>.
         index:
           title: Organisaatiot
         new:

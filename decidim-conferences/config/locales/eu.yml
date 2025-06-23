@@ -11,7 +11,6 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Amaiera-data
-        hashtag: Traola
         hero_image: Orri nagusiko irudia
         location: Kokapena
         main_logo: Logo nagusia
@@ -218,6 +217,7 @@ eu:
       models:
         conference:
           fields:
+            actions: Ekintzak
             created_at: Noiz sortua
             published: Argitaratua
             title: Izenburua
@@ -613,7 +613,6 @@ eu:
           description: Jardunaldiaren deskribapen luzea
           end_date: Zein datatan amaitu zen jardunaldi hau.
           follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Jardunaldiaren traola, Twitter/Xerako erabilia
           id: Jardunaldi honen identifikatzaile bakarra
           location: Jardunaldiaren kokalekua. Non egingo da hitzaldi hau.
           objectives: Jardunaldi honen helburuak. Zein da helburua.

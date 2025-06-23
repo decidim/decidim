@@ -25,7 +25,6 @@ sv:
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -170,7 +169,6 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om samrådet
-          landing_page: Landningssida
           moderations: Moderering
           private_users: Medlemmar
           see_assembly: Visa samråd
@@ -396,7 +394,6 @@ sv:
           facebook_handler: Facebook-namn
           follows_count: Antal följare
           github_handler: Github-namn
-          hashtag: Samrådets hashtag, används för Twitter/X
           id: Unikt id för samrådet
           included_at: Datum när samrådet skapades
           instagram_handler: Instagram-namn
