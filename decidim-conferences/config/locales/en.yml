@@ -389,7 +389,7 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
-              other: There has been %{count} registrations.
+              other: There have been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies
         content_blocks:
