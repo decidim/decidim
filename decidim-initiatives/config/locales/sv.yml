@@ -121,8 +121,12 @@ sv:
             state: Status
             supports_count: Underskrifter
             title: Initiativ
+        initiatives_committee_member:
+          fields:
+            actions: Handlingar
         initiatives_type_scope:
           fields:
+            actions: Handlingar
             scope: Indelning
             supports_required: Antal underskrifter som krävs
           name: Indelning för initiativtypen
