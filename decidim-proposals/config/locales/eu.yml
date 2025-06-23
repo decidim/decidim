@@ -147,6 +147,10 @@ eu:
               state_published: Erantzun da
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
+      tooltips:
+        cannot_edit_proposal_info: Ezin da editatu proposamen hau parte-hartzaile batek sortua bezala edo botorik jaso badu
+        deleted_proposal_states_info: Ezin da ezabatu proposamen-egoera hau, proposamen batzuk esleitu baitzaizkio
+        deleted_proposals_info: Ezin da ezabatu proposamen hau
     application:
       geocoding:
         not_configured: Geokodifikazioa ez dago konfiguratuta!
