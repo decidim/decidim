@@ -70,7 +70,7 @@ shared_examples "an uncommentable component" do
 
         it "does not display the resource" do
           expect(page).to have_content("0 Results for the search")
-        end        
+        end
       end
     end
   end
