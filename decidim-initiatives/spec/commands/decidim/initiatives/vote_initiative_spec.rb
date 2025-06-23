@@ -58,29 +58,23 @@ module Decidim
             end.to change(initiative, :online_votes_count).by(1)
           end
 
-          it "notifies the creation" do
-            follower = create(:user, organization: initiative.organization)
-            create(:follow, followable: initiative.author, user: follower)
-
+          it "notifies the author of its creation" do
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
                 event: "decidim.events.initiatives.initiative_liked",
                 event_class: Decidim::Initiatives::LikeInitiativeEvent,
                 resource: initiative,
-                followers: [follower]
+                affected_users: [initiative.author]
               )
 
             command.call
           end
 
-          it "sends notification with email" do
-            follower = create(:user, organization: initiative.organization)
-            create(:follow, followable: initiative.author, user: follower)
-
+          it "sends the initiative author an email notification" do
             expect do
               perform_enqueued_jobs { command.call }
-            end.to change(emails, :count).by(2)
+            end.to change(emails, :count).by(4)
 
             expect(last_email_body).to include("has liked the following initiative")
           end
@@ -96,15 +90,12 @@ module Decidim
                      ))
             end
 
-            let!(:follower) { create(:user, organization: initiative.organization) }
-            let!(:follow) { create(:follow, followable: initiative, user: follower) }
-
             before do
               create(:initiative_user_vote, initiative:)
               create(:initiative_user_vote, initiative:)
             end
 
-            it "notifies the followers" do
+            it "notifies the author" do
               expect(Decidim::EventsManager).to receive(:publish)
                 .with(kind_of(Hash))
 
@@ -115,14 +106,13 @@ module Decidim
                   event_class: Decidim::Initiatives::MilestoneCompletedEvent,
                   resource: initiative,
                   affected_users: [initiative.author],
-                  followers: [follower],
                   extra: { percentage: 75 }
                 )
 
               command.call
             end
 
-            it "sends notification with email" do
+            it "sends the initiative author an email notification" do
               expect do
                 perform_enqueued_jobs { command.call }
               end.to change(emails, :count).by(3)
@@ -165,10 +155,10 @@ module Decidim
               command.call
             end
 
-            it "sends notification with email" do
+            it "sends the initiative author an email notification" do
               expect do
                 perform_enqueued_jobs { command.call }
-              end.to change(emails, :count).by(3)
+              end.to change(emails, :count).by(4)
 
               expect(last_email_body).to include("has reached the signatures threshold")
             end
