@@ -144,6 +144,16 @@ sv:
         new:
           copy: Kopiera
           title: Duplicera möte
+      tooltips:
+        cannot_close_meetings: Kan inte stänga detta möte eftersom det är skapat av en deltagare
+        cannot_duplicate_meetings: Kan inte kopiera detta möte eftersom det är skapat av en deltagare
+        cannot_edit_meetings: Kan inte redigera detta möte eftersom det är skapat av en deltagare
+        cannot_manage_agenda_meetings: Kan inte ändra dagordningen i detta möte eftersom den är skapad av en deltagare
+        cannot_manage_attachments_meetings: Kan inte ändra bilagor i detta möte eftersom det är skapat av en deltagare
+        cannot_manage_poll_meetings: Kan inte ändra omröstningar i detta möte eftersom det är skapat av en deltagare
+        cannot_manage_registrations_meetings: Kan inte ändra registreringar i detta möte eftersom det är skapat av en deltagare, har inaktiverade eller externa registreringar
+        cannot_mark_attendee: Kan inte markera som deltagare därför att den redan är markerad
+        deleted_meetings_info: Kan inte ta bort detta möte eftersom det är skapat av en deltagare.
     components:
       meetings:
         actions:
