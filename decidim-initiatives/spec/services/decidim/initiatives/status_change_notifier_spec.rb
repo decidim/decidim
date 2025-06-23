@@ -15,7 +15,6 @@ module Decidim
       let(:rejected) { false }
       let(:accepted) { false }
       let(:committee_members) { [] }
-      let(:followers) { [] }
       let(:initiative) do
         double(
           "initiative",
@@ -27,8 +26,7 @@ module Decidim
           discarded?: discarded,
           rejected?: rejected,
           accepted?: accepted,
-          committee_members: double("committee_members", approved: committee_members),
-          followers:
+          committee_members: double("committee_members", approved: committee_members)
         )
       end
 
@@ -106,14 +104,11 @@ module Decidim
           end
           members
         end
-        let(:followers) do
-          create_list(:user, 10, organization:)
-        end
 
-        it "Result is notified to author and committee members" do
+        it "Result is notified to the author" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .exactly(13).times
+            .exactly(4).times
             .and_return(message_delivery)
           subject.notify
         end
@@ -131,14 +126,11 @@ module Decidim
           end
           members
         end
-        let(:followers) do
-          create_list(:user, 10, organization:)
-        end
 
-        it "Result is notified to author and committee members" do
+        it "Result is notified to the author" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .exactly(13).times
+            .exactly(4).times
             .and_return(message_delivery)
           subject.notify
         end
