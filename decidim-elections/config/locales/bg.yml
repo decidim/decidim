@@ -1,5 +1,9 @@
 bg:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Въпроси
     components:
       elections:
         name: Избори
@@ -15,14 +19,16 @@ bg:
         elections:
           edit:
             title: Редактиране на избора
-            update: Актуализиране на избора
           form:
             add_images: Добави изображения
           index:
             title: Избори
           new:
-            create: Създаване на избор
             title: Нов избор
+        questions:
+          edit_questions:
+            new_question: Нов въпрос
+            title: Въпроси
       models:
         election:
           fields:

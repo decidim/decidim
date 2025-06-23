@@ -52,6 +52,7 @@ describe "Evaluator manages proposals" do
   context "when in the proposal page" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
+        find("button[data-component='dropdown']").click
         click_on "Answer proposal"
       end
     end

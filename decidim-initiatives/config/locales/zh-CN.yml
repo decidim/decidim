@@ -295,10 +295,6 @@ zh-CN:
         initiatives:
           closed_initiatives_warning: 目前没有开放的倡议，但在这里你可以找到列出的所有已关闭的倡议。
           no_initiatives_warning: 没有符合您搜索条件的倡议。
-        interactions:
-          comments_count:
-            count:
-              other: 评论
         orders:
           label: '对倡议进行排序：'
           most_commented: 最多评论

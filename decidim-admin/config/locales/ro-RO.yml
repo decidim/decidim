@@ -59,13 +59,6 @@ ro:
         header_snippets: Elemente ale antetului
         highlight_alternative_color: Evidențiere, alternativă
         highlight_color: Evidențiază
-        highlighted_content_banner_action_subtitle: Subtitlul butonului de acțiune
-        highlighted_content_banner_action_title: Titlul butonului de acțiune
-        highlighted_content_banner_action_url: URL-ul butonului de acțiune
-        highlighted_content_banner_enabled: Afișează banner-ul pentru conținutul evidențiat
-        highlighted_content_banner_image: Imagine
-        highlighted_content_banner_short_description: Descriere scurtă
-        highlighted_content_banner_title: Titlu
         host: Gazdă
         instagram_handler: Responsabil Instagram
         logo: Logo
@@ -517,7 +510,6 @@ ro:
         configuration: Configurare
         content: Conținut raportat
         help_sections: Secțiuni de ajutor
-        homepage: Pagina principală
         impersonations: Impersonări
         insights: Perspective
         manage: Gestionează
@@ -749,11 +741,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei organizații.
           success: Organizația a fost actualizată cu succes.
-      organization_appearance:
-        edit:
-          update: Actualizează
-        form:
-          homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.

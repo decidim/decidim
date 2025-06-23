@@ -13,7 +13,6 @@ zh-TW:
         document: 文件
         domain: 網域
         end_date: 結束日期
-        hashtag: 主題標籤
         hero_image: 首頁圖片
         import_attachments: 匯入附件
         import_categories: 匯入類別
@@ -39,7 +38,6 @@ zh-TW:
         description: 說明
         developer_group: 促銷團隊
         group_url: 網站
-        hashtag: 主題標籤
         hero_image: 圖片
         local_area: 組織區域
         meta_scope: 元數據範圍
@@ -100,7 +98,6 @@ zh-TW:
         participatory_process_groups: 程序群組
         participatory_process_groups_submenu:
           info: 資訊
-          landing_page: 登陸頁面
         participatory_processes: 程序
         participatory_processes_submenu:
           attachment_collections: 資料夾

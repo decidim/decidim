@@ -25,7 +25,6 @@ he:
         duration: משך זמן
         facebook: פייסבוק
         github: Github
-        hashtag: תַּג הַקְבָּצָה
         hero_image: תמונת ראשית
         import_attachments: יבוא צרופות
         import_categories: ייבוא קטגוריות
@@ -162,7 +161,6 @@ he:
           attachments: קבצים מצורפים
           components: רכיבים
           info: אודות האסיפה
-          landing_page: דף נחיתה
           moderations: שינויים
           private_users: חברים
           see_assembly: ראה אסיפה

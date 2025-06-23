@@ -165,6 +165,7 @@ sv:
             title: Tillåtna filändelser
           file_sizes:
             title: Maximal filstorlek
+        header_snippets_help_html: Använd det här fältet för att göra tillägg till HTML-huvudet. Vanligaste användningen är för att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också lägga till extra metataggar till HTML. Observera att detta endast kommer att visas på offentliga sidor, inte i admingränssnittet. Om koden använder externa API:er eller bryter mot webbplatsens riktlinjer behöver du ändra säkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">på dokumentationssidan</a>.
         index:
           title: Organisationer
         new:

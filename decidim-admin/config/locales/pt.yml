@@ -49,13 +49,6 @@ pt:
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Realçar, alternativo
         highlight_color: Realçar
-        highlighted_content_banner_action_subtitle: Legenda do botão de ação
-        highlighted_content_banner_action_title: Título do botão de ação
-        highlighted_content_banner_action_url: URL do botão de ação
-        highlighted_content_banner_enabled: Mostrar a faixa de conteúdo realçado
-        highlighted_content_banner_image: Imagem
-        highlighted_content_banner_short_description: Pequena descrição
-        highlighted_content_banner_title: Título
         host: Anfitrião
         instagram_handler: Instagram handler
         logo: Logótipo
@@ -409,7 +402,6 @@ pt:
         areas: Áreas
         configuration: Configuração
         help_sections: Secções de ajuda
-        homepage: Página inicial
         impersonations: Personificações
         manage: Gerir
         moderation: Moderações globais
@@ -638,11 +630,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta organização.
           success: Organização atualizada corretamente.
-      organization_appearance:
-        edit:
-          update: Atualizar
-        form:
-          homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
