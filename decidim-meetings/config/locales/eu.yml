@@ -146,6 +146,16 @@ eu:
         new:
           copy: Kopiatu
           title: Bikoiztu topaketa
+      tooltips:
+        cannot_close_meetings: Ezin da bilera hau itxi parte-hartzaile batek sortu baitu
+        cannot_duplicate_meetings: Ezin da bilera hau bikoiztu parte-hartzaile batek sortu baitu
+        cannot_edit_meetings: Ezin da bilera hau editatu parte-hartzaile batek sortu baitu
+        cannot_manage_agenda_meetings: Ezin da erabili agenda bilera honetan parte-hartzaile batek sortu baitu
+        cannot_manage_attachments_meetings: Ez da erabili eranskirik bilera honetan parte-hartzaile batek sortu baitu
+        cannot_manage_poll_meetings: Ezin da erabili inkestarik bilera honetan parte-hartzaile batek sortu baitu
+        cannot_manage_registrations_meetings: Ezin da erabili erregistrorik bilera honetan parte-hartzaile batek sortu baitu, erregistroak desgaituak ditu edo kanpokoak dira
+        cannot_mark_attendee: Ezin da markatu laguntzaile bezala, markatuta baitzegoen
+        deleted_meetings_info: Ezin da bilera hau ezabatu parte-hartzaile batek sortu baitu.
     components:
       meetings:
         actions:
