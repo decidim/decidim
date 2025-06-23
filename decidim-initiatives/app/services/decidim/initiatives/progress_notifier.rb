@@ -12,15 +12,9 @@ module Decidim
 
       # PUBLIC: Notifies the support progress of the initiative.
       #
-      # Notifies to Initiative's authors and followers about the
+      # Notifies to Initiative's authors about the
       # number of supports received by the initiative.
       def notify
-        initiative.followers.each do |follower|
-          Decidim::Initiatives::InitiativesMailer
-            .notify_progress(initiative, follower)
-            .deliver_later
-        end
-
         initiative.committee_members.approved.each do |committee_member|
           Decidim::Initiatives::InitiativesMailer
             .notify_progress(initiative, committee_member.user)

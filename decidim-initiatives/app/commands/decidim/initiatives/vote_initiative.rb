@@ -20,9 +20,17 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
+        percentage_before = initiative.percentage
+
         Initiative.transaction do
           create_votes
         end
+
+        percentage_after = initiative.reload.percentage
+
+        send_notification
+        notify_percentage_change(percentage_before, percentage_after)
+        notify_support_threshold_reached(percentage_before, percentage_after)
 
         broadcast(:ok, votes)
       end
@@ -62,7 +70,7 @@ module Decidim
           event: "decidim.events.initiatives.initiative_liked",
           event_class: Decidim::Initiatives::LikeInitiativeEvent,
           resource: initiative,
-          followers: initiative.author.followers
+          affected_users: [initiative.author]
         )
       end
 
@@ -78,7 +86,6 @@ module Decidim
           event_class: Decidim::Initiatives::MilestoneCompletedEvent,
           resource: initiative,
           affected_users: [initiative.author],
-          followers: initiative.followers - [initiative.author],
           extra: {
             percentage:
           }
