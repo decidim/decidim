@@ -1,0 +1,7 @@
+<h1>Elections</h1>
+<% elections.each do |election| %>
+  <div class="election">
+    <%= link_to translated_attribute election.title, election_path(election) %>
+    <%#= card_for election, from: election, size: :s %>
+  </div>
+<% end %>

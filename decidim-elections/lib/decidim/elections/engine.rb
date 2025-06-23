@@ -6,7 +6,7 @@ module Decidim
       isolate_namespace Decidim::Elections
 
       routes do
-        resources :elections, only: [:index, :show]
+        resources :elections, except: [:destroy]
         scope "/elections" do
           root to: "elections#index"
         end

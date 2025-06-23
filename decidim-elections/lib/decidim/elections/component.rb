@@ -23,6 +23,12 @@ Decidim.register_component(:elections) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
+  component.register_resource(:election) do |resource|
+    resource.model_class_name = "Decidim::Elections::Election"
+    resource.card = "decidim/elections/election"
+    resource.searchable = true
+  end
+
   component.seeds do |participatory_space|
     require "decidim/elections/seeds"
 

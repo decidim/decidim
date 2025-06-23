@@ -27,6 +27,7 @@ en:
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         edit: Edit election
         new: New election
+        preview: Preview
         title: Actions
         view_deleted_elections: View deleted elections
       admin:

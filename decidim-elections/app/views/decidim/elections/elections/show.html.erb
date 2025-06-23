@@ -1,0 +1,37 @@
+<% add_decidim_meta_tags(
+     description: present(@election).description,
+     title: present(@election).title,
+     url: election_url(@election.id),
+     resource: @election) %>
+
+<%
+  edit_link(
+    resource_locator(@election).edit,
+    :edit,
+    :election,
+    election: @election
+  )
+%>
+
+<% append_stylesheet_pack_tag "decidim_elections", media: "all" %>
+<% append_javascript_pack_tag "decidim_elections" %>
+
+<% content_for :aside do %>
+  <%= render partial: "election_aside" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: elections_path } do %>
+
+  <section class="layout-main__section layout-main__heading">
+    <h1 class="layout-main__title">
+      <%= present(@election).title %>
+    </h1>
+    <p class="layout-main__subtitle">
+      <%= present(@election).description %>
+    </p>
+  </section>
+
+  <section class="layout-main__section">
+    <p>Main section</p>
+  </section>
+<% end %>
