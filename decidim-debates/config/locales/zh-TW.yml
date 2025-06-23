@@ -101,7 +101,6 @@ zh-TW:
           state: 狀態
           state_values:
             closed: 關閉
-            open: 開啟
         index:
           new_debate: 新辯論
         new:
@@ -114,10 +113,8 @@ zh-TW:
           recent: 最近
           updated: 最近更新
         show:
-          debate_closed: 關閉
           debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
           edit_conclusions: 修改結論
-          open: 開放性辯論
           participants_count: 參與者
         update:
           invalid: 更新此辯論時發生問題。

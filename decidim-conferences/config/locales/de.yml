@@ -11,7 +11,6 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         location: Ort
         main_logo: Hauptlogo
@@ -613,7 +612,6 @@ de:
           description: Eine lange Beschreibung der Konferenz
           end_date: Das Datum, an dem diese Konferenz endet.
           follows_count: Die Anzahl Nutzende, die diesem Raum folgen
-          hashtag: Der Konferenz-Hashtag, verwendet für Twitter/X
           id: Die eindeutige Bezeichnung dieser Konferenz
           location: Der Tagungsort, wo diese Konferenz stattfinden wird.
           objectives: Die Ziele dieser Konferenz.

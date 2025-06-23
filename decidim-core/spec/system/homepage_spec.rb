@@ -17,20 +17,12 @@ describe "Homepage" do
   context "when there is an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) do
-      create(:organization, official_url:,
-                            highlighted_content_banner_enabled: true,
-                            highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_url: Faker::Internet.url,
-                            highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+      create(:organization, official_url:)
     end
 
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
 
@@ -47,7 +39,7 @@ describe "Homepage" do
       end
 
       context "when having homepage anchors" do
-        %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
+        %w(hero sub_hero how_to_participate footer_sub_hero).each do |anchor|
           it { expect(page).to have_css("[id^=#{anchor}]", visible: :all) }
         end
       end
@@ -370,41 +362,6 @@ describe "Homepage" do
               expect(page).to have_css("svg")
             end
           end
-        end
-      end
-
-      context "and has highlighted content banner enabled" do
-        let(:organization) do
-          create(:organization,
-                 official_url:,
-                 highlighted_content_banner_enabled: true,
-                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: Faker::Internet.url,
-                 highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
-        end
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        it "shows the banner's title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_title)
-        end
-
-        it "shows the banner's description" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_short_description)
-        end
-
-        it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
-        end
-
-        it "shows the banner's action subtitle" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
         end
       end
 

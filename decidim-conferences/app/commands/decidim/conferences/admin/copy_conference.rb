@@ -43,7 +43,6 @@ module Decidim
             title: form.title,
             slogan: @conference.slogan,
             slug: form.slug,
-            hashtag: @conference.hashtag,
             description: @conference.description,
             short_description: @conference.short_description,
             location: @conference.location,

@@ -40,7 +40,24 @@ module Decidim
 
           Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
             content_block.cell = "decidim/content_blocks/highlighted_content_banner"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_content_banner_settings_form"
             content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner.name"
+
+            content_block.images = [
+              {
+                name: :background_image,
+                uploader: "Decidim::HomepageImageUploader"
+              }
+            ]
+
+            content_block.settings do |settings|
+              settings.attribute :title, type: :text, translated: true
+              settings.attribute :short_description, type: :text, translated: true
+              settings.attribute :action_button_title, type: :text, translated: true
+              settings.attribute :action_button_subtitle, type: :text, translated: true
+              settings.attribute :action_button_url, type: :text
+            end
+
             content_block.default!
           end
 

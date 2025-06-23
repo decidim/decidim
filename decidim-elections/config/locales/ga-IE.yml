@@ -1,8 +1,16 @@
 ga:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Ceisteanna
     elections:
       actions:
         title: Gníomhartha
+      admin:
+        questions:
+          edit_questions:
+            title: Ceisteanna
       models:
         election:
           fields:

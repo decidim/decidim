@@ -34,7 +34,6 @@ describe "Decidim::Api::QueryType" do
       "facebookHandler" => assembly.facebook_handler,
       "followsCount" => 3,
       "githubHandler" => assembly.github_handler,
-      "hashtag" => assembly.hashtag,
       "id" => assembly.id.to_s,
       "includedAt" => assembly.included_at.iso8601,
       "instagramHandler" => assembly.instagram_handler,
@@ -112,7 +111,6 @@ describe "Decidim::Api::QueryType" do
         facebookHandler
         followsCount
         githubHandler
-        hashtag
         heroImage
         id
         includedAt
@@ -266,7 +264,6 @@ describe "Decidim::Api::QueryType" do
         facebookHandler
         followsCount
         githubHandler
-        hashtag
         heroImage
         id
         includedAt

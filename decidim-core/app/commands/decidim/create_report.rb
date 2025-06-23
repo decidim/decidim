@@ -69,7 +69,15 @@ module Decidim
     end
 
     def hideable?
-      hidden_by_admin? || (!@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding)
+      hidden_by_admin? || hidden_by_spam_engine? || hidden_by_report_count?
+    end
+
+    def hidden_by_report_count?
+      !@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding
+    end
+
+    def hidden_by_spam_engine?
+      form.hide == true && form.context[:marked_as_spam] == true
     end
 
     def send_hide_notification_to_moderators

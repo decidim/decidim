@@ -13,7 +13,6 @@ ro:
         document: Document
         domain: Domeniu
         end_date: Data de încheiere
-        hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -39,7 +38,6 @@ ro:
         description: Descriere
         developer_group: Grup promotor
         group_url: Pagină web
-        hashtag: Hashtag
         hero_image: Imagine
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
@@ -106,7 +104,6 @@ ro:
         participatory_process_groups: Grupuri ale procesului
         participatory_process_groups_submenu:
           info: Informații
-          landing_page: Pagina principală
         participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare

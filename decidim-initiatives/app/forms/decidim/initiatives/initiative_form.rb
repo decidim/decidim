@@ -17,7 +17,6 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
-      attribute :hashtag, String
       attribute :scope_id, Integer
 
       attachments_attribute :photos
@@ -41,7 +40,6 @@ module Decidim
         self.signature_type = model.signature_type || initiative_type.signature_type
         self.title = translated_attribute(model.title)
         self.description = translated_attribute(model.description)
-        self.hashtag = model.hashtag
       end
 
       def type

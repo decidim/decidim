@@ -3,6 +3,8 @@ fi:
     attributes:
       authorization:
         verification_attachment: Vahvistuksen liitetiedosto
+      census_data:
+        file: Tiedosto
       config:
         available_methods: Käytettävissä olevat menetelmät
         offline: Offline
@@ -120,6 +122,12 @@ fi:
           email_subject: Tunnistautumisyritys epäonnistui toisen osallistujan tietojen käytön takia
           notification_title: Osallistuja <a href="%{resource_path}">%{resource_title}</a> yritti tunnistautua toisen osallistujan (<a href="%{managed_user_path}">%{managed_user_name}</a>) tiedoilla.
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} loi uuden henkilötietorekisterin tietueen sähköpostiosoitteella %{resource_email}"
+          delete: "%{user_name} poisti henkilötietorekisterin tietueen sähköpostiosoitteella %{resource_email}"
+          import: "%{user_name} toi %{imported_count} tietuetta henkilötietorekisteriin"
+          update: "%{user_name} päivitti henkilötietorekisterin tietuetta sähköpostiosoitteella %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Tämänhetkisen vahvistustavan tiedot:'
@@ -160,7 +168,58 @@ fi:
         start_exploring: aloittaa palveluun tutustumisen
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Haluatko varmasti poistaa tämän henkilötietorekisterin tietueen?
+            destroy: Poista
+            edit: Muokkaa
+          census:
+            create_import:
+              error: Henkilötietorekisterin tuonti epäonnistui.
+              no_user: Käyttäjää ei löytynyt
+              success: '%{count} tietueen tuonti onnistui. Tietoja käsitellään parhaillaan. Päivitä tämä sivu muutaman minuutin kuluttua nähdäksesi muutokset.'
+            destroy:
+              success: Henkilötietorekisteriin tietue poistettiin.
+            index:
+              empty: Henkilötietorekisterissä ei ole tietoja. Käytä %{import_csv} -toimintoa tuodaksesi tiedot järjestelmään CSV-tiedostosta.
+              no_sign_in: Ei ole koskaan kirjautunut sisään
+              no_user: Käyttäjää ei löytynyt
+            last_login:
+              no_sign_in: Ei ole koskaan kirjautunut sisään
+              no_user: Ei käyttäjää
+            new_import:
+              errors:
+                email_exists: Sähköpostiosoite %{email} on jo olemassa organisaatiossa %{organization}.
+              example: |
+                matti.meikalainen@esimerkki.fi
+                minna.meikalainen@esimerkki.fi
+              info: 'On oltava CSV-tiedosto, jossa on vain yksi sarake sähköpostiosoitteille:'
+              submit: Lataa tiedosto
+              title: Tuo henkilötietorekisterin tiedot
+              upload_new_census: Lataa uusi henkilötietorekisteri
+          census_records:
+            create_record:
+              success: Henkilötietorekisterin tietueen lisäys onnistui. Tietoja käsitellään parhaillaan. Päivitä tämä sivu muutaman minuutin kuluttua nähdäksesi muutokset.
+            edit_record:
+              save: Tallenna
+              title: Muokkaa henkilötietorekisterin tietuetta
+            form:
+              email: Sähköpostiosoite
+            new_record:
+              save: Tallenna
+              title: Lisää uusi henkilötietorekisterin tietue
+            update_record:
+              invalid: Henkilötietorekisterin tietueen päivitys epäonnistui.
+              success: Henkilötietorekisterin tietueen päivitys onnistui.
           index:
+            add_new_record_button: Lisää uusi tietue
+            authorized: Käyttäjän henkilöllisyys on vahvistettu
+            fields:
+              actions: Toiminnot
+              created_at: Luontihetki
+              email: Sähköpostiosoite
+              user_authorized: Onko käyttäjän henkilöllisyys on vahvistettu?
+            import_csv: Tuo CSV
+            no_authorized: Käyttäjän henkilöllisyyttä ei ole vahvistettu
             title: Nykyiset rekisteritiedot
           instructions:
             body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
@@ -177,6 +236,10 @@ fi:
           user_postal_codes:
             one: Osallistuminen on rajoitettu osallistujille, joilla on postinumero %{postal_codes}. Oma postinumerosi on %{user_postal_code}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}. Oma postinumerosi on %{user_postal_code}.'
+      errors:
+        invalid_emails: 'Seuraavat sähköpostiosoitteet ovat virheellisiä: %{invalid_emails}.'
+        no_emails: Tiedoston on sisällettävä sähköpostiosoitteita
+        wrong_number_columns: "Tiedoston oletettiin sisältävän %{expected} -niminen sarake, mutta sen sijaan siitä löytyi sarake nimeltä %{actual}."
       id_documents:
         admin:
           config:

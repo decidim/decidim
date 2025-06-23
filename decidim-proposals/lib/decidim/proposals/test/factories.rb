@@ -233,23 +233,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_extra_hashtags do
-      transient do
-        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
-        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
-      end
-
-      step_settings do
-        {
-          participatory_space.active_step.id => {
-            automatic_hashtags:,
-            suggested_hashtags:,
-            creation_enabled: true
-          }
-        }
-      end
-    end
-
     trait :without_publish_answers_immediately do
       step_settings do
         {
@@ -332,8 +315,8 @@ FactoryBot.define do
                         evaluator.body
                       end
 
-      proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
-      proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+      proposal.title = Decidim::ContentProcessor.parse(proposal.title, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse_with_processor(:inline_images, proposal.body, current_organization: proposal.organization).rewrite
 
       if proposal.component
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]

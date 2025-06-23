@@ -27,9 +27,9 @@ module Decidim
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:)
 
           CreateElection.call(@form) do
-            on(:ok) do
+            on(:ok) do |election|
               flash[:notice] = I18n.t("elections.create.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to edit_questions_election_path(election)
             end
 
             on(:invalid) do
@@ -52,7 +52,7 @@ module Decidim
           UpdateElection.call(@form, election) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to edit_questions_election_path(election)
             end
 
             on(:invalid) do

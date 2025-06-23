@@ -12,13 +12,11 @@ hu:
         address: Cím
         answer: Válasz
         answered_at: 'Megválaszolva:'
-        automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         scope_id: Hatáskör
         state: Állapot
-        suggested_hashtags: Javasolt hashtagek
         title: Cím
       proposal_answer:
         answer: Válasz
@@ -132,7 +130,6 @@ hu:
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
-            automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak javaslatokat
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
@@ -140,7 +137,6 @@ hu:
             proposal_answering_enabled: Javaslat válasz engedélyezve
             publish_answers_immediately: Javaslati válaszok azonnali közzététele
             publish_answers_immediately_help_html: 'Ne feledje, hogy ennek engedélyezése nélkül bármely javaslatot, kiválasztva őket, a művelet használatával manuálisan kell közzétennie. További információért arról, hogyan működik ez, lásd <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
-            suggested_hashtags: Hashtagek javasolva a felhasználóknak új javaslatokra
             votes_blocked: Szavazások letiltva
             votes_enabled: Szavazások engedélyezve
             votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
