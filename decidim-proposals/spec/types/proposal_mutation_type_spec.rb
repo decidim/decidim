@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Proposals
     describe ProposalMutationType, type: :graphql do
-      include_context "with a graphql class type"
+      include_context "with a graphql type and authenticated user"
 
       let(:model) { create(:proposal) }
       let(:state) { %w(accepted evaluating rejected).sample }
@@ -35,7 +35,7 @@ module Decidim
 
       context "with admin user" do
         it_behaves_like "manage proposal mutation examples" do
-          let!(:scope) { "admin" }
+          let!(:scope) { :admin }
         end
       end
 
@@ -47,7 +47,7 @@ module Decidim
 
       context "with api_user" do
         it_behaves_like "manage proposal mutation examples" do
-          let!(:scope) { "api_user" }
+          let!(:scope) { :api_user }
         end
       end
     end

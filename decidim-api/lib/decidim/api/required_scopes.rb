@@ -23,8 +23,6 @@ module Decidim
           return true unless req_scopes.is_a?(Array)
 
           scopes = context[:scopes] # ::Doorkeeper::OAuth::Scopes
-          return true unless scopes
-
           scopes.scopes?(req_scopes)
         end
       end
