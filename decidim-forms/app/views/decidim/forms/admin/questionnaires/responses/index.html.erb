@@ -34,10 +34,10 @@
             <td><%= l participant.responded_at, format: :short %></td>
             <td class="table-list__actions">
               <% if allowed_to? :show, :questionnaire_responses %>
-                <%= icon_link_to "eye-line", questionnaire_participant_responses_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
+                <%= icon_link_to "eye-line", questionnaire_participant_responses_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.responses"), target: "_blank", data: { "external-link": false } %>
               <% end %>
               <% if allowed_to? :export_response, :questionnaire_responses %>
-                <%= icon_link_to "download-line", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--data-transfer-download" %>
+                <%= icon_link_to "download-line", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.responses") %>
               <% end %>
             </td>
           </tr>

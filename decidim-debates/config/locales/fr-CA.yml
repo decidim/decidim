@@ -133,7 +133,7 @@ fr-CA:
           state: Statut
           state_values:
             closed: Fermé
-            open: Ouvert
+            ongoing: En cours
         index:
           new_debate: Nouveau débat
         new:
@@ -148,11 +148,13 @@ fr-CA:
           updated: Mis à jour récemment
         show:
           close_debate: Clore
-          debate_closed: Fermé
+          closed: Fermé
           debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
           edit_conclusions: Modifier les conclusions
           edit_debate: Modifier
-          open: Ouvrir le débat
+          not_started: Non démarré
+          ongoing: En cours
+          open_ended: À durée indéterminée
           participants_count: Participants
         update:
           invalid: Une erreur s'est produite lors de la mise à jour du débat.

@@ -12,7 +12,7 @@
       </div>
       <div id="customize_reminder_times" data-toggler=".hide" class="row column <%= @form.reminder_enabled ? nil : "hide" %>">
         <%= form.number_field :send_reminders_before_hours, label: t(".send_reminder"), help_text: t(".send_reminder_help_text"), min: 1, step: 1, class: "mb-2" %>
-        <%= form.translated :text_area, :reminder_message_custom_content, label: t(".reminder_message"), hashtaggable: true, help_text: t(".reminder_message_help_text") %>
+        <%= form.translated :text_area, :reminder_message_custom_content, label: t(".reminder_message"), help_text: t(".reminder_message_help_text") %>
       </div>
     </div>
   </div>

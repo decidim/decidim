@@ -49,7 +49,12 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
+        new_window = window_opened_by do
+          within("tr", text: translated(participatory_process.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Preview"
+          end
+        end
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
@@ -62,11 +67,12 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization:) }
 
       it "allows the user to preview the published process" do
-        within "tr", text: translated(participatory_process.title) do
-          click_on "Preview"
+        new_window = window_opened_by do
+          within("tr", text: translated(participatory_process.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Preview"
+          end
         end
-
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)

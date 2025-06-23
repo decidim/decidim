@@ -57,6 +57,7 @@ shared_examples "manage media links examples" do
 
     it "updates a conference media links", versioning: true do
       within "#media_links tr", text: translated(media_link.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -82,7 +83,8 @@ shared_examples "manage media links examples" do
 
     it "deletes the conference media link" do
       within "#media_links tr", text: translated(media_link.title) do
-        accept_confirm { find("a.action-icon--remove").click }
+        find("button[data-component='dropdown']").click
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

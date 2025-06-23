@@ -1,5 +1,10 @@
 fr:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_questions: Questions
     components:
       elections:
         name: Élections
@@ -23,7 +28,6 @@ fr:
             success: Élection créée avec succès.
           edit:
             title: Modifier l'élection
-            update: Mettre à jour l'élection
           form:
             add_images: Ajouter des images
             attachment_legend: Ajouter une galerie d'images (facultatif)
@@ -40,13 +44,13 @@ fr:
               real_time: Temps réel
               real_time_help: Afficher les résultats dès que le premier vote est soumis
               title: Disponibilité des résultats
+            save: Enregistrer et continuer
             start_at: Heure de début
           index:
             title: Élections
           manage_trash:
             title: Élections supprimées
           new:
-            create: Créer une élection
             title: Nouvelle élection
           publish:
             invalid: Il y a eu un problème lors de la publication de l'élection.
@@ -57,6 +61,18 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de l'élection.
             success: Élection mise à jour avec succès.
+        questions:
+          edit_questions:
+            new_question: Nouvelle question
+            remove_question_confirm: Êtes-vous sûr(e) de vouloir supprimer cette question ?
+            title: Questions
+          form:
+            errors:
+              at_least_one_question: Au moins une question est requise.
+            form_description: La question doit avoir au moins deux réponses pour passer à l'étape suivante.
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour des questions.
+            success: Questions mises à jour avec succès.
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
@@ -65,6 +81,8 @@ fr:
           soft_delete: "%{user_name} a déplacé l'élection %{resource_name} de %{space_name} vers la corbeille"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
+        question:
+          update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
       models:
         election:
           fields:

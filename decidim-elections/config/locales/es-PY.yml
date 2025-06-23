@@ -1,5 +1,10 @@
 es-PY:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_questions: Preguntas
     components:
       elections:
         name: Votaciones
@@ -23,7 +28,6 @@ es-PY:
             success: Elección creada correctamente.
           edit:
             title: Editar la votación
-            update: Actualizar la votación
           form:
             add_images: Añadir imágenes
             attachment_legend: Añadir galería de imágenes (opcional)
@@ -41,13 +45,13 @@ es-PY:
               real_time: En tiempo real
               real_time_help: Mostrar los resultados en cuanto se envíe el primer voto
               title: Disponibilidad de los resultados
+            save: Guardar y continuar
             start_at: Día y hora de inicio
           index:
             title: Votaciones
           manage_trash:
             title: Elecciones eliminadas
           new:
-            create: Crear una votación
             title: Nueva votación
           publish:
             invalid: Se ha producido un error al publicar la elección.
@@ -58,6 +62,18 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar la elección.
             success: Elección actualizada correctamente.
+        questions:
+          edit_questions:
+            new_question: Nueva pregunta
+            remove_question_confirm: '¿Está seguro de que desea eliminar esta pregunta?'
+            title: Preguntas
+          form:
+            errors:
+              at_least_one_question: Se requiere al menos una pregunta.
+            form_description: La pregunta debe tener al menos dos opciones de respuesta para pasar al siguiente paso.
+          update:
+            invalid: Se ha producido un error al actualizar las preguntas.
+            success: Preguntas actualizadas correctamente.
       admin_log:
         election:
           create: "%{user_name} ha creado la elección \"%{resource_name}\" en %{space_name}"
@@ -66,6 +82,8 @@ es-PY:
           soft_delete: "%{user_name} ha movido la elección \"%{resource_name}\" de %{space_name} a la papelera"
           unpublish: "%{user_name} despublicó la elección \"%{resource_name}\" en %{space_name}"
           update: "%{user_name} ha actualizado la elección \"%{resource_name}\" de %{space_name}"
+        question:
+          update: "%{user_name} actualizó las preguntas de la elección \"%{resource_name}\""
       models:
         election:
           fields:

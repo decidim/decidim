@@ -2,25 +2,8 @@
 
 shared_context "with a graphql class type" do
   let!(:current_organization) { create(:organization) }
-  let(:scope) { "user" }
-  let!(:current_user) do
-    case scope
-    when "admin"
-      create(:user, :admin, :confirmed, organization: current_organization)
-    when "api_user"
-      create(:api_user, organization: current_organization)
-    else
-      create(:user, :confirmed, organization: current_organization)
-    end
-  end
+  let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
   let!(:current_component) { create(:component) }
-  let(:api_scopes) do
-    if scope == "api_user"
-      Doorkeeper::OAuth::Scopes.from_string("api:read")
-    else
-      Doorkeeper::OAuth::Scopes.from_array(Doorkeeper.config.scopes.all)
-    end
-  end
   let(:model) { OpenStruct.new({}) }
   let(:type_class) { described_class }
   let(:variables) { {} }
@@ -45,8 +28,7 @@ shared_context "with a graphql class type" do
       context: {
         current_organization:,
         current_user:,
-        current_component:,
-        scopes: api_scopes
+        current_component:
       },
       variables:
     )
@@ -77,5 +59,46 @@ shared_context "with a graphql scalar class type" do
 
   let(:response) do
     execute_query("{ value }", {}).try(:[], "value")
+  end
+end
+
+shared_context "with a graphql type and authenticated user" do
+  include_context "with a graphql class type"
+
+  let(:scope) { "user" }
+  let(:api_scopes) do
+    if scope == "api_user"
+      Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:create", "api:update", "api:delete"])
+    else
+      Doorkeeper::OAuth::Scopes.from_array(Doorkeeper.config.scopes.all)
+    end
+  end
+  let!(:current_user) do
+    case scope
+    when "admin"
+      create(:user, :admin, :confirmed, organization: current_organization)
+    when "api_user"
+      create(:api_user, organization: current_organization)
+    else
+      create(:user, :confirmed, organization: current_organization)
+    end
+  end
+
+  def execute_query(query, variables)
+    result = schema.execute(
+      query,
+      root_value:,
+      context: {
+        current_organization:,
+        current_user:,
+        current_component:,
+        scopes: api_scopes
+      },
+      variables:
+    )
+
+    raise StandardError, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]
+
+    result["data"]
   end
 end
