@@ -38,8 +38,8 @@
       </li>
       <% @blocks.each do |elements| %>
         <li>
-          <% elements.each do |type, results| %>
-            <ul>
+          <ul>
+            <% elements.each do |type, results| %>
               <% if results[:count].positive? %>
                 <li>
                 <%= link_to search_path_by_resource_type(type), class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
@@ -55,8 +55,8 @@
                   <span class="label ml-auto"><%= results[:count] %></span>
                 <% end %>
               <% end %>
-            </ul>
-          <% end %>
+            <% end %>
+          </ul>
         </li>
       <% end %>
     </ul>
@@ -79,5 +79,19 @@
       button.setAttribute('aria-expanded', 'true');
       list.style.display = "block";
     }, 300)
+  })
+  // 32 is code for space bar and 13 is code for enter
+  button.addEventListener('keydown', function(e){
+    if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'true') {
+      setTimeout(() => {
+        button.setAttribute('aria-expanded', 'false');
+        list.style.display = "none";
+      }, 300)
+    } else if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'false'){
+        setTimeout(() => {
+          button.setAttribute('aria-expanded', 'true');
+          list.style.display = "block";
+        }, 300)
+    }
   })
 </script>
