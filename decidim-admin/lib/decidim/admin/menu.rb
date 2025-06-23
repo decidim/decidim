@@ -296,7 +296,8 @@ module Decidim
                         I18n.t("menu.insights", scope: "decidim.admin"),
                         decidim_admin.statistics_path,
                         icon_name: "line-chart",
-                        position: 11
+                        position: 11,
+                        if: allowed_to?(:read, :statistics)
         end
       end
     end
