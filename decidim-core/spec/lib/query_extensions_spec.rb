@@ -137,6 +137,8 @@ module Decidim
       end
 
       describe "participant_details" do
+        include_context "with a graphql type and authenticated user"
+
         let!(:participant) { create(:user, :confirmed, organization: current_organization) }
         let(:query) { %({ participantDetails(id: #{participant.id}){email name nickname}} ) }
 
