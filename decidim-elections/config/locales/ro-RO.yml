@@ -1,5 +1,9 @@
 ro:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Întrebări
     components:
       elections:
         name: Alegeri
@@ -15,12 +19,14 @@ ro:
         elections:
           edit:
             title: Editează alegeri
-            update: Actualizează alegeri
           index:
             title: Alegeri
           new:
-            create: Creează alegeri
             title: Alegeri noi
+        questions:
+          edit_questions:
+            new_question: Întrebare nouă
+            title: Întrebări
       models:
         election:
           fields:

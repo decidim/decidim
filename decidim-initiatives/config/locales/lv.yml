@@ -279,12 +279,6 @@ lv:
           type: Veids
         index_header:
           new_initiative: Jauna iniciatīva
-        interactions:
-          comments_count:
-            count:
-              zero: Komentēt
-              one: Komentēt
-              other: Komentēt
         orders:
           label: 'Kārtot iniciatīvas pēc:'
           most_commented: Visvairāk komentētie

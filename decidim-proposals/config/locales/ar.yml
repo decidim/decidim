@@ -15,7 +15,6 @@ ar:
         address: عنوان
         answer: إجابة
         answered_at: أجاب في
-        automatic_hashtags: علامات التصنيف المضافة تلقائيًا
         body: الجسم
         decidim_scope_id: النطاق
         has_address: لديه عنوان
@@ -23,7 +22,6 @@ ar:
         longitude: خط الطول
         scope_id: نطاق
         state: حالة
-        suggested_hashtags: الهاشتاج المقترحة
         title: عنوان
       proposal_answer:
         answer: إجابة
@@ -165,7 +163,6 @@ ar:
             amendments_visibility_help: وإذا وقع الاختيار على خيار "التعديلات لا تظهر إلا للمؤلفين فقط"، يجب أن يسجَّل المشارك للاطلاع على التعديلات المدخلة.
             announcement: إعلان
             answers_with_costs: تمكين التكاليف على إجابات الاقتراح
-            automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
             creation_enabled: يمكن للمشارِكين إنشاء اقتراحات
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
@@ -178,7 +175,6 @@ ar:
               with_more_authors: مع المزيد من المؤلفين
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             publish_answers_immediately: نشر إجابات الاقتراح على الفور
-            suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
     events:
       proposals:
         admin:

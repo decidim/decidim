@@ -59,13 +59,6 @@ tr:
         header_snippets: Üstbilgi snippet'leri
         highlight_alternative_color: Vurgu, alternatif
         highlight_color: Vurgula
-        highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
-        highlighted_content_banner_action_title: Eylem düğmesi başlığı
-        highlighted_content_banner_action_url: Eylem düğmesi URL'si
-        highlighted_content_banner_enabled: Vurgulanan içerik afişini göster
-        highlighted_content_banner_image: görüntü
-        highlighted_content_banner_short_description: Kısa Açıklama
-        highlighted_content_banner_title: Başlık
         host: Sunucu
         instagram_handler: Instagram işleyicisi
         logo: Logo
@@ -566,7 +559,6 @@ tr:
         content: Şikayet edilmiş içerik
         external_domain_allowlist: İzin verilen harici alan adları
         help_sections: Yardım bölümleri
-        homepage: Anasayfa
         impersonations: impersonations
         manage: yönetme
         moderation: Küresel denetimler
@@ -821,11 +813,6 @@ tr:
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
           success: Kuruluş başarıyla güncellendi.
-      organization_appearance:
-        edit:
-          update: Güncelleştirme
-        form:
-          homepage_highlighted_content_banner_title: Yüksek içerikli banner
       organization_external_domain_allowlist:
         edit:
           update: Güncelle
@@ -962,8 +949,6 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: Pano
-        edit_landing_page: Sayfa İçeriği
-        edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         pages: Sayfalar

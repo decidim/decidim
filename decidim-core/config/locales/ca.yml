@@ -591,6 +591,14 @@ ca:
         welcome_text: Text de benvinguda
       highlighted_content_banner:
         name: Banner de contingut destacat
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Subtítol del botó d'acció
+        action_button_title: Títol del botó d'acció
+        action_button_url: URL del botó d'acció
+        background_image: Imatge de fons
+        short_description: Breu descripció
+        subtitle: Subtítol
+        title: Títol
       highlighted_elements_settings_form:
         components:
           all: Tots

@@ -1,5 +1,9 @@
 zh-CN:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: 问 题
     components:
       elections:
         name: 选举
@@ -15,12 +19,14 @@ zh-CN:
         elections:
           edit:
             title: 编辑选择
-            update: 更新选择
           index:
             title: 选举
           new:
-            create: 创建选择
             title: 新的选举
+        questions:
+          edit_questions:
+            new_question: 新问题
+            title: 问 题
       models:
         election:
           fields:

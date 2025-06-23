@@ -7,7 +7,7 @@
       <%= render partial: "decidim/admin/components/resource_action" %>
     </h1>
   </div>
-  <div class="table-scroll mt-8">
+  <div class="table-stacked mt-8">
     <table class="table-list">
       <thead>
         <tr>
@@ -21,27 +21,93 @@
       <tbody>
         <% surveys.each do |survey| %>
           <tr>
-            <td><%= decidim_sanitize_translated(survey.title) %></td>
-            <td><%= survey.questionnaire.questions.size %></td>
-            <td><%= survey.questionnaire.count_participants %></td>
-            <td><%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %></td>
-            <td class="table-list__actions">
-                <%= icon_link_to "pencil-line", edit_survey_path(survey), t("actions.edit", scope: "decidim.surveys"), class: "action-icon--edit" %>
-                <%= icon_link_to "survey-line", edit_questions_questions_survey_path(survey), t("actions.manage_questions", scope: "decidim.surveys"), class: "action-icon--copy" %>
-                <% if allowed_to? :preview, :questionnaire %>
-                <%= icon_link_to "eye-line", resource_locator(survey).path, t("actions.preview", scope: "decidim.surveys"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
-                <% end %>
-                <% if allowed_to?(:update, :questionnaire) %>
-                  <% if survey.published? %>
-                    <%= icon_link_to "close-circle-line", unpublish_survey_path(survey), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
-                  <% elsif survey.clean_after_publish? %>
-                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish", data: { confirm: t("actions.responses_alert", scope: "decidim.surveys", responses_count: survey.questionnaire.responses.size) } %>
-                  <% else %>
-                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+            <td data-label="<%= t("models.survey.fields.title", scope: "decidim.surveys") %>">
+              <%= decidim_sanitize_translated(survey.title) %>
+            </td>
+            <td data-label="<%= t("models.survey.fields.questions", scope: "decidim.surveys") %>">
+              <%= survey.questionnaire.questions.size %>
+            </td>
+            <td data-label="<%= t("models.survey.fields.responses", scope: "decidim.surveys") %>">
+              <%= survey.questionnaire.count_participants %>
+            </td>
+            <td data-label="<%= t("models.survey.fields.status", scope: "decidim.surveys") %>">
+              <%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %>
+            </td>
+            <td data-label="<%= t("actions.title", scope: "decidim.surveys") %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-survey-<%= survey.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: survey.title) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-survey-<%= survey.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <li class="dropdown__item">
+                    <%= link_to edit_survey_path(survey), class: "dropdown__button" do %>
+                      <%= icon "pencil-line" %>
+                      <%= t("actions.edit", scope: "decidim.surveys") %>
+                    <% end %>
+                  </li>
+
+                  <li class="dropdown__item">
+                    <%= link_to edit_questions_questions_survey_path(survey), class: "dropdown__button" do %>
+                      <%= icon "survey-line" %>
+                      <%= t("actions.manage_questions", scope: "decidim.surveys") %>
+                    <% end %>
+                  </li>
+
+                  <hr>
+
+                  <% if allowed_to?(:update, :questionnaire) %>
+                    <% if survey.published? %>
+                      <li class="dropdown__item">
+                        <%= link_to unpublish_survey_path(survey), method: :put, class: "dropdown__button" do %>
+                          <%= icon "close-circle-line" %>
+                          <%= t("actions.unpublish", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% elsif survey.clean_after_publish? %>
+                      <li class="dropdown__item">
+                        <%= link_to publish_survey_path(survey), method: :put, data: { confirm: t("actions.responses_alert", scope: "decidim.surveys", responses_count: survey.questionnaire.responses.size) }, class: "dropdown__button" do %>
+                          <%= icon "check-line" %>
+                          <%= t("actions.publish", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li class="dropdown__item">
+                        <%= link_to publish_survey_path(survey), method: :put, class: "dropdown__button" do %>
+                          <%= icon "check-line" %>
+                          <%= t("actions.publish", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+
+                    <hr>
                   <% end %>
-                <% end %>
-                <%= resource_permissions_link(survey) %>
-                <%= icon_link_to "delete-bin-line", survey_path(survey), t("actions.destroy", scope: "decidim.surveys"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.surveys") } %>
+
+                  <% if allowed_to? :preview, :questionnaire %>
+                    <li class="dropdown__item">
+                      <%= link_to resource_locator(survey).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
+                        <%= icon "eye-line" %>
+                        <%= t("actions.preview", scope: "decidim.surveys") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <li class="dropdown__item">
+                    <%= dropdown_resource_permissions_link(survey) %>
+                  </li>
+
+                  <hr>
+
+                  <li class="dropdown__item">
+                    <%= link_to survey_path(survey), method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.surveys") }, class: "dropdown__button" do %>
+                      <%= icon "delete-bin-line" %>
+                      <%= t("actions.destroy", scope: "decidim.surveys") %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
