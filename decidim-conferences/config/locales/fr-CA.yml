@@ -223,12 +223,14 @@ fr-CA:
             title: Titre
         conference_speaker:
           fields:
+            actions: Actions
             affiliation: Organisme
             full_name: Nom complet
             position: Profession
           name: Conférencier
         conference_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Rôle
@@ -240,12 +242,14 @@ fr-CA:
             moderator: Modérateur
         media_link:
           fields:
+            actions: Actions
             date: Date
             link: Lien
             title: Titre
           name: Lien média
         partner:
           fields:
+            actions: Actions
             link: Lien
             logo: Logo
             name: Nom
@@ -256,6 +260,7 @@ fr-CA:
             main_promotor: Promoteur principal
         registration_type:
           fields:
+            actions: Actions
             conference_meetings: Rencontres de la conférence
             price: Prix
             registrations_count: Nombre d'inscriptions
@@ -510,6 +515,7 @@ fr-CA:
             sent: Envoyé
         conference_registration:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             registration_type: Type d'inscription
