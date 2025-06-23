@@ -512,7 +512,7 @@ de:
         unauthorized:
           explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
           invalid_field: "%{field} Wert %{value} ist nicht gültig."
-          ok: Ok
+          ok: OK
           title: Nicht berechtigt
         unconfirmed:
           confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
@@ -1800,7 +1800,7 @@ de:
       confirm_modal:
         cancel: Abbrechen
         close_modal: Fenster schließen
-        ok: Ok
+        ok: OK
         title: Bestätigen
       confirm_unload: Diese Seite enthält ungespeicherte Änderungen. Möchten Sie die Seite dennoch verlassen?
       embed:
