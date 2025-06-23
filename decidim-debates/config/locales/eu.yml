@@ -145,7 +145,7 @@ eu:
           state: Egoera
           state_values:
             closed: Itxita
-            open: Ireki
+            ongoing: Abian
         index:
           new_debate: Beste eztabaida bat
         new:
@@ -160,11 +160,13 @@ eu:
           updated: Orain dela gutxi eguneratuak
         show:
           close_debate: Itxi
-          debate_closed: Itxita
+          closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
-          open: Eztabaida irekita
+          not_started: Hasi gabe
+          ongoing: Abian
+          open_ended: Irekiera amaituta
           participants_count: Parte-hartzaileak
         update:
           invalid: Arazo bat egon da eztabaida eguneratzean.

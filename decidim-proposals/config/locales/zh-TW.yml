@@ -13,13 +13,11 @@ zh-TW:
         address: 地址
         answer: 回答
         answered_at: 回答
-        automatic_hashtags: 已自動添加標籤
         body: 內容
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
         state: 狀態
-        suggested_hashtags: 建議使用標籤
         title: 標題
       proposal_answer:
         answer: 回答
@@ -144,7 +142,6 @@ zh-TW:
             amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
             announcement: 公告
             answers_with_costs: 啟用提案回答的成本
-            automatic_hashtags: 所有提案都已添加標籤
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立提案
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
@@ -158,7 +155,6 @@ zh-TW:
             proposal_answering_enabled: 提案回答已啟用
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
-            suggested_hashtags: 為新提案建議參與者使用的標籤
     events:
       proposals:
         admin:

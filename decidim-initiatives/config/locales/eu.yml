@@ -7,7 +7,6 @@ eu:
         area_id: Arloa
         decidim_scope_id: Esparrua
         description: Deskribapena
-        hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Eremua
@@ -78,6 +77,7 @@ eu:
   decidim:
     admin:
       actions:
+        cannot_answer: Ezin zaio erantzun ekimen honi
         new_initiative_type: Beste ekimen mota bat
         new_initiative_type_scope: Beste ekimen mota bat eremuan
       filters:
@@ -95,6 +95,8 @@ eu:
               validating: Baliozkotze teknikoa
           type_id_eq:
             label: Mota
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera
       initiatives_settings:
         update:
           error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
@@ -262,6 +264,7 @@ eu:
             success: Ekimena baliozkotze teknikora bidali da.
             update: Eguneratu
           form:
+            attachments_title: Erantsitako fitxategiak
             settings: Ezarpenak
             title: Informazio orokorra
           index:
@@ -541,11 +544,6 @@ eu:
         initiatives:
           closed_initiatives_warning: Gaur egun ez dago ekimen irekirik, baina hemen aurki ditzakezu itxitako ekimen guztiak zerrendatuta.
           no_initiatives_warning: Ez dago bilaketa-irizpideekin bat datorren ekimenik.
-        interactions:
-          comments_count:
-            count:
-              one: Iruzkina
-              other: Oharrak
         orders:
           label: 'Sortu ekintzak honela:'
           most_commented: Iruzkin gehien dutenak
@@ -671,7 +669,6 @@ eu:
           description: Ekimenaren deskribapena
           first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
           follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Ekimenaren traola, X sarerako erabilia
           offline_votes: Ekimen honek plataforma honetatik kanpo jaso dituen sinadura kopurua
           online_votes: Ekimen honek online jaso duen sinadura kopurua (plataformaren bidez zuzenean)
           published_at: Zein egunetan argitaratu zen espazio hau

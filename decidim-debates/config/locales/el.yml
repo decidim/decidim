@@ -103,7 +103,6 @@ el:
           state: Κατάσταση
           state_values:
             closed: Κλειστό
-            open: Άνοιγμα
         index:
           new_debate: Νέα συζήτηση
         new:
@@ -116,10 +115,8 @@ el:
           recent: Πιο πρόσφατες
           updated: Πρόσφατα ενημερωμένες
         show:
-          debate_closed: Κλειστό
           debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
           edit_conclusions: Επεξεργασία συμπερασμάτων
-          open: Άνοιγμα συζήτησης
           participants_count: Συμμετέχοντες
         update:
           invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της συζήτησης.

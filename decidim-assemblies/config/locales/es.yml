@@ -25,7 +25,6 @@ es:
         duration: Duración
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -170,7 +169,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Página de inicio
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea
@@ -193,6 +192,7 @@ es:
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -396,7 +396,6 @@ es:
           facebook_handler: Controlador de redes sociales para Facebook
           follows_count: El número de usuarias que siguen esta asamblea
           github_handler: Controlador de redes sociales para GitHub
-          hashtag: La etiqueta que utiliza la asamblea en Twitter/X
           id: El identificador único del resultado
           included_at: La fecha en que la asamblea fue incluida en la plataforma
           instagram_handler: Controlador de redes sociales para Instagram

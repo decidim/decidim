@@ -13,7 +13,6 @@ fr-CA:
         document: Document
         domain: Domaine
         end_date: Date de fin
-        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -39,7 +38,6 @@ fr-CA:
         description: Description
         developer_group: Groupe d'initiateurs
         group_url: Site web
-        hashtag: Hashtag
         hero_image: Image
         local_area: Zone d'organisation
         meta_scope: Secteur
@@ -110,7 +108,6 @@ fr-CA:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
           info: Information
-          landing_page: Page d'accueil
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -118,7 +115,6 @@ fr-CA:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
-          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Membres
           process_admins: Administrateurs de la concertation
@@ -134,6 +130,7 @@ fr-CA:
           name: Concertation
         participatory_process_group:
           fields:
+            actions: Actions
             title: Titre
           name: Groupe de concertations
         participatory_process_step:

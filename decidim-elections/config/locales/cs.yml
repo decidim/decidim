@@ -1,5 +1,9 @@
 cs:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Otázky
     components:
       elections:
         name: Volby
@@ -23,7 +27,6 @@ cs:
             success: Volba byla úspěšně vytvořena.
           edit:
             title: Upravit volbu
-            update: Aktualizovat volby
           form:
             add_images: Přidat obrázky
             attachment_legend: Přidat galerii obrázků (volitelné)
@@ -44,7 +47,6 @@ cs:
           manage_trash:
             title: Odstraněné volby
           new:
-            create: Vytvořit volbu
             title: Nové volby
           publish:
             invalid: Při zveřejňování voleb došlo k chybě.
@@ -54,6 +56,10 @@ cs:
             success: Volby úspěšně nezveřejněny.
           update:
             invalid: Při aktualizaci voleb došlo k chybě.
+        questions:
+          edit_questions:
+            new_question: Nová otázka
+            title: Otázky
       admin_log:
         election:
           create: "%{user_name} vytvořil volby %{resource_name} v %{space_name}"

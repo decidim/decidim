@@ -216,6 +216,7 @@ fr-CA:
           intro: |
             Veuillez être extrèmement prudent lorsque vous envisagez de modifier ces paramètres. Moins vous autorisez, mieux c'est.
             L'autorisation d'extensions de fichiers spécifiques ou de types MIME peut exposer les utilisateurs du système à des risques de sécurité et peut également affecter l'accessibilité du site.
+        header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
         index:
           title: Organisations
         new:
