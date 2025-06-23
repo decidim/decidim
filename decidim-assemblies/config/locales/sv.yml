@@ -191,6 +191,7 @@ sv:
             vice_president: Vice ordförande
         assembly_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
