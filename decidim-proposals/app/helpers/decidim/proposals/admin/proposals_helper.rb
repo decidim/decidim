@@ -46,21 +46,6 @@ module Decidim
 
           translated_attribute(proposal&.proposal_state&.title)
         end
-
-        def icon_with_link_to_proposal(proposal)
-          icon, tooltip = if allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation?
-                            [
-                              "question-answer-line",
-                              t(:answer_proposal, scope: "decidim.proposals.actions")
-                            ]
-                          else
-                            [
-                              "information-line",
-                              t(:show, scope: "decidim.proposals.actions")
-                            ]
-                          end
-          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small action-icon--show-proposal")
-        end
       end
     end
   end

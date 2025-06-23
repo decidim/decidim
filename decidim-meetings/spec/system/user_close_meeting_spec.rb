@@ -12,7 +12,7 @@ describe "User edit meeting" do
     create(:meeting,
            :published,
            :past,
-           title: { en: "Meeting title with #hashtag" },
+           title: { en: "Meeting with a title" },
            description: { en: "Meeting description" },
            author: user,
            component:)
@@ -121,7 +121,7 @@ describe "User edit meeting" do
                :published,
                :past,
                :closed,
-               title: { en: "Meeting title with #hashtag" },
+               title: { en: "Meeting with a title" },
                description: { en: "Meeting description" },
                author: user,
                attendees_count: nil,

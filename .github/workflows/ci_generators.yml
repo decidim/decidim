@@ -21,8 +21,12 @@ env:
   NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
-  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
   SHAKAPACKER_RUNTIME_COMPILE: "false"
+
+permissions:
+  contents: read
+  pull-requests: read
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -108,9 +112,8 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
-          token: ${{ env.CODECOV_TOKEN }}
           name: decidim-generators
           flags: decidim-generators

@@ -19,7 +19,6 @@ en:
         address: Address
         answer: Answer
         answered_at: Answered at
-        automatic_hashtags: Hashtags automatically added
         body: Body
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
@@ -28,7 +27,6 @@ en:
         longitude: Longitude
         scope_id: Scope
         state: State
-        suggested_hashtags: Suggested hashtags
         title: Title
       proposal_answer:
         answer: Answer
@@ -150,6 +148,10 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title
+      tooltips:
+        cannot_edit_proposal_info: Cannot edit this proposal as it is created by a participant or it has received any vote
+        deleted_proposal_states_info: Cannot delete this proposal state because there are proposals assigned to it
+        deleted_proposals_info: Cannot delete this proposal
     application:
       geocoding:
         not_configured: Geocoding is not configured!
@@ -235,7 +237,6 @@ en:
             amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
             answers_with_costs: Enable costs on proposal answers
-            automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Participants can create proposals
             creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
@@ -255,7 +256,6 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
             publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
-            suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)

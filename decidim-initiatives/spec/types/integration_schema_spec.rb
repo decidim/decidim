@@ -38,7 +38,6 @@ describe "Decidim::Api::QueryType" do
       "createdAt" => initiative.created_at.to_time.iso8601,
       "description" => { "translation" => initiative.description[locale] },
       "firstProgressNotificationAt" => initiative.first_progress_notification_at.to_time.iso8601,
-      "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
       "initiativeType" => initiative_type_data,
       "offlineVotes" => initiative.offline_votes_count,
@@ -108,7 +107,6 @@ describe "Decidim::Api::QueryType" do
           translation(locale: "#{locale}")
         }
         firstProgressNotificationAt
-        hashtag
         id
         initiativeType {
           attachmentsEnabled
@@ -219,7 +217,6 @@ describe "Decidim::Api::QueryType" do
           translation(locale: "en")
         }
         firstProgressNotificationAt
-        hashtag
         id
         initiativeType {
           attachmentsEnabled

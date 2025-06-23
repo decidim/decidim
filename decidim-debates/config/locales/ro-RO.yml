@@ -121,7 +121,6 @@ ro:
           state: Stare
           state_values:
             closed: Închisă
-            open: Deschisă
         index:
           new_debate: Dezbatere nouă
         new:
@@ -135,10 +134,8 @@ ro:
           recent: Cele mai recente
           updated: Actualizate recent
         show:
-          debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Modificați concluziile
-          open: Dezbatere deschisă
           participants_count: Participanți
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.

@@ -9,7 +9,10 @@ shared_examples "manage assemblies" do
     let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
     before do
-      click_on "Configure"
+      within("tr", text: translated(assembly.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "updates an assembly" do
@@ -63,7 +66,8 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      within "tr", text: translated(assembly.title) do
+      within("tr", text: translated(assembly.title)) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end
@@ -96,7 +100,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within "tr", text: translated(assembly.title) do
+          within("tr", text: translated(assembly.title)) do
+            find("button[data-component='dropdown']").click
             click_on "Preview"
           end
         end
@@ -114,7 +119,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within "tr", text: translated(assembly.title) do
+          within("tr", text: translated(assembly.title)) do
+            find("button[data-component='dropdown']").click
             click_on "Preview"
           end
         end
@@ -137,7 +143,8 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      within "tr", text: translated(assembly.title) do
+      within("tr", text: translated(assembly.title)) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end
@@ -157,7 +164,8 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      within "tr", text: translated(assembly.title) do
+      within("tr", text: translated(assembly.title)) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
     end

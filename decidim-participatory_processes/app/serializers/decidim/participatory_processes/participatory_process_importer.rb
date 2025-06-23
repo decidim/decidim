@@ -27,7 +27,6 @@ module Decidim
             title:,
             slug:,
             subtitle: attributes["subtitle"],
-            hashtag: attributes["hashtag"],
             description: attributes["description"],
             short_description: attributes["short_description"],
             promoted: attributes["promoted"],

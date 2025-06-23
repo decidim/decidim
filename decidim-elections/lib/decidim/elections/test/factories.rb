@@ -40,4 +40,26 @@ FactoryBot.define do
       end
     end
   end
+
+  factory :election_question, class: "Decidim::Elections::Question" do
+    association :election
+    body { generate_localized_title(:question_body) }
+    description { generate_localized_description(:question_description) }
+    mandatory { false }
+    question_type { "multiple_option" }
+    position { 0 }
+
+    transient do
+      with_response_options { true }
+    end
+
+    after :create do |question, evaluator|
+      create_list(:election_response_option, 2, question:) if evaluator.with_response_options
+    end
+  end
+
+  factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
+    association :question, factory: :election_question
+    body { generate_localized_title(:response_option_body) }
+  end
 end

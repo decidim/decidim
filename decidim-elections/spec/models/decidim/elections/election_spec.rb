@@ -67,6 +67,39 @@ module Decidim
           expect(election.auto_start?).to be false
         end
       end
+
+      describe "associations" do
+        it "has many questions" do
+          election.save!
+          create(:election_question, election: election)
+          expect(election.questions.count).to eq(1)
+        end
+      end
+
+      describe "results_availability enum" do
+        it "accepts real_time, per_question, after_end" do
+          %w(real_time per_question after_end).each do |val|
+            election.results_availability = val
+            expect(election.results_availability).to eq(val)
+          end
+        end
+
+        it "raises error for invalid value" do
+          expect { election.results_availability = "invalid" }.to raise_error(ArgumentError)
+        end
+      end
+
+      describe "#presenter" do
+        it "returns a presenter instance" do
+          expect(election.presenter).to be_a(Decidim::Elections::ElectionPresenter)
+        end
+      end
+
+      describe ".log_presenter_class_for" do
+        it "returns the admin log presenter class" do
+          expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Elections::AdminLog::ElectionPresenter)
+        end
+      end
     end
   end
 end

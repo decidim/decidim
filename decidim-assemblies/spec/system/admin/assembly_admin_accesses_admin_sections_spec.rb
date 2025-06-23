@@ -35,7 +35,10 @@ describe "Assembly admin accesses admin sections" do
   context "when is a mother assembly" do
     before do
       visit decidim_admin_assemblies.assemblies_path
-      click_on "Configure"
+      within "tr", text: translated(assembly.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     context "when is a public assembly" do
@@ -50,7 +53,7 @@ describe "Assembly admin accesses admin sections" do
   end
 
   context "when is a child assembly" do
-    let!(:child_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "child") }
+    let!(:child_assembly) { create(:assembly, parent: assembly, organization:) }
 
     before do
       visit decidim_admin_assemblies.edit_assembly_path(child_assembly)

@@ -60,7 +60,7 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
         within "tr", text: translated(participatory_space.title) do
           click_on translated(participatory_space.title)
@@ -89,7 +89,7 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
 
         click_on space_sidebar_label
 
-        within "div.table-scroll" do
+        within ".table-list" do
           expect(page).to have_i18n_content(participatory_space.title)
           within "tr", text: translated(participatory_space.title) do
             click_on translated(participatory_space.title)
@@ -129,7 +129,7 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
         expect(page).to have_i18n_content(participatory_space.title)
         within "tr", text: translated(participatory_space.title) do
@@ -153,7 +153,7 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
 
         click_on space_sidebar_label
 
-        within "div.table-scroll" do
+        within ".table-list" do
           expect(page).to have_i18n_content(participatory_space.title)
           expect(page).to have_i18n_content(participatory_space.title)
           within "tr", text: translated(participatory_space.title) do

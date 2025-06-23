@@ -5,11 +5,6 @@
         <%= title_text %>
       </h1>
       <p class="participatory-space__hero-slogan">
-        <% if has_hashtag? %>
-          <span>
-            <%= link_to "##{escaped_hashtag}", twitter_hashtag_url(escaped_hashtag), target: "_blank" %>
-          </span>
-        <% end %>
         <%= subtitle_text %>
       </p>
       <% if has_cta? %>

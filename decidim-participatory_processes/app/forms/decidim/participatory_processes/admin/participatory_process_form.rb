@@ -25,7 +25,6 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
-        attribute :hashtag, String
         attribute :slug, String
 
         attribute :participatory_process_group_id, Integer

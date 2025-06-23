@@ -492,6 +492,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -1071,6 +1072,7 @@ XXXXXXXY
 yardopts
 yarnkey
 ydd
+yjit
 yieldparam
 yieldreturn
 yoda

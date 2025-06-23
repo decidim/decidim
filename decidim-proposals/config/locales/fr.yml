@@ -18,7 +18,6 @@ fr:
         address: Adresse
         answer: Répondre
         answered_at: Répondu à
-        automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
@@ -27,7 +26,6 @@ fr:
         longitude: Longitude
         scope_id: Secteur
         state: État
-        suggested_hashtags: Hashtags suggérés
         title: Titre
       proposal_answer:
         answer: Répondre
@@ -222,7 +220,6 @@ fr:
             amendments_visibility_help: Si l'option "Les amendements ne sont visibles que pour leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les amendements apportés.
             announcement: Annonce
             answers_with_costs: Activer les coûts sur les réponses aux propositions
-            automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
@@ -239,7 +236,6 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
-            suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)

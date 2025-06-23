@@ -119,12 +119,12 @@ describe "Edit collaborative_drafts" do
         click_on "Edit"
 
         within "form.edit_collaborative_draft" do
-          fill_in :collaborative_draft_title, with: "A title with a #hashtag"
+          fill_in :collaborative_draft_title, with: "A draft with a title"
           fill_in :collaborative_draft_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 
-        expect(page).to have_css("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A draft with a title']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end

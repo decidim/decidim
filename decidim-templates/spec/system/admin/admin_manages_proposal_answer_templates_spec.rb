@@ -158,7 +158,10 @@ describe "Admin manages proposal answer templates" do
 
     before do
       visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-      find("a", class: "action-icon--show-proposal").click
+      within "tr", text: translated_attribute(proposal.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Answer proposal"
+      end
     end
 
     it "uses the template" do
@@ -181,7 +184,10 @@ describe "Admin manages proposal answer templates" do
       before do
         template.destroy!
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-        find("a", class: "action-icon--show-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Answer proposal"
+        end
       end
 
       it "hides the template selector in the proposal answer page" do
@@ -195,7 +201,10 @@ describe "Admin manages proposal answer templates" do
 
       before do
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
-        find("a", class: "action-icon--show-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Answer proposal"
+        end
       end
 
       it "displays the global template in dropdown" do
