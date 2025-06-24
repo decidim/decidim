@@ -32,7 +32,7 @@ module Decidim
     def query
       query = base_query
 
-      query = query.where(user_id: user.id).where(user_type: user.class.name) if user
+      query = query.where(user_id: user.id, user_type: user.class.name) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
