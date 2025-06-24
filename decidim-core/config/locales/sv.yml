@@ -576,6 +576,14 @@ sv:
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner med utvalt innehåll
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Undertitel på knapp
+        action_button_title: Titel på knapp
+        action_button_url: URL för knapp
+        background_image: Bakgrundsbild
+        short_description: Kort beskrivning
+        subtitle: Underrubrik
+        title: Titel
       highlighted_elements_settings_form:
         components:
           all: Alla

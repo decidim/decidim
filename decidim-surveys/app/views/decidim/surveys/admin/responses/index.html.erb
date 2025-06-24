@@ -24,7 +24,7 @@
       <% end %>
     </h1>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -40,24 +40,54 @@
       <tbody>
         <% @participants.each_with_index do |participant, idx| %>
           <tr>
-            <td><%= idx + 1 + page_offset %></td>
-            <td class="!text-left">
+            <td data-label="#"> <%= idx + 1 + page_offset %> </td>
+            <td class="!text-left" data-label="<%= first_table_th(@participants.first) %>">
               <% if allowed_to? :show, :questionnaire_responses %>
                 <%= link_to first_table_td(participant), questionnaire_participant_responses_url(participant.session_token) %>
               <% else %>
-                <%= first_table_td(participant) %></td>
+                <%= first_table_td(participant) %>
               <% end %>
-            <td><%= participant.status %></td>
-            <td><%= participant.ip_hash %></td>
-            <td><%= display_percentage(participant.completion) %></td>
-            <td><%= l participant.responded_at, format: :short %></td>
-            <td class="table-list__actions">
-              <% if allowed_to? :show, :questionnaire_responses %>
-                <%= icon_link_to "eye-line", questionnaire_participant_responses_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
-              <% end %>
-              <% if allowed_to? :export_response, :questionnaire_responses %>
-                <%= icon_link_to "download-line", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.responses"), class: "action-icon--data-transfer-download" %>
-              <% end %>
+            </td>
+            <td data-label="<%= t("user_status", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.status %>
+            </td>
+            <td data-label="<%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.ip_hash %>
+            </td>
+            <td data-label="<%= t("completion", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= display_percentage(participant.completion) %>
+            </td>
+            <td data-label="<%= t("created_at", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= l participant.responded_at, format: :short %>
+            </td>
+            <td data-label="<%= t("actions.title", scope: "decidim.surveys") %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-participant-<%= idx %>" aria-label="<%= t("decidim.admin.actions.actions_label") %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-participant-<%= idx %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :show, :questionnaire_responses %>
+                    <li class="dropdown__item">
+                      <%= link_to questionnaire_participant_responses_url(participant.session_token), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
+                        <%= icon "eye-line" %>
+                        <%= t("actions.show", scope: "decidim.forms.admin.questionnaires.responses") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to? :export_response, :questionnaire_responses %>
+                    <li class="dropdown__item">
+                      <%= link_to questionnaire_export_response_url(participant.session_token), class: "dropdown__button" do %>
+                        <%= icon "download-line" %>
+                        <%= t("actions.export", scope: "decidim.forms.admin.questionnaires.responses") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>

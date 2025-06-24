@@ -33,6 +33,10 @@ module Decidim
       def resource_content_block_cell
         "decidim/admin/homepage_content_block"
       end
+
+      def content_blocks_title
+        t("decidim.admin.menu.homepage")
+      end
     end
   end
 end

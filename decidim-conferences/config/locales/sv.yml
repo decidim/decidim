@@ -11,7 +11,6 @@ sv:
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        hashtag: Hashtag
         hero_image: Bild till startsida
         location: Plats
         main_logo: Logotyp
@@ -218,6 +217,7 @@ sv:
       models:
         conference:
           fields:
+            actions: Åtgärder
             created_at: Skapad
             published: Publicerad
             title: Titel
@@ -613,7 +613,6 @@ sv:
           description: Längre beskrivning av konferensen
           end_date: Det datum då konferens avslutas.
           follows_count: Antal följare
-          hashtag: Konferensens hashtag, används för Twitter/X
           id: Unikt id för konferensen
     statistics:
       conferences_count: Konferenser

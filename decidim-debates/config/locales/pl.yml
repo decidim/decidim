@@ -112,7 +112,6 @@ pl:
           state: Status
           state_values:
             closed: Zakończone
-            open: Otwarte
         index:
           new_debate: Nowa debata
         new:
@@ -125,10 +124,8 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
-          debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
-          open: Otwarta
           participants_count: Użytkownicy
         update:
           invalid: Podczas aktualizowania debaty wystąpił błąd.

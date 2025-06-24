@@ -10,7 +10,6 @@ module Decidim
 
       field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process group", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this participatory process group", null: true
-      field :hashtag, GraphQL::Types::String, "The hashtag for this participatory process group", null: true
       field :hero_image, GraphQL::Types::String, "The hero image for this participatory process group", null: true
       field :id, GraphQL::Types::ID, "ID of this participatory process group", null: false
       field :local_area, Decidim::Core::TranslatedFieldType, "The organization area of this participatory process group", null: true

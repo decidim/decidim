@@ -22,7 +22,6 @@ module Decidim::ParticipatoryProcesses
             subtitle_es: my_process.subtitle,
             weight: my_process.weight,
             slug: my_process.slug,
-            hashtag: my_process.hashtag,
             meta_scope: my_process.meta_scope,
             promoted: my_process.promoted,
             description_en: my_process.description,

@@ -22,7 +22,6 @@ module Decidim
       field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], "The committee members list", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
       field :first_progress_notification_at, Decidim::Core::DateTimeType, "The date when the first progress notification was sent ", null: true
-      field :hashtag, GraphQL::Types::String, "The hashtag for this initiative", null: true
       field :initiative_supports_count, GraphQL::Types::Int,
             description: "The number of supports in this initiative",
             method: :online_votes_count,
