@@ -400,6 +400,12 @@ module Decidim
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
+      def elections_census_manifest
+        return unless options[:demo]
+
+        copy_file "elections_initializer.rb", "config/initializers/decidim_elections.rb"
+      end
+
       def initiative_signatures_workflows
         return unless options[:demo]
 
