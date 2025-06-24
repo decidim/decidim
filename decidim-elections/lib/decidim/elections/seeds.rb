@@ -41,7 +41,8 @@ module Decidim
 
       def create_election!(component:)
         census_manifest = %w(internal_users token_csv).sample
-        handlers = ["", "id_documents", "postal_letter", "csv_census", "dummy_authorization_handler", "ephemeral_dummy_authorization_handler", "another_dummy_authorization_handler", "sms"]
+        handlers = ["", "id_documents", "postal_letter", "csv_census", "dummy_authorization_handler", "ephemeral_dummy_authorization_handler",
+                    "another_dummy_authorization_handler", "sms"]
         census_settings = census_manifest == "internal_users" ? { "verification_handlers" => handlers.sample(rand(1..2)) } : {}
 
         params = {
