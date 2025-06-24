@@ -149,13 +149,13 @@ module Decidim
         end
 
         context "with an admin user" do
-          let!(:scope) { :admin }
+          let!(:user_type) { :admin }
 
           it_behaves_like "logable participant details"
         end
 
         context "with an api user" do
-          let!(:scope) { :api_user }
+          let!(:user_type) { :api_user }
 
           it_behaves_like "logable participant details"
         end
