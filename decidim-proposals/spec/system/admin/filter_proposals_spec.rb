@@ -158,6 +158,7 @@ describe "Admin filters proposals" do
 
       it "stores the filters in the session and recovers it when visiting the component page" do
         within("tr[data-id='#{answered_proposal_with_taxonomy1.id}']") do
+          find("button[data-component='dropdown']").click
           click_on("Answer proposal")
         end
 
@@ -191,6 +192,7 @@ describe "Admin filters proposals" do
         ids = find_all("tr[data-id]").map { |node| node["data-id"].to_i }
 
         within("tr[data-id='#{ids[0]}']") do
+          find("button[data-component='dropdown']").click
           click_on("Answer proposal")
         end
 
