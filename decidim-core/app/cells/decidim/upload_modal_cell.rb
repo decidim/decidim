@@ -135,7 +135,7 @@ module Decidim
       if has_title?
         decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
       else
-        decidim_html_escape(decidim_sanitize(attachment.file.url.split("/").last))
+        decidim_html_escape(decidim_sanitize(attachment.url.split("/").last))
       end
     end
 
