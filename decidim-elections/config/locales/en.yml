@@ -37,8 +37,9 @@ en:
             identifier: User identifier
             title: Type of census
           preview:
-            one: 'User preview (the list is limited to %{limit} entry):'
-            other: 'User preview (the list is limited to %{limit} entries):'
+            title:
+              one: 'User preview (the list is limited to %{count} entry):'
+              other: 'User preview (the list is limited to %{count} entries):'
           update:
             error: There was an error while generating or saving the census.
             success: Census updated successfully.
