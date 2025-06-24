@@ -59,7 +59,7 @@ describe "Admin manages election census" do
         click_on "Save and continue"
 
         expect(page).to have_content("There are currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 1 entriy")
+        expect(page).to have_content("User preview (the list is limited to 1 entry")
         expect(page).to have_content("user1@example.org")
       end
     end
@@ -130,7 +130,7 @@ describe "Admin manages election census" do
           click_on "Save and continue"
 
           expect(page).to have_content("There are currently 1 person eligible for voting in this election (this might change on a dynamic census).")
-          expect(page).to have_content("User preview (the list is limited to 1 entriy)")
+          expect(page).to have_content("User preview (the list is limited to 1 entry)")
           expect(page).to have_css("table.table-list tbody tr", count: 1)
         end
       end
