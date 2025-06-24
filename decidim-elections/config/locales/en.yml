@@ -72,6 +72,7 @@ en:
             percentage: Percentage
             results: Results
           results:
+            start_question_button: Enable voting
             no_results: There are no results yet.
             publish_button: Publish results
             results_availability:

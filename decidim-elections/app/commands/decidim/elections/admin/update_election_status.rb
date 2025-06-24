@@ -35,7 +35,27 @@ module Decidim
             end_election
           when :publish_results
             publish_results
+          when :show_question
+            mark_question_as_open(form.question_id)
           end
+        end
+
+        def mark_question_as_open(question_id)
+          current_ids = fetch_open_questions
+          current_ids << question_id.to_i unless current_ids.include?(question_id.to_i)
+          save_open_questions(current_ids)
+        end
+
+        def fetch_open_questions
+          Decidim::Settings.for(:elections).fetch(shown_questions_key) { [] }.map(&:to_i)
+        end
+
+        def save_open_questions(ids)
+          Decidim::Settings.for(:elections).store(shown_questions_key, ids.uniq)
+        end
+
+        def shown_questions_key
+          "election_#{election.id}_open_questions"
         end
 
         def start_election

@@ -4,8 +4,11 @@
       <h3 class="flex items-center justify-between">
         <%= "#{index + 1}. #{translated_attribute(question.body)}" %>
         <% if election.results_availability == "per_question" %>
-          <%= publish_button_for(election, question) %>
-      <% end %>
+          <div class="flex gap-4 items-center justify-between">
+            <%= enable_voting_button(election, question) %>
+            <%= publish_button_for(election, question) %>
+          </div>
+        <% end %>
       </h3>
     </div>
     <div class="row column">

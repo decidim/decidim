@@ -56,7 +56,7 @@ module Decidim
 
           menu.add_item :election_census,
                         I18n.t("election_census", scope: "decidim.admin.menu.elections_menu"),
-                        @election.nil? || @election.published? ? "#" : current_component_admin_proxy&.census_election_path(@election),
+                        @election.nil? || @election.published? || @election.questions.blank? ? "#" : current_component_admin_proxy&.census_election_path(@election),
                         active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.census_election_path(@election)),
                         icon_name: "group-2-line"
 
