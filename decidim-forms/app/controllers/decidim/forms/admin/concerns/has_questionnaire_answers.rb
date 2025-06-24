@@ -29,7 +29,7 @@ module Decidim
 
               @query = paginate(collection)
               @participants = participants(@query)
-              @total = participants_query.count_participants
+              @total = questionnaire.count_participants
 
               render template: "decidim/forms/admin/questionnaires/answers/index"
             end
@@ -49,9 +49,11 @@ module Decidim
               answers = QuestionnaireUserAnswers.for(questionnaire)
 
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.answers.export_response.title")
-              title = t("export_response.title", scope: i18n_scope, token: session_token)
+              file_name = t("export_response.title", scope: i18n_scope, token: session_token)
 
-              Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, title, answers.select { |a| a.first.session_token == session_token })
+              selected_response = answers.select { |a| a.first.session_token == session_token }
+
+              Decidim::Forms::ExportQuestionnaireAnswersJob.perform_later(current_user, file_name, selected_response, :survey_user_answers)
 
               flash[:notice] = t("decidim.admin.exports.notice")
 

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -76,7 +77,6 @@ uk:
         new:
           back: Повернутись
           create: Започаткувати
-          title: Додати обговорення
       models:
         debate:
           fields:
@@ -98,3 +98,6 @@ uk:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість започатковувати нові обговорення! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} почалось обговорення
+    metrics:
+      debates:
+        title: Обговорення

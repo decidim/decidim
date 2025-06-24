@@ -17,7 +17,7 @@
       <%= t("description", scope: "decidim.open_data.index", organization_name: current_organization_name) %>
       </p>
 
-      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "explanation", title: t("title", scope: "decidim.open_data.index.explanation") } do %>
+      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "explanation", title: t("title", scope: "decidim.open_data.index.explanation"), open_accordion: true } do %>
         <p> <%= t("body_1", scope: "decidim.open_data.index.explanation", organization_name: current_organization_name) %> </p>
         <p> <%= t("body_2", scope: "decidim.open_data.index.explanation") %> </p>
       <% end %>

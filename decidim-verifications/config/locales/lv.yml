@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -35,16 +36,16 @@ lv:
       admin:
         id_documents:
           help:
-            - Lietotāji aizpilda savu personīgo informāciju un augšupielādē sava dokumenta kopiju.
-            - Jūs aizpildāt augšupielādētajā attēlā esošo informāciju.
-            - Informācijai jāatbilst tai, kuru ievadījis lietotājs.
-            - 
+          - Lietotāji aizpilda savu personīgo informāciju un augšupielādē sava dokumenta kopiju.
+          - Jūs aizpildāt augšupielādētajā attēlā esošo informāciju.
+          - Informācijai jāatbilst tai, kuru ievadījis lietotājs.
+          - 
         postal_letter:
           help:
-            - Dalībnieki pieprasa verifikācijas kodu, kas jānosūta uz viņu adresi.
-            - Jūs nosūtāt vēstuli uz viņu adresi ar verifikācijas kodu.
-            - Jūs atzīmējat vēstuli kā nosūtītu.
-            - Kad esat atzīmējis vēstuli kā nosūtītu, dalībnieks varēs ievadīt kodu un tikt verificēts.
+          - Dalībnieki pieprasa verifikācijas kodu, kas jānosūta uz viņu adresi.
+          - Jūs nosūtāt vēstuli uz viņu adresi ar verifikācijas kodu.
+          - Jūs atzīmējat vēstuli kā nosūtītu.
+          - Kad esat atzīmējis vēstuli kā nosūtītu, dalībnieks varēs ievadīt kodu un tikt verificēts.
       csv_census:
         name: Organizācijas skaitīšana
       direct: Tiešā
@@ -88,9 +89,6 @@ lv:
             body: Lai to izdarītu, jums jāizmanto administratora pilnvaras un organizācijai jāpievieno csv_census pilnvaras
           new:
             file: ".csv fails ar e-pasta datiem"
-            info: 'Failam jābūt CSV formātā, kurā ir tikai viena kolonna ar e-pasta adresi:'
-            submit: Augšupielādēt failu
-            title: Augšupielādēt jaunu skaitīšanu
         authorizations:
           new:
             error: Mēs nevarējām verificēt jūsu kontu, vai arī jūs nepiedalāties organizācijas skaitīšanā.

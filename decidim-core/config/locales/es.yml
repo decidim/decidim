@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ es:
         delete_reason: Motivo de eliminar tu cuenta
       attachment:
         documents: Documentos
+        image: Imagen
         photos: Fotos
       common:
         created_at: Creado el
@@ -53,7 +55,13 @@ es:
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
       user_group:
-        avatar: Imagen de perfil
+        avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: El alias o apodo debe estar en minúsculas y no contener espacios
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -78,7 +86,7 @@ es:
         with_participatory_space: Espacio de participación
       decidim/user:
         current_password: Contraseña actual
-        email: Correo electrónico
+        email: Dirección de correo electrónico
         name: Alias
         password: Contraseña
         password_confirmation: Confirmación de contraseña
@@ -116,7 +124,7 @@ es:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -171,6 +179,7 @@ es:
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Abrir en una pestaña nueva
+      secondary_menu: Menú secundario
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -561,6 +570,8 @@ es:
             dummy_step_attribute1: Atributo de fase de prueba 1
             dummy_step_attribute2: Atributo de fase de prueba 2
             dummy_step_translatable_text: Fase de ejemplo traducible
+      pagination:
+        page_title: "%{component_name} - Página %{current_page} de %{total_pages}"
     contact: Contacto
     content_blocks:
       announcement:
@@ -669,7 +680,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nueva en la plataforma?'
+          are_you_new?: '¿No te has registrado todavía?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
@@ -690,7 +701,7 @@ es:
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
-          or: O
+          or: o
         password_fields:
           hidden_password: Tu contraseña está oculta
           hide_password: Ocultar contraseña
@@ -996,6 +1007,16 @@ es:
       notification_event:
         notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+          email_outro: Has recibido esta notificación porque es autora del/de la %{resource_type}.
+          email_subject: Tu %{resource_type} ya no es visible
+          notification_title: |-
+            Tu %{resource_type} ya no está visible.<br>
+            Esto ocurre porque la propuesta, el encuentro, el debate o el comentario al que respondiste ha sido moderado. Si vuelve a estar disponible, su comentario se restaurará automáticamente.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
           email_outro: Has recibido esta notificación porque se ha eliminado un contenido que creaste.
@@ -1071,8 +1092,8 @@ es:
       attachment_link:
         explanation: Guía para enlaces adjuntos
         help_messages:
-          - Solo se aceptan formatos de URL correctos.
-          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
+        - Solo se aceptan formatos de URL correctos.
+        - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1123,7 +1144,7 @@ es:
       badges:
         followers:
           conditions:
-            - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
+          - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
           description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Esta participante tiene %{score} seguidores.
           description_own: "%{score} personas te están siguiendo."
@@ -1212,8 +1233,8 @@ es:
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
-        accept_request: Acepta
-        reject_request: Rechaza
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
@@ -1295,7 +1316,7 @@ es:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Para verla y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
@@ -1312,13 +1333,13 @@ es:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Para verlo y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha añadido nuevos mensajes en la conversación con el grupo %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
@@ -1548,13 +1569,13 @@ es:
         user_groups:
           avatar_url: El avatar del grupo de usuarias
           badge: La insignia del grupo de usuarias
-          deleted: Si el grupo de usuarias fue eliminado o no
+          deleted: Si la usuaria fue eliminada o no
           id: El identificador único del grupo de usuarias
           members: El ID y el nombre de las usuarias que pertenecen al grupo
           members_count: El número de miembros que forman parte del grupo de usuarias
           name: El nombre que se muestra del grupo de usuarias
           nickname: El nombre de usuaria del grupo de usuarias
-          profile_url: La URL del perfil del grupo de usuarias
+          profile_url: La URL del perfil de la usuaria
         users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           avatar_url: El avatar de la usuaria
@@ -1685,46 +1706,46 @@ es:
         followers: Seguidoras
         following: Siguiendo
         group_admins: Gestionar administradoras
-        group_members: Gestionar miembros
+        group_members: Gestionar los miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-      sidebar:
-        badges:
-          info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
-          title: Distintivos
       user:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grupo
+          invite_user: Invita a la participante
+          join_user_group: Solicita unirse al grupo
+          leave_user_group: Deja el grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
-          manage_user_group_users: Gestionar miembros
+          manage_user_group_users: Gestionar los miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
-        create_user_group: Crea un grupo
-        edit_profile: Edita el perfil
-        edit_user_group: Edita el perfil del grupo
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
-        invite_user: Invita a la participante
-        join_user_group: Solicita unirse al grupo
-        leave_user_group: Deja el grupo
-        manage_user_group_admins: Gestiona las administradoras
-        manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Contenido reportado
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
+      hidden_manually:
+        content: Contenido reportado
+        details: Detalles
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderaciones
+        participatory_space: Espacio de participación
+        reason: Razón
+        report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente por %{moderator}.</p>
+        subject: Un recurso ha sido oculto por %{moderator}
       report:
         authors: Autoras
         content: Contenido reportado
@@ -1742,6 +1763,10 @@ es:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+      hide:
+        success: Se ha ocultado este recurso.
+      parent_hidden:
+        report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
     resource_endorsements:
@@ -1804,14 +1829,13 @@ es:
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Bloquear a esta participante
-        close: Cerrar
-        description: '¿Qué es inapropiado de la usuaria?'
+        description: '¿Qué tiene de inapropiado esta participante?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
-        title: Reportar usuaria inapropiada
+        title: Reportar participante inapropiada
       floating_help:
         help: Ayuda
       follow_button:
@@ -1908,7 +1932,7 @@ es:
       show:
         version_index: Versión %{index} de %{total}
     welcome_notification:
-      default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
+      default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de qué puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1976,7 +2000,7 @@ es:
       invite_collaborator:
         subject: Te han invitado a colaborar en %{organization}
       invite_private_user:
-        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+        subject: Te han invitado a participar en un espacio de participación privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
       password_change:

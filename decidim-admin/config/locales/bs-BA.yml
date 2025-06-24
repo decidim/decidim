@@ -1,3 +1,4 @@
+---
 bs:
   activemodel:
     attributes:
@@ -373,11 +374,12 @@ bs:
         user_group:
           fields:
             actions: Akcije
-            created_at: Kreirano na
+            created_at: Stvoreno
             document_number: Broj dokumenta
             name: Ime
+            nickname: Nadimak
             phone: Telefon
-            state: Država
+            state: Državno
             users_count: Broj učesnika
       moderations:
         report:

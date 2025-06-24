@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -241,6 +242,9 @@ uk:
           notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
     menu:
       processes: Рухи
+    metrics:
+      participatory_processes:
+        title: Рухи співучасті
     participatory_process_groups:
       content_blocks:
         stats:

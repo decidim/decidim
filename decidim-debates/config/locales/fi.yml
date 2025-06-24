@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -147,13 +148,13 @@ fi:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_group: Ryhmät
+          user_group: Ryhmiä
         index:
           new_debate: Uusi keskustelu
         new:
           back: Takaisin
           create: Luo
-          title: Uusi keskustelu
+          title: Luo uusi keskustelu
         orders:
           commented: Eniten kommentoidut
           label: Järjestä keskustelut
@@ -162,7 +163,7 @@ fi:
           updated: Viimeksi päivitetyt
         show:
           close_debate: Päätä
-          debate_closed: Suljettu
+          debate_closed: Suljetut
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa
@@ -231,7 +232,7 @@ fi:
       badges:
         commented_debates:
           conditions:
-            - Valitse avoin keskustelu ja osallistu siihen
+          - Valitse avoin keskustelu ja osallistu siihen
           description: Tämä kunniamerkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin.
           description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
           description_own: Olet osallistunut %{score} keskusteluun.

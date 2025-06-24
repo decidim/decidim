@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -30,6 +31,8 @@ el:
         personal_url: Προσωπική ιστοσελίδα
         remove_avatar: Αφαίρεση avatar
         tos_agreement: Όροι Παροχής Υπηρεσιών
+      user_group:
+        avatar: Άβαταρ
     models:
       decidim/attachment_created_event: Συνημμένο
       decidim/component_published_event: Ενεργό στοιχείο
@@ -54,7 +57,6 @@ el:
         with_participatory_space: Συμμετοχικός χώρος
       decidim/user:
         current_password: Τρέχων κωδικός πρόσβασης
-        email: Email
         name: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαίωση κωδικού πρόσβασης
@@ -430,6 +432,8 @@ el:
         view_all: Προβολή όλων
       metrics:
         name: Μετρικά οργανισμού
+      participatory_space_metrics:
+        name: Μετρικά
       static_page:
         section:
           name: Ενότητα
@@ -469,7 +473,6 @@ el:
           username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
       sessions:
         new:
-          are_you_new?: Είστε νέοι στην πλατφόρμα;
           register: Δημιουργία λογαριασμού
           sign_in_disabled: Μπορείτε να έχετε πρόσβαση με εξωτερικό λογαριασμό.
       shared:
@@ -478,8 +481,6 @@ el:
             check: Επιλογή και συνέχεια
             uncheck: Διατήρηση χωρίς επιλογή
           title: Ειδοποιήσεις ενημερωτικών δελτίων
-        omniauth_buttons:
-          or: Ή
     doorkeeper:
       authorizations:
         new:
@@ -502,8 +503,6 @@ el:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
-    endorsement_buttons_cell:
-      endorse: Μου αρέσει
     endorsements:
       identities:
         done: Τέλος
@@ -701,7 +700,7 @@ el:
       badges:
         followers:
           conditions:
-            - Εάν είστε ενεργοί και ακολουθείτε άλλα άτομα, σίγουρα θα ενθαρρύνετε άλλα άτομα να σας ακολουθήσουν.
+          - Εάν είστε ενεργοί και ακολουθείτε άλλα άτομα, σίγουρα θα ενθαρρύνετε άλλα άτομα να σας ακολουθήσουν.
           description: Αυτό το έμβλημα χορηγείται όταν φτάνετε έναν συγκεκριμένο αριθμό ακολούθων. Ο οργανισμός %{organization_name} είναι ένα κοινωνικό και πολιτικό δίκτυο. Υφάνετε τον ιστό σας για να επικοινωνήσετε με άλλα άτομα στην πλατφόρμα.
           description_another: Αυτός ο συμμετέχων έχει %{score} ακολούθους.
           description_own: "%{score} άτομα σας ακολουθούν."
@@ -895,6 +894,8 @@ el:
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες
+        reply_form:
+          placeholder: Η απάντησή σας...
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
@@ -909,11 +910,9 @@ el:
       participants:
         description: Αριθμός ενεργών συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
-        title: Συμμετέχοντες
       users:
         description: Αριθμός συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
-        title: Συμμετέχοντες
     newsletter_mailer:
       newsletter:
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
@@ -1042,14 +1041,12 @@ el:
         conversations: Συνομιλίες
         followers: Ακόλουθοι
         following: Ακολουθεί
+        group_admins: Διαχείριση διαχειριστών
+        group_members: Διαχείριση μελών
         groups: Ομάδες
         members: Μέλη
         officialized: Επίσημος συμμετέχων
         send_private_message: Αποστολή προσωπικού μηνύματος
-      sidebar:
-        badges:
-          info: Τα εμβλήματα κερδίζονται πραγματοποιώντας μια συγκεκριμένη δραστηριότητα στην πλατφόρμα.
-          title: Εμβλήματα
       user:
         actions:
           create_user_group: Δημιουργία ομάδας
@@ -1057,26 +1054,14 @@ el:
           edit_user_group: Επεξεργασία προφίλ ομάδας
           invite_user: Πρόσκληση συμμετέχοντα
           join_user_group: Αίτημα συμμετοχής σε ομάδα
+          leave_user_group: Αποχώρηση από την ομάδα
           manage_user_group_admins: Διαχείριση διαχειριστών
           manage_user_group_users: Διαχείριση μελών
           message: Μήνυμα
+          resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
         confirmation_instructions_sent: Στάλθηκαν οι οδηγίες επιβεβαίωσης email.
-        create_user_group: Δημιουργία ομάδας
-        edit_profile: Επεξεργασία προφίλ
-        edit_user_group: Επεξεργασία προφίλ ομάδας
         fill_in_email_to_confirm_it: Συμπληρώστε τη διεύθυνση email της ομάδας σας για να την επιβεβαιώσετε.
-        invite_user: Πρόσκληση συμμετέχοντα
-        join_user_group: Αίτημα συμμετοχής σε ομάδα
-        leave_user_group: Αποχώρηση από την ομάδα
-        manage_user_group_admins: Διαχείριση διαχειριστών
-        manage_user_group_users: Διαχείριση μελών
-        resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
     reported_mailer:
-      hide:
-        hello: Γεια σας %{name},
-        manage_moderations: Διαχείριση εποπτεύσεων
-        report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αποκρύφτηκε αυτόματα.</p>
-        subject: Ένας πόρος αποκρύφτηκε αυτόματα
       report:
         authors: Συγγραφείς
         content: Αναφερόμενο περιεχόμενο

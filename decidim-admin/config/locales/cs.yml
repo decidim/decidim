@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -69,7 +70,7 @@ cs:
         highlighted_content_banner_enabled: Zobrazit zvýrazněný banner obsahu
         highlighted_content_banner_image: Obrázek
         highlighted_content_banner_short_description: Stručný popis
-        highlighted_content_banner_title: Titul
+        highlighted_content_banner_title: Název
         host: Hostitel
         instagram_handler: Instagram handler
         logo: Logo
@@ -751,6 +752,7 @@ cs:
             does_not_belong: Nepatří
             hidden_during_block: Skrytý při blokování uživatele
             offensive: Urážlivý
+            parent_hidden: Nadřazený obsah byl skryt
             spam: Spam
         reports:
           index:
@@ -917,7 +919,7 @@ cs:
         form:
           colors:
             choose_color: Vyberte hlavní barvu
-            colors_title: Organizační barvy
+            colors_title: Barvy organizace
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             explanation: Tento nástroj vám pomůže vybrat barevné schéma skládající se z odstínů rovnoměrně rozložených kolem barevného kruhového spektra, který bude použit na internetových stránkách organizace.
             legend_html: Hlavní barvy aplikace, založené na <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmu</a>. <i>sekundární</i> barva je automaticky vypočítána z primární barvy a sytosti, kterou vyberete.
@@ -1311,7 +1313,7 @@ cs:
             acme@example.org
             bubba.gump@example.org
           title: Nahrát soubor CSV
-          upload: nahrát
+          upload: Nahrát
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.
@@ -1354,6 +1356,7 @@ cs:
         hidden: Skrytý
         hide: Skrýt
         not_hidden: Neskrytý
+        parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Odkrýt
         unreport: Zrušit nahlášení
@@ -1380,6 +1383,7 @@ cs:
             success: Zdroj byl úspěšně skryt.
           unhide:
             invalid: Došlo k potížím s odkrytím zdroje.
+            parent_invalid: Při odkrytí zdroje došlo k chybě. Nadřazená položka není viditelná.
             success: Zdroj byl úspěšně odkryt.
           unreport:
             invalid: Při oznamování zdroje došlo k problému.

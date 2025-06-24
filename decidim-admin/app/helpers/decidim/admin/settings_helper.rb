@@ -225,6 +225,7 @@ module Decidim
           content_tag(:button,
                       t("#{name}_add", scope: i18n_scope),
                       class: "button button__xs button__transparent-secondary js-add-taxonomy-filter",
+                      type: "button",
                       data: {
                         url: decidim_admin.taxonomy_filters_selector_index_path(component_id: @component.id)
                       })

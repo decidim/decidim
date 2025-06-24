@@ -38,6 +38,8 @@ module Decidim
         item["children"].each do |child_name, child|
           import_taxonomy_item(taxonomy, child_name, child)
         end
+      rescue ActiveRecord::RecordInvalid => e
+        abort "Error importing taxonomy item #{name} with parent #{parent.name} (#{e.message})"
       end
 
       def apply_taxonomy_to_resource(object_id, taxonomy)
@@ -61,6 +63,8 @@ module Decidim
         end
       end
 
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def import_filter(root, data)
         filter = find_taxonomy_filter!(root, data)
 
@@ -91,7 +95,11 @@ module Decidim
             result[:failed_components] << component_id
           end
         end
+      rescue ActiveRecord::RecordInvalid => e
+        abort "Error importing filter #{data} for root taxonomy #{root.name} (#{e.message})"
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
 
       def find_taxonomy(association, name)
         association.find_by("name->>? = ?", organization.default_locale, name)
@@ -105,6 +113,8 @@ module Decidim
         association.create!(name: { organization.default_locale => name }, organization:) do
           result[:taxonomies_created] << name
         end
+      rescue ActiveRecord::RecordInvalid => e
+        abort "Error creating taxonomy #{name} with parent #{association.new.parent.name[organization.default_locale]} (#{e.message})"
       end
 
       def find_taxonomy_filter!(root_taxonomy, data)

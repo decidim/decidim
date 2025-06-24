@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -741,6 +742,7 @@ fi-pl:
             does_not_belong: Ei kuulu
             hidden_during_block: Piilotettu käyttäjän piilotuksen yhteydessä
             offensive: Loukkaava
+            parent_hidden: Isäntäsisältö on piilotettu
             spam: Roskaposti
         reports:
           index:
@@ -908,9 +910,9 @@ fi-pl:
           colors:
             choose_color: Valitse ensisijainen väri
             colors_title: Organisaation värit
-            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
+            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="https://webaim.org/resources/contrastchecker">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
             explanation: Tämä työkalu auttaa sinua valitsemaan värimaailman, joka koostuu tasaisesti valituista väriympyrän sävyistä. Näitä värejä käytetään verkkosivuston värimäärityksissä.
-            legend_html: Pääsovelluksen värit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
+            legend_html: Sovelluksen päävärit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
             saturation: Värikylläisyys
             title: Värin valinta
             update_suggested_colors: Päivitä ehdotetut värit
@@ -1285,9 +1287,9 @@ fi-pl:
       user_groups:
         index:
           state:
-            pending: Odottaa
-            rejected: Hylätty
-            verified: Vahvistettu
+            pending: Odottavat
+            rejected: Hylätyt
+            verified: Vahvistetut
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
@@ -1297,7 +1299,7 @@ fi-pl:
             acme@esimerkki.fi
             bubba.gump@esimerkki.fi
           title: Lataa CSV-tiedosto
-          upload: Lähetä
+          upload: Lataa
       users:
         create:
           error: Tämän käyttäjän kutsumisessa tapahtui virhe.
@@ -1340,6 +1342,7 @@ fi-pl:
         hidden: Piilotettu
         hide: Piilota
         not_hidden: Näkyvillä
+        parent_hidden: Et voi palauttaa tätä kohdetta näkyviin, koska se on liitetty kohteeseen, joka on edelleen piilotettu.
         title: Toiminnot
         unhide: unhide
         unreport: Poista ilmoitus
@@ -1366,6 +1369,7 @@ fi-pl:
             success: Resurssi piilotettu onnistuneesti.
           unhide:
             invalid: Resurssin irrottamisessa on ollut ongelma.
+            parent_invalid: Kohteen palautus näkyviin epäonnistui. Kohde on liitetty toiseen kohteeseen, joka on piilotettu.
             success: Resurssi hylättiin onnistuneesti.
           unreport:
             invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.

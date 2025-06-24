@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -40,7 +41,7 @@ gl:
       badges:
         test:
           conditions:
-            - Use un entorno de proba para decidir.
+          - Use un entorno de proba para decidir.
           description: Os usuarios obtén esta insignia creando probas.
           description_another: Este usuario creou %{score} probas.
           description_own: Creaches %{score} probas.

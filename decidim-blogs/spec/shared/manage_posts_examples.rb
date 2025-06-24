@@ -23,8 +23,9 @@ shared_examples "manage posts" do |audit_check: true|
       fill_in_i18n(:post_title, "#post-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:post_body, "#post-body-tabs", **attributes[:body].except("machine_translations"))
 
-      find("*[type=submit]").click
+      perform_enqueued_jobs { find("*[type=submit]").click }
     end
+    sleep(2)
 
     expect(page).to have_admin_callout("successfully")
 
@@ -47,7 +48,7 @@ shared_examples "manage posts" do |audit_check: true|
     fill_in_i18n_editor(:post_body, "#post-body-tabs", **attributes[:body].except("machine_translations"))
 
     within ".new_post" do
-      find("*[type=submit]").click
+      perform_enqueued_jobs { find("*[type=submit]").click }
     end
 
     expect(page).to have_admin_callout("successfully")

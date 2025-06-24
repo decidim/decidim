@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -8,7 +9,7 @@ ro:
         start_date: Data de început
         title: Titlu
         translatable_text: Text traductibil
-        updated_at: Actualizat la
+        updated_at: Ultima actualizare
   decidim:
     components:
       dummy:
@@ -46,7 +47,7 @@ ro:
       badges:
         test:
           conditions:
-            - Utilizaţi un mediu de testare pentru decidim.
+          - Utilizaţi un mediu de testare pentru decidim.
           description: Participanții obțin această insignă prin crearea de teste.
           description_another: Acest participant a creat %{score} teste.
           description_own: Ați creat %{score} teste.

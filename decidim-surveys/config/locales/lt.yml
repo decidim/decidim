@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     models:
@@ -54,6 +55,10 @@ lt:
             success: Apklausa išsaugota.
       last_activity:
         new_survey: 'Nauja apklausa:'
+      models:
+        survey:
+          fields:
+            answers: Atsakymai
       surveys:
         answer:
           invalid: Atsakant į šios apklausos klausimus iškilo problema.

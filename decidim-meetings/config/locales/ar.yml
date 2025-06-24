@@ -1,8 +1,7 @@
+---
 ar:
   activemodel:
     attributes:
-      answer:
-        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -188,7 +187,7 @@ ar:
       badges:
         attended_meetings:
           conditions:
-            - سجل للاجتماعات التي تريد حضورها
+          - سجل للاجتماعات التي تريد حضورها
           description: تُمنح هذه الشارة عند حضور العديد من الاجتماعات المباشرة.
           description_another: حضر هذا المشارك %{score} جلسة.
           description_own: لقد حضرت %{score} اجتماع.
@@ -315,8 +314,6 @@ ar:
         registrations:
           edit:
             save: حفظ
-            validate: التحقق من صحة
-            validate_registration_code: التحقق من صحة رمز التسجيل
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
@@ -335,9 +332,6 @@ ar:
           update:
             invalid: حدثت مشكلة أثناء حفظ إعدادات التسجيل.
             success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.
-          validate_registration_code:
-            invalid: رمز التسجيل هذا غير صالح.
-            success: تم التحقق من صحة رمز التسجيل بنجاح.
       admin_log:
         invite:
           create: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
@@ -471,7 +465,6 @@ ar:
         new:
           back: العودة
           create: إنشاء
-          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ eu:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Adibide bat baimen-emailea garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
-            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
-            - Egiaztatu "A" letraz hasten den pasaporte zenbaki bat sartuz.
+          - Adibide bat baimen-emailea garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
+          - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
+          - Egiaztatu "A" letraz hasten den pasaporte zenbaki bat sartuz.
         csv_census:
           help:
-            - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute. 
-            - CSV fitxategian posta elektroniko bat duten parte-hartzaileak soilik egiaztatu ahal dira.
+          - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute. 
+          - CSV fitxategian posta elektroniko bat duten parte-hartzaileak soilik egiaztatu ahal dira.
         default:
           help:
-            - Ez dago zehaztuta baimen-emailearen laguntza.
-            - Garatzaile batek laguntza zehaztu behar du "% {authorization_handler} "(i18n) itzulpen-gakoan
+          - Ez dago zehaztuta baimen-emailearen laguntza.
+          - Garatzaile batek laguntza zehaztu behar du "% {authorization_handler} "(i18n) itzulpen-gakoan
         dummy_authorization_handler:
           help:
-            - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
-            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
-            - Egiaztatu "X" letraz hasten den pasaporte zenbaki bat sartuz.
+          - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
+          - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
+          - Egiaztatu "X" letraz hasten den pasaporte zenbaki bat sartuz.
         ephemeral_dummy_authorization_handler:
           help:
-            - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
-            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
-            - Ereduzko baimenaren kopia da.
-            - Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
+          - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
+          - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
+          - Ereduzko baimenaren kopia da.
+          - Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
         id_documents:
           help:
-            - Parte-hartzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
-            - Kargatutako irudian dagoen informazio hau bete behar duzu.
-            - Informazioak edozein parte-hartzailek bete duenarekin bat egin beharko luke.
-            - Informazioa ezin baduzu argi ikusi edo ezin baduzu egiaztatu, eskaera ukatu dezakezu eta parte-hartzaileak konpondu ahal izango du.
+          - Parte-hartzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
+          - Kargatutako irudian dagoen informazio hau bete behar duzu.
+          - Informazioak edozein parte-hartzailek bete duenarekin bat egin beharko luke.
+          - Informazioa ezin baduzu argi ikusi edo ezin baduzu egiaztatu, eskaera ukatu dezakezu eta parte-hartzaileak konpondu ahal izango du.
         postal_letter:
           help:
-            - Parte-hartzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
-            - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
-            - Markatu mezua bidalita bezala.
-            - Behin bidalitako mezua markatzen duzunean, parte-hartzaileak kodea sartu eta egiaztatu egingo du.
+          - Parte-hartzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+          - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
+          - Markatu mezua bidalita bezala.
+          - Behin bidalitako mezua markatzen duzunean, parte-hartzaileak kodea sartu eta egiaztatu egingo du.
         sms:
           help:
-            - Parte-hartzaileek egiaztapen-kode bat eskatzen dute telefonora bidaltzeko.
-            - Kodea sartu behar dute egiaztatzeko.
-            - Kodea jasotzen ez badute, berriz eska dezakete.
+          - Parte-hartzaileek egiaztapen-kode bat eskatzen dute telefonora bidaltzeko.
+          - Kodea sartu behar dute egiaztatzeko.
+          - Kodea jasotzen ez badute, berriz eska dezakete.
       csv_census:
         explanation: Egiaztatu erakundearen errolda erabiliz.
         name: Erakundearen zentsua
@@ -181,7 +182,7 @@ eu:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv fitxategia helbide elektronikoen datuekin"
-            info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
+            info: 'CSV formatudun fitxategia izan behar da zutabe bakarra duena honako helbide elektroniko honekin:'
             submit: Igo fitxategia
             title: Igo beste errolda bat
         authorizations:

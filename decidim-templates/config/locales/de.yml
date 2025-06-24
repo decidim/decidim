@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -81,7 +82,7 @@ de:
         questionnaire_templates:
           choose:
             create_from_template: Aus Vorlage erstellen
-            description: Sie sind im Begriff, einen neuen Fragebogen zu erstellen. Sie können eine vordefinierte Vorlage auswählen und sie anschließend ändern.
+            description: Sie erstellen in Kürze einen neuen Fragebogen. Hier können Sie eine vordefinierte Vorlage auswählen und anschließend anpassen.
             label: Vorlage auswählen
             placeholder: Vorlage auswählen
             skip_template: Überspringen

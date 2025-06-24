@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -43,16 +44,16 @@ nl:
       admin:
         id_documents:
           help:
-            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
-            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
-            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-            - 
+          - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+          - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+          - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+          - 
         postal_letter:
           help:
-            - Deelnemers vragen een verificatiecode op te sturen naar hun adres.
-            - U stuurt de brief naar hun adres met de verificatiecode.
-            - U markeert de brief zoals verzonden.
-            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en geverifieerd worden.
+          - Deelnemers vragen een verificatiecode op te sturen naar hun adres.
+          - U stuurt de brief naar hun adres met de verificatiecode.
+          - U markeert de brief zoals verzonden.
+          - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en geverifieerd worden.
       csv_census:
         name: De ledenadministratie van de organisatie
       direct: direct
@@ -98,9 +99,6 @@ nl:
             title: Je moet de CSV-census voor deze organisatie activeren
           new:
             file: ".csv-bestand met e-mailgegevens"
-            info: 'Moet een bestand zijn in CSV formaat met slechts één kolom met het e-mailadres:'
-            submit: Upload bestand
-            title: Upload een nieuwe census
         authorizations:
           new:
             error: We kunnen uw account niet verifiëren of u staat niet in de ledenadministratie van de organisatie.

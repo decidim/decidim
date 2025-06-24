@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -210,7 +211,7 @@ pl:
           notification_title: Otwarto rejestracje na spotkanie <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować po kliknięciu w poprzedni link.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
     forms:
@@ -220,7 +221,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkania, w których chcesz wziąć udział
+          - Zarejestruj się na spotkania, w których chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy weźmiesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Uczestniczyłeś w %{score} spotkaniach.
@@ -360,15 +361,13 @@ pl:
         poll:
           form:
             announcement_html:
-              - Gdy pytanie otrzymuje odpowiedzi lub jest opublikowane/zamknięte, nie może być już edytowane.
-              - Możesz dodać pytanie w dowolnym momencie.
-              - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
-              - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
+            - Gdy pytanie otrzymuje odpowiedzi lub jest opublikowane/zamknięte, nie może być już edytowane.
+            - Możesz dodać pytanie w dowolnym momencie.
+            - Ankieta zostanie zamknięta po opublikowaniu wyników wszystkich utworzonych pytań.
+            - Odwiedź <a href='%{admin_link}'>stronę administracyjną głosowania</a>, aby wysłać pytania i opublikować wyniki.
         registrations:
           edit:
             save: Zapisz
-            validate: Zatwierdź
-            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
@@ -386,9 +385,6 @@ pl:
           update:
             invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
             success: Zapisano ustawienia rejestracji.
-          validate_registration_code:
-            invalid: Ten kod rejestracyjny jest nieprawidłowy.
-            success: Kod rejestracyjny został zatwierdzony.
       admin_log:
         invite:
           create: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
@@ -537,7 +533,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -591,12 +586,7 @@ pl:
             title: Tytuł
       polls:
         answers:
-          index:
-            administrate: Administruj
-            title: Głosowanie
           index_admin:
-            back_to_meeting: Powrót do spotkania
-            title: Administruj ankietą
             view_poll: Zobacz ankietę
         questions:
           closed_question:

@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ lv:
         password_confirmation: Apstiprināt jūsu paroli
         personal_url: Personīgais URL
         remove_avatar: Noņemt avatāru
+      user_group:
+        avatar: Avatārs
     models:
       decidim/attachment_created_event: Pielikums
       decidim/component_published_event: Aktīvs komponents
@@ -36,7 +39,6 @@ lv:
     attributes:
       decidim/user:
         current_password: Pašreizējā parole
-        email: E-pasts
         name: Segvārds
         password: Parole
         password_confirmation: Paroles apstiprināšana
@@ -315,6 +317,8 @@ lv:
         view_all: Skatīt visu
       metrics:
         name: Organizācijas rādītāji
+      participatory_space_metrics:
+        name: Rādītāji
       stats:
         name: Organizācijas statistika
       sub_hero:
@@ -336,15 +340,12 @@ lv:
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
       sessions:
         new:
-          are_you_new?: Vai esat jauns platformas lietotājs?
           register: Izveidot kontu
       shared:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
           title: Paziņojumi par informatīvajiem biļeteniem
-        omniauth_buttons:
-          or: vai
     doorkeeper:
       authorizations:
         new:
@@ -535,7 +536,7 @@ lv:
       badges:
         followers:
           conditions:
-            - Aktivitāte un sekošana citiem cilvēkiem noteikti liks citiem sekot jums.
+          - Aktivitāte un sekošana citiem cilvēkiem noteikti liks citiem sekot jums.
           description: Šis žetons tiek piešķirts, kad jūs sasniedzat noteiktu skaitu sekotāju. %{Organization_name} ir sociālais un politiskais tīkls, audiet savu tīklu, lai sazinātos ar citiem platformas lietotājiem.
           description_another: Šim dalībniekam ir %{score} sekotāji.
           description_own: "%{score} cilvēki seko jums."
@@ -668,6 +669,8 @@ lv:
           new_conversation: Jauna saruna
           next: Nākamais
           title: Sarunas
+        reply_form:
+          placeholder: Jūsu atbilde...
         show:
           chat_with: Saruna ar
           title: Saruna ar %{usernames}
@@ -681,11 +684,9 @@ lv:
       participants:
         description: Aktīvo dalībnieku skaits organizācijā
         object: dalībnieki
-        title: Dalībnieki
       users:
         description: Dalībnieku skaits organizācijā
         object: dalībnieki
-        title: Dalībnieki
     newsletter_mailer:
       newsletter:
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
@@ -778,28 +779,22 @@ lv:
         conversations: Sarunas
         followers: Sekotāji
         following: Seko
+        group_admins: Pārvaldīt administratorus
+        group_members: Pārvaldīt biedrus
         groups: Grupas
         members: Dalībnieki
-      sidebar:
-        badges:
-          info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
-          title: Žetoni
       user:
-        create_user_group: Izveidot grupu
-        edit_profile: Rediģēt profilu
-        edit_user_group: Rediģēt grupas profilu
-        invite_user: Uzaicināt dalībnieku
-        join_user_group: Pieteikums pievienoties grupai
-        leave_user_group: Pamest grupu
-        manage_user_group_admins: Pārvaldīt administratorus
-        manage_user_group_users: Pārvaldīt biedrus
-        resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
+        actions:
+          create_user_group: Izveidot grupu
+          edit_profile: Rediģēt profilu
+          edit_user_group: Rediģēt grupas profilu
+          invite_user: Uzaicināt dalībnieku
+          join_user_group: Pieteikums pievienoties grupai
+          leave_user_group: Pamest grupu
+          manage_user_group_admins: Pārvaldīt administratorus
+          manage_user_group_users: Pārvaldīt biedrus
+          resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
     reported_mailer:
-      hide:
-        hello: Sveiki, %{name}!
-        manage_moderations: Pārvaldiet moderāciju
-        report_html: <p> Šis <a href="%{url}"> saturs </a> ir paslēpts automātiski.</p>
-        subject: Vienums ir automātiski paslēpts
       report:
         hello: Sveiki, %{name}!
         report_html: <p> Par šo <a href="%{url}"> saturu </a> ir ziņots.</p>

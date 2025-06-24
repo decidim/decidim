@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ cs:
       badges:
         test:
           conditions:
-            - Použijte testovací prostředí pro decidim.
+          - Použijte testovací prostředí pro decidim.
           description: Uživatelé získají tento odznak vytvořením testů.
           description_another: Tento uživatel vytvořil %{score} testů.
           description_own: Vytvořili jste %{score} testů.

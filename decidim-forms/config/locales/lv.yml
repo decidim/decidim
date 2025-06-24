@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -8,12 +9,6 @@ lv:
         question_type: Veids
       questionnaire_question:
         mandatory: Obligāti
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: nav pabeigti
   decidim:
     forms:
       admin:
@@ -24,7 +19,6 @@ lv:
         questionnaires:
           answer_option:
             answer_option: Atbildes iespēja
-            free_text: Brīva vieta tekstam
             remove: Noņemt
             statement: Paziņojums
           edit:
@@ -70,7 +64,6 @@ lv:
       questionnaires:
         answer:
           invalid: Atbildot uz veidlapas jautājumiem, radās problēma.
-          max_choices_alert: Ir izvēlēti pārāk daudzi varianti
           success: Uz veidlapas jautājumiem ir veiksmīgi atbildēts.
         question:
           max_choices: 'Maksimālais izvēļu skaits: %{n}'
@@ -97,6 +90,4 @@ lv:
       user_answers_serializer:
         created_at: Atbildēts
         id: Atbildes ID
-        registered: Reģistrēts
-        unregistered: Nereģistrēts
-        user_status: Lietotāja statuss
+        question: Jautājums

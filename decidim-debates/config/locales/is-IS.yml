@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       debate:
@@ -55,7 +56,6 @@ is-IS:
         new:
           back: Til baka
           create: Búa til
-          title: Ný umræða
       models:
         debate:
           fields:
@@ -76,3 +76,6 @@ is-IS:
           email_intro: 'Þú getur nú byrjað á nýjum umræðum í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Umræður nú fáanlegir í %{participatory_space_title}
+    metrics:
+      debates:
+        title: Umræður

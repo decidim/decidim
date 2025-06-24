@@ -1,3 +1,4 @@
+---
 sr:
   activemodel:
     attributes:
@@ -34,6 +35,8 @@ sr:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Dobili ste ovo obaveštenje jer možete da procenite predlog.
           proposal_note_created:
             email_outro: Dobili ste ovo obaveštenje jer možete da procenite predlog.
             email_subject: Neko je ostavio poruku na predlogu %{resource_title}.
@@ -47,10 +50,8 @@ sr:
         proposals:
           index:
             assign_to_valuator: Dodeli procenjivaču
-            assign_to_valuator_button: Dodeli
             publish_answers: Objavi odgovore
             unassign_from_valuator: Oduzmi od procenjivača
-            unassign_from_valuator_button: Od dodeli
           show:
             amendments_count: Broj izmena
             assigned_valuators: Dodeljeni procenjivači
@@ -58,10 +59,6 @@ sr:
             documents: Dokumenti
             endorsements_count: Broj podržavanja
             endorsers: Podržavaoci
-            n_more_endorsers:
-              one: i još 1
-              few: i još %{count}
-              other: i još %{count}
             photos: Slike
             ranking: "%{ranking} od %{total}"
             related_meetings: Slični sastanci

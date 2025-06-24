@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     models:
@@ -48,6 +49,10 @@
           update:
             invalid: Det oppstod et problem med å lagre undersøkelsen.
             success: Undersøkelsen ble lagret.
+      models:
+        survey:
+          fields:
+            answers: Svar
       surveys:
         answer:
           invalid: Det oppstod et problem med å svare på undersøkelsen.

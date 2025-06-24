@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -146,8 +147,8 @@ zh-CN:
       badges:
         initiatives:
           conditions:
-            - 转到Intiatives的参与空间
-            - 跟随步骤创建新的倡议
+          - 转到Intiatives的参与空间
+          - 跟随步骤创建新的倡议
           description: 当你发起新的倡议，与其他人合作执行这些倡议时，将颁发这个徽章。
           description_another: 此参与者已经发布了 %{score} 项倡议。
           name: 已发布的活动

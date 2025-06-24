@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -98,6 +99,7 @@ tr:
           attachments: Ekler
           components: Bileşenler
           info: Süreç Hakkında
+          landing_page: Açılış sayfası
           moderations: Denetimler
           process_admins: İşlemi gerçekleştiren kullanıcılar
           steps: adımlar

@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -160,8 +161,8 @@
       badges:
         initiatives:
           conditions:
-            - Gå til deltakelsesområdet av Initiativer
-            - Følg trinnene for å opprette et nytt initiativ
+          - Gå til deltakelsesområdet av Initiativer
+          - Følg trinnene for å opprette et nytt initiativ
           description: Dette merket blir gitt når du setter i gang nye initiativer, og samarbeider med andre for å gjennomføre dem.
           description_another: Denne deltakeren har fått %{score} initiativer publisert.
           name: Publiserte initiativ
@@ -300,7 +301,6 @@
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
-          callout_text: Gratulerer! Initiativet ditt er opprettet.
           confirm: Du sender nå initiativet til en administrator for å gjennomgå og publisere det. Når det er publisert vil du ikke kunne redigere den. Er du sikker?
           edit_my_initiative: Rediger mitt initiativ
           go_to_my_initiatives: Gå til mine initiativer

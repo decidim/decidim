@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -534,10 +535,11 @@ nl:
           name: Deelnemer
         user_group:
           fields:
-            actions: acties
+            actions: Acties
             created_at: Aangemaakt op
             document_number: Documentnummer
             name: Naam
+            nickname: Gebruikersnaam
             phone: Telefoon
             state: Staat
             users_count: Aantal deelnemers
@@ -683,15 +685,12 @@ nl:
         edit:
           update: Bijwerken
         form:
-          colors:
-            colors_title: Organisatiekleuren
-            colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           images:
             layout_appearance_title: Weergave van de lay-out bewerken
-            preview: Voorvertoning
+            preview: Voorbeeld
           omnipresent_banner_appearance_title: Bewerk de permanente banner
       participatory_space_private_users:
         create:
@@ -708,6 +707,8 @@ nl:
           title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Upload uw CSV-bestand
           destroy:
             button: Verwijder alle privé deelnemers
             empty: Je hebt geen privé deelnemers.
@@ -827,14 +828,14 @@ nl:
         index:
           state:
             pending: In afwachting
-            rejected: Geweigerd
+            rejected: Afgewezen
             verified: Geverifieerd
           verify_via_csv: Controleer via CSV
       user_groups_csv_verifications:
         new:
           explanation: Upload uw CSV-bestand. De officiële e-mails van de groepen in uw organisatie moeten in de eerste kolom van het bestand staan, zonder kopteksten. Alleen groepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
           title: Upload uw CSV-bestand
-          upload: Uploaden
+          upload: Upload
       users:
         create:
           error: Er is een probleem opgetreden bij het uitnodigen van deze beheerder.

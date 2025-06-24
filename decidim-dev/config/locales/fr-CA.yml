@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -49,7 +50,7 @@ fr-CA:
       badges:
         test:
           conditions:
-            - Utilisez un environnement de test pour decidim.
+          - Utilisez un environnement de test pour decidim.
           description: Les utilisateurs obtiennent ce badge en créant des tests.
           description_another: Cet utilisateur a créé %{score} tests.
           description_own: Vous avez créé %{score} tests.

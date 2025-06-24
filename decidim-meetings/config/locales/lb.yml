@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -131,6 +132,8 @@ lb:
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
+        upcoming_meeting:
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
     meetings:
       admin:
         agenda:
@@ -205,8 +208,6 @@ lb:
         registrations:
           edit:
             save: Späicheren
-            validate: Bestätigen
-            validate_registration_code: Validiere den Registrierungscode
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Aluedungen
@@ -221,9 +222,6 @@ lb:
           update:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
-          validate_registration_code:
-            invalid: Dieser Registrierungscode ist ungültig.
-            success: Registrierungscode erfolgreich validiert.
       admin_log:
         invite:
           create: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
@@ -271,7 +269,6 @@ lb:
         new:
           back: Zréck
           create: Erstellen
-          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätegen
@@ -310,6 +307,9 @@ lb:
             official_meeting: Offizielle Besprechung
             start_time: Ufanksdatum
             title: Titel
+    metrics:
+      meetings:
+        title: Meetings
     resource_links:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'

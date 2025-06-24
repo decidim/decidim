@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -507,6 +508,7 @@ pt:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
+            nickname: Alcunha
             phone: Telefone
             state: Estado
             users_count: Contagem de participantes
@@ -666,8 +668,6 @@ pt:
         edit:
           update: Atualizar
         form:
-          colors:
-            colors_title: Cores da organização
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
@@ -690,6 +690,8 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:
@@ -793,15 +795,15 @@ pt:
       user_groups:
         index:
           state:
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
+            pending: Pendentes
+            rejected: Rejeitados
+            verified: Verificados
           verify_via_csv: Verificar via CSV
       user_groups_csv_verifications:
         new:
           explanation: Envie o seu ficheiro CSV. Deve ter os e-mails oficiais dos grupos na sua organização na primeira coluna do ficheiro, sem cabeçalhos. Somente grupos que confirmaram os seus e-mails e que tenham um e-mail a aparecer no arquivo CSV serão validados.
           title: Envie o seu ficheiro CSV
-          upload: Envio
+          upload: Carregar
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).

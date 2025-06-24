@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -114,8 +115,8 @@ sk:
       badges:
         initiatives:
           conditions:
-            - Prejsť na priestor Iniciatív
-            - Nasledovať kroky pre vytvorenie novej iniciatívy
+          - Prejsť na priestor Iniciatív
+          - Nasledovať kroky pre vytvorenie novej iniciatívy
     help:
       participatory_spaces:
         initiatives:
@@ -310,7 +311,7 @@ sk:
       initiatives_type:
         actions:
           title: Akcia
-          vote: Hlasovanie
+          vote: Podpísať
   layouts:
     decidim:
       initiative_creation_header:

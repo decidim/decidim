@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -107,8 +108,8 @@ id:
       badges:
         initiatives:
           conditions:
-            - Pergi ke ruang partisipasi dari Intiatives
-            - Ikuti langkah-langkah untuk membuat inisiatif baru
+          - Pergi ke ruang partisipasi dari Intiatives
+          - Ikuti langkah-langkah untuk membuat inisiatif baru
           description: Lencana ini diberikan ketika Anda meluncurkan inisiatif baru, bermitra dengan orang lain untuk melaksanakannya.
           description_another: Pengguna ini telah mendapatkan %{score} inisiatif yang dipublikasikan.
           name: Inisiatif yang diterbitkan
@@ -306,7 +307,7 @@ id:
       initiatives_type:
         actions:
           title: Tindakan
-          vote: Memilih
+          vote: Tanda
   layouts:
     decidim:
       initiative_creation_header:

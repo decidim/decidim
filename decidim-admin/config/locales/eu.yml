@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -36,19 +37,19 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Testu-gorputza
+        body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
-        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
+        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testua
         alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Ekintza-botoiaren testua
-        cta_button_text: Ekintza-botoiaren testua
+        cta_button_path: Ekintza-dei botoiaren bidea
+        cta_button_text: Ekintza-dei botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -99,7 +100,7 @@ eu:
         user_groups_enabled: Gaitu parte-hartzaileen taldeak
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
-        welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
+        welcome_notification_body: Ongietorri-jakinarazpenaren testua
         welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:
@@ -159,7 +160,7 @@ eu:
       new_import:
         attributes:
           file:
-            invalid_file: Emandako artxiboak ez du balio. mesedez, begiratu ea fitxategia ondo formateatuta dagoen.
+            invalid_file: Emandako fitxategiak ez du balio. mesedez, begiratu ea fitxategia ondo formateatuta dagoen.
             invalid_mime_type: MIME mota baliogabea.
   activerecord:
     attributes:
@@ -198,7 +199,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Espazio parte-hartzaile berria, erabiltzaile pribatua
+          new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -462,7 +463,7 @@ eu:
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
-          report_count_eq: Erreporte kopurua
+          report_count_eq: Txosten kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -479,8 +480,8 @@ eu:
       forms:
         file_help:
           import:
-            explanation: 'Jarraibideak artxiborako:'
-            message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
+            explanation: 'Fitxategirako jaribideak:'
+            message_1: CSV, JSON eta Excel (.xlsx) fitxategiak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
         error: Arazo bat egon da laguntza-atalak eguneratzean.
@@ -554,12 +555,12 @@ eu:
             back: Atzera
           download_example: Deskargatu adibidea
           download_example_format: Adibidez, %{name}
-          file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
+          file_legend: Gehitu prozesatuko den inportazio-fitxategi bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatua."
       logs:
         filters:
-          participatory_space: Bilatu espazio parte-hartzailea
+          participatory_space: Bilatu partaidetza-espazioa
           text: Bilatu parte-hartzailearen helbide elektroniko, izen edo ezizenaren arabera.
           user: Parte-hartzailea
         logs_list:
@@ -680,9 +681,9 @@ eu:
           fields:
             actions: Ekintzak
             created_at: Noiz sortua
-            document_number: Agiri-zenbakia
+            document_number: Agiri zenbakia
             name: Izena
-            nickname: Goitizena
+            nickname: Ezizena
             phone: Telefonoa
             state: Egoera
             users_count: Parte-hartzaile kopurua
@@ -709,7 +710,7 @@ eu:
           name: Izena
           nickname: Ezizena
           reason: Arrazoia
-          reports: Erreporte kopurua
+          reports: Txosten kopurua
           selected: Hautatua
           title: Parte-hartzaile erreportatuak
         report:
@@ -741,13 +742,14 @@ eu:
             does_not_belong: Ez dagokio
             hidden_during_block: Ezkutatuta, parte-hartzailea blokeatzen den bitartean
             offensive: Iraingarria
+            parent_hidden: Eduki nagusia ezkutatu egin da
             spam: Spam
         reports:
           index:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Parte hartzeko espazioa
+            participatory_space: Partaidetza-espazioa
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -811,16 +813,16 @@ eu:
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein parte hartze espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
-          private_members_help: Bidali buletin bat aukeratutako parte hartzeko espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
+          private_members_help: Bidali buletin bat aukeratutako partaidetza-espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
           select_conferences: Hautatu jardunaldiak
           select_initiatives: Hautatu ekimenak
-          select_participatory_processes: Hautatu prozesu parte-hartzaileak
+          select_participatory_processes: Hautatu partaidetza-prozesuak
           select_spaces: Hautatu espazioak buletina zatitzeko
-          select_users_for_participatory_space: Bidali buletina espazio parte-hartzaile bati baino gehiagori
+          select_users_for_participatory_space: Bidali buletina partaidetza-espazio bati baino gehiagori
           select_users_general: Bidali buletin orokorra
           select_verification_types: Hautatu egiaztapen-metodoak
           send_to_all_users: Bidali parte-hartzaile guztiei
@@ -903,7 +905,7 @@ eu:
           success: Erakundea zuzen eguneratua.
       organization_appearance:
         edit:
-          update: Eguneratu
+          update: Onartu
         form:
           colors:
             choose_color: Aukeratu kolore nagusia
@@ -917,13 +919,13 @@ eu:
           cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
           header_snippets:
-            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honetaz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
             title: Goiburuko HTML kode-zatiak
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
           images:
             layout_appearance_title: Editatu itxura globalaren itxura
-            preview: Aurrebistaratu
+            preview: Aurreikusi
           omnipresent_banner_appearance_title: Editatu banner nonahikoa
       organization_external_domain_allowlist:
         edit:
@@ -938,30 +940,30 @@ eu:
           title: Baimendutako kanpoko domeinuen zerrenda
       participatory_space_private_users:
         create:
-          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
           success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
         destroy:
-          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
-          success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean partaidetza-espazio honetarako.
+          success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
         edit:
           title: Editatu espazio parte-hartzailea parte-hartzaile pribatua.
           update: Eguneratu
         index:
           import_via_csv: Inportatu CSV bidetik
           publish_all: Argitaratu guztiak
-          title: Parte hartzeko espazio pribatuko parte-hartzailea 
+          title: Partaidetza-espazio pribatuko parte-hartzailea
           unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
-          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
+          title: Partaidetza-espazio pribatuko parte-hartzaile berria.
         publish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean parte hartzeko espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira parte hartzeko espazio honetarako
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean partaidetza-espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira partaidetza-espazio honetarako
         unpublish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean espazio parte-hartzaile honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira parte hartzeko espazio honetarako
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean partaidetza-espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira partaidetza-espazio honetarako
         update:
-          error: Arazo bat egon da parte-hartzaile pribatua espazio parte-hartzaile horretarako eguneratzean.
+          error: Arazo bat egon da parte-hartzaile pribatua partaidetza-espazio horretarako eguneratzean.
           success: Partaidetza-espazioa, parte-hartzaile pribatua, arrakastaz eguneratua
       participatory_space_private_users_csv_imports:
         create:
@@ -977,7 +979,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean partaidetza-prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1200,8 +1202,8 @@ eu:
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
           space_filter: Iragazki gisa eskuragarri honetarako
         index:
-          description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
-          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+          description: Taxonomia-iragazki batek aukera ematen die administratzaileei partaidetza-espazioak taxonomiaren arabera ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera ordenatzeko.
+          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, partaidetza-espazioak taxonomia baten arabera ordenatu eta iragazteko.
           new_filter: Beste iragazki bat
         new:
           back: Atzera
@@ -1287,7 +1289,7 @@ eu:
           state:
             pending: Zain
             rejected: Ukatua
-            verified: Egiaztatuta
+            verified: Egiaztatua
           verify_via_csv: Egiaztatu CSV bidez
       user_groups_csv_verifications:
         new:
@@ -1340,6 +1342,7 @@ eu:
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
+        parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
         unhide: Erakutsi berriro
         unreport: Ez erreportatu
@@ -1366,6 +1369,7 @@ eu:
             success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
+            parent_invalid: Ezin da baliabide hau erakutsi, ezkutuan jarraitzen duen beste baliabide baten ("nagusia") barruan sartuta dagoelako.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
@@ -1376,8 +1380,8 @@ eu:
             created_at: Noiz erreportatua
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
-            participatory_space: Parte hartzeko espazioa
-            report_count: Erreporte kopurua
+            participatory_space: Partaidetza-espazioa
+            report_count: Txosten kopurua
             reportable_id: ID
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa

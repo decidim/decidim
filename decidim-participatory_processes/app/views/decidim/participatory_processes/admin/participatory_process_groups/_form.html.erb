@@ -21,6 +21,7 @@
         <% if processes_for_select %>
           <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
         <% end %>
+        <%= form.label :participatory_process_ids, t("decidim.participatory_process_groups.related_processes.help") %>
       </div>
 
       <div class="row column">

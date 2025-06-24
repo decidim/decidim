@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -16,12 +17,13 @@ ga:
         about: Faoi
         nickname: Leasainm
         password: Pasfhocal
+      user_group:
+        avatar: Abhatár
     models:
       decidim/attachment_created_event: Ceangaltán
   activerecord:
     attributes:
       decidim/user:
-        email: Seoladh ríomhphoist
         name: Leasainm
         password: Pasfhocal
   booleans:
@@ -95,13 +97,12 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
+      participatory_space_metrics:
+        name: Méadrachtaí
     devise:
       registrations:
         new:
           log_in: Logáil isteach
-      shared:
-        omniauth_buttons:
-          or: Nó
     doorkeeper:
       authorizations:
         new:
@@ -197,9 +198,6 @@ ga:
         following: Leantach
         groups: Grúpaí
         members: Baill
-      sidebar:
-        badges:
-          title: Suaitheantais
     reported_mailer:
       report:
         authors: Údair
@@ -233,7 +231,6 @@ ga:
         reason: Cúis
         report: Tuairiscigh
       flag_user_modal:
-        close: Dún
         report: Tuairiscigh
       floating_help:
         help: Cabhair

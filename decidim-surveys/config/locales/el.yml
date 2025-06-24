@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     models:
@@ -50,6 +51,10 @@ el:
             success: Η έρευνα αποθηκεύτηκε με επιτυχία.
       last_activity:
         new_survey: 'Νέα έρευνα:'
+      models:
+        survey:
+          fields:
+            answers: Απαντήσεις
       surveys:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση στην έρευνα.

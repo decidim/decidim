@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -28,16 +29,16 @@ id:
       admin:
         id_documents:
           help:
-            - Pengguna mengisi informasi identitas mereka dan mengunggah salinan dokumen mereka.
-            - Anda mengisi informasi yang ada di gambar yang diunggah.
-            - Informasi harus sesuai dengan apa pun yang diisi oleh pengguna.
-            - 
+          - Pengguna mengisi informasi identitas mereka dan mengunggah salinan dokumen mereka.
+          - Anda mengisi informasi yang ada di gambar yang diunggah.
+          - Informasi harus sesuai dengan apa pun yang diisi oleh pengguna.
+          - 
         postal_letter:
           help:
-            - Pengguna meminta kode verifikasi untuk dikirim ke alamat mereka.
-            - Anda mengirim surat ke alamat mereka dengan kode verifikasi.
-            - Anda menandai surat yang dikirim.
-            - Setelah Anda menandai surat yang dikirim, pengguna akan dapat memperkenalkan kode dan diverifikasi.
+          - Pengguna meminta kode verifikasi untuk dikirim ke alamat mereka.
+          - Anda mengirim surat ke alamat mereka dengan kode verifikasi.
+          - Anda menandai surat yang dikirim.
+          - Setelah Anda menandai surat yang dikirim, pengguna akan dapat memperkenalkan kode dan diverifikasi.
       csv_census:
         name: Sensus organisasi
       direct: Langsung
@@ -71,8 +72,6 @@ id:
             body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
           new:
             file: "File .csv dengan data email"
-            submit: Unggah data
-            title: Unggah sensus baru
         authorizations:
           new:
             error: Kami tidak dapat memverifikasi akun Anda atau Anda tidak ada dalam sensus organisasi.

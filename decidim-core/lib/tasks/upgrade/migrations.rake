@@ -75,13 +75,18 @@ namespace :decidim do
       end
 
       new_source = "#{magic_comments}#{inserted_comment}#{source}"
+
       old_source = File.binread(target_file)
+      old_source = old_source.gsub(/# This file has been modified by `decidim upgrade:migrations` task on (.*)\n/, "")
 
       return if old_source == new_source
 
       logger.warn("[Patch migration] Replacing content of #{File.basename(target_file)}")
 
-      File.binwrite(target_file, new_source)
+      additional_comment = "# This file has been modified by `decidim upgrade:migrations` task on #{Time.now.utc}\n"
+      source = new_source.gsub(inserted_comment, "#{inserted_comment}#{additional_comment}")
+
+      File.binwrite(target_file, source)
     end
 
     def logger

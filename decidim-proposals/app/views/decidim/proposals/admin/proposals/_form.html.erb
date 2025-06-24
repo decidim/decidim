@@ -20,7 +20,7 @@
         </div>
       <% end %>
       <% if @form.component_suggested_hashtags.any? %>
-        <div>
+        <div class="row column">
           <%= form.label :suggested_hashtags %>
           <div class="hashtags">
             <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
@@ -63,7 +63,7 @@
                               label: t("decidim.proposals.proposals.edit.add_attachments"),
                               button_label: t("decidim.proposals.proposals.edit.add_attachments"),
                               button_edit_label: t("decidim.proposals.proposals.edit.edit_attachments"),
-                              button_class: "button button__lg button__transparent-secondary w-full",
+                              button_class: "button button__sm button__transparent-secondary mt-2 md:w-auto w-full",
                               help_i18n_scope: "decidim.forms.file_help.file",
                               help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
         </div>

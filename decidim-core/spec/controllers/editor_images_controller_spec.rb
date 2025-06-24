@@ -44,11 +44,7 @@ module Decidim
         end
       end
 
-      context "when admin is signed in" do
-        before do
-          sign_in admin
-        end
-
+      shared_examples "handles editor image" do
         it "creates an editor image" do
           expect do
             post :create, params: valid_params
@@ -67,6 +63,25 @@ module Decidim
             expect(response.body).to include("Error uploading image")
           end
         end
+      end
+
+      context "when admin is signed in" do
+        before do
+          sign_in admin
+        end
+
+        it_behaves_like "handles editor image"
+      end
+
+      context "when user is a process admin" do
+        let(:participatory_process) { create(:participatory_process, organization:) }
+        let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+
+        before do
+          sign_in user
+        end
+
+        it_behaves_like "handles editor image"
       end
     end
   end

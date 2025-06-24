@@ -7,6 +7,8 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswersController do
+        include Decidim::ApplicationHelper
+
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
         let!(:emendation) { create(:proposal, component:) }
@@ -24,6 +26,7 @@ module Decidim
         let(:context) do
           {
             current_organization: component.organization,
+            current_participatory_space: component.participatory_space,
             current_component: component,
             current_user: user
           }
@@ -32,7 +35,41 @@ module Decidim
         before do
           sign_in user
           request.env["decidim.current_organization"] = component.organization
+          request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
+        end
+
+        describe "PUT update" do
+          let(:proposals_path) { "decidim/proposals/admin/proposals/index" }
+          let(:params) do
+            {
+              id: proposal1.id,
+              internal_state: "accepted",
+              component_id: component.id,
+              participatory_process_slug: component.participatory_space.slug
+            }
+          end
+
+          context "when costs are enabled" do
+            before do
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    answers_with_costs: true
+                  }
+                }
+              )
+              allow(controller).to receive(:proposals_path).and_return(proposals_path)
+            end
+
+            context "when the update is successful." do
+              it "renders ProposalsAdmin#index view" do
+                post :update, params: params
+                expect(response).to have_http_status(:found)
+                expect(subject).to redirect_to(proposals_path)
+              end
+            end
+          end
         end
 
         describe "POST update_multiple_answers" do
@@ -75,7 +112,7 @@ module Decidim
             end
           end
 
-          context "when cost is required" do
+          context "when cost is not required" do
             before do
               component.update!(
                 step_settings: {
@@ -86,14 +123,12 @@ module Decidim
               )
             end
 
-            let(:proposal_state) { Decidim::Proposals::ProposalState.find_by(token: :accepted) }
-
-            it "redirects with an alert" do
-              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
+            it "redirects without an alert" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(2).times
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:alert]).to include("could not be answered due errors applying the template \"#{template.name["en"]}\".")
-              expect(flash[:notice]).to be_nil
+              expect(flash[:notice]).to include("proposals will be answered using the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to be_nil
             end
           end
 

@@ -1,12 +1,13 @@
+---
 ro:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Comentariu
-      decidim/comments/comment_created_event: Comentează
-      decidim/comments/comment_upvoted_event: Comentariu votat
+      decidim/comments/comment_created_event: Comentariu
+      decidim/comments/comment_upvoted_event: Comentariu votat favorabil
       decidim/comments/reply_created_event: Răspuns la comentariu
-      decidim/comments/user_group_mentioned_event: Menționează
-      decidim/comments/user_mentioned_event: Menționează
+      decidim/comments/user_group_mentioned_event: Menționați
+      decidim/comments/user_mentioned_event: Menționați
   activerecord:
     models:
       decidim/comments/comment:
@@ -18,6 +19,10 @@ ro:
         few: Voturi
         other: Voturi
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentarii
     comments:
       admin:
         shared:
@@ -25,6 +30,8 @@ ro:
             enabled: Comentarii activate
             end_time: Comentarii activate până la
             start_time: Comentarii activate de la
+      comment_thread:
+        accessibility_label: Comentariile au fost inițiate de %{full_name} începând cu %{date}
       comments:
         create:
           error: A apărut o problemă la crearea comentariului.
@@ -40,23 +47,26 @@ ro:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
+        account_message: Autentificați-vă sau creați un cont pentru a adăuga comentariul dumneavoastră.
+        add_comment: Adaugați comentariu
         form:
           body:
             label: Comentariu
-            placeholder: Ce părere aveţi despre asta?
+            placeholder: Ce părere aveți despre asta?
           form_error: Textul este obligatoriu și nu poate fi mai lung de %{length} caractere.
           submit_reply: Publicați răspuns
           submit_root_comment: Publicați comentariu
           user_group_id:
             label: Comentați în calitate de
+            your_profile: Profilul dumneavoastră
         opinion:
-          label: Opinia ta despre acest subiect
+          label: Opinia dumneavoastră despre acest subiect
           negative: Negativ
-          negative_selected: Opinia ta despre acest subiect este negativă
+          negative_selected: Opinia dumneavoastră despre acest subiect este negativă
           neutral: Neutru
-          neutral_selected: Opinia ta despre acest subiect este neutră
+          neutral_selected: Opinia dumneavoastră despre acest subiect este neutră
           positive: Pozitiv
-          positive_selected: Opinia ta despre acest subiect este pozitivă
+          positive_selected: Opinia dumneavoastră despre acest subiect este pozitivă
         remaining_characters: "%{count} caractere rămase"
         remaining_characters_1: "%{count} caracter rămas"
         title: Adaugați comentariul dumneavoastră
@@ -64,12 +74,16 @@ ro:
         alignment:
           against: Împotrivă
           in_favor: Pentru
-        cancel_reply: Anulează răspunsul
+        answers:
+          one: "%{count} răspuns"
+          few: "%{count} răspunsuri"
+          other: "%{count} răspunsuri"
+        cancel_reply: Anulați răspunsul
         comment_label: Comentariu %{comment_id}
         comment_label_reply: Comentariu %{comment_id} (răspuns la comentariul %{parent_comment_id})
         confirm_destroy: Sigur doriți să ștergeți acest comentariu?
-        controls_label: Control comentariu
-        delete: Șterge
+        controls_label: Controale comentariu
+        delete: Ștergeți
         deleted_at: Comentariu șters pe %{date}
         deleted_user: Participant șters
         edit: Actualizare
@@ -79,23 +93,24 @@ ro:
           few: Ascundeți %{count} răspunsuri
           other: Ascundeți %{count} răspunsuri
         moderated_at: Comentariu moderat pe %{date}
-        reply: Răspunde
+        reply: Răspundeți
         report:
-          action: Raportează
+          action: Raportați
           already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-          close: Închide
-          description: Este acest conținut neadecvat?
-          details: Observaţii suplimentare
+          close: Închideți
+          description: Acest conținut este neadecvat?
+          details: Observații suplimentare
           reasons:
             does_not_belong: Conține activitate ilegală, amenințări cu sinuciderea, informații personale sau altceva ce consideri că nu aparține de %{organization_name}.
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportați conținut nepotrivit
         show_replies:
-          one: Arată răspunsul
-          few: Arată %{count} răspunsuri
-          other: Arată %{count} răspunsuri
-        single_comment_link_title: Obține linkul
+          one: Arătați răspunsul
+          few: Arătați %{count} răspunsuri
+          other: Arătați %{count} răspunsuri
+        single_comment_link_title: Obțineți linkul
+        sort_by: 'Sortare după: '
       comment_order_selector:
         order:
           best_rated: Cele mai apreciate
@@ -104,71 +119,94 @@ ro:
           recent: Recente
         title: 'Ordonare după:'
       comments:
-        blocked_comments_for_unauthorized_user_warning: Trebuie să fii verificat pentru a trimite comentarii în acest moment, dar le poți citi pe cele anterioare.
-        blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
+        against: Împotrivă
+        blocked_comments_for_unauthorized_user_warning: Trebuie să fiți verificat pentru a face comentarii în acest moment, dar le puteți citi pe cele anterioare.
+        blocked_comments_for_user_warning: Nu puteți comenta în acest moment, dar le puteți citi pe cele anterioare.
         blocked_comments_warning: Comentariile sunt momentan dezactivate, doar administratorii pot răspunde sau publica altele noi.
         comment_details_title: Detaliile comentariului
-        loading: Se încarcă comentariile...
-        single_comment_warning: <a href="%{url}">Vezi toate comentariile</a>
-        single_comment_warning_title: Poți vedea un singur comentariu
+        in_favor: Pentru
+        loading: Comentariile se încarcă ...
+        single_comment_warning: <a href="%{url}">Vedeți toate comentariile</a>
+        single_comment_warning_title: Puteți vedea un singur comentariu
         title:
           one: "%{count} comentariu"
           few: "%{count} comentarii"
           other: "%{count} comentarii"
+        top_comment_label: Cele mai votate
       down_vote_button:
         text: Nu sunt de acord cu acest comentariu
       edit_comment_modal_form:
-        close: Închide
+        close: Închideți
         form:
           body:
             label: Comentariu
-            placeholder: Ce părere ai despre asta?
-          submit: Trimite
-        title: Editează comentariul tău
+            placeholder: Ce părere aveţi despre asta?
+          submit: Actualizați
+        title: Modificați comentariul dumneavoastră
       up_vote_button:
         text: Sunt de acord cu acest comentariu
+    download_your_data:
+      help:
+        comment_votes:
+          comment: Id-ul comentariului care a fost votat
+          created_at: Data când a fost creat acest vot
+          id: Id-ul unic al votului
+          updated_at: Data când a fost actualizat ultima dată acest vot
+          weight: Ponderea votului (1 pentru, -1 împotriva)
+        comments:
+          alignment: Acest comentariu a fost pentru, împotrivă sau neutru
+          author: Numele participantului care a făcut acest comentariu
+          body: Comentariul în sine
+          commentable_id: Id-ul unic al resursei comentate
+          commentable_type: Tipul resursei comentate (dacă este întâlnire, propunere etc.)
+          created_at: Data când acest comentariu a fost creat
+          depth: Locul în care acest comentariu este în cele trei comentarii (dacă este un răspuns sau un răspuns la un răspuns)
+          id: Id-ul unic al comentariului
+          locale: Localizarea (limba) pe care participantul a folosit-o atunci când a lăsat acest comentariu
+          root_commentable_url: URL-ul resursei unde a fost lăsat acest comentariu
+          user_group: Numele grupului de utilizatori care a făcut acest comentariu (dacă există)
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} a lăsat un comentariu în %{resource_title}. Îl poți citi în această pagină:"
-          email_outro: Ai primit această notificare deoarece urmărești pe „%{author_name}”. Poți anula abonarea de la acest utilizator de pe pagina sa de profil.
+          email_intro: "%{author_name} a lăsat un comentariu în %{resource_title}. Îl puteți citi pe această pagină:"
+          email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{author_name}. Puteți să nu urmăriți acest utilizator de pe pagina lui de profil.
           email_subject: Există un nou comentariu de la %{author_name} pentru %{resource_title}
           notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
-          email_intro: 'Grupul %{author_name} a lăsat un comentariu pentru %{resource_title}. Îl poți citi în această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești grupul „%{author_name}”. Poți anula abonarea de la acest grup de pe pagina sa de profil.
+          email_intro: 'Grupul %{author_name} a lăsat un comentariu pentru %{resource_title}. Îl puteți citi în această pagină:'
+          email_outro: Ați primit această notificare deoarece urmăriți activitate lui %{author_name}. Puteți să nu urmăriți acest grup de pe pagina sa de profil.
           email_subject: Există un nou comentariu de la %{author_name} pentru %{resource_title}
           notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a primit un comentariu. Poți citi comentariul pe această pagină:"
           email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}” sau pe autorii săi. Puteți anula abonarea de la link-ul anterior.
-          email_subject: Există un nou comentariu de la %{author_name} pentru %{resource_title}
-          notification_title: Există un nou comentariu de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>
+          email_subject: Există un comentariu nou de la %{author_name} pentru %{resource_title}
+          notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
-          email_intro: Comentariul tău pentru "%{resource_title}" a primit un vot nefavorabil. Acesta are acum un total de %{upvotes} voturi favorabile şi %{downvotes} voturi nefaborabile.
-          email_outro: Ai primit această notificare deoarece ești autorul acestui comentariu.
-          email_subject: Comentariul tău pentru "%{resource_title}" a primit un vot nefavorabil.
-          notification_title: Comentariul tău <a href="%{resource_path}"></a> pentru "%{resource_title}" a primit un vot nefavorabil. Acum are un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
+          email_intro: Comentariul dumneavoastră pentru "%{resource_title}" a primit un vot nefavorabil. Acesta are acum un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
+          email_outro: Ați primit această notificare deoarece sunteți autorul acestui comentariu.
+          email_subject: Comentariul dumneavoastră pentru "%{resource_title}" a primit un vot nefavorabil.
+          notification_title: Comentariul dumneavoastră <a href="%{resource_path}"></a> pentru "%{resource_title}" a primit un vot nefavorabil. Acum are un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
         comment_upvoted:
-          email_intro: Comentariul tău pentru "%{resource_title}" a primit un vot favorabil. Acesta are acum un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
-          email_outro: Ai primit această notificare deoarece ești autorul acestui comentariu.
-          email_subject: Comentariul tău pentru "%{resource_title}" a primit un vot favorabil.
-          notification_title: Comentariul tău <a href="%{resource_path}"></a> în "%{resource_title}" a primit un vot favorabil. Acum are un total de %{upvotes} voturi faborabile și %{downvotes} voturi nefavorabile.
+          email_intro: Comentariul dumneavoastră pentru "%{resource_title}" a primit un vot favorabil. Acesta are acum un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
+          email_outro: Ați primit această notificare deoarece sunteți autorul acestui comentariu.
+          email_subject: Comentariul dumneavoastră pentru "%{resource_title}" a primit un vot favorabil.
+          notification_title: Comentariul dumneavoastră <a href="%{resource_path}"></a> în "%{resource_title}" a primit un vot favorabil. Acum are un total de %{upvotes} voturi favorabile și %{downvotes} voturi nefavorabile.
         reply_created:
-          email_intro: "%{author_name} a răspuns la comentariul tău pentru %{resource_title}. Îl poți citi în această pagină:"
-          email_outro: Ai primit această notificare deoarece comentariul tău a primit un răspuns.
-          email_subject: "%{author_name} a răspuns la comentariul tău pentru %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a răspuns la comentariul tău pentru <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} a răspuns la comentariul dumneavoastră pentru %{resource_title}. Îl poți citi în această pagină:"
+          email_outro: Ați primit această notificare deoarece comentariul dumneavoastră a fost răspuns.
+          email_subject: "%{author_name} a răspuns la comentariul dumneavoastră pentru %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a răspuns la comentariul dumneavoastră pentru <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
-          email_intro: Un grup de care aparți a fost menționat
-          email_outro: Ai primit această notificare deoarece ești un membru al grupului %{group_name} care a fost menționat în %{resource_title}.
-          email_subject: Ai fost menționat în %{resource_title} ca membru al %{group_name}
-          notification_title: Ai fost menționat în <a href="%{resource_path}">%{resource_title}</a> de <a href="%{author_path}">%{author_name} %{author_nickname}</a> ca membru al <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+          email_intro: Un grup căruia îi aparțineți a fost menționat
+          email_outro: Ați primit această notificare deoarece sunteți un membru al grupului %{group_name} care a fost menționat în %{resource_title}.
+          email_subject: Ai fost menționat(ă) în %{resource_title} ca membru al %{group_name}
+          notification_title: Ai fost menționat(ă) în <a href="%{resource_path}">%{resource_title}</a> de <a href="%{author_path}">%{author_name} %{author_nickname}</a> ca membru al <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
-          email_intro: Ai fost menționat(ă)
-          email_outro: Ai primit această notificare deoarece ai fost menționat în %{resource_title}.
-          email_subject: Ai fost menționat în %{resource_title}
-          notification_title: Ai fost menționat în <a href="%{resource_path}">%{resource_title}</a> de către <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Ați fost menționat(ă)
+          email_outro: Ați primit această notificare deoarece ați fost menționat(ă) în %{resource_title}.
+          email_subject: Ați fost menționat(ă) în %{resource_title}
+          notification_title: Ați fost menționat(ă) în <a href="%{resource_path}">%{resource_title}</a> de către <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
         description: Numărul de comentarii generate de participanți

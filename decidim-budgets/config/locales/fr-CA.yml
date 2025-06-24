@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -17,6 +18,10 @@ fr-CA:
         scope_id: Périmètre d'application
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Ajouté à ce budget : %{link}'
       decidim/budgets/budget:
         one: Budget
         other: Budgets
@@ -25,6 +30,9 @@ fr-CA:
         other: Projets
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projets
       filters:
         projects:
           selected_at_null:
@@ -32,6 +40,8 @@ fr-CA:
             values:
               'false': Projet sélectionné
               'true': Non sélectionné
+          taxonomies_part_of_contains:
+            label: Taxonomie
     budgets:
       actions:
         attachment_collections: Dossiers
@@ -90,6 +100,7 @@ fr-CA:
             cancel: Annuler
             change_budget: Modifier le budget
             change_selected: Changer l'état sélectionné
+            change_taxonomies: Modifier les taxonomies
             deselect_implementation: Retirer de la sélection pour implémentation
             finished_orders: Votes terminés
             pending_orders: Votes en cours
@@ -110,10 +121,17 @@ fr-CA:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
           update_budget:
+            invalid: 'Ces projets sont déjà dans le même budget ou leur budget est supérieur au montant maximum autorisé : %{errored}.'
             select_a_project: Veuillez sélectionner un projet.
           update_selected:
+            invalid:
+              selected: 'Ces projets ont déjà été sélectionnés pour une implémentation : %{errored}.'
+              unselected: 'Ces projets ont déjà été retirés de la sélection pour une implémentation : %{errored}.'
             select_a_project: Veuillez selectionner un projet.
             select_a_selection: Veuillez sélectionner un état d'implémentation.
+          update_taxonomies:
+            select_a_project: Veuillez sélectionner un projet.
+            select_a_taxonomy: Veuillez sélectionner une taxonomie.
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans les projets.

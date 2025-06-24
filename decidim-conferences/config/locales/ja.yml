@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -393,6 +394,7 @@ ja:
         diplomas:
           edit:
             save: 保存
+            title: 参加証明書
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
@@ -412,6 +414,7 @@ ja:
             diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。
           diploma_user:
             attendance_verified_by: 出席者が確認しました
+            certificate_of_attendance: 参加証明書
             certificate_of_attendance_description: これは、<strong>%{user}</strong>が、<strong>%{start} から %{end}</strong>に<strong>%{location}</strong>で開催された<strong>%{title}</strong>に出席し、参加したことを証明するものです。
         send_diploma:
           error: カンファレンス出席証明書の送信に問題がありました。

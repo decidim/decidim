@@ -347,7 +347,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
-      %w(decidim initiatives default_components) => %w(pages meetings),
+      %w(decidim initiatives default_components) => %w(pages meetings blogs),
       %w(decidim initiatives first_notification_percentage) => 33,
       %w(decidim initiatives second_notification_percentage) => 66,
       %w(decidim initiatives stats_cache_expiration_time) => 5,
@@ -535,7 +535,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -576,7 +576,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
@@ -836,7 +836,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "creation_enabled" => true,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %w(pages meetings),
+      "default_components" => %w(pages meetings blogs),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes

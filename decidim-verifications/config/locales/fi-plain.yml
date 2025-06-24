@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ fi-pl:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
-            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
-            - Vahvista itsesi syöttämällä A-kirjaimella alkava passin numero.
+          - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+          - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+          - Vahvista itsesi syöttämällä A-kirjaimella alkava passin numero.
         csv_census:
           help:
-            - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta.
-            - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä.
+          - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta.
+          - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä.
         default:
           help:
-            - Vahvistuksien käsittelijän ohjetekstiä ei ole määritetty.
-            - Kehittäjän on määritettävä ohjeteksti käännösavaimelle "%{authorization_handler}"
+          - Vahvistuksien käsittelijän ohjetekstiä ei ole määritetty.
+          - Kehittäjän on määritettävä ohjeteksti käännösavaimelle "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
-            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
-            - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
+          - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+          - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+          - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
         ephemeral_dummy_authorization_handler:
           help:
-            - Esimerkkikäsittelijä väliaikaiselle vahvistukselle, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
-            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
-            - Se on kopio esimerkkivahvistuksesta.
-            - Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
+          - Esimerkkikäsittelijä väliaikaiselle vahvistukselle, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+          - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+          - Se on kopio esimerkkivahvistuksesta.
+          - Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         id_documents:
           help:
-            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
-            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
-            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin henkilö voi korjata sitä.
+          - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+          - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+          - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
+          - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin henkilö voi korjata sitä.
         postal_letter:
           help:
-            - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
-            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
-            - Sinä merkitset kirjeen lähetetyksi.
-            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+          - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
+          - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+          - Sinä merkitset kirjeen lähetetyksi.
+          - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
         sms:
           help:
-            - Osallistujat pyytävät vahvistuskoodin lähettämistä heidän puhelimeensa.
-            - Heidän on syötettävä koodi vahvistaakseen tilinsä.
-            - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
+          - Osallistujat pyytävät vahvistuskoodin lähettämistä heidän puhelimeensa.
+          - Heidän on syötettävä koodi vahvistaakseen tilinsä.
+          - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
@@ -183,7 +184,7 @@ fi-pl:
             file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
             info: 'On oltava CSV-tiedosto, jossa on vain yksi sarake sähköpostiosoitteille:'
             submit: Lataa tiedosto
-            title: Lataa uusi rekisteri
+            title: Lataa uusi henkilötietorekisteri
         authorizations:
           new:
             error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.

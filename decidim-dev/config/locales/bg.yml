@@ -1,3 +1,4 @@
+---
 bg:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ bg:
       badges:
         test:
           conditions:
-            - Използвайте тестова среда за decidim.
+          - Използвайте тестова среда за decidim.
           description: Участниците получават тази значка като създават тестове.
           description_another: Участниците създадоха %{score} теста.
           description_own: Вие създадохте %{score} теста.

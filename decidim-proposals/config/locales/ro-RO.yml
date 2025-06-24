@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -66,6 +67,11 @@ ro:
       decidim/proposals/voting_enabled_event: Votare propunerii este activată
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Propunerea <span class="resource-link">%{link} a fost creată</span>
+            import_to_proposal_text: Această propunere <span "resource-link">%{link} a fost creată</span>
       decidim/proposals/collaborative_draft:
         one: Ciornă colaborativă
         few: Ciorne colaborative
@@ -177,6 +183,8 @@ ro:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Ai primit această notificare pentru a putea evalua propunerea.
           proposal_note_created:
             email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
@@ -226,8 +234,8 @@ ro:
       badges:
         accepted_proposals:
           conditions:
-            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
-            - Încercă să faci propuneri care pot fi implementate. Astfel crește probabilitatea ca acestea să fie acceptate.
+          - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
+          - Încercă să faci propuneri care pot fi implementate. Astfel crește probabilitatea ca acestea să fie acceptate.
           description: Această insignă este acordată atunci când participi activ cu noi propuneri, iar acestea sunt acceptate.
           description_another: Acest participant are %{score} propuneri acceptate.
           description_own: Ai %{score} propuneri acceptate.
@@ -237,12 +245,12 @@ ro:
           unearned_own: Încă nu ai nicio propunere acceptată.
         proposal_votes:
           conditions:
-            - Răsfoiește paginile și petrece puțin timp citind propunerile altora
-            - 
+          - Răsfoiește paginile și petrece puțin timp citind propunerile altora
+          - 
         proposals:
           conditions:
-            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
-            - Creează o nouă propunere
+          - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
+          - Creează o nouă propunere
           description: Această insignă este acordată atunci când participi activ cu noi propuneri.
           description_another: Acest participant a creat %{score} propuneri.
           description_own: Ai creat %{score} propuneri.
@@ -262,6 +270,8 @@ ro:
         description: Număr de propuneri
         object: propuneri
         title: Propuneri
+      votes:
+        title: Voturi
     participatory_spaces:
       highlighted_proposals:
         see_all: Afișează toate propunerile
@@ -280,6 +290,17 @@ ro:
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
+        import_proposals_mailer:
+          notify_failure:
+            body: A apărut o problemă la importul propunerilor din componenta %{origin_component_name} în componenta %{target_component_name}.
+            subject: A apărut o problemă la importul propunerilor
+          notify_success:
+            added_proposals:
+              one: A fost importată o propunere.
+              few: "Au fost importate %{count} propuneri."
+              other: "Au fost importate %{count} propuneri."
+            body: Propuneri importate cu succes din componenta %{origin_component_name} în componenta %{target_component_name}. Puteți analiza rezultatele în interfața de administrare.
+            subject: Propunerile au fost importate cu succes
         imports:
           label:
             answers: Importați răspunsuri dintr-un fișier
@@ -344,7 +365,7 @@ ro:
           index:
             actions: Acțiuni
             assign_to_valuator: Atribuie evaluatorului
-            assign_to_valuator_button: Atribuie
+            assign_to_valuator_button: Delegați
             cancel: Anulează
             merge: Combină într-o propunere nouă
             merge_button: Combină
@@ -357,7 +378,7 @@ ro:
             split_button: Împarte
             title: Propuneri
             unassign_from_valuator: Atribuire către evaluator anulată
-            unassign_from_valuator_button: Neatribuit
+            unassign_from_valuator_button: Anulare delegare
             update: Actualizează
           new:
             create: Creează
@@ -370,10 +391,6 @@ ro:
             documents: Documente
             endorsements_count: Număr de susțineri
             endorsers: Susținători
-            n_more_endorsers:
-              one: și încă 1
-              few: și încă %{count}
-              other: și încă %{count}
             photos: Imagini
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
@@ -381,6 +398,8 @@ ro:
             remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
             valuators: Evaluatori
         proposals_imports:
+          create:
+            success: Procesul de import a început. Vă vom anunța de îndată ce s-a terminat.
           new:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
@@ -514,6 +533,9 @@ ro:
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei colaborative.
         success: Ciorna de propunere a fost ştearsă cu succes.
+      invite_coauthors:
+        create:
+          success: "%{author_name} a fost invitat cu succes să fie coautor."
       models:
         proposal:
           fields:
@@ -538,7 +560,9 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
+          add_attachments: Adaugați atașamente
           back: Înapoi
+          edit_attachments: Actualizați atașamente
           send: Trimite
           title: Editează propunerea
         edit_draft:
@@ -571,6 +595,7 @@ ro:
           text_banner: Vizualizezi lista de propuneri retrase de autorii lor. %{go_back_link}.
         new:
           send: Continuă
+          title: Creați o nouă propunere
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
@@ -612,6 +637,7 @@ ro:
         update:
           title: Actualizează propunerea
         vote_button:
+          already_voted: Votat
           votes_blocked: Votați
         voting_rules:
           proposal_limit:

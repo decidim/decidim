@@ -11,7 +11,7 @@
 <% if meetings.length.zero? %>
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.no_meetings_warning"), callout_class: "warning" ) %>
 <% else %>
-  <h2 class="h5 md:h3 decorator"><%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %></h2>
+  <h2 class="h5 md:h3 decorator" aria-live="polite" aria-atomic="true"><%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %></h2>
 
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" ) if @forced_past_meetings %>
 

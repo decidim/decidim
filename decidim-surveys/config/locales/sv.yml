@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     models:
@@ -50,6 +51,10 @@ sv:
             success: Enkäten har sparats.
       last_activity:
         new_survey: 'Ny enkät:'
+      models:
+        survey:
+          fields:
+            answers: Svar
       survey_confirmation_mailer:
         confirmation:
           body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}

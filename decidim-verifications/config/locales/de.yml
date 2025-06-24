@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ de:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
-            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
-            - Lassen Sie sich verifizieren, indem Sie eine Passnummer eingeben, die mit "A" beginnt.
+          - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+          - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+          - Lassen Sie sich verifizieren, indem Sie eine Passnummer eingeben, die mit "A" beginnt.
         csv_census:
           help:
-            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch.
-            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden.
+          - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch.
+          - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden.
         default:
           help:
-            - Die Autorisierungs-Hilfe ist nicht definiert.
-            - Ein Entwickler muss die Hilfe in der Übersetzung (i18n) Schlüssel "%{authorization_handler} " definieren
+          - Die Autorisierungs-Hilfe ist nicht definiert.
+          - Ein Entwickler muss die Hilfe in der Übersetzung (i18n) Schlüssel "%{authorization_handler} " definieren
         dummy_authorization_handler:
           help:
-            - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
-            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
-            - Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
+          - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+          - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+          - Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
         ephemeral_dummy_authorization_handler:
           help:
-            - Ein Beispiel für ephemere Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
-            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
-            - Es ist eine Kopie der Beispielgenehmigung.
-            - Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
+          - Ein Beispiel für ephemere Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+          - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+          - Es ist eine Kopie der Beispielgenehmigung.
+          - Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
         id_documents:
           help:
-            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
-            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
-            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
-            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+          - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+          - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+          - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+          - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
-            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
-            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
-            - Sie markieren den Brief als gesendet.
-            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+          - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+          - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+          - Sie markieren den Brief als gesendet.
+          - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
         sms:
           help:
-            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
-            - Sie müssen den Code angeben, um verifiziert zu werden.
-            - Wenn Sie den Code nicht erhalten haben, können Sie einen Neuen anfordern.
+          - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+          - Sie müssen den Code angeben, um verifiziert zu werden.
+          - Wenn Sie den Code nicht erhalten haben, können Sie einen Neuen anfordern.
       csv_census:
         explanation: Lassen Sie sich anhand der Erhebung der Organisation überprüfen.
         name: Zählung der Organisation
@@ -162,7 +163,7 @@ de:
         admin:
           census:
             create:
-              error: Beim Importieren der Erhebung ist ein Fehler aufgetreten.
+              error: Beim Importieren der Zählung ist ein Fehler aufgetreten.
               success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
             destroy_all:
               success: Alle Erhebungsdaten wurden gelöscht.
@@ -181,9 +182,9 @@ de:
               john.doe@example.org
               jane.doe@example.org
             file: "CSV-Datei mit E-Mail-Daten"
-            info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
+            info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte mit E-Mail-Adressen:'
             submit: Datei hochladen
-            title: Laden Sie eine neue Erhebung hoch
+            title: Neue Volkszählung hochladen
         authorizations:
           new:
             error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.

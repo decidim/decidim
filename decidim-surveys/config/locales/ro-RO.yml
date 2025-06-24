@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     models:
@@ -52,6 +53,10 @@ ro:
             success: Sondajul a fost salvat cu succes.
       last_activity:
         new_survey: 'Sondaj nou:'
+      models:
+        survey:
+          fields:
+            answers: Răspunsuri
       surveys:
         answer:
           invalid: A apărut o problemă în timpul răspunsului pentru sondaj.

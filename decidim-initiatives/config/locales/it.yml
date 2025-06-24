@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -53,6 +54,9 @@ it:
               needs_to_be_reattached: Necessita di essere riallegato
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
@@ -159,8 +163,8 @@ it:
       badges:
         initiatives:
           conditions:
-            - Vai allo spazio di partecipazione delle iniziative
-            - Segui i passaggi per creare una nuova iniziativa
+          - Vai allo spazio di partecipazione delle iniziative
+          - Segui i passaggi per creare una nuova iniziativa
           description: Questo badge viene concesso quando si lanciano nuove iniziative, collaborando con gli altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           name: Iniziative pubblicate
@@ -287,8 +291,7 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
-          callout_text: Complimenti! La tua iniziativa è stata creata con successo.
-          confirm: Stai per inviare l'iniziativa per un amministratore per la revisione e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
+          confirm: Stai per inviare l'iniziativa per un amministratore per rivederla e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
           edit_my_initiative: Modifica la mia iniziativa
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"

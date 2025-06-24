@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ de:
           create:
             invalid: Beim Erstellen dieses Beitrags ist ein Problem aufgetreten.
             success: Beitrag wurde erfolgreich erstellt.
+          destroy:
+            success: Beitrag erfolgreich gelöscht.
           edit:
             save: Aktualisieren
             title: Post bearbeiten
@@ -69,11 +72,28 @@ de:
             published_at: Veröffentlicht am
             title: Titel
       posts:
+        edit:
+          back: Zurück zum Beitrag
+          button: Aktualisieren
+          title: Beitrag bearbeiten
+        form:
+          author_id: Autor*in
+          body: Inhalt
+          title: Titel
         index:
           count:
             one: "%{count} Beitrag"
             other: "%{count} Beiträge"
           empty: Es sind noch keine Beiträge vorhanden.
+          new_post: Neuer Beitrag
+        menu_actions:
+          button_destroy: Beitrag löschen
+          button_destroy_confirm: Möchten Sie diesen Beitrag wirklich löschen?
+          button_edit: Beitrag bearbeiten
+        new:
+          back: Zurück zu den Beiträgen
+          button: Erstellen
+          title: Neuen Beitrag verfassen
     components:
       blogs:
         actions:
@@ -88,6 +108,7 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            creation_enabled_for_participants: Teilnehmende können Beiträge erstellen
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     models:
@@ -51,6 +52,10 @@ it:
       admin_log:
         survey:
           unpublish: "%{user_name} ha aggiornato il budget %{resource_name} nello spazio %{space_name}"
+      models:
+        survey:
+          fields:
+            answers: Risposte
       surveys:
         answer:
           invalid: Ci sono stati errori nel rispondere al sondaggio.

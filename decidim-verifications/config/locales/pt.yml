@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -43,16 +44,16 @@ pt:
       admin:
         id_documents:
           help:
-            - Os participantes preenchem as suas informações de identidade e enviam uma cópia do seu documento.
-            - Preencha as informações presentes na imagem enviada.
-            - A informação deve corresponder ao que o utilizador preencheu.
-            - 
+          - Os participantes preenchem as suas informações de identidade e enviam uma cópia do seu documento.
+          - Preencha as informações presentes na imagem enviada.
+          - A informação deve corresponder ao que o utilizador preencheu.
+          - 
         postal_letter:
           help:
-            - Os participantes solicitam que um código de verificação seja enviado para o seu endereço.
-            - Envia a carta para o seu endereço com o código de verificação.
-            - Marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o participante poderá introduzir o código e ser verificado.
+          - Os participantes solicitam que um código de verificação seja enviado para o seu endereço.
+          - Envia a carta para o seu endereço com o código de verificação.
+          - Marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o participante poderá introduzir o código e ser verificado.
       csv_census:
         name: Recenseamento da organização
       direct: Direto
@@ -98,9 +99,6 @@ pt:
             title: Você precisa ativar o recenseamento CSV para esta organização
           new:
             file: "ficheiro .csv com dados de e-mails"
-            info: 'Deverá ser um ficheiro em formato CSV com apenas uma coluna com o endereço de e-mail:'
-            submit: Enviar ficheiro
-            title: Enviar um novo censo
         authorizations:
           new:
             error: Não foi possível verificar a sua conta ou não está no censo da organização.

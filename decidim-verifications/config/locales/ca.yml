@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ ca:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona.
-            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
-            - Verifica't introduint un número de passaport que comenci per "A".
+          - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona.
+          - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+          - Verifica't introduint un número de passaport que comenci per "A".
         csv_census:
           help:
-            - Les administradores carreguen un CSV amb els correus electrònics de les participants acceptades.
-            - Només es poden verificar les participants amb un correu electrònic que consti en aquest arxiu CSV.
+          - Les administradores carreguen un CSV amb els correus electrònics de les participants acceptades.
+          - Només es poden verificar les participants amb un correu electrònic que consti en aquest arxiu CSV.
         default:
           help:
-            - L'ajuda sobre el gestor d'autorització no està definida.
-            - Una desenvolupadora necessita definir l'ajuda a la clau de traducció (i18n) %{authorization_handler}
+          - L'ajuda sobre el gestor d'autorització no està definida.
+          - Una desenvolupadora necessita definir l'ajuda a la clau de traducció (i18n) %{authorization_handler}
         dummy_authorization_handler:
           help:
-            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
-            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
-            - Verifica't introduint un número de document que finalitzi amb "X".
+          - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+          - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+          - Verifica't introduint un número de document que finalitzi amb "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
-            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
-            - És una còpia de l'Autorització d'exemple.
-            - Verifica't introduint un número de document que finalitzi amb "X".
+          - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+          - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+          - És una còpia de l'Autorització d'exemple.
+          - Verifica't introduint un número de document que finalitzi amb "X".
         id_documents:
           help:
-            - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
-            - Completa la informació que es mostra a la imatge pujada.
-            - La informació ha de coincidir amb el que hagi omplert la persona participant.
-            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud perquè la participant la pugui corregir.
+          - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
+          - Completa la informació que es mostra a la imatge pujada.
+          - La informació ha de coincidir amb el que hagi omplert la persona participant.
+          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud perquè la participant la pugui corregir.
         postal_letter:
           help:
-            - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-            - Enviar la carta a la seva adreça amb el codi de verificació.
-            - Marcar la carta com a enviada.
-            - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
+          - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+          - Enviar la carta a la seva adreça amb el codi de verificació.
+          - Marcar la carta com a enviada.
+          - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
         sms:
           help:
-            - Les participants sol·liciten un codi de verificació que s'enviarà al seu telèfon.
-            - Cal que introdueixin el codi per a ser verificades.
-            - Si no reben el codi, poden tornar a demanar-lo.
+          - Les participants sol·liciten un codi de verificació que s'enviarà al seu telèfon.
+          - Cal que introdueixin el codi per a ser verificades.
+          - Si no reben el codi, poden tornar a demanar-lo.
       csv_census:
         explanation: Verifica't mitjançant el cens de l'organització.
         name: Cens de l'organització
@@ -147,7 +148,7 @@ ca:
         onboarding_pending:
           completed_verifications: El teu perfil s'ha verificat amb èxit, ara pots %{action} a %{resource_name}
           granted_verifications: Verificacions concedides
-          onboarding_message_html: 'Manquen uns passo previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:'
+          onboarding_message_html: Manquen uns passos previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:.
           pending_admin_approval_verifications: Verificacions pendents de l'aprovació d'una administradora
           pending_verifications: Verificacions pendents
           unauthorized: No tens l'autorització corresponent per a %{action} en aquest recurs
@@ -181,8 +182,8 @@ ca:
               john.doe@example.org
               jane.doe@example.org
             file: "fitxer .csv amb dades de correus electrònics"
-            info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
-            submit: Puja un document
+            info: 'Ha de ser un fitxer en format CSV amb una sola columna amb l''adreça de correu electrònic:'
+            submit: Puja arxiu
             title: Puja un nou cens
         authorizations:
           new:

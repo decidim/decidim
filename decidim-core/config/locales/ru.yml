@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ ru:
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
+      user_group:
+        avatar: Аватар
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
@@ -35,7 +38,6 @@ ru:
     attributes:
       decidim/user:
         current_password: Текущий пароль
-        email: Эл. адрес
         name: Имя участника
         password: Пароль
         password_confirmation: Подтверждение пароля
@@ -263,15 +265,12 @@ ru:
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
-          are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
       shared:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
           title: Уведомления о новостях
-        omniauth_buttons:
-          or: Или
     doorkeeper:
       authorizations:
         new:
@@ -390,6 +389,9 @@ ru:
         email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
       join:
         success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
+      members:
+        accept_request: Принять
+        reject_request: Отклонить
     last_activities:
       all: Все виды активности
       index:
@@ -420,10 +422,18 @@ ru:
       home: Главная
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Здравствуйте, %{recipient}!
+        comanagers_new_message:
+          greeting: Здравствуйте, %{recipient}!
         new_conversation:
           greeting: Здравствуйте, %{recipient}!
           intro: "%{sender} начал с вами новую беседу. Кликните здесь, чтобы прочитать её:"
           subject: "%{sender} начал беседу с вами"
+        new_group_conversation:
+          greeting: Здравствуйте, %{recipient}!
+        new_group_message:
+          greeting: Здравствуйте, %{recipient}!
         new_message:
           greeting: Здравствуйте, %{recipient}!
           intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
@@ -489,21 +499,16 @@ ru:
         conversations: Беседы
         followers: Читают
         following: Следит за
-      sidebar:
-        badges:
-          info: Значки заработаны за выполнение определенных действий на платформе.
-          title: Значки
+        group_admins: Управление админами
+        group_members: Управление участниками
       user:
-        create_user_group: Создать группу
-        edit_profile: Редактировать профиль
-        edit_user_group: Изменить профиль группы
-        invite_user: Пригласить участника
+        actions:
+          edit_profile: Редактировать профиль
+          edit_user_group: Изменить профиль группы
+          invite_user: Пригласить участника
+          manage_user_group_admins: Управление админами
+          manage_user_group_users: Управление участниками
     reported_mailer:
-      hide:
-        hello: Здравствуйте, %{name}!
-        manage_moderations: Управление действиями по модерации
-        report_html: <p>Следующее <a href="%{url}">содержимое</a> было автоматически скрыто.</p>
-        subject: Ресурс был автоматически скрыт
       report:
         hello: Здравствуйте, %{name}!
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
@@ -544,6 +549,8 @@ ru:
     statistics:
       comments_count: Комментариев
     user_conversations:
+      reply:
+        send: Отправить
       update:
         error: Сообщение не отправлено. Попробуйте позже
     wizard_step_form:

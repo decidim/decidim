@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     models:
@@ -27,6 +28,8 @@ ca:
             enabled: Comentaris habilitats
             end_time: Comentaris habilitats fins al
             start_time: Comentaris habilitats des de
+      comment_thread:
+        accessibility_label: Fil de comentaris iniciat per %{full_name} el %{date}
       comments:
         create:
           error: S'ha produït un error en crear el comentari.

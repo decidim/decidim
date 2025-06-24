@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -177,8 +178,8 @@ hu:
       badges:
         initiatives:
           conditions:
-            - Menjen az Intiatives részvételi helyére
-            - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
+          - Menjen az Intiatives részvételi helyére
+          - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
           description: Ezt a jelvényt akkor kapja meg, ha új kezdeményezéseket indít el, és másokkal partnerséget hajt végre.
           description_another: Ez a résztvevő %{score} kezdeményezést tett közzé.
           description_own: '%{score} kezdeményezésed van közzétéve.'
@@ -339,7 +340,6 @@ hu:
         finish:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
-          callout_text: Gratulálunk! A kezdeményezés létrehozása sikeres.
           confirm: A kezdeményezés elküldése egy adminisztrátornak felülvizsgálat és közzététel céljából. A közzététel után már nem lesz lehetőség szerkeszteni. Biztos vagy benne?
           edit_my_initiative: Kezdeményezésem szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
@@ -526,7 +526,7 @@ hu:
       initiatives_type:
         actions:
           title: Hozzászólások
-          vote: Szavazás
+          vote: Aláírás
   layouts:
     decidim:
       initiative_creation_header:

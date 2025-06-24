@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -173,6 +174,9 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Инициатива поддержана %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
+      initiative_signatures:
+        fill_personal_data:
+          continue: Продолжить
       initiative_votes:
         create:
           error: При попытке подписаться за этот почин произошли ошибки.
@@ -238,11 +242,14 @@ ru:
         expired: Истекшие
     menu:
       initiatives: Почины
+    resources:
+      initiatives_type:
+        actions:
+          vote: Подписать
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Создать
-        finish: Закончить
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
       initiatives:

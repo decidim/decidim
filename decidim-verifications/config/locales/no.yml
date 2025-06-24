@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -43,16 +44,16 @@
       admin:
         id_documents:
           help:
-            - Brukere fyller ut sin identitets-informasjon og laster opp en kopi av dokumentet.
-            - Du fyller ut informasjonen som er tilstede i det opplastede bildet.
-            - Informasjonen skal samsvare med hva brukeren fylte ut.
-            - 
+          - Brukere fyller ut sin identitets-informasjon og laster opp en kopi av dokumentet.
+          - Du fyller ut informasjonen som er tilstede i det opplastede bildet.
+          - Informasjonen skal samsvare med hva brukeren fylte ut.
+          - 
         postal_letter:
           help:
-            - Deltakere ber om at en verifiseringskode sendes til adressen deres.
-            - Du sendte brevet til adressen deres med verifiseringskoden.
-            - Du merkere brevet som sendt.
-            - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
+          - Deltakere ber om at en verifiseringskode sendes til adressen deres.
+          - Du sendte brevet til adressen deres med verifiseringskoden.
+          - Du merkere brevet som sendt.
+          - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
       csv_census:
         name: Organisasjonens folketelling
       direct: Direkte
@@ -98,9 +99,6 @@
             title: Du må aktivere CSV-tellingen for denne organisasjonen
           new:
             file: ".csv fil med e-postdata"
-            info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
-            submit: Last opp fil
-            title: Last opp en ny folketelling
         authorizations:
           new:
             error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.

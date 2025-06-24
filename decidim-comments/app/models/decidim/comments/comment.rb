@@ -145,7 +145,7 @@ module Decidim
         if root_commentable.respond_to?(:polymorphic_resource_url)
           root_commentable.polymorphic_resource_url(url_params)
         else
-          ResourceLocatorPresenter.new(root_commentable).url(url_params)
+          root_commentable.reported_content_url(url_params)
         end
       end
 

@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -49,7 +50,7 @@ ar:
       badges:
         test:
           conditions:
-            - استخدام بيئة اختبار ل decidim.
+          - استخدام بيئة اختبار ل decidim.
           description: يحصل المشاركون على هذه الشارة عن طريق إنشاء اختبارات.
           description_another: قام هذا المشارك بإنشاء %{score} اختبار.
           description_own: لقد أنشأت %{score} اختبارات.

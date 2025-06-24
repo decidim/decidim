@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -38,7 +39,7 @@ el:
       badges:
         test:
           conditions:
-            - Χρησιμοποιήστε ένα περιβάλλον δοκιμής για το decidim.
+          - Χρησιμοποιήστε ένα περιβάλλον δοκιμής για το decidim.
           description: Οι συμμετέχοντες αποκτούν αυτό το έμβλημα δημιουργώντας δοκιμές.
           description_another: Αυτός ο συμμετέχων έχει δημιουργήσει %{score} δοκιμές.
           description_own: Έχετε δημιουργήσει %{score} δοκιμές.

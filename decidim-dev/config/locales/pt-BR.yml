@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ pt-BR:
       badges:
         test:
           conditions:
-            - Use um ambiente de teste para decidim.
+          - Use um ambiente de teste para decidim.
           description: Os usuários obtêm esse selo criando testes.
           description_another: Este usuário criou %{score} testes.
           description_own: Você criou %{score} testes.

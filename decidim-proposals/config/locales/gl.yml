@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -192,8 +193,8 @@ gl:
       badges:
         accepted_proposals:
           conditions:
-            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
-            - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
+          - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+          - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
           description: Este distintivo concedeuse cando participas activamente con novas propostas e estas son aceptadas.
           description_another: Este usuario obtivo %{score} propostas aceptadas.
           description_own: Recibiches %{score} propostas.
@@ -203,12 +204,12 @@ gl:
           unearned_own: Aínda non recibiu propostas.
         proposal_votes:
           conditions:
-            - Busque e pase un tempo a ler as propostas doutras persoas
-            - 
+          - Busque e pase un tempo a ler as propostas doutras persoas
+          - 
         proposals:
           conditions:
-            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
-            - Crea unha nova proposta
+          - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+          - Crea unha nova proposta
           description: Este distintivo é concedido cando participas activamente con novas propostas.
           description_another: Este usuario creou %{score} propostas.
           description_own: Creaches %{score} propostas.
@@ -228,6 +229,8 @@ gl:
         description: Número de propostas xeradas
         object: propostas
         title: Propostas
+      votes:
+        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -321,9 +324,6 @@ gl:
           show:
             body: Corpo
             documents: Documentos
-            n_more_endorsers:
-              one: e 1 máis
-              other: e %{count} máis
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas

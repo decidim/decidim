@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -57,20 +58,20 @@ lt:
       admin:
         csv_census:
           help:
-            - Administratoriai įkelia CSV su priimtų dalyvių el. pašto adresais.
-            - Tik dalyviai, turintys el. pašto adresą tame CSV faile, gali gauti patvirtinimą.
+          - Administratoriai įkelia CSV su priimtų dalyvių el. pašto adresais.
+          - Tik dalyviai, turintys el. pašto adresą tame CSV faile, gali gauti patvirtinimą.
         id_documents:
           help:
-            - Vartotojai užpildo savo tapatybės informaciją ir įkelia savo dokumento kopiją.
-            - Jūs užpildote informaciją, esančią įkeltame paveikslėlyje.
-            - Informacija turi atitikti tai, ką įvedė vartotojas.
-            - Jei nematote aiškiai informacijos arba negalite jos patikrinti, galite atmesti užklausą ir vartotojas galės ją ištaisyti.
+          - Vartotojai užpildo savo tapatybės informaciją ir įkelia savo dokumento kopiją.
+          - Jūs užpildote informaciją, esančią įkeltame paveikslėlyje.
+          - Informacija turi atitikti tai, ką įvedė vartotojas.
+          - Jei nematote aiškiai informacijos arba negalite jos patikrinti, galite atmesti užklausą ir vartotojas galės ją ištaisyti.
         postal_letter:
           help:
-            - Dalyviai prašo el. laišku jiems išsiųsti patvirtinimo kodą.
-            - Išsiunčiate jiems el. laišką su patvirtinimo kodu.
-            - Jūs pažymite laišką kaip išsiųstą.
-            - Kai pažymėsite laišką kaip išsiųstą, dalyvis galės įvesti kodą ir gauti patvirtinimą.
+          - Dalyviai prašo el. laišku jiems išsiųsti patvirtinimo kodą.
+          - Išsiunčiate jiems el. laišką su patvirtinimo kodu.
+          - Jūs pažymite laišką kaip išsiųstą.
+          - Kai pažymėsite laišką kaip išsiųstą, dalyvis galės įvesti kodą ir gauti patvirtinimą.
       csv_census:
         explanation: Patikrinimas naudojant organizacijos surašymo duomenis.
         name: Organizacijos surašymo duomenys
@@ -138,13 +139,7 @@ lt:
             body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus
             title: Turite įjungti „cvs_census“ šiai organizacijai
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: ".csv rinkmena su el. pašto duomenimis"
-            info: 'Turi būti CSV formato rinkmena tik su viena skiltimi, kurioje nurodytas el. pašto adresas:'
-            submit: Įkelti failą
-            title: Įkelti naujus surašymo duomenis
         authorizations:
           new:
             error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.

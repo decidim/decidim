@@ -36,6 +36,7 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_upload_images_in_process?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -48,7 +49,6 @@ module Decidim
         collaborator_action?
         valuator_action?
         process_admin_action?
-
         permission_action
       end
 
@@ -133,7 +133,7 @@ module Decidim
         return true unless process.private_space
         return false unless user
 
-        user.admin || process.users.include?(user)
+        user.admin || user_has_any_role?(user, process, broad_check: true) || process.users.include?(user)
       end
 
       # Only organization admins can enter the process groups space area.
@@ -154,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || user_has_any_role?(user, process, broad_check: true) || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
@@ -288,6 +288,10 @@ module Decidim
 
       def process_group
         @process_group ||= context.fetch(:process_group, nil)
+      end
+
+      def user_can_upload_images_in_process?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, process, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

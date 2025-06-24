@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -403,6 +404,8 @@ ja:
           meta_scope: スコープ
           participatory_processes:
             other: "%{count} 個のプロセス"
+      related_processes:
+        help: 選択されたすべてのプロセスがこのグループに割り当てられます。他のグループにすでに割り当てられているプロセスも含まれます。
       show:
         title: 参加型プロセスグループ
     participatory_process_steps:

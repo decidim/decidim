@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ hu:
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
         tos_agreement: A szolgáltatás felhasználási feltételei
+      user_group:
+        avatar: Profilkép
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -56,7 +59,6 @@ hu:
         with_participatory_space: Részvételi tér
       decidim/user:
         current_password: Jelenlegi jelszó
-        email: Email
         name: Felhasználónév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
@@ -80,7 +82,7 @@ hu:
   date:
     buttons:
       close: Bezár
-      select: Kiválaszt
+      select: Kijelölés
     formats:
       decidim_short: "%Y.%m.%d"
       decidim_short_dashed: "%d-%m-%Y"
@@ -492,7 +494,7 @@ hu:
       metrics:
         name: Szervezeti mutatók
       participatory_space_metrics:
-        name: Mérőszámok
+        name: Részvétel számokban
       participatory_space_stats:
         name: Statisztikák
       social_networks_metadata:
@@ -543,7 +545,6 @@ hu:
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       sessions:
         new:
-          are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
           sign_in_disabled: Külső fiókkal férhet hozzá.
       shared:
@@ -552,8 +553,6 @@ hu:
             check: Ellenőrzés és folytatás
             uncheck: Kijelöletlenül hagy
           title: Hírlevél értesítések
-        omniauth_buttons:
-          or: Vagy
         password_fields:
           hidden_password: A jelszavad rejtett
           hide_password: Jelszó elrejtése
@@ -581,8 +580,6 @@ hu:
         error: Hiba történt a kép feltöltése közben.
         success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
-    endorsement_buttons_cell:
-      endorse: Tetszik
     endorsements:
       identities:
         done: Kész
@@ -822,7 +819,7 @@ hu:
       badges:
         followers:
           conditions:
-            - Az aktív és más emberek követése biztosan másokat követni fog.
+          - Az aktív és más emberek követése biztosan másokat követni fog.
           description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. A %{organization_name} egy társadalmi és politikai hálózat, ahol rengeteg tér van arra, hogy értelmesen kommunikáljon más emberekkel.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
@@ -983,13 +980,13 @@ hu:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
         comanagers_new_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
@@ -1000,13 +997,13 @@ hu:
           subject: "%{sender} beszélgetést kezdett veled"
         new_group_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
         new_group_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{group} csoportba új üzenetet küldött %{sender}"
@@ -1034,7 +1031,7 @@ hu:
           no_conversations: Még nem rendelkezik beszélgetésekkel.
           title: Beszélgetések
         reply_form:
-          placeholder: Az Ön válasza...
+          placeholder: A válaszod...
           send: Küldés
         show:
           back: Vissza az összes beszélgetéshez
@@ -1057,7 +1054,7 @@ hu:
       followers:
         description: A résztvevők száma, akik ezt a részvételi teret követik
         object: követők
-        title: Követők
+        title: Követő
       participants:
         description: Az aktív felhasználók száma a szervezetben
         object: résztvevők
@@ -1226,10 +1223,6 @@ hu:
         members: Belépés
         officialized: Hivatalos résztvevő
         send_private_message: Privát üzenet küldése
-      sidebar:
-        badges:
-          info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
-          title: Kitűzők
       user:
         actions:
           create_user_group: Csoport létrehozása
@@ -1245,22 +1238,8 @@ hu:
           message: Üzenet
           resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
         confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
-        create_user_group: Csoport létrehozása
-        edit_profile: Profil szerkesztése
-        edit_user_group: Csoportprofil szerkesztése
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
-        invite_user: Résztvevő meghívása
-        join_user_group: Csatlakozás kérése a csoporthoz
-        leave_user_group: Kilépés a csoportból
-        manage_user_group_admins: Adminisztrátorok kezelése
-        manage_user_group_users: Tagok kezelése
-        resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
     reported_mailer:
-      hide:
-        hello: Helló %{name}!
-        manage_moderations: Moderálódások kezelése
-        report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
-        subject: Egy erőforrás automatikusan elrejtve
       report:
         authors: Szerzők
         content: Jelentett tartalom
@@ -1333,14 +1312,11 @@ hu:
       flag_user_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         block: Résztvevő blokkolása
-        close: Bezár
-        description: Mi nem megfelelő a felhasználóval kapcsolatban?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
         hide: Minden tartalom elrejtése
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
-        title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
         help: Segítség
       follow_button:
@@ -1689,7 +1665,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: Típus
+            type: típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
@@ -1837,7 +1813,7 @@ hu:
     buttons:
       close: Bezárás
       reset: Visszaállítás
-      select: Kiválaszt
+      select: Kijelölés
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

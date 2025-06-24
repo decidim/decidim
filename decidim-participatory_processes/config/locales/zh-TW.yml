@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -107,6 +108,7 @@ zh-TW:
           attachment_files: 檔案
           attachments: 附件
           components: 组件
+          landing_page: 登陸頁面
           moderations: 版主
           process_admins: 程序管理員
           steps: 分類

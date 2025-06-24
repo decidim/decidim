@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, nickname: "Nick", organization:) }
+    let!(:user) { create(:user, nickname: "nick", organization:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -26,12 +26,12 @@ module Decidim
       context "with a normal user" do
         it "redirects to the correct page" do
           get :show, params: { nickname: "Nick" }
-          expect(response).to redirect_to("/profiles/Nick/activity")
+          expect(response).to redirect_to("/profiles/nick/activity")
         end
       end
 
       context "with a blocked user" do
-        let!(:user) { create(:user, :confirmed, :blocked, nickname: "Nick", organization:) }
+        let!(:user) { create(:user, :confirmed, :blocked, nickname: "nick", organization:) }
 
         it "does not return the page" do
           expect { get :show, params: { nickname: "Nick" } }.to raise_error(ActionController::RoutingError)

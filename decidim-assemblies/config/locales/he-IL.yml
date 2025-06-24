@@ -1,3 +1,4 @@
+---
 he:
   activemodel:
     attributes:
@@ -212,3 +213,6 @@ he:
             taxonomies: טקסונומיות
             title: מידע כללי
             visibility: נראות
+    metrics:
+      assemblies:
+        title: אסיפות

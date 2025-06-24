@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -119,7 +120,7 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          title: Ny debatt
+          title: Skapa ny debatt
         orders:
           commented: Mest kommenterade
           label: Sortera debater efter
@@ -190,7 +191,7 @@ sv:
       badges:
         commented_debates:
           conditions:
-            - Välj en öppen debatt att delta i
+          - Välj en öppen debatt att delta i
           description: Detta märke beviljas när du aktivt deltar i de olika debatterna genom att lämna dina kommentarer.
           description_another: Deltagaren har deltagit i %{score} debatter.
           description_own: Du har deltagit i %{score} debatter.

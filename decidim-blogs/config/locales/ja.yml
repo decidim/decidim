@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -31,6 +32,8 @@ ja:
           create:
             invalid: 投稿の作成中に問題が発生しました。
             success: 投稿を作成しました。
+          destroy:
+            success: 投稿を削除しました。
           edit:
             save: 更新
             title: 投稿を編集
@@ -68,10 +71,27 @@ ja:
             published_at: 公開時刻
             title: タイトル
       posts:
+        edit:
+          back: 投稿に戻る
+          button: 更新
+          title: 投稿を編集
+        form:
+          author_id: 作成者
+          body: 本文
+          title: タイトル
         index:
           count:
             other: "%{count} 件の投稿"
           empty: 投稿はまだありません。
+          new_post: 新規投稿
+        menu_actions:
+          button_destroy: 投稿の削除
+          button_destroy_confirm: この投稿を削除してもよろしいですか？
+          button_edit: 投稿を編集
+        new:
+          back: 投稿に戻る
+          button: 作成
+          title: 新しい投稿を作成
     components:
       blogs:
         actions:
@@ -86,6 +106,7 @@ ja:
             announcement: お知らせ
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            creation_enabled_for_participants: 参加者は投稿を作成できます
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック

@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -639,7 +640,7 @@ pt-BR:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
-            nickname: Nome de usuário
+            nickname: Apelido
             phone: Telefone
             state: Situação
             users_count: Total de usuários
@@ -803,15 +804,6 @@ pt-BR:
         edit:
           update: Atualizar
         form:
-          colors:
-            choose_color: Escolha a cor primária
-            colors_title: Cores da organização
-            colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
-            explanation: Esta ferramenta ajuda você a escolher um esquema de cores, composto de tons igualmente espaçados ao redor da roda de cor, que será usado no site da organização.
-            legend_html: Cores principais do aplicativo, com base no <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. A cor <i>secundária</i> é calculada automaticamente a partir da cor primária e da saturação que você escolheu.
-            saturation: Saturação
-            title: Seletor de cores
-            update_suggested_colors: Atualizar cores sugeridas
           cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets:
@@ -999,7 +991,7 @@ pt-BR:
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         edit_external_domains: Lista de domínios externos permitidos
-        edit_landing_page: Conteúdos da página
+        edit_landing_page: Conteúdo da página
         edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
@@ -1039,7 +1031,7 @@ pt-BR:
             acme@example.org
             bubba.gump@example.org
           title: Envie seu arquivo CSV
-          upload: Envio
+          upload: Upload
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.

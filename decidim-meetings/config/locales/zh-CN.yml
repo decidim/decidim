@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -117,7 +118,7 @@ zh-CN:
       badges:
         attended_meetings:
           conditions:
-            - 注册您想要参加的会议
+          - 注册您想要参加的会议
           description: 当你参加几次面对面的会议时颁发这个徽章。
           description_another: 此参与者已经参加了 %{score} 次会议。
           description_own: 您已经参加了 %{score} 次会议。
@@ -211,8 +212,6 @@ zh-CN:
         registrations:
           edit:
             save: 保存
-            validate: Validate
-            validate_registration_code: 验证注册码
           form:
             available_slots_help: 如果您有无限空位可用，则将其留给0。
             invites: 邀请
@@ -225,9 +224,6 @@ zh-CN:
           update:
             invalid: 保存注册设置时出现问题。
             success: 会议注册设置保存成功。
-          validate_registration_code:
-            invalid: 此注册码无效。
-            success: 注册码已成功验证。
       admin_log:
         invite:
           create: "%{user_name} 邀請了 %{attendee_name} 在 %{space_name} 空间加入 %{resource_name} 次会议"
@@ -292,7 +288,6 @@ zh-CN:
         new:
           back: 后退
           create: 创建
-          title: 创建您的会议
         registration_confirm:
           cancel: 取消
           confirm: 确认

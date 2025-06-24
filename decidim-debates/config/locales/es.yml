@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -153,7 +154,7 @@ es:
         new:
           back: Volver
           create: Crear
-          title: Nuevo debate
+          title: Crear un debate
         orders:
           commented: Más comentados
           label: Ordenar debates por
@@ -231,7 +232,7 @@ es:
       badges:
         commented_debates:
           conditions:
-            - Elige un debate abierto para participar
+          - Elige un debate abierto para participar
           description: Este distintivo se otorga cuando participes activamente en los diferentes debates dejando tus comentarios.
           description_another: Esta participante ha tomado parte en %{score} debates.
           description_own: Has participado en %{score} debates.

@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -35,16 +36,16 @@ sk:
       admin:
         id_documents:
           help:
-            - Užívatelia vyplní informácie o svojej identite a nahrajú kópiu dokumentu.
-            - Vyplníte informácie obsiahnuté v nahranom obrázku.
-            - Informácie by mali zodpovedať používateľovi, ktorý vyplnil.
-            - 
+          - Užívatelia vyplní informácie o svojej identite a nahrajú kópiu dokumentu.
+          - Vyplníte informácie obsiahnuté v nahranom obrázku.
+          - Informácie by mali zodpovedať používateľovi, ktorý vyplnil.
+          - 
         postal_letter:
           help:
-            - Užívatelia požadujú, aby ich adresa bola odoslaná certifikačnému kódu.
-            - Na adresu zasielate list s overovacím kódom.
-            - Označte písmeno ako odoslaný.
-            - Akonáhle označíte odoslanej písmeno, užívateľ bude schopný kód zadať a overiť.
+          - Užívatelia požadujú, aby ich adresa bola odoslaná certifikačnému kódu.
+          - Na adresu zasielate list s overovacím kódom.
+          - Označte písmeno ako odoslaný.
+          - Akonáhle označíte odoslanej písmeno, užívateľ bude schopný kód zadať a overiť.
       csv_census:
         name: Sčítanie organizácie
       direct: Priamo
@@ -88,9 +89,6 @@ sk:
             body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
           new:
             file: ".CSV súbor s dátami e-mailov"
-            info: 'Must byť súborom vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
-            submit: Nahrať súbor
-            title: Nahrajte nové sčítanie
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.

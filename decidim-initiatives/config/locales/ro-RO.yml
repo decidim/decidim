@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -172,8 +173,8 @@ ro:
       badges:
         initiatives:
           conditions:
-            - Mergeți la spațiul de participare al inițiativelor
-            - Urmează pașii necesari pentru a crea o nouă inițiativă
+          - Mergeți la spațiul de participare al inițiativelor
+          - Urmează pașii necesari pentru a crea o nouă inițiativă
           description: Această insignă este acordată atunci când lansezi noi inițiative, colaborând cu alții pentru a o realiza.
           description_another: Acest participant a publicat %{score} inițiative.
           name: Inițiative publicate
@@ -328,7 +329,7 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
-          callout_text: Felicitări! Inițiativa ta a fost creată cu succes.
+          callout_text: Felicitări! Inițiativa dvs. a fost creată cu succes.
           confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Sigur dorești asta?
           edit_my_initiative: Editează inițiativa mea
           go_to_my_initiatives: Accesează inițiativele mele

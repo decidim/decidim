@@ -106,14 +106,14 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 [source,ruby]
 ....
   config.geocoder = {
-    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+    static_map_url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay",
     here_api_key: Rails.application.secrets.geocoder[:here_api_key]
   }
 ....
 
 == Custom resource reference
 
-Custom resource reference generator method. See the See xref:admin:system.adoc[System panel docs] for more information.
+Custom resource reference generator method. See the See xref:configure:system.adoc[System panel docs] for more information.
 
 [source,ruby]
 ....

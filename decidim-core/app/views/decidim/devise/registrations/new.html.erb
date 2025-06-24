@@ -4,7 +4,7 @@
   <%= render "decidim/devise/shared/links" %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render(layout: "layouts/decidim/shared/layout_center") do %>
   <div class="flex justify-center">
     <h1 class="title-decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
   </div>
@@ -23,8 +23,6 @@
     <%= form_required_explanation %>
   </div>
 
-  <span class="login__info-separator"></span>
-
   <% cache current_organization do %>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
   <% end %>
@@ -32,7 +30,7 @@
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>
 
-    <div class="form__wrapper">
+    <div class="form__wrapper pb-12">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
@@ -45,12 +43,17 @@
     <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("decidim.devise.registrations.new.sign_up") %>
-        <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>
 
     <div class="login__links">
-      <%= render "decidim/devise/shared/links" %>
+      <%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
+        <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
+      <% end -%>
+
+      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
+        <%= link_to t("devise.shared.links.didn_t_receive_unlock_instructions"), new_unlock_path(resource_name) %>
+      <% end -%>
     </div>
   <% end %>
 <% end %>

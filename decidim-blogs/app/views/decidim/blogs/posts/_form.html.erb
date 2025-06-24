@@ -1,0 +1,11 @@
+<div>
+  <%= fo_post_author_select_field form, :decidim_author_id, label: t(".author_id") %>
+</div>
+
+<div>
+  <%= form.text_field :title, label: t(".title"), autofocus: true, class: "js-hashtags", hashtaggable: true %>
+</div>
+
+<div>
+  <%= text_editor_for(form, :body, label: t(".body"), hashtaggable: true, value: translated_attribute(form.object.body)) %>
+</div>

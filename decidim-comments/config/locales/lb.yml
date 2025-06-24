@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     models:
@@ -15,6 +16,10 @@ lb:
         one: Abstimmung
         other: Stimmen
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Bemerkungen
     comments:
       comments:
         create:

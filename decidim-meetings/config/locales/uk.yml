@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -104,7 +105,6 @@ uk:
           notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
           email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
     meetings:
@@ -188,8 +188,6 @@ uk:
         registrations:
           edit:
             save: Зберегти
-            validate: Підтвердити
-            validate_registration_code: Підтвердити реєстраційний код
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
@@ -197,9 +195,6 @@ uk:
           update:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
-          validate_registration_code:
-            invalid: Цей реєстраційний код неналежний.
-            success: Реєстраційний код успішно підтверджено.
       admin_log:
         invite:
           create: "%{user_name} запросив %{attendee_name} приєднатися до зустрічі %{resource_name} у просторі %{space_name}"
@@ -274,6 +269,9 @@ uk:
       types:
         private_meeting: Приватна зустріч
         transparent: Прозора
+    metrics:
+      meetings:
+        title: Зустрічі
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минулі зустрічі

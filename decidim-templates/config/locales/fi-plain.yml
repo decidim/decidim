@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -90,7 +91,7 @@ fi-pl:
             empty: Kysymyksiä ei ole vielä.
             manage_questions: Hallinnoi kysymyksiä
             questionnaire: Kysely
-            title: Muokkaa kyselylomakkeen mallipohjaa
+            title: Muokkaa kyselyn mallipohjaa
           edit_questions:
             add_question: Lisää kysymys
             add_separator: Lisää erotinviiva
@@ -101,7 +102,7 @@ fi-pl:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit
           new:
-            title: Uusi kyselylomakkeen mallipohja
+            title: Uusi kyselyn mallipohja
           preview:
             current_step: Vaihe %{step}
             of_total_steps: / %{total_steps}

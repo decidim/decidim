@@ -23,7 +23,7 @@ eu:
           title: Helbidea
         announcement:
           iam_an_announcement: Ni iragarpena naiz
-          this_is_the_body: Hau gorputza da
+          this_is_the_body: Hau testua da
           this_is_the_title: Hau izenburua da
           title: Iragarpena
         author:
@@ -231,11 +231,11 @@ eu:
         meetings_html: <i>Topaketak</i> txartelek erabilia
         metadata_items: Metadatuen gaiak
         metadata_text: Baliabide bakoitzak bere metadatu-elementuak definitzen ditu
-        participatory_process_g: G Prozesu Parte-hartzailea
-        participatory_process_group_g: Prozesu Parte-hartzailearen G Taldea
-        participatory_process_group_s: Prozesu Parte-hartzailearen S Taldea
-        participatory_process_s: S Prozesu Parte-hartzailea
-        participatory_processes: Prozesu parte-hartzaileak
+        participatory_process_g: G Prozesu partaidetza-prozesu
+        participatory_process_group_g: Partaidetza-prozesuaren G Taldea
+        participatory_process_group_s: Partaidetza-prozesuaren S Taldea
+        participatory_process_s: S Prozesu Partaidetza-prozesua
+        participatory_processes: Partaidetza-prozesuak
         plain_text: Testu argia naiz
         plain_text_description: Lehen argudio gisa, testu argi bat eta hash objektu bat eman ditzakezu
         plain_text_vs_hash: Testu argia Vs Hash

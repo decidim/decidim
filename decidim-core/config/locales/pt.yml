@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -28,6 +29,8 @@ pt:
         password_confirmation: Confirme a sua palavra-passe
         personal_url: URL pessoal
         remove_avatar: Remover avatar
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -43,7 +46,6 @@ pt:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: E-mail
         name: Alcunha
         password: Senha
         password_confirmation: Confirmação da senha
@@ -362,6 +364,8 @@ pt:
         view_all: Ver tudo
       metrics:
         name: Métricas da organização
+      participatory_space_metrics:
+        name: Métricas
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -384,7 +388,6 @@ pt:
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
-          are_you_new?: Novo na plataforma?
           register: Criar uma conta
       shared:
         newsletter_modal:
@@ -392,8 +395,6 @@ pt:
             check: Verificar e continuar
             uncheck: Manter não verificado
           title: Notificações do boletim informativo
-        omniauth_buttons:
-          or: Ou
     doorkeeper:
       authorizations:
         new:
@@ -606,7 +607,7 @@ pt:
       badges:
         followers:
           conditions:
-            - Ser ativo(a) e seguir outras pessoas certamente fará com que outras pessoas o(a) sigam.
+          - Ser ativo(a) e seguir outras pessoas certamente fará com que outras pessoas o(a) sigam.
           description: Esse distintivo é-lhe concedido quando alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça a sua rede para comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} pessoas seguem-no(a)."
@@ -759,6 +760,8 @@ pt:
           new_conversation: Nova conversa
           next: Seguinte
           title: Conversas
+        reply_form:
+          placeholder: A sua resposta...
         show:
           back: Retroceder a todas as conversas
           chat_with: Conversa com
@@ -876,30 +879,24 @@ pt:
         conversations: Conversas
         followers: Seguidores
         following: Segue
+        group_admins: Gerir administradores
+        group_members: Gerir membros
         groups: Grupos
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-      sidebar:
-        badges:
-          info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
       user:
-        create_user_group: Criar grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar perfil do grupo
-        invite_user: Convidar participante
-        join_user_group: Solicitar adesão ao grupo
-        leave_user_group: Deixar o grupo
-        manage_user_group_admins: Gerir administradores
-        manage_user_group_users: Gerir membros
-        resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
+        actions:
+          create_user_group: Criar grupo
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil do grupo
+          invite_user: Convidar participante
+          join_user_group: Solicitar adesão ao grupo
+          leave_user_group: Deixar o grupo
+          manage_user_group_admins: Gerir administradores
+          manage_user_group_users: Gerir membros
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
-      hide:
-        hello: Olá %{name},
-        manage_moderations: Gerir moderações
-        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi ocultado automaticamente
       report:
         authors: Autores
         content: Conteúdo reportado
@@ -966,12 +963,9 @@ pt:
         title: Denunciar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
-        close: Fechar
-        description: O que é inapropriado acerca do utilizador?
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
         report: Denuncie
         spam: Contém clickbait, publicidade, golpes ou bots de script.
-        title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
       public_participation:

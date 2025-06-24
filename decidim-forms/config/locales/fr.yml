@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -16,7 +17,7 @@ fr:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+              needs_to_be_reattached: Doit être ré-attaché
             body:
               too_long: est trop long
             choices:
@@ -64,11 +65,11 @@ fr:
             empty: Pas encore de réponses
             export:
               answer:
-                title: 'Réponse n°%{number}'
+                title: 'Réponse #%{number}'
             export_response:
               title: réponses_utilisateur_sondage_%{token}
             index:
-              title: "%{total} réponses totales"
+              title: "%{total} réponses au total"
             show:
               title: 'Réponse n°%{number}'
           display_condition:
@@ -154,7 +155,7 @@ fr:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
-          body: ne peut être vide
+          body: Le corps ne peut pas être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -181,10 +182,10 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Vous avez déjà un compte ?
+            already_have_an_account?: Vous avez déjà un compte?
             are_you_new?: Nouvel utilisateur ?
             sign_in_description: Connectez-vous pour répondre à l'enquête
-            sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
+            sign_up_description: Créer un compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.
@@ -209,7 +210,6 @@ fr:
           tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       step_navigation:
         show:
-          are_you_sure_edit: Vous serez en mesure de modifier vos réponses. Êtes-vous sûr(e)?
           are_you_sure_edit_guest: Si vous voulez pouvoir modifier vos réponses par la suite, vous devez vous connecter ou créer un compte.
           are_you_sure_no_edit: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr(e) ?
           back: Revenir en arrière
@@ -218,7 +218,7 @@ fr:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
-        completion: Fin
+        completion: Avancement
         created_at: Répondu le
         id: ID de réponse
         ip_hash: Hachage IP
@@ -226,4 +226,4 @@ fr:
         registered: Enregistré
         session_token: Identifiant de l'utilisateur
         unregistered: Non enregistré
-        user_status: Statut de l'utilisateur
+        user_status: Etat de l'utilisateur

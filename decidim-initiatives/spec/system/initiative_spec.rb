@@ -232,10 +232,11 @@ describe "Initiative" do
     let!(:initiative) { base_initiative }
     let!(:meetings_component) { create(:component, :published, participatory_space: initiative, manifest_name: :meetings) }
     let!(:proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
+    let!(:blogs_component) { create(:component, :published, participatory_space: initiative, manifest_name: :blogs) }
 
     before do
       create_list(:meeting, 3, :published, component: meetings_component)
-      allow(Decidim).to receive(:component_manifests).and_return([meetings_component.manifest, proposals_component.manifest])
+      allow(Decidim).to receive(:component_manifests).and_return([meetings_component.manifest, proposals_component.manifest, blogs_component.manifest])
     end
 
     context "when requesting the initiative path" do
@@ -245,6 +246,7 @@ describe "Initiative" do
         within ".participatory-space__nav-container" do
           expect(page).to have_content(translated(meetings_component.name, locale: :en))
           expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_content(translated(blogs_component.name, locale: :en))
         end
       end
 
@@ -254,6 +256,29 @@ describe "Initiative" do
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
+      end
+    end
+
+    context "when signed in as the author of the initiative" do
+      before do
+        sign_in initiative.author
+        visit decidim_initiatives.initiative_path(initiative)
+      end
+
+      it "has special permissions to create posts" do
+        within ".participatory-space__nav-container" do
+          click_on translated(blogs_component.name, locale: :en)
+        end
+
+        expect(page).to have_content("New post")
+      end
+
+      it "has special permissions to create meetings" do
+        within ".participatory-space__nav-container" do
+          click_on translated(meetings_component.name, locale: :en)
+        end
+
+        expect(page).to have_content("New meeting")
       end
     end
   end

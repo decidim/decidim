@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     models:
@@ -16,6 +17,10 @@ pt-BR:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentários
     comments:
       comments:
         create:

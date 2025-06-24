@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -375,7 +376,8 @@ sk:
             actions: Akcie
             created_at: Vytvorené
             document_number: Číslo dokumentu
-            name: Meno
+            name: Názov
+            nickname: Prezývka
             phone: Telefón
             state: Štát
             users_count: Počet účastníkov
@@ -480,13 +482,12 @@ sk:
         edit:
           update: Aktualizovať
         form:
-          colors:
-            colors_title: Farby organizácie
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           images:
             layout_appearance_title: Upraviť vzhľad 
+            preview: Náhľad
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       participatory_space_private_users:
         create:
@@ -502,6 +503,8 @@ sk:
           title: Nový súkromný účastník participatívneho priestoru.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Nahrať súbor CSV
           upload: Nahrať
       resource_permissions:
         edit:
@@ -600,10 +603,6 @@ sk:
           invalid: Nastal problém pri overovaní tejto skupiny.
       user_groups:
         index:
-          state:
-            pending: Čakajúce
-            rejected: Odmietnuté
-            verified: Overené
           verify_via_csv: Overte pomocou CSV
       user_groups_csv_verifications:
         new:

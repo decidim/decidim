@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     models:
@@ -15,6 +16,10 @@ pt:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentários
     comments:
       admin:
         shared:

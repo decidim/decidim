@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -135,6 +136,8 @@ zh-CN:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: 您收到此通知是因为您可以评估提案。
           proposal_note_created:
             email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
@@ -180,8 +183,8 @@ zh-CN:
       badges:
         accepted_proposals:
           conditions:
-            - 选择您感兴趣的提交建议的参与空间
-            - 尝试提出可以执行的建议。这种方式更有可能被接受。
+          - 选择您感兴趣的提交建议的参与空间
+          - 尝试提出可以执行的建议。这种方式更有可能被接受。
           description: 当您积极参加新的建议并接受这些建议时，将颁发这个徽章。
           description_another: 此参与者有 %{score} 个已被接受的建议。
           description_own: 您获得 %{score} 条建议被接受。
@@ -191,12 +194,12 @@ zh-CN:
           unearned_own: 您尚未接受任何建议。
         proposal_votes:
           conditions:
-            - 浏览并花一些时间阅读其他人的建议
-            - 
+          - 浏览并花一些时间阅读其他人的建议
+          - 
         proposals:
           conditions:
-            - 选择您感兴趣的提交建议的参与空间
-            - 创建一个新提案
+          - 选择您感兴趣的提交建议的参与空间
+          - 创建一个新提案
           description: 当您积极参与新的建议时，将颁发这个徽章。
           description_another: 此参与者已创建了 %{score} 个建议。
           description_own: 您已创建了 %{score} 个建议。
@@ -216,6 +219,8 @@ zh-CN:
         description: 建议数
         object: 提议
         title: 建议
+      votes:
+        title: 所得票数
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议
@@ -282,7 +287,6 @@ zh-CN:
           index:
             actions: 行动
             assign_to_valuator: 分配给值器
-            assign_to_valuator_button: 分配
             cancel: 取消
             merge: 合并为一个新的
             merge_button: 合并
@@ -294,7 +298,6 @@ zh-CN:
             split_button: 拆分
             title: 建议
             unassign_from_valuator: 取消分配给值
-            unassign_from_valuator_button: 取消分配
             update: 更新
           new:
             create: 创建
@@ -307,8 +310,6 @@ zh-CN:
             documents: www.un.org/webcast
             endorsements_count: 批准次数
             endorsers: 核可者
-            n_more_endorsers:
-              other: 和 %{count} 更多
             photos: 照片
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议

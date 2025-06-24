@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -48,6 +49,10 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.
+      models:
+        survey:
+          fields:
+            answers: Antwoorden
       surveys:
         answer:
           invalid: Er is een fout opgetreden bij het opslaan van de pagina.

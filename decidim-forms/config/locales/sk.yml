@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -8,12 +9,6 @@ sk:
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: nie je kompletné
   decidim:
     forms:
       admin:
@@ -24,7 +19,6 @@ sk:
         questionnaires:
           answer_option:
             answer_option: Možnosť odpovede
-            free_text: Voľný text
             remove: Odstrániť
             statement: Prehlásenie
           edit:
@@ -76,6 +70,4 @@ sk:
       user_answers_serializer:
         created_at: Odpovedané na 
         id: ID odpovede
-        registered: Registrovaný
-        unregistered: Neregistrovaný
-        user_status: Status Užívateľa
+        question: Otázka

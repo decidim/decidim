@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ sv:
       badges:
         test:
           conditions:
-            - Använd en testmiljö för decidim.
+          - Använd en testmiljö för decidim.
           description: Deltagare får detta märke genom att skapa tester.
           description_another: Deltagaren har skapat %{score} tester.
           description_own: Du har skapat %{score} tester.

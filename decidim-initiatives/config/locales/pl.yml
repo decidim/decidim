@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -192,8 +193,8 @@ pl:
       badges:
         initiatives:
           conditions:
-            - Idź do przestrzeni partycypacyjnej Inicjatyw
-            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          - Idź do przestrzeni partycypacyjnej Inicjatyw
+          - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy tworzysz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik posiada %{score} opublikowanych inicjatyw.
           description_own: Masz %{score} opublikowanych inicjatyw.
@@ -362,7 +363,6 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
-          callout_text: Gratulacje! Twoja inicjatywa została utworzona.
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
@@ -409,7 +409,7 @@ pl:
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "Użytkownika %{author_name} %{author_nickname}, którego obserwujesz, zarekomendował następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Inicjatywa rekomendowana przez %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
@@ -595,7 +595,7 @@ pl:
       initiatives_type:
         actions:
           title: Działania
-          vote: Wspieranie
+          vote: Podpisz
   layouts:
     decidim:
       initiative_creation_header:

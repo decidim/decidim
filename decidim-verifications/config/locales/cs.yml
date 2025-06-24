@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ cs:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
-            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
-            - Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“.
+          - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+          - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+          - Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“.
         csv_census:
           help:
-            - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
-            - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
+          - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
+          - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
         default:
           help:
-            - Nápověda pro autorizační handler není definována.
-            - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
+          - Nápověda pro autorizační handler není definována.
+          - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
-            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
-            - Ověřte tím, že zavedete číslo dokumentu končící "X".
+          - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+          - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+          - Ověřte tím, že zavedete číslo dokumentu končící "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Příklad přechodné obsluhy autorizace, aby vývojáři pochopili, jak funguje jednoduché ověřování.
-            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
-            - Je to kopie Příkladu autorizace.
-            - Ověřte tím, že uvedete číslo dokumentu končící "X".
+          - Příklad přechodné obsluhy autorizace, aby vývojáři pochopili, jak funguje jednoduché ověřování.
+          - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+          - Je to kopie Příkladu autorizace.
+          - Ověřte tím, že uvedete číslo dokumentu končící "X".
         id_documents:
           help:
-            - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
-            - Vyplníte informace obsažené v nahraném obrázku.
-            - Informace by se měly shodovat s tím, co uživatel vyplní.
-            - Pokud informace nemůžete jasně vidět nebo je nemůžete ověřit, můžete odmítnout požadavek a uživatel jej bude moci opravit.
+          - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
+          - Vyplníte informace obsažené v nahraném obrázku.
+          - Informace by se měly shodovat s tím, co uživatel vyplní.
+          - Pokud informace nemůžete jasně vidět nebo je nemůžete ověřit, můžete odmítnout požadavek a uživatel jej bude moci opravit.
         postal_letter:
           help:
-            - Účastníci požádají o zaslání ověřovacího kódu na jejich poštovní adresu.
-            - Na adresu zasíláte dopis s ověřovacím kódem.
-            - Označte dopis jako odeslaný.
-            - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
+          - Účastníci požádají o zaslání ověřovacího kódu na jejich poštovní adresu.
+          - Na adresu zasíláte dopis s ověřovacím kódem.
+          - Označte dopis jako odeslaný.
+          - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
         sms:
           help:
-            - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
-            - Musí zaadat kód, který bude ověřen.
-            - Pokud kód neobdrží, mohou o něj znovu požádat.
+          - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
+          - Musí zaadat kód, který bude ověřen.
+          - Pokud kód neobdrží, mohou o něj znovu požádat.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
@@ -162,7 +163,6 @@ cs:
         admin:
           census:
             create:
-              error: Při importu členů organizace došlo k chybě.
               success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.
@@ -183,7 +183,6 @@ cs:
             file: ".csv soubor s daty e-mailů"
             info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
             submit: Nahrát soubor
-            title: Nahrajte nové členy organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.

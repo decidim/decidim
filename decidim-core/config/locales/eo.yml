@@ -1,3 +1,4 @@
+---
 eo:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ eo:
         password_confirmation: Konfirmu vian pasvorton
         personal_url: Persona URL
         remove_avatar: Forigi avataron
+      user_group:
+        avatar: Avataro
     models:
       decidim/attachment_created_event: Ligiteco
       decidim/component_published_event: Aktiva komponanto
@@ -36,7 +39,6 @@ eo:
     attributes:
       decidim/user:
         current_password: Aktuala Pasvorto
-        email: retpoŝta adreso
         name: Kaŝnomo
         password: Pasvorto
         password_confirmation: Pasvorta konfirmo

@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -40,7 +41,7 @@
       badges:
         test:
           conditions:
-            - Bruk et testmiljø for decidim.
+          - Bruk et testmiljø for decidim.
           description: Deltakerne får dette merket ved å lage tester.
           description_another: Denne deltakeren har opprettet %{score} tester.
           description_own: Du har opprettet %{score} tester.

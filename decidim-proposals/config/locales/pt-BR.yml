@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -170,6 +171,8 @@ pt-BR:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
           proposal_note_created:
             email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
@@ -235,8 +238,8 @@ pt-BR:
       badges:
         accepted_proposals:
           conditions:
-            - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
-            - Tente fazer propostas que possam ser realizadas. Desta forma, eles são mais propensos a serem aceitos.
+          - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
+          - Tente fazer propostas que possam ser realizadas. Desta forma, eles são mais propensos a serem aceitos.
           description: Esse selo é concedido quando você participa ativamente de novas propostas e elas são aceitas.
           description_another: Este utilizador obteve %{score} propostas aceites.
           description_own: Você tem %{score} propostas aceitas.
@@ -246,12 +249,12 @@ pt-BR:
           unearned_own: Você não recebeu nenhuma proposta aceita ainda.
         proposal_votes:
           conditions:
-            - Navegue e passe algum tempo lendo as propostas de outras pessoas
-            - 
+          - Navegue e passe algum tempo lendo as propostas de outras pessoas
+          - 
         proposals:
           conditions:
-            - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
-            - Criar uma proposta
+          - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
+          - Criar uma proposta
           description: Esse selo é concedido quando você participa ativamente de novas propostas.
           description_another: Este usuário criou %{score} propostas.
           description_own: Você criou %{score} propostas.
@@ -353,7 +356,6 @@ pt-BR:
           index:
             actions: Ações
             assign_to_valuator: Atribuir ao avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
             merge_button: Combinar
@@ -365,7 +367,6 @@ pt-BR:
             split_button: Dividir
             title: Propostas
             unassign_from_valuator: Desatribuir do avaliador
-            unassign_from_valuator_button: Desatribuir
             update: Atualizar
           new:
             create: Criar
@@ -378,9 +379,6 @@ pt-BR:
             documents: Documentos
             endorsements_count: Contagem de endossos
             endorsers: Endossar
-            n_more_endorsers:
-              one: e mais 1
-              other: e mais %{count}
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
@@ -576,7 +574,6 @@ pt-BR:
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
@@ -620,7 +617,6 @@ pt-BR:
         update:
           title: Atualizar proposta
         vote_button:
-          already_voted: Já votou
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto

@@ -792,6 +792,8 @@ describe "Initiative" do
           dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
           dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
           find_button("Continue").click
+          find_link("Continue").click
+          expect(page).to have_content("Your initiative has been successfully created.")
         end
 
         it "saves the attachments" do
@@ -800,7 +802,6 @@ describe "Initiative" do
         end
 
         it "shows the page component" do
-          find_link("Continue").click
           find_link("Go to my initiatives").click
           find_link(translated(initiative.title, locale: :en)).click
 
@@ -812,10 +813,6 @@ describe "Initiative" do
         end
 
         context "when minimum committee size is above zero" do
-          before do
-            find_link("Continue").click
-          end
-
           it "finish view is shown" do
             expect(page).to have_content("Finish")
           end
@@ -832,7 +829,6 @@ describe "Initiative" do
         end
 
         it "displays a link to take the user to their initiatives" do
-          find_link("Continue").click
           find_link("Edit my initiative").click
 
           expect(page).to have_field("initiative_title", with: translated(initiative.title, locale: :en))

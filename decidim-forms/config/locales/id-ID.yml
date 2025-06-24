@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -8,12 +9,6 @@ id:
         question_type: Mengetik
       questionnaire_question:
         mandatory: Wajib
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: tidak lengkap
   decidim:
     forms:
       admin:
@@ -24,7 +19,6 @@ id:
         questionnaires:
           answer_option:
             answer_option: Opsi jawaban
-            free_text: Teks gratis
             remove: Menghapus
             statement: Pernyataan
           edit:
@@ -76,3 +70,4 @@ id:
       user_answers_serializer:
         created_at: Dijawab pada
         id: ID jawaban
+        question: Pertanyaan

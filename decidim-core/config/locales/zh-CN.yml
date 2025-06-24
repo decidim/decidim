@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -24,6 +25,8 @@ zh-CN:
         password_confirmation: 确认您的密码
         personal_url: 个人网址
         remove_avatar: 删除头像
+      user_group:
+        avatar: 头像
     models:
       decidim/attachment_created_event: 附文
       decidim/component_published_event: 活动组件
@@ -38,7 +41,6 @@ zh-CN:
     attributes:
       decidim/user:
         current_password: 当前密码
-        email: 电子邮件地址
         name: 昵称
         password: 密码
         password_confirmation: 密码确认
@@ -308,6 +310,8 @@ zh-CN:
         view_all: 查看全部
       metrics:
         name: 组织指标
+      participatory_space_metrics:
+        name: 指标
       stats:
         name: 组织统计
       sub_hero:
@@ -328,7 +332,6 @@ zh-CN:
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
       sessions:
         new:
-          are_you_new?: 新建平台？
           register: 创建帐户
       shared:
         newsletter_modal:
@@ -336,8 +339,6 @@ zh-CN:
             check: 检查并继续
             uncheck: 保持未选中的
           title: 通讯通知
-        omniauth_buttons:
-          or: 或
     doorkeeper:
       authorizations:
         new:
@@ -539,7 +540,7 @@ zh-CN:
       badges:
         followers:
           conditions:
-            - 积极关注其他人必将使其他人跟随你。
+          - 积极关注其他人必将使其他人跟随你。
           description: 当您到达一定数量的追随者时，将颁发这个徽章。 %{organization_name} 是一个社交和政治网络，编织您的网络来与平台上的其他人进行交流。
           description_another: 此参与者有 %{score} 个关注者。
           description_own: "%{score} 个人正在关注你。"
@@ -684,6 +685,8 @@ zh-CN:
           new_conversation: 新建对话
           next: 下一个
           title: 对话
+        reply_form:
+          placeholder: 您的回复...
         show:
           back: 回到所有对话
           chat_with: 对话
@@ -698,11 +701,9 @@ zh-CN:
       participants:
         description: 组织中的活跃参与者人数
         object: 参与者
-        title: 参加者
       users:
         description: 参加组织的人数
         object: 参与者
-        title: 参加者
     newsletter_mailer:
       newsletter:
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
@@ -797,29 +798,23 @@ zh-CN:
         conversations: 对话
         followers: 关注者
         following: 关注的问题
+        group_admins: 管理管理员
+        group_members: 管理成员
         groups: 群組
         members: 成员
         officialized: 官方参与者
-      sidebar:
-        badges:
-          info: 徽章是通过在平台上执行特定活动赚取的。
-          title: 徽章
       user:
-        create_user_group: 创建组
-        edit_profile: 编辑配置文件
-        edit_user_group: 编辑群组资料
-        invite_user: Invite participant
-        join_user_group: 加入组的请求
-        leave_user_group: 离开组
-        manage_user_group_admins: 管理管理员
-        manage_user_group_users: 管理成员
-        resend_email_confirmation_instructions: 重新发送电子邮件确认说明
+        actions:
+          create_user_group: 创建组
+          edit_profile: 编辑配置文件
+          edit_user_group: 编辑群组资料
+          invite_user: Invite participant
+          join_user_group: 加入组的请求
+          leave_user_group: 离开组
+          manage_user_group_admins: 管理管理员
+          manage_user_group_users: 管理成员
+          resend_email_confirmation_instructions: 重新发送电子邮件确认说明
     reported_mailer:
-      hide:
-        hello: 您好 %{name}，
-        manage_moderations: 管理版面
-        report_html: <p>以下 <a href="%{url}">内容</a> 已被自动隐藏。</p>
-        subject: 资源已自动隐藏
       report:
         authors: 作者
         content: 报告的内容

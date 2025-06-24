@@ -1,3 +1,4 @@
+---
 si:
   activemodel:
     attributes:
@@ -54,3 +55,6 @@ si:
         timeline_entry:
           fields:
             entry_date: දිනය
+    metrics:
+      results:
+        title: ප්‍රතිඵල

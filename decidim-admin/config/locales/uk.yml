@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -43,7 +44,7 @@ uk:
         highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
-        highlighted_content_banner_title: Назва
+        highlighted_content_banner_title: Заголовок
         instagram_handler: Адреса Instagram
         logo: Логотип
         name: Назва
@@ -324,7 +325,8 @@ uk:
             actions: Дії
             created_at: 'Створено:'
             document_number: Номер документа
-            name: Ім'я
+            name: Назва
+            nickname: Псевдонім
             phone: Телефон
             state: Стан
             users_count: Кількість учасників
@@ -403,6 +405,7 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
+            preview: Попередній перегляд
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       participatory_space_private_users:
         create:
@@ -478,12 +481,6 @@ uk:
           invalid: При відхиленні цього гурту учасників сталася помилка.
         verify:
           invalid: При підтвердженні цього гурту учасників сталася помилка.
-      user_groups:
-        index:
-          state:
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.

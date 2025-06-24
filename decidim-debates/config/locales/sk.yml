@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -76,7 +77,6 @@ sk:
         new:
           back: Späť
           create: Vytvoriť
-          title: Nová debata
       models:
         debate:
           fields:
@@ -107,7 +107,7 @@ sk:
       badges:
         commented_debates:
           conditions:
-            - Vyberte si otvorenú debatu a zúčastnite sa
+          - Vyberte si otvorenú debatu a zúčastnite sa
           description: Tento odznak ste dostali za aktívnu participáciu komentovaním v rôznych debatách.
           description_another: Tento účastník sa zúčastnil na %{score} debatách.
           description_own: Zúčastnili ste sa na %{score} debatách.

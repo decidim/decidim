@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -94,6 +95,7 @@ gl:
           attachment_files: Arquivos
           attachments: Anexos
           components: Compoñentes
+          landing_page: Páxina de inicio
           moderations: Moderacións
           process_admins: Usuarios do proceso
           steps: Pasos

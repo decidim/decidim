@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -542,6 +543,7 @@
             created_at: Opprettet på
             document_number: Dokumentnummer
             name: Navn
+            nickname: Kallenavn
             phone: Telefon
             state: Stat
             users_count: Deltakere teller
@@ -687,9 +689,6 @@
         edit:
           update: Oppdater
         form:
-          colors:
-            colors_title: Organisasjonens farger
-            colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
           homepage_appearance_title: Endre hjemmesidens utseende
           homepage_highlighted_content_banner_title: Markert innholdsbanner
@@ -712,6 +711,8 @@
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Last opp din CSV fil
           destroy:
             button: Slett alle private deltakere
             empty: Du har ingen private deltakere.
@@ -810,6 +811,7 @@
         areas: Områder
         authorization_workflows: Verifiseringsmetoder
         dashboard: Skrivebord
+        edit_landing_page: Sideinnhold
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         menu: Meny
@@ -831,9 +833,9 @@
       user_groups:
         index:
           state:
-            pending: Venter
+            pending: Pågår
             rejected: Avvist
-            verified: Verifisert
+            verified: Bekreftet
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
         new:

@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -108,12 +109,12 @@ hu:
           state_values:
             closed: Lezárva
             open: Nyitva
+          user_group: Csoportok
         index:
           new_debate: Új vita
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése
@@ -175,7 +176,7 @@ hu:
       badges:
         commented_debates:
           conditions:
-            - Válasszon vitát!
+          - Válasszon vitát!
           description: Ezt a jelvényt akkor kapja meg, ha a különböző vitákban aktívan részt vesz az észrevételeinek hozzáfűzésével.
           description_another: Ez a felhasználó %{score} vitában vett részt.
           description_own: Részt vett %{score} vitában.

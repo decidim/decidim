@@ -30,6 +30,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_creation_enabled do
+      settings do
+        {
+          creation_enabled_for_participants: true
+        }
+      end
+    end
   end
 
   factory :post, class: "Decidim::Blogs::Post" do
@@ -42,6 +50,10 @@ FactoryBot.define do
     component { build(:post_component, skip_injection:) }
     author { build(:user, :confirmed, skip_injection:, organization: component.organization) }
     deleted_at { nil }
+
+    trait :published do
+      published_at { 2.minutes.ago }
+    end
 
     trait :with_endorsements do
       after :create do |post, evaluator|

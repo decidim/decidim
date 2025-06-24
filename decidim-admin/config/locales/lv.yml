@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -376,6 +377,7 @@ lv:
             created_at: Izveidots plkst.
             document_number: Dokumenta numurs
             name: Nosaukums
+            nickname: Segvārds
             phone: Tālrunis
             state: Stāvoklis
             users_count: Dalībnieku skaits
@@ -476,8 +478,6 @@ lv:
         edit:
           update: Atjaunināt
         form:
-          colors:
-            colors_title: Organizācijas krāsas
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
@@ -499,6 +499,8 @@ lv:
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
       resource_permissions:
         edit:
@@ -598,9 +600,7 @@ lv:
       user_groups:
         index:
           state:
-            pending: Nepabeigts
             rejected: Noraidīts
-            verified: Pārbaudīts
           verify_via_csv: Pārbaudīt, izmantojot CSV
       user_groups_csv_verifications:
         new:

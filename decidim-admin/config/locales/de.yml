@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -77,8 +78,8 @@ de:
         machine_translation_display_priority_original: Originaltext zuerst
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
-        official_img_footer: Offizielles Logo Fußzeile
-        official_url: Offizielle Organisations-URL
+        official_img_footer: Offizielles Footer-Logo
+        official_url: Offizielle URL der Organisation
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
@@ -741,6 +742,7 @@ de:
             does_not_belong: Gehört nicht
             hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
+            parent_hidden: Übergeordneter Inhalt wurde ausgeblendet
             spam: Spam
         reports:
           index:
@@ -922,7 +924,7 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
-            layout_appearance_title: Layout-Layout bearbeiten
+            layout_appearance_title: Layout-Aussehen bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_allowlist:
@@ -932,7 +934,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Hoch
+          up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
@@ -969,7 +971,7 @@ de:
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           csv_upload:
-            title: CSV-Datei hochladen
+            title: Laden Sie Ihre CSV-Datei hoch
           destroy:
             button: Alle private Teilnehmende auswählen
             confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
@@ -1285,7 +1287,7 @@ de:
       user_groups:
         index:
           state:
-            pending: steht aus
+            pending: Ausstehend
             rejected: Abgelehnt
             verified: Überprüft
           verify_via_csv: Überprüfen Sie über CSV
@@ -1340,6 +1342,7 @@ de:
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
+        parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
         unhide: Einblenden
         unreport: Nicht melden
@@ -1366,6 +1369,7 @@ de:
             success: Ressource erfolgreich ausgeblendet
           unhide:
             invalid: Es gab ein Problem beim Verstecken der Ressource.
+            parent_invalid: Es gab ein Problem beim Anzeigen der Ressource. Übergeordnete Ressource ist nicht sichtbar.
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.

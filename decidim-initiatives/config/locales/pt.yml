@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -159,8 +160,8 @@ pt:
       badges:
         initiatives:
           conditions:
-            - Ir para o espaço de participação de Iniciativas
-            - Siga os passos para criar uma nova iniciativa
+          - Ir para o espaço de participação de Iniciativas
+          - Siga os passos para criar uma nova iniciativa
           description: Este distintivo é concedido quando lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este participante teve %{score} iniciativas publicadas.
           name: Iniciativas publicadas
@@ -287,7 +288,6 @@ pt:
         finish:
           back: Retroceder
           back_to_initiatives: Retroceder para as iniciativas
-          callout_text: Parabéns! A sua iniciativa foi criada com êxito.
           confirm: Vai enviar esta iniciativa para que um administrador a possa rever e publicar. Assim que esteja publicada não a poderá editar. Tem a certeza?
           edit_my_initiative: Editar a minha iniciativa
           go_to_my_initiatives: Ir para as minhas iniciativas

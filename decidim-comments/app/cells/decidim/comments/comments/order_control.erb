@@ -16,6 +16,7 @@
         <% end %>
       </select>
     </div>
+    <% order = "older" if order.nil? %>
     <div class="hidden md:block">
       <label for="order" class="comments-label-dropdown"><%= t("decidim.components.comment.sort_by") %></label>
       <select id="order" aria-label="<%= t("decidim.components.comment.sort_by") %>" data-desktop-order-comment-select="true">

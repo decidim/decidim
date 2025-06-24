@@ -1,26 +1,15 @@
+---
 lt:
   activemodel:
     attributes:
       answer:
         body: Atsakymas
-        choices: Pasirinkimai
-        selected_choices: Pasirinkti pasirinkimai
       question:
         max_choices: Maksimalus pasirinkimų skaičius
         question_type: Tipas
       questionnaire_question:
         mandatory: Privaloma
         max_characters: Simbolių limitas (palikti 0 jei limito nėra)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Reikia pridėti iš naujo
-            body:
-              too_long: per ilgas
-            choices:
-              missing: nepilnas - trūksta elementų
   decidim:
     forms:
       admin:
@@ -34,24 +23,14 @@ lt:
             show: Rodyti atsakymus
           answer_option:
             answer_option: Atsakymo variantas
-            free_text: Laisva forma
             remove: Pašalinti
             statement: Pareiškimas
           answers:
             actions:
-              back: Grįžti į atsakymus
-              export: Eksportuoti
-              next: Kitas &rsaquo;
-              previous: "&lsaquo; Ankst."
               show: Rodyti atsakymus
             empty: Atsakymų dar nėra
-            export:
-              answer:
-                title: 'Atsakymas #%{number}'
             export_response:
               title: apklausa_naudotoju_atsakymai_%{token}
-            index:
-              title: "%{total} iš viso atsakymų"
             show:
               title: 'Atsakymas #%{number}'
           display_condition:
@@ -119,9 +98,6 @@ lt:
       admin_log:
         questionnaire:
           update: "%{user_name} atnaujino %{resource_name} klausimyną"
-      errors:
-        answer:
-          body: Pagrindinė dalis negali būti tuščia
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -137,20 +113,14 @@ lt:
         single_option: Vienas variantas
         sorting: Rūšiavimas
         title_and_description: Pavadinimas ir aprašymas
-      questionnaire_answer_presenter:
-        download_attachment: Parsisiųsti priedą
       questionnaires:
         answer:
           invalid: Atsakant į šią formą iškilo problema.
-          max_choices_alert: Per daug pasirinktų variantų
           success: Į formos klausimus atsakyta.
         question:
           max_choices: 'Didžiausias pasirinkčių skaičius: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Jau turite paskyrą?
-            are_you_new?: Naujas naudotojas?
-            sign_up_description: Norėdami dalyvauti apklausoje, susikurkite dalyvio paskyrą
             title: Atsakyti į formos klausimus
           current_step: Žingsnis %{step}
           of_total_steps: iš%{total_steps}
@@ -176,12 +146,6 @@ lt:
           submit: Pateikti
       user_answers_serializer:
         body: Atsakymas
-        completion: Užbaigimas
         created_at: Atsakyta
         id: Atsakymo ID
-        ip_hash: IP adreso "hash" kodas
         question: Klausimas
-        registered: Užregistruota
-        session_token: Naudotojo identifikatorius
-        unregistered: Neregistruoti
-        user_status: Naudotojo būsena

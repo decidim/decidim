@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -53,20 +54,20 @@ hu:
       admin:
         csv_census:
           help:
-            - A rendszergazdák feltöltenek egy CSV fájlt az elfogadott résztvevők e-mail címeivel.
-            - Csak a CSV-fájlban e-mail címmel rendelkező résztvevők kaphatnak igazolást.
+          - A rendszergazdák feltöltenek egy CSV fájlt az elfogadott résztvevők e-mail címeivel.
+          - Csak a CSV-fájlban e-mail címmel rendelkező résztvevők kaphatnak igazolást.
         id_documents:
           help:
-            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
-            - Töltsd ki a feltöltött képen található információkkal.
-            - Az információknak meg kell egyeznie a kitöltött adatokkal.
-            - Ha nem látja tisztán az információt, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználónak lehetősége lesz a javításra.
+          - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+          - Töltsd ki a feltöltött képen található információkkal.
+          - Az információknak meg kell egyeznie a kitöltött adatokkal.
+          - Ha nem látja tisztán az információt, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználónak lehetősége lesz a javításra.
         postal_letter:
           help:
-            - Felhasználók a lakcímükre kérik az ellenőrző kódot.
-            - A kódot tartalmazó levelet a lakcímükre küldöd el.
-            - Levél elküldöttként megjelölve.
-            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+          - Felhasználók a lakcímükre kérik az ellenőrző kódot.
+          - A kódot tartalmazó levelet a lakcímükre küldöd el.
+          - Levél elküldöttként megjelölve.
+          - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       csv_census:
         explanation: Ellenőrizze magát a szervezet névjegyzékének segítségével.
         name: A szervezet névjegyzéke
@@ -135,9 +136,6 @@ hu:
             title: Aktiválnia kell a szervezet névjegyzéki CSV-állományadatait
           new:
             file: ".csv fájl e-mail adatokkal"
-            info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'
-            submit: Fájl feltöltés
-            title: Töltsön fel egy új névjegyzéket
         authorizations:
           new:
             error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -162,6 +163,8 @@ it:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
           proposal_note_created:
             email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
@@ -211,8 +214,8 @@ it:
       badges:
         accepted_proposals:
           conditions:
-            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
-            - Prova a fare proposte che possono essere eseguite. In questo modo è più probabile che vengano accettati.
+          - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+          - Prova a fare proposte che possono essere eseguite. In questo modo è più probabile che vengano accettati.
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte e queste sono accettate.
           description_another: Questo utente ha ottenuto %{score} proposte accettate.
           description_own: Hai accettato %{score} proposte.
@@ -222,12 +225,12 @@ it:
           unearned_own: Non hai ancora accettato nessuna proposta.
         proposal_votes:
           conditions:
-            - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
-            - 
+          - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
+          - 
         proposals:
           conditions:
-            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
-            - Crea una nuova proposta
+          - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+          - Crea una nuova proposta
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
@@ -246,7 +249,9 @@ it:
       proposals:
         description: Numero di proposte generate
         object: proposte
-        title: proposte
+        title: Proposte
+      votes:
+        title: Voti
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto
@@ -316,7 +321,6 @@ it:
           index:
             actions: Azioni
             assign_to_valuator: Assegna al valutatore
-            assign_to_valuator_button: Assegna
             cancel: Annulla
             merge: Unisci a uno nuovo
             merge_button: fondersi
@@ -328,7 +332,6 @@ it:
             split_button: Diviso
             title: Proposte
             unassign_from_valuator: Annulla assegnazione al valutatore
-            unassign_from_valuator_button: Disassegna
             update: Aggiornare
           new:
             create: Crea
@@ -341,9 +344,6 @@ it:
             documents: Documenti
             endorsements_count: Numero di Appoggi
             endorsers: Sostenitori
-            n_more_endorsers:
-              one: e 1 altro
-              other: e altri %{count}
             photos: Foto
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
@@ -575,7 +575,6 @@ it:
         update:
           title: Aggiorna proposta
         vote_button:
-          already_voted: Già votata
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione

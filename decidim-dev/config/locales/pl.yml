@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ pl:
       badges:
         test:
           conditions:
-            - Użyj środowiska testowego dla decidim.
+          - Użyj środowiska testowego dla decidim.
           description: Użytkownicy otrzymują tę odznakę tworząc testy.
           description_another: Ten użytkownik utworzył %{score} testów.
           description_own: Utworzyłeś %{score} testów.

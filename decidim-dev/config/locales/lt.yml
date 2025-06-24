@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ lt:
       badges:
         test:
           conditions:
-            - Naudokite testinę aplinką.
+          - Naudokite testinę aplinką.
           description: Dalyviai šį ženklelį pelno kurdami testus.
           description_another: Šis dalyvis sukūrė %{score} testus.
           description_own: Jūs sukūrėte %{score} testus.

@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -107,5 +108,7 @@ lv:
             show_votes: Rādīt balsis
             votes_choices:
               enabled: Balsošana ir iespējota
+    statistics:
+      projects_count: Projekti
   index:
     confirmed_orders_count: Balsu skaits

@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       assembly:
@@ -169,6 +170,9 @@ is-IS:
           not_found: 'Safnið fannst ekki í gagnagrunninum (ID: %{id})'
     menu:
       assemblies: Þing
+    metrics:
+      assemblies:
+        title: Þing
   layouts:
     decidim:
       assemblies:

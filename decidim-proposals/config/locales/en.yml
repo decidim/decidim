@@ -98,9 +98,9 @@ en:
       decidim:
         proposals:
           proposal:
-            budget_text: The proposal %{link} was created
+            budget_text: The proposal <span class="resource-link">%{link} was created</span>
             import_from_proposal_text: 'It became this proposal: %{link}'
-            import_to_proposal_text: This proposal %{link} was created
+            import_to_proposal_text: This proposal <span "resource-link">%{link} was created</span>
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
             split_from_proposal_text: 'It became this proposal: %{link}'
@@ -485,7 +485,6 @@ en:
           withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
-        last: Last proposals
         see_all: See all proposals
     proposals:
       actions:
@@ -513,6 +512,16 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        import_proposals_mailer:
+          notify_failure:
+            body: There was a problem while importing proposals from the %{origin_component_name} component to the %{target_component_name} component.
+            subject: There was an error importing proposals
+          notify_success:
+            added_proposals:
+              one: One proposal was imported.
+              other: "%{count} proposals were imported."
+            body: Successful imported proposals from the %{origin_component_name} component to the %{target_component_name} component. You can review the results in the administration interface.
+            subject: The proposals have been imported successfully
         imports:
           help:
             answers: |
@@ -684,7 +693,7 @@ en:
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals.
-            success: "%{number} proposals successfully imported."
+            success: The import process has started. We will let you know once it has finished.
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
@@ -866,7 +875,7 @@ en:
           success: Co-author invitation successfully canceled.
         create:
           error: There was a problem inviting the co-author.
-          success: "%{author_name} successfully invited as a co-author."
+          success: "%{author_name} has been successfully invited as a co-author."
         destroy:
           error: There was a problem declining the invitation.
           success: The invitation has been declined.
@@ -949,7 +958,7 @@ en:
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
         new:
           send: Continue
-          title: Create your proposal
+          title: Create new proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
@@ -999,7 +1008,7 @@ en:
         update:
           title: Update proposal
         vote_button:
-          already_voted: Already voted
+          already_voted: Voted
           already_voted_hover: Withdraw vote
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining

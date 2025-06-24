@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -350,6 +351,7 @@ id:
             created_at: Dibuat di
             document_number: Nomor dokumen
             name: Nama
+            nickname: Nama panggilan
             phone: Telepon
             state: Negara
             users_count: Jumlah pengguna
@@ -423,13 +425,12 @@ id:
         edit:
           update: Memperbarui
         form:
-          colors:
-            colors_title: Warna organisasi
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
           images:
             layout_appearance_title: Edit tampilan tata letak
+            preview: Preview
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
       participatory_space_private_users:
         create:
@@ -443,6 +444,10 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      participatory_space_private_users_csv_imports:
+        new:
+          csv_upload:
+            title: Unggah file CSV Anda
       resource_permissions:
         edit:
           submit: Menyerahkan
@@ -534,16 +539,11 @@ id:
           invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
       user_groups:
         index:
-          state:
-            pending: Menunggu keputusan
-            rejected: Ditolak
-            verified: Diverifikasi
           verify_via_csv: Verifikasi melalui CSV
       user_groups_csv_verifications:
         new:
           explanation: Unggah file CSV Anda. Itu harus memiliki email resmi dari kelompok pengguna di organisasi Anda di kolom pertama file, tanpa header. Hanya grup pengguna yang telah mengkonfirmasi email mereka dan yang memiliki email yang muncul dalam file CSV akan divalidasi.
           title: Unggah file CSV Anda
-          upload: Unggah
       users:
         create:
           error: Terjadi kesalahan saat mengundang pengguna ini.

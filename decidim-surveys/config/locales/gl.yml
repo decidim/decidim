@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     models:
@@ -48,6 +49,10 @@ gl:
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.
+      models:
+        survey:
+          fields:
+            answers: Respostas
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.

@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -108,12 +109,12 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
+          user_group: Ομάδες
         index:
           new_debate: Νέα συζήτηση
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Νέα συζήτηση
         orders:
           commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά
@@ -175,7 +176,7 @@ el:
       badges:
         commented_debates:
           conditions:
-            - Επιλέξτε μια ανοιχτή συζήτηση για να λάβετε μέρος
+          - Επιλέξτε μια ανοιχτή συζήτηση για να λάβετε μέρος
           description: Αυτό το έμβλημα χορηγείται όταν συμμετέχετε ενεργά στις διάφορες συζητήσεις αφήνοντας τα σχόλιά σας.
           description_another: Αυτός ο συμμετέχων έλαβε μέρος σε %{score} συζητήσεις.
           description_own: Έχετε συμμετάσχει σε %{score} συζητήσεις.

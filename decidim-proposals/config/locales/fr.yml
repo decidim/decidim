@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -93,6 +94,11 @@ fr:
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: La proposition <span class="resource-link">%{link} a été créée</span>
+            import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -107,6 +113,9 @@ fr:
         other: Votes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propositions
       filters:
         proposals:
           is_emendation_true:
@@ -126,6 +135,8 @@ fr:
               rejected: Rejetée
               validating: Validation technique
               withdrawn: Retirée
+          taxonomies_part_of_contains:
+            label: Taxonomie
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
           with_any_state:
@@ -158,6 +169,7 @@ fr:
             attachments_allowed: Autoriser les pièces jointes
             attachments_allowed_help: En activant cette option, les propositions seront en mode grille par défaut, et la première image liée à la proposition apparaîtra sur la carte.
             can_accumulate_votes_beyond_threshold: Peut accumuler des votes au-delà du seuil
+            clear_all: Tout effacer
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
@@ -172,11 +184,17 @@ fr:
               random: Aléatoire
               recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            edit_time: Les propositions peuvent être éditées par les auteurs avant l'expiration du temps imparti
+            edit_time_units:
+              days: Jours
+              hours: Heures
             geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             official_proposals_enabled: Autoriser la création de propositions officielles
             participatory_texts_enabled: Textes participatifs activés
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
@@ -185,11 +203,16 @@ fr:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+            proposal_edit_time_unit_options:
+              days: Jours
+              hours: Heures
+              minutes: Minutes
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
             taxonomy_filters_add: Ajouter un filtre
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
@@ -241,7 +264,7 @@ fr:
           notification_title: Vous avez été ajouté en tant que co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_valuator:
-            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
             notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
@@ -349,8 +372,8 @@ fr:
       badges:
         accepted_proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
           description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
           description_own: '%{score} de vos propositions ont été acceptées.'
@@ -360,8 +383,8 @@ fr:
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           conditions:
-            - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Votez pour les propositions que vous aimez ou trouvez intéressantes
+          - Parcourir et passer du temps à lire les propositions d'autres personnes
+          - Votez pour les propositions que vous aimez ou trouvez intéressantes
           description: Ce badge est attribué lorsque vous votez pour les propositions d'autres personnes.
           description_another: Cet utilisateur a voté pour %{score} propositions.
           description_own: Vous avez voté pour %{score} propositions.
@@ -371,8 +394,8 @@ fr:
           unearned_own: Vous n'avez voté pour aucune proposition pour le moment.
         proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Créer une nouvelle proposition
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Créer une nouvelle proposition
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
@@ -384,7 +407,7 @@ fr:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
         object: propositions
-        title: Propositions Acceptées
+        title: Propositions acceptées
       endorsements:
         description: Nombre d'avenants générés dans les propositions
         object: soutiens
@@ -411,7 +434,6 @@ fr:
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
-        last: Dernières propositions
         see_all: Voir toutes les propositions
     proposals:
       actions:
@@ -439,6 +461,13 @@ fr:
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        import_proposals_mailer:
+          notify_failure:
+            body: Il y a eu un problème lors de l'importation des propositions du composant %{origin_component_name} vers le composant %{target_component_name}.
+            subject: Une erreur s'est produite lors de l'importation des propositions
+          notify_success:
+            body: Propositions importées avec succès depuis le composant %{origin_component_name} vers le composant %{target_component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
+            subject: Les propositions ont été importées avec succès
         imports:
           label:
             answers: Importer des réponses depuis un fichier
@@ -572,9 +601,6 @@ fr:
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
             link: Voir la proposition
-            n_more_endorsers:
-              one: et 1 de plus
-              other: et %{count} autres
             photos: Photos
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
@@ -585,7 +611,7 @@ fr:
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions.
-            success: "%{number} propositions importées avec succès."
+            success: Le processus d'importation a commencé. Nous vous informerons dès qu'il sera terminé.
           new:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
@@ -760,7 +786,7 @@ fr:
           success: Invitation de co-auteur annulée avec succès.
         create:
           error: Une erreur s'est produite lors de l'invitation du co-auteur.
-          success: "%{author_name} a été invité en tant que co-auteur."
+          success: "%{author_name} a été invité avec succès en tant que co-auteur."
         destroy:
           error: Une erreur s'est produite lors du refus de l'invitation.
           success: L'invitation a été refusée.
@@ -842,7 +868,7 @@ fr:
           text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
         new:
           send: Continuer
-          title: Créer une proposition
+          title: Créer une nouvelle proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
@@ -892,7 +918,7 @@ fr:
         update:
           title: Mettre à jour la proposition
         vote_button:
-          already_voted: Déjà votée
+          already_voted: Votée
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant

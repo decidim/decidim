@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -108,12 +109,12 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
+          user_group: Gruplar
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
           create: Oluştur
-          title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
@@ -178,7 +179,7 @@ tr:
       badges:
         commented_debates:
           conditions:
-            - Katılmak için açık bir tartışma seçin
+          - Katılmak için açık bir tartışma seçin
           description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
           description_another: Bu katılımcı %{score} kez tartışmada yer aldı.
           description_own: '%{score} kez tartışmaya katıldınız.'

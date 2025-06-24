@@ -1,3 +1,4 @@
+---
 kaa:
   activemodel:
     attributes:
@@ -116,6 +117,8 @@ kaa:
             email: Elektron pochta
         user_group:
           fields:
+            actions: Háreketler
+            name: Ataması
             phone: Telefon
       moderated_users:
         index:
@@ -151,9 +154,6 @@ kaa:
       organization_appearance:
         edit:
           update: Jańalaw
-        form:
-          images:
-            preview: Aldınnan kóriw
       participatory_space_private_users:
         new:
           create: Jaratıw
@@ -182,6 +182,9 @@ kaa:
       static_pages:
         edit:
           update: Jańalaw
+      user_groups_csv_verifications:
+        new:
+          upload: Júklew
       users_statistics:
         users_count:
           participants: Qatnasıwshılar

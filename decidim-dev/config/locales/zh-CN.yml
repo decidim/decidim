@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -38,7 +39,7 @@ zh-CN:
       badges:
         test:
           conditions:
-            - 对判定环境使用测试环境。
+          - 对判定环境使用测试环境。
           description: 参与者通过创建测试获得这个徽章。
           description_another: 此参与者已创建了 %{score} 个测试。
           description_own: 您已创建了 %{score} 个测试。

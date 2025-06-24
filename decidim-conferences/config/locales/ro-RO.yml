@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -65,6 +66,8 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:

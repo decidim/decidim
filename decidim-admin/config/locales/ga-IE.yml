@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -234,6 +235,7 @@ ga:
           fields:
             actions: Gníomhartha
             name: Ainm
+            nickname: Leasainm
             phone: Fón
             state: Staid
       moderated_users:
@@ -328,12 +330,6 @@ ga:
         panel: Riarachán
         scopes: Scóip
         user_groups: Grúpaí
-      user_groups:
-        index:
-          state:
-            pending: Ar feitheamh
-            rejected: Diúltaithe
-            verified: Fíoraithe
       user_groups_csv_verifications:
         new:
           upload: Uaslódáil

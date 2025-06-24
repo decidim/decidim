@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     models:
@@ -59,7 +60,7 @@ es-PY:
       admin:
         answers:
           index:
-            title: "%{total} respuestas totales"
+            title: "%{total} respuestas en total"
           show:
             title: 'Respuesta #%{number}'
         exports:

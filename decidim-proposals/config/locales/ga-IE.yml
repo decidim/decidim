@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -64,6 +65,8 @@ ga:
       proposals:
         object: moltaí
         title: Moltaí
+      votes:
+        title: Vótaí
     proposals:
       actions:
         title: Gníomhartha
@@ -93,7 +96,6 @@ ga:
             update: Nuashonraigh
           index:
             actions: Gníomhartha
-            assign_to_valuator_button: Ceap
             cancel: Cealaigh
             merge_button: Cumaisc
             publish: Foilsigh

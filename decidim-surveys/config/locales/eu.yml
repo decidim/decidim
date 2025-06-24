@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     models:
@@ -33,7 +34,7 @@ eu:
           email_intro: '%{resource_title} inkesta %{participatory_space_title} itxi egin da.'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Inkesta bat itxi da %{participatory_space_title} espazioan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan amaitu da.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> itxi egin da.
         survey_opened:
           email_intro: '%{resource_title} inkesta ireki da %{participatory_space_title} espazioan. Orri honetan parte har dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
@@ -59,7 +60,7 @@ eu:
       admin:
         answers:
           index:
-            title: "Guztira %{guztira} erantzun"
+            title: "Guztira, %{total} erantzun"
           show:
             title: '#%{number} erantzun'
         exports:

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     models:
@@ -16,6 +17,10 @@ sv:
         one: Röst
         other: Röster
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Kommentarer
     comments:
       admin:
         shared:
@@ -23,6 +28,8 @@ sv:
             enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -38,6 +45,8 @@ sv:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
+        account_message: Logga in eller skapa ett konto för kommentera.
+        add_comment: Kommentera
         form:
           body:
             label: Kommentera
@@ -47,6 +56,7 @@ sv:
           submit_root_comment: Publicera kommentar
           user_group_id:
             label: Kommentera som
+            your_profile: Din profil
         opinion:
           label: Din åsikt om frågan
           negative: Negativ
@@ -62,6 +72,9 @@ sv:
         alignment:
           against: Mot
           in_favor: För
+        answers:
+          one: "%{count} svar"
+          other: "%{count} svar"
         cancel_reply: Avbryt svar
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (svar på kommentar %{parent_comment_id})
@@ -92,6 +105,7 @@ sv:
           one: Visa svar
           other: Visa %{count} svar
         single_comment_link_title: Hämta länk
+        sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
           best_rated: Bästa betyg
@@ -100,16 +114,19 @@ sv:
           recent: Senaste
         title: 'Sortera efter:'
       comments:
+        against: Mot
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_warning: Kommentarer är inaktiverade, endast administratörer kan svara eller skriva nya.
         comment_details_title: Kommentarsdetaljer
+        in_favor: För
         loading: Laddar kommentarer...
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
           one: "%{count} kommentar"
           other: "%{count} kommentarer"
+        top_comment_label: Mest stöd
       down_vote_button:
         text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
@@ -122,6 +139,26 @@ sv:
         title: Redigera din kommentar
       up_vote_button:
         text: Jag instämmer i denna kommentar
+    download_your_data:
+      help:
+        comment_votes:
+          comment: Id för kommentaren som gillades
+          created_at: Datum då denna omröstning skapades
+          id: Röstens id
+          updated_at: Datum då rösten senaste uppdaterades
+          weight: Röstens vikt (1 för uppröstning, -1 för nedröstning)
+        comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet för kommentaren
+          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     events:
       comments:
         comment_by_followed_user:

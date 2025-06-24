@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -41,7 +42,7 @@ eu:
     accountability:
       actions:
         attachment_collections: Karpetak
-        attachments: Erantsitako artxiboak
+        attachments: Erantsitako fitxategiak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
@@ -74,7 +75,7 @@ eu:
             select_state: Hautatu egoera
           form:
             create: Inportatu
-            no_components: Espazio parte-hartzaile honetan ez dago inportatu beharreko osagairik.
+            no_components: Partaidetza-espazio honetan ez dago inportatu beharreko osagairik.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
           new:
@@ -301,7 +302,7 @@ eu:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk partaidetza-espazio honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
             intro: Sarrera

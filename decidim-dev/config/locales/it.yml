@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -40,7 +41,7 @@ it:
       badges:
         test:
           conditions:
-            - Utilizzare un ambiente di prova per decidim.
+          - Utilizzare un ambiente di prova per decidim.
           description: Gli utenti ottengono questo badge creando test.
           description_another: Questo utente ha creato %{score} test.
           description_own: Hai creato %{score} test.

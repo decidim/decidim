@@ -41,6 +41,8 @@ module Decidim
     end
 
     def parse_i18n_changeset(attribute, values, type, diff)
+      return diff unless values.last.is_a?(Hash)
+
       (values.last.keys - ["machine_translations"]).each do |locale, _value|
         first_value = values.first.try(:[], locale)
         last_value = values.last.try(:[], locale)

@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -97,6 +98,7 @@ lb:
           attachment_files: Dateien
           attachments: Unhäng
           components: Komponenten
+          landing_page: Startseite
           moderations: Moderationen
           process_admins: Benutzer verarbeiten
           steps: Phasen

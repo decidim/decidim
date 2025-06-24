@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       attachment:
         documents: Documents
+        image: Imatge
         photos: Fotos
       common:
         created_at: Creat el
@@ -53,7 +55,13 @@ ca:
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
       user_group:
-        avatar: Imatge de perfil
+        avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: L'àlies o sobrenom s'ha d'escriure en minúscules i no ha de tenir cap espai
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -78,7 +86,7 @@ ca:
         with_participatory_space: Espai de participació
       decidim/user:
         current_password: Contrasenya actual
-        email: Correu electrònic
+        email: Adreça de correu electrònic
         name: Àlies
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
@@ -116,7 +124,7 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -171,6 +179,7 @@ ca:
       front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       opens_in_new_tab: Obrir en una pestanya nova
+      secondary_menu: Menú secundari
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels termes i condicions d'ús
@@ -304,7 +313,7 @@ ca:
         create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
-        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update: "%{user_name} ha actualitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
         create: "%{user_name} va crear el filtre %{resource_name}"
@@ -561,6 +570,8 @@ ca:
             dummy_step_attribute1: Atribut de fase de prova 1
             dummy_step_attribute2: Atribut de fase de prova 2
             dummy_step_translatable_text: Text de fase traduïble de proves
+      pagination:
+        page_title: "%{component_name} - Pàgina %{current_page} de %{total_pages}"
     contact: Contacte
     content_blocks:
       announcement:
@@ -669,7 +680,7 @@ ca:
           username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantir l'anonimat pot ser qualsevol nom.
       sessions:
         new:
-          are_you_new?: Ets nova a la plataforma?
+          are_you_new?: Encara no t'has registrat?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
@@ -690,7 +701,7 @@ ca:
             <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
-          or: O
+          or: o
         password_fields:
           hidden_password: La contrasenya està amagada
           hide_password: Amagar contrasenya
@@ -996,6 +1007,16 @@ ca:
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+          email_outro: Has rebut aquesta notificació perquè és autora del/ de la %{resource_type}.
+          email_subject: El teu/la teva %{resource_type} ja no és visible
+          notification_title: |-
+            El teu/la teva %{resource_type} ja no està visible.<br>
+            Això passa perquè la proposta, la trobada, el debat o el comentari al qual vas respondre ha estat moderat. Si torna a estar disponible, el teu comentari es restaurarà automàticament.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè s'ha eliminiat un contingut que havies creat.
@@ -1071,8 +1092,8 @@ ca:
       attachment_link:
         explanation: Guia per enllaços adjunts
         help_messages:
-          - Només s'accepten format d'URL correctes.
-          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
+        - Només s'accepten format d'URL correctes.
+        - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -1123,7 +1144,7 @@ ca:
       badges:
         followers:
           conditions:
-            - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
+          - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta participant té %{score} seguidores.
           description_own: "%{score} participants et segueixen."
@@ -1212,8 +1233,8 @@ ca:
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
-        accept_request: Accepta
-        reject_request: Rebutja
+        accept_request: Acceptar
+        reject_request: Rebutjar
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
@@ -1374,7 +1395,7 @@ ca:
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
         object: seguidores
-        title: Seguidores
+        title: Seguidors
       participants:
         description: Nombre de participants actives a l'organització
         object: participants
@@ -1495,7 +1516,7 @@ ca:
     onboarding_action_message:
       click_link: Fes clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
-      ephemeral_authorized_message: Ha estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
+      ephemeral_authorized_message: Has estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
       expired_authorization_active_title: La teva autorització ha caducat.
       finish_authorization_process: Pots finalitzar el procés de verificació
       incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
@@ -1548,13 +1569,13 @@ ca:
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
-          deleted: Si el grup d'usuàries va ser eliminat o no
+          deleted: Si la usuària va ser eliminada o no
           id: L'identificador únic del grup d'usuàries
           members: L'ID i el nom de les usuàries que pertanyen al grup
           members_count: El número de membres que formen part del grup d'usuàries
           name: El nom que es mostra del grup d'usuàries
           nickname: El nom d'usuària del grup d'usuàries
-          profile_url: L'URL del perfil del grup d'usuàries
+          profile_url: L'URL del perfil de la usuària
         users:
           about: El text "Quant a" inclòs al perfil d'usuària
           avatar_url: L'avatar de la usuària
@@ -1685,46 +1706,46 @@ ca:
         followers: Seguidores
         following: Seguint
         group_admins: Gestionar administradores
-        group_members: Gestionar membres
+        group_members: Gestiona els membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-      sidebar:
-        badges:
-          info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
-          title: Insígnies
       user:
         actions:
-          create_user_group: Crear un grup
+          create_user_group: Crea un grup
           disabled_message: Missatge
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grup
-          invite_user: Convidar participant
-          join_user_group: Sol·licitar unir-se al grup
-          leave_user_group: Surt del grup
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grup
+          invite_user: Convida la participant
+          join_user_group: Sol·licita unir-se al grup
+          leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
-          manage_user_group_users: Gestionar membres
+          manage_user_group_users: Gestiona els membres
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
-        create_user_group: Crea un grup
-        edit_profile: Edita el perfil
-        edit_user_group: Edita el perfil del grup
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
-        invite_user: Convida la participant
-        join_user_group: Sol·licita unir-se al grup
-        leave_user_group: Marxa del grup
-        manage_user_group_admins: Gestiona les administradores
-        manage_user_group_users: Gestiona els membres
-        resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Contingut reportat
+        details: Detalls
         hello: Hola %{name},
         manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament.</p>
         subject: Un contingut s'ha ocultat automàticament
+      hidden_manually:
+        content: Contingut reportat
+        details: Detalls
+        hello: Hola %{name},
+        manage_moderations: Gestiona moderacions
+        participatory_space: Espai de participació
+        reason: Motiu
+        report_html: <p>El següent <a href="%{url}">contingut</a> s'ha ocultat automàticament per %{moderator}.</p>
+        subject: Un recurs ha estat amagat per %{moderator}
       report:
         authors: Autores
         content: Contingut reportat
@@ -1742,6 +1763,10 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+      hide:
+        success: Aquest recurs s'ha amagat.
+      parent_hidden:
+        report_details: El recurs principal estava amagat
     resource:
       controls_label: Controls de recursos
     resource_endorsements:
@@ -1804,14 +1829,13 @@ ca:
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         block: Eliminar aquesta participant
-        close: Tancar
-        description: Què és inapropiat d'aquesta usuària?
+        description: Què té inapropiat aquesta participant?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         hide: Amagar tots els seus continguts
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Reportar
         spam: Conté "clickbait", publicitat o estafes.
-        title: Reportar contingut inapropiat
+        title: Reportar participant inapropiada
       floating_help:
         help: Ajuda
       follow_button:
@@ -1976,7 +2000,7 @@ ca:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: T'han convidat a participar en un procés participatiu privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a%{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:

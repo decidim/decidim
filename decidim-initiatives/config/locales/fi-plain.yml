@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -198,8 +199,8 @@ fi-pl:
       badges:
         initiatives:
           conditions:
-            - Siirry aloitteiden osallisuustilaan
-            - Luo uusi aloite ohjeiden mukaisesti
+          - Siirry aloitteiden osallisuustilaan
+          - Luo uusi aloite ohjeiden mukaisesti
           description: Tämä kunniamerkki myönnetään, kun laadit uusia aloitteita ja keräät verkoston ihmisiä toteuttamaan niitä.
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
@@ -384,7 +385,7 @@ fi-pl:
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
-          callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
+          callout_text: Onnittelut! Aloitteen luominen onnistui.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit_my_initiative: Muokkaa aloitettani
           go_to_my_initiatives: Siirry omiin aloitteisiini
@@ -642,7 +643,7 @@ fi-pl:
         actions:
           create: Luo aloite
           title: Toimet
-          vote: Äänestä
+          vote: Allekirjoita
   layouts:
     decidim:
       initiative_creation_header:

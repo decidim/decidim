@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -102,7 +103,7 @@ ca:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
           restore: "%{user_name} ha restaurat el debat %{resource_name} a l'espai %{space_name}"
-          soft_delete: "%{user_name} ha mogut el debate %{resource_name} des de %{space_name} a la paperera"
+          soft_delete: "%{user_name} ha mogut el debat %{resource_name} des de %{space_name} a la paperera"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       content_blocks:
         highlighted_debates:
@@ -153,7 +154,7 @@ ca:
         new:
           back: Torna
           create: Crear
-          title: Nou debat
+          title: Crear un debat
         orders:
           commented: Més comentats
           label: Ordenar debats per
@@ -231,7 +232,7 @@ ca:
       badges:
         commented_debates:
           conditions:
-            - Tria un debat obert per participar
+          - Tria un debat obert per participar
           description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
           description_another: Aquesta participant ha pres part en %{score} debats.
           description_own: Has participat en %{score} debats.
@@ -267,7 +268,7 @@ ca:
           conclusions: Les conclusions del debat si s'ha tancat
           created_at: La data i l'hora en què es va tancar aquest debat
           description: La descripció del debat
-          end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
+          end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar
           endorsements_count: El número d'adhesions que té aquest debat
           follows_count: El número de seguidores que té aquest debat
           id: L'identificador únic del debat
@@ -277,7 +278,7 @@ ca:
           last_comment_by: La data del darrer comentari realitzat en aquest debat
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
-          start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
+          start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar
           taxonomies: Les taxonomies del projecte
           title: El títol del debat
           updated_at: La data de la darrera actualització del debat

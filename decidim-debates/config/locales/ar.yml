@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -87,12 +88,12 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
+          user_group: الفِرَق
         index:
           new_debate: نقاش جديد
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
           groups_count: الفِرَق
           participants_count: المشاركون
@@ -126,7 +127,7 @@ ar:
       badges:
         commented_debates:
           conditions:
-            - اختر نقاشًا مفتوحًا للمشاركة فيه
+          - اختر نقاشًا مفتوحًا للمشاركة فيه
           description: تُمنح هذه الشارة عندما تشارك بنشاط في المناقشات المختلفة من خلال ترك تعليقاتك.
           description_another: شارك هذا المشارك في %{score} مناقشات.
           description_own: لقد شاركت في %{score} مناقشات.

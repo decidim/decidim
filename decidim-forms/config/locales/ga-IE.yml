@@ -1,9 +1,9 @@
+---
 ga:
   activemodel:
     attributes:
       answer:
         body: Freagra
-        choices: Roghanna
       question:
         question_type: Cineál
   decidim:
@@ -12,9 +12,6 @@ ga:
         questionnaires:
           answer_option:
             remove: Bain as
-          answers:
-            actions:
-              export: Easpórtáil
           display_condition:
             condition_question: Ceist
             condition_types:
@@ -49,5 +46,4 @@ ga:
           submit: Deimhnigh
       user_answers_serializer:
         body: Freagra
-        ip_hash: Hais IP
         question: Ceist

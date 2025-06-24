@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -9,14 +10,14 @@ eu:
         max_choices: Gehieneko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: Derrigorrezkoa
+        mandatory: Nahitaezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+              needs_to_be_reattached: Berriro erantsi behar da
             body:
               too_long: luzeegia da
             choices:
@@ -76,7 +77,7 @@ eu:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "Guztira %{total} erantzun"
+              title: "Guztira, %{total} erantzun"
             show:
               title: '#%{number} erantzun'
           display_condition:
@@ -162,7 +163,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         answer:
-          body: "Gorputza ezin da hutsik egon\n"
+          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -183,7 +184,7 @@ eu:
       questionnaires:
         answer:
           invalid: Akats bat gertatu da galdeketa erantzutean.
-          max_choices_alert: Aukera gehiegi daude hautatuta
+          max_choices_alert: Aukera gehiegi hautatuta da
           success: Formularioa zuzen erantzunda.
         question:
           max_choices: 'Gehieneko aukerak: %{n}'
@@ -217,7 +218,6 @@ eu:
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
-          are_you_sure_edit: Zure erantzunak editatu ahal izango dituzu. Ziur zaude?
           are_you_sure_edit_guest: Erantzunak editatu nahi badituzu, orduan sartu behar zara edo kontu bat sortu behar duzu.
           are_you_sure_no_edit: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           back: Atzera
@@ -229,7 +229,7 @@ eu:
         completion: Amaiera
         created_at: Erantzunda
         id: Erantzun IDa
-        ip_hash: IP Helbidearen Hash
+        ip_hash: IP Helbidearen traola
         question: Galdera
         registered: Erregistratuta
         session_token: Parte-hartzailearen identifikatzailea

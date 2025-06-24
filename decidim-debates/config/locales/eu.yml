@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -40,7 +41,7 @@ eu:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazioa honetarako iragazki batzuk.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
@@ -55,7 +56,7 @@ eu:
         close: Itxi
         confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
-        edit: Editatu
+        edit: Aldatu
         new: Beste eztabaida bat
         title: Ekintzak
         view_deleted_debates: Ikusi ezabatutako eztabaidak
@@ -117,7 +118,7 @@ eu:
         close_debate_modal:
           cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
-          send: Itxi eztabaida
+          send: Eztabaida itxi
         count:
           debates_count:
             one: "%{count} eztabaida"
@@ -134,13 +135,13 @@ eu:
           title: Editatu eztabaida
         filters:
           activity: Nire jarduera
-          all: guztiak
+          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
-          origin: Origin
+          origin: Jatorria
           participants: Parte-hartzaileak
           search: Bilatu
           state: Egoera
@@ -153,12 +154,12 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Beste eztabaida bat
+          title: Sortu eztabaida berri bat
         orders:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
           random: Ausazko ordena
-          recent: Azkenak
+          recent: Berrienetatik zaharrenetara
           updated: Orain dela gutxi eguneratuak
         show:
           close_debate: Itxi
@@ -202,10 +203,10 @@ eu:
           user_followers:
             email_intro: |-
               Kaixo,
-              %{author_name} %{author_nickname} k, jarraitzen ari zarenak, "%{resource_title}" beste eztabaida bat sortu du. Begiratu eta lagundu:
+              Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: '%{author_nickname} k "%{resource_title}" beste eztabaida bat sortu du'
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k sortu du <a href="%{resource_path}">%{resource_title}</a> eztabaida.
+            email_subject: '%{author_nickname} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
@@ -231,12 +232,12 @@ eu:
       badges:
         commented_debates:
           conditions:
-            - Aukeratu eztabaida irekia parte hartzeko
+          - Aukeratu eztabaida irekia parte hartzeko
           description: Garaikur hau eztabaidetan modu aktiboan, zure iruzkinak utziz, parte hartzen duzunean ematen da.
           description_another: Parte-hartzaile honek %{score} eztabaidatan hartu du parte.
           description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
-          next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
+          next_level_in: Hartu parte %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
     metrics:
@@ -275,7 +276,7 @@ eu:
           instructions: Jarraibideak eztabaida honetan iruzkina egiteko
           last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
-          participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Partaidetza-prozesua edo Batzarra)
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
           taxonomies: Proiektuaren taxonomiak

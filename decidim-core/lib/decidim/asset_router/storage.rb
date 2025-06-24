@@ -52,8 +52,13 @@ module Decidim
         when ActiveStorage::Blob
           blob_url(**)
         else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
-          ensure_current_host(nil, **)
-          representation_url(**)
+          if blob && blob.attachments.any?
+            ensure_current_host(blob.attachments.first&.record, **)
+            representation_url(**)
+          else
+            ensure_current_host(nil, **)
+            representation_url(**, only_path: true)
+          end
         end
       end
 

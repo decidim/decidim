@@ -52,32 +52,32 @@ describe "Show a Proposal" do
           end
         end
       end
+    end
 
-      describe "author tooltip" do
-        let(:user) { create(:user, :confirmed, organization:) }
+    context "when proposal author is a meeting" do
+      let(:address) { "Somewhere over the rainbow" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
+      let!(:author) { create(:user, :deleted, organization: component.organization) }
+      let!(:proposal) { create(:proposal, component:, users: [author]) }
+      let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+      let!(:meeting) { create(:meeting, :published, component: meeting_component, address:, latitude:, longitude:) }
 
-        before do
-          visit_proposal
-          login_as user, scope: :user
-          visit current_path
-        end
+      it "shows the meeting link" do
+        stub_geocoding_coordinates([latitude, longitude])
+        proposal.link_resources(meeting, "proposals_from_meeting")
+        visit resource_locator(meeting).path
+        expect(page).to have_content(translated(proposal.title))
+      end
 
-        context "when author does not restrict messaging" do
-          it "includes a link to message the proposal author" do
-            within "[data-author]" do
-              find(".author__container").hover
-            end
-            expect(page).to have_link("Send private message")
-          end
-        end
+      context "when the proposal component has votes enabled" do
+        let(:component) { create(:proposal_component, :with_votes_enabled, participatory_space: participatory_process) }
 
-        context "when participant is deleted" do
-          let!(:author) { create(:user, :deleted, organization: component.organization) }
-          let!(:proposal) { create(:proposal, component:, users: [author]) }
-
-          it "successfully shows the page" do
-            expect(page).to have_content("Deleted participant")
-          end
+        it "shows the meeting link" do
+          stub_geocoding_coordinates([latitude, longitude])
+          proposal.link_resources(meeting, "proposals_from_meeting")
+          visit resource_locator(meeting).path
+          expect(page).to have_content(translated(proposal.title))
         end
       end
     end

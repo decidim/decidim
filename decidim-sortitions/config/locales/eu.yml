@@ -1,9 +1,9 @@
+---
 eu:
   activemodel:
     attributes:
       sortition:
         additional_info: Zozketari buruzko informazioa
-        decidim_category_id: Zozketatu nahi duzun proposamen taldearen kategoriak
         decidim_proposals_component_id: Proposamen taldea
         dice: Dadoen emaitza. Bota 6 aldeko dado bat edo bilatu beste eraren bat 1etik 6ra bitarteko ausazko zenbaki bat sortzeko eta sartu hemen zenbaki hori hainbat lekukoren aurrean. Horrek emaitzen ausazkotasunaren kalitatea eta bermea lagunduko ditu
         target_items: Aukeratu nahi duzun proposamen kopurua (adierazitako proposamen taldetik zozketaren bidez aukeratu nahi duzun proposamen kopurua ezarri)
@@ -24,8 +24,13 @@ eu:
         name: Zozketak
         settings:
           global:
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk partaidetza-espazio honetarako eszenatoki hau erabili aurretik.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            taxonomy_filters: Aukeratu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
     events:
       sortitions:
         sortition_created:
@@ -43,7 +48,6 @@ eu:
         models:
           sortition:
             fields:
-              category: Kategoria
               created_at: Sortze data
               decidim_proposals_component: Proposamenen osagaia
               dice: Dadoa
@@ -51,6 +55,7 @@ eu:
               request_timestamp: Zozketa-denbora
               seed: Hazia
               target_items: Aukeratzeko itemak
+              taxonomies: Taxonomiak
               title: Izenburua
         sortitions:
           confirm_destroy:
@@ -67,8 +72,9 @@ eu:
             title: Eguneratu zozketari buruzko informazioa
             update: Eguneratu
           form:
-            all_categories: Kategoria guztiak
+            all_taxonomies: Taxonomia guztiak
             select_proposal_component: Aukeratu proposamenen multzoa
+            select_taxonomies: Zozketa aplikatu nahi den proposamen multzoaren taxonomiak. Utzi hutsik zozketa taxonomia horri buruzko proposamen guztiei aplikatzeko.
           index:
             title: Zozketak
           new:
@@ -102,24 +108,24 @@ eu:
           selected_proposals: Aukeratutako proposamenak
         orders:
           label: 'Zozketak honen arabera ordenatu:'
-          random: Ausaz
-          recent: Berrienak
+          random: Ausazko ordena
+          recent: Berrienetatik zaharrenetara
         results_count:
           count:
             one: Hautatutako proposamena
             other: Hautatutako proposamenak
         show:
           algorithm: Zozketaren algoritmoaren kodea
-          any_category: kategoria guztienak
+          any_taxonomy: taxonomia guztietatik
           cancelled: Bertan behera utzitako zozketak
           candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
-          candidate_proposals_info: 'Zozketa (%{category_label}) proposamenen artean egin da, honako IDekin (letra lodiz hautatutako proposamenak)  '
-          category: '%{category} kategoriatik'
+          candidate_proposals_info: 'Zozketa honako proposamenen artean egin zen (%{taxonomy_labels}), honako identifikazio-agiri hauekin (letra lodiz hautatutako proposamenak)  '
           dice_result: Dadoen emaitza
           introduction: 'Orrialde honek %{reference} zozketaren emaitzak ditu. Zozketa honen bidez, %{target_items} emaitza kopurua ausaz eta banaketa probabilistiko berdinarekin aukeratu dira proposamen multzotik. Orri honek, emaitzak ezezik, berme guztiak izateko behar den informazioa ere jaso du. Zozketa honen kalitateak bi gako ditu. Alde batetik, dadoa hainbat lekukoren aurrean bota dela. Bestetik, zozketaren une zehatzean sortu den algoritmoak eman duen ausazko hautaketa. Sailkapenerako hazi-denbora hain da zehatza (segunduak) gizakiak ezin baitu hori kontrolatu. Honi esker, bidezko emaitza bermatzen duen sarrera bikoitz "kontrolaezina" sortzen da.  '
           mathematical_result: Emaitza (Dadoa x Hazia)
           proposals_selected_by_sortition: Zozketa bidez aukeratutako proposamenak
           sortition_reproducibility_details: Zozketaren errepikagarritasuna
+          taxonomies: '%{taxonomies} taxonomietatik'
           time_seed: Denbora hazia
           witnesses: Lekukoak
         sortition:

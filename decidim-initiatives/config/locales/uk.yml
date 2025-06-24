@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -173,6 +174,9 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: '%{author_nickname} підтримав почин'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
+      initiative_signatures:
+        fill_personal_data:
+          continue: Продовжити
       initiative_votes:
         create:
           error: При підписанні цього почину сталися помилки.
@@ -238,11 +242,14 @@ uk:
         expired: Строк дії яких закінчився
     menu:
       initiatives: Почини
+    resources:
+      initiatives_type:
+        actions:
+          vote: Підписати
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Внести
-        finish: Завершити
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
       initiatives:

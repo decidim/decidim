@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -30,6 +31,8 @@ lt:
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
         tos_agreement: Paslaugos sutarties sąlygos
+      user_group:
+        avatar: Avataras
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
@@ -54,7 +57,6 @@ lt:
         with_participatory_space: Dalyvaujamoji erdvė
       decidim/user:
         current_password: Dabartinis slaptažodis
-        email: El. paštas
         name: Slapyvardis
         password: Slaptažodis
         password_confirmation: Slaptažodžio patvirtinimas
@@ -603,7 +605,6 @@ lt:
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       sessions:
         new:
-          are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra.
       shared:
@@ -623,8 +624,6 @@ lt:
             suprantame jūsų sprendimą.</p>
             <p>Ačiū, kad tai perskaitėte!</p>
           title: Pranešimai apie naujienlaiškį (-ius)
-        omniauth_buttons:
-          or: Arba
     doorkeeper:
       authorizations:
         new:
@@ -647,8 +646,6 @@ lt:
         error: Klaida įkeliant paveikslėlį.
         success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
-    endorsement_buttons_cell:
-      endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
@@ -907,7 +904,7 @@ lt:
       badges:
         followers:
           conditions:
-            - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
+          - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
           description: Šis ženklelis suteikiamas, kai pasiekiate tam tikrą skaičių sekėjų. %{organization_name} – tai socialinis ir politinis tinklas, kuriame galite megzti savo tinklą ir bendrauti su kitais platformos žmonėmis.
           description_another: Šis dalyvis turi %{score} sekėjus (-ų).
           description_own: "Jus seka %{score} žmonės (-ių)."
@@ -1318,14 +1315,12 @@ lt:
         conversations: Pokalbiai
         followers: Sekėjai
         following: Seka
+        group_admins: Valdyti administratorių duomenis
+        group_members: Valdyti narius
         groups: Grupės
         members: Nariai
         officialized: Patikrintas dalyvis
         send_private_message: Siųsti asmeninę žinutę
-      sidebar:
-        badges:
-          info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
-          title: Ženkleliai
       user:
         actions:
           create_user_group: Sukurti grupę
@@ -1339,24 +1334,10 @@ lt:
           manage_user_group_admins: Valdyti administratorių duomenis
           manage_user_group_users: Valdyti narius
           message: Pranešimas
-          resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
+          resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
-        create_user_group: Sukurti grupę
-        edit_profile: Redaguoti profilį
-        edit_user_group: Redaguoti grupės profilį
         fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
-        invite_user: Kviesti dalyvį
-        join_user_group: Prašyti prisijungti prie grupės
-        leave_user_group: Palikti grupę
-        manage_user_group_admins: Tvarkyti administratorius
-        manage_user_group_users: Valdyti narius
-        resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
     reported_mailer:
-      hide:
-        hello: Sveiki %{name},
-        manage_moderations: Tvarkyti vedamas diskusijas
-        report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
-        subject: Išteklius paslėptas automatiškai
       report:
         authors: Autoriai
         content: Turinys, apie kurį pranešta
@@ -1429,14 +1410,11 @@ lt:
       flag_user_modal:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         block: Blokuoti šį naudotoją
-        close: Uždaryti
-        description: Kas netinka apie naudotoją?
         does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
         hide: Slėpti visą jų turinį
         offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
         report: Pranešti
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
-        title: Pranešti apie netinkamą turinį
       floating_help:
         help: Pagalba
       mentions_modal:

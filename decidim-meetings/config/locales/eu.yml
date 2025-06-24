@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -14,7 +15,7 @@ eu:
         video_url: Bideoaren URLa
       meeting:
         address: Helbidea
-        available_slots: Topaketa honetarako toki erabilgarriak
+        available_slots: Libre dauden plazak
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
@@ -37,7 +38,7 @@ eu:
         registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
         registrations_enabled: Izen-emateak gaituta
-        reserved_slots: Topaketa honetarako toki erabilgarriak
+        reserved_slots: Erreserbatuta dauden plazak
         start_time: Hasiera ordua
         title: Titulua
         transparent: Gardena
@@ -152,7 +153,7 @@ eu:
       meetings:
         actions:
           comment: Iruzkina
-          join: Parte hartu
+          join: Hartu parte
           reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
@@ -163,7 +164,7 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
@@ -203,13 +204,13 @@ eu:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
+            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak bere orrian irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa antolatu duzulako.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
+            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak bere orrien irakur ditzakezu:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
@@ -219,30 +220,30 @@ eu:
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
           notification_title: '<a href="%{resource_path}">%{resource_title}</a> topaketa hona gehitu da: %{participatory_space_title}'
         meeting_registration_confirmed:
-          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketan izena eman duzu. Zure erregistroaren kodea %{registration_code} da.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
-          email_outro: Topaketako espazio parte-hartzailearen administratzaile zarelako jaso duzu jakinarazpen hau.
+          email_outro: Topaketako partaidetza-espazioaren administratzaile zarelako jaso duzu jakinarazpen hau.
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: '"%{resource_title}" topaketa eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu egin da.
         registration_code_validated:
-          email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
-          email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
-          email_subject: Zure "%{registration_code}" izen-emate kodea "%{resource_title}" topaketarako baliozkotu egin da
-          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> topaketarako balioztatu da.
+          email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
+          email_subject: '"%{resource_title}" topaketarako zure "%{registration_code}" erregistro kodea baliozkotu egin da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako zure "%{registration_code}" erregistro kodea balioztatu da.
         registrations_enabled:
-          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure izena eman dezakezu bere orrialdean:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
-          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketaren izen-emateak zabalik.
+          email_intro: '"%{resource_title}" topaketan izena emateko epea ireki da. Izena eman ahal duzu bere orrian:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
+          email_subject: '"%{resource_title}" topaketan izena emateko epea ireki da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketan izena emateko epea ireki da.
         upcoming_meeting:
           email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino lehen hasiko da.
     forms:
@@ -252,7 +253,7 @@ eu:
       badges:
         attended_meetings:
           conditions:
-            - Eman izena parte hartu nahi duzun topaketan
+          - Eman izena parte hartu nahi duzun topaketan
           description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
           description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
           description_own: '%{score} topaketatan hartu duzu parte.'
@@ -408,15 +409,15 @@ eu:
         poll:
           form:
             announcement_html:
-              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
-              - Edozein unetan gehitu ahal duzu galdera bat.
-              - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
-              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
+            - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
+            - Edozein unetan gehitu ahal duzu galdera bat.
+            - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
+            - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde
             validate: Balioztatu
-            validate_registration_code: Baliozkotzeko inskripzio kodea
+            validate_registration_code: Balidatu inskripzio-kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
@@ -459,7 +460,7 @@ eu:
           all: Guztiak
       calendar:
         meeting_to_event:
-          read_more: Irakurri gehiago topaketa honetaz
+          read_more: Irakurri gehiago topaketa honi buruz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         copy_calendar_url: Kopiatu
@@ -471,7 +472,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -483,7 +484,7 @@ eu:
         meetings:
           index:
             meetings: Topaketak
-            space_type: Parte hartzeko espazioa
+            space_type: Partaidetza-espazioa
       iframe_access_level:
         all: Bisitari guztiak
         registered: "Parte hartzaile erregistratuak topaketa honetan\n"
@@ -556,7 +557,7 @@ eu:
             online: Online
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
-          available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
+          available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
@@ -586,7 +587,7 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Sortu zure topaketa
+          title: Sortu topaketa
         registration_confirm:
           cancel: Ezeztatu
           confirm: Berretsi
@@ -736,7 +737,7 @@ eu:
           attending_organizations: Topaketan izan diren erakundeak
           audio_url: Topaketaren audiograbazioa
           author: Topaketa honen egilearen data
-          available_slots: Topaketa batean leku libre kopurua
+          available_slots: Topaketarako plaza kopurua
           closed_at: Zein datatan itxi zen topaketa
           closing_report: Itxitako topaketaren txostena
           closing_visible: Topaketaren ikusgarritasuna
@@ -759,7 +760,7 @@ eu:
           longitude: Topaketaren luzera
           online_meeting_url: Online topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
-          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Partaidetza-prozesu edo Batzarra)
           private_meeting: Topaketa pribatua izan zen ala ez adierazteko
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
@@ -770,7 +771,7 @@ eu:
           registrations_enabled: Erregistroak baimenduta zeuden ala ez
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
-          reserved_slots: Topaketak duen erreserbatutako ordu-tarte kopurua
+          reserved_slots: Topaketak erreserbatutako plaza-kopurua
           start_time: Zein data eta ordutan hasi da topaketa hau
           taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua

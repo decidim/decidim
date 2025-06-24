@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ zh-TW:
       badges:
         test:
           conditions:
-            - 在Decidim中使用測試環境。
+          - 在Decidim中使用測試環境。
           description: 參與者通過建立測試可獲得此徽章。
           description_another: 此參與者已建立了 %{score} 個測試。
           description_own: 您已建立了 %{score} 個測試。

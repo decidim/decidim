@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -28,6 +29,8 @@ nl:
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
+      user_group:
+        avatar: Profielafbeelding
     models:
       decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
@@ -43,7 +46,6 @@ nl:
     attributes:
       decidim/user:
         current_password: Huidige wachtwoord
-        email: E-mailadres
         name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
@@ -363,6 +365,8 @@ nl:
         view_all: Bekijk alles
       metrics:
         name: Organisatie statistieken
+      participatory_space_metrics:
+        name: Deelname in cijfers
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -385,7 +389,6 @@ nl:
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
-          are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
         newsletter_modal:
@@ -393,8 +396,6 @@ nl:
             check: Controleer en ga door
             uncheck: Uitgeschakeld houden
           title: Nieuwsbriefmeldingen
-        omniauth_buttons:
-          or: Of
     doorkeeper:
       authorizations:
         new:
@@ -603,7 +604,7 @@ nl:
       badges:
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze deelnemer heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen jou."
@@ -715,12 +716,12 @@ nl:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{manager} is een nieuw gesprek begonnen in de naam van %{group}. Klik hier om het te zien:"
           subject: "%{manager} is een nieuw gesprek begonnen als %{group}"
         comanagers_new_message:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{manager} heeft nieuwe berichten gepost in een gesprek in de naam van %{group}. Klik hier om ze te bekijken:"
           subject: "%{manager} heeft nieuwe berichten verzonden als %{group}"
         new_conversation:
@@ -729,12 +730,12 @@ nl:
           subject: "%{sender} is een gesprek met je begonnen"
         new_group_conversation:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{sender} is een nieuw gesprek begonnen met de groep %{group}. Klik hier om het te zien:"
           subject: "%{sender} is een gesprek begonnen met %{group}"
         new_group_message:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{sender} heeft nieuwe berichten gepost in een gesprek met de groep %{group}. Klik hier om het te zien:"
           subject: "%{group} heeft nieuwe berichten van %{sender}"
         new_message:
@@ -756,6 +757,8 @@ nl:
           new_conversation: Nieuwe conversatie
           next: Volgende
           title: conversaties
+        reply_form:
+          placeholder: Jouw antwoord...
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
@@ -883,29 +886,23 @@ nl:
         conversations: Gesprekken
         followers: Volgers
         following: Aan het volgen
+        group_admins: Beheer beheerders
+        group_members: Leden beheren
         groups: Groepen
         members: Leden
         officialized: Officiële gebruiker
-      sidebar:
-        badges:
-          info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
-          title: Badges
       user:
-        create_user_group: Maak een groep
-        edit_profile: Bewerk profiel
-        edit_user_group: Bewerk groepsprofiel
-        invite_user: Nodig deelnemer uit
-        join_user_group: Verzoek om lid te worden van de groep
-        leave_user_group: Verlaat groep
-        manage_user_group_admins: Beheer beheerders
-        manage_user_group_users: Leden beheren
-        resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
+        actions:
+          create_user_group: Maak een groep
+          edit_profile: Bewerk profiel
+          edit_user_group: Bewerk groepsprofiel
+          invite_user: Nodig deelnemer uit
+          join_user_group: Verzoek om lid te worden van de groep
+          leave_user_group: Verlaat groep
+          manage_user_group_admins: Beheer beheerders
+          manage_user_group_users: Leden beheren
+          resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
-      hide:
-        hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
-        report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
-        subject: Een bron is automatisch verborgen
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud

@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -22,6 +23,10 @@ fr-CA:
         one: Débat
         other: Débats
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Débats
     components:
       debates:
         actions:
@@ -35,6 +40,7 @@ fr-CA:
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            taxonomy_filters_add: Ajouter un filtre
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -65,8 +71,11 @@ fr-CA:
           form:
             add_attachments: Ajouter des pièces jointes
             attachment_legend: Ajouter un document ou une image
+            comments_warning: Une fois le premier commentaire publié, l'option d'affichage sélectionnée ne peut pas être modifiée.
             debate_type: Type de débat
             edit_attachments: Modifier les pièces jointes
+            errors:
+              comments_layout_locked: Vous ne pouvez pas modifier la mise en page des commentaires une fois que les commentaires ont été publiés.
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
           index:
@@ -136,7 +145,7 @@ fr-CA:
         new:
           back: Retour
           create: Créer
-          title: Nouveau débat
+          title: Créer un nouveau débat
         orders:
           commented: Les plus commentés
           label: Trier les débats par
@@ -213,7 +222,7 @@ fr-CA:
       badges:
         commented_debates:
           conditions:
-            - Choisissez un débat ouvert pour participer à
+          - Choisissez un débat ouvert pour participer à
           description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
           description_another: Cet utilisateur a participé à %{score} débats.
           description_own: Vous avez participé à %{score} débats.

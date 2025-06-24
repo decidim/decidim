@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquesta publicació.
             success: Publicació creada correctament.
+          destroy:
+            success: La publicació s'ha esborrat correctament.
           edit:
             save: Actualitza
             title: Editar publicació
@@ -69,11 +72,28 @@ ca:
             published_at: Hora de publicació
             title: Títol
       posts:
+        edit:
+          back: Tornar a la publicació
+          button: Actualitzar
+          title: Editar la publicació
+        form:
+          author_id: Autoria
+          body: Cos del text
+          title: Títol
         index:
           count:
             one: "%{count} publicació"
             other: "%{count} publicacions"
           empty: Encara no hi ha cap publicació.
+          new_post: Nova publicació
+        menu_actions:
+          button_destroy: Eliminar la publicació
+          button_destroy_confirm: Segur que vols eliminar aquesta publicació?
+          button_edit: Editar la publicació
+        new:
+          back: Tornar a la publicació
+          button: Nova publicació
+          title: Crear una nova publicació
     components:
       blogs:
         actions:
@@ -88,6 +108,7 @@ ca:
             announcement: Avís
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            creation_enabled_for_participants: Les participants poden crear noves entrades en el blog
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats

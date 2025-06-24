@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -110,6 +111,7 @@ hu:
           attachment_files: Fájlok
           attachments: Mellékletek
           components: Elemek
+          landing_page: Landing oldal
           moderations: Moderálások
           process_admins: Folyamat adminisztrátorok
           steps: Fázisok

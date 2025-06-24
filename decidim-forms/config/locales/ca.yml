@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -16,11 +17,11 @@ ca:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Ha de ser adjuntat de nou
+              needs_to_be_reattached: És necessari tornar a adjuntar el fitxer
             body:
               too_long: és massa llarg
             choices:
-              missing: no estan complets
+              missing: no estan completes
               too_many: Pots triar un màxim de %{count} opcions.
         questionnaire:
           request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
@@ -43,7 +44,7 @@ ca:
             allow_answers: Permetre respostes
             allow_editing_answers: Permetre a les usuàries registrades editar les seves respostes a l'enquesta
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
-            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegador web.
             announcement: Avís
             clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
@@ -60,7 +61,7 @@ ca:
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
-            remove: Elimina
+            remove: Eliminar
             statement: Declaració
           answers:
             actions:
@@ -76,7 +77,7 @@ ca:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "%{total} respostes totals"
+              title: "%{total} respostes en total"
             show:
               title: 'Resposta #%{number}'
           display_condition:
@@ -183,7 +184,7 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
-          max_choices_alert: Hi ha massa opcions seleccionades
+          max_choices_alert: Has seleccionat massa opcions
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
@@ -217,7 +218,6 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure_edit: Podràs editar les teves respostes. Segur que vols continuar?
           are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o que creïs un compte.
           are_you_sure_no_edit: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
           back: Enrere
@@ -229,9 +229,9 @@ ca:
         completion: Finalització
         created_at: Respost el
         id: Identificador de resposta
-        ip_hash: Hash d'adreça IP
+        ip_hash: Hash de l'adreça IP
         question: Pregunta
         registered: Registrada
         session_token: Identificador d'usuària
         unregistered: No registrada
-        user_status: Estat de l'usuària
+        user_status: Estat de la usuària

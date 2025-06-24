@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -223,7 +224,7 @@ fr:
           notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
         upcoming_meeting:
           email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
@@ -233,7 +234,7 @@ fr:
       badges:
         attended_meetings:
           conditions:
-            - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
+          - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
           description: Ce badge est attribué lorsque vous participez à plusieurs rencontres en face à face.
           description_another: Cet utilisateur a participé à %{score} rencontres.
           description_own: Vous avez assisté à %{score} rencontres.
@@ -387,10 +388,10 @@ fr:
         poll:
           form:
             announcement_html:
-              - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
-              - Vous pouvez ajouter une question à tout moment.
-              - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
-              - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
+            - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
+            - Vous pouvez ajouter une question à tout moment.
+            - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
+            - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
         registrations:
           edit:
             save: Sauvegarder
@@ -414,7 +415,6 @@ fr:
             success: Les paramètres d'inscription ont été enregistrés avec succès.
           validate_registration_code:
             invalid: Ce code d'inscription est invalide.
-            success: Le code d'inscription a été validé avec succès.
       admin_log:
         invite:
           create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
@@ -563,7 +563,7 @@ fr:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre rencontre
+          title: Créer une nouvelle réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer

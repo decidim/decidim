@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -30,6 +31,8 @@ zh-TW:
         personal_url: 個人 URL
         remove_avatar: 刪除頭像
         tos_agreement: 同意服務條款
+      user_group:
+        avatar: 頭像
     models:
       decidim/attachment_created_event: 附件
       decidim/component_published_event: 啟用組件
@@ -54,7 +57,6 @@ zh-TW:
         with_participatory_space: 參與空間
       decidim/user:
         current_password: 目前密碼
-        email: 電子郵件
         name: 暱稱
         password: 密碼
         password_confirmation: 確認密碼
@@ -465,6 +467,8 @@ zh-TW:
         view_all: 檢視全部
       metrics:
         name: 組織指標
+      participatory_space_metrics:
+        name: 指標
       static_page:
         section:
           name: 節
@@ -504,7 +508,6 @@ zh-TW:
           username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       sessions:
         new:
-          are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
       shared:
@@ -521,8 +524,6 @@ zh-TW:
             如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
             <p>感謝您閱讀此內容！</p>
           title: 電子報通知
-        omniauth_buttons:
-          or: 或
     doorkeeper:
       authorizations:
         new:
@@ -545,8 +546,6 @@ zh-TW:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
-    endorsement_buttons_cell:
-      endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
@@ -796,7 +795,7 @@ zh-TW:
       badges:
         followers:
           conditions:
-            - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
+          - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
           description: 當您達到一定數量的追蹤者時，將獲得此徽章。%{organization_name} 是一個社交和政治網絡，藉此平台與其他人溝通，編織您的網絡。
           description_another: 這位參與者有 %{score} 位追隨者。
           description_own: "這位參與者有 %{score} 位追隨者。"
@@ -1195,14 +1194,12 @@ zh-TW:
         conversations: 對話
         followers: 追隨者
         following: 關注
+        group_admins: 管理管理員
+        group_members: 管理成員
         groups: 群組
         members: 成員
         officialized: 正式認證參與者
         send_private_message: 發送私人訊息
-      sidebar:
-        badges:
-          info: 徽章是通過在平台上執行特定活動而獲得的。
-          title: 徽章
       user:
         actions:
           create_user_group: 建立群組
@@ -1210,26 +1207,14 @@ zh-TW:
           edit_user_group: 編輯群組資料
           invite_user: 邀請參與者
           join_user_group: 申請加入群組
+          leave_user_group: 退出群組
           manage_user_group_admins: 管理管理員
           manage_user_group_users: 管理成員
           message: 訊息
+          resend_email_confirmation_instructions: 重新發送電子郵件確認指示
         confirmation_instructions_sent: 電子郵件確認指示已發送.
-        create_user_group: 建立群組
-        edit_profile: 編輯個人資料
-        edit_user_group: 編輯群組資料
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
-        invite_user: 邀請參與者
-        join_user_group: 申請加入群組
-        leave_user_group: 退出群組
-        manage_user_group_admins: 管理管理員
-        manage_user_group_users: 管理成員
-        resend_email_confirmation_instructions: 重新發送電子郵件確認指示
     reported_mailer:
-      hide:
-        hello: 哈囉，%{name},
-        manage_moderations: 管理版主
-        report_html: <p>以下<a href="%{url}">內容</a>已自動隱藏。</p>
-        subject: 一個資源已被自動隱藏。
       report:
         authors: 作者
         content: 已檢舉內容
@@ -1300,14 +1285,11 @@ zh-TW:
       flag_user_modal:
         already_reported: 此內容已被舉報，將由管理員進行審查。
         block: 封鎖此參與者
-        close: 關閉
-        description: 關於該使用者有什麼不適當的行為？
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
         hide: 隱藏所有內容
         offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
         report: 報告
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
-        title: 舉報不適當的使用者
       floating_help:
         help: 幫助
       mentions_modal:
@@ -1561,7 +1543,7 @@ zh-TW:
             description: 說明
             name: 名稱
             service: 服務
-            type: 種類
+            type: 類別
           items:
             _session_id:
               description: 允許網站在使用者在網頁之間移動時記住使用者。

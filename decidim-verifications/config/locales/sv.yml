@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -58,39 +59,39 @@ sv:
       admin:
         another_dummy_authorization_handler:
           help:
-            - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
-            - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
-            - Bli verifierad genom att ange ett passnummer som börjar på ”A”.
+          - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
+          - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
+          - Bli verifierad genom att ange ett passnummer som börjar på ”A”.
         csv_census:
           help:
-            - Administratörer kan skicka in CSV-fil med e-postadresserna till de godkända deltagarna.
-            - Endast deltagare med en e-postadress i CSV-filen kan verifieras.
+          - Administratörer kan skicka in CSV-fil med e-postadresserna till de godkända deltagarna.
+          - Endast deltagare med en e-postadress i CSV-filen kan verifieras.
         default:
           help:
-            - Hjälp för auktoriseringshanteraren är inte definierad.
-            - En utvecklare måste definiera hjälp i översättningen (i18n) nyckel "%{authorization_handler}"
+          - Hjälp för auktoriseringshanteraren är inte definierad.
+          - En utvecklare måste definiera hjälp i översättningen (i18n) nyckel "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
-            - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
-            - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
+          - En exempel-auktoriseringshanterare så att utvecklare kan förstå hur en enkel verifiering fungerar.
+          - Den riktar sig till utvecklare så att de kan förstå hur man implementerar sitt eget verifieringssystem.
+          - Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
-            - Du fyller i informationen som visas i den inskickade bilden.
-            - Informationen ska stämma överens med vad användaren fyllde i.
-            - Om du inte kan se informationen tydligt eller om du inte kan få den verifierad, du kan avvisa begäran och användaren kommer att kunna åtgärda den.
+          - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
+          - Du fyller i informationen som visas i den inskickade bilden.
+          - Informationen ska stämma överens med vad användaren fyllde i.
+          - Om du inte kan se informationen tydligt eller om du inte kan få den verifierad, du kan avvisa begäran och användaren kommer att kunna åtgärda den.
         postal_letter:
           help:
-            - Deltagare begär en verifieringskod som ska skickas till deras adress.
-            - Skicka brevet med verifieringskoden till deras adress.
-            - Du markerar brevet som skickat.
-            - När du markerat brevet som skickat kommer användaren att kunna föra in koden och bli verifierad.
+          - Deltagare begär en verifieringskod som ska skickas till deras adress.
+          - Skicka brevet med verifieringskoden till deras adress.
+          - Du markerar brevet som skickat.
+          - När du markerat brevet som skickat kommer användaren att kunna föra in koden och bli verifierad.
         sms:
           help:
-            - Deltagarna begär en verifieringskod som ska skickas till deras telefon.
-            - De måste ange koden för att bli verifierade.
-            - Om de inte får koden kan de begära den igen.
+          - Deltagarna begär en verifieringskod som ska skickas till deras telefon.
+          - De måste ange koden för att bli verifierade.
+          - Om de inte får koden kan de begära den igen.
       csv_census:
         explanation: Bli verifierad med hjälp av organisationens medlemsregister.
         name: Organisationens medlemslista
@@ -165,9 +166,9 @@ sv:
               john.doe@example.org
               jane.doe@example.org
             file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
-            submit: Skicka in fil
-            title: Skicka in nya medlemsuppgifter
+            info: 'Filen måste i formatet CSV med endast en kolumn med e-postadress:'
+            submit: Ladda upp fil
+            title: Ladda upp en ny folkräkning
         authorizations:
           new:
             error: Vi kunde inte verifiera ditt konto, eller så finns du inte i organisationens medlemsuppgifter.

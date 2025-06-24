@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -435,6 +436,6 @@ fi-pl:
         project_proposal: Tähän projektiin liittyvät ehdotukset
     statistics:
       orders_count: Kannatusta
-      projects_count: Suunnitelmaa
+      projects_count: Suunnitelmat
   index:
     confirmed_orders_count: Äänten määrä

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -99,7 +100,6 @@ nl:
         new:
           back: Terug
           create: Aanmaken
-          title: Nieuw debat
         orders:
           commented: Meeste reacties
           label: Sorteer debatten op
@@ -107,6 +107,7 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
+          debate_closed: Gesloten
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
@@ -152,7 +153,7 @@ nl:
       badges:
         commented_debates:
           conditions:
-            - Kies een open debat om deel te nemen
+          - Kies een open debat om deel te nemen
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw reacties achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
@@ -163,6 +164,6 @@ nl:
       debates:
         description: Aantal debatten gemaakt
         object: debatten
-        title: debatten
+        title: Debatten
     statistics:
       debates_count: Debatten

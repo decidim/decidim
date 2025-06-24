@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       attachment:
         documents: Dokumente
+        image: Bild
         photos: Fotos
       common:
         created_at: Erstellt am
@@ -54,6 +56,12 @@ de:
         tos_agreement: Nutzungsvereinbarung
       user_group:
         avatar: Profilbild
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Der Spitzname muss Kleinbuchstaben sein und keine Leerzeichen enthalten
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -78,7 +86,7 @@ de:
         with_participatory_space: Partizipativer Raum
       decidim/user:
         current_password: Aktuelles Passwort
-        email: E-Mail
+        email: E-Mail-Adresse
         name: Spitzname
         password: Passwort
         password_confirmation: Bestätigung des Passworts
@@ -106,7 +114,7 @@ de:
   date:
     buttons:
       close: Schliessen
-      select: Auswählen
+      select: Wählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -171,6 +179,7 @@ de:
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       opens_in_new_tab: In neuem Tab öffnen
+      secondary_menu: Sekundäres Menü
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -531,7 +540,7 @@ de:
           comment: Kommentar
           debate: Debatte
           initiative: Initiative
-          meeting: Treffen
+          meeting: Veranstaltung
           order: Budget-Abstimmung
           post: Beitrag
           proposal: Vorschlag
@@ -564,6 +573,8 @@ de:
             dummy_step_attribute1: Dummy-Schritt-Attribut 1
             dummy_step_attribute2: Dummy-Schritt-Attribut 2
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
+      pagination:
+        page_title: "%{component_name} - Seite %{current_page} von %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
@@ -612,7 +623,7 @@ de:
       metrics:
         name: Organisationsmetriken
       participatory_space_metrics:
-        name: Metriken
+        name: Teilnahme an Zahlen
       participatory_space_stats:
         name: Statistiken
       social_networks_metadata:
@@ -672,7 +683,7 @@ de:
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
         new:
-          are_you_new?: Neu auf der Plattform?
+          are_you_new?: Noch nicht registriert?
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
@@ -697,7 +708,7 @@ de:
             <p>Vielen Dank, dass Sie sich die Zeit zum Lesen genommen haben!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
-          or: Oder
+          or: oder
         password_fields:
           hidden_password: Ihr Passwort ist versteckt
           hide_password: Passwort verstecken
@@ -761,6 +772,14 @@ de:
           published: Ob diese private Teilnahme veröffentlicht ist oder nicht
           role: Die Rolle, die diese private Teilnahme hat
           updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
+        reports:
+          created_at: Das Datum und die Uhrzeit, an der dieser Bericht erstellt wurde
+          details: Die Details dieses Berichts
+          id: Die eindeutige Bezeichnung dieses Berichts
+          locale: Die Sprache dieses Berichts
+          moderation: Die Moderationsmeldung dieses Berichts
+          reason: Die Begründung dieser Meldung
+          updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
           id: Die eindeutige Bezeichnung der Gruppe
@@ -769,6 +788,7 @@ de:
           verified_at: Datum und Uhrzeit, wann diese Benutzergruppe überprüft wurde
         users:
           about: Die Profilbeschreibung dieses Benutzers
+          accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
           admin: Ob dieser Benutzer ein Administrator ist
           confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
           confirmed_at: Datum und Uhrzeit, an dem dieser Benutzer bestätigt wurde
@@ -778,6 +798,8 @@ de:
           delete_reason: Der Grund für das Löschen dieses Benutzers
           deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
           email: Die E-Mail-Adresse dieses Benutzers
+          followers_count: Die Anzahl Teilnehmende, die diesem Nutzenden folgen
+          following_count: Die Anzahl der Teilnehmende, denen dieser Nutzende folgt
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
           invitation_created_at: Datum und die Uhrzeit, an dem dieser Benutzer eingeladen wurde
@@ -796,10 +818,13 @@ de:
           officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
+          password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
           personal_url: Die persönliche URL dieses Benutzers
           remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
           reset_password_sent_at: Datum und Uhrzeit, an dem die Zurücksetzung des Passworts ausgelöst wurde
+          roles: Die Rolle, falls vorhanden, die dieser Nutzende hat
           sign_in_count: Die Anzahl der Anmeldungen dieses Benutzers
+          type: Der Typ, den dieser Benutzer hat
           unconfirmed_email: Die E-Mail-Adresse, die dieser Benutzer noch nicht bestätigt hat
           updated_at: Datum und Uhrzeit, an dem dieser Benutzer zuletzt aktualisiert wurde
       show:
@@ -823,20 +848,10 @@ de:
         error: Fehler beim Hochladen des Bildes.
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
-    endorsement_buttons_cell:
-      already_endorsed: Zustimmung zurückziehen
-      endorse: Gefällt mir
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
-    endorsers_list:
-      endorsed_by:
-        one: '%{visible} stimmt zu'
-        other: '%{visible} und %{others} stimmen zu'
-      others: "%{count} weitere"
-      title: Zustimmende
-      you: du
     ephemeral_user: Gast
     errors:
       files:
@@ -989,6 +1004,16 @@ de:
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des betroffenen %{resource_type}s sind.
+          email_subject: Ihr %{resource_type} ist nicht mehr sichtbar
+          notification_title: |-
+            Dein %{resource_type} ist nicht mehr sichtbar.<br>
+            Dies geschah, weil der Vorschlag, die Veranstaltung, die Debatte oder die Kommentare, auf die Sie geantwortet haben, verborgen wurden. Wenn sie wieder eingeblendet werden, wird ihr Kommentar automatisch wiederhergestellt.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Ein Administrator hat Ihr/e/n %{resource_type} entfernt, weil diese/r/s als %{report_reasons} gemeldet wurde.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor des entfernten Inhalts sind.
@@ -1064,8 +1089,8 @@ de:
       attachment_link:
         explanation: Anleitung für Anhang-Links
         help_messages:
-          - Nur korrekte URL-Formate werden akzeptiert.
-          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
+        - Nur korrekte URL-Formate werden akzeptiert.
+        - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -1116,7 +1141,7 @@ de:
       badges:
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
           description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
@@ -1367,7 +1392,7 @@ de:
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
-        title: Anhänger
+        title: Follower
       participants:
         description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
@@ -1379,7 +1404,7 @@ de:
       users:
         description: Anzahl der Benutzer in der Organisation
         object: Benutzer
-        title: Benutzer
+        title: Teilnehmer
     newsletter_mailer:
       newsletter:
         no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
@@ -1475,7 +1500,7 @@ de:
         push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
-        valuators: Bewertende
+        valuators: Bewertende Personen
       update:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
@@ -1541,7 +1566,7 @@ de:
         user_groups:
           avatar_url: Der Avatar der Gruppe
           badge: Das Abzeichen der Gruppe
-          deleted: Ob der Benutzer gelöscht wurde oder nicht
+          deleted: Ob das Konto gelöscht wurde oder nicht
           id: Die eindeutige Bezeichnung des Gruppe
           members: Die IDs und die Namen der Gruppenmitglieder
           members_count: Die Anzahl Gruppenmitglieder
@@ -1666,7 +1691,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Teilnehmer
+      deleted: Gelöschter Benutzer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
@@ -1683,41 +1708,41 @@ de:
         members: Mitglieder
         officialized: Offizieller Teilnehmer
         send_private_message: Private Nachricht senden
-      sidebar:
-        badges:
-          info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
-          title: Abzeichen
       user:
         actions:
           create_user_group: Gruppe erstellen
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           edit_user_group: Gruppenprofil bearbeiten
-          invite_user: Teilnehmer einladen
-          join_user_group: Gruppenbeitritt anfragen
+          invite_user: Nutzer einladen
+          join_user_group: Anfrage zur Teilnahme an der Gruppe
           leave_user_group: Gruppe verlassen
           manage_user_group: Gruppe verwalten
           manage_user_group_admins: Admins verwalten
           manage_user_group_users: Mitglieder verwalten
           message: Nachricht
-          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
+          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
-        create_user_group: Gruppe erstellen
-        edit_profile: Profil bearbeiten
-        edit_user_group: Gruppenprofil bearbeiten
         fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
-        invite_user: Nutzer einladen
-        join_user_group: Anfrage zur Teilnahme an der Gruppe
-        leave_user_group: Gruppe verlassen
-        manage_user_group_admins: Admins verwalten
-        manage_user_group_users: Mitglieder verwalten
-        resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Gemeldeter Inhalt
+        details: Details
         hello: Hallo %{name},
         manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
         subject: Eine Ressource wurde automatisch ausgeblendet
+      hidden_manually:
+        content: Gemeldeter Inhalt
+        details: Details
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Begründung
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde durch %{moderator} ausgeblendet.</p>
+        subject: Eine Ressource wurde durch %{moderator} ausgeblendet
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
@@ -1735,6 +1760,10 @@ de:
       create:
         error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+      hide:
+        success: Diese Ressource wurde ausgeblendet.
+      parent_hidden:
+        report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource:
       controls_label: Ressourcensteuerung
     resource_endorsements:
@@ -1797,14 +1826,13 @@ de:
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
-        close: Schließen
-        description: Was ist unangebracht über den Benutzer?
+        description: Was ist unangemessen an diesem Teilnehmenden?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
         offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Unangemessenen Nutzer melden
+        title: Unangemessenen Teilnehmenden melden
       floating_help:
         help: Hilfe
       follow_button:
@@ -2335,7 +2363,7 @@ de:
     buttons:
       close: Schliessen
       reset: Zurücksetzen
-      select: Auswählen
+      select: Wählen
     formats:
       day_of_month: "%d. %b"
       day_of_week: "%a"

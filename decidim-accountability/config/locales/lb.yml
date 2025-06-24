@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -164,7 +165,7 @@ lb:
       results:
         description: Anzahl der generierten Ergebnisse
         object: Ergebnisse
-        title: Ergebnisse
+        title: Resultater
     participatory_spaces:
       highlighted_results:
         see_all: Alle Ergebnisse ansehen (%{count})

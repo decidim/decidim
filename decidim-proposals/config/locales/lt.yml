@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -192,6 +193,8 @@ lt:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
           proposal_note_created:
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
@@ -257,8 +260,8 @@ lt:
       badges:
         accepted_proposals:
           conditions:
-            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
-            - Pabandykite teikti pasiūlymus, kuriuos būtų galima įgyvendinti. Taip labiau tikėtina, kad jie bus priimti.
+          - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+          - Pabandykite teikti pasiūlymus, kuriuos būtų galima įgyvendinti. Taip labiau tikėtina, kad jie bus priimti.
           description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus ir jie yra priimami.
           description_another: Priimti (-a) %{score} šio dalyvio pasiūlymai (-ų).
           description_own: Priimti (-a) %{score} jūsų pasiūlymai (-ų).
@@ -268,12 +271,12 @@ lt:
           unearned_own: Dar nepriimtas nė vienas jūsų pasiūlymas.
         proposal_votes:
           conditions:
-            - Naršykite ir praleiskite šiek tiek laiko skaitydami kitų žmonių pasiūlymus
-            - 
+          - Naršykite ir praleiskite šiek tiek laiko skaitydami kitų žmonių pasiūlymus
+          - 
         proposals:
           conditions:
-            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
-            - Sukurti naują pasiūlymą
+          - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+          - Sukurti naują pasiūlymą
           description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus.
           description_another: Šis dalyvis sukūrė %{score} pasiūlymus (-ų).
           description_own: Jūs parengėte %{score} pasiūlymus (-ų).
@@ -294,9 +297,10 @@ lt:
         description: Pasiūlymų skaičius
         object: pasiūlymai
         title: Pasiūlymai
+      votes:
+        title: Balsai
     participatory_spaces:
       highlighted_proposals:
-        last: Paskutiniai pasiūlymai
         see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:
@@ -389,7 +393,6 @@ lt:
           index:
             actions: Veiksmai
             assign_to_valuator: Priskirti vertintojui
-            assign_to_valuator_button: Priskirti
             cancel: Atšaukti
             merge: Sulieti į vieną
             merge_button: Sulieti
@@ -401,7 +404,6 @@ lt:
             split_button: Skaidyti
             title: Pasiūlymai
             unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
-            unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
           new:
             create: Sukurti
@@ -416,11 +418,6 @@ lt:
             documents: Dokumentai
             endorsements_count: Palaikymų skaičius
             endorsers: Pritariantieji
-            n_more_endorsers:
-              one: ir dar vienas
-              few: ir dar %{count}
-              many: ir dar %{count} daugiau
-              other: ir dar %{count} daugiau
             photos: Nuotraukos
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
@@ -430,7 +427,6 @@ lt:
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema.
-            success: "%{number} pasiūlymai importuoti."
           new:
             create: Importuoti pasiūlymus
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
@@ -647,7 +643,6 @@ lt:
           text_banner: Jūs žiūrite autorių atsiimtų pasiūlymų sąrašą. %{go_back_link}.
         new:
           send: Tęsti
-          title: Sukurti savo pasiūlymą
         orders:
           label: 'Rikiuoti pasiūlymus pagal:'
           most_commented: Labiausiai komentuojamas

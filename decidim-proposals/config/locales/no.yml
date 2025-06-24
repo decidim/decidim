@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -212,8 +213,8 @@
       badges:
         accepted_proposals:
           conditions:
-            - Velg deltaker området for interessen din når innsending av forslag er aktivert
-            - Forsøk å komme med forslag som kan gjennomføres. På denne måten er det mer sannsynlig at de blir akseptert.
+          - Velg deltaker området for interessen din når innsending av forslag er aktivert
+          - Forsøk å komme med forslag som kan gjennomføres. På denne måten er det mer sannsynlig at de blir akseptert.
           description: Dette merket tildeles når du deltar aktivt med nye forslag og disse blir akseptert.
           description_another: Denne deltakeren har %{score} aksepterte forslag.
           description_own: Du har %{score} forslag godtatt.
@@ -223,12 +224,12 @@
           unearned_own: Du har ingen forslag godtatt ennå.
         proposal_votes:
           conditions:
-            - Bla gjennom og bruk litt tid på å lese andres forslag
-            - 
+          - Bla gjennom og bruk litt tid på å lese andres forslag
+          - 
         proposals:
           conditions:
-            - Velg deltaker området for interessen din når innsending av forslag er aktivert
-            - Opprett et nytt forslag
+          - Velg deltaker området for interessen din når innsending av forslag er aktivert
+          - Opprett et nytt forslag
           description: Dette merket tildeles når du deltar aktivt med nye forslag.
           description_another: Denne deltakeren har opprettet %{score} forslag.
           description_own: Du har opprettet %{score} forslag.
@@ -248,6 +249,8 @@
         description: Antall forslag
         object: forslag
         title: Forslag
+      votes:
+        title: Stemmer
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle
@@ -327,7 +330,6 @@
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
-            assign_to_valuator_button: Tildel
             cancel: Avbryt
             merge: Slå sammen til en ny
             merge_button: Slå sammen
@@ -338,7 +340,6 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
-            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
           new:
             create: Opprett
@@ -350,9 +351,6 @@
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
             endorsers: Påtegnelser
-            n_more_endorsers:
-              one: og 1 til
-              other: og %{count} til
             photos: Bilder
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter

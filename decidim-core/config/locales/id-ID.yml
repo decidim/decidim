@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -28,7 +29,6 @@ id:
     attributes:
       decidim/user:
         current_password: Kata sandi saat ini
-        email: E-mail
         name: Nama pengguna
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
@@ -252,6 +252,8 @@ id:
         view_all: Lihat semua
       metrics:
         name: Metrik organisasi
+      participatory_space_metrics:
+        name: Partisipasi dalam angka
       stats:
         name: Statistik organisasi
       sub_hero:
@@ -272,15 +274,12 @@ id:
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
       sessions:
         new:
-          are_you_new?: Baru ke platform?
           register: Buat sebuah akun
       shared:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
           title: Notifikasi buletin
-        omniauth_buttons:
-          or: Atau
     doorkeeper:
       authorizations:
         new:
@@ -448,7 +447,7 @@ id:
       badges:
         followers:
           conditions:
-            - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
+          - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
           description: Lencana ini diberikan ketika Anda mencapai sejumlah pengikut tertentu. %{organization_name} adalah jaringan sosial dan politik, menjalin web Anda untuk berkomunikasi dengan orang lain di platform.
           description_another: Pengguna ini memiliki %{score} pengikut.
           description_own: "%{score} pengguna mengikuti Anda."
@@ -543,10 +542,18 @@ id:
       home: Rumah
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Hai, %{recipient}!
+        comanagers_new_message:
+          greeting: Hai, %{recipient}!
         new_conversation:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memulai percakapan baru dengan Anda. Klik di sini untuk melihatnya:"
           subject: "%{sender} telah memulai percakapan dengan Anda"
+        new_group_conversation:
+          greeting: Hai, %{recipient}!
+        new_group_message:
+          greeting: Hai, %{recipient}!
         new_message:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memposting pesan baru di percakapan Anda. Klik di sini untuk melihatnya:"
@@ -566,11 +573,9 @@ id:
       participants:
         description: Jumlah pengguna aktif dalam organisasi
         object: peserta
-        title: Peserta
       users:
         description: Jumlah pengguna dalam organisasi
         object: pengguna
-        title: Pengguna
     newsletter_mailer:
       newsletter:
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
@@ -644,28 +649,22 @@ id:
         badges: Lencana
         followers: Pengikut
         following: Mengikuti
+        group_admins: Kelola admin
+        group_members: Kelola anggota
         groups: Grup
         members: Anggota
-      sidebar:
-        badges:
-          info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
-          title: Lencana
       user:
-        create_user_group: Membuat grup
-        edit_profile: Edit profil
-        edit_user_group: Edit profil grup
-        invite_user: Undang pengguna
-        join_user_group: Permintaan untuk bergabung dengan grup
-        leave_user_group: Meninggalkan grup
-        manage_user_group_admins: Kelola admin
-        manage_user_group_users: Kelola anggota
-        resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
+        actions:
+          create_user_group: Membuat grup
+          edit_profile: Edit profil
+          edit_user_group: Edit profil grup
+          invite_user: Undang pengguna
+          join_user_group: Permintaan untuk bergabung dengan grup
+          leave_user_group: Meninggalkan grup
+          manage_user_group_admins: Kelola admin
+          manage_user_group_users: Kelola anggota
+          resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
-      hide:
-        hello: Halo %{name},
-        manage_moderations: Kelola moderasi
-        report_html: <p>berikut <a href="%{url}">konten</a> telah disembunyikan secara otomatis.</p>
-        subject: Sumber daya telah disembunyikan secara otomatis
       report:
         hello: Halo %{name},
         report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
@@ -719,6 +718,8 @@ id:
     statistics:
       comments_count: Komentar
     user_conversations:
+      reply:
+        send: Kirim
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
     welcome_notification:

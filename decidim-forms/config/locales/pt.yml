@@ -1,26 +1,15 @@
+---
 pt:
   activemodel:
     attributes:
       answer:
         body: Responder
-        choices: Escolhas
-        selected_choices: Escolhas seleccionadas
       question:
         max_choices: Número máximo de escolhas
         question_type: Tipo
       questionnaire_question:
         mandatory: Obrigatório
         max_characters: Limite de caracteres (deixar 0 se não houver limite)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Precisa de ser reanexado
-            body:
-              too_long: é demasiado longo
-            choices:
-              missing: não estão completos
   decidim:
     forms:
       admin:
@@ -34,22 +23,14 @@ pt:
             show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
-            free_text: Texto livre
             remove: Remover
             statement: Declaração
           answers:
             actions:
-              back: Retroceder às respostas
-              export: Exportar
               show: Mostrar respostas
             empty: Ainda não há respostas
-            export:
-              answer:
-                title: 'Resposta #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} respostas totais"
             show:
               title: 'Resposta #%{number}'
           display_condition:
@@ -119,7 +100,6 @@ pt:
       questionnaires:
         answer:
           invalid: Ocorreu um problema ao responder ao questionário.
-          max_choices_alert: Estão selecionadas demasiadas opções
           success: Questionário respondido corretamente.
         question:
           max_choices: 'Escolhas máximas: %{n}'
@@ -150,12 +130,6 @@ pt:
           submit: Submeter
       user_answers_serializer:
         body: Responder
-        completion: Conclusão
         created_at: Respondido em
         id: ID da resposta
-        ip_hash: IP Hash
         question: Questão
-        registered: Registado
-        session_token: Identificador do utilizador
-        unregistered: Não registado
-        user_status: Estado de utilizador

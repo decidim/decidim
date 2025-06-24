@@ -31,7 +31,7 @@ module Decidim
               expect(subject.builder_options).to eq(
                 marker_color: "#e02d2d",
                 tile_layer: {
-                  api_key: "key1234", foo: "bar", language: "eng"
+                  api_key: "key1234", foo: "bar", language: "en"
                 }
               )
             end
@@ -50,7 +50,7 @@ module Decidim
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "cat"
+                    api_key: "key1234", foo: "bar", language: "ca"
                   }
                 )
               end
@@ -60,7 +60,7 @@ module Decidim
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "spa"
+                    api_key: "key1234", foo: "bar", language: "es"
                   }
                 )
               end

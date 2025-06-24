@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     models:
@@ -19,6 +20,10 @@ sk:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentáre
     comments:
       votes:
         create:

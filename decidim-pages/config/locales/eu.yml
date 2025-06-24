@@ -1,9 +1,10 @@
+---
 eu:
   activerecord:
     models:
       decidim/pages/page:
-        one: Orria
-        other: Orriak
+        one: Orrialde
+        other: Orrialdeak
   decidim:
     admin_log:
       page:
@@ -19,11 +20,11 @@ eu:
     open_data:
       help:
         pages:
-          body: Orriaren gorputza
+          body: Orriaren testua
           component: Orriaren osagaia honi dagokio
           created_at: Zein datatan sortu zen orri hau
           id: Orri honen identifikatzaile bakarra
-          participatory_space: Zein espaziori dagokio (adibidez, Prozesu Parte-hartzailea edo Batzarra) orri hau
+          participatory_space: Zein espaziori dagokio (adibidez, Partaidetza-prozesua edo Batzarra) orri hau
           title: Orriaren izenburua
           updated_at: Zein egunetan eguneratu zen azken aldiz orri hau
           url: Orri honetarakko URLa
@@ -31,7 +32,7 @@ eu:
       admin:
         models:
           components:
-            body: Gorputza
+            body: Testua
         pages:
           edit:
             save: Eguneratu

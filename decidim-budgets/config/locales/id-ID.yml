@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -90,5 +91,7 @@ id:
             show_votes: Tampilkan suara
             votes_choices:
               enabled: Voting diaktifkan
+    statistics:
+      projects_count: Proyek
   index:
     confirmed_orders_count: Votes dihitung

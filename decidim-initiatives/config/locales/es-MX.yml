@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -198,8 +199,8 @@ es-MX:
       badges:
         initiatives:
           conditions:
-            - Ir al espacio de participación de Iniciativas
-            - Sigue los pasos para crear una nueva iniciativa.
+          - Ir al espacio de participación de Iniciativas
+          - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
@@ -385,7 +386,7 @@ es-MX:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          confirm: Vas a enviar la iniciativa para que una administradora la revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
+          confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit_my_initiative: Editar mi iniciativa
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
@@ -431,7 +432,7 @@ es-MX:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha respaldado la siguiente iniciativa, tal vez quieras contribuir a la conversación:"
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Recibiste esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Iniciativa respaldada por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue respaldada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
@@ -450,7 +451,7 @@ es-MX:
         attachment_legend: Añadir un documento o una imagen
         edit_attachments: Editar los archivos adjuntos
         edit_image: Editar imagen
-        image_legend: "(Opcional) Añadir una imágen"
+        image_legend: "(Opcional) Añadir una imagen"
       index:
         uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
@@ -544,13 +545,13 @@ es-MX:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           area: Área
-          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa de validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
+          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa a validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
           initiative_data: Datos sobre la iniciativa
           scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
-          send_to_technical_validation_announcement: Si todo parece correcto, haga clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
+          send_to_technical_validation_announcement: Si está todo correcto, haz clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
           signature_collection: Firmas recogidas
           state: Estado
           type: Tipo
@@ -642,7 +643,7 @@ es-MX:
         actions:
           create: Crear una iniciativa
           title: Comportamiento
-          vote: Votar
+          vote: Firmar
   layouts:
     decidim:
       initiative_creation_header:

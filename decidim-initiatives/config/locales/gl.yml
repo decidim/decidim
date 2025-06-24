@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -112,8 +113,8 @@ gl:
       badges:
         initiatives:
           conditions:
-            - Ir ao espazo de participación de Intiatives
-            - Segue os pasos para crear unha nova iniciativa
+          - Ir ao espazo de participación de Intiatives
+          - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
           description_another: Este usuario obtivo %{score} iniciativas publicadas.
           name: Iniciativas publicadas
@@ -316,12 +317,12 @@ gl:
       initiatives_type:
         actions:
           title: Accións
-          vote: Vota
+          vote: Iniciar sesión
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Rematar
+        finish: Finalizar
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
       initiative_signature_creation_header:

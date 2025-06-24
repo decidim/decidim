@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -425,7 +426,7 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           report_count_eq: Jelentések száma
-          reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
+          reported_id_string_or_reported_content_cont: Keresés %{collection} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
           user_name_or_user_nickname_or_user_email_cont: Keresés %{collection} email, név vagy becenév alapján.
         state_eq:
@@ -632,7 +633,7 @@ hu:
             created_at: Létrehozva
             document_number: Dokumentum száma
             name: Név
-            nickname: Felhasználónév
+            nickname: Becenév
             phone: Telefon
             state: Állapot
             users_count: Résztvevők száma
@@ -796,15 +797,6 @@ hu:
         edit:
           update: Frissítés
         form:
-          colors:
-            choose_color: Elsődleges szín kiválasztása
-            colors_title: Szervezet színei
-            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
-            explanation: Ez az eszköz segít kiválasztani egy színsémát, amely a színkör körül egyenlően elosztott árnyalatokból áll, és amelyet a szervezet weboldalán használnak.
-            legend_html: Az alkalmazás fő színei a <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmus</a>. A <i>szekunder</i> szín automatikusan kiszámításra kerül az elsődleges színből és a kiválasztott telítettségből.
-            saturation: Telítettség
-            title: Színválasztó
-            update_suggested_colors: A javasolt színekre frissítés
           cta_button_path_help_html: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
@@ -956,7 +948,7 @@ hu:
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
         edit_external_domains: Engedélyezett külső domainek listája
-        edit_landing_page: Az oldal tartalma
+        edit_landing_page: Oldal tartalom
         edit_organization_appearance: Honlap megjelenésének szerkesztése
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
@@ -984,9 +976,9 @@ hu:
       user_groups:
         index:
           state:
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
+            pending: Függőben levő
+            rejected: Elutasított
+            verified: Ellenőrizve
           verify_via_csv: Ellenőrizze a CSV használatát
       user_groups_csv_verifications:
         new:
@@ -996,7 +988,7 @@ hu:
             naez@azemailcim.hu
             pelda.janos@peldaul.hu
           title: Töltse fel a CSV fájlját
-          upload: Feltöltés
+          upload: Feltölt
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.

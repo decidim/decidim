@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -159,8 +160,8 @@ lb:
       badges:
         initiatives:
           conditions:
-            - Gehe zum Teilnehmerbereich von Intiativen
-            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          - Gehe zum Teilnehmerbereich von Intiativen
+          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
@@ -243,8 +244,6 @@ lb:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
-          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
@@ -253,7 +252,7 @@ lb:
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zréck
-          continue: Weider
+          continue: Fortsetzen
         promotal_committee:
           individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
@@ -378,7 +377,6 @@ lb:
       initiatives_type:
         actions:
           title: Aktionen
-          vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:

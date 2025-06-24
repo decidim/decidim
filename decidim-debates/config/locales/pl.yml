@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -123,7 +124,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Nowa debata
         orders:
           commented: Najczęściej komentowane
           label: Sortuj debaty według
@@ -131,7 +131,7 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
-          debate_closed: Zamknięta
+          debate_closed: Zakończone
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
           groups_count: Grupy
@@ -194,7 +194,7 @@ pl:
       badges:
         commented_debates:
           conditions:
-            - Wybierz otwartą debatę, w której możesz wziąć udział
+          - Wybierz otwartą debatę, w której możesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w różnych debatach, pozostawiając komentarze.
           description_another: Ten użytkownik uczestniczył w %{score} debatach.
           description_own: Brałeś udział w %{score} debatach.

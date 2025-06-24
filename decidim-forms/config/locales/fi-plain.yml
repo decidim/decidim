@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -16,7 +17,7 @@ fi-pl:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Liitettävä uudelleen
+              needs_to_be_reattached: Liitettävä uudestaan
             body:
               too_long: liian pitkä
             choices:
@@ -76,7 +77,7 @@ fi-pl:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "%{total} vastausta yhteensä"
+              title: "yhteensä %{total} vastausta"
             show:
               title: 'Vastaus #%{number}'
           display_condition:
@@ -183,14 +184,14 @@ fi-pl:
       questionnaires:
         answer:
           invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
-          max_choices_alert: Liian monta vaihtoehtoa on valittu
+          max_choices_alert: Valittuja vaihtoehtoja on liikaa
           success: Kyselyyn vastattu onnistuneesti.
         question:
           max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
           answer_questionnaire:
             already_have_an_account?: Onko sinulla jo käyttäjätili?
-            are_you_new?: Oletko uusi käyttäjä?
+            are_you_new?: Uusi käyttäjä?
             sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
             sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
             title: Vastaa kyselyyn
@@ -217,7 +218,6 @@ fi-pl:
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
-          are_you_sure_edit: Voit muokata vastauksiasi. Oletko varma?
           are_you_sure_edit_guest: Mikäli haluat muokata vastauksiasi jälkikäteen, sinun tulee luoda alustalle oma tili ja kirjautua sisään.
           are_you_sure_no_edit: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
           back: Takaisin
@@ -226,7 +226,7 @@ fi-pl:
           submit: Lähetä
       user_answers_serializer:
         body: Vastaa
-        completion: Viimeistele
+        completion: Viimeistely
         created_at: Vastattu
         id: Vastaa tunnus
         ip_hash: IP-tarkistesumma

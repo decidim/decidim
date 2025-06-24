@@ -1,9 +1,9 @@
+---
 tr:
   activemodel:
     attributes:
       sortition:
         additional_info: Sıralama bilgileri
-        decidim_category_id: Çekilişi uygulamak istediğiniz teklif kümesinin kategorileri
         decidim_proposals_component_id: Teklif seti
         dice: Kalıp rulosunun sonucu. 6 kenarlı bir zarı yuvarlayın veya 1'den 6'ya kadar bir sayı oluşturmak için başka bir rastgele yol arayın ve sonuçta elde edilen sayıyı bazı tanıkların önüne girin. Bu, sonucun rasgeleliğinin kalitesine ve garantilerine katkıda bulunur
         target_items: Seçilecek teklif sayısı (daha önce seçmiş olduğunuz teklif grubunun çoğunu çizerek, seçmek istediğiniz teklif sayısını gösterir)
@@ -41,7 +41,6 @@ tr:
         models:
           sortition:
             fields:
-              category: Kategori
               created_at: Oluşturulma tarihi
               decidim_proposals_component: Teklifler bileşeni
               dice: Zar
@@ -61,7 +60,6 @@ tr:
             title: Sıralama hakkındaki bilgileri güncelleyin
             update: Güncelle
           form:
-            all_categories: Tüm Kategoriler
             select_proposal_component: Teklif kümesini seçin
           index:
             title: Sıralama
@@ -102,11 +100,8 @@ tr:
             other: seçilen teklifler
         show:
           algorithm: Sıralamanın algoritma kodu
-          any_category: tüm kategorilerden
           cancelled: İptal edilen sıralama
           candidate_proposal_ids: Sıralama tekliflerinin sırası ve ID'si
-          candidate_proposals_info: 'Sıralama, aşağıdaki teklifler arasında (%{category_label}), aşağıdaki kimliklerle gerçekleştirildi (seçilen teklifler kalın olarak)  '
-          category: '%{category} kategoriden'
           dice_result: (1) Zar sonucu
           introduction: 'Bu sayfa, %{reference} sıralamasının sonuçlarını içerir. Bu sıralama sayesinde, %{target_items} sonuç sayısı rasgele ve aşağıda gösterilen teklif kümesinden eşit olasılık dağılımıyla seçilmiştir. Sonuçlarla birlikte, bu sayfada görüntülenen bilgiler, garantileri en üst düzeye çıkarmak ve sonuçları yeniden üretmek için gereken tüm bilgileri sağlar. Bu sınıflandırmanın kalitesinin anahtarı, bir zarın yuvarlanmasıyla sağlanan (tanıklar tarafından doğrulanan) çift rastlantısallık ve rasgele bir seçim oluşturan bir algoritma için girdi sağlayan sıralamanın kesin zamanıdır. Ayırma için zaman-tohum o kadar doğrudur (saniye) ki, insanlar tarafından kontrol edilmesi imkansızdır, böylece adil bir sonucu garantilemek için çift "kontrol edilemez" bir girdi sağlar.  '
           mathematical_result: Sonuç (1) x (2)

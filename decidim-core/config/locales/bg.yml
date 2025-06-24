@@ -1,3 +1,4 @@
+---
 bg:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ bg:
         personal_url: Персонален URL
         remove_avatar: Премахни аватара
         tos_agreement: Споразумение за условия на услугата
+      user_group:
+        avatar: Аватар
     models:
       decidim/attachment_created_event: Прикачени файлове
       decidim/component_published_event: Активен компонент
@@ -56,7 +59,6 @@ bg:
         with_participatory_space: Пространство за участници
       decidim/user:
         current_password: Текуща парола
-        email: Ел. поща
         name: Псевдоним
         password: Парола
         password_confirmation: Потвърждаване на паролата
@@ -90,7 +92,7 @@ bg:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Формат: дд/мм/гггг'
-      order: д-м-г
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -537,7 +539,7 @@ bg:
       metrics:
         name: Показатели за организацията
       participatory_space_metrics:
-        name: Метрики
+        name: Индикатори
       participatory_space_stats:
         name: Статистики
       social_networks_metadata:
@@ -588,7 +590,6 @@ bg:
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
       sessions:
         new:
-          are_you_new?: Нов сте в тази платформа?
           register: Създай профил
           sign_in_disabled: Може да влезете с външен профил.
         user:
@@ -610,8 +611,6 @@ bg:
             разберете решението си.</p>
             <p>Благодарим, че прочетохте това!</p>
           title: Известия за новости
-        omniauth_buttons:
-          or: Или
         password_fields:
           hidden_password: Вашата парола е скрита
           hide_password: Скриване на паролата
@@ -641,8 +640,6 @@ bg:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
-    endorsement_buttons_cell:
-      endorse: Харесвам
     endorsements:
       identities:
         done: Готово
@@ -861,8 +858,8 @@ bg:
       attachment_link:
         explanation: Ръководство за прикачени линкове
         help_messages:
-          - Приемат се само правилни URL формати.
-          - Моля, имайте предвид, че линковете трябва да са публични, така че всички участници да имат достъп до тях.
+        - Приемат се само правилни URL формати.
+        - Моля, имайте предвид, че линковете трябва да са публични, така че всички участници да имат достъп до тях.
       errors:
         decidim/user:
           password: Паролата е твърде къса.
@@ -910,7 +907,7 @@ bg:
       badges:
         followers:
           conditions:
-            - Ако сте активни и следвате други хора, със сигурност ще накарате други хора да ви следват.
+          - Ако сте активни и следвате други хора, със сигурност ще накарате други хора да ви следват.
           description: Ще заслужите тази значка, ако достигнете определен брой последователи. %{organization_name} е социална и политическа мрежа. Изградете собствена мрежа, за да общувате с други хора в платформата.
           description_another: Този участник има %{score} последователи.
           description_own: "Следват Ви %{score} човека."
@@ -1334,47 +1331,29 @@ bg:
         conversations: Разговори
         followers: Последователи
         following: Следванния
-        group_admins: Управление на администраторите
-        group_members: Управление на членовете
+        group_admins: Управлявай администраторите
+        group_members: Управллявай членовете
         groups: Групи
         members: Членове
         officialized: Официален участник
         send_private_message: Изпрати лично съобщение
-      sidebar:
-        badges:
-          info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
-          title: Значки
       user:
         actions:
-          create_user_group: Създаване на група
+          create_user_group: Създай група
           disabled_message: Съобщение
           edit_profile: Редактиране на профил
-          edit_user_group: Редактиране на профила на групата
+          edit_user_group: Редактиране профил на група
           invite_user: Покани участник
           join_user_group: Заявка за присъединяване към група
           leave_user_group: Напусни на групата
           manage_user_group: Управление на групата
-          manage_user_group_admins: Управление на администраторите
-          manage_user_group_users: Управление на членовете
+          manage_user_group_admins: Управлявай администраторите
+          manage_user_group_users: Управллявай членовете
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
         confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
-        create_user_group: Създай група
-        edit_profile: Редактиране на профил
-        edit_user_group: Редактиране профил на група
         fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
-        invite_user: Покани участник
-        join_user_group: Заявка за присъединяване към група
-        leave_user_group: Напусни на групата
-        manage_user_group_admins: Управлявай администраторите
-        manage_user_group_users: Управлявай членовете
-        resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
-      hide:
-        hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
-        report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
-        subject: Ресурсът е скрит автоматично
       report:
         authors: Автори
         content: Докладвано съдържание
@@ -1450,14 +1429,11 @@ bg:
       flag_user_modal:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         block: Блокирай този участник
-        close: Затвори
-        description: Какво е неприемливо при този потребител?
         does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
         hide: Скрийте цялото им съдържание
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
         report: Доклад
         spam: Съдържа примамка за кликване, реклама, измами или скриптове.
-        title: Докладвайте за неподходящ потребител
       floating_help:
         help: Помощ
       follow_button:

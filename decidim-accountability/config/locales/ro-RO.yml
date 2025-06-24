@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -16,7 +17,7 @@ ro:
         description: Descriere
         key: Cheie
         name: Nume
-        progress: Progresul
+        progress: Progres
       timeline_entry:
         description: Descriere
         entry_date: Data
@@ -36,7 +37,7 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
-        destroy: Ștergere
+        destroy: Ștergeți
         edit: Actualizare
         import_csv: Importați rezultate dintr-un fișier CSV
         new_result: Rezultat nou

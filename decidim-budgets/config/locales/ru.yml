@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -99,5 +100,7 @@ ru:
             show_votes: Показать голоса
             votes_choices:
               enabled: Голосование включено
+    statistics:
+      projects_count: Проекты
   index:
     confirmed_orders_count: Количество голосов

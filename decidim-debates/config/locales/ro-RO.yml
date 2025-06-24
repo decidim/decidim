@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -5,12 +6,12 @@ ro:
         closed_at: Închisă la
         conclusions: Concluzii
         description: Descriere
-        end_time: Se termină la
+        end_time: Dată de încheiere
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
         start_time: Începe la
         title: Titlu
-        user_group_id: Creați o dezbatere în calitate de
+        user_group_id: Creați dezbaterea ca
     models:
       decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
@@ -23,52 +24,68 @@ ro:
         few: Dezbateri
         other: Dezbateri
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Dezbateri
     components:
       debates:
         actions:
-          comment: Comentează
+          comment: Comentați
+          create: Creați o dezbatere
           endorse: Susține
         name: Dezbateri
         settings:
           global:
             announcement: Anunţ
+            attachments_allowed: Permite atașamente
+            clear_all: Ștergeți toate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
           step:
-            announcement: Anunţ
+            announcement: Anunț
             comments_blocked: Comentarii blocate
             creation_enabled: Participanții pot crea dezbateri
-            endorsements_blocked: Susțineri blocate
+            endorsements_blocked: Susțineri dezactivate
             endorsements_enabled: Susțineri activate
     debates:
       actions:
-        close: Închide
-        edit: Editare
+        close: Închideți
+        confirm_delete_debate: Sigur dorești să ştergi această postare?
+        deleted_debate_info: Postările șterse pot fi restaurate din gunoi.
+        edit: Modificați
+        new: Dezbatere nouă
         title: Acțiuni
+        view_deleted_debates: Vizualizați dezbaterile șterse
       admin:
         debate_closes:
           edit:
-            close: Închide
-            title: Închide dezbaterea
+            close: Închideți
+            title: Închideți dezbaterea
         debates:
           create:
-            invalid: A existat o problemă la crearea dezbaterii.
+            invalid: A apărut o eroare la crearea acestei dezbateri.
             success: Dezbatere creată cu succes.
           edit:
-            title: Editare dezbatere
-            update: Actualizează dezbaterea
+            title: Modificați dezbatere
+            update: Actualizați dezbaterea
           form:
-            debate_type: Tip de dezbatere
+            add_attachments: Adaugă ataşament
+            debate_type: Tipul dezbaterii
             finite: Finit (cu timp de început și sfârșit)
             open: Deschis (fără timp de început sau sfârșit)
           index:
             title: Dezbateri
           new:
-            create: Creează o dezbatere
+            create: Creați o dezbatere
             title: Dezbatere nouă
           update:
-            invalid: A apărut o problemă la actualizarea acestei dezbateri.
-            success: Dezbatere actualizata cu succes.
+            invalid: A apărut o eroare la actualizarea acestei dezbateri.
+            success: Dezbaterea a fost actualizată cu succes.
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
@@ -79,10 +96,10 @@ ro:
       debates:
         close:
           invalid: A existat o problemă la închiderea dezbaterii.
-          success: Dezbatere închisă.
+          success: Dezbatere închisă cu succes.
         close_debate_modal:
           description: Care este rezumatul sau concluzia acestei dezbateri?
-          send: Închide dezbaterea
+          send: Închideți dezbaterea
         count:
           debates_count:
             one: "%{count} dezbatere"
@@ -94,7 +111,7 @@ ro:
         edit:
           back: Înapoi
           save: Salvează modificările
-          title: Editare dezbatere
+          title: Modificați dezbatere
         filters:
           activity: Activitatea mea
           all: Toate
@@ -102,20 +119,21 @@ ro:
           category_prompt: Selectați o categorie
           commented: Comentat
           my_debates: Dezbaterile mele
-          official: Oficial
+          official: Oficiale
           origin: Origine
           participants: Participanți
           search: Caută
           state: Stare
           state_values:
             closed: Închisă
-            open: Deschide
+            open: Deschisă
+          user_group: Grupuri
         index:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
           create: Creează
-          title: Dezbatere nouă
+          title: Creați o dezbatere
         orders:
           commented: Cele mai comentate
           label: Ordonează dezbaterile după
@@ -125,13 +143,13 @@ ro:
         show:
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
-          edit_conclusions: Editează concluziile
+          edit_conclusions: Modificați concluziile
           groups_count: Grupuri
           open: Dezbatere deschisă
-          participants_count: Participanţi
+          participants_count: Participanți
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.
-          success: Dezbatere actualizata cu succes.
+          success: Dezbaterea a fost actualizată cu succes.
       last_activity:
         debate_updated: 'Dezbatere actualizată:'
         new_debate: 'Dezbatere nouă:'
@@ -139,8 +157,8 @@ ro:
         debate:
           fields:
             end_time: Data de încheiere
-            official_debate: Dezbatere publică
-            start_time: Data de început
+            official_debate: Dezbatere oficială
+            start_time: Data de începere
             title: Titlu
     events:
       debates:
@@ -170,24 +188,24 @@ ro:
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
           follower:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poții citi concluziile pe pagina dezbaterii:'
-            email_outro: Ai primit această notificare deoarece urmărești dezbaterea "%{resource_title}". Te poți dezabona accesând linkul anterior.
+            email_outro: Ați primit această notificare deoarece urmăriți dezbaterea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
             email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
     gamification:
       badges:
         commented_debates:
           conditions:
-            - Alege o dezbatere deschisă la care să participi
+          - Alegeți o dezbatere deschisă la care să participați
           description: Această insignă este acordată atunci când participi activ la diferitele dezbateri, lăsând comentariile tale.
           description_another: Acest participant a luat parte la %{score} dezbateri.
-          description_own: Ai participat la %{score} dezbateri.
+          description_own: Ați participat la %{score} dezbateri.
           name: Dezbateri
           next_level_in: Participați la încă %{score} dezbateri pentru a ajunge la următorul nivel!
-          unearned_another: Acest participant nu a luat încă parte la nicio dezbatere.
-          unearned_own: Încă nu ai luat parte la nicio dezbatere.
+          unearned_another: Acest participant nu a luat parte la nicio dezbatere încă.
+          unearned_own: Nu ați participat la nicio dezbatere încă.
     metrics:
       debates:
-        description: Numărul de dezbateri create
+        description: Numărul dezbaterilor create
         object: dezbateri
         title: Dezbateri
     statistics:

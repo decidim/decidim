@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ sk:
         password_confirmation: Potvrdenie hesla
         personal_url: Osobné adresa URL
         remove_avatar: Odstrániť avatara
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Príloha
       decidim/component_published_event: Aktívna súčasť
@@ -36,7 +39,6 @@ sk:
     attributes:
       decidim/user:
         current_password: Súčasné heslo
-        email: E-mail
         name: Prezývka
         password: Heslo
         password_confirmation: Potvrdenie hesla
@@ -330,6 +332,8 @@ sk:
         view_all: Zobraziť všetko
       metrics:
         name: Štatistika organizácie
+      participatory_space_metrics:
+        name: Metriky
       stats:
         name: Štatistiky organizácie
       sub_hero:
@@ -351,15 +355,12 @@ sk:
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
       sessions:
         new:
-          are_you_new?: Ste na tejto platforme noví?
           register: Vytvoriť účet
       shared:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
           title: Upozornenie na bulletin
-        omniauth_buttons:
-          or: Alebo
     doorkeeper:
       authorizations:
         new:
@@ -543,7 +544,7 @@ sk:
       badges:
         followers:
           conditions:
-            - Ak budete aktívni a budete sledovať ďalších ľudí, budú sledovať aj ľudia Vás.
+          - Ak budete aktívni a budete sledovať ďalších ľudí, budú sledovať aj ľudia Vás.
           description: Tento odznak obdržíte za dosiahnutie určitého počtu sledovateľov. %{organization_name} je sociálna a politická sieť, komunikujte teda aj s ďalšími ľuďmi na platforme.
           description_another: Tento účastník má %{score} nasledovateľov.
           description_own: "%{score} ľudí Vás sleduje."
@@ -563,7 +564,7 @@ sk:
         current_admins: 'Aktuálni administrátori:'
         manage_admins: Správa administrátorov
     group_invites:
-      accept_invitation: Akceptovať
+      accept_invitation: Prijať
       accept_or_reject_group_invitations: 'Nasledujúce skupiny vás pozvali, aby ste sa k nim pripojili. Prijať alebo odmietnuť ich požiadavky: '
       index:
         invite: Pozvať
@@ -594,8 +595,8 @@ sk:
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
-        reject_request: Odmítnout
+        accept_request: Prijať
+        reject_request: Odmietnuť
       new:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
@@ -638,10 +639,18 @@ sk:
       home: Domov
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Dobrý deň, %{recipient}!
+        comanagers_new_message:
+          greeting: Dobrý deň, %{recipient}!
         new_conversation:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} zahájil novú diskusiu s vami. Kliknite sem pre zobrazenie:"
           subject: "%{sender} začal s vami konverzovať"
+        new_group_conversation:
+          greeting: Dobrý deň, %{recipient}!
+        new_group_message:
+          greeting: Dobrý deň, %{recipient}!
         new_message:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} poslala nové správy vo vašej konverzácii. Kliknite sem pre ich zobrazenie:"
@@ -669,11 +678,9 @@ sk:
       participants:
         description: Počet aktívnych účastníkov v organizácii
         object: účastníci
-        title: Účastníci
       users:
         description: Počet účastníkov v organizácii
         object: účastníci
-        title: Účastníci
     newsletter_mailer:
       newsletter:
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
@@ -767,28 +774,22 @@ sk:
         badges: Odznaky
         followers: Sledujúci
         following: Nasleduje
+        group_admins: Správa administrátorov
+        group_members: Správa členov
         groups: Skupiny
         members: Členovia
-      sidebar:
-        badges:
-          info: Odznaky získate za určité aktivity a účasť na platforme.
-          title: Odznaky
       user:
-        create_user_group: Vytvoriť skupinu
-        edit_profile: Editovať profil
-        edit_user_group: Upraviť profil skupiny
-        invite_user: Pozvať užívateľa
-        join_user_group: Žiadosť o pripojenie k skupine
-        leave_user_group: Opustiť skupinu
-        manage_user_group_admins: Správa administrátorov
-        manage_user_group_users: Správa členov
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        actions:
+          create_user_group: Vytvořit skupinu
+          edit_profile: Editovať profil
+          edit_user_group: Upraviť profil skupiny
+          invite_user: Pozvať užívateľa
+          join_user_group: Žiadosť o pripojenie k skupine
+          leave_user_group: Opustiť skupinu
+          manage_user_group_admins: Správa administrátorov
+          manage_user_group_users: Správa členov
+          resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
     reported_mailer:
-      hide:
-        hello: Zdravím %{name},
-        manage_moderations: Správa moderovanie
-        report_html: <p> Nasledujúce <a href="%{url}"> obsah </a> bol automaticky skrytý. </ p>
-        subject: Zdroj bol automaticky skrytý
       report:
         hello: Zdravím %{name},
         report_html: <p> Bol nahlásený nasledujúce <a href="%{url}"> obsah </a>. </ p>
@@ -847,6 +848,8 @@ sk:
       comments_count: Komentáre
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
+      reply:
+        send: Poslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
     welcome_notification:

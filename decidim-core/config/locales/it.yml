@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -28,6 +29,8 @@ it:
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
+      user_group:
+        avatar: Immagine del profilo
     models:
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
@@ -39,11 +42,11 @@ it:
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
       decidim/resource_endorsed_event: Risorsa approvata
+      decidim/user_group_created_event: Gruppo utenti creato
   activerecord:
     attributes:
       decidim/user:
         current_password: Password attuale
-        email: Email
         name: Nickname
         password: Password
         password_confirmation: Conferma della password
@@ -67,7 +70,7 @@ it:
   date:
     buttons:
       close: Chiudere
-      select: Seleziona
+      select: Selezionare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -364,6 +367,8 @@ it:
         view_all: Guarda tutto
       metrics:
         name: Metriche dell'organizzazione
+      participatory_space_metrics:
+        name: Partecipazione in cifre
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
@@ -389,7 +394,6 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
-          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -397,8 +401,6 @@ it:
             check: Controlla e continua
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
-        omniauth_buttons:
-          or: O
     doorkeeper:
       authorizations:
         new:
@@ -498,7 +500,7 @@ it:
           email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
       groups:
         demoted_membership:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i diritti di amministratore per quel gruppo.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i tuoi diritti di amministratore per quel gruppo.
           email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
           email_subject: Non sei più un amministratore del gruppo %{user_group_name}!
           notification_title: Non sei più un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -509,7 +511,7 @@ it:
           notification_title: Sei stato invitato a far parte del gruppo <a href="%{resource_path}">%{user_group_name}</a> . Controlla la pagina <a href="%{groups_profile_tab_path}">Gruppi</a> nel tuo profilo per approvarla!
         join_request_accepted:
           email_intro: Congratulazioni! Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
-          email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
+          email_outro: Hai ricevuto questa notifica perché la tua richiesta di adesione è stata aggiornata.
           email_subject: Sei stato accettato nel gruppo %{user_group_name}!
           notification_title: Sei stato accettato nel gruppo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
@@ -523,7 +525,7 @@ it:
           email_subject: La tua richiesta di aderire al gruppo %{user_group_name} è stata respinta!
           notification_title: La tua richiesta di aderire al gruppo <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
         promoted_to_admin:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore per quel gruppo.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore quel gruppo.
           email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
           email_subject: Ora sei un amministratore del gruppo %{user_group_name}!
           notification_title: Ora sei un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
@@ -536,7 +538,7 @@ it:
           email_intro: Un nuovo gruppo di utenti è stato creato con il nome %{user_group_name}. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
           email_subject: È stato creato un nuovo gruppo di utenti
-          notification_title: Il gruppo utente %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
+          notification_title: Il gruppo di utenti %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
         user_group_updated:
           email_intro: Un gruppo di utenti con il nome %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
@@ -561,6 +563,8 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+        user_officialized:
+          email_subject: ""
     export_mailer:
       download_your_data_export:
         download: Scaricare
@@ -613,7 +617,7 @@ it:
       badges:
         followers:
           conditions:
-            - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
+          - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
@@ -633,12 +637,12 @@ it:
         current_admins: 'Amministratori attuali:'
         manage_admins: Gestisci amministratori
     group_invites:
-      accept_invitation: Accettare
+      accept_invitation: Accettato
       accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
       index:
         invite: Invitare
         invite_user: Invita un utente
-      reject_invitation: Rifiutare
+      reject_invitation: Rifiutato
     group_members:
       actions:
         are_you_sure: Sei sicuro?
@@ -664,8 +668,8 @@ it:
         success: Gruppo lasciato con successo.
       members:
         accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
-        accept_request: Accettare
-        reject_request: Rifiutare
+        accept_request: Accettato
+        reject_request: Rifiutato
       new:
         create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
@@ -766,6 +770,8 @@ it:
           new_conversation: Nuova conversazione
           next: Successivo
           title: Conversazioni
+        reply_form:
+          placeholder: La tua risposta...
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
@@ -783,11 +789,11 @@ it:
       participants:
         description: Numero di utenti attivi nell'organizzazione
         object: partecipanti
-        title: I partecipanti
+        title: Partecipanti
       users:
         description: Numero di utenti nell'organizzazione
         object: utenti
-        title: utenti
+        title: Partecipanti
     newsletter_mailer:
       newsletter:
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
@@ -889,30 +895,24 @@ it:
         conversations: Conversazioni
         followers: Followers
         following: Seguiti
+        group_admins: Gestisci amministratori
+        group_members: Gestisci i membri
         groups: gruppi
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
-      sidebar:
-        badges:
-          info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
-          title: badge
       user:
-        create_user_group: Crea un gruppo
-        edit_profile: Modifica Profilo
-        edit_user_group: Modifica il profilo del gruppo
-        invite_user: Invita utente
-        join_user_group: Richiesta di iscrizione al gruppo
-        leave_user_group: Lascia il gruppo
-        manage_user_group_admins: Gestisci amministratori
-        manage_user_group_users: Gestisci i membri
-        resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
+        actions:
+          create_user_group: Crea un gruppo
+          edit_profile: Modifica Profilo
+          edit_user_group: Modifica il profilo del gruppo
+          invite_user: Invita utente
+          join_user_group: Richiesta di iscrizione al gruppo
+          leave_user_group: Lascia il gruppo
+          manage_user_group_admins: Gestisci amministratori
+          manage_user_group_users: Gestisci i membri
+          resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
-      hide:
-        hello: Ciao %{name},
-        manage_moderations: Gestire le moderazioni
-        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
-        subject: Un contenuto è stato cancellato automaticamente
       report:
         authors: Autori
         content: Contenuto segnalato
@@ -979,12 +979,9 @@ it:
         title: Segnala un problema
       flag_user_modal:
         already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
-        close: Chiudi
-        description: Che cosa è inappropriato riguardo all'utente?
         offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
         report: Segnala
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
-        title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
       public_participation:
@@ -1017,6 +1014,9 @@ it:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
       show_translated: Mostra testo tradotto automaticamente
+    user_activity:
+      index:
+        no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       create:

@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ ja:
       badges:
         test:
           conditions:
-            - テスト環境を使用してdecidim.
+          - テスト環境を使用してdecidim.
           description: 参加者はテストを作成することによってこのバッジを受け取ります。
           description_another: この参加者は %{score} テストを作成しました。
           description_own: テストを %{score} 作成しました。

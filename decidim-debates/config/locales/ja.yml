@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -52,9 +53,12 @@ ja:
     debates:
       actions:
         close: 閉じる
+        confirm_delete_debate: このディベートを削除してもよろしいですか？
+        deleted_debate_info: 削除された議論はゴミ箱から復元できます。
         edit: 編集
         new: 新しいディベート
         title: アクション
+        view_deleted_debates: 削除されたディベートを表示
       admin:
         debate_closes:
           edit:
@@ -68,11 +72,22 @@ ja:
             title: ディベートを編集
             update: ディベートを更新
           form:
+            add_attachments: 添付ファイルを追加
+            attachment_legend: ドキュメントまたは画像を追加
+            comments_visualization: コメントの視覚化
+            comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
+            edit_attachments: 添付ファイルを編集
+            errors:
+              comments_layout_locked: コメントが投稿されると、コメントレイアウトを変更することはできません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
+            single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'
+            two_columns: '2カラム: コメントは「賛成」と「反対」の列の下に表示され、返信を持つことはできません。'
           index:
             title: ディベート
+          manage_trash:
+            title: ディベートを削除しました
           new:
             create: ディベートを作成
             title: 新しいディベート
@@ -86,6 +101,8 @@ ja:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
+          restore: "%{user_name} は %{space_name} スペースでの議論 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} スペースでのディベート %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
       content_blocks:
         highlighted_debates:
@@ -135,7 +152,7 @@ ja:
         new:
           back: 戻る
           create: 作成
-          title: 新しいディベート
+          title: 新しいディベートを作成
         orders:
           commented: コメントが多い順
           label: '議論の並び替え:'
@@ -167,6 +184,10 @@ ja:
             start_time: 開始日
             taxonomies: タクソノミー
             title: タイトル
+    download_your_data:
+      show:
+        debate_comments: ディベートのコメントのエクスポート
+        debates: ディベートのエクスポート
     events:
       debates:
         create_debate_event:
@@ -209,7 +230,7 @@ ja:
       badges:
         commented_debates:
           conditions:
-            - 参加する公開ディベートを選択する
+          - 参加する公開ディベートを選択する
           description: このバッジは、コメントを残してさまざまなディベートに積極的に参加するときに付与されます。
           description_another: この参加者は %{score} ディベートに参加しました。
           description_own: '%{score} 件のディベートに参加しました。'
@@ -246,15 +267,19 @@ ja:
           created_at: ディベートの作成日時
           description: ディベートの説明
           end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
+          endorsements_count: ディベートのオススメ数
+          follows_count: この議論のフォロワー数
           id: ディベートの固有ID
           information_updates: 作者がディベートに加えた更新
           instructions: ディベートにコメントするための指示
           last_comment_at: ディベートが最後にコメントされた日時
+          last_comment_by: ディベート内コメントの最終作成日時
           participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
           reference: このプラットフォームでのリソースの固有ID
           start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）
           taxonomies: このプロジェクトのタクソノミー
           title: ディベートのタイトル
+          updated_at: ディベートの最終更新日時
           url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート

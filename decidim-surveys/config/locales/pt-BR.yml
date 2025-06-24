@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     models:
@@ -48,6 +49,10 @@ pt-BR:
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
+      models:
+        survey:
+          fields:
+            answers: Respostas
       surveys:
         answer:
           invalid: Houve erros ao responder a pesquisa.

@@ -167,7 +167,7 @@ header {
       }
 
       &__item {
-        @apply relative;
+        @apply flex relative;
       }
 
       &__search {
@@ -334,10 +334,6 @@ header {
       &__dropdown-trigger {
         @apply flex items-center justify-between text-white;
 
-        span {
-          @apply flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden text-white;
-        }
-
         svg {
           @apply w-6 h-6 fill-current;
         }
@@ -373,15 +369,63 @@ header {
       @apply absolute top-full left-0 bg-white rounded w-full bg-gray-5;
     }
 
+    &__dropdown-menu {
+      @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+
+      > * {
+        @apply py-3 md:py-3.5;
+      }
+
+      a {
+        @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+
+        span {
+          @apply min-w-0 truncate;
+        }
+
+        svg {
+          @apply flex-none fill-current;
+        }
+      }
+    }
+
     &__main-dropdown {
-      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
 
-      &__bottom,
+      &__left {
+        @apply flex flex-col justify-between p-4 md:p-8 space-y-5 hidden md:block md:w-3/4;
+
+        &-top {
+          @apply border-b-4 border-gray-3 pb-3;
+        }
+      }
+
       &__top {
-        @apply flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8;
+        @apply w-full px-4;
 
-        &-right {
-          @apply hidden md:block md:w-1/2;
+        &-menu {
+          @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+
+          > * {
+            @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
+
+            /* since the grid has 2 columns, remove the border for these last 2 columns */
+            &:nth-last-child(-n + 2) {
+              @apply md:border-0;
+            }
+          }
+
+          a {
+            @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
+
+            span {
+              @apply min-w-0 truncate;
+            }
+
+            svg {
+              @apply flex-none fill-current;
+            }
+          }
         }
       }
 
@@ -396,31 +440,6 @@ header {
       &__subtitle {
         @apply hidden text-md md:flex md:text-lg text-gray-2 mt-5;
       }
-
-      &__menu {
-        @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
-
-        > * {
-          @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
-
-          /* since the grid has 2 columns, remove the border for these last 2 columns */
-          &:nth-last-child(-n + 2) {
-            @apply md:border-0;
-          }
-        }
-
-        a {
-          @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
-
-          span {
-            @apply min-w-0 truncate;
-          }
-
-          svg {
-            @apply flex-none fill-current;
-          }
-        }
-      }
     }
 
     &__secondary-dropdown {
@@ -434,8 +453,12 @@ header {
         @apply h4 md:h3;
       }
 
+      nav {
+        @apply w-full md:w-1/4;
+      }
+
       &__menu {
-        @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+        @apply w-full bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
 
         > * {
           @apply py-3 md:py-3.5;
@@ -455,7 +478,7 @@ header {
       }
 
       &__metadata {
-        @apply flex items-center text-sm space-x-6 py-8;
+        @apply flex items-center text-sm space-x-6 pb-6;
 
         > span {
           @apply flex items-center space-x-2;

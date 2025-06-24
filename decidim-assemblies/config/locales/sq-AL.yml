@@ -1,3 +1,4 @@
+---
 sq:
   activemodel:
     attributes:
@@ -313,3 +314,6 @@ sq:
     assembly_members:
       index:
         title: Anëtarët
+    metrics:
+      assemblies:
+        title: Asambletë

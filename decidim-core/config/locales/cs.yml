@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ cs:
         delete_reason: Důvod odstranění vašeho účtu
       attachment:
         documents: Dokumenty
+        image: Obrázek
         photos: Fotky
       common:
         created_at: Vytvořeno v
@@ -54,6 +56,12 @@ cs:
         tos_agreement: Podmínky smlouvy o poskytování služeb
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Přezdívka musí být malými písmeny a nesmí obsahovat mezery
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní komponenty
@@ -78,7 +86,7 @@ cs:
         with_participatory_space: Účastnický prostor
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mail
+        email: E-mailová adresa
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
@@ -126,7 +134,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formát: dd/mm/rrrr'
-      order: d-m-r
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -199,6 +207,7 @@ cs:
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       opens_in_new_tab: Otevře se v nové kartě
+      secondary_menu: Sekundární menu
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -600,6 +609,8 @@ cs:
             dummy_step_attribute1: Atribut 1 zástupného kroku
             dummy_step_attribute2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
+      pagination:
+        page_title: "%{component_name} - Strana %{current_page} z %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
@@ -708,7 +719,7 @@ cs:
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       sessions:
         new:
-          are_you_new?: Jste na platformě poprvé?
+          are_you_new?: Ještě nejste zaregistrován?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
@@ -733,7 +744,7 @@ cs:
             <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
         omniauth_buttons:
-          or: Nebo
+          or: nebo
         password_fields:
           hidden_password: Vaše heslo je skryté
           hide_password: Skrýt heslo
@@ -877,20 +888,14 @@ cs:
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
       already_endorsed: Vrátit označení Líbí se
-      endorse: Líbí se mi
+      endorse: Like
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
-      endorsed_by:
-        one: Líbí se %{visible}
-        few: Líbí se %{visible} a %{others}
-        many: Líbí se %{visible} a %{others}
-        other: Líbí se %{visible} a %{others}
-      others: "%{count} dalších"
-      title: Líbí se
-      you: vy
+      title: Toto se líbí
+      you: vám
     ephemeral_user: Návštěvník
     errors:
       files:
@@ -1043,6 +1048,9 @@ cs:
       notification_event:
         notification_title: Objevila se událost na <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem ovlivněného %{resource_type}.
+          email_subject: Váš %{resource_type} již není viditelný
         resource_hidden:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
@@ -1122,8 +1130,8 @@ cs:
       attachment_link:
         explanation: Pokyny pro odkazy na přílohy
         help_messages:
-          - Akceptovány jsou pouze správné formáty URL.
-          - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
+        - Akceptovány jsou pouze správné formáty URL.
+        - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -1174,7 +1182,7 @@ cs:
       badges:
         followers:
           conditions:
-            - Buďte aktivní a sledujte jiné lidi, to určitě namotivuje ostatní lidi, aby vás sledovali.
+          - Buďte aktivní a sledujte jiné lidi, to určitě namotivuje ostatní lidi, aby vás sledovali.
           description: Tento odznak je udělen, když dosáhnete určitého počtu sledujících. %{organization_name} je společenská a politická síť, vytváří vaši síť komunikace s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
           description_own: "Uživatelé vás sledují %{score} uživatelů."
@@ -1205,7 +1213,7 @@ cs:
       accept:
         error: Při přijetí této pozvánky došlo k chybě.
         success: Pozvánka úspěšně přijata.
-      accept_invitation: Akceptovat
+      accept_invitation: Přijmout
       accept_or_reject_group_invitations: 'Následující skupiny vás pozvaly, abyste se k nim připojili. Přijmout nebo odmítnout jejich požadavky:'
       index:
         invite: Pozvat
@@ -1263,7 +1271,7 @@ cs:
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
+        accept_request: Přijmout
         reject_request: Odmítnout
       new:
         create_user_group: Vytvořit skupinu
@@ -1346,13 +1354,13 @@ cs:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
           outro: Užijte si platformu!
           subject: "%{manager} zahájil novou konverzaci jako %{group}"
         comanagers_new_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
           outro: Užijte si platformu!
           subject: "%{manager} odeslal nové zprávy jako %{group}"
@@ -1363,13 +1371,13 @@ cs:
           subject: "%{sender} začal s vámi konverzovat"
         new_group_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
           outro: Užijte si platformu!
           subject: "%{sender} zahájil konverzaci s %{group}"
         new_group_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
           outro: Užijte si platformu!
           subject: "%{group} má nové zprávy od %{sender}"
@@ -1437,7 +1445,7 @@ cs:
       users:
         description: Počet uživatelů v organizaci
         object: uživatelů
-        title: Uživatelé
+        title: Účastníci
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
@@ -1735,47 +1743,45 @@ cs:
         conversations: Konverzace
         followers: Sledující
         following: Sleduje
-        group_admins: Spravovat správce
-        group_members: Spravovat členy
+        group_admins: Správa administrátorů
+        group_members: Správa členů
         groups: Skupiny
         members: Členové
         officialized: Oficiální účastník
         send_private_message: Odeslat soukromou zprávu
-      sidebar:
-        badges:
-          info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
-          title: Odznaky
       user:
         actions:
           create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
-          edit_profile: Upravit profil
+          edit_profile: Editovat profil
           edit_user_group: Upravit profil skupiny
-          invite_user: Pozvat účastníka
-          join_user_group: Požádat o připojení ke skupině
+          invite_user: Pozvat uživatele
+          join_user_group: Žádost o připojení ke skupině
           leave_user_group: Opustit skupinu
           manage_user_group: Spravovat skupinu
-          manage_user_group_admins: Spravovat správce
-          manage_user_group_users: Spravovat členy
+          manage_user_group_admins: Správa administrátorů
+          manage_user_group_users: Správa členů
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
-        create_user_group: Vytvořit skupinu
-        edit_profile: Editovat profil
-        edit_user_group: Upravit profil skupiny
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
-        invite_user: Pozvat uživatele
-        join_user_group: Žádost o připojení ke skupině
-        leave_user_group: Opustit skupinu
-        manage_user_group_admins: Správa administrátorů
-        manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     reported_mailer:
-      hide:
-        hello: Zdravím %{name},
-        manage_moderations: Správa moderování
+      hidden_automatically:
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        participatory_space: Participativní prostor
+        reason: Důvod
         report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
         subject: Zdroj byl automaticky skryt
+      hidden_manually:
+        content: Nahlášený obsah
+        details: Podrobnosti
+        hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
+        participatory_space: Participativní prostor
+        reason: Důvod
+        report_html: <p>Následující <a href="%{url}">obsah</a> byl skrytý od %{moderator}.</p>
+        subject: Zdroj byl skryt %{moderator}
       report:
         authors: Autoři
         content: Nahlášený obsah
@@ -1793,6 +1799,10 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      hide:
+        success: Tento zdroj byl skryt.
+      parent_hidden:
+        report_details: Nadřazený dokument byl skryt
     resource:
       controls_label: Ovládání zdrojů
     resource_endorsements:
@@ -1855,14 +1865,13 @@ cs:
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         block: Blokovat tohoto uživatele
-        close: Zavřít
-        description: Co je s uživatelem nevhodné?
+        description: Co je s tímto účastníkem nevhodné?
         does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         hide: Skrýt veškerý jejich obsah
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
-        title: Nahlásit nevhodného uživatele
+        title: Nahlásit nevhodného účastníka
       floating_help:
         help: Pomoc
       follow_button:
@@ -1924,7 +1933,7 @@ cs:
         time_ago: "před %{time}"
       reply:
         placeholder: Vaše odpověď...
-        send: Odeslat
+        send: Poslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
     user_report_mailer:

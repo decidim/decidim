@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     models:
@@ -27,6 +28,8 @@ fi-pl:
             enabled: Kommentointi sallittu
             end_time: Kommentointi sallittu aikarajaan saakka
             start_time: Kommentointi sallittu alkaen
+      comment_thread:
+        accessibility_label: Kommenttiketju aloitettu %{date} henkilön %{full_name} toimesta
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.

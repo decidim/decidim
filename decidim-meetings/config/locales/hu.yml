@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -150,14 +151,14 @@ hu:
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozóra mostantól regisztrálhatsz.
         upcoming_meeting:
           email_intro: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
-          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az értesítésről az előző linken.
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Regisztráljon a találkozóra, amelyen részt szeretne venni
+          - Regisztráljon a találkozóra, amelyen részt szeretne venni
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
           description_own: '%{score} találkozóra vett részt.'
@@ -270,8 +271,6 @@ hu:
         registrations:
           edit:
             save: Mentés
-            validate: Érvényesítés
-            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
@@ -286,9 +285,6 @@ hu:
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
-          validate_registration_code:
-            invalid: Érvénytelen a regisztrációs kód.
-            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
         invite:
           create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
@@ -396,7 +392,6 @@ hu:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         new:
           create: Létrehoz
-          title: Találkozó létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés
@@ -471,7 +466,7 @@ hu:
       meetings:
         description: A létrehozott találkozók száma
         object: ülések
-        title: találkozók
+        title: Találkozók
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók

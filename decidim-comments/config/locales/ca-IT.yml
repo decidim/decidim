@@ -1,0 +1,211 @@
+---
+ca-IT:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Comentari
+      decidim/comments/comment_created_event: Comentari
+      decidim/comments/comment_upvoted_event: Comentari valorat positivament
+      decidim/comments/reply_created_event: Resposta al comentari
+      decidim/comments/user_group_mentioned_event: Mencionar
+      decidim/comments/user_mentioned_event: Mencionar
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Comentari
+        other: Comentaris
+      decidim/comments/comment_vote:
+        one: Vot
+        other: Vots
+  decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentaris
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentaris habilitats
+            end_time: Comentaris habilitats fins al
+            start_time: Comentaris habilitats des de
+      comment_thread:
+        accessibility_label: Fil de comentaris iniciat per %{full_name} el %{date}
+      comments:
+        create:
+          error: S'ha produït un error en crear el comentari.
+        delete:
+          error: El comentari no s'ha pogut eliminar.
+        update:
+          error: S'ha produït un error en actualitzar el comentari.
+      comments_title: Comentari
+      last_activity:
+        new_comment: 'Nou comentari:'
+      votes:
+        create:
+          error: S'ha produït un error en votar el comentari.
+    components:
+      add_comment_form:
+        account_message: Inicia sessió o crea un compte per afegir el teu comentari.
+        add_comment: Afegir un comentari
+        form:
+          body:
+            label: Comentari
+            placeholder: Què en penses d'això?
+          form_error: El text és necessari i no pot ser més llarg de %{length}.
+          submit_reply: Publicar resposta
+          submit_root_comment: Publicar comentari
+          user_group_id:
+            label: Comentar com a
+            your_profile: El teu perfil
+        opinion:
+          label: La teva opinió sobre aquest tema
+          negative: Negativa
+          negative_selected: La teva opinió sobre aquest tema és negativa
+          neutral: Neutral
+          neutral_selected: La teva opinió sobre aquest tema és neutral
+          positive: Positiva
+          positive_selected: La teva opinió sobre aquest tema és positiva
+        remaining_characters: "Queden %{count} caràcters"
+        remaining_characters_1: "Queda %{count} caràcter"
+        title: Deixa el teu comentari
+      comment:
+        alignment:
+          against: En contra
+          in_favor: A favor
+        answers:
+          one: "%{count} resposta"
+          other: "%{count} respuestas"
+        cancel_reply: Cancel·lar resposta
+        comment_label: Comentari %{comment_id}
+        comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
+        confirm_destroy: Segur que vols esborrar aquest comentari?
+        controls_label: Controls de comentaris
+        delete: Esborrar
+        deleted_at: Comentari esborrat el %{date}
+        deleted_user: Participant eliminada
+        edit: Editar
+        edited: Editat
+        hide_replies:
+          one: Amagar resposta
+          other: Amagar %{count} respostes
+        moderated_at: Comentari moderat el %{date}
+        reply: Respondre
+        report:
+          action: Denúncia
+          already_reported: Aquest contingut ja ha estat denunciat i serà revisat per una administradora.
+          close: Tancar
+          description: Aquest contingut és inapropiat?
+          details: Comentaris addicionals
+          reasons:
+            does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+            offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
+            spam: Conté "clickbait", publicitat o estafes.
+          title: Notificar contingut inapropiat
+        show_replies:
+          one: Mostra la resposta
+          other: Mostra les %{count} respostes
+        single_comment_link_title: Obtenir enllaç
+        sort_by: 'Ordenar per: '
+      comment_order_selector:
+        order:
+          best_rated: Més ben valorats
+          most_discussed: Més discutit
+          older: Més antic
+          recent: Recent
+        title: 'Ordenar per:'
+      comments:
+        against: En contra
+        blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
+        blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
+        blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
+        comment_details_title: Detalls del comentari
+        in_favor: A favor
+        loading: Carregant els comentaris ...
+        single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
+        single_comment_warning_title: Estàs veient un sol comentari
+        title:
+          one: "%{count} comentari"
+          other: "%{count} comentaris"
+        top_comment_label: Més ben valorat
+      down_vote_button:
+        text: No estic d'acord amb aquest comentari
+      edit_comment_modal_form:
+        close: Tancar
+        form:
+          body:
+            label: Comentar
+            placeholder: Què opines sobre això?
+          submit: Enviar
+        title: Edita el teu comentari
+      up_vote_button:
+        text: Estic d'acord amb aquest comentari
+    download_your_data:
+      help:
+        comment_votes:
+          comment: La id del comentari que es va valorar
+          created_at: La data i l'hora en què es va valorar aquest comentari
+          id: La id de la valoració del comentari
+          updated_at: La data i l'hora de la darrera actualització de la valoració d'aquest comentari
+          weight: El pes de la valoració (1 a favor, -1 en contra)
+        comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer aquest comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{author_name}". Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
+          email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
+          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: '%{author_name} ha deixat un comentari a%{resource_title}. Pots llegir-lo en aquesta pàgina:'
+          email_outro: Reps aquesta notificació perquè segueixes a "%{author_name}". Pots deixar de seguir aquest grup des de la seva pàgina de perfil.
+          email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
+          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "Algú ha deixat un comentari a \"%{resource_title}\". Pots llegir el comentari a través del següent enllaç:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
+          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: El teu comentari a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+          email_outro: Has rebut aquesta notificació perquè vas fer aquest comentari.
+          email_subject: El teu comentari a "%{resource_title}" ha rebut un vot negatiu.
+          notification_title: El teu <a href="%{resource_path}">comentari</a> a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+        comment_upvoted:
+          email_intro: El teu comentari a "%{resource_title}" ha rebut un vot positiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+          email_outro: Has rebut aquesta notificació perquè vas fer aquest comentari.
+          email_subject: El teu comentari a "%{resource_title}" ha rebut un vot positiu.
+          notification_title: El teu <a href="%{resource_path}">comentari</a> a "%{resource_title}" ha rebut un vot positiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+        reply_created:
+          email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Pots llegir-lo en aquesta pàgina:"
+          email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
+          email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Un grup al qual pertanys ha estat esmentat
+          email_outro: Has rebut aquesta notificació perquè formes part del grup "%{group_name}" que ha estat esmentat a %{resource_title}.
+          email_subject: T'han esmentat a %{resource_title} com a membre de %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat com a membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Has estat esmentada
+          email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".
+          email_subject: Has estat esmentada a %{resource_title}
+          notification_title: Has estat esmentada a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Nombre de comentaris generats per les participants
+        object: comentaris
+        title: Comentaris
+  errors:
+    messages:
+      cannot_have_comments: no es poden fer comentaris

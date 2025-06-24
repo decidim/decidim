@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -369,7 +370,7 @@ sv:
           url: URL för resultatet
     participatory_spaces:
       highlighted_results:
-        see_all: Se alla resultat (%{count})
+        see_all: Visa alla resultat
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat

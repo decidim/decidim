@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -6,14 +7,18 @@ ro:
         offline: Offline
         offline_explanation: Instrucțiuni pentru verificarea offline
         online: Online
+      confirmation:
+        verification_code: Cod de verificare
       id_document_information:
         document_number: Numărul documentului (cu literă)
         document_type: Tipul documentului
       id_document_upload:
         document_number: Numărul documentului (cu literă)
-        document_type: Tipul documentului tău
+        document_type: Tipul documentului dumneavoastră
         user: Participant
-        verification_attachment: Copie scanată a documentului tău
+        verification_attachment: Copie scanată a documentului dumneavoastră
+      mobile_phone:
+        mobile_phone_number: Număr de telefon mobil
       offline_confirmation:
         email: E-mail participant
       postal_letter_address:
@@ -28,12 +33,12 @@ ro:
       menu:
         authorization_revocation:
           before_date_info: Este util dacă procesul a început deja și dorești să revoci drepturile procesului anterior.
-          button: Revocă tot
-          button_before: Revocă înainte de data
+          button: Revocați toate autorizările
+          button_before: Revocați toate autorizările înainte de data
           destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
           title: Revocarea autorizațiilor
-        authorization_workflows: Autorizații
+        authorization_workflows: Autorizări
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} a actualizat configurația pentru autorizarea documentelor de identitate"
@@ -43,19 +48,19 @@ ro:
       admin:
         id_documents:
           help:
-            - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
-            - Ai completat informațiile prezente în imaginea încărcată.
-            - Informaţiile trebuie să corespundă cu ce a completat utilizatorul.
-            - 
+          - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
+          - Completați informațiile prezente în imaginea încărcată.
+          - Informațiile trebuie să corespundă cu ce a completat utilizatorul.
+          - 
         postal_letter:
           help:
-            - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
-            - Trimiți scrisoarea la adresa lor cu codul de verificare.
-            - Marchează scrisoarea drept trimisă.
-            - Odată ce marchezi scrisoarea drept trimisă, participantul va putea introduce codul și va putea fi verificat.
+          - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
+          - Trimiteți scrisoarea la adresa lor cu codul de verificare.
+          - Marcați scrisoarea ca fiind trimisă.
+          - Odată ce marcați scrisoarea ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
         name: Recensământul organizației
-      direct: Direct
+      direct: Directă
       help: Ajutor
       id_documents:
         name: Documente de identitate
@@ -76,24 +81,29 @@ ro:
           error: A apărut o eroare la ștergerea autorizației.
         index:
           expired_verification: Verificarea a expirat
-          introduce_code: Introducere cod
+          introduce_code: Introduceți codul
           pending_verification: Verificare în așteptare
           show_renew_info: Apăsați pentru a reînnoi verificarea
           subscribe: Abonare
           unauthorized_methods: Metode de verificare
         new:
-          authorize: Trimite
-          authorize_with: Verifică cu %{authorizer}
+          authorize: Trimiteți
+          authorize_with: Verificați folosind %{authorizer}
+        onboarding_pending:
+          pending_verifications: Verificări în așteptare
         renew_modal:
-          cancel: Anulează
-          continue: Continuă
-          title: Reînnoiește verificarea
-        skip_verification: Poți sări peste asta pentru moment și %{link}
-        start_exploring: începe explorarea
+          cancel: Anulați
+          continue: Continuați
+          title: Reînnoiți verificarea
+        skip_verification: Puteți să treceți deocamdată peste această etapă și puteți %{link}
+        start_exploring: să începeți să explorați
       csv_census:
         admin:
+          census:
+            create:
+              error: A apărut o eroare la importarea datelor recensământului.
           destroy:
-            title: Şterge toate datele recensământului
+            title: Ștergeți toate datele recensământului
           index:
             empty: Nu există date de recensământ. Utilizați formularul de mai jos pentru a-l importa folosind un fișier CSV.
             title: Date de recensământ curente
@@ -102,13 +112,12 @@ ro:
             title: Trebuie să activezi recensământul CSV pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
-            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresele de e-mail:'
-            submit: Încarcă fișier
-            title: Încarcă un nou recensământ
+            submit: Încărcați fișierul
+            title: Încărcați un nou recensământ
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
-            success: Contul tău a fost verificat cu succes.
+            success: Contul dumneavoastră a fost verificat cu succes.
       dummy_authorization:
         extra_explanation:
           postal_codes:
@@ -124,19 +133,20 @@ ro:
           config:
             edit:
               title: Configurarea documentelor de identitate
-              update: Actualizează
+              update: Actualizați
             update:
               error: A apărut o eroare la actualizarea configurației.
+              success: Configurație actualizată cu succes.
           confirmations:
             new:
               introduce_user_data: Introdu datele din imagine
-              reject: Respinge
-              verify: Verifică
+              reject: Respingeți
+              verify: Verificați
           offline_confirmations:
             new:
-              cancel: Anulează
+              cancel: Anulați
               introduce_user_data: Introdu adresa de e-mail a participantului și datele documentului
-              verify: Verifică
+              verify: Verificați
           pending_authorizations:
             index:
               config: Configurare
@@ -148,7 +158,7 @@ ro:
             choose_a_type: 'Te rugăm selectează cum preferi verificarea:'
             offline: Offline
             online: Online
-            title: Verifică-te folosind documentul de identitate
+            title: Verificați-vă folosind documentul de identitate
           edit:
             offline: Folosește verificarea offline
             online: Folosește verificarea online
@@ -161,10 +171,10 @@ ro:
         admin:
           pending_authorizations:
             index:
-              address: Adresa
+              address: Adresă
               letter_sent_at: Scrisoare trimisă la
-              mark_as_sent: Marchează ca trimis
-              not_yet_sent: Încă nu a fost trimis
+              mark_as_sent: Marcați ca trimisă
+              not_yet_sent: Nu a fost încă trimisă
               title: Verificări în curs
               username: Pseudonim
               verification_code: Cod de verificare
@@ -172,7 +182,7 @@ ro:
           edit:
             send: Confirmă
           new:
-            send: Trimite-mi o scrisoare
+            send: Trimiteți-mi o scrisoare
             title: Cere codul tău de verificare
       sms:
         authorizations:
@@ -183,7 +193,7 @@ ro:
             title: Introdu codul de verificare primit
           new:
             send: Trimite-mi un SMS
-            title: Cere codul tău de verificare
+            title: Solicitați codul de verificare
   errors:
     messages:
       uppercase_only_letters_numbers: trebuie să fie toate caracterele cu majusculă și să conțină doar litere și/sau numere

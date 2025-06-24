@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -138,8 +139,8 @@ nl:
       badges:
         initiatives:
           conditions:
-            - Ga naar de participatieruimte van Intiatieven
-            - Volg de stappen om een ​​nieuw initiatief te maken
+          - Ga naar de participatieruimte van Intiatieven
+          - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           name: Gepubliceerde initiatieven
@@ -290,7 +291,7 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, die je volgt, heeft het volgende initiatief onderschreven, misschien wil je een bijdrage leveren aan het gesprek:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen via deze link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van notificaties door te klikken op de voorgaande link.
           email_subject: Initiatief goedgekeurd door %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
@@ -403,7 +404,7 @@ nl:
       initiatives_type:
         actions:
           title: acties
-          vote: Onderteken
+          vote: Teken
   layouts:
     decidim:
       initiative_creation_header:

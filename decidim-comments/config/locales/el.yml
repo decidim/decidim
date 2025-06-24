@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     models:
@@ -16,6 +17,10 @@ el:
         one: Ψηφοφορία
         other: Ψήφοι
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Σχόλια
     comments:
       admin:
         shared:

@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     models:
@@ -48,6 +49,10 @@ lb:
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
+      models:
+        survey:
+          fields:
+            answers: Äntwerten
       surveys:
         answer:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.

@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     models:
@@ -48,6 +49,10 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar o inquérito.
             success: Inquérito guardado corretamente.
+      models:
+        survey:
+          fields:
+            answers: Respostas
       surveys:
         answer:
           invalid: Ocorreu um problema ao responder ao inquérito.

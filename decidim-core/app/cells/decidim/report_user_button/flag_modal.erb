@@ -1,0 +1,47 @@
+<%= decidim_modal id: modal_id, class: "flag-user-modal" do %>
+  <%= form_for report_form, builder:, url: report_path, method: :post, html: { id: nil } do |f| %>
+    <div data-dialog-container>
+      <%= icon "flag-line" %>
+      <h2 tabindex="-1" data-dialog-title><%= t("decidim.shared.flag_user_modal.title") %></h2>
+      <div>
+        <div class="form__wrapper flag-modal__form">
+          <p class="flag-modal__form-description"><%= t("decidim.shared.flag_user_modal.description") %></p>
+          <fieldset class="mt-6">
+            <legend class="flag-modal__form-reason"><%= t("decidim.shared.flag_modal.reason") %>:</legend>
+            <%= f.collection_radio_buttons :reason, [
+              [:spam, t("decidim.shared.flag_user_modal.spam")],
+              [:offensive, t("decidim.shared.flag_user_modal.offensive")],
+              [:does_not_belong, t("decidim.shared.flag_user_modal.does_not_belong", organization_name: current_organization_name)]
+            ], :first, :last do |builder|
+              builder.label(for: "#{builder.value.to_s}-#{modal_id}", class: "form__wrapper-checkbox-label") { builder.radio_button(id: "#{builder.value.to_s}-#{modal_id}") + builder.text }
+            end %>
+          </fieldset>
+          <%= f.text_area :details, rows: 4, label_options: { class: "flag-modal__form-textarea-label", for: "additional-comments-#{modal_id}" }, id: "additional-comments-#{modal_id}" %>
+
+          <% if frontend_administrable? %>
+            <%= f.check_box :block,
+                            label: t("decidim.shared.flag_user_modal.block"),
+                            include_hidden: false,
+                            data: {
+                              label_action: t("decidim.shared.flag_user_modal.block"),
+                              label_report: t("decidim.shared.flag_user_modal.report"),
+                              block: "true"
+                            } %>
+            <%= f.check_box :hide, label: t("decidim.shared.flag_user_modal.hide"), label_options: { class: :invisible, id: "block_and_hide" } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div data-dialog-actions>
+      <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="<%= modal_id %>">
+        <%= t("decidim.shared.confirm_modal.cancel") %>
+      </button>
+
+      <button type="submit" class="button button__lg button__secondary">
+        <span><%= t("decidim.shared.flag_modal.report") %></span>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+<% end %>

@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -20,7 +21,7 @@ es-MX:
             body:
               too_long: es demasiado largo
             choices:
-              missing: no están completos
+              missing: no están completas
               too_many: Puedes elegir un máximo de %{count} opciones.
         questionnaire:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
@@ -60,7 +61,7 @@ es-MX:
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
-            remove: Retirar
+            remove: Borrar
             statement: Declaración
           answers:
             actions:
@@ -76,7 +77,7 @@ es-MX:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "%{total} total de respuestas"
+              title: "%{total} respuestas en total"
             show:
               title: 'Respuesta #%{number}'
           display_condition:
@@ -183,7 +184,7 @@ es-MX:
       questionnaires:
         answer:
           invalid: Ha habido errores al responder al cuestionario.
-          max_choices_alert: Hay demasiadas opciones seleccionadas
+          max_choices_alert: Has seleccionado demasiadas opciones
           success: Has respondido al cuestionario con éxito.
         question:
           max_choices: 'Opciones máximas: %{n}'
@@ -191,8 +192,8 @@ es-MX:
           answer_questionnaire:
             already_have_an_account?: '¿Ya tienes una cuenta?'
             are_you_new?: '¿Eres una nueva usuaria?'
-            sign_in_description: Inicia sesión para realizar la encuesta
-            sign_up_description: Crea una cuenta de participante para realizar la encuesta
+            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_up_description: Crea una cuenta de participante para responder la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}
           empty: Aún no hay preguntas configuradas para este formulario.
@@ -217,7 +218,6 @@ es-MX:
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure_edit: Podrás editar tus respuestas. ¿Seguro que quieres continuar?
           are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, necesitas inicies tu sesión o crees una cuenta.
           are_you_sure_no_edit: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás
@@ -229,9 +229,9 @@ es-MX:
         completion: Finalización
         created_at: Respondido en
         id: ID de respuesta
-        ip_hash: Hash de Dirección IP
+        ip_hash: Hash de la dirección IP
         question: Pregunta
-        registered: Registrado
+        registered: Registrada
         session_token: Identificador de usuaria
-        unregistered: No registrado
-        user_status: Estado del usuario
+        unregistered: No registrada
+        user_status: Estado de la usuaria

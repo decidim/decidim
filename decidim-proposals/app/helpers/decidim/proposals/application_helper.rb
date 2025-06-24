@@ -17,8 +17,6 @@ module Decidim
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
 
-      delegate :minimum_votes_per_user, to: :component_settings
-
       # Public: The state of a proposal in a way a human can understand.
       #
       # state - The String state of the proposal.
@@ -30,6 +28,7 @@ module Decidim
 
       def proposal_state_css_style(proposal)
         return "" if proposal.emendation?
+        return "" if proposal.withdrawn?
 
         proposal.proposal_state&.css_style
       end
@@ -84,10 +83,6 @@ module Decidim
         proposal_limit.present?
       end
 
-      def minimum_votes_per_user_enabled?
-        minimum_votes_per_user.positive?
-      end
-
       def not_from_collaborative_draft(proposal)
         proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
       end
@@ -135,13 +130,6 @@ module Decidim
         return if component_settings.proposal_limit.zero?
 
         component_settings.proposal_limit
-      end
-
-      def votes_given
-        @votes_given ||= ProposalVote.where(
-          proposal: Proposal.where(component: current_component),
-          author: current_user
-        ).count
       end
 
       def layout_item_classes

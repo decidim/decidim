@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -65,7 +66,6 @@ ar:
         with_participatory_space: المساحة التشاركية
       decidim/user:
         current_password: كلمة المرور الحالي
-        email: البريد الإلكتروني
         name: كنية
         password: الكلمة السرية
         password_confirmation: تأكيد كلمة المرور
@@ -488,7 +488,7 @@ ar:
       metrics:
         name: مقاييس المنظمة
       participatory_space_metrics:
-        name: المقاييس
+        name: المشاركة في الأرقام
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -525,7 +525,6 @@ ar:
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
       sessions:
         new:
-          are_you_new?: جديد على المنصة؟
           register: انشئ حساب
       shared:
         newsletter_modal:
@@ -533,8 +532,6 @@ ar:
             check: تحقق واستمر
             uncheck: إبقاءه غير مختار
           title: الإخطارات الإخبارية
-        omniauth_buttons:
-          or: أو
         password_fields:
           hidden_password: كلمة المرور الخاصة بك مخفية
           hide_password: إخفاء كلمة المرور
@@ -559,8 +556,6 @@ ar:
         ready: جاهز
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsement_buttons_cell:
-      endorse: يعجبني
     endorsements:
       identities:
         done: تم
@@ -815,7 +810,7 @@ ar:
       badges:
         followers:
           conditions:
-            - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
+          - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
           description: تُمنح هذه الشارة عندما تصل إلى عدد معين من المتابعين. %{organization_name} هي شبكة اجتماعية وسياسية ، نسج الويب الخاص بك للتواصل مع أشخاص آخرين في المنصة.
           description_another: هذا المشارك لديه %{score} متابعين.
           description_own: "%{score} أشخاص يتابعونك."
@@ -933,12 +928,12 @@ ar:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
+          greeting: مرحبًا ، %{recipient}!
           intro: "بدأ %{manager} محادثة جديدة باسم %{group}. انقر هنا لرؤيتها:"
           subject: "بدأ %{manager} محادثة جديدة كـ %{group}"
         comanagers_new_message:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
+          greeting: مرحبًا ، %{recipient}!
           intro: "قام %{manager} بنشر رسائل جديدة في المحادثة ذات اسم %{group}. انقر هنا لرؤيتها:"
           subject: "%{manager} أرسل رسائل جديدة كـ %{group}"
         new_conversation:
@@ -947,12 +942,12 @@ ar:
           subject: "%{sender} بدأ محادثة معك"
         new_group_conversation:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
+          greeting: مرحبًا ، %{recipient}!
           intro: "بدأ %{sender} محادثة جديدة مع المجموعة %{group}. انقر هنا لرؤيتها:"
           subject: "بدأ %{sender} محادثة جديدة مع %{group}"
         new_group_message:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
-          greeting: مرحباً، %{recipient}!
+          greeting: مرحبًا ، %{recipient}!
           intro: "قام %{sender} بنشر رسائل جديدة في المحادثة مع المجوعة %{group}. انقر هنا لرؤيتها:"
           subject: "%{group} لديها رسائل جديدة من %{sender}"
         new_message:
@@ -997,7 +992,7 @@ ar:
       participants:
         description: عدد المشاركين النشطين في المنظمة
         object: المشاركين
-        title: المشاركين
+        title: المشاركون
       reported_users:
         description: عدد المشاركين المبلّغ عنهم
       user_reports:
@@ -1005,7 +1000,7 @@ ar:
       users:
         description: عدد المشاركين في المنظمة
         object: المشاركين
-        title: المشاركين
+        title: المشاركون
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
@@ -1140,41 +1135,26 @@ ar:
         conversations: محادثات
         followers: متابعون
         following: يتبع
+        group_admins: إدارة المشرفين
+        group_members: إدارة الأعضاء
         groups: المجموعات
         members: أفراد
         officialized: مشارك رسمي
         send_private_message: ارسال رسالة خاصة
-      sidebar:
-        badges:
-          info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
-          title: شارات
       user:
         actions:
           create_user_group: إنشاء مجموعة
           edit_profile: تعديل الملف الشخصي
-          edit_user_group: تعديل الملف الشخصي للمجموعة
+          edit_user_group: تحرير ملف تعريف المجموعة
           invite_user: دعوة مشارك
-          join_user_group: طلب الانضمام للمجموعة
-          leave_user_group: مغادرة الفريق
+          join_user_group: طلب الانضمام إلى المجموعة
+          leave_user_group: غادر المجموعة
           manage_user_group: إدارة الفريق
-          manage_user_group_admins: إدارة المدراء
-          manage_user_group_users: إدارة الاعضاء
+          manage_user_group_admins: إدارة المشرفين
+          manage_user_group_users: إدارة الأعضاء
           message: الرسالة
-        create_user_group: إنشاء مجموعة
-        edit_profile: تعديل الملف الشخصي
-        edit_user_group: تحرير ملف تعريف المجموعة
-        invite_user: دعوة مشارك
-        join_user_group: طلب الانضمام إلى المجموعة
-        leave_user_group: غادر المجموعة
-        manage_user_group_admins: إدارة المشرفين
-        manage_user_group_users: إدارة الأعضاء
-        resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
+          resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
-      hide:
-        hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
-        subject: تم إخفاء المورد تلقائيًا
       report:
         authors: المؤلفون
         content: محتوى تم الإبلاغ عنه
@@ -1245,12 +1225,9 @@ ar:
         title: الإبلاغ عن مشكلة
       flag_user_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
-        close: إغلاق
-        description: ما هو الأمر الغير مناسب بخصوص هذا المستخدم؟
         offensive: يتضمن العنصرية أو التحيز الجنسي أو الشتائم أو الهجمات الشخصية أو التهديد بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
         report: إبلاغ
         spam: يحتوي على طعم النقر(clickbaiting) أو إعلان، أو احتيال، أو روبوتات سكريبتة.
-        title: الإبلاغ عن مستخدم مخل
       floating_help:
         help: المساعدة
       login_modal:
@@ -1423,7 +1400,6 @@ ar:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
-        log_in: تسجيل الدخول
         log_in_with_provider: تسجيل الدخول باستخدام %{provider}
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1512,7 +1488,7 @@ ar:
             description: وصف
             name: اسم
             service: الخدمة
-            type: النوع
+            type: نوع
           items:
             _session_id:
               description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
@@ -1562,7 +1538,6 @@ ar:
         data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
         decidim_title: Decidim
-        log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
       header:

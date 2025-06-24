@@ -1,3 +1,4 @@
+---
 sq:
   activemodel:
     attributes:
@@ -377,6 +378,13 @@ sq:
           fields:
             expires_at: Skadon më
             times_used: Sa herë është përdorur
+        user_group:
+          fields:
+            actions: Veprimet
+            created_at: Krijuar më
+            name: Emri
+            nickname: Nofka
+            state: Gjendja
       moderated_users:
         index:
           reason: Arsyeja
@@ -457,16 +465,11 @@ sq:
         form:
           social_handlers: Rrjetet sociale
       organization_appearance:
+        edit:
+          update: Përditëso
         form:
-          colors:
-            choose_color: Zgjidh ngjyrën parësore
-            colors_title: Ngjyrat e organizatës
-            colors_warning_html: Kujdes! Ndryshimi i këtyre ngjyrave mund të prishë aksesibilitetin e kontrastit. Kontrolloni kontrastin e zgjedhur me <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ose mjete të ngjashme.
-            explanation: Kjo vegël ndihmon në zgjedhjen e një kombimini ngyrash, të përbërë nga nuanca të barazlarguara në rrotën e ngjyrave, që do perdoret në faqen e organizatës.
-            legend_html: Ngjyrat kryesore të aplikacionit, bazuar në <a href="https://www.color-meanings.com/triadic-colors/">algoritmin triadik</a>. Ngjyra <i>dytësore</i> llogaritet automatikisht nga ngjyra parësore dhe thellësia e zgjedhur.
-            saturation: Thellësia
-            title: Përzgjedhësi i ngjyrës
-            update_suggested_colors: Përditëso ngjyrat e rekomanduara
+          images:
+            preview: Parapamje
       resource_permissions:
         edit:
           title: Github
@@ -492,6 +495,7 @@ sq:
           update: Përditëso
       titles:
         dashboard: Paneli
+        edit_landing_page: Përmbatja e faqes
         menu: Menu
         page_topics: Temat
         pages: Faqet
@@ -500,9 +504,12 @@ sq:
         statistics: Aktiviteti
         user_groups: Grupet
         users: Administratorët
-      user_groups_csv_verifications:
-        new:
-          upload: Ngarko
+      user_groups:
+        index:
+          state:
+            pending: Në pritje
+            rejected: Refuzuar
+            verified: Verifikuar
       users:
         form:
           email: Email

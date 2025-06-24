@@ -20,6 +20,7 @@
     <ol class="list-decimal list-inside">
       <% @survey.questionnaire.questions.each do |question| %>
         <% next if question.question_type == "separator" %>
+        <% next if question.question_type == "title_and_description" %>
 
         <li class="<%= "text-gray" unless question_answer_is_publicable(question.question_type) %> mb-6">
           <div class="inline">

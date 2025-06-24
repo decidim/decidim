@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -97,9 +98,7 @@ cs:
       decidim:
         proposals:
           proposal:
-            budget_text: Návrh %{link} byl vytvořen
             import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
-            import_to_proposal_text: Tento návrh %{link} byl vytvořen
             merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
             split_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
@@ -279,7 +278,7 @@ cs:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Byli jste přiděleni jako hodnotitel k nnávrhu "%{resource_title}". To znamená, že vám důvěřujeme, že jim v příštích dnech poskytnete zpětnou vazbu a náležitou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
-            email_outro: Obdrželi jste toto oznámení, protože můžete návrh hhodnotit.
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
             notification_title: Byli jste přiřazeni jako hodnotitel k nnávrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_created:
@@ -392,8 +391,8 @@ cs:
       badges:
         accepted_proposals:
           conditions:
-            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
-            - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
+          - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
+          - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
           description: Tento odznak se uděluje, když se aktivně účastníte nových návrhů a ty jsou přijaty.
           description_another: Uživatel obdržel %{score} přijatých návrhů.
           description_own: Bylo přijato %{score} návrhů.
@@ -403,8 +402,8 @@ cs:
           unearned_own: Dosud jste žádné návrhy nepřijali.
         proposal_votes:
           conditions:
-            - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
+          - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
+          - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
           description_own: Hlasovali jste pro %{score} návrhy.
@@ -414,8 +413,8 @@ cs:
           unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
-            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
-            - Vytvořte nový návrh
+          - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
+          - Vytvořte nový návrh
           description: Tento odznak je udělen, když se aktivně podílíte na nových návrzích.
           description_another: Tento uživatel vytvořil %{score} návrhů.
           description_own: Vytvořili jste %{score} návrhů.
@@ -492,7 +491,6 @@ cs:
           withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
-        last: Poslední návrhy
         see_all: Zobrazit všechny
     proposals:
       actions:
@@ -520,6 +518,12 @@ cs:
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
+        import_proposals_mailer:
+          notify_failure:
+            body: Při importu návrhů ze komponenty %{origin_component_name} do komponenty %{target_component_name} došlo k chybě.
+            subject: Došlo k chybě při importu návrhů
+          notify_success:
+            subject: Návrhy byly úspěšně importovány
         imports:
           help:
             answers: |
@@ -677,11 +681,6 @@ cs:
             endorsements_count: Počet schvalování
             endorsers: Schvalující
             link: Zobrazit návrh
-            n_more_endorsers:
-              one: a další 1
-              few: a %{count} dalších
-              many: a %{count} dalších
-              other: a dalších %{count}
             photos: Fotky
             ranking: "%{ranking} z %{total}"
             related_meetings: Související schůzky
@@ -697,7 +696,7 @@ cs:
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
-            success: "%{number} návrhů bylo úspěšně importováno."
+            success: Proces importu byl zahájen. Jakmile bude dokončen, dáme vám vědět.
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
@@ -883,7 +882,6 @@ cs:
           success: Pozvánka spoluautora byla úspěšně zrušena.
         create:
           error: Při pozvání spoluautora došlo k chybě.
-          success: "%{author_name} byl úspěšně pozván jako spoluautor."
         destroy:
           error: Při odmítání pozvánky došlo k chybě.
           success: Pozvánka byla zamítnuta.
@@ -968,7 +966,7 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
-          title: Vytvořte svůj návrh
+          title: Vytvořit nový návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
@@ -1022,7 +1020,7 @@ cs:
         update:
           title: Aktualizovat návrh
         vote_button:
-          already_voted: Již hlasovalo
+          already_voted: Hlasováno
           already_voted_hover: Odebrat hlas
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy

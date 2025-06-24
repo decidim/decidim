@@ -1,8 +1,9 @@
+---
 eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -32,6 +33,8 @@ eu:
           create:
             invalid: Arazo bat egon da argitalpen hau sortzean.
             success: Argitalpena zuzen sortua.
+          destroy:
+            success: Sarrera zuzen ezabatu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -64,16 +67,33 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Gorputza
+            body: Testua
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
             title: Izenburua
       posts:
+        edit:
+          back: Itzuli sarrerara
+          button: Eguneratu
+          title: Editatu sarrera
+        form:
+          author_id: Egilea
+          body: Testua
+          title: Izenburua
         index:
           count:
             one: "Argitalpen %{count}"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
+          new_post: Beste sarrera bat
+        menu_actions:
+          button_destroy: Ezabatu sarrera
+          button_destroy_confirm: Ziur zaude sarrera hau ezabatu nahi duzula?
+          button_edit: Editatu sarrera
+        new:
+          back: Itzuli sarrerara
+          button: Sortu
+          title: Sortu beste sarrera bat
     components:
       blogs:
         actions:
@@ -88,6 +108,7 @@ eu:
             announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
@@ -116,14 +137,14 @@ eu:
           user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         posts:
           author: Egilearen informazioa
-          body: Argitaratuaren gorputza
+          body: Argitaratuaren testua
           comments_count: Argitalpen honek duen iruzkin kopurua
           component: Zein osagairi dagokion argitalpena
           created_at: Zein datatan sortu zen argitalpen hau
           endorsements_count: Argitalpen honek duen abal kopurua
           follows_count: Argitalpen honek duen jarraitzaile kopurua
           id: Argitalpen honen identifikatzaile bakarra
-          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
+          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Partaidetza-prozesua, Batzarra)
           published_at: Zein datatan argitaratu zen atgitalpen hau
           title: Argitalpenaren izenburua
           updated_at: Zein egunetan eguneratu da azken aldiz argitalpen hau

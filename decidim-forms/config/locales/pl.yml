@@ -1,27 +1,15 @@
+---
 pl:
   activemodel:
     attributes:
       answer:
         body: Odpowiedź
-        choices: Opcje
-        selected_choices: Wybrane opcje
       question:
         max_choices: Maksymalna liczba opcji do wyboru
         question_type: Typ odpowiedzi
       questionnaire_question:
         mandatory: Odpowiedź wymagana
         max_characters: Limit znaków (zostaw 0, jeśli nie chcesz ustawiać limitu)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Załącz ponownie
-            body:
-              too_long: jest zbyt długie
-            choices:
-              missing: nie są kompletne
-              too_many: Możesz wybrać maksymalnie %{count}.
   decidim:
     forms:
       admin:
@@ -35,24 +23,14 @@ pl:
             show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
-            free_text: Możliwość wpisania dowolnego tekstu
             remove: Usuń
             statement: Komunikat
           answers:
             actions:
-              back: Powrót do odpowiedzi
-              export: Eksportuj
-              next: Następne &rsaquo;
-              previous: "&lsaquo; Poprzedni"
               show: Pokaż odpowiedzi
             empty: Brak odpowiedzi
-            export:
-              answer:
-                title: 'Odpowiedź #%{number}'
             export_response:
               title: ankieta_odpowiedzi_uzytkownika_%{token}
-            index:
-              title: "%{total} odpowiedzi ogółem"
             show:
               title: 'Odpowiedź #%{number}'
           display_condition:
@@ -120,9 +98,6 @@ pl:
       admin_log:
         questionnaire:
           update: "%{user_name} zaktualizował(a) kwestionariusz %{resource_name}"
-      errors:
-        answer:
-          body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
         processors:
@@ -138,21 +113,14 @@ pl:
         single_option: Jedna opcja
         sorting: Sortowanie
         title_and_description: Tytuł i opis
-      questionnaire_answer_presenter:
-        download_attachment: Pobierz załącznik
       questionnaires:
         answer:
           invalid: Podczas wypełniania formularza wystąpiły błędy.
-          max_choices_alert: Wybrano zbyt wiele opcji
           success: Wypełniono formularz.
         question:
           max_choices: 'Maksymalny wybór opcji: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Posiadasz już konto?
-            are_you_new?: Nowy użytkownik?
-            sign_in_description: Zaloguj się, aby wziąć udział w ankiecie
-            sign_up_description: Utwórz konto uczestnika, aby wziąć udział w ankiecie
             title: Wypełnij formularz
           current_step: Krok %{step}
           empty: Nie skonfigurowano jeszcze żadnych pytań dla tego formularza.
@@ -179,12 +147,6 @@ pl:
           submit: Zatwierdź
       user_answers_serializer:
         body: Odpowiedź
-        completion: Ukończenie
         created_at: Odpowiedziałem
         id: ID odpowiedzi
-        ip_hash: Hash IP
         question: Pytanie
-        registered: Zarejestrowano
-        session_token: Identyfikator użytkownika
-        unregistered: Nie zarejestrowano
-        user_status: Status użytkownika

@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ es-PY:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Verifícate introduciendo un número de pasaporte que empiece por "A".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Verifícate introduciendo un número de pasaporte que empiece por "A".
         csv_census:
           help:
-            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas.
-            - Solamente se puedan verificar las participantes con un correo electrónico que figure en este archivo CSV.
+          - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas.
+          - Solamente se puedan verificar las participantes con un correo electrónico que figure en este archivo CSV.
         default:
           help:
-            - La ayuda sobre el gestor de autorización no está definida.
-            - Un desarrollador necesita definir la ayuda en la clave de traducción (i18n) "%{authorization_handler}"
+          - La ayuda sobre el gestor de autorización no está definida.
+          - Un desarrollador necesita definir la ayuda en la clave de traducción (i18n) "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Verifícate introduciendo un número de documento que termine con "X".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Verifícate introduciendo un número de documento que termine con "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Es una copia de la Autorización de ejemplo.
-            - Verifícate introduciendo un número de documento que termine con "X".
+          - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+          - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+          - Es una copia de la Autorización de ejemplo.
+          - Verifícate introduciendo un número de documento que termine con "X".
         id_documents:
           help:
-            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
-            - Rellenas la información presente en la imagen subida.
-            - La información debe coincidir con lo que el usuario envió.
-            - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
+          - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+          - Rellenas la información presente en la imagen subida.
+          - La información debe coincidir con lo que el usuario envió.
+          - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
         postal_letter:
           help:
-            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
-            - Envías la carta a su dirección con el código de verificación.
-            - Marcas la carta como enviada.
-            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+          - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+          - Envías la carta a su dirección con el código de verificación.
+          - Marcas la carta como enviada.
+          - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
         sms:
           help:
-            - Las participantes solicitan un código de verificación que se enviará a su teléfono.
-            - Necesitan introducir el código para ser verificadas.
-            - Si no reciben el código, pueden pedirlo de nuevo.
+          - Las participantes solicitan un código de verificación que se enviará a su teléfono.
+          - Necesitan introducir el código para ser verificadas.
+          - Si no reciben el código, pueden pedirlo de nuevo.
       csv_census:
         explanation: Verifícate utilizando el censo de la organización.
         name: Censo de la organización
@@ -181,7 +182,7 @@ es-PY:
               john.doe@example.org
               jane.doe@example.org
             file: "archivo .csv con datos de correos electrónicos"
-            info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
+            info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
             submit: Subir archivo
             title: Subir un nuevo censo
         authorizations:

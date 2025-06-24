@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ fi:
         delete_reason: Syy tilisi poistoon
       attachment:
         documents: Asiakirjat
+        image: Kuva
         photos: Kuvat
       common:
         created_at: Luontiaika
@@ -53,7 +55,13 @@ fi:
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
       user_group:
-        avatar: Profiilikuva
+        avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Nimimerkki on kirjoitettava pienillä kirjaimilla, eikä siinä voi olla välilyöntejä
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -78,7 +86,7 @@ fi:
         with_participatory_space: Osallistumistila
       decidim/user:
         current_password: Nykyinen salasana
-        email: Sähköposti
+        email: Sähköpostiosoite
         name: Nimimerkki
         password: Salasana
         password_confirmation: Salasanan vahvistus
@@ -116,7 +124,7 @@ fi:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -171,6 +179,7 @@ fi:
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       opens_in_new_tab: Avautuu uuteen välilehteen
+      secondary_menu: Toissijainen valikko
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -347,7 +356,7 @@ fi:
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
-        error: Kohteen muuttamisessa tapahtui virhe.
+        error: Kohteen muuttaminen epäonnistui.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
@@ -564,6 +573,8 @@ fi:
             dummy_step_attribute1: Esimerkkivaiheen tietue 1
             dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
+      pagination:
+        page_title: "%{component_name} - Sivu %{current_page} / %{total_pages}"
     contact: Ota yhteyttä
     content_blocks:
       announcement:
@@ -612,7 +623,7 @@ fi:
       metrics:
         name: Organisaation tilastomittarit
       participatory_space_metrics:
-        name: Tilastomittarit
+        name: Osallistuminen lukuina
       participatory_space_stats:
         name: Tilastot
       social_networks_metadata:
@@ -672,7 +683,7 @@ fi:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
-          are_you_new?: Uusi käyttäjä?
+          are_you_new?: Etkö ole vielä rekisteröitynyt?
           register: Luo tili
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
@@ -693,7 +704,7 @@ fi:
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
-          or: Tai
+          or: tai
         password_fields:
           hidden_password: Salasanasi on piilotettu
           hide_password: Piilota salasana
@@ -844,7 +855,7 @@ fi:
       endorsed_by:
         one: Tästä on tykännyt %{visible}
         other: Tästä on tykännyt %{visible} ja %{others}
-      others: "%{count} lisää"
+      others: "%{count} muuta"
       title: Tykänneet
       you: sinä
     ephemeral_user: Vierailija
@@ -999,6 +1010,16 @@ fi:
       notification_event:
         notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Laatimasi %{resource_type} ei ole enää näkyvissä.<br>
+            Tämä tapahtui, koska ehdotus, tapaaminen, keskustelu tai kommentti, johon vastasit on moderoitu. Jos se tulee saataville uudelleen, kommenttisi palautetaan automaattisesti näkyviin.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_type}.
+          email_subject: Laatimasi %{resource_type} ei ole enää näkyvissä
+          notification_title: |-
+            Laatimasi %{resource_type} ei ole enää näkyvissä.<br>
+            Tämä tapahtui, koska ehdotus, tapaaminen, keskustelu tai kommentti, johon vastasit on moderoitu. Jos se tulee saataville uudelleen, kommenttisi palautetaan automaattisesti näkyviin.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut poistetun kohteen.
@@ -1073,8 +1094,8 @@ fi:
       attachment_link:
         explanation: Ohjeet liitetiedostojen linkeille
         help_messages:
-          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
-          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
+        - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+        - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -1125,7 +1146,7 @@ fi:
       badges:
         followers:
           conditions:
-            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
+          - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
@@ -1297,13 +1318,13 @@ fi:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
         comanagers_new_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
@@ -1314,13 +1335,13 @@ fi:
           subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_group_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
         new_group_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
@@ -1380,7 +1401,7 @@ fi:
       participants:
         description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujat
-        title: Osallistujat
+        title: Osallistujaa
       reported_users:
         description: Ilmoitettujen osallistujien määrä
       user_reports:
@@ -1388,7 +1409,7 @@ fi:
       users:
         description: Organisaation käyttäjien määrä
         object: käyttäjät
-        title: Käyttäjät
+        title: Osallistujaa
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
@@ -1675,7 +1696,7 @@ fi:
         error: Salasanan päivitys epäonnistui.
         success: Salasanan päivitys onnistui.
     profile:
-      deleted: Poistettu osallistuja
+      deleted: Käyttäjä poistettu
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
     profiles:
       default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti vahvistettu, ja ryhmän nimen oikeellisuus on varmistettu.
@@ -1686,23 +1707,19 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
-        group_admins: Hallinnoi hallintakäyttäjiä
+        group_admins: Hallinnoi ylläpitäjiä
         group_members: Hallinnoi jäseniä
         groups: Ryhmät
         members: Jäsenet
         officialized: Virallinen osallistuja
         send_private_message: Lähetä yksityisviesti
-      sidebar:
-        badges:
-          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
-          title: Kunniamerkit
       user:
         actions:
           create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
+          edit_user_group: Muokkaa ryhmän profiilia
+          invite_user: Kutsu käyttäjä
           join_user_group: Lähetä liittymispyyntö ryhmään
           leave_user_group: Poistu ryhmästä
           manage_user_group: Hallinnoi ryhmää
@@ -1711,22 +1728,26 @@ fi:
           message: Viesti
           resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
-        create_user_group: Luo ryhmä
-        edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa ryhmän profiilia
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
-        invite_user: Kutsu käyttäjä
-        join_user_group: Lähetä liittymispyyntö ryhmään
-        leave_user_group: Poistu ryhmästä
-        manage_user_group_admins: Hallinnoi ylläpitäjiä
-        manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
         hello: Hei %{name},
         manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
-        subject: Resurssi on piilotettu automaattisesti
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
+        subject: Kohde on piilotettu automaattisesti
+      hidden_manually:
+        content: Ilmoitettu sisältö
+        details: Tarkemmat tiedot
+        hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        participatory_space: Osallistumistila
+        reason: Syy
+        report_html: <p>Seuraava <a href="%{url}">sisältö</a> on piilotettu moderoijan %{moderator} toimesta.</p>
+        subject: Kohde on piilotettu moderoijan %{moderator} toimesta
       report:
         authors: Tekijät
         content: Ilmoitettu sisältö
@@ -1744,6 +1765,10 @@ fi:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      hide:
+        success: Tämä kohde on piilotettu.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
@@ -1802,18 +1827,17 @@ fi:
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiatonta sisältöä
+        title: Ilmoita epäasiallista sisältöä
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja
-        close: Sulje
-        description: Mikä tässä käyttäjässä on asiatonta?
+        description: Mikä tässä osallistujassa on epäasiallista?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiaton käyttäjä
+        title: Ilmoita epäasiallinen käyttäjä
       floating_help:
         help: Ohjeet
       follow_button:
@@ -2358,7 +2382,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d., %Y klo %k:%M"
+            accept_until_format: "%B %d., %Y klo %H:%M"
       help:
         time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"

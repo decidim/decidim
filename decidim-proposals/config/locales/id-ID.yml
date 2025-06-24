@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -131,8 +132,8 @@ id:
       badges:
         accepted_proposals:
           conditions:
-            - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
-            - Cobalah membuat proposal yang bisa dilakukan. Dengan cara ini mereka lebih mungkin diterima.
+          - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
+          - Cobalah membuat proposal yang bisa dilakukan. Dengan cara ini mereka lebih mungkin diterima.
           description: Lencana ini diberikan ketika Anda secara aktif berpartisipasi dengan proposal baru dan ini diterima.
           description_another: Pengguna ini telah menerima %{score} proposal.
           description_own: Anda mendapat %{score} proposal diterima.
@@ -142,12 +143,12 @@ id:
           unearned_own: Anda belum menerima proposal.
         proposal_votes:
           conditions:
-            - Jelajahi dan habiskan waktu untuk membaca proposal orang lain
-            - 
+          - Jelajahi dan habiskan waktu untuk membaca proposal orang lain
+          - 
         proposals:
           conditions:
-            - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
-            - Buat proposal baru
+          - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
+          - Buat proposal baru
           description: Lencana ini diberikan ketika Anda secara aktif berpartisipasi dengan proposal baru.
           description_another: Pengguna ini telah membuat %{score} proposal.
           description_own: Anda telah membuat %{score} proposal.
@@ -158,7 +159,7 @@ id:
       accepted_proposals:
         description: Jumlah proposal yang diterima oleh pengguna
         object: proposal
-        title: Proposal yang Diterima
+        title: Proposal yang diterima
       endorsements:
         description: Jumlah dukungan yang dihasilkan dalam proposal
         object: dukungan
@@ -167,6 +168,8 @@ id:
         description: Jumlah proposal yang dihasilkan
         object: proposal
         title: Proposal
+      votes:
+        title: Suara
     participatory_spaces:
       highlighted_proposals:
         see_all: Lihat semua

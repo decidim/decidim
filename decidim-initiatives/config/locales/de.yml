@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -198,8 +199,8 @@ de:
       badges:
         initiatives:
           conditions:
-            - Gehe zum Teilnehmerbereich von Intiativen
-            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          - Gehe zum Teilnehmerbereich von Intiativen
+          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Sie haben %{score} veröffentlichte Initiativen.
@@ -257,7 +258,7 @@ de:
             accept: Initiative akzeptieren
             confirm: Sind Sie sich sicher?
             confirm_send_to_technical_validation: Sind Sie sich sicher?
-            discard: Verwerfen Sie die Initiative
+            discard: Initiative verwerfen
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
             reject: Initiative ablehnen
@@ -642,7 +643,7 @@ de:
         actions:
           create: Initiative erstellen
           title: Aktionen
-          vote: Abstimmung
+          vote: Signieren
   layouts:
     decidim:
       initiative_creation_header:

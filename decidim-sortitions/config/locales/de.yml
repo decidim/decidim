@@ -1,9 +1,9 @@
+---
 de:
   activemodel:
     attributes:
       sortition:
         additional_info: Sortierinformationen
-        decidim_category_id: Kategorien der Vorschläge, in denen Sie die Auslosung anwenden möchten
         decidim_proposals_component_id: Vorschläge festgelegt
         dice: Ergebnis des Würfelwurfs. Wirf einen 6-seitigen Würfel oder suche nach einem anderen zufälligen Weg, um eine Zahl von 1 bis 6 zu erzeugen, und gib die resultierende Zahl vor einigen Zeugen ein. Dies trägt zur Qualität und zur Gewährleistung der Zufälligkeit des Ergebnisses bei
         target_items: Anzahl der auszuwählenden Vorschläge (gibt die Anzahl der Vorschläge an, die Sie auswählen möchten, indem Sie viele der Vorschläge auswählen, die Sie zuvor ausgewählt haben)
@@ -24,8 +24,13 @@ de:
         name: Sortierungen
         settings:
           global:
+            clear_all: Alle löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
     events:
       sortitions:
         sortition_created:
@@ -43,7 +48,6 @@ de:
         models:
           sortition:
             fields:
-              category: Kategorie
               created_at: Erstellungsdatum
               decidim_proposals_component: Vorschlagskomponente
               dice: Würfel
@@ -51,6 +55,7 @@ de:
               request_timestamp: Zeit zeichnen
               seed: Samen
               target_items: Zu wählende Elemente
+              taxonomies: Klassifizierungen
               title: Titel
         sortitions:
           confirm_destroy:
@@ -67,8 +72,9 @@ de:
             title: Informationen zur Sortierung aktualisieren
             update: Aktualisieren
           form:
-            all_categories: Alle Kategorien
+            all_taxonomies: Alle Klassifizierungen
             select_proposal_component: Wählen Sie die Vorschläge aus
+            select_taxonomies: Klassifizierungen der Vorschlagsauswahl, auf die die Auslosung angewendet wird. Lassen Sie das Feld leer, um die Ziehung auf alle Vorschläge dieser Klassifizierung anzuwenden.
           index:
             title: Sortierungen
           new:
@@ -110,16 +116,16 @@ de:
             other: ausgewählte Vorschläge
         show:
           algorithm: Sortieralgorithmuscode
-          any_category: aus allen Kategorien
+          any_taxonomy: alle Klassifizierungen
           cancelled: Stornierte Sortierung
           candidate_proposal_ids: Reihenfolge der Sortierungsvorschläge und IDs
-          candidate_proposals_info: 'Die Sortierung wurde unter den folgenden Vorschlägen (%{category_label}) durchgeführt, mit den folgenden IDs (in Fettschrift die ausgewählten Vorschläge)  '
-          category: aus der %{category} Kategorie
+          candidate_proposals_info: 'Die Auslosung wurde unter den folgenden Vorschlägen (%{taxonomy_labels}) durchgeführt, mit den folgenden IDs (fett gedruckt sind die ausgewählten Vorschläge)  '
           dice_result: (1) Würfelergebnis
           introduction: 'Diese Seite enthält die Ergebnisse der Sortierung %{reference}. Durch diese Sortierung wurde %{target_items} Anzahl von Ergebnissen zufällig und mit einer gleichen Wahrscheinlichkeitsverteilung aus dem unten angezeigten Satz von Vorschlägen ausgewählt. Zusammen mit den Ergebnissen bieten die auf dieser Seite angezeigten Informationen alle Informationen, die erforderlich sind, um die Garantien zu maximieren und die Ergebnisse zu reproduzieren. Der Schlüssel zur Qualität dieser Sortierung ist die doppelte Zufälligkeit, die durch das Rollen eines Würfels (verifiziert durch Zeugen) und den genauen Zeitpunkt der Sortierung bereitgestellt wird, der eine Eingabe für einen Algorithmus liefert, der eine zufällige Auswahl erzeugt. Der Zeitsaat für die Sortierung ist so genau (Sekunden), dass es unmöglich ist, von Menschen kontrolliert zu werden, wodurch eine doppelte "unkontrollierbare" Eingabe bereitgestellt wird, um ein faires Ergebnis zu garantieren.  '
           mathematical_result: Ergebnis (1) x (2)
           proposals_selected_by_sortition: Vorschläge nach der Sortierung ausgewählt
           sortition_reproducibility_details: Einzelheiten der Sortierreproduzierbarkeit
+          taxonomies: von den Klassifizierungen %{taxonomies}
           time_seed: (2) Zeit Samen
           witnesses: Zeugen
         sortition:

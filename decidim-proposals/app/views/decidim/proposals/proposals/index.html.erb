@@ -1,6 +1,9 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_participatory_space.short_description),
-  title: component_name,
+  title: t("decidim.components.pagination.page_title",
+           component_name: component_name,
+           current_page: @proposals.current_page,
+           total_pages: @proposals.total_pages ),
   url: proposals_url,
   resource: current_component) %>
 
@@ -40,12 +43,7 @@
   <% end %>
 
   <%= render partial: "decidim/shared/component_announcement" %>
-
-  <% if show_voting_rules? %>
-    <section class="layout-main__section">
-      <%= render partial: "voting_rules" %>
-    </section>
-  <% end %>
+  <%= render partial: "voting_rules" %>
 
   <section id="proposals" class="layout-main__section layout-main__heading">
     <%= render partial: "proposals" %>

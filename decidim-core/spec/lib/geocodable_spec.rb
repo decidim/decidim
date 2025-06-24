@@ -7,7 +7,7 @@ module Decidim
   # will not get broken by the Geocoder gem's updates. The reason for the
   # customization is to pass the record in question for the geocoding searches
   # in order to correctly initialize the geocoding utility.
-  describe Geocodable do
+  describe Geocodable, configures_map: true do
     subject do
       record_class.new(
         organization:,
@@ -30,8 +30,6 @@ module Decidim
     let(:longitude) { 2.1234 }
 
     before do
-      Decidim::Map.reset_utility_configuration!
-      GeocoderHelpers.configure_maps
       stub_geocoding(address, [latitude, longitude])
     end
 

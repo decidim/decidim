@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -190,7 +191,7 @@ el:
       badges:
         attended_meetings:
           conditions:
-            - Εγγραφείτε στις συσκέψεις που θέλετε να παρακολουθήσετε
+          - Εγγραφείτε στις συσκέψεις που θέλετε να παρακολουθήσετε
           description: Αυτό το έμβλημα χορηγείται όταν παρακολουθείτε σε διάφορες συσκέψεις πρόσωπο με πρόσωπο.
           description_another: Αυτός ο συμμετέχων έχει παρακολουθήσει %{score} συσκέψεις.
           description_own: Έχετε παρακολουθήσει %{score} συσκέψεις.
@@ -326,8 +327,6 @@ el:
         registrations:
           edit:
             save: Αποθήκευση
-            validate: Επικύρωση
-            validate_registration_code: Επικύρωση κωδικού εγγραφής
           form:
             available_slots_help: Αφήστε το σε 0, εάν έχετε απεριόριστες διαθέσιμες θέσεις.
             invites: Προσκλήσεις
@@ -343,9 +342,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση των ρυθμίσεων εγγραφής.
             success: Οι ρυθμίσεις εγγραφής στη σύσκεψη αποθηκεύτηκαν με επιτυχία.
-          validate_registration_code:
-            invalid: Αυτός ο κωδικός εγγραφής δεν είναι έγκυρος.
-            success: Ο κωδικός εγγραφής επικυρώθηκε με επιτυχία.
       admin_log:
         invite:
           create: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{attendee_name} στη σύσκεψη %{resource_name} στον χώρο %{space_name}"
@@ -480,7 +476,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Δημιουργήστε τη Συνάντησή σας
         registration_confirm:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση

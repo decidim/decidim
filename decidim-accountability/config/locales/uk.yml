@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -133,6 +134,9 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{proposal_title}". Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{proposal_title}
           notification_title: Пропозиція <a href="%{proposal_path}">%{proposal_title}</a> була включена до підсумку <a href="%{resource_path}">%{resource_title}</a>.
+    metrics:
+      results:
+        title: Підсумки
     resource_links:
       included_projects:
         result_project: Проекти, включені до цих підсумків

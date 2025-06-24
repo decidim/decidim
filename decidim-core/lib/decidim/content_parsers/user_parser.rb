@@ -49,7 +49,7 @@ module Decidim
 
       def existing_mentionables
         @existing_mentionables ||= mentionable_class.where(
-          "decidim_organization_id = ? AND LOWER(nickname) IN (?)",
+          "decidim_organization_id = ? AND nickname IN (?)",
           current_organization.id,
           content_nicknames
         )

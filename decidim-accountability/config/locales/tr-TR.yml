@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -9,6 +10,7 @@ tr:
         end_date: Bitiş tarihi
         progress: İlerleme
         start_date: Başlangıç tarihi
+        subresults:
         title: Başlık
         updated_at: Adresinde güncellendi
       status:
@@ -25,6 +27,14 @@ tr:
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Bu sonuç %{link} eklenmiştir
+            meetings_ids: 'Bu toplantıda tartışılmıştır: %{link}'
+            project_ids: 'Bu projeye dahil edilmiştir: %{link}'
+            proposal_ids: 'Bu önergeye dahil edilmiştir: %{link}'
+            text: 'Bu sonuca dahil edilmiştir: %{link}'
       decidim/accountability/result:
         one: Sonuç
         other: Sonuçlar
@@ -33,9 +43,12 @@ tr:
       actions:
         attachment_collections: Klasörler 
         attachments: Ekler 
+        confirm_delete_result: Bu sonucu silmek istediğinizden emin misiniz?
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
+        deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
         destroy: silmek
         edit: Düzenle
+        import: Sonuçları başka bir bileşenden içe aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
@@ -43,10 +56,33 @@ tr:
         preview: Ön izleme
         timeline_entries: Proje evrimi
         title: Eylemler
+        view_deleted_results: Silinmiş sonuçları görüntüle
       admin:
         exports:
           result_comments: Yorumlar
           results: Sonuçlar
+        import_components:
+          create:
+            invalid: Sonuçların içe aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve uygulama için projeleri seçtiğinizden emin olun.
+          filters:
+            new_items_projects:
+              one: Seçilen 1 proje içe aktarılacak
+              other: "Seçilen %{count} proje içe aktarılacak"
+            new_items_proposals:
+              one: 1 önerge içe aktarılacak
+              other: "%{count} önerge içe aktarılacak"
+            proposal_state: Önerge durumu
+            select_state: Durum seç
+          form:
+            create: İçe aktar
+            no_components: Bu katılımcı alanda içe aktaracak bir bileşen bulunmamaktadır.
+            origin_component_id:
+            select_component: Bir bileşen seç
+          new:
+            success:
+              one: 1 sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz.
+              other: "%{count} sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz."
+            title: Sonuçları başka bir bileşenden içe aktar
         import_results:
           new:
             download_export: '  İhracat i CSV formatında indirin '
@@ -62,6 +98,23 @@ tr:
           status:
             name: durum
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Tarihi değiştir
+              end_date: Bitiş tarihi
+              start_date: Başlangıç tarihi
+            dropdown:
+              actions: Eylemler
+              change_dates: Tarihi değiştir
+              change_status: Durumu değiştir
+              change_taxonomies: Sınıflandırmaları değiştir
+            status_form:
+              change_status: Durumu değiştir
+              status: Durum
+            submit_buttons:
+              cancel: İptal Et
+            taxonomies_form:
+              change_taxonomies: Sınıflandırmaları değiştir
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
             success: Sonuçlar Başarıyla oluşturuldu.
@@ -69,13 +122,26 @@ tr:
             title: Sonucu düzenle
             update: Sonuç güncelle
           index:
+            selected: Seçilen
             title: Sonuçlar
+          manage_trash:
+            title: Sonuçları sil
           new:
             create: Sonuç oluştur
             title: Yeni sonuç
           update:
             invalid: Sonucu Güncellerken Hata Oluştu.
             success: Sonuçlar başarıyla güncellendi.
+          update_dates:
+            invalid: Sonuçların tarihini güncellerken bir hata oluştu.
+            success: Sonuçların tarihleri başarıyla güncellendi
+          update_status:
+            invalid: Sonuçların durumunu güncellerken bir hata oluştu
+            success:
+          update_taxonomies:
+            invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
+            select_a_result: Bir sonuç seç
+            select_a_taxonomy: Bir sınıflandırma seç
         shared:
           subnav:
             statuses: durumlar
@@ -218,6 +284,12 @@ tr:
         description: Üretilen sonuç sayısı
         object: sonuçlar
         title: Sonuçlar
+    open_data:
+      help:
+        result_comments:
+          user_group: Bu yorumu yapan kullanıcı grubu (varsa)
+        results:
+          created_at: Sonucun oluşturulma tarihi
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})

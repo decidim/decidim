@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -186,8 +187,8 @@ lt:
       badges:
         initiatives:
           conditions:
-            - Eiti į iniciatyvų dalyvaujamąją erdvę
-            - Sekti žingsnius naujos iniciatyvos sukūrimui
+          - Eiti į iniciatyvų dalyvaujamąją erdvę
+          - Sekti žingsnius naujos iniciatyvos sukūrimui
           description: Šis ženklelis suteikiamas, kai pradedate naujas iniciatyvas ir bendradarbiaujate su kitais, kad jas įgyvendintumėte.
           description_another: Šis dalyvis paskelbė %{score} iniciatyvas (-ų).
           description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
@@ -348,7 +349,6 @@ lt:
         finish:
           back: Atgal
           back_to_initiatives: Grįžti į iniciatyvas
-          callout_text: Sveikiname! Jūsų iniciatyva sukurta.
           confirm: Jūs siųsite šią iniciatyvą administratoriaus peržiūrai ir publikavimui. Paskelbus iniciatyvą jos koreguoti nebegalėsite. Ar tikrai norite ją siųsti?
           edit_my_initiative: Redaguoti mano iniciatyvas
           go_to_my_initiatives: Eiti į mano iniciatyvas

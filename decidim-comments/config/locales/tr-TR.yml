@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     models:
@@ -15,6 +16,10 @@ tr:
         one: Oy ver
         other: oy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Yorumlar
     comments:
       comments:
         create:
@@ -83,7 +88,7 @@ tr:
         comment_by_followed_user_group:
           email_intro: '%{author_name} grubu %{resource_title} alanında bir yorum bıraktı. Bu sayfada okuyabilirsiniz:'
           email_outro: Bu bildirimi %{author_name} adlı yazarı takip ettiğiniz için aldınız. Bu grubu profil sayfasından takip etmeyi bırakabilirsiniz.
-          email_subject: '%{author_name}, %{resource_title} alanında yeni bir yorum yaptı'
+          email_subject: '%{author_name} %{resource_title} alanında yeni bir yorum yaptı'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> içinde <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından yeni bir yorum var.
         comment_created:
           email_intro: "%{resource_title} alanında yorum yapıldı. Bu sayfadaki yorumu okuyabilirsiniz:"

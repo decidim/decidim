@@ -1,10 +1,11 @@
+---
 de:
   activemodel:
     attributes:
       answer:
         body: Antworten
-        choices: Auswahl
-        selected_choices: Ausgewählte Auswahl
+        choices: Optionen
+        selected_choices: Ausgewählte Optionen
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
@@ -21,7 +22,7 @@ de:
               too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
-              too_many: Sie können ein Maximum von %{count} auswählen.
+              too_many: Sie können maximal %{count} auswählen.
         questionnaire:
           request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
   decidim:
@@ -64,7 +65,7 @@ de:
             statement: Aussage
           answers:
             actions:
-              back: Zurück zu Antworten
+              back: Zurück zu den Antworten
               export: Exportieren
               next: Nächste &rsaquo;
               previous: "&lsaquo; Vorherige"
@@ -124,7 +125,7 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             expand: Ausklappen
             question: Frage
             remove: Löschen
@@ -141,7 +142,7 @@ de:
             down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Hoch
+            up: Nach oben
           title_and_description:
             collapse: Einklappen
             description: Beschreibung
@@ -183,7 +184,7 @@ de:
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
-          max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
+          max_choices_alert: Es sind zu viele Optionen ausgewählt
           success: Fragebogen erfolgreich beantwortet.
         question:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
@@ -217,7 +218,6 @@ de:
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
-          are_you_sure_edit: Sie werden Ihre Antworten bearbeiten können. Sind Sie sicher?
           are_you_sure_edit_guest: Wenn Sie Ihre Antworten nachträglich bearbeiten möchten, müssen Sie sich anmelden oder ein Konto erstellen.
           are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht mehr bearbeiten. Sind Sie sicher?
           back: Zurück

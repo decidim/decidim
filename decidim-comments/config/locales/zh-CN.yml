@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     models:
@@ -13,6 +14,10 @@ zh-CN:
       decidim/comments/comment_vote:
         other: 所得票数
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: 评论
     comments:
       votes:
         create:

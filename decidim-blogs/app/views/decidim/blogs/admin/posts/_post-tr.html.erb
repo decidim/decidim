@@ -1,6 +1,6 @@
 <tr data-id="<%= post.id %>">
   <td>
-    <% if allowed_to? :update, :blogpost, blog_post: post %>
+    <% if allowed_to? :update, :blogpost, blogpost: post %>
       <%= link_to translated_attribute(post.title), edit_post_path(post) %><br>
     <% else %>
       <%= translated_attribute(post.title) %><br>

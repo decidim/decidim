@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -124,6 +125,8 @@ lv:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
           proposal_note_created:
             email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
@@ -173,8 +176,8 @@ lv:
       badges:
         accepted_proposals:
           conditions:
-            - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
-            - Centieties izteikt priekšlikumus, kurus var īstenot. Tādā veidā rodas lielāka iespēja, ka tie tiks pieņemti.
+          - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
+          - Centieties izteikt priekšlikumus, kurus var īstenot. Tādā veidā rodas lielāka iespēja, ka tie tiks pieņemti.
           description: Šis žetons tiek piešķirts, kad jūs aktīvi līdzdarbojaties ar jauniem priekšlikumiem un tie tiek pieņemti.
           description_another: Šim dalībniekam bija %{score} pieņemti priekšlikumi.
           description_own: Jums ir %{score} priekšlikumi.
@@ -184,12 +187,12 @@ lv:
           unearned_own: Jums vēl nav neviena pieņemta priekšlikuma.
         proposal_votes:
           conditions:
-            - Pārlūkojiet un pavadiet kādu laiku, lasot citu cilvēku priekšlikumus
-            - 
+          - Pārlūkojiet un pavadiet kādu laiku, lasot citu cilvēku priekšlikumus
+          - 
         proposals:
           conditions:
-            - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
-            - Izveidot jaunu priekšlikumu
+          - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
+          - Izveidot jaunu priekšlikumu
           description: Šis žetons tiek piešķirts, kad jūs aktīvi līdzdarbojaties ar jauniem priekšlikumiem.
           description_another: Šis dalībnieks ir izveidojis %{score} priekšlikumus.
           description_own: Jūs esat izveidojis %{score} priekšlikumus.
@@ -209,6 +212,8 @@ lv:
         description: Priekšlikumu skaits
         object: priekšlikumi
         title: Priekšlikumi
+      votes:
+        title: Balsis
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums
@@ -271,7 +276,6 @@ lv:
           index:
             actions: Darbības
             assign_to_valuator: Piešķirt vērtētājam
-            assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             merge: Apvienot jaunā
             merge_button: Apvienot
@@ -283,7 +287,6 @@ lv:
             split_button: Sadalījums
             title: Priekšlikumi
             unassign_from_valuator: Atsaukt no vērtētāja
-            unassign_from_valuator_button: Atsaukt
             update: Atjaunināt
           new:
             create: Izveidot
@@ -296,10 +299,6 @@ lv:
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
             endorsers: Atbalstītāji
-            n_more_endorsers:
-              zero: un %{count} vēl
-              one: un vēl viens
-              other: un %{count} vēl
             photos: Fotogrāfijas
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'

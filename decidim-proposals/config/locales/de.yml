@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -97,9 +98,7 @@ de:
       decidim:
         proposals:
           proposal:
-            budget_text: Der Vorschlag %{link} wurde erstellt
             import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
-            import_to_proposal_text: Dieser Vorschlag %{link} wurde erstellt
             merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
             split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
@@ -384,8 +383,8 @@ de:
       badges:
         accepted_proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Vorschläge einbringen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
@@ -395,8 +394,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erhalten.
         proposal_votes:
           conditions:
-            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
-            - Geben Sie Ihre Stimme den Vorschlägen, die Sie mögen oder interessant finden
+          - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+          - Geben Sie Ihre Stimme den Vorschlägen, die Sie mögen oder interessant finden
           description: Dieses Abzeichen wird gewährt, wenn Sie über Vorschläge anderer Personen abgestimmt haben.
           description_another: Dieser Teilnehmende hat über %{score} Vorschläge abgestimmt.
           description_own: Sie haben über %{score} Vorschläge abgestimmt.
@@ -406,8 +405,8 @@ de:
           unearned_own: Sie haben noch über keine Vorschläge abgestimmt.
         proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Neuen Vorschlag erstellen
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Neuen Vorschlag erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.
@@ -431,7 +430,7 @@ de:
       votes:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
-        title: Abstimmungen
+        title: Stimmen
     open_data:
       help:
         proposal_comments:
@@ -484,7 +483,6 @@ de:
           withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
-        last: Letzte Vorschläge
         see_all: Alle anzeigen
     proposals:
       actions:
@@ -512,6 +510,16 @@ de:
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
+        import_proposals_mailer:
+          notify_failure:
+            body: Beim Importieren von Vorschlägen aus der Komponente %{origin_component_name} in die Komponente %{target_component_name} ist ein Fehler aufgetreten.
+            subject: Beim Importieren der Vorschläge ist ein Fehler aufgetreten
+          notify_success:
+            added_proposals:
+              one: Ein Vorschlag wurde importiert.
+              other: "%{count} Vorschläge wurden importiert."
+            body: Vorschläge erfolgreich aus der Komponente %{origin_component_name} zu %{target_component_name} importiert. Sie können die Ergebnisse in der Adminoberfläche überprüfen.
+            subject: Die Vorschläge wurden erfolgreich importiert
         imports:
           help:
             answers: |
@@ -646,7 +654,7 @@ de:
             statuses: Status
             title: Vorschläge
             unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
-            unassign_from_valuator_button: Zuweisung aufheben
+            unassign_from_valuator_button:
             update: Aktualisieren
           manage_trash:
             title: Gelöschte Vorschläge
@@ -665,9 +673,6 @@ de:
             endorsements_count: Anzahl der Befürwortungen
             endorsers: Befürworter
             link: Vorschlag anzeigen
-            n_more_endorsers:
-              one: und 1 mehr
-              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
@@ -683,7 +688,7 @@ de:
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
-            success: "%{number} Vorschläge erfolgreich importiert."
+            success: Der Importprozess wurde gestartet. Sie werden benachrichtigt, sobald er beendet ist.
           new:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
@@ -915,7 +920,7 @@ de:
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
-          discard: Verwerfen Sie diesen Entwurf
+          discard: Entwurf verwerfen
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
@@ -944,11 +949,11 @@ de:
           list_mode: Listen-Ansicht
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
-          see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          see_all_withdrawn: Zurückgezogene Vorschläge ansehen
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
-          title: Ihren Vorschlag erstellen
+          title: Neuer Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
@@ -998,11 +1003,12 @@ de:
         update:
           title: Vorschlag aktualisieren
         vote_button:
-          already_voted: Bereits abgestimmt
+          already_voted: Abgestimmt
           already_voted_hover: Stimme zurückziehen
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
+          votes_blocked: Abstimmen
         votes_count:
           count:
             one: Stimme
@@ -1033,7 +1039,7 @@ de:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
           step_2: Vorschlag veröffentlichen
-          title: Schritten zur Erstellung von Vorschlägen
+          title: Schritte der Vorschlagserstellung
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.

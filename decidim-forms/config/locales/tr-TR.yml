@@ -1,21 +1,14 @@
+---
 tr:
   activemodel:
     attributes:
       answer:
         body: Cevap
-        choices: Seçenekler
-        selected_choices: Seçilmiş seçenekler
       question:
         max_choices: Maksimum seçenek sayısı
         question_type: tip
       questionnaire_question:
         mandatory: Zorunlu
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: tamamlanmadı
   decidim:
     forms:
       admin:
@@ -29,22 +22,14 @@ tr:
             show: Yanıtları göster
           answer_option:
             answer_option: Cevap seçeneği
-            free_text: Ücretsiz Metin
             remove: Kaldır
             statement: Beyan
           answers:
             actions:
-              back: Yanıtlara dön
-              export: Dışa aktar
               show: Cevapları göster
             empty: Henüz cevap bulunmuyor
-            export:
-              answer:
-                title: '#%{number} yanıt'
             export_response:
               title: survey_user_answers _%{token}
-            index:
-              title: "%{total} toplam yanıt"
             show:
               title: '%{number} cevap'
           display_condition:
@@ -113,7 +98,6 @@ tr:
       questionnaires:
         answer:
           invalid: Formu yanıtlarken bir sorun oluştu.
-          max_choices_alert: Çok fazla seçenek seçilmiş
           success: Form başarıyla cevaplandı.
         question:
           max_choices: 'Maksimum seçenek: %{n}'
@@ -145,12 +129,6 @@ tr:
           submit: Gönder
       user_answers_serializer:
         body: Cevap
-        completion: Tamamlanma
         created_at: Yanıtlandı
         id: Cevap kimliği
-        ip_hash: IP Hash
         question: Soru
-        registered: Kayıtlı
-        session_token: Kullanıcı tanımlayıcı
-        unregistered: Kayıtlı değil
-        user_status: Kullanıcı durumu

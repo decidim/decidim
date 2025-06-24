@@ -1,9 +1,10 @@
+---
 ja:
   activemodel:
     attributes:
       answer:
         body: 回答
-        choices: 選択項目
+        choices: 項目
         selected_choices: 選択した項目
       question:
         max_choices: 選択肢の最大数
@@ -18,31 +19,53 @@ ja:
             add_documents:
               needs_to_be_reattached: 再添付が必要
             body:
-              too_long: 長すぎます
+              too_long: は長すぎます
             choices:
               missing: は完全ではありません
               too_many: 最大 %{count} 個まで選択できます。
         questionnaire:
           request_invalid: リクエストの処理中に問題が発生しました。もう一度やり直してください。
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: 質問への回答
+          id: 回答の固有ID
+          question: 回答された質問
+          questionnaire: 回答されたアンケート
+          user: アンケートに回答したユーザー
+      show:
+        answers: 回答のエクスポート
+        survey_user_answers: アンケートユーザーの回答
     forms:
       admin:
         models:
           components:
+            allow_answers: 回答を許可
+            allow_editing_answers: 登録ユーザーが自分のアンケート回答を編集できるようにする
+            allow_unregistered: 未登録ユーザーがアンケートに回答できるようにする
+            allow_unregistered_help: 有効な場合、ログインしていなくてもアンケートに回答できるようになります。 これは、収集されるデータが貧弱または信頼性が低下するおそれがあり、自動化された攻撃に対してより脆弱になります。 注意して使用してください。また、 異なるブラウザを使ったりまたはWebブラウザの「プライベートブラウジング」機能を使うことで、参加者が同じアンケートに複数回答えられることに注意してください。
+            announcement: お知らせ
+            clean_after_publish: アンケートを公開するときに回答を削除する
             description: 説明
+            ends_at: 回答受付の終了日時
+            ends_at_help: 特定の日付がない場合は空白のままにしてください
+            starts_at: 回答受付の開始日時
+            starts_at_help: 特定の日付がない場合は空白のままにしてください
             tos: 利用規約
         questionnaires:
           actions:
             back: 質問に戻る
+            publish_answers: 回答を公開
             show: 回答を表示
           answer_option:
             answer_option: 回答オプション
-            free_text: フリーテキスト
+            free_text: 自由形式テキスト
             remove: 削除
             statement: ステートメント
           answers:
             actions:
-              back: 返信に戻る
+              back: 応答に戻る
               export: エクスポート
               next: 次 &rsaquo;
               previous: "&lsaquo; 前"
@@ -54,7 +77,7 @@ ja:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "合計%{total} 件の回答"
+              title: "総回答数 %{total} 件"
             show:
               title: '回答 #%{number}'
           display_condition:
@@ -78,6 +101,12 @@ ja:
           edit:
             save: 保存
             title: アンケートを編集
+          edit_questions:
+            add_question: 質問を追加
+            add_separator: 区切り文字を追加
+            add_title_and_description: タイトルと説明を追加
+            save: 保存
+            title: 質問
           form:
             add_question: 質問を追加
             collapse: すべての質問を閉じる
@@ -102,6 +131,13 @@ ja:
             remove: 削除
             statement: ステートメント
             up: 上へ
+          questions_form:
+            already_answered_warning: このフォームはすでに回答しているユーザーがいるため、質問を修正することはできません。
+            collapse: すべての質問を閉じる
+            expand: すべての質問を展開
+            unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
+            update:
+              success: アンケートの質問を保存しました。
           separator:
             down: 下
             remove: 削除
@@ -120,6 +156,9 @@ ja:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。
       admin_log:
+        question:
+          publish_answers: "%{user_name} が %{resource_name} の質問の回答を %{space_name} スペースに公開しました"
+          unpublish_answers: "%{user_name} は %{resource_name} の質問の回答を %{space_name} スペースで非公開にしました"
         questionnaire:
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
       errors:
@@ -153,7 +192,7 @@ ja:
           answer_questionnaire:
             already_have_an_account?: 既にアカウントをお持ちですか？
             are_you_new?: 新しいユーザーですか？
-            sign_in_description: ログインしてアンケートに答える
+            sign_in_description: アンケートにログインする
             sign_up_description: アンケートに答えるために参加者アカウントを作成します
             title: フォームに回答
           current_step: ステップ %{step}
@@ -162,6 +201,9 @@ ja:
           questionnaire_answered:
             body: このフォームには既に回答済みです。
             title: すでに回答済み
+          questionnaire_answered_edit:
+            body: すでにこのフォームに回答しています。 %{link}
+            edit: 回答を編集する
           questionnaire_closed:
             body: フォームが閉じられているため、回答できません。
             title: フォームを閉じました
@@ -176,8 +218,11 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
+          are_you_sure_edit_guest: 回答を後で編集できるようにしたい場合は、ログインまたはアカウントを作成する必要があります。
+          are_you_sure_no_edit: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る
           continue: 続ける
+          disallowed: 回答を編集する権限がありません。
           submit: 送信
       user_answers_serializer:
         body: 回答

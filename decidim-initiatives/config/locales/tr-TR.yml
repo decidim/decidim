@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -154,8 +155,8 @@ tr:
       badges:
         initiatives:
           conditions:
-            - Intiatives'in katılım alanına git
-            - Yeni bir girişim oluşturmak için adımları izleyin
+          - Intiatives'in katılım alanına git
+          - Yeni bir girişim oluşturmak için adımları izleyin
           description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
           description_another: Bu katılımcı, yayınlanan %{score} girişimi aldı.
           name: Yayınlanmış girişimler
@@ -274,7 +275,6 @@ tr:
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dön
-          callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
           confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
           edit_my_initiative: Girişimimi düzenle
           go_to_my_initiatives: Benim girişimlerime git
@@ -314,7 +314,7 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından oluşturuldu.
         endorse_initiative_event:
           email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} aşağıdaki girişimi onayladı, belki sohbete katkıda bulunmak istersiniz:"
-          email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: Girişim %{author_nickname} tarafından onaylandı
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       initiative_signatures:
@@ -448,7 +448,7 @@ tr:
     decidim:
       initiative_creation_header:
         fill_data: Oluştur
-        finish: Bitir
+        finish: Bitiş
         promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
       initiative_signature_creation_header:

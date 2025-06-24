@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -157,6 +158,8 @@ tr:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
           proposal_note_created:
             email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
@@ -184,7 +187,7 @@ tr:
           email_subject: Teklifler artık %{participatory_space_title} içinde mevcut
         endorsing_enabled:
           email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
         proposal_mentioned:
           email_intro: Yorumlarınızda <a href="%{resource_url}"> bu alanda </a> "%{mentioned_proposal_title}" önerinizden bahsedildi.
@@ -217,8 +220,8 @@ tr:
       badges:
         accepted_proposals:
           conditions:
-            - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
-            - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
+          - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
+          - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir ve bunlar kabul edilir.
           description_another: Bu katılımcı kabul edilen %{score} teklif aldı.
           description_own: '%{score} teklif kabul ettiniz.'
@@ -228,12 +231,12 @@ tr:
           unearned_own: Henüz kabul edilen teklifin yok.
         proposal_votes:
           conditions:
-            - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
-            - 
+          - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
+          - 
         proposals:
           conditions:
-            - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
-            - Yeni bir teklif oluştur
+          - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
+          - Yeni bir teklif oluştur
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir.
           description_another: Bu katılımcı %{score} teklif hazırladı.
           description_own: '%{score} teklif oluşturdunuz.'
@@ -253,6 +256,8 @@ tr:
         description: Teklif sayısı
         object: teklifler
         title: Teklifler
+      votes:
+        title: Oylar
     participatory_spaces:
       highlighted_proposals:
         see_all: Tüm teklifleri görün
@@ -346,7 +351,6 @@ tr:
           index:
             actions: Eylemler
             assign_to_valuator: Bilirkişiye ata
-            assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
             merge_button: Birleştir
@@ -359,7 +363,6 @@ tr:
             statuses: Durumlar
             title: Teklifler
             unassign_from_valuator: Bilirkişinin atamasını kaldır
-            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
           new:
             create: Oluştur
@@ -372,9 +375,6 @@ tr:
             documents: Dokümanlar
             endorsements_count: Onay sayısı
             endorsers: Onaycılar
-            n_more_endorsers:
-              one: ve 1 tane daha
-              other: ve %{count} tane daha
             photos: Resimler
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar

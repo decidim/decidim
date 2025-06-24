@@ -6,6 +6,7 @@ en:
         delete_reason: Reason to delete your account
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Created at
@@ -55,6 +56,12 @@ en:
         tos_agreement: Terms of service agreement
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: The nickname must be lowercase and contain no spaces
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -79,7 +86,7 @@ en:
         with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
-        email: Email
+        email: Email address
         name: Nickname
         password: Password
         password_confirmation: Password confirmation
@@ -172,6 +179,7 @@ en:
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
+      secondary_menu: Secondary menu
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -565,6 +573,8 @@ en:
             dummy_step_attribute1: Dummy Step Attribute 1
             dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -673,7 +683,7 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: New to the platform?
+          are_you_new?: Not registered yet?
           register: Create an account
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
@@ -698,7 +708,7 @@ en:
             <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
-          or: Or
+          or: or
         password_fields:
           hidden_password: Your password is hidden
           hide_password: Hide password
@@ -1004,6 +1014,16 @@ en:
       notification_event:
         notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+          email_outro: You have received this notification because you are an author of the affected %{resource_type}.
+          email_subject: Your %{resource_type} is no longer visible
+          notification_title: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.
@@ -1707,10 +1727,6 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-      sidebar:
-        badges:
-          info: Badges are earned by performing specific activity in the platform.
-          title: Badges
       user:
         actions:
           create_user_group: Create group
@@ -1726,22 +1742,26 @@ en:
           message: Message
           resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
-        create_user_group: Create group
-        edit_profile: Edit profile
-        edit_user_group: Edit group profile
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
-        invite_user: Invite participant
-        join_user_group: Request to join group
-        leave_user_group: Leave group
-        manage_user_group_admins: Manage admins
-        manage_user_group_users: Manage members
-        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Reported content
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
+      hidden_manually:
+        content: Reported content
+        details: Details
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden by %{moderator}.</p>
+        subject: A resource has been hidden by %{moderator}
       report:
         authors: Authors
         content: Reported content
@@ -1759,6 +1779,10 @@ en:
       create:
         error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+      hide:
+        success: This resource has been hidden.
+      parent_hidden:
+        report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
     resource_endorsements:
@@ -1821,14 +1845,13 @@ en:
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         block: Block this participant
-        close: Close
-        description: What is inappropriate about the user?
+        description: What is inappropriate about this participant?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
-        title: Report inappropriate User
+        title: Report inappropriate participant
       floating_help:
         help: Help
       follow_button:

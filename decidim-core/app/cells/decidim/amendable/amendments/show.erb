@@ -6,7 +6,7 @@
 
   <div id="amendment-list">
     <% emendations.each do |emendation| %>
-      <%= card_for emendation, hide_voting: true, context: { current_user: } %>
+      <%= card_for emendation, context: { current_user: } %>
     <% end %>
   </div>
 </section>

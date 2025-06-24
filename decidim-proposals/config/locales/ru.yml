@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -98,6 +99,11 @@ ru:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">голосовать по предложениям</a>
+    metrics:
+      proposals:
+        title: Предложения
+      votes:
+        title: Голоса
     proposals:
       actions:
         import: Позаимствовать из другой составляющей
@@ -211,7 +217,6 @@ ru:
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
         vote_button:
-          already_voted: Уже проголосовали
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -21,7 +22,6 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Адреса електронної пошти
         name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
@@ -209,15 +209,12 @@ uk:
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Ви вперше на цьому майданчику?
           register: Створити обліковий запис
       shared:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
           title: Сповіщення про новини
-        omniauth_buttons:
-          or: Або
     doorkeeper:
       authorizations:
         new:
@@ -318,10 +315,18 @@ uk:
       home: Головна
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Вітаємо, %{recipient}!
+        comanagers_new_message:
+          greeting: Вітаємо, %{recipient}!
         new_conversation:
           greeting: Вітаємо, %{recipient}!
           intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
           subject: "%{sender} почав з вами бесіду"
+        new_group_conversation:
+          greeting: Вітаємо, %{recipient}!
+        new_group_message:
+          greeting: Вітаємо, %{recipient}!
         new_message:
           greeting: Доброго дня, %{recipient}!
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
@@ -388,13 +393,9 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
-        edit_profile: Редагувати профіль
+        actions:
+          edit_profile: Редагувати профіль
     reported_mailer:
-      hide:
-        hello: Доброго дня, %{name}%!
-        manage_moderations: Керувати діями з модерації
-        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
-        subject: Ресурс було автоматично приховано
       report:
         hello: Доброго дня, %{name}%!
         report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>
@@ -433,6 +434,8 @@ uk:
     statistics:
       comments_count: Коментарів
     user_conversations:
+      reply:
+        send: Надіслати
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -43,16 +44,16 @@ gl:
       admin:
         id_documents:
           help:
-            - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
-            - Enche a información presente na imaxe cargada.
-            - A información debe coincidir co que o usuario enche.
-            - 
+          - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
+          - Enche a información presente na imaxe cargada.
+          - A información debe coincidir co que o usuario enche.
+          - 
         postal_letter:
           help:
-            - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
-            - Envía a carta ao seu enderezo co código de verificación.
-            - Marca a letra como enviada.
-            - Despois de marcar a carta como enviada, o participante poderá inserir o código e ser verificado.
+          - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
+          - Envía a carta ao seu enderezo co código de verificación.
+          - Marca a letra como enviada.
+          - Despois de marcar a carta como enviada, o participante poderá inserir o código e ser verificado.
       csv_census:
         name: Censo da organización
       direct: Directo
@@ -98,9 +99,6 @@ gl:
             title: Precisas de activar o censo CSV desta organización
           new:
             file: "Ficheiro .csv con datos de correo electrónico"
-            info: 'Ten de ser un ficheiro en formato CSV cunha soa columna co correo electrónico:'
-            submit: Cargar ficheiro
-            title: Suba un novo censo
         authorizations:
           new:
             error: Non puidemos verificar a túa conta ou non estás no censo da organización.

@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -57,39 +58,39 @@ pl:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
-            - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
-            - Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A".
+          - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
+          - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
+          - Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A".
         csv_census:
           help:
-            - Administratorzy przesyłają plik CSV z adresami e-mail zaakceptowanych uczestników.
-            - Tylko uczestnicy z adresem e-mail w tym pliku CSV mogą zostać zweryfikowani.
+          - Administratorzy przesyłają plik CSV z adresami e-mail zaakceptowanych uczestników.
+          - Tylko uczestnicy z adresem e-mail w tym pliku CSV mogą zostać zweryfikowani.
         default:
           help:
-            - Uchwyt obsługi autoryzacji nie jest zdefiniowany.
-            - Programista musi zdefiniować pomoc w kluczu tłumaczenia (i18n) "%{authorization_handler}"
+          - Uchwyt obsługi autoryzacji nie jest zdefiniowany.
+          - Programista musi zdefiniować pomoc w kluczu tłumaczenia (i18n) "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
-            - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
-            - Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na literę "X".
+          - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
+          - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
+          - Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na literę "X".
         id_documents:
           help:
-            - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
-            - Wypełniasz widoczne na przesłanym obrazie.
-            - Informacje powinny pasować do tego, co użytkownik wypełnił.
-            - Jeśli nie możesz odczytać tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to poprawić.
+          - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
+          - Wypełniasz widoczne na przesłanym obrazie.
+          - Informacje powinny pasować do tego, co użytkownik wypełnił.
+          - Jeśli nie możesz odczytać tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to poprawić.
         postal_letter:
           help:
-            - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich adres.
-            - Wysyłasz list na adres z kodem weryfikacyjnym.
-            - Oznaczasz list jako wysłany.
-            - Po oznaczeniu listu jako wysłany użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+          - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich adres.
+          - Wysyłasz list na adres z kodem weryfikacyjnym.
+          - Oznaczasz list jako wysłany.
+          - Po oznaczeniu listu jako wysłany użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
         sms:
           help:
-            - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich telefon.
-            - Muszą wprowadzić kod, aby zostać zweryfikowanym.
-            - Jeśli nie otrzymają kodu, mogą zażądać go ponownie.
+          - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich telefon.
+          - Muszą wprowadzić kod, aby zostać zweryfikowanym.
+          - Jeśli nie otrzymają kodu, mogą zażądać go ponownie.
       csv_census:
         explanation: Zostań zweryfikowany przy użyciu spisu organizacji.
         name: Spis organizacji
@@ -159,13 +160,7 @@ pl:
             body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
             title: Musisz aktywować spis CSV dla tej organizacji
           new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
             file: "plik .csv z danymi e-maili"
-            info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'
-            submit: Prześlij plik
-            title: Prześlij nowy spis
         authorizations:
           new:
             error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.

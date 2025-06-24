@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -214,6 +215,9 @@ ru:
           not_found: 'Собрание не найдено в базе данных (ID: %{id})'
     menu:
       assemblies: Собрания
+    metrics:
+      assemblies:
+        title: Собрания
   layouts:
     decidim:
       assemblies:

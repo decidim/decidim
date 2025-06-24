@@ -587,7 +587,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create Your Meeting
+          title: Create new meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm

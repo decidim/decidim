@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -108,12 +109,12 @@
           state_values:
             closed: Lukket
             open: Åpen
+          user_group: Grupper
         index:
           new_debate: Ny innspillstråd
         new:
           back: Tilbake
           create: Opprett
-          title: Ny innspillstråd
         orders:
           commented: Mest kommentert
           label: Ranger debatter etter
@@ -171,7 +172,7 @@
       badges:
         commented_debates:
           conditions:
-            - Velg en åpen innspillstråd å delta i
+          - Velg en åpen innspillstråd å delta i
           description: Dette merket tildeles når du aktivt deltar i de forskjellige innspillstrådene ved å legge inn dine innspill.
           description_another: Denne deltakeren har deltatt i %{score} innspillstråder.
           description_own: Du har deltatt i %{score} innspillstråder.

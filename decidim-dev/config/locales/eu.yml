@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ eu:
       badges:
         test:
           conditions:
-            - Erabili probako ingurunea erabakitzeko.
+          - Erabili probako ingurunea erabakitzeko.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
           description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'

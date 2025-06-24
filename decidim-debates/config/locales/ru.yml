@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -76,7 +77,6 @@ ru:
         new:
           back: Вернуться
           create: Создать
-          title: Начать новое обсуждение
       models:
         debate:
           fields:
@@ -98,3 +98,6 @@ ru:
           email_intro: 'Теперь вы можете начинать новые обсуждения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
+    metrics:
+      debates:
+        title: Обсуждения

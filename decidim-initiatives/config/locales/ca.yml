@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -6,7 +7,7 @@ ca:
         answer_url: URL de la resposta
         area_id: Àrea
         decidim_scope_id: Àmbit
-        decidim_user_group_id: Autoria
+        decidim_user_group_id: Autora
         description: Descripció
         hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
@@ -198,8 +199,8 @@ ca:
       badges:
         initiatives:
           conditions:
-            - Anar a l'espai d'Iniciatives
-            - Segueix les passes per crear una nova iniciativa
+          - Anar a l'espai d'Iniciatives
+          - Segueix les passes per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
@@ -385,7 +386,7 @@ ca:
           back: Torna
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
           edit_my_initiative: Editar la meva iniciativa
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
@@ -447,7 +448,7 @@ ca:
       form:
         add_attachments: Afegir fitxer(s) adjunt(s)
         add_image: Afegir imatge
-        attachment_legend:
+        attachment_legend: Afegir un document o una imatge
         edit_attachments: Edita els fitxers adjunts
         edit_image: Editar imatge
         image_legend: "(Opcional) Afegeix una imatge"
@@ -647,7 +648,7 @@ ca:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Acabar
+        finish: Finalitzar
         promotal_committee: Comissió Promotora
         select_initiative_type: Tria
       initiative_signature_creation_header:

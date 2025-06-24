@@ -1,10 +1,11 @@
+---
 ro:
   activemodel:
     attributes:
       post:
         body: Conținut
         decidim_author_id: Autor
-        published_at: Publicat la
+        published_at: Dată publicare
         title: Titlu
     models:
       decidim/blogs/create_post_event: Postare nouă pe blog
@@ -15,34 +16,52 @@ ro:
         few: Postări
         other: Postări
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Postări
     blogs:
       actions:
-        author_id: Creează postare ca
-        edit: Editează
+        author_id: Creeați postare ca
+        confirm_delete_post: Sunteți sigur că doriți să ștergeți această postare?
+        deleted_posts_info: Postările șterse pot fi restaurate din gunoi.
+        edit: Modificați
         new: Postare nouă
         title: Acțiuni
+        view_deleted_posts: Vizualizați postările șterse
       admin:
         posts:
           create:
             invalid: A apărut o eroare la crearea acestei postări.
             success: Postarea a fost creată cu succes.
+          destroy:
+            success: Postarea a fost ștearsă cu succes.
           edit:
-            save: Actualizează
-            title: Editează postarea
+            save: Actualizați
+            title: Modificați postarea
           index:
             not_published_yet: Nu a fost publicat încă.
             title: Postări
+          manage_trash:
+            title: Postări șterse
           new:
-            create: Creează
-            title: Creează postare
+            create: Creați
+            title: Creați postare nouă
           update:
-            invalid: A apărut o eroare la salvarea postării.
-            success: Postarea a fost salvată cu succes.
+            invalid: A apărut o eroare la actualizarea acestei postări.
+            success: Postarea a fost actualizată cu succes.
       admin_log:
         post:
-          create: "%{user_name} a creat postarea de blog %{resource_name} în %{space_name}"
-          delete: "%{user_name} a șters postarea de blog %{resource_name} din %{space_name}"
-          update: "%{user_name} a actualizat postarea de blog %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat postarea %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters postarea %{resource_name} din %{space_name}"
+          restore: "%{user_name} a restaurat postarea %{resource_name} din %{space_name}"
+          soft_delete: "%{user_name} a mutat la gunoi postarea %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat postarea %{resource_name} în %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Publicate recent
+          name: Postări
+          see_all: Vedeți toate postările
       last_activity:
         new_post: 'Postare nouă:'
       models:
@@ -51,33 +70,86 @@ ro:
             author: Autor
             body: Conținut
             official_blog_post: Postare oficială
-            published_at: Publicat la
+            published_at: Dată publicare
             title: Titlu
+      posts:
+        edit:
+          back: Înapoi la postare
+          button: Actualizați
+          title: Modificați postarea
+        form:
+          author_id: Autor
+          body: Conținut
+          title: Titlu
+        index:
+          count:
+            one: "%{count} postare"
+            few: "%{count} postări"
+            other: "%{count} postări"
+          empty: Nu există postări încă.
+          new_post: Postare nouă
+        menu_actions:
+          button_destroy: Ștergeți postarea
+          button_destroy_confirm: Sunteți sigur că doriți să ștergeți această postare?
+          button_edit: Modificați postarea
+        new:
+          back: Înapoi la postări
+          button: Creați
+          title: Creați o postare nouă
     components:
       blogs:
         actions:
-          comment: Comentariu
-          create: Creează
-          destroy: Șterge
-          endorse: Susține
-          update: Actualizează
+          comment: Comentați
+          create: Creați
+          destroy: Ștergeți
+          endorse: Susțineți
+          update: Actualizați
         name: Blog
         settings:
           global:
-            announcement: Anunţ
+            announcement: Anunț
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
+            creation_enabled_for_participants: Participanții pot crea postări
           step:
-            announcement: Anunţ
+            announcement: Anunț
             comments_blocked: Comentarii blocate
-            endorsements_blocked: Susțineri blocate
+            endorsements_blocked: Susțineri dezactivate
             endorsements_enabled: Susțineri activate
     events:
       blogs:
         post_created:
-          email_intro: Postarea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
+          email_intro: Postarea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care o urmăriți.
+          email_outro: Ați primit această notificare deoarece urmarăți „%{participatory_space_title}”. Puteți anula abonarea de la link-ul anterior.
           email_subject: Postare nouă publicată în %{participatory_space_title}
           notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Acest comentariu a fost favorabil, contrar sau neutru
+          author: Numele participantului care a făcut acest comentariu
+          body: Comentariul în sine
+          commentable_id: Id-ul unic al resursei comentate
+          commentable_type: Tipul resursei comentate (dacă este întâlnire, propunere etc.)
+          created_at: Data la care acest comentariu a fost creat
+          depth: Locul în care acest comentariu este în cele trei comentarii (dacă este un răspuns sau un răspuns la un răspuns)
+          id: Id-ul unic al comentariului
+          locale: Localizarea (limba) pe care participantul a folosit-o atunci când a lăsat acest comentariu
+          root_commentable_url: URL-ul resursei care se leagă de acest comentariu
+          user_group: Numele grupului de utilizatori care a făcut acest comentariu (dacă există)
+        posts:
+          author: Informațiile autorului
+          body: Conținutul postării
+          comments_count: Numărul de comentarii pe care le are această postare
+          component: Componenta căreia îi aparține postarea
+          created_at: Data la care acestă postare a fost creată
+          endorsements_count: Numărul de aprobări pe care această postare le-a primit
+          follows_count: Numărul de urmăritori al acestei postări
+          id: Identificatorul unic al acestei postări
+          participatory_space: Cărui spațiu (de exemplu, proces participativ sau adunare) aparține această postare
+          published_at: Data la care acestă postare a fost publicată
+          title: Titlul postării
+          updated_at: Ultima dată când această postare a fost actualizată
+          url: URL-ul pentru această postare
     statistics:
       posts_count: Postări

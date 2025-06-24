@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -24,6 +25,8 @@ tr:
         password_confirmation: Şifrenizi Onaylayın
         personal_url: Kişisel URL
         remove_avatar: Avatarı kaldır
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Ek dosya
       decidim/component_published_event: Aktif bileşen
@@ -38,7 +41,6 @@ tr:
     attributes:
       decidim/user:
         current_password: Şimdiki Şifre
-        email: E-posta
         name: Rumuz
         password: Şifre
         password_confirmation: Şifre onayı
@@ -357,6 +359,8 @@ tr:
         view_all: Tümünü görüntüle
       metrics:
         name: Organizasyon metrikleri
+      participatory_space_metrics:
+        name: Metrikler
       static_page:
         section:
           name: Bölüm
@@ -386,7 +390,6 @@ tr:
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
       sessions:
         new:
-          are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
         user:
           timed_out: Çok uzun süre işlem yapmadınız /hareketsiz kaldınız ve oturumunuz otomatik olarak kapatıldı. Hizmeti kullanmaya devam etmek istiyorsanız lütfen tekrar giriş yapın.
@@ -396,8 +399,6 @@ tr:
             check: Kontrol et ve devam et
             uncheck: İşaretlemeyin
           title: Bülten bildirimleri
-        omniauth_buttons:
-          or: Veya
         password_fields:
           hidden_password: Şifreniz Gizlidir
           hide_password: Şifrenizi Gizleyin
@@ -618,7 +619,7 @@ tr:
       badges:
         followers:
           conditions:
-            - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
+          - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
           description: Bu rozet belirli sayıda takipçiye ulaştığınızda verilir. %{organization_name} sosyal ve politik bir ağdır, web platformunuzdaki diğer insanlarla iletişim kurmak için kullanın.
           description_another: Bu kullanıcının %{score} takipçisi var.
           description_own: "%{score} kullanıcı sizi takip ediyor."
@@ -724,14 +725,15 @@ tr:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
@@ -740,13 +742,13 @@ tr:
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
@@ -770,6 +772,8 @@ tr:
           new_conversation: Yeni görüşme
           next: Sonraki
           title: Konuşmalar
+        reply_form:
+          placeholder: Cevabınız...
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
@@ -782,15 +786,13 @@ tr:
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
         object: takipçiler
-        title: Takipçiler
+        title: İzleyiciler
       participants:
         description: Kuruluştaki aktif kullanıcı sayısı
         object: katılımcılar
-        title: Katılımcılar
       users:
         description: Kuruluştaki katılımcı sayısı
         object: katılımcılar
-        title: Katılımcılar
     newsletter_mailer:
       newsletter:
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
@@ -887,29 +889,23 @@ tr:
         conversations: Konuşmalar
         followers: Takipçiler
         following: Takip Et
+        group_admins: Yöneticileri yönet
+        group_members: Üyeleri yönet
         groups: Gruplar
         members: Üyeler
         officialized: Resmi katılımcı
-      sidebar:
-        badges:
-          info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
-          title: Rozetler
       user:
-        create_user_group: Grup oluştur
-        edit_profile: Profili Düzenle
-        edit_user_group: Grup profilini düzenle
-        invite_user: Katılımcı davet et
-        join_user_group: Gruba katılma isteği
-        leave_user_group: Gruptan ayrıl
-        manage_user_group_admins: Yöneticileri yönet
-        manage_user_group_users: Üyeleri yönet
-        resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
+        actions:
+          create_user_group: Grup oluştur
+          edit_profile: Profili Düzenle
+          edit_user_group: Grup profilini düzenle
+          invite_user: Katılımcı davet et
+          join_user_group: Gruba katılma isteği
+          leave_user_group: Gruptan ayrıl
+          manage_user_group_admins: Yöneticileri yönet
+          manage_user_group_users: Üyeleri yönet
+          resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
-      hide:
-        hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
-        report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> otomatik olarak gizlendi.</p>
-        subject: Bir kaynak otomatik olarak gizlendi
       report:
         authors: Yazarlar
         content: İçeriği bildir
@@ -977,12 +973,9 @@ tr:
         title: Sorun bildir
       flag_user_modal:
         already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
-        close: Kapat
-        description: Kullanıcı hakkında uygunsuz olan nedir?
         offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
         report: Bildir
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
-        title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
         help: yardım et
       follow_button:
@@ -1140,13 +1133,13 @@ tr:
     sessions:
       already_signed_out: Başarıyla Çıkış Yapıldı
       new:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         log_in_with_provider: '%{provider} ile giriş yapın'
       minimum_password_length:
         one: "(En az%{count} karakter)"
@@ -1193,7 +1186,7 @@ tr:
       footer:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         terms_of_service: Hizmet Kullanım Koşulları
       header:

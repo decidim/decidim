@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -5,6 +6,7 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       attachment:
         documents: Documents
+        image: Image
         photos: Photos
       common:
         created_at: Créé le
@@ -47,6 +49,12 @@ fr:
         tos_agreement: Conditions d'utilisation
       user_group:
         avatar: Avatar
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Le pseudo doit être en minuscules et ne contenir aucun espace
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -71,7 +79,7 @@ fr:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
+        email: Adresse e-mail
         name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -105,7 +113,7 @@ fr:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: j-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -160,6 +168,7 @@ fr:
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       opens_in_new_tab: S'ouvre dans un nouvel onglet
+      secondary_menu: Menu secondaire
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -231,6 +240,7 @@ fr:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
+        restore: "%{user_name} a restauré la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
       contextual_help_section:
@@ -386,6 +396,7 @@ fr:
     application:
       document:
         download: Télécharger le fichier
+        visit_link: Visiter le lien
       documents:
         component_documents:
           dummy: Documents de fonctionnalité factices
@@ -518,6 +529,7 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -527,6 +539,8 @@ fr:
             dummy_step_attribute1: Attribut d'étape factice 1
             dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} sur %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -575,7 +589,7 @@ fr:
       metrics:
         name: Historique des statistiques de participation
       participatory_space_metrics:
-        name: Métriques
+        name: Participation en chiffres
       participatory_space_stats:
         name: Statistiques
       social_networks_metadata:
@@ -633,7 +647,7 @@ fr:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
+          are_you_new?: Pas encore inscrit(e) ?
           register: S'inscrire
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
@@ -657,7 +671,7 @@ fr:
             <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
-          or: Ou
+          or: ou
         password_fields:
           hidden_password: Votre mot de passe est masqué
           hide_password: Masquer le mot de passe
@@ -686,6 +700,8 @@ fr:
       export:
         ready: Prêt
       help:
+        notifications:
+          extra: Informations supplémentaires sur cette notification
         participatory_space_private_users:
           created_at: La date et l'heure de création de cet utilisateur privé
           id: L'identifiant unique de cet utilisateur privé
@@ -700,15 +716,31 @@ fr:
           locale: La langue de ce rapport
           reason: La raison de ce rapport
           updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        user_groups:
+          document_number: Le numéro de document de ce groupe d'utilisateurs
+          id: L'identifiant unique de groupe d'utilisateur
+          name: Le nom de ce groupe d'utilisateurs
+          phone: Le numéro de téléphone de ce groupe d'utilisateurs
+          verified_at: La date et l'heure où le groupe d'utilisateurs a été vérifié
         users:
           accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          deleted_at: La date et l'heure où cet utilisateur a été supprimé
+          email: L'adresse e-mail de cet utilisateur
           followers_count: Le nombre de participants qui suivent à cet utilisateur
           following_count: Le nombre de participants que cet utilisateur suit
+          id: L'identifiant unique de l'utilisateur
+          invitations_count: Le nombre d'invitations envoyées à cet utilisateur
+          invited_by: L'utilisateur qui a invité cet utilisateur
+          last_sign_in_at: La date et l'heure de la dernière connexion
+          last_sign_in_ip: L'adresse IP de la dernière connexion
+          locale: La langue que cet utilisateur a sélectionnée
+          nickname: Le pseudonyme de l'utilisateur
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
       show:
         action: Action
+        download: Télécharger le fichier
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
         download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
         download_your_data: Données personnelles
@@ -721,15 +753,10 @@ fr:
         error: Une erreur est survenue lors du téléchargement de l'image.
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
-    endorsement_buttons_cell:
-      endorse: J’aime
     endorsements:
       identities:
         done: Terminé
         select_identity: Sélectionner une identité
-    endorsers_list:
-      others: "%{count} de plus"
-      you: vous
     ephemeral_user: Visiteur
     errors:
       files:
@@ -911,6 +938,7 @@ fr:
         download: Télécharger
       export:
         click_button_html: Votre téléchargement est prêt. <br/>Le fichier sera disponible en téléchargement jusqu'à %{date}.
+        download: Télécharger
       subject: Votre export "%{name}" est prêt
     filters:
       linked_classes:
@@ -950,6 +978,10 @@ fr:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
+      attachment_link:
+        help_messages:
+        - Seuls les formats d'URL corrects sont acceptés.
+        - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -1000,7 +1032,7 @@ fr:
       badges:
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -1031,7 +1063,7 @@ fr:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette invitation.
         success: L’invitation a été acceptée avec succès.
-      accept_invitation: Acceptez
+      accept_invitation: Accepter
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
         invite: Inviter
@@ -1089,7 +1121,7 @@ fr:
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
-        accept_request: Acceptez
+        accept_request: Accepter
         reject_request: Rejeter
       new:
         create_user_group: Créer un groupe
@@ -1176,7 +1208,7 @@ fr:
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
-          greeting: Bonjour %{recipient} !
+          greeting: Bonjour, %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
           outro: Profitez de la plateforme !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
@@ -1261,7 +1293,7 @@ fr:
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
-        title: Utilisateurs
+        title: Participants
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
@@ -1371,11 +1403,16 @@ fr:
       click_link: Cliquez ici
       cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
       ephemeral_authorized_message: Vous avez été autorisé avec succès.<br/>Vous avez commencé une session en tant qu'invité, vous pouvez maintenant participer.
+      expired_authorization_active_title: Votre autorisation a expiré.
+      finish_authorization_process: Vous pouvez terminer le processus d'autorisation
       pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
       pending_authorization_active_title: Nous devons vérifier votre identité.
       pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
     open_data:
       help:
+        core:
+          components: Fonctionnalités
+          spaces: Espaces
         metrics:
           day: Le jour de la création de cette métrique
           metric_type: Le type de métrique
@@ -1397,12 +1434,31 @@ fr:
           reported_content: Le contenu qui a été signalé
           reported_url: L'url de la ressource signalée
           reports: Une liste des raisons pour lesquelles la ressource a été signalée
+        user_groups:
+          avatar_url: L'avatar du groupe d'utilisateurs
+          badge: Le badge du groupe d'utilisateurs
+          id: L'identifiant unique du groupe d'utilisateurs
+          members: L'id et le nom des utilisateurs appartenant au groupe
+          members_count: Le nombre d'utilisateurs appartenant au groupe d'utilisateurs
+          name: Le nom du groupe d'utilisateurs
+          nickname: Le nom d'utilisateur du groupe d'utilisateurs
+          profile_url: L'url du profil
+        users:
+          about: Le champ "À propos" de l'utilisateur
+          avatar_url: L'avatar de l'utilisateur
+          badge: Le badge de l'utilisateur
+          groups: L'identifiant et le nom du groupe d'utilisateurs
+          id: L'identifiant unique de l'utilisateur
+          nickname: Le pseudonyme de l'utilisateur
+          profile_url: L'url du profil
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
         detailed:
+          components: Fonctionnalités
           spaces: Espaces participatifs
           title: Explication détaillée de chaque fichier
         download:
+          components: Fonctionnalités
           spaces: Espaces participatifs
           title: Télécharger les ressources
         download_open_data: Télécharger tous les fichiers de données ouvertes
@@ -1495,7 +1551,7 @@ fr:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur supprimé
+      deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
     profiles:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
@@ -1512,15 +1568,11 @@ fr:
         members: Membres
         officialized: Participant officiel
         send_private_message: Envoyer un message privé
-      sidebar:
-        badges:
-          info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
-          title: Badges
       user:
         actions:
           create_user_group: Créer un groupe
           disabled_message: Message
-          edit_profile: Modifier le profil
+          edit_profile: Mettre à jour le profil
           edit_user_group: Modifier le profil du groupe
           invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe
@@ -1531,22 +1583,26 @@ fr:
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
         confirmation_instructions_sent: Instructions de confirmation d'email envoyées.
-        create_user_group: Créer un groupe
-        edit_profile: Mettre à jour le profil
-        edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: Veuillez compléter le mail de votre groupe pour confirmer celui-ci.
-        invite_user: Inviter un utilisateur
-        join_user_group: Demander à rejoindre ce groupe
-        leave_user_group: Quitter le groupe
-        manage_user_group_admins: Gérer les administrateurs
-        manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     reported_mailer:
-      hide:
+      hidden_automatically:
+        content: Contenu signalé
+        details: Détails
         hello: Bonjour %{name},
         manage_moderations: Gérer les modérations
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée automatiquement
+      hidden_manually:
+        content: Contenu signalé
+        details: Détails
+        hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        participatory_space: Espace participatif
+        reason: Motif
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été masqué automatiquement.</p>
+        subject: Une ressource a été masquée par %{moderator}
       report:
         authors: Auteurs
         content: Contenu signalé
@@ -1564,6 +1620,10 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      hide:
+        success: Cette ressource a été masquée.
+      parent_hidden:
+        report_details: La ressource parente a été masquée
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action de soutien.
@@ -1624,14 +1684,13 @@ fr:
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         block: Bloquer ce participant
-        close: Fermer
-        description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
+        description: Qu'est-ce qui est inapproprié à propos de ce participant?
         does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{organization_name}.
         hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
-        title: Signaler un utilisateur inapproprié
+        title: Signaler un participant inapproprié
       floating_help:
         help: Aidez-moi
       follow_button:
@@ -1670,6 +1729,8 @@ fr:
       participants_count: Participants
       surveys_count: Enquêtes
       users_count: Participants
+    taxonomies:
+      prompt: Veuillez sélectionner une option
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
@@ -2157,7 +2218,7 @@ fr:
     buttons:
       close: Fermer
       reset: Réinitialiser
-      select:
+      select: Sélectionner
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

@@ -1,9 +1,9 @@
+---
 "no":
   activemodel:
     attributes:
       sortition:
         additional_info: Sorterings informasjon
-        decidim_category_id: Kategorier av settet med forslag der du vil bruke trekningen
         decidim_proposals_component_id: Forslag satt
         dice: Resultat av terningkast. Rull en 6-sidet terning, eller finn en annen tilfeldig måte å generere et tall fra 1 til 6, og legg inn det resulterende tallet foran noen vitner. Dette bidrar til kvaliteten og garanterer tilfeldigheten til resultatet
         target_items: Antall forslag som skal velges (indikerer antall forslag du vil skal bli valgt ved å trekke mange av gruppen av forslag du har valgt tidligere)
@@ -42,7 +42,6 @@
         models:
           sortition:
             fields:
-              category: Kategori
               created_at: Opprettelsesdato
               decidim_proposals_component: Forslags komponent
               dice: Terning
@@ -62,7 +61,6 @@
             title: Oppdater informasjonen om sorteringen
             update: Oppdater
           form:
-            all_categories: Alle kategorier
             select_proposal_component: Velg forslagets set
           index:
             title: Sorteringer
@@ -101,11 +99,8 @@
             other: utvalgte forslag
         show:
           algorithm: Sorterings algoritmekode
-          any_category: fra alle kategorier
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
-          candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
-          category: fra kategorien %{category}
           dice_result: (1) Terning resultat
           introduction: 'Denne siden inneholder resultatene av sorteringen %{reference}. Ved hjelp av denne sorteringen er %{target_items} antall resultater valgt tilfeldig og med en lik sannsynlighetsfordeling fra settet av forslag som blir vist nedenfor. Sammen med resultatene gir informasjonen som vises på denne siden all nødvendig informasjon for å maksimere garantier og for å reprodusere resultatene. Nøkkelen til kvaliteten på denne sorteringen er dobbelt tilfeldighet gitt ved rulling av terninger (bekreftet av vitner) og den nøyaktige tiden for sorteringen som gir input til en algoritme som genererer et tilfeldig utvalg. Tids-seedet for sorteringen er så nøyaktig (sekunder) at det er umulig å kontrollere av mennesker og gir dermed et dobbelt "ukontrollerbart" input for å garantere et rettferdig resultat.  '
           mathematical_result: Resultat (1) x (2)

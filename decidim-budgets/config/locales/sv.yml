@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -257,7 +258,7 @@ sv:
           checked_out:
             description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
-          vote: Rösta i budgeten
+          vote: Rösta
         count:
           projects_count:
             one: Ett projekt
@@ -295,7 +296,7 @@ sv:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
           lowest_cost: Lägst kostnad
-          most_voted: Mest röster
+          most_voted: Flest röster
           random: Slumpvis ordning
           selected: Valda
         project:
@@ -307,12 +308,12 @@ sv:
             other: röster
           you_voted: Du röstade på det här
         project_budget_button:
-          add: Lägg till
+          add: Välj
           add_descriptive: Lägg till projektet %{resource_name} till din röst.
-          added: Tillagd
+          added: Vald
           added_descriptive: Projektet %{resource_name} har lagts till din röst.
         project_filter:
-          added: Tillagd
+          added: Valda
           all: Alla
         projects_for: Projekt inom %{name}
         select_projects: Välj projekt
@@ -380,6 +381,18 @@ sv:
               disabled: Omröstning inaktiverad
               enabled: Omröstning aktiverad
               finished: Omröstning avslutad
+    download_your_data:
+      help:
+        orders:
+          budget: Den budget som omröstningen gäller
+          checked_out_at: Datum och tid för när omröstningen registrerades
+          component: Komponent som omröstningen tillhör
+          created_at: Datum och tid för när omröstningen skapades
+          id: Unikt id för omröstningen
+          projects: Projekten som röstades på
+          updated_at: Datum och tid för när omröstningen uppdaterades
+      show:
+        projects: Projektexport
     events:
       budgets:
         budget_published:
@@ -387,6 +400,31 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv.
           notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> för %{participatory_space_title} är nu aktiv.
+    open_data:
+      help:
+        projects:
+          address: Adress till projektet (om tillämpbart)
+          budget: Uppgifter om projektets budget (t.ex. "2021 Budget")
+          budget_amount: Det totala beloppet av budgeten för projektet
+          comments: Antalet kommentarer till projektet
+          component: Komponenten som projektet tillhör
+          confirmed_votes: Antal bekräftade röster projektet har fått
+          created_at: Datum och tid när projektet skapades
+          description: Beskrivningen av projektet
+          follows_count: Antal följare av projektet
+          id: Unikt id för projektet
+          latitude: Latitud för projektet om det har en fysisk plats
+          longitude: Longitud för projektet om det har en fysisk plats
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) projektet tillhör
+          reference: Unik referens för projektet
+          related_proposal_titles: Titlar på relaterade förslag
+          related_proposal_urls: URLer till relaterade förslag
+          related_proposals: Relaterade förslag till projektet
+          selected_at: Tidpunkt då projektet valdes
+          taxonomies: Kategorier för projektet
+          title: Titel på projektet
+          updated_at: Senaste datum när projektet uppdaterades
+          url: Projektets URL
     orders:
       checkout:
         error: Det gick inte att behandla din röst.

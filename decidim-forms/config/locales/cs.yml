@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -16,11 +17,11 @@ cs:
         answer:
           attributes:
             add_documents:
-              needs_to_be_reattached: Potřebuje být znovu připojen
+              needs_to_be_reattached: Vyžaduje být znovu připojen
             body:
               too_long: je příliš dlouhý
             choices:
-              missing: nejsou úplné
+              missing: nejsou kompletní
               too_many: Můžete si vybrat maximálně %{count}.
         questionnaire:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
@@ -217,7 +218,6 @@ cs:
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
-          are_you_sure_edit: Budete moci upravit své odpovědi. Jste si jisti?
           are_you_sure_edit_guest: Pokud chcete být schopni následně upravit své odpovědi, pak se musíte přihlásit nebo vytvořit účet.
           are_you_sure_no_edit: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
@@ -226,7 +226,7 @@ cs:
           submit: Odeslat
       user_answers_serializer:
         body: Odpověď
-        completion: Ukončení
+        completion: Dokončení
         created_at: Zodpovězeno
         id: ID odpovědi
         ip_hash: IP Hash

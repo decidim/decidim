@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -40,7 +41,7 @@ nl:
       badges:
         test:
           conditions:
-            - Gebruik een testomgeving voor decidim.
+          - Gebruik een testomgeving voor decidim.
           description: Gebruikers krijgen deze badge door tests te maken.
           description_another: Deze gebruiker heeft %{score} tests gemaakt.
           description_own: U hebt %{score} tests gemaakt.

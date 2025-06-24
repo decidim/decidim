@@ -29,6 +29,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+amagat
 amd
 amendables
 AMR
@@ -157,7 +158,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -599,6 +600,8 @@ newwindow
 ngrams
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
@@ -743,6 +746,7 @@ Pujol
 pwa
 QLiterals
 queda
+qux
 railtie
 railties
 randomable
@@ -837,6 +841,7 @@ Smileys
 Snowlvhme
 Snoworg
 softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -1062,3 +1067,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

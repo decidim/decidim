@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -164,6 +165,8 @@ hu:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
           proposal_note_created:
             email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
@@ -219,8 +222,8 @@ hu:
       badges:
         accepted_proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
           description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
@@ -230,12 +233,12 @@ hu:
           unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
           conditions:
-            - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
-            - 
+          - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
+          - 
         proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Hozzon létre egy új javaslatot
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Hozzon létre egy új javaslatot
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal.
           description_another: A felhasználó %{score} javaslatot hozott létre.
           description_own: Eddig %{score} javaslatot hoztál létre.
@@ -255,13 +258,12 @@ hu:
       proposals:
         description: A létrehozott javaslatok száma
         object: javaslatok
-        title: javaslatok
+        title: Javaslatok
       votes:
         object: szavazat
-        title: szavazatok
+        title: Szavazatok
     participatory_spaces:
       highlighted_proposals:
-        last: Legutóbbi javaslatok
         see_all: Összes
     proposals:
       actions:
@@ -352,7 +354,6 @@ hu:
           index:
             actions: Műveletek
             assign_to_valuator: Értékelőhöz rendel
-            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
@@ -364,7 +365,6 @@ hu:
             split_button: Szétválasztás
             title: Javaslatok
             unassign_from_valuator: Visszarendelés értékelőtől
-            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
           new:
             create: Létrehozás
@@ -379,9 +379,6 @@ hu:
             documents: Dokumentumok
             endorsements_count: Támogatások száma
             endorsers: Támogatók
-            n_more_endorsers:
-              one: és még egy
-              other: és még %{count}
             photos: Fotók
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
@@ -573,7 +570,6 @@ hu:
           see_all_withdrawn: Összes visszavont javaslat
         new:
           send: Tovább
-          title: Javaslat létrehozása
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
@@ -596,7 +592,7 @@ hu:
           estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
-            other: és még %{count} ember
+            other: és még %{count} személy
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
           link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás
@@ -607,7 +603,6 @@ hu:
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
         vote_button:
-          already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás

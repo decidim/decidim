@@ -1,26 +1,15 @@
+---
 "no":
   activemodel:
     attributes:
       answer:
         body: Svar
-        choices: Valg
-        selected_choices: Valgte valg
       question:
         max_choices: Maksimalt antall valg
         question_type: Type
       questionnaire_question:
         mandatory: Obligatorisk
         max_characters: Tegngrense (la være 0 hvis ingen begrensning)
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Må legges til på nytt
-            body:
-              too_long: er for lang
-            choices:
-              missing: er ikke fullstendig
   decidim:
     forms:
       admin:
@@ -34,22 +23,14 @@
             show: Vis svar
           answer_option:
             answer_option: Svaralternativ
-            free_text: Fri tekst
             remove: Fjern
             statement: Uttalelse
           answers:
             actions:
-              back: Tilbake til svar
-              export: Eksporter
               show: Vis svar
             empty: Ingen svar enda
-            export:
-              answer:
-                title: 'Svar #%{number}'
             export_response:
               title: undersøkelse_bruker_svar_%{token}
-            index:
-              title: "%{total} svar totalt"
             show:
               title: 'Svar #%{number}'
           display_condition:
@@ -129,7 +110,6 @@
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.
-          max_choices_alert: For mange valg er merket
           success: Skjema ble besvart.
         question:
           max_choices: 'Maksimum valg: %{n}'
@@ -160,12 +140,6 @@
           submit: Send inn
       user_answers_serializer:
         body: Svar
-        completion: Fullføring
         created_at: Besvart på
         id: Svar ID
-        ip_hash: IP Hash
         question: Spørsmål
-        registered: Registrert
-        session_token: Brukeridentifikator
-        unregistered: Uregistrert
-        user_status: Brukerstatus

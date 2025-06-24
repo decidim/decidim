@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -162,6 +163,8 @@ nl:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Je hebt deze melding ontvangen omdat je het voorstel kan waarderen.
           proposal_note_created:
             email_outro: Je hebt deze melding ontvangen omdat je het voorstel kan waarderen.
             email_subject: Iemand heeft een notitie achtergelaten bij het voorstel %{resource_title}.
@@ -189,7 +192,7 @@ nl:
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
         endorsing_enabled:
           email_intro: 'U kunt voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: Je kan nu de voorstellen in %{participatory_space_title} steunen
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is in deze ruimte <a href="%{resource_url}"></a> genoemd in de reacties.
@@ -213,8 +216,8 @@ nl:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze aanvaard worden.
           description_another: Deze gebruiker heeft %{score} aanvaarde voorstellen.
           description_own: Je hebt %{score} aanvaarde voorstellen.
@@ -224,12 +227,12 @@ nl:
           unearned_own: U heeft nog geen aanvaarde voorstellen.
         proposal_votes:
           conditions:
-            - Blader en besteed wat tijd aan het lezen van de voorstellen van anderen
-            - 
+          - Blader en besteed wat tijd aan het lezen van de voorstellen van anderen
+          - 
         proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Maak een nieuw voorstel
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Maak een nieuw voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.
@@ -240,7 +243,7 @@ nl:
       accepted_proposals:
         description: Aantal geaccepteerde voorstellen
         object: voorstellen
-        title: Aanvaarde voorstellen
+        title: Geaccepteerde voorstellen
       endorsements:
         description: Aantal goedkeuringen van voorstellen
         object: goedkeuringen
@@ -248,7 +251,9 @@ nl:
       proposals:
         description: Aantal voorstellen
         object: voorstellen
-        title: voorstellen
+        title: Voorstellen
+      votes:
+        title: Stemmen
     participatory_spaces:
       highlighted_proposals:
         see_all: Alles zien
@@ -329,7 +334,6 @@ nl:
           index:
             actions: acties
             assign_to_valuator: Toewijzen aan beoordelaar
-            assign_to_valuator_button: Toewijzen
             cancel: Annuleer
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
@@ -341,7 +345,6 @@ nl:
             split_button: Splits
             title: Voorstellen
             unassign_from_valuator: Toewijzing beoordelaar ongedaan maken
-            unassign_from_valuator_button: Ontkoppelen
             update: Bijwerken
           new:
             create: Creëren
@@ -354,9 +357,6 @@ nl:
             documents: Documenten
             endorsements_count: Aantal suggesties
             endorsers: Aanbevelers
-            n_more_endorsers:
-              one: en nog 1
-              other: en %{count} meer
             photos: Foto's
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
@@ -574,7 +574,7 @@ nl:
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
-            other: en nog %{count} mensen
+            other: en nog %{count} personen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk het gezamenlijke ontwerp
           link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement
@@ -588,7 +588,6 @@ nl:
         update:
           title: Update voorstel
         vote_button:
-          already_voted: Al gestemd
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem

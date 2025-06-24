@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -197,6 +198,8 @@ ar:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
           proposal_note_created:
             email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
@@ -258,8 +261,8 @@ ar:
       badges:
         accepted_proposals:
           conditions:
-            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
-            - حاول تقديم مقترحات يمكن تنفيذها. بهذه الطريقة هم أكثر عرضة للقبول.
+          - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+          - حاول تقديم مقترحات يمكن تنفيذها. بهذه الطريقة هم أكثر عرضة للقبول.
           description: تُمنح هذه الشارة عندما تشارك بفعالية في المقترحات الجديدة ويتم قبولها.
           description_another: هذا المشارك لديه %{score} مقترحات مقبولة.
           description_own: حصلت على %{score} مقترحات مقبولة.
@@ -269,12 +272,12 @@ ar:
           unearned_own: لم تحصل على اقتراحات مقبولة حتى الآن.
         proposal_votes:
           conditions:
-            - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
-            - 
+          - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
+          - 
         proposals:
           conditions:
-            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
-            - إنشاء اقتراح جديد
+          - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+          - إنشاء اقتراح جديد
           description: تُمنح هذه الشارة عندما تشارك بنشاط في مقترحات جديدة.
           description_another: قام هذا المشارك بإنشاء %{score} مقترحات.
           description_own: لقد قمت بإنشاء %{score} مقترحات.
@@ -296,6 +299,7 @@ ar:
         title: اقتراحات
       votes:
         object: أصوات
+        title: الأصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل
@@ -384,7 +388,6 @@ ar:
           index:
             actions: أفعال
             assign_to_valuator: أسنِده إلى مُقيِّم
-            assign_to_valuator_button: تعيين
             cancel: إلغاء
             merge: دمج في واحدة جديدة
             merge_button: دمج
@@ -396,7 +399,6 @@ ar:
             split_button: انشق، مزق
             title: اقتراحات
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
-            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
@@ -409,13 +411,6 @@ ar:
             documents: المستندات
             endorsements_count: عد أصوات التأييدات
             endorsers: المؤيدون
-            n_more_endorsers:
-              zero: و%{count} آخرين
-              one: وواحد آخر
-              two: و%{count} آخرين
-              few: و%{count} آخرين
-              many: و%{count} آخرين
-              other: و%{count} آخرين
             photos: الصور
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
@@ -630,7 +625,6 @@ ar:
           text_banner: أنت تتطلع على قائمة الاقتراحات المسحوبة من قبل مؤلفيها. %{go_back_link}.
         new:
           send: استمر
-          title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها

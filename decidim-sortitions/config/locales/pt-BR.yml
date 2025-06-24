@@ -1,9 +1,9 @@
+---
 pt-BR:
   activemodel:
     attributes:
       sortition:
         additional_info: Informação de classificação
-        decidim_category_id: Categorias do conjunto de propostas em que você deseja aplicar o sorteio
         decidim_proposals_component_id: Conjunto de propostas
         dice: Resultado do rolo de matriz Role um dado de 6 lados, ou procure outro modo aleatório de gerar um número de 1 a 6, e insira aqui o número resultante na frente de algumas testemunhas. Isto contribui para a qualidade e garantias da aleatoriedade do resultado
         target_items: Número de propostas a serem selecionadas (indica o número de propostas que você deseja selecionar sorteando o grupo de propostas que você escolheu anteriormente)
@@ -43,7 +43,6 @@ pt-BR:
         models:
           sortition:
             fields:
-              category: Categoria
               created_at: Data de criação
               decidim_proposals_component: Componente de propostas
               dice: Dados
@@ -67,7 +66,6 @@ pt-BR:
             title: Atualizar as informações sobre a classificação
             update: Atualizar
           form:
-            all_categories: Todas as categorias
             select_proposal_component: Selecione o conjunto de propostas
           index:
             title: Sorteios
@@ -110,11 +108,8 @@ pt-BR:
             other: propostas selecionadas
         show:
           algorithm: Código de Algoritmo da Classificação
-          any_category: de todas as categorias
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
-          candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{category_label}), com os seguintes IDs (em negrito as propostas selecionadas)  '
-          category: da categoria %{category}
           dice_result: (1) resultado dado
           introduction: 'Esta página contém os resultados da ordenação %{reference}. Por meio dessa classificação, %{target_items} número de resultados foram selecionados aleatoriamente e com uma distribuição de probabilidade igual ao conjunto de propostas exibidas abaixo. Juntamente com os resultados, as informações exibidas nesta página fornecem todas as informações necessárias para maximizar as garantias e reproduzir os resultados. A chave para a qualidade dessa classificação é a dupla aleatoriedade fornecida pela rolagem de dados (verificada por testemunhas) e o tempo preciso da classificação que fornece dados para um algoritmo que gera uma seleção aleatória. A semente do tempo para a classificação é tão precisa (segundos) que é impossível controlar pelos humanos, fornecendo assim uma entrada dupla "incontrolável" para garantir um resultado justo.  '
           mathematical_result: Resultado (1) x (2)

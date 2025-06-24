@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -172,8 +173,8 @@ sk:
       badges:
         accepted_proposals:
           conditions:
-            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
-            - Skúste vytvoriť návrhy, ktoré sú realizovateľné. Tak budú mať väčšiu šancu na prijatie.
+          - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+          - Skúste vytvoriť návrhy, ktoré sú realizovateľné. Tak budú mať väčšiu šancu na prijatie.
           description: Tento odznak ste dostali za aktívnu participáciu novými, akceptovanými návrhmi.
           description_another: Tento účastník má %{score} prijatých návrhov.
           description_own: Máte %{score} prijatých návrhov.
@@ -183,12 +184,12 @@ sk:
           unearned_own: Zatiaľ nemáte žiadne prijaté návrhy.
         proposal_votes:
           conditions:
-            - Pozrite si a prečítajte návrhy ďalších účastníkov.
-            - 
+          - Pozrite si a prečítajte návrhy ďalších účastníkov.
+          - 
         proposals:
           conditions:
-            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
-            - Vytvorte nový návrh
+          - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+          - Vytvorte nový návrh
           description: Tento odznak ste dostali za aktívnu participáciu novými návrhmi.
           description_another: Tento účastník vytvoril %{score} návrhov.
           description_own: Vytvorili ste %{score} návrhov.
@@ -208,6 +209,8 @@ sk:
         description: Počet návrhov
         object: návrhy
         title: Návrhy
+      votes:
+        title: Hlasy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobraziť všetky
@@ -275,7 +278,6 @@ sk:
           index:
             actions: Akcia
             assign_to_valuator: Priradiť ku hodnotiteľovi
-            assign_to_valuator_button: Priradiť
             cancel: zrušenie
             merge: Zlúčiť do nového
             merge_button: Spoj
@@ -287,7 +289,6 @@ sk:
             split_button: Rozdeliť
             title: Návrhy
             unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
-            unassign_from_valuator_button: Zrušiť priradenie
             update: Aktualizácia
           new:
             create: Vytvoriť
@@ -300,11 +301,6 @@ sk:
             documents: Dokumenty
             endorsements_count: Počet podporení
             endorsers: Podporovatelia
-            n_more_endorsers:
-              one: a 1 ďalší
-              few: + %{count} ďalších
-              many: + %{count} ďalších
-              other: + %{count} ďalších
             photos: Fotografie
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
@@ -517,9 +513,9 @@ sk:
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a%{count} ďalšia osoba
-            few: a %{count} ďalší ľudia
-            many: a %{count} ďalších ľudí
-            other: a %{count} ďalších ľudí
+            few: a%{count} ďalších ľudí
+            many: a%{count} ďalších ľudí
+            other: a%{count} ďalších ľudí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného návrhu. Skontrolujte históriu
           link_to_collaborative_draft_text: Pozri schému spolupráca
           link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšenia

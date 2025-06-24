@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -130,7 +131,7 @@ ca:
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
             success:
-              selected: 'Aquests projectes han estat de seleccionats de ser implementats: %{errored}.'
+              selected: 'Aquests projectes han estat seleccionats per ser implementats: %{successful}.'
               unselected: 'Aquests projectes que apareixien per ser implementats s''han desseleccionat amb èxit: %{successful}.'
           update_taxonomies:
             invalid: 'Les taxonomies %{taxonomies} ja estaven assignades a aquests projectes: %{errored}.'
@@ -307,7 +308,7 @@ ca:
             other: vots
           you_voted: Has votat això
         project_budget_button:
-          add: Afegir al teu vot
+          add: Afegir
           add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
           added: Afegit al teu vot
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.

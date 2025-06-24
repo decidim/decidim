@@ -1,26 +1,15 @@
+---
 zh-TW:
   activemodel:
     attributes:
       answer:
         body: 回答
-        choices: 選項
-        selected_choices: 已選擇的選項
       question:
         max_choices: 選擇的最大數量
         question_type: 類別
       questionnaire_question:
         mandatory: 必填的
         max_characters: 字元限制（如果不需要限制，請設為0）
-    errors:
-      models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: 需要重新附加
-            body:
-              too_long: 太長
-            choices:
-              missing: 尚未完成
   decidim:
     forms:
       admin:
@@ -34,24 +23,14 @@ zh-TW:
             show: 顯示回應
           answer_option:
             answer_option: 答案選項：
-            free_text: 免費文字
             remove: 移除
             statement: 聲明
           answers:
             actions:
-              back: 返回回覆
-              export: 匯出
-              next: 下一個 &rsaquo;
-              previous: "&lsaquo; 上一篇"
               show: 顯示答案
             empty: 目前尚未回答
-            export:
-              answer:
-                title: '回應 #%{number}'
             export_response:
               title: 調查問卷使用者回答_%{token}
-            index:
-              title: "%{total} 個回應總數"
             show:
               title: '回答#%{number}'
           display_condition:
@@ -119,9 +98,6 @@ zh-TW:
       admin_log:
         questionnaire:
           update: "%{user_name} 更新了 %{resource_name} 問卷模板"
-      errors:
-        answer:
-          body: 內容不能為空
       images:
         dimensions: "%{width} x %{height} 像素"
         processors:
@@ -137,20 +113,14 @@ zh-TW:
         single_option: 單選
         sorting: 排序中
         title_and_description: 標題和描述
-      questionnaire_answer_presenter:
-        download_attachment: 下載附件
       questionnaires:
         answer:
           invalid: 回答表單時出現問題
-          max_choices_alert: 選擇的項目太多了
           success: 表單已成功回答
         question:
           max_choices: '最多選擇數量： %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: 已經有帳號了嗎？
-            are_you_new?: 新用戶?
-            sign_up_description: 建立參與者帳號以填寫問卷
             title: 回答表單 
           current_step: 步驟%{step}
           of_total_steps: 的%{total_steps}
@@ -176,12 +146,6 @@ zh-TW:
           submit: 提交
       user_answers_serializer:
         body: 回答
-        completion: 完成
         created_at: 回答時間
         id: 回答 ID
-        ip_hash: IP Hash
         question: 問題
-        registered: 已註冊
-        session_token: 使用者識別碼
-        unregistered: 未註冊
-        user_status: 用戶狀態

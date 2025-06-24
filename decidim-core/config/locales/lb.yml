@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -28,6 +29,8 @@ lb:
         password_confirmation: Bestäteg däi Passwuert
         personal_url: Perséinlech URL
         remove_avatar: Avatar läschen
+      user_group:
+        avatar: Profil-Bild
     models:
       decidim/attachment_created_event: Unhang
       decidim/component_published_event: Aktiv Komponent
@@ -43,7 +46,6 @@ lb:
     attributes:
       decidim/user:
         current_password: Aktuellt Passwuert
-        email: Email
         name: Spëtznumm
         password: Passwuert
         password_confirmation: Passwuert Bestätegung
@@ -362,6 +364,8 @@ lb:
         view_all: Alles gesinn
       metrics:
         name: Organisations-Metriken
+      participatory_space_metrics:
+        name: Statistiken
       stats:
         name: Organisations-Statistiken
       sub_hero:
@@ -384,7 +388,6 @@ lb:
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       sessions:
         new:
-          are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
       shared:
         newsletter_modal:
@@ -392,8 +395,6 @@ lb:
             check: Iwwerpréiwen an weider maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
-        omniauth_buttons:
-          or: Oder
     doorkeeper:
       authorizations:
         new:
@@ -602,7 +603,7 @@ lb:
       badges:
         followers:
           conditions:
-            - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
+          - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
           description: Dëst Ofzeechen kritt een, wann eng bestëmmten Zuel vun Leit engem noginn. %{organization_name} ass en sozialt politescht Netzwierk. Spann däin Netz, fir dech mat aneren Mënschen op der der Plattform ze kommunizéieren.
           description_another: Dësen Benotzer huet %{score} Unhänger.
           description_own: "%{score} Benotzer ginn dir no."
@@ -622,7 +623,7 @@ lb:
         current_admins: 'Aktuell Admins:'
         manage_admins: Admins verwalten
     group_invites:
-      accept_invitation: Unhuelen
+      accept_invitation: Acceptéieren
       accept_or_reject_group_invitations: 'Dës Gruppen hunn dech agelueden dech hinnen unzeschléissen. Hir Ufroen unhuelen oder refuséieren:'
       index:
         invite: Alueden
@@ -653,7 +654,7 @@ lb:
         success: Aus dem Grupp ausgetrueden.
       members:
         accept_or_reject_join_requests: 'Dës Benotzer hunn ugefrot dësem Grupp bäizetrieden. Hir Ufroen unhuelen oder refuséieren:'
-        accept_request: Akzeptéieren
+        accept_request: Acceptéieren
         reject_request: Refuséieren
       new:
         create_user_group: Grupp erstellen
@@ -733,7 +734,7 @@ lb:
           subject: "%{sender} huet eng Konversatioun mam %{group} ugefaangen"
         new_group_message:
           admin_in_group: Du kriss dat heiten, well du bass Administrateur am %{group}.
-          greeting: Moien, %{recipient}!
+          greeting: Moien %{recipient}!
           intro: "%{sender} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
@@ -755,6 +756,8 @@ lb:
           new_conversation: Nei Konversatioun
           next: Weider
           title: Konversatiounen
+        reply_form:
+          placeholder: Deng Äntwert...
         show:
           back: Zeréck bei all d'Konversatiounen
           chat_with: Konversatioun mat
@@ -768,15 +771,15 @@ lb:
       followers:
         description: Zuel vun den Teilnehmer, déi dësem Konversatiouns-Espace nofollegen
         object: Follower
-        title: Follower
+        title: Unhänger
       participants:
         description: Zuel vun den aktiven Teilnehmer an dëser Organisatioun
         object: Teilnehmer
-        title: Teilnehmer
+        title: Benotzer
       users:
         description: Zuel vun den Teilnehmer an dëser Organisatioun
         object: Teilnehmer
-        title: Teilnehmer
+        title: Benotzer
     newsletter_mailer:
       newsletter:
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
@@ -872,30 +875,24 @@ lb:
         conversations: Konversatiounen
         followers: Unhänger
         following: Geet no
+        group_admins: Admins verwalten
+        group_members: Memberen verwalten
         groups: Gruppen
         members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-      sidebar:
-        badges:
-          info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
-          title: Ofzeechen
       user:
-        create_user_group: Grupp erstellen
-        edit_profile: Profil beaarbechten
-        edit_user_group: Profil vum Grupp beaarbechten
-        invite_user: En Teilnehmer alueden
-        join_user_group: Ufro engem Grupp bäitrieden ze dierfen
-        leave_user_group: Grupp verloossen
-        manage_user_group_admins: Administrateuren verwalten
-        manage_user_group_users: Memberen verwalten
-        resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
+        actions:
+          create_user_group: Grupp erstellen
+          edit_profile: Profil beaarbechten
+          edit_user_group: Profil vum Grupp beaarbechten
+          invite_user: En Teilnehmer alueden
+          join_user_group: Ufro engem Grupp bäitrieden ze dierfen
+          leave_user_group: Grupp verloossen
+          manage_user_group_admins: Admins verwalten
+          manage_user_group_users: Memberen verwalten
+          resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
     reported_mailer:
-      hide:
-        hello: Moien %{name}
-        manage_moderations: Moderatiounen verwalten
-        report_html: <p>Den folgenden Inhalt <a href="%{url}">Inhalt</a> gouf automatesch ausgeblent.</p>
-        subject: Eng Ressource gouf automatesch ausgeblent
       report:
         authors: Auteuren
         content: Inhalt gouf gemellt
@@ -962,12 +959,9 @@ lb:
         title: Inhalt mellen den net zoulässeg ass
       flag_user_modal:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
-        close: Zoumaachen
-        description: Wat huet dësen Benotzer gemaach, wat net zoulässeg ass?
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         report: Bericht
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
-        title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
       public_participation:

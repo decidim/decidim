@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -145,6 +146,7 @@ sv:
             initiative_start_date: Startdatum
             initiative_title: Initiativets titel
             name_and_surname: Namn och efternamn
+            nickname: Användarnamn
             postal_code: Postnummer
             timestamp: Tidsstämpel
       titles:
@@ -188,8 +190,8 @@ sv:
       badges:
         initiatives:
           conditions:
-            - Gå till deltagarutrymmet för initiativ
-            - Följ stegen för att skapa ett nytt initiativ
+          - Gå till deltagarutrymmet för initiativ
+          - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
           description_another: Användaren har publicerat %{score} initiativ.
           description_own: Du har publicerat %{score} initiativ.
@@ -364,7 +366,6 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats.
           confirm: Du kommer att skicka initiativet till en administratör för att granska och publicera det. När det har publicerats kommer du inte att kunna redigera det. Vill du gå vidare?
           edit_my_initiative: Redigera mitt initiativ
           go_to_my_initiatives: Gå till mina initiativ
@@ -374,7 +375,7 @@ sv:
           publish_helper_text: Kom ihåg att för att ditt initiativ ska publiceras måste du fylla i obligatoriska uppgifter och <strong>skicka det till teknisk validering</strong> för att en administratör ska kunna granska det.
         previous_form:
           back: Tillbaka
-          continue: Fortsätt
+          continue: Fortsätta
         promotal_committee:
           individual_help_text: Den här typen av medborgarinitiativ kräver att kampanjgruppen består av minst %{committee_size} personer (attesterare). Du måste dela följande länk med andra personer som är del av initiativet. När dina kontakter får denna länk måste de följa de angivna stegen.
           more_information: "(Mer information)"
@@ -411,7 +412,7 @@ sv:
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, som du följer, gillar följande initiativ. Kanske du vill bidra till diskussionen:"
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} gillar Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> gillar initiativet <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
@@ -432,7 +433,7 @@ sv:
         uninitialized: Initiativ är ännu inte konfigurerade av en administratör.
       initiative_signatures:
         fill_personal_data:
-          continue: Fortsätt
+          continue: Fortsätta
           help: Skriv under initiativet genom att fylla i följande fält med dina uppgifter.
         finish:
           back_to_initiative: Tillbaka till initiativet
@@ -589,12 +590,12 @@ sv:
       initiatives_type:
         actions:
           title: Åtgärder
-          vote: Underteckna
+          vote: Signera
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Skapa
-        finish: Avsluta
+        finish: Slutför
         promotal_committee: Kampanjgrupp
         select_initiative_type: Välj
       initiative_signature_creation_header:

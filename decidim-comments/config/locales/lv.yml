@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     models:
@@ -17,6 +18,10 @@ lv:
         one: Balsot
         other: Balsis
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentāri
     comments:
       votes:
         create:

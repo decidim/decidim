@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -188,8 +189,8 @@ fr:
       badges:
         initiatives:
           conditions:
-            - Accéder à l'espace de Pétitions
-            - Suivez les étapes pour créer une nouvelle pétition
+          - Accéder à l'espace de Pétitions
+          - Suivez les étapes pour créer une nouvelle pétition
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles pétitions, en partenariat avec d’autres pour les mener à bien.
           description_another: Ce participant a publié %{score} pétitions.
           description_own: Vous avez publié %{score} pétitions.
@@ -353,7 +354,6 @@ fr:
         finish:
           back: Retour
           back_to_initiatives: Retour à l'index des pétitions
-          callout_text: Bravo ! Votre pétition a été créée avec succès.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit_my_initiative: Modifier ma pétition
           go_to_my_initiatives: Consulter mes pétitions
@@ -400,7 +400,7 @@ fr:
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a soutenu la pétition suivante; vous pouvez y contribuer si vous le souhaitez :"
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Pétition soutenue par %{author_nickname}
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
@@ -580,12 +580,12 @@ fr:
       initiatives_type:
         actions:
           title: Actions
-          vote: Vote
+          vote: Signer
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Complétez votre pétition
-        finish: Publiez votre pétition
+        finish: terminer
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de pétition
       initiative_signature_creation_header:

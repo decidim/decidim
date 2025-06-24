@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -149,12 +150,12 @@ es-MX:
             Organización creada correctamente.
             </p>
             <ol>
-            <li>Es posible que necesite actualizar el código de tu aplicación, en cuanto a permitir peticiones a %{host}, necesitas añadir lo siguiente a tu configuración de entorno
+            <li>Es posible que necesites actualizar el código de tu aplicación. En cuanto a permitir peticiones a %{host}, necesitas añadir lo siguiente a tu configuración de entorno
             (p.e <code>config/environment/production.rb</code>) o tu <code>config/application.rb</code>:
             <p>config.hosts << "%{host}" </p>
             </li>
             <li>
-            Hecho esto, tendrías que poder acceder a tu plataforma a través de <a href="http://%{host}">http://%{host}</a>
+            Una vez hecho esto, tendrías que poder acceder a tu plataforma a través de <a href="http://%{host}">http://%{host}</a>
             </li>
             <li>
             Te hemos enviado un correo electrónico a <b>%{email}</b> que necesitas confirmar.
@@ -168,7 +169,7 @@ es-MX:
           default_src: SRC por defecto
           default_src_hint: |
             Default-src es la convención predeterminada para todo el contenido externo, como JavaScript, imágenes, CSS, fuentes, llamadas asincrónicas, marcos y archivos multimedia HTML5.
-            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabe lo que significa.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
           font_src: Direcciones de fuentes (font-src)
           font_src_hint: |
             La directiva font-src restringe las URL que se pueden cargar con @font-face.
@@ -197,7 +198,7 @@ es-MX:
           confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar invitación
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
-          title: Editar la organizacion
+          title: Editar la organización
         file_upload_settings:
           content_types:
             admin_hint: Estos tipos MIME están permitidos para subirse desde el panel de administración. Las personas administradoras deben ser conscientes de los riesgos al subir algunos formatos de documentos, por lo que cabe esperar que sean más cautelosas con las subidas de archivos.

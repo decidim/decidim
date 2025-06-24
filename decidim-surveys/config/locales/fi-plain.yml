@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     models:
@@ -112,7 +113,7 @@ fi-pl:
       models:
         survey:
           fields:
-            answers: Vastaukset
+            answers: Vastausta
             questions: Kysymykset
             status: Tila
             title: Otsikko

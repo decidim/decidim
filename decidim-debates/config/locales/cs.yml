@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -157,7 +158,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Nová debata
+          title: Vytvořit novou debatu
         orders:
           commented: Nejvíce komentované
           label: Řazení debat podle
@@ -235,7 +236,7 @@ cs:
       badges:
         commented_debates:
           conditions:
-            - Vyberte si otevřenou debatu, do které se můžete zapojit
+          - Vyberte si otevřenou debatu, do které se můžete zapojit
           description: Tento odznak se uděluje, když se aktivně účastníte různých debat tím, že tam zanecháte své komentáře.
           description_another: Tento uživatel se zúčastnil %{score} debat.
           description_own: Zúčastnili jste se %{score} debat.

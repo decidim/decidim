@@ -39,6 +39,10 @@ module Decidim
         Decidim::Forms::AdminLog::QuestionnairePresenter
       end
 
+      def count_participants
+        Decidim::Forms::QuestionnaireParticipants.new(self).count_participants
+      end
+
       private
 
       # salt is used to generate secure hash in anonymous answers

@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -174,6 +175,8 @@ pt:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Recebeu esta notificação pois pode avaliar a proposta.
           proposal_note_created:
             email_outro: Recebeu esta notificação pois pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
@@ -223,8 +226,8 @@ pt:
       badges:
         accepted_proposals:
           conditions:
-            - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
-            - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem aceites.
+          - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
+          - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem aceites.
           description: Este distintivo é concedido quando participa ativamente em novas propostas e essas são aceites.
           description_another: Este participante obteve %{score} propostas aceites.
           description_own: Tem %{score} propostas aceites.
@@ -234,12 +237,12 @@ pt:
           unearned_own: Ainda não recebeu alguma proposta.
         proposal_votes:
           conditions:
-            - Navegue e passe algum tempo a ler as propostas de outras pessoas
-            - 
+          - Navegue e passe algum tempo a ler as propostas de outras pessoas
+          - 
         proposals:
           conditions:
-            - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
-            - Criar uma nova proposta
+          - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
+          - Criar uma nova proposta
           description: Este distintivo é concedido quando participa ativamente em novas propostas.
           description_another: Este participante criou %{score} propostas.
           description_own: Criou %{score} propostas.
@@ -259,6 +262,8 @@ pt:
         description: Número de propostas
         object: propostas
         title: Propostas
+      votes:
+        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos
@@ -328,7 +333,6 @@ pt:
           index:
             actions: Ações
             assign_to_valuator: Atribuir a avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
             merge_button: Fundir
@@ -340,7 +344,6 @@ pt:
             split_button: Dividir
             title: Propostas
             unassign_from_valuator: Remover atribuição ao avaliador
-            unassign_from_valuator_button: Remover atribuição
             update: Atualizar
           new:
             create: Criar
@@ -353,9 +356,6 @@ pt:
             documents: Documentos
             endorsements_count: Contagem de endossamentos
             endorsers: Endossadores
-            n_more_endorsers:
-              one: e mais 1
-              other: e mais %{count}
             photos: Fotos
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas

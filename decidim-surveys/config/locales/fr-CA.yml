@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     models:
@@ -12,6 +13,10 @@ fr-CA:
         one: Réponse
         other: Réponses
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enquêtes
     components:
       surveys:
         actions:
@@ -44,6 +49,7 @@ fr-CA:
       answers_count: Réponses
     surveys:
       actions:
+        answers_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement des réponses %{answers_count} qui seront supprimées si vous continuez.
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
         destroy: Détruire
         edit: Modifier
@@ -54,7 +60,7 @@ fr-CA:
       admin:
         answers:
           index:
-            title: "%{total} réponses totales"
+            title: "%{total} réponses au total"
           show:
             title: 'Réponse #%{number}'
         exports:
@@ -69,8 +75,8 @@ fr-CA:
               Vous pouvez sélectionner les réponses que vous voulez publier en cochant la case en regard de chaque question.
               Vous ne pouvez uniquement publier que les types de question suivants : "Choix unique", "Choix multiple", "Matrice (choix unique)", "Matrice (choix multiple)" et "Tri".
             status:
-              not_published: Non publié
-              published: Publié
+              not_published: Non publiées
+              published: Publiées
             title: Publier les réponses
         surveys:
           create:

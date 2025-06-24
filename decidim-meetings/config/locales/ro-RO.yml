@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -195,14 +196,14 @@ ro:
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a permis înregistrări.
         upcoming_meeting:
           email_intro: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
-          email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești ședința „%{resource_title}”. Poți opri notificările accesând link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Înregistrează-te la întâlnirile la care vrei să participi
+          - Înregistrează-te la întâlnirile la care vrei să participi
           description: Această insignă este acordată atunci când participi la mai multe întâlniri față în față.
           description_another: Acest participant a participat la %{score} întâlniri.
           description_own: Ai participat la %{score} întâlniri.
@@ -319,7 +320,7 @@ ro:
         registrations:
           edit:
             save: Salvează
-            validate: Validare
+            validate: Valideaza
             validate_registration_code: Validează codul de înregistrare
           form:
             available_slots_help: Lăsați la 0 dacă aveți sloturi nelimitate disponibile.
@@ -463,7 +464,7 @@ ro:
         new:
           back: Înapoi
           create: Creează
-          title: Creează-ți o întâlnire
+          title: Creați întâlnire
         registration_confirm:
           cancel: Anulează
           confirm: Confirmare

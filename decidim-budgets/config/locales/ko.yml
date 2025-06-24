@@ -1,3 +1,4 @@
+---
 ko:
   activemodel:
     attributes:
@@ -43,3 +44,5 @@ ko:
           update:
             invalid: 이 프로젝트를 업데이트하는 동안 문제가 발생했습니다.
             success: 프로젝트가 성공적으로 업데이트되었습니다.
+    statistics:
+      projects_count: 프로젝트

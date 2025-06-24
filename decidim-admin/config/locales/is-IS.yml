@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       area:
@@ -318,6 +319,7 @@ is-IS:
             created_at: Búið til á
             document_number: Skjal númer
             name: Nafn
+            nickname: Gælunafn
             phone: Sími
             state: Ríki
       moderations:
@@ -389,6 +391,7 @@ is-IS:
           homepage_highlighted_content_banner_title: Hápunktur efni borði
           images:
             layout_appearance_title: Breyta útliti útlits
+            preview: Preview
       participatory_space_private_users:
         new:
           create: Búa til
@@ -440,12 +443,6 @@ is-IS:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-      user_groups:
-        index:
-          state:
-            pending: Í bið
-            rejected: Hafnað
-            verified: Staðfest
       users:
         form:
           email: Email

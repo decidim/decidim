@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -106,12 +107,12 @@ zh-TW:
           state_values:
             closed: 關閉
             open: 開啟
+          user_group: 群組
         index:
           new_debate: 新辯論
         new:
           back: 返回
           create: 建立
-          title: 新辯論
         orders:
           commented: 最多評論
           label: 依序排列辯論
@@ -173,7 +174,7 @@ zh-TW:
       badges:
         commented_debates:
           conditions:
-            - 選擇一個開放辯論加入
+          - 選擇一個開放辯論加入
           description: 當你在不同辯論中發表評論時，會被授予此徽章。
           description_another: 此參與者已參與了 %{score} 個辯論。
           description_own: 您已經參與了 %{score} 場辯論

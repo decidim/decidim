@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -27,7 +28,7 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Hasierako orriko irudia
-        import_attachments: Inportatu erantsitako artxiboak
+        import_attachments: Inportatu erantsitako fitxategiak
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         included_at: 'Honen barne:'
@@ -37,7 +38,7 @@ eu:
         local_area: Antolakuntza Arloa
         meta_scope: Eremuko metadatuak
         parent_id: Batzar nagusia
-        participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
+        participatory_processes_ids: Erlazionatutako partaidetza-prozesuak
         participatory_scope: Zer erabakitzen den
         participatory_structure: Nola erabakitzen den
         private_space: Espazio pribatua
@@ -440,7 +441,7 @@ eu:
       assemblies:
         assembly:
           more_info: Informazio gehiago
-          take_part: Parte hartu
+          take_part: Hartu parte
         index:
           promoted_assemblies: Batzar nabarmenduak
         metadata:

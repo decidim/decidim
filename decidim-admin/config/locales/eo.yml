@@ -1,3 +1,4 @@
+---
 eo:
   activemodel:
     attributes:
@@ -43,6 +44,7 @@ eo:
         user_group:
           fields:
             document_number: Dokumento Nombro
+            name: Nomo
       newsletters:
         select_recipients_to_deliver:
           all_users_help: Sendu la informilon al ĉiuj konfirmitaj partoprenantoj.

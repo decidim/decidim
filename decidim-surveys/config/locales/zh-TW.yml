@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     models:
@@ -48,6 +49,10 @@ zh-TW:
             success: 問卷成功儲存
       last_activity:
         new_survey: '新問卷調查'
+      models:
+        survey:
+          fields:
+            answers: 回答
       surveys:
         answer:
           invalid: 回答問卷時出現問題。

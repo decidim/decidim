@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -242,7 +243,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
         upcoming_meeting:
           email_intro: En menys de 48 hores començarà la trobada "%{resource_title}".
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     forms:
@@ -252,7 +253,7 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriu-te a les trobades a les que vols assistir
+          - Inscriu-te a les trobades a les que vols assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquesta participant ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
@@ -408,15 +409,15 @@ ca:
         poll:
           form:
             announcement_html:
-              - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
-              - Pots afegir una pregunta en qualsevol moment.
-              - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
-              - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
+            - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
+            - Pots afegir una pregunta en qualsevol moment.
+            - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
+            - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
         registrations:
           edit:
             save: Desa
             validate: Validar
-            validate_registration_code: Valida el codi de registre
+            validate_registration_code: Valida el codi d'inscripció
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
@@ -435,7 +436,7 @@ ca:
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
           validate_registration_code:
             invalid: Aquest codi de registre no és vàlid.
-            success: Codi de registre validat amb èxit.
+            success: Codi d'inscripció validat amb èxit.
       admin_log:
         invite:
           create: "%{user_name} ha convidat a %{attendee_name} a unir-se a la trobada %{resource_name} a l'espai %{space_name}"
@@ -586,7 +587,7 @@ ca:
         new:
           back: Enrere
           create: Crear
-          title: Crea la teva trobada
+          title: Crear una nova trobada
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -643,10 +644,10 @@ ca:
         answers:
           index:
             administrate: Administrar
-            title: Sondeig/Consulta en directe
+            title: Sondeig
           index_admin:
             back_to_meeting: Tornar a la trobada
-            title: Administrar sondeig/consulta en directe
+            title: Administrar consulta/sondeo en directe
             view_poll: Veure sondeig/consulta
         questions:
           closed_question:

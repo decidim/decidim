@@ -1,3 +1,4 @@
+---
 bg:
   activemodel:
     attributes:
@@ -119,7 +120,6 @@ bg:
         new:
           back: Назад
           create: Създаване
-          title: Нов дебат
         orders:
           commented: Най-коментирани
           label: Подреждане на дебатите по
@@ -190,7 +190,7 @@ bg:
       badges:
         commented_debates:
           conditions:
-            - Изберете отворен дебат и участвайте в него
+          - Изберете отворен дебат и участвайте в него
           description: Тази значка се предоставя, когато участвате активно в различни дебати, като оставяте коментари.
           description_another: Този участник се е включил в %{score} дебата.
           description_own: Участвали сте в %{score} дебата.

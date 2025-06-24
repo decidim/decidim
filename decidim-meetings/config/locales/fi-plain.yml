@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -252,7 +253,7 @@ fi-pl:
       badges:
         attended_meetings:
           conditions:
-            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.
@@ -408,10 +409,10 @@ fi-pl:
         poll:
           form:
             announcement_html:
-              - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
-              - Voit lisätä kysymyksiä milloin tahansa.
-              - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
-              - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
+            - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
+            - Voit lisätä kysymyksiä milloin tahansa.
+            - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
+            - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
         registrations:
           edit:
             save: Tallenna
@@ -435,7 +436,7 @@ fi-pl:
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
-            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
+            success: Ilmoittautumiskoodin vahvistaminen onnistui.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
@@ -586,7 +587,7 @@ fi-pl:
         new:
           back: Takaisin
           create: Luo
-          title: Luo tapahtuma
+          title: Luo uusi tapaaminen
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista

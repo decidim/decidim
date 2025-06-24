@@ -1,5 +1,12 @@
+---
 pt:
   activemodel:
+    attributes:
+      post:
+        body: Corpo
+        decidim_author_id: Autor
+        published_at: Hora de publicação
+        title: Título
     models:
       decidim/blogs/create_post_event: Nova publicação no blog
   activerecord:
@@ -8,40 +15,100 @@ pt:
         one: Publicação
         other: Publicações
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Publicações
     blogs:
       actions:
         author_id: Criar publicação como
+        confirm_delete_post: Tem a certeza de que quer eliminar esta publicação?
+        deleted_posts_info: As publicações eliminadas pode ser restauradas da lixeira.
         edit: Editar
         new: Nova publicação
         title: Ações
+        view_deleted_posts: Ver publicações eliminadas
       admin:
         posts:
+          create:
+            invalid: Ocorreu um problema ao criar esta publicação.
+            success: Publicação criada corretamente.
+          destroy:
+            success: Publicação eliminada corretamente
           edit:
             save: Actualizar
             title: Editar publicação
           index:
+            not_published_yet: Ainda não publicado
             title: Publicações
+          manage_trash:
+            title: Publicações eliminadas
           new:
             create: Criar
             title: Criar publicação
           update:
             invalid: Ocorreu um problema ao guardar a publicação.
+            success: Publicação guardada corretamente.
+      admin_log:
+        post:
+          create: "%{user_name} criou a publicação %{resource_name} no espaço %{space_name}"
+          delete: "%{user_name} eliminou a publicação %{resource_name} no espaço %{space_name}"
+          restore: "%{user_name} restaurou a publicação %{resource_name} no espaço %{space_name}"
+          soft_delete: "%{user_name} moveu a publicação %{resource_name} no espaço %{space_name} para a lixeira"
+          update: "%{user_name} atualizou a publicação %{resource_name} no espaço %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Última publicação
+          name: Publicações
+          see_all: Ver todas as publicações
+      last_activity:
+        new_post: 'Nova publicação:'
       models:
         post:
           fields:
             author: Autor
             body: Corpo
+            official_blog_post: Publicação oficial
+            published_at: Hora de publicação
+            title: Título
+      posts:
+        edit:
+          back: Voltar à publicação
+          button: Atualizar
+          title: Editar publicação
+        form:
+          author_id: Autor
+          body: Corpo
+          title: Título
+        index:
+          count:
+            one: "%{count} publicação"
+            other: "%{count} publicações"
+          empty: Ainda não há publicações.
+          new_post: Nova publicação
+        menu_actions:
+          button_destroy: Eliminar publicação
+          button_destroy_confirm: Tem a certeza de que quer eliminar esta publicação?
+          button_edit: Editar publicação
+        new:
+          back: Voltar à publicações
+          button: Criar
+          title: Criar publicação
     components:
       blogs:
         actions:
           comment: Comentar
+          create: Criar
+          destroy: Eliminar
           endorse: Apoiar
+          update: Atualizar
         name: Blog
         settings:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            creation_enabled_for_participants: Os participantes podem criar publicações
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -54,5 +121,32 @@ pt:
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de segui-lo através da hiperligação anterior.
           email_subject: Nova publicação publicada em %{participatory_space_title}
           notification_title: A publicação <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Se este comentário foi a favor, contra ou neutro
+          author: O nome do participante que fez este comentário
+          body: O comentário em si
+          commentable_id: O identificador único do comentável
+          commentable_type: O tipo do comentável (se foi um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está nos três comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O ID deste comentário
+          locale: O idioma que o participante tinha ao deixar este comentário
+          root_commentable_url: A URL do recurso vinculado a este comentário
+        posts:
+          author: Informações sobre o autor
+          body: O corpo da publicação
+          comments_count: O número de comentários que esta publicação tem
+          component: O componente a que a publicação pertence
+          created_at: A data em que esta publicação foi criada
+          endorsements_count: O número de recomendações que esta publicação tem
+          follows_count: O número de seguidores que esta publicação tem
+          id: O identificador único desta publicação
+          participatory_space: A que espaço (por exemplo, Processo Participativo ou Assembleia) pertence esta publicação
+          published_at: A data em que esta publicação foi publicada
+          title: O título da publicação
+          updated_at: A última data em que esta publicação foi actualizada
+          url: O URL desta publicação
     statistics:
       posts_count: Publicações

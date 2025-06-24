@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -28,7 +29,6 @@ gl:
     attributes:
       decidim/user:
         current_password: Contrasinal actual
-        email: Correo electrónico
         name: Nome da usuaria
         password: Contrasinal
         password_confirmation: Confirmación por contrasinal
@@ -269,6 +269,8 @@ gl:
         view_all: Ver todo
       metrics:
         name: Métricas da organización
+      participatory_space_metrics:
+        name: Participación en números
       stats:
         name: Estatísticas da organización
       sub_hero:
@@ -289,15 +291,12 @@ gl:
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       sessions:
         new:
-          are_you_new?: Novo para a plataforma?
           register: Crear unha conta
       shared:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
           title: Notificacións de boletín informativo
-        omniauth_buttons:
-          or: Ou
     doorkeeper:
       authorizations:
         new:
@@ -491,7 +490,7 @@ gl:
       badges:
         followers:
           conditions:
-            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+          - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
           description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
           description_another: Este usuario ten %{score} seguidores.
           description_own: "%{score} seguidores están seguindo."
@@ -594,10 +593,18 @@ gl:
       home: Inicio
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Ola, %{recipient}!
+        comanagers_new_message:
+          greeting: Ola, %{recipient}!
         new_conversation:
           greeting: Ola, %{recipient}!
           intro: "%{sender} comezou unha nova conversa contigo. Prema aquí para velo:"
           subject: "%{sender} comezou unha conversa contigo"
+        new_group_conversation:
+          greeting: Ola, %{recipient}!
+        new_group_message:
+          greeting: Ola, %{recipient}!
         new_message:
           greeting: Ola, %{recipient}!
           intro: "%{sender} publicou novas mensaxes na túa conversa. Prema aquí para velas:"
@@ -621,7 +628,7 @@ gl:
       users:
         description: Número de usuarios da organización
         object: usuarios
-        title: Usuarios
+        title: Participantes
     newsletter_mailer:
       newsletter:
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
@@ -704,28 +711,22 @@ gl:
         badges: Insignias
         followers: Seguidores
         following: Segue
+        group_admins: Xestionar os administradores
+        group_members: Xestionar membros
         groups: Grupos
         members: Membros
-      sidebar:
-        badges:
-          info: As insignias obtéñense realizando actividades específicas na plataforma.
-          title: Insignias
       user:
-        create_user_group: Crear grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar o perfil do grupo
-        invite_user: Invitar ao usuario
-        join_user_group: Solicitude para unirse ao grupo
-        leave_user_group: Deixar de grupo
-        manage_user_group_admins: Xestionar os administradores
-        manage_user_group_users: Xestionar membros
-        resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
+        actions:
+          create_user_group: Crear grupo
+          edit_profile: Editar perfil
+          edit_user_group: Editar o perfil do grupo
+          invite_user: Invitar ao usuario
+          join_user_group: Solicitude para unirse ao grupo
+          leave_user_group: Deixar de grupo
+          manage_user_group_admins: Xestionar os administradores
+          manage_user_group_users: Xestionar membros
+          resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
-      hide:
-        hello: Ola %{name},
-        manage_moderations: Xestionar moderacións
-        report_html: <p> O seguinte <a href="%{url}">content</a> ocultouse automaticamente.</p>
-        subject: Ocultouse un recurso automaticamente
       report:
         hello: Ola %{name},
         report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
@@ -795,6 +796,8 @@ gl:
       participants_count: Participantes
       users_count: Participantes
     user_conversations:
+      reply:
+        send: Enviar
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_report_mailer:

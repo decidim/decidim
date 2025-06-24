@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -97,6 +98,7 @@ it:
           attachment_files: File
           attachments: Allegati
           components: Componenti
+          landing_page: Pagina di destinazione
           moderations: Moderazione
           process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)

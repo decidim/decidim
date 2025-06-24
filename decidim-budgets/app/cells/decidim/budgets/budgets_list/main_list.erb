@@ -1,5 +1,5 @@
 <h2 class="h5 md:h3 decorator"><%= t(:count, scope: i18n_scope, count: budgets.length) %></h2>
 
-<%= render partial: "decidim/shared/orders", formats: [:html], locals: { orders: AVAILABLE_ORDERS, i18n_scope: "decidim.budgets.budgets_list.orders" } %>
+  <%= render partial: "decidim/shared/orders", formats: [:html], locals: { orders: AVAILABLE_ORDERS, i18n_scope: "decidim.budgets.budgets_list.orders", css_class: "items-start ml-6", b_css_class: "!justify-start pb-0 pl-0" } %>
 
 <%= render :card_list %>

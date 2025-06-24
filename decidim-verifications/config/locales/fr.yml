@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -60,45 +61,45 @@ fr:
       admin:
         another_dummy_authorization_handler:
           help:
-            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
-            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
-            - Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
+          - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+          - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+          - Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
         csv_census:
           help:
-            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés.
-            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés.
+          - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés.
+          - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés.
         default:
           help:
-            - L'aide du gestionnaire d'autorisation n'est pas définie.
-            - Un développeur a besoin de définir l'aide dans la clé de traduction (i18n) "%{authorization_handler}"
+          - L'aide du gestionnaire d'autorisation n'est pas définie.
+          - Un développeur a besoin de définir l'aide dans la clé de traduction (i18n) "%{authorization_handler}"
         dummy_authorization_handler:
           help:
-            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
-            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
-            - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
+          - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+          - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+          - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
         ephemeral_dummy_authorization_handler:
           help:
-            - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
-            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
-            - Il s'agit d'une copie d'un exemple d'autorisation.
-            - 
+          - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+          - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+          - Il s'agit d'une copie d'un exemple d'autorisation.
+          - Soyez vérifié en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
-            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
-            - Vous remplissez les informations présentes dans l'image téléchargée.
-            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si les informations ne sont pas claires ou si elles sont non vérifiables, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+          - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+          - Vous remplissez les informations présentes dans l'image téléchargée.
+          - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+          - Si les informations ne sont pas claires ou si elles sont non vérifiables, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
-            - Vous envoyez la lettre à leur adresse avec le code de vérification.
-            - Vous marquez la lettre comme envoyée.
-            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+          - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+          - Vous envoyez la lettre à leur adresse avec le code de vérification.
+          - Vous marquez la lettre comme envoyée.
+          - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
         sms:
           help:
-            - Les participants demandent l'envoi d'un code de vérification sur leur téléphone.
-            - Ils doivent introduire le code pour être vérifiés.
-            - S'ils ne reçoivent pas le code, ils peuvent le demander à nouveau.
+          - Les participants demandent l'envoi d'un code de vérification sur leur téléphone.
+          - Ils doivent introduire le code pour être vérifiés.
+          - S'ils ne reçoivent pas le code, ils peuvent le demander à nouveau.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation.
         name: Recensement de l'organisation
@@ -145,6 +146,9 @@ fr:
           authorize_with: Vérifier votre identité avec %{authorizer}
           tos_agreement: En vérifiant votre identité, vous acceptez %{link}.
         onboarding_pending:
+          completed_verifications: Vous avez été autorisé avec succès, maintenant vous pouvez %{action} dans la %{resource_name}
+          granted_verifications: Vérifications accordées
+          onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
         renew_modal:
@@ -172,13 +176,8 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
-            example: |
-              john.doe@exemple.org
-              jane.doe@exemple.org
             file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
-            submit: Téléverser un fichier
-            title: Télécharger un nouveau recensement
+            submit: Déposer un fichier
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.

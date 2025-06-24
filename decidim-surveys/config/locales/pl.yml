@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     models:
@@ -54,6 +55,10 @@ pl:
             success: Ankieta została zapisana pomyślnie.
       last_activity:
         new_survey: 'Nowa ankieta:'
+      models:
+        survey:
+          fields:
+            answers: Odpowiedzi
       survey_confirmation_mailer:
         confirmation:
           body: Pomyślnie udzielono odpowiedzi na ankietę %{questionnaire_title} w ramach %{participatory_space}

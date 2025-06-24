@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -132,8 +133,8 @@ lv:
       badges:
         initiatives:
           conditions:
-            - Dodieties uz iniciatīvu līdzdalības telpu
-            - Sekojiet soļiem, lai izveidotu jaunu iniciatīvu
+          - Dodieties uz iniciatīvu līdzdalības telpu
+          - Sekojiet soļiem, lai izveidotu jaunu iniciatīvu
           description: Šis žetons tiek piešķirts, kad jūs sākat jaunas iniciatīvas, sadarbojoties ar citiem, lai tās īstenotu.
           description_another: Šis dalībnieks ir publicējis %{score} iniciatīvas.
           name: Publicētās iniciatīvas

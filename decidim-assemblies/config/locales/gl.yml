@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -274,7 +275,7 @@ gl:
       assemblies:
         description: Número de xuntanzas creadas
         object: xuntanzas
-        title: Xuntanzas
+        title: Asembleas
     participatory_processes:
       show:
         related_assemblies: Xuntanzas relacionadas

@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -24,7 +25,7 @@ es-MX:
         id: ID
         iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
-        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Ten en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Pistas de ubicación
         online_meeting_url: URL del encuentro online
@@ -242,7 +243,7 @@ es-MX:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
           email_intro: El encuentro "%{resource_title}" comenzará en menos de 48 h.
-          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     forms:
@@ -252,7 +253,7 @@ es-MX:
       badges:
         attended_meetings:
           conditions:
-            - Regístrate en los encuentros a los que quieres asistir
+          - Regístrate en los encuentros a los que quieres asistir
           description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
@@ -408,15 +409,15 @@ es-MX:
         poll:
           form:
             announcement_html:
-              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
-              - Puedes añadir una pregunta en cualquier momento.
-              - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
-              - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
+            - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+            - Puedes añadir una pregunta en cualquier momento.
+            - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+            - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registrations:
           edit:
             save: Guardar
             validate: Validar
-            validate_registration_code: Validar el código de registro
+            validate_registration_code: Validar código de inscripción
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
@@ -434,8 +435,8 @@ es-MX:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
           validate_registration_code:
-            invalid: Este código de registro no es válido.
-            success: Código de registro validado con éxito.
+            invalid: Este código de inscripción no es válido.
+            success: Código de inscripción validado correctamente.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
@@ -474,7 +475,7 @@ es-MX:
           body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ahora puede cerrar la reunión "%{meeting_title}" con un informe
+          subject: Ahora puedes cerrar la reunión "%{meeting_title}" con un informe
       conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_meetings:
@@ -577,7 +578,7 @@ es-MX:
           close_meeting: Cerrar
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar
-          join_meeting: Unirse al encuentro
+          join_meeting: Inscríbete
           reply_poll: Responder consulta
           view_poll: Ver consulta
         meetings:
@@ -586,7 +587,7 @@ es-MX:
         new:
           back: Atrás
           create: Crear
-          title: Crea tu encuentro
+          title: Crear un nuevo encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -643,10 +644,10 @@ es-MX:
         answers:
           index:
             administrate: Administrar
-            title: Consulta
+            title: Sondeo
           index_admin:
             back_to_meeting: Volver al encuentro
-            title: Administrar consulta
+            title: Administrar consulta/sondeo en directo
             view_poll: Ver consulta
         questions:
           closed_question:

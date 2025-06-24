@@ -1,32 +1,13 @@
 <% add_decidim_page_title(t("devise.sessions.new.log_in")) %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render(layout: "layouts/decidim/shared/layout_center") do %>
 
   <div class="flex justify-center">
     <h1 class="title-decorator my-12"><%= t("devise.sessions.new.log_in") %></h1>
   </div>
 
-  <div class="login__info font-semibold">
-    <% if current_organization.sign_up_enabled? %>
-      <p>
-        <%= t("decidim.devise.sessions.new.are_you_new?") %>
-        <%= link_to t("decidim.devise.sessions.new.register"), new_user_registration_path %>
-      </p>
-    <% elsif current_organization.sign_in_enabled? %>
-      <p>
-        <%= t("decidim.devise.sessions.new.sign_up_disabled") %>
-      </p>
-    <% else %>
-      <p>
-        <%= t("decidim.devise.sessions.new.sign_in_disabled") %>
-      </p>
-    <% end %>
-  </div>
-
-  <span class="login__info-separator"></span>
-
   <% cache current_organization do %>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
   <% end %>
 
   <% if current_organization.sign_in_enabled? %>
@@ -36,22 +17,36 @@
 
         <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
 
-        <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
+      </div>
+      <div class="login__modal-remember">
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
+            <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user), class: "sign-up-link" %>
+          <% end %>
+      </div>
+
+      <div class="login__info mb-10 flex justify-center font-semibold">
+        <% if current_organization.sign_up_enabled? %>
+          <p>
+            <%= t("decidim.devise.sessions.new.are_you_new?") %>
+            <%= link_to t("decidim.devise.sessions.new.register"), new_user_registration_path %>
+          </p>
+        <% elsif current_organization.sign_in_enabled? %>
+          <p>
+            <%= t("decidim.devise.sessions.new.sign_up_disabled") %>
+          </p>
+        <% else %>
+          <p>
+            <%= t("decidim.devise.sessions.new.sign_in_disabled") %>
+          </p>
         <% end %>
       </div>
 
       <div class="form__wrapper-block">
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.log_in") %>
-          <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
-
-      <div class="login__links">
-        <%= render "decidim/devise/shared/links" %>
-      </div>
     <% end %>
-
   <% end %>
 <% end %>

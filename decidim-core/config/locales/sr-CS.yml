@@ -1,3 +1,4 @@
+---
 sr:
   activerecord:
     models:
@@ -24,6 +25,8 @@ sr:
       hero_settings_form:
         background_image: Pozadinska slika
         welcome_text: Tekst dobrodošlice
+      participatory_space_metrics:
+        name: Metrika
       stats:
         name: Statistika organizacije
     endorsements:

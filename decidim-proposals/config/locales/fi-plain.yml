@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -97,9 +98,9 @@ fi-pl:
       decidim:
         proposals:
           proposal:
-            budget_text: Ehdotus %{link} luotiin
+            budget_text: Ehdotus <span class="resource-link">%{link}</span> luotiin
             import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
-            import_to_proposal_text: Tämä ehdotus %{link} luotiin
+            import_to_proposal_text: Ehdotus <span "resource-link">%{link}</span> luotiin
             merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
             merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
             split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'
@@ -271,7 +272,7 @@ fi-pl:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Sinulle on annettu arvioitavaksi ehdotus "%{resource_title}". Tämä tarkoittaa, että sinut on valtuutettu antamaan palautetta ja vastaamaan ehdotukseen tulevien päivien aikana. Tarkasta ehdotus <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
+            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
             email_subject: Sinulle on annettu arvioitavaksi ehdotus %{resource_title}.
             notification_title: Sinulle on annettu arvioitavaksi ehdotus <a href="%{resource_path}">"%{resource_title}"</a>. Tarkasta ehdotus <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_created:
@@ -338,7 +339,7 @@ fi-pl:
           notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
@@ -384,8 +385,8 @@ fi-pl:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Olet saanut %{score} ehdotusta hyväksyksi.
@@ -395,8 +396,8 @@ fi-pl:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           conditions:
-            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
-            - Äänestä ehdotuksia, joista pidät tai jotka kiinnostavat sinua
+          - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+          - Äänestä ehdotuksia, joista pidät tai jotka kiinnostavat sinua
           description: Tämä kunniamerkki myönnetään niille, jotka ovat äänestäneet muiden ehdotuksia.
           description_another: Tämä käyttäjä on äänestänyt %{score} ehdotusta.
           description_own: Olet äänestänyt %{score} ehdotusta.
@@ -406,8 +407,8 @@ fi-pl:
           unearned_own: Et ole vielä äänestänyt ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Luo uusi ehdotus
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
@@ -484,7 +485,6 @@ fi-pl:
           withdrawn_at: Ajankohta, jolloin ehdotus peruttiin
     participatory_spaces:
       highlighted_proposals:
-        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
@@ -512,6 +512,16 @@ fi-pl:
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
+        import_proposals_mailer:
+          notify_failure:
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} epäonnistui.
+            subject: Ehdotusten tuonti epäonnistui
+          notify_success:
+            added_proposals:
+              one: Yksi ehdotus tuotiin.
+              other: "%{count} ehdotusta tuotiin."
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} onnistui. Voit tarkastella tuonnin lopputulosta hallintapaneelin kautta.
+            subject: Ehdotusten tuonti onnistui.
         imports:
           help:
             answers: |
@@ -666,8 +676,8 @@ fi-pl:
             endorsers: Suosittelijat
             link: Näytä ehdotus
             n_more_endorsers:
-              one: ja 1 muu
-              other: ja %{count} muuta
+              one: ja 1 lisää
+              other: ja %{count} lisää
             photos: Kuvat
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapahtumat
@@ -683,7 +693,7 @@ fi-pl:
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
-            success: "%{number} ehdotuksen tuonti onnistui."
+            success: Ehdotusten tuonti on aloitettu. Ilmoitamme sinulle, kun tuonti valmistuu.
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
@@ -948,7 +958,7 @@ fi-pl:
           text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         new:
           send: Jatka
-          title: Luo ehdotuksesi
+          title: Luo uusi ehdotus
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
@@ -998,7 +1008,7 @@ fi-pl:
         update:
           title: Muokkaa ehdotusta
         vote_button:
-          already_voted: Jo äänestetty
+          already_voted: Äänestetty
           already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä

@@ -1,8 +1,9 @@
+---
 ro:
   activemodel:
     attributes:
       assembly:
-        announcement: Anunţ
+        announcement: Anunț
         area_id: Zonă
         assembly_type: Tipul grupului de lucru
         assembly_type_other: Alt tip de grup de lucru
@@ -11,8 +12,8 @@ ro:
         closing_date_reason: Motivul datei de închidere
         composition: Componență
         copy_categories: Copiază categoriile
-        copy_components: Copiază componentele
-        copy_features: Copiază funcționalitățile
+        copy_components: Copiați componentele
+        copy_features: Copiați funcționalitățile
         created_by: Creat de
         created_by_other: Creat de altcineva
         creation_date: Data creării
@@ -29,7 +30,7 @@ ro:
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
-        import_components: Importă componente
+        import_components: Importați componente
         included_at: Inclus la
         instagram: Instagram
         is_transparent: Este transparent
@@ -40,16 +41,16 @@ ro:
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Spațiu privat
-        promoted: Evidenţiat
+        promoted: Evidențiat
         published_at: Publicat la
         purpose_of_action: Scopul acțiunii
-        short_description: Descriere scurtă
+        short_description: Scurtă descriere
         slug: URL slug
-        special_features: Funcționalități speciale
+        special_features: Caracteristici speciale
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
-        weight: Poziție
+        weight: Ordinea în poziționare
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -61,7 +62,7 @@ ro:
         non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
-        weight: Poziție
+        weight: Ordinea în poziționare
       assembly_user_role:
         email: E-mail
         name: Nume
@@ -89,19 +90,19 @@ ro:
   decidim:
     admin:
       actions:
-        import_assembly: Importă
+        import_assembly: Importați
         new_assembly: Grup de lucru nou
       assemblies:
         create:
-          error: A apărut o problemă la crearea unui nou tip de grup de lucru.
+          error: A apărut o problemă la crearea unui nou grup de lucru.
         edit:
-          update: Actualizează
+          update: Actualizați
         index:
           private: Privat
           public: Public
           published: Publicat
         new:
-          create: Creează
+          create: Creați
           title: Grup de lucru nou
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
@@ -252,7 +253,7 @@ ro:
           title: Despre această adunare
         filters:
           names:
-            all: Toate
+            all: Toți
         show:
           title: Despre această adunare
       assembly_members:

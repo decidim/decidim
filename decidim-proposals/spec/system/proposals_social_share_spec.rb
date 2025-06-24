@@ -33,6 +33,7 @@ describe "Social shares" do
   end
 
   it_behaves_like "a social share meta tag", "city3.jpeg"
+  it_behaves_like "a social share widget"
 
   context "when no attachment images" do
     let!(:attachment) { nil }
@@ -51,32 +52,5 @@ describe "Social shares" do
     let(:resource) { main_component_path(component) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when collaborative draft" do
-    let(:collaborative_draft) { create(:collaborative_draft, component:, body:) }
-    let!(:attachment) { create(:attachment, :with_image, attached_to: collaborative_draft, file: attachment_file) }
-    let(:resource) { collaborative_draft }
-
-    it_behaves_like "a social share meta tag", "city3.jpeg"
-
-    context "when no attachment images" do
-      let!(:attachment) { nil }
-
-      it_behaves_like "a social share meta tag", "description_image.jpg"
-    end
-
-    context "when no attachments nor description images" do
-      let(:attachment) { nil }
-      let(:description_image_path) { "" }
-
-      it_behaves_like "a social share meta tag", "city2.jpeg"
-    end
-
-    context "when listing all collaborative drafts" do
-      let(:resource) { main_component_path(component) }
-
-      it_behaves_like "a social share meta tag", "city2.jpeg"
-    end
   end
 end

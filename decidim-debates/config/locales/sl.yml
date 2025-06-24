@@ -1,3 +1,4 @@
+---
 sl:
   activemodel:
     attributes:
@@ -11,6 +12,3 @@ sl:
         debate_closes:
           edit:
             close: Zapri
-      debates:
-        show:
-          debate_closed: Zaprto

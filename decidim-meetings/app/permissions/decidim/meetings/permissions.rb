@@ -9,7 +9,7 @@ module Decidim
         return permission_action if permission_action.scope != :public
 
         if permission_action.subject == :meeting && permission_action.action == :read
-          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+          toggle_allow(user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)))
           return permission_action
         end
 
@@ -84,13 +84,20 @@ module Decidim
       end
 
       def can_create_meetings?
-        component_settings&.creation_enabled_for_participants? && public_space_or_member?
+        (component_settings&.creation_enabled_for_participants? && can_participate?) || initiative_authorship?
       end
 
-      def public_space_or_member?
+      def can_participate?
+        context[:current_component].participatory_space.can_participate?(user)
+      end
+
+      def initiative_authorship?
+        return false unless Decidim.module_installed?("initiatives")
+
         participatory_space = context[:current_component].participatory_space
 
-        participatory_space.private_space? ? space_member?(participatory_space, user) : true
+        participatory_space.is_a?(Decidim::Initiative) &&
+          participatory_space.has_authorship?(user)
       end
 
       # Neither platform admins, nor space admins should be able to create meetings from the public side.
@@ -101,21 +108,18 @@ module Decidim
       end
 
       def can_update_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           !meeting.closed?
       end
 
       def can_withdraw_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           !meeting.withdrawn? &&
           !meeting.past?
       end
 
       def can_close_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           meeting.past?
       end
 

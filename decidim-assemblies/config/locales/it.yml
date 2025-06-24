@@ -1,7 +1,9 @@
+---
 it:
   activemodel:
     attributes:
       assembly:
+        announcement: Avviso
         area_id: Area
         assembly_type: Tipo di assemblea
         assembly_type_other: Altro tipo di assemblea
@@ -19,14 +21,19 @@ it:
         decidim_scope_id: Ambito
         description: Descrizione
         developer_group: Promotore
+        document: Documento
         domain: Dominio
         duration: Durata
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Immagine della home page
+        import_attachments: Importa allegati
+        import_categories: Importa categorie
+        import_components: Importa componenti
         included_at: Fino a
         instagram: Instagram
+        internal_organisation: Organizzazione interna
         is_transparent: È trasparente
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -44,6 +51,7 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
+        twitter: X
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
@@ -56,10 +64,17 @@ it:
         non_user_avatar: Avatar
         position: Posizione
         user_id: Utente
+        weight: Posizione nell'elenco
       assembly_user_role:
         email: E-mail
         name: Nome
         role: Ruolo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo di documento non valido. Sono ammessi solo i file con le seguenti estensioni: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -74,11 +89,15 @@ it:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Sei sicuro di voler eliminare questo assemblea? Se cambi idea, puoi ripristinarla più tardi.
         import_assembly: Importa
         new_assembly: Nuova assemblea
+        new_assembly_user_role: Nuovo amministratore dello spazio
+        view_deleted_assemblies: Visualizza le assemblee eliminate
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
+          success: Assemblea creata con successo. Ora puoi aggiungere componenti e configurarla.
         edit:
           update: Aggiorna
         index:
@@ -86,6 +105,8 @@ it:
           public: Pubblico
           published: Pubblicato
           unpublished: Non pubblicato
+        manage_trash:
+          title: Assemblee eliminate
         new:
           create: Crea
           title: Nuova assemblea
@@ -123,14 +144,22 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
+          title: Aggiorna gli amministratori dello spazio
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
         new:
           create: Crea
+          title: Nuovo amministratore dello spazio
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
+      filters:
+        ceased_date_not_null:
+          values:
+            'true': Conclusq
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Ricerca per nome o nickname
       menu:
         assemblies: Assemblee
         assemblies_submenu:
@@ -139,10 +168,15 @@ it:
           attachment_files: File
           attachments: Allegati
           components: Componenti
+          info: Info su questo spazio
+          landing_page: Pagina iniziale
           moderations: Moderazione
+          private_users: Membri
+          see_assembly: Guarda l'assemblea
       models:
         assembly:
           fields:
+            actions: Azioni
             created_at: Data/ora di creazione
             private: Privato
             promoted: In evidenza
@@ -167,13 +201,24 @@ it:
             collaborator: Collaboratore
             moderator: Moderatore
             valuator: Valutatore
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Assemblee
       titles:
         assemblies: Assemblee
+        assemblies_deleted: Assemblee eliminate
         assemblies_types: Tipi di assemblea
+      tooltips:
+        deleted_assemblies_info: Un'assemblea può essere eliminata solo se lo stato è "Non pubblicato".
     admin_log:
       assembly:
         create: "%{user_name} ha creato l'assemblea %{resource_name}"
+        duplicate: "%{user_name} ha duplicato l'assemblea %{resource_name}"
+        export: "%{user_name} ha esportato l'assemblea %{resource_name}"
+        import: "%{user_name} ha importato l'assemblea %{resource_name}"
         publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
+        restore: "%{user_name} ha ripristinato l'assemblea %{resource_name}"
+        soft_delete: "%{user_name} spostato nel cestino l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha rimosso l'assemblea %{resource_name}"
         update: "%{user_name} ha aggiornato l'assemblea %{resource_name}"
       assembly_member:
@@ -197,18 +242,32 @@ it:
         assemblies:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
+            define_taxonomy_filters: Si prega di definire alcuni filtri per questo spazio partecipativo prima di utilizzare questa impostazione.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
             images: Immagini
+            included_at_help: Seleziona la data in cui questa assemblea è stata aggiunta a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             metadata: Metadati
+            no_taxonomy_filters_found: Nessun filtro trovato.
             other: Altro
+            private_notice: Sarai in grado di gestire i partecipanti privati dopo aver impostato lo spazio come privato
             select_a_created_by: Seleziona un creatore
             select_parent_assembly: Seleziona l'assemblea madre
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Social networks
+            taxonomies: Categorizzazioni
             title: Informazioni generali
+            visibility: Visibilità
+        assembly_copies:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
             explanation: 'Guida per l''immagine:'
+            image_guide: È preferibile un'immagine verticale priva di testo.
             non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
         content_blocks:
           highlighted_assemblies:
@@ -217,17 +276,42 @@ it:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Area
+          closing_date: Data di conclusione
+          created_by: Creata da
+          creation_date: Data di creazione
+          data: Dati sull'assemblea
+          developer_group: Gruppo promotore
+          duration: Durata
+          included_at: Inserito il
+          indefinite_duration: Indefinito
+          local_area: Area geografica
+          meta_scope: Ambito tematico
+          participatory_scope: Cosa si decide
+          participatory_structure: Come si decide
+          target: Chi partecipa
+          title: Info su questo spazio
         filters:
           names:
             all: Tutti
+          type: Tipo
         show:
           title: Su questa assemblea
       assembly_members:
         index:
           members: Utenti
       content_blocks:
+        children_assemblies:
+          name: Assemblee
+        dates_metadata:
+          name: Metadati delle date
+        extra_data:
+          name: Tipo & durata
         highlighted_assemblies:
           name: Assiemi evidenziati
+        related_assemblies:
+          name: Assemblee collegate
       created_by:
         city_council: Consiglio comunale
         others: Altri
@@ -244,13 +328,20 @@ it:
         working_group: Gruppo di lavoro
       index:
         title: assemblee
+      last_activity:
+        new_assembly: 'Nuova assemblea:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblee attive
+            see_all_spaces: Vedi tutte le assemblee
         user_profile:
           member_of:
             member_of: Membro di
       show:
         duration: Durata
         private_space: Questa è un'assemblea privata
+        social_networks_title: Vai alla pagina
     assembly_members:
       index:
         title: Utenti
@@ -258,7 +349,7 @@ it:
       assemblies:
         create_assembly_member:
           email_intro: Un amministratore dell'assemblea <a href="%{resource_url}">%{resource_name}</a> ti ha aggiunto come membro.
-          email_subject: Ti invitano a far parte dell'Assemblea %{resource_name}!
+          email_subject: Hai ricevuto un invito a far parte dell'Assemblea %{resource_name}!
           notification_title: Sei stato registrato come membro dell'Assemblea <a href="%{resource_path}">%{resource_name}</a>. Controlla la <a href="%{resource_path}">pagina dell'assemblea</a> per contribuire!
       assembly:
         role_assigned:
@@ -285,6 +376,29 @@ it:
         description: Numero di assemblee create
         object: assemblee
         title: Assemblee
+    open_data:
+      help:
+        assemblies:
+          participatory_structure: La struttura partecipativa dell'assemblea
+          promoted: Promosse
+          published_at: La data di pubblicazione di questo spazio
+          purpose_of_action: Lo scopo dell'azione dell'assemblea
+          reference: Il riferimento unico dello spazio
+          remote_banner_image_url: L'URL dell'immagine banner dell'assemblea
+          remote_hero_image_url: L'URL dell'immagine principale dell'assemblea
+          scope: L'ambito tematico dell'assemblea
+          scopes_enabled: Se gli ambiti tematici sono abilitati o meno
+          short_description: Breve descrizione dell'assemblea
+          slug: Slug url dell'assemblea (Usato per identificare l'url corretto)
+          special_features: Quali caratteristiche speciali ha questa assemblea
+          subtitle: Il sottotitolo dell'assemblea
+          target: Il target dell'assemblea
+          taxonomies: Le categorizzazioni dello spazio
+          title: Il titolo dell'assemblea
+          twitter_handler: Gestore di social media per X
+          updated_at: L'ultima data in cui questo spazio è stato aggiornato
+          url: L'URL dello spazio
+          youtube_handler: Gestore di social media per YouTube
     participatory_processes:
       show:
         related_assemblies: Assemblee collegate

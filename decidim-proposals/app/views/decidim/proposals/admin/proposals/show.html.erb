@@ -53,20 +53,20 @@
 
         <% presented_endorsers = endorsers_presenters_for(proposal) %>
         <% if presented_endorsers.any? %>
-          <%= render partial: "endorsers", locals: { presented_endorsers:, proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/endorsers", locals: { presented_endorsers:, proposal: } %>
         <% end %>
 
         <% if proposal.documents.any? %>
-          <%= render partial: "documents", locals: { proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/documents", locals: { proposal: } %>
         <% end %>
 
         <% if proposal.photos.any? %>
-          <%= render partial: "photos", locals: { proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/photos", locals: { proposal: } %>
         <% end %>
 
         <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
         <% if proposal_meetings.any? %>
-          <%= render partial: "meetings", locals: { proposal_meetings: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/meetings", locals: { proposal_meetings: } %>
         <% end %>
 
         <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>

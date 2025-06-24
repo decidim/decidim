@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -224,6 +225,8 @@ pl:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
           proposal_note_created:
             email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
@@ -264,7 +267,7 @@ pl:
           notification_title: Możesz teraz przedstawiać <a href="%{resource_path}">nowe propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Możesz rekomendować propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Rozpoczęto rekomendację propozycji w %{participatory_space_title}
           notification_title: Możesz teraz zacząć <a href="%{resource_path}">rekomendować propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
@@ -303,8 +306,8 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
-            - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
+          - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
+          - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje i są one akceptowane.
           description_another: Ten użytkownik ma %{score} zaakceptowanych propozycji.
           description_own: Masz %{score} zaakceptowanych propozycji.
@@ -314,8 +317,8 @@ pl:
           unearned_own: Nie masz jeszcze żadnych zaakceptowanych propozycji.
         proposal_votes:
           conditions:
-            - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
-            - Zagłosuj na propozycje, które lubisz lub uznasz za interesujące
+          - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
+          - Zagłosuj na propozycje, które lubisz lub uznasz za interesujące
           description: Ta odznaka jest przyznawana, gdy głosujesz na propozycje innych osób.
           description_another: Ten użytkownik głosował na %{score} propozycji.
           description_own: Zagłosowałeś(aś) na %{score} propozycje.
@@ -325,8 +328,8 @@ pl:
           unearned_own: Nie głosowałeś(aś) jeszcze na żadne propozycje.
         proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
-            - Utwórz nową propozycję
+          - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
+          - Utwórz nową propozycję
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
@@ -353,7 +356,6 @@ pl:
         title: Głosy
     participatory_spaces:
       highlighted_proposals:
-        last: Ostatnie propozycje
         see_all: Zobacz wszystkie propozycje
     proposals:
       actions:
@@ -468,7 +470,6 @@ pl:
           index:
             actions: Działania
             assign_to_valuator: Przypisz do weryfikatora
-            assign_to_valuator_button: Przypisz
             cancel: Anuluj
             merge: Przyłącz do nowego
             merge_button: Przyłącz
@@ -482,7 +483,6 @@ pl:
             statuses: Statusy
             title: Propozycje
             unassign_from_valuator: Anuluj przypisanie do weryfikatora
-            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
           new:
             create: Utwórz
@@ -499,11 +499,6 @@ pl:
             endorsements_count: Liczba rekomendacji
             endorsers: Rekomendujący
             link: Zobacz propozycję
-            n_more_endorsers:
-              one: i jeszcze 1
-              few: i jeszcze %{count}
-              many: i jeszcze %{count}
-              other: i jeszcze %{count}
             photos: Zdjęcia
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
@@ -514,7 +509,6 @@ pl:
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił błąd.
-            success: "Zaimportowano %{number} propozycji."
           new:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
@@ -743,7 +737,6 @@ pl:
           text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
@@ -777,7 +770,7 @@ pl:
           changes_at_title: Poprawka do „%{title}”
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
-            one: i %{count} osoba więcej
+            one: i %{count} więcej osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
@@ -795,7 +788,6 @@ pl:
         update:
           title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już głosował
           already_voted_hover: Wycofaj głos
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów

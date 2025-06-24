@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -774,15 +775,6 @@ lt:
         edit:
           update: Atnaujinti
         form:
-          colors:
-            choose_color: Pasirinkite pagrindinę spalvą
-            colors_title: Organizacijos spalvos
-            colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
-            explanation: Šis įrankis padės jums pasirinkti spalvų schemą, sudarytą iš atspalvių, lygiai pasiskirstiusių spalvų rate, kuri bus naudojama organizacijos svetainėje.
-            legend_html: Pagrindinės programos spalvos, remiantis <a href="https://www.color-meanings.com/triadic-colors/">Triadinio algoritmo</a>. <i>Antrinė</i> spalva yra automatiškai apskaičiuojama iš pagrindinės spalvos ir pasirinkto prisotinimo.
-            saturation: Sodrumas
-            title: Spalvų parinkėjas
-            update_suggested_colors: Atnaujinti pasiūlytas spalvas
           cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
           homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
           homepage_highlighted_content_banner_title: Paryškinta turinio juosta
@@ -808,6 +800,8 @@ lt:
           invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
           success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
           destroy:
             button: Ištrinti visus privačius dalyvius
             confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
@@ -921,7 +915,6 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
-        edit_landing_page: Puslapio turinys
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas

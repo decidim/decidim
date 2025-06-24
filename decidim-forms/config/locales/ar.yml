@@ -1,20 +1,14 @@
+---
 ar:
   activemodel:
     attributes:
       answer:
         body: إجابة
-        choices: الخيارات
       question:
         max_choices: أقصى عدد من الخيارات
         question_type: نوع
       questionnaire_question:
         mandatory: إلزامي
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: ليست كاملة
   decidim:
     forms:
       admin:
@@ -25,12 +19,8 @@ ar:
         questionnaires:
           answer_option:
             answer_option: خيار الإجابة
-            free_text: نص حر
             remove: إزالة
             statement: بيان
-          answers:
-            actions:
-              export: تصدير
           display_condition:
             condition_question: سؤال
             remove: حذف
@@ -68,8 +58,6 @@ ar:
           max_choices: 'خيارات ماكس: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: لديك حساب بالفعل؟
-            are_you_new?: مستخدم جديد؟
             title: أجب عن النموذج
           questionnaire_answered:
             body: لقد أجبت بالفعل على هذا النموذج.
@@ -87,6 +75,4 @@ ar:
       user_answers_serializer:
         created_at: أجاب على
         id: معرف الإجابة
-        registered: مُسجَّل
-        unregistered: غير مُسجَّل
-        user_status: حالة المستخدم
+        question: سؤال

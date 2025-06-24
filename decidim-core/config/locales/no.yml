@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -28,6 +29,8 @@
         password_confirmation: Bekreft ditt passord
         personal_url: Din profilside
         remove_avatar: Fjern profilbilde
+      user_group:
+        avatar: Profilbilde
     models:
       decidim/attachment_created_event: Vedlegg
       decidim/component_published_event: Aktive komponent
@@ -43,7 +46,6 @@
     attributes:
       decidim/user:
         current_password: Nåværende passord
-        email: Epost
         name: Kallenavn
         password: Passord
         password_confirmation: Bekreft passord
@@ -369,6 +371,8 @@
         view_all: Vis alle
       metrics:
         name: Organisasjonens målinger
+      participatory_space_metrics:
+        name: Deltakelse i tall
       stats:
         name: Organisasjonsstatistikk
       sub_hero:
@@ -391,7 +395,6 @@
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
-          are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
       shared:
         newsletter_modal:
@@ -399,8 +402,6 @@
             check: Sjekk og fortsett
             uncheck: Hold usjekket
           title: Varsler om nyhetsbrev
-        omniauth_buttons:
-          or: Eller
     doorkeeper:
       authorizations:
         new:
@@ -617,7 +618,7 @@
       badges:
         followers:
           conditions:
-            - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
+          - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
           description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
           description_another: Denne deltakeren har %{score} følgere.
           description_own: "%{score} folk følger deg."
@@ -770,6 +771,8 @@
           new_conversation: Ny samtale
           next: Neste
           title: Samtaler
+        reply_form:
+          placeholder: Ditt svar...
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
@@ -896,30 +899,24 @@
         conversations: Samtaler
         followers: Følgere
         following: Følger
+        group_admins: Administrer administrator
+        group_members: Administrere medlemmer
         groups: Grupper
         members: Medlemmer
         officialized: Offisiell deltaker
         send_private_message: Send privat melding
-      sidebar:
-        badges:
-          info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
-          title: Merker
       user:
-        create_user_group: Opprett gruppe
-        edit_profile: Rediger profil
-        edit_user_group: Rediger gruppeprofil
-        invite_user: Inviter deltaker
-        join_user_group: Forespør om å bli med i gruppen
-        leave_user_group: Forlat gruppe
-        manage_user_group_admins: Administrer administrator
-        manage_user_group_users: Administrere medlemmer
-        resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
+        actions:
+          create_user_group: Opprett gruppe
+          edit_profile: Rediger profil
+          edit_user_group: Rediger gruppeprofil
+          invite_user: Inviter deltaker
+          join_user_group: Forespør om å bli med i gruppen
+          leave_user_group: Forlat gruppe
+          manage_user_group_admins: Administrer administrator
+          manage_user_group_users: Administrere medlemmer
+          resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
-      hide:
-        hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
-        subject: En ressurs var automatisk skjult
       report:
         authors: Forfattere
         content: Rapportert innhold
@@ -986,12 +983,9 @@
         title: Rapporter et problem
       flag_user_modal:
         already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
-        close: Lukk
-        description: Hva er upassende med brukeren?
         offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
         report: Rapporter
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
-        title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
       public_participation:

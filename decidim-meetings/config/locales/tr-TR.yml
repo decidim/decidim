@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -127,7 +128,7 @@ tr:
       badges:
         attended_meetings:
           conditions:
-            - Katılmak istediğiniz toplantılara kayıt olun
+          - Katılmak istediğiniz toplantılara kayıt olun
           description: Yüz yüze yapılan toplantılara katıldığınızda bu rozet verilir.
           description_another: Bu katılımcı %{score} toplantıya katılmıştır.
           description_own: '%{score} toplantıya katıldınız.'
@@ -230,8 +231,6 @@ tr:
         registrations:
           edit:
             save: Kaydet
-            validate: Doğrula
-            validate_registration_code: Kayıt kodunu doğrula
           form:
             available_slots_help: Mevcut sınırsız yuvaya sahipseniz 0'a bırakın.
             invites: Davetiyeler
@@ -245,9 +244,6 @@ tr:
           update:
             invalid: Kayıt ayarları kaydedilirken bir sorun oluştu.
             success: Toplantı kayıtları ayarları başarıyla kaydedildi.
-          validate_registration_code:
-            invalid: Bu kayıt kodu geçersiz.
-            success: Kayıt kodu başarıyla doğrulandı.
       admin_log:
         invite:
           create: "%{user_name}, %{attendee_name} adlı kişiyi %{space_name} alanındaki %{resource_name} toplantısına katılmaya davet etti"
@@ -332,7 +328,6 @@ tr:
         new:
           back: Geri
           create: Oluştur
-          title: Bir Toplantı Oluştur
         registration_confirm:
           cancel: İptal Et
           confirm: Onayla

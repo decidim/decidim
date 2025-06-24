@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -97,9 +98,7 @@ sv:
       decidim:
         proposals:
           proposal:
-            budget_text: Förslaget %{link} skapades
             import_from_proposal_text: 'Det blev det här förslaget: %{link}'
-            import_to_proposal_text: Förslaget %{link} skapades
             merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
             merge_to_proposal_text: 'Förslaget skapades: %{link}'
             split_from_proposal_text: 'Det blev det här förslaget: %{link}'
@@ -384,8 +383,8 @@ sv:
       badges:
         accepted_proposals:
           conditions:
-            - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
-            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli accepterade.
+          - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
+          - Försök att lägga fram förslag som kan genomföras. De har lättare att bli accepterade.
           description: Detta märke beviljas när du aktivt deltar med nya förslag som blir accepterade.
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: '%{score} av dina förslag har accepterats.'
@@ -395,8 +394,8 @@ sv:
           unearned_own: Du har inga accepterade förslag än.
         proposal_votes:
           conditions:
-            - Titta runt och ägna lite tid åt att läsa andras förslag
-            - Rösta på de förslag du gillar
+          - Titta runt och ägna lite tid åt att läsa andras förslag
+          - Rösta på de förslag du gillar
           description: Det här märket får du när du röstar på andras förslag.
           description_another: Deltagaren har röstat på %{score} förslag.
           description_own: Du har röstat på %{score} förslag.
@@ -406,8 +405,8 @@ sv:
           unearned_own: Du har ännu inte röstat på några förslag än.
         proposals:
           conditions:
-            - Välj ett deltagarutrymme du är intresserad av där inlämning av förslag är aktiverat
-            - Skapa ett nytt förslag
+          - Välj ett deltagarutrymme du är intresserad av där inlämning av förslag är aktiverat
+          - Skapa ett nytt förslag
           description: Du får det här märket när du aktivt deltar med nya förslag.
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
@@ -448,7 +447,6 @@ sv:
           user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:
@@ -576,7 +574,7 @@ sv:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
             assign_to_valuator: Tilldela till handläggare
-            assign_to_valuator_button: Tilldela
+            assign_to_valuator_button: Tilldelad
             cancel: Avbryt
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
@@ -591,7 +589,7 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort tilldelning
+            unassign_from_valuator_button: Ta bort
             update: Uppdatera
           new:
             create: Skapa
@@ -621,7 +619,6 @@ sv:
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen.
-            success: "%{number} förslag har importerats."
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
@@ -784,7 +781,6 @@ sv:
           success: Inbjudan till medförfattare har avbrutits.
         create:
           error: Det gick inte att bjuda in medförfattaren.
-          success: "%{author_name} har bjudits in som medförfattare."
         destroy:
           error: Det gick inte att avböja inbjudan.
           success: Inbjudan har avvisats.
@@ -862,7 +858,7 @@ sv:
           text_banner: Du visar förslag som dragits tillbaka av sin författare. %{go_back_link}.
         new:
           send: Fortsätt
-          title: Skapa ditt förslag
+          title: Skapa ett nytt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
@@ -894,8 +890,8 @@ sv:
           changes_at_title: Ändring till %{title}
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
-            one: och %{count} till person
-            other: och %{count} till personer
+            one: och %{count} mer person
+            other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
@@ -910,7 +906,7 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan röstat
+          already_voted: Röstade
           already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar

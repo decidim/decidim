@@ -1,3 +1,4 @@
+---
 ko:
   activemodel:
     attributes:
@@ -477,6 +478,13 @@ ko:
               admin: 관리자
               user_manager: 참가자 관리자
           name: 참가자
+        user_group:
+          fields:
+            actions: 작업
+            created_at: 생성 위치
+            name: 이름
+            nickname: 닉네임
+            state: 상태
       moderations:
         report:
           reasons:
@@ -555,10 +563,9 @@ ko:
           show: 표시
           title: 참가자의 이메일 주소 보기
       organization_appearance:
+        edit:
+          update: 업데이트
         form:
-          colors:
-            choose_color: 기본 색상 선택
-            title: 색상 선택기
           cta_button_path_help_html: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets:
@@ -573,8 +580,6 @@ ko:
           create: 생성
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: CSV 파일 업로드
           destroy:
             button: 모든 비공개 참가자 삭제
             confirm: 모든 비공개 참가자를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다. 복구할 수 없습니다.
@@ -649,7 +654,6 @@ ko:
         areas: 영역
         authorization_workflows: 인증 방식
         dashboard: 대시보드
-        edit_landing_page: 페이지 콘텐츠
         edit_organization_appearance: 홈페이지 외관 편집
         impersonatable_users: 관리 가능한 참가자
         impersonations: 참가자 관리
@@ -678,6 +682,9 @@ ko:
           state:
             rejected: 거부됨
             verified: 확인됨
+      user_groups_csv_verifications:
+        new:
+          example_file: '예제 파일:'
       users:
         form:
           email: 이메일

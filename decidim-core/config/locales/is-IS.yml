@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       account:
@@ -15,7 +16,6 @@ is-IS:
     attributes:
       decidim/user:
         current_password: Núverandi lykilorð
-        email: Tölvupóstur
         password: Lykilorð
         password_confirmation: Staðfesta lykilorð
         remember_me: Muna eftir mér
@@ -134,11 +134,7 @@ is-IS:
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
       sessions:
         new:
-          are_you_new?: Nýtt á vettvang?
           register: Búðu til reikning
-      shared:
-        omniauth_buttons:
-          or: Eða
     doorkeeper:
       authorizations:
         new:
@@ -219,10 +215,18 @@ is-IS:
       home: Heim
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Hæ, %{recipient}!
+        comanagers_new_message:
+          greeting: Hæ, %{recipient}!
         new_conversation:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur byrjað nýtt samtal við þig. Smelltu hér til að sjá það:"
           subject: "%{sender} hefur byrjað samtal við þig"
+        new_group_conversation:
+          greeting: Hæ, %{recipient}!
+        new_group_message:
+          greeting: Hæ, %{recipient}!
         new_message:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur sent ný skilaboð í samtali þínu. Smelltu hér til að sjá þær:"
@@ -243,11 +247,6 @@ is-IS:
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
     reported_mailer:
-      hide:
-        hello: Halló %{name},
-        manage_moderations: Stjórna meðlimum
-        report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið falið sjálfkrafa.</p>
-        subject: Úrræði hefur verið falið sjálfkrafa
       report:
         hello: Halló %{name},
         report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið tilkynnt.</p>
@@ -275,6 +274,8 @@ is-IS:
         share: Deila
         share_link: Deila tengil
     user_conversations:
+      reply:
+        send: Senda
       update:
         error: Skilaboð ekki send. Reyndu aftur seinna
   devise:

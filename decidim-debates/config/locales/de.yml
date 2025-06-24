@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -153,7 +154,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
+          title: Debatte erstellen
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
@@ -231,7 +232,7 @@ de:
       badges:
         commented_debates:
           conditions:
-            - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
+          - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
           description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.

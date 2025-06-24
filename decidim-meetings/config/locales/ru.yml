@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -119,7 +120,7 @@ ru:
       badges:
         attended_meetings:
           conditions:
-            - Зарегистрируйтесь на встречи, в которых вы хотите принять участие
+          - Зарегистрируйтесь на встречи, в которых вы хотите принять участие
           description: Этот значок будет получен, когда вы примете участие в нескольких встречах лицом к лицу.
           description_another: Этот участник принял участие в %{score} встречах.
           description_own: Вы приняли участие в %{score} встречах.
@@ -206,8 +207,6 @@ ru:
         registrations:
           edit:
             save: Сохранить
-            validate: Подтвердить
-            validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
@@ -217,9 +216,6 @@ ru:
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
-          validate_registration_code:
-            invalid: Этот регистрационный код неуместен.
-            success: Регистрационный код успешно подтвержден.
       admin_log:
         invite:
           create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"

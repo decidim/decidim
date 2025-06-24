@@ -1,3 +1,4 @@
+---
 pt:
   activerecord:
     models:
@@ -16,6 +17,17 @@ pt:
             announcement: Anúncio
           step:
             announcement: Anúncio
+    open_data:
+      help:
+        pages:
+          body: O corpo da página
+          component: O componente a que a página pertence
+          created_at: A data em que esta página foi criada
+          id: O identificador único desta página
+          participatory_space: A que espaço (por exemplo, Processo Participativo ou Assembleia) pertence esta página
+          title: O título da página
+          updated_at: A última data em que esta página foi actualizada
+          url: O URL desta página
     pages:
       admin:
         models:
@@ -28,3 +40,5 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar a página.
             success: Pagina guardada com êxito.
+      show:
+        empty: Ainda não existem conteúdos nesta página.

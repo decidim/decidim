@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -258,7 +259,7 @@ cs:
       badges:
         attended_meetings:
           conditions:
-            - Zaregistrujte se na schůzkách, které chcete navštívit
+          - Zaregistrujte se na schůzkách, které chcete navštívit
           description: Tento odznak je udělen, když se účastníte několika osobních setkání.
           description_another: Tento uživatel se zúčastnil %{score} setkání.
           description_own: Zúčastnili jste se %{score} setkání.
@@ -416,15 +417,15 @@ cs:
         poll:
           form:
             announcement_html:
-              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
-              - Otázku můžete kdykoliv přidat.
-              - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
-              - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
+            - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
+            - Otázku můžete kdykoliv přidat.
+            - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
+            - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
         registrations:
           edit:
             save: Uložit
             validate: Ověřit
-            validate_registration_code: Ověřte registrační kód
+            validate_registration_code: Ověřit registrační kód
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
@@ -445,7 +446,7 @@ cs:
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
           validate_registration_code:
             invalid: Tento registrační kód je neplatný.
-            success: Registrační kód byl úspěšně ověřen.
+            success: Kód registrace byl úspěšně ověřen.
       admin_log:
         invite:
           create: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
@@ -598,7 +599,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Vytvořte si schůzku
+          title: Vytvořit novou schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit

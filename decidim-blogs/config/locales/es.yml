@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ es:
           create:
             invalid: Se ha producido un error al crear esta publicación.
             success: Publicación creada correctamente.
+          destroy:
+            success: La publicación se ha borrado correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
@@ -69,11 +72,28 @@ es:
             published_at: Hora de publicación
             title: Título
       posts:
+        edit:
+          back: Volver a la publicación
+          button: Actualizar
+          title: Editar la publicación
+        form:
+          author_id: Autoría
+          body: Cuerpo del texto
+          title: Título
         index:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
-          empty: Aún no hay ninguna publicación.
+          empty: Aún no hay publicaciones.
+          new_post: Nueva publicación
+        menu_actions:
+          button_destroy: Eliminar la publicación
+          button_destroy_confirm: '¿Seguro que quieres eliminar esta publicación?'
+          button_edit: Editar la publicación
+        new:
+          back: Volver a la publicación
+          button: Nueva publicación
+          title: Crear una nueva publicación
     components:
       blogs:
         actions:
@@ -88,6 +108,7 @@ es:
             announcement: Aviso
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            creation_enabled_for_participants: Las participantes pueden crear nuevas entradas en el blog
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados

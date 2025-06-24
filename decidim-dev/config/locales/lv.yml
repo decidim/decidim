@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -32,7 +33,7 @@ lv:
       badges:
         test:
           conditions:
-            - Izmantot testa vidi decidim.
+          - Izmantot testa vidi decidim.
           description: Dalībnieki iegūst šo žetonu, izveidojot testus.
           description_another: Šis dalībnieks ir izveidojis %{score} testus.
           description_own: Jūs esat izveidojis %{score} testus.

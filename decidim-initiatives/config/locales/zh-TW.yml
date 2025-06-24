@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -177,8 +178,8 @@ zh-TW:
       badges:
         initiatives:
           conditions:
-            - 前往倡議參與空間
-            - '"按照以下步驟創建新的倡議'
+          - 前往倡議參與空間
+          - '"按照以下步驟創建新的倡議'
           description: 此徽章是當你發起新的倡議，與他人合作進行時所授予的。
           description_another: 該參與者已成功發佈 %{score} 項倡議。
           description_own: 你已經發佈了 %{score} 項倡議。
@@ -339,7 +340,6 @@ zh-TW:
         finish:
           back: 返回
           back_to_initiatives: 回到倡議
-          callout_text: 恭喜您！您的倡議已成功建立。
           confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
           edit_my_initiative: 編輯我的倡議
           go_to_my_initiatives: 前往我的倡議

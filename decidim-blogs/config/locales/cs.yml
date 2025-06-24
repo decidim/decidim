@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -34,6 +35,8 @@ cs:
           create:
             invalid: Při vytváření tohoto příspěvku nastal problém.
             success: Příspěvek byl úspěšně vytvořen.
+          destroy:
+            success: Příspěvek byl úspěšně smazán.
           edit:
             save: Aktualizovat
             title: Upravit příspěvek
@@ -71,6 +74,14 @@ cs:
             published_at: Čas zveřejnění
             title: Název
       posts:
+        edit:
+          back: Zpět na příspěvek
+          button: Aktualizovat
+          title: Upravit příspěvek
+        form:
+          author_id: Autor
+          body: Tělo
+          title: Název
         index:
           count:
             one: "%{count} příspěvek"
@@ -78,6 +89,15 @@ cs:
             many: "%{count} příspěvků"
             other: "%{count} příspěvků"
           empty: Zatím nejsou žádné příspěvky.
+          new_post: Nový příspěvek
+        menu_actions:
+          button_destroy: Smazat příspěvek
+          button_destroy_confirm: Opravdu chcete smazat tento příspěvek?
+          button_edit: Upravit příspěvek
+        new:
+          back: Zpět na příspěvky
+          button: Vytvořit
+          title: Vytvořit nový příspěvek
     components:
       blogs:
         actions:
@@ -92,6 +112,7 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            creation_enabled_for_participants: Účastníci mohou vytvářet příspěvky
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány

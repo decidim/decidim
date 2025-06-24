@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -149,7 +150,7 @@ es-PY:
         new:
           back: Volver
           create: Crear
-          title: Nuevo debate
+          title: Crear un debate
         orders:
           commented: Más comentados
           label: Ordenar debates por
@@ -227,7 +228,7 @@ es-PY:
       badges:
         commented_debates:
           conditions:
-            - Elige un debate abierto para participar.
+          - Elige un debate abierto para participar.
           description: Este distintivo se otorga cuando usted participa activamente en los diferentes debates dejando sus comentarios.
           description_another: Este usuario ha participado en %{score} debates.
           description_own: Usted ha participado en %{score} debates.

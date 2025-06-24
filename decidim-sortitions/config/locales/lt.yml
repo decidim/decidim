@@ -1,9 +1,9 @@
+---
 lt:
   activemodel:
     attributes:
       sortition:
         additional_info: Informacija apie sprendimą burtų keliu
-        decidim_category_id: Pasiūlymų rinkinio, dėl kurio norite spręsti burtų keliu, kategorijos
         decidim_proposals_component_id: Pasiūlymų rinkinys
         dice: Kauliukų ridenimo rezultatai. Riskite šešiasienį kauliuką arba raskite kitą būdą, kaip atsitiktinai išridenti skaičių nuo 1 iki 6. Gautą skaičių užrašykite prie liudytojų. Tai padeda kokybei ir užtikrina atsitiktinį rezultatą
         target_items: Pasirinktinų pasiūlymų skaičius (tai yra pasiūlymų, kuriuos norite atrinkti burtų keliu iš anksčiau pasirinktos pasiūlymų grupės, skaičius)
@@ -44,7 +44,6 @@ lt:
         models:
           sortition:
             fields:
-              category: Kategorija
               created_at: Sukūrimo data
               decidim_proposals_component: Pasiūlymų komponentas
               dice: Kauliukai
@@ -68,7 +67,6 @@ lt:
             title: Atnaujinti informaciją apie sprendimo burtų keliu galimybę
             update: Atnaujinti
           form:
-            all_categories: Visos kategorijos
             select_proposal_component: Pasirinkti pasiūlymų rinkinį
           index:
             title: Sprendimai burtų keliu
@@ -113,11 +111,8 @@ lt:
             other: pasirinkti pasiūlymai
         show:
           algorithm: Galimybės spręsti burtų keliu algoritmo kodas
-          any_category: iš visų kategorijų
           cancelled: Galimybė spręsti burtų keliu atšaukta
           candidate_proposal_ids: Pasiūlymų, dėl kurių sprendžiama burtų keliu, rikiavimo kriterijai ir ID
-          candidate_proposals_info: 'Burtų keliu spręsta dėl šių pasiūlymų (%{category_label}) su šiais ID (pasirinkti pasiūlymai – paryškintu šriftu)  '
-          category: iš %{category} kategorijos
           dice_result: 1) Kauliuko metimo rezultatai
           introduction: 'Šiame puslapyje pateikiami sprendimo burtų keliu %{reference} rezultatai. Naudojantis šia galimybe spręsti burtų keliu, iš rodomų pasiūlymų rinkinio atsitiktine tvarka pasirenkamas rezultatų skaičius %{target_items}, esant vienodai pasiskirstymo tikimybei. Kartu su rezultatais šiame puslapyje pateikiamoje informacijoje nurodoma viskas, ko reikia siekiant kuo labiau padidinti garantijas ir atkurti rezultatus. Šios galimybės spręsti burtų keliu pagrindas – dvigubas atsitiktinumas, kurį užtikrina kauliuko ridenimas (jį patvirtina liudytojai) ir tikslus sprendimo burtų keliu laikas, – informacija, įvedama į atsitiktinės atrankos vykdymo algoritmą. Sprendimo burtų keliu pradžia yra tokia tiksli (sekundės), kad žmogus šio proceso kontroliuoti negali, taigi, tai dvigubas nekontroliuojamas veiksmas sąžiningam rezultatui užtikrinti.  '
           mathematical_result: Rezultatas (1) x (2)

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -108,12 +109,12 @@ it:
           state_values:
             closed: Chiuso
             open: Apri
+          user_group: Gruppi
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
           create: Crea
-          title: Nuovo dibattito
         orders:
           commented: I più commentati
           label: Ordina i dibattiti per
@@ -171,7 +172,7 @@ it:
       badges:
         commented_debates:
           conditions:
-            - Scegli un dibattito aperto a cui partecipare
+          - Scegli un dibattito aperto a cui partecipare
           description: Questo badge è concesso quando partecipi attivamente ai diversi dibattiti lasciando i tuoi commenti.
           description_another: Questo utente ha partecipato a %{score} dibattiti.
           description_own: Hai partecipato a %{score} dibattiti.
@@ -182,6 +183,6 @@ it:
       debates:
         description: Numero di dibattiti creati
         object: dibattiti
-        title: dibattiti
+        title: Dibattiti
     statistics:
       debates_count: Dibattiti

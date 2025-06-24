@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -32,6 +33,8 @@ pl:
         personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
         tos_agreement: Warunki korzystania z Platformy
+      user_group:
+        avatar: Awatar
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny komponent
@@ -56,7 +59,6 @@ pl:
         with_participatory_space: Przestrzeń partycypacji
       decidim/user:
         current_password: Obecne hasło
-        email: Adres e-mail
         name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
@@ -585,7 +587,6 @@ pl:
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
-          are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
           sign_up_disabled: Tworzenie konta jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp.
@@ -603,8 +604,6 @@ pl:
             uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
             <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
-        omniauth_buttons:
-          or: Lub
         password_fields:
           hidden_password: Twoje hasło jest ukryte
           hide_password: Ukryj hasło
@@ -634,8 +633,6 @@ pl:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
-    endorsement_buttons_cell:
-      endorse: Lubię to
     endorsements:
       identities:
         done: Gotowe
@@ -853,8 +850,8 @@ pl:
       attachment_link:
         explanation: Wytyczne dotyczące linków do załącznika
         help_messages:
-          - Akceptowane są tylko poprawne formaty URL.
-          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
+        - Akceptowane są tylko poprawne formaty URL.
+        - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -903,7 +900,7 @@ pl:
       badges:
         followers:
           conditions:
-            - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
+          - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
           description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczną i polityczną, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
@@ -992,7 +989,7 @@ pl:
         success: Opuszczono grupę.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
-        accept_request: Zaakceptować
+        accept_request: Akceptuj
         reject_request: Odrzuć
       new:
         create_user_group: Utwórz grupę
@@ -1150,11 +1147,11 @@ pl:
       participants:
         description: Liczba aktywnych użytkowników w organizacji
         object: użytkownicy
-        title: Użytkownicy
+        title: Użytkowników
       users:
         description: Liczba użytkowników w organizacji
         object: użytkownicy
-        title: Użytkownicy
+        title: Użytkowników
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
@@ -1334,17 +1331,13 @@ pl:
         members: Członkowie
         officialized: Oficjalny użytkownik
         send_private_message: Wyślij wiadomość prywatną
-      sidebar:
-        badges:
-          info: Odznaki zdobywa się wykonując określoną czynność na platformie.
-          title: Odznaki
       user:
         actions:
           create_user_group: Utwórz grupę
           disabled_message: Wiadomość
           edit_profile: Edytuj profil
           edit_user_group: Edytuj profil grupy
-          invite_user: Zaproś uczestnika
+          invite_user: Zaproś użytkownika
           join_user_group: Poproś o dołączenie do grupy
           leave_user_group: Opuścić grupę
           manage_user_group: Zarządzanie grupą
@@ -1353,22 +1346,8 @@ pl:
           message: Wiadomość
           resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
         confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
-        create_user_group: Utwórz grupę
-        edit_profile: Edytuj profil
-        edit_user_group: Edytuj profil grupy
         fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
-        invite_user: Zaproś użytkownika
-        join_user_group: Poproś o dołączenie do grupy
-        leave_user_group: Opuścić grupę
-        manage_user_group_admins: Zarządzaj administratorami
-        manage_user_group_users: Zarządzaj członkami
-        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
-      hide:
-        hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
@@ -1444,14 +1423,11 @@ pl:
       flag_user_modal:
         already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
         block: Zablokuj tego uczestnika
-        close: Zamknij
-        description: Jaki jest powód zgłoszenia użytkownika?
         does_not_belong: Zawiera nielegalną aktywność, groźby samobójstwa, dane o charakterze prywatnym lub inne treści, które według Ciebie nie powinny pojawić się w %{organization_name}.
         hide: Ukryj całą zawartość
         offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
-        title: Zgłoś użytkownika
       floating_help:
         help: Pomoc
       follow_button:

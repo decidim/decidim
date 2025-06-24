@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -98,6 +99,11 @@ uk:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
+    metrics:
+      proposals:
+        title: Пропозиції
+      votes:
+        title: Голоси
     proposals:
       actions:
         import: Запозичити з іншої складової
@@ -211,7 +217,6 @@ uk:
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
         vote_button:
-          already_voted: Вже проголосували
           maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати

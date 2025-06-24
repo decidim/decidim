@@ -27,7 +27,6 @@ module Decidim
         with_events do
           tool = Decidim::ModerationTools.new(@reportable, @current_user)
           @with_admin_log ? tool.hide_with_admin_log! : tool.hide!
-          tool.send_notification_to_author
         end
 
         broadcast(:ok, @reportable)

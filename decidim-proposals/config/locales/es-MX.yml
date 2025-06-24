@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -97,9 +98,9 @@ es-MX:
       decidim:
         proposals:
           proposal:
-            budget_text: Se creó la propuesta %{link}
+            budget_text: La propuesta <span class="resource-link">%{link} se creó</span>
             import_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
-            import_to_proposal_text: Se creó la propuesta %{link}
+            import_to_proposal_text: Esta propuesta <span "resource-link">%{link} fue creada</span>
             merge_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
             merge_to_proposal_text: 'Esta propuesta fue creada: %{link}'
             split_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
@@ -384,8 +385,8 @@ es-MX:
       badges:
         accepted_proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
+          - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
@@ -395,8 +396,8 @@ es-MX:
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
+          - Navega y dedica un tiempo leyendo las propuestas de otras personas
+          - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Esta insignia se concede cuando se apoyan propuestas de otras personas.
           description_another: Esta participante ha apoyado %{score} propuestas.
           description_own: Has dado apoyo a %{score} propuestas.
@@ -406,8 +407,8 @@ es-MX:
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
-            - Crear una nueva propuesta
+          - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
+          - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
@@ -484,7 +485,6 @@ es-MX:
           withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
-        last: Propuestas más recientes
         see_all: Ver todo
     proposals:
       actions:
@@ -512,6 +512,16 @@ es-MX:
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
+        import_proposals_mailer:
+          notify_failure:
+            body: Ha habido un problema al importar propuestas del componente %{origin_component_name} al componente %{target_component_name}.
+            subject: Se ha producido un error al importar las propuestas
+          notify_success:
+            added_proposals:
+              one: Se ha importado una propuesta.
+              other: "Se han importado %{count} propuestas."
+            body: Se han importado con éxito las propuestas desde el componente %{origin_component_name} al componente %{target_component_name}. Puedes revisar los resultados en el tablero de administración.
+            subject: Las propuestas se han importado correctamente
         imports:
           help:
             answers: |
@@ -646,7 +656,7 @@ es-MX:
             statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
-            unassign_from_valuator_button: Desasignar
+            unassign_from_valuator_button: Deshacer la asignación
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas
@@ -683,13 +693,13 @@ es-MX:
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
-            success: "%{number} propuestas importadas correctamente."
+            success: El proceso de importación ha comenzado. Te avisaremos cuando haya terminado.
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifica los estados de las propuestas para importar
-            title: Importar proyectos desde otro componente
+            title: Importar propuestas desde otro componente
         proposals_merges:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -765,7 +775,7 @@ es-MX:
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay un borrador de colaboración con este criterio
+        empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
@@ -865,7 +875,7 @@ es-MX:
           success: Invitación de coautoría cancelada con éxito.
         create:
           error: Se ha producido un error al invitar a la coautora.
-          success: "%{author_name} ha sido invitada como coautora con éxito."
+          success: "Se ha invitado con éxito a %{author_name} para ser coautor/a de la propuesta."
         destroy:
           error: Se ha producido un error al rechazar la invitación.
           success: Se ha rechazado su invitación.
@@ -948,7 +958,7 @@ es-MX:
           text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
         new:
           send: Continuar
-          title: Crea tu propuesta
+          title: Crear una nueva propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
@@ -998,7 +1008,7 @@ es-MX:
         update:
           title: Actualizar propuesta
         vote_button:
-          already_voted: Ya has dado tu apoyo
+          already_voted: Ya le has dado apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay apoyos restantes

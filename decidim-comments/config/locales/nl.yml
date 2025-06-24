@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -16,6 +17,10 @@ nl:
         one: Stem
         other: Stemmen
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Reacties
     comments:
       admin:
         shared:

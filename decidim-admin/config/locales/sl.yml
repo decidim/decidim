@@ -1,3 +1,4 @@
+---
 sl:
   activemodel:
     attributes:
@@ -45,7 +46,7 @@ sl:
         highlighted_content_banner_action_url: Tipka URL
         highlighted_content_banner_image: Slika
         highlighted_content_banner_short_description: Kratek opis
-        highlighted_content_banner_title: Naslov
+        highlighted_content_banner_title: Naziv
         instagram_handler: Instagram krmilnik
         logo: Logotip
         name: Ime
@@ -131,10 +132,9 @@ sl:
         scope:
           fields:
             scope_type: Tip področja
-      organization_appearance:
-        form:
-          colors:
-            colors_title: Barve organizacije
+        user_group:
+          fields:
+            name: Ime
       scope_types:
         create:
           error: Pojavila se je težava pri kreiranju novega tipa področja.
@@ -146,3 +146,7 @@ sl:
         new:
           create: Ustvari tip področja
           title: Novo področje
+      user_groups:
+        index:
+          state:
+            rejected: Zavrnjen

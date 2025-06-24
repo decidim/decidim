@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -241,6 +242,9 @@ ru:
           notification_title: Обновлены даты шага <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Движения
+    metrics:
+      participatory_processes:
+        title: Движения соучастия
     participatory_process_groups:
       content_blocks:
         stats:
