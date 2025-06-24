@@ -35,9 +35,9 @@
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
             <% if blob(attachment).image? %>
-              <span><%= attachment %></span>
+              <span><%= title_for(attachment) %></span>
             <% else %>
-              <%= link_to attachment, file_attachment_path(attachment), class: "w-full break-all mb-2" %>
+              <%= link_to title_for(attachment), file_attachment_path(attachment), class: "w-full break-all mb-2" %>
             <% end %>
           <% end %>
         </div>

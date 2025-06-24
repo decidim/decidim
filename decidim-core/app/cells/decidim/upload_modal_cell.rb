@@ -132,9 +132,11 @@ module Decidim
     end
 
     def title_for(attachment)
-      return unless has_title?
-
-      decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
+      if has_title?
+        decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
+      else
+        decidim_html_escape(decidim_sanitize(attachment.file.url.split("/").last))
+      end
     end
 
     def truncated_file_name_for(attachment, max_length = 31)
