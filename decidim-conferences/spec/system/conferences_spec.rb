@@ -218,7 +218,6 @@ describe "Conferences" do
       within "[data-conference-hero]", match: :first do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
-        expect(page).to have_content(conference.hashtag)
       end
 
       expect(page).to have_content(translated(conference.description, locale: :en))

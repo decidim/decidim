@@ -36,9 +36,10 @@ en:
             created_at: Created at
             identifier: User identifier
             title: Type of census
-            voters_count: There are currently %{count} people eligible for voting in this election (this might change on a dynamic census).
           preview:
-            title: 'User preview (the list is limited to %{limit} registers):'
+            title:
+              one: 'User preview (the list is limited to %{count} entry):'
+              other: 'User preview (the list is limited to %{count} entries):'
           update:
             error: There was an error while generating or saving the census.
             success: Census updated successfully.
@@ -181,7 +182,13 @@ en:
             '
           upload_file: Upload file
           upload_new_census: Upload a CSV file
-          uploaded_data: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+          uploaded_data_html:
+            one: |
+              The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+              <br>There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
+            other: |
+              The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+              <br>There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
       models:
         election:
           fields:

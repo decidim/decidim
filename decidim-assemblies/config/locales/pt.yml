@@ -25,7 +25,6 @@ pt:
         duration: Duração
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagem inicial
         import_attachments: Importar anexos
         import_categories: Importar categorias
@@ -170,7 +169,6 @@ pt:
           attachments: Anexos
           components: Componentes
           info: Sobre esta reunião
-          landing_page: Página de destino
           moderations: Moderação
           private_users: Membros
           see_assembly: Veja a reunião
@@ -395,7 +393,6 @@ pt:
           facebook_handler: Responsável de redes sociais para o Facebook
           follows_count: O número de utilizadores que seguem este espaço
           github_handler: Responsável de redes sociais para o GitHub
-          hashtag: A hashtag da reunião, usada para o Twitter/X
           id: O identificador exclusivo desta reunião
           included_at: A data em que a reunião foi incluída
           instagram_handler: Responsável de redes sociais para o Instagram

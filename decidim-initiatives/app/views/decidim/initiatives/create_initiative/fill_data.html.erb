@@ -17,8 +17,6 @@
 
     <%= text_editor_for(f, :description, lines: 20, toolbar: :content, value: translated_attribute(f.object.description)) %>
 
-    <%= f.text_field :hashtag, value: f.object.hashtag %>
-
     <% signature_type_options = signature_type_options(f.object) %>
     <% if signature_type_options.length == 1 %>
       <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>

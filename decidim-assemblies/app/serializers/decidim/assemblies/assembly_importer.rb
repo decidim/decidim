@@ -26,7 +26,6 @@ module Decidim
             organization: @organization,
             title:,
             slug:,
-            hashtag: attributes["hashtag"],
             subtitle: attributes["subtitle"],
             short_description: attributes["short_description"],
             description: attributes["description"],
