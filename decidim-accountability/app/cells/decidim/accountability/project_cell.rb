@@ -29,7 +29,7 @@ module Decidim
           {
             enabled: milestones.any?,
             id: "milestones",
-            text: t("decidim.accountability.results.milestone.title"),
+            text: t("decidim.accountability.results.milestones.title"),
             icon: "route-line",
             method: :cell,
             args: ["decidim/accountability/project", result, { template: :milestones }]
