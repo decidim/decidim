@@ -95,7 +95,7 @@ describe "Dashboard" do
     end
 
     it "shows the election start_at date" do
-      expected_date = start_at.strftime("%b %d, %Y, %I:%M %p")
+      expected_date = start_at.strftime("%b %d, %Y, %-I:%M %p")
       expect(page).to have_content("Start time: #{expected_date}")
     end
   end
