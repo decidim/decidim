@@ -276,7 +276,7 @@ en:
             other: "%{count} results"
         home_header:
           global_status: Global execution status
-        milestone:
+        milestones:
           title: Milestone
         no_results: There are no projects
         root_taxonomies:
