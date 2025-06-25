@@ -447,7 +447,7 @@ Defines additional content security policies following the structure keys are th
 List of additional content security policies to be appended to the default ones
 This is useful for adding custom CSPs for external services like Here Maps, YouTube, X (former Twitter) etc.
 
-Below you will find a the recipe of enabling X (former Twitter) milestones, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
+Below you will find a the recipe of enabling X (former Twitter) timelines, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
 The format is a Hash with the following structure:
 [source,ruby]
 ....
