@@ -73,13 +73,13 @@ en:
             percentage: Percentage
             results: Results
           results:
-            start_question_button: Enable voting
             no_results: There are no results yet.
             publish_button: Publish results
             results_availability:
               after_end: You can publish all results after the election ends.Results will remain hidden until you publish them manually.
               per_question: You can publish results one question at a time. Results will appear after each question is finalized.
               real_time: Results are displayed automatically during the election.
+            start_question_button: Enable voting
             title: Results
           status:
             title: Status

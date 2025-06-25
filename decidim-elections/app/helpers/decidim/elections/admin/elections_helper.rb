@@ -80,7 +80,7 @@ module Decidim
             ongoing: "warning label",
             ended: "success label",
             results_published: "success label"
-          }[status] || "default label"
+          }.fetch(status, "default label")
 
           [election.localized_status, css_class]
         end
