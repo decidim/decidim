@@ -27,11 +27,11 @@ FactoryBot.define do
 
     component { create(:elections_component, skip_injection:) }
 
-    published_at { Time.current }
+    published_at { nil }
     deleted_at { nil }
 
-    trait :unpublished do
-      published_at { nil }
+    trait :published do
+      published_at { Time.current }
     end
 
     trait :with_image do
