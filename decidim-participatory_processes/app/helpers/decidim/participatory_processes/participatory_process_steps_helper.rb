@@ -12,8 +12,8 @@ module Decidim
       #
       # Returns a String.
       def step_class(step, past)
-        status = past ? "" : "milestone__item--inactive"
-        step.active? ? "milestone__item--current" : status
+        status = past ? "" : "timeline__item--inactive"
+        step.active? ? "timeline__item--current" : status
       end
     end
   end
