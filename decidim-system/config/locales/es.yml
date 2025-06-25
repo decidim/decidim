@@ -216,6 +216,7 @@ es:
           intro: |
             Por favor, sé muy cautelosa al considerar cambiar estos ajustes. Cuanto menos opciones permitas, mejor.
             Permitir extensiones de archivos específicas o tipos MIME puede exponer a las usuarias del sistema a riesgos de seguridad y también puede afectar a la accesibilidad del sitio web.
+        header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
         index:
           title: Organizaciones
         new:

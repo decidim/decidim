@@ -25,7 +25,6 @@ fr:
         duration: Durée
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -170,7 +169,6 @@ fr:
           attachments: Documents liés
           components: Fonctionnalités
           info: À propos de cette assemblée
-          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Membres
           see_assembly: Voir l'assemblée
@@ -193,6 +191,7 @@ fr:
             vice_president: Vice président
         assembly_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Fonction
