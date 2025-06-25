@@ -46,28 +46,12 @@ module Decidim
       end
 
       def notify_validating_result
-        initiative.committee_members.approved.each do |committee_member|
-          Decidim::Initiatives::InitiativesMailer
-            .notify_state_change(initiative, committee_member.user)
-            .deliver_later
-        end
-
         Decidim::Initiatives::InitiativesMailer
           .notify_state_change(initiative, initiative.author)
           .deliver_later
       end
 
       def notify_support_result
-        Decidim::Initiatives::InitiativesMailer
-          .notify_state_change(initiative, initiative.author)
-          .deliver_later
-
-        initiative.committee_members.approved.each do |committee_member|
-          Decidim::Initiatives::InitiativesMailer
-            .notify_state_change(initiative, committee_member.user)
-            .deliver_later
-        end
-
         Decidim::Initiatives::InitiativesMailer
           .notify_state_change(initiative, initiative.author)
           .deliver_later
