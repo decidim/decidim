@@ -146,6 +146,16 @@ es:
         new:
           copy: Copiar
           title: Duplicar encuentro
+      tooltips:
+        cannot_close_meetings: No se puede cerrar este encuentro puesto que fue creado por una participante
+        cannot_duplicate_meetings: No se puede duplicar este encuentro puesto que fue creado por una participante
+        cannot_edit_meetings: No se puede editar este encuentro puesto que fue creado por una participante
+        cannot_manage_agenda_meetings: No se puede editar el orden del día de este encuentro puesto que fue creado por una participante
+        cannot_manage_attachments_meetings: No se pueden gestionas los adjuntos en este encuentro puesto que fue creado por una participante
+        cannot_manage_poll_meetings: No se puede gestionar la encuesta de este encuentro puesto que fue creado por una participante
+        cannot_manage_registrations_meetings: No se puede administrar las inscripciones a este encuento puesto que fue creada por una participante. El encuentro tiene las inscripciones desactivadas o estas se hacen en otra plataforma.
+        cannot_mark_attendee: No se puede marcar como asistente porque ya estaba marcado como tal
+        deleted_meetings_info: No se puede eliminar este encuentro puesto que fue creado por una participante.
     components:
       meetings:
         actions:
