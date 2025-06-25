@@ -116,10 +116,10 @@ en:
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
         milestones:
           create:
-            invalid: There was a problem creating this entry.
-            success: Entry successfully created.
+            invalid: There was a problem creating this milestone.
+            success: Milestone successfully created.
           destroy:
-            success: Entry successfully deleted.
+            success: Milestone successfully deleted.
           edit:
             title: Edit milestone
             update: Update milestone
