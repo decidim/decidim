@@ -3,10 +3,16 @@
     <div class="card-divider">
       <h3 class="flex items-center justify-between">
         <%= "#{index + 1}. #{translated_attribute(question.body)}" %>
-        <% if election.results_availability == "per_question" %>
+        <% if election.results_availability == "per_question" && !question.published_results? %>
           <div class="flex gap-4 items-center justify-between">
             <%= enable_voting_button(election, question) %>
             <%= publish_button_for(election, question) %>
+          </div>
+        <% elsif election.results_availability == "per_question" && question.published_results? %>
+          <div class="status-label">
+            <span class="label success">
+              <%= t("decidim.elections.status.results_published") %>
+            </span>
           </div>
         <% end %>
       </h3>

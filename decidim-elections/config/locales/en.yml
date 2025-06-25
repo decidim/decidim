@@ -138,6 +138,9 @@ en:
             invalid: There was a problem updating the questions.
             success: Questions updated successfully.
         statuses:
+          enable_voting:
+            invalid: There was a problem enabling voting.
+            success: Voting enabled successfully.
           end:
             invalid: There was a problem ending the election.
             success: Election ended successfully.

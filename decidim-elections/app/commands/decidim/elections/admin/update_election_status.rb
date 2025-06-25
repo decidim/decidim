@@ -35,8 +35,8 @@ module Decidim
             end_election
           when :publish_results
             publish_results
-          when :show_question
-            show_question(form.question_id)
+          when :enable_voting
+            enable_voting_for_question(form.question_id)
           end
         end
 
@@ -48,8 +48,12 @@ module Decidim
           election.end_at = Time.current
         end
 
-        def show_question(question_id)
-          # some code to show the question
+        def enable_voting_for_question(question_id)
+          question = election.questions.find_by(id: question_id)
+          raise "Question not found" unless question
+          return unless election.can_enable_voting_for?(question)
+
+          question.update!(voting_enabled_at: Time.current)
         end
 
         def publish_results

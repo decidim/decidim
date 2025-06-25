@@ -53,8 +53,8 @@ module Decidim
 
           button_to update_status_election_path(election),
                     method: :put,
-                    params: { status_action: "show_question", question_id: question.id },
-                    disabled: !enable_voting_button_enabled?(election, question),
+                    params: { status_action: "enable_voting", question_id: question.id },
+                    disabled: !election.can_enable_voting_for?(question),
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.start_question_button")
           end
@@ -64,20 +64,13 @@ module Decidim
           button_to update_status_election_path(election),
                     method: :put,
                     params: { status_action: "publish_results" },
-                    disabled: !election.results_publishable_for?(question) || enable_voting_button_enabled?(election, question),
+                    disabled: !election.results_publishable_for?(question),
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.publish_button")
           end
         end
 
         private
-
-        def enable_voting_button_enabled?(election, question)
-          return false if question.published_results?
-
-          first_unpublished = election.questions.find { |q| q.published_results_at.nil? }
-          question == first_unpublished
-        end
 
         def election_status_and_class(election)
           status = election.per_question? && election.status.ongoing? ? election.current_status[:election_status] : election.current_status
