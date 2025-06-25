@@ -30,6 +30,8 @@
         </li>
       <% end %>
 
+      <hr>
+
       <li class="dropdown__item">
         <%= link_to budget_projects_path(budget), class: "dropdown__button" do %>
           <%= icon "list-check" %>
@@ -37,12 +39,16 @@
         <% end %>
       </li>
 
+      <hr>
+
       <li class="dropdown__item">
         <%= link_to resource_locator(budget).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
           <%= icon "eye-line" %>
           <%= t("actions.preview", scope: "decidim.budgets") %>
         <% end %>
       </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to? :soft_delete, :budget, trashable_deleted_resource: budget %>
