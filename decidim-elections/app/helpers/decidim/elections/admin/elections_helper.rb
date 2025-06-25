@@ -53,7 +53,7 @@ module Decidim
 
           button_to update_status_election_path(election),
                     method: :put,
-                    params: { status_action: "start", question_id: question.id },
+                    params: { status_action: "show_question", question_id: question.id },
                     disabled: !enable_voting_button_enabled?(election, question),
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.start_question_button")
