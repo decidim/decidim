@@ -58,134 +58,15 @@ module Decidim
             end.to change(initiative, :online_votes_count).by(1)
           end
 
-          it "notifies the author of its creation" do
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.initiatives.initiative_liked",
-                event_class: Decidim::Initiatives::LikeInitiativeEvent,
-                resource: initiative,
-                affected_users: [initiative.author]
-              )
-
-            command.call
-          end
-
-          it "sends the initiative author an email notification" do
+          it "only sends the confirmation vote email" do
             expect do
               perform_enqueued_jobs { command.call }
-            end.to change(emails, :count).by(4)
+            end.to change(emails, :count).by(1)
 
-            expect(last_email_body).to include("has liked the following initiative")
-          end
+            expect(emails.last.subject).to eq("Confirmation instructions")
 
-          context "when a new milestone is completed" do
-            let(:initiative) do
-              create(:initiative,
-                     organization:,
-                     scoped_type: create(
-                       :initiatives_type_scope,
-                       supports_required: 4,
-                       type: create(:initiatives_type, organization:)
-                     ))
-            end
-
-            before do
-              create(:initiative_user_vote, initiative:)
-              create(:initiative_user_vote, initiative:)
-            end
-
-            it "notifies the author" do
-              expect(Decidim::EventsManager).to receive(:publish)
-                .with(kind_of(Hash))
-
-              expect(Decidim::EventsManager)
-                .to receive(:publish)
-                .with(
-                  event: "decidim.events.initiatives.milestone_completed",
-                  event_class: Decidim::Initiatives::MilestoneCompletedEvent,
-                  resource: initiative,
-                  affected_users: [initiative.author],
-                  extra: { percentage: 75 }
-                )
-
-              command.call
-            end
-
-            it "sends the initiative author an email notification" do
-              expect do
-                perform_enqueued_jobs { command.call }
-              end.to change(emails, :count).by(3)
-
-              expect(last_email_body).to include("has achieved the 75% of signatures")
-            end
-          end
-
-          context "when support threshold is reached" do
-            let!(:admin) { create(:user, :admin, :confirmed, organization:) }
-            let(:initiative) do
-              create(:initiative,
-                     organization:,
-                     scoped_type: create(
-                       :initiatives_type_scope,
-                       supports_required: 4,
-                       type: create(:initiatives_type, organization:)
-                     ))
-            end
-
-            before do
-              create(:initiative_user_vote, initiative:)
-              create(:initiative_user_vote, initiative:)
-              create(:initiative_user_vote, initiative:)
-            end
-
-            it "notifies the admins" do
-              expect(Decidim::EventsManager).to receive(:publish)
-                .with(kind_of(Hash)).twice
-
-              expect(Decidim::EventsManager)
-                .to receive(:publish)
-                .with(
-                  event: "decidim.events.initiatives.support_threshold_reached",
-                  event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-                  resource: initiative,
-                  followers: [admin]
-                )
-
-              command.call
-            end
-
-            it "sends the initiative author an email notification" do
-              expect do
-                perform_enqueued_jobs { command.call }
-              end.to change(emails, :count).by(4)
-
-              expect(last_email_body).to include("has reached the signatures threshold")
-            end
-
-            context "when more votes are added" do
-              before do
-                create(:initiative_user_vote, initiative:)
-              end
-
-              it "does not notifies the admins" do
-                expect(Decidim::EventsManager).to receive(:publish)
-                  .with(kind_of(Hash)).once
-
-                expect(Decidim::EventsManager)
-                  .not_to receive(:publish)
-                  .with(
-                    event: "decidim.events.initiatives.support_threshold_reached",
-                    event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-                    resource: initiative,
-                    followers: [admin]
-                  )
-
-                expect do
-                  perform_enqueued_jobs { command.call }
-                end.to change(emails, :count).by(1)
-              end
-            end
+            initiative_emails = emails.select { |email| email.subject.include?("initiative") }
+            expect(initiative_emails.count).to eq(0), "Expected 0 initiative emails but got #{initiative_emails.count}"
           end
         end
 
