@@ -1,10 +1,10 @@
-<ol class="accountability__project-milestone">
+<ol class="accountability__project-milestones">
   <% milestones.each_with_index do |milestone, i| %>
-    <li class="accountability__project-milestone-entry">
-      <div class="accountability__project-milestone-entry-number">
+    <li class="accountability__project-milestones-milestone">
+      <div class="accountability__project-milestones-milestone-number">
         <span><%= i + 1 %></span>
       </div>
-      <div class="accountability__project-milestone-entry-attributes">
+      <div class="accountability__project-milestones-milestone-attributes">
         <h3>
           <%= decidim_sanitize_translated milestone.title %>
         </h3>
