@@ -149,10 +149,10 @@
       }
     }
 
-    &-milestone {
+    &-milestones {
       @apply flex flex-col gap-6;
 
-      &-entry {
+      &-milestone {
         @apply flex items-start gap-2 relative before:absolute before:w-px before:-z-10 before:left-3 before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-6 before:-top-3 first:before:top-3;
 
         &-number {
