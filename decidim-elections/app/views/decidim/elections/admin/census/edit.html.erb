@@ -20,7 +20,7 @@
    <% end %>
 <div class="card-section census-form form-defaults">
   <% if @form && election.census&.admin_form_partial %>
-    <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name), method: :patch, multipart: true, html:   { id: "census-election-form" }) do |f| %>
+    <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name), method: :patch, multipart: true, html: { id: "census-election-form" }) do |f| %>
       <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
     <% end %>
   <% end %>

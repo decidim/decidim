@@ -1,5 +1,5 @@
 <% election_questions.each_with_index do |question, index| %>
-  <div class="card mb-6">
+  <div class="card mb-6" id="question_<%= question.id %>">
     <div class="card-divider">
       <h3 class="flex items-center justify-between">
         <%= "#{index + 1}. #{translated_attribute(question.body)}" %>

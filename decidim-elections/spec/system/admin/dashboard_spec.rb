@@ -147,7 +147,7 @@ describe "Dashboard" do
     end
 
     context "and the election is started" do
-      let(:start_at) { 1.day.ago }
+      let(:start_at) { 1.minute.ago }
 
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
@@ -157,8 +157,42 @@ describe "Dashboard" do
       it "shows the results message" do
         expect(page).to have_content("Results")
         expect(page).to have_no_content("There are no results yet.")
-        expect(page).to have_button("Publish results", count: 1, disabled: false)
-        expect(page).to have_button("Publish results", count: (election.questions.size - 1), disabled: true)
+        expect(page).to have_button("Publish results", count: 0, disabled: false)
+        expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
+        expect(page).to have_button("Enable voting", count: 1, disabled: false) # Only for the first question
+        expect(page).to have_no_button("Enable voting", count: election.questions.size - 1)
+      end
+
+      context "when the first question is published and voted" do
+        before do
+          question = election.questions.first
+
+          within("#question_#{question&.id}") do
+            click_on "Enable voting"
+            click_on "Publish results"
+          end
+        end
+
+        it "marks the first question as published and enables voting on the second" do
+          first_question = election.questions.first
+          second_question = election.questions.second
+
+          within("#question_#{first_question&.id}") do
+            expect(page).to have_content("Published results")
+            expect(page).to have_no_button("Enable voting")
+            expect(page).to have_no_button("Publish results")
+          end
+
+          within("#question_#{second_question.id}") do
+            expect(page).to have_button("Enable voting", disabled: false)
+            expect(page).to have_button("Publish results", disabled: true)
+          end
+
+          third_question = election.questions.third
+          within("#question_#{third_question.id}") do
+            expect(page).to have_button("Enable voting", disabled: true)
+          end
+        end
       end
     end
   end
