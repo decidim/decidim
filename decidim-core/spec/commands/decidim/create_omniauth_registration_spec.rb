@@ -284,21 +284,38 @@ module Decidim
         end
 
         context "when a user exists with that identity" do
-          before do
-            user = create(:user, email:, organization:)
-            create(:identity, user:, provider:, uid:)
-          end
+          let!(:user) { create(:user, email:, organization:) }
+          let!(:identity) { create(:identity, user:, provider:, uid:) }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
+          end
+
+          it "notifies about login with oauth data" do
+            allow(command).to receive(:create_identity).and_return(identity)
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
+              .with("decidim.user.omniauth_login",
+                    user_id: user.id,
+                    identity_id: identity.id,
+                    provider:,
+                    uid:,
+                    email:,
+                    name: "Facebook User",
+                    nickname: "facebook_user",
+                    avatar_url: "http://www.example.com/foo.jpg",
+                    raw_data: {},
+                    tos_agreement: true,
+                    accepted_tos_version: user.accepted_tos_version,
+                    newsletter_notifications_at: user.newsletter_notifications_at)
+            command.call
           end
 
           context "with the same email as reported by the identity" do
             it "confirms the user" do
               command.call
 
-              user = User.find_by(email:)
-              expect(user).to be_confirmed
+              expect(user.reload).to be_confirmed
             end
           end
 
@@ -308,8 +325,7 @@ module Decidim
             it "does not confirm the user" do
               command.call
 
-              user = User.find_by(email:)
-              expect(user).not_to be_confirmed
+              expect(user.reload).not_to be_confirmed
             end
           end
         end
