@@ -21,6 +21,7 @@
             <%= t("actions.edit", scope: "decidim.debates") %>
           <% end %>
         </li>
+        <hr>
       <% end %>
 
       <% if allowed_to? :close, :debate, debate: debate %>
@@ -30,9 +31,8 @@
             <%= t("actions.close", scope: "decidim.debates") %>
           <% end %>
         </li>
+        <hr>
       <% end %>
-
-      <hr>
 
       <li class="dropdown__item">
         <%= link_to resource_locator(debate).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
