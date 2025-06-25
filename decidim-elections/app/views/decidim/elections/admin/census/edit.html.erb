@@ -15,7 +15,7 @@
 
 </div>
   <% if election.census_ready? %>
-   <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data_html", election_title: decidim_sanitize_translated(election.title), count: census_count) %>
+   <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data_html", election_title: decidim_sanitize_translated(election.title), count: census_count(election)) %>
     <%= cell "decidim/announcement", announcement, callout_class: "success" %>
   <% end %>
 <div class="card-section census-form form-defaults">
