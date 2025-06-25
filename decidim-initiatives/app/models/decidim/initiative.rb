@@ -144,8 +144,6 @@ module Decidim
     }
 
     before_update :set_offline_votes_total
-    after_commit :notify_state_change
-    after_create :notify_creation
 
     searchable_fields({
                         participatory_space: :itself,
