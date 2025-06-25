@@ -3,7 +3,7 @@
 module Decidim
   # This query finds the public ActionLog entries that can be shown in the
   # participant views of the application within a Decidim Organization. It is
-  # intended to be used in the user profile, to retrieve activity and milestone
+  # intended to be used in the user profile, to retrieve activity and timeline
   # for that user.
   #
   # This will create the base query for the activities but the resulting query
