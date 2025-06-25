@@ -32,7 +32,7 @@ module Decidim
             text: t("decidim.accountability.results.milestone.title"),
             icon: "route-line",
             method: :cell,
-            args: ["decidim/accountability/project", result, { template: :milestone }]
+            args: ["decidim/accountability/project", result, { template: :milestones }]
           },
           {
             enabled: children.any?,
