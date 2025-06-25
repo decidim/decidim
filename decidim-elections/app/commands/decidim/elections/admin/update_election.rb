@@ -12,13 +12,13 @@ module Decidim
           @attached_to = election unless election.published?
         end
 
-        protected
+        private
+
+        alias election resource
 
         def attributes
           election.published? ? published_election_attributes : unpublished_election_attributes
         end
-
-        private
 
         def published_election_attributes
           {

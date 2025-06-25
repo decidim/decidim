@@ -145,6 +145,7 @@ en:
           end:
             invalid: There was a problem ending the election.
             success: Election ended successfully.
+          unknown: Unknown status
           publish_results:
             invalid: There was a problem publishing the results.
             success: Results published successfully.
