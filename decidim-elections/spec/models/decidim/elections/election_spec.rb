@@ -138,17 +138,6 @@ module Decidim
         end
       end
 
-      describe "#next_question_to_enable" do
-        before { election.save! }
-
-        let!(:first_question) { create(:election_question, election:, position: 0, voting_enabled_at: Time.current, published_results_at: Time.current) }
-        let!(:second_question) { create(:election_question, election:, position: 1, voting_enabled_at: nil, published_results_at: nil) }
-
-        it "returns the first question not yet enabled or published" do
-          expect(election.next_question_to_enable).to eq(second_question)
-        end
-      end
-
       describe "#can_enable_voting_for?" do
         before do
           election.update!(start_at: 1.day.ago, end_at: 1.day.from_now) # ongoing

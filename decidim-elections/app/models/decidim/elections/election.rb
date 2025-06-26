@@ -107,10 +107,6 @@ module Decidim
         results_availability == "per_question"
       end
 
-      def next_question_to_enable
-        questions.order(:position).find { |question| !question.voting_enabled? && !question.published_results? }
-      end
-
       def can_enable_voting_for?(question)
         return false unless ongoing?
         return false if question.voting_enabled?
@@ -118,7 +114,7 @@ module Decidim
         index = ordered_questions.index(question)
         return false if index.nil?
 
-        index.zero? || ordered_questions[index - 1].published_results?
+        true
       end
     end
   end
