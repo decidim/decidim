@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class UserMilestoneCell < Decidim::ViewModel
+  class UserTimelineCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include CellsPaginateHelper
     include Decidim::Core::Engine.routes.url_helpers
