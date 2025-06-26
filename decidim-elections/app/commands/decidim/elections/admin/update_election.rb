@@ -21,13 +21,7 @@ module Decidim
         end
 
         def published_election_attributes
-          {
-            title: election.title,
-            description: parsed_description,
-            start_at: election.manual_start? ? nil : election.start_at,
-            end_at: election.end_at,
-            results_availability: election.results_availability
-          }
+          { description: parsed_description }
         end
 
         def unpublished_election_attributes
