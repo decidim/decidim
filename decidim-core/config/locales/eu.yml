@@ -187,7 +187,7 @@ eu:
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
         error: Arazo bat egon da zure kontua ezabatzean.
-        inactive_account_removal_reason: Kontua ezabatuta % {inactivity_period} egunen ondoren jarduerarik ez egiteagatik
+        inactive_account_removal_reason: Kontua ezabatuta %{inactivity_period} egunen ondoren jarduerarik ez egiteagatik
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
@@ -1436,7 +1436,7 @@ eu:
             title: 3. Datuekin lanean
           title: Nola ireki eta lan egin fitxategi hauekin
         license:
-          body_1_html: '%{organization_name} datu-base hau % {link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide % {link_content} -ren arabera dago baimenduta.'
+          body_1_html: '%{organization_name} datu-base hau %{link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide %{link_contents}. -ren arabera dago baimenduta.'
           license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Datu-basearen Edukien Lizentzia
           license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
@@ -1497,8 +1497,8 @@ eu:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Gure erregistroen arabera, sortu zenuen % {akusazioa_nombre} kontua hemen: <strong>% {date_contacto_creación}</strong> eta ez zara aktibo egon data honetatik: <strong>% {date_last_connection}</strong>-tik.</p>
-          <p>Zure pribatutasuna babesteko, kontu hau automatikoki ezabatzeko programatu da <strong>% {days} egunetan</strong>.</p>
+          <p>Gure erregistroen arabera, sortu zenuen %{organization_name} kontua hemen: <strong>%{date_contacto_creación}</strong> eta ez zara aktibo egon data honetatik: <strong>%{date_last_connection}</strong>-tik.</p>
+          <p>Zure pribatutasuna babesteko, kontu hau automatikoki ezabatzeko programatu da <strong>%{days} egunetan</strong>.</p>
           <p>zure kontua %{organization_name} mantendu nahi baduzu, %{login_url} baino lehen, eta zure kontua gorde egingo da.<p>
         greetings_html: |
           Adeitasunez,<br>
@@ -1719,7 +1719,7 @@ eu:
         subject: Eguneratze garrantzitsuko kide zaren erabiltzaile-taldea
       notify_deprecation_to_owner:
         body_1: Zurekin harremanetan jartzen gara eguneratze garrantzitsu bati buruz informatzeko, parte zaren %{organization_name} erabiltzaile-taldeari dagokionez.
-        body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>% {name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
         body_3: Zure kontuan sartzen jarraitzeko, pasahitz bat jartzea behar dugu.
         greeting: '%{name}, agurgarria:'
         instructions_1: 'Egin klik beheko estekan pasahitzak konfiguratzeko prozesuari ekiteko:'
