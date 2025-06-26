@@ -61,10 +61,10 @@ module Decidim
           members
         end
 
-        it "Publication is notified to author only" do
+        it "Publication is notified to author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .once
+            .exactly(3).times
             .and_return(message_delivery)
           subject.notify
         end
@@ -83,10 +83,10 @@ module Decidim
           members
         end
 
-        it "Discard is notified to author only" do
+        it "Publication is notified to author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .once
+            .exactly(3).times
             .and_return(message_delivery)
           subject.notify
         end
@@ -105,10 +105,10 @@ module Decidim
           members
         end
 
-        it "Result is notified to author only" do
+        it "Result is notified to author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .once
+            .exactly(3).times
             .and_return(message_delivery)
           subject.notify
         end
@@ -127,10 +127,10 @@ module Decidim
           members
         end
 
-        it "Result is notified to author only" do
+        it "Result is notified to author and committee members" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .with(any_args)
-            .once
+            .exactly(3).times
             .and_return(message_delivery)
           subject.notify
         end
