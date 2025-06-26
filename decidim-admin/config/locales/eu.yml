@@ -177,9 +177,9 @@ eu:
           Ziur zaude osagai hau ezabatu nahi duzula?
           Osagai honek honako hauek ditu: 
           <ul class="list-disc ml-6 my-2">
-           <li class="font-bold">%{baliabide_kopurua} resources</li>
+           <li class="font-bold">%{resources_count}  resources</li>
           </ul>
-          Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
+          Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.na
         export: Esportatu dena
         export-selection: Esportatu hautaketa
         import: Inportatu
@@ -968,7 +968,7 @@ eu:
           submit: Bidali
           title: Editatu baimenak
         options_form:
-          ephemeral_warning: Baimen-metodo hori ahalbidetzeko, <a href="% {path}"> indarrean dauden baimen guztiak ezeztatu behar dira. Horrela, egiaztatze-gatazkak izateko arriskua murrizten da. Horrelako baimen guztiak automatikoki ezeztatuko dira erakundean, baldin eta metodo hori gehitzen duten aldaketak aurkezten badituzu edo, gehitu ondoren, konfigurazioa aldatzen baduzu.
+          ephemeral_warning: Baimen-metodo hori ahalbidetzeko, <a href="%{path}"> indarrean dauden baimen guztiak ezeztatu behar dira. Horrela, egiaztatze-gatazkak izateko arriskua murrizten da. Horrelako baimen guztiak automatikoki ezeztatuko dira erakundean, baldin eta metodo hori gehitzen duten aldaketak aurkezten badituzu edo, gehitu ondoren, konfigurazioa aldatzen baduzu.
         update:
           success: Baimenak behar bezala eguneratuak.
       scope_types:
@@ -1235,7 +1235,7 @@ eu:
         deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
       trash_management:
         restore:
-          invalid: Arazo bat egon da % {baliabide_name} berreskuratzean.
+          invalid: Arazo bat egon da %{resource_name} berreskuratzean.
           success: "%{resource_name} zuzen berreskuratu da."
         soft_delete:
           invalid: Arazo bat egon da %{resource_name} ezabatzean.
