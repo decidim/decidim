@@ -24,7 +24,7 @@ module Decidim
           ProcessCensus.call(@form, election) do
             on(:ok) do
               flash[:notice] = t("decidim.elections.admin.census.update.success")
-              redirect_to election_census_path(election)
+              redirect_to dashboard_page_election_path(election)
             end
             on(:invalid) do
               flash[:alert] = t("decidim.elections.admin.census.update.error")
