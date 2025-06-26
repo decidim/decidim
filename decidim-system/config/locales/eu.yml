@@ -274,10 +274,10 @@ eu:
       system_checks:
         active_job_queue:
           decidim_documentation: Dokumentazioa Decidimez
-          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: % {error_extra}.'
+          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: %{error_extra}.'
           success: ActiveJob ilara behar bezala konfiguratuta dago.
         secret_key:
-          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: % {error_extra}'
+          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: %{error_extra}'
           success: Gako sekretua behar bezala konfiguratuta dago.
       titles:
         dashboard: Kontrol-panela
