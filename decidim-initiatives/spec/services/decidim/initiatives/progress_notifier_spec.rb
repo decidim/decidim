@@ -8,11 +8,13 @@ module Decidim
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
       let(:organization) { create(:organization) }
       let(:author) { create(:user, organization:) }
+      let(:followers) { [] }
       let(:approved_committee_members) { [] }
       let(:initiative) do
         double(
           "initiative",
           author:,
+          followers: [],
           committee_members: double("committee_members", approved: approved_committee_members)
         )
       end
@@ -49,6 +51,35 @@ module Decidim
             .with(any_args)
             .exactly(committee_members_count + 1).times
             .and_return(message_delivery)
+
+          subject.notify
+        end
+      end
+
+      context "and followers are not notified" do
+        let(:followers_count) { 10 }
+        let(:followers) do
+          create_list(:user, followers_count, organization:)
+        end
+        let(:initiative) do
+          double(
+            "initiative",
+            author:,
+            followers: followers,
+            committee_members: double("committee_members", approved: approved_committee_members)
+          )
+        end
+
+        it "notifies the author but not the intiatives followers" do
+          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_progress)
+            .with(initiative, author)
+            .once
+            .and_return(message_delivery)
+
+          followers.each do |follower|
+            expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_progress)
+              .with(initiative, follower)
+          end
 
           subject.notify
         end
