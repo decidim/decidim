@@ -71,7 +71,7 @@ eu:
         default:
           help:
             - Ez dago zehaztuta baimen-emailearen laguntza.
-            - Garatzaile batek laguntza zehaztu behar du "% {authorization_handler} "(i18n) itzulpen-gakoan
+            - Garatzaile batek laguntza zehaztu behar du "%{authorization_handler} "(i18n) itzulpen-gakoan
         dummy_authorization_handler:
           help:
             - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
