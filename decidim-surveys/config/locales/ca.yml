@@ -27,7 +27,7 @@ ca:
     components:
       surveys:
         actions:
-          response: Resposta
+          respond: Resposta
         name: Enquestes
         settings:
           announcement: Avís

@@ -28,7 +28,7 @@ en:
     components:
       surveys:
         actions:
-          response: Response
+          respond: Response
         name: Surveys
         settings:
           announcement: Announcement

@@ -27,7 +27,7 @@ es:
     components:
       surveys:
         actions:
-          response: Respuesta
+          respond: Respuesta
         name: Encuestas
         settings:
           announcement: Aviso
