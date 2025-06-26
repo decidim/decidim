@@ -45,6 +45,34 @@ module Decidim
           expect(subject.number_of_options).to eq(subject.response_options.count)
         end
       end
+
+      describe "#voting_enabled?" do
+        context "when voting_enabled_at is present" do
+          let(:question) { build(:election_question, voting_enabled_at: Time.current) }
+
+          it { expect(subject.voting_enabled?).to be true }
+        end
+
+        context "when voting_enabled_at is nil" do
+          let(:question) { build(:election_question, voting_enabled_at: nil) }
+
+          it { expect(subject.voting_enabled?).to be false }
+        end
+      end
+
+      describe "#published_results?" do
+        context "when published_results_at is present" do
+          let(:question) { build(:election_question, published_results_at: Time.current) }
+
+          it { expect(subject.published_results?).to be true }
+        end
+
+        context "when published_results_at is nil" do
+          let(:question) { build(:election_question, published_results_at: nil) }
+
+          it { expect(subject.published_results?).to be false }
+        end
+      end
     end
   end
 end

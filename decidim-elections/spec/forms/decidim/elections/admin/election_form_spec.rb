@@ -88,5 +88,55 @@ module Decidim::Elections
 
       it { is_expected.not_to be_valid }
     end
+
+    describe "when results_availability is per_question" do
+      let(:results_availability) { "per_question" }
+
+      context "and manual_start is true" do
+        let(:manual_start) { true }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and manual_start is false" do
+        let(:manual_start) { false }
+
+        it { is_expected.not_to be_valid }
+      end
+    end
+
+    describe "when results_availability is real_time" do
+      let(:results_availability) { "real_time" }
+
+      context "and manual_start is true" do
+        let(:manual_start) { true }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and manual_start is false" do
+        let(:manual_start) { false }
+
+        it { is_expected.to be_valid }
+      end
+    end
+
+    describe "#results_availability_labels" do
+      let(:form) { described_class.from_params(attributes).with_context(context) }
+
+      it "returns available labels with i18n keys" do
+        expect(form.results_availability_labels).to all(satisfy { |(value, label)| value.is_a?(String) && label.is_a?(String) })
+      end
+    end
+
+    describe "#map_model" do
+      let(:form) { described_class.new.with_context(context) }
+      let(:election) { build(:election, start_at: nil) }
+
+      it "sets manual_start to true if start_at is nil" do
+        form.map_model(election)
+        expect(form.manual_start).to be true
+      end
+    end
   end
 end
