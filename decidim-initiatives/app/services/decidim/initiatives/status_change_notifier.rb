@@ -21,7 +21,7 @@ module Decidim
       # * published, discarded: Initiative authors will be notified about the
       #   result of the technical validation process.
       #
-      # * rejected, accepted: Initiative's authors and committe members will be
+      # * rejected, accepted: Initiative authors and committee members will be
       #   notified about the result of the initiative.
       def notify
         notify_initiative_creation if initiative.created?

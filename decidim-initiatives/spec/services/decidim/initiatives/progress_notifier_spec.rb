@@ -70,7 +70,7 @@ module Decidim
           )
         end
 
-        it "notifies the author but not the intiatives followers" do
+        it "notifies the author but not the initiatives followers" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_progress)
             .with(initiative, author)
             .once
