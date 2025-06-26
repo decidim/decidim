@@ -42,17 +42,17 @@ describe "Admin manages accountability" do
     it_behaves_like "manage statuses"
   end
 
-  describe "timeline" do
+  describe "milestone" do
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
-        click_on "Project evolution"
+        click_on "Milestones"
       end
     end
 
-    let!(:timeline_entry) { create(:timeline_entry, result:) }
+    let!(:milestone) { create(:milestone, result:) }
 
-    it_behaves_like "manage timeline"
+    it_behaves_like "manage milestone"
   end
 
   describe "soft delete result" do
