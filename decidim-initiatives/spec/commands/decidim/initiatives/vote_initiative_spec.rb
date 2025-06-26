@@ -85,7 +85,7 @@ module Decidim
             expect(initiative.followers.count).to eq(10)
           end
 
-          it "doesn't receive notifications of other initiative votes" do
+          it "does not receive notifications of other initiative votes" do
             expect do
               command.call
             end.not_to have_enqueued_mail(Decidim::Initiatives::InitiativesMailer, :notify_vote)
