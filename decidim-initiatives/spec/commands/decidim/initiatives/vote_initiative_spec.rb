@@ -36,6 +36,7 @@ module Decidim
           gender: DummySignatureHandler::AVAILABLE_GENDERS.last
         }
       end
+      let(:followers) { [] }
 
       describe "User votes initiative" do
         context "when initiative signature form does not require extra user fields" do
@@ -58,15 +59,36 @@ module Decidim
             end.to change(initiative, :online_votes_count).by(1)
           end
 
-          it "only sends the confirmation vote email" do
+          it "only sends a confirmation instruction notification" do
             expect do
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(1)
 
             expect(emails.last.subject).to eq("Confirmation instructions")
+          end
+        end
 
-            initiative_emails = emails.select { |email| email.subject.include?("initiative") }
-            expect(initiative_emails.count).to eq(0), "Expected 0 initiative emails but got #{initiative_emails.count}"
+        context "when users follow an initiative" do
+          let(:command) { described_class.new(form) }
+          let(:followers) do
+            create_list(:user, 10, organization:)
+          end
+
+          before do
+            followers.each do |follower|
+              create(:follow, followable: initiative, user: follower)
+            end
+          end
+
+          it "has followers following the initiative" do
+            expect(initiative.followers).to match_array(followers)
+            expect(initiative.followers.count).to eq(10)
+          end
+
+          it "doesn't receive notifications of other initiative votes" do
+            expect do
+              command.call
+            end.not_to have_enqueued_mail(Decidim::Initiatives::InitiativesMailer, :notify_vote)
           end
         end
 
