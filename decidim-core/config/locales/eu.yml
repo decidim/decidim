@@ -1628,7 +1628,7 @@ eu:
             title: 3. Datuekin lanean
           title: Nola ireki eta lan egin fitxategi hauekin
         license:
-          body_1_html: '%{organization_name} datu-base hau % {link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide % {link_content} -ren arabera dago baimenduta.'
+          body_1_html: '%{organization_name} datu-base hau %{link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide %{link_contents}-ren arabera dago baimenduta.'
           license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Datu-basearen Edukien Lizentzia
           license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
