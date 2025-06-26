@@ -91,17 +91,13 @@ module Decidim
           allow(message_delivery).to receive(:deliver_later)
         end
 
-        it "Acceptation is notified by email" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-            .at_least(:once)
-            .and_return(message_delivery)
+        it "followers are not notifed about acceptation" do
+          expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_state_change)
           published_initiative.accepted!
         end
 
-        it "Rejection is notified by email" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-            .at_least(:once)
-            .and_return(message_delivery)
+        it "followers are not notifed about rejection" do
+          expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_state_change)
           published_initiative.rejected!
         end
       end
@@ -133,17 +129,13 @@ module Decidim
           allow(message_delivery).to receive(:deliver_later)
         end
 
-        it "publication is notified by email" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-            .at_least(:once)
-            .and_return(message_delivery)
+        it "followers are not notifed by email about publication" do
+          expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_state_change)
           validating_initiative.publish!
         end
 
-        it "Discard is notified by email" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-            .at_least(:once)
-            .and_return(message_delivery)
+        it "followers are not notifed by email about discard" do
+          expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_state_change)
           validating_initiative.discarded!
         end
       end
