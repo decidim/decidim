@@ -277,7 +277,7 @@ en:
         home_header:
           global_status: Global execution status
         milestones:
-          title: Milestone
+          title: Milestones
         no_results: There are no projects
         root_taxonomies:
           title: 'View by:'
