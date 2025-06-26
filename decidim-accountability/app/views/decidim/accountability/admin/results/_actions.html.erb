@@ -36,9 +36,9 @@
 
       <% if allowed_to? :update, :result, result: result %>
         <li class="dropdown__item">
-          <%= link_to result_timeline_entries_path(result), class: "dropdown__button" do %>
+          <%= link_to result_milestones_path(result), class: "dropdown__button" do %>
             <%= icon "time-line" %>
-            <%= t("actions.timeline_entries", scope: "decidim.accountability") %>
+            <%= t("actions.milestones", scope: "decidim.accountability") %>
           <% end %>
         </li>
 
