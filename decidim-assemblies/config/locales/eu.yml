@@ -72,7 +72,7 @@ eu:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: % {types}.'
+              allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: %{types}.'
   activerecord:
     models:
       decidim/assembly:
