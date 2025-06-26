@@ -98,9 +98,9 @@ eu:
       decidim:
         proposals:
           proposal:
-            budget_text: <span class="resource-link">% {link} proposamena sortu zen</span>
+            budget_text: <span class="resource-link">%{link} proposamena sortu zen</span>
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            import_to_proposal_text: <span class="resource-link">% {link} proposamen hau sortu zen</span>
+            import_to_proposal_text: <span class="resource-link">%{link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             merge_to_proposal_text: '%{link} proposamena sortu da'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
@@ -276,7 +276,7 @@ eu:
             email_subject: Esleitu zaituzte ebaluatzaile gisa %{resource_title} proposamenerako.
             notification_title: Esleitu zaituzte <a href="%{resource_path}">%{resource_title}</a> proposamenaren ebaluatzaile izateko. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.
           proposal_note_created:
-            email_intro: '% {author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
+            email_intro: '%{author_name} parte-hartzaileak ohar pribatu bat jarri du hemen: %{resources ce_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
             notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak ohar pribatu bat sortu du hemen: <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_path}"> admin. panelean</a>.'
@@ -286,7 +286,7 @@ eu:
             email_subject: Norbaitek aipatu zaitu ohar batean %{resource_title} proposamenean.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak ohar pribatu batean aipatu zaitu, hemen <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_url}"> admin. panelean</a>.
           proposal_note_replied:
-            email_intro: '% {author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
+            email_intro: '%{author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}. Ikusi hemen <a href="%{admin_proposal_info_url}">admin panelean</a>.'
             email_outro: Jakinarazpen hau jaso duzu oharraren egilea zarelako.
             email_subject: "%{author_name} parte-hartzaileak zure ohar pribatua erantzun du hemen: %{resource_title}."
             notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak zure ohar pribatua erantzun du hemen: <a href="%{resource_path}">%{resource_title}</a>. Ikusi hemen <a href="%{admin_proposal_info_path}">admin. panelean</a>.'
@@ -377,7 +377,7 @@ eu:
         rejected_coauthorship:
           notification_title: Baztertu duzu <a href="%{author_path}">%{author_name}</a> ren gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         voting_enabled:
-          email_intro: 'Proposamenak bozkatu ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: 'Proposamenak bozkatu ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
           email_subject: 'Proposamenak bozkatzen hasi dira hemen: %{participatory_space_title}'
           notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
@@ -514,7 +514,7 @@ eu:
           proposals: Proposamenak
         import_proposals_mailer:
           notify_failure:
-            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_sizent_nombre} osagaitik % {target et_espezi_nombre} osagaira.
+            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_component_name} osagaitik %{target_component_name} osagaira.
             subject: Errore bat egon da proposamenak inportatzean
           notify_success:
             added_proposals:
@@ -1035,7 +1035,7 @@ eu:
           title: Parte hartzeko arauak
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
-            votes: Gainerako % {kopurua} babes
+            votes: Gainerako %{number} babes
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
