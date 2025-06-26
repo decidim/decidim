@@ -203,7 +203,7 @@ eu:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} parte-hartzaileak %{baliabide_name}} emaitza berreskuratu du hemen:%{space_name}"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} emaitza berreskuratu du hemen:%{space_name}"
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} espazioko %{space_name} emaitza zaborretara eraman du"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
