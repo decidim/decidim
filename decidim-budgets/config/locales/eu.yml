@@ -119,7 +119,7 @@ eu:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
           update_budget:
-            invalid: 'Proiektu horiek aurrekontu berean daude jada, edo aurrekontu horiek baimendutako gehienekoa baino handiagoak dira: % {projects}.'
+            invalid: 'Proiektu horiek aurrekontu berean daude jada, edo aurrekontu horiek baimendutako gehienekoa baino handiagoak dira: %{projects}.'
             select_a_project: Mesedez, hautatu proiektu bat.
             success: 'Proiektuak zuzen eguneratuta %{subject_name} aurrekontuan: %{projects}.'
           update_category:
@@ -157,8 +157,8 @@ eu:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
-              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
-              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} parte-hartzaileri
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} erabiltzaileri
+              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz %{count} parte-hartzaileri
       admin_log:
         budget:
           create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} espazioan"
