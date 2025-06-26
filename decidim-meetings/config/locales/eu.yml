@@ -243,7 +243,7 @@ eu:
             start_time: hasiera-ordua
           notification_title: '%<a href="%{resource_path}">{resources ce_title}</a> bilera eguneratu egin da zenbait aldaketa sartzeko: %{changed_fields}.'
         meeting_waitlist_added:
-          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">% {resources ce_title}</a> bilerarako.
+          notification_title: Itxarote-zerrendan sartu zaituzte <a href="%{resource_url}">%{resource_title}</a> bilerarako.
         registration_code_validated:
           email_intro: '"%{resource_title}" topakerarako zure "%{registration_code}" erregistro-kodea baliozkotu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
@@ -439,7 +439,7 @@ eu:
               - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
               - Edozein unetan gehitu ahal duzu galdera bat.
               - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
-              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
+              - Bisitatu <a href='%{admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde
@@ -640,7 +640,7 @@ eu:
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           pending_address: Kokapena laster adieraiko da.
-          redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
+          redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, %{current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
           registration_and_qr_code: Inskripzioa eta QR kodea
           registration_code: 'Inskripzio-kodea: %{code}'
           registration_code_help_text: Zure inskripzioa eta QR kodea
