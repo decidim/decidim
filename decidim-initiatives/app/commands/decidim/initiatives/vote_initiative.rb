@@ -17,12 +17,20 @@ module Decidim
       # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
+
       def call
         return broadcast(:invalid) if form.invalid?
+
+        percentage_before = initiative.percentage
 
         Initiative.transaction do
           create_votes
         end
+
+        percentage_after = initiative.reload.percentage
+
+        notify_percentage_change(percentage_before, percentage_after)
+        notify_support_threshold_reached(percentage_before, percentage_after)
 
         broadcast(:ok, votes)
       end
