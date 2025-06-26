@@ -239,7 +239,7 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Project evolution")
+          expect(page).to have_content("Milestone")
         end
 
         it "shows the milestone" do
