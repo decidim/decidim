@@ -1,6 +1,10 @@
 sv:
   activemodel:
     attributes:
+      milestone:
+        description: Beskrivning
+        entry_date: Datum
+        title: Titel
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
@@ -17,10 +21,6 @@ sv:
         key: Nyckel
         name: Namn
         progress: Genomförande
-      timeline_entry:
-        description: Beskrivning
-        entry_date: Datum
-        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
       decidim/accountability/result_progress_updated_event: Uppdaterat resultatutvecklingen
@@ -49,11 +49,11 @@ sv:
         edit: Redigera
         import: Importera resultat från en annan komponent
         import_csv: Importera resultat från CSV-fil
+        milestones: Milstolpar
+        new_milestone: Ny milstolpe
         new_result: Nytt resultat
         new_status: Ny status
-        new_timeline_entry: Ny post i tidslinje
         preview: Förhandsvisa
-        timeline_entries: Projektutveckling
         title: Åtgärder
         view_deleted_results: Visa raderade resultat
       admin:
@@ -112,6 +112,23 @@ sv:
           create:
             invalid: Det gick inte att importera resultaten.
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
+        milestones:
+          create:
+            invalid: Det gick inte att skapa denna milstolpe.
+            success: Milstolpen skapades.
+          destroy:
+            success: Milstolpen togs bort.
+          edit:
+            title: Redigera milstolpe
+            update: Uppdatera milstolpe
+          index:
+            title: Milstolpar
+          new:
+            create: Skapa milstolpe
+            title: Ny milstolpe
+          update:
+            invalid: Det gick inte att uppdatera denna milstolpe.
+            success: Milstolpen har uppdaterats.
         models:
           result:
             name: Resultat
@@ -183,24 +200,11 @@ sv:
           update:
             invalid: Det gick inte att uppdatera statusen.
             success: Statusen har uppdaterats.
-        timeline_entries:
-          create:
-            invalid: Det gick inte att skapa den här posten.
-            success: Posten har skapats.
-          destroy:
-            success: Posten har raderats.
-          edit:
-            title: Redigera post
-            update: Uppdatera post
-          index:
-            title: Poster i projekttidslinjen
-          new:
-            create: Skapa post
-            title: Ny post
-          update:
-            invalid: Det gick inte att uppdatera den här posten.
-            success: Posten har uppdaterats.
       admin_log:
+        milestones:
+          create: "%{user_name} skapade milstolpen %{resource_name}"
+          delete: "%{user_name} tog bort milstolpen %{resource_name}"
+          update: "%{user_name} uppdaterade milstolpen %{resource_name}"
         result:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
@@ -211,10 +215,6 @@ sv:
           create: "%{user_name} skapade statusen %{resource_name}"
           delete: "%{user_name} raderade statusen %{resource_name}"
           update: "%{user_name} uppdaterade statusen %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} skapade steget %{resource_name} för tidslinjen"
-          delete: "%{user_name} raderade steget %{resource_name} i tidslinjen"
-          update: "%{user_name} uppdaterade steget %{resource_name} i tidslinjen"
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
@@ -247,6 +247,10 @@ sv:
       last_activity:
         new_result: 'Nytt resultat:'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Titel
         result:
           fields:
             created_at: Skapad
@@ -263,10 +267,6 @@ sv:
             key: Nyckel
             name: Namn
             progress: Behandling
-        timeline_entry:
-          fields:
-            entry_date: Datum
-            title: Titel
       results:
         count:
           results_count:
@@ -274,6 +274,8 @@ sv:
             other: "%{count} resultat"
         home_header:
           global_status: Status för genomförande
+        milestones:
+          title: Milstolpar
         no_results: Det finns inga projekt
         root_taxonomies:
           title: 'Visa:'
@@ -282,8 +284,6 @@ sv:
         show:
           stats:
             back_to_resource: Gå tillbaka till resultatet
-        timeline:
-          title: Projektutveckling
     admin:
       filters:
         results:
