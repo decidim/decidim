@@ -23,15 +23,19 @@
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: elections_path } do %>
 
   <section class="layout-main__section layout-main__heading">
-    <h1 class="layout-main__title">
+    <h1 class="h2 decorator">
       <%= present(@election).title %>
     </h1>
-    <p class="layout-main__subtitle">
-      <%= present(@election).description %>
-    </p>
+    <div class="editor-content">
+      <p><%= present(@election).description %></p>
+    </div>
   </section>
 
   <section class="layout-main__section">
-    <p>Main section</p>
+    <%= cell "decidim/tab_panels", tab_panel_items %>
+
+    <div>
+      <%= render partial: "questions", locals: { questions: } %>
+    </div>
   </section>
 <% end %>

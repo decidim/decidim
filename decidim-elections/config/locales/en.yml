@@ -191,6 +191,10 @@ en:
             other: |
               The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
               <br>There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
+      elections:
+        questions:
+          title: Election questions
+          subtitle: "These are the questions fot this voting process:"
       models:
         election:
           fields:
