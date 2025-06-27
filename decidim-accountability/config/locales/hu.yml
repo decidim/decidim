@@ -19,7 +19,6 @@ hu:
         progress: Folyamat
       timeline_entry:
         description: Leírás
-        entry_date: Dátum
         title: Cím
     models:
       decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
@@ -167,7 +166,6 @@ hu:
             progress: Folyamat
         timeline_entry:
           fields:
-            entry_date: Dátum
             title: Cím
       results:
         count:
