@@ -17,10 +17,6 @@ fi:
         key: Tunniste
         name: Nimi
         progress: Edistyminen
-      timeline_entry:
-        description: Kuvaus
-        entry_date: Päivämäärä
-        title: Otsikko
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
@@ -51,9 +47,7 @@ fi:
         import_csv: Tuo tulokset CSV-tiedostosta
         new_result: Uusi tulos
         new_status: Uusi tila
-        new_timeline_entry: Uusi aikajanan merkintä
         preview: Esikatsele
-        timeline_entries: Hankkeen edistyminen
         title: Toiminnot
         view_deleted_results: Näytä poistetut tulokset
       admin:
@@ -182,23 +176,6 @@ fi:
           update:
             invalid: Tilan päivitys epäonnistui.
             success: Tilan päivitys onnistui.
-        timeline_entries:
-          create:
-            invalid: Merkinnän luonti epäonnistui.
-            success: Merkinnän luonti onnistui.
-          destroy:
-            success: Merkinnän poisto onnistui.
-          edit:
-            title: Muokkaa merkintää
-            update: Päivitä merkintä
-          index:
-            title: Hankkeen aikajanan merkinnät
-          new:
-            create: Luo merkintä
-            title: Uusi merkintä
-          update:
-            invalid: Merkinnän päivitys epäonnistui.
-            success: Merkinnän päivitys onnistui.
       admin_log:
         result:
           create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
@@ -210,10 +187,6 @@ fi:
           create: "%{user_name} loi tilan %{resource_name}"
           delete: "%{user_name} poisti tilan %{resource_name}"
           update: "%{user_name} päivitti tilaa %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} loi aikajanan merkinnän %{resource_name}"
-          delete: "%{user_name} poisti aikajanan merkinnän %{resource_name}"
-          update: "%{user_name} päivitti aikajanan merkintää %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
@@ -262,10 +235,6 @@ fi:
             key: Tunniste
             name: Nimi
             progress: Edistyminen
-        timeline_entry:
-          fields:
-            entry_date: Päivämäärä
-            title: Otsikko
       results:
         count:
           results_count:
@@ -281,8 +250,6 @@ fi:
         show:
           stats:
             back_to_resource: Palaa tulokseen
-        timeline:
-          title: Hankkeen kehitys
     admin:
       filters:
         results:
