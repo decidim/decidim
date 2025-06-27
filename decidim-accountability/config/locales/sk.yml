@@ -16,9 +16,6 @@ sk:
         key: Kľúč
         name: Meno
         progress: Postup
-      timeline_entry:
-        description: Popis
-        entry_date: Dátum
     models:
       decidim/accountability/proposal_linked_event: Návrh, zahrnutý vo výsledku
       decidim/accountability/result_progress_updated_event: Aktualizovaný pokrok vo výsledku
@@ -36,7 +33,6 @@ sk:
         destroy: Odstrániť
         edit: Upraviť
         preview: Ukážka
-        timeline_entries: Vývoj projektu
         title: Akcie
       admin:
         exports:
@@ -70,15 +66,6 @@ sk:
           new:
             create: Vytvoriť nový stav
             title: Nový stav
-        timeline_entries:
-          edit:
-            title: Upraviť vstup
-            update: Aktualizovať vstup
-          index:
-            title: Časová osa projektu
-          new:
-            create: Vytvoriť nový záznam
-            title: Nový záznam
       admin_log:
         result:
           create: "%{user_name} vytvoril výsledok %{resource_name} v %{space_name}"
@@ -110,9 +97,6 @@ sk:
             key: Kľúč
             name: Meno
             progress: Postup
-        timeline_entry:
-          fields:
-            entry_date: Dátum
       results:
         count:
           results_count:
@@ -127,8 +111,6 @@ sk:
         show:
           stats:
             back_to_resource: Naspať na výsledky
-        timeline:
-          title: Vývoj projektu
     components:
       accountability:
         name: Zodpovednosť
