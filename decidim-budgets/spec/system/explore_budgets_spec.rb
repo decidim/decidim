@@ -26,10 +26,25 @@ describe "Explore Budgets", :slow do
   context "with only one budget" do
     let!(:budgets) { create_list(:budget, 1, component:) }
 
-    it "redirects to the only budget details" do
+    before do
       visit_component
+    end
 
-      expect(page).to have_content("Projects for #{translated(budgets.first.title)}")
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
+    it "list the budget" do
+      expect(page).to have_css(".card--list__item", count: 1)
+
+      budgets.each do |budget|
+        expect(page).to have_content(translated(budget.title))
+        expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
+      end
+      expect(page).to have_no_content("Remove vote")
+      expect(page).to have_content("0 projects")
     end
   end
 

@@ -10,20 +10,6 @@ module Decidim
           @user = user
         end
 
-        # Public: Checks if the component has only one budget resource.
-        #
-        # Returns Boolean.
-        def single?
-          budgets.one?
-        end
-
-        # Public: Return the single budget resource of the component
-        #
-        # Returns an ActiveRecord.
-        def single
-          budgets.first if single?
-        end
-
         # Public: Decides if the given resource should be highlighted.
         # This method must be overwritten for each Workflow class.
         # - resource: the budget resource to consider
