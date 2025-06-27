@@ -20,7 +20,6 @@ eu:
         progress: Aurrerapena
       timeline_entry:
         description: Deskribapena
-        entry_date: Data
         title: Izenburua
     models:
       decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
@@ -92,7 +91,7 @@ eu:
               <ol>
               <li><a href='%{link_new_status}' target='_blank'>Sortu Estatistikak</a> gehitu nahi dituzun emaitzetarako</li>
               <li><a href='%{link_new_result}' target='_blank'>Sortu gutxienez emaitza bat eskuz</a> Admin panel honen bidez Import erabili aurretik, formatua eta bete beharko duzuna hobeto ulertzeko.</li>
-              <li>% {link_export_csv}</li>
+              <li>%{link_export_csv}</li>
               <li>CSVko zutabe hauek bakarrik alda ditzakezu (gainerakoak ez dira kontuan hartuko):</li>
               <ul>
               <li><b>taxonomiak/idoiak:</b> Taxonomietarako identifikazioak (bat baino gehiago izanez gero, bereizi koma batez) </li>
@@ -204,7 +203,7 @@ eu:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} parte-hartzaileak %{baliabide_name}} emaitza berreskuratu du hemen:%{space_name}"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} emaitza berreskuratu du hemen:%{space_name}"
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} espazioko %{space_name} emaitza zaborretara eraman du"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
@@ -265,7 +264,6 @@ eu:
             progress: Aurrerapena
         timeline_entry:
           fields:
-            entry_date: Data
             title: Izenburua
       results:
         count:
