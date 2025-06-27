@@ -23,7 +23,6 @@ ja:
         progress: 進捗状況
       timeline_entry:
         description: 説明
-        entry_date: 日付
         title: タイトル
     models:
       decidim/accountability/proposal_linked_event: 結果に提案を含めます
@@ -209,7 +208,6 @@ ja:
             progress: 進捗状況
         timeline_entry:
           fields:
-            entry_date: 日付
             title: タイトル
       results:
         count:
