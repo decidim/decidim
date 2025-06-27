@@ -20,8 +20,7 @@ it:
         progress: Progresso
       timeline_entry:
         description: Descrizione
-        entry_date: Data
-        title: Titolo
+        title: Nome
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
@@ -247,8 +246,7 @@ it:
             progress: Avanzamento
         timeline_entry:
           fields:
-            entry_date: Data
-            title: Titolo
+            title: Nome
       results:
         count:
           results_count:
