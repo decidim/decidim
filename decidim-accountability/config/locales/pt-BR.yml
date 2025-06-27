@@ -17,10 +17,6 @@ pt-BR:
         key: Chave
         name: Nome
         progress: Progresso
-      timeline_entry:
-        description: Descrição
-        entry_date: Encontro
-        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
@@ -44,9 +40,7 @@ pt-BR:
         import_csv: Importar resultados de arquivo CSV
         new_result: Novo resultado
         new_status: Novo status
-        new_timeline_entry: Nova entrada da linha de tempo
         preview: Pré-visualização
-        timeline_entries: Evolução do projeto
         title: Ações
       admin:
         exports:
@@ -101,23 +95,6 @@ pt-BR:
           update:
             invalid: Houve um problema ao atualizar esse status.
             success: Status atualizado com sucesso.
-        timeline_entries:
-          create:
-            invalid: Houve um problema ao criar esta entrada.
-            success: Entrada criada com sucesso.
-          destroy:
-            success: Entrada deletada com sucesso.
-          edit:
-            title: Editar entrada
-            update: Atualizar entrada
-          index:
-            title: Entradas da linha de tempo do projeto
-          new:
-            create: Criar entrada
-            title: Nova entrada
-          update:
-            invalid: Houve um problema ao atualizar esta entrada.
-            success: Entrada atualizada com sucesso.
       admin_log:
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
@@ -127,10 +104,6 @@ pt-BR:
           create: "%{user_name} criou o status %{resource_name} "
           delete: "%{user_name} deletou o status %{resource_name}."
           update: "%{user_name} atualizou o status %{resource_name}."
-        timeline_entry:
-          create: "%{user_name} criou a conferência %{resource_name}"
-          delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
-          update: "%{user_name} Atualizou a conferência %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
@@ -171,10 +144,6 @@ pt-BR:
             key: Chave
             name: Nome
             progress: Progresso
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Título
       results:
         count:
           results_count:
@@ -188,8 +157,6 @@ pt-BR:
         show:
           stats:
             back_to_resource: Volte ao resultado
-        timeline:
-          title: Evolução do projeto
     admin:
       filters:
         results:
