@@ -9,5 +9,6 @@ module Decidim
     autoload :BudgetAttributes, "decidim/api/budget_attributes"
     autoload :CreateBudgetType, "decidim/api/create_budget_type"
     autoload :UpdateBudgetType, "decidim/api/update_budget_type"
+    autoload :DeleteBudgetType, "decidim/api/delete_budget_type"
   end
 end

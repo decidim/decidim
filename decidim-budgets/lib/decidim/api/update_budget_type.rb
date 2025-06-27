@@ -43,7 +43,7 @@ module Decidim
       def authorized?(attributes:, id:)
         budget = Decidim::Budgets::Budget.find_by(id:, component: object)
 
-        super && allowed_to?(:update, budget, budget, context, scope: :admin)
+        super && allowed_to?(:update, :budget, budget, context, scope: :admin)
       end
     end
   end
