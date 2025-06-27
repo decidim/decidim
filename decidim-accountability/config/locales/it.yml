@@ -17,10 +17,6 @@ it:
         key: Chiave
         name: Nome
         progress: Progresso
-      timeline_entry:
-        description: Descrizione
-        entry_date: Data
-        title: Titolo
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
@@ -51,9 +47,7 @@ it:
         import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
         new_status: Nuovo stato
-        new_timeline_entry: Voce della cronologia
         preview: Anteprima
-        timeline_entries: Evoluzione del progetto
         title: Azioni
         view_deleted_results: Visualizza i risultati eliminati
       admin:
@@ -164,23 +158,6 @@ it:
           update:
             invalid: C'è stato un problema nel aggiornamento di questo stato.
             success: Stato aggiornato con successo.
-        timeline_entries:
-          create:
-            invalid: C'è stato un problema nella creazione di questa voce.
-            success: Voce creata con successo.
-          destroy:
-            success: La voce è stata eliminata con successo.
-          edit:
-            title: Modifica la voce
-            update: Aggiorna la voce
-          index:
-            title: Voci della cronologia del progetto
-          new:
-            create: Crea una voce
-            title: Nuova voce
-          update:
-            invalid: C'è stato un problema nel aggiornamento di questa voce.
-            success: Voce aggiornata con successo.
       admin_log:
         result:
           create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
@@ -192,10 +169,6 @@ it:
           create: "%{user_name} ha creato lo stato %{resource_name}"
           delete: "%{user_name} ha eliminato lo stato %{resource_name}"
           update: "%{user_name} ha aggiornato lo stato %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} ha creato la voce della cronologia %{resource_name}"
-          delete: "%{user_name} ha cancellato la voce della cronologia %{resource_name}"
-          update: "%{user_name} ha aggiornato la voce della cronologia %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
@@ -244,10 +217,6 @@ it:
             key: Chiave
             name: Nome
             progress: Avanzamento
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Titolo
       results:
         count:
           results_count:
@@ -263,8 +232,6 @@ it:
         show:
           stats:
             back_to_resource: Torna al risultato
-        timeline:
-          title: Evoluzione del progetto
     admin:
       filters:
         results:
