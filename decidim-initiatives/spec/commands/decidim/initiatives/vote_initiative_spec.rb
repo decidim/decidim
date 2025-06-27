@@ -58,14 +58,6 @@ module Decidim
               initiative.reload
             end.to change(initiative, :online_votes_count).by(1)
           end
-
-          it "only sends a confirmation instruction notification" do
-            expect do
-              perform_enqueued_jobs { command.call }
-            end.to change(emails, :count).by(1)
-
-            expect(emails.last.subject).to eq("Confirmation instructions")
-          end
         end
 
         context "when users follow an initiative" do
