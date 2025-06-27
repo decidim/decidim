@@ -3,8 +3,6 @@
 module Decidim
   module Budgets
     class UpdateBudgetType < Decidim::Api::Types::BaseMutation
-      include Decidim::ApiResponseHelper
-
       description "Updates a budget"
       type Decidim::Budgets::BudgetType
 
@@ -15,13 +13,15 @@ module Decidim
         budget = Decidim::Budgets::Budget.find_by(id:, component: object)
         return unless self.class.allowed_to?(:update, :budget, budget, context, scope: :admin)
 
-        form = Decidim::Budgets::Admin::BudgetForm.from_params(
-          weight: attributes.weight || budget.weight,
-          title: json_value(attributes.title),
-          description: json_value(attributes.description),
-          total_budget: attributes.total_budget.to_i,
-          decidim_scope_id: attributes.scope_id
-        ).with_context(
+        form_attrs = attributes.to_h.reverse_merge(
+          weight: budget.weight,
+          title: budget.title,
+          description: budget.description,
+          total_budget: budget.total_budget,
+          decidim_scope_id: budget.scope&.id
+        )
+
+        form = Decidim::Budgets::Admin::BudgetForm.from_params(form_attrs).with_context(
           current_component: object,
           current_organization: object.organization,
           current_user: context[:current_user]
