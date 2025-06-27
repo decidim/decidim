@@ -20,7 +20,6 @@ pl:
         progress: Postęp
       timeline_entry:
         description: Opis
-        entry_date: Data
         title: Tytuł
     models:
       decidim/accountability/proposal_linked_event: Propozycja zawarta w wyniku
@@ -172,7 +171,6 @@ pl:
             progress: Postęp
         timeline_entry:
           fields:
-            entry_date: Data
             title: Tytuł
       results:
         count:
