@@ -21,7 +21,7 @@ zh-CN:
         progress: 进展情况
       timeline_entry:
         description: 描述
-        entry_date: 日期
+        title: 标题
     models:
       decidim/accountability/proposal_linked_event: 结果中包括的提案
       decidim/accountability/result_progress_updated_event: 结果进度更新
@@ -114,7 +114,7 @@ zh-CN:
             progress: 进展情况
         timeline_entry:
           fields:
-            entry_date: 日期
+            title: 标题
       results:
         count:
           results_count:
