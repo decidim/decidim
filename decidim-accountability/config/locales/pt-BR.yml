@@ -23,7 +23,6 @@ pt-BR:
         progress: Progresso
       timeline_entry:
         description: Descrição
-        entry_date: Encontro
         title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
@@ -208,7 +207,6 @@ pt-BR:
             progress: Progresso
         timeline_entry:
           fields:
-            entry_date: Data
             title: Título
       results:
         count:
