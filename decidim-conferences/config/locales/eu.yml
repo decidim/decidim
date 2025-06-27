@@ -344,7 +344,7 @@ eu:
       admin:
         conference_copies:
           form:
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
@@ -379,7 +379,7 @@ eu:
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         content_blocks:
           highlighted_conferences:
             max_results: Erakusteko gehieneko elementu kopurua
@@ -403,7 +403,7 @@ eu:
             title: Izen-emate motak
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: < a href = " % {url}" >% {title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
+            diploma_html: < a href = " %{url}" >%{title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
             certificate_of_attendance: Parte-hartze ziurtagiria
