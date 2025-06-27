@@ -23,7 +23,6 @@ eu:
         progress: Aurrerapena
       timeline_entry:
         description: Deskribapena
-        entry_date: Data
         title: Izenburua
     models:
       decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
@@ -213,7 +212,6 @@ eu:
             progress: Aurrerapena
         timeline_entry:
           fields:
-            entry_date: Data
             title: Izenburua
       results:
         count:
