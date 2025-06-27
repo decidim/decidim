@@ -16,10 +16,6 @@ th:
         key: สำคัญ
         name: ชื่อ
         progress: ความคืบหน้า
-      timeline_entry:
-        description: คำอธิบาย
-        entry_date: วันที่
-        title: ชื่อ
     models:
       decidim/accountability/proposal_linked_event: ข้อเสนอที่รวมอยู่ในผลลัพธ์
       decidim/accountability/result_progress_updated_event: อัปเดตความคืบหน้าของผลลัพธ์แล้ว
@@ -38,9 +34,7 @@ th:
         import_csv: นำเข้าผลลัพธ์จากไฟล์ CSV
         new_result: ผลลัพธ์ใหม่
         new_status: สถานะใหม่
-        new_timeline_entry: รายการไทม์ไลน์ใหม่
         preview: ดูตัวอย่าง
-        timeline_entries: วิวัฒนาการของโครงการ
         title: การดำเนินการ
       admin:
         exports:
@@ -95,12 +89,6 @@ th:
           update:
             invalid: เกิดปัญหาในการอัปเดตสถานะนี้
             success: อัปเดตสถานะสำเร็จแล้ว
-        timeline_entries:
-          create:
-            invalid: เกิดปัญหาในการสร้างรายการนี้
-            success: สร้างรายการสําเร็จแล้ว
-          destroy:
-            success: ลบรายการเรียบร้อยแล้ว
       results:
         home_header:
           global_status: สถานะการดำเนินการทั่วโลก
@@ -110,8 +98,6 @@ th:
         show:
           stats:
             back_to_resource: กลับไปหาผลลัพธ์
-        timeline:
-          title: วิวัฒนาการของโครงการ
     admin:
       filters:
         results:
