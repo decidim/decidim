@@ -44,6 +44,7 @@ es-PY:
           edit: Editar
           new_sortition: Añadir sorteo
           show: Detalles de la clasificación
+          title: Acciones
         models:
           sortition:
             fields:
