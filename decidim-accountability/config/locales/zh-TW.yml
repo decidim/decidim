@@ -22,7 +22,6 @@ zh-TW:
         progress: 進度
       timeline_entry:
         description: 說明
-        entry_date: 日期
         title: 標題
     models:
       decidim/accountability/proposal_linked_event: 在結果的建議
@@ -196,7 +195,6 @@ zh-TW:
             progress: 進度
         timeline_entry:
           fields:
-            entry_date: 日期
             title: 標題
       results:
         count:
