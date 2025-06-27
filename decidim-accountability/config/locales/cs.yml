@@ -17,10 +17,6 @@ cs:
         key: Klíč
         name: Název
         progress: Průběh
-      timeline_entry:
-        description: Popis
-        entry_date: Datum
-        title: Název
     models:
       decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
@@ -53,9 +49,7 @@ cs:
         import_csv: Importovat výsledky z CSV souboru
         new_result: Nový výsledek
         new_status: Nový status
-        new_timeline_entry: Nový záznam v časové ose
         preview: Náhled
-        timeline_entries: Vývoj projektu
         title: Akce
         view_deleted_results: Zobrazit odstraněné výsledky
       admin:
@@ -190,23 +184,6 @@ cs:
           update:
             invalid: Při aktualizaci tohoto stavu došlo k chybě.
             success: Stav byl úspěšně aktualizován.
-        timeline_entries:
-          create:
-            invalid: Při vytváření tohoto záznamu došlo k chybě.
-            success: Položka byla úspěšně vytvořena.
-          destroy:
-            success: Položka byla úspěšně smazána.
-          edit:
-            title: Upravit položku
-            update: Aktualizovat položku
-          index:
-            title: Položky časové osy projektu
-          new:
-            create: Vytvořit položku
-            title: Nová položka
-          update:
-            invalid: Při aktualizaci této položky došlo k problému.
-            success: Záznam byl úspěšně aktualizován.
       admin_log:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
@@ -218,10 +195,6 @@ cs:
           create: "%{user_name} vytvořil/a stav %{resource_name}"
           delete: "%{user_name} odstranil stav %{resource_name}"
           update: "%{user_name} aktualizoval stav %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} vytvořil záznam %{resource_name} časové osy"
-          delete: "%{user_name} odstranil záznam %{resource_name} časové osy"
-          update: "%{user_name} aktualizoval záznam %{resource_name} časové osy"
         value_types:
           parent_presenter:
             not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
@@ -274,10 +247,6 @@ cs:
             key: Klíč
             name: Název
             progress: Průběh
-        timeline_entry:
-          fields:
-            entry_date: Datum
-            title: Název
       results:
         count:
           results_count:
@@ -295,8 +264,6 @@ cs:
         show:
           stats:
             back_to_resource: Přejít zpět na výsledek
-        timeline:
-          title: Vývoj projektu
     admin:
       filters:
         results:
