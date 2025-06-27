@@ -3,21 +3,21 @@
     <%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderations js-moderation-list-check js-moderation-id-#{moderation.id}" %>
   </td>
 
-  <td data-label="<%= t('models.moderation.fields.reportable_id', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %>">
     <%= moderation.reportable.id %>
   </td>
 
-  <td data-label="<%= t('models.moderation.fields.reportable_type', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %>">
     <%= moderation.reportable.class.model_name.human %>
   </td>
 
   <% unless respond_to?(:current_participatory_space) %>
-    <td data-label="<%= t('models.moderation.fields.participatory_space', scope: 'decidim.moderations') %>">
+    <td data-label="<%= t("models.moderation.fields.participatory_space", scope: "decidim.moderations") %>">
       <%= participatory_space_title_for(moderation.reportable) %>
     </td>
   <% end %>
 
-  <td data-label="<%= t('models.moderation.fields.reported_content_url', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %>">
     <% if (reportable_url = moderation.reportable.reported_content_url) %>
       <%= with_tooltip strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250)), class: :top do %>
         <%= link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), reportable_url %>
@@ -27,26 +27,26 @@
     <% end %>
   </td>
 
-  <td data-label="<%= t('models.moderation.fields.reports', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.reports", scope: "decidim.moderations") %>">
     <% reports = moderation.reports.map { |report| render "report", report: } %>
     <%= safe_join(reports, ", ") %>
   </td>
 
-  <td data-label="<%= t('models.moderation.fields.created_at', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %>">
     <%= l moderation.created_at, format: :long %>
   </td>
 
-  <td data-label="<%= t('models.moderation.fields.report_count', scope: 'decidim.moderations') %>">
+  <td data-label="<%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %>">
     <%= moderation.report_count %>
   </td>
 
   <% if params[:hidden] %>
-    <td data-label="<%= t('models.moderation.fields.hidden_at', scope: 'decidim.moderations') %>">
+    <td data-label="<%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %>">
       <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
     </td>
   <% end %>
 
-  <td data-label="<%= t('actions.title', scope: 'decidim.moderations') %>" class="table-list__actions">
+  <td data-label="<%= t("actions.title", scope: "decidim.moderations") %>" class="table-list__actions">
 
     <button type="button" data-component="dropdown" data-target="actions-moderation-<%= moderation.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: moderation.reportable.id) %>">
       <%= icon "more-fill", class: "text-secondary" %>

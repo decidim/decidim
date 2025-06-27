@@ -27,7 +27,7 @@
       <tbody>
         <% @newsletters.each do |newsletter| %>
           <tr data-newsletter-id="<%= newsletter.id %>">
-            <td data-label="<%= t('models.newsletter.fields.subject', scope: 'decidim.admin') %>">
+            <td data-label="<%= t("models.newsletter.fields.subject", scope: "decidim.admin") %>">
               <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
                 <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
               <% else %>
@@ -35,25 +35,25 @@
               <% end %>
             </td>
 
-            <td data-label="<%= t('models.newsletter.fields.created_at', scope: 'decidim.admin') %>">
+            <td data-label="<%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %>">
               <%= l(newsletter.created_at, format: :long) if newsletter.created_at %>
             </td>
 
-            <td data-label="<%= t('models.newsletter.fields.sent_at', scope: 'decidim.admin') %>">
+            <td data-label="<%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %>">
               <%= l(newsletter.sent_at, format: :long) if newsletter.sent_at %>
             </td>
 
-            <td data-label="<%= t('models.newsletter.fields.sent_to', scope: 'decidim.admin') %>">
+            <td data-label="<%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %>">
               <%= selective_newsletter_to(newsletter) %>
             </td>
 
-            <td data-label="<%= t('models.newsletter.fields.progress', scope: 'decidim.admin') %>">
+            <td data-label="<%= t("models.newsletter.fields.progress", scope: "decidim.admin") %>">
               <% if newsletter.sent? %>
                 <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
               <% end %>
             </td>
 
-            <td data-label="<%= t('decidim.admin.actions.actions') %>" class="table-list__actions">
+            <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
               <button type="button" data-component="dropdown" data-target="actions-newsletter-<%= newsletter.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: t("models.newsletter.name", scope: "decidim.admin")) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>

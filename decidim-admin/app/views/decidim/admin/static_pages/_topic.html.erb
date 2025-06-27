@@ -24,22 +24,22 @@
         <tbody>
           <% pages.each do |page| %>
             <tr>
-              <td data-label="<%= t('models.static_page.fields.title', scope: 'decidim.admin') %>">
+              <td data-label="<%= t("models.static_page.fields.title", scope: "decidim.admin") %>">
                 <%= link_to translated_attribute(page.title), [:edit, page] %>
               </td>
 
-              <td data-label="<%= t('models.static_page.fields.created_at', scope: 'decidim.admin') %>">
+              <td data-label="<%= t("models.static_page.fields.created_at", scope: "decidim.admin") %>">
                 <%= l(page.created_at, format: :short) %>
               </td>
 
-              <td data-label="<%= t('last_notable_change', scope: 'decidim.admin.static_pages.index') %>">
+              <td data-label="<%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %>">
                 <% if allowed_to?(:update_notable_changes, :static_page, static_page: page) %>
                   <%= @tos_version_formatted %>
                 <% end %>
               </td>
 
-              <td data-label="<%= t('decidim.admin.actions.actions') %>" class="table-list__actions">
-                 <button type="button" data-component="dropdown" data-target="actions-static-page-<%= page.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: translated_attribute(page.title)) %>">
+              <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+                 <button type="button" data-component="dropdown" data-target="actions-static-page-<%= page.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(page.title)) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
