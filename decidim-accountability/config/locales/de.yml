@@ -23,7 +23,6 @@ de:
         progress: Fortschritt
       timeline_entry:
         description: Beschreibung
-        entry_date: Datum
         title: Titel
     models:
       decidim/accountability/proposal_linked_event: Vorschlag in einem Ergebnis enthalten
@@ -213,7 +212,6 @@ de:
             progress: Fortschritt
         timeline_entry:
           fields:
-            entry_date: Datum
             title: Titel
       results:
         count:
