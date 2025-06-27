@@ -17,10 +17,6 @@ es:
         key: Clave
         name: Nombre
         progress: Progreso
-      timeline_entry:
-        description: Descripción
-        entry_date: Fecha
-        title: Título
     models:
       decidim/accountability/proposal_linked_event: Propuesta incluida en un resultado
       decidim/accountability/result_progress_updated_event: Progreso del resultado actualizado
@@ -51,9 +47,7 @@ es:
         import_csv: Importar resultados desde un archivo CSV
         new_result: Nuevo resultado
         new_status: Nuevo estado
-        new_timeline_entry: Nueva entrada de cronología
         preview: Previsualizar
-        timeline_entries: Evolución del proyecto
         title: Acciones
         view_deleted_results: Ver los resultados eliminados
       admin:
@@ -183,23 +177,6 @@ es:
           update:
             invalid: Se ha producido un error al actualizar este estado.
             success: Estado actualizado correctamente.
-        timeline_entries:
-          create:
-            invalid: Se ha producido un error al crear esta entrada.
-            success: Entrada creada correctamente.
-          destroy:
-            success: Entrada eliminada correctamente.
-          edit:
-            title: Editar elemento
-            update: Actualizar elemento
-          index:
-            title: Evolución del proyecto
-          new:
-            create: Crear elemento
-            title: Nuevo elemento
-          update:
-            invalid: Se ha producido un error al actualizar esta entrada.
-            success: Entrada actualizada correctamente.
       admin_log:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
@@ -211,10 +188,6 @@ es:
           create: "%{user_name} ha creado el estado %{resource_name}"
           delete: "%{user_name} ha eliminado el estado %{resource_name}"
           update: "%{user_name} ha actualizado el estado %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} ha creado la entrada %{resource_name} en la línea de tiempo"
-          delete: "%{user_name} ha eliminado la entrada %{resource_name} en la línea de tiempo"
-          update: "%{user_name} ha actualizado la entrada %{resource_name} en la línea de tiempo"
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
@@ -263,10 +236,6 @@ es:
             key: Clave
             name: Nombre
             progress: Progreso
-        timeline_entry:
-          fields:
-            entry_date: Fecha
-            title: Título
       results:
         count:
           results_count:
@@ -282,8 +251,6 @@ es:
         show:
           stats:
             back_to_resource: Volver al resultado
-        timeline:
-          title: Evolución del proyecto
     admin:
       filters:
         results:
