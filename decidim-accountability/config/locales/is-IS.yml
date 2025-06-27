@@ -16,9 +16,6 @@ is-IS:
         key: Lykill
         name: Nafn
         progress: Framfarir
-      timeline_entry:
-        description: Lýsing
-        entry_date: Dagsetning
     models:
       decidim/accountability/proposal_linked_event: Tillögur innifalnar í þessari niðurstöðu
   activerecord:
@@ -35,7 +32,6 @@ is-IS:
         destroy: Eyða
         edit: Breyta
         preview: Preview
-        timeline_entries: Verkefnisþróun
         title: Aðgerðir
       admin:
         exports:
@@ -70,15 +66,6 @@ is-IS:
           new:
             create: Búa til stöðu
             title: Ný staða
-        timeline_entries:
-          edit:
-            title: Breyta færslu
-            update: Uppfæra færslu
-          index:
-            title: Verkefni tímalína færslur
-          new:
-            create: Búðu til færslu
-            title: Ný færsla
       admin_log:
         result:
           create: "%{user_name} búið til afleiðing %{resource_name} í %{space_name}"
@@ -110,9 +97,6 @@ is-IS:
             key: Lykill
             name: Nafn
             progress: Framfarir
-        timeline_entry:
-          fields:
-            entry_date: Dagsetning
       results:
         count:
           results_count:
@@ -125,8 +109,6 @@ is-IS:
         show:
           stats:
             back_to_resource: Fara aftur til niðurstöðu
-        timeline:
-          title: Verkefnisþróun
     admin:
       filters:
         results:
