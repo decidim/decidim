@@ -21,7 +21,7 @@ da:
         progress: Fremskridt
       timeline_entry:
         description: Beskrivelse
-        entry_date: Dato
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Projekter, der indgår i dette resultat
       decidim/accountability/result_progress_updated_event: Resultatstatus opdateret
@@ -115,7 +115,7 @@ da:
             progress: Fremskridt
         timeline_entry:
           fields:
-            entry_date: Dato
+            title: Titel
       results:
         count:
           results_count:
