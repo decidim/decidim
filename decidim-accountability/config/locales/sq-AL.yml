@@ -16,10 +16,6 @@ sq:
         key: Çelësi
         name: Emri
         progress: Ecuria
-      timeline_entry:
-        description: Përshkrimi
-        entry_date: Data
-        title: Titulli
     models:
       decidim/accountability/proposal_linked_event: Propozimi i përfshirë në një rezultat
       decidim/accountability/result_progress_updated_event: Ecuria e përditësuar e rezultatit
@@ -39,9 +35,7 @@ sq:
         import_csv: Importo rezultate nga CSV
         new_result: Rezultat i ri
         new_status: Status i ri
-        new_timeline_entry: Afat kohor i ri
         preview: Parapamje
-        timeline_entries: Evoluimi i projektit
         title: Veprime
       admin:
         exports:
@@ -96,23 +90,6 @@ sq:
           update:
             invalid: Ndodhi një gabim gjatë përditësimit të këtij statusi.
             success: Statusi u përditësua suksesshëm.
-        timeline_entries:
-          create:
-            invalid: Ndodhi një gabim gjatë krijimit të këtij shënimi.
-            success: Shënimi u krijua suksesshëm.
-          destroy:
-            success: Shënimi u fshi suksesshëm.
-          edit:
-            title: Ndrysho shënimin
-            update: Përditëso shënimin
-          index:
-            title: Shënimet e afatit kohor të projektit
-          new:
-            create: Krijo një shënim të ri
-            title: Shënim i ri
-          update:
-            invalid: Ndodhi një gabim gjatë përditësimit të këtij shënimi.
-            success: Shënimi u përditësua suksesshëm.
       admin_log:
         result:
           create: "%{user_name} krijoi rezultatin %{resource_name} në %{space_name}"
@@ -122,10 +99,6 @@ sq:
           create: "%{user_name} krijoi statusin %{resource_name}"
           delete: "%{user_name} fshiu statusin %{resource_name}"
           update: "%{user_name} përditësoi statusin %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} krijoi %{resource_name}"
-          delete: "%{user_name} fshiu %{resource_name}"
-          update: "%{user_name} përditësoi %{resource_name}"
         value_types:
           parent_presenter:
             not_found: '"Parent ID" nuk u gjetë në bazën e të dhënave(ID:%{id})'
@@ -164,10 +137,6 @@ sq:
             key: Çelësi
             name: Emri
             progress: Ecuria
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Titulli
       results:
         count:
           results_count:
@@ -181,8 +150,6 @@ sq:
         show:
           stats:
             back_to_resource: Kthehu mbrapsht tek rezultati
-        timeline:
-          title: Evoluimi i projektit
     admin:
       filters:
         results:
