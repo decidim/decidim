@@ -19,7 +19,7 @@ ru:
         progress: Продвижение
       timeline_entry:
         description: Описание
-        entry_date: Дата
+        title: Заголовок
     models:
       decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
       decidim/accountability/result_progress_updated_event: Прогресс результатов обновлен
@@ -101,7 +101,7 @@ ru:
             progress: Продвижение
         timeline_entry:
           fields:
-            entry_date: Дата
+            title: Заголовок
       results:
         count:
           results_count:
