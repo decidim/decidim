@@ -159,8 +159,7 @@ describe "Dashboard" do
         expect(page).to have_no_content("There are no results yet.")
         expect(page).to have_button("Publish results", count: 0, disabled: false)
         expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
-        expect(page).to have_button("Enable voting", count: 1, disabled: false) # Only for the first question
-        expect(page).to have_no_button("Enable voting", count: election.questions.size - 1)
+        expect(page).to have_button("Enable voting", count: 3, disabled: false)
       end
 
       context "when the first question is published and voted" do
@@ -190,7 +189,7 @@ describe "Dashboard" do
 
           third_question = election.questions.third
           within("#question_#{third_question.id}") do
-            expect(page).to have_button("Enable voting", disabled: true)
+            expect(page).to have_button("Enable voting", disabled: false)
           end
         end
       end
