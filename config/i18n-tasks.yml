@@ -365,6 +365,7 @@ ignore_unused:
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
+  - number.currency.format.format
   - time.buttons.*
   - decidim.profiles.show.members
 

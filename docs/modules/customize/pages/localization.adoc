@@ -55,3 +55,18 @@ Note that in the case of the `order` value, currently it only supports two value
 == Currency unit
 
 If you are using the xref:admin:components/budgets.adoc[Budget] component or the xref:admin:components/proposals/answers.adoc[Proposals' answers with costs] feature, you may want to change the `DECIDIM_CURRENCY_UNIT` environment variable to a currency other than the default Euro (€). Read more about how to customize xref:configure:environment_variables.adoc[Environment Variables].
+
+If you want to control where the currency unit (like `€`) and the number (like `999`) is shown, then you can do that by changing the order of the values %u and %n (for unit and number respectively).
+
+```yaml
+en:
+  number:
+    currency:
+      format:
+        format: "%u %n"
+```
+
+Some examples:
+
+- "%u %n" -> Shows it as € 999
+- "%n%u"-> Shows it as 999€

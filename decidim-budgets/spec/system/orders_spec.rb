@@ -49,7 +49,7 @@ describe "Orders" do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences.")
+            expect(page).to have_content("Start adding projects. Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
           end
         end
       end
@@ -105,7 +105,7 @@ describe "Orders" do
 
         it "displays total budget" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("€0\nBudget")
+            expect(page).to have_content("€ 0")
           end
         end
       end
@@ -125,7 +125,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€25,000,000\sAssigned/)
+            expect(page).to have_content(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -138,7 +138,7 @@ describe "Orders" do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
         end
       end
 
@@ -158,7 +158,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€25,000,000\sAssigned/)
+            expect(page).to have_content(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -171,7 +171,7 @@ describe "Orders" do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
         end
       end
 
@@ -295,7 +295,7 @@ describe "Orders" do
         visit_budget_and_start_voting
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€25,000,000\sAssigned/)
+          expect(page).to have_content(/€ 25,000,000\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s1/)
@@ -306,7 +306,7 @@ describe "Orders" do
         end
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€0\sAssigned/)
+          expect(page).to have_content(/€ 0\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s0/)
@@ -320,7 +320,7 @@ describe "Orders" do
 
         visit_budget_and_start_voting
 
-        expect(page).to have_content "€25,000,000"
+        expect(page).to have_content "€ 25,000,000"
 
         page.find("header a", text: translated(organization.name)).click
 
@@ -420,7 +420,7 @@ describe "Orders" do
 
         it "shows the rule description" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
+            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote")
           end
         end
 

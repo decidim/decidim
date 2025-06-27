@@ -2156,6 +2156,10 @@ en:
   locale:
     name: English
     name_with_error: English (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
   password_validator:
     denied: is denied
     domain_included_in_password: is too similar to this domain name
