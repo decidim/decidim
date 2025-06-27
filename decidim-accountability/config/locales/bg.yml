@@ -16,10 +16,6 @@ bg:
         key: Ключ
         name: Име
         progress: Напредък
-      timeline_entry:
-        description: Описание
-        entry_date: Дата
-        title: Заглавие
     models:
       decidim/accountability/proposal_linked_event: Предложение, включено в резултата
       decidim/accountability/result_progress_updated_event: Напредъкът на резултатите е актуализиран
@@ -39,9 +35,7 @@ bg:
         import_csv: Импортирай резултати от CSV файл
         new_result: Нов резултат
         new_status: Нов статус
-        new_timeline_entry: Нов запис във времевата линия
         preview: Преглед
-        timeline_entries: Развитие на проекта
         title: Действия
       admin:
         exports:
@@ -96,23 +90,6 @@ bg:
           update:
             invalid: Възникна проблем при обновяването на този статус.
             success: Статуса беше обновен успешно.
-        timeline_entries:
-          create:
-            invalid: Възникна проблем при създаването на този запис.
-            success: Записът беше създаден успешно.
-          destroy:
-            success: Записът беше изтрит успешно.
-          edit:
-            title: Редактирай на запис
-            update: Обнови на запис
-          index:
-            title: Запис във времевата линия
-          new:
-            create: Създай запис
-            title: Нов запис
-          update:
-            invalid: Възникна проблем при актуализирането на този запис.
-            success: Записът беше актуализиран успешно.
       admin_log:
         result:
           create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
@@ -122,10 +99,6 @@ bg:
           create: "Статусът е създаден"
           delete: "Статусът е изтрит"
           update: "Статусът е обновен"
-        timeline_entry:
-          create: "Създаде запис във времевата линия"
-          delete: "Изтри запис от времевата линия"
-          update: "Обнови запис във времевата линия"
         value_types:
           parent_presenter:
             not_found: 'Родителя липсва в базата данни (ID: %{id})'
@@ -164,10 +137,6 @@ bg:
             key: Ключ
             name: Име
             progress: Напредък
-        timeline_entry:
-          fields:
-            entry_date: Дата
-            title: Заглавие
       results:
         count:
           results_count:
@@ -181,8 +150,6 @@ bg:
         show:
           stats:
             back_to_resource: Върни се към резултата
-        timeline:
-          title: Развитие на проекта
     admin:
       filters:
         results:
