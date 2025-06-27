@@ -60,27 +60,49 @@ module Decidim
           end
         end
 
-        context "when users follow an initiative" do
-          let(:command) { described_class.new(form) }
-          let(:followers) do
-            create_list(:user, 10, organization:)
+        context "when a new milestone is completed" do
+          let(:initiative) do
+            create(:initiative,
+                   organization:,
+                   scoped_type: create(
+                     :initiatives_type_scope,
+                     supports_required: 4,
+                     type: create(:initiatives_type, organization:)
+                   ))
           end
+
+          let!(:follower) { create(:user, organization: initiative.organization) }
+          let!(:follow) { create(:follow, followable: initiative, user: follower) }
 
           before do
-            followers.each do |follower|
-              create(:follow, followable: initiative, user: follower)
-            end
+            create(:initiative_user_vote, initiative:)
+            create(:initiative_user_vote, initiative:)
           end
 
-          it "has followers following the initiative" do
-            expect(initiative.followers).to match_array(followers)
-            expect(initiative.followers.count).to eq(10)
+          it "notifies the followers" do
+            expect(Decidim::EventsManager).to receive(:publish)
+              .with(kind_of(Hash))
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.initiatives.milestone_completed",
+                event_class: Decidim::Initiatives::MilestoneCompletedEvent,
+                resource: initiative,
+                affected_users: [initiative.author],
+                followers: [follower],
+                extra: { percentage: 75 }
+              )
+
+            command.call
           end
 
-          it "does not receive notifications of other initiative votes" do
+          it "sends notification with email" do
             expect do
-              command.call
-            end.not_to have_enqueued_mail(Decidim::Initiatives::InitiativesMailer, :notify_vote)
+              perform_enqueued_jobs { command.call }
+            end.to change(emails, :count).by(3)
+
+            expect(last_email_body).to include("has achieved the 75% of signatures")
           end
         end
 
