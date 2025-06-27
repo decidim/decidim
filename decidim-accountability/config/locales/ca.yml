@@ -17,10 +17,6 @@ ca:
         key: Clau
         name: Nom
         progress: Progrés
-      timeline_entry:
-        description: Descripció
-        entry_date: Data
-        title: Títol
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
@@ -51,9 +47,7 @@ ca:
         import_csv: Importar resultats des d'un fitxer CSV
         new_result: Afegir resultat
         new_status: Afegir estat
-        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
-        timeline_entries: Evolució del projecte
         title: Accions
         view_deleted_results: Veure els resultats eliminats
       admin:
@@ -183,23 +177,6 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest estat.
             success: Estat actualitzat correctament.
-        timeline_entries:
-          create:
-            invalid: S'ha produït un error en crear aquesta entrada.
-            success: Entrada creada correctament.
-          destroy:
-            success: Entrada eliminada correctament.
-          edit:
-            title: Editar element
-            update: Actualitzar element
-          index:
-            title: Evolució del projecte
-          new:
-            create: Crear element
-            title: Nou element
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta entrada.
-            success: Entrada actualitzada correctament.
       admin_log:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
@@ -211,10 +188,6 @@ ca:
           create: "%{user_name} ha creat l'estat %{resource_name}"
           delete: "%{user_name} ha eliminat l'estat %{resource_name}"
           update: "%{user_name} ha actualitzat l'estat %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
-          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
-          update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
@@ -263,10 +236,6 @@ ca:
             key: Clau
             name: Nom
             progress: Progrés
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Títol
       results:
         count:
           results_count:
@@ -282,8 +251,6 @@ ca:
         show:
           stats:
             back_to_resource: Tornar al resultat
-        timeline:
-          title: Evolució del projecte
     admin:
       filters:
         results:
