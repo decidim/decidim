@@ -19,7 +19,7 @@ uk:
         progress: Перебіг
       timeline_entry:
         description: Опис
-        entry_date: Дата
+        title: Назва
     models:
       decidim/accountability/proposal_linked_event: Пропозиція, включена до підсумку
   activerecord:
@@ -100,7 +100,7 @@ uk:
             progress: Перебіг
         timeline_entry:
           fields:
-            entry_date: Дата
+            title: Назва
       results:
         count:
           results_count:
