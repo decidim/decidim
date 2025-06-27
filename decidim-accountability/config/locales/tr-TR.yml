@@ -23,8 +23,7 @@ tr:
         progress: İlerleme
       timeline_entry:
         description: Açıklama
-        entry_date: tarih
-        title: Başlik / Unvani 
+        title: Başlık
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
@@ -207,7 +206,6 @@ tr:
             progress: İlerleme
         timeline_entry:
           fields:
-            entry_date: tarih
             title: Başlık
       results:
         count:
