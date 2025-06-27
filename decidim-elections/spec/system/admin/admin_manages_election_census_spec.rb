@@ -26,11 +26,13 @@ describe "Admin manages election census" do
         expect(page).to have_content("Upload a CSV file")
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("valid_election_census.csv")) # with 2 users
 
-        click_on "Save and continue"
-
+        click_on "Save and continue" # redirects to the dashboard
         expect(page).to have_content("Census updated successfully")
-        expect(page).to have_content("There are currently 2 people")
+        expect(page).to have_css("h1", text: "Dashboard")
 
+        visit election_census_path
+
+        expect(page).to have_content("There are currently 2 people")
         expect(page).to have_content("User preview (the list is limited to 2 entries")
         expect(page).to have_content("user1@example.org")
         expect(page).to have_content("user2@example.org")
@@ -43,7 +45,10 @@ describe "Admin manages election census" do
         expect(page).to have_content("Upload a CSV file")
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("census_with_missing_email.csv")) # has a row with missing email and 1 valid row
 
-        click_on "Save and continue"
+        click_on "Save and continue" # redirects to the dashboard
+        expect(page).to have_css("h1", text: "Dashboard")
+
+        visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
         expect(page).to have_content("User preview (the list is limited to 1 entry")
@@ -56,7 +61,10 @@ describe "Admin manages election census" do
         expect(page).to have_content("Upload a CSV file")
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("census_duplicate_emails.csv")) # has 3 the same rows
 
-        click_on "Save and continue"
+        click_on "Save and continue" # redirects to the dashboard
+        expect(page).to have_css("h1", text: "Dashboard")
+
+        visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
         expect(page).to have_content("User preview (the list is limited to 1 entry")
@@ -82,7 +90,10 @@ describe "Admin manages election census" do
         select "Registered participants (dynamic)", from: "census_manifest"
         expect(page).to have_content("Additional required authorizations to vote (optional)")
 
-        click_on "Save and continue"
+        click_on "Save and continue" # redirects to the dashboard
+        expect(page).to have_css("h1", text: "Dashboard")
+
+        visit election_census_path
 
         expect(page).to have_content("There are currently 11 people eligible for voting in this election (this might change on a dynamic census).") # 1 admin + 10 users
         expect(page).to have_content("User preview (the list is limited to 5 entries)")
@@ -106,7 +117,10 @@ describe "Admin manages election census" do
         expect(page).to have_content("Additional required authorizations to vote (optional)")
 
         check "Example authorization"
-        click_on "Save and continue"
+        click_on "Save and continue" # redirects to the dashboard
+        expect(page).to have_css("h1", text: "Dashboard")
+
+        visit election_census_path
 
         expect(page).to have_content("There are currently 3 people eligible for voting in this election (this might change on a dynamic census).")
         expect(page).to have_content("User preview (the list is limited to 3 entries)")
@@ -127,7 +141,10 @@ describe "Admin manages election census" do
 
           check "Example authorization"
           check "Another example authorization"
-          click_on "Save and continue"
+          click_on "Save and continue" # redirects to the dashboard
+          expect(page).to have_css("h1", text: "Dashboard")
+
+          visit election_census_path
 
           expect(page).to have_content("There is currently 1 person eligible for voting in this election (this might change on a dynamic census).")
           expect(page).to have_content("User preview (the list is limited to 1 entry)")
