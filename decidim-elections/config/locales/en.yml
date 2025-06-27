@@ -193,8 +193,11 @@ en:
               <br>There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
       elections:
         questions:
+          subtitle: 'These are the questions fot this voting process:'
           title: Election questions
-          subtitle: "These are the questions fot this voting process:"
+        vote_statistics:
+          subtitle: Voting results
+          title: Vote statistics
       models:
         election:
           fields:

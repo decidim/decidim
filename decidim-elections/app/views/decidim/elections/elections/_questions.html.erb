@@ -1,26 +1,26 @@
-<h2 class="h4 flex gap-2 items-bottom mb-4">
+<h4 class="h4 flex gap-2 items-bottom mb-4">
   <%= icon "question-mark", class: "fill-tertiary" %>
   <span><%= t(".title") %></span>
-</h2>
+</h4>
 <div class="mb-4"><%= t(".subtitle") %></div>
 <% questions.each do |question| %>
-  <div class="card" data-component="accordion" id="accordion-title-<%= question.id %>">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-title-<%= question.id %>" type="button">
-        <h2 class="h4" id="title"><%= translated_attribute question.body %></h2>
+  <div class="card-accordion border border-gray rounded-lg py-2 px-4" data-component="accordion">
+    <div class="card-accordion-divider">
+      <button class="card-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= question.id %>" type="button">
+        <h2 class="card-accordion-title" id="title">
+          <span><%= question.position.next %> - </span>
+          <%= translated_attribute question.body %>
+        </h2>
         <%= icon "arrow-down-s-line" %>
       </button>
     </div>
-
-    <div id="panel-title-<%= question.id %>" class="card-section">
-      <div class="row column">
-        <p><%= decidim_sanitize translated_attribute(question.description) %></p>
-        <ul>
-          <% question.response_options.each do |answer| %>
-            <li><%= translated_attribute answer.body %></li>
-          <% end %>
-        </ul>
-      </div>
+    <div id="panel-title--<%= question.id %>" class="card-accordion-section editor-content mb-0 pb-0" aria-hidden="true">
+      <p><%= decidim_sanitize translated_attribute(question.description) %></p>
+      <ol class="mt-2 mb-0">
+        <% question.response_options.each do |answer| %>
+          <li><%= translated_attribute answer.body %></li>
+        <% end %>
+      </ol>
     </div>
   </div>
 <% end %>
