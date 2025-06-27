@@ -48,9 +48,9 @@
                   <%= free_resource_permissions_link(initiative_type) %>
                 </li>
 
-                <hr>
-
                 <% if allowed_to? :destroy, :initiative_type, initiative_type: initiative_type %>
+                  <hr>
+
                   <li class="dropdown__item">
                     <%= link_to initiative_type, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button" do %>
                       <%= icon "delete-bin-line" %>

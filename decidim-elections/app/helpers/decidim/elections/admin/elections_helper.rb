@@ -48,6 +48,18 @@ module Decidim
           end
         end
 
+        def enable_voting_button(election, question)
+          return if question.published_results?
+
+          button_to update_status_election_path(election),
+                    method: :put,
+                    params: { status_action: "enable_voting", question_id: question.id },
+                    disabled: !election.can_enable_voting_for?(question),
+                    class: "button button__sm button__secondary" do
+            t("decidim.elections.admin.dashboard.results.start_question_button")
+          end
+        end
+
         def publish_button_for(election, question)
           button_to update_status_election_path(election),
                     method: :put,
@@ -61,12 +73,14 @@ module Decidim
         private
 
         def election_status_and_class(election)
+          status = election.per_question? && election.status.ongoing? ? election.current_status[:election_status] : election.current_status
+
           css_class = {
             scheduled: "secondary label",
             ongoing: "warning label",
             ended: "success label",
             results_published: "success label"
-          }[election.status.current_status] || "default label"
+          }.fetch(status, "default label")
 
           [election.localized_status, css_class]
         end

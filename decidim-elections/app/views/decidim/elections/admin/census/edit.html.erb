@@ -14,17 +14,13 @@
                  id: "census-manifest-selector" %>
 
 </div>
-<% if election.census_ready? %>
-  <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data", election_title: translated_attribute(election.title)) %>
-  <% announcement += "<br>" + t(".voters_count", count: "<strong>#{census_count(election)}</strong>") %>
-  <%= cell "decidim/announcement", announcement, callout_class: "success" %>
-<% end %>
+  <% if election.census_ready? %>
+   <% announcement = t("decidim.elections.censuses.token_csv.uploaded_data_html", election_title: decidim_sanitize_translated(election.title), count: census_count(election)) %>
+    <%= cell "decidim/announcement", announcement, callout_class: "success" %>
+   <% end %>
 <div class="card-section census-form form-defaults">
   <% if @form && election.census&.admin_form_partial %>
-    <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name),
-                         method: :patch,
-                         multipart: true,
-                         html: { id: "census-election-form" }) do |f| %>
+    <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name), method: :patch, multipart: true, html: { id: "census-election-form" }) do |f| %>
       <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
     <% end %>
   <% end %>

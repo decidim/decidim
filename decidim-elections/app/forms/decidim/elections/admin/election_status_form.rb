@@ -5,8 +5,9 @@ module Decidim
     module Admin
       class ElectionStatusForm < Decidim::Form
         attribute :status_action, Symbol
+        attribute :question_id, Integer
 
-        validates :status_action, presence: true, inclusion: { in: [:start, :end, :publish_results] }
+        validates :status_action, presence: true, inclusion: { in: [:start, :end, :publish_results, :enable_voting] }
       end
     end
   end

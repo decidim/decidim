@@ -25,6 +25,10 @@ module Decidim
         response_options.size
       end
 
+      def voting_enabled?
+        voting_enabled_at.present?
+      end
+
       def published_results?
         published_results_at.present?
       end

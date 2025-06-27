@@ -20,7 +20,7 @@
         </div>
 
         <div class="row column">
-          <%= form.translated :editor, :description, resource_mentionable: true, hashtaggable: true, aria: { label: :description } %>
+          <%= form.translated :editor, :description, resource_mentionable: true, aria: { label: :description } %>
         </div>
 
         <div class="row column">
@@ -29,7 +29,7 @@
                               label: false,
                               button_label: t("decidim.elections.admin.elections.form.add_images"),
                               button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
-                              button_class: "button button__sm button__transparent-secondary #{'disabled pointer-events-none' if disable_fields}",
+                              button_class: "button button__sm button__transparent-secondary #{"disabled pointer-events-none" if disable_fields}",
                               help_i18n_scope: "decidim.forms.file_help.image",
                               help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
         </div>

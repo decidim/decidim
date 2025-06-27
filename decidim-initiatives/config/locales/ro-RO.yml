@@ -461,12 +461,6 @@ ro:
         initiatives:
           closed_initiatives_warning: În prezent, nu există inițiative deschise, dar aici poți găsi toate inițiativele anterioare.
           no_initiatives_warning: Nicio inițiativă nu corespunde criteriilor de căutare.
-        interactions:
-          comments_count:
-            count:
-              one: Comentariu
-              few: Comentariu
-              other: Comentariu
         orders:
           label: 'Sortați inițiativele după:'
           most_commented: Cele mai comentate

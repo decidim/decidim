@@ -14,7 +14,8 @@ describe Decidim::Elections::Admin::Permissions do
       election:
     }
   end
-  let(:permission_action) { Decidim::PermissionAction.new(scope: :admin, action: action_name, subject: action_subject) }
+  let(:permission_action) { Decidim::PermissionAction.new(scope: scope, action: action_name, subject: action_subject) }
+  let(:scope) { :admin }
   let(:action_name) { :foo }
   let(:action_subject) { :foo }
 
@@ -30,8 +31,16 @@ describe Decidim::Elections::Admin::Permissions do
     end
   end
 
+  context "when user is nil" do
+    let(:user) { nil }
+
+    it_behaves_like "permission is not set"
+  end
+
   context "when scope is not admin" do
-    let(:permission_action) { Decidim::PermissionAction.new(scope: :public, action: :create, subject: :election) }
+    let(:scope) { :public }
+    let(:action_name) { :create }
+    let(:action_subject) { :election }
 
     it_behaves_like "permission is not set"
   end
@@ -62,6 +71,69 @@ describe Decidim::Elections::Admin::Permissions do
 
       it_behaves_like "requires an election"
     end
+
+    context "when publishing" do
+      let(:action_name) { :publish }
+
+      context "when conditions are met" do
+        before do
+          create(:election_question, election:)
+          allow(election).to receive(:census_ready?).and_return(true)
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when already published" do
+        let(:election) { create(:election, component:, published_at: 1.day.ago) }
+
+        before do
+          create(:election_question, election:)
+          allow(election).to receive(:census_ready?).and_return(true)
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when requirements are not met" do
+        before do
+          create(:election_question, election:)
+          allow(election).to receive(:census_ready?).and_return(false)
+        end
+
+        it { is_expected.to be false }
+      end
+    end
+
+    context "when unpublishing" do
+      let(:action_name) { :unpublish }
+
+      context "when election is published and not ongoing" do
+        let(:election) { create(:election, component:, published_at: 2.days.ago, start_at: 1.day.from_now) }
+
+        it { is_expected.to be true }
+      end
+
+      context "when not published" do
+        let(:election) { create(:election, component:, published_at: nil) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when already ongoing" do
+        let(:election) { create(:election, component:, published_at: 2.days.ago, start_at: 1.day.ago) }
+
+        it { is_expected.to be false }
+      end
+    end
+
+    context "when accessing dashboard" do
+      let(:action_name) { :dashboard }
+
+      before { allow(election).to receive(:census_ready?).and_return(true) }
+
+      it { is_expected.to be true }
+    end
   end
 
   context "when subject is election_question" do
@@ -75,6 +147,22 @@ describe Decidim::Elections::Admin::Permissions do
 
     context "when reordering" do
       let(:action_name) { :reorder }
+
+      it_behaves_like "requires an election"
+    end
+  end
+
+  context "when subject is census" do
+    let(:action_subject) { :census }
+
+    context "when editing" do
+      let(:action_name) { :edit }
+
+      it { is_expected.to be true }
+    end
+
+    context "when updating" do
+      let(:action_name) { :update }
 
       it_behaves_like "requires an election"
     end

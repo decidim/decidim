@@ -20,7 +20,7 @@
               <%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:
               <ul>
                 <% question.response_options.each_with_index do |option, opt_index| %>
-                  <li><%= "#{('a'.ord + opt_index).chr})" %> <%= translated_attribute(option.body) %></li>
+                  <li><%= "#{("a".ord + opt_index).chr})" %> <%= translated_attribute(option.body) %></li>
               <% end %>
               </ul>
             </div>

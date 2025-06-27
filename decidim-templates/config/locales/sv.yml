@@ -97,7 +97,7 @@ sv:
           preview:
             current_step: Steg %{step}
             of_total_steps: av %{total_steps}
-            tos_agreement: Genom att delta godkänner du användarvillkoren
+            tos_agreement: Genom att fortsätta godkänner du villkoren för anmälan
       admin_log:
         template:
           create: "%{user_name} skapade enkätmallen %{resource_name}"

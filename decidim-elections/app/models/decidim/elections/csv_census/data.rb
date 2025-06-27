@@ -13,7 +13,7 @@ module Decidim
           @errors = []
           @seen_emails = Set.new
 
-          CSV.foreach(file, col_sep: ";", headers: true, encoding: "BOM|UTF-8") do |row|
+          CSV.foreach(file, col_sep: Decidim.default_csv_col_sep, headers: true, encoding: "BOM|UTF-8") do |row|
             process_row(row)
           end
         end

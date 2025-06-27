@@ -111,7 +111,7 @@ sv:
           state: Status
           state_values:
             closed: Avslutade
-            open: Öppna
+            ongoing: Pågående
         index:
           new_debate: Ny debatt
         new:
@@ -125,10 +125,12 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
-          debate_closed: Avslutade
+          closed: Avslutad
           debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
-          open: Öppen debatt
+          not_started: Inte påbörjad
+          ongoing: Pågående
+          open_ended: Utan slut
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.

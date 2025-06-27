@@ -18,13 +18,13 @@
 <div class="item__edit-form">
   <% if election.published? %>
     <div class="flex flex-col md:flex-row gap-4 w-full mb-5">
-      <% %w[status calendar].each do |partial_name| %>
+      <% %w(status calendar).each do |partial_name| %>
         <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election } %></div>
       <% end %>
     </div>
     <%= render partial: "decidim/elections/admin/dashboard/results", locals: { election: election } %>
   <% else %>
-    <% %w[main questions census].each do |partial_name| %>
+    <% %w(main questions census).each do |partial_name| %>
       <%= render partial: "decidim/elections/admin/dashboard/#{partial_name}", locals: { election: election, election_questions: election_questions } %>
     <% end %>
   <% end %>

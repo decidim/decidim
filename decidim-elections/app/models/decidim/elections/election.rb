@@ -82,8 +82,12 @@ module Decidim
         @status ||= Decidim::Elections::ElectionStatus.new(self)
       end
 
+      def ordered_questions
+        questions.order(:position).to_a
+      end
+
       def results_publishable_for?(question)
-        return false if question&.published_results_at.present?
+        return false if question&.published_results?
 
         case results_availability
         when "per_question"
@@ -96,26 +100,21 @@ module Decidim
       end
 
       def publishable_per_question?(question)
-        return false unless questions.include?(question)
-
-        index = questions.index(question)
-        return true if index.zero?
-
-        previous_question = questions[index - 1]
-        previous_question.published_results_at.present?
+        questions.include?(question) && question.voting_enabled? && per_question?
       end
 
       def per_question?
         results_availability == "per_question"
       end
 
-      def results_published?
-        case results_availability
-        when "per_question"
-          questions.all?(&:published_results?)
-        else
-          published_results_at.present?
-        end
+      def can_enable_voting_for?(question)
+        return false unless ongoing?
+        return false if question.voting_enabled?
+
+        index = ordered_questions.index(question)
+        return false if index.nil?
+
+        true
       end
     end
   end

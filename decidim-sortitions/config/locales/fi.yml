@@ -142,3 +142,4 @@ fi:
             other: "%{count} satunnaisvalintaa"
     statistics:
       sortitions_count: Satunnaisvalintaa
+      sortitions_count_tooltip: Päätöksentekoa varten tehtyjen satunnaisvalintojen lukumäärä.

@@ -23,10 +23,10 @@ module Decidim
         end
 
         def date_created
-          if user.respond_to?(:created_at)
-            I18n.l(user.created_at, format: :short)
-          elsif user.respond_to?(:date_created)
+          if user.respond_to?(:date_created)
             I18n.l(user.date_created, format: :short)
+          elsif user.respond_to?(:created_at)
+            I18n.l(user.created_at, format: :short)
           else
             ""
           end

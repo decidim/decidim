@@ -1,5 +1,10 @@
 ca-IT:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_questions: Preguntes
     components:
       elections:
         name: Votacions
@@ -23,7 +28,6 @@ ca-IT:
             success: Elecció creada correctament.
           edit:
             title: Editar la votació
-            update: Actualitzar la votació
           form:
             add_images: Afegir imatges
             attachment_legend: Afegir una galeria d'imatges (opcional)
@@ -41,13 +45,13 @@ ca-IT:
               real_time: En temps real
               real_time_help: Mostrar els resultats quan s'enviï el primer vot
               title: Disponibilitat dels resultats
+            save: Desa i continua
             start_at: Dia i hora d'inici
           index:
             title: Votacions
           manage_trash:
             title: Eleccions eliminades
           new:
-            create: Crear una votació
             title: Nova votació
           publish:
             invalid: S'ha produït un error en publicar l'elecció.
@@ -58,6 +62,18 @@ ca-IT:
           update:
             invalid: S'ha produït un error en actualitzar l'elecció.
             success: Elecció actualitzada correctament.
+        questions:
+          edit_questions:
+            new_question: Nova pregunta
+            remove_question_confirm: Estàs egur que vols eliminar aquesta pregunta?
+            title: Preguntes
+          form:
+            errors:
+              at_least_one_question: Es requereix almenys una pregunta.
+            form_description: La pregunta ha de tenir, com a mínim, dues opcions de resposta per passar al següent pas.
+          update:
+            invalid: Hi ha hagut un problema en actualitzar les preguntes.
+            success: Preguntes actualitzades correctament.
       admin_log:
         election:
           create: "%{user_name} ha creat l'elecció \"%{resource_name}\" a %{space_name}"
@@ -66,6 +82,8 @@ ca-IT:
           soft_delete: "%{user_name} ha mogut l'elecció \"%{resource_name}\" de %{space_name} a la paperera"
           unpublish: "%{user_name} ha despublicat l'elecció \"%{resource_name}\" a %{space_name}"
           update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
+        question:
+          update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
       models:
         election:
           fields:

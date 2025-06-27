@@ -111,7 +111,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("statuses.#{@form.status_action}.invalid", scope: "decidim.elections.admin")
+              flash.now[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
               render action: "dashboard_page"
             end
           end
