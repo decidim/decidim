@@ -10,9 +10,6 @@ si:
         description: සවිස්තරය
         key: යතුර
         name: නම
-      timeline_entry:
-        description: සවිස්තරය
-        entry_date: දිනය
   activerecord:
     models:
       decidim/accountability/result:
@@ -50,7 +47,3 @@ si:
       import_mailer:
         import:
           errors: දෝෂ
-      models:
-        timeline_entry:
-          fields:
-            entry_date: දිනය
