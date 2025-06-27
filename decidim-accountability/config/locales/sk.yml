@@ -21,7 +21,7 @@ sk:
         progress: Postup
       timeline_entry:
         description: Popis
-        entry_date: Dátum
+        title: Názov
     models:
       decidim/accountability/proposal_linked_event: Návrh, zahrnutý vo výsledku
       decidim/accountability/result_progress_updated_event: Aktualizovaný pokrok vo výsledku
@@ -120,7 +120,7 @@ sk:
             progress: Postup
         timeline_entry:
           fields:
-            entry_date: Dátum
+            title: Názov
       results:
         count:
           results_count:
