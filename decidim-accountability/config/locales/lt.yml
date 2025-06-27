@@ -16,10 +16,6 @@ lt:
         key: Raktas
         name: Vardas
         progress: Progresas
-      timeline_entry:
-        description: Aprašymas
-        entry_date: Data
-        title: Pavadinimas
     models:
       decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
       decidim/accountability/result_progress_updated_event: Rezultato progresas atnaujintas
@@ -39,7 +35,6 @@ lt:
         destroy: Ištrinti
         edit: Redaguoti
         preview: Peržiūra
-        timeline_entries: Projekto raida
         title: Veiksmai
       admin:
         exports:
@@ -92,23 +87,6 @@ lt:
           update:
             invalid: Atnaujinant šią būseną iškilo problema.
             success: Būsena sėkmingai atnaujinta.
-        timeline_entries:
-          create:
-            invalid: Kuriant šį įrašą iškilo problema.
-            success: Įrašas sėkmingai sukurtas.
-          destroy:
-            success: Įrašas sėkmingai pašalintas.
-          edit:
-            title: Redaguoti įrašą
-            update: Atnaujinti įrašą
-          index:
-            title: Projekto laiko juostos įrašai
-          new:
-            create: Sukurti įrašą
-            title: Naujas įrašas
-          update:
-            invalid: Atnaujinant šį įrašą iškilo problema.
-            success: Įrašas sėkmingai atnaujintas.
       admin_log:
         result:
           create: "%{user_name} sukūrė rezultatą %{resource_name} erdvėje %{space_name}"
@@ -118,10 +96,6 @@ lt:
           create: "%{user_name} sukūrė %{resource_name} būseną"
           delete: "%{user_name} pašalino %{resource_name} būseną"
           update: "%{user_name} atnaujino %{resource_name} būseną"
-        timeline_entry:
-          create: "%{user_name} sukūrė %{resource_name} laiko juostos įrašą"
-          delete: "%{user_name} pašalino %{resource_name} laiko juostos įrašą"
-          update: "%{user_name} atnaujino %{resource_name} laiko juostos įrašą"
         value_types:
           parent_presenter:
             not_found: 'Motininis elementas duomenų bazėje nerastas (ID: %{id})'
@@ -162,10 +136,6 @@ lt:
             key: Raktas
             name: Pavadinimas
             progress: Progresas
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Pavadinimas
       results:
         count:
           results_count:
@@ -181,8 +151,6 @@ lt:
         show:
           stats:
             back_to_resource: Grįžti į rezultatą
-        timeline:
-          title: Projekto raida
     admin:
       filters:
         results:
