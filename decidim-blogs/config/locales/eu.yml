@@ -54,7 +54,7 @@ eu:
           create: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
           restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} helbide elektronikoa hemen: %{space_name}"
-          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} helbide elektronikoa zaborrontzira eraman du"
+          soft_delete: "%{user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} helbide elektronikoa zaborrontzira eraman du"
           update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
