@@ -21,7 +21,6 @@
         progress: Framgang
       timeline_entry:
         description: Beskrivelse
-        entry_date: Dato
         title: Tittel
     models:
       decidim/accountability/proposal_linked_event: Forslag inkludert i et resultat
@@ -132,7 +131,6 @@
             progress: Framgang
         timeline_entry:
           fields:
-            entry_date: Dato
             title: Tittel
       results:
         count:
