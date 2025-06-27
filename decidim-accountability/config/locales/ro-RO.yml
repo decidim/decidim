@@ -17,10 +17,6 @@ ro:
         key: Cheie
         name: Nume
         progress: Progres
-      timeline_entry:
-        description: Descriere
-        entry_date: Data
-        title: Titlu
     models:
       decidim/accountability/proposal_linked_event: Propunere inclusă în rezultat
       decidim/accountability/result_progress_updated_event: Progresul rezultatului a fost actualizat
@@ -41,9 +37,7 @@ ro:
         import_csv: Importați rezultate dintr-un fișier CSV
         new_result: Rezultat nou
         new_status: Stare nouă
-        new_timeline_entry: Intrare nouă de cronologie
         preview: Previzualizare
-        timeline_entries: Evoluția proiectului
         title: Acțiuni
       admin:
         exports:
@@ -97,23 +91,6 @@ ro:
           update:
             invalid: A apărut o eroare la actualizarea acestei stări.
             success: Starea a fost actualizată.
-        timeline_entries:
-          create:
-            invalid: A apărut o eroare la crearea acestei înregistrări.
-            success: Intrarea de cronologie a fost creată.
-          destroy:
-            success: Intrarea de cronologie a fost ștearsă.
-          edit:
-            title: Editați înregistrarea
-            update: Actualizați înregistrarea
-          index:
-            title: Înregistrări în calendarul proiectului
-          new:
-            create: Creați înregistrare
-            title: Înregistrare nouă
-          update:
-            invalid: A apărut o eroare la actualizarea acestei înregistrări.
-            success: Intrarea de cronologie a fost actualizată.
       admin_log:
         result:
           create: "%{user_name} a creat rezultatul %{resource_name} în %{space_name}"
@@ -123,10 +100,6 @@ ro:
           create: "%{user_name} a creat starea resursei %{resource_name}"
           delete: "%{user_name} a șters starea resursei %{resource_name}"
           update: "%{user_name} a actualizat starea %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} a creat intrarea de cronologie pentru %{resource_name}"
-          delete: "%{user_name} a șters intrarea de cronologie pentru %{resource_name}"
-          update: "%{user_name} a actualizat intrarea de cronologie pentru %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
@@ -165,10 +138,6 @@ ro:
             key: Cheie
             name: Nume
             progress: Progres
-        timeline_entry:
-          fields:
-            entry_date: Dată
-            title: Titlu
       results:
         count:
           results_count:
@@ -185,8 +154,6 @@ ro:
         show:
           stats:
             back_to_resource: Înapoi la rezultat
-        timeline:
-          title: Evoluția proiectului
     admin:
       filters:
         results:
