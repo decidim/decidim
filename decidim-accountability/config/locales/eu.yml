@@ -17,10 +17,6 @@ eu:
         key: Gakoa
         name: Izena
         progress: Aurrerapena
-      timeline_entry:
-        description: Deskribapena
-        entry_date: Data
-        title: Izenburua
     models:
       decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
@@ -51,9 +47,7 @@ eu:
         import_csv: Inportatu emaitzak CSV fitxategitik
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
-        new_timeline_entry: Beste denbora-sarrera bat
         preview: Aurreikusi
-        timeline_entries: Proiektuaren bilakaera
         title: Ekintzak
         view_deleted_results: Ikusi ezabatutako emaitzak
       admin:
@@ -182,23 +176,6 @@ eu:
           update:
             invalid: Arazoren bat gertatu da egoera hau sortzean.
             success: Egoera ondo eguneratu da.
-        timeline_entries:
-          create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
-            success: Sarrera ondo sortu da.
-          destroy:
-            success: Sarrera ondo ezabatu da.
-          edit:
-            title: Editatu sarrera
-            update: Eguneratu sarrera
-          index:
-            title: Proiektuaren bilakaera
-          new:
-            create: Sortu sarrera
-            title: Beste sarrera bat
-          update:
-            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
-            success: Sarrera ondo sortu da.
       admin_log:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
@@ -210,10 +187,6 @@ eu:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
           delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
-        timeline_entry:
-          create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
-          delete: "%{user_name} parte-hartzaileak %{resource_name} sarrera ezabatu du kronologiatik"
-          update: "%{user_name} parte-hartzaileak %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
             not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
@@ -262,10 +235,6 @@ eu:
             key: Gakoa
             name: Izena
             progress: Aurrerapena
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Izenburua
       results:
         count:
           results_count:
@@ -281,8 +250,6 @@ eu:
         show:
           stats:
             back_to_resource: Itzuli emaitzetara
-        timeline:
-          title: Proiektuaren bilakaera
     admin:
       filters:
         results:
