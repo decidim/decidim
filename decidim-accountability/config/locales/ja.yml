@@ -17,10 +17,6 @@ ja:
         key: キー
         name: 名前
         progress: 進捗状況
-      timeline_entry:
-        description: 説明
-        entry_date: 日付
-        title: タイトル
     models:
       decidim/accountability/proposal_linked_event: 結果に提案を含めます
       decidim/accountability/result_progress_updated_event: 結果の進捗状況が更新されました
@@ -50,9 +46,7 @@ ja:
         import_csv: CSVファイルから結果をインポート
         new_result: 新しい結果
         new_status: 新しいステータス
-        new_timeline_entry: 新しいタイムラインのエントリ
         preview: プレビュー
-        timeline_entries: プロジェクトの進化
         title: アクション
         view_deleted_results: 削除された結果を表示
       admin:
@@ -178,23 +172,6 @@ ja:
           update:
             invalid: ステータスの更新中に問題が発生しました。
             success: ステータスが正常に更新されました。
-        timeline_entries:
-          create:
-            invalid: エントリの作成中に問題が発生しました。
-            success: エントリが正常に作成されました。
-          destroy:
-            success: エントリを削除しました。
-          edit:
-            title: エントリを編集
-            update: エントリを更新
-          index:
-            title: プロジェクトのタイムライン項目
-          new:
-            create: エントリを作成
-            title: 新しいエントリ
-          update:
-            invalid: エントリの更新中に問題が発生しました。
-            success: エントリを更新しました。
       admin_log:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
@@ -206,10 +183,6 @@ ja:
           create: "%{user_name} が %{resource_name} ステータスを作成しました"
           delete: "%{user_name} が %{resource_name} ステータスを削除しました"
           update: "%{user_name} が %{resource_name} ステータスを更新しました"
-        timeline_entry:
-          create: "%{user_name} が %{resource_name} タイムラインエントリを作成しました"
-          delete: "%{user_name} が %{resource_name} タイムラインエントリを削除しました"
-          update: "%{user_name} が %{resource_name} タイムラインエントリを更新しました"
         value_types:
           parent_presenter:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
@@ -256,10 +229,6 @@ ja:
             key: キー
             name: 名前
             progress: 進捗状況
-        timeline_entry:
-          fields:
-            entry_date: 日付
-            title: タイトル
       results:
         count:
           results_count:
@@ -274,8 +243,6 @@ ja:
         show:
           stats:
             back_to_resource: 結果に戻る
-        timeline:
-          title: プロジェクトの進化
     admin:
       filters:
         results:
