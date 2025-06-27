@@ -17,10 +17,6 @@ pl:
         key: Klucz
         name: Nazwa
         progress: Postęp
-      timeline_entry:
-        description: Opis
-        entry_date: Data
-        title: Tytuł
     models:
       decidim/accountability/proposal_linked_event: Propozycja zawarta w wyniku
       decidim/accountability/result_progress_updated_event: Aktualizacja postępu wyników
@@ -42,9 +38,7 @@ pl:
         import_csv: Importuj wyniki z pliku CSV
         new_result: Nowy wynik
         new_status: Nowy status
-        new_timeline_entry: Nowy wpis na osi czasu
         preview: Podgląd
-        timeline_entries: Rozwój projektu
         title: Działania
       admin:
         exports:
@@ -99,23 +93,6 @@ pl:
           update:
             invalid: Wystąpił problem podczas aktualizacji tego statusu.
             success: Status został zaktualizowany.
-        timeline_entries:
-          create:
-            invalid: Podczas tworzenia tego wpisu wystąpił problem.
-            success: Wpis został utworzony.
-          destroy:
-            success: Wpis został usunięty.
-          edit:
-            title: Edytuj wpis
-            update: Aktualizuj wpis
-          index:
-            title: Wpisy na osi czasu projektów
-          new:
-            create: Utwórz wpis
-            title: Nowy wpis
-          update:
-            invalid: Podczas aktualizowania tego wpisu wystąpił błąd.
-            success: Wpis został zaktualizowany.
       admin_log:
         result:
           create: "%{user_name} utworzył(a) wynik %{resource_name} w %{space_name}"
@@ -125,10 +102,6 @@ pl:
           create: "%{user_name} utworzył status %{resource_name}"
           delete: "%{user_name} usunął %{resource_name} status"
           update: "%{user_name} zaktualizował %{resource_name} status"
-        timeline_entry:
-          create: "%{user_name} utworzył wpis linii czasu %{resource_name}"
-          delete: "%{user_name} usunął wpis linii czasu %{resource_name}"
-          update: "%{user_name} zaktualizował wpis linii czasu %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
@@ -169,10 +142,6 @@ pl:
             key: Klucz
             name: Nazwa
             progress: Postęp
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Tytuł
       results:
         count:
           results_count:
@@ -188,8 +157,6 @@ pl:
         show:
           stats:
             back_to_resource: Wróć do wyniku
-        timeline:
-          title: Rozwój projektu
     admin:
       filters:
         results:
