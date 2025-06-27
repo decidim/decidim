@@ -78,15 +78,11 @@
   }
 
   &__card__highlight-vote {
-    @apply justify-center flex flex-col w-full md:w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+    @apply justify-center flex w-full xl:w-2/5 items-center bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
   }
 
   &__card__highlight-vote__header {
-    @apply place-items-start pb-2;
-  }
-
-  &__card__highlight-vote__text {
-    @apply block text-sm text-gray-2 font-normal;
+    @apply place-items-start w-1/3;
   }
 
   &__card__highlight-vote__number {
@@ -94,7 +90,7 @@
   }
 
   &__card__highlight-vote__button {
-    @apply mt-auto text-left mt-2;
+    @apply mt-auto text-left;
 
     &.button__secondary:hover {
       @apply text-white #{!important};
