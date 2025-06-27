@@ -1,6 +1,10 @@
 ca-IT:
   activemodel:
     attributes:
+      milestone:
+        description: Descripció
+        entry_date: Data
+        title: Títol
       result:
         decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
@@ -17,10 +21,6 @@ ca-IT:
         key: Clau
         name: Nom
         progress: Progrés
-      timeline_entry:
-        description: Descripció
-        entry_date: Data
-        title: Títol
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
@@ -49,11 +49,11 @@ ca-IT:
         edit: Editar
         import: Importar resultats des d'un altre component
         import_csv: Importar resultats des d'un fitxer CSV
+        milestones: Fites
+        new_milestone: Nova fita
         new_result: Afegir resultat
         new_status: Afegir estat
-        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
-        timeline_entries: Evolució del projecte
         title: Accions
         view_deleted_results: Veure els resultats eliminats
       admin:
@@ -112,6 +112,23 @@ ca-IT:
           create:
             invalid: Hi ha hagut un problema important els resultats.
             success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
+        milestones:
+          create:
+            invalid: S'ha produït un error en crear aquesta fita.
+            success: Fita creada amb èxit.
+          destroy:
+            success: Fita eliminada amb èxit.
+          edit:
+            title: Editar la fita
+            update: Actualitzar la fita
+          index:
+            title: Fites
+          new:
+            create: Crea una fita
+            title: Nova fita
+          update:
+            invalid: S'ha produït un problema en actualitzar aquesta fita.
+            success: Fita actualitzada amb èxit.
         models:
           result:
             name: Resultat
@@ -183,24 +200,11 @@ ca-IT:
           update:
             invalid: S'ha produït un error en actualitzar aquest estat.
             success: Estat actualitzat correctament.
-        timeline_entries:
-          create:
-            invalid: S'ha produït un error en crear aquesta entrada.
-            success: Entrada creada correctament.
-          destroy:
-            success: Entrada eliminada correctament.
-          edit:
-            title: Editar element
-            update: Actualitzar element
-          index:
-            title: Evolució del projecte
-          new:
-            create: Crear element
-            title: Nou element
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta entrada.
-            success: Entrada actualitzada correctament.
       admin_log:
+        milestones:
+          create: "%{user_name} va crear la fita \"%{resource_name}\""
+          delete: "%{user_name} va esborrar la fita \"%{resource_name}\""
+          update: "%{user_name} va actualizar la fita \"%{resource_name}\""
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
@@ -211,10 +215,6 @@ ca-IT:
           create: "%{user_name} ha creat l'estat %{resource_name}"
           delete: "%{user_name} ha eliminat l'estat %{resource_name}"
           update: "%{user_name} ha actualitzat l'estat %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
-          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
-          update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
@@ -247,6 +247,10 @@ ca-IT:
       last_activity:
         new_result: 'Nou resultat:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Títol
         result:
           fields:
             created_at: Creat
@@ -263,10 +267,6 @@ ca-IT:
             key: Clau
             name: Nom
             progress: Progrés
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Títol
       results:
         count:
           results_count:
@@ -274,6 +274,8 @@ ca-IT:
             other: "%{count} resultats"
         home_header:
           global_status: Estat d'execució global
+        milestones:
+          title: Fites
         no_results: No hi ha projectes
         root_taxonomies:
           title: 'Visualitza per:'
@@ -282,8 +284,6 @@ ca-IT:
         show:
           stats:
             back_to_resource: Tornar al resultat
-        timeline:
-          title: Evolució del projecte
     admin:
       filters:
         results:
