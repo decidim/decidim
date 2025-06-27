@@ -17,10 +17,6 @@ de:
         key: Schlüssel
         name: Name
         progress: Fortschritt
-      timeline_entry:
-        description: Beschreibung
-        entry_date: Datum
-        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Vorschlag in einem Ergebnis enthalten
       decidim/accountability/result_progress_updated_event: Ergebnisfortschritt aktualisiert
@@ -51,9 +47,7 @@ de:
         import_csv: Ergebnisse aus CSV importieren
         new_result: Neues Ergebnis
         new_status: Neuer Status
-        new_timeline_entry: Neuer Zeitachseneintrag
         preview: Vorschau
-        timeline_entries: Projektentwicklung
         title: Aktionen
         view_deleted_results: Gelöschte Ergebnisse anzeigen
       admin:
@@ -182,23 +176,6 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten.
             success: Status erfolgreich aktualisiert.
-        timeline_entries:
-          create:
-            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten.
-            success: Der Eintrag wurde erfolgreich erstellt.
-          destroy:
-            success: Der Eintrag wurde erfolgreich gelöscht.
-          edit:
-            title: Eintrag bearbeiten
-            update: Eintrag aktualisieren
-          index:
-            title: Projektzeitplaneinträge
-          new:
-            create: Eintrag erstellen
-            title: Neuer Eintrag
-          update:
-            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten.
-            success: Eintrag erfolgreich aktualisiert.
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -210,10 +187,6 @@ de:
           create: "%{user_name} hat den Status %{resource_name} erstellt"
           delete: "%{user_name} hat den Status %{resource_name} gelöscht"
           update: "%{user_name} hat den Status %{resource_name} aktualisiert"
-        timeline_entry:
-          create: "%{user_name} hat den Zeiteintrag %{resource_name} erstellt"
-          delete: "%{user_name} hat den Zeiteintrag %{resource_name} gelöscht"
-          update: "%{user_name} hat den Zeiteintrag %{resource_name} aktualisiert"
         value_types:
           parent_presenter:
             not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
@@ -262,10 +235,6 @@ de:
             key: Schlüssel
             name: Name
             progress: Fortschritt
-        timeline_entry:
-          fields:
-            entry_date: Datum
-            title: Titel
       results:
         count:
           results_count:
@@ -281,8 +250,6 @@ de:
         show:
           stats:
             back_to_resource: Gehe zurück zum Ergebnis
-        timeline:
-          title: Projektentwicklung
     admin:
       filters:
         results:
