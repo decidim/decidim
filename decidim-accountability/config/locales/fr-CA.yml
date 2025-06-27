@@ -1,6 +1,10 @@
 fr-CA:
   activemodel:
     attributes:
+      milestone:
+        description: Description
+        entry_date: Date
+        title: Titre
       result:
         decidim_accountability_status_id: Progression
         decidim_category_id: Catégorie
@@ -17,10 +21,6 @@ fr-CA:
         key: Clé
         name: Nom
         progress: Avancement
-      timeline_entry:
-        description: Description
-        entry_date: Date
-        title: Titre
     models:
       decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
       decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
@@ -49,11 +49,11 @@ fr-CA:
         edit: Modifier
         import: Importer les résultats d'un autre composant
         import_csv: Importer les résultats depuis un fichier CSV
+        milestones: Jalons
+        new_milestone: Nouveau Jalon
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
-        new_timeline_entry: Nouvel élément de chronologie
         preview: Aperçu
-        timeline_entries: Évolution de la réalisation
         title: Actions
         view_deleted_results: Voir les résultats supprimés
       admin:
@@ -112,6 +112,23 @@ fr-CA:
           create:
             invalid: Un problème est survenu lors de l’importation des résultats.
             success: Importation du fichier en cours. Vous receverez un courriel dans les prochaines minutes avec le résultat de l'import.
+        milestones:
+          create:
+            invalid: Il y a eu un problème lors de la création de ce jalon.
+            success: Jalon créé avec succès.
+          destroy:
+            success: Jalon supprimé avec succès.
+          edit:
+            title: Modifier le jalon
+            update: Mettre à jour le jalon
+          index:
+            title: Jalons
+          new:
+            create: Créer un jalon
+            title: Nouveau jalon
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de ce jalon.
+            success: Jalon mis à jour avec succès.
         models:
           result:
             name: Réalisation
@@ -183,24 +200,11 @@ fr-CA:
           update:
             invalid: Un problème est survenu lors de la création de ce statut.
             success: Le statut a été mis à jour avec succès.
-        timeline_entries:
-          create:
-            invalid: Il y a eu un problème lors de la création de cet élément de chronologie.
-            success: L’élément de chronologie a été mis à jour avec succès.
-          destroy:
-            success: L'élément de chronologie a été supprimé avec succès.
-          edit:
-            title: Modifier l'élément de chronologie
-            update: Mise à jour de l'élément de chronologie
-          index:
-            title: Étapes-clés de la réalisation
-          new:
-            create: Créer un élément de chronologie
-            title: Nouvel élément de chronologie
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cet élément de chronologie.
-            success: L’élément de chronologie a été mis à jour avec succès.
       admin_log:
+        milestones:
+          create: "%{user_name} a créé le jalon %{resource_name}"
+          delete: "%{user_name} a supprimé le jalon %{resource_name}"
+          update: "%{user_name} a mis à jour le jalon %{resource_name}"
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
@@ -211,10 +215,6 @@ fr-CA:
           create: "%{user_name} a créé le statut %{resource_name}"
           delete: "%{user_name} a supprimé le statut %{resource_name}"
           update: "%{user_name} a mis à jour le statut %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} a créé l'étape d'évolution de la réalisation %{resource_name}"
-          delete: "%{user_name} a supprimé l'étape d'évolution de la réalisation %{resource_name}"
-          update: "%{user_name} a mis à jour l'étape d'évolution de la réalisation %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
@@ -247,6 +247,10 @@ fr-CA:
       last_activity:
         new_result: 'Nouvelle réalisation :'
       models:
+        milestone:
+          fields:
+            entry_date: Date
+            title: Titre
         result:
           fields:
             created_at: Créé le
@@ -263,10 +267,6 @@ fr-CA:
             key: Clé
             name: Nom
             progress: Avancement
-        timeline_entry:
-          fields:
-            entry_date: Date
-            title: Titre
       results:
         count:
           results_count:
@@ -274,6 +274,8 @@ fr-CA:
             other: "%{count} réalisations"
         home_header:
           global_status: État d'exécution global
+        milestones:
+          title: Jalons
         no_results: Il n'y a aucun projet.
         root_taxonomies:
           title: 'Visualiser par :'
@@ -282,8 +284,6 @@ fr-CA:
         show:
           stats:
             back_to_resource: Revenir à la réalisation
-        timeline:
-          title: Évolution du projet
     admin:
       filters:
         results:
