@@ -146,6 +146,16 @@ ca-IT:
         new:
           copy: Copia
           title: Duplicar trobada
+      tooltips:
+        cannot_close_meetings: No es pot tancar aquesta trobada en haver estat creada per una participant
+        cannot_duplicate_meetings: No es pot duplicar aquesta trobada en haver estat creada per una participant
+        cannot_edit_meetings: No es pot editar aquesta trobada en haver estat creada per una participant
+        cannot_manage_agenda_meetings: No es pot editar l'orde del dia d'aquesta trobada en haver estat creada per una participant
+        cannot_manage_attachments_meetings: No es poden gestionar els adjunts en aquesta trobada en haver estat creada per una participant
+        cannot_manage_poll_meetings: No es pot gestionar l'enquesta en aquesta trobada en haver estat creada per una participant
+        cannot_manage_registrations_meetings: No es poden administrar les inscripcions a aquesta trobada en haver estat creada per una participant. La trobada té les inscripcions desactivades o aquestes es fan a una altra plataforma.
+        cannot_mark_attendee: No es pot marcar com a assistent perquè ja estava marcat com a tal
+        deleted_meetings_info: No es pot eliminar aquesta trobada en haver estat creada per una participant.
     components:
       meetings:
         actions:
