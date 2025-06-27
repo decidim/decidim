@@ -19,7 +19,7 @@ sl:
         progress: Napredek
       timeline_entry:
         description: Opis
-        entry_date: Datum
+        title: Naslov
     models:
       decidim/accountability/proposal_linked_event: Predlog vključen v rezultat
       decidim/accountability/result_progress_updated_event: Posodobljen razvoj postavk
@@ -84,7 +84,7 @@ sl:
             progress: Napredek
         timeline_entry:
           fields:
-            entry_date: Datum
+            title: Naslov
       results:
         search:
           search: Išči dejanja
