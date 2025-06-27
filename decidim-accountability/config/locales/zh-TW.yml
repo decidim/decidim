@@ -16,10 +16,6 @@ zh-TW:
         key: 金鑰
         name: 名稱
         progress: 進度
-      timeline_entry:
-        description: 說明
-        entry_date: 日期
-        title: 標題
     models:
       decidim/accountability/proposal_linked_event: 在結果的建議
       decidim/accountability/result_progress_updated_event: 結果程序已更新
@@ -36,7 +32,6 @@ zh-TW:
         destroy: 刪除
         edit: 編輯
         preview: 預覽
-        timeline_entries: 專案評估
         title: 操作
       admin:
         exports:
@@ -89,23 +84,6 @@ zh-TW:
           update:
             invalid: 更新狀態時發生錯誤.
             success: 狀態成功更新.
-        timeline_entries:
-          create:
-            invalid: 建立資料時發生錯誤.
-            success: 資料成功建立.
-          destroy:
-            success: 資料成功刪除.
-          edit:
-            title: 編輯資料
-            update: 更新資料
-          index:
-            title: 專案時程資料
-          new:
-            create: 建立資料
-            title: 新資料
-          update:
-            invalid: 更新資料時發生錯誤.
-            success: 資料成功更新.
       admin_log:
         result:
           create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
@@ -115,10 +93,6 @@ zh-TW:
           create: "%{user_name} 建立了 %{resource_name} 狀態"
           delete: "%{user_name} 刪除了 %{resource_name} 狀態"
           update: "%{user_name} 更新了 %{resource_name} 狀態"
-        timeline_entry:
-          create: "%{user_name} 建立了 %{resource_name} 時間表資料"
-          delete: "%{user_name} 刪除了 %{resource_name} 時間表資料"
-          update: "%{user_name} 更新了 %{resource_name} 時間表資料"
         value_types:
           parent_presenter:
             not_found: '資料庫中找不到上一層 (ID: %{id})'
@@ -156,10 +130,6 @@ zh-TW:
             key: 金鑰
             name: 名稱
             progress: 進度
-        timeline_entry:
-          fields:
-            entry_date: 日期
-            title: 標題
       results:
         count:
           results_count:
@@ -171,8 +141,6 @@ zh-TW:
         show:
           stats:
             back_to_resource: 返回至結果
-        timeline:
-          title: 專案評估
     admin:
       filters:
         results:
