@@ -33,7 +33,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There are currently 2 people")
-        expect(page).to have_content("User preview (the list is limited to 2 entries")
+        expect(page).to have_content("User preview (the list is limited to 2 records")
         expect(page).to have_content("user1@example.org")
         expect(page).to have_content("user2@example.org")
       end
@@ -51,12 +51,12 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 1 entry")
+        expect(page).to have_content("User preview (the list is limited to 1 record")
       end
     end
 
     context "when the csv file has duplicate emails" do
-      it "shows an error about duplicate entries" do
+      it "shows an error about duplicate records" do
         select "Unregistered participants with tokens (fixed)", from: "census_manifest"
         expect(page).to have_content("Upload a CSV file")
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("census_duplicate_emails.csv")) # has 3 the same rows
@@ -67,7 +67,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 1 entry")
+        expect(page).to have_content("User preview (the list is limited to 1 record")
         expect(page).to have_content("user1@example.org")
       end
     end
@@ -96,7 +96,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There are currently 11 people eligible for voting in this election (this might change on a dynamic census).") # 1 admin + 10 users
-        expect(page).to have_content("User preview (the list is limited to 5 entries)")
+        expect(page).to have_content("User preview (the list is limited to 5 records)")
         expect(page).to have_css("table.table-list tbody tr", count: 5)
       end
     end
@@ -123,7 +123,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There are currently 3 people eligible for voting in this election (this might change on a dynamic census).")
-        expect(page).to have_content("User preview (the list is limited to 3 entries)")
+        expect(page).to have_content("User preview (the list is limited to 3 records)")
         expect(page).to have_css("table.table-list tbody tr", count: 3)
       end
 
@@ -147,7 +147,7 @@ describe "Admin manages election census" do
           visit election_census_path
 
           expect(page).to have_content("There is currently 1 person eligible for voting in this election (this might change on a dynamic census).")
-          expect(page).to have_content("User preview (the list is limited to 1 entry)")
+          expect(page).to have_content("User preview (the list is limited to 1 record)")
           expect(page).to have_css("table.table-list tbody tr", count: 1)
         end
       end
