@@ -1,6 +1,10 @@
 es:
   activemodel:
     attributes:
+      milestone:
+        description: Descripción
+        entry_date: Fecha
+        title: Título
       result:
         decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
@@ -45,6 +49,8 @@ es:
         edit: Editar
         import: Importar resultados desde otro componente
         import_csv: Importar resultados desde un archivo CSV
+        milestones: Hitos
+        new_milestone: Nuevo hito
         new_result: Nuevo resultado
         new_status: Nuevo estado
         preview: Previsualizar
@@ -106,6 +112,23 @@ es:
           create:
             invalid: Ha habido un problema importando los resultados.
             success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación.
+        milestones:
+          create:
+            invalid: Se ha producido un error al crear este hito.
+            success: Hito creado con éxito.
+          destroy:
+            success: Hito eliminado con éxito.
+          edit:
+            title: Editar el hito
+            update: Actualizar el hito
+          index:
+            title: Hitos
+          new:
+            create: Crear un hito
+            title: Nuevo hito
+          update:
+            invalid: Se ha producido un error al actualizar este hito.
+            success: Hito actualizado con éxito.
         models:
           result:
             name: Resultado
@@ -178,6 +201,10 @@ es:
             invalid: Se ha producido un error al actualizar este estado.
             success: Estado actualizado correctamente.
       admin_log:
+        milestones:
+          create: "%{user_name} creó el hito \"%{resource_name}\""
+          delete: "%{user_name} borró el hito \"%{resource_name}\""
+          update: "%{user_name} actualizó el hito \"%{resource_name}\""
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
           delete: "%{user_name} borró el resultado %{resource_name} en %{space_name}"
@@ -220,6 +247,10 @@ es:
       last_activity:
         new_result: 'Nuevo resultado:'
       models:
+        milestone:
+          fields:
+            entry_date: Fecha
+            title: Título
         result:
           fields:
             created_at: Creado
@@ -243,6 +274,8 @@ es:
             other: "%{count} resultados"
         home_header:
           global_status: Estado de ejecución global
+        milestones:
+          title: Hitos
         no_results: No hay proyectos
         root_taxonomies:
           title: 'Visualizar por:'
