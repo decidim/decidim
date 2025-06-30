@@ -17,6 +17,8 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Searchable
       include Decidim::Reportable
+      include Decidim::FilterableResource
+      include Decidim::Randomable
 
       delegate :scheduled?, :ongoing?, :vote_ended?, :ready_to_publish_results?, :results_published?, :current_status, :localized_status, to: :status
 
@@ -24,6 +26,11 @@ module Decidim
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
       has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      # has_many :votes,
+      #          foreign_key: "decidim_election_id",
+      #          class_name: "Decidim::Elections::ElectionVote",
+      #          dependent: :destroy,
+      #          counter_cache: "election_votes_count"
 
       component_manifest_name "elections"
 
@@ -115,6 +122,28 @@ module Decidim
         return false if index.nil?
 
         true
+      end
+
+      def election_votes_count
+        model.proposal_votes_count || 0
+      end
+
+      scope_search_multi :with_any_state, [:ongoing, :ended, :results_published, :scheduled]
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state]
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(questions response_options)
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(search_text title description)
       end
     end
   end

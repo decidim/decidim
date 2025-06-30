@@ -1,0 +1,13 @@
+<% if elections.empty? %>
+  <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
+<% else %>
+  <h2 class="h5 md:h3 decorator" aria-live="polite" aria-atomic="true"><%= t("elections_count", scope: "decidim.elections.elections.count", count: paginated_elections.total_count) %></h2>
+
+  <%= order_selector available_orders, i18n_scope: "decidim.elections.elections.orders" %>
+
+  <div class="card__list-list">
+    <%= render paginated_elections %>
+  </div>
+
+  <%= decidim_paginate paginated_elections %>
+<% end %>

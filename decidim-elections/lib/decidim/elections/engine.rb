@@ -13,6 +13,11 @@ module Decidim
         get "/", to: redirect("/elections", status: 301)
       end
 
+      initializer "decidim_elections.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
+      end
+
       initializer "decidim.elections.default_censuses" do |_app|
         Decidim::Elections.census_registry.register(:token_csv) do |manifest|
           manifest.admin_form = "Decidim::Elections::Admin::Censuses::TokenCsvForm"

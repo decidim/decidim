@@ -5,8 +5,11 @@ module Decidim
     class ElectionsController < ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::AttachmentsHelper
+      include FilterResource
+      include Decidim::Elections::Orderable
+      include Paginable
 
-      helper_method :elections, :election, :tab_panel_items, :questions
+      helper_method :elections, :election, :tab_panel_items, :questions, :paginated_elections
 
       def index
         # enforce_permission_to :read, :election
@@ -19,19 +22,34 @@ module Decidim
       private
 
       def elections
-        @elections ||= Election.where(component: current_component)
-      end
-
-      def election
-        @election ||= elections.find_by(id: params[:id]) if params[:id].present?
+        @elections ||= reorder(search.result)
       end
 
       def questions
         @questions ||= election.questions if election
       end
 
+      def election
+        @election ||= elections.find_by(id: params[:id])
+      end
+
+      def search_collection
+        Election.where(component: current_component).not_hidden
+      end
+
       def tab_panel_items
         @tab_panel_items ||= attachments_tab_panel_items(@election)
+      end
+
+      def paginated_elections
+        @paginated_elections ||= paginate(elections)
+      end
+
+      def default_filter_params
+        {
+          search_text_cont: "",
+          with_any_state: "all"
+        }
       end
     end
   end

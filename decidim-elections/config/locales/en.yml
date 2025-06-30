@@ -192,9 +192,35 @@ en:
               The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
               <br>There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
       elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
+        elections:
+          empty_filters: There are no elections matching your filters.
+        filters:
+          all: All
+          state: Status
+          state_values:
+            ended: Ended
+            ongoing: Ongoing
+            results_published: Results published
+            scheduled: Scheduled
+        orders:
+          end_at: Ended at
+          label: Order by
+          most_voted: Most voted
+          random: Random
+          recent: Recent
+          start_at: Started at
+          updated: Updated
         questions:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions
+        show:
+          ended: Ended
+          not_started: Not started
+          ongoing: Ongoing
         vote_statistics:
           subtitle: Voting results
           title: Vote statistics
