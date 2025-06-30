@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
 
       delegate :highlighted, to: :current_workflow
+      delegate :voting_finished?, to: :controller
 
       property :title, :description, :total_budget
       alias budget model
@@ -69,7 +70,11 @@ module Decidim
       end
 
       def button_text
-        key = if current_workflow.vote_allowed?(budget) && !voted?
+        key = if voting_disabled?
+                :see_projects
+              elsif voting_finished?
+                :see_results
+              elsif voting_allowed? && !voted?
                 progress? ? :progress : :vote
               else
                 :show
@@ -90,6 +95,14 @@ module Decidim
 
       def component
         @component ||= controller.try(:current_component) || budget.component
+      end
+
+      def voting_disabled?
+        current_settings.votes == "disabled"
+      end
+
+      def voting_allowed?
+        current_workflow.vote_allowed?(budget)
       end
 
       def voting_context?

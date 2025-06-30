@@ -193,6 +193,8 @@ en:
           random: Random order
         progress: Finish voting
         remove_vote: Remove vote
+        see_projects: See projects
+        see_results: See results
         show: See projects
         vote: Vote
         voted_budgets: Voted budgets
