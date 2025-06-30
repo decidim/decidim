@@ -14,13 +14,12 @@ module Decidim
       private
 
       def card_class
-        ["card--list__item"].tap do |list|
-          unless voting_finished?
-            list << "card--list__data-added" if voted?
-            list << "card--list__data-progress" if progress?
-          end
-          list << "budget--highlighted" if highlighted?
-        end.join(" ")
+        css_classes = "card--list__item"
+        css_classes += " budget__card__list-budget--highlighted" if highlighted?
+        css_classes += " budget__card__list-budget--progress" if progress?
+        css_classes += " budget__card__list-budget--voted" if voted?
+
+        css_classes
       end
 
       def link_class

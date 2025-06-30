@@ -69,6 +69,18 @@
     }
   }
 
+  &__card__list-budget--highlighted {
+    @apply ring-warning;
+  }
+
+  &__card__list-budget--progress {
+    @apply ring-warning;
+  }
+
+  &__card__list-budget--voted {
+    @apply ring-success;
+  }
+
   &__card__list-project {
     @apply ml-auto rounded py-3 px-4 bg-background w-[30%] min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:place-items-center;
   }
