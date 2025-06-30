@@ -63,20 +63,8 @@
               </button>
             <% end %>
           </div>
-
-          <% unless @focus_mode %>
-            <div class="hidden md:block">
-              <%= render partial: "start_voting_button", locals: { button_classes: "button button__secondary button__lg" } %>
-            </div>
-          <% end %>
         </div>
       </section>
-
-      <% unless @focus_mode %>
-        <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white p-4 shadow-[0_-4px_6px_0_rgba(211,211,211,0.25)] z-10">
-          <%= render partial: "start_voting_button", locals: { button_classes: "button button__secondary button__lg w-full" } %>
-        </div>
-      <% end %>
     <% end %>
 
     <section id="projects" class="layout-main__section layout-main__heading budget__projects__container">

@@ -325,7 +325,6 @@ en:
         select_projects: Add projects
         show:
           budget: Budget
-        start_voting: Start voting
       prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:
