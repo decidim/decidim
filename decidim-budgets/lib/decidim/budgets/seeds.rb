@@ -37,6 +37,14 @@ module Decidim
             "<p>#{::Faker::Lorem.paragraph}</p>"
         end
 
+        step_settings = if participatory_space.allows_steps?
+                          { participatory_space.active_step.id => {
+                            votes: ["enabled", "disabled", "finished"].sample,
+                          } }
+                        else
+                          {}
+                        end
+
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
           manifest_name: :budgets,
@@ -47,7 +55,8 @@ module Decidim
             landing_page_content:,
             more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
             workflow: Decidim::Budgets.workflows.keys.sample
-          }
+          },
+          step_settings:
         }
 
         Decidim.traceability.perform_action!(
