@@ -22,7 +22,7 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description for this project", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this project", null: false
       field :related_proposals, [Decidim::Proposals::ProposalType, { null: true }], "The related proposals", null: true
-      field :selected, GraphQL::Types::Boolean, "Whether this proposal is selected or not", method: :selected?, null: true
+      field :selected, GraphQL::Types::Boolean, "Whether this project is selected or not", method: :selected?, null: true
       field :selected_at, Decidim::Core::DateTimeType, "The date when the project was selected", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this project", null: true
       field :url, String, "The URL for this project", null: false
