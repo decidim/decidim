@@ -2,7 +2,7 @@
   <span class="budget__card__list-project__amount">
     <%= budget_to_currency(project.budget_amount) %>
   </span>
-  <% unless hide_vote_button? %>
+  <% if voting_open? %>
     <%= cell("decidim/budgets/project_vote_button", project, show_only_added:) %>
   <% end %>
 </div>
