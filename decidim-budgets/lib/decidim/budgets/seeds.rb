@@ -72,19 +72,21 @@ module Decidim
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
-            total_budget: ::Faker::Number.number(digits: 8)
+            total_budget: ::Faker::Number.number(digits: 7)
           )
         end
       end
 
       def create_project!(budget:)
+        minimum_amount = Integer(budget.total_budget * 0.1)
+        maximum_amount = Integer(budget.total_budget * 0.5)
         params = {
           budget:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
+          budget_amount: ::Faker::Number.between(from: minimum_amount, to: maximum_amount)
         }
 
         if budget.component.settings.geocoding_enabled?
