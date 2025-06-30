@@ -72,7 +72,7 @@ module Decidim
       end
 
       def authorization_redirect_path
-        options[:authorization_redirect_path] || resource_path
+        budget_focus_projects_path(budget, start_voting: true)
       end
 
       def vote_button_label
