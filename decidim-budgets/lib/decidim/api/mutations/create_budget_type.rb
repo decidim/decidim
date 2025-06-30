@@ -9,14 +9,14 @@ module Decidim
       argument :attributes, BudgetAttributes, description: "input attributes to create a budget", required: true
 
       def resolve(attributes:)
-        form = Decidim::Budgets::Admin::BudgetForm.from_params(attributes.to_h)
-                                                  .with_context(
-                                                    current_component: object,
-                                                    current_organization: object.organization,
-                                                    current_user: context[:current_user]
-                                                  )
+        form = Admin::BudgetForm.from_params(attributes.to_h)
+                                .with_context(
+                                  current_component: object,
+                                  current_organization: object.organization,
+                                  current_user: context[:current_user]
+                                )
 
-        Decidim::Budgets::Admin::CreateBudget.call(form) do
+        Admin::CreateBudget.call(form) do
           on(:ok, resource) do
             return resource
           end

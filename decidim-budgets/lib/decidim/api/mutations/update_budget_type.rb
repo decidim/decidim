@@ -6,13 +6,10 @@ module Decidim
       description "Updates a budget"
       type Decidim::Budgets::BudgetType
 
-      argument :attributes, BudgetAttributes, description: "input attributes to create a budget", required: true
+      argument :attributes, BudgetAttributes, description: "input attributes to update a budget", required: true
       argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
 
       def resolve(attributes:, id:)
-        budget = Decidim::Budgets::Budget.find_by(id:, component: object)
-        return unless self.class.allowed_to?(:update, :budget, budget, context, scope: :admin)
-
         form_attrs = attributes.to_h.reverse_merge(
           weight: budget.weight,
           title: budget.title,
@@ -28,22 +25,25 @@ module Decidim
         )
 
         Decidim::Budgets::Admin::UpdateBudget.call(form, budget) do
-          on(:ok, resource) do
-            return resource
-          end
+          on(:ok, resource) { return resource }
 
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            return GraphQL::ExecutionError.new(form.errors.full_messages.join(", "))
           end
         end
       end
 
       def authorized?(attributes:, id:)
-        budget = Decidim::Budgets::Budget.find_by(id:, component: object)
+        super && allowed_to?(:update, :budget, budget(id), context, scope: :admin)
+      end
 
-        super && allowed_to?(:update, :budget, budget, context, scope: :admin)
+      private
+
+      def budget(id = nil)
+        context[:budget] ||= begin
+          id ||= arguments[:id]
+          Decidim::Budgets::Budget.find_by(id:, component: object)
+        end
       end
     end
   end
