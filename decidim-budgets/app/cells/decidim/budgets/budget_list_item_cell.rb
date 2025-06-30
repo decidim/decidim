@@ -61,7 +61,11 @@ module Decidim
        end
 
       def button_class
-        "hollow" if voted? || !highlighted?
+        css_classes = "button button__sm w-full budget__card__highlight-vote__button "
+        css_classes += voted? ? "button__transparent-secondary" : "button__secondary"
+        css_classes += " hollow" if voted? || !highlighted?
+
+        css_classes
       end
 
       def button_text

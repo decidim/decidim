@@ -34,7 +34,7 @@
       </div>
 
       <div class="w-2/3 px-4">
-        <%= button_tag class: "button button__sm w-full #{button_class} #{voted? ? "button__transparent-secondary" : "button__secondary"} budget__card__highlight-vote__button" do %>
+        <%= button_tag class: button_class do %>
           <span><%= button_text %></span>
           <%= icon "arrow-right-line" %>
         <% end %>
