@@ -10,6 +10,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::TranslatableResource
+      include Decidim::HasAttachments
 
       translatable_fields :body
 

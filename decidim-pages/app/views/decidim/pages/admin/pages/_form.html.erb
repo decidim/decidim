@@ -4,6 +4,24 @@
       <div class="row column">
         <%= form.translated :editor, :body, lines: 30, label: t("models.components.body", scope: "decidim.pages.admin") %>
       </div>
+      <div class="row column">
+        <legend><%= t(".attachment_legend") %></legend>
+        <%= form.attachment :documents,
+                            multiple: true,
+                            label: t("decidim.pages.form.add_documents"),
+                            button_label: t("decidim.pages.form.add_documents"),
+                            button_class: "button button__lg button__transparent-secondary w-full",
+                            button_edit_label: t("decidim.pages.form.edit_documents"),
+                            help_text: t("decidim.pages.form.attachment_legend") %>
+
+        <%= form.attachment :photos,
+                            multiple: true,
+                            label: t("decidim.pages.form.add_image"),
+                            button_label: t("decidim.pages.form.add_image"),
+                            button_class: "button button__lg button__transparent-secondary w-full",
+                            button_edit_label: t("decidim.pages.form.edit_image"),
+                            help_text: t("decidim.pages.form.image_legend") %>
+      </div>
     </div>
   </div>
 </div>

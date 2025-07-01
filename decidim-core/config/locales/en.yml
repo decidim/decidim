@@ -1476,6 +1476,17 @@ en:
       explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.
       pad: Pad
     pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Optional) Add an attachment"
+      form:
+        add_documents: Add documents
+        add_image: Add image
+        attachment_legend: "(Optional) Add an attachment"
+        edit_documents: Edit documents
+        edit_image: Edit image
+        image_legend: "(Optional) Add an image"
       home:
         extended:
           debates: Debates

@@ -1468,6 +1468,17 @@ es:
       explanation: Usa este bloc para tomar notas de manera colaborativa durante el encuentro, para que sea más fácil escribir el acta después.
       pad: Pad
     pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Opcional) Añadir un archivo adjunto"
+      form:
+        add_documents: Añadir documentos
+        add_image: Añadir imagen
+        attachment_legend: "(Opcional) Agregar un archivo adjunto"
+        edit_documents: Editar documentos
+        edit_image: Editar imagen
+        image_legend: "(Opcional) Añadir una imagen"
       home:
         extended:
           debates: Debates
