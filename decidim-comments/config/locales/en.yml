@@ -125,6 +125,9 @@ en:
         top_comment_label: Most upvoted
       down_vote_button:
         text: I disagree with this comment
+        label:
+          one: "%{count} dislike"
+          other: "%{count} dislikes"
       edit_comment_modal_form:
         close: Close
         form:
@@ -135,6 +138,9 @@ en:
         title: Edit your comment
       up_vote_button:
         text: I agree with this comment
+        label:
+          one: "%{count} like"
+          other: "%{count} likes"
     download_your_data:
       help:
         comment_votes:

@@ -1,22 +1,22 @@
 <div class="comment__votes">
   <% if user_signed_in? %>
-    <%= vote_button_to decidim_comments.comment_votes_path(model, weight: 1), remote: true, disabled: voted_down?, class: votes_up_classes, title: t("decidim.components.up_vote_button.text") do %>
+    <%= vote_button_to decidim_comments.comment_votes_path(model, weight: 1), remote: true, disabled: voted_down?, class: votes_up_classes, title: t("decidim.components.up_vote_button.text"), "aria-label": "Like button. " + t("decidim.components.up_vote_button.label", count: up_votes_count) do %>
       <%= icon "thumb-up-line" %>
       <%= icon "thumb-up-fill" %>
       <span><%= up_votes_count %></span>
     <% end %>
-    <%= vote_button_to decidim_comments.comment_votes_path(model, weight: -1), remote: true, disabled: voted_up?, class: votes_down_classes, title: t("decidim.components.down_vote_button.text") do %>
+    <%= vote_button_to decidim_comments.comment_votes_path(model, weight: -1), remote: true, disabled: voted_up?, class: votes_down_classes, title: t("decidim.components.down_vote_button.text"), "aria-label": "Dislike button. " + t("decidim.components.down_vote_button.label", count: down_votes_count) do %>
       <%= icon "thumb-down-line" %>
       <%= icon "thumb-down-fill" %>
       <span><%= down_votes_count %></span>
     <% end %>
   <% else %>
-    <button class="<%= votes_up_classes %> " title="<%= t("decidim.components.up_vote_button.text") %>" data-dialog-open="loginModal">
+    <button class="<%= votes_up_classes %> " title="<%= t("decidim.components.up_vote_button.text") %>" data-dialog-open="loginModal" aria-label="Like button. <%= t("decidim.components.up_vote_button.label", count: up_votes_count) %>">
       <%= icon "thumb-up-line", class: "fill-secondary" %>
       <%= icon "thumb-up-fill", class: "fill-secondary" %>
       <span><%= up_votes_count %></span>
     </button>
-    <button class="<%= votes_down_classes %> " title="<%= t("decidim.components.down_vote_button.text") %>" data-dialog-open="loginModal">
+    <button class="<%= votes_down_classes %> " title="<%= t("decidim.components.down_vote_button.text") %>" data-dialog-open="loginModal" aria-label="Dislike button. <%= t("decidim.components.down_vote_button.label", count: down_votes_count) %>">
       <%= icon "thumb-down-line", class: "fill-secondary" %>
       <%= icon "thumb-down-fill", class: "fill-secondary" %>
       <span><%= down_votes_count %></span>
