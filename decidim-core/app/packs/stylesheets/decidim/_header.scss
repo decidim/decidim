@@ -443,6 +443,14 @@ header {
 
       &__bottom {
         @apply hidden md:flex;
+
+        &-right {
+          @apply mr-2 mb-2;
+        }
+
+        &-left {
+          @apply mr-2 mt-1;
+        }
       }
 
       &__title {
