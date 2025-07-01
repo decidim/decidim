@@ -74,25 +74,22 @@ module Decidim
           let!(:follower) { create(:user, organization: initiative.organization) }
           let!(:follow) { create(:follow, followable: initiative, user: follower) }
 
+          let(:command) { described_class.new(form) }
+
           before do
             create(:initiative_user_vote, initiative:)
             create(:initiative_user_vote, initiative:)
           end
 
           it "notifies the followers" do
-            expect(Decidim::EventsManager).to receive(:publish)
-              .with(kind_of(Hash))
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.initiatives.milestone_completed",
-                event_class: Decidim::Initiatives::MilestoneCompletedEvent,
-                resource: initiative,
-                affected_users: [initiative.author],
-                followers: [follower],
-                extra: { percentage: 75 }
-              )
+            expect(Decidim::EventsManager).to receive(:publish).with(
+              event: "decidim.events.initiatives.milestone_completed",
+              event_class: Decidim::Initiatives::MilestoneCompletedEvent,
+              resource: initiative,
+              affected_users: [initiative.author],
+              followers: [follower],
+              extra: { percentage: 75 }
+            )
 
             command.call
           end
