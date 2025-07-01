@@ -1,7 +1,7 @@
 <% if available_locales.length > 1 %>
     <div>
         <button id="dropdown-trigger-language-chooser-mobile" data-component="dropdown" data-target="dropdown-menu-language-chooser-mobile" class="mt-8 rounded-lg py-0 bg-gray-5 h-10 border border-gray outline outline-1 outline-transparent">
-            <span><%= t("name", scope: "locale" ) %></span>
+            <span class="ml-2"><%= t("name", scope: "locale" ) %></span>
             <%= icon "arrow-down-s-line" %>
             <%= icon "arrow-up-s-line" %>
             <span class="sr-only">
