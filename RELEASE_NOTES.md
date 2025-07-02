@@ -275,7 +275,16 @@ In the process to extract the old initiatives vote form to a base handler a new 
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Clean deleted user left behind data `bin/rails decidim:upgrade:remove_deleted_users_left_data` task
+
+When a user deletes their account and the Decidim::DestroyAccount command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+```ruby
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+```
+
+You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
