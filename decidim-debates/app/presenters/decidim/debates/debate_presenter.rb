@@ -23,7 +23,7 @@ module Decidim
                     end
       end
 
-      def title(links: nil, all_locales: false, html_escape: false)
+      def title(links: nil, html_escape: false, all_locales: false)
         return unless debate
 
         raise "Links have been set" unless links.nil?
