@@ -281,11 +281,11 @@ class MySMSGatewayService
 end
 ....
 
-Then you will need to configure it in the Decidim initializer:
+Then you will need to configure it with the help of Environment Variables:
 
-[source,ruby]
+[source,bash]
 ....
-  config.sms_gateway_service = "MySMSGatewayService"
+export DECIDIM_SMS_GATEWAY_SERVICE="MySMSGatewayService"
 ....
 
 == Timestamp service configuration
@@ -313,11 +313,11 @@ class MyTimestampService
 end
 ....
 
-Then you will need to configure it in the Decidim initializer:
+Then you will need to configure it with the help of Environment Variables:
 
-[source,ruby]
+[source,bash]
 ....
-  config.timestamp_service = "MyTimestampService"
+export DECIDIM_TIMESTAMP_SERVICE="MyTimestampService"
 ....
 
 == PDF signature service
@@ -344,8 +344,13 @@ An example class would be something like:
       # Code to return the pdf signed
     end
   end
+....
 
-  config.pdf_signature_service = "MyPDFSignatureService"
+Then you will need to configure it with the help of Environment Variables:
+
+[source,bash]
+....
+export DECIDIM_PDF_SIGNATURE_SERVICE="PdfSignatureExample"
 ....
 
 ==  Etherpad configuration
@@ -367,29 +372,30 @@ xref:services:etherpad.adoc[Etherpad's Decidim docs] in order to set it up.
 
 To enable machine translations you need to enable the service and specify the class used for translation (this usually is the one contacting an external API from a 3d party service that actually translates the string).
 
-[source,ruby]
+[source,bash]
 ....
-  config.enable_machine_translations = false
-  config.machine_translation_service = "MyTranslationService"
+export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslationService"
 ....
-
 An example class would be something like:
 
 [source,ruby]
 ....
-  class MyTranslationService
-    attr_reader :text, :original_locale, :target_locale
+class MyTranslationService
+  attr_reader :text, :source_locale, :target_locale, :resource, :field_name
 
-    def initialize(text, original_locale, target_locale)
-      @text = text
-      @original_locale = original_locale
-      @target_locale = target_locale
-    end
-
-    def translate
-      Actual code to translate the text
-    end
+  def initialize(resource, field_name, text, target_locale, source_locale)
+    @resource = resource
+    @field_name = field_name
+    @text = text
+    @target_locale = target_locale
+    @source_locale = source_locale
   end
+
+  def translate
+    # Actual code to translate the text
+  end
+end
 ....
 
 See xref:develop:machine_translations.adoc[Machine Translations] for more information about how it works and how to set it up.

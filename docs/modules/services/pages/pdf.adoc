@@ -1,19 +1,22 @@
-= PDF Signing
+= PDF signature service
 
-Sometimes, you may want to validate that a certain document a legitimate, therefore you may want to enable the PDF signing service.
+Used by `decidim-initiatives` and `decidim-budgets`.
 
+Provide a class to process a pdf and return the document including a digital signature. The instances of this class are initialized with a hash containing the :pdf key with the pdf file content as value. The instances respond to a signed_pdf method containing the pdf with the signature.
+
+An example class would be something like:
+
+[source,ruby]
 ....
-class PdfSignatureExample
+class MyPDFSignatureService
   attr_accessor :pdf
 
-  # Public: Initializes the service.
-  # pdf - The pdf document to be signed
   def initialize(args = {})
     @pdf = args.fetch(:pdf)
   end
 
   def signed_pdf
-    # The actual code that signs the PDF
+    # Code to return the pdf signed
   end
 end
 ....

@@ -1,8 +1,7 @@
-= SMS
+= SMS gateway configuration
 
-If you want to verify your users by sending a verification code via SMS you need to provide a SMS gateway service class through the xref:configure:environment_variables.adoc[Environment Variables].
-
-This service can also be used by some spaces, and external modules could use it too.
+If you want to verify your users by sending a verification code via
+xref:services:sms.adoc[SMS] you need to provide a SMS gateway service class.
 
 An example class would be something like:
 

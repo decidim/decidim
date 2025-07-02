@@ -1,16 +1,10 @@
 = Machine Translations
 
-If you want your application to automatically translate the user generated content, you will need to enable the Machine Translations system.
-
-This service will automatically be used by all the Decidim functionalities that support translations.
-
-An example of translator class could be:
+To enable machine translations you need to enable the service and specify the class used for translation (this usually is the one contacting an external API from a 3d party service that actually translates the string).
 
 [source,ruby]
 ....
-# frozen_string_literal: true
-
-class MyTranslator
+class MyTranslationService
   attr_reader :text, :source_locale, :target_locale, :resource, :field_name
 
   def initialize(resource, field_name, text, target_locale, source_locale)
@@ -22,14 +16,7 @@ class MyTranslator
   end
 
   def translate
-    translated_text = # add your mechanism to translate the text
-
-    MachineTranslationSaveJob.perform_later(
-      resource,
-      field_name,
-      target_locale,
-      translated_text
-    )
+    # Actual code to translate the text
   end
 end
 ....
