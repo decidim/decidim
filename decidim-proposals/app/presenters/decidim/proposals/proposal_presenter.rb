@@ -42,8 +42,8 @@ module Decidim
         super(proposal.title, html_escape, all_locales)
       end
 
-      def id_and_title(links: false, html_escape: false)
-        "##{proposal.id} - #{title(links:, html_escape:)}"
+      def id_and_title(html_escape: false)
+        "##{proposal.id} - #{title(html_escape:)}"
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)

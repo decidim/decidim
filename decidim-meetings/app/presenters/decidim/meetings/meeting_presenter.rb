@@ -22,7 +22,7 @@ module Decidim
 
       def taxonomy_names(html_escape: false, all_locales: false)
         meeting.taxonomies.map do |taxonomy|
-          super_title(taxonomy.name, false, html_escape, all_locales)
+          super_title(taxonomy.name, html_escape, all_locales)
         end
       end
 
