@@ -1,0 +1,51 @@
+= Machine Translations
+
+If you want your application to automatically translate the user generated content, you will need to enable the Machine Translations system.
+
+This service will automatically be used by all the Decidim functionalities that support translations.
+
+An example of translator class could be:
+
+[source,ruby]
+....
+# frozen_string_literal: true
+
+class MyTranslator
+  attr_reader :text, :source_locale, :target_locale, :resource, :field_name
+
+  def initialize(resource, field_name, text, target_locale, source_locale)
+    @resource = resource
+    @field_name = field_name
+    @text = text
+    @target_locale = target_locale
+    @source_locale = source_locale
+  end
+
+  def translate
+    translated_text = # add your mechanism to translate the text
+
+    MachineTranslationSaveJob.perform_later(
+      resource,
+      field_name,
+      target_locale,
+      translated_text
+    )
+  end
+end
+....
+
+The arguments provided for the initialize method are:
+
+- `resource` - The object of the resource that being translated (ex: a `Decidim::Meetings::Meeting` instance )
+- `field_name` - The name of the field that is being translated (ex: "title")
+- `text` - The text that is going to be translated (ex: "This meeting is great" )
+- `target_locale` - The language in which you want to translate ( ex: "ca" )
+- `source_locale` - The language in which the content has been created (ex: "en")
+
+Then you will need to configure it with the help of Environment Variables:
+
+[source,bash]
+....
+export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslator"
+....

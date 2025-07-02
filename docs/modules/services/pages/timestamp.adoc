@@ -1,0 +1,27 @@
+= Timestamp
+
+[source,ruby]
+....
+class MyTimestampService
+  attr_accessor :document
+
+  def initialize(args = {})
+    @document = args.fetch(:document)
+  end
+
+  def timestamp
+    # Actual code to add the timestamp
+  end
+end
+....
+
+The arguments provided for the initialize method are:
+
+- `document` - The document that needs to be timestamped
+
+Then you will need to configure it with the help of Environment Variables:
+
+[source,bash]
+....
+export DECIDIM_TIMESTAMP_SERVICE="MyTimestampService"
+....

@@ -664,7 +664,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |true
 |No
 
-
 |*DECIDIM_ENABLE_MACHINE_TRANSLATION*
 | Whether the Decidim attempt to automatically translate missing translations
 | false
@@ -672,22 +671,26 @@ Additional context: This has been revealed as an issue during a security audit o
 
 |*DECIDIM_MACHINE_TRANSLATION_SERVICE*
 | The name of the class to translate user content.
+Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
 | nil
 | No
 
 
 |*DECIDIM_SMS_GATEWAY_SERVICE*
 | The name of the class to deliver SMS codes to users.
+Read more about this at xref:services:sms.adoc[SMS] service page.
 | nil
 | No
 
 |*DECIDIM_TIMESTAMP_SERVICE*
 | The name of the class used to generate a timestamp from a document.
+Read more about this at xref:services:timestamp.adoc[Timestamp] service page.
 | nil
 | No
 
 |*DECIDIM_PDF_SIGNATURE_SERVICE*
 | The name of the class used to process a pdf and add a signature to the document.
+Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 | nil
 | No
 
