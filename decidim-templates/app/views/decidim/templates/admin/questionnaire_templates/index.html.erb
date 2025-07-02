@@ -17,26 +17,26 @@
             <th><%= t("questionnaire_template.fields.title", scope: "decidim.models") %></th>
             <th><%= t("questionnaire_template.fields.questions", scope: "decidim.models") %></th>
             <th><%= t("template.fields.created_at", scope: "decidim.models") %></th>
-            <th><%= t('decidim.admin.actions.actions') %></th>
+            <th><%= t("decidim.admin.actions.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% @templates.each do |template| %>
             <tr data-questionnaire_template-id="<%= template.id %>">
-              <td data-label="<%= t('template.name', scope: 'decidim.models') %>">
+              <td data-label="<%= t("template.name", scope: "decidim.models") %>">
                 <%= link_to translated_attribute(template.name), edit_questionnaire_template_path(template) %>
               </td>
-              <td data-label="<%= t('questionnaire_template.fields.title', scope: 'decidim.models') %>">
+              <td data-label="<%= t("questionnaire_template.fields.title", scope: "decidim.models") %>">
                 <%= link_to translated_attribute(template.templatable.title), edit_questionnaire_path(template) %>
               </td>
-              <td data-label="<%= t('questionnaire_template.fields.questions', scope: 'decidim.models') %>">
+              <td data-label="<%= t("questionnaire_template.fields.questions", scope: "decidim.models") %>">
                 <%= template.templatable.questions.count.to_i %>
               </td>
-              <td data-label="<%= t('template.fields.created_at', scope: 'decidim.models') %>">
+              <td data-label="<%= t("template.fields.created_at", scope: "decidim.models") %>">
                 <%= l template.created_at, format: :long %>
               </td>
-              <td data-label="<%= t('decidim.admin.actions.actions') %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-template-<%= template.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: template.name) %>">
+              <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+                <button type="button" data-component="dropdown" data-target="actions-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 

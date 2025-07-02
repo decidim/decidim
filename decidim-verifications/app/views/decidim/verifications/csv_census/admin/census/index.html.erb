@@ -24,13 +24,13 @@
         <tbody>
           <% csv_census_data.each do |data| %>
             <tr>
-              <td data-label="<%= t('index.fields.email', scope: 'decidim.verifications.csv_census.admin') %>">
+              <td data-label="<%= t("index.fields.email", scope: "decidim.verifications.csv_census.admin") %>">
                 <%= data.email %>
               </td>
-              <td data-label="<%= t('index.fields.created_at', scope: 'decidim.verifications.csv_census.admin') %>">
+              <td data-label="<%= t("index.fields.created_at", scope: "decidim.verifications.csv_census.admin") %>">
                 <%= l data.created_at, format: :decidim_short %>
               </td>
-              <td data-label="<%= t('index.fields.user_authorized', scope: 'decidim.verifications.csv_census.admin') %>" class="custom-text-align">
+              <td data-label="<%= t("index.fields.user_authorized", scope: "decidim.verifications.csv_census.admin") %>" class="custom-text-align">
                 <% last_login_info = last_login(data) || { icon: nil, text: t(".no_user"), last_sign_in: nil } %>
                 <% if last_login_info[:icon].present? %>
                   <%= icon_with_tooltip(last_login_info[:icon], last_login_info[:text]) %>
@@ -39,8 +39,8 @@
                 <% end %>
                 <%= last_login_info[:last_sign_in] %>
               </td>
-              <td data-label="<%= t('index.fields.actions', scope: 'decidim.verifications.csv_census.admin') %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-census-log-<%= data.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: data.id) %>">
+              <td data-label="<%= t("index.fields.actions", scope: "decidim.verifications.csv_census.admin") %>" class="table-list__actions">
+                <button type="button" data-component="dropdown" data-target="actions-census-log-<%= data.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: data.id) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 

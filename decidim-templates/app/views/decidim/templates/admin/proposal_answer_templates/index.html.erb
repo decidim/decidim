@@ -18,26 +18,26 @@
             <th><%= t(".proposal_state_id") %></th>
             <th><%= t(".component_constraint") %></th>
             <th><%= t("template.fields.created_at", scope: "decidim.models") %></th>
-            <th><%= t('decidim.admin.actions.actions') %></th>
+            <th><%= t("decidim.admin.actions.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% @templates.each do |template| %>
             <tr data-proposal_answer-id="<%= template.id %>">
-              <td data-label="<%= t('template.name', scope: 'decidim.models') %>">
+              <td data-label="<%= t("template.name", scope: "decidim.models") %>">
                 <%= link_to_if allowed_to?(:update, :template, template: template), translated_attribute(template.name), edit_proposal_answer_template_path(template) %>
               </td>
-              <td data-label="<%= t('.proposal_state_id') %>">
+              <td data-label="<%= t(".proposal_state_id") %>">
                 <%= proposal_state(template) %>
               </td>
-              <td data-label="<%= t('.component_constraint') %>">
+              <td data-label="<%= t(".component_constraint") %>">
                 <%= availability_option_as_text(template) %>
               </td>
-              <td data-label="<%= t('template.fields.created_at', scope: 'decidim.models') %>">
+              <td data-label="<%= t("template.fields.created_at", scope: "decidim.models") %>">
                 <%= l template.created_at, format: :long %>
               </td>
-              <td data-label="<%= t('decidim.admin.actions.actions') %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: template.name) %>">
+              <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+                <button type="button" data-component="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
