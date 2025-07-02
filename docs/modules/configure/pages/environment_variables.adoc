@@ -831,7 +831,7 @@ After this time the initiative will be moved to discarded state.
 | 0.75
 | No
 
-|*DECIDIM_SPAM_DETECTION_DELAY*
+|*DECIDIM_SPAM_DETECTION_DELAY_IN_SECONDS*
 | You can configure the spam delay for the spam detection service. It is recommended not to set it to 0, as the request may not finished (ex: resources could not yet exist in Database)
 | 30
 | No
