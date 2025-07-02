@@ -4,7 +4,7 @@ We try to let most of the things defined through Environment Variables, as https
 
 This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may modify or customize the default decidim initializer (`config/initializers/decidim.rb`) in such a a way that this will have no effect.
 
-Finally, take into account that there are some config variables not available as Env vars, this is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (usually a service class that acts a wrapper for an external API). These are the case for initializers such as `sms_gateway_service`, `timestamp_service`, `pdf_signature_service` or `machine_translation_service`. For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
+Finally, take into account that there are some config variables not available to Environment. This is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (like a local generator). For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
 
 The next tables show all the default Env Vars available when running a default Decidim application (note that customized Decidim apps might differ). The ones marked in *bold* are the minimal required to run a production server. The ones marked as _italic_ are only required for development.
 
