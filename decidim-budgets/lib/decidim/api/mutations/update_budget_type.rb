@@ -9,7 +9,7 @@ module Decidim
       argument :attributes, BudgetAttributes, description: "input attributes to update a budget", required: true
       argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
 
-      def resolve(attributes:, id:)
+      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
         form_attrs = attributes.to_h.reverse_merge(
           weight: budget.weight,
           title: budget.title,
@@ -18,13 +18,13 @@ module Decidim
           decidim_scope_id: budget.scope&.id
         )
 
-        form = Decidim::Budgets::Admin::BudgetForm.from_params(form_attrs).with_context(
+        form = Admin::BudgetForm.from_params(form_attrs).with_context(
           current_component: object,
           current_organization: object.organization,
           current_user: context[:current_user]
         )
 
-        Decidim::Budgets::Admin::UpdateBudget.call(form, budget) do
+        Admin::UpdateBudget.call(form, budget) do
           on(:ok, resource) { return resource }
 
           on(:invalid) do

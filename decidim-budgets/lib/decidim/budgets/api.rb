@@ -13,6 +13,7 @@ module Decidim
     autoload :UpdateBudgetType, "decidim/api/mutations/update_budget_type"
     autoload :DeleteBudgetType, "decidim/api/mutations/delete_budget_type"
     autoload :CreateProjectType, "decidim/api/mutations/create_project_type"
+    autoload :UpdateProjectType, "decidim/api/mutations/update_project_type"
     autoload :ProjectAttributes, "decidim/api/mutations/project_attributes"
   end
 end
