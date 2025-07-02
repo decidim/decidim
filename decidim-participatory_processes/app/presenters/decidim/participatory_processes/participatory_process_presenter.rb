@@ -23,7 +23,7 @@ module Decidim
         raise "Extras has been set" unless extras.nil?
         raise "Links have been set" unless links.nil?
 
-        super(process.title, nil, html_escape, all_locales)
+        super(process.title, html_escape, all_locales)
       end
 
       def description(links: false, extras: true, strip_tags: false, all_locales: false)

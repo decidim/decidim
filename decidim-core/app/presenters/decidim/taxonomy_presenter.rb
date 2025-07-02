@@ -14,7 +14,7 @@ module Decidim
     def title(links: nil, html_escape: false, all_locales: false)
       raise "Links have been set" unless links.nil?
 
-      super(name, nil, html_escape, all_locales)
+      super(name, html_escape, all_locales)
     end
   end
 end

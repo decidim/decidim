@@ -18,7 +18,7 @@ module Decidim
 
       raise "Links have been set" unless links.nil?
 
-      super(initiative.title, nil, html_escape, all_locales)
+      super(initiative.title, html_escape, all_locales)
     end
   end
 end

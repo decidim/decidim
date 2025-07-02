@@ -28,7 +28,7 @@ module Decidim
 
         raise "Links have been set" unless links.nil?
 
-        super(debate.title, nil, html_escape, all_locales)
+        super(debate.title, html_escape, all_locales)
       end
 
       def description(strip_tags: false, extras: true, links: false, all_locales: false)

@@ -6,9 +6,7 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::SanitizeHelper
 
-    def title(resource_title, links, html_escape, all_locales)
-      raise "Links have been set" unless links.nil?
-
+    def title(resource_title, html_escape, all_locales)
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
 

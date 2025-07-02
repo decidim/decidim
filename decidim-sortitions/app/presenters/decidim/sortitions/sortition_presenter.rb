@@ -12,7 +12,7 @@ module Decidim
 
         raise "Links have been set" unless links.nil?
 
-        super(sortition.title, nil, html_escape, all_locales)
+        super(sortition.title, html_escape, all_locales)
       end
     end
   end

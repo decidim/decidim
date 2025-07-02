@@ -31,7 +31,7 @@ module Decidim
 
         raise "Links have been set" unless links.nil?
 
-        super(post.title, nil, html_escape, all_locales)
+        super(post.title, html_escape, all_locales)
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)

@@ -14,7 +14,7 @@ module Decidim
         raise "Extras has been set" unless extras.nil?
         raise "Links have been set" unless links.nil?
 
-        super(project.title, nil, html_escape, all_locales)
+        super(project.title, html_escape, all_locales)
       end
 
       delegate_missing_to :project

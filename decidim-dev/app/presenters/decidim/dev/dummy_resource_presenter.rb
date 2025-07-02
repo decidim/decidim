@@ -8,7 +8,7 @@ module Decidim
 
         raise "Links have been set" unless links.nil?
 
-        super(__getobj__.title, nil, html_escape, all_locales)
+        super(__getobj__.title, html_escape, all_locales)
       end
     end
   end
