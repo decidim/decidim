@@ -27,6 +27,7 @@ describe "Admin manages accountability" do
   describe "child results" do
     before do
       within "tr[data-id='#{result.id}'] .table-list__actions" do
+        find("button[data-component='dropdown']").click
         click_on "New result"
       end
     end
@@ -43,14 +44,15 @@ describe "Admin manages accountability" do
   end
 
   describe "milestone" do
+    let!(:milestone) { create(:milestone, result:) }
+
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
         click_on "Milestones"
       end
     end
-
-    let!(:milestone) { create(:milestone, result:) }
 
     it_behaves_like "manage milestone"
   end

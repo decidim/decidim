@@ -5,7 +5,11 @@ RSpec.shared_examples "manage milestone" do
 
   it "updates a milestone", versioning: true do
     visit current_path
-    click_on "Edit", match: :first
+
+    within("tr", text: translated_attribute(milestone.title)) do
+      find("button[data-component='dropdown']").click
+      click_on "Edit"
+    end
 
     within ".edit_milestone" do
       fill_in_datepicker :milestone_entry_date_date, with: Date.current.strftime("%d/%m/%Y")
