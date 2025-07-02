@@ -19,8 +19,15 @@ shared_context "with a graphql class type" do
   let(:schema) do
     klass = type_class
     Class.new(Decidim::Api::Schema) do
-      query klass
-      orphan_types(Decidim::Api.orphan_types)
+      if klass < GraphQL::Schema::Object
+        query(klass)
+      elsif klass < GraphQL::Schema::Mutation
+        mutation(Class.new(Decidim::Api::MutationType) do
+          graphql_name "Mutation"
+        end)
+      else
+        raise "Unsupported GraphQL type: #{klass}"
+      end
     end
   end
 
@@ -76,7 +83,7 @@ shared_context "with a graphql type and authenticated user" do
   let(:user_type) { :user }
   let(:api_scopes) do
     if user_type == :api_user
-      Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:create", "api:update", "api:delete"])
+      Doorkeeper::OAuth::Scopes.from_array(["api:read", "api:write"])
     else
       Doorkeeper::OAuth::Scopes.from_array(Doorkeeper.config.scopes.all)
     end
