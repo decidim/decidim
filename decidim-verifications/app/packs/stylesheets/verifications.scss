@@ -37,7 +37,7 @@
     @apply border-tertiary;
   }
 
-  &:not(.verification__no_clickable):hover &__text > :first-child {
+  &:not(.verification__no_clickable):hover &__text> :first-child {
     @apply underline;
   }
 }
@@ -54,12 +54,5 @@
 
   &__name {
     @apply text-xl font-semibold block mb-2;
-  }
-}
-
-.table-list {
-  td:not(:first-child),
-  .custom-text-align {
-    @apply text-right;
   }
 }

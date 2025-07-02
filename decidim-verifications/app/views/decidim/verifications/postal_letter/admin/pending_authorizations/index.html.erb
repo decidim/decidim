@@ -7,7 +7,7 @@
     </h1>
   </div>
 
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -15,35 +15,50 @@
           <th><%= t(".address") %></th>
           <th><%= t(".verification_code") %></th>
           <th><%= t(".letter_sent_at") %></th>
-          <th></th>
+          <th><%= t('decidim.admin.actions.actions') %></th>
         </tr>
       </thead>
       <tbody>
         <% @pending_authorizations.each do |authorization| %>
           <tr>
-            <td>
+            <td data-label="<%= t('.username') %>">
               <%= authorization.user.name %>
             </td>
-            <td>
+            <td data-label="<%= t('.address') %>">
               <%= authorization.verification_address %>
             </td>
-            <td>
+            <td data-label="<%= t('.verification_code') %>">
               <%= authorization.verification_code %>
             </td>
-            <td>
+            <td data-label="<%= t('.letter_sent_at') %>">
               <%= authorization.letter_sent_at %>
             </td>
-            <td>
-              <% if authorization.letter_sent? %>
-                <%= icon "checkbox-circle-line",
-                         class: "action-icon action-icon--disabled" %>
-              <% else %>
-                <%= icon_link_to "checkbox-circle-line",
-                                 pending_authorization_postage_path(authorization.id),
-                                 t(".mark_as_sent"),
-                                 method: :post,
-                                 class: "action-icon--verify" %>
-              <% end %>
+            <td class="table-list__actions" data-label="<%= t("decidim.admin.actions.actions") %>">
+              <button type="button" data-component="dropdown" data-target="actions-authorization-<%= authorization.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: authorization.user.name) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-authorization-<%= authorization.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <li class="dropdown__item">
+                    <% if authorization.letter_sent? %>
+                      <div class="dropdown__button-disabled">
+                        <%= with_tooltip t(".already_sent") do %>
+                          <%= icon "checkbox-circle-line", class: "text-gray" %>
+                          <span>
+                            <%= t(".already_sent") %>
+                          </span>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <%= link_to pending_authorization_postage_path(authorization.id), method: :post, class: "dropdown__button" do %>
+                        <%= icon "checkbox-circle-line" %>
+                        <%= t(".mark_as_sent") %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>

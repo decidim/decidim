@@ -167,6 +167,7 @@ en:
   decidim:
     admin:
       actions:
+        actions: Actions
         actions_label: Actions for %{resource}
         add: Add
         attachment:
