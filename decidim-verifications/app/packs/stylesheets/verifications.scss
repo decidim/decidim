@@ -37,7 +37,7 @@
     @apply border-tertiary;
   }
 
-  &:not(.verification__no_clickable):hover &__text> :first-child {
+  &:not(.verification__no_clickable):hover &__text > :first-child {
     @apply underline;
   }
 }
