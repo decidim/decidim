@@ -7,8 +7,18 @@ module Decidim
 
       validates :data, presence: true
 
+      scope :with_email, ->(email) { where("data ->> 'email' = ?", email) }
+
       def self.bulk_insert(election, values)
-        values.each { |data| create(election:, data:) }
+        values.each { |data| create(election:, data: data.transform_keys(&:to_s)) }
+      end
+
+      def email
+        data["email"]
+      end
+
+      def token
+        data["token"]
       end
 
       def identifier

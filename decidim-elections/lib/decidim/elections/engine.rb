@@ -6,7 +6,16 @@ module Decidim
       isolate_namespace Decidim::Elections
 
       routes do
-        resources :elections, except: [:destroy]
+        resources :elections, except: [:destroy] do
+          resources :votes do
+            collection do
+              get :verify
+              post :check_verification
+              get "question/:id", action: :question, as: :question
+              get :confirm
+            end
+          end
+        end
         scope "/elections" do
           root to: "elections#index"
         end

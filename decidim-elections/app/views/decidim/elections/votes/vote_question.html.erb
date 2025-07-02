@@ -1,0 +1,26 @@
+<h2><%= translated_attribute(@question.body) %></h2>
+
+<% @question.response_options.each do |option| %>
+  <label class="input-group__label">
+    <% if @question.question_type == "multiple_option" %>
+      <%= check_box_tag "response_option_ids[]", option.id, false %>
+    <% else %>
+      <%= radio_button_tag 'response_option_id', option.id, false %>
+    <% end %>
+    <span class="input-group__text"><%= translated_attribute(option.body) %></span>
+  </label>
+<% end %>
+
+<div class="vote-navigation">
+  <% if @question.position > 0 %>
+    <%= link_to t("back", scope: "decidim.elections.votes.question"),
+                question_election_votes_path(election_id: election.id, id: @question.position.pred),
+                class: "button button__secondary" %>
+  <% end %>
+
+  <%= link_to t("next", scope: "decidim.elections.votes.question"),
+              @question.position.next == questions_count ?
+                confirm_election_votes_path(election_id: election.id) :
+                question_election_votes_path(election_id: election.id, id: @question.position.next),
+              class: "button button__secondary" %>
+</div>

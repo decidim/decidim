@@ -1,5 +1,7 @@
 <section class="layout-aside__section">
   <div class="election__aside-vote layout-aside__ctas-buttons" data-sticky-buttons>
-    <h1>VOTE button</h1>
+    <% if election.ongoing? %>
+      <%= link_to t("vote_button", scope: "decidim.elections.elections.show"), new_election_vote_path(election), target: "_blank", rel: "noopener noreferrer" %>
+    <% end %>
   </div>
 </section>

@@ -1,0 +1,18 @@
+<%= decidim_form_for(@form, url: check_verification_election_votes_path(election_id: election.id), html: {
+  class: "form form-defaults"
+}) do |f| %>
+  <div id="error-message" class="text-error mt-4"></div>
+
+  <div class="form__wrapper">
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12">
+        <%= t("form_title", scope: "decidim.elections.votes.check_census") %>
+      </h1>
+    </div>
+    <%= f.text_field :email, label: t(".email"), placeholder: t(".email_placeholder"), autofocus: true, required: true %>
+    <%= f.text_field :token, label: t(".token"), placeholder: t(".token_placeholder"), required: true %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-end">
+      <%= f.submit t("access", scope: "decidim.elections.votes.check_census"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  </div>
+<% end %>

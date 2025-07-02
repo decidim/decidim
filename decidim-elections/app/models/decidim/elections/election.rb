@@ -58,6 +58,10 @@ module Decidim
         Decidim::Elections::AdminLog::ElectionPresenter
       end
 
+      def internal_census?
+        census_manifest == "internal_users"
+      end
+
       def auto_start?
         start_at.present?
       end
@@ -66,8 +70,8 @@ module Decidim
         !auto_start?
       end
 
-      def verification_filters
-        verification_types.presence || []
+      def verification_types
+        census_settings["verification_handlers"] || []
       end
 
       def census
