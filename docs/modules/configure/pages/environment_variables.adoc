@@ -628,7 +628,7 @@ Additional context: This has been revealed as an issue during a security audit o
 | 365
 | No
 
-| DECIDIM_MINIMUM_INACTIVITY_PERIOD
+| DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS
 | Minimum allowed inactivity period before a user can be considered inactive.
 | 30
 | No

@@ -297,7 +297,7 @@ module Decidim
 
   # The minimum allowed inactivity period for deleting participants.
   config_accessor :minimum_inactivity_period do
-    Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD", 30).to_i
+    Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS", 30).to_i
   end
 
   # Users will be warned for the first time this amount of days before the final removal
