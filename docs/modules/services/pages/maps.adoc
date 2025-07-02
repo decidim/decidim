@@ -133,7 +133,7 @@ Decidim works fine when some of the services are disabled individually but obvio
 
 === Global geocoder configurations
 
-In the Decidim initialiser (`config/initializers/decidim.rb`) you will also see a commented section for the global geocoder configurations commented as follows:
+In order to fully customize the geocoding service, you may need to create the xref:configure:initializer.adoc[initializer] file, and customize your config as follows:
 
 [source,ruby]
 ----
