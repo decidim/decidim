@@ -62,7 +62,8 @@ describe "Postal letter management" do
 
   it "marks letters as sent" do
     within "table tbody tr", text: letter_not_sent.user.name do
-      find("a.action-icon--verify").click
+      find("button[data-component='dropdown']").click
+      click_on "Mark as sent"
     end
 
     expect(page).to have_content("Letter successfully marked as sent")
