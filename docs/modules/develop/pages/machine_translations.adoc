@@ -16,8 +16,12 @@ This workflow will only start if the machine translation service is configured i
 == Create your own machine translation service
 
 You can use the `Decidim::Dev::DummyTranslator` service as a base. Any new translator service will need to implement the same API as this class.
-In order to test the `Decidim::Dev::DummyTranslator` you will need to add at the top of `config/initializers/decidim.rb` the following line:
-`require "decidim/dev/dummy_translator"`
+In order to test the `Decidim::Dev::DummyTranslator` you will need to set the `DECIDIM_MACHINE_TRANSLATION_SERVICE` environment variable.
+
+[source,bash]
+----
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="Decidim::Dev::DummyTranslator"
+----
 
 == Integrating with async services
 

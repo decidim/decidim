@@ -26,43 +26,19 @@ If you want to integrate Decidim to some other map service provider, read how to
 
 == Configuring maps and geocoding
 
-After generating your app, you will see that your `config/initializers/decidim.rb` file includes commented code about map services:
+After generating your app, you will need to configure the maps service by setting your environment variables.
 
-[source,ruby]
-----
-# Map and Geocoder configuration
-# config.maps = {
-#   ...
-# }
-----
-
-The initializer comments provide examples for the services mentioned in this documentation.
 Please refer to the section below for the service you have registered for the maps functionality.
 
 If you want to enable geocoding in your app:
 
 . Select a service provider for the maps functionality and register an account with that provider
-. Uncomment or add the code under the selected service provider in your `config/initializers/decidim.rb`.
+. Set the `MAPS_GEOCODING_HOST` environment variable, or, if the setup is more complex, customize using the initializer.
 . If you had your Rails server running, restart it so the changes apply.
 
 === Configuring HERE Maps
 
 Use the following configuration for HERE Maps:
-
-`config/initializers/decidim.rb`:
-
-[source,ruby]
-----
-# Map and Geocoder configuration
-# == HERE Maps ==
-config.maps = {
-  provider: :here,
-  api_key: ENV["MAPS_API_KEY"],
-  static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
-}
-----
-
-`.env`:
 
 [source,bash]
 ----
@@ -72,9 +48,7 @@ MAPS_API_KEY=your_api_key_here
 
 === Configuring Open Street Maps based service providers
 
-Use the following configuration for Open Street Maps based service providers:
-
-`config/initializers/decidim.rb`:
+Use the following configuration for Open Street Maps based service providers, by creating your xref:configure:initializer.adoc[initializer]:
 
 [source,ruby]
 ----
@@ -112,7 +86,7 @@ For further information, see the service provider's documentation or take a look
 === Combining multiple service providers
 
 It is also possible to combine multiple service providers for the different categories of map services.
-For instance, if you want to use HERE Maps for the map tiles but host the other services yourself, use the following configuration:
+For instance, if you want to use HERE Maps for the map tiles but host the other services yourself, use the following configuration, that can be added only in an initializer:
 
 [source,ruby]
 ----

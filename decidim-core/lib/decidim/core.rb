@@ -354,25 +354,33 @@ module Decidim
 
       @maps ||= begin
         static_provider = Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
-        dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
-        dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
-        static_url = ENV.fetch("MAPS_STATIC_URL", nil)
-        static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
         maps = {
           provider: static_provider,
           api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,
-          static: { url: static_url },
-          dynamic: {
+          static: false,
+          dynamic: false
+        }
+
+        maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
+
+        static_url = ENV.fetch("MAPS_STATIC_URL", nil)
+        static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+        maps[:static] = { url: static_url } if static_url
+
+        dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+
+        if dynamic_provider
+          dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+          maps[:dynamic] = {
             provider: dynamic_provider,
             api_key: Decidim::Env.new("MAPS_DYNAMIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s
           }
-        }
-        maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
-        maps[:dynamic][:tile_layer] = {}
-        maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
-        maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
-        if ENV["MAPS_EXTRA_VARS"].present?
-          vars = URI.decode_www_form(ENV["MAPS_EXTRA_VARS"])
+          maps[:dynamic][:tile_layer] = {}
+          maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
+          maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
+        end
+        if dynamic_provider && ENV["MAPS_EXTRA_VARS"].present?
+          vars = URI.decode_www_form(ENV.fetch("MAPS_EXTRA_VARS", nil))
           vars.each do |key, value|
             # perform a naive type conversion
             maps[:dynamic][:tile_layer][key] = case value
@@ -385,6 +393,7 @@ module Decidim
                                                end
           end
         end
+
         maps
       end
     end

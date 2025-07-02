@@ -2,7 +2,7 @@
 
 We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You will need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
 
-This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may modify or customize the default decidim initializer (`config/initializers/decidim.rb`) in such a a way that this will have no effect.
+This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may implement a  decidim initializer (`config/initializers/decidim.rb`) in such a way that this will have no effect.
 
 Finally, take into account that there are some config variables not available to Environment. This is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (like a local generator). For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
 
