@@ -15,5 +15,6 @@ module Decidim
     autoload :CreateProjectType, "decidim/api/mutations/create_project_type"
     autoload :UpdateProjectType, "decidim/api/mutations/update_project_type"
     autoload :ProjectAttributes, "decidim/api/mutations/project_attributes"
+    autoload :DeleteProjectType, "decidim/api/mutations/delete_project_type"
   end
 end
