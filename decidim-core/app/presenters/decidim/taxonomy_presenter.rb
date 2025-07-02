@@ -11,8 +11,10 @@ module Decidim
       @translated_name ||= translated_attribute name
     end
 
-    def title(links: false, html_escape: false, all_locales: false)
-      super(name, links, html_escape, all_locales)
+    def title(links: nil, html_escape: false, all_locales: false)
+      raise "Links have been set" unless links.nil?
+
+      super(name, nil, html_escape, all_locales)
     end
   end
 end

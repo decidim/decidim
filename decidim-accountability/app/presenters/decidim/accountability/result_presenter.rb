@@ -17,10 +17,13 @@ module Decidim
       # Render the result title
       #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false, all_locales: false)
+      def title(links: nil, extras: nil, html_escape: false, all_locales: false)
         return unless result
 
-        super(result.title, links, html_escape, all_locales, extras:)
+        raise "Extras have been set" unless extras.nil?
+        raise "Links have been set" unless links.nil?
+
+        super(result.title, nil, html_escape, all_locales)
       end
     end
   end

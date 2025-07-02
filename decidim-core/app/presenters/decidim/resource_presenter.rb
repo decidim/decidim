@@ -7,11 +7,13 @@ module Decidim
     include Decidim::SanitizeHelper
 
     def title(resource_title, links, html_escape, all_locales)
+      raise "Links have been set" unless links.nil?
+
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
 
         renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
-        renderer.render(links:).html_safe
+        renderer.render(extras: true).html_safe
       end
     end
 

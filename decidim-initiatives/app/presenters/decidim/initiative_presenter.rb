@@ -13,10 +13,12 @@ module Decidim
       __getobj__
     end
 
-    def title(links: false, html_escape: false, all_locales: false)
+    def title(links: nil, html_escape: false, all_locales: false)
       return unless initiative
 
-      super(initiative.title, links, html_escape, all_locales)
+      raise "Links have been set" unless links.nil?
+
+      super(initiative.title, nil, html_escape, all_locales)
     end
   end
 end

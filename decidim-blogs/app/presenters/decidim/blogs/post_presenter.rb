@@ -26,10 +26,12 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(post).path
       end
 
-      def title(links: false, html_escape: false, all_locales: false)
+      def title(links: nil, html_escape: false, all_locales: false)
         return unless post
 
-        super(post.title, links, html_escape, all_locales)
+        raise "Links have been set" unless links.nil?
+
+        super(post.title, nil, html_escape, all_locales)
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)
