@@ -891,6 +891,11 @@ After this time the initiative will be moved to discarded state.
 | false
 | No
 
+|*VERIFICATIONS_DOCUMENT_TYPES*
+| For the verification of the participants' data in Verifications, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`
+| identification_number,passport
+| No
+
 |===
 
 .Optional Env Vars for extra configuration

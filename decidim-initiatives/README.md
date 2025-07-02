@@ -44,7 +44,7 @@ CREATE EXTENSION pg_trgm;
 
 ## Deactivating authorization requirement and other module settings
 
-Some of the settings of the module need to be set in the code of your app, for example in the file `config/initializers/decidim.rb`.
+Some of the settings of the module need to be set in the code of your app using the [environment variables](https://docs.decidim.org/en/develop/configure/environment_variables)
 
 This is the case if you want to enable the creation of initiatives even when no authorization method is set.
 

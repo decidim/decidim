@@ -15,7 +15,7 @@ To install this module, run in your console:
 bundle add decidim-ai
 ```
 
-After that, add an initializer file as presented in the [documentation](https://docs.decidim.org/en/develop/services/aitools.html#_configuration)
+After that, configure your your application using the environment variables as presented in the [documentation](https://docs.decidim.org/en/develop/configure/environment_variables.html)
 
 Then, you need to run the below command, so that the reporting user is created.
 
