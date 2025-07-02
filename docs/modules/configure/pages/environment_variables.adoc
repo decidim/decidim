@@ -670,6 +670,12 @@ Additional context: This has been revealed as an issue during a security audit o
 | false
 | No
 
+|*DECIDIM_MACHINE_TRANSLATION_SERVICE*
+| The name of the class to translate user content.
+| nil
+| No
+
+
 |*DECIDIM_SMS_GATEWAY_SERVICE*
 | The name of the class to deliver SMS codes to users.
 | nil
@@ -682,11 +688,6 @@ Additional context: This has been revealed as an issue during a security audit o
 
 |*DECIDIM_PDF_SIGNATURE_SERVICE*
 | The name of the class used to process a pdf and add a signature to the document.
-| nil
-| No
-
-|*DECIDIM_MACHINE_TRANSLATION_SERVICE*
-| The name of the class to translate user content.
 | nil
 | No
 
