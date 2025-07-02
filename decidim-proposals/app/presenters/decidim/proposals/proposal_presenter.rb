@@ -33,14 +33,16 @@ module Decidim
       # Render the proposal title
       #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false, all_locales: false)
+      def title(links: false, extras: nil, html_escape: false, all_locales: false)
         return unless proposal
 
-        super(proposal.title, links, html_escape, all_locales, extras:)
+        raise "Extras has been set" unless extras.nil?
+
+        super(proposal.title, links, html_escape, all_locales)
       end
 
-      def id_and_title(links: false, extras: true, html_escape: false)
-        "##{proposal.id} - #{title(links:, extras:, html_escape:)}"
+      def id_and_title(links: false, html_escape: false)
+        "##{proposal.id} - #{title(links:, html_escape:)}"
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)
