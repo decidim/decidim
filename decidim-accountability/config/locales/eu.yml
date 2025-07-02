@@ -1,6 +1,10 @@
 eu:
   activemodel:
     attributes:
+      milestone:
+        description: Deskribapena
+        entry_date: Data
+        title: Izenburua
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
@@ -45,6 +49,8 @@ eu:
         edit: Editatu
         import: Inportatu proiektuak beste osagai batetik
         import_csv: Inportatu emaitzak CSV fitxategitik
+        milestones: Mugarriak
+        new_milestone: Beste mugarri bat
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
         preview: Aurreikusi
@@ -105,6 +111,23 @@ eu:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
             success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena.
+        milestones:
+          create:
+            invalid: Arazo bat egon da mugarri hau sortzean.
+            success: Mugarria zuzen sortu da.
+          destroy:
+            success: Mugarria zuzen ezabatu da.
+          edit:
+            title: Editatu mugarria
+            update: Eguneratu mugarria
+          index:
+            title: Mugarriak
+          new:
+            create: Sortu mugarria
+            title: Beste mugarri bat
+          update:
+            invalid: Arazo bat egon da mugarri hau eguneratzean.
+            success: Mugarria zuzen eguneratua.
         models:
           result:
             name: Emaitza
@@ -177,6 +200,10 @@ eu:
             invalid: Arazoren bat gertatu da egoera hau sortzean.
             success: Egoera ondo eguneratu da.
       admin_log:
+        milestones:
+          create: "%{user_name} parte-hartzaileak %{resource_name} mugarria sortu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} mugarria ezabatu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} mugarria eguneratu du"
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
@@ -219,6 +246,10 @@ eu:
       last_activity:
         new_result: 'Beste emaitza bat:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Izenburua
         result:
           fields:
             created_at: Noiz sortua
@@ -242,6 +273,8 @@ eu:
             other: "%{count} emaitza"
         home_header:
           global_status: Exekuzio-egoera orokorra
+        milestones:
+          title: Mugarriak
         no_results: Ez dago proiekturik
         root_taxonomies:
           title: 'Ikus:'
