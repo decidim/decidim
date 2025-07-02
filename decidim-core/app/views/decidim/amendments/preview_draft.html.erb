@@ -3,7 +3,7 @@
   <%= render partial: "wizard_header" %>
 
   <div class="space-y-8 my-10">
-    <h2 class="h3 text-secondary"><%= present(emendation).title(links: true, html_escape: true) %></h2>
+    <h2 class="h3 text-secondary"><%= present(emendation).title(html_escape: true) %></h2>
 
     <%= cell "decidim/coauthorships", emendation %>
 
