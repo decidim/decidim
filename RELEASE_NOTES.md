@@ -277,7 +277,8 @@ For more information about the definition of a signature workflow read the docum
 
 ### 2.6. Clean deleted user left behind data `bin/rails decidim:upgrade:remove_deleted_users_left_data` task
 
-When a user deletes their account and the Decidim::DestroyAccount command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+
 ```ruby
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 ```
