@@ -13,7 +13,7 @@ module Decidim
         content = decidim_html_escape(content) if html_escape
 
         renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
-        renderer.render(extras: true).html_safe
+        renderer.render.html_safe
       end
     end
 
