@@ -425,6 +425,12 @@ Also some more refined configurations:
 |auto
 |No
 
+| DECIDIM_PAGE_BLOCKS
+| Sets the list of static pages' slugs that can include content blocks.
+By default is only enabled in the terms-of-service static page to allow a summary to be added and include sections with a two-pane view
+| terms-of-service
+| no
+
 |DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
 |Set to `true` in order to allow administrators to define an arbitrary custom HTML code in the `<head></head>` section any Decidim page.
 
