@@ -727,6 +727,11 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+| DECIDIM_API_DISCLOSE_SYSTEM_VERSION
+| This Environment variable instructs decidim whether to display or not the exact version of the application. By default, this is set to false to avoid explicit exposure of Decidim version.
+| false
+| No
+
 |PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT
 |Number of proposals to be shown in blocks with highlighted content across different participatory spaces.
 |4
