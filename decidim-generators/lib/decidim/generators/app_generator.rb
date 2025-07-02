@@ -326,9 +326,6 @@ module Decidim
         gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-      end
-
-      def patch_logging
         gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
           if ENV["RAILS_LOG_TO_STDOUT"].present?
             config.logger = ActiveSupport::Logger.new(STDOUT)
