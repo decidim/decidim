@@ -318,7 +318,7 @@ module Decidim
         remove_file "public/favicon.ico"
       end
 
-      def decidim_initializer
+      def production_environment
         gsub_file "config/environments/production.rb",
                   /config.log_level = :info/,
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
