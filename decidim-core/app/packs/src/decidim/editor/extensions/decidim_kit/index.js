@@ -4,6 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import CodeBlock from "@tiptap/extension-code-block";
 import Underline from "@tiptap/extension-underline";
 import Heading from "@tiptap/extension-heading";
+import Mention from "@tiptap/extension-mention";
 
 import CharacterCount from "src/decidim/editor/extensions/character_count";
 import Bold from "src/decidim/editor/extensions/bold";
