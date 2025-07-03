@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::UpdateTimelineEntry do
-    subject { described_class.new(form, timeline_entry) }
+  describe Admin::UpdateMilestone do
+    subject { described_class.new(form, milestone) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
     let(:user) { create(:user, organization:) }
@@ -12,7 +12,7 @@ module Decidim::Accountability
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:result) { create(:result, component: current_component) }
 
-    let(:timeline_entry) { create(:timeline_entry, result:) }
+    let(:milestone) { create(:milestone, result:) }
 
     let(:date) { "2017-9-23" }
     let(:title) { "New title" }
@@ -40,18 +40,18 @@ module Decidim::Accountability
     context "when everything is ok" do
       it "sets the date" do
         subject.call
-        expect(timeline_entry.entry_date).to eq(Date.new(2017, 9, 23))
+        expect(milestone.entry_date).to eq(Date.new(2017, 9, 23))
       end
 
       it "sets the description" do
         subject.call
-        expect(translated(timeline_entry.description)).to eq description
+        expect(translated(milestone.description)).to eq description
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:update, Decidim::Accountability::TimelineEntry, user, {})
+          .with(:update, Decidim::Accountability::Milestone, user, {})
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

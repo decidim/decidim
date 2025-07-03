@@ -3,8 +3,8 @@
 module Decidim
   module Accountability
     module Admin
-      # This class holds a Form to create/update timeline_entries from Decidim's admin panel.
-      class TimelineEntryForm < Decidim::Form
+      # This class holds a Form to create/update milestones from Decidim's admin panel.
+      class MilestoneForm < Decidim::Form
         include TranslatableAttributes
         include TranslationsHelper
 

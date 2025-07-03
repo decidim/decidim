@@ -29,7 +29,10 @@ describe "Admin answers proposals" do
     end
 
     it "when accepting, can submit answer with a text answer" do
-      find("a.action-icon--show-proposal", match: :first).click
+      within "tr", text: translated(proposals.first.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Answer proposal"
+      end
       find("label[for='proposal_answer_internal_state_accepted']").click
       fill_in_i18n_editor(
         :proposal_answer_answer,
@@ -44,7 +47,10 @@ describe "Admin answers proposals" do
       let(:proposal_answers_with_costs?) { true }
 
       before do
-        find("a.action-icon--show-proposal", match: :first).click
+        within "tr", text: translated(proposals.first.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Answer proposal"
+        end
         fill_in_i18n_editor(
           :proposal_answer_answer,
           "#proposal_answer-answer-tabs",
