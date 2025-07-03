@@ -85,9 +85,9 @@
                     </li>
                   <% end %>
 
-                  <% if user.officialized? %>
-                    <hr>
+                  <hr>
 
+                  <% if user.officialized? %>
                     <li class="dropdown__item">
                       <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
                         <%= icon "pencil-line" %>
@@ -101,8 +101,6 @@
                       <% end %>
                     </li>
                   <% else %>
-                    <hr>
-
                     <li class="dropdown__item">
                       <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
                         <%= icon "checkbox-circle-line" %>
