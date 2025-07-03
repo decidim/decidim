@@ -36,15 +36,13 @@
   </div>
   <div class="fcell search">
     <%= form_tag "", method: :get do %>
-      <div>
-        <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <%= hidden_field_tag :state, @state %>
-          <div class="input-group-button">
-            <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-            </button>
-          </div>
+      <div class="input-group">
+        <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+        <%= hidden_field_tag :state, @state %>
+        <div class="input-group-button">
+          <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+            <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+          </button>
         </div>
       </div>
     <% end %>
