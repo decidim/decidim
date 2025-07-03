@@ -29,12 +29,10 @@ module Decidim
         super(debate.title, html_escape, all_locales)
       end
 
-      def description(strip_tags: false, extras: nil, links: false, all_locales: false)
+      def description(strip_tags: false, links: false, all_locales: false)
         return unless debate
 
-        raise "Extras being set" unless extras.nil?
-
-        content_handle_locale(debate.description, all_locales, extras, links, strip_tags)
+        content_handle_locale(debate.description, all_locales, links, strip_tags)
       end
 
       def last_comment_at

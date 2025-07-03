@@ -112,9 +112,7 @@ module Decidim
       add_line_feeds_to_paragraphs(add_line_feeds_to_list_items(text))
     end
 
-    def content_handle_locale(body, all_locales, extras, links, strip_tags)
-      raise "Extras being set" unless extras.nil?
-
+    def content_handle_locale(body, all_locales, links, strip_tags)
       handle_locales(body, all_locales) do |content|
         content = strip_tags(sanitize_text(content)) if strip_tags
 
