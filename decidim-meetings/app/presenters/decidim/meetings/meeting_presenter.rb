@@ -30,10 +30,8 @@ module Decidim
         link_to title, meeting_path
       end
 
-      def title(links: nil, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless meeting
-
-        raise "Links have been set" unless links.nil?
 
         super(meeting.title, html_escape, all_locales)
       end

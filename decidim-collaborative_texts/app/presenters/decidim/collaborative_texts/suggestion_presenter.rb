@@ -31,10 +31,7 @@ module Decidim
       # Render the suggestion title
       #
       # Returns a String.
-      def title(links: nil, extras: nil, html_escape: false, all_locales: false)
-        raise "Links have been set" unless links.nil?
-        raise "Extras have been set" unless extras.nil?
-
+      def title(html_escape: false, all_locales: false)
         super(suggestion.document.title, html_escape, all_locales)
       end
 

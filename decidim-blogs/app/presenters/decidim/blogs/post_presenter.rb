@@ -26,10 +26,8 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(post).path
       end
 
-      def title(links: nil, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless post
-
-        raise "Links have been set" unless links.nil?
 
         super(post.title, html_escape, all_locales)
       end
@@ -42,7 +40,7 @@ module Decidim
 
       def taxonomy_names(html_escape: false, all_locales: false)
         post.taxonomies.map do |taxonomy|
-          taxonomy.presenter.title(links: false, html_escape:, all_locales:)
+          taxonomy.presenter.title(html_escape:, all_locales:)
         end
       end
     end

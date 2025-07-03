@@ -17,10 +17,8 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(election).path
       end
 
-      def title(links: nil, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless election
-
-        raise "Links have been set" unless links.nil?
 
         super(election.title, html_escape, all_locales)
       end

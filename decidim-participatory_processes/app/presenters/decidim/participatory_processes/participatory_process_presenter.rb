@@ -17,11 +17,8 @@ module Decidim
         Decidim::AreaPresenter.new(process.area).translated_name_with_type
       end
 
-      def title(links: nil, extras: nil, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless process
-
-        raise "Extras has been set" unless extras.nil?
-        raise "Links have been set" unless links.nil?
 
         super(process.title, html_escape, all_locales)
       end
