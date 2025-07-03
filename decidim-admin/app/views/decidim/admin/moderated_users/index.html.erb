@@ -74,18 +74,18 @@
 
           <div class="inline-block relative">
             <ul id="actions-user-<%= moderation.user.id %>" class="dropdown dropdown__action" aria-hidden="true">
-              <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
+              <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users, user: moderation.user) %>
                 <li class="dropdown__item">
                   <%= link_to ignore_moderated_user_path(id: moderation), method: :put, class: "dropdown__button" do %>
                     <%= icon "arrow-go-back-line" %>
                     <%= t(".actions.unreport") %>
                   <% end %>
                 </li>
-
-                <hr>
               <% end %>
 
-              <% if allowed_to?(:block, :moderate_users) %>
+              <% if allowed_to?(:block, :moderate_users, user: moderation.user) %>
+                <hr>
+
                 <% if moderation.user.blocked? %>
                   <li class="dropdown__item">
                     <%= link_to user_block_path(user_id: moderation.user.id), method: :delete, class: "dropdown__button" do %>

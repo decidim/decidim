@@ -31,6 +31,31 @@ describe "Admin manages moderated users" do
       visit decidim_admin.moderated_users_path
     end
 
+    describe "blocking a user" do
+      it "can block them" do
+        within "tr", text: first_user.name do
+          find("button[data-component='dropdown']").click
+          click_on "Block"
+        end
+
+        fill_in "Justification", with: "Blocking this user for testing purposes."
+        click_on "Block account and send justification"
+
+        expect(page).to have_content "Participant successfully blocked"
+      end
+    end
+
+    context "when the reported user is the same user" do
+      let!(:first_user) { admin }
+
+      it "cannot block itself" do
+        within "tr", text: admin.name do
+          find("button[data-component='dropdown']").click
+          expect(page).to_not have_css(".button", text: "Block")
+        end
+      end
+    end
+
     context "when filtering by report reason" do
       it_behaves_like "a filtered collection", options: "Report reason", filter: "Spam" do
         let(:in_filter) { first_user.name }
